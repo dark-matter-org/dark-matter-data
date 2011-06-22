@@ -35,6 +35,7 @@ import org.dmd.dmw.DmwOmni;
 import org.dmd.dmw.DmwWrapper;
 import org.dmd.util.DmcTraceableInputStream;
 import org.dmd.util.DmcTraceableOutputStream;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.junit.After;
 import org.junit.Before;
@@ -59,10 +60,12 @@ public class TestSerialization {
 	public void initialize() throws ResultException, DmcValueException, IOException {
 			
 		if (!initialized){
+			DebugInfo.debug("STARTING...");
 			DmpSchemaAG dmp = new DmpSchemaAG();
 			DmtSchemaAG dmt = new DmtSchemaAG();			
 			DmwOmni.instance().addSchema(dmp);
 			DmwOmni.instance().addSchema(dmt);
+			DebugInfo.debug("FINISHED...");
 			
 	        File curr = new File(".");
 	        String runDir;

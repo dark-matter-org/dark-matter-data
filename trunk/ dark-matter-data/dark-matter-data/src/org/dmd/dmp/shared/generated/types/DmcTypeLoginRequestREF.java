@@ -21,7 +21,6 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;
 
 /**
@@ -61,9 +60,7 @@ abstract public class DmcTypeLoginRequestREF extends DmcAttribute<LoginRequestDM
 
     @Override
     public LoginRequestDMO deserializeValue(DmcInputStreamIF dis) throws Exception {
-        DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
-        oc.deserializeIt(dis);
-        LoginRequestDMO rc = (LoginRequestDMO)dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
+        LoginRequestDMO rc = (LoginRequestDMO)dis.getDMOInstance(dis);
         rc.deserializeIt(dis);
         return(rc);
     }

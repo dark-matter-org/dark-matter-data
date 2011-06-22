@@ -21,7 +21,6 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.types.DmcTypeDmcObjectName;
 import org.dmd.dmc.types.Modifier;
-import org.dmd.dms.generated.dmo.MetaASAG;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 
@@ -277,6 +276,8 @@ public class DmcOmni implements DmcNameResolverIF {
 	 * @param schema
 	 */
 	public void addCompactSchema(DmcCompactSchemaIF schema){
+		
+//DebugInfo.debug("Loading compact schema: " + schema.getSchemaName());
 		// If we already have the schema, return
 		if (loadedCompactSchemas.get(schema.getSchemaName()) != null)
 			return;
@@ -297,6 +298,8 @@ public class DmcOmni implements DmcNameResolverIF {
 		if (cinfo != null){
 			while(cinfo.hasNext()){
 				DmcClassInfo ci = cinfo.next();
+				
+//DebugInfo.debug(ci.toString());				
 				DmcClassInfo existing = idToClass.get(ci.id);
 				if (existing != null){
 					throw(new IllegalStateException("Clashing class IDs: " + existing + "  <>  " + ci));

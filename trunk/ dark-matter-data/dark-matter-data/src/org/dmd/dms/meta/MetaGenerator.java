@@ -650,7 +650,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         
         // METASCHEMA START
         out.write("    public MetaSchemaAG() throws DmcValueException {\n\n");
-        out.write("        super(\"metaSchema\");\n\n");
+//        out.write("        super(\"metaSchema\");\n\n");
+        DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
+        out.write("        super(\"meta\");\n\n");
         out.write("        staticRefName = new String(\"MetaSchema._\");\n\n");
 
         pf = new PrintfFormat("%-28s");
@@ -757,8 +759,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             out.write("            this.addAttributeDefList(_" + origOrderAttrs.get(i) + ");\n");
 
         // Set the schema instances' name and description
-        out.write("            this.setName(\"metaSchema\");\n");
-        out.write("            this.setDescription(\"The metaSchema schema defines the elements used to define schemas.\");\n");
+        DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
+//        out.write("            this.setName(\"metaSchema\");\n");
+        out.write("            this.setName(\"meta\");\n");
+        out.write("            this.setDescription(\"The meta schema defines the elements used to define schemas.\");\n");
 
         // Set the prefix for the generated output directory and the generated
         // package prefixes
@@ -1185,9 +1189,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     	out.write("import org.dmd.dms.types.*;\n");
                     }
 
-//                    // Neither of these need generated types
-//                    if ( (!cn.equals("ActionTriggerInfo")) && (!cn.equals("EnumDefinition")) )
-                    		out.write("import org.dmd.dms.generated.types.*;\n");
+                    out.write("import org.dmd.dms.generated.types.*;\n");
                     
                     out.write("import org.dmd.dms.generated.enums.*;\n");
 
@@ -1203,28 +1205,6 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     
                 	out.write("@SuppressWarnings(\"serial\")\n");
 
-//                    if (cn.equals("DmsDefinition")){
-//                    	baseClass = "DmwWrapperDMO implements DmcNamedObjectIF, Serializable";
-//                    	baseClass = "DmwWrapperDMO implements DmcNamedObjectIF, Serializable";
-//                    	isDmsDefinition = true;
-//                    }
-//                    else if (cn.equals("DmwWrapper")){
-//                    	baseClass = "DmcObject implements Serializable ";
-//                    }
-//                    else{
-//                    	// Otherwise, we look up the derived from class and use its javaClass
-//                    	// as the base class
-//                    	DmcUncheckedObject bc = classDefs.get(derivedFrom);
-//                    	
-//                    	if (bc == null){
-//                    		ResultException ex = new ResultException();
-//                    		ex.addError("Unknown base class: " + derivedFrom + " for class: " + cn);
-//                    		ex.result.lastResult().lineNumber(go.lineNumber);
-//                    		throw(ex);
-//                    	}
-//                    	
-//                    	baseClass = bc.getSV("dmoImport") + " implements Serializable ";
-//                    }
                     if (derivedFrom == null){
                     	if (isNamedBy == null){
                     		baseClass = "DmcObject implements Serializable";
@@ -1253,9 +1233,6 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
                     
                     // Gather the attributes together
-//                    must 	= go.get("must");
-//                    may		= go.get("may");
-                    
                     getAllMustAndMay(go, must, may);
                     
                     atlist 	= new ArrayList<String>();
@@ -1347,7 +1324,6 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     // Dump the constructors
                     
                 	out.write("    public " + cn + "DMO(){\n");
-//                	out.write("        super(\"" + cn + "\",_ImAp,_SmAp);\n");
                 	out.write("        super(\"" + cn + "\");\n");
                 	out.write("    }\n\n");
 
@@ -1355,10 +1331,6 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 	out.write("        super(oc);\n");
                 	out.write("    }\n\n");
                     
-//                	out.write("    public " + cn + "DMO(String oc, Map<Integer,DmcAttributeInfo> im, Map<String,DmcAttributeInfo> sm){\n");
-//                	out.write("        super(oc,im,sm);\n");
-//                	out.write("    }\n\n");
-   
                 	out.write("    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){\n");
                 	out.write("        return(_ImAp);\n");
                 	out.write("    }\n\n");
@@ -1503,9 +1475,11 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
     	else
        		out.write("ValueTypeEnum.MULTI,");
     	
-   		out.write("DataTypeEnum.PERSISTENT,");
+   		out.write("DataTypeEnum.PERSISTENT");
    	    	
-    	out.write(opt + ");\n");
+    	out.write(");\n");
+    	
+//    	out.write(opt + ");\n");
 
     }
 
@@ -1967,6 +1941,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 out.write("import org.dmd.dms.generated.dmo.*;\n");
                 out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
                 out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
+            	if (cn.equals("ClassDefinition")){
+                    out.write("import org.dmd.dmc.DmcOmni;\n");
+                    out.write("import org.dmd.dmc.DmcClassInfo;\n");
+            	}
 
                 out.write("/**\n * The " + cn + "REF class.\n");
                 out.write(" * This code was auto-generated by the createmeta utility and shouldn't be alterred\n");
@@ -1979,6 +1957,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             	
             	writeAttributeInfo(out, "name", "2", "StringName", null, "false");
             	out.write("\n");
+            	
+            	if (cn.equals("ClassDefinition")){
+            		out.write("    DmcClassInfo info;\n\n");
+            	}
 
             	out.write("    DmcTypeStringName myName;\n\n");
             	
@@ -2050,6 +2032,19 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
               	out.write("        myName = (DmcTypeStringName) dis.getAttributeInstance();\n");
               	out.write("        myName.deserializeIt(dis);\n");
               	out.write("    }\n\n");
+
+              	if (cn.equals("ClassDefinition")){
+	              	out.write("    public DmcClassInfo getClassInfo() {\n");
+	              	out.write("        if (info == null){\n");
+	              	out.write("            if (myName == null)\n");
+	              	out.write("                throw(new IllegalStateException(\"No name set for a ClassDefinitionREF\"));\n");
+	              	out.write("            info = DmcOmni.instance().getClassInfo(myName.getSV().getNameString());\n");
+	              	out.write("            if (info == null)\n");
+	              	out.write("                throw(new IllegalStateException(\"Unable to retrive class info for class: \" + myName.getSV().getNameString() + \" ensure that you have loaded the DmcOmni with the appropriate schemas.\"));\n");
+	              	out.write("        }\n");
+	              	out.write("        return(info);\n");
+	              	out.write("    }\n\n");
+              	}
 
                 out.write("}\n");
 

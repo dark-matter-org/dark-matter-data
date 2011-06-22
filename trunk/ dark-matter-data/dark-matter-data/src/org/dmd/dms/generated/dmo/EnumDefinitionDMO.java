@@ -33,7 +33,7 @@ import org.dmd.dms.generated.enums.*;
  * you would use a TypeDefinition name i.e. they can be used in the type
  * attribute of AttributeDefinitions.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1201)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1203)
  */
 @SuppressWarnings("serial")
 public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
@@ -48,14 +48,14 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
 
-    public final static DmcAttributeInfo __enumValue = new DmcAttributeInfo("enumValue",33,"EnumValue",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,true);
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
+    public final static DmcAttributeInfo __enumValue = new DmcAttributeInfo("enumValue",33,"EnumValue",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
 
-    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",7,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",7,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -125,7 +125,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * definition.
      * @return An Iterator of EnumValue objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1715)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1689)
     public Iterator<EnumValue> getEnumValue(){
         DmcTypeEnumValueMV attr = (DmcTypeEnumValueMV) get(MetaDMSAG.__enumValue);
         if (attr == null)
@@ -139,7 +139,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * @param value A value compatible with DmcTypeEnumValueMV
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1759)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1733)
     public DmcAttribute addEnumValue(Object value) throws DmcValueException {
         DmcAttribute attr = get(MetaDMSAG.__enumValue);
         if (attr == null)
@@ -156,7 +156,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1546)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -169,7 +169,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1597)
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(MetaDMSAG.__name);
@@ -183,7 +183,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1546)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -196,7 +196,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1597)
     @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute attr = get(MetaDMSAG.__definedIn);
@@ -213,7 +213,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1546)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -226,7 +226,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1597)
     @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute attr = get(MetaDMSAG.__description);
@@ -240,7 +240,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1546)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -253,7 +253,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1597)
     @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute attr = get(MetaDMSAG.__file);
@@ -267,7 +267,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1546)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -280,7 +280,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1597)
     @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute attr = get(MetaDMSAG.__lineNumber);
@@ -298,7 +298,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * when they aren't actually set on an object. This just gives a convenient
      * mechanism to provide a default value for non-existent attribute values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1546)
     public String getNullReturnValue(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__nullReturnValue);
         if (attr == null)
@@ -311,7 +311,7 @@ public class EnumDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets nullReturnValue to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1597)
     @SuppressWarnings("unchecked")
     public void setNullReturnValue(Object value) throws DmcValueException {
         DmcAttribute attr = get(MetaDMSAG.__nullReturnValue);

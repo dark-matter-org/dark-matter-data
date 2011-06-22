@@ -4,13 +4,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
-import org.dmd.dmg.generated.dmo.DmgDMSAG;
+// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:482)
+import org.dmd.dmg.generated.dmo.DmgDMSAG;          // DmgDMSAG
+import org.dmd.dms.generated.dmo.MetaDMSAG;         // MetaDMSAG
 
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from:  org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:92)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:93)
 public class MvwDMSAG implements DmcCompactSchemaIF {
 
 
@@ -28,69 +31,69 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __RunContextItem = new DmcClassInfo("RunContextItem", 811, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
     public final static DmcClassInfo __View = new DmcClassInfo("View", 804, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
     public final static DmcClassInfo __WebApplication = new DmcClassInfo("WebApplication", 812, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
-    public final static DmcAttributeInfo __abstractActivity = new DmcAttributeInfo("abstractActivity", 858, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __activityName = new DmcAttributeInfo("activityName", 840, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __addedToRunContext = new DmcAttributeInfo("addedToRunContext", 859, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __appName = new DmcAttributeInfo("appName", 833, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __argVector = new DmcAttributeInfo("argVector", 803, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __broadcast = new DmcAttributeInfo("broadcast", 822, "Event", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __broadcastOnly = new DmcAttributeInfo("broadcastOnly", 823, "Event", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __centralDMPErrorHandler = new DmcAttributeInfo("centralDMPErrorHandler", 851, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __centralRPCErrorHandler = new DmcAttributeInfo("centralRPCErrorHandler", 852, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __clickEvent = new DmcAttributeInfo("clickEvent", 819, "OperationSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __componentName = new DmcAttributeInfo("componentName", 811, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __construction = new DmcAttributeInfo("construction", 828, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __contextImpl = new DmcAttributeInfo("contextImpl", 830, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __controllerName = new DmcAttributeInfo("controllerName", 834, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __createEvent = new DmcAttributeInfo("createEvent", 821, "OperationSpec", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __createOnDemand = new DmcAttributeInfo("createOnDemand", 861, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __defaultPlace = new DmcAttributeInfo("defaultPlace", 857, "Place", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule", 800, "Module", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __deleteEvent = new DmcAttributeInfo("deleteEvent", 818, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __dependsOnModule = new DmcAttributeInfo("dependsOnModule", 805, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __displayDMO = new DmcAttributeInfo("displayDMO", 816, "DisplayDataSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __eventName = new DmcAttributeInfo("eventName", 809, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent", 801, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent", 802, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __importThis = new DmcAttributeInfo("importThis", 831, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __instantiatesView = new DmcAttributeInfo("instantiatesView", 862, "View", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __itemName = new DmcAttributeInfo("itemName", 827, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __itemOrder = new DmcAttributeInfo("itemOrder", 829, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __local = new DmcAttributeInfo("local", 832, "Event", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __localEvent = new DmcAttributeInfo("localEvent", 814, "EventWithArgs", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __managesView = new DmcAttributeInfo("managesView", 841, "View", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __modifyEvent = new DmcAttributeInfo("modifyEvent", 820, "OperationSpec", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __moduleName = new DmcAttributeInfo("moduleName", 810, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __parentPlace = new DmcAttributeInfo("parentPlace", 856, "Place", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __placeName = new DmcAttributeInfo("placeName", 853, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __placePrefix = new DmcAttributeInfo("placePrefix", 854, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __presenterImport = new DmcAttributeInfo("presenterImport", 836, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __presenterMethod = new DmcAttributeInfo("presenterMethod", 824, "MethodWithArgs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __presenterName = new DmcAttributeInfo("presenterName", 839, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __runsActivity = new DmcAttributeInfo("runsActivity", 855, "Activity", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __selectEvent = new DmcAttributeInfo("selectEvent", 817, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __selectedDMO = new DmcAttributeInfo("selectedDMO", 806, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __sendsActionRequest = new DmcAttributeInfo("sendsActionRequest", 848, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __sendsCreateRequest = new DmcAttributeInfo("sendsCreateRequest", 847, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __sendsDeleteRequest = new DmcAttributeInfo("sendsDeleteRequest", 845, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __sendsGetRequest = new DmcAttributeInfo("sendsGetRequest", 844, "GetWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __sendsLoginRequest = new DmcAttributeInfo("sendsLoginRequest", 849, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __sendsLogoutRequest = new DmcAttributeInfo("sendsLogoutRequest", 850, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __sendsSetRequest = new DmcAttributeInfo("sendsSetRequest", 846, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __sharedImport = new DmcAttributeInfo("sharedImport", 838, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __theOne = new DmcAttributeInfo("theOne", 863, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass", 807, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __useClass = new DmcAttributeInfo("useClass", 826, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema", 843, "SchemaDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __userDataImport = new DmcAttributeInfo("userDataImport", 804, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __usesController = new DmcAttributeInfo("usesController", 842, "Controller", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __usesPresenter = new DmcAttributeInfo("usesPresenter", 860, "Presenter", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __usesRunContextItem = new DmcAttributeInfo("usesRunContextItem", 835, "RunContextItem", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __usingStandardSubpackages = new DmcAttributeInfo("usingStandardSubpackages", 864, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __viewImport = new DmcAttributeInfo("viewImport", 837, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __viewMethod = new DmcAttributeInfo("viewMethod", 825, "MethodWithArgs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __viewName = new DmcAttributeInfo("viewName", 812, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __widget = new DmcAttributeInfo("widget", 813, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __abstractActivity = new DmcAttributeInfo("abstractActivity", 858, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __activityName = new DmcAttributeInfo("activityName", 840, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __addedToRunContext = new DmcAttributeInfo("addedToRunContext", 859, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __appName = new DmcAttributeInfo("appName", 833, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __argVector = new DmcAttributeInfo("argVector", 803, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __broadcast = new DmcAttributeInfo("broadcast", 822, "Event", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __broadcastOnly = new DmcAttributeInfo("broadcastOnly", 823, "Event", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __centralDMPErrorHandler = new DmcAttributeInfo("centralDMPErrorHandler", 851, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __centralRPCErrorHandler = new DmcAttributeInfo("centralRPCErrorHandler", 852, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __clickEvent = new DmcAttributeInfo("clickEvent", 819, "OperationSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __componentName = new DmcAttributeInfo("componentName", 811, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __construction = new DmcAttributeInfo("construction", 828, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __contextImpl = new DmcAttributeInfo("contextImpl", 830, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __controllerName = new DmcAttributeInfo("controllerName", 834, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __createEvent = new DmcAttributeInfo("createEvent", 821, "OperationSpec", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __createOnDemand = new DmcAttributeInfo("createOnDemand", 861, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __defaultPlace = new DmcAttributeInfo("defaultPlace", 857, "Place", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule", 800, "Module", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __deleteEvent = new DmcAttributeInfo("deleteEvent", 818, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __dependsOnModule = new DmcAttributeInfo("dependsOnModule", 805, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __displayDMO = new DmcAttributeInfo("displayDMO", 816, "DisplayDataSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __eventName = new DmcAttributeInfo("eventName", 809, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent", 801, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent", 802, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __importThis = new DmcAttributeInfo("importThis", 831, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __instantiatesView = new DmcAttributeInfo("instantiatesView", 862, "View", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __itemName = new DmcAttributeInfo("itemName", 827, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __itemOrder = new DmcAttributeInfo("itemOrder", 829, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __local = new DmcAttributeInfo("local", 832, "Event", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __localEvent = new DmcAttributeInfo("localEvent", 814, "EventWithArgs", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __managesView = new DmcAttributeInfo("managesView", 841, "View", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __modifyEvent = new DmcAttributeInfo("modifyEvent", 820, "OperationSpec", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __moduleName = new DmcAttributeInfo("moduleName", 810, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __parentPlace = new DmcAttributeInfo("parentPlace", 856, "Place", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __placeName = new DmcAttributeInfo("placeName", 853, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __placePrefix = new DmcAttributeInfo("placePrefix", 854, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __presenterImport = new DmcAttributeInfo("presenterImport", 836, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __presenterMethod = new DmcAttributeInfo("presenterMethod", 824, "MethodWithArgs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __presenterName = new DmcAttributeInfo("presenterName", 839, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __runsActivity = new DmcAttributeInfo("runsActivity", 855, "Activity", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __selectEvent = new DmcAttributeInfo("selectEvent", 817, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __selectedDMO = new DmcAttributeInfo("selectedDMO", 806, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __sendsActionRequest = new DmcAttributeInfo("sendsActionRequest", 848, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __sendsCreateRequest = new DmcAttributeInfo("sendsCreateRequest", 847, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __sendsDeleteRequest = new DmcAttributeInfo("sendsDeleteRequest", 845, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __sendsGetRequest = new DmcAttributeInfo("sendsGetRequest", 844, "GetWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __sendsLoginRequest = new DmcAttributeInfo("sendsLoginRequest", 849, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __sendsLogoutRequest = new DmcAttributeInfo("sendsLogoutRequest", 850, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __sendsSetRequest = new DmcAttributeInfo("sendsSetRequest", 846, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __sharedImport = new DmcAttributeInfo("sharedImport", 838, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __theOne = new DmcAttributeInfo("theOne", 863, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass", 807, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __useClass = new DmcAttributeInfo("useClass", 826, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema", 843, "SchemaDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __userDataImport = new DmcAttributeInfo("userDataImport", 804, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __usesController = new DmcAttributeInfo("usesController", 842, "Controller", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __usesPresenter = new DmcAttributeInfo("usesPresenter", 860, "Presenter", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __usesRunContextItem = new DmcAttributeInfo("usesRunContextItem", 835, "RunContextItem", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __usingStandardSubpackages = new DmcAttributeInfo("usingStandardSubpackages", 864, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __viewImport = new DmcAttributeInfo("viewImport", 837, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __viewMethod = new DmcAttributeInfo("viewMethod", 825, "MethodWithArgs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __viewName = new DmcAttributeInfo("viewName", 812, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __widget = new DmcAttributeInfo("widget", 813, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
 
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
@@ -177,6 +180,110 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__viewMethod.id,__viewMethod);
         _SmAp.put(__viewName.id,__viewName);
         _SmAp.put(__widget.id,__widget);
+        _CmAp.put(__Activity.id,__Activity);
+        _CmAp.put(__Component.id,__Component);
+        _CmAp.put(__Controller.id,__Controller);
+        _CmAp.put(__Event.id,__Event);
+        _CmAp.put(__Module.id,__Module);
+        _CmAp.put(__MvwDefinition.id,__MvwDefinition);
+        _CmAp.put(__Place.id,__Place);
+        _CmAp.put(__Presenter.id,__Presenter);
+        _CmAp.put(__RunContextItem.id,__RunContextItem);
+        _CmAp.put(__SubPlace.id,__SubPlace);
+        _CmAp.put(__View.id,__View);
+        _CmAp.put(__WebApplication.id,__WebApplication);
+
+        __MvwDefinition.addMust(MetaDMSAG.__camelCaseName);
+        __MvwDefinition.addMust(__definedInModule);
+        __MvwDefinition.addMay(MetaDMSAG.__file);
+        __MvwDefinition.addMay(MetaDMSAG.__lineNumber);
+        __MvwDefinition.addMay(MetaDMSAG.__description);
+
+        __Event.addMust(__eventName);
+        __Event.addMay(__argVector);
+        __Event.addMay(__importThis);
+
+        __Module.addMust(__moduleName);
+        __Module.addMust(DmgDMSAG.__genPackage);
+        __Module.addMay(__dependsOnModule);
+        __Module.addMay(MetaDMSAG.__dependsOnSchema);
+        __Module.addMay(__usingStandardSubpackages);
+
+        __View.addMust(__viewName);
+        __View.addMay(__useBaseClass);
+        __View.addMay(__local);
+        __View.addMay(__broadcast);
+        __View.addMay(__broadcastOnly);
+        __View.addMay(__viewImport);
+        __View.addMay(__presenterImport);
+        __View.addMay(__sharedImport);
+        __View.addMay(MetaDMSAG.__subpackage);
+        __View.addMay(__theOne);
+        __View.addMay(__usesRunContextItem);
+        __View.addMay(__widget);
+        __View.addMay(MetaDMSAG.__extendsInterface);
+        __View.addMay(__presenterMethod);
+        __View.addMay(__viewMethod);
+        __View.addMay(__displayDMO);
+        __View.addMay(__selectEvent);
+        __View.addMay(__deleteEvent);
+        __View.addMay(__clickEvent);
+        __View.addMay(__modifyEvent);
+        __View.addMay(__createEvent);
+
+        __Component.addMust(__componentName);
+        __Component.addMay(__firesEvent);
+        __Component.addMay(__handlesEvent);
+        __Component.addMay(__useSchema);
+        __Component.addMay(__useBaseClass);
+        __Component.addMay(__usesRunContextItem);
+        __Component.addMay(__sendsGetRequest);
+        __Component.addMay(__sendsDeleteRequest);
+        __Component.addMay(__sendsSetRequest);
+        __Component.addMay(__sendsCreateRequest);
+        __Component.addMay(__sendsActionRequest);
+        __Component.addMay(__sendsLoginRequest);
+        __Component.addMay(__sendsLogoutRequest);
+        __Component.addMay(MetaDMSAG.__subpackage);
+        __Component.addMay(__instantiatesView);
+
+        __Controller.addMust(__controllerName);
+        __Controller.addMay(__centralDMPErrorHandler);
+        __Controller.addMay(__centralRPCErrorHandler);
+        __Controller.addMay(__addedToRunContext);
+        __Controller.addMay(__usesPresenter);
+
+        __Presenter.addMust(__presenterName);
+        __Presenter.addMust(__managesView);
+        __Presenter.addMay(__theOne);
+
+        __Place.addMust(__placeName);
+        __Place.addMust(__placePrefix);
+        __Place.addMust(__runsActivity);
+
+        __SubPlace.addMust(__placeName);
+        __SubPlace.addMust(__placePrefix);
+        __SubPlace.addMust(__parentPlace);
+
+        __Activity.addMust(__activityName);
+        __Activity.addMay(__useBaseClass);
+        __Activity.addMay(__abstractActivity);
+        __Activity.addMay(__usesController);
+        __Activity.addMay(__managesView);
+
+        __RunContextItem.addMust(__itemName);
+        __RunContextItem.addMust(__useClass);
+        __RunContextItem.addMust(__construction);
+        __RunContextItem.addMay(__itemOrder);
+        __RunContextItem.addMay(__contextImpl);
+        __RunContextItem.addMay(__importThis);
+        __RunContextItem.addMay(__createOnDemand);
+        __RunContextItem.addMay(__theOne);
+
+        __WebApplication.addMust(__appName);
+        __WebApplication.addMust(__defaultPlace);
+        __WebApplication.addMay(__usesController);
+
 
     }
 

@@ -9,6 +9,7 @@ import org.dmd.dms.ClassDefinition;
 import org.dmd.dmw.DmwWrapper;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dms.generated.types.ClassDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.util.exceptions.ResultException;
 
@@ -43,23 +44,48 @@ public class DmwDeserializer {
 		DmwWrapper rc = null;
 		DmcObject dmo = null;
 		
-		// READ: The first part of any object is its objectClass attribute; read its
-		//       id and instantiate an objectClass attribute to deserialize the class
-		//       and AUX classes.
-		DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
-		oc.deserializeIt(dis);
-		oc.resolveReferences(schema);
+//		// READ: The first part of any object is its objectClass attribute; read its
+//		//       id and instantiate an objectClass attribute to deserialize the class
+//		//       and AUX classes.
+//		DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
+//		oc.deserializeIt(dis);
+//		oc.resolveReferences(schema);
+//		
+//		ClassDefinition cd = (ClassDefinition) oc.getMVnth(0).getObject().getContainer();
+//		
+//		// Instantiate the object
+//		rc = cd.newInstance();
+//		dmo = rc.getDmcObject();
+//		
+//		// Add the auxiliary classes if they exist
+//		if (oc.getMVSize() > 1){
+//			for(int i=1; i<oc.getMVSize(); i++){
+//				dmo.addAux(oc.getMVnth(i));
+//			}
+//		}
 		
-		ClassDefinition cd = (ClassDefinition) oc.getMVnth(0).getObject().getContainer();
+		// READ: the number of classes in the objectClass
+		int classCount = dis.readInt();
+		
+		// READ: the construction class ID
+		int classID = dis.readInt();
+		
+		// Try to find the class in the schema
+		ClassDefinition cd = schema.isClass(classID);
+		
+		if (cd == null)
+			throw new IllegalStateException("Unknown class ID: " + classID + " ensure that you have loaded the required schemas.");
 		
 		// Instantiate the object
 		rc = cd.newInstance();
 		dmo = rc.getDmcObject();
-		
+				
 		// Add the auxiliary classes if they exist
-		if (oc.getMVSize() > 1){
-			for(int i=1; i<oc.getMVSize(); i++){
-				dmo.addAux(oc.getMVnth(i));
+		if (classCount > 1){
+			for(int i=1; i<classCount; i++){
+				classID = dis.readInt();
+				cd = schema.isClass(classID);
+				dmo.addAux(new ClassDefinitionREF(cd.getDMO()));
 			}
 		}
 		

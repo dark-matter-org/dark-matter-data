@@ -21,7 +21,6 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 
 /**
@@ -61,9 +60,7 @@ abstract public class DmcTypeDmgConfigREF extends DmcAttribute<DmgConfigDMO> imp
 
     @Override
     public DmgConfigDMO deserializeValue(DmcInputStreamIF dis) throws Exception {
-        DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
-        oc.deserializeIt(dis);
-        DmgConfigDMO rc = (DmgConfigDMO)dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
+        DmgConfigDMO rc = (DmgConfigDMO)dis.getDMOInstance(dis);
         rc.deserializeIt(dis);
         return(rc);
     }

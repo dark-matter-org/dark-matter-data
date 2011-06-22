@@ -21,7 +21,6 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;
 
 /**
@@ -61,9 +60,7 @@ abstract public class DmcTypeNotifyRequestREF extends DmcAttribute<NotifyRequest
 
     @Override
     public NotifyRequestDMO deserializeValue(DmcInputStreamIF dis) throws Exception {
-        DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
-        oc.deserializeIt(dis);
-        NotifyRequestDMO rc = (NotifyRequestDMO)dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
+        NotifyRequestDMO rc = (NotifyRequestDMO)dis.getDMOInstance(dis);
         rc.deserializeIt(dis);
         return(rc);
     }

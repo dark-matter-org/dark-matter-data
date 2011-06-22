@@ -3,9 +3,12 @@ package org.dmd.dmui.shared.generated.dmo;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
+// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:482)
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:92)
+
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:93)
 public class DmuiDMSAG implements DmcCompactSchemaIF {
 
 
@@ -33,6 +36,7 @@ public class DmuiDMSAG implements DmcCompactSchemaIF {
         _FmAp = new HashMap<String, DmcFilterBuilderIF>();
 
         _SImAp = new HashMap<String, DmcSliceInfo>();
+
 
 
     }

@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.*;
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1201)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1203)
  */
 @SuppressWarnings("serial")
 public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Serializable {
@@ -43,11 +43,11 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
 
-    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __definedIn = new DmcAttributeInfo("definedIn",61,"SchemaDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -112,7 +112,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1546)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -125,7 +125,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1597)
     @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
         DmcAttribute attr = get(MetaDMSAG.__name);
@@ -139,7 +139,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1546)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -152,7 +152,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1597)
     @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute attr = get(MetaDMSAG.__definedIn);
@@ -166,7 +166,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1546)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -179,7 +179,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1597)
     @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute attr = get(MetaDMSAG.__file);
@@ -193,7 +193,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1546)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -206,7 +206,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1597)
     @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute attr = get(MetaDMSAG.__lineNumber);

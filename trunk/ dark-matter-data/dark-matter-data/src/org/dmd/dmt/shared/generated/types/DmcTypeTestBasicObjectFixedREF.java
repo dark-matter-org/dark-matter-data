@@ -6,7 +6,6 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 
 /**
@@ -46,9 +45,7 @@ abstract public class DmcTypeTestBasicObjectFixedREF extends DmcAttribute<TestBa
 
     @Override
     public TestBasicObjectFixedDMO deserializeValue(DmcInputStreamIF dis) throws Exception {
-        DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
-        oc.deserializeIt(dis);
-        TestBasicObjectFixedDMO rc = (TestBasicObjectFixedDMO)dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
+        TestBasicObjectFixedDMO rc = (TestBasicObjectFixedDMO)dis.getDMOInstance(dis);
         rc.deserializeIt(dis);
         return(rc);
     }

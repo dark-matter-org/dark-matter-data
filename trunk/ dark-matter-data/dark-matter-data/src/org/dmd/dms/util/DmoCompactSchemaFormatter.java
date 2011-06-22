@@ -31,6 +31,7 @@ import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
@@ -101,16 +102,6 @@ public class DmoCompactSchemaFormatter {
         	cn.writeClassInfo(out);
 		}
 
-//        for(ClassDefinition cd: classes.values()){
-//			//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
-//			out.write("    public final static DmcClassInfo __" + cd.getName().getNameString() + " = new DmcClassInfo(");
-//			out.write("\"" + cd.getName().getNameString() + "\"");
-//			out.write(", " + cd.getDmdID());
-//			out.write(", ClassTypeEnum." + cd.getClassType());
-//			out.write(", DataTypeEnum." + cd.getDataType());
-//			out.write(");\n");
-//		}
-        
         for(AttributeDefinition ad: attributes.values()){
 			//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
 			out.write("    public final static DmcAttributeInfo __" + ad.getName().getNameString() + " = new DmcAttributeInfo(");
@@ -119,7 +110,6 @@ public class DmoCompactSchemaFormatter {
 			out.write(", \"" + ad.getType().getName().getNameString() + "\"");
 			out.write(", ValueTypeEnum." + ad.getValueType());
 			out.write(", DataTypeEnum." + ad.getDataType());
-			out.write(", true");
 			out.write(");\n");
 		}
         
@@ -137,6 +127,11 @@ public class DmoCompactSchemaFormatter {
 			out.write("        _SmAp.put(__" + ad.getName().getNameString() + ".id,__" + ad.getName().getNameString() + ");\n");
 		}
         
+        for(ClassDefinition cd: classes.values()){
+            // _SmAp.put(__jobName.name,__jobName);
+			out.write("        _CmAp.put(__" + cd.getName().getNameString() + ".id,__" + cd.getName().getNameString() + ");\n");
+		}
+        
         out.write(nameBuilders.toString());
         
         for(SliceDefinition slice: sd.getSliceDefList()){
@@ -147,6 +142,33 @@ public class DmoCompactSchemaFormatter {
         	}
         	
 			out.write("        _SImAp.put(\"" + slice.getName() + "\",__" + slice.getName().getNameString() + ");\n");
+		}
+        
+        cds = sd.getClassDefList();
+		if (cds != null){
+			while(cds.hasNext()){
+				out.write("\n");
+				ClassDefinition cd = cds.next();
+				
+				String attr = null;
+				for (AttributeDefinition ad: cd.getMust()){
+					if (ad.getDefinedIn() == cd.getDefinedIn())
+						attr = "__" + ad.getName();
+					else
+						attr = ad.getDefinedIn().getDMSASGName() + ".__" + ad.getName();
+					out.write("        __" + cd.getName() + ".addMust(" + attr + ");\n");
+				}
+				
+				for (AttributeDefinition ad: cd.getMay()){
+					if (ad.getDefinedIn() == cd.getDefinedIn())
+						attr = "__" + ad.getName();
+					else
+						attr = ad.getDefinedIn().getDMSASGName() + ".__" + ad.getName();
+					out.write("        __" + cd.getName() + ".addMay(" + attr + ");\n");
+				}
+				
+			}
+			out.write("\n");
 		}
         
         // End of static initializer
@@ -408,16 +430,57 @@ public class DmoCompactSchemaFormatter {
         	out.write("import org.dmd.dms.generated.enums.ClassTypeEnum;\n");
         }
         
-        if (sd.getDependsOn() != null){
-        	Iterator<String> dependsOn = sd.getDependsOn();
-        	while(dependsOn.hasNext()){
-        		String dep = dependsOn.next();
-                SchemaDefinition ds = sm.isSchema(dep);
-                String sclass = ds.getSchemaPackage() + ".generated.dmo." + GeneratorUtils.dotNameToCamelCase(dep) + "DMSAG";
-                out.write("import " + sclass + ";\n");
-        	}
-        	out.write("\n");
-        }   
+//        if (sd.getDependsOn() != null){
+//        	Iterator<String> dependsOn = sd.getDependsOn();
+//        	while(dependsOn.hasNext()){
+//        		String dep = dependsOn.next();
+//                SchemaDefinition ds = sm.isSchema(dep);
+//                String sclass = ds.getSchemaPackage() + ".generated.dmo." + GeneratorUtils.dotNameToCamelCase(dep) + "DMSAG";
+//                out.write("import " + sclass + ";\n");
+//        	}
+//        	
+//        	out.write("\n");
+//        }   
+//        
+//    	boolean needMeta = false;
+//    	for(ClassDefinition cd: sd.getClassDefList()){
+//    		for(AttributeDefinition ad: cd.getMust()){
+//    			if (ad.getDefinedIn().getName().getNameString().equals("meta")){
+//    				needMeta = true;
+//    				break;
+//    			}
+//    		}
+//    		for(AttributeDefinition ad: cd.getMay()){
+//    			if (ad.getDefinedIn().getName().getNameString().equals("meta")){
+//    				needMeta = true;
+//    				break;
+//    			}
+//    		}        		
+//    	}
+//    	
+//    	if (needMeta){
+//    		out.write("import org.dmd.dms.generated.dmo.MetaDMSAG;\n");
+//        	out.write("\n");
+//    	}
+    	 	
+    	ImportManager manager = new ImportManager();
+    	for(ClassDefinition cd: sd.getClassDefList()){
+    		for(AttributeDefinition ad: cd.getMust()){
+    			if (ad.getDefinedIn() != sd)
+    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), ad.getDefinedIn().getDMSASGName());
+    		}
+    		for(AttributeDefinition ad: cd.getMay()){
+    			if (ad.getDefinedIn() != sd)
+    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), ad.getDefinedIn().getDMSASGName());
+    		}
+    		if (cd.getDerivedFrom() != null){
+    			if (cd.getDerivedFrom().getDefinedIn() != sd)
+       				manager.addImport(cd.getDerivedFrom().getDefinedIn().getDMSASGImport(), cd.getDerivedFrom().getDefinedIn().getDMSASGName());    				
+    		}
+    	}
+    	
+    	out.write(manager.getFormattedImports());
+    	out.write("\n");
         
         DmcAttribute<?> adef = sd.getDMO().get(MetaDMSAG.__attributeDefList);
         if (adef != null){
@@ -474,9 +537,9 @@ public class DmoCompactSchemaFormatter {
     	else
     		out.write("ValueTypeEnum.MULTI,");
     	
-   		out.write("DataTypeEnum.PERSISTENT,");
+   		out.write("DataTypeEnum.PERSISTENT");
     	
-    	out.write(opt + ");\n");
+    	out.write(");\n");
 
     }
 

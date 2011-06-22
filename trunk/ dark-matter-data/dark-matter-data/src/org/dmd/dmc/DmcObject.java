@@ -1490,8 +1490,15 @@ abstract public class DmcObject implements Serializable {
     public void serializeIt(DmcOutputStreamIF dos) throws Exception, DmcValueException {
 		synchronized (attributes) {
 			// WRITE: the objectClass
-			DmcAttribute<?> oc = get(__objectClass.id);
-			oc.serializeIt(dos);
+//			DmcAttribute<?> oc = get(__objectClass.id);
+//			oc.serializeIt(dos);
+			
+			DmcTypeClassDefinitionREFMV oc = (DmcTypeClassDefinitionREFMV) get(__objectClass.id);
+			// WRITE: the object class is serialized as [class count] id id id...
+			dos.writeInt(oc.getMVSize());
+			for(int i=0; i<oc.getMVSize(); i++){
+				dos.writeInt(oc.getMVnth(i).getClassInfo().id);
+			}
 	
 			// We have to determine the number of attributes we're going to write. That will
 			// depend on the dataType of the attributes and the mode that the output stream

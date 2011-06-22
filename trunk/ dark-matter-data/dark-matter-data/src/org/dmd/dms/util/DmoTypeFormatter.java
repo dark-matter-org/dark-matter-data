@@ -156,7 +156,7 @@ public class DmoTypeFormatter {
      	out.write("import org.dmd.dmc.DmcAttribute;\n");
      	out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
       	out.write("import org.dmd.dmc.DmcValueException;\n");
-      	out.write("import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;\n");
+//      	out.write("import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;\n");
       	out.write("import " + schemaPackage + ".generated.dmo." + td.getName() + "DMO;\n\n");
       	
         out.write("/**\n");
@@ -197,10 +197,10 @@ public class DmoTypeFormatter {
 
       	out.write("    @Override\n");
       	out.write("    public " + td.getName() + "DMO deserializeValue(DmcInputStreamIF dis) throws Exception {\n");
-      	out.write("        DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();\n");
-      	out.write("        oc.deserializeIt(dis);\n");
-//      	out.write("        " + td.getName() + "DMO rc = new " + td.getName() + "DMO();\n");
-      	out.write("        " + td.getName() + "DMO rc = (" + td.getName()+ "DMO)dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());\n");
+//      	out.write("        DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();\n");
+//      	out.write("        oc.deserializeIt(dis);\n");
+//      	out.write("        " + td.getName() + "DMO rc = (" + td.getName()+ "DMO)dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());\n");
+      	out.write("        " + td.getName() + "DMO rc = (" + td.getName()+ "DMO)dis.getDMOInstance(dis);\n");
       	out.write("        rc.deserializeIt(dis);\n");
       	out.write("        return(rc);\n");
     	out.write("    }\n\n");

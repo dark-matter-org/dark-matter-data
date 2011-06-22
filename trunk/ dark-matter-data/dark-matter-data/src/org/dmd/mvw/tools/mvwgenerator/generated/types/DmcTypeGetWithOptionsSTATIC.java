@@ -25,8 +25,8 @@ import org.dmd.mvw.tools.mvwgenerator.types.GetWithOptions;    // base type impo
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1731)
- *    Called from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1650)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1731)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1650)
  */
 public class DmcTypeGetWithOptionsSTATIC {
     

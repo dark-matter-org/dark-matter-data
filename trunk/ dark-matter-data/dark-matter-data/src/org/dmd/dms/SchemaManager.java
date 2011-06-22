@@ -309,7 +309,7 @@ public class SchemaManager implements DmcNameResolverIF {
     	
     	return(ad.getAttributeInfo());
     }
-    
+        
     public DmcObjectName getNameValueInstance(Integer id) throws Exception {
     	AttributeDefinition ad = attrByID.get(id);
     	
@@ -1668,7 +1668,9 @@ public class SchemaManager implements DmcNameResolverIF {
     	if (name.getNameString().equals("ClassDefinition")){
     		return(MetaSchema._ClassDefinition);
     	}
-    	else if (name.getNameString().equals("metaSchema")){
+//    	else if (name.getNameString().equals("metaSchema")){
+        else if (name.getNameString().equals("meta")){
+DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
     		// And another bit of magic - the class definitions of the metaSchema are
     		// loaded before the schema definition for the meta schema
     		DebugInfo.debug("METASCHEMA");

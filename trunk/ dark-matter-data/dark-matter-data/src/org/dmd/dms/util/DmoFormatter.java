@@ -126,6 +126,7 @@ public class DmoFormatter {
         out.write(getImports(cd,anySVAttributes,anyMVAttributes));
         
         out.write("import org.dmd.dms.generated.dmo.MetaVCAG;\n");
+        out.write("import org.dmd.dmc.DmcClassInfo;\n");
         out.write("import org.dmd.dmc.DmcAttributeValidator;\n");
         out.write("import org.dmd.dmc.DmcObjectValidator;\n\n");
         
@@ -154,7 +155,7 @@ public class DmoFormatter {
         out.write("        super(oc);\n");
         out.write("    }\n");
         out.write("\n");
-            
+                        
         if (cd.getSupportsBackrefTracking() == false){
 	        out.write("    @Override\n");
         	out.write("    public boolean supportsBackrefTracking(){\n");
@@ -281,8 +282,8 @@ public class DmoFormatter {
     	out.append(ID + ",");
     	out.append("\"" + t + "\",");
 		out.append("ValueTypeEnum." + vte.toString() + ",");
-		out.append("DataTypeEnum." + dte.toString() + ",");
-    	out.append(opt + ");\n");
+		out.append("DataTypeEnum." + dte.toString());
+    	out.append(");\n");
     }
 
 	String getATIFunctions(ClassDefinition cd){
