@@ -24,8 +24,8 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;    // D
  * The DmcTypeSelectionTypeEnumSV provides storage for a single-valued SelectionTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1573)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1573)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSelectionTypeEnumSV extends DmcTypeSelectionTypeEnum implements Serializable {

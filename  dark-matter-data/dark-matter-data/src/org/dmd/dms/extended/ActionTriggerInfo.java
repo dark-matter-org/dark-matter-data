@@ -45,7 +45,7 @@ public class ActionTriggerInfo extends ActionTriggerInfoDMO implements Serializa
 		}
 		
 	}
-	
+		
 	public String getActionName(){
 		return(getName().getNameString());
 	}

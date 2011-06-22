@@ -28,6 +28,7 @@ import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dmw.DmwWrapper;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.types.ClassDefinitionREF;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.formatting.PrintfFormat;
 
@@ -52,43 +53,43 @@ public class DmcTraceableInputStream implements DmcInputStreamIF {
 		return(schema.getAttributeInstance(ai.id));
 	}
 
-	@Override
-	public DmcObject getDMOInstance(String cn) throws Exception {
-		DmcObject rc = null;
-		ClassDefinition cd = schema.isClass(cn);
-		
-		if (cd == null){
-			throw(new IllegalStateException("Unknown class:" + cn));
-		}
-		
-		// Tricky stuff: we always try to instantiate the wrapper for the object so that 
-		// we can support the DMW environment i.e. the DMO will have a handle to its
-		// container. If something goes wrong, we fall back to directly instantiating
-		// the DMO.
-		DmwWrapper wrapper = null;
-		try {
-			wrapper = cd.newInstance();
-		}
-		catch(Exception ex){
-			// Just fall back to instantiating the DMO
-		}
-		
-		if (wrapper == null){
-//			DebugInfo.debug("Couldn't get the wrapper");
-			rc = cd.newDMOInstance();
-		}
-		else{
-			rc = wrapper.getDmcObject();
-			
-//			DebugInfo.debug("Got the wrapper");
-//			if (rc.getContainer() == null)
-//				DebugInfo.debug("Container is null");
-//			else
-//				DebugInfo.debug("Container is ok");
-		}
-		
-		return(rc);
-	}
+//	@Override
+//	public DmcObject getDMOInstance(String cn) throws Exception {
+//		DmcObject rc = null;
+//		ClassDefinition cd = schema.isClass(cn);
+//		
+//		if (cd == null){
+//			throw(new IllegalStateException("Unknown class: " + cn));
+//		}
+//		
+//		// Tricky stuff: we always try to instantiate the wrapper for the object so that 
+//		// we can support the DMW environment i.e. the DMO will have a handle to its
+//		// container. If something goes wrong, we fall back to directly instantiating
+//		// the DMO.
+//		DmwWrapper wrapper = null;
+//		try {
+//			wrapper = cd.newInstance();
+//		}
+//		catch(Exception ex){
+//			// Just fall back to instantiating the DMO
+//		}
+//		
+//		if (wrapper == null){
+////			DebugInfo.debug("Couldn't get the wrapper");
+//			rc = cd.newDMOInstance();
+//		}
+//		else{
+//			rc = wrapper.getDmcObject();
+//			
+////			DebugInfo.debug("Got the wrapper");
+////			if (rc.getContainer() == null)
+////				DebugInfo.debug("Container is null");
+////			else
+////				DebugInfo.debug("Container is ok");
+//		}
+//		
+//		return(rc);
+//	}
 
 	@Override
 	public DmcAttribute<?> getAttributeInstance(Integer id) throws Exception {
@@ -246,6 +247,51 @@ public class DmcTraceableInputStream implements DmcInputStreamIF {
 	public DmcFilter getFilterValueInstance() throws Exception {
 		DebugInfo.debug("NOT IMPLEMENTED YET");
 		return null;
+	}
+
+	@Override
+	public DmcObject getDMOInstance(DmcInputStreamIF dis) throws Exception {
+		DmcObject rc = null;
+		
+		// READ: the number of classes in the objectClass
+		int classCount = dis.readInt();
+		
+		// READ: the construction class ID
+		int classID = dis.readInt();
+		
+		// Try to find the class in the schema
+		ClassDefinition cd = schema.isClass(classID);
+		
+		if (cd == null)
+			throw new IllegalStateException("Unknown class ID: " + classID + " ensure that you have loaded the required schemas.");
+		
+		// Tricky stuff: we always try to instantiate the wrapper for the object so that 
+		// we can support the DMW environment i.e. the DMO will have a handle to its
+		// container. If something goes wrong, we fall back to directly instantiating
+		// the DMO.
+		DmwWrapper wrapper = null;
+		try {
+			wrapper = cd.newInstance();
+		}
+		catch(Exception ex){
+			// Just fall back to instantiating the DMO
+		}
+		
+		if (wrapper == null)
+			rc = cd.newDMOInstance();
+		else
+			rc = wrapper.getDmcObject();
+		
+		// Add the auxiliary classes if they exist
+		if (classCount > 1){
+			for(int i=1; i<classCount; i++){
+				classID = dis.readInt();
+				cd = schema.isClass(classID);
+				rc.addAux(new ClassDefinitionREF(cd.getDMO()));
+			}
+		}
+		
+		return(rc);
 	}
 	
 

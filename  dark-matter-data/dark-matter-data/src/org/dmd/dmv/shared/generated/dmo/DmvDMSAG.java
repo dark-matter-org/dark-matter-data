@@ -4,11 +4,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:482)
+import org.dmd.dms.generated.dmo.MetaDMSAG;         // MetaDMSAG
+
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:92)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:93)
 public class DmvDMSAG implements DmcCompactSchemaIF {
 
 
@@ -20,10 +24,10 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __ClassRule = new DmcClassInfo("ClassRule", 303, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__Rule);
     public final static DmcClassInfo __MayRule = new DmcClassInfo("MayRule", 305, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__ClassRule);
     public final static DmcClassInfo __MustRule = new DmcClassInfo("MustRule", 304, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__ClassRule);
-    public final static DmcAttributeInfo __applyToAttribute = new DmcAttributeInfo("applyToAttribute", 303, "AttributeDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __applyToClass = new DmcAttributeInfo("applyToClass", 302, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __loadedFrom = new DmcAttributeInfo("loadedFrom", 301, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __ruleTitle = new DmcAttributeInfo("ruleTitle", 300, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __applyToAttribute = new DmcAttributeInfo("applyToAttribute", 303, "AttributeDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __applyToClass = new DmcAttributeInfo("applyToClass", 302, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __loadedFrom = new DmcAttributeInfo("loadedFrom", 301, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __ruleTitle = new DmcAttributeInfo("ruleTitle", 300, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
 
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
@@ -51,6 +55,26 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__applyToClass.id,__applyToClass);
         _SmAp.put(__loadedFrom.id,__loadedFrom);
         _SmAp.put(__ruleTitle.id,__ruleTitle);
+        _CmAp.put(__AttributeRule.id,__AttributeRule);
+        _CmAp.put(__ClassRule.id,__ClassRule);
+        _CmAp.put(__IntegerRangeRule.id,__IntegerRangeRule);
+        _CmAp.put(__MayRule.id,__MayRule);
+        _CmAp.put(__MustRule.id,__MustRule);
+        _CmAp.put(__Rule.id,__Rule);
+
+        __Rule.addMust(MetaDMSAG.__name);
+        __Rule.addMust(__ruleTitle);
+
+        __AttributeRule.addMust(__applyToAttribute);
+
+        __ClassRule.addMay(__applyToClass);
+
+        __MustRule.addMust(__ruleTitle);
+
+        __MayRule.addMust(__ruleTitle);
+
+        __IntegerRangeRule.addMust(__ruleTitle);
+
 
     }
 

@@ -21,7 +21,6 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 
 /**
@@ -61,9 +60,7 @@ abstract public class DmcTypeActionResponseREF extends DmcAttribute<ActionRespon
 
     @Override
     public ActionResponseDMO deserializeValue(DmcInputStreamIF dis) throws Exception {
-        DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
-        oc.deserializeIt(dis);
-        ActionResponseDMO rc = (ActionResponseDMO)dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
+        ActionResponseDMO rc = (ActionResponseDMO)dis.getDMOInstance(dis);
         rc.deserializeIt(dis);
         return(rc);
     }

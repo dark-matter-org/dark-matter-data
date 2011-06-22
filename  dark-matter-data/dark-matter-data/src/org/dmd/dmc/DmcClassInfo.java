@@ -1,6 +1,6 @@
 package org.dmd.dmc;
 
-import java.io.Serializable;
+import java.util.TreeMap;
 
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
@@ -10,8 +10,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
  * derived from a a ClassDefinition. This information is used to assist during object
  * deserialization and may also be used in filtering.
  */
-@SuppressWarnings("serial")
-public class DmcClassInfo  implements Serializable {
+public class DmcClassInfo {
 
 	// The string name of the attribute
 	final public String 		name;
@@ -22,7 +21,7 @@ public class DmcClassInfo  implements Serializable {
 	final public int 			id;
 	
 	// The type of the class
-	final ClassTypeEnum			classType;
+	final public ClassTypeEnum	classType;
 	
 	// Indicates if an attribute is transient or persistent
 	final public DataTypeEnum	dataType;
@@ -30,12 +29,7 @@ public class DmcClassInfo  implements Serializable {
 	// The class from which this class is derived
 	final public DmcClassInfo	derivedFrom;
 	
-//	public DmcClassInfo(String n, int i, ClassTypeEnum ct, DataTypeEnum dt){
-//		name		= n;
-//		id			= i;
-//		classType	= ct;
-//		dataType	= dt;
-//	}
+	final TreeMap<Integer,DmcAttributeInfoRef>	byID;
 	
 	public DmcClassInfo(String n, int i, ClassTypeEnum ct, DataTypeEnum dt, DmcClassInfo bc){
 		name		= n;
@@ -43,6 +37,15 @@ public class DmcClassInfo  implements Serializable {
 		classType	= ct;
 		dataType	= dt;
 		derivedFrom	= bc;
+		byID		= new TreeMap<Integer,DmcAttributeInfoRef>();
+	}
+	
+	public void addMust(DmcAttributeInfo info){
+		byID.put(info.id, new DmcAttributeInfoRef(info, true));
+	}
+	
+	public void addMay(DmcAttributeInfo info){
+		byID.put(info.id, new DmcAttributeInfoRef(info, false));
 	}
 	
 	/**

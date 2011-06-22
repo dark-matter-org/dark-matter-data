@@ -21,7 +21,6 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;
 
 /**
@@ -61,9 +60,7 @@ abstract public class DmcTypeMayRuleREF extends DmcAttribute<MayRuleDMO> impleme
 
     @Override
     public MayRuleDMO deserializeValue(DmcInputStreamIF dis) throws Exception {
-        DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
-        oc.deserializeIt(dis);
-        MayRuleDMO rc = (MayRuleDMO)dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
+        MayRuleDMO rc = (MayRuleDMO)dis.getDMOInstance(dis);
         rc.deserializeIt(dis);
         return(rc);
     }

@@ -88,9 +88,11 @@ abstract public class DmcTypeDmcObject extends DmcAttribute<DmcObject> implement
      * @throws Exception
      */
     public DmcObject deserializeValue(DmcInputStreamIF dis) throws Exception {
-		DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
-		oc.deserializeIt(dis);
-    	DmcObject rc = dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
+//		DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
+//		oc.deserializeIt(dis);
+//    	DmcObject rc = dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
+//    	rc.deserializeIt(dis);
+    	DmcObject rc = dis.getDMOInstance(dis);
     	rc.deserializeIt(dis);
     	return(rc);
     }

@@ -18,6 +18,7 @@ import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
@@ -103,8 +104,6 @@ public class TestModifiers {
 		StringBuffer	sb = new StringBuffer();
 		dmo.getModifier().toOIF(sb);
 		System.out.println(sb.toString());
-		
-		
 	}
 	
 	@Test
@@ -138,6 +137,8 @@ public class TestModifiers {
 	@Test
 	public void serializeModifer() throws Exception {
 		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
+		
+		DmcOmni.instance().addCompactSchema(DmpDMSAG.instance());
 
 		ObjWithRefs	obj1	= new ObjWithRefs();
 		ObjWithRefs	obj2	= new ObjWithRefs();

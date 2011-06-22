@@ -30,8 +30,8 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeControllerREFMAP provides storage for a map of ControllerREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from:  org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2305)
- *    Called from:  org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:502)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2305)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:502)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeControllerREFMAP extends DmcTypeControllerREF<ControllerREF,CamelCaseName> {

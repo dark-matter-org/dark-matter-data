@@ -4,11 +4,15 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:482)
+import org.dmd.dms.generated.dmo.MetaDMSAG;         // MetaDMSAG
+
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:92)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:93)
 public class DmrBaseDMSAG implements DmcCompactSchemaIF {
 
 
@@ -16,8 +20,8 @@ public class DmrBaseDMSAG implements DmcCompactSchemaIF {
 
     public final static DmcClassInfo __HierarchicObject = new DmcClassInfo("HierarchicObject", 401, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
     public final static DmcClassInfo __DotNamedObject = new DmcClassInfo("DotNamedObject", 402, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__HierarchicObject);
-    public final static DmcAttributeInfo __password = new DmcAttributeInfo("password", 401, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __userName = new DmcAttributeInfo("userName", 400, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __password = new DmcAttributeInfo("password", 401, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __userName = new DmcAttributeInfo("userName", 400, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
 
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
@@ -43,6 +47,15 @@ public class DmrBaseDMSAG implements DmcCompactSchemaIF {
 
         _SmAp.put(__password.id,__password);
         _SmAp.put(__userName.id,__userName);
+        _CmAp.put(__DotNamedObject.id,__DotNamedObject);
+        _CmAp.put(__HierarchicObject.id,__HierarchicObject);
+
+        __HierarchicObject.addMust(MetaDMSAG.__FQN);
+        __HierarchicObject.addMay(MetaDMSAG.__lineNumber);
+        __HierarchicObject.addMay(MetaDMSAG.__file);
+
+        __DotNamedObject.addMust(MetaDMSAG.__FQN);
+
 
     }
 

@@ -21,7 +21,6 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDMO;
 
 /**
@@ -61,9 +60,7 @@ abstract public class DmcTypeIntegerRangeRuleREF extends DmcAttribute<IntegerRan
 
     @Override
     public IntegerRangeRuleDMO deserializeValue(DmcInputStreamIF dis) throws Exception {
-        DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
-        oc.deserializeIt(dis);
-        IntegerRangeRuleDMO rc = (IntegerRangeRuleDMO)dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
+        IntegerRangeRuleDMO rc = (IntegerRangeRuleDMO)dis.getDMOInstance(dis);
         rc.deserializeIt(dis);
         return(rc);
     }

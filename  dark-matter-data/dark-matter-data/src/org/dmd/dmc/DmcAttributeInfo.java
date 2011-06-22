@@ -15,8 +15,6 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmc;
 
-import java.io.Serializable;
-
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
@@ -61,8 +59,17 @@ public class DmcAttributeInfo {
 		mandatory	= opt;
 	}
 	
+	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte){
+		name 		= n;
+		id			= i;
+		type		= t;
+		valueType	= at;
+		dataType	= dte;
+		mandatory	= false;
+	}
+	
 	public String toString(){
-		return(name + " " + id + " " + type + " " + valueType + " " + mandatory);
+		return(name + " " + id + " " + type + " " + valueType + " " + dataType);
 	}
 
 }

@@ -6,7 +6,6 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;
 
 /**
@@ -46,9 +45,7 @@ abstract public class DmcTypeNameContainerTestREF extends DmcAttribute<NameConta
 
     @Override
     public NameContainerTestDMO deserializeValue(DmcInputStreamIF dis) throws Exception {
-        DmcTypeClassDefinitionREF	oc   = (DmcTypeClassDefinitionREF) dis.getAttributeInstance();
-        oc.deserializeIt(dis);
-        NameContainerTestDMO rc = (NameContainerTestDMO)dis.getDMOInstance(oc.getMVnth(0).getObjectName().getNameString());
+        NameContainerTestDMO rc = (NameContainerTestDMO)dis.getDMOInstance(dis);
         rc.deserializeIt(dis);
         return(rc);
     }

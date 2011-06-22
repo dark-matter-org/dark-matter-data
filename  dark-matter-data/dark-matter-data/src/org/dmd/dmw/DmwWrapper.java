@@ -38,7 +38,7 @@ import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmwWrapper class provides a common base for Dark Matter Wrapper classes
- * in a Full Jave Environment and provides basic functionality beyond what's 
+ * in a Full Java Environment and provides basic functionality beyond what's 
  * defined for a DmcContainer.
  */
 public abstract class DmwWrapper extends DmcContainer {

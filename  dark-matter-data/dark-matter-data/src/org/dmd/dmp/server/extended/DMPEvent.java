@@ -281,6 +281,7 @@ public class DMPEvent extends DMPEventDMW {
 			// We clone the event because we have to tag it with a listenerID
 			// when it's sent back
 			rc = new DMPEvent((DMPEventDMO) this.getDMO().shallowCopy());
+			rc.setSlice(dsi.getName());
 		}
 		
 		return(rc);

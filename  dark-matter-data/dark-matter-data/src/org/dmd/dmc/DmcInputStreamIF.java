@@ -61,7 +61,15 @@ public interface DmcInputStreamIF {
 	 * @return The appropriate DMO.
 	 * @throws Exception
 	 */
-	public DmcObject getDMOInstance(String cn) throws Exception;
+//	public DmcObject getDMOInstance(String cn) throws Exception;
+	
+	/**
+	 * Returns an instance of object based on the class Dark Matter ID.
+	 * @param cn The construction class name.
+	 * @return The appropriate DMO.
+	 * @throws Exception
+	 */
+	public DmcObject getDMOInstance(DmcInputStreamIF dis) throws Exception;
 	
 	/**
 	 * Returns an instance of the appropriate DmcAttribute based on the attribute info.

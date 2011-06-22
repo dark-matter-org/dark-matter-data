@@ -4,13 +4,16 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
-import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;
+// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:482)
+import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // DmrBaseDMSAG
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // MetaDMSAG
 
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:92)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:93)
 public class DmrLdapDMSAG implements DmcCompactSchemaIF {
 
 
@@ -20,8 +23,8 @@ public class DmrLdapDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __LDAPClassAUX = new DmcClassInfo("LDAPClassAUX", 452, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null);
     public final static DmcClassInfo __LDAPHierarchicObject = new DmcClassInfo("LDAPHierarchicObject", 454, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,DmrBaseDMSAG.__HierarchicObject);
     public final static DmcClassInfo __LDAPSchemaAUX = new DmcClassInfo("LDAPSchemaAUX", 451, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null);
-    public final static DmcAttributeInfo __ldapIdPrefix = new DmcAttributeInfo("ldapIdPrefix", 450, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
-    public final static DmcAttributeInfo __reposName = new DmcAttributeInfo("reposName", 451, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT, true);
+    public final static DmcAttributeInfo __ldapIdPrefix = new DmcAttributeInfo("ldapIdPrefix", 450, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __reposName = new DmcAttributeInfo("reposName", 451, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
 
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
@@ -47,6 +50,20 @@ public class DmrLdapDMSAG implements DmcCompactSchemaIF {
 
         _SmAp.put(__ldapIdPrefix.id,__ldapIdPrefix);
         _SmAp.put(__reposName.id,__reposName);
+        _CmAp.put(__LDAPAttributeAUX.id,__LDAPAttributeAUX);
+        _CmAp.put(__LDAPClassAUX.id,__LDAPClassAUX);
+        _CmAp.put(__LDAPHierarchicObject.id,__LDAPHierarchicObject);
+        _CmAp.put(__LDAPSchemaAUX.id,__LDAPSchemaAUX);
+
+        __LDAPSchemaAUX.addMay(__ldapIdPrefix);
+
+        __LDAPClassAUX.addMay(__reposName);
+        __LDAPClassAUX.addMay(MetaDMSAG.__namingAttribute);
+
+        __LDAPAttributeAUX.addMay(__reposName);
+
+        __LDAPHierarchicObject.addMust(MetaDMSAG.__FQN);
+
 
     }
 
