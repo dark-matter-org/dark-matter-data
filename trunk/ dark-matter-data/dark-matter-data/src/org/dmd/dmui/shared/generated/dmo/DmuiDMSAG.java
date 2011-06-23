@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:482)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:483)
 
 
 
@@ -46,9 +46,10 @@ public class DmuiDMSAG implements DmcCompactSchemaIF {
     protected DmuiDMSAG (){
     }
 
-    public static DmuiDMSAG instance(){
+    public synchronized static DmuiDMSAG instance(){
         if (instance == null)
             instance = new DmuiDMSAG();
+        
         return(instance);
     }
 

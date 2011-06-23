@@ -237,7 +237,7 @@ public class DmvSchemaAG extends SchemaDefinition {
 
 
     @Override
-    public DmvSchemaAG getInstance() throws DmcValueException{
+    public synchronized DmvSchemaAG getInstance() throws DmcValueException{
     	   if (instance == null)
     		   initialize();
     	   return(instance);

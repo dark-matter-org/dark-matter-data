@@ -146,7 +146,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
 
 
     @Override
-    public DmrBaseSchemaAG getInstance() throws DmcValueException{
+    public synchronized DmrBaseSchemaAG getInstance() throws DmcValueException{
     	   if (instance == null)
     		   initialize();
     	   return(instance);

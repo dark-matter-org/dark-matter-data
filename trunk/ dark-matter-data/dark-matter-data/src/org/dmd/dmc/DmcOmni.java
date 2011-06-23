@@ -126,9 +126,10 @@ public class DmcOmni implements DmcNameResolverIF {
 		addCompactSchema(MetaDMSAG.instance());
 	}
 	
-	static public DmcOmni instance(){
+	static public synchronized DmcOmni instance(){
 		if (omni == null)
 			omni = new DmcOmni();
+		
 		return(omni);
 	}
 	

@@ -5,7 +5,7 @@ import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:482)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:483)
 import org.dmd.dms.generated.dmo.MetaDMSAG;         // MetaDMSAG
 
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -71,9 +71,10 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
     protected DmgDMSAG (){
     }
 
-    public static DmgDMSAG instance(){
+    public synchronized static DmgDMSAG instance(){
         if (instance == null)
             instance = new DmgDMSAG();
+        
         return(instance);
     }
 

@@ -285,7 +285,7 @@ public class DmpServerSchemaAG extends SchemaDefinition {
 
 
     @Override
-    public DmpServerSchemaAG getInstance() throws DmcValueException{
+    public synchronized DmpServerSchemaAG getInstance() throws DmcValueException{
     	   if (instance == null)
     		   initialize();
     	   return(instance);

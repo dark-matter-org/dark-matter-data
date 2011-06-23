@@ -1029,10 +1029,11 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DMPEventTypeEnumOBJ.addEnumValue("0 CREATED Indicates that an object was created.");
             _DMPEventTypeEnumOBJ.addEnumValue("1 DELETED Indicates that an object was deleted.");
             _DMPEventTypeEnumOBJ.addEnumValue("2 MODIFIED Indicates that an object was modified.");
+            _DMPEventTypeEnumOBJ.addEnumValue("3 LOADED Indicates that an object has been loaded in the cache.");
             _DMPEventTypeEnumOBJ.setDescription("The ObjectEventEnum indicates the type of operation that caused  an object event to be generated.");
             _DMPEventTypeEnum.setDefinedIn(this);
             _DMPEventTypeEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
-            _DMPEventTypeEnumOBJ.setLineNumber("20");
+            _DMPEventTypeEnumOBJ.setLineNumber("21");
             addEnumDefList(_DMPEventTypeEnum);
 
             EnumDefinitionDMO _FileModeEnumOBJ = new EnumDefinitionDMO();
@@ -1043,7 +1044,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _FileModeEnumOBJ.setDescription("The FileModeEnum is used to indicate the mode in which a file is opened for writing  when the results of an operation are to be captured to a file.");
             _FileModeEnum.setDefinedIn(this);
             _FileModeEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
-            _FileModeEnumOBJ.setLineNumber("29");
+            _FileModeEnumOBJ.setLineNumber("30");
             addEnumDefList(_FileModeEnum);
 
             EnumDefinitionDMO _ResponseTypeEnumOBJ = new EnumDefinitionDMO();
@@ -1058,7 +1059,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseTypeEnumOBJ.setDescription("The ResponseTypeEnum indicates the type of a response.");
             _ResponseTypeEnum.setDefinedIn(this);
             _ResponseTypeEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
-            _ResponseTypeEnumOBJ.setLineNumber("44");
+            _ResponseTypeEnumOBJ.setLineNumber("45");
             addEnumDefList(_ResponseTypeEnum);
 
             EnumDefinitionDMO _ResponseCategoryEnumOBJ = new EnumDefinitionDMO();
@@ -1073,7 +1074,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseCategoryEnumOBJ.setDescription("The ResponseCategoryEnum indicates the category of an error response.");
             _ResponseCategoryEnum.setDefinedIn(this);
             _ResponseCategoryEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
-            _ResponseCategoryEnumOBJ.setLineNumber("54");
+            _ResponseCategoryEnumOBJ.setLineNumber("55");
             addEnumDefList(_ResponseCategoryEnum);
 
             EnumDefinitionDMO _ResponseFormatEnumOBJ = new EnumDefinitionDMO();
@@ -1084,14 +1085,14 @@ public class DmpSchemaAG extends SchemaDefinition {
             _ResponseFormatEnumOBJ.setDescription("The ResponseFormatEnum indicates how JSON responses are to be formatted.");
             _ResponseFormatEnum.setDefinedIn(this);
             _ResponseFormatEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/types.dmd");
-            _ResponseFormatEnumOBJ.setLineNumber("60");
+            _ResponseFormatEnumOBJ.setLineNumber("61");
             addEnumDefList(_ResponseFormatEnum);
 
     }
 
 
     @Override
-    public DmpSchemaAG getInstance() throws DmcValueException{
+    public synchronized DmpSchemaAG getInstance() throws DmcValueException{
     	   if (instance == null)
     		   initialize();
     	   return(instance);

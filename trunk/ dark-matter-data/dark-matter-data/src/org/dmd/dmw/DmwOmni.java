@@ -35,7 +35,7 @@ public class DmwOmni extends DmcOmni {
 		}
 	}
 	
-	static public DmwOmni instance(){
+	static public synchronized DmwOmni instance(){
 		if (dmwomni == null)
 			new DmwOmni();
 		return(dmwomni);
