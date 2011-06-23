@@ -66,7 +66,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmr.ldap.html#reposName">reposName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> This attribute indicates the name of an attribute or class when it is stored in a repository and added to that repository's schema. Generally speaking, we will always use the standard prefix for all attribute and class names. Like all other name values, this one must be globally unique. </td>
     </tr>
 
@@ -94,8 +94,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="metaSchema.html#namingAttribute">namingAttribute</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#AttributeDefinition">AttributeDefinition</a> </td>
+      <td> <a href="meta.html#namingAttribute">namingAttribute</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> This attribute indicates the attribute that is used to name an object instance. The exact manner in which the naming attribute is used is specific to the implementation of the HierarchicObject derived class. <p> For instance, the DotNamedObject simply uses the value of the naming attribute and separates the attribute values with periods e.g. grandparent.parent.child. <p> For LDAP objects when a hierarchic name is composed for an object, the class name plus the value of the naming attribute (type:value) is used to create the name of an object. It is best if the naming attribute value is created by the application; it shouldn't be based on any user configurable value. </td>
     </tr>
 
@@ -103,7 +103,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmr.ldap.html#reposName">reposName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> This attribute indicates the name of an attribute or class when it is stored in a repository and added to that repository's schema. Generally speaking, we will always use the standard prefix for all attribute and class names. Like all other name values, this one must be globally unique. </td>
     </tr>
 
@@ -141,7 +141,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#FQN">FQN</a> </td>
+      <td colspan="2"> <a href="meta.html#FQN">FQN</a> </td>
     </tr>
 
   </table>
@@ -151,8 +151,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#FQN">FQN</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#FullyQualifiedName">FullyQualifiedName</a> </td>
+      <td> <a href="meta.html#FQN">FQN</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#FullyQualifiedName">FullyQualifiedName</a> </td>
       <td> The fully qualified name of a hierarchic object. The exact form of the fqn is application specific. </td>
     </tr>
 
@@ -181,7 +181,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmr.ldap.html#ldapIdPrefix">ldapIdPrefix</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The ldapIdPrefix is defined for use against an entire schema. It indicates the prefix that will be added to all class and attribute definitions that are loaded into the directory as schema. Having a prefix prevents possible collisions with existing schema definitions. The prefix should be short, 2 or 3 characters. </td>
     </tr>
 
@@ -198,7 +198,7 @@
     <tr> <td class="className" colspan="3"> <a name="ldapIdPrefix"> ldapIdPrefix </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -211,7 +211,7 @@
     <tr> <td class="className" colspan="3"> <a name="reposName"> reposName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 

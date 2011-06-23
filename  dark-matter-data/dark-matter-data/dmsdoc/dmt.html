@@ -144,7 +144,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
 
   </table>
@@ -154,8 +154,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
@@ -163,7 +163,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Date">Date</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A sv Date. </td>
     </tr>
 
@@ -192,7 +192,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#OUIFilter">OUIFilter</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
     </tr>
 
   </table>
@@ -229,7 +229,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -244,7 +244,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -252,7 +252,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
@@ -260,7 +260,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines. </td>
     </tr>
 
@@ -276,7 +276,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -284,8 +284,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -302,7 +310,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#integerName">integerName</a> </td>
+      <td colspan="2"> <a href="meta.html#integerName">integerName</a> </td>
     </tr>
 
   </table>
@@ -312,8 +320,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#integerName">integerName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#IntegerName">IntegerName</a> </td>
+      <td> <a href="meta.html#integerName">integerName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#IntegerName">IntegerName</a> </td>
       <td> The object name for objects uniquely identified with an integer. </td>
     </tr>
 
@@ -321,7 +329,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -344,7 +352,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmt.html#anObjName">anObjName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
       <td> A single-valued NameContainer. </td>
     </tr>
 
@@ -392,7 +400,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
 
   </table>
@@ -409,8 +417,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="metaSchema.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
@@ -418,7 +426,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -426,14 +434,14 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#attrIDs">attrIDs</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="metaSchema.html#AttributeID">AttributeID</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#AttributeID">AttributeID</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#hsDate">hsDate</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="metaSchema.html#Date">Date</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A hs Date. </td>
     </tr>
 
@@ -441,7 +449,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#hsNames">hsNames</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
     </tr>
 
     <tr>
@@ -455,7 +463,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#intToString">intToString</a> </td>
-      <td class="valueType"> P HM </td>      <td> <a href="metaSchema.html#IntegerToString">IntegerToString</a> </td>
+      <td class="valueType"> P HM </td>      <td> <a href="meta.html#IntegerToString">IntegerToString</a> </td>
       <td> A hash mapping of an integer to a string. </td>
     </tr>
 
@@ -463,7 +471,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
     </tr>
 
@@ -471,7 +479,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#nonperString">nonperString</a> </td>
-      <td class="valueType"> N HS </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> N HS </td>      <td> <a href="meta.html#String">String</a> </td>
     </tr>
 
     <tr>
@@ -502,7 +510,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Date">Date</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A sv Date. </td>
     </tr>
 
@@ -510,7 +518,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#transString">transString</a> </td>
-      <td class="valueType"> T HS </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> T HS </td>      <td> <a href="meta.html#String">String</a> </td>
     </tr>
 
   </table>
@@ -544,7 +552,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -573,7 +581,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -602,7 +610,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -626,7 +634,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
 
   </table>
@@ -636,8 +644,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
@@ -645,7 +653,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -653,7 +661,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
     </tr>
 
@@ -685,7 +693,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
 
   </table>
@@ -695,8 +703,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
@@ -704,7 +712,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -712,7 +720,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
     </tr>
 
@@ -749,7 +757,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#hsDate">hsDate</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="metaSchema.html#Date">Date</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A hs Date. </td>
     </tr>
 
@@ -757,7 +765,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#hsDouble">hsDouble</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="metaSchema.html#Double">Double</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> An hs Double. </td>
     </tr>
 
@@ -765,7 +773,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#hsFloat">hsFloat</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="metaSchema.html#Float">Float</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#Float">Float</a> </td>
       <td> An hs Float. </td>
     </tr>
 
@@ -773,7 +781,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#hsInteger">hsInteger</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> An hs Integer. </td>
     </tr>
 
@@ -781,7 +789,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#hsLong">hsLong</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> An hs Long. </td>
     </tr>
 
@@ -789,7 +797,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#hsString">hsString</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An hs String. </td>
     </tr>
 
@@ -797,7 +805,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#intToString">intToString</a> </td>
-      <td class="valueType"> P HM </td>      <td> <a href="metaSchema.html#IntegerToString">IntegerToString</a> </td>
+      <td class="valueType"> P HM </td>      <td> <a href="meta.html#IntegerToString">IntegerToString</a> </td>
       <td> A hash mapping of an integer to a string. </td>
     </tr>
 
@@ -805,7 +813,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#mvBoolean">mvBoolean</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A multi-valued Boolean. </td>
     </tr>
 
@@ -813,7 +821,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#mvDate">mvDate</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Date">Date</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A mv Date. </td>
     </tr>
 
@@ -821,7 +829,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#mvDouble">mvDouble</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Double">Double</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> An mv Double. </td>
     </tr>
 
@@ -829,7 +837,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#mvFloat">mvFloat</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Float">Float</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Float">Float</a> </td>
       <td> An mv Float. </td>
     </tr>
 
@@ -837,7 +845,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#mvInteger">mvInteger</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> An mv Integer. </td>
     </tr>
 
@@ -845,7 +853,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#mvLong">mvLong</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> An mv Long. </td>
     </tr>
 
@@ -853,7 +861,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
     </tr>
 
@@ -861,7 +869,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A single valued Boolean. </td>
     </tr>
 
@@ -869,7 +877,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Date">Date</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A sv Date. </td>
     </tr>
 
@@ -877,7 +885,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svDouble">svDouble</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Double">Double</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> A sv Double. </td>
     </tr>
 
@@ -885,7 +893,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svFloat">svFloat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Float">Float</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Float">Float</a> </td>
       <td> A sv Float. </td>
     </tr>
 
@@ -893,7 +901,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svInteger">svInteger</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A sv Integer. </td>
     </tr>
 
@@ -901,7 +909,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svLong">svLong</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A sv Long. </td>
     </tr>
 
@@ -909,7 +917,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -925,7 +933,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#tsDate">tsDate</a> </td>
-      <td class="valueType"> P TS </td>      <td> <a href="metaSchema.html#Date">Date</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A ts Date. </td>
     </tr>
 
@@ -933,7 +941,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#tsDouble">tsDouble</a> </td>
-      <td class="valueType"> P TS </td>      <td> <a href="metaSchema.html#Double">Double</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> A ts Double. </td>
     </tr>
 
@@ -941,7 +949,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#tsFloat">tsFloat</a> </td>
-      <td class="valueType"> P TS </td>      <td> <a href="metaSchema.html#Float">Float</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#Float">Float</a> </td>
       <td> A ts Float. </td>
     </tr>
 
@@ -949,7 +957,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#tsInteger">tsInteger</a> </td>
-      <td class="valueType"> P TS </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A ts Integer. </td>
     </tr>
 
@@ -957,7 +965,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#tsLong">tsLong</a> </td>
-      <td class="valueType"> P TS </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A ts Long. </td>
     </tr>
 
@@ -965,7 +973,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#tsString">tsString</a> </td>
-      <td class="valueType"> P TS </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A ts String. </td>
     </tr>
 
@@ -1003,7 +1011,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
 
   </table>
@@ -1013,8 +1021,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
@@ -1022,7 +1030,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -1030,7 +1038,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
     </tr>
 
@@ -1062,7 +1070,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
 
   </table>
@@ -1072,8 +1080,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
@@ -1081,7 +1089,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -1089,7 +1097,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
     </tr>
 
@@ -1120,7 +1128,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
 
   </table>
@@ -1130,8 +1138,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
@@ -1139,7 +1147,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -1147,7 +1155,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
     </tr>
 
@@ -1178,7 +1186,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
 
   </table>
@@ -1188,8 +1196,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
@@ -1197,7 +1205,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -1205,7 +1213,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
     </tr>
 
@@ -1235,7 +1243,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#name">name</a> </td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
 
   </table>
@@ -1245,8 +1253,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#StringName">StringName</a> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
@@ -1254,7 +1262,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -1262,7 +1270,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
     </tr>
 
@@ -1280,7 +1288,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="metaSchema.html#uuidName">uuidName</a> </td>
+      <td colspan="2"> <a href="meta.html#uuidName">uuidName</a> </td>
     </tr>
 
   </table>
@@ -1290,8 +1298,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#uuidName">uuidName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#UUIDName">UUIDName</a> </td>
+      <td> <a href="meta.html#uuidName">uuidName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#UUIDName">UUIDName</a> </td>
       <td> The object name for objects uniquely identified with a UUID. </td>
     </tr>
 
@@ -1299,7 +1307,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmt.html#mvBoolean">mvBoolean</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A multi-valued Boolean. </td>
     </tr>
 
@@ -1307,7 +1315,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#mvDate">mvDate</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Date">Date</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A mv Date. </td>
     </tr>
 
@@ -1315,7 +1323,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#mvDouble">mvDouble</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Double">Double</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> An mv Double. </td>
     </tr>
 
@@ -1323,7 +1331,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
     </tr>
 
@@ -1331,7 +1339,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A single valued Boolean. </td>
     </tr>
 
@@ -1339,7 +1347,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Date">Date</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A sv Date. </td>
     </tr>
 
@@ -1347,7 +1355,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svDouble">svDouble</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Double">Double</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> A sv Double. </td>
     </tr>
 
@@ -1355,7 +1363,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
     </tr>
 
@@ -1372,14 +1380,14 @@
     <tr> <td class="className" colspan="3"> <a name="OUIFilter"> OUIFilter </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="anObjName"> anObjName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#NameContainer">NameContainer</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#NameContainer">NameContainer</a> </div> 
       </td>
     </tr>
 
@@ -1405,7 +1413,7 @@
     <tr> <td class="className" colspan="3"> <a name="attrIDs"> attrIDs </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#AttributeID">AttributeID</a> </div> 
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="meta.html#AttributeID">AttributeID</a> </div> 
       </td>
     </tr>
 
@@ -1432,7 +1440,7 @@
     <tr> <td class="className" colspan="3"> <a name="hsDate"> hsDate </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#Date">Date</a> </div> 
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="meta.html#Date">Date</a> </div> 
       </td>
     </tr>
 
@@ -1445,7 +1453,7 @@
     <tr> <td class="className" colspan="3"> <a name="hsDouble"> hsDouble </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#Double">Double</a> </div> 
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="meta.html#Double">Double</a> </div> 
       </td>
     </tr>
 
@@ -1458,7 +1466,7 @@
     <tr> <td class="className" colspan="3"> <a name="hsFloat"> hsFloat </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#Float">Float</a> </div> 
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="meta.html#Float">Float</a> </div> 
       </td>
     </tr>
 
@@ -1471,7 +1479,7 @@
     <tr> <td class="className" colspan="3"> <a name="hsInteger"> hsInteger </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
       </td>
     </tr>
 
@@ -1484,7 +1492,7 @@
     <tr> <td class="className" colspan="3"> <a name="hsLong"> hsLong </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#Long">Long</a> </div> 
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="meta.html#Long">Long</a> </div> 
       </td>
     </tr>
 
@@ -1497,14 +1505,14 @@
     <tr> <td class="className" colspan="3"> <a name="hsNames"> hsNames </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#NameContainer">NameContainer</a> </div> 
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="meta.html#NameContainer">NameContainer</a> </div> 
       </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="hsString"> hsString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -1524,7 +1532,7 @@
     <tr> <td class="className" colspan="3"> <a name="intToString"> intToString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HM </div> <div class="attrType"> <a href="metaSchema.html#IntegerToString">IntegerToString</a> </div> 
+      <td colspan="2"> <div class="valueType"> HM </div> <div class="attrType"> <a href="meta.html#IntegerToString">IntegerToString</a> </div> 
       </td>
     </tr>
 
@@ -1537,7 +1545,7 @@
     <tr> <td class="className" colspan="3"> <a name="mvBoolean"> mvBoolean </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
       </td>
     </tr>
 
@@ -1550,7 +1558,7 @@
     <tr> <td class="className" colspan="3"> <a name="mvDate"> mvDate </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#Date">Date</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#Date">Date</a> </div> 
       </td>
     </tr>
 
@@ -1563,7 +1571,7 @@
     <tr> <td class="className" colspan="3"> <a name="mvDmcObject"> mvDmcObject </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#DmcObject">DmcObject</a> </div> 
       </td>
     </tr>
 
@@ -1576,7 +1584,7 @@
     <tr> <td class="className" colspan="3"> <a name="mvDouble"> mvDouble </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#Double">Double</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#Double">Double</a> </div> 
       </td>
     </tr>
 
@@ -1589,7 +1597,7 @@
     <tr> <td class="className" colspan="3"> <a name="mvFloat"> mvFloat </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#Float">Float</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#Float">Float</a> </div> 
       </td>
     </tr>
 
@@ -1602,7 +1610,7 @@
     <tr> <td class="className" colspan="3"> <a name="mvInteger"> mvInteger </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
       </td>
     </tr>
 
@@ -1615,7 +1623,7 @@
     <tr> <td class="className" colspan="3"> <a name="mvLong"> mvLong </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#Long">Long</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#Long">Long</a> </div> 
       </td>
     </tr>
 
@@ -1628,7 +1636,7 @@
     <tr> <td class="className" colspan="3"> <a name="mvString"> mvString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -1661,7 +1669,7 @@
     <tr> <td class="className" colspan="3"> <a name="nonperString"> nonperString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -1707,7 +1715,7 @@
     <tr> <td class="className" colspan="3"> <a name="svBoolean"> svBoolean </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
       </td>
     </tr>
 
@@ -1720,7 +1728,7 @@
     <tr> <td class="className" colspan="3"> <a name="svDate"> svDate </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Date">Date</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Date">Date</a> </div> 
       </td>
     </tr>
 
@@ -1733,7 +1741,7 @@
     <tr> <td class="className" colspan="3"> <a name="svDmcObject"> svDmcObject </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#DmcObject">DmcObject</a> </div> 
       </td>
     </tr>
 
@@ -1746,7 +1754,7 @@
     <tr> <td class="className" colspan="3"> <a name="svDouble"> svDouble </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Double">Double</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Double">Double</a> </div> 
       </td>
     </tr>
 
@@ -1759,7 +1767,7 @@
     <tr> <td class="className" colspan="3"> <a name="svFloat"> svFloat </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Float">Float</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Float">Float</a> </div> 
       </td>
     </tr>
 
@@ -1772,7 +1780,7 @@
     <tr> <td class="className" colspan="3"> <a name="svInteger"> svInteger </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
       </td>
     </tr>
 
@@ -1785,7 +1793,7 @@
     <tr> <td class="className" colspan="3"> <a name="svLong"> svLong </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Long">Long</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Long">Long</a> </div> 
       </td>
     </tr>
 
@@ -1798,7 +1806,7 @@
     <tr> <td class="className" colspan="3"> <a name="svString"> svString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -1824,14 +1832,14 @@
     <tr> <td class="className" colspan="3"> <a name="transString"> transString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="tsDate"> tsDate </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#Date">Date</a> </div> 
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="meta.html#Date">Date</a> </div> 
       </td>
     </tr>
 
@@ -1844,7 +1852,7 @@
     <tr> <td class="className" colspan="3"> <a name="tsDouble"> tsDouble </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#Double">Double</a> </div> 
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="meta.html#Double">Double</a> </div> 
       </td>
     </tr>
 
@@ -1857,7 +1865,7 @@
     <tr> <td class="className" colspan="3"> <a name="tsFloat"> tsFloat </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#Float">Float</a> </div> 
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="meta.html#Float">Float</a> </div> 
       </td>
     </tr>
 
@@ -1870,7 +1878,7 @@
     <tr> <td class="className" colspan="3"> <a name="tsInteger"> tsInteger </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
       </td>
     </tr>
 
@@ -1883,7 +1891,7 @@
     <tr> <td class="className" colspan="3"> <a name="tsLong"> tsLong </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#Long">Long</a> </div> 
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="meta.html#Long">Long</a> </div> 
       </td>
     </tr>
 
@@ -1896,7 +1904,7 @@
     <tr> <td class="className" colspan="3"> <a name="tsString"> tsString </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> TS </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
