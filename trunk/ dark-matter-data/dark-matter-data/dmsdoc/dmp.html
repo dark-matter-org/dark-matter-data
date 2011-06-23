@@ -161,8 +161,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="metaSchema.html#FQN">FQN</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#FullyQualifiedName">FullyQualifiedName</a> </td>
+      <td> <a href="meta.html#FQN">FQN</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#FullyQualifiedName">FullyQualifiedName</a> </td>
       <td> The fully qualified name of a hierarchic object. The exact form of the fqn is application specific. </td>
     </tr>
 
@@ -170,7 +170,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#actionName">actionName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The name of an action to be triggered. </td>
     </tr>
 
@@ -178,7 +178,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -186,7 +186,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#actionTrigger">actionTrigger</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#DmcObject">DmcObject</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DmcObject">DmcObject</a> </td>
       <td> The action trigger information i.e. an associated parameters for the action. </td>
     </tr>
 
@@ -194,7 +194,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -202,7 +202,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#objectList">objectList</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#DmcObject">DmcObject</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#DmcObject">DmcObject</a> </td>
       <td> A set of objects returned from the server. </td>
     </tr>
 
@@ -210,7 +210,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
@@ -218,7 +218,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines. </td>
     </tr>
 
@@ -242,7 +242,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -250,8 +250,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -294,7 +302,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#actionName">actionName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The name of an action to be triggered. </td>
     </tr>
 
@@ -302,7 +310,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#lastResponse">lastResponse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response. </td>
     </tr>
 
@@ -310,7 +318,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -326,7 +334,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
     </tr>
 
@@ -334,7 +342,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -342,7 +350,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#objectList">objectList</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#DmcObject">DmcObject</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#DmcObject">DmcObject</a> </td>
       <td> A set of objects returned from the server. </td>
     </tr>
 
@@ -358,7 +366,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#responseText">responseText</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Textual information associated with a response. </td>
     </tr>
 
@@ -366,8 +374,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -410,7 +426,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#newObject">newObject</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#DmcObject">DmcObject</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DmcObject">DmcObject</a> </td>
       <td> A new object to be created. </td>
     </tr>
 
@@ -418,23 +434,15 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="metaSchema.html#FQN">FQN</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#FullyQualifiedName">FullyQualifiedName</a> </td>
-      <td> The fully qualified name of a hierarchic object. The exact form of the fqn is application specific. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -442,15 +450,23 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#parentName">parentName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
+      <td> The name of the parent of an object. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines. </td>
     </tr>
 
@@ -466,7 +482,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -474,8 +490,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -518,7 +542,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#lastResponse">lastResponse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response. </td>
     </tr>
 
@@ -526,7 +550,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -542,7 +566,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -550,7 +574,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#objectList">objectList</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#DmcObject">DmcObject</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#DmcObject">DmcObject</a> </td>
       <td> A set of objects returned from the server. </td>
     </tr>
 
@@ -566,7 +590,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#responseText">responseText</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Textual information associated with a response. </td>
     </tr>
 
@@ -574,8 +598,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -625,15 +657,23 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
+      <td> <a href="dmp.html#listenerID">listenerID</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
+      <td> The targets of a GetRequest. This is the contained name of the object. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#modify">modify</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Modifier">Modifier</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Modifier">Modifier</a> </td>
       <td> A set of modifications to an object. </td>
     </tr>
 
@@ -641,7 +681,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if an originator wants its own event. </td>
     </tr>
 
@@ -649,7 +689,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
@@ -657,7 +697,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#slice">slice</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The name of a SliceDefinition. If specified, on a GetRequest, the set of attributes returned will be the specified slice of the object. For named objects, the object is always returned as well. </td>
     </tr>
 
@@ -665,7 +705,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#source">source</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
       <td> The source of an event. This is the contained name of the object. </td>
     </tr>
 
@@ -673,7 +713,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sourceObject">sourceObject</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#DmcObject">DmcObject</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#DmcObject">DmcObject</a> </td>
       <td> The object associated with an event. This is generally only seen in create events, but there's nothing to prevent you from sending it in other events. </td>
     </tr>
 
@@ -681,7 +721,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sourceObjectClass">sourceObjectClass</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The construction class name of the source of an event. </td>
     </tr>
 
@@ -689,8 +729,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -731,7 +779,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -739,8 +787,16 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -783,7 +839,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -791,7 +847,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#targets">targets</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
       <td> The targets of a GetRequest. This is the contained name of the object. </td>
     </tr>
 
@@ -799,7 +855,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -807,7 +863,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
@@ -815,7 +871,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines. </td>
     </tr>
 
@@ -839,7 +895,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -847,8 +903,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -891,7 +955,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#lastResponse">lastResponse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response. </td>
     </tr>
 
@@ -899,7 +963,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -915,7 +979,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -923,7 +987,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#objectList">objectList</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#DmcObject">DmcObject</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#DmcObject">DmcObject</a> </td>
       <td> A set of objects returned from the server. </td>
     </tr>
 
@@ -939,7 +1003,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#responseText">responseText</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Textual information associated with a response. </td>
     </tr>
 
@@ -947,8 +1011,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -991,7 +1063,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -999,7 +1071,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#target">target</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
       <td> The target of a request. This is the contained name of the object. </td>
     </tr>
 
@@ -1007,7 +1079,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#filter">filter</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Currently a place holder for the eventually filter implementation. </td>
     </tr>
 
@@ -1015,15 +1087,23 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#listenerID">listenerID</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
+      <td> The targets of a GetRequest. This is the contained name of the object. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
@@ -1031,7 +1111,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines. </td>
     </tr>
 
@@ -1055,7 +1135,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -1063,8 +1143,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -1107,7 +1195,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#lastResponse">lastResponse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response. </td>
     </tr>
 
@@ -1115,7 +1203,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -1131,7 +1219,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#filter">filter</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Currently a place holder for the eventually filter implementation. </td>
     </tr>
 
@@ -1139,7 +1227,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -1155,7 +1243,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#responseText">responseText</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Textual information associated with a response. </td>
     </tr>
 
@@ -1171,7 +1259,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#target">target</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
       <td> The target of a request. This is the contained name of the object. </td>
     </tr>
 
@@ -1179,8 +1267,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -1223,7 +1319,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -1239,7 +1335,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#attributeSelector">attributeSelector</a> </td>
-      <td class="valueType"> P HS </td>      <td> <a href="metaSchema.html#AttributeID">AttributeID</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#AttributeID">AttributeID</a> </td>
       <td> The attributeSelector allows you to specify a subset of an object's attributes to be returned in a GetResponse. </td>
     </tr>
 
@@ -1247,7 +1343,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#blockingFactor">blockingFactor</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The number of objects to be returned in a block in a GetResponse. If not specified, the server will attempt to return all requested objects in a single response. </td>
     </tr>
 
@@ -1255,15 +1351,23 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#cacheResponse">cacheResponse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> The cacheResponse flag can be set on GetRequests and is reflected back in the GetResponse. If you are using a central response handler implementation (with caching) the handler can check to see if it should automatically cache the contents of a GetResponse or not. In cases where you are using Sliced objects, this is handy when you you retrieve the full object, but don't want to have it cached. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="meta.html#classFilter">classFilter</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassFilter">ClassFilter</a> </td>
+      <td> The classFilter is used to performing matching of objects based on their class or auxiliary classes. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#filter">filter</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Currently a place holder for the eventually filter implementation. </td>
     </tr>
 
@@ -1271,7 +1375,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#filterByClass">filterByClass</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> Expedient way to ask for just objects of a particular class. </td>
     </tr>
 
@@ -1279,7 +1383,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -1287,7 +1391,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
@@ -1295,7 +1399,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines. </td>
     </tr>
 
@@ -1303,7 +1407,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#registerForEvents">registerForEvents</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> When the registerForEvents flag is set to true on a GetRequest, the client will be registered to receive events for the object(s) associated with the request. This mechanism ties object retrieval to event notification so that there's no possibility of missing events associated with the objects being retrieved. The system providing the GetResponses should ensure that any events associated with the objects are queued for  delivery until after the GetResponse is complete. </td>
     </tr>
 
@@ -1319,7 +1423,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -1327,7 +1431,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#slice">slice</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The name of a SliceDefinition. If specified, on a GetRequest, the set of attributes returned will be the specified slice of the object. For named objects, the object is always returned as well. </td>
     </tr>
 
@@ -1335,7 +1439,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#targets">targets</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
       <td> The targets of a GetRequest. This is the contained name of the object. </td>
     </tr>
 
@@ -1343,8 +1447,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -1355,7 +1467,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The GetResponse returns a set of objects. The form of this response will depend on the readableResponse and responseFormat values that may have been sent with the original Get request. GetResponses</td>
+      <td colspan="2">The GetResponse returns a set of objects. If you had set registerForEvents to true in the GetRequest, the listenerID will be the identifier that you will need to specify in the DenotifyRequest in order to denotify for events on the objects you initially retrieved.</td>
     </tr>
 
     <tr>
@@ -1387,7 +1499,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#lastResponse">lastResponse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response. </td>
     </tr>
 
@@ -1395,7 +1507,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -1411,7 +1523,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#cacheResponse">cacheResponse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> The cacheResponse flag can be set on GetRequests and is reflected back in the GetResponse. If you are using a central response handler implementation (with caching) the handler can check to see if it should automatically cache the contents of a GetResponse or not. In cases where you are using Sliced objects, this is handy when you you retrieve the full object, but don't want to have it cached. </td>
     </tr>
 
@@ -1419,15 +1531,23 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#listenerID">listenerID</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
+      <td> The targets of a GetRequest. This is the contained name of the object. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#objectList">objectList</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#DmcObject">DmcObject</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#DmcObject">DmcObject</a> </td>
       <td> A set of objects returned from the server. </td>
     </tr>
 
@@ -1443,7 +1563,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#responseText">responseText</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Textual information associated with a response. </td>
     </tr>
 
@@ -1451,7 +1571,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#targets">targets</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
       <td> The targets of a GetRequest. This is the contained name of the object. </td>
     </tr>
 
@@ -1459,8 +1579,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -1503,7 +1631,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmr.base.html#password">password</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A user's password. </td>
     </tr>
 
@@ -1511,7 +1639,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -1519,7 +1647,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmr.base.html#userName">userName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The name of a user. </td>
     </tr>
 
@@ -1527,7 +1655,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -1535,7 +1663,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
@@ -1543,7 +1671,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines. </td>
     </tr>
 
@@ -1559,7 +1687,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -1567,8 +1695,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -1611,7 +1747,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#lastResponse">lastResponse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response. </td>
     </tr>
 
@@ -1619,7 +1755,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -1635,7 +1771,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -1643,7 +1779,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestRoot">requestRoot</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> For a set of objects stored in a hierarchic name space, this will be prefix beneath which all objects managed through the interface will reside. </td>
     </tr>
 
@@ -1659,7 +1795,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#responseText">responseText</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Textual information associated with a response. </td>
     </tr>
 
@@ -1667,7 +1803,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -1675,15 +1811,23 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#userFQN">userFQN</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The fully qualified name of a user. </td>
     </tr>
 
@@ -1727,7 +1871,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -1735,7 +1879,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -1743,7 +1887,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmr.base.html#userName">userName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The name of a user. </td>
     </tr>
 
@@ -1751,7 +1895,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -1759,7 +1903,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
@@ -1767,7 +1911,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines. </td>
     </tr>
 
@@ -1783,7 +1927,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -1791,8 +1935,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -1835,7 +1987,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#lastResponse">lastResponse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response. </td>
     </tr>
 
@@ -1843,7 +1995,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -1859,7 +2011,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -1867,7 +2019,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -1883,7 +2035,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#responseText">responseText</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Textual information associated with a response. </td>
     </tr>
 
@@ -1891,8 +2043,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -1935,7 +2095,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -1943,7 +2103,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#target">target</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
       <td> The target of a request. This is the contained name of the object. </td>
     </tr>
 
@@ -1951,7 +2111,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#filter">filter</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Currently a place holder for the eventually filter implementation. </td>
     </tr>
 
@@ -1959,7 +2119,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -1967,7 +2127,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
@@ -1975,7 +2135,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines. </td>
     </tr>
 
@@ -1999,7 +2159,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -2007,8 +2167,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -2089,7 +2257,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -2097,7 +2265,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -2105,7 +2273,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
@@ -2113,7 +2281,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines. </td>
     </tr>
 
@@ -2129,7 +2297,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -2137,8 +2305,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -2187,7 +2363,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#lastResponse">lastResponse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response. </td>
     </tr>
 
@@ -2195,7 +2371,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -2211,7 +2387,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -2227,7 +2403,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#responseText">responseText</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Textual information associated with a response. </td>
     </tr>
 
@@ -2235,8 +2411,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -2279,7 +2463,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#modify">modify</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Modifier">Modifier</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Modifier">Modifier</a> </td>
       <td> A set of modifications to an object. </td>
     </tr>
 
@@ -2287,7 +2471,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -2295,7 +2479,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#target">target</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
       <td> The target of a request. This is the contained name of the object. </td>
     </tr>
 
@@ -2303,7 +2487,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -2311,7 +2495,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
     </tr>
 
@@ -2319,7 +2503,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with  formatting. The default is to use the most compact form - no additional whitespace and no newlines. </td>
     </tr>
 
@@ -2335,7 +2519,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
     </tr>
 
@@ -2343,7 +2527,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#targetObjectClass">targetObjectClass</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The construction class of the target of SetRequest. This is a convenience attribute used to record the object class of an object being modified by a SetRequest so that it can be passed on in the sourceObjectClass of an event. </td>
     </tr>
 
@@ -2351,8 +2535,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -2395,7 +2587,7 @@
       <td class="spacer"> </td>
       <td class="label">Must</td>
       <td> <a href="dmp.html#lastResponse">lastResponse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Boolean">Boolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response. </td>
     </tr>
 
@@ -2403,7 +2595,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
     </tr>
 
@@ -2419,7 +2611,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#target">target</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#NameContainer">NameContainer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
       <td> The target of a request. This is the contained name of the object. </td>
     </tr>
 
@@ -2427,7 +2619,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
     </tr>
 
@@ -2435,7 +2627,7 @@
       <td class="spacer"> </td>
       <td class="label">May</td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Integer">Integer</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
     </tr>
 
@@ -2443,7 +2635,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#objectList">objectList</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="metaSchema.html#DmcObject">DmcObject</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#DmcObject">DmcObject</a> </td>
       <td> A set of objects returned from the server. </td>
     </tr>
 
@@ -2459,7 +2651,7 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#responseText">responseText</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#String">String</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> Textual information associated with a response. </td>
     </tr>
 
@@ -2467,8 +2659,16 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="metaSchema.html#Long">Long</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
     </tr>
 
   </table>
@@ -2484,7 +2684,7 @@
     <tr> <td class="className" colspan="3"> <a name="FQNList"> FQNList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -2497,7 +2697,7 @@
     <tr> <td class="className" colspan="3"> <a name="actionName"> actionName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -2510,7 +2710,7 @@
     <tr> <td class="className" colspan="3"> <a name="actionTrigger"> actionTrigger </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#DmcObject">DmcObject</a> </div> 
       </td>
     </tr>
 
@@ -2523,7 +2723,7 @@
     <tr> <td class="className" colspan="3"> <a name="attributeSelector"> attributeSelector </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="metaSchema.html#AttributeID">AttributeID</a> </div> 
+      <td colspan="2"> <div class="valueType"> HS </div> <div class="attrType"> <a href="meta.html#AttributeID">AttributeID</a> </div> 
       </td>
     </tr>
 
@@ -2536,7 +2736,7 @@
     <tr> <td class="className" colspan="3"> <a name="blockingFactor"> blockingFactor </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
       </td>
     </tr>
 
@@ -2549,7 +2749,7 @@
     <tr> <td class="className" colspan="3"> <a name="cacheResponse"> cacheResponse </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
       </td>
     </tr>
 
@@ -2575,7 +2775,7 @@
     <tr> <td class="className" colspan="3"> <a name="filter"> filter </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -2588,7 +2788,7 @@
     <tr> <td class="className" colspan="3"> <a name="filterByClass"> filterByClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div> 
       </td>
     </tr>
 
@@ -2601,7 +2801,7 @@
     <tr> <td class="className" colspan="3"> <a name="handlerID"> handlerID </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
       </td>
     </tr>
 
@@ -2614,7 +2814,7 @@
     <tr> <td class="className" colspan="3"> <a name="lastResponse"> lastResponse </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
       </td>
     </tr>
 
@@ -2624,10 +2824,23 @@
       <td>Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="listenerID"> listenerID </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Long">Long</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The targets of a GetRequest. This is the contained name of the object.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="modify"> modify </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#Modifier">Modifier</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#Modifier">Modifier</a> </div> 
       </td>
     </tr>
 
@@ -2640,7 +2853,7 @@
     <tr> <td class="className" colspan="3"> <a name="newObject"> newObject </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#DmcObject">DmcObject</a> </div> 
       </td>
     </tr>
 
@@ -2653,7 +2866,7 @@
     <tr> <td class="className" colspan="3"> <a name="notifyOriginator"> notifyOriginator </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
       </td>
     </tr>
 
@@ -2666,7 +2879,7 @@
     <tr> <td class="className" colspan="3"> <a name="objectList"> objectList </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#DmcObject">DmcObject</a> </div> 
       </td>
     </tr>
 
@@ -2679,7 +2892,7 @@
     <tr> <td class="className" colspan="3"> <a name="originatorID"> originatorID </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
       </td>
     </tr>
 
@@ -2692,7 +2905,7 @@
     <tr> <td class="className" colspan="3"> <a name="parentName"> parentName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#DmcAttribute">DmcAttribute</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#NameContainer">NameContainer</a> </div> 
       </td>
     </tr>
 
@@ -2705,7 +2918,7 @@
     <tr> <td class="className" colspan="3"> <a name="readableFormat"> readableFormat </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
       </td>
     </tr>
 
@@ -2718,7 +2931,7 @@
     <tr> <td class="className" colspan="3"> <a name="registerForEvents"> registerForEvents </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Boolean">Boolean</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
       </td>
     </tr>
 
@@ -2731,7 +2944,7 @@
     <tr> <td class="className" colspan="3"> <a name="requestID"> requestID </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#Integer">Integer</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
       </td>
     </tr>
 
@@ -2744,7 +2957,7 @@
     <tr> <td class="className" colspan="3"> <a name="requestRoot"> requestRoot </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -2783,7 +2996,7 @@
     <tr> <td class="className" colspan="3"> <a name="responseText"> responseText </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -2822,7 +3035,7 @@
     <tr> <td class="className" colspan="3"> <a name="sessionID"> sessionID </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -2835,7 +3048,7 @@
     <tr> <td class="className" colspan="3"> <a name="slice"> slice </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -2848,7 +3061,7 @@
     <tr> <td class="className" colspan="3"> <a name="source"> source </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#NameContainer">NameContainer</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#NameContainer">NameContainer</a> </div> 
       </td>
     </tr>
 
@@ -2861,7 +3074,7 @@
     <tr> <td class="className" colspan="3"> <a name="sourceObject"> sourceObject </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#DmcObject">DmcObject</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#DmcObject">DmcObject</a> </div> 
       </td>
     </tr>
 
@@ -2874,7 +3087,7 @@
     <tr> <td class="className" colspan="3"> <a name="sourceObjectClass"> sourceObjectClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div> 
       </td>
     </tr>
 
@@ -2887,7 +3100,7 @@
     <tr> <td class="className" colspan="3"> <a name="target"> target </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#NameContainer">NameContainer</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#NameContainer">NameContainer</a> </div> 
       </td>
     </tr>
 
@@ -2900,7 +3113,7 @@
     <tr> <td class="className" colspan="3"> <a name="targetObjectClass"> targetObjectClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#ClassDefinition">ClassDefinition</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div> 
       </td>
     </tr>
 
@@ -2913,7 +3126,7 @@
     <tr> <td class="className" colspan="3"> <a name="targets"> targets </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="metaSchema.html#NameContainer">NameContainer</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#NameContainer">NameContainer</a> </div> 
       </td>
     </tr>
 
@@ -2926,7 +3139,7 @@
     <tr> <td class="className" colspan="3"> <a name="timeMS"> timeMS </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#Long">Long</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Long">Long</a> </div> 
       </td>
     </tr>
 
@@ -2936,10 +3149,23 @@
       <td>A time stamp in milliseconds.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="trackingEnabled"> trackingEnabled </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A flag used for debug purposes to allow you to turn logging behaviour for a messages.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="userFQN"> userFQN </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="metaSchema.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
