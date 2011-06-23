@@ -345,9 +345,10 @@ public class DmoCompactSchemaFormatter {
         out.write("    }\n");
         out.write("\n");
         
-        out.write("    public static " + schemaName + " instance(){\n");
+        out.write("    public synchronized static " + schemaName + " instance(){\n");
         out.write("        if (instance == null)\n");
         out.write("            instance = new " + schemaName + "();\n");
+        out.write("        \n");
         out.write("        return(instance);\n");
         out.write("    }\n");
         out.write("\n");

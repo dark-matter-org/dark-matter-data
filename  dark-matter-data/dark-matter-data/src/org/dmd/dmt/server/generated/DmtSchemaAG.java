@@ -1049,7 +1049,7 @@ public class DmtSchemaAG extends SchemaDefinition {
 
 
     @Override
-    public DmtSchemaAG getInstance() throws DmcValueException{
+    public synchronized DmtSchemaAG getInstance() throws DmcValueException{
     	   if (instance == null)
     		   initialize();
     	   return(instance);

@@ -1317,7 +1317,7 @@ public class MvwSchemaAG extends SchemaDefinition {
 
 
     @Override
-    public MvwSchemaAG getInstance() throws DmcValueException{
+    public synchronized MvwSchemaAG getInstance() throws DmcValueException{
     	   if (instance == null)
     		   initialize();
     	   return(instance);

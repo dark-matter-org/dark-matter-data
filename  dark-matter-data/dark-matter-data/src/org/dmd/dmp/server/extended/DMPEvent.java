@@ -43,6 +43,9 @@ public class DMPEvent extends DMPEventDMW {
 		if (et == DMPEventTypeEnum.CREATED){
 			setSourceObject(w.getDmcObject());
 		}
+		else if (et == DMPEventTypeEnum.LOADED){
+			setSourceObject(w.getDmcObject());
+		}
 		else if (et == DMPEventTypeEnum.DELETED){
 			if (w instanceof DmcNamedObjectIF){
 				DmcObjectName on = ((DmcNamedObjectIF)w).getObjectName();
@@ -69,7 +72,7 @@ public class DMPEvent extends DMPEventDMW {
 	
 	/**
 	 * Checks to see if the event contains information about persistent objects/attributes.
-	 * A variety of check are performed, depending on the type of the event.
+	 * A variety of checks are performed, depending on the type of the event.
 	 * <p />
 	 * If the source object class is not PERSISTENT, we return false.
 	 * <p />
@@ -78,7 +81,7 @@ public class DMPEvent extends DMPEventDMW {
 	 * <p />
 	 * If it's a DELETE event, we return true.
 	 * <p />
-	 * If it's a MODIFIED event, we check to modify attribute. If it refers to any PERSISTENT
+	 * If it's a MODIFIED event, we check the modify attribute. If it refers to any PERSISTENT
 	 * attribute, we return true.
 	 * @return true if there's persistent data and false otherwise.
 	 */

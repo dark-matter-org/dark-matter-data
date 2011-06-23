@@ -214,8 +214,10 @@ public class DmoValidatorCollectionFormatter {
         out.write("\n");
         
         out.write("    public static " + collectionName + " instance(){\n");
-        out.write("        if (instance == null)\n");
-        out.write("            instance = new " + collectionName + "();\n");
+        out.write("        synchronized(instance){\n");
+        out.write("            if (instance == null)\n");
+        out.write("                instance = new " + collectionName + "();\n");
+        out.write("        }\n");
         out.write("        return(instance);\n");
         out.write("    }\n");
         out.write("\n");

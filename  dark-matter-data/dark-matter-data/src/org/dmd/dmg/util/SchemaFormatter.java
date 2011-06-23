@@ -233,7 +233,7 @@ public class SchemaFormatter {
                 
         out.write("\n");
         out.write("    @Override\n");
-        out.write("    public " + schemaName + " getInstance() throws DmcValueException{\n");
+        out.write("    public synchronized " + schemaName + " getInstance() throws DmcValueException{\n");
         out.write("    	   if (instance == null)\n");
         out.write("    		   initialize();\n");
         out.write("    	   return(instance);\n");

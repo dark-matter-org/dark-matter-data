@@ -34,7 +34,9 @@ public enum DMPEventTypeEnum implements DmcEnumIF
 
     DELETED(1,"Indicates that an object was deleted."),
 
-    MODIFIED(2,"Indicates that an object was modified.");
+    MODIFIED(2,"Indicates that an object was modified."),
+
+    LOADED(3,"Indicates that an object has been loaded in the cache.");
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,DMPEventTypeEnum> lookup = new HashMap<Integer,DMPEventTypeEnum>();
