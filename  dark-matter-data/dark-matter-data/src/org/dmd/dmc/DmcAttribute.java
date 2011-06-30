@@ -270,6 +270,17 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	}
 	
 	/**
+	 * For indexed, multi-valued attributes, we set the nth value as specified. If the value at the index
+	 * is to be removed, set the value to null.
+	 * @param index The value index.
+	 * @param value The value to be set. if the value is null, that index location is nulled.
+	 * @return E
+	 */
+	public VALUE setMVnth(int index, Object value){
+    	throw(new IllegalStateException("The setMVnth() method should be overloaded automatically by the DmcType[VALUE]MV class"));
+	}
+	
+	/**
 	 * Returns the value associated with the specified key for HASHMAPPED or TREEMAPPED
 	 * attributes. This method is overloaded in DmcHashedAttribute - it returns null at this level.
 	 * @param key
@@ -422,7 +433,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 			if (iterator != null){
 				boolean first 		= true;
 				int 	dmoCount 	= 0;
-//				int		size		= getMVSize() - 1;
+
 				while(iterator.hasNext()){
 					VALUE value = iterator.next();
 					if (value instanceof DmcObject){
