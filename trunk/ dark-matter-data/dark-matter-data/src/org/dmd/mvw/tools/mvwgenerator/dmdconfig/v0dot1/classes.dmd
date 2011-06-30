@@ -200,7 +200,7 @@ must			controllerName
 may				centralDMPErrorHandler
 may				centralRPCErrorHandler
 may				addedToRunContext
-may				usesPresenter
+may				instantiatesPresenter
 description		The Controller represents a behavioural component that lives throughout
  the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters
  and Views that are displayed, but may also provide behind the scenes management of things
@@ -226,6 +226,7 @@ isNamedBy		presenterName
 must			presenterName
 must			managesView
 may				theOne
+may				instantiatesPresenter
 description		The Presenter is a behavioural component that manages one or more Views and
  thus implements the Presenter interface of any View it manages. Presenters populate and
  potentially update Views with data. This will often involve interacting with the communications

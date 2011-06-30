@@ -56,6 +56,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent", 801, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent", 802, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __importThis = new DmcAttributeInfo("importThis", 831, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __instantiatesPresenter = new DmcAttributeInfo("instantiatesPresenter", 860, "Presenter", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __instantiatesView = new DmcAttributeInfo("instantiatesView", 862, "View", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __itemName = new DmcAttributeInfo("itemName", 827, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __itemOrder = new DmcAttributeInfo("itemOrder", 829, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -87,7 +88,6 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema", 843, "SchemaDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userDataImport = new DmcAttributeInfo("userDataImport", 804, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usesController = new DmcAttributeInfo("usesController", 842, "Controller", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __usesPresenter = new DmcAttributeInfo("usesPresenter", 860, "Presenter", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usesRunContextItem = new DmcAttributeInfo("usesRunContextItem", 835, "RunContextItem", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usingStandardSubpackages = new DmcAttributeInfo("usingStandardSubpackages", 864, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __viewImport = new DmcAttributeInfo("viewImport", 837, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
@@ -142,6 +142,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__firesEvent.id,__firesEvent);
         _SmAp.put(__handlesEvent.id,__handlesEvent);
         _SmAp.put(__importThis.id,__importThis);
+        _SmAp.put(__instantiatesPresenter.id,__instantiatesPresenter);
         _SmAp.put(__instantiatesView.id,__instantiatesView);
         _SmAp.put(__itemName.id,__itemName);
         _SmAp.put(__itemOrder.id,__itemOrder);
@@ -173,7 +174,6 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__useSchema.id,__useSchema);
         _SmAp.put(__userDataImport.id,__userDataImport);
         _SmAp.put(__usesController.id,__usesController);
-        _SmAp.put(__usesPresenter.id,__usesPresenter);
         _SmAp.put(__usesRunContextItem.id,__usesRunContextItem);
         _SmAp.put(__usingStandardSubpackages.id,__usingStandardSubpackages);
         _SmAp.put(__viewImport.id,__viewImport);
@@ -251,11 +251,12 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __Controller.addMay(__centralDMPErrorHandler);
         __Controller.addMay(__centralRPCErrorHandler);
         __Controller.addMay(__addedToRunContext);
-        __Controller.addMay(__usesPresenter);
+        __Controller.addMay(__instantiatesPresenter);
 
         __Presenter.addMust(__presenterName);
         __Presenter.addMust(__managesView);
         __Presenter.addMay(__theOne);
+        __Presenter.addMay(__instantiatesPresenter);
 
         __Place.addMust(__placeName);
         __Place.addMust(__placePrefix);

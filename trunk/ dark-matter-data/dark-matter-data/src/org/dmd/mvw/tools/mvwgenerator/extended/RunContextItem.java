@@ -4,6 +4,7 @@ import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemDMW;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class RunContextItem extends RunContextItemDMW {
 	
@@ -91,13 +92,15 @@ public class RunContextItem extends RunContextItemDMW {
 			String capped = GenUtility.capTheName(getItemName().getNameString());
 			StringBuilder sb = new StringBuilder();
 			if (view == null){
-				sb.append("    public " + getItemType() + " get" + getPlainName() + "(){\n");
+				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + getItemType() + " getNew" + getPlainName() + "(){\n");
 				sb.append("        return( ((" + getInterfaceName() + ")runcontext).get" + capped + "());\n");
 				sb.append("    }\n\n");		
 			}
 			else{
 				String pres	= view.getViewName() + "." + view.getViewName() + "Presenter";
-				sb.append("    public " + getItemType() + " get" + getPlainName() + "(" + pres + " presenter){\n");
+				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + getItemType() + " getNew" + getPlainName() + "(" + pres + " presenter){\n");
 				sb.append("        return( ((" + getInterfaceName() + ")runcontext).get" + capped + "(presenter));\n");
 				sb.append("    }\n\n");
 			}
@@ -130,6 +133,7 @@ public class RunContextItem extends RunContextItemDMW {
 		
 		if (isCreateOnDemand()){
 			if (view == null){
+				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    @Override\n");
 				sb.append("    public " + getItemType() + " get" + capped + "(){\n");
 				if (isTheOne()){
@@ -151,6 +155,7 @@ public class RunContextItem extends RunContextItemDMW {
 					args = "this";
 				}
 				
+				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    @Override\n");
 				sb.append("    public " + getItemType() + " get" + capped + "(" + pres + " presenter){\n");
 				if (isTheOne()){
@@ -169,6 +174,7 @@ public class RunContextItem extends RunContextItemDMW {
 			}
 		}
 		else{
+			sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    @Override\n");
 			sb.append("    public " + getItemType() + " get" + capped + "(){\n");
 			sb.append("        return(" + getItemName() + ");\n");

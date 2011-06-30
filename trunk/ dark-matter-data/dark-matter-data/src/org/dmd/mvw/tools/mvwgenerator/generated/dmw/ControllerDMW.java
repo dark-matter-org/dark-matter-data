@@ -182,8 +182,8 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
      * @return The number of Presenter items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1224)
-    public int getUsesPresenterSize(){
-        DmcAttribute<?> attr = core.get(ControllerDMO.__usesPresenter);
+    public int getInstantiatesPresenterSize(){
+        DmcAttribute<?> attr = core.get(ControllerDMO.__instantiatesPresenter);
         if (attr == null)
             return(0);
         
@@ -194,8 +194,8 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
      * @return true if there are no PresenterDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1236)
-    public boolean getUsesPresenterIsEmpty(){
-        DmcAttribute<?> attr = core.get(ControllerDMO.__usesPresenter);
+    public boolean getInstantiatesPresenterIsEmpty(){
+        DmcAttribute<?> attr = core.get(ControllerDMO.__instantiatesPresenter);
         if (attr == null)
             return(true);
         
@@ -206,8 +206,8 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
      * @return true if there are any PresenterDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
-    public boolean getUsesPresenterHasValue(){
-        DmcAttribute<?> attr = core.get(ControllerDMO.__usesPresenter);
+    public boolean getInstantiatesPresenterHasValue(){
+        DmcAttribute<?> attr = core.get(ControllerDMO.__instantiatesPresenter);
         if (attr == null)
             return(false);
         
@@ -219,8 +219,8 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1268)
-    public PresenterIterableDMW getUsesPresenterIterable(){
-        DmcAttribute attr = ((ControllerDMO) core).get(ControllerDMO.__usesPresenter);
+    public PresenterIterableDMW getInstantiatesPresenterIterable(){
+        DmcAttribute attr = ((ControllerDMO) core).get(ControllerDMO.__instantiatesPresenter);
         if (attr == null)
             return(PresenterIterableDMW.emptyList);
         
@@ -228,36 +228,36 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     }
 
     /**
-     * Adds another usesPresenter value.
+     * Adds another instantiatesPresenter value.
      * @param value A value compatible with Presenter
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1284)
-    public DmcAttribute<?> addUsesPresenter(Presenter value){
-        DmcAttribute<?> attr = ((ControllerDMO) core).addUsesPresenter(((PresenterDMO)value.getDmcObject()));
+    public DmcAttribute<?> addInstantiatesPresenter(Presenter value){
+        DmcAttribute<?> attr = ((ControllerDMO) core).addInstantiatesPresenter(((PresenterDMO)value.getDmcObject()));
         return(attr);
     }
 
     /**
-     * Deletes a usesPresenter value.
+     * Deletes a instantiatesPresenter value.
      * @param value The Presenter to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1297)
-    public void delUsesPresenter(Presenter value){
-        ((ControllerDMO) core).delUsesPresenter(value.getDMO());
+    public void delInstantiatesPresenter(Presenter value){
+        ((ControllerDMO) core).delInstantiatesPresenter(value.getDMO());
     }
 
     /**
      * @return A COPY of the collection of Presenter objects.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1332)
-    public ArrayList<Presenter> getUsesPresenterCopy(){
-        DmcAttribute<?> attr = ((ControllerDMO) core).get(ControllerDMO.__usesPresenter);
+    public ArrayList<Presenter> getInstantiatesPresenterCopy(){
+        DmcAttribute<?> attr = ((ControllerDMO) core).get(ControllerDMO.__instantiatesPresenter);
         if (attr == null)
             return(new ArrayList<Presenter>());
         
         ArrayList<Presenter> rc = new ArrayList<Presenter>(attr.getMVSize());
         
-        PresenterIterableDMW it = getUsesPresenterIterable();
+        PresenterIterableDMW it = getInstantiatesPresenterIterable();
         while(it.hasNext()){
             rc.add(it.next());
         }
@@ -266,11 +266,11 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     }
 
     /**
-     * Removes the usesPresenter attribute value.
+     * Removes the instantiatesPresenter attribute value.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1497)
-    public void remUsesPresenter(){
-        ((ControllerDMO) core).remUsesPresenter();
+    public void remInstantiatesPresenter(){
+        ((ControllerDMO) core).remInstantiatesPresenter();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)

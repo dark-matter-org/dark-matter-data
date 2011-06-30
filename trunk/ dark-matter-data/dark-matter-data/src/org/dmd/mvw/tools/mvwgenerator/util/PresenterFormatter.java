@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class PresenterFormatter {
 
@@ -20,6 +21,8 @@ public class PresenterFormatter {
         
         out.write("\n");
         
+        
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("abstract public class " + presenter.getPresenterName() + "BaseImpl" + presenter.getPresenterInterfaces() + " {\n\n");
         
     	boolean onDemand = false;
