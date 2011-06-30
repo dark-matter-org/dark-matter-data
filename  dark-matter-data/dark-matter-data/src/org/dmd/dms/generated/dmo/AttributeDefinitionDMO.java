@@ -59,6 +59,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     public final static DmcAttributeInfo __genericArgsImport = new DmcAttributeInfo("genericArgsImport",98,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __internalUse = new DmcAttributeInfo("internalUse",122,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __mvsize = new DmcAttributeInfo("mvsize",129,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",7,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __obsoleteVersion = new DmcAttributeInfo("obsoleteVersion",73,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __secure = new DmcAttributeInfo("secure",78,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -80,6 +81,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(MetaDMSAG.__genericArgsImport.id,MetaDMSAG.__genericArgsImport);
         _ImAp.put(MetaDMSAG.__internalUse.id,MetaDMSAG.__internalUse);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
+        _ImAp.put(MetaDMSAG.__mvsize.id,MetaDMSAG.__mvsize);
         _ImAp.put(MetaDMSAG.__nullReturnValue.id,MetaDMSAG.__nullReturnValue);
         _ImAp.put(MetaDMSAG.__obsoleteVersion.id,MetaDMSAG.__obsoleteVersion);
         _ImAp.put(MetaDMSAG.__secure.id,MetaDMSAG.__secure);
@@ -100,6 +102,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(MetaDMSAG.__genericArgsImport.name,MetaDMSAG.__genericArgsImport);
         _SmAp.put(MetaDMSAG.__internalUse.name,MetaDMSAG.__internalUse);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
+        _SmAp.put(MetaDMSAG.__mvsize.name,MetaDMSAG.__mvsize);
         _SmAp.put(MetaDMSAG.__nullReturnValue.name,MetaDMSAG.__nullReturnValue);
         _SmAp.put(MetaDMSAG.__obsoleteVersion.name,MetaDMSAG.__obsoleteVersion);
         _SmAp.put(MetaDMSAG.__secure.name,MetaDMSAG.__secure);
@@ -551,6 +554,34 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(MetaDMSAG.__lineNumber,attr);
+    }
+
+    /**
+     * The mvsize indicates for any multi-valued attribute, the maximum number of
+     * values that can be stored.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1546)
+    public Integer getMvsize(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__mvsize);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets mvsize to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1597)
+    @SuppressWarnings("unchecked")
+    public void setMvsize(Object value) throws DmcValueException {
+        DmcAttribute attr = get(MetaDMSAG.__mvsize);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(MetaDMSAG.__mvsize);
+        
+        attr.set(value);
+        set(MetaDMSAG.__mvsize,attr);
     }
 
     /**

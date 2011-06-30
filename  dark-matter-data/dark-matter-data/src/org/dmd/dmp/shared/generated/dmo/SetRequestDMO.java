@@ -15,11 +15,12 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
 import java.io.Serializable;                                            // Always required
 import java.util.*;                                                     // Always required
 import org.dmd.dmc.DmcAttribute;                                        // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                    // Always required
+import org.dmd.dmc.DmcNamedObjectIF;                                    // Named object reference
 import org.dmd.dmc.DmcObjectName;                                       // Alternative type for NameContainer values
 import org.dmd.dmc.DmcOmni;                                             // Lazy resolution
 import org.dmd.dmc.DmcSliceInfo;                                        // Required for object slicing
@@ -152,7 +153,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
         setModifier(mods);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:535)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public ClassDefinitionREF getTargetObjectClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(__targetObjectClass);
         if (attr == null)
@@ -183,7 +184,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets targetObjectClass to the specified value.
      * @param value ClassDefinitionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:588)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:608)
     public void setTargetObjectClass(ClassDefinitionDMO value) {
         DmcAttribute<?> attr = get(__targetObjectClass);
         if (attr == null)
@@ -202,7 +203,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets targetObjectClass to the specified value.
      * @param value A value compatible with DmcTypeClassDefinitionREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setTargetObjectClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__targetObjectClass);
         if (attr == null)
@@ -215,12 +216,12 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the targetObjectClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remTargetObjectClass(){
          rem(__targetObjectClass);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public NameContainer getTarget(){
         DmcTypeNameContainerSV attr = (DmcTypeNameContainerSV) get(__target);
         if (attr == null)
@@ -233,7 +234,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setTarget(NameContainer value) {
         DmcAttribute<?> attr = get(__target);
         if (attr == null)
@@ -252,7 +253,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:665)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
     public void setTarget(DmcObjectName value) {
         DmcAttribute<?> attr = get(__target);
         if (attr == null)
@@ -271,7 +272,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets target to the specified value.
      * @param value A value compatible with DmcTypeNameContainerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setTarget(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__target);
         if (attr == null)
@@ -284,7 +285,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the target attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remTarget(){
          rem(__target);
     }
@@ -293,7 +294,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * @return An Iterator of Modifier objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:824)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
     public Iterator<Modifier> getModify(){
         DmcTypeModifierMV attr = (DmcTypeModifierMV) get(__modify);
         if (attr == null)
@@ -305,7 +306,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * @return The nth Modifier value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
     public Modifier getNthModify(int i){
         DmcTypeModifierMV attr = (DmcTypeModifierMV) get(__modify);
         if (attr == null)
@@ -318,7 +319,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Adds another modify to the specified value.
      * @param value Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
     public DmcAttribute<?> addModify(Modifier value) {
         DmcAttribute<?> attr = get(__modify);
         if (attr == null)
@@ -338,7 +339,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified Modifier.
      * @param value Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:891)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
     public boolean modifyContains(Modifier value) {
         DmcAttribute<?> attr = get(__modify);
         if (attr == null)
@@ -350,7 +351,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Adds another modify value.
      * @param value A value compatible with Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:923)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
     public DmcAttribute<?> addModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__modify);
         if (attr == null)
@@ -364,7 +365,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Returns the number of values in modify
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:940)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
     public int getModifySize(){
         DmcAttribute<?> attr = get(__modify);
         if (attr == null)
@@ -377,7 +378,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:982)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
     public DmcAttribute<?> delModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__modify);
         
@@ -393,7 +394,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a modify from the specified value.
      * @param value Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:998)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
     public DmcAttribute<?> delModify(Modifier value) {
         DmcAttribute<?> attr = get(__modify);
         
@@ -408,7 +409,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the modify attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1017)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
     public void remModify(){
          rem(__modify);
     }

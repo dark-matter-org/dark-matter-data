@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
 import java.io.Serializable;                                                      // Always required
 import java.util.*;                                                               // Always required
 import org.dmd.dmc.DmcAttribute;                                                  // Any attributes
@@ -138,7 +138,7 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public Boolean isCustomRender(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__customRender);
         if (attr == null)
@@ -151,7 +151,7 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets customRender to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setCustomRender(Boolean value) {
         DmcAttribute<?> attr = get(__customRender);
         if (attr == null)
@@ -170,7 +170,7 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets customRender to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setCustomRender(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__customRender);
         if (attr == null)
@@ -183,12 +183,12 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
     /**
      * Removes the customRender attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remCustomRender(){
          rem(__customRender);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -201,7 +201,7 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -220,7 +220,7 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -233,12 +233,12 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remName(){
          rem(__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:535)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public MvcControllerREF getAssociatedController(){
         DmcTypeMvcControllerREFSV attr = (DmcTypeMvcControllerREFSV) get(__associatedController);
         if (attr == null)
@@ -269,7 +269,7 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets associatedController to the specified value.
      * @param value MvcControllerDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:588)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:608)
     public void setAssociatedController(MvcControllerDMO value) {
         DmcAttribute<?> attr = get(__associatedController);
         if (attr == null)
@@ -288,7 +288,7 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets associatedController to the specified value.
      * @param value A value compatible with DmcTypeMvcControllerREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setAssociatedController(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__associatedController);
         if (attr == null)
@@ -301,7 +301,7 @@ abstract public class MvcMenuDMO  extends MvcDefinitionDMO  implements DmcNamedO
     /**
      * Removes the associatedController attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remAssociatedController(){
          rem(__associatedController);
     }

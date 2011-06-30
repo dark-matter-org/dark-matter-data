@@ -25,7 +25,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeOperationSpec;    /
  * The DmcTypeOperationSpecSV provides storage for a single-valued OperationSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1573)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1593)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:124)
  */
 @SuppressWarnings("serial")

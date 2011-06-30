@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
 import java.io.Serializable;                                                  // Always required
 import java.util.*;                                                           // Always required
 import org.dmd.dmc.DmcAttribute;                                              // Any attributes
@@ -179,7 +179,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * @return An Iterator of MvcConfigDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:767)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
     public Iterator<MvcConfigREF> getDependsOnMVC(){
         DmcTypeMvcConfigREFMV attr = (DmcTypeMvcConfigREFMV) get(__dependsOnMVC);
         if (attr == null)
@@ -199,7 +199,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * @return An Iterator of MvcConfigREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:807)
     public Iterator<MvcConfigREF> getDependsOnMVCREFs(){
         DmcTypeMvcConfigREFMV attr = (DmcTypeMvcConfigREFMV) get(__dependsOnMVC);
         if (attr == null)
@@ -212,7 +212,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Adds another dependsOnMVC to the specified value.
      * @param value MvcConfig
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:802)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:822)
     public DmcAttribute<?> addDependsOnMVC(MvcConfigDMO value) {
         DmcAttribute<?> attr = get(__dependsOnMVC);
         if (attr == null)
@@ -232,7 +232,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Adds another dependsOnMVC value.
      * @param value A value compatible with MvcConfig
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:923)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
     public DmcAttribute<?> addDependsOnMVC(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__dependsOnMVC);
         if (attr == null)
@@ -246,7 +246,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Returns the number of values in dependsOnMVC
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:940)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
     public int getDependsOnMVCSize(){
         DmcAttribute<?> attr = get(__dependsOnMVC);
         if (attr == null)
@@ -259,7 +259,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Deletes a dependsOnMVC value.
      * @param value The MvcConfig to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:970)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
     public DmcAttribute<?> delDependsOnMVC(Object value){
         DmcAttribute<?> attr = del(__dependsOnMVC, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -268,7 +268,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the dependsOnMVC attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1017)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
     public void remDependsOnMVC(){
          rem(__dependsOnMVC);
     }
@@ -277,7 +277,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:824)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
     public Iterator<String> getDependsOn(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(__dependsOn);
         if (attr == null)
@@ -289,7 +289,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:836)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
     public String getNthDependsOn(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(__dependsOn);
         if (attr == null)
@@ -302,7 +302,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Adds another dependsOn to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:849)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
     public DmcAttribute<?> addDependsOn(String value) {
         DmcAttribute<?> attr = get(__dependsOn);
         if (attr == null)
@@ -322,7 +322,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:891)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
     public boolean dependsOnContains(String value) {
         DmcAttribute<?> attr = get(__dependsOn);
         if (attr == null)
@@ -334,7 +334,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Adds another dependsOn value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:923)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
     public DmcAttribute<?> addDependsOn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__dependsOn);
         if (attr == null)
@@ -348,7 +348,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Returns the number of values in dependsOn
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:940)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
     public int getDependsOnSize(){
         DmcAttribute<?> attr = get(__dependsOn);
         if (attr == null)
@@ -361,7 +361,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Deletes a dependsOn value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:982)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
     public DmcAttribute<?> delDependsOn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__dependsOn);
         
@@ -377,7 +377,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Deletes a dependsOn from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:998)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
     public DmcAttribute<?> delDependsOn(String value) {
         DmcAttribute<?> attr = get(__dependsOn);
         
@@ -392,12 +392,12 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the dependsOn attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1017)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
     public void remDependsOn(){
          rem(__dependsOn);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -410,7 +410,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -429,7 +429,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -442,12 +442,12 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remName(){
          rem(__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public String getGenPackage(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__genPackage);
         if (attr == null)
@@ -460,7 +460,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Sets genPackage to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setGenPackage(String value) {
         DmcAttribute<?> attr = get(__genPackage);
         if (attr == null)
@@ -479,7 +479,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Sets genPackage to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setGenPackage(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__genPackage);
         if (attr == null)
@@ -492,7 +492,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the genPackage attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remGenPackage(){
          rem(__genPackage);
     }

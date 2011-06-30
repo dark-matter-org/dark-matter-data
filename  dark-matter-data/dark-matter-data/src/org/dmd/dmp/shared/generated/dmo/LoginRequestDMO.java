@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
 import java.io.Serializable;                                  // Always required
 import java.util.*;                                           // Always required
 import org.dmd.dmc.DmcAttribute;                              // Any attributes
@@ -141,7 +141,7 @@ public class LoginRequestDMO  extends RequestDMO  implements Serializable  {
         setModifier(mods);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public String getUserName(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__userName);
         if (attr == null)
@@ -154,7 +154,7 @@ public class LoginRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets userName to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setUserName(String value) {
         DmcAttribute<?> attr = get(__userName);
         if (attr == null)
@@ -173,7 +173,7 @@ public class LoginRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets userName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setUserName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__userName);
         if (attr == null)
@@ -186,12 +186,12 @@ public class LoginRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the userName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remUserName(){
          rem(__userName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public String getPassword(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__password);
         if (attr == null)
@@ -204,7 +204,7 @@ public class LoginRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets password to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setPassword(String value) {
         DmcAttribute<?> attr = get(__password);
         if (attr == null)
@@ -223,7 +223,7 @@ public class LoginRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets password to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setPassword(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__password);
         if (attr == null)
@@ -236,7 +236,7 @@ public class LoginRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the password attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remPassword(){
          rem(__password);
     }

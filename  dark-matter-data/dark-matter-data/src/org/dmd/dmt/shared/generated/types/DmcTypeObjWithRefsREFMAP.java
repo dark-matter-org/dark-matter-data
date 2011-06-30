@@ -15,7 +15,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeObjWithRefsREFMAP provides storage for a map of ObjWithRefsREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2305)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2325)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:502)
  */
 @SuppressWarnings("serial")

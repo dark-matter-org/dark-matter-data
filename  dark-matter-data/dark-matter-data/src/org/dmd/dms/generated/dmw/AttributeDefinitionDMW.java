@@ -365,6 +365,24 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setInternalUse(value);
     }
 
+    /**
+     * The mvsize indicates for any multi-valued attribute, the maximum number of
+     * values that can be stored.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
+    public Integer getMvsize(){
+        return(mycore.getMvsize());
+    }
+
+    /**
+     * Sets mvsize to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1624)
+    public void setMvsize(Object value) throws DmcValueException {
+        mycore.setMvsize(value);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

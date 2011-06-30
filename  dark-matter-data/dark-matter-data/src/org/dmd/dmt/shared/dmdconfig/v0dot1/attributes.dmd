@@ -373,5 +373,12 @@ valueType				HASHSET
 dataType				NONPERSISTENT
 type            		String
 
+AttributeDefinition
+name            		indexedString
+dmdID           		414
+valueType				MULTI
+mvsize					5
+type            		String
+
 
 

@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
 import java.io.Serializable;                                                  // Always required
 import java.util.*;                                                           // Always required
 import org.dmd.dmc.DmcAttribute;                                              // Any attributes
@@ -163,7 +163,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public DotName getDotName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(__dotName);
         if (attr == null)
@@ -176,7 +176,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setDotName(DotName value) {
         DmcAttribute<?> attr = get(__dotName);
         if (attr == null)
@@ -195,7 +195,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setDotName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__dotName);
         if (attr == null)
@@ -208,12 +208,12 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remDotName(){
          rem(__dotName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public String getSessionIDRI(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__sessionIDRI);
         if (attr == null)
@@ -226,7 +226,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets sessionIDRI to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setSessionIDRI(String value) {
         DmcAttribute<?> attr = get(__sessionIDRI);
         if (attr == null)
@@ -245,7 +245,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets sessionIDRI to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setSessionIDRI(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__sessionIDRI);
         if (attr == null)
@@ -258,12 +258,12 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
     /**
      * Removes the sessionIDRI attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remSessionIDRI(){
          rem(__sessionIDRI);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public String getSessionHostRI(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__sessionHostRI);
         if (attr == null)
@@ -276,7 +276,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets sessionHostRI to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setSessionHostRI(String value) {
         DmcAttribute<?> attr = get(__sessionHostRI);
         if (attr == null)
@@ -295,7 +295,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets sessionHostRI to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setSessionHostRI(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__sessionHostRI);
         if (attr == null)
@@ -308,12 +308,12 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
     /**
      * Removes the sessionHostRI attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remSessionHostRI(){
          rem(__sessionHostRI);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:535)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
     public UserRIREF getUserRefRI(){
         DmcTypeUserRIREFSV attr = (DmcTypeUserRIREFSV) get(__userRefRI);
         if (attr == null)
@@ -344,7 +344,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets userRefRI to the specified value.
      * @param value UserRIDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:588)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:608)
     public void setUserRefRI(UserRIDMO value) {
         DmcAttribute<?> attr = get(__userRefRI);
         if (attr == null)
@@ -363,7 +363,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
      * Sets userRefRI to the specified value.
      * @param value A value compatible with DmcTypeUserRIREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setUserRefRI(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__userRefRI);
         if (attr == null)
@@ -376,7 +376,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
     /**
      * Removes the userRefRI attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remUserRefRI(){
          rem(__userRefRI);
     }

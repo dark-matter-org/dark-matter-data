@@ -118,7 +118,7 @@ public class ClassDefinitionREF extends DmcNamedObjectNontransportableREF<ClassD
                 throw(new IllegalStateException("No name set for a ClassDefinitionREF"));
             info = DmcOmni.instance().getClassInfo(myName.getSV().getNameString());
             if (info == null)
-                throw(new IllegalStateException("Unable to retrive class info for class: " + myName.getSV().getNameString() + " ensure that you have load the DmcOmni with the appropriate schemas."));
+                throw(new IllegalStateException("Unable to retrive class info for class: " + myName.getSV().getNameString() + " ensure that you have loaded the DmcOmni with the appropriate schemas."));
         }
         return(info);
     }

@@ -225,6 +225,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _designatedFilterAttribute;
     public static AttributeDefinition _filterAttributeDef;
     public static AttributeDefinition _classFilter;
+    public static AttributeDefinition _mvsize;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -446,6 +447,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _designatedFilterAttribute   = new AttributeDefinition("designatedFilterAttribute", _Boolean);
             _filterAttributeDef          = new AttributeDefinition("filterAttributeDef", _AttributeDefinitionREF);
             _classFilter                 = new AttributeDefinition("classFilter", _ClassFilter);
+            _mvsize                      = new AttributeDefinition("mvsize", _Integer);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
@@ -1543,6 +1545,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _mustReturn                  .setValueType(ValueTypeEnum.MULTI);
             _mustReturn                  .setDefinedIn(this);
 
+            _mvsize                      .setDescription("The mvsize indicates for any multi-valued attribute, the maximum number of values that can be stored.");
+            _mvsize                      .setDmdID("129");
+            _mvsize                      .setName("mvsize");
+            _mvsize                      .setType(_Integer);
+            _mvsize                      .setDefinedIn(this);
+
             _name                        .setDescription("The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character.");
             _name                        .setDesignatedNameAttribute("true");
             _name                        .setDmdID("2");
@@ -1794,6 +1802,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinition         .addMay(_designatedNameAttribute);
             _AttributeDefinition         .addMay(_designatedFilterAttribute);
             _AttributeDefinition         .addMay(_internalUse);
+            _AttributeDefinition         .addMay(_mvsize);
             _AttributeDefinition         .addMust(_name);
             _AttributeDefinition         .addMust(_type);
             _AttributeDefinition         .setName("AttributeDefinition");
@@ -2194,6 +2203,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_designatedFilterAttribute);
             this.addAttributeDefList(_filterAttributeDef);
             this.addAttributeDefList(_classFilter);
+            this.addAttributeDefList(_mvsize);
             this.addAttributeDefList(_objectClass);
             this.setName("meta");
             this.setDescription("The meta schema defines the elements used to define schemas.");

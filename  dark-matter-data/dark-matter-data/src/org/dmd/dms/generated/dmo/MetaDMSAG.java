@@ -9,7 +9,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:234)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:240)
 public class MetaDMSAG implements DmcCompactSchemaIF {
 
 
@@ -108,6 +108,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __must = new DmcAttributeInfo("must",26,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mustParm = new DmcAttributeInfo("mustParm",28,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mustReturn = new DmcAttributeInfo("mustReturn",30,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __mvsize = new DmcAttributeInfo("mvsize",129,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __nameAttributeDef = new DmcAttributeInfo("nameAttributeDef",90,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __nameType = new DmcAttributeInfo("nameType",103,"NameTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -266,6 +267,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__must.id,__must);
         _SmAp.put(__mustParm.id,__mustParm);
         _SmAp.put(__mustReturn.id,__mustReturn);
+        _SmAp.put(__mvsize.id,__mvsize);
         _SmAp.put(__name.id,__name);
         _SmAp.put(__nameAttributeDef.id,__nameAttributeDef);
         _SmAp.put(__nameType.id,__nameType);
@@ -324,9 +326,10 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     protected MetaDMSAG (){
     }
 
-    public static MetaDMSAG instance(){
+    public synchronized static MetaDMSAG instance(){
         if (instance == null)
             instance = new MetaDMSAG();
+        
         return(instance);
     }
 

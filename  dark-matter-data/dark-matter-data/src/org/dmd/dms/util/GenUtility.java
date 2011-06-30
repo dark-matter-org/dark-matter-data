@@ -67,6 +67,13 @@ public class GenUtility {
 		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
 		TreeSet<String>						genericImports	= new TreeSet<String>();
 		
+//		boolean interested = false;
+//		String	theType = " ";
+//		if (cd.getName().getNameString().equals("RadioConfigProfile")){
+//			DebugInfo.debug("HERE");
+//			interested = true;
+//		}
+		
 		// Key: type name
 		// Value: comment
 		TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
@@ -115,6 +122,13 @@ public class GenUtility {
 				
 				TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
 				typeAndAttr.put(ta.name, ta);
+				
+//				if (interested){
+//					if (ad.getName().getNameString().equals("wlanConfigProfiles")){
+//						DebugInfo.debug("The type is: " + ta.name);
+//						theType = ta.name;
+//					}
+//				}
 				
 				switch(ad.getValueType()){
 				case SINGLE:
@@ -177,6 +191,10 @@ public class GenUtility {
 		for(TypeAndAttr ta: typeAndAttr.values()){
 			
 			TypeDefinition td = ta.td;
+			
+//			if (interested && ta.name.startsWith(theType)){
+//				DebugInfo.debug("HERE");
+//			}
 
 			if ( (td.getPrimitiveType() != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY) ){
 				
@@ -207,6 +225,8 @@ public class GenUtility {
 				
 				addImport(uniqueImports, longestImport, td.getOriginalClass().getDmoImport(), "Type specific set/add");
 				
+				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcNamedObjectIF", "Named object reference");
+
 				if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
 //					DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
 				}
