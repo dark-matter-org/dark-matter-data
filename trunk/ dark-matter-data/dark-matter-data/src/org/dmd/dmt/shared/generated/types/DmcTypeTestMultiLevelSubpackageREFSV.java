@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestMultiLevelSubpackageREFSV provides storage for a single-valued TestMultiLevelSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1573)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1593)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:492)
  */
 @SuppressWarnings("serial")

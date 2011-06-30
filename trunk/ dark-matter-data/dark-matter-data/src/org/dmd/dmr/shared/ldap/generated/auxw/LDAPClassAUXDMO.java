@@ -15,10 +15,11 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.ldap.generated.auxw;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
 import java.util.*;                                                         // Always required
 import org.dmd.dmc.DmcAttribute;                                            // Any attributes
 import org.dmd.dmc.DmcAttributeInfo;                                        // Always required
+import org.dmd.dmc.DmcNamedObjectIF;                                        // Named object reference
 import org.dmd.dmc.DmcObject;                                               // Auxiliary class
 import org.dmd.dmc.DmcValueException;                                       // Any attributes
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add

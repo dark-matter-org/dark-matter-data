@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;    // DmcType import
  * The DmcTypeLoginRequestREFMV provides storage for a multi-valued LoginRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1907)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1927)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:222)
  */
 @SuppressWarnings("serial")

@@ -1625,6 +1625,13 @@ designatedFilterAttribute	true
 description					The classFilter is used to performing matching of objects based on
  their class or auxiliary classes.
 
+AttributeDefinition
+name						mvsize
+dmdID						129
+type						Integer
+description					The mvsize indicates for any multi-valued attribute, the maximum number
+ of values that can be stored.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1870,6 +1877,7 @@ may				genericArgsImport
 may				designatedNameAttribute
 may				designatedFilterAttribute
 may				internalUse
+may				mvsize
 // obsolete
 //must          	isSingleValued
 //may            	reposName

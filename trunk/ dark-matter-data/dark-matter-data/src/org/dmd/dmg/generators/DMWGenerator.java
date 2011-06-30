@@ -508,11 +508,11 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 //	        out.write("    }\n\n");	       
         }
 
-        if (anyAttributes){
+//        if (anyAttributes){
 	        out.write("    public " + cd.getName() + "DMO getDMO() {\n");
 	        out.write("        return((" + cd.getName() + "DMO) core);\n");
 	        out.write("    }\n\n");
-        }
+//        }
 
         out.write("    protected " + cd.getName() + "DMW(" + cd.getName() + "DMO obj, ClassDefinition cd) {\n");
         out.write("        super(obj,cd);\n");

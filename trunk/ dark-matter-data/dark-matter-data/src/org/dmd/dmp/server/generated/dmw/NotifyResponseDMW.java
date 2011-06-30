@@ -50,6 +50,10 @@ abstract public class NotifyResponseDMW extends Response {
         super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._NotifyResponse);
     }
 
+    public NotifyResponseDMO getDMO() {
+        return((NotifyResponseDMO) core);
+    }
+
     protected NotifyResponseDMW(NotifyResponseDMO obj, ClassDefinition cd) {
         super(obj,cd);
     }

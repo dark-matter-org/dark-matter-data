@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
 import java.io.Serializable;                                           // Always required
 import java.util.*;                                                    // Always required
 import org.dmd.dmc.DmcAttribute;                                       // Any attributes
@@ -159,7 +159,7 @@ public class MvcServerEventDMO  extends MvcDefinitionDMO  implements DmcNamedObj
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
         if (attr == null)
@@ -172,7 +172,7 @@ public class MvcServerEventDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setDescription(String value) {
         DmcAttribute<?> attr = get(__description);
         if (attr == null)
@@ -191,7 +191,7 @@ public class MvcServerEventDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__description);
         if (attr == null)
@@ -204,12 +204,12 @@ public class MvcServerEventDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remDescription(){
          rem(__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
         if (attr == null)
@@ -222,7 +222,7 @@ public class MvcServerEventDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -241,7 +241,7 @@ public class MvcServerEventDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__name);
         if (attr == null)
@@ -254,12 +254,12 @@ public class MvcServerEventDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remName(){
          rem(__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public String getEventDataType(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__eventDataType);
         if (attr == null)
@@ -272,7 +272,7 @@ public class MvcServerEventDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Sets eventDataType to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setEventDataType(String value) {
         DmcAttribute<?> attr = get(__eventDataType);
         if (attr == null)
@@ -291,7 +291,7 @@ public class MvcServerEventDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Sets eventDataType to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setEventDataType(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__eventDataType);
         if (attr == null)
@@ -304,7 +304,7 @@ public class MvcServerEventDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the eventDataType attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remEventDataType(){
          rem(__eventDataType);
     }

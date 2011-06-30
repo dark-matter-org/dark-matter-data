@@ -29,7 +29,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;    // DmcT
  * The DmcTypeEventScopeEnumSET provides storage for a set of EventScopeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2100)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2120)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:326)
  */
 @SuppressWarnings("serial")

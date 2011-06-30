@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:287)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
 import java.io.Serializable;                                                     // Always required
 import java.util.*;                                                              // Always required
 import org.dmd.dmc.DmcAttribute;                                                 // Any attributes
@@ -143,7 +143,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
         setModifier(mods);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public Integer getHandlerID(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__handlerID);
         if (attr == null)
@@ -156,7 +156,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets handlerID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setHandlerID(Integer value) {
         DmcAttribute<?> attr = get(__handlerID);
         if (attr == null)
@@ -175,7 +175,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets handlerID to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setHandlerID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__handlerID);
         if (attr == null)
@@ -188,12 +188,12 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the handlerID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remHandlerID(){
          rem(__handlerID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public String getResponseText(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(__responseText);
         if (attr == null)
@@ -206,7 +206,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets responseText to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setResponseText(String value) {
         DmcAttribute<?> attr = get(__responseText);
         if (attr == null)
@@ -225,7 +225,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets responseText to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setResponseText(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__responseText);
         if (attr == null)
@@ -238,12 +238,12 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the responseText attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remResponseText(){
          rem(__responseText);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public ResponseCategoryEnum getResponseCategory(){
         DmcTypeResponseCategoryEnumSV attr = (DmcTypeResponseCategoryEnumSV) get(__responseCategory);
         if (attr == null)
@@ -256,7 +256,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets responseCategory to the specified value.
      * @param value ResponseCategoryEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setResponseCategory(ResponseCategoryEnum value) {
         DmcAttribute<?> attr = get(__responseCategory);
         if (attr == null)
@@ -275,7 +275,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets responseCategory to the specified value.
      * @param value A value compatible with DmcTypeResponseCategoryEnumSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setResponseCategory(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__responseCategory);
         if (attr == null)
@@ -288,12 +288,12 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the responseCategory attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remResponseCategory(){
          rem(__responseCategory);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public Boolean isLastResponse(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__lastResponse);
         if (attr == null)
@@ -306,7 +306,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets lastResponse to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setLastResponse(Boolean value) {
         DmcAttribute<?> attr = get(__lastResponse);
         if (attr == null)
@@ -325,7 +325,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets lastResponse to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setLastResponse(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__lastResponse);
         if (attr == null)
@@ -338,12 +338,12 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the lastResponse attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remLastResponse(){
          rem(__lastResponse);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:605)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public ResponseTypeEnum getResponseType(){
         DmcTypeResponseTypeEnumSV attr = (DmcTypeResponseTypeEnumSV) get(__responseType);
         if (attr == null)
@@ -356,7 +356,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets responseType to the specified value.
      * @param value ResponseTypeEnum
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
     public void setResponseType(ResponseTypeEnum value) {
         DmcAttribute<?> attr = get(__responseType);
         if (attr == null)
@@ -375,7 +375,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
      * Sets responseType to the specified value.
      * @param value A value compatible with DmcTypeResponseTypeEnumSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:690)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
     public void setResponseType(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(__responseType);
         if (attr == null)
@@ -388,7 +388,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     /**
      * Removes the responseType attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remResponseType(){
          rem(__responseType);
     }

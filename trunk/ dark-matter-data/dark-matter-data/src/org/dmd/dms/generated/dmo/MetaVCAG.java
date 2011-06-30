@@ -6,7 +6,7 @@ import org.dmd.dmc.*;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoValidatorCollectionFormatter.dumpHeader(DmoValidatorCollectionFormatter.java:270)
+// Generated from: org.dmd.dms.util.DmoValidatorCollectionFormatter.dumpHeader(DmoValidatorCollectionFormatter.java:272)
 public class MetaVCAG implements DmcDMOValidatorCollectionIF {
 
     public final static DmcObjectValidator __AttributeSetValidator = new org.dmd.dmc.validators.AttributeSetValidator();
@@ -27,8 +27,10 @@ public class MetaVCAG implements DmcDMOValidatorCollectionIF {
     }
 
     public static MetaVCAG instance(){
-        if (instance == null)
-            instance = new MetaVCAG();
+        synchronized(instance){
+            if (instance == null)
+                instance = new MetaVCAG();
+        }
         return(instance);
     }
 
