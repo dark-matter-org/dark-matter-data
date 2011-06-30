@@ -49,8 +49,8 @@ public class Controller extends ControllerDMW {
 		if (!initialized){
 			initialized = true;
 			
-			if (getUsesPresenterHasValue()){
-				for(Presenter presenter: getUsesPresenterIterable()){
+			if (getInstantiatesPresenterHasValue()){
+				for(Presenter presenter: getInstantiatesPresenterIterable()){
 					addUsesRunContextItem(presenter.getRunContextItem());
 				}
 			}

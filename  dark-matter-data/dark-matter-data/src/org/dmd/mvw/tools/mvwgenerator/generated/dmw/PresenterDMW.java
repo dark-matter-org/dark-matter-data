@@ -1,19 +1,21 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
-import java.util.ArrayList;                                                  // To support getMVCopy()
-import java.util.Iterator;                                                   // To support getMVCopy()
-import org.dmd.dmc.*;                                                        // If any attributes
-import org.dmd.dmc.types.CamelCaseName;                                      // Primitive type
-import org.dmd.dms.*;                                                        // Always 2
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                        // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.extended.Component;                    // Derived class
-import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;                    // Required for getModificationRecorder()
-import org.dmd.mvw.tools.mvwgenerator.extended.View;                         // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;            // Class not auxiliary or abstract
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                 // For multi-valued containsView
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewIterableDMW;         // For multi-valued View
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;               // To support getMVCopy() for REFs
+import java.util.ArrayList;                                                       // To support getMVCopy()
+import java.util.Iterator;                                                        // To support getMVCopy()
+import org.dmd.dmc.*;                                                             // If any attributes
+import org.dmd.dmc.types.CamelCaseName;                                           // Primitive type
+import org.dmd.dms.*;                                                             // Always 2
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                             // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;                         // Derived class
+import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;                         // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.extended.View;                              // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                 // Class not auxiliary or abstract
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                      // For multi-valued containsView
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.PresenterIterableDMW;         // For multi-valued Presenter
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewIterableDMW;              // For multi-valued View
+import org.dmd.mvw.tools.mvwgenerator.generated.types.PresenterREF;               // To support getMVCopy() for REFs
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                    // To support getMVCopy() for REFs
 
 /**
  * The Presenter is a behavioural component that manages one or more Views
@@ -106,6 +108,101 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
     public void remTheOne(){
         ((PresenterDMO) core).remTheOne();
+    }
+
+    /**
+     * @return The number of Presenter items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1224)
+    public int getInstantiatesPresenterSize(){
+        DmcAttribute<?> attr = core.get(PresenterDMO.__instantiatesPresenter);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no PresenterDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1236)
+    public boolean getInstantiatesPresenterIsEmpty(){
+        DmcAttribute<?> attr = core.get(PresenterDMO.__instantiatesPresenter);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any PresenterDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
+    public boolean getInstantiatesPresenterHasValue(){
+        DmcAttribute<?> attr = core.get(PresenterDMO.__instantiatesPresenter);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of PresenterDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1268)
+    public PresenterIterableDMW getInstantiatesPresenterIterable(){
+        DmcAttribute attr = ((PresenterDMO) core).get(PresenterDMO.__instantiatesPresenter);
+        if (attr == null)
+            return(PresenterIterableDMW.emptyList);
+        
+        return(new PresenterIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another instantiatesPresenter value.
+     * @param value A value compatible with Presenter
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1284)
+    public DmcAttribute<?> addInstantiatesPresenter(Presenter value){
+        DmcAttribute<?> attr = ((PresenterDMO) core).addInstantiatesPresenter(((PresenterDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a instantiatesPresenter value.
+     * @param value The Presenter to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1297)
+    public void delInstantiatesPresenter(Presenter value){
+        ((PresenterDMO) core).delInstantiatesPresenter(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of Presenter objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1332)
+    public ArrayList<Presenter> getInstantiatesPresenterCopy(){
+        DmcAttribute<?> attr = ((PresenterDMO) core).get(PresenterDMO.__instantiatesPresenter);
+        if (attr == null)
+            return(new ArrayList<Presenter>());
+        
+        ArrayList<Presenter> rc = new ArrayList<Presenter>(attr.getMVSize());
+        
+        PresenterIterableDMW it = getInstantiatesPresenterIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Removes the instantiatesPresenter attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1497)
+    public void remInstantiatesPresenter(){
+        ((PresenterDMO) core).remInstantiatesPresenter();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)

@@ -81,6 +81,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent",801,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent",802,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __instantiatesPresenter = new DmcAttributeInfo("instantiatesPresenter",860,"Presenter",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __instantiatesView = new DmcAttributeInfo("instantiatesView",862,"View",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __sendsActionRequest = new DmcAttributeInfo("sendsActionRequest",848,"RequestWithOptions",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -93,7 +94,6 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     public final static DmcAttributeInfo __subpackage = new DmcAttributeInfo("subpackage",88,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass",807,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema",843,"SchemaDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __usesPresenter = new DmcAttributeInfo("usesPresenter",860,"Presenter",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usesRunContextItem = new DmcAttributeInfo("usesRunContextItem",835,"RunContextItem",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT);
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
@@ -114,6 +114,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
         _ImAp.put(__file.id,__file);
         _ImAp.put(__firesEvent.id,__firesEvent);
         _ImAp.put(__handlesEvent.id,__handlesEvent);
+        _ImAp.put(__instantiatesPresenter.id,__instantiatesPresenter);
         _ImAp.put(__instantiatesView.id,__instantiatesView);
         _ImAp.put(__lineNumber.id,__lineNumber);
         _ImAp.put(__sendsActionRequest.id,__sendsActionRequest);
@@ -126,7 +127,6 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
         _ImAp.put(__subpackage.id,__subpackage);
         _ImAp.put(__useBaseClass.id,__useBaseClass);
         _ImAp.put(__useSchema.id,__useSchema);
-        _ImAp.put(__usesPresenter.id,__usesPresenter);
         _ImAp.put(__usesRunContextItem.id,__usesRunContextItem);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
@@ -141,6 +141,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
         _SmAp.put(__file.name,__file);
         _SmAp.put(__firesEvent.name,__firesEvent);
         _SmAp.put(__handlesEvent.name,__handlesEvent);
+        _SmAp.put(__instantiatesPresenter.name,__instantiatesPresenter);
         _SmAp.put(__instantiatesView.name,__instantiatesView);
         _SmAp.put(__lineNumber.name,__lineNumber);
         _SmAp.put(__sendsActionRequest.name,__sendsActionRequest);
@@ -153,7 +154,6 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
         _SmAp.put(__subpackage.name,__subpackage);
         _SmAp.put(__useBaseClass.name,__useBaseClass);
         _SmAp.put(__useSchema.name,__useSchema);
-        _SmAp.put(__usesPresenter.name,__usesPresenter);
         _SmAp.put(__usesRunContextItem.name,__usesRunContextItem);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
@@ -388,8 +388,8 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
-    public Iterator<PresenterREF> getUsesPresenter(){
-        DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(__usesPresenter);
+    public Iterator<PresenterREF> getInstantiatesPresenter(){
+        DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(__instantiatesPresenter);
         if (attr == null)
             return( ((List<PresenterREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -408,8 +408,8 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:807)
-    public Iterator<PresenterREF> getUsesPresenterREFs(){
-        DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(__usesPresenter);
+    public Iterator<PresenterREF> getInstantiatesPresenterREFs(){
+        DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(__instantiatesPresenter);
         if (attr == null)
             return( ((List<PresenterREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -417,18 +417,18 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     }
 
     /**
-     * Adds another usesPresenter to the specified value.
+     * Adds another instantiatesPresenter to the specified value.
      * @param value Presenter
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:822)
-    public DmcAttribute<?> addUsesPresenter(PresenterDMO value) {
-        DmcAttribute<?> attr = get(__usesPresenter);
+    public DmcAttribute<?> addInstantiatesPresenter(PresenterDMO value) {
+        DmcAttribute<?> attr = get(__instantiatesPresenter);
         if (attr == null)
-            attr = new DmcTypePresenterREFMV(__usesPresenter);
+            attr = new DmcTypePresenterREFMV(__instantiatesPresenter);
         
         try{
             setLastValue(attr.add(value));
-            add(__usesPresenter,attr);
+            add(__instantiatesPresenter,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -437,26 +437,26 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     }
 
     /**
-     * Adds another usesPresenter value.
+     * Adds another instantiatesPresenter value.
      * @param value A value compatible with Presenter
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
-    public DmcAttribute<?> addUsesPresenter(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__usesPresenter);
+    public DmcAttribute<?> addInstantiatesPresenter(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__instantiatesPresenter);
         if (attr == null)
-            attr = new DmcTypePresenterREFMV(__usesPresenter);
+            attr = new DmcTypePresenterREFMV(__instantiatesPresenter);
         
         setLastValue(attr.add(value));
-        add(__usesPresenter,attr);
+        add(__instantiatesPresenter,attr);
         return(attr);
     }
 
     /**
-     * Returns the number of values in usesPresenter
+     * Returns the number of values in instantiatesPresenter
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
-    public int getUsesPresenterSize(){
-        DmcAttribute<?> attr = get(__usesPresenter);
+    public int getInstantiatesPresenterSize(){
+        DmcAttribute<?> attr = get(__instantiatesPresenter);
         if (attr == null)
             return(0);
         
@@ -464,21 +464,21 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     }
 
     /**
-     * Deletes a usesPresenter value.
+     * Deletes a instantiatesPresenter value.
      * @param value The Presenter to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
-    public DmcAttribute<?> delUsesPresenter(Object value){
-        DmcAttribute<?> attr = del(__usesPresenter, ((DmcNamedObjectIF)value).getObjectName());
+    public DmcAttribute<?> delInstantiatesPresenter(Object value){
+        DmcAttribute<?> attr = del(__instantiatesPresenter, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }
 
     /**
-     * Removes the usesPresenter attribute value.
+     * Removes the instantiatesPresenter attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
-    public void remUsesPresenter(){
-         rem(__usesPresenter);
+    public void remInstantiatesPresenter(){
+         rem(__instantiatesPresenter);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)

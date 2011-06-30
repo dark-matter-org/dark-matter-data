@@ -41,9 +41,16 @@ public class Presenter extends PresenterDMW {
 	
 	public void initCodeGenInfo(boolean rpc, boolean dmp) throws ResultException{
 		if (!initialized){
-			super.initCodeGenInfo(rpc,dmp);
 			presenterInterfaces = new StringBuffer();
 			
+			if (getInstantiatesPresenterHasValue()){
+				for(Presenter presenter: getInstantiatesPresenterIterable()){
+					addUsesRunContextItem(presenter.getRunContextItem());
+				}
+			}
+			
+			super.initCodeGenInfo(rpc,dmp);
+
 			if(getManagesViewHasValue()){
 				boolean first = true;
 				for(View view: getManagesViewIterable()){

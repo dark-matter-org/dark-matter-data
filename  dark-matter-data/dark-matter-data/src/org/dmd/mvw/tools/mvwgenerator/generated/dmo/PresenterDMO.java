@@ -16,24 +16,27 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
-import java.io.Serializable;                                                    // Always required
-import java.util.*;                                                             // Always required
-import org.dmd.dmc.DmcAttribute;                                                // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                            // Always required
-import org.dmd.dmc.DmcNamedObjectIF;                                            // Named object
-import org.dmd.dmc.DmcOmni;                                                     // Lazy resolution
-import org.dmd.dmc.DmcSliceInfo;                                                // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                           // Any attributes
-import org.dmd.dmc.types.CamelCaseName;                                         // Naming attribute type
-import org.dmd.dms.generated.enums.DataTypeEnum;                                // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;                               // Required if we have any attributes
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;                            // Required type
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                      // Required type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                           // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;               // Base class
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                    // Type specific set/add
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeViewREFMV;         // Reference type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                  // Helper class
+import java.io.Serializable;                                                         // Always required
+import java.util.*;                                                                  // Always required
+import org.dmd.dmc.DmcAttribute;                                                     // Any attributes
+import org.dmd.dmc.DmcAttributeInfo;                                                 // Always required
+import org.dmd.dmc.DmcNamedObjectIF;                                                 // Named object
+import org.dmd.dmc.DmcOmni;                                                          // Lazy resolution
+import org.dmd.dmc.DmcSliceInfo;                                                     // Required for object slicing
+import org.dmd.dmc.DmcValueException;                                                // Any attributes
+import org.dmd.dmc.types.CamelCaseName;                                              // Naming attribute type
+import org.dmd.dms.generated.enums.DataTypeEnum;                                     // Required if we have any attributes
+import org.dmd.dms.generated.enums.ValueTypeEnum;                                    // Required if we have any attributes
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                 // Required type
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                           // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                    // Base class
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                    // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                         // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePresenterREFMV;         // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeViewREFMV;              // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.PresenterREF;                  // Helper class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                       // Helper class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcClassInfo;
@@ -69,6 +72,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent",801,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent",802,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __instantiatesPresenter = new DmcAttributeInfo("instantiatesPresenter",860,"Presenter",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __instantiatesView = new DmcAttributeInfo("instantiatesView",862,"View",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __managesView = new DmcAttributeInfo("managesView",841,"View",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -100,6 +104,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
         _ImAp.put(__file.id,__file);
         _ImAp.put(__firesEvent.id,__firesEvent);
         _ImAp.put(__handlesEvent.id,__handlesEvent);
+        _ImAp.put(__instantiatesPresenter.id,__instantiatesPresenter);
         _ImAp.put(__instantiatesView.id,__instantiatesView);
         _ImAp.put(__lineNumber.id,__lineNumber);
         _ImAp.put(__managesView.id,__managesView);
@@ -125,6 +130,7 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
         _SmAp.put(__file.name,__file);
         _SmAp.put(__firesEvent.name,__firesEvent);
         _SmAp.put(__handlesEvent.name,__handlesEvent);
+        _SmAp.put(__instantiatesPresenter.name,__instantiatesPresenter);
         _SmAp.put(__instantiatesView.name,__instantiatesView);
         _SmAp.put(__lineNumber.name,__lineNumber);
         _SmAp.put(__managesView.name,__managesView);
@@ -267,6 +273,104 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
     public void remTheOne(){
          rem(__theOne);
+    }
+
+    /**
+     * @return An Iterator of PresenterDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
+    public Iterator<PresenterREF> getInstantiatesPresenter(){
+        DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(__instantiatesPresenter);
+        if (attr == null)
+            return( ((List<PresenterREF>) Collections.EMPTY_LIST).iterator() );
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return( ((List<PresenterREF>) Collections.EMPTY_LIST).iterator() );
+            }
+        }
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return An Iterator of PresenterREFs without attempting lazy resolution (if it's turned on).
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:807)
+    public Iterator<PresenterREF> getInstantiatesPresenterREFs(){
+        DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(__instantiatesPresenter);
+        if (attr == null)
+            return( ((List<PresenterREF>) Collections.EMPTY_LIST).iterator() );
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another instantiatesPresenter to the specified value.
+     * @param value Presenter
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:822)
+    public DmcAttribute<?> addInstantiatesPresenter(PresenterDMO value) {
+        DmcAttribute<?> attr = get(__instantiatesPresenter);
+        if (attr == null)
+            attr = new DmcTypePresenterREFMV(__instantiatesPresenter);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(__instantiatesPresenter,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Adds another instantiatesPresenter value.
+     * @param value A value compatible with Presenter
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    public DmcAttribute<?> addInstantiatesPresenter(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(__instantiatesPresenter);
+        if (attr == null)
+            attr = new DmcTypePresenterREFMV(__instantiatesPresenter);
+        
+        setLastValue(attr.add(value));
+        add(__instantiatesPresenter,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in instantiatesPresenter
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    public int getInstantiatesPresenterSize(){
+        DmcAttribute<?> attr = get(__instantiatesPresenter);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a instantiatesPresenter value.
+     * @param value The Presenter to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
+    public DmcAttribute<?> delInstantiatesPresenter(Object value){
+        DmcAttribute<?> attr = del(__instantiatesPresenter, ((DmcNamedObjectIF)value).getObjectName());
+        return(attr);
+    }
+
+    /**
+     * Removes the instantiatesPresenter attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    public void remInstantiatesPresenter(){
+         rem(__instantiatesPresenter);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)

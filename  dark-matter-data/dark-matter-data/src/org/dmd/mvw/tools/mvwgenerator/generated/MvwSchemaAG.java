@@ -90,7 +90,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _defaultPlace;
     public static AttributeDefinition _abstractActivity;
     public static AttributeDefinition _addedToRunContext;
-    public static AttributeDefinition _usesPresenter;
+    public static AttributeDefinition _instantiatesPresenter;
     public static AttributeDefinition _createOnDemand;
     public static AttributeDefinition _instantiatesView;
     public static AttributeDefinition _theOne;
@@ -293,7 +293,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ControllerOBJ.addMay("centralDMPErrorHandler");
             _ControllerOBJ.addMay("centralRPCErrorHandler");
             _ControllerOBJ.addMay("addedToRunContext");
-            _ControllerOBJ.addMay("usesPresenter");
+            _ControllerOBJ.addMay("instantiatesPresenter");
             _ControllerOBJ.addMust("controllerName");
             _ControllerOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW");
             _Controller.setDefinedIn(this);
@@ -305,7 +305,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _PresenterOBJ.setDmdID("807");
             _PresenterOBJ.setClassType("STRUCTURAL");
             _PresenterOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _PresenterOBJ.setLineNumber("234");
+            _PresenterOBJ.setLineNumber("235");
             _PresenterOBJ.setDescription("The Presenter is a behavioural component that manages one or more Views and thus implements the Presenter interface of any View it manages. Presenters populate and potentially update Views with data. This will often involve interacting with the communications interface(s) associated with an application. If a View allows the creation or alteration of data, those behaviours are usually handled directly by the View's Presenter.");
             _PresenterOBJ.setDerivedFrom("Component");
             _PresenterOBJ.setIsNamedBy("presenterName");
@@ -313,6 +313,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _PresenterOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.PresenterREF");
             _PresenterOBJ.setDmwIteratorClass("PresenterIterableDMW");
             _PresenterOBJ.addMay("theOne");
+            _PresenterOBJ.addMay("instantiatesPresenter");
             _PresenterOBJ.addMust("presenterName");
             _PresenterOBJ.addMust("managesView");
             _PresenterOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.PresenterIterableDMW");
@@ -325,7 +326,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _PlaceOBJ.setDmdID("808");
             _PlaceOBJ.setClassType("STRUCTURAL");
             _PlaceOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _PlaceOBJ.setLineNumber("255");
+            _PlaceOBJ.setLineNumber("256");
             _PlaceOBJ.setDerivedFrom("MvwDefinition");
             _PlaceOBJ.setIsNamedBy("placeName");
             _PlaceOBJ.setUseWrapperType("EXTENDED");
@@ -344,7 +345,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SubPlaceOBJ.setDmdID("809");
             _SubPlaceOBJ.setClassType("STRUCTURAL");
             _SubPlaceOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _SubPlaceOBJ.setLineNumber("266");
+            _SubPlaceOBJ.setLineNumber("267");
             _SubPlaceOBJ.setDerivedFrom("Place");
             _SubPlaceOBJ.setIsNamedBy("placeName");
             _SubPlaceOBJ.setUseWrapperType("EXTENDED");
@@ -363,7 +364,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ActivityOBJ.setDmdID("810");
             _ActivityOBJ.setClassType("STRUCTURAL");
             _ActivityOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ActivityOBJ.setLineNumber("291");
+            _ActivityOBJ.setLineNumber("292");
             _ActivityOBJ.setDescription("If you are making use of Places, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <p /> Activities are meant to be short-lived, disposable entities that run in a particular Place. However, if you are building an application, it may be that you have a single Place and that all behaviour takes place within the guise of a single Activity. <p /> If the Activity manages a view, it will be generated as implementing the View's  presenter interface.");
             _ActivityOBJ.setDerivedFrom("Component");
             _ActivityOBJ.setIsNamedBy("activityName");
@@ -385,7 +386,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RunContextItemOBJ.setDmdID("811");
             _RunContextItemOBJ.setClassType("STRUCTURAL");
             _RunContextItemOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _RunContextItemOBJ.setLineNumber("310");
+            _RunContextItemOBJ.setLineNumber("311");
             _RunContextItemOBJ.setDescription("The RunContextItem allows for the generation of an overall RunContext for a WebApplication or WebSite.");
             _RunContextItemOBJ.setDerivedFrom("MvwDefinition");
             _RunContextItemOBJ.setIsNamedBy("itemName");
@@ -410,7 +411,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _WebApplicationOBJ.setDmdID("812");
             _WebApplicationOBJ.setClassType("STRUCTURAL");
             _WebApplicationOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _WebApplicationOBJ.setLineNumber("322");
+            _WebApplicationOBJ.setLineNumber("323");
             _WebApplicationOBJ.setDescription("The WebApplication definition allows for the definition of the superstructure for an application, basically it's the definition of the overall application controller.");
             _WebApplicationOBJ.setDerivedFrom("MvwDefinition");
             _WebApplicationOBJ.setIsNamedBy("appName");
@@ -1098,17 +1099,17 @@ public class MvwSchemaAG extends SchemaDefinition {
             _addedToRunContextOBJ.setLineNumber("436");
             addAttributeDefList(_addedToRunContext);
 
-            AttributeDefinitionDMO _usesPresenterOBJ = new AttributeDefinitionDMO();
-            _usesPresenter = new AttributeDefinition(_usesPresenterOBJ);
-            _usesPresenterOBJ.setType("Presenter");
-            _usesPresenterOBJ.setName("usesPresenter");
-            _usesPresenterOBJ.setDmdID("860");
-            _usesPresenterOBJ.setDescription("Indicates that a Controller makes use of a particular Presenter; a method will be created on the controller BaseImpl that allows you to get a presenter of this type. This is used in conjunction with usesView attribute, in that an appropriate  presenter must be passed to the generated get*View() method to get a view instance.");
-            _usesPresenterOBJ.setValueType("MULTI");
-            _usesPresenter.setDefinedIn(this);
-            _usesPresenterOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
-            _usesPresenterOBJ.setLineNumber("446");
-            addAttributeDefList(_usesPresenter);
+            AttributeDefinitionDMO _instantiatesPresenterOBJ = new AttributeDefinitionDMO();
+            _instantiatesPresenter = new AttributeDefinition(_instantiatesPresenterOBJ);
+            _instantiatesPresenterOBJ.setType("Presenter");
+            _instantiatesPresenterOBJ.setName("instantiatesPresenter");
+            _instantiatesPresenterOBJ.setDmdID("860");
+            _instantiatesPresenterOBJ.setDescription("Indicates that a Component makes use of a particular Presenter; a method will be created on the componet's BaseImpl that allows you to get a presenter of this type. This is used in conjunction with instantiatesView attribute, in that an appropriate  presenter must be passed to the generated get*View() method to get a view instance.");
+            _instantiatesPresenterOBJ.setValueType("MULTI");
+            _instantiatesPresenter.setDefinedIn(this);
+            _instantiatesPresenterOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _instantiatesPresenterOBJ.setLineNumber("446");
+            addAttributeDefList(_instantiatesPresenter);
 
             AttributeDefinitionDMO _createOnDemandOBJ = new AttributeDefinitionDMO();
             _createOnDemand = new AttributeDefinition(_createOnDemandOBJ);
