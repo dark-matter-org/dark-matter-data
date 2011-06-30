@@ -635,6 +635,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="mvw.html#instantiatesPresenter">instantiatesPresenter</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="mvw.html#Presenter">Presenter</a> </td>
+      <td> Indicates that a Component makes use of a particular Presenter; a method will be created on the componet's BaseImpl that allows you to get a presenter of this type. This is used in conjunction with instantiatesView attribute, in that an appropriate  presenter must be passed to the generated get*View() method to get a view instance. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="mvw.html#instantiatesView">instantiatesView</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="mvw.html#View">View</a> </td>
       <td> Indicates that a component instantiates a particular View; a method will created on the component BaseImpl that allows you to get an instance of this view and bind it to the appropriate presenter. </td>
@@ -718,14 +726,6 @@
       <td> <a href="mvw.html#useSchema">useSchema</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
       <td> Indicates the schemas that a component uses. Your module must specify dependsOnSchema for the appropriate schemas. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="mvw.html#usesPresenter">usesPresenter</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="mvw.html#Presenter">Presenter</a> </td>
-      <td> Indicates that a Controller makes use of a particular Presenter; a method will be created on the controller BaseImpl that allows you to get a presenter of this type. This is used in conjunction with usesView attribute, in that an appropriate  presenter must be passed to the generated get*View() method to get a view instance. </td>
     </tr>
 
     <tr>
@@ -1188,6 +1188,14 @@
       <td> <a href="mvw.html#handlesEvent">handlesEvent</a> </td>
       <td class="valueType"> P TM </td>      <td> <a href="mvw.html#Event">Event</a> </td>
       <td> This attributes holds a list of MvwEvents that are handled by various MVW components. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#instantiatesPresenter">instantiatesPresenter</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="mvw.html#Presenter">Presenter</a> </td>
+      <td> Indicates that a Component makes use of a particular Presenter; a method will be created on the componet's BaseImpl that allows you to get a presenter of this type. This is used in conjunction with instantiatesView attribute, in that an appropriate  presenter must be passed to the generated get*View() method to get a view instance. </td>
     </tr>
 
     <tr>
@@ -2172,6 +2180,19 @@
       <td>Allows for the specification of other import statements in various definitions.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="instantiatesPresenter"> instantiatesPresenter </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="mvw.html#Presenter">Presenter</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates that a Component makes use of a particular Presenter; a method will be created on the componet's BaseImpl that allows you to get a presenter of this type. This is used in conjunction with instantiatesView attribute, in that an appropriate  presenter must be passed to the generated get*View() method to get a view instance.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="instantiatesView"> instantiatesView </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2573,19 +2594,6 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates Controllers that are used by an application or a site.</td>
-    </tr>
-
-    <tr> <td class="className" colspan="3"> <a name="usesPresenter"> usesPresenter </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="mvw.html#Presenter">Presenter</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>Indicates that a Controller makes use of a particular Presenter; a method will be created on the controller BaseImpl that allows you to get a presenter of this type. This is used in conjunction with usesView attribute, in that an appropriate  presenter must be passed to the generated get*View() method to get a view instance.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="usesRunContextItem"> usesRunContextItem </a> </td></tr>
