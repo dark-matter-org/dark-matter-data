@@ -15,19 +15,16 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
 import java.io.Serializable;                                       // Always required
 import java.util.*;                                                // Always required
 import org.dmd.dmc.DmcAttribute;                                   // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                               // Always required
 import org.dmd.dmc.DmcObject;                                      // Primitive type and !auxiliary class
 import org.dmd.dmc.DmcObjectName;                                  // Alternative type for NameContainer values
 import org.dmd.dmc.DmcSliceInfo;                                   // Required for object slicing
 import org.dmd.dmc.DmcValueException;                              // Any attributes
 import org.dmd.dmc.types.NameContainer;                            // Primitive type and !auxiliary class
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;               // Base class
-import org.dmd.dms.generated.enums.DataTypeEnum;                   // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeDmcObjectMV;             // Required type
 import org.dmd.dms.generated.types.DmcTypeLongSV;                  // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor
@@ -52,20 +49,7 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
 
     public final static String constructionClassName = "SetResponse";
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __handlerID = new DmcAttributeInfo("handlerID",531,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __lastResponse = new DmcAttributeInfo("lastResponse",510,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __objectList = new DmcAttributeInfo("objectList",512,"DmcObject",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __responseCategory = new DmcAttributeInfo("responseCategory",505,"ResponseCategoryEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __responseText = new DmcAttributeInfo("responseText",506,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __responseType = new DmcAttributeInfo("responseType",504,"ResponseTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __target = new DmcAttributeInfo("target",508,"NameContainer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __trackingEnabled = new DmcAttributeInfo("trackingEnabled",539,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo classInfo = DmpDMSAG.__SetResponse;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -73,29 +57,6 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
 
 
     static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__handlerID.id,__handlerID);
-        _ImAp.put(__lastResponse.id,__lastResponse);
-        _ImAp.put(__objectList.id,__objectList);
-        _ImAp.put(__requestID.id,__requestID);
-        _ImAp.put(__responseCategory.id,__responseCategory);
-        _ImAp.put(__responseText.id,__responseText);
-        _ImAp.put(__responseType.id,__responseType);
-        _ImAp.put(__target.id,__target);
-        _ImAp.put(__timeMS.id,__timeMS);
-        _ImAp.put(__trackingEnabled.id,__trackingEnabled);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__handlerID.name,__handlerID);
-        _SmAp.put(__lastResponse.name,__lastResponse);
-        _SmAp.put(__objectList.name,__objectList);
-        _SmAp.put(__requestID.name,__requestID);
-        _SmAp.put(__responseCategory.name,__responseCategory);
-        _SmAp.put(__responseText.name,__responseText);
-        _SmAp.put(__responseType.name,__responseType);
-        _SmAp.put(__target.name,__target);
-        _SmAp.put(__timeMS.name,__timeMS);
-        _SmAp.put(__trackingEnabled.name,__trackingEnabled);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -109,14 +70,6 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
 
     protected SetResponseDMO(String oc) {
         super(oc);
-    }
-
-    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
-        return(_ImAp);
-    }
-
-    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
-        return(_SmAp);
     }
 
     protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
@@ -150,9 +103,9 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
      * @return An Iterator of DmcObject objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<DmcObject> getObjectList(){
-        DmcTypeDmcObjectMV attr = (DmcTypeDmcObjectMV) get(__objectList);
+        DmcTypeDmcObjectMV attr = (DmcTypeDmcObjectMV) get(DmpDMSAG.__objectList);
         if (attr == null)
             return( ((List<DmcObject>) Collections.EMPTY_LIST).iterator());
 
@@ -162,9 +115,9 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * @return The nth DmcObject value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public DmcObject getNthObjectList(int i){
-        DmcTypeDmcObjectMV attr = (DmcTypeDmcObjectMV) get(__objectList);
+        DmcTypeDmcObjectMV attr = (DmcTypeDmcObjectMV) get(DmpDMSAG.__objectList);
         if (attr == null)
             return(null);
 
@@ -175,15 +128,15 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
      * Adds another objectList to the specified value.
      * @param value DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addObjectList(DmcObject value) {
-        DmcAttribute<?> attr = get(__objectList);
+        DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         if (attr == null)
-            attr = new DmcTypeDmcObjectMV(__objectList);
+            attr = new DmcTypeDmcObjectMV(DmpDMSAG.__objectList);
         
         try{
             setLastValue(attr.add(value));
-            add(__objectList,attr);
+            add(DmpDMSAG.__objectList,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -195,9 +148,9 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified DmcObject.
      * @param value DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean objectListContains(DmcObject value) {
-        DmcAttribute<?> attr = get(__objectList);
+        DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -207,23 +160,23 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addObjectList(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__objectList);
+        DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         if (attr == null)
-            attr = new DmcTypeDmcObjectMV(__objectList);
+            attr = new DmcTypeDmcObjectMV(DmpDMSAG.__objectList);
         
         setLastValue(attr.add(value));
-        add(__objectList,attr);
+        add(DmpDMSAG.__objectList,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in objectList
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getObjectListSize(){
-        DmcAttribute<?> attr = get(__objectList);
+        DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         if (attr == null)
             return(0);
         
@@ -234,14 +187,14 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delObjectList(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__objectList);
+        DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeDmcObjectMV(__objectList), value);
+            delFromEmptyAttribute(new DmcTypeDmcObjectMV(DmpDMSAG.__objectList), value);
         else
-            attr = del(__objectList, value);
+            attr = del(DmpDMSAG.__objectList, value);
         
         return(attr);
     }
@@ -250,14 +203,14 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
      * Deletes a objectList from the specified value.
      * @param value DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delObjectList(DmcObject value) {
-        DmcAttribute<?> attr = get(__objectList);
+        DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeDmcObjectMV(__objectList), value);
+            delFromEmptyAttribute(new DmcTypeDmcObjectMV(DmpDMSAG.__objectList), value);
         else
-            attr = del(__objectList, value);
+            attr = del(DmpDMSAG.__objectList, value);
         
         return(attr);
     }
@@ -265,14 +218,14 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remObjectList(){
-         rem(__objectList);
+         rem(DmpDMSAG.__objectList);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public Long getTimeMS(){
-        DmcTypeLongSV attr = (DmcTypeLongSV) get(__timeMS);
+        DmcTypeLongSV attr = (DmcTypeLongSV) get(DmpDMSAG.__timeMS);
         if (attr == null)
             return(null);
 
@@ -283,15 +236,15 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets timeMS to the specified value.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setTimeMS(Long value) {
-        DmcAttribute<?> attr = get(__timeMS);
+        DmcAttribute<?> attr = get(DmpDMSAG.__timeMS);
         if (attr == null)
-            attr = new DmcTypeLongSV(__timeMS);
+            attr = new DmcTypeLongSV(DmpDMSAG.__timeMS);
         
         try{
             attr.set(value);
-            set(__timeMS,attr);
+            set(DmpDMSAG.__timeMS,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -302,27 +255,27 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets timeMS to the specified value.
      * @param value A value compatible with DmcTypeLongSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setTimeMS(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__timeMS);
+        DmcAttribute<?> attr = get(DmpDMSAG.__timeMS);
         if (attr == null)
-            attr = new DmcTypeLongSV(__timeMS);
+            attr = new DmcTypeLongSV(DmpDMSAG.__timeMS);
         
         attr.set(value);
-        set(__timeMS,attr);
+        set(DmpDMSAG.__timeMS,attr);
     }
 
     /**
      * Removes the timeMS attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remTimeMS(){
-         rem(__timeMS);
+         rem(DmpDMSAG.__timeMS);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public NameContainer getTarget(){
-        DmcTypeNameContainerSV attr = (DmcTypeNameContainerSV) get(__target);
+        DmcTypeNameContainerSV attr = (DmcTypeNameContainerSV) get(DmpDMSAG.__target);
         if (attr == null)
             return(null);
 
@@ -333,15 +286,15 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setTarget(NameContainer value) {
-        DmcAttribute<?> attr = get(__target);
+        DmcAttribute<?> attr = get(DmpDMSAG.__target);
         if (attr == null)
-            attr = new DmcTypeNameContainerSV(__target);
+            attr = new DmcTypeNameContainerSV(DmpDMSAG.__target);
         
         try{
             attr.set(value);
-            set(__target,attr);
+            set(DmpDMSAG.__target,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -352,15 +305,15 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:704)
     public void setTarget(DmcObjectName value) {
-        DmcAttribute<?> attr = get(__target);
+        DmcAttribute<?> attr = get(DmpDMSAG.__target);
         if (attr == null)
-            attr = new DmcTypeNameContainerSV(__target);
+            attr = new DmcTypeNameContainerSV(DmpDMSAG.__target);
         
         try{
             attr.set(value);
-            set(__target,attr);
+            set(DmpDMSAG.__target,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The alternative type specific set() method shouldn't throw exceptions!",ex));
@@ -371,22 +324,22 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets target to the specified value.
      * @param value A value compatible with DmcTypeNameContainerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setTarget(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__target);
+        DmcAttribute<?> attr = get(DmpDMSAG.__target);
         if (attr == null)
-            attr = new DmcTypeNameContainerSV(__target);
+            attr = new DmcTypeNameContainerSV(DmpDMSAG.__target);
         
         attr.set(value);
-        set(__target,attr);
+        set(DmpDMSAG.__target,attr);
     }
 
     /**
      * Removes the target attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remTarget(){
-         rem(__target);
+         rem(DmpDMSAG.__target);
     }
 
 

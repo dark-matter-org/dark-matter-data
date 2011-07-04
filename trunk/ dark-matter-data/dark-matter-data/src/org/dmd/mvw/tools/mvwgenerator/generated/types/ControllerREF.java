@@ -39,7 +39,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 @SuppressWarnings("serial")
 public class ControllerREF extends DmcNamedObjectNontransportableREF<ControllerDMO> {
 
-    public final static DmcAttributeInfo __controllerName = new DmcAttributeInfo("controllerName",834,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __controllerName = new DmcAttributeInfo("controllerName",834,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeCamelCaseNameSV myName;    
     

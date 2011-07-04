@@ -39,7 +39,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 @SuppressWarnings("serial")
 public class EventREF extends DmcNamedObjectNontransportableREF<EventDMO> {
 
-    public final static DmcAttributeInfo __eventName = new DmcAttributeInfo("eventName",809,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __eventName = new DmcAttributeInfo("eventName",809,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeCamelCaseNameSV myName;    
     

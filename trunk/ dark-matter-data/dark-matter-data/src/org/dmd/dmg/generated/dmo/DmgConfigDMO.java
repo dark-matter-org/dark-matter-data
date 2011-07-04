@@ -15,18 +15,16 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmg.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
 import java.io.Serializable;                                   // Always required
 import java.util.*;                                            // Always required
 import org.dmd.dmc.DmcAttribute;                               // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                           // Always required
 import org.dmd.dmc.DmcObject;                                  // Structural class
 import org.dmd.dmc.DmcSliceInfo;                               // Required for object slicing
 import org.dmd.dmc.DmcValueException;                          // Any attributes
 import org.dmd.dmg.generated.types.DmcTypeGeneratorMV;         // Required type
 import org.dmd.dmg.types.Generator;                            // Primitive type and !auxiliary class
-import org.dmd.dms.generated.enums.DataTypeEnum;               // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;              // Required if we have any attributes
+import org.dmd.dms.generated.dmo.MetaDMSAG;                    // Attribute from meta schema
 import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringMV;            // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSV;            // Required type
@@ -50,16 +48,7 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
 
     public final static String constructionClassName = "DmgConfig";
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __configSuffix = new DmcAttributeInfo("configSuffix",202,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __genPackage = new DmcAttributeInfo("genPackage",203,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __generatedFileHeader = new DmcAttributeInfo("generatedFileHeader",81,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __generator = new DmcAttributeInfo("generator",200,"Generator",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __schemaToLoad = new DmcAttributeInfo("schemaToLoad",201,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo classInfo = DmgDMSAG.__DmgConfig;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -67,21 +56,6 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
 
 
     static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__configSuffix.id,__configSuffix);
-        _ImAp.put(__description.id,__description);
-        _ImAp.put(__genPackage.id,__genPackage);
-        _ImAp.put(__generatedFileHeader.id,__generatedFileHeader);
-        _ImAp.put(__generator.id,__generator);
-        _ImAp.put(__schemaToLoad.id,__schemaToLoad);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__configSuffix.name,__configSuffix);
-        _SmAp.put(__description.name,__description);
-        _SmAp.put(__genPackage.name,__genPackage);
-        _SmAp.put(__generatedFileHeader.name,__generatedFileHeader);
-        _SmAp.put(__generator.name,__generator);
-        _SmAp.put(__schemaToLoad.name,__schemaToLoad);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -95,14 +69,6 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
 
     protected DmgConfigDMO(String oc) {
         super(oc);
-    }
-
-    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
-        return(_ImAp);
-    }
-
-    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
-        return(_SmAp);
     }
 
     protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
@@ -132,9 +98,9 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
         setModifier(mods);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getSchemaToLoad(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__schemaToLoad);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmgDMSAG.__schemaToLoad);
         if (attr == null)
             return(null);
 
@@ -145,15 +111,15 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Sets schemaToLoad to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setSchemaToLoad(String value) {
-        DmcAttribute<?> attr = get(__schemaToLoad);
+        DmcAttribute<?> attr = get(DmgDMSAG.__schemaToLoad);
         if (attr == null)
-            attr = new DmcTypeStringSV(__schemaToLoad);
+            attr = new DmcTypeStringSV(DmgDMSAG.__schemaToLoad);
         
         try{
             attr.set(value);
-            set(__schemaToLoad,attr);
+            set(DmgDMSAG.__schemaToLoad,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -164,31 +130,31 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Sets schemaToLoad to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setSchemaToLoad(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__schemaToLoad);
+        DmcAttribute<?> attr = get(DmgDMSAG.__schemaToLoad);
         if (attr == null)
-            attr = new DmcTypeStringSV(__schemaToLoad);
+            attr = new DmcTypeStringSV(DmgDMSAG.__schemaToLoad);
         
         attr.set(value);
-        set(__schemaToLoad,attr);
+        set(DmgDMSAG.__schemaToLoad,attr);
     }
 
     /**
      * Removes the schemaToLoad attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remSchemaToLoad(){
-         rem(__schemaToLoad);
+         rem(DmgDMSAG.__schemaToLoad);
     }
 
     /**
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<String> getConfigSuffix(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(__configSuffix);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(DmgDMSAG.__configSuffix);
         if (attr == null)
             return( ((List<String>) Collections.EMPTY_LIST).iterator());
 
@@ -198,9 +164,9 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public String getNthConfigSuffix(int i){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(__configSuffix);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(DmgDMSAG.__configSuffix);
         if (attr == null)
             return(null);
 
@@ -211,15 +177,15 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Adds another configSuffix to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addConfigSuffix(String value) {
-        DmcAttribute<?> attr = get(__configSuffix);
+        DmcAttribute<?> attr = get(DmgDMSAG.__configSuffix);
         if (attr == null)
-            attr = new DmcTypeStringMV(__configSuffix);
+            attr = new DmcTypeStringMV(DmgDMSAG.__configSuffix);
         
         try{
             setLastValue(attr.add(value));
-            add(__configSuffix,attr);
+            add(DmgDMSAG.__configSuffix,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -231,9 +197,9 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean configSuffixContains(String value) {
-        DmcAttribute<?> attr = get(__configSuffix);
+        DmcAttribute<?> attr = get(DmgDMSAG.__configSuffix);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -243,23 +209,23 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Adds another configSuffix value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addConfigSuffix(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__configSuffix);
+        DmcAttribute<?> attr = get(DmgDMSAG.__configSuffix);
         if (attr == null)
-            attr = new DmcTypeStringMV(__configSuffix);
+            attr = new DmcTypeStringMV(DmgDMSAG.__configSuffix);
         
         setLastValue(attr.add(value));
-        add(__configSuffix,attr);
+        add(DmgDMSAG.__configSuffix,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in configSuffix
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getConfigSuffixSize(){
-        DmcAttribute<?> attr = get(__configSuffix);
+        DmcAttribute<?> attr = get(DmgDMSAG.__configSuffix);
         if (attr == null)
             return(0);
         
@@ -270,14 +236,14 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Deletes a configSuffix value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delConfigSuffix(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__configSuffix);
+        DmcAttribute<?> attr = get(DmgDMSAG.__configSuffix);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(__configSuffix), value);
+            delFromEmptyAttribute(new DmcTypeStringMV(DmgDMSAG.__configSuffix), value);
         else
-            attr = del(__configSuffix, value);
+            attr = del(DmgDMSAG.__configSuffix, value);
         
         return(attr);
     }
@@ -286,14 +252,14 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Deletes a configSuffix from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delConfigSuffix(String value) {
-        DmcAttribute<?> attr = get(__configSuffix);
+        DmcAttribute<?> attr = get(DmgDMSAG.__configSuffix);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(__configSuffix), value);
+            delFromEmptyAttribute(new DmcTypeStringMV(DmgDMSAG.__configSuffix), value);
         else
-            attr = del(__configSuffix, value);
+            attr = del(DmgDMSAG.__configSuffix, value);
         
         return(attr);
     }
@@ -301,14 +267,14 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the configSuffix attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remConfigSuffix(){
-         rem(__configSuffix);
+         rem(DmgDMSAG.__configSuffix);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getDescription(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
             return(null);
 
@@ -319,15 +285,15 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setDescription(String value) {
-        DmcAttribute<?> attr = get(__description);
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(__description);
+            attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
         try{
             attr.set(value);
-            set(__description,attr);
+            set(MetaDMSAG.__description,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -338,27 +304,27 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__description);
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(__description);
+            attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
         attr.set(value);
-        set(__description,attr);
+        set(MetaDMSAG.__description,attr);
     }
 
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remDescription(){
-         rem(__description);
+         rem(MetaDMSAG.__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getGeneratedFileHeader(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__generatedFileHeader);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__generatedFileHeader);
         if (attr == null)
             return(null);
 
@@ -369,15 +335,15 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Sets generatedFileHeader to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setGeneratedFileHeader(String value) {
-        DmcAttribute<?> attr = get(__generatedFileHeader);
+        DmcAttribute<?> attr = get(MetaDMSAG.__generatedFileHeader);
         if (attr == null)
-            attr = new DmcTypeStringSV(__generatedFileHeader);
+            attr = new DmcTypeStringSV(MetaDMSAG.__generatedFileHeader);
         
         try{
             attr.set(value);
-            set(__generatedFileHeader,attr);
+            set(MetaDMSAG.__generatedFileHeader,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -388,31 +354,31 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Sets generatedFileHeader to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setGeneratedFileHeader(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__generatedFileHeader);
+        DmcAttribute<?> attr = get(MetaDMSAG.__generatedFileHeader);
         if (attr == null)
-            attr = new DmcTypeStringSV(__generatedFileHeader);
+            attr = new DmcTypeStringSV(MetaDMSAG.__generatedFileHeader);
         
         attr.set(value);
-        set(__generatedFileHeader,attr);
+        set(MetaDMSAG.__generatedFileHeader,attr);
     }
 
     /**
      * Removes the generatedFileHeader attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remGeneratedFileHeader(){
-         rem(__generatedFileHeader);
+         rem(MetaDMSAG.__generatedFileHeader);
     }
 
     /**
      * @return An Iterator of Generator objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<Generator> getGenerator(){
-        DmcTypeGeneratorMV attr = (DmcTypeGeneratorMV) get(__generator);
+        DmcTypeGeneratorMV attr = (DmcTypeGeneratorMV) get(DmgDMSAG.__generator);
         if (attr == null)
             return( ((List<Generator>) Collections.EMPTY_LIST).iterator());
 
@@ -422,9 +388,9 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth Generator value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public Generator getNthGenerator(int i){
-        DmcTypeGeneratorMV attr = (DmcTypeGeneratorMV) get(__generator);
+        DmcTypeGeneratorMV attr = (DmcTypeGeneratorMV) get(DmgDMSAG.__generator);
         if (attr == null)
             return(null);
 
@@ -435,15 +401,15 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Adds another generator to the specified value.
      * @param value Generator
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addGenerator(Generator value) {
-        DmcAttribute<?> attr = get(__generator);
+        DmcAttribute<?> attr = get(DmgDMSAG.__generator);
         if (attr == null)
-            attr = new DmcTypeGeneratorMV(__generator);
+            attr = new DmcTypeGeneratorMV(DmgDMSAG.__generator);
         
         try{
             setLastValue(attr.add(value));
-            add(__generator,attr);
+            add(DmgDMSAG.__generator,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -455,9 +421,9 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified Generator.
      * @param value Generator
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean generatorContains(Generator value) {
-        DmcAttribute<?> attr = get(__generator);
+        DmcAttribute<?> attr = get(DmgDMSAG.__generator);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -467,23 +433,23 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Adds another generator value.
      * @param value A value compatible with Generator
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addGenerator(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__generator);
+        DmcAttribute<?> attr = get(DmgDMSAG.__generator);
         if (attr == null)
-            attr = new DmcTypeGeneratorMV(__generator);
+            attr = new DmcTypeGeneratorMV(DmgDMSAG.__generator);
         
         setLastValue(attr.add(value));
-        add(__generator,attr);
+        add(DmgDMSAG.__generator,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in generator
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getGeneratorSize(){
-        DmcAttribute<?> attr = get(__generator);
+        DmcAttribute<?> attr = get(DmgDMSAG.__generator);
         if (attr == null)
             return(0);
         
@@ -494,14 +460,14 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Deletes a generator value.
      * @param value The Generator to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delGenerator(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__generator);
+        DmcAttribute<?> attr = get(DmgDMSAG.__generator);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeGeneratorMV(__generator), value);
+            delFromEmptyAttribute(new DmcTypeGeneratorMV(DmgDMSAG.__generator), value);
         else
-            attr = del(__generator, value);
+            attr = del(DmgDMSAG.__generator, value);
         
         return(attr);
     }
@@ -510,14 +476,14 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Deletes a generator from the specified value.
      * @param value Generator
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delGenerator(Generator value) {
-        DmcAttribute<?> attr = get(__generator);
+        DmcAttribute<?> attr = get(DmgDMSAG.__generator);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeGeneratorMV(__generator), value);
+            delFromEmptyAttribute(new DmcTypeGeneratorMV(DmgDMSAG.__generator), value);
         else
-            attr = del(__generator, value);
+            attr = del(DmgDMSAG.__generator, value);
         
         return(attr);
     }
@@ -525,14 +491,14 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the generator attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remGenerator(){
-         rem(__generator);
+         rem(DmgDMSAG.__generator);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getGenPackage(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__genPackage);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmgDMSAG.__genPackage);
         if (attr == null)
             return(null);
 
@@ -543,15 +509,15 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Sets genPackage to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setGenPackage(String value) {
-        DmcAttribute<?> attr = get(__genPackage);
+        DmcAttribute<?> attr = get(DmgDMSAG.__genPackage);
         if (attr == null)
-            attr = new DmcTypeStringSV(__genPackage);
+            attr = new DmcTypeStringSV(DmgDMSAG.__genPackage);
         
         try{
             attr.set(value);
-            set(__genPackage,attr);
+            set(DmgDMSAG.__genPackage,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -562,22 +528,22 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
      * Sets genPackage to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setGenPackage(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__genPackage);
+        DmcAttribute<?> attr = get(DmgDMSAG.__genPackage);
         if (attr == null)
-            attr = new DmcTypeStringSV(__genPackage);
+            attr = new DmcTypeStringSV(DmgDMSAG.__genPackage);
         
         attr.set(value);
-        set(__genPackage,attr);
+        set(DmgDMSAG.__genPackage,attr);
     }
 
     /**
      * Removes the genPackage attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remGenPackage(){
-         rem(__genPackage);
+         rem(DmgDMSAG.__genPackage);
     }
 
 

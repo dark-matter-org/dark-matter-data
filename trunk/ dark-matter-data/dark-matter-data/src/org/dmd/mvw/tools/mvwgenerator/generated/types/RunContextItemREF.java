@@ -39,7 +39,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 @SuppressWarnings("serial")
 public class RunContextItemREF extends DmcNamedObjectNontransportableREF<RunContextItemDMO> {
 
-    public final static DmcAttributeInfo __itemName = new DmcAttributeInfo("itemName",827,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __itemName = new DmcAttributeInfo("itemName",827,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeCamelCaseNameSV myName;    
     

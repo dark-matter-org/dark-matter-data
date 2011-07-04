@@ -1,11 +1,13 @@
 package org.dmd.dmp.server.servlet.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
 import org.dmd.dmc.*;                                                    // If any attributes
 import org.dmd.dmc.types.CamelCaseName;                                  // Primitive type
 import org.dmd.dmp.server.servlet.extended.PluginConfig;                 // Required for getModificationRecorder()
+import org.dmd.dmp.server.servlet.generated.dmo.DmpServerDMSAG;          // Attribute from dmp.server schema
 import org.dmd.dmp.server.servlet.generated.dmo.PluginConfigDMO;         // Class not auxiliary or abstract
 import org.dmd.dms.*;                                                    // Always 2
+import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Attribute from meta schema
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor
 import org.dmd.dmw.DmwNamedObjectWrapper;                                // Named object wrapper
 
@@ -47,7 +49,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:953)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:961)
     public CamelCaseName getObjectName(){
         return(((PluginConfigDMO) core).getCamelCaseName());
     }
@@ -67,7 +69,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public Integer getStartOrder(){
         return(((PluginConfigDMO) core).getStartOrder());
     }
@@ -76,7 +78,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets startOrder to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setStartOrder(Object value) throws DmcValueException {
         ((PluginConfigDMO) core).setStartOrder(value);
     }
@@ -85,7 +87,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets startOrder to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setStartOrder(Integer value){
         ((PluginConfigDMO) core).setStartOrder(value);
     }
@@ -93,12 +95,12 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
     /**
      * Removes the startOrder attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remStartOrder(){
         ((PluginConfigDMO) core).remStartOrder();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public Boolean isRunnable(){
         return(((PluginConfigDMO) core).isRunnable());
     }
@@ -107,7 +109,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets runnable to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setRunnable(Object value) throws DmcValueException {
         ((PluginConfigDMO) core).setRunnable(value);
     }
@@ -116,7 +118,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets runnable to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setRunnable(Boolean value){
         ((PluginConfigDMO) core).setRunnable(value);
     }
@@ -124,12 +126,12 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
     /**
      * Removes the runnable attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remRunnable(){
         ((PluginConfigDMO) core).remRunnable();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public String getDescription(){
         return(((PluginConfigDMO) core).getDescription());
     }
@@ -138,7 +140,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setDescription(Object value) throws DmcValueException {
         ((PluginConfigDMO) core).setDescription(value);
     }
@@ -147,7 +149,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setDescription(String value){
         ((PluginConfigDMO) core).setDescription(value);
     }
@@ -155,12 +157,12 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remDescription(){
         ((PluginConfigDMO) core).remDescription();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public Integer getLineNumber(){
         return(((PluginConfigDMO) core).getLineNumber());
     }
@@ -169,7 +171,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setLineNumber(Object value) throws DmcValueException {
         ((PluginConfigDMO) core).setLineNumber(value);
     }
@@ -178,7 +180,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setLineNumber(Integer value){
         ((PluginConfigDMO) core).setLineNumber(value);
     }
@@ -186,12 +188,12 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
     /**
      * Removes the lineNumber attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remLineNumber(){
         ((PluginConfigDMO) core).remLineNumber();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public String getFile(){
         return(((PluginConfigDMO) core).getFile());
     }
@@ -200,7 +202,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setFile(Object value) throws DmcValueException {
         ((PluginConfigDMO) core).setFile(value);
     }
@@ -209,7 +211,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets file to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setFile(String value){
         ((PluginConfigDMO) core).setFile(value);
     }
@@ -217,12 +219,12 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
     /**
      * Removes the file attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remFile(){
         ((PluginConfigDMO) core).remFile();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public CamelCaseName getCamelCaseName(){
         return(((PluginConfigDMO) core).getCamelCaseName());
     }
@@ -231,7 +233,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets camelCaseName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setCamelCaseName(Object value) throws DmcValueException {
         ((PluginConfigDMO) core).setCamelCaseName(value);
     }
@@ -240,7 +242,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets camelCaseName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setCamelCaseName(CamelCaseName value){
         ((PluginConfigDMO) core).setCamelCaseName(value);
     }
@@ -248,12 +250,12 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
     /**
      * Removes the camelCaseName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remCamelCaseName(){
         ((PluginConfigDMO) core).remCamelCaseName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public CamelCaseName getPluginName(){
         return(((PluginConfigDMO) core).getPluginName());
     }
@@ -262,7 +264,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets pluginName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setPluginName(Object value) throws DmcValueException {
         ((PluginConfigDMO) core).setPluginName(value);
     }
@@ -271,7 +273,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets pluginName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setPluginName(CamelCaseName value){
         ((PluginConfigDMO) core).setPluginName(value);
     }
@@ -279,12 +281,12 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
     /**
      * Removes the pluginName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remPluginName(){
         ((PluginConfigDMO) core).remPluginName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public String getPluginClass(){
         return(((PluginConfigDMO) core).getPluginClass());
     }
@@ -293,7 +295,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets pluginClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setPluginClass(Object value) throws DmcValueException {
         ((PluginConfigDMO) core).setPluginClass(value);
     }
@@ -302,7 +304,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
      * Sets pluginClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setPluginClass(String value){
         ((PluginConfigDMO) core).setPluginClass(value);
     }
@@ -310,7 +312,7 @@ public class PluginConfigDMW extends DmwNamedObjectWrapper implements DmcNamedOb
     /**
      * Removes the pluginClass attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remPluginClass(){
         ((PluginConfigDMO) core).remPluginClass();
     }

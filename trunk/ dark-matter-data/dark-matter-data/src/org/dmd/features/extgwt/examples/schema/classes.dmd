@@ -1,6 +1,7 @@
 ClassDefinition
 name 			Folder
 classType   	STRUCTURAL
+dmdID			1
 isNamedBy		name
 must			name
 may         	folderID
@@ -9,6 +10,7 @@ description		The Folder class allows for the grouping of MailItems into folders.
 ClassDefinition
 name 			MailItem
 classType   	STRUCTURAL
+dmdID			2
 isNamedBy		mailID
 must			mailID
 must			sender

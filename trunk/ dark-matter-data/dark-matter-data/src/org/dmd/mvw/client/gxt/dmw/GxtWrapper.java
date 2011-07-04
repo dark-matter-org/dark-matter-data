@@ -15,6 +15,7 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
 
 import com.extjs.gxt.ui.client.core.FastMap;
 import com.extjs.gxt.ui.client.core.FastSet;
@@ -71,7 +72,7 @@ public class GxtWrapper extends DmcContainer implements Model, ModelData, DmcCon
 	}
 	
 	public void applyModifierFromEvent(DMPEventDMO event) throws DmcValueExceptionSet, DmcValueException{
-		DmcTypeModifier mods = (DmcTypeModifier) event.get(DMPEventDMO.__modify);
+		DmcTypeModifier mods = (DmcTypeModifier) event.get(DmpDMSAG.__modify);
 		if (mods != null)
 			core.applyModifier(mods);
 	}

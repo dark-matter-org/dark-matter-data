@@ -15,16 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
 import java.io.Serializable;                                  // Always required
 import java.util.*;                                           // Always required
 import org.dmd.dmc.DmcAttribute;                              // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                          // Always required
 import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing
 import org.dmd.dmc.DmcValueException;                         // Any attributes
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;          // Base class
-import org.dmd.dms.generated.enums.DataTypeEnum;              // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;             // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type
 
@@ -50,21 +47,7 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
 
     public final static String constructionClassName = "LoginResponse";
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __handlerID = new DmcAttributeInfo("handlerID",531,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __lastResponse = new DmcAttributeInfo("lastResponse",510,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __requestID = new DmcAttributeInfo("requestID",501,"Integer",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __requestRoot = new DmcAttributeInfo("requestRoot",503,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __responseCategory = new DmcAttributeInfo("responseCategory",505,"ResponseCategoryEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __responseText = new DmcAttributeInfo("responseText",506,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __responseType = new DmcAttributeInfo("responseType",504,"ResponseTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sessionID = new DmcAttributeInfo("sessionID",502,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS",518,"Long",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __trackingEnabled = new DmcAttributeInfo("trackingEnabled",539,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __userFQN = new DmcAttributeInfo("userFQN",524,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo classInfo = DmpDMSAG.__LoginResponse;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -72,31 +55,6 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
 
 
     static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__handlerID.id,__handlerID);
-        _ImAp.put(__lastResponse.id,__lastResponse);
-        _ImAp.put(__requestID.id,__requestID);
-        _ImAp.put(__requestRoot.id,__requestRoot);
-        _ImAp.put(__responseCategory.id,__responseCategory);
-        _ImAp.put(__responseText.id,__responseText);
-        _ImAp.put(__responseType.id,__responseType);
-        _ImAp.put(__sessionID.id,__sessionID);
-        _ImAp.put(__timeMS.id,__timeMS);
-        _ImAp.put(__trackingEnabled.id,__trackingEnabled);
-        _ImAp.put(__userFQN.id,__userFQN);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__handlerID.name,__handlerID);
-        _SmAp.put(__lastResponse.name,__lastResponse);
-        _SmAp.put(__requestID.name,__requestID);
-        _SmAp.put(__requestRoot.name,__requestRoot);
-        _SmAp.put(__responseCategory.name,__responseCategory);
-        _SmAp.put(__responseText.name,__responseText);
-        _SmAp.put(__responseType.name,__responseType);
-        _SmAp.put(__sessionID.name,__sessionID);
-        _SmAp.put(__timeMS.name,__timeMS);
-        _SmAp.put(__trackingEnabled.name,__trackingEnabled);
-        _SmAp.put(__userFQN.name,__userFQN);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -110,14 +68,6 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
 
     protected LoginResponseDMO(String oc) {
         super(oc);
-    }
-
-    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
-        return(_ImAp);
-    }
-
-    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
-        return(_SmAp);
     }
 
     protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
@@ -147,9 +97,9 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
         setModifier(mods);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getSessionID(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__sessionID);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__sessionID);
         if (attr == null)
             return(null);
 
@@ -160,15 +110,15 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets sessionID to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setSessionID(String value) {
-        DmcAttribute<?> attr = get(__sessionID);
+        DmcAttribute<?> attr = get(DmpDMSAG.__sessionID);
         if (attr == null)
-            attr = new DmcTypeStringSV(__sessionID);
+            attr = new DmcTypeStringSV(DmpDMSAG.__sessionID);
         
         try{
             attr.set(value);
-            set(__sessionID,attr);
+            set(DmpDMSAG.__sessionID,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -179,27 +129,27 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setSessionID(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__sessionID);
+        DmcAttribute<?> attr = get(DmpDMSAG.__sessionID);
         if (attr == null)
-            attr = new DmcTypeStringSV(__sessionID);
+            attr = new DmcTypeStringSV(DmpDMSAG.__sessionID);
         
         attr.set(value);
-        set(__sessionID,attr);
+        set(DmpDMSAG.__sessionID,attr);
     }
 
     /**
      * Removes the sessionID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remSessionID(){
-         rem(__sessionID);
+         rem(DmpDMSAG.__sessionID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getRequestRoot(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__requestRoot);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__requestRoot);
         if (attr == null)
             return(null);
 
@@ -210,15 +160,15 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets requestRoot to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setRequestRoot(String value) {
-        DmcAttribute<?> attr = get(__requestRoot);
+        DmcAttribute<?> attr = get(DmpDMSAG.__requestRoot);
         if (attr == null)
-            attr = new DmcTypeStringSV(__requestRoot);
+            attr = new DmcTypeStringSV(DmpDMSAG.__requestRoot);
         
         try{
             attr.set(value);
-            set(__requestRoot,attr);
+            set(DmpDMSAG.__requestRoot,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -229,27 +179,27 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets requestRoot to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setRequestRoot(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__requestRoot);
+        DmcAttribute<?> attr = get(DmpDMSAG.__requestRoot);
         if (attr == null)
-            attr = new DmcTypeStringSV(__requestRoot);
+            attr = new DmcTypeStringSV(DmpDMSAG.__requestRoot);
         
         attr.set(value);
-        set(__requestRoot,attr);
+        set(DmpDMSAG.__requestRoot,attr);
     }
 
     /**
      * Removes the requestRoot attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remRequestRoot(){
-         rem(__requestRoot);
+         rem(DmpDMSAG.__requestRoot);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getUserFQN(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__userFQN);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__userFQN);
         if (attr == null)
             return(null);
 
@@ -260,15 +210,15 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets userFQN to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setUserFQN(String value) {
-        DmcAttribute<?> attr = get(__userFQN);
+        DmcAttribute<?> attr = get(DmpDMSAG.__userFQN);
         if (attr == null)
-            attr = new DmcTypeStringSV(__userFQN);
+            attr = new DmcTypeStringSV(DmpDMSAG.__userFQN);
         
         try{
             attr.set(value);
-            set(__userFQN,attr);
+            set(DmpDMSAG.__userFQN,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -279,22 +229,22 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets userFQN to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setUserFQN(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__userFQN);
+        DmcAttribute<?> attr = get(DmpDMSAG.__userFQN);
         if (attr == null)
-            attr = new DmcTypeStringSV(__userFQN);
+            attr = new DmcTypeStringSV(DmpDMSAG.__userFQN);
         
         attr.set(value);
-        set(__userFQN,attr);
+        set(DmpDMSAG.__userFQN,attr);
     }
 
     /**
      * Removes the userFQN attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remUserFQN(){
-         rem(__userFQN);
+         rem(DmpDMSAG.__userFQN);
     }
 
 

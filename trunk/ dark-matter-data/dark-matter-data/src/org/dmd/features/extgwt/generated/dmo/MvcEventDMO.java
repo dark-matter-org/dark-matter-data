@@ -15,17 +15,16 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
 import java.io.Serializable;                                           // Always required
 import java.util.*;                                                    // Always required
 import org.dmd.dmc.DmcAttribute;                                       // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                   // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                                   // Named object
 import org.dmd.dmc.DmcSliceInfo;                                       // Required for object slicing
 import org.dmd.dmc.DmcValueException;                                  // Any attributes
 import org.dmd.dmc.types.StringName;                                   // Naming attribute type
-import org.dmd.dms.generated.enums.DataTypeEnum;                       // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;                      // Required if we have any attributes
+import org.dmd.dmg.generated.dmo.DmgDMSAG;                             // Attribute from dmg schema
+import org.dmd.dms.generated.dmo.MetaDMSAG;                            // Attribute from meta schema
 import org.dmd.dms.generated.types.DmcTypeBooleanSV;                   // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                  // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringMV;                    // Required type
@@ -53,22 +52,7 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
 
     public final static String constructionClassName = "MvcEvent";
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __definedBy = new DmcAttributeInfo("definedBy",604,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __definedInMVCConfig = new DmcAttributeInfo("definedInMVCConfig",616,"MvcConfig",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __emittedBy = new DmcAttributeInfo("emittedBy",605,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __isHistoryEvent = new DmcAttributeInfo("isHistoryEvent",617,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __upperConstantName = new DmcAttributeInfo("upperConstantName",205,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __userDataCollection = new DmcAttributeInfo("userDataCollection",620,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __userDataGenericSpec = new DmcAttributeInfo("userDataGenericSpec",621,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __userDataType = new DmcAttributeInfo("userDataType",608,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcEvent;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -76,33 +60,6 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
 
 
     static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__definedBy.id,__definedBy);
-        _ImAp.put(__definedInMVCConfig.id,__definedInMVCConfig);
-        _ImAp.put(__description.id,__description);
-        _ImAp.put(__emittedBy.id,__emittedBy);
-        _ImAp.put(__file.id,__file);
-        _ImAp.put(__isHistoryEvent.id,__isHistoryEvent);
-        _ImAp.put(__lineNumber.id,__lineNumber);
-        _ImAp.put(__name.id,__name);
-        _ImAp.put(__upperConstantName.id,__upperConstantName);
-        _ImAp.put(__userDataCollection.id,__userDataCollection);
-        _ImAp.put(__userDataGenericSpec.id,__userDataGenericSpec);
-        _ImAp.put(__userDataType.id,__userDataType);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__definedBy.name,__definedBy);
-        _SmAp.put(__definedInMVCConfig.name,__definedInMVCConfig);
-        _SmAp.put(__description.name,__description);
-        _SmAp.put(__emittedBy.name,__emittedBy);
-        _SmAp.put(__file.name,__file);
-        _SmAp.put(__isHistoryEvent.name,__isHistoryEvent);
-        _SmAp.put(__lineNumber.name,__lineNumber);
-        _SmAp.put(__name.name,__name);
-        _SmAp.put(__upperConstantName.name,__upperConstantName);
-        _SmAp.put(__userDataCollection.name,__userDataCollection);
-        _SmAp.put(__userDataGenericSpec.name,__userDataGenericSpec);
-        _SmAp.put(__userDataType.name,__userDataType);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -116,14 +73,6 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
 
     protected MvcEventDMO(String oc) {
         super(oc);
-    }
-
-    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
-        return(_ImAp);
-    }
-
-    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
-        return(_SmAp);
     }
 
     protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
@@ -160,9 +109,9 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:739)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:735)
     public StringName getObjectName(){
-        DmcAttribute<?> name = get(__name);
+        DmcAttribute<?> name = get(MetaDMSAG.__name);
         if (name != null)
             return((StringName)name.getSV());
     
@@ -170,7 +119,7 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     }
 
     public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> name = get(__name);
+        DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
@@ -181,9 +130,9 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getDescription(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
             return(null);
 
@@ -194,15 +143,15 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setDescription(String value) {
-        DmcAttribute<?> attr = get(__description);
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(__description);
+            attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
         try{
             attr.set(value);
-            set(__description,attr);
+            set(MetaDMSAG.__description,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -213,27 +162,27 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__description);
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(__description);
+            attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
         attr.set(value);
-        set(__description,attr);
+        set(MetaDMSAG.__description,attr);
     }
 
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remDescription(){
-         rem(__description);
+         rem(MetaDMSAG.__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getUserDataType(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__userDataType);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(ExtgwtDMSAG.__userDataType);
         if (attr == null)
             return(null);
 
@@ -244,15 +193,15 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets userDataType to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setUserDataType(String value) {
-        DmcAttribute<?> attr = get(__userDataType);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataType);
         if (attr == null)
-            attr = new DmcTypeStringSV(__userDataType);
+            attr = new DmcTypeStringSV(ExtgwtDMSAG.__userDataType);
         
         try{
             attr.set(value);
-            set(__userDataType,attr);
+            set(ExtgwtDMSAG.__userDataType,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -263,27 +212,27 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets userDataType to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setUserDataType(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__userDataType);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataType);
         if (attr == null)
-            attr = new DmcTypeStringSV(__userDataType);
+            attr = new DmcTypeStringSV(ExtgwtDMSAG.__userDataType);
         
         attr.set(value);
-        set(__userDataType,attr);
+        set(ExtgwtDMSAG.__userDataType,attr);
     }
 
     /**
      * Removes the userDataType attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remUserDataType(){
-         rem(__userDataType);
+         rem(ExtgwtDMSAG.__userDataType);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public Boolean isIsHistoryEvent(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__isHistoryEvent);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(ExtgwtDMSAG.__isHistoryEvent);
         if (attr == null)
             return(false);
 
@@ -294,15 +243,15 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets isHistoryEvent to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setIsHistoryEvent(Boolean value) {
-        DmcAttribute<?> attr = get(__isHistoryEvent);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__isHistoryEvent);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__isHistoryEvent);
+            attr = new DmcTypeBooleanSV(ExtgwtDMSAG.__isHistoryEvent);
         
         try{
             attr.set(value);
-            set(__isHistoryEvent,attr);
+            set(ExtgwtDMSAG.__isHistoryEvent,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -313,27 +262,27 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets isHistoryEvent to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setIsHistoryEvent(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__isHistoryEvent);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__isHistoryEvent);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__isHistoryEvent);
+            attr = new DmcTypeBooleanSV(ExtgwtDMSAG.__isHistoryEvent);
         
         attr.set(value);
-        set(__isHistoryEvent,attr);
+        set(ExtgwtDMSAG.__isHistoryEvent,attr);
     }
 
     /**
      * Removes the isHistoryEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remIsHistoryEvent(){
-         rem(__isHistoryEvent);
+         rem(ExtgwtDMSAG.__isHistoryEvent);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getUserDataCollection(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__userDataCollection);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(ExtgwtDMSAG.__userDataCollection);
         if (attr == null)
             return(null);
 
@@ -344,15 +293,15 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets userDataCollection to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setUserDataCollection(String value) {
-        DmcAttribute<?> attr = get(__userDataCollection);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataCollection);
         if (attr == null)
-            attr = new DmcTypeStringSV(__userDataCollection);
+            attr = new DmcTypeStringSV(ExtgwtDMSAG.__userDataCollection);
         
         try{
             attr.set(value);
-            set(__userDataCollection,attr);
+            set(ExtgwtDMSAG.__userDataCollection,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -363,27 +312,27 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets userDataCollection to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setUserDataCollection(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__userDataCollection);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataCollection);
         if (attr == null)
-            attr = new DmcTypeStringSV(__userDataCollection);
+            attr = new DmcTypeStringSV(ExtgwtDMSAG.__userDataCollection);
         
         attr.set(value);
-        set(__userDataCollection,attr);
+        set(ExtgwtDMSAG.__userDataCollection,attr);
     }
 
     /**
      * Removes the userDataCollection attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remUserDataCollection(){
-         rem(__userDataCollection);
+         rem(ExtgwtDMSAG.__userDataCollection);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getUserDataGenericSpec(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__userDataGenericSpec);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(ExtgwtDMSAG.__userDataGenericSpec);
         if (attr == null)
             return(null);
 
@@ -394,15 +343,15 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets userDataGenericSpec to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setUserDataGenericSpec(String value) {
-        DmcAttribute<?> attr = get(__userDataGenericSpec);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataGenericSpec);
         if (attr == null)
-            attr = new DmcTypeStringSV(__userDataGenericSpec);
+            attr = new DmcTypeStringSV(ExtgwtDMSAG.__userDataGenericSpec);
         
         try{
             attr.set(value);
-            set(__userDataGenericSpec,attr);
+            set(ExtgwtDMSAG.__userDataGenericSpec,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -413,31 +362,31 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets userDataGenericSpec to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setUserDataGenericSpec(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__userDataGenericSpec);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataGenericSpec);
         if (attr == null)
-            attr = new DmcTypeStringSV(__userDataGenericSpec);
+            attr = new DmcTypeStringSV(ExtgwtDMSAG.__userDataGenericSpec);
         
         attr.set(value);
-        set(__userDataGenericSpec,attr);
+        set(ExtgwtDMSAG.__userDataGenericSpec,attr);
     }
 
     /**
      * Removes the userDataGenericSpec attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remUserDataGenericSpec(){
-         rem(__userDataGenericSpec);
+         rem(ExtgwtDMSAG.__userDataGenericSpec);
     }
 
     /**
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<String> getDefinedBy(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(__definedBy);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(ExtgwtDMSAG.__definedBy);
         if (attr == null)
             return( ((List<String>) Collections.EMPTY_LIST).iterator());
 
@@ -447,9 +396,9 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public String getNthDefinedBy(int i){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(__definedBy);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(ExtgwtDMSAG.__definedBy);
         if (attr == null)
             return(null);
 
@@ -460,15 +409,15 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Adds another definedBy to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addDefinedBy(String value) {
-        DmcAttribute<?> attr = get(__definedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__definedBy);
         if (attr == null)
-            attr = new DmcTypeStringMV(__definedBy);
+            attr = new DmcTypeStringMV(ExtgwtDMSAG.__definedBy);
         
         try{
             setLastValue(attr.add(value));
-            add(__definedBy,attr);
+            add(ExtgwtDMSAG.__definedBy,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -480,9 +429,9 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean definedByContains(String value) {
-        DmcAttribute<?> attr = get(__definedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__definedBy);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -492,23 +441,23 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Adds another definedBy value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addDefinedBy(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__definedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__definedBy);
         if (attr == null)
-            attr = new DmcTypeStringMV(__definedBy);
+            attr = new DmcTypeStringMV(ExtgwtDMSAG.__definedBy);
         
         setLastValue(attr.add(value));
-        add(__definedBy,attr);
+        add(ExtgwtDMSAG.__definedBy,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in definedBy
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getDefinedBySize(){
-        DmcAttribute<?> attr = get(__definedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__definedBy);
         if (attr == null)
             return(0);
         
@@ -519,14 +468,14 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Deletes a definedBy value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delDefinedBy(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__definedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__definedBy);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(__definedBy), value);
+            delFromEmptyAttribute(new DmcTypeStringMV(ExtgwtDMSAG.__definedBy), value);
         else
-            attr = del(__definedBy, value);
+            attr = del(ExtgwtDMSAG.__definedBy, value);
         
         return(attr);
     }
@@ -535,14 +484,14 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Deletes a definedBy from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delDefinedBy(String value) {
-        DmcAttribute<?> attr = get(__definedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__definedBy);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(__definedBy), value);
+            delFromEmptyAttribute(new DmcTypeStringMV(ExtgwtDMSAG.__definedBy), value);
         else
-            attr = del(__definedBy, value);
+            attr = del(ExtgwtDMSAG.__definedBy, value);
         
         return(attr);
     }
@@ -550,18 +499,18 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     /**
      * Removes the definedBy attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remDefinedBy(){
-         rem(__definedBy);
+         rem(ExtgwtDMSAG.__definedBy);
     }
 
     /**
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<String> getEmittedBy(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(__emittedBy);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(ExtgwtDMSAG.__emittedBy);
         if (attr == null)
             return( ((List<String>) Collections.EMPTY_LIST).iterator());
 
@@ -571,9 +520,9 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public String getNthEmittedBy(int i){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(__emittedBy);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(ExtgwtDMSAG.__emittedBy);
         if (attr == null)
             return(null);
 
@@ -584,15 +533,15 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Adds another emittedBy to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addEmittedBy(String value) {
-        DmcAttribute<?> attr = get(__emittedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__emittedBy);
         if (attr == null)
-            attr = new DmcTypeStringMV(__emittedBy);
+            attr = new DmcTypeStringMV(ExtgwtDMSAG.__emittedBy);
         
         try{
             setLastValue(attr.add(value));
-            add(__emittedBy,attr);
+            add(ExtgwtDMSAG.__emittedBy,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -604,9 +553,9 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean emittedByContains(String value) {
-        DmcAttribute<?> attr = get(__emittedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__emittedBy);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -616,23 +565,23 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Adds another emittedBy value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addEmittedBy(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__emittedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__emittedBy);
         if (attr == null)
-            attr = new DmcTypeStringMV(__emittedBy);
+            attr = new DmcTypeStringMV(ExtgwtDMSAG.__emittedBy);
         
         setLastValue(attr.add(value));
-        add(__emittedBy,attr);
+        add(ExtgwtDMSAG.__emittedBy,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in emittedBy
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getEmittedBySize(){
-        DmcAttribute<?> attr = get(__emittedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__emittedBy);
         if (attr == null)
             return(0);
         
@@ -643,14 +592,14 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Deletes a emittedBy value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delEmittedBy(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__emittedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__emittedBy);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(__emittedBy), value);
+            delFromEmptyAttribute(new DmcTypeStringMV(ExtgwtDMSAG.__emittedBy), value);
         else
-            attr = del(__emittedBy, value);
+            attr = del(ExtgwtDMSAG.__emittedBy, value);
         
         return(attr);
     }
@@ -659,14 +608,14 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Deletes a emittedBy from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delEmittedBy(String value) {
-        DmcAttribute<?> attr = get(__emittedBy);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__emittedBy);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(__emittedBy), value);
+            delFromEmptyAttribute(new DmcTypeStringMV(ExtgwtDMSAG.__emittedBy), value);
         else
-            attr = del(__emittedBy, value);
+            attr = del(ExtgwtDMSAG.__emittedBy, value);
         
         return(attr);
     }
@@ -674,14 +623,14 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     /**
      * Removes the emittedBy attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remEmittedBy(){
-         rem(__emittedBy);
+         rem(ExtgwtDMSAG.__emittedBy);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getUpperConstantName(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__upperConstantName);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmgDMSAG.__upperConstantName);
         if (attr == null)
             return(null);
 
@@ -692,15 +641,15 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets upperConstantName to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setUpperConstantName(String value) {
-        DmcAttribute<?> attr = get(__upperConstantName);
+        DmcAttribute<?> attr = get(DmgDMSAG.__upperConstantName);
         if (attr == null)
-            attr = new DmcTypeStringSV(__upperConstantName);
+            attr = new DmcTypeStringSV(DmgDMSAG.__upperConstantName);
         
         try{
             attr.set(value);
-            set(__upperConstantName,attr);
+            set(DmgDMSAG.__upperConstantName,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -711,27 +660,27 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets upperConstantName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setUpperConstantName(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__upperConstantName);
+        DmcAttribute<?> attr = get(DmgDMSAG.__upperConstantName);
         if (attr == null)
-            attr = new DmcTypeStringSV(__upperConstantName);
+            attr = new DmcTypeStringSV(DmgDMSAG.__upperConstantName);
         
         attr.set(value);
-        set(__upperConstantName,attr);
+        set(DmgDMSAG.__upperConstantName,attr);
     }
 
     /**
      * Removes the upperConstantName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remUpperConstantName(){
-         rem(__upperConstantName);
+         rem(DmgDMSAG.__upperConstantName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public StringName getName(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
+        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
 
@@ -742,15 +691,15 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setName(StringName value) {
-        DmcAttribute<?> attr = get(__name);
+        DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(__name);
+            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         
         try{
             attr.set(value);
-            set(__name,attr);
+            set(MetaDMSAG.__name,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -761,22 +710,22 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__name);
+        DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(__name);
+            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         
         attr.set(value);
-        set(__name,attr);
+        set(MetaDMSAG.__name,attr);
     }
 
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remName(){
-         rem(__name);
+         rem(MetaDMSAG.__name);
     }
 
 

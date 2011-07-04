@@ -1,15 +1,12 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
 import java.io.Serializable;                                  // Always required
 import java.util.*;                                           // Always required
 import org.dmd.dmc.DmcAttribute;                              // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                          // Always required
 import org.dmd.dmc.DmcObject;                                 // Structural class
 import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing
 import org.dmd.dmc.DmcValueException;                         // Any attributes
-import org.dmd.dms.generated.enums.DataTypeEnum;              // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;             // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type
 
@@ -31,11 +28,7 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
 
     public final static String constructionClassName = "ClientCountFilter";
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __OUIFilter = new DmcAttributeInfo("OUIFilter",10407,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo classInfo = DmtDMSAG.__ClientCountFilter;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -43,11 +36,6 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
 
 
     static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__OUIFilter.id,__OUIFilter);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__OUIFilter.name,__OUIFilter);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -61,14 +49,6 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
 
     protected ClientCountFilterDMO(String oc) {
         super(oc);
-    }
-
-    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
-        return(_ImAp);
-    }
-
-    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
-        return(_SmAp);
     }
 
     protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
@@ -98,9 +78,9 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
         setModifier(mods);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getOUIFilter(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__OUIFilter);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__OUIFilter);
         if (attr == null)
             return("");
 
@@ -111,15 +91,15 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
      * Sets OUIFilter to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setOUIFilter(String value) {
-        DmcAttribute<?> attr = get(__OUIFilter);
+        DmcAttribute<?> attr = get(DmtDMSAG.__OUIFilter);
         if (attr == null)
-            attr = new DmcTypeStringSV(__OUIFilter);
+            attr = new DmcTypeStringSV(DmtDMSAG.__OUIFilter);
         
         try{
             attr.set(value);
-            set(__OUIFilter,attr);
+            set(DmtDMSAG.__OUIFilter,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -130,22 +110,22 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
      * Sets OUIFilter to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setOUIFilter(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__OUIFilter);
+        DmcAttribute<?> attr = get(DmtDMSAG.__OUIFilter);
         if (attr == null)
-            attr = new DmcTypeStringSV(__OUIFilter);
+            attr = new DmcTypeStringSV(DmtDMSAG.__OUIFilter);
         
         attr.set(value);
-        set(__OUIFilter,attr);
+        set(DmtDMSAG.__OUIFilter,attr);
     }
 
     /**
      * Removes the OUIFilter attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remOUIFilter(){
-         rem(__OUIFilter);
+         rem(DmtDMSAG.__OUIFilter);
     }
 
 

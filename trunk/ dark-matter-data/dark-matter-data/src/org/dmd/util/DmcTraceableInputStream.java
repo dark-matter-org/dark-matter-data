@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcFilter;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dmw.DmwWrapper;
@@ -118,7 +119,10 @@ public class DmcTraceableInputStream implements DmcInputStreamIF {
 	@Override
 	public int readAttributeID() throws Exception {
 		int id = dis.readShort();
-		DmcAttributeInfo ai = schema.getAttributeInfo(id);
+		
+//		DmcAttributeInfo ai = schema.getAttributeInfo(id);
+		DmcAttributeInfo ai = DmcOmni.instance().getInfo(id);
+		
 		if (calledFrom)
 			System.out.print(format.sprintf(DebugInfo.getShortWhereWeWereCalledFrom()) + " ");
 		if (ai == null)

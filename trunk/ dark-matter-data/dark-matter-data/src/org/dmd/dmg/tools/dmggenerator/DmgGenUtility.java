@@ -122,25 +122,11 @@ public class DmgGenUtility {
 			schemaFinder.debug(true);
 		
 		schemaFinder.addSuffix(".dms");
-//		schemaFinder.addJarEnding("DMSchema.jar");
 		schemaFinder.findConfigs();
 		
 		schemaParser = new DmsSchemaParser(baseSchema, schemaFinder);
 		schemaParser.parseSchema(baseWithDMGSchema, "dmg", true);
 		
-//		if (srcdir.size() > 0){
-//			StringArrayList search = srcdir;
-//			if (workspace.length() > 0){
-//				
-//				for(String dir: srcdir){
-//					augmented.add(workspace.toString() + "/" + dir);
-//				}
-//				search = augmented;
-//			}
-//			configFinder = new ConfigFinder(search.iterator());
-//		}
-//		else
-//			configFinder = new ConfigFinder();
 		configFinder = new ConfigFinder(searchdirs.iterator());
 
 		configFinder.addSuffix(".dmg");

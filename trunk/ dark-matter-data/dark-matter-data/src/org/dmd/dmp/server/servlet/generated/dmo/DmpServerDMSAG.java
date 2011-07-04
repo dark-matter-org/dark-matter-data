@@ -3,17 +3,17 @@ package org.dmd.dmp.server.servlet.generated.dmo;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
-import org.dmd.dms.generated.enums.ClassTypeEnum;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:483)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:506)
 import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // DmrBaseDMSAG
 import org.dmd.dms.generated.dmo.MetaDMSAG;                        // MetaDMSAG
+import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions
+import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions
+import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions
 
-import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dms.generated.enums.DataTypeEnum;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:93)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:95)
 public class DmpServerDMSAG implements DmcCompactSchemaIF {
 
 

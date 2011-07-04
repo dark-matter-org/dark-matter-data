@@ -1,10 +1,11 @@
 package org.dmd.dmp.server.servlet.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
 import org.dmd.dmc.*;                                                       // If any attributes
 import org.dmd.dmc.types.DotName;                                           // Primitive type
 import org.dmd.dmp.server.servlet.generated.dmo.SessionFolderRIDMO;         // Class not auxiliary or abstract
 import org.dmd.dms.*;                                                       // Always 2
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Attribute from meta schema
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor
 import org.dmd.dmw.DmwHierarchicObjectWrapper;                              // Hierarchic object wrapper
 
@@ -45,7 +46,7 @@ public class SessionFolderRIDMW extends DmwHierarchicObjectWrapper implements Dm
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:953)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:961)
     public DotName getObjectName(){
         return(((SessionFolderRIDMO) core).getDotName());
     }
@@ -65,7 +66,7 @@ public class SessionFolderRIDMW extends DmwHierarchicObjectWrapper implements Dm
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public DotName getDotName(){
         return(((SessionFolderRIDMO) core).getDotName());
     }
@@ -74,7 +75,7 @@ public class SessionFolderRIDMW extends DmwHierarchicObjectWrapper implements Dm
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setDotName(Object value) throws DmcValueException {
         ((SessionFolderRIDMO) core).setDotName(value);
     }
@@ -83,7 +84,7 @@ public class SessionFolderRIDMW extends DmwHierarchicObjectWrapper implements Dm
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setDotName(DotName value){
         ((SessionFolderRIDMO) core).setDotName(value);
     }
@@ -91,7 +92,7 @@ public class SessionFolderRIDMW extends DmwHierarchicObjectWrapper implements Dm
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remDotName(){
         ((SessionFolderRIDMO) core).remDotName();
     }

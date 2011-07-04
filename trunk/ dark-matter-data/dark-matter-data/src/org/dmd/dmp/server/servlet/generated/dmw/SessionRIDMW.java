@@ -1,15 +1,17 @@
 package org.dmd.dmp.server.servlet.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
-import org.dmd.dmc.*;                                                 // If any attributes
-import org.dmd.dmc.types.DotName;                                     // Primitive type
-import org.dmd.dmp.server.servlet.extended.SessionRI;                 // Required for getModificationRecorder()
-import org.dmd.dmp.server.servlet.generated.dmo.SessionRIDMO;         // Class not auxiliary or abstract
-import org.dmd.dmp.server.servlet.generated.dmw.UserRIDMW;            // Is reference type aux
-import org.dmd.dmp.server.servlet.generated.types.UserRIREF;          // To support getMVCopy() for REFs
-import org.dmd.dms.*;                                                 // Always 2
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor
-import org.dmd.dmw.DmwHierarchicObjectWrapper;                        // Hierarchic object wrapper
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
+import org.dmd.dmc.*;                                                   // If any attributes
+import org.dmd.dmc.types.DotName;                                       // Primitive type
+import org.dmd.dmp.server.servlet.extended.SessionRI;                   // Required for getModificationRecorder()
+import org.dmd.dmp.server.servlet.generated.dmo.DmpServerDMSAG;         // Attribute from dmp.server schema
+import org.dmd.dmp.server.servlet.generated.dmo.SessionRIDMO;           // Class not auxiliary or abstract
+import org.dmd.dmp.server.servlet.generated.dmw.UserRIDMW;              // Is reference type aux
+import org.dmd.dmp.server.servlet.generated.types.UserRIREF;            // To support getMVCopy() for REFs
+import org.dmd.dms.*;                                                   // Always 2
+import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Attribute from meta schema
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor
+import org.dmd.dmw.DmwHierarchicObjectWrapper;                          // Hierarchic object wrapper
 
 /**
  * The SessionRI represents an authenticated user session.
@@ -48,7 +50,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:953)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:961)
     public DotName getObjectName(){
         return(((SessionRIDMO) core).getDotName());
     }
@@ -68,7 +70,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public DotName getDotName(){
         return(((SessionRIDMO) core).getDotName());
     }
@@ -77,7 +79,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setDotName(Object value) throws DmcValueException {
         ((SessionRIDMO) core).setDotName(value);
     }
@@ -86,7 +88,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setDotName(DotName value){
         ((SessionRIDMO) core).setDotName(value);
     }
@@ -94,12 +96,12 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remDotName(){
         ((SessionRIDMO) core).remDotName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public String getSessionIDRI(){
         return(((SessionRIDMO) core).getSessionIDRI());
     }
@@ -108,7 +110,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets sessionIDRI to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setSessionIDRI(Object value) throws DmcValueException {
         ((SessionRIDMO) core).setSessionIDRI(value);
     }
@@ -117,7 +119,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets sessionIDRI to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setSessionIDRI(String value){
         ((SessionRIDMO) core).setSessionIDRI(value);
     }
@@ -125,12 +127,12 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
     /**
      * Removes the sessionIDRI attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remSessionIDRI(){
         ((SessionRIDMO) core).remSessionIDRI();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public String getSessionHostRI(){
         return(((SessionRIDMO) core).getSessionHostRI());
     }
@@ -139,7 +141,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets sessionHostRI to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setSessionHostRI(Object value) throws DmcValueException {
         ((SessionRIDMO) core).setSessionHostRI(value);
     }
@@ -148,7 +150,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets sessionHostRI to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setSessionHostRI(String value){
         ((SessionRIDMO) core).setSessionHostRI(value);
     }
@@ -156,7 +158,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
     /**
      * Removes the sessionHostRI attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remSessionHostRI(){
         ((SessionRIDMO) core).remSessionHostRI();
     }
@@ -164,7 +166,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
     /**
      * @return A UserRIDMW object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1069)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1077)
     public UserRIDMW getUserRefRI(){
         UserRIREF ref = ((SessionRIDMO) core).getUserRefRI();
         if (ref == null)
@@ -177,7 +179,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets the userRefRI to the specified value.
      * @param value A value compatible with UserRIREF
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1114)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1122)
     public void setUserRefRI(UserRIDMW value) {
         ((SessionRIDMO) core).setUserRefRI(value.getDMO());
     }
@@ -185,7 +187,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
     /**
      * Removes the userRefRI attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remUserRefRI(){
         ((SessionRIDMO) core).remUserRefRI();
     }

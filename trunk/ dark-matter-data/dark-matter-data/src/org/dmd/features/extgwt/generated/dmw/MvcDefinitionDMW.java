@@ -1,12 +1,14 @@
 package org.dmd.features.extgwt.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
 import org.dmd.dmc.*;                                                  // If any attributes
 import org.dmd.dmc.types.StringName;                                   // Primitive type
 import org.dmd.dms.*;                                                  // Always 2
+import org.dmd.dms.generated.dmo.MetaDMSAG;                            // Attribute from meta schema
 import org.dmd.dmw.DmwNamedObjectWrapper;                              // Named object wrapper
 import org.dmd.features.extgwt.extended.MvcConfig;                     // Is reference type aux
 import org.dmd.features.extgwt.extended.MvcDefinition;                 // Required for getModificationRecorder()
+import org.dmd.features.extgwt.generated.dmo.ExtgwtDMSAG;              // Attribute from extgwt schema
 import org.dmd.features.extgwt.generated.dmo.MvcDefinitionDMO;         // Abstract class
 import org.dmd.features.extgwt.generated.types.MvcConfigREF;           // To support getMVCopy() for REFs
 
@@ -35,7 +37,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:953)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:961)
     public StringName getObjectName(){
         return(((MvcDefinitionDMO) core).getName());
     }
@@ -55,7 +57,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public String getFile(){
         return(((MvcDefinitionDMO) core).getFile());
     }
@@ -64,7 +66,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setFile(Object value) throws DmcValueException {
         ((MvcDefinitionDMO) core).setFile(value);
     }
@@ -73,7 +75,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets file to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setFile(String value){
         ((MvcDefinitionDMO) core).setFile(value);
     }
@@ -81,12 +83,12 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * Removes the file attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remFile(){
         ((MvcDefinitionDMO) core).remFile();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public Integer getLineNumber(){
         return(((MvcDefinitionDMO) core).getLineNumber());
     }
@@ -95,7 +97,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setLineNumber(Object value) throws DmcValueException {
         ((MvcDefinitionDMO) core).setLineNumber(value);
     }
@@ -104,7 +106,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setLineNumber(Integer value){
         ((MvcDefinitionDMO) core).setLineNumber(value);
     }
@@ -112,12 +114,12 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * Removes the lineNumber attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remLineNumber(){
         ((MvcDefinitionDMO) core).remLineNumber();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public String getDescription(){
         return(((MvcDefinitionDMO) core).getDescription());
     }
@@ -126,7 +128,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setDescription(Object value) throws DmcValueException {
         ((MvcDefinitionDMO) core).setDescription(value);
     }
@@ -135,7 +137,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setDescription(String value){
         ((MvcDefinitionDMO) core).setDescription(value);
     }
@@ -143,12 +145,12 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remDescription(){
         ((MvcDefinitionDMO) core).remDescription();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public StringName getName(){
         return(((MvcDefinitionDMO) core).getName());
     }
@@ -157,7 +159,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setName(Object value) throws DmcValueException {
         ((MvcDefinitionDMO) core).setName(value);
     }
@@ -166,7 +168,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setName(StringName value){
         ((MvcDefinitionDMO) core).setName(value);
     }
@@ -174,7 +176,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remName(){
         ((MvcDefinitionDMO) core).remName();
     }
@@ -182,7 +184,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * @return A MvcConfig object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1069)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1077)
     public MvcConfig getDefinedInMVCConfig(){
         MvcConfigREF ref = ((MvcDefinitionDMO) core).getDefinedInMVCConfig();
         if (ref == null)
@@ -195,7 +197,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets the definedInMVCConfig to the specified value.
      * @param value A value compatible with MvcConfigREF
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1114)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1122)
     public void setDefinedInMVCConfig(MvcConfig value) {
         ((MvcDefinitionDMO) core).setDefinedInMVCConfig(value.getDMO());
     }
@@ -203,7 +205,7 @@ abstract public class MvcDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * Removes the definedInMVCConfig attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remDefinedInMVCConfig(){
         ((MvcDefinitionDMO) core).remDefinedInMVCConfig();
     }

@@ -42,6 +42,7 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.DmcTypeModifier;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 
 /**
@@ -136,7 +137,7 @@ public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Model, Model
 	}
 	
 	public void applyModifierFromEvent(DMPEventDMO event) throws DmcValueExceptionSet, DmcValueException{
-		DmcTypeModifier mods = (DmcTypeModifier) event.get(DMPEventDMO.__modify);
+		DmcTypeModifier mods = (DmcTypeModifier) event.get(DmpDMSAG.__modify);
 		if (mods != null)
 			core.applyModifier(mods);
 	}

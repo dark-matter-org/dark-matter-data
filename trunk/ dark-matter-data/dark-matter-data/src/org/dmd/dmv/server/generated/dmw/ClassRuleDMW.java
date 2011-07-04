@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
 import org.dmd.dmc.*;                                          // If any attributes
 import org.dmd.dms.*;                                          // Always 2
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;           // Is reference type aux
@@ -23,6 +23,7 @@ import org.dmd.dms.generated.types.ClassDefinitionREF;         // To support get
 import org.dmd.dmv.server.extended.ClassRule;                  // Required for getModificationRecorder()
 import org.dmd.dmv.server.extended.Rule;                       // Derived class
 import org.dmd.dmv.shared.generated.dmo.ClassRuleDMO;          // Abstract class
+import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;              // Attribute from dmv schema
 
 /**
  * The ClassRule is a rule that applies to an entire object and its
@@ -52,7 +53,7 @@ abstract public class ClassRuleDMW extends Rule {
     /**
      * @return A ClassDefinitionDMW object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1069)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1077)
     public ClassDefinitionDMW getApplyToClass(){
         ClassDefinitionREF ref = ((ClassRuleDMO) core).getApplyToClass();
         if (ref == null)
@@ -65,7 +66,7 @@ abstract public class ClassRuleDMW extends Rule {
      * Sets the applyToClass to the specified value.
      * @param value A value compatible with ClassDefinitionREF
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1114)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1122)
     public void setApplyToClass(ClassDefinitionDMW value) {
         ((ClassRuleDMO) core).setApplyToClass(value.getDMO());
     }
@@ -73,7 +74,7 @@ abstract public class ClassRuleDMW extends Rule {
     /**
      * Removes the applyToClass attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remApplyToClass(){
         ((ClassRuleDMO) core).remApplyToClass();
     }

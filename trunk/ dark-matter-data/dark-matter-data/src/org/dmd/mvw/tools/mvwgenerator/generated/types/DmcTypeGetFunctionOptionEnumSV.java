@@ -24,7 +24,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;    
  * The DmcTypeGetFunctionOptionEnumSV provides storage for a single-valued GetFunctionOptionEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1593)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1613)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
  */
 @SuppressWarnings("serial")

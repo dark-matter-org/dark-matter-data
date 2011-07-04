@@ -594,6 +594,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 
 				if (ad.getGenericArgsImport() != null)
 					genericImports.add(ad.getGenericArgsImport());
+				
+				addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute schema");
 
 				allAttr.add(ad);
 			}
@@ -648,6 +650,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 
 				if (ad.getGenericArgsImport() != null)
 					genericImports.add(ad.getGenericArgsImport());
+
+				addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute schema");
 
 				allAttr.add(ad);
 			}
@@ -1088,7 +1092,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public int get" + functionName + "Size(){\n");
-		sb.append("        DmcAttribute<?> attr = core.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        DmcAttribute<?> attr = core.get(" + ad.getDMSAGReference() + ");\n");
 		sb.append("        if (attr == null)\n");
 		sb.append("            return(0);\n");
 		sb.append("        \n");
@@ -1100,7 +1104,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public boolean get" + functionName + "IsEmpty(){\n");
-		sb.append("        DmcAttribute<?> attr = core.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        DmcAttribute<?> attr = core.get(" + ad.getDMSAGReference() + ");\n");
 		sb.append("        if (attr == null)\n");
 		sb.append("            return(true);\n");
 		sb.append("        \n");
@@ -1112,7 +1116,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public boolean get" + functionName + "HasValue(){\n");
-		sb.append("        DmcAttribute<?> attr = core.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        DmcAttribute<?> attr = core.get(" + ad.getDMSAGReference() + ");\n");
 		sb.append("        if (attr == null)\n");
 		sb.append("            return(false);\n");
 		sb.append("        \n");
@@ -1132,7 +1136,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
-			sb.append("        DmcAttribute attr = " + dmocast + ".get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+			sb.append("        DmcAttribute attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(" + itClass+ ".emptyList);\n");
 			sb.append("        \n");
@@ -1196,7 +1200,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public " + collectionClass + "<" + dmwClass + ">" + " get" + functionName + "Copy(){\n");
-				sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+				sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return(new " + collectionClass + "<" + dmwClass + ">());\n");
 				sb.append("        \n");
@@ -1324,7 +1328,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    public " + collectionClass + "<" + ad.getType().getName() + ">" + " get" + functionName + "Copy(){\n");
-			sb.append("        DmcAttribute<?> attr = core.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+			sb.append("        DmcAttribute<?> attr = core.get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(new " + collectionClass + "<" + ad.getType().getName() + ">());\n");
 			sb.append("        \n");
@@ -1423,7 +1427,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public int get" + functionName + "Size(){\n");
-		sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
 		sb.append("        if (attr == null)\n");
 		sb.append("            return(0);\n");
 		sb.append("        \n");
@@ -1435,7 +1439,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public boolean get" + functionName + "IsEmpty(){\n");
-		sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
 		sb.append("        if (attr == null)\n");
 		sb.append("            return(true);\n");
 		sb.append("        \n");
@@ -1447,7 +1451,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public boolean get" + functionName + "HasValue(){\n");
-		sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
 		sb.append("        if (attr == null)\n");
 		sb.append("            return(false);\n");
 		sb.append("        \n");
@@ -1462,7 +1466,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public " + typeName + " get" + functionName + "(Object key){\n");
-		sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+		sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
 		sb.append("        if (attr == null)\n");
 		sb.append("            return(null);\n");
 		sb.append("        \n");
@@ -1486,7 +1490,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 				sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
-				sb.append("        DmcAttribute attr = " + dmocast + ".get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+				sb.append("        DmcAttribute attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return(" + itClass+ ".emptyList);\n");
 				sb.append("        \n");
@@ -1554,7 +1558,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public " + collectionClass + "<" + keyClass + "," + dmwClass + ">" + " get" + functionName + "Copy(){\n");
-				sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+				sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return(new " + collectionClass + "<" + keyClass + "," + dmwClass + ">());\n");
 				sb.append("        \n");
@@ -1579,7 +1583,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
-			sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+			sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(" + itClass+ ".emptyList);\n");
 			sb.append("        \n");
@@ -1652,7 +1656,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    public " + collectionClass + "<" + keyClass + "," + ad.getType().getName() + ">" + " get" + functionName + "Copy(){\n");
-			sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
+			sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(new " + collectionClass + "<" + keyClass + "," + ad.getType().getName() + ">());\n");
 			sb.append("        \n");

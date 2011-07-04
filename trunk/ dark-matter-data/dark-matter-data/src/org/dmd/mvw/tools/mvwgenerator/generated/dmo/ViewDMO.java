@@ -15,18 +15,16 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
 import java.io.Serializable;                                                               // Always required
 import java.util.*;                                                                        // Always required
 import org.dmd.dmc.DmcAttribute;                                                           // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                                       // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                                                       // Named object
 import org.dmd.dmc.DmcOmni;                                                                // Lazy resolution
 import org.dmd.dmc.DmcSliceInfo;                                                           // Required for object slicing
 import org.dmd.dmc.DmcValueException;                                                      // Any attributes
 import org.dmd.dmc.types.CamelCaseName;                                                    // Naming attribute type
-import org.dmd.dms.generated.enums.DataTypeEnum;                                           // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;                                          // Required if we have any attributes
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                                // Attribute from meta schema
 import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                       // Required type
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                                 // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                                      // Required for MODREC constructor
@@ -71,36 +69,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
 
     public final static String constructionClassName = "View";
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __broadcast = new DmcAttributeInfo("broadcast",822,"Event",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __broadcastOnly = new DmcAttributeInfo("broadcastOnly",823,"Event",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __camelCaseName = new DmcAttributeInfo("camelCaseName",116,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __clickEvent = new DmcAttributeInfo("clickEvent",819,"OperationSpec",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __createEvent = new DmcAttributeInfo("createEvent",821,"OperationSpec",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule",800,"Module",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __deleteEvent = new DmcAttributeInfo("deleteEvent",818,"EventSpec",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __displayDMO = new DmcAttributeInfo("displayDMO",816,"DisplayDataSpec",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __extendsInterface = new DmcAttributeInfo("extendsInterface",119,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __local = new DmcAttributeInfo("local",832,"Event",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __modifyEvent = new DmcAttributeInfo("modifyEvent",820,"OperationSpec",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __presenterImport = new DmcAttributeInfo("presenterImport",836,"String",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __presenterMethod = new DmcAttributeInfo("presenterMethod",824,"MethodWithArgs",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __selectEvent = new DmcAttributeInfo("selectEvent",817,"EventSpec",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sharedImport = new DmcAttributeInfo("sharedImport",838,"String",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __subpackage = new DmcAttributeInfo("subpackage",88,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __theOne = new DmcAttributeInfo("theOne",863,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass",807,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __usesRunContextItem = new DmcAttributeInfo("usesRunContextItem",835,"RunContextItem",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __viewImport = new DmcAttributeInfo("viewImport",837,"String",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __viewMethod = new DmcAttributeInfo("viewMethod",825,"MethodWithArgs",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __viewName = new DmcAttributeInfo("viewName",812,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __widget = new DmcAttributeInfo("widget",813,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo classInfo = MvwDMSAG.__View;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -108,61 +77,6 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
 
 
     static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__broadcast.id,__broadcast);
-        _ImAp.put(__broadcastOnly.id,__broadcastOnly);
-        _ImAp.put(__camelCaseName.id,__camelCaseName);
-        _ImAp.put(__clickEvent.id,__clickEvent);
-        _ImAp.put(__createEvent.id,__createEvent);
-        _ImAp.put(__definedInModule.id,__definedInModule);
-        _ImAp.put(__deleteEvent.id,__deleteEvent);
-        _ImAp.put(__description.id,__description);
-        _ImAp.put(__displayDMO.id,__displayDMO);
-        _ImAp.put(__extendsInterface.id,__extendsInterface);
-        _ImAp.put(__file.id,__file);
-        _ImAp.put(__lineNumber.id,__lineNumber);
-        _ImAp.put(__local.id,__local);
-        _ImAp.put(__modifyEvent.id,__modifyEvent);
-        _ImAp.put(__presenterImport.id,__presenterImport);
-        _ImAp.put(__presenterMethod.id,__presenterMethod);
-        _ImAp.put(__selectEvent.id,__selectEvent);
-        _ImAp.put(__sharedImport.id,__sharedImport);
-        _ImAp.put(__subpackage.id,__subpackage);
-        _ImAp.put(__theOne.id,__theOne);
-        _ImAp.put(__useBaseClass.id,__useBaseClass);
-        _ImAp.put(__usesRunContextItem.id,__usesRunContextItem);
-        _ImAp.put(__viewImport.id,__viewImport);
-        _ImAp.put(__viewMethod.id,__viewMethod);
-        _ImAp.put(__viewName.id,__viewName);
-        _ImAp.put(__widget.id,__widget);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__broadcast.name,__broadcast);
-        _SmAp.put(__broadcastOnly.name,__broadcastOnly);
-        _SmAp.put(__camelCaseName.name,__camelCaseName);
-        _SmAp.put(__clickEvent.name,__clickEvent);
-        _SmAp.put(__createEvent.name,__createEvent);
-        _SmAp.put(__definedInModule.name,__definedInModule);
-        _SmAp.put(__deleteEvent.name,__deleteEvent);
-        _SmAp.put(__description.name,__description);
-        _SmAp.put(__displayDMO.name,__displayDMO);
-        _SmAp.put(__extendsInterface.name,__extendsInterface);
-        _SmAp.put(__file.name,__file);
-        _SmAp.put(__lineNumber.name,__lineNumber);
-        _SmAp.put(__local.name,__local);
-        _SmAp.put(__modifyEvent.name,__modifyEvent);
-        _SmAp.put(__presenterImport.name,__presenterImport);
-        _SmAp.put(__presenterMethod.name,__presenterMethod);
-        _SmAp.put(__selectEvent.name,__selectEvent);
-        _SmAp.put(__sharedImport.name,__sharedImport);
-        _SmAp.put(__subpackage.name,__subpackage);
-        _SmAp.put(__theOne.name,__theOne);
-        _SmAp.put(__useBaseClass.name,__useBaseClass);
-        _SmAp.put(__usesRunContextItem.name,__usesRunContextItem);
-        _SmAp.put(__viewImport.name,__viewImport);
-        _SmAp.put(__viewMethod.name,__viewMethod);
-        _SmAp.put(__viewName.name,__viewName);
-        _SmAp.put(__widget.name,__widget);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -176,14 +90,6 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
 
     protected ViewDMO(String oc) {
         super(oc);
-    }
-
-    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
-        return(_ImAp);
-    }
-
-    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
-        return(_SmAp);
     }
 
     protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
@@ -220,9 +126,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:739)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:735)
     public CamelCaseName getObjectName(){
-        DmcAttribute<?> name = get(__viewName);
+        DmcAttribute<?> name = get(MvwDMSAG.__viewName);
         if (name != null)
             return((CamelCaseName)name.getSV());
     
@@ -230,7 +136,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     }
 
     public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> name = get(__viewName);
+        DmcAttribute<?> name = get(MvwDMSAG.__viewName);
         return(name);
     }
 
@@ -241,9 +147,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getUseBaseClass(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__useBaseClass);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__useBaseClass);
         if (attr == null)
             return(null);
 
@@ -254,15 +160,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets useBaseClass to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setUseBaseClass(String value) {
-        DmcAttribute<?> attr = get(__useBaseClass);
+        DmcAttribute<?> attr = get(MvwDMSAG.__useBaseClass);
         if (attr == null)
-            attr = new DmcTypeStringSV(__useBaseClass);
+            attr = new DmcTypeStringSV(MvwDMSAG.__useBaseClass);
         
         try{
             attr.set(value);
-            set(__useBaseClass,attr);
+            set(MvwDMSAG.__useBaseClass,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -273,31 +179,31 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets useBaseClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setUseBaseClass(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__useBaseClass);
+        DmcAttribute<?> attr = get(MvwDMSAG.__useBaseClass);
         if (attr == null)
-            attr = new DmcTypeStringSV(__useBaseClass);
+            attr = new DmcTypeStringSV(MvwDMSAG.__useBaseClass);
         
         attr.set(value);
-        set(__useBaseClass,attr);
+        set(MvwDMSAG.__useBaseClass,attr);
     }
 
     /**
      * Removes the useBaseClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remUseBaseClass(){
-         rem(__useBaseClass);
+         rem(MvwDMSAG.__useBaseClass);
     }
 
     /**
      * @return An Iterator of EventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:808)
     public Iterator<EventREF> getLocal(){
-        DmcTypeEventREFSET attr = (DmcTypeEventREFSET) get(__local);
+        DmcTypeEventREFSET attr = (DmcTypeEventREFSET) get(MvwDMSAG.__local);
         if (attr == null)
             return( ((List<EventREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -315,9 +221,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * @return An Iterator of EventREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:807)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:828)
     public Iterator<EventREF> getLocalREFs(){
-        DmcTypeEventREFSET attr = (DmcTypeEventREFSET) get(__local);
+        DmcTypeEventREFSET attr = (DmcTypeEventREFSET) get(MvwDMSAG.__local);
         if (attr == null)
             return( ((List<EventREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -328,15 +234,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another local to the specified value.
      * @param value Event
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:822)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:843)
     public DmcAttribute<?> addLocal(EventDMO value) {
-        DmcAttribute<?> attr = get(__local);
+        DmcAttribute<?> attr = get(MvwDMSAG.__local);
         if (attr == null)
-            attr = new DmcTypeEventREFSET(__local);
+            attr = new DmcTypeEventREFSET(MvwDMSAG.__local);
         
         try{
             setLastValue(attr.add(value));
-            add(__local,attr);
+            add(MvwDMSAG.__local,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -348,23 +254,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another local value.
      * @param value A value compatible with Event
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addLocal(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__local);
+        DmcAttribute<?> attr = get(MvwDMSAG.__local);
         if (attr == null)
-            attr = new DmcTypeEventREFSET(__local);
+            attr = new DmcTypeEventREFSET(MvwDMSAG.__local);
         
         setLastValue(attr.add(value));
-        add(__local,attr);
+        add(MvwDMSAG.__local,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in local
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getLocalSize(){
-        DmcAttribute<?> attr = get(__local);
+        DmcAttribute<?> attr = get(MvwDMSAG.__local);
         if (attr == null)
             return(0);
         
@@ -375,27 +281,27 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a local value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1011)
     public DmcAttribute<?> delLocal(Object value){
-        DmcAttribute<?> attr = del(__local, ((DmcNamedObjectIF)value).getObjectName());
+        DmcAttribute<?> attr = del(MvwDMSAG.__local, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }
 
     /**
      * Removes the local attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remLocal(){
-         rem(__local);
+         rem(MvwDMSAG.__local);
     }
 
     /**
      * @return An Iterator of EventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:808)
     public Iterator<EventREF> getBroadcast(){
-        DmcTypeEventREFMV attr = (DmcTypeEventREFMV) get(__broadcast);
+        DmcTypeEventREFMV attr = (DmcTypeEventREFMV) get(MvwDMSAG.__broadcast);
         if (attr == null)
             return( ((List<EventREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -413,9 +319,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * @return An Iterator of EventREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:807)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:828)
     public Iterator<EventREF> getBroadcastREFs(){
-        DmcTypeEventREFMV attr = (DmcTypeEventREFMV) get(__broadcast);
+        DmcTypeEventREFMV attr = (DmcTypeEventREFMV) get(MvwDMSAG.__broadcast);
         if (attr == null)
             return( ((List<EventREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -426,15 +332,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another broadcast to the specified value.
      * @param value Event
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:822)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:843)
     public DmcAttribute<?> addBroadcast(EventDMO value) {
-        DmcAttribute<?> attr = get(__broadcast);
+        DmcAttribute<?> attr = get(MvwDMSAG.__broadcast);
         if (attr == null)
-            attr = new DmcTypeEventREFMV(__broadcast);
+            attr = new DmcTypeEventREFMV(MvwDMSAG.__broadcast);
         
         try{
             setLastValue(attr.add(value));
-            add(__broadcast,attr);
+            add(MvwDMSAG.__broadcast,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -446,23 +352,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another broadcast value.
      * @param value A value compatible with Event
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addBroadcast(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__broadcast);
+        DmcAttribute<?> attr = get(MvwDMSAG.__broadcast);
         if (attr == null)
-            attr = new DmcTypeEventREFMV(__broadcast);
+            attr = new DmcTypeEventREFMV(MvwDMSAG.__broadcast);
         
         setLastValue(attr.add(value));
-        add(__broadcast,attr);
+        add(MvwDMSAG.__broadcast,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in broadcast
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getBroadcastSize(){
-        DmcAttribute<?> attr = get(__broadcast);
+        DmcAttribute<?> attr = get(MvwDMSAG.__broadcast);
         if (attr == null)
             return(0);
         
@@ -473,27 +379,27 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a broadcast value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1011)
     public DmcAttribute<?> delBroadcast(Object value){
-        DmcAttribute<?> attr = del(__broadcast, ((DmcNamedObjectIF)value).getObjectName());
+        DmcAttribute<?> attr = del(MvwDMSAG.__broadcast, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }
 
     /**
      * Removes the broadcast attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remBroadcast(){
-         rem(__broadcast);
+         rem(MvwDMSAG.__broadcast);
     }
 
     /**
      * @return An Iterator of EventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:808)
     public Iterator<EventREF> getBroadcastOnly(){
-        DmcTypeEventREFMV attr = (DmcTypeEventREFMV) get(__broadcastOnly);
+        DmcTypeEventREFMV attr = (DmcTypeEventREFMV) get(MvwDMSAG.__broadcastOnly);
         if (attr == null)
             return( ((List<EventREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -511,9 +417,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * @return An Iterator of EventREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:807)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:828)
     public Iterator<EventREF> getBroadcastOnlyREFs(){
-        DmcTypeEventREFMV attr = (DmcTypeEventREFMV) get(__broadcastOnly);
+        DmcTypeEventREFMV attr = (DmcTypeEventREFMV) get(MvwDMSAG.__broadcastOnly);
         if (attr == null)
             return( ((List<EventREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -524,15 +430,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another broadcastOnly to the specified value.
      * @param value Event
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:822)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:843)
     public DmcAttribute<?> addBroadcastOnly(EventDMO value) {
-        DmcAttribute<?> attr = get(__broadcastOnly);
+        DmcAttribute<?> attr = get(MvwDMSAG.__broadcastOnly);
         if (attr == null)
-            attr = new DmcTypeEventREFMV(__broadcastOnly);
+            attr = new DmcTypeEventREFMV(MvwDMSAG.__broadcastOnly);
         
         try{
             setLastValue(attr.add(value));
-            add(__broadcastOnly,attr);
+            add(MvwDMSAG.__broadcastOnly,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -544,23 +450,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another broadcastOnly value.
      * @param value A value compatible with Event
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addBroadcastOnly(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__broadcastOnly);
+        DmcAttribute<?> attr = get(MvwDMSAG.__broadcastOnly);
         if (attr == null)
-            attr = new DmcTypeEventREFMV(__broadcastOnly);
+            attr = new DmcTypeEventREFMV(MvwDMSAG.__broadcastOnly);
         
         setLastValue(attr.add(value));
-        add(__broadcastOnly,attr);
+        add(MvwDMSAG.__broadcastOnly,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in broadcastOnly
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getBroadcastOnlySize(){
-        DmcAttribute<?> attr = get(__broadcastOnly);
+        DmcAttribute<?> attr = get(MvwDMSAG.__broadcastOnly);
         if (attr == null)
             return(0);
         
@@ -571,27 +477,27 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a broadcastOnly value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1011)
     public DmcAttribute<?> delBroadcastOnly(Object value){
-        DmcAttribute<?> attr = del(__broadcastOnly, ((DmcNamedObjectIF)value).getObjectName());
+        DmcAttribute<?> attr = del(MvwDMSAG.__broadcastOnly, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }
 
     /**
      * Removes the broadcastOnly attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remBroadcastOnly(){
-         rem(__broadcastOnly);
+         rem(MvwDMSAG.__broadcastOnly);
     }
 
     /**
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<String> getViewImport(){
-        DmcTypeStringSET attr = (DmcTypeStringSET) get(__viewImport);
+        DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__viewImport);
         if (attr == null)
             return( ((List<String>) Collections.EMPTY_LIST).iterator());
 
@@ -601,9 +507,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public String getNthViewImport(int i){
-        DmcTypeStringSET attr = (DmcTypeStringSET) get(__viewImport);
+        DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__viewImport);
         if (attr == null)
             return(null);
 
@@ -614,15 +520,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another viewImport to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addViewImport(String value) {
-        DmcAttribute<?> attr = get(__viewImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewImport);
         if (attr == null)
-            attr = new DmcTypeStringSET(__viewImport);
+            attr = new DmcTypeStringSET(MvwDMSAG.__viewImport);
         
         try{
             setLastValue(attr.add(value));
-            add(__viewImport,attr);
+            add(MvwDMSAG.__viewImport,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -634,9 +540,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean viewImportContains(String value) {
-        DmcAttribute<?> attr = get(__viewImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewImport);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -646,23 +552,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another viewImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addViewImport(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__viewImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewImport);
         if (attr == null)
-            attr = new DmcTypeStringSET(__viewImport);
+            attr = new DmcTypeStringSET(MvwDMSAG.__viewImport);
         
         setLastValue(attr.add(value));
-        add(__viewImport,attr);
+        add(MvwDMSAG.__viewImport,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in viewImport
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getViewImportSize(){
-        DmcAttribute<?> attr = get(__viewImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewImport);
         if (attr == null)
             return(0);
         
@@ -673,14 +579,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a viewImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delViewImport(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__viewImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewImport);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringSET(__viewImport), value);
+            delFromEmptyAttribute(new DmcTypeStringSET(MvwDMSAG.__viewImport), value);
         else
-            attr = del(__viewImport, value);
+            attr = del(MvwDMSAG.__viewImport, value);
         
         return(attr);
     }
@@ -689,14 +595,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a viewImport from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delViewImport(String value) {
-        DmcAttribute<?> attr = get(__viewImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewImport);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringSET(__viewImport), value);
+            delFromEmptyAttribute(new DmcTypeStringSET(MvwDMSAG.__viewImport), value);
         else
-            attr = del(__viewImport, value);
+            attr = del(MvwDMSAG.__viewImport, value);
         
         return(attr);
     }
@@ -704,18 +610,18 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the viewImport attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remViewImport(){
-         rem(__viewImport);
+         rem(MvwDMSAG.__viewImport);
     }
 
     /**
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<String> getPresenterImport(){
-        DmcTypeStringSET attr = (DmcTypeStringSET) get(__presenterImport);
+        DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__presenterImport);
         if (attr == null)
             return( ((List<String>) Collections.EMPTY_LIST).iterator());
 
@@ -725,9 +631,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public String getNthPresenterImport(int i){
-        DmcTypeStringSET attr = (DmcTypeStringSET) get(__presenterImport);
+        DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__presenterImport);
         if (attr == null)
             return(null);
 
@@ -738,15 +644,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another presenterImport to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addPresenterImport(String value) {
-        DmcAttribute<?> attr = get(__presenterImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterImport);
         if (attr == null)
-            attr = new DmcTypeStringSET(__presenterImport);
+            attr = new DmcTypeStringSET(MvwDMSAG.__presenterImport);
         
         try{
             setLastValue(attr.add(value));
-            add(__presenterImport,attr);
+            add(MvwDMSAG.__presenterImport,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -758,9 +664,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean presenterImportContains(String value) {
-        DmcAttribute<?> attr = get(__presenterImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterImport);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -770,23 +676,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another presenterImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addPresenterImport(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__presenterImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterImport);
         if (attr == null)
-            attr = new DmcTypeStringSET(__presenterImport);
+            attr = new DmcTypeStringSET(MvwDMSAG.__presenterImport);
         
         setLastValue(attr.add(value));
-        add(__presenterImport,attr);
+        add(MvwDMSAG.__presenterImport,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in presenterImport
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getPresenterImportSize(){
-        DmcAttribute<?> attr = get(__presenterImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterImport);
         if (attr == null)
             return(0);
         
@@ -797,14 +703,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a presenterImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delPresenterImport(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__presenterImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterImport);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringSET(__presenterImport), value);
+            delFromEmptyAttribute(new DmcTypeStringSET(MvwDMSAG.__presenterImport), value);
         else
-            attr = del(__presenterImport, value);
+            attr = del(MvwDMSAG.__presenterImport, value);
         
         return(attr);
     }
@@ -813,14 +719,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a presenterImport from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delPresenterImport(String value) {
-        DmcAttribute<?> attr = get(__presenterImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterImport);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringSET(__presenterImport), value);
+            delFromEmptyAttribute(new DmcTypeStringSET(MvwDMSAG.__presenterImport), value);
         else
-            attr = del(__presenterImport, value);
+            attr = del(MvwDMSAG.__presenterImport, value);
         
         return(attr);
     }
@@ -828,18 +734,18 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the presenterImport attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remPresenterImport(){
-         rem(__presenterImport);
+         rem(MvwDMSAG.__presenterImport);
     }
 
     /**
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<String> getSharedImport(){
-        DmcTypeStringSET attr = (DmcTypeStringSET) get(__sharedImport);
+        DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__sharedImport);
         if (attr == null)
             return( ((List<String>) Collections.EMPTY_LIST).iterator());
 
@@ -849,9 +755,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public String getNthSharedImport(int i){
-        DmcTypeStringSET attr = (DmcTypeStringSET) get(__sharedImport);
+        DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__sharedImport);
         if (attr == null)
             return(null);
 
@@ -862,15 +768,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another sharedImport to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addSharedImport(String value) {
-        DmcAttribute<?> attr = get(__sharedImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__sharedImport);
         if (attr == null)
-            attr = new DmcTypeStringSET(__sharedImport);
+            attr = new DmcTypeStringSET(MvwDMSAG.__sharedImport);
         
         try{
             setLastValue(attr.add(value));
-            add(__sharedImport,attr);
+            add(MvwDMSAG.__sharedImport,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -882,9 +788,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean sharedImportContains(String value) {
-        DmcAttribute<?> attr = get(__sharedImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__sharedImport);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -894,23 +800,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another sharedImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addSharedImport(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__sharedImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__sharedImport);
         if (attr == null)
-            attr = new DmcTypeStringSET(__sharedImport);
+            attr = new DmcTypeStringSET(MvwDMSAG.__sharedImport);
         
         setLastValue(attr.add(value));
-        add(__sharedImport,attr);
+        add(MvwDMSAG.__sharedImport,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in sharedImport
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getSharedImportSize(){
-        DmcAttribute<?> attr = get(__sharedImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__sharedImport);
         if (attr == null)
             return(0);
         
@@ -921,14 +827,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a sharedImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delSharedImport(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__sharedImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__sharedImport);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringSET(__sharedImport), value);
+            delFromEmptyAttribute(new DmcTypeStringSET(MvwDMSAG.__sharedImport), value);
         else
-            attr = del(__sharedImport, value);
+            attr = del(MvwDMSAG.__sharedImport, value);
         
         return(attr);
     }
@@ -937,14 +843,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a sharedImport from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delSharedImport(String value) {
-        DmcAttribute<?> attr = get(__sharedImport);
+        DmcAttribute<?> attr = get(MvwDMSAG.__sharedImport);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringSET(__sharedImport), value);
+            delFromEmptyAttribute(new DmcTypeStringSET(MvwDMSAG.__sharedImport), value);
         else
-            attr = del(__sharedImport, value);
+            attr = del(MvwDMSAG.__sharedImport, value);
         
         return(attr);
     }
@@ -952,14 +858,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the sharedImport attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remSharedImport(){
-         rem(__sharedImport);
+         rem(MvwDMSAG.__sharedImport);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getSubpackage(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__subpackage);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__subpackage);
         if (attr == null)
             return(null);
 
@@ -970,15 +876,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets subpackage to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setSubpackage(String value) {
-        DmcAttribute<?> attr = get(__subpackage);
+        DmcAttribute<?> attr = get(MetaDMSAG.__subpackage);
         if (attr == null)
-            attr = new DmcTypeStringSV(__subpackage);
+            attr = new DmcTypeStringSV(MetaDMSAG.__subpackage);
         
         try{
             attr.set(value);
-            set(__subpackage,attr);
+            set(MetaDMSAG.__subpackage,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -989,27 +895,27 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets subpackage to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setSubpackage(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__subpackage);
+        DmcAttribute<?> attr = get(MetaDMSAG.__subpackage);
         if (attr == null)
-            attr = new DmcTypeStringSV(__subpackage);
+            attr = new DmcTypeStringSV(MetaDMSAG.__subpackage);
         
         attr.set(value);
-        set(__subpackage,attr);
+        set(MetaDMSAG.__subpackage,attr);
     }
 
     /**
      * Removes the subpackage attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remSubpackage(){
-         rem(__subpackage);
+         rem(MetaDMSAG.__subpackage);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public Boolean isTheOne(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__theOne);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__theOne);
         if (attr == null)
             return(false);
 
@@ -1020,15 +926,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets theOne to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setTheOne(Boolean value) {
-        DmcAttribute<?> attr = get(__theOne);
+        DmcAttribute<?> attr = get(MvwDMSAG.__theOne);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__theOne);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__theOne);
         
         try{
             attr.set(value);
-            set(__theOne,attr);
+            set(MvwDMSAG.__theOne,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -1039,31 +945,31 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets theOne to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setTheOne(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__theOne);
+        DmcAttribute<?> attr = get(MvwDMSAG.__theOne);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__theOne);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__theOne);
         
         attr.set(value);
-        set(__theOne,attr);
+        set(MvwDMSAG.__theOne,attr);
     }
 
     /**
      * Removes the theOne attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remTheOne(){
-         rem(__theOne);
+         rem(MvwDMSAG.__theOne);
     }
 
     /**
      * @return An Iterator of RunContextItemDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:808)
     public Iterator<RunContextItemREF> getUsesRunContextItem(){
-        DmcTypeRunContextItemREFSET attr = (DmcTypeRunContextItemREFSET) get(__usesRunContextItem);
+        DmcTypeRunContextItemREFSET attr = (DmcTypeRunContextItemREFSET) get(MvwDMSAG.__usesRunContextItem);
         if (attr == null)
             return( ((List<RunContextItemREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -1081,9 +987,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * @return An Iterator of RunContextItemREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:807)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:828)
     public Iterator<RunContextItemREF> getUsesRunContextItemREFs(){
-        DmcTypeRunContextItemREFSET attr = (DmcTypeRunContextItemREFSET) get(__usesRunContextItem);
+        DmcTypeRunContextItemREFSET attr = (DmcTypeRunContextItemREFSET) get(MvwDMSAG.__usesRunContextItem);
         if (attr == null)
             return( ((List<RunContextItemREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -1094,15 +1000,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another usesRunContextItem to the specified value.
      * @param value RunContextItem
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:822)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:843)
     public DmcAttribute<?> addUsesRunContextItem(RunContextItemDMO value) {
-        DmcAttribute<?> attr = get(__usesRunContextItem);
+        DmcAttribute<?> attr = get(MvwDMSAG.__usesRunContextItem);
         if (attr == null)
-            attr = new DmcTypeRunContextItemREFSET(__usesRunContextItem);
+            attr = new DmcTypeRunContextItemREFSET(MvwDMSAG.__usesRunContextItem);
         
         try{
             setLastValue(attr.add(value));
-            add(__usesRunContextItem,attr);
+            add(MvwDMSAG.__usesRunContextItem,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -1114,23 +1020,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another usesRunContextItem value.
      * @param value A value compatible with RunContextItem
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addUsesRunContextItem(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__usesRunContextItem);
+        DmcAttribute<?> attr = get(MvwDMSAG.__usesRunContextItem);
         if (attr == null)
-            attr = new DmcTypeRunContextItemREFSET(__usesRunContextItem);
+            attr = new DmcTypeRunContextItemREFSET(MvwDMSAG.__usesRunContextItem);
         
         setLastValue(attr.add(value));
-        add(__usesRunContextItem,attr);
+        add(MvwDMSAG.__usesRunContextItem,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in usesRunContextItem
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getUsesRunContextItemSize(){
-        DmcAttribute<?> attr = get(__usesRunContextItem);
+        DmcAttribute<?> attr = get(MvwDMSAG.__usesRunContextItem);
         if (attr == null)
             return(0);
         
@@ -1141,23 +1047,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a usesRunContextItem value.
      * @param value The RunContextItem to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1011)
     public DmcAttribute<?> delUsesRunContextItem(Object value){
-        DmcAttribute<?> attr = del(__usesRunContextItem, ((DmcNamedObjectIF)value).getObjectName());
+        DmcAttribute<?> attr = del(MvwDMSAG.__usesRunContextItem, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }
 
     /**
      * Removes the usesRunContextItem attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remUsesRunContextItem(){
-         rem(__usesRunContextItem);
+         rem(MvwDMSAG.__usesRunContextItem);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public Boolean isWidget(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__widget);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__widget);
         if (attr == null)
             return(true);
 
@@ -1168,15 +1074,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets widget to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setWidget(Boolean value) {
-        DmcAttribute<?> attr = get(__widget);
+        DmcAttribute<?> attr = get(MvwDMSAG.__widget);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__widget);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__widget);
         
         try{
             attr.set(value);
-            set(__widget,attr);
+            set(MvwDMSAG.__widget,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -1187,31 +1093,31 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets widget to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setWidget(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__widget);
+        DmcAttribute<?> attr = get(MvwDMSAG.__widget);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__widget);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__widget);
         
         attr.set(value);
-        set(__widget,attr);
+        set(MvwDMSAG.__widget,attr);
     }
 
     /**
      * Removes the widget attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remWidget(){
-         rem(__widget);
+         rem(MvwDMSAG.__widget);
     }
 
     /**
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<String> getExtendsInterface(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(__extendsInterface);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__extendsInterface);
         if (attr == null)
             return( ((List<String>) Collections.EMPTY_LIST).iterator());
 
@@ -1221,9 +1127,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public String getNthExtendsInterface(int i){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(__extendsInterface);
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__extendsInterface);
         if (attr == null)
             return(null);
 
@@ -1234,15 +1140,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another extendsInterface to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addExtendsInterface(String value) {
-        DmcAttribute<?> attr = get(__extendsInterface);
+        DmcAttribute<?> attr = get(MetaDMSAG.__extendsInterface);
         if (attr == null)
-            attr = new DmcTypeStringMV(__extendsInterface);
+            attr = new DmcTypeStringMV(MetaDMSAG.__extendsInterface);
         
         try{
             setLastValue(attr.add(value));
-            add(__extendsInterface,attr);
+            add(MetaDMSAG.__extendsInterface,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -1254,9 +1160,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean extendsInterfaceContains(String value) {
-        DmcAttribute<?> attr = get(__extendsInterface);
+        DmcAttribute<?> attr = get(MetaDMSAG.__extendsInterface);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -1266,23 +1172,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another extendsInterface value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addExtendsInterface(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__extendsInterface);
+        DmcAttribute<?> attr = get(MetaDMSAG.__extendsInterface);
         if (attr == null)
-            attr = new DmcTypeStringMV(__extendsInterface);
+            attr = new DmcTypeStringMV(MetaDMSAG.__extendsInterface);
         
         setLastValue(attr.add(value));
-        add(__extendsInterface,attr);
+        add(MetaDMSAG.__extendsInterface,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in extendsInterface
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getExtendsInterfaceSize(){
-        DmcAttribute<?> attr = get(__extendsInterface);
+        DmcAttribute<?> attr = get(MetaDMSAG.__extendsInterface);
         if (attr == null)
             return(0);
         
@@ -1293,14 +1199,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a extendsInterface value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delExtendsInterface(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__extendsInterface);
+        DmcAttribute<?> attr = get(MetaDMSAG.__extendsInterface);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(__extendsInterface), value);
+            delFromEmptyAttribute(new DmcTypeStringMV(MetaDMSAG.__extendsInterface), value);
         else
-            attr = del(__extendsInterface, value);
+            attr = del(MetaDMSAG.__extendsInterface, value);
         
         return(attr);
     }
@@ -1309,14 +1215,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a extendsInterface from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delExtendsInterface(String value) {
-        DmcAttribute<?> attr = get(__extendsInterface);
+        DmcAttribute<?> attr = get(MetaDMSAG.__extendsInterface);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(__extendsInterface), value);
+            delFromEmptyAttribute(new DmcTypeStringMV(MetaDMSAG.__extendsInterface), value);
         else
-            attr = del(__extendsInterface, value);
+            attr = del(MetaDMSAG.__extendsInterface, value);
         
         return(attr);
     }
@@ -1324,18 +1230,18 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the extendsInterface attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remExtendsInterface(){
-         rem(__extendsInterface);
+         rem(MetaDMSAG.__extendsInterface);
     }
 
     /**
      * @return An Iterator of MethodWithArgs objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<MethodWithArgs> getPresenterMethod(){
-        DmcTypeMethodWithArgsMV attr = (DmcTypeMethodWithArgsMV) get(__presenterMethod);
+        DmcTypeMethodWithArgsMV attr = (DmcTypeMethodWithArgsMV) get(MvwDMSAG.__presenterMethod);
         if (attr == null)
             return( ((List<MethodWithArgs>) Collections.EMPTY_LIST).iterator());
 
@@ -1345,9 +1251,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * @return The nth MethodWithArgs value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public MethodWithArgs getNthPresenterMethod(int i){
-        DmcTypeMethodWithArgsMV attr = (DmcTypeMethodWithArgsMV) get(__presenterMethod);
+        DmcTypeMethodWithArgsMV attr = (DmcTypeMethodWithArgsMV) get(MvwDMSAG.__presenterMethod);
         if (attr == null)
             return(null);
 
@@ -1358,15 +1264,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another presenterMethod to the specified value.
      * @param value MethodWithArgs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addPresenterMethod(MethodWithArgs value) {
-        DmcAttribute<?> attr = get(__presenterMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterMethod);
         if (attr == null)
-            attr = new DmcTypeMethodWithArgsMV(__presenterMethod);
+            attr = new DmcTypeMethodWithArgsMV(MvwDMSAG.__presenterMethod);
         
         try{
             setLastValue(attr.add(value));
-            add(__presenterMethod,attr);
+            add(MvwDMSAG.__presenterMethod,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -1378,9 +1284,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Returns true if we contain a valued keyed by the specified MethodWithArgs.
      * @param value MethodWithArgs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean presenterMethodContains(MethodWithArgs value) {
-        DmcAttribute<?> attr = get(__presenterMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterMethod);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -1390,23 +1296,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another presenterMethod value.
      * @param value A value compatible with MethodWithArgs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addPresenterMethod(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__presenterMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterMethod);
         if (attr == null)
-            attr = new DmcTypeMethodWithArgsMV(__presenterMethod);
+            attr = new DmcTypeMethodWithArgsMV(MvwDMSAG.__presenterMethod);
         
         setLastValue(attr.add(value));
-        add(__presenterMethod,attr);
+        add(MvwDMSAG.__presenterMethod,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in presenterMethod
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getPresenterMethodSize(){
-        DmcAttribute<?> attr = get(__presenterMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterMethod);
         if (attr == null)
             return(0);
         
@@ -1417,14 +1323,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a presenterMethod value.
      * @param value The MethodWithArgs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delPresenterMethod(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__presenterMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterMethod);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeMethodWithArgsMV(__presenterMethod), value);
+            delFromEmptyAttribute(new DmcTypeMethodWithArgsMV(MvwDMSAG.__presenterMethod), value);
         else
-            attr = del(__presenterMethod, value);
+            attr = del(MvwDMSAG.__presenterMethod, value);
         
         return(attr);
     }
@@ -1433,14 +1339,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a presenterMethod from the specified value.
      * @param value MethodWithArgs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delPresenterMethod(MethodWithArgs value) {
-        DmcAttribute<?> attr = get(__presenterMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__presenterMethod);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeMethodWithArgsMV(__presenterMethod), value);
+            delFromEmptyAttribute(new DmcTypeMethodWithArgsMV(MvwDMSAG.__presenterMethod), value);
         else
-            attr = del(__presenterMethod, value);
+            attr = del(MvwDMSAG.__presenterMethod, value);
         
         return(attr);
     }
@@ -1448,18 +1354,18 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the presenterMethod attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remPresenterMethod(){
-         rem(__presenterMethod);
+         rem(MvwDMSAG.__presenterMethod);
     }
 
     /**
      * @return An Iterator of MethodWithArgs objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<MethodWithArgs> getViewMethod(){
-        DmcTypeMethodWithArgsMV attr = (DmcTypeMethodWithArgsMV) get(__viewMethod);
+        DmcTypeMethodWithArgsMV attr = (DmcTypeMethodWithArgsMV) get(MvwDMSAG.__viewMethod);
         if (attr == null)
             return( ((List<MethodWithArgs>) Collections.EMPTY_LIST).iterator());
 
@@ -1469,9 +1375,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * @return The nth MethodWithArgs value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public MethodWithArgs getNthViewMethod(int i){
-        DmcTypeMethodWithArgsMV attr = (DmcTypeMethodWithArgsMV) get(__viewMethod);
+        DmcTypeMethodWithArgsMV attr = (DmcTypeMethodWithArgsMV) get(MvwDMSAG.__viewMethod);
         if (attr == null)
             return(null);
 
@@ -1482,15 +1388,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another viewMethod to the specified value.
      * @param value MethodWithArgs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addViewMethod(MethodWithArgs value) {
-        DmcAttribute<?> attr = get(__viewMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewMethod);
         if (attr == null)
-            attr = new DmcTypeMethodWithArgsMV(__viewMethod);
+            attr = new DmcTypeMethodWithArgsMV(MvwDMSAG.__viewMethod);
         
         try{
             setLastValue(attr.add(value));
-            add(__viewMethod,attr);
+            add(MvwDMSAG.__viewMethod,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -1502,9 +1408,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Returns true if we contain a valued keyed by the specified MethodWithArgs.
      * @param value MethodWithArgs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean viewMethodContains(MethodWithArgs value) {
-        DmcAttribute<?> attr = get(__viewMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewMethod);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -1514,23 +1420,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another viewMethod value.
      * @param value A value compatible with MethodWithArgs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addViewMethod(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__viewMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewMethod);
         if (attr == null)
-            attr = new DmcTypeMethodWithArgsMV(__viewMethod);
+            attr = new DmcTypeMethodWithArgsMV(MvwDMSAG.__viewMethod);
         
         setLastValue(attr.add(value));
-        add(__viewMethod,attr);
+        add(MvwDMSAG.__viewMethod,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in viewMethod
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getViewMethodSize(){
-        DmcAttribute<?> attr = get(__viewMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewMethod);
         if (attr == null)
             return(0);
         
@@ -1541,14 +1447,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a viewMethod value.
      * @param value The MethodWithArgs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delViewMethod(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__viewMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewMethod);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeMethodWithArgsMV(__viewMethod), value);
+            delFromEmptyAttribute(new DmcTypeMethodWithArgsMV(MvwDMSAG.__viewMethod), value);
         else
-            attr = del(__viewMethod, value);
+            attr = del(MvwDMSAG.__viewMethod, value);
         
         return(attr);
     }
@@ -1557,14 +1463,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a viewMethod from the specified value.
      * @param value MethodWithArgs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delViewMethod(MethodWithArgs value) {
-        DmcAttribute<?> attr = get(__viewMethod);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewMethod);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeMethodWithArgsMV(__viewMethod), value);
+            delFromEmptyAttribute(new DmcTypeMethodWithArgsMV(MvwDMSAG.__viewMethod), value);
         else
-            attr = del(__viewMethod, value);
+            attr = del(MvwDMSAG.__viewMethod, value);
         
         return(attr);
     }
@@ -1572,18 +1478,18 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the viewMethod attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remViewMethod(){
-         rem(__viewMethod);
+         rem(MvwDMSAG.__viewMethod);
     }
 
     /**
      * @return An Iterator of DisplayDataSpec objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<DisplayDataSpec> getDisplayDMO(){
-        DmcTypeDisplayDataSpecMV attr = (DmcTypeDisplayDataSpecMV) get(__displayDMO);
+        DmcTypeDisplayDataSpecMV attr = (DmcTypeDisplayDataSpecMV) get(MvwDMSAG.__displayDMO);
         if (attr == null)
             return( ((List<DisplayDataSpec>) Collections.EMPTY_LIST).iterator());
 
@@ -1593,9 +1499,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * @return The nth DisplayDataSpec value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public DisplayDataSpec getNthDisplayDMO(int i){
-        DmcTypeDisplayDataSpecMV attr = (DmcTypeDisplayDataSpecMV) get(__displayDMO);
+        DmcTypeDisplayDataSpecMV attr = (DmcTypeDisplayDataSpecMV) get(MvwDMSAG.__displayDMO);
         if (attr == null)
             return(null);
 
@@ -1606,15 +1512,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another displayDMO to the specified value.
      * @param value DisplayDataSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addDisplayDMO(DisplayDataSpec value) {
-        DmcAttribute<?> attr = get(__displayDMO);
+        DmcAttribute<?> attr = get(MvwDMSAG.__displayDMO);
         if (attr == null)
-            attr = new DmcTypeDisplayDataSpecMV(__displayDMO);
+            attr = new DmcTypeDisplayDataSpecMV(MvwDMSAG.__displayDMO);
         
         try{
             setLastValue(attr.add(value));
-            add(__displayDMO,attr);
+            add(MvwDMSAG.__displayDMO,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -1626,9 +1532,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Returns true if we contain a valued keyed by the specified DisplayDataSpec.
      * @param value DisplayDataSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean displayDMOContains(DisplayDataSpec value) {
-        DmcAttribute<?> attr = get(__displayDMO);
+        DmcAttribute<?> attr = get(MvwDMSAG.__displayDMO);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -1638,23 +1544,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another displayDMO value.
      * @param value A value compatible with DisplayDataSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addDisplayDMO(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__displayDMO);
+        DmcAttribute<?> attr = get(MvwDMSAG.__displayDMO);
         if (attr == null)
-            attr = new DmcTypeDisplayDataSpecMV(__displayDMO);
+            attr = new DmcTypeDisplayDataSpecMV(MvwDMSAG.__displayDMO);
         
         setLastValue(attr.add(value));
-        add(__displayDMO,attr);
+        add(MvwDMSAG.__displayDMO,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in displayDMO
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getDisplayDMOSize(){
-        DmcAttribute<?> attr = get(__displayDMO);
+        DmcAttribute<?> attr = get(MvwDMSAG.__displayDMO);
         if (attr == null)
             return(0);
         
@@ -1665,14 +1571,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a displayDMO value.
      * @param value The DisplayDataSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delDisplayDMO(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__displayDMO);
+        DmcAttribute<?> attr = get(MvwDMSAG.__displayDMO);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeDisplayDataSpecMV(__displayDMO), value);
+            delFromEmptyAttribute(new DmcTypeDisplayDataSpecMV(MvwDMSAG.__displayDMO), value);
         else
-            attr = del(__displayDMO, value);
+            attr = del(MvwDMSAG.__displayDMO, value);
         
         return(attr);
     }
@@ -1681,14 +1587,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a displayDMO from the specified value.
      * @param value DisplayDataSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delDisplayDMO(DisplayDataSpec value) {
-        DmcAttribute<?> attr = get(__displayDMO);
+        DmcAttribute<?> attr = get(MvwDMSAG.__displayDMO);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeDisplayDataSpecMV(__displayDMO), value);
+            delFromEmptyAttribute(new DmcTypeDisplayDataSpecMV(MvwDMSAG.__displayDMO), value);
         else
-            attr = del(__displayDMO, value);
+            attr = del(MvwDMSAG.__displayDMO, value);
         
         return(attr);
     }
@@ -1696,18 +1602,18 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the displayDMO attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remDisplayDMO(){
-         rem(__displayDMO);
+         rem(MvwDMSAG.__displayDMO);
     }
 
     /**
      * @return An Iterator of EventSpec objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<EventSpec> getSelectEvent(){
-        DmcTypeEventSpecMV attr = (DmcTypeEventSpecMV) get(__selectEvent);
+        DmcTypeEventSpecMV attr = (DmcTypeEventSpecMV) get(MvwDMSAG.__selectEvent);
         if (attr == null)
             return( ((List<EventSpec>) Collections.EMPTY_LIST).iterator());
 
@@ -1717,9 +1623,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * @return The nth EventSpec value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public EventSpec getNthSelectEvent(int i){
-        DmcTypeEventSpecMV attr = (DmcTypeEventSpecMV) get(__selectEvent);
+        DmcTypeEventSpecMV attr = (DmcTypeEventSpecMV) get(MvwDMSAG.__selectEvent);
         if (attr == null)
             return(null);
 
@@ -1730,15 +1636,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another selectEvent to the specified value.
      * @param value EventSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addSelectEvent(EventSpec value) {
-        DmcAttribute<?> attr = get(__selectEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__selectEvent);
         if (attr == null)
-            attr = new DmcTypeEventSpecMV(__selectEvent);
+            attr = new DmcTypeEventSpecMV(MvwDMSAG.__selectEvent);
         
         try{
             setLastValue(attr.add(value));
-            add(__selectEvent,attr);
+            add(MvwDMSAG.__selectEvent,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -1750,9 +1656,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Returns true if we contain a valued keyed by the specified EventSpec.
      * @param value EventSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean selectEventContains(EventSpec value) {
-        DmcAttribute<?> attr = get(__selectEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__selectEvent);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -1762,23 +1668,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another selectEvent value.
      * @param value A value compatible with EventSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addSelectEvent(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__selectEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__selectEvent);
         if (attr == null)
-            attr = new DmcTypeEventSpecMV(__selectEvent);
+            attr = new DmcTypeEventSpecMV(MvwDMSAG.__selectEvent);
         
         setLastValue(attr.add(value));
-        add(__selectEvent,attr);
+        add(MvwDMSAG.__selectEvent,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in selectEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getSelectEventSize(){
-        DmcAttribute<?> attr = get(__selectEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__selectEvent);
         if (attr == null)
             return(0);
         
@@ -1789,14 +1695,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a selectEvent value.
      * @param value The EventSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delSelectEvent(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__selectEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__selectEvent);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeEventSpecMV(__selectEvent), value);
+            delFromEmptyAttribute(new DmcTypeEventSpecMV(MvwDMSAG.__selectEvent), value);
         else
-            attr = del(__selectEvent, value);
+            attr = del(MvwDMSAG.__selectEvent, value);
         
         return(attr);
     }
@@ -1805,14 +1711,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a selectEvent from the specified value.
      * @param value EventSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delSelectEvent(EventSpec value) {
-        DmcAttribute<?> attr = get(__selectEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__selectEvent);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeEventSpecMV(__selectEvent), value);
+            delFromEmptyAttribute(new DmcTypeEventSpecMV(MvwDMSAG.__selectEvent), value);
         else
-            attr = del(__selectEvent, value);
+            attr = del(MvwDMSAG.__selectEvent, value);
         
         return(attr);
     }
@@ -1820,18 +1726,18 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the selectEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remSelectEvent(){
-         rem(__selectEvent);
+         rem(MvwDMSAG.__selectEvent);
     }
 
     /**
      * @return An Iterator of EventSpec objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<EventSpec> getDeleteEvent(){
-        DmcTypeEventSpecMV attr = (DmcTypeEventSpecMV) get(__deleteEvent);
+        DmcTypeEventSpecMV attr = (DmcTypeEventSpecMV) get(MvwDMSAG.__deleteEvent);
         if (attr == null)
             return( ((List<EventSpec>) Collections.EMPTY_LIST).iterator());
 
@@ -1841,9 +1747,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * @return The nth EventSpec value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public EventSpec getNthDeleteEvent(int i){
-        DmcTypeEventSpecMV attr = (DmcTypeEventSpecMV) get(__deleteEvent);
+        DmcTypeEventSpecMV attr = (DmcTypeEventSpecMV) get(MvwDMSAG.__deleteEvent);
         if (attr == null)
             return(null);
 
@@ -1854,15 +1760,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another deleteEvent to the specified value.
      * @param value EventSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addDeleteEvent(EventSpec value) {
-        DmcAttribute<?> attr = get(__deleteEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__deleteEvent);
         if (attr == null)
-            attr = new DmcTypeEventSpecMV(__deleteEvent);
+            attr = new DmcTypeEventSpecMV(MvwDMSAG.__deleteEvent);
         
         try{
             setLastValue(attr.add(value));
-            add(__deleteEvent,attr);
+            add(MvwDMSAG.__deleteEvent,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -1874,9 +1780,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Returns true if we contain a valued keyed by the specified EventSpec.
      * @param value EventSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean deleteEventContains(EventSpec value) {
-        DmcAttribute<?> attr = get(__deleteEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__deleteEvent);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -1886,23 +1792,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another deleteEvent value.
      * @param value A value compatible with EventSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addDeleteEvent(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__deleteEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__deleteEvent);
         if (attr == null)
-            attr = new DmcTypeEventSpecMV(__deleteEvent);
+            attr = new DmcTypeEventSpecMV(MvwDMSAG.__deleteEvent);
         
         setLastValue(attr.add(value));
-        add(__deleteEvent,attr);
+        add(MvwDMSAG.__deleteEvent,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in deleteEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getDeleteEventSize(){
-        DmcAttribute<?> attr = get(__deleteEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__deleteEvent);
         if (attr == null)
             return(0);
         
@@ -1913,14 +1819,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a deleteEvent value.
      * @param value The EventSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delDeleteEvent(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__deleteEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__deleteEvent);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeEventSpecMV(__deleteEvent), value);
+            delFromEmptyAttribute(new DmcTypeEventSpecMV(MvwDMSAG.__deleteEvent), value);
         else
-            attr = del(__deleteEvent, value);
+            attr = del(MvwDMSAG.__deleteEvent, value);
         
         return(attr);
     }
@@ -1929,14 +1835,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a deleteEvent from the specified value.
      * @param value EventSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delDeleteEvent(EventSpec value) {
-        DmcAttribute<?> attr = get(__deleteEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__deleteEvent);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeEventSpecMV(__deleteEvent), value);
+            delFromEmptyAttribute(new DmcTypeEventSpecMV(MvwDMSAG.__deleteEvent), value);
         else
-            attr = del(__deleteEvent, value);
+            attr = del(MvwDMSAG.__deleteEvent, value);
         
         return(attr);
     }
@@ -1944,18 +1850,18 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the deleteEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remDeleteEvent(){
-         rem(__deleteEvent);
+         rem(MvwDMSAG.__deleteEvent);
     }
 
     /**
      * @return An Iterator of OperationSpec objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
     public Iterator<OperationSpec> getClickEvent(){
-        DmcTypeOperationSpecMV attr = (DmcTypeOperationSpecMV) get(__clickEvent);
+        DmcTypeOperationSpecMV attr = (DmcTypeOperationSpecMV) get(MvwDMSAG.__clickEvent);
         if (attr == null)
             return( ((List<OperationSpec>) Collections.EMPTY_LIST).iterator());
 
@@ -1965,9 +1871,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * @return The nth OperationSpec value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:856)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
     public OperationSpec getNthClickEvent(int i){
-        DmcTypeOperationSpecMV attr = (DmcTypeOperationSpecMV) get(__clickEvent);
+        DmcTypeOperationSpecMV attr = (DmcTypeOperationSpecMV) get(MvwDMSAG.__clickEvent);
         if (attr == null)
             return(null);
 
@@ -1978,15 +1884,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another clickEvent to the specified value.
      * @param value OperationSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:869)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
     public DmcAttribute<?> addClickEvent(OperationSpec value) {
-        DmcAttribute<?> attr = get(__clickEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__clickEvent);
         if (attr == null)
-            attr = new DmcTypeOperationSpecMV(__clickEvent);
+            attr = new DmcTypeOperationSpecMV(MvwDMSAG.__clickEvent);
         
         try{
             setLastValue(attr.add(value));
-            add(__clickEvent,attr);
+            add(MvwDMSAG.__clickEvent,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -1998,9 +1904,9 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Returns true if we contain a valued keyed by the specified OperationSpec.
      * @param value OperationSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:911)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
     public boolean clickEventContains(OperationSpec value) {
-        DmcAttribute<?> attr = get(__clickEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__clickEvent);
         if (attr == null)
             return(false);
         return(attr.contains(value));
@@ -2010,23 +1916,23 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Adds another clickEvent value.
      * @param value A value compatible with OperationSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addClickEvent(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__clickEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__clickEvent);
         if (attr == null)
-            attr = new DmcTypeOperationSpecMV(__clickEvent);
+            attr = new DmcTypeOperationSpecMV(MvwDMSAG.__clickEvent);
         
         setLastValue(attr.add(value));
-        add(__clickEvent,attr);
+        add(MvwDMSAG.__clickEvent,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in clickEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getClickEventSize(){
-        DmcAttribute<?> attr = get(__clickEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__clickEvent);
         if (attr == null)
             return(0);
         
@@ -2037,14 +1943,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a clickEvent value.
      * @param value The OperationSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
     public DmcAttribute<?> delClickEvent(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__clickEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__clickEvent);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeOperationSpecMV(__clickEvent), value);
+            delFromEmptyAttribute(new DmcTypeOperationSpecMV(MvwDMSAG.__clickEvent), value);
         else
-            attr = del(__clickEvent, value);
+            attr = del(MvwDMSAG.__clickEvent, value);
         
         return(attr);
     }
@@ -2053,14 +1959,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a clickEvent from the specified value.
      * @param value OperationSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
     public DmcAttribute<?> delClickEvent(OperationSpec value) {
-        DmcAttribute<?> attr = get(__clickEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__clickEvent);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeOperationSpecMV(__clickEvent), value);
+            delFromEmptyAttribute(new DmcTypeOperationSpecMV(MvwDMSAG.__clickEvent), value);
         else
-            attr = del(__clickEvent, value);
+            attr = del(MvwDMSAG.__clickEvent, value);
         
         return(attr);
     }
@@ -2068,14 +1974,14 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the clickEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remClickEvent(){
-         rem(__clickEvent);
+         rem(MvwDMSAG.__clickEvent);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public OperationSpec getModifyEvent(){
-        DmcTypeOperationSpecSV attr = (DmcTypeOperationSpecSV) get(__modifyEvent);
+        DmcTypeOperationSpecSV attr = (DmcTypeOperationSpecSV) get(MvwDMSAG.__modifyEvent);
         if (attr == null)
             return(null);
 
@@ -2086,15 +1992,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets modifyEvent to the specified value.
      * @param value OperationSpec
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setModifyEvent(OperationSpec value) {
-        DmcAttribute<?> attr = get(__modifyEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__modifyEvent);
         if (attr == null)
-            attr = new DmcTypeOperationSpecSV(__modifyEvent);
+            attr = new DmcTypeOperationSpecSV(MvwDMSAG.__modifyEvent);
         
         try{
             attr.set(value);
-            set(__modifyEvent,attr);
+            set(MvwDMSAG.__modifyEvent,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -2105,27 +2011,27 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets modifyEvent to the specified value.
      * @param value A value compatible with DmcTypeOperationSpecSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setModifyEvent(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__modifyEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__modifyEvent);
         if (attr == null)
-            attr = new DmcTypeOperationSpecSV(__modifyEvent);
+            attr = new DmcTypeOperationSpecSV(MvwDMSAG.__modifyEvent);
         
         attr.set(value);
-        set(__modifyEvent,attr);
+        set(MvwDMSAG.__modifyEvent,attr);
     }
 
     /**
      * Removes the modifyEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remModifyEvent(){
-         rem(__modifyEvent);
+         rem(MvwDMSAG.__modifyEvent);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public OperationSpec getCreateEvent(){
-        DmcTypeOperationSpecSV attr = (DmcTypeOperationSpecSV) get(__createEvent);
+        DmcTypeOperationSpecSV attr = (DmcTypeOperationSpecSV) get(MvwDMSAG.__createEvent);
         if (attr == null)
             return(null);
 
@@ -2136,15 +2042,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets createEvent to the specified value.
      * @param value OperationSpec
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setCreateEvent(OperationSpec value) {
-        DmcAttribute<?> attr = get(__createEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__createEvent);
         if (attr == null)
-            attr = new DmcTypeOperationSpecSV(__createEvent);
+            attr = new DmcTypeOperationSpecSV(MvwDMSAG.__createEvent);
         
         try{
             attr.set(value);
-            set(__createEvent,attr);
+            set(MvwDMSAG.__createEvent,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -2155,27 +2061,27 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets createEvent to the specified value.
      * @param value A value compatible with DmcTypeOperationSpecSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setCreateEvent(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__createEvent);
+        DmcAttribute<?> attr = get(MvwDMSAG.__createEvent);
         if (attr == null)
-            attr = new DmcTypeOperationSpecSV(__createEvent);
+            attr = new DmcTypeOperationSpecSV(MvwDMSAG.__createEvent);
         
         attr.set(value);
-        set(__createEvent,attr);
+        set(MvwDMSAG.__createEvent,attr);
     }
 
     /**
      * Removes the createEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remCreateEvent(){
-         rem(__createEvent);
+         rem(MvwDMSAG.__createEvent);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public CamelCaseName getViewName(){
-        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(__viewName);
+        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__viewName);
         if (attr == null)
             return(null);
 
@@ -2186,15 +2092,15 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets viewName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setViewName(CamelCaseName value) {
-        DmcAttribute<?> attr = get(__viewName);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewName);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(__viewName);
+            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__viewName);
         
         try{
             attr.set(value);
-            set(__viewName,attr);
+            set(MvwDMSAG.__viewName,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -2205,22 +2111,22 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Sets viewName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setViewName(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__viewName);
+        DmcAttribute<?> attr = get(MvwDMSAG.__viewName);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(__viewName);
+            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__viewName);
         
         attr.set(value);
-        set(__viewName,attr);
+        set(MvwDMSAG.__viewName,attr);
     }
 
     /**
      * Removes the viewName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remViewName(){
-         rem(__viewName);
+         rem(MvwDMSAG.__viewName);
     }
 
 

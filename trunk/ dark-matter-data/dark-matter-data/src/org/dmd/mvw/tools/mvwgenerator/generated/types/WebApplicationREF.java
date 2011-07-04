@@ -39,7 +39,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 @SuppressWarnings("serial")
 public class WebApplicationREF extends DmcNamedObjectNontransportableREF<WebApplicationDMO> {
 
-    public final static DmcAttributeInfo __appName = new DmcAttributeInfo("appName",833,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __appName = new DmcAttributeInfo("appName",833,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeCamelCaseNameSV myName;    
     

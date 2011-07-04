@@ -1,17 +1,15 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
 import java.io.Serializable;                                     // Always required
 import java.util.*;                                              // Always required
 import org.dmd.dmc.DmcAttribute;                                 // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                             // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                             // Named object
 import org.dmd.dmc.DmcObject;                                    // Structural class
 import org.dmd.dmc.DmcSliceInfo;                                 // Required for object slicing
 import org.dmd.dmc.DmcValueException;                            // Any attributes
 import org.dmd.dmc.types.IntegerName;                            // Naming attribute type
-import org.dmd.dms.generated.enums.DataTypeEnum;                 // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;                // Required if we have any attributes
+import org.dmd.dms.generated.dmo.MetaDMSAG;                      // Attribute from meta schema
 import org.dmd.dms.generated.types.DmcTypeIntegerNameSV;         // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSV;              // Required type
@@ -34,12 +32,7 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
 
     public final static String constructionClassName = "IntegerNamedObject";
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __integerName = new DmcAttributeInfo("integerName",100,"IntegerName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString",10140,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo classInfo = DmtDMSAG.__IntegerNamedObject;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -47,13 +40,6 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
 
 
     static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__integerName.id,__integerName);
-        _ImAp.put(__svString.id,__svString);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__integerName.name,__integerName);
-        _SmAp.put(__svString.name,__svString);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -67,14 +53,6 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
 
     protected IntegerNamedObjectDMO(String oc) {
         super(oc);
-    }
-
-    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
-        return(_ImAp);
-    }
-
-    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
-        return(_SmAp);
     }
 
     protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
@@ -111,9 +89,9 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:739)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:735)
     public IntegerName getObjectName(){
-        DmcAttribute<?> name = get(__integerName);
+        DmcAttribute<?> name = get(MetaDMSAG.__integerName);
         if (name != null)
             return((IntegerName)name.getSV());
     
@@ -121,7 +99,7 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
     }
 
     public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> name = get(__integerName);
+        DmcAttribute<?> name = get(MetaDMSAG.__integerName);
         return(name);
     }
 
@@ -132,9 +110,9 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getSvString(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__svString);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
             return(null);
 
@@ -145,15 +123,15 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setSvString(String value) {
-        DmcAttribute<?> attr = get(__svString);
+        DmcAttribute<?> attr = get(DmtDMSAG.__svString);
         if (attr == null)
-            attr = new DmcTypeStringSV(__svString);
+            attr = new DmcTypeStringSV(DmtDMSAG.__svString);
         
         try{
             attr.set(value);
-            set(__svString,attr);
+            set(DmtDMSAG.__svString,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -164,27 +142,27 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setSvString(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__svString);
+        DmcAttribute<?> attr = get(DmtDMSAG.__svString);
         if (attr == null)
-            attr = new DmcTypeStringSV(__svString);
+            attr = new DmcTypeStringSV(DmtDMSAG.__svString);
         
         attr.set(value);
-        set(__svString,attr);
+        set(DmtDMSAG.__svString,attr);
     }
 
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remSvString(){
-         rem(__svString);
+         rem(DmtDMSAG.__svString);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public IntegerName getIntegerName(){
-        DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(__integerName);
+        DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(MetaDMSAG.__integerName);
         if (attr == null)
             return(null);
 
@@ -195,15 +173,15 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
      * Sets integerName to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setIntegerName(IntegerName value) {
-        DmcAttribute<?> attr = get(__integerName);
+        DmcAttribute<?> attr = get(MetaDMSAG.__integerName);
         if (attr == null)
-            attr = new DmcTypeIntegerNameSV(__integerName);
+            attr = new DmcTypeIntegerNameSV(MetaDMSAG.__integerName);
         
         try{
             attr.set(value);
-            set(__integerName,attr);
+            set(MetaDMSAG.__integerName,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -214,22 +192,22 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
      * Sets integerName to the specified value.
      * @param value A value compatible with DmcTypeIntegerNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setIntegerName(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__integerName);
+        DmcAttribute<?> attr = get(MetaDMSAG.__integerName);
         if (attr == null)
-            attr = new DmcTypeIntegerNameSV(__integerName);
+            attr = new DmcTypeIntegerNameSV(MetaDMSAG.__integerName);
         
         attr.set(value);
-        set(__integerName,attr);
+        set(MetaDMSAG.__integerName,attr);
     }
 
     /**
      * Removes the integerName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remIntegerName(){
-         rem(__integerName);
+         rem(MetaDMSAG.__integerName);
     }
 
 

@@ -15,15 +15,12 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
 import java.io.Serializable;                                  // Always required
 import java.util.*;                                           // Always required
 import org.dmd.dmc.DmcAttribute;                              // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                          // Always required
 import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing
 import org.dmd.dmc.DmcValueException;                         // Any attributes
-import org.dmd.dms.generated.enums.DataTypeEnum;              // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;             // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type
 import org.dmd.dmv.shared.generated.dmo.ClassRuleDMO;         // Base class
@@ -46,13 +43,7 @@ public class MustRuleDMO  extends ClassRuleDMO  implements Serializable  {
 
     public final static String constructionClassName = "MustRule";
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __applyToClass = new DmcAttributeInfo("applyToClass",302,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __ruleTitle = new DmcAttributeInfo("ruleTitle",300,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo classInfo = DmvDMSAG.__MustRule;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -60,15 +51,6 @@ public class MustRuleDMO  extends ClassRuleDMO  implements Serializable  {
 
 
     static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__applyToClass.id,__applyToClass);
-        _ImAp.put(__name.id,__name);
-        _ImAp.put(__ruleTitle.id,__ruleTitle);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__applyToClass.name,__applyToClass);
-        _SmAp.put(__name.name,__name);
-        _SmAp.put(__ruleTitle.name,__ruleTitle);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -82,14 +64,6 @@ public class MustRuleDMO  extends ClassRuleDMO  implements Serializable  {
 
     protected MustRuleDMO(String oc) {
         super(oc);
-    }
-
-    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
-        return(_ImAp);
-    }
-
-    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
-        return(_SmAp);
     }
 
     protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
@@ -119,9 +93,9 @@ public class MustRuleDMO  extends ClassRuleDMO  implements Serializable  {
         setModifier(mods);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getRuleTitle(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__ruleTitle);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmvDMSAG.__ruleTitle);
         if (attr == null)
             return(null);
 
@@ -132,15 +106,15 @@ public class MustRuleDMO  extends ClassRuleDMO  implements Serializable  {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setRuleTitle(String value) {
-        DmcAttribute<?> attr = get(__ruleTitle);
+        DmcAttribute<?> attr = get(DmvDMSAG.__ruleTitle);
         if (attr == null)
-            attr = new DmcTypeStringSV(__ruleTitle);
+            attr = new DmcTypeStringSV(DmvDMSAG.__ruleTitle);
         
         try{
             attr.set(value);
-            set(__ruleTitle,attr);
+            set(DmvDMSAG.__ruleTitle,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -151,22 +125,22 @@ public class MustRuleDMO  extends ClassRuleDMO  implements Serializable  {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setRuleTitle(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__ruleTitle);
+        DmcAttribute<?> attr = get(DmvDMSAG.__ruleTitle);
         if (attr == null)
-            attr = new DmcTypeStringSV(__ruleTitle);
+            attr = new DmcTypeStringSV(DmvDMSAG.__ruleTitle);
         
         attr.set(value);
-        set(__ruleTitle,attr);
+        set(DmvDMSAG.__ruleTitle,attr);
     }
 
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remRuleTitle(){
-         rem(__ruleTitle);
+         rem(DmvDMSAG.__ruleTitle);
     }
 
 

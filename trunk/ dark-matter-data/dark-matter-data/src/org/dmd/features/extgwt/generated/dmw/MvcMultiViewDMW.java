@@ -1,9 +1,10 @@
 package org.dmd.features.extgwt.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
 import org.dmd.dmc.*;                                                 // If any attributes
 import org.dmd.dmc.types.StringName;                                  // Primitive type
 import org.dmd.dms.*;                                                 // Always 2
+import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Attribute from meta schema
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor
 import org.dmd.features.extgwt.extended.MvcMultiView;                 // Required for getModificationRecorder()
 import org.dmd.features.extgwt.extended.MvcView;                      // Derived class
@@ -50,7 +51,7 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:953)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:961)
     public StringName getObjectName(){
         return(((MvcMultiViewDMO) core).getName());
     }
@@ -70,7 +71,7 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public StringName getName(){
         return(((MvcMultiViewDMO) core).getName());
     }
@@ -79,7 +80,7 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setName(Object value) throws DmcValueException {
         ((MvcMultiViewDMO) core).setName(value);
     }
@@ -88,7 +89,7 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setName(StringName value){
         ((MvcMultiViewDMO) core).setName(value);
     }
@@ -96,7 +97,7 @@ abstract public class MvcMultiViewDMW extends MvcView implements DmcNamedObjectI
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remName(){
         ((MvcMultiViewDMO) core).remName();
     }
