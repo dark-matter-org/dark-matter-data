@@ -2,10 +2,11 @@ package org.dmd.dmt.server.generated.auxw;
 
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
 import org.dmd.dmc.*;                                       // If any attributes
 import org.dmd.dms.*;                                       // Always 2
 import org.dmd.dms.generated.types.DmcTypeStringSV;         // Type in an auxiliary class
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;           // Attribute from dmt schema
 import org.dmd.dmw.DmwWrapper;                              // Unnamed object wrapper
 
 /**
@@ -20,13 +21,13 @@ import org.dmd.dmw.DmwWrapper;                              // Unnamed object wr
 public class TestBasicAuxiliary {
 
     public final static ClassDefinition _auxClass = org.dmd.dmt.server.generated.DmtSchemaAG._TestBasicAuxiliary;
-    public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString",10140,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,true);
+    public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString",10140,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
 
     /**
      * This method will check to see if the object has any of our attributes.
      * If not, our aux class is automatically removed from the object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1832)
+    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1841)
     static private void removeAuxIfRequired(DmwWrapper corew){
         boolean anyLeft = false;
 
@@ -41,7 +42,7 @@ public class TestBasicAuxiliary {
      * This method will check to see if the object has our aux class.
      * If not, we add our aux class the object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1850)
+    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1859)
     static private void addAuxIfRequired(DmwWrapper corew) throws DmcValueException {
         if (!corew.hasAux(_auxClass))
             corew.addAux(_auxClass);
@@ -50,7 +51,7 @@ public class TestBasicAuxiliary {
     /**
      * This method checks if the object has this auxiliary class.
      */
-    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1860)
+    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1869)
     static public boolean hasAux(DmwWrapper corew){
         if (corew == null)
             return(false);
@@ -60,7 +61,7 @@ public class TestBasicAuxiliary {
     /**
      * Removes the svString attribute from the object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1955)
+    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1964)
     static public DmcAttribute<?> remSvString(DmwWrapper corew){
         if (corew == null)
             return(null);
@@ -69,7 +70,7 @@ public class TestBasicAuxiliary {
         return(rc);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1990)
+    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:1999)
     static public String getSvString(DmwWrapper corew){
         DmcTypeStringSV attr = (DmcTypeStringSV) corew.getDmcObject().get(__svString);
         if (attr == null)
@@ -82,7 +83,7 @@ public class TestBasicAuxiliary {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:2031)
+    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:2040)
     static public void setSvString(DmwWrapper corew, Object value) throws DmcValueException {
         DmcAttribute<?> attr = corew.getDmcObject().get(__svString);
         if (attr == null){

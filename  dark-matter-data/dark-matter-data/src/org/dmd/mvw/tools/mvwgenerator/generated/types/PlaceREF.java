@@ -39,7 +39,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 @SuppressWarnings("serial")
 public class PlaceREF extends DmcNamedObjectNontransportableREF<PlaceDMO> {
 
-    public final static DmcAttributeInfo __placeName = new DmcAttributeInfo("placeName",853,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __placeName = new DmcAttributeInfo("placeName",853,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeCamelCaseNameSV myName;    
     

@@ -53,18 +53,20 @@ public abstract class DmwWrapper extends DmcContainer {
 
     protected DmwWrapper(DmcObject obj, ClassDefinition cd) {
         super(obj);
-		if (cd != null){
-			// Now that the objectClass is stored in the DmcObject as a DmcTypeClassDefinitionREF, we
-			// just "resolve" the reference to point to this ClassDefinition
-			DmcObject dmo = obj;
-			Iterator<ClassDefinitionREF> ocl = dmo.getObjectClass();
-			if (ocl != null){
-				ClassDefinitionREF cdr = ocl.next();
-				if (cdr != null){
-					cdr.setObject((ClassDefinitionDMO) cd.getDmcObject());
-				}
+        
+        if (cd == null)
+        	throw(new IllegalStateException("The class definition for " + this.getClass().getName() + " has not been initialized. You must manage the associated schema."));
+        
+		// Now that the objectClass is stored in the DmcObject as a DmcTypeClassDefinitionREF, we
+		// just "resolve" the reference to point to this ClassDefinition
+		DmcObject dmo = obj;
+		Iterator<ClassDefinitionREF> ocl = dmo.getObjectClass();
+		if (ocl != null){
+			ClassDefinitionREF cdr = ocl.next();
+			if (cdr != null){
+				cdr.setObject((ClassDefinitionDMO) cd.getDmcObject());
 			}
-		}        
+		}
     }
     
     public boolean applyModifier(DmcTypeModifierMV mods) throws DmcValueExceptionSet, DmcValueException{

@@ -1,14 +1,16 @@
 package org.dmd.features.extgwt.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
 import org.dmd.dmc.*;                                                     // If any attributes
 import org.dmd.dmc.types.StringName;                                      // Primitive type
 import org.dmd.dms.*;                                                     // Always 2
+import org.dmd.dms.generated.dmo.MetaDMSAG;                               // Attribute from meta schema
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Required for MODREC constructor
 import org.dmd.features.extgwt.extended.MvcController;                    // Is reference type aux
 import org.dmd.features.extgwt.extended.MvcDefinition;                    // Derived class
 import org.dmd.features.extgwt.extended.MvcMenu;                          // Is reference type aux
 import org.dmd.features.extgwt.extended.MvcMenuSeparator;                 // Required for getModificationRecorder()
+import org.dmd.features.extgwt.generated.dmo.ExtgwtDMSAG;                 // Attribute from extgwt schema
 import org.dmd.features.extgwt.generated.dmo.MvcMenuSeparatorDMO;         // Class not auxiliary or abstract
 import org.dmd.features.extgwt.generated.types.MvcControllerREF;          // To support getMVCopy() for REFs
 import org.dmd.features.extgwt.generated.types.MvcMenuREF;                // To support getMVCopy() for REFs
@@ -51,7 +53,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:953)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:961)
     public StringName getObjectName(){
         return(((MvcMenuSeparatorDMO) core).getName());
     }
@@ -71,7 +73,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public StringName getName(){
         return(((MvcMenuSeparatorDMO) core).getName());
     }
@@ -80,7 +82,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setName(Object value) throws DmcValueException {
         ((MvcMenuSeparatorDMO) core).setName(value);
     }
@@ -89,7 +91,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setName(StringName value){
         ((MvcMenuSeparatorDMO) core).setName(value);
     }
@@ -97,7 +99,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remName(){
         ((MvcMenuSeparatorDMO) core).remName();
     }
@@ -105,7 +107,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
     /**
      * @return A MvcMenu object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1069)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1077)
     public MvcMenu getAddToMenu(){
         MvcMenuREF ref = ((MvcMenuSeparatorDMO) core).getAddToMenu();
         if (ref == null)
@@ -118,7 +120,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
      * Sets the addToMenu to the specified value.
      * @param value A value compatible with MvcMenuREF
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1114)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1122)
     public void setAddToMenu(MvcMenu value) {
         ((MvcMenuSeparatorDMO) core).setAddToMenu(value.getDMO());
     }
@@ -126,7 +128,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
     /**
      * Removes the addToMenu attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remAddToMenu(){
         ((MvcMenuSeparatorDMO) core).remAddToMenu();
     }
@@ -134,7 +136,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
     /**
      * @return A MvcController object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1069)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1077)
     public MvcController getAssociatedController(){
         MvcControllerREF ref = ((MvcMenuSeparatorDMO) core).getAssociatedController();
         if (ref == null)
@@ -147,7 +149,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
      * Sets the associatedController to the specified value.
      * @param value A value compatible with MvcControllerREF
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1114)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1122)
     public void setAssociatedController(MvcController value) {
         ((MvcMenuSeparatorDMO) core).setAssociatedController(value.getDMO());
     }
@@ -155,12 +157,12 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
     /**
      * Removes the associatedController attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remAssociatedController(){
         ((MvcMenuSeparatorDMO) core).remAssociatedController();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public Integer getMenuOrder(){
         return(((MvcMenuSeparatorDMO) core).getMenuOrder());
     }
@@ -169,7 +171,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
      * Sets menuOrder to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setMenuOrder(Object value) throws DmcValueException {
         ((MvcMenuSeparatorDMO) core).setMenuOrder(value);
     }
@@ -178,7 +180,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
      * Sets menuOrder to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setMenuOrder(Integer value){
         ((MvcMenuSeparatorDMO) core).setMenuOrder(value);
     }
@@ -186,7 +188,7 @@ abstract public class MvcMenuSeparatorDMW extends MvcDefinition implements DmcNa
     /**
      * Removes the menuOrder attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remMenuOrder(){
         ((MvcMenuSeparatorDMO) core).remMenuOrder();
     }

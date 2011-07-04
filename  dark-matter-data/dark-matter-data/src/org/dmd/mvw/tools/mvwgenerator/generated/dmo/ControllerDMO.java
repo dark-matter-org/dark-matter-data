@@ -15,18 +15,15 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
 import java.io.Serializable;                                                         // Always required
 import java.util.*;                                                                  // Always required
 import org.dmd.dmc.DmcAttribute;                                                     // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                                 // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                                                 // Named object
 import org.dmd.dmc.DmcOmni;                                                          // Lazy resolution
 import org.dmd.dmc.DmcSliceInfo;                                                     // Required for object slicing
 import org.dmd.dmc.DmcValueException;                                                // Any attributes
 import org.dmd.dmc.types.CamelCaseName;                                              // Naming attribute type
-import org.dmd.dms.generated.enums.DataTypeEnum;                                     // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;                                    // Required if we have any attributes
 import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                 // Required type
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                           // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                                // Required for MODREC constructor
@@ -66,35 +63,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
 
     public final static String constructionClassName = "Controller";
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __addedToRunContext = new DmcAttributeInfo("addedToRunContext",859,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __camelCaseName = new DmcAttributeInfo("camelCaseName",116,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __centralDMPErrorHandler = new DmcAttributeInfo("centralDMPErrorHandler",851,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __centralRPCErrorHandler = new DmcAttributeInfo("centralRPCErrorHandler",852,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __componentName = new DmcAttributeInfo("componentName",811,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __controllerName = new DmcAttributeInfo("controllerName",834,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule",800,"Module",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent",801,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent",802,"Event",ValueTypeEnum.TREEMAPPED,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __instantiatesPresenter = new DmcAttributeInfo("instantiatesPresenter",860,"Presenter",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __instantiatesView = new DmcAttributeInfo("instantiatesView",862,"View",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsActionRequest = new DmcAttributeInfo("sendsActionRequest",848,"RequestWithOptions",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsCreateRequest = new DmcAttributeInfo("sendsCreateRequest",847,"RequestWithOptions",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsDeleteRequest = new DmcAttributeInfo("sendsDeleteRequest",845,"RequestWithOptions",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsGetRequest = new DmcAttributeInfo("sendsGetRequest",844,"GetWithOptions",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsLoginRequest = new DmcAttributeInfo("sendsLoginRequest",849,"RequestWithOptions",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsLogoutRequest = new DmcAttributeInfo("sendsLogoutRequest",850,"RequestWithOptions",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsSetRequest = new DmcAttributeInfo("sendsSetRequest",846,"RequestWithOptions",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __subpackage = new DmcAttributeInfo("subpackage",88,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass",807,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema",843,"SchemaDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __usesRunContextItem = new DmcAttributeInfo("usesRunContextItem",835,"RunContextItem",ValueTypeEnum.TREESET,DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo classInfo = MvwDMSAG.__Controller;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -102,59 +71,6 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
 
 
     static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__addedToRunContext.id,__addedToRunContext);
-        _ImAp.put(__camelCaseName.id,__camelCaseName);
-        _ImAp.put(__centralDMPErrorHandler.id,__centralDMPErrorHandler);
-        _ImAp.put(__centralRPCErrorHandler.id,__centralRPCErrorHandler);
-        _ImAp.put(__componentName.id,__componentName);
-        _ImAp.put(__controllerName.id,__controllerName);
-        _ImAp.put(__definedInModule.id,__definedInModule);
-        _ImAp.put(__description.id,__description);
-        _ImAp.put(__file.id,__file);
-        _ImAp.put(__firesEvent.id,__firesEvent);
-        _ImAp.put(__handlesEvent.id,__handlesEvent);
-        _ImAp.put(__instantiatesPresenter.id,__instantiatesPresenter);
-        _ImAp.put(__instantiatesView.id,__instantiatesView);
-        _ImAp.put(__lineNumber.id,__lineNumber);
-        _ImAp.put(__sendsActionRequest.id,__sendsActionRequest);
-        _ImAp.put(__sendsCreateRequest.id,__sendsCreateRequest);
-        _ImAp.put(__sendsDeleteRequest.id,__sendsDeleteRequest);
-        _ImAp.put(__sendsGetRequest.id,__sendsGetRequest);
-        _ImAp.put(__sendsLoginRequest.id,__sendsLoginRequest);
-        _ImAp.put(__sendsLogoutRequest.id,__sendsLogoutRequest);
-        _ImAp.put(__sendsSetRequest.id,__sendsSetRequest);
-        _ImAp.put(__subpackage.id,__subpackage);
-        _ImAp.put(__useBaseClass.id,__useBaseClass);
-        _ImAp.put(__useSchema.id,__useSchema);
-        _ImAp.put(__usesRunContextItem.id,__usesRunContextItem);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__addedToRunContext.name,__addedToRunContext);
-        _SmAp.put(__camelCaseName.name,__camelCaseName);
-        _SmAp.put(__centralDMPErrorHandler.name,__centralDMPErrorHandler);
-        _SmAp.put(__centralRPCErrorHandler.name,__centralRPCErrorHandler);
-        _SmAp.put(__componentName.name,__componentName);
-        _SmAp.put(__controllerName.name,__controllerName);
-        _SmAp.put(__definedInModule.name,__definedInModule);
-        _SmAp.put(__description.name,__description);
-        _SmAp.put(__file.name,__file);
-        _SmAp.put(__firesEvent.name,__firesEvent);
-        _SmAp.put(__handlesEvent.name,__handlesEvent);
-        _SmAp.put(__instantiatesPresenter.name,__instantiatesPresenter);
-        _SmAp.put(__instantiatesView.name,__instantiatesView);
-        _SmAp.put(__lineNumber.name,__lineNumber);
-        _SmAp.put(__sendsActionRequest.name,__sendsActionRequest);
-        _SmAp.put(__sendsCreateRequest.name,__sendsCreateRequest);
-        _SmAp.put(__sendsDeleteRequest.name,__sendsDeleteRequest);
-        _SmAp.put(__sendsGetRequest.name,__sendsGetRequest);
-        _SmAp.put(__sendsLoginRequest.name,__sendsLoginRequest);
-        _SmAp.put(__sendsLogoutRequest.name,__sendsLogoutRequest);
-        _SmAp.put(__sendsSetRequest.name,__sendsSetRequest);
-        _SmAp.put(__subpackage.name,__subpackage);
-        _SmAp.put(__useBaseClass.name,__useBaseClass);
-        _SmAp.put(__useSchema.name,__useSchema);
-        _SmAp.put(__usesRunContextItem.name,__usesRunContextItem);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -168,14 +84,6 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
 
     protected ControllerDMO(String oc) {
         super(oc);
-    }
-
-    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
-        return(_ImAp);
-    }
-
-    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
-        return(_SmAp);
     }
 
     protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
@@ -212,9 +120,9 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:739)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:735)
     public CamelCaseName getObjectName(){
-        DmcAttribute<?> name = get(__controllerName);
+        DmcAttribute<?> name = get(MvwDMSAG.__controllerName);
         if (name != null)
             return((CamelCaseName)name.getSV());
     
@@ -222,7 +130,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     }
 
     public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> name = get(__controllerName);
+        DmcAttribute<?> name = get(MvwDMSAG.__controllerName);
         return(name);
     }
 
@@ -233,9 +141,9 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public Boolean isCentralDMPErrorHandler(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__centralDMPErrorHandler);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__centralDMPErrorHandler);
         if (attr == null)
             return(false);
 
@@ -246,15 +154,15 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Sets centralDMPErrorHandler to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setCentralDMPErrorHandler(Boolean value) {
-        DmcAttribute<?> attr = get(__centralDMPErrorHandler);
+        DmcAttribute<?> attr = get(MvwDMSAG.__centralDMPErrorHandler);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__centralDMPErrorHandler);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__centralDMPErrorHandler);
         
         try{
             attr.set(value);
-            set(__centralDMPErrorHandler,attr);
+            set(MvwDMSAG.__centralDMPErrorHandler,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -265,27 +173,27 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Sets centralDMPErrorHandler to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setCentralDMPErrorHandler(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__centralDMPErrorHandler);
+        DmcAttribute<?> attr = get(MvwDMSAG.__centralDMPErrorHandler);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__centralDMPErrorHandler);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__centralDMPErrorHandler);
         
         attr.set(value);
-        set(__centralDMPErrorHandler,attr);
+        set(MvwDMSAG.__centralDMPErrorHandler,attr);
     }
 
     /**
      * Removes the centralDMPErrorHandler attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remCentralDMPErrorHandler(){
-         rem(__centralDMPErrorHandler);
+         rem(MvwDMSAG.__centralDMPErrorHandler);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public Boolean isCentralRPCErrorHandler(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__centralRPCErrorHandler);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__centralRPCErrorHandler);
         if (attr == null)
             return(false);
 
@@ -296,15 +204,15 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Sets centralRPCErrorHandler to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setCentralRPCErrorHandler(Boolean value) {
-        DmcAttribute<?> attr = get(__centralRPCErrorHandler);
+        DmcAttribute<?> attr = get(MvwDMSAG.__centralRPCErrorHandler);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__centralRPCErrorHandler);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__centralRPCErrorHandler);
         
         try{
             attr.set(value);
-            set(__centralRPCErrorHandler,attr);
+            set(MvwDMSAG.__centralRPCErrorHandler,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -315,27 +223,27 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Sets centralRPCErrorHandler to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setCentralRPCErrorHandler(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__centralRPCErrorHandler);
+        DmcAttribute<?> attr = get(MvwDMSAG.__centralRPCErrorHandler);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__centralRPCErrorHandler);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__centralRPCErrorHandler);
         
         attr.set(value);
-        set(__centralRPCErrorHandler,attr);
+        set(MvwDMSAG.__centralRPCErrorHandler,attr);
     }
 
     /**
      * Removes the centralRPCErrorHandler attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remCentralRPCErrorHandler(){
-         rem(__centralRPCErrorHandler);
+         rem(MvwDMSAG.__centralRPCErrorHandler);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public Boolean isAddedToRunContext(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(__addedToRunContext);
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__addedToRunContext);
         if (attr == null)
             return(true);
 
@@ -346,15 +254,15 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Sets addedToRunContext to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setAddedToRunContext(Boolean value) {
-        DmcAttribute<?> attr = get(__addedToRunContext);
+        DmcAttribute<?> attr = get(MvwDMSAG.__addedToRunContext);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__addedToRunContext);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__addedToRunContext);
         
         try{
             attr.set(value);
-            set(__addedToRunContext,attr);
+            set(MvwDMSAG.__addedToRunContext,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -365,31 +273,31 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Sets addedToRunContext to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setAddedToRunContext(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__addedToRunContext);
+        DmcAttribute<?> attr = get(MvwDMSAG.__addedToRunContext);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(__addedToRunContext);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__addedToRunContext);
         
         attr.set(value);
-        set(__addedToRunContext,attr);
+        set(MvwDMSAG.__addedToRunContext,attr);
     }
 
     /**
      * Removes the addedToRunContext attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remAddedToRunContext(){
-         rem(__addedToRunContext);
+         rem(MvwDMSAG.__addedToRunContext);
     }
 
     /**
      * @return An Iterator of PresenterDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:787)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:808)
     public Iterator<PresenterREF> getInstantiatesPresenter(){
-        DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(__instantiatesPresenter);
+        DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
             return( ((List<PresenterREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -407,9 +315,9 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * @return An Iterator of PresenterREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:807)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:828)
     public Iterator<PresenterREF> getInstantiatesPresenterREFs(){
-        DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(__instantiatesPresenter);
+        DmcTypePresenterREFMV attr = (DmcTypePresenterREFMV) get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
             return( ((List<PresenterREF>) Collections.EMPTY_LIST).iterator() );
 
@@ -420,15 +328,15 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Adds another instantiatesPresenter to the specified value.
      * @param value Presenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:822)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:843)
     public DmcAttribute<?> addInstantiatesPresenter(PresenterDMO value) {
-        DmcAttribute<?> attr = get(__instantiatesPresenter);
+        DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
-            attr = new DmcTypePresenterREFMV(__instantiatesPresenter);
+            attr = new DmcTypePresenterREFMV(MvwDMSAG.__instantiatesPresenter);
         
         try{
             setLastValue(attr.add(value));
-            add(__instantiatesPresenter,attr);
+            add(MvwDMSAG.__instantiatesPresenter,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
@@ -440,23 +348,23 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Adds another instantiatesPresenter value.
      * @param value A value compatible with Presenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:943)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
     public DmcAttribute<?> addInstantiatesPresenter(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__instantiatesPresenter);
+        DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
-            attr = new DmcTypePresenterREFMV(__instantiatesPresenter);
+            attr = new DmcTypePresenterREFMV(MvwDMSAG.__instantiatesPresenter);
         
         setLastValue(attr.add(value));
-        add(__instantiatesPresenter,attr);
+        add(MvwDMSAG.__instantiatesPresenter,attr);
         return(attr);
     }
 
     /**
      * Returns the number of values in instantiatesPresenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
     public int getInstantiatesPresenterSize(){
-        DmcAttribute<?> attr = get(__instantiatesPresenter);
+        DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
             return(0);
         
@@ -467,23 +375,23 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Deletes a instantiatesPresenter value.
      * @param value The Presenter to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:990)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1011)
     public DmcAttribute<?> delInstantiatesPresenter(Object value){
-        DmcAttribute<?> attr = del(__instantiatesPresenter, ((DmcNamedObjectIF)value).getObjectName());
+        DmcAttribute<?> attr = del(MvwDMSAG.__instantiatesPresenter, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
     }
 
     /**
      * Removes the instantiatesPresenter attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1037)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public void remInstantiatesPresenter(){
-         rem(__instantiatesPresenter);
+         rem(MvwDMSAG.__instantiatesPresenter);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public CamelCaseName getControllerName(){
-        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(__controllerName);
+        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__controllerName);
         if (attr == null)
             return(null);
 
@@ -494,15 +402,15 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Sets controllerName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setControllerName(CamelCaseName value) {
-        DmcAttribute<?> attr = get(__controllerName);
+        DmcAttribute<?> attr = get(MvwDMSAG.__controllerName);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(__controllerName);
+            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__controllerName);
         
         try{
             attr.set(value);
-            set(__controllerName,attr);
+            set(MvwDMSAG.__controllerName,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -513,22 +421,22 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Sets controllerName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setControllerName(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__controllerName);
+        DmcAttribute<?> attr = get(MvwDMSAG.__controllerName);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(__controllerName);
+            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__controllerName);
         
         attr.set(value);
-        set(__controllerName,attr);
+        set(MvwDMSAG.__controllerName,attr);
     }
 
     /**
      * Removes the controllerName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remControllerName(){
-         rem(__controllerName);
+         rem(MvwDMSAG.__controllerName);
     }
 
 

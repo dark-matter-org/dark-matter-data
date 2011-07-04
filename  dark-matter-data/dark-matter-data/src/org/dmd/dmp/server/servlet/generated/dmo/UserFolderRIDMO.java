@@ -15,19 +15,17 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
 import java.io.Serializable;                                  // Always required
 import java.util.*;                                           // Always required
 import org.dmd.dmc.DmcAttribute;                              // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                          // Always required
 import org.dmd.dmc.DmcHierarchicNamedObjectIF;                // Named object
 import org.dmd.dmc.DmcNamedObjectIF;                          // Named object
 import org.dmd.dmc.DmcObject;                                 // Structural class
 import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing
 import org.dmd.dmc.DmcValueException;                         // Any attributes
 import org.dmd.dmc.types.DotName;                             // Naming attribute type
-import org.dmd.dms.generated.enums.DataTypeEnum;              // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;             // Required if we have any attributes
+import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Attribute from meta schema
 import org.dmd.dms.generated.types.DmcTypeDotNameSV;          // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor
 
@@ -49,11 +47,7 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
 
     public final static String constructionClassName = "UserFolderRI";
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __dotName = new DmcAttributeInfo("dotName",107,"DotName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo classInfo = DmpServerDMSAG.__UserFolderRI;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -61,11 +55,6 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
 
 
     static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__dotName.id,__dotName);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__dotName.name,__dotName);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -79,14 +68,6 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
 
     protected UserFolderRIDMO(String oc) {
         super(oc);
-    }
-
-    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
-        return(_ImAp);
-    }
-
-    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
-        return(_SmAp);
     }
 
     protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
@@ -123,22 +104,22 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:739)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:735)
     public DotName getObjectName(){
-        DmcAttribute<?> name = get(__dotName);
+        DmcAttribute<?> name = get(MetaDMSAG.__dotName);
         if (name != null)
             return((DotName)name.getSV());
     
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:749)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:746)
     public DotName getHierarchicObjectName(){
         return(getObjectName());
     }
 
     public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> name = get(__dotName);
+        DmcAttribute<?> name = get(MetaDMSAG.__dotName);
         return(name);
     }
 
@@ -149,9 +130,9 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public DotName getDotName(){
-        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(__dotName);
+        DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
             return(null);
 
@@ -162,15 +143,15 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setDotName(DotName value) {
-        DmcAttribute<?> attr = get(__dotName);
+        DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
         if (attr == null)
-            attr = new DmcTypeDotNameSV(__dotName);
+            attr = new DmcTypeDotNameSV(MetaDMSAG.__dotName);
         
         try{
             attr.set(value);
-            set(__dotName,attr);
+            set(MetaDMSAG.__dotName,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -181,22 +162,22 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setDotName(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__dotName);
+        DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
         if (attr == null)
-            attr = new DmcTypeDotNameSV(__dotName);
+            attr = new DmcTypeDotNameSV(MetaDMSAG.__dotName);
         
         attr.set(value);
-        set(__dotName,attr);
+        set(MetaDMSAG.__dotName,attr);
     }
 
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remDotName(){
-         rem(__dotName);
+         rem(MetaDMSAG.__dotName);
     }
 
 

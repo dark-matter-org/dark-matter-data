@@ -1,6 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
 import org.dmd.dmc.*;                                                      // If any attributes
 import org.dmd.dmc.types.CamelCaseName;                                    // Primitive type
 import org.dmd.dms.*;                                                      // Always 2
@@ -8,6 +8,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                      // Re
 import org.dmd.mvw.tools.mvwgenerator.extended.Activity;                   // Is reference type aux
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;              // Derived class
 import org.dmd.mvw.tools.mvwgenerator.extended.Place;                      // Required for getModificationRecorder()
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;              // Attribute from mvw schema
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PlaceDMO;              // Class not auxiliary or abstract
 import org.dmd.mvw.tools.mvwgenerator.generated.types.ActivityREF;         // To support getMVCopy() for REFs
 
@@ -48,7 +49,7 @@ abstract public class PlaceDMW extends MvwDefinition implements DmcNamedObjectIF
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:953)
+    // org.dmd.dmg.generators.DMWGenerator.getAccessFunctions(DMWGenerator.java:961)
     public CamelCaseName getObjectName(){
         return(((PlaceDMO) core).getPlaceName());
     }
@@ -68,7 +69,7 @@ abstract public class PlaceDMW extends MvwDefinition implements DmcNamedObjectIF
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public CamelCaseName getPlaceName(){
         return(((PlaceDMO) core).getPlaceName());
     }
@@ -77,7 +78,7 @@ abstract public class PlaceDMW extends MvwDefinition implements DmcNamedObjectIF
      * Sets placeName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setPlaceName(Object value) throws DmcValueException {
         ((PlaceDMO) core).setPlaceName(value);
     }
@@ -86,7 +87,7 @@ abstract public class PlaceDMW extends MvwDefinition implements DmcNamedObjectIF
      * Sets placeName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setPlaceName(CamelCaseName value){
         ((PlaceDMO) core).setPlaceName(value);
     }
@@ -94,12 +95,12 @@ abstract public class PlaceDMW extends MvwDefinition implements DmcNamedObjectIF
     /**
      * Removes the placeName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remPlaceName(){
         ((PlaceDMO) core).remPlaceName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public String getPlacePrefix(){
         return(((PlaceDMO) core).getPlacePrefix());
     }
@@ -108,7 +109,7 @@ abstract public class PlaceDMW extends MvwDefinition implements DmcNamedObjectIF
      * Sets placePrefix to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setPlacePrefix(Object value) throws DmcValueException {
         ((PlaceDMO) core).setPlacePrefix(value);
     }
@@ -117,7 +118,7 @@ abstract public class PlaceDMW extends MvwDefinition implements DmcNamedObjectIF
      * Sets placePrefix to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setPlacePrefix(String value){
         ((PlaceDMO) core).setPlacePrefix(value);
     }
@@ -125,7 +126,7 @@ abstract public class PlaceDMW extends MvwDefinition implements DmcNamedObjectIF
     /**
      * Removes the placePrefix attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remPlacePrefix(){
         ((PlaceDMO) core).remPlacePrefix();
     }
@@ -133,7 +134,7 @@ abstract public class PlaceDMW extends MvwDefinition implements DmcNamedObjectIF
     /**
      * @return A Activity object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1069)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1077)
     public Activity getRunsActivity(){
         ActivityREF ref = ((PlaceDMO) core).getRunsActivity();
         if (ref == null)
@@ -146,7 +147,7 @@ abstract public class PlaceDMW extends MvwDefinition implements DmcNamedObjectIF
      * Sets the runsActivity to the specified value.
      * @param value A value compatible with ActivityREF
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1114)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1122)
     public void setRunsActivity(Activity value) {
         ((PlaceDMO) core).setRunsActivity(value.getDMO());
     }
@@ -154,7 +155,7 @@ abstract public class PlaceDMW extends MvwDefinition implements DmcNamedObjectIF
     /**
      * Removes the runsActivity attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remRunsActivity(){
         ((PlaceDMO) core).remRunsActivity();
     }

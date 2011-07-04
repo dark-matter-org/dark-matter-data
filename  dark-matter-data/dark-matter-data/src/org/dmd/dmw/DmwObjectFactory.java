@@ -20,6 +20,7 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -106,7 +107,7 @@ public class DmwObjectFactory {
 			// attribute info map, the attribute must be associated with an auxiliary class.
 			// So, we have to get the DmcAttributeInfo from the attribute definition.
 			if (ai == null){
-				ai = ad.getAttributeInfo();
+				ai = DmcOmni.instance().getInfo(ad.getDmdID());
 				if (ai == null){
 		        	ResultException ex = new ResultException();
 		            ex.result.addResult(Result.ERROR,"Could not retrieve DmcAttributeInfo for: " + n);

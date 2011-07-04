@@ -15,18 +15,16 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:307)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
 import java.io.Serializable;                                                  // Always required
 import java.util.*;                                                           // Always required
 import org.dmd.dmc.DmcAttribute;                                              // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                          // Always required
 import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object
 import org.dmd.dmc.DmcObject;                                                 // Structural class
 import org.dmd.dmc.DmcOmni;                                                   // Lazy resolution
 import org.dmd.dmc.DmcValueException;                                         // Any attributes
 import org.dmd.dmc.types.StringName;                                          // Naming attribute type
-import org.dmd.dms.generated.enums.DataTypeEnum;                              // Required if we have any attributes
-import org.dmd.dms.generated.enums.ValueTypeEnum;                             // Required if we have any attributes
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Attribute from meta schema
 import org.dmd.dms.generated.types.DmcTypeIntegerSV;                          // Required type
 import org.dmd.dms.generated.types.DmcTypeStringNameSV;                       // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type
@@ -53,15 +51,7 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
 
     public final static String constructionClassName = "MvcDefinition";
 
-    static Map<Integer,DmcAttributeInfo> _ImAp;
-
-    static Map<String ,DmcAttributeInfo> _SmAp;
-
-    public final static DmcAttributeInfo __definedInMVCConfig = new DmcAttributeInfo("definedInMVCConfig",616,"MvcConfig",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __description = new DmcAttributeInfo("description",18,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __file = new DmcAttributeInfo("file",74,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __lineNumber = new DmcAttributeInfo("lineNumber",75,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcDefinition;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -69,19 +59,6 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
 
 
     static {
-        _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(__definedInMVCConfig.id,__definedInMVCConfig);
-        _ImAp.put(__description.id,__description);
-        _ImAp.put(__file.id,__file);
-        _ImAp.put(__lineNumber.id,__lineNumber);
-        _ImAp.put(__name.id,__name);
-
-        _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(__definedInMVCConfig.name,__definedInMVCConfig);
-        _SmAp.put(__description.name,__description);
-        _SmAp.put(__file.name,__file);
-        _SmAp.put(__lineNumber.name,__lineNumber);
-        _SmAp.put(__name.name,__name);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -97,14 +74,6 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
         super(oc);
     }
 
-    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){
-        return(_ImAp);
-    }
-
-    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
-        return(_SmAp);
-    }
-
     protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
         return(_AvDmAp);
     }
@@ -113,9 +82,9 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
         return(_OvDmAp);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:739)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:735)
     public StringName getObjectName(){
-        DmcAttribute<?> name = get(__name);
+        DmcAttribute<?> name = get(MetaDMSAG.__name);
         if (name != null)
             return((StringName)name.getSV());
     
@@ -123,7 +92,7 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
     }
 
     public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> name = get(__name);
+        DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
@@ -134,9 +103,9 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getFile(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__file);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
             return(null);
 
@@ -147,15 +116,15 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets file to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setFile(String value) {
-        DmcAttribute<?> attr = get(__file);
+        DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
-            attr = new DmcTypeStringSV(__file);
+            attr = new DmcTypeStringSV(MetaDMSAG.__file);
         
         try{
             attr.set(value);
-            set(__file,attr);
+            set(MetaDMSAG.__file,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -166,27 +135,27 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setFile(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__file);
+        DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
-            attr = new DmcTypeStringSV(__file);
+            attr = new DmcTypeStringSV(MetaDMSAG.__file);
         
         attr.set(value);
-        set(__file,attr);
+        set(MetaDMSAG.__file,attr);
     }
 
     /**
      * Removes the file attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remFile(){
-         rem(__file);
+         rem(MetaDMSAG.__file);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public Integer getLineNumber(){
-        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(__lineNumber);
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
             return(null);
 
@@ -197,15 +166,15 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setLineNumber(Integer value) {
-        DmcAttribute<?> attr = get(__lineNumber);
+        DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(__lineNumber);
+            attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
         
         try{
             attr.set(value);
-            set(__lineNumber,attr);
+            set(MetaDMSAG.__lineNumber,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -216,27 +185,27 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setLineNumber(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__lineNumber);
+        DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(__lineNumber);
+            attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
         
         attr.set(value);
-        set(__lineNumber,attr);
+        set(MetaDMSAG.__lineNumber,attr);
     }
 
     /**
      * Removes the lineNumber attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remLineNumber(){
-         rem(__lineNumber);
+         rem(MetaDMSAG.__lineNumber);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public String getDescription(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(__description);
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
             return(null);
 
@@ -247,15 +216,15 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setDescription(String value) {
-        DmcAttribute<?> attr = get(__description);
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(__description);
+            attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
         try{
             attr.set(value);
-            set(__description,attr);
+            set(MetaDMSAG.__description,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -266,27 +235,27 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__description);
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringSV(__description);
+            attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
         attr.set(value);
-        set(__description,attr);
+        set(MetaDMSAG.__description,attr);
     }
 
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remDescription(){
-         rem(__description);
+         rem(MetaDMSAG.__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
     public StringName getName(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(__name);
+        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
             return(null);
 
@@ -297,15 +266,15 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:662)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
     public void setName(StringName value) {
-        DmcAttribute<?> attr = get(__name);
+        DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(__name);
+            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         
         try{
             attr.set(value);
-            set(__name,attr);
+            set(MetaDMSAG.__name,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -316,27 +285,27 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__name);
+        DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(__name);
+            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         
         attr.set(value);
-        set(__name,attr);
+        set(MetaDMSAG.__name,attr);
     }
 
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remName(){
-         rem(__name);
+         rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:555)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:571)
     public MvcConfigREF getDefinedInMVCConfig(){
-        DmcTypeMvcConfigREFSV attr = (DmcTypeMvcConfigREFSV) get(__definedInMVCConfig);
+        DmcTypeMvcConfigREFSV attr = (DmcTypeMvcConfigREFSV) get(ExtgwtDMSAG.__definedInMVCConfig);
         if (attr == null)
             return(null);
 
@@ -354,7 +323,7 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Returns the reference to MvcConfig without attempting lazy resolution (if turned on).
      */
     public MvcConfigREF getDefinedInMVCConfigREF(){
-        DmcTypeMvcConfigREFSV attr = (DmcTypeMvcConfigREFSV) get(__definedInMVCConfig);
+        DmcTypeMvcConfigREFSV attr = (DmcTypeMvcConfigREFSV) get(ExtgwtDMSAG.__definedInMVCConfig);
         if (attr == null)
             return(null);
 
@@ -365,15 +334,15 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets definedInMVCConfig to the specified value.
      * @param value MvcConfigDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:608)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:624)
     public void setDefinedInMVCConfig(MvcConfigDMO value) {
-        DmcAttribute<?> attr = get(__definedInMVCConfig);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__definedInMVCConfig);
         if (attr == null)
-            attr = new DmcTypeMvcConfigREFSV(__definedInMVCConfig);
+            attr = new DmcTypeMvcConfigREFSV(ExtgwtDMSAG.__definedInMVCConfig);
         
         try{
             attr.set(value);
-            set(__definedInMVCConfig,attr);
+            set(ExtgwtDMSAG.__definedInMVCConfig,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -384,22 +353,22 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
      * Sets definedInMVCConfig to the specified value.
      * @param value A value compatible with DmcTypeMvcConfigREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:710)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
     public void setDefinedInMVCConfig(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(__definedInMVCConfig);
+        DmcAttribute<?> attr = get(ExtgwtDMSAG.__definedInMVCConfig);
         if (attr == null)
-            attr = new DmcTypeMvcConfigREFSV(__definedInMVCConfig);
+            attr = new DmcTypeMvcConfigREFSV(ExtgwtDMSAG.__definedInMVCConfig);
         
         attr.set(value);
-        set(__definedInMVCConfig,attr);
+        set(ExtgwtDMSAG.__definedInMVCConfig,attr);
     }
 
     /**
      * Removes the definedInMVCConfig attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:725)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
     public void remDefinedInMVCConfig(){
-         rem(__definedInMVCConfig);
+         rem(ExtgwtDMSAG.__definedInMVCConfig);
     }
 
 

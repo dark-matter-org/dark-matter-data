@@ -39,7 +39,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 @SuppressWarnings("serial")
 public class ViewREF extends DmcNamedObjectNontransportableREF<ViewDMO> {
 
-    public final static DmcAttributeInfo __viewName = new DmcAttributeInfo("viewName",812,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT,false);
+    public final static DmcAttributeInfo __viewName = new DmcAttributeInfo("viewName",812,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeCamelCaseNameSV myName;    
     

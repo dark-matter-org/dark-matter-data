@@ -1,0 +1,10 @@
+SchemaDefinition
+name       			mail
+schemaBaseID		900
+schemaIDRange		25
+//dependsOn			dmg
+defFiles    		attributes.dmd
+defFiles    		classes.dmd
+generatedFileHeader LGPL.txt
+schemaPackage 		org.dmd.features.extgwt.examples
+description			The mail schema defines the basic data types used in the Mail example.

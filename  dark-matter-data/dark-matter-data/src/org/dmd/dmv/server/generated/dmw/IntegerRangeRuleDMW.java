@@ -15,12 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:925)
+// Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
 import org.dmd.dmc.*;                                                // If any attributes
 import org.dmd.dms.*;                                                // Always 2
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                // Required for MODREC constructor
 import org.dmd.dmv.server.extended.AttributeRule;                    // Derived class
 import org.dmd.dmv.server.extended.IntegerRangeRule;                 // Required for getModificationRecorder()
+import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                    // Attribute from dmv schema
 import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDMO;         // Class not auxiliary or abstract
 
 /**
@@ -59,7 +60,7 @@ abstract public class IntegerRangeRuleDMW extends AttributeRule {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1090)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
     public String getRuleTitle(){
         return(((IntegerRangeRuleDMO) core).getRuleTitle());
     }
@@ -68,7 +69,7 @@ abstract public class IntegerRangeRuleDMW extends AttributeRule {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1137)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((IntegerRangeRuleDMO) core).setRuleTitle(value);
     }
@@ -77,7 +78,7 @@ abstract public class IntegerRangeRuleDMW extends AttributeRule {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1146)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
     public void setRuleTitle(String value){
         ((IntegerRangeRuleDMO) core).setRuleTitle(value);
     }
@@ -85,7 +86,7 @@ abstract public class IntegerRangeRuleDMW extends AttributeRule {
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1172)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
     public void remRuleTitle(){
         ((IntegerRangeRuleDMO) core).remRuleTitle();
     }
