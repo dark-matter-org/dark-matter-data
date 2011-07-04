@@ -9,7 +9,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:240)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:242)
 public class MetaDMSAG implements DmcCompactSchemaIF {
 
 
@@ -311,6 +311,187 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__SchemaDefinition.id,__SchemaDefinition);
         _CmAp.put(__SliceDefinition.id,__SliceDefinition);
         _CmAp.put(__TypeDefinition.id,__TypeDefinition);
+
+        __ActionDefinition.addMust(__name);
+        __ActionDefinition.addMay(__attachToClass);
+        __ActionDefinition.addMay(__blockWhenLocked);
+        __ActionDefinition.addMay(__definedIn);
+        __ActionDefinition.addMay(__description);
+        __ActionDefinition.addMay(__file);
+        __ActionDefinition.addMay(__isGetAction);
+        __ActionDefinition.addMay(__lineNumber);
+        __ActionDefinition.addMay(__mayParm);
+        __ActionDefinition.addMay(__mayReturn);
+        __ActionDefinition.addMay(__maySendProgress);
+        __ActionDefinition.addMay(__mustParm);
+        __ActionDefinition.addMay(__mustReturn);
+        __ActionDefinition.addMay(__obsoleteVersion);
+
+        __ActionTriggerInfo.addMust(__name);
+
+        __AttributeDefinition.addMust(__name);
+        __AttributeDefinition.addMust(__type);
+        __AttributeDefinition.addMay(__abbrev);
+        __AttributeDefinition.addMay(__dataType);
+        __AttributeDefinition.addMay(__definedIn);
+        __AttributeDefinition.addMay(__description);
+        __AttributeDefinition.addMay(__designatedFilterAttribute);
+        __AttributeDefinition.addMay(__designatedNameAttribute);
+        __AttributeDefinition.addMay(__dmdID);
+        __AttributeDefinition.addMay(__file);
+        __AttributeDefinition.addMay(__genericArgs);
+        __AttributeDefinition.addMay(__genericArgsImport);
+        __AttributeDefinition.addMay(__internalUse);
+        __AttributeDefinition.addMay(__lineNumber);
+        __AttributeDefinition.addMay(__mvsize);
+        __AttributeDefinition.addMay(__nullReturnValue);
+        __AttributeDefinition.addMay(__obsoleteVersion);
+        __AttributeDefinition.addMay(__secure);
+        __AttributeDefinition.addMay(__valueType);
+
+        __AttributeValidatorDefinition.addMust(__name);
+        __AttributeValidatorDefinition.addMust(__validatorClass);
+        __AttributeValidatorDefinition.addMay(__definedIn);
+        __AttributeValidatorDefinition.addMay(__description);
+        __AttributeValidatorDefinition.addMay(__file);
+        __AttributeValidatorDefinition.addMay(__lineNumber);
+        __AttributeValidatorDefinition.addMay(__opContext);
+
+        __ClassDefinition.addMust(__classType);
+        __ClassDefinition.addMust(__name);
+        __ClassDefinition.addMay(__abbrev);
+        __ClassDefinition.addMay(__actions);
+        __ClassDefinition.addMay(__allowedParents);
+        __ClassDefinition.addMay(__dataType);
+        __ClassDefinition.addMay(__definedIn);
+        __ClassDefinition.addMay(__derivedClasses);
+        __ClassDefinition.addMay(__derivedFrom);
+        __ClassDefinition.addMay(__description);
+        __ClassDefinition.addMay(__dmdID);
+        __ClassDefinition.addMay(__dmeClass);
+        __ClassDefinition.addMay(__dmeImport);
+        __ClassDefinition.addMay(__dmoAuxClass);
+        __ClassDefinition.addMay(__dmoAuxClassImport);
+        __ClassDefinition.addMay(__dmoClass);
+        __ClassDefinition.addMay(__dmoImport);
+        __ClassDefinition.addMay(__dmtClass);
+        __ClassDefinition.addMay(__dmtImport);
+        __ClassDefinition.addMay(__dmtREFImport);
+        __ClassDefinition.addMay(__dmwAuxClass);
+        __ClassDefinition.addMay(__dmwAuxClassImport);
+        __ClassDefinition.addMay(__dmwClass);
+        __ClassDefinition.addMay(__dmwImport);
+        __ClassDefinition.addMay(__dmwIteratorClass);
+        __ClassDefinition.addMay(__dmwIteratorImport);
+        __ClassDefinition.addMay(__dmwWrapperType);
+        __ClassDefinition.addMay(__file);
+        __ClassDefinition.addMay(__intendedToExtend);
+        __ClassDefinition.addMay(__internalTypeRef);
+        __ClassDefinition.addMay(__isNamedBy);
+        __ClassDefinition.addMay(__isTransportable);
+        __ClassDefinition.addMay(__javaClass);
+        __ClassDefinition.addMay(__lineNumber);
+        __ClassDefinition.addMay(__may);
+        __ClassDefinition.addMay(__must);
+        __ClassDefinition.addMay(__obsoleteVersion);
+        __ClassDefinition.addMay(__subpackage);
+        __ClassDefinition.addMay(__supportsBackrefTracking);
+        __ClassDefinition.addMay(__useWrapperType);
+        __ClassDefinition.addMay(__usesInterface);
+
+        __ComplexTypeDefinition.addMust(__field);
+        __ComplexTypeDefinition.addMust(__name);
+        __ComplexTypeDefinition.addMay(__definedIn);
+        __ComplexTypeDefinition.addMay(__description);
+        __ComplexTypeDefinition.addMay(__extendedClass);
+        __ComplexTypeDefinition.addMay(__fieldSeparator);
+        __ComplexTypeDefinition.addMay(__file);
+        __ComplexTypeDefinition.addMay(__lineNumber);
+
+        __DmsDefinition.addMust(__name);
+        __DmsDefinition.addMay(__definedIn);
+        __DmsDefinition.addMay(__file);
+        __DmsDefinition.addMay(__lineNumber);
+
+        __EnumDefinition.addMust(__enumValue);
+        __EnumDefinition.addMust(__name);
+        __EnumDefinition.addMay(__definedIn);
+        __EnumDefinition.addMay(__description);
+        __EnumDefinition.addMay(__file);
+        __EnumDefinition.addMay(__lineNumber);
+        __EnumDefinition.addMay(__nullReturnValue);
+
+        __ObjectValidatorDefinition.addMust(__name);
+        __ObjectValidatorDefinition.addMust(__validatorClass);
+        __ObjectValidatorDefinition.addMay(__definedIn);
+        __ObjectValidatorDefinition.addMay(__description);
+        __ObjectValidatorDefinition.addMay(__file);
+        __ObjectValidatorDefinition.addMay(__lineNumber);
+        __ObjectValidatorDefinition.addMay(__opContext);
+
+        __SchemaDefinition.addMust(__description);
+        __SchemaDefinition.addMust(__name);
+        __SchemaDefinition.addMust(__schemaBaseID);
+        __SchemaDefinition.addMust(__schemaIDRange);
+        __SchemaDefinition.addMust(__schemaPackage);
+        __SchemaDefinition.addMay(__actionDefList);
+        __SchemaDefinition.addMay(__attributeDefList);
+        __SchemaDefinition.addMay(__attributeValidatorDefList);
+        __SchemaDefinition.addMay(__classDefList);
+        __SchemaDefinition.addMay(__complexTypeDefList);
+        __SchemaDefinition.addMay(__createAttributeFactory);
+        __SchemaDefinition.addMay(__defFiles);
+        __SchemaDefinition.addMay(__definedIn);
+        __SchemaDefinition.addMay(__dependsOn);
+        __SchemaDefinition.addMay(__dependsOnRef);
+        __SchemaDefinition.addMay(__dmwPackage);
+        __SchemaDefinition.addMay(__dmwTypeToPackage);
+        __SchemaDefinition.addMay(__enumDefList);
+        __SchemaDefinition.addMay(__file);
+        __SchemaDefinition.addMay(__generatedFileHeader);
+        __SchemaDefinition.addMay(__internalTypeDefList);
+        __SchemaDefinition.addMay(__lineNumber);
+        __SchemaDefinition.addMay(__objectValidatorDefList);
+        __SchemaDefinition.addMay(__schemaExtension);
+        __SchemaDefinition.addMay(__sliceDefList);
+        __SchemaDefinition.addMay(__typeDefList);
+
+        __SliceDefinition.addMust(__name);
+        __SliceDefinition.addMust(__selectAttribute);
+        __SliceDefinition.addMay(__definedIn);
+        __SliceDefinition.addMay(__description);
+        __SliceDefinition.addMay(__file);
+        __SliceDefinition.addMay(__lineNumber);
+
+        __TypeDefinition.addMust(__name);
+        __TypeDefinition.addMust(__typeClassName);
+        __TypeDefinition.addMay(__altType);
+        __TypeDefinition.addMay(__altTypeImport);
+        __TypeDefinition.addMay(__definedIn);
+        __TypeDefinition.addMay(__description);
+        __TypeDefinition.addMay(__dmwIteratorClass);
+        __TypeDefinition.addMay(__dmwIteratorImport);
+        __TypeDefinition.addMay(__enumName);
+        __TypeDefinition.addMay(__file);
+        __TypeDefinition.addMay(__filterAttributeDef);
+        __TypeDefinition.addMay(__genericArgs);
+        __TypeDefinition.addMay(__helperClassName);
+        __TypeDefinition.addMay(__internallyGenerated);
+        __TypeDefinition.addMay(__isEnumType);
+        __TypeDefinition.addMay(__isFilterType);
+        __TypeDefinition.addMay(__isHierarchicName);
+        __TypeDefinition.addMay(__isNameType);
+        __TypeDefinition.addMay(__isRefType);
+        __TypeDefinition.addMay(__keyClass);
+        __TypeDefinition.addMay(__keyImport);
+        __TypeDefinition.addMay(__lineNumber);
+        __TypeDefinition.addMay(__nameAttributeDef);
+        __TypeDefinition.addMay(__nameType);
+        __TypeDefinition.addMay(__nullReturnValue);
+        __TypeDefinition.addMay(__originalClass);
+        __TypeDefinition.addMay(__primitiveType);
+        __TypeDefinition.addMay(__wrapperClassName);
+
         _NmAp.put(DmcTypeCamelCaseNameSTATIC.instance.getNameClass(),DmcTypeCamelCaseNameSTATIC.instance);
         _NmAp.put(DmcTypeDotNameSTATIC.instance.getNameClass(),DmcTypeDotNameSTATIC.instance);
         _NmAp.put(DmcTypeFullyQualifiedNameSTATIC.instance.getNameClass(),DmcTypeFullyQualifiedNameSTATIC.instance);

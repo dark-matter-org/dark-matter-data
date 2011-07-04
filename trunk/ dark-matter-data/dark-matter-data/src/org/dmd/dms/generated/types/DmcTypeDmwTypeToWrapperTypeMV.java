@@ -27,7 +27,7 @@ import org.dmd.dms.generated.types.DmcTypeDmwTypeToWrapperType;    // DmcType im
  * The DmcTypeDmwTypeToWrapperTypeMV provides storage for a multi-valued DmwTypeToWrapperType
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1907)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1940)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:267)
  */
 @SuppressWarnings("serial")

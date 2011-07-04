@@ -108,6 +108,12 @@ public class GenUtility {
 				if (attributeInfo != null)
 					appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 
+				if ((cd != null) && (cd.getClassType() == ClassTypeEnum.AUXILIARY))
+					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
+					
+				if (ad.getDefinedIn() != cd.getDefinedIn())
+					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
+					
 				allAttr.add(ad);
 			}
 		}
@@ -149,6 +155,12 @@ public class GenUtility {
 				if (attributeInfo != null)
 					appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), "true");
 
+				if ((cd != null) && (cd.getClassType() == ClassTypeEnum.AUXILIARY))
+					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
+
+				if (ad.getDefinedIn() != cd.getDefinedIn())
+					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
+					
 				allAttr.add(ad);
 			}
 		}
@@ -170,12 +182,12 @@ public class GenUtility {
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcSliceInfo", "Required for object slicing");
 		}
 			
-		if (anyAttributes){
-			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ValueTypeEnum", "Required if we have any attributes");
-			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.DataTypeEnum", "Required if we have any attributes");
-		}
-
-		addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttributeInfo", "Always required");
+//		if (anyAttributes){
+//			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.ValueTypeEnum", "Required if we have any attributes");
+//			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.enums.DataTypeEnum", "Required if we have any attributes");
+//		}
+//
+//		addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttributeInfo", "Always required");
 		
 		if (anyAttributesAtThisLevel){
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttribute", "Any attributes");
@@ -258,6 +270,7 @@ public class GenUtility {
 			if (cd.getDerivedFrom() == null){
 				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
 					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcObject", "Auxiliary class");
+					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcAttributeInfo", "Auxiliary class");
 				}
 				else{
 //					addImport(uniqueImports, longestImport, "org.dmd.dms.generated.dmo.DmwWrapperDMO", "Structural class");
@@ -358,14 +371,17 @@ public class GenUtility {
     	out.write(opt + ");\n");
     }
 	
-    static public void appendAttributeInfo(BufferedWriter out, AttributeDefinition ad, String optional) throws IOException {
+//    static public void appendAttributeInfo(BufferedWriter out, AttributeDefinition ad, String optional) throws IOException {
+    static public void appendAttributeInfo(BufferedWriter out, AttributeDefinition ad) throws IOException {
     	out.write("    public final static DmcAttributeInfo __" + ad.getName().getNameString() + " = new DmcAttributeInfo(");
     	out.write("\"" + ad.getName().getNameString() + "\",");
     	out.write(ad.getDmdID() + ",");
     	out.write("\"" + ad.getType().getName().getNameString() + "\",");
 		out.write("ValueTypeEnum." + ad.getValueType() + ",");
-		out.write("DataTypeEnum." + ad.getDataType() + ",");
-    	out.write(optional + ");\n");
+		out.write("DataTypeEnum." + ad.getDataType() + ");\n");
+
+		//		out.write("DataTypeEnum." + ad.getDataType() + ",");
+//    	out.write(optional + ");\n");
     }
 	
 	/**
@@ -555,7 +571,7 @@ public class GenUtility {
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
 				sb.append("    public " + typeName + "DMO get" + functionName + "(){\n");		
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 		    	if (nullReturnValue == null)
 		    		sb.append("            return(null);\n");
@@ -568,7 +584,7 @@ public class GenUtility {
 			}
 			else{
 				sb.append("    public " + typeName + "REF get" + functionName + "(){\n");
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 		    	if (nullReturnValue == null)
 		    		sb.append("            return(null);\n");
@@ -589,7 +605,7 @@ public class GenUtility {
 		    	sb.append("     * Returns the reference to " + typeName + " without attempting lazy resolution (if turned on).\n");
 		    	sb.append("     */\n");
 				sb.append("    public " + typeName + "REF get" + functionName + "REF(){\n");
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 		    	if (nullReturnValue == null)
 		    		sb.append("            return(null);\n");
@@ -607,13 +623,13 @@ public class GenUtility {
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public void set" + functionName + "(" + typeName + "DMO value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        if (attr == null)\n");
-	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+	    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
 	    	sb.append("            attr.set(value);\n");
-	    	sb.append("            set(__" + ad.getName() + ",attr);\n");
+	    	sb.append("            set(" + ad.getDMSAGReference() + ",attr);\n");
 	    	sb.append("        }\n");
 	    	sb.append("        catch(DmcValueException ex){\n");
 	    	sb.append("            throw(new IllegalStateException(\"The type specific set() method shouldn't throw exceptions!\",ex));\n");
@@ -634,7 +650,8 @@ public class GenUtility {
 			else{
 				sb.append("    public " + typeName + " get" + functionName + "(){\n");
 			}
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+//			sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			
 	    	if (nullReturnValue == null)
@@ -664,13 +681,15 @@ public class GenUtility {
 				sb.append("    public void set" + functionName + "(DmcAttribute" + genericArgs + " value) {\n");
 			else
 				sb.append("    public void set" + functionName + "(" + typeName + " value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+//	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        if (attr == null)\n");
-	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+	    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+//	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
 	    	sb.append("            attr.set(value);\n");
-	    	sb.append("            set(__" + ad.getName() + ",attr);\n");
+	    	sb.append("            set(" + ad.getDMSAGReference() + ",attr);\n");
 	    	sb.append("        }\n");
 	    	sb.append("        catch(DmcValueException ex){\n");
 	    	sb.append("            throw(new IllegalStateException(\"The type specific set() method shouldn't throw exceptions!\",ex));\n");
@@ -684,13 +703,15 @@ public class GenUtility {
 		    	sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public void set" + functionName + "(" + ad.getType().getAltType() + " value) {\n");
-		    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+//		    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 		    	sb.append("        if (attr == null)\n");
-		    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+		    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+//		    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
 		    	sb.append("        \n");
 		    	sb.append("        try{\n");
 		    	sb.append("            attr.set(value);\n");
-		    	sb.append("            set(__" + ad.getName() + ",attr);\n");
+		    	sb.append("            set(" + ad.getDMSAGReference() + ",attr);\n");
 		    	sb.append("        }\n");
 		    	sb.append("        catch(DmcValueException ex){\n");
 		    	sb.append("            throw(new IllegalStateException(\"The alternative type specific set() method shouldn't throw exceptions!\",ex));\n");
@@ -709,12 +730,12 @@ public class GenUtility {
     	sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
     	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        if (attr == null)\n");
-    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        \n");
     	sb.append("        attr.set(value);\n");
-    	sb.append("        set(__" + ad.getName() + ",attr);\n");
+    	sb.append("        set(" + ad.getDMSAGReference() + ",attr);\n");
     	sb.append("    }\n\n");
     	
     	////////////////////////////////////////////////////////////////////////////////
@@ -724,7 +745,7 @@ public class GenUtility {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public void rem" + functionName + "(){\n");
-		sb.append("         rem(__" + ad.getName() + ");\n");
+		sb.append("         rem(" + ad.getDMSAGReference() + ");\n");
 		sb.append("    }\n\n");
 		
 
@@ -775,7 +796,7 @@ public class GenUtility {
 			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return( ((List<" + typeName + "DMO>) Collections.EMPTY_LIST).iterator() );\n");
 				sb.append("\n");
@@ -786,7 +807,7 @@ public class GenUtility {
 			else{
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
 		    	sb.append("\n");
@@ -806,7 +827,7 @@ public class GenUtility {
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "REFs(){\n");
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
 		    	sb.append("\n");
@@ -821,13 +842,13 @@ public class GenUtility {
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + "DMO value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        if (attr == null)\n");
-	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+	    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
 	    	sb.append("            setLastValue(attr.add(value));\n");
-	    	sb.append("            add(__" + ad.getName() + ",attr);\n");
+	    	sb.append("            add(" + ad.getDMSAGReference() + ",attr);\n");
 	    	sb.append("        }\n");
 	    	sb.append("        catch(DmcValueException ex){\n");
 	    	sb.append("            throw(new IllegalStateException(\"The type specific add() method shouldn't throw exceptions!\",ex));\n");
@@ -843,7 +864,7 @@ public class GenUtility {
 	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return( ((List<" + typeName + ">) Collections.EMPTY_LIST).iterator());\n");
 			sb.append("\n");
@@ -855,7 +876,7 @@ public class GenUtility {
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public " + typeName + " getNth" + functionName + "(int i){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(null);\n");
 			sb.append("\n");
@@ -868,13 +889,13 @@ public class GenUtility {
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + " value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        if (attr == null)\n");
-	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+	    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
 	    	sb.append("            setLastValue(attr.add(value));\n");
-	    	sb.append("            add(__" + ad.getName() + ",attr);\n");
+	    	sb.append("            add(" + ad.getDMSAGReference() + ",attr);\n");
 	    	sb.append("        }\n");
 	    	sb.append("        catch(DmcValueException ex){\n");
 	    	sb.append("            throw(new IllegalStateException(\"The type specific add() method shouldn't throw exceptions!\",ex));\n");
@@ -889,13 +910,13 @@ public class GenUtility {
 		    	sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + ad.getType().getAltType() + " value) {\n");
-		    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 		    	sb.append("        if (attr == null)\n");
-		    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+		    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
 		    	sb.append("        \n");
 		    	sb.append("        try{\n");
 		    	sb.append("            setLastValue(attr.add(value));\n");
-		    	sb.append("            add(__" + ad.getName() + ",attr);\n");
+		    	sb.append("            add(" + ad.getDMSAGReference() + ",attr);\n");
 		    	sb.append("        }\n");
 		    	sb.append("        catch(DmcValueException ex){\n");
 		    	sb.append("            throw(new IllegalStateException(\"The alternative type specific add() method shouldn't throw exceptions!\",ex));\n");
@@ -910,7 +931,7 @@ public class GenUtility {
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public boolean " + ad.getName() + "Contains(" + typeName + " value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        if (attr == null)\n");
 	    	sb.append("            return(false);\n");
 	    	sb.append("        return(attr.contains(value));\n");
@@ -924,7 +945,7 @@ public class GenUtility {
 		    	sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		    	sb.append("    public boolean " + ad.getName() + "Contains(" + alt + " value) {\n");
-		    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 		    	sb.append("        if (attr == null)\n");
 		    	sb.append("            return(false);\n");
 		    	sb.append("        return(attr.contains(value));\n");
@@ -942,12 +963,12 @@ public class GenUtility {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public DmcAttribute<?> add" + functionName + "(Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        if (attr == null)\n");
-    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        \n");
     	sb.append("        setLastValue(attr.add(value));\n");
-    	sb.append("        add(__" + ad.getName() + ",attr);\n");
+    	sb.append("        add(" + ad.getDMSAGReference() + ",attr);\n");
     	sb.append("        return(attr);\n");
 		sb.append("    }\n\n");
 
@@ -959,7 +980,7 @@ public class GenUtility {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public int get" + functionName + "Size(){\n");
-    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        if (attr == null)\n");
     	sb.append("            return(0);\n");
     	sb.append("        \n");
@@ -978,7 +999,7 @@ public class GenUtility {
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value){\n");
-		    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", value);\n");
+		    	sb.append("        DmcAttribute<?> attr = del(" + ad.getDMSAGReference() + ", value);\n");
 				sb.append("        return(attr);\n");
 				sb.append("    }\n\n");
 			}
@@ -989,7 +1010,7 @@ public class GenUtility {
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value){\n");
-		    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
+		    	sb.append("        DmcAttribute<?> attr = del(" + ad.getDMSAGReference() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
 				sb.append("        return(attr);\n");
 				sb.append("    }\n\n");
 			}
@@ -1001,12 +1022,12 @@ public class GenUtility {
 			sb.append("     */\n");//	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> del" + functionName + "(Object value) throws DmcValueException {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        \n");
 			sb.append("        if ( (attr == null) && (getModifier()!= null))\n");
-			sb.append("            delFromEmptyAttribute(new " + attrType+ "(__" + ad.getName() + "), value);\n");
+			sb.append("            delFromEmptyAttribute(new " + attrType+ "(" + ad.getDMSAGReference() + "), value);\n");
 			sb.append("        else\n");
-			sb.append("            attr = del(__" + ad.getName() + ", value);\n");
+			sb.append("            attr = del(" + ad.getDMSAGReference() + ", value);\n");
 			sb.append("        \n");
 			sb.append("        return(attr);\n");
 			sb.append("    }\n\n");
@@ -1017,12 +1038,12 @@ public class GenUtility {
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public DmcAttribute<?> del" + functionName + "(" + typeName + " value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        \n");
 			sb.append("        if ( (attr == null) && (getModifier()!= null))\n");
-			sb.append("            delFromEmptyAttribute(new " + attrType+ "(__" + ad.getName() + "), value);\n");
+			sb.append("            delFromEmptyAttribute(new " + attrType+ "(" + ad.getDMSAGReference() + "), value);\n");
 			sb.append("        else\n");
-			sb.append("            attr = del(__" + ad.getName() + ", value);\n");
+			sb.append("            attr = del(" + ad.getDMSAGReference() + ", value);\n");
 			sb.append("        \n");
 			sb.append("        return(attr);\n");
 	    	sb.append("    }\n\n");
@@ -1036,7 +1057,7 @@ public class GenUtility {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public void rem" + functionName + "(){\n");
-		sb.append("         rem(__" + ad.getName() + ");\n");
+		sb.append("         rem(" + ad.getDMSAGReference() + ");\n");
 		sb.append("    }\n\n");
 		
 		
@@ -1068,7 +1089,6 @@ public class GenUtility {
     	////////////////////////////////////////////////////////////////////////////////
     	// getter
 
-		
 		if (ad.getType().getIsRefType()){
 	    	sb.append("    /**\n");
 			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
@@ -1076,7 +1096,7 @@ public class GenUtility {
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
 				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return(Collections.<" + typeName + "DMO> emptyList().iterator());\n");
 				sb.append("\n");
@@ -1086,7 +1106,7 @@ public class GenUtility {
 			else{
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
 		    	sb.append("\n");
@@ -1106,7 +1126,7 @@ public class GenUtility {
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "REFs(){\n");
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
 		    	sb.append("\n");
@@ -1121,7 +1141,7 @@ public class GenUtility {
 	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return( ((List<" + typeName + ">) Collections.EMPTY_LIST).iterator());\n");
 			sb.append("\n");
@@ -1139,7 +1159,7 @@ public class GenUtility {
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public " + typeName + "REF get" + functionName + "(Object key){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(null);\n");
 	    	sb.append("\n");
@@ -1153,7 +1173,7 @@ public class GenUtility {
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public " + typeName + " get" + functionName + "(Object key){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(__" + ad.getName() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(null);\n");
 			sb.append("\n");
@@ -1170,12 +1190,12 @@ public class GenUtility {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public DmcAttribute<?> add" + functionName + "(Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        if (attr == null)\n");
-    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        \n");
     	sb.append("        setLastValue(attr.add(value));\n");
-    	sb.append("        add(__" + ad.getName() + ",attr);\n");
+    	sb.append("        add(" + ad.getDMSAGReference() + ",attr);\n");
     	sb.append("        return(attr);\n");
 		sb.append("    }\n\n");
 
@@ -1186,13 +1206,13 @@ public class GenUtility {
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName+ "DMO value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        if (attr == null)\n");
-	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+	    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
 	    	sb.append("            setLastValue(attr.add(value));\n");
-	    	sb.append("            add(__" + ad.getName() + ",attr);\n");
+	    	sb.append("            add(" + ad.getDMSAGReference() + ",attr);\n");
 	    	sb.append("        }\n");
 	    	sb.append("        catch(DmcValueException ex){\n");
 	    	sb.append("            throw(new IllegalStateException(\"The type specific add() method shouldn't throw exceptions!\",ex));\n");
@@ -1207,13 +1227,13 @@ public class GenUtility {
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName+ " value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        if (attr == null)\n");
-	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+	    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
 	    	sb.append("            setLastValue(attr.add(value));\n");
-	    	sb.append("            add(__" + ad.getName() + ",attr);\n");
+	    	sb.append("            add(" + ad.getDMSAGReference() + ",attr);\n");
 	    	sb.append("        }\n");
 	    	sb.append("        catch(DmcValueException ex){\n");
 	    	sb.append("            throw(new IllegalStateException(\"The type specific add() method shouldn't throw exceptions!\",ex));\n");
@@ -1234,7 +1254,7 @@ public class GenUtility {
 //				sb.append("     */\n");
 //		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 //				sb.append("    public DmcAttribute del" + functionName + "(Object value){\n");
-//		    	sb.append("        DmcAttribute attr = del(__" + ad.getName() + ", value);\n");
+//		    	sb.append("        DmcAttribute attr = del(" + ad.getDMSAGReference() + ", value);\n");
 //				sb.append("        return(attr);\n");
 //				sb.append("    }\n\n");
 			}
@@ -1245,7 +1265,7 @@ public class GenUtility {
 				sb.append("     */\n");
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    public DmcAttribute del" + functionName + "(Object value) throws DmcValueException {\n");
-		    	sb.append("        return(del(__" + ad.getName() + ", value));\n");
+		    	sb.append("        return(del(" + ad.getDMSAGReference() + ", value));\n");
 				sb.append("    }\n\n");
 				
 				sb.append("    /**\n");
@@ -1255,7 +1275,7 @@ public class GenUtility {
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    public DmcAttribute del" + functionName + "(" + typeName + "DMO value){\n");
 				sb.append("        DmcAttribute<?> rc = null;\n");
-		    	sb.append("        rc = del(__" + ad.getName() + ", value);\n");
+		    	sb.append("        rc = del(" + ad.getDMSAGReference() + ", value);\n");
 				sb.append("        return(rc);\n");
 				sb.append("    }\n\n");
 
@@ -1268,12 +1288,12 @@ public class GenUtility {
 			sb.append("     */\n");//	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> del" + functionName + "(Object key) throws DmcValueException {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        \n");
 			sb.append("        if ( (attr == null) && (getModifier()!= null))\n");
-			sb.append("            delFromEmptyAttribute(new " + attrType+ "(__" + ad.getName() + "), key);\n");
+			sb.append("            delFromEmptyAttribute(new " + attrType+ "(" + ad.getDMSAGReference() + "), key);\n");
 			sb.append("        else\n");
-			sb.append("            attr = del(__" + ad.getName() + ", key);\n");
+			sb.append("            attr = del(" + ad.getDMSAGReference() + ", key);\n");
 			sb.append("        \n");
 			sb.append("        return(attr);\n");
 			sb.append("    }\n\n");
@@ -1284,12 +1304,12 @@ public class GenUtility {
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public DmcAttribute<?> del" + functionName + "(" + ad.getType().getKeyClass() + " key) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        \n");
 			sb.append("        if ( (attr == null) && (getModifier()!= null))\n");
-			sb.append("            delFromEmptyAttribute(new " + attrType+ "(__" + ad.getName() + "), key);\n");
+			sb.append("            delFromEmptyAttribute(new " + attrType+ "(" + ad.getDMSAGReference() + "), key);\n");
 			sb.append("        else\n");
-			sb.append("            attr = del(__" + ad.getName() + ", key);\n");
+			sb.append("            attr = del(" + ad.getDMSAGReference() + ", key);\n");
 			sb.append("        \n");
 			sb.append("        return(attr);\n");
 	    	sb.append("    }\n\n");
@@ -1302,7 +1322,7 @@ public class GenUtility {
 //			sb.append("     */\n");
 //			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 //			sb.append("    public DmcAttribute<?> del" + functionName + "(Object key) throws DmcValueException {\n");
-//	    	sb.append("        DmcAttribute<?> attr = del(__" + ad.getName() + ", key);\n");
+//	    	sb.append("        DmcAttribute<?> attr = del(" + ad.getDMSAGReference() + ", key);\n");
 //			sb.append("        return(attr);\n");
 //			sb.append("    }\n\n");
 //			
@@ -1312,7 +1332,7 @@ public class GenUtility {
 //			sb.append("     */\n");
 //			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 //			sb.append("    public DmcAttribute<?> del" + functionName + "(" + ad.getType().getKeyClass() + " key){\n");
-//			sb.append("        return(del(__" + ad.getName() + ", key));\n");
+//			sb.append("        return(del(" + ad.getDMSAGReference() + ", key));\n");
 //			sb.append("    }\n\n");			
 		}
 
@@ -1325,7 +1345,7 @@ public class GenUtility {
 //    	sb.append("     */\n");
 //		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 //    	sb.append("    public boolean " + ad.getName() + "ContainsKey(" + ad.getType().getKeyClass() + " value) {\n");
-//    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
+//    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 //    	sb.append("        return(attr.contains(value));\n");
 //    	sb.append("    }\n\n");
 
@@ -1336,7 +1356,7 @@ public class GenUtility {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public void rem" + functionName + "(){\n");
-		sb.append("         rem(__" + ad.getName() + ");\n");
+		sb.append("         rem(" + ad.getDMSAGReference() + ");\n");
 		sb.append("    }\n\n");
 		
 		

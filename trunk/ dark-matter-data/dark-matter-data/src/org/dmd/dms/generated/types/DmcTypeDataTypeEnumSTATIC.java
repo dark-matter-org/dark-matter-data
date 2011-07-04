@@ -25,8 +25,8 @@ import org.dmd.dms.generated.enums.DataTypeEnum;    // DmcType import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1731)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1650)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1764)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1683)
  */
 public class DmcTypeDataTypeEnumSTATIC {
     

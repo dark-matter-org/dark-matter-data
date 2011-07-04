@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmg.util.GeneratorUtils;
@@ -35,6 +36,7 @@ import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
+import org.dmd.util.parsing.NamedStringArray;
 
 /**
  * The DmoCompactSchemaFormatter is used to generate a compact form of the Dark Matter Schema
@@ -281,8 +283,28 @@ public class DmoCompactSchemaFormatter {
 	            // _SmAp.put(__jobName.name,__jobName);
 				out.write("        _CmAp.put(__" + n + ".id,__" + n + ");\n");
 			}
+	        
+	        for(DmcUncheckedObject cd: classes.values()){
+	        	out.write("\n");
+	        	String cn	= cd.getSV("name");
+	            TreeSet<String> 		must 	= new TreeSet<String>();
+	            TreeSet<String> 		may		= new TreeSet<String>();
+
+	            getAllMustAndMay(cd, must, may, classes);
+	            
+	            for(String an: must){
+        			out.write("        __" + cn + ".addMust(__" + an + ");\n");
+	            }
+	            
+	            for(String an: may){
+        			out.write("        __" + cn + ".addMay(__" + an + ");\n");
+	            }
+			}
+	        
+	        
 		}
-        
+		
+		out.write("\n");        
         out.write(nameBuilders.toString());
         
         out.write(filterBuilders.toString());
@@ -296,6 +318,31 @@ public class DmoCompactSchemaFormatter {
 		
 		out.close();
 	}
+	
+    public void getAllMustAndMay(DmcUncheckedObject uco, TreeSet<String> must, TreeSet<String> may, TreeMap<String,DmcUncheckedObject> classDefs) throws ResultException{
+    	String derivedFrom = uco.getSV("derivedFrom");
+   
+    	if (derivedFrom != null){
+    		DmcUncheckedObject base = classDefs.get(derivedFrom);
+    		getAllMustAndMay(base, must, may, classDefs);
+    	}
+    	
+    	NamedStringArray mustAttr = uco.get("must");
+    	if (mustAttr != null){
+    		for(String name: mustAttr){
+    			must.add(name);
+    		}
+    	}
+    	
+    	NamedStringArray mayAttr = uco.get("may");
+    	if (mayAttr != null){
+    		for(String name: mayAttr){
+    			may.add(name);
+    		}
+    	}
+    }
+    
+
 	
 	void writeCommonPart1(BufferedWriter out) throws IOException{
         out.write("\n");
@@ -426,45 +473,14 @@ public class DmoCompactSchemaFormatter {
         out.write("import java.util.Iterator;\n");
         out.write("import org.dmd.dmc.*;\n");
         
+    	ImportManager manager = new ImportManager();
         DmcAttribute<?> cdef = sd.getDMO().get(MetaDMSAG.__classDefList);
         if (cdef != null){
-        	out.write("import org.dmd.dms.generated.enums.ClassTypeEnum;\n");
+        	manager.addImport("org.dmd.dms.generated.enums.ClassTypeEnum", "Have class definitions");
+        	manager.addImport("org.dmd.dms.generated.enums.DataTypeEnum", "Have class/attribute definitions");
+//        	out.write("import org.dmd.dms.generated.enums.ClassTypeEnum;\n");
         }
-        
-//        if (sd.getDependsOn() != null){
-//        	Iterator<String> dependsOn = sd.getDependsOn();
-//        	while(dependsOn.hasNext()){
-//        		String dep = dependsOn.next();
-//                SchemaDefinition ds = sm.isSchema(dep);
-//                String sclass = ds.getSchemaPackage() + ".generated.dmo." + GeneratorUtils.dotNameToCamelCase(dep) + "DMSAG";
-//                out.write("import " + sclass + ";\n");
-//        	}
-//        	
-//        	out.write("\n");
-//        }   
-//        
-//    	boolean needMeta = false;
-//    	for(ClassDefinition cd: sd.getClassDefList()){
-//    		for(AttributeDefinition ad: cd.getMust()){
-//    			if (ad.getDefinedIn().getName().getNameString().equals("meta")){
-//    				needMeta = true;
-//    				break;
-//    			}
-//    		}
-//    		for(AttributeDefinition ad: cd.getMay()){
-//    			if (ad.getDefinedIn().getName().getNameString().equals("meta")){
-//    				needMeta = true;
-//    				break;
-//    			}
-//    		}        		
-//    	}
-//    	
-//    	if (needMeta){
-//    		out.write("import org.dmd.dms.generated.dmo.MetaDMSAG;\n");
-//        	out.write("\n");
-//    	}
-    	 	
-    	ImportManager manager = new ImportManager();
+            	 	
     	for(ClassDefinition cd: sd.getClassDefList()){
     		for(AttributeDefinition ad: cd.getMust()){
     			if (ad.getDefinedIn() != sd)
@@ -480,14 +496,16 @@ public class DmoCompactSchemaFormatter {
     		}
     	}
     	
-    	out.write(manager.getFormattedImports());
-    	out.write("\n");
-        
         DmcAttribute<?> adef = sd.getDMO().get(MetaDMSAG.__attributeDefList);
         if (adef != null){
-        	out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
-        	out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
+        	manager.addImport("org.dmd.dms.generated.enums.ValueTypeEnum", "Have attribute definitions");
+//        	out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
+//        	out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
         }
+
+        out.write(manager.getFormattedImports());
+    	out.write("\n");
+        
         
         Iterator<TypeDefinition> tds = sd.getTypeDefList();
 		if (tds != null){
