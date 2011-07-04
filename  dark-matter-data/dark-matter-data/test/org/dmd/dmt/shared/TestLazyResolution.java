@@ -1,18 +1,27 @@
 package org.dmd.dmt.shared;
 
+import java.io.IOException;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmt.TestDataCache;
 import org.dmd.dmt.TestLogger;
 import org.dmd.dmt.server.extended.ObjWithRefs;
+import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;
+import org.dmd.dmw.DmwOmni;
+import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.exceptions.ResultException;
+
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestLazyResolution {
@@ -22,6 +31,21 @@ public class TestLazyResolution {
 	static {
 		DmcOmni.instance().addCompactSchema(DmtDMSAG.instance());
 		DmcOmni.instance().logger(new TestLogger());
+	}
+
+	static boolean initialized = false;
+
+	@Before
+	public void initialize() throws ResultException, DmcValueException, IOException {
+			
+		if (!initialized){
+			DebugInfo.debug("STARTING...");
+			DmpSchemaAG dmp = new DmpSchemaAG();
+			DmtSchemaAG dmt = new DmtSchemaAG();			
+			DmwOmni.instance().addSchema(dmp);
+			DmwOmni.instance().addSchema(dmt);
+			initialized = true;
+		}
 	}
 
 	@Test
@@ -66,7 +90,6 @@ public class TestLazyResolution {
 		System.out.println("\n---------------------------------------- testBasicResolutionSV()\n\n");
 	}
 
-	@SuppressWarnings("static-access")
 	@Test
 	public void testCleanupDeadRef() throws DmcValueException {
 		TestDataCache cache = new TestDataCache();
@@ -93,12 +116,12 @@ public class TestLazyResolution {
 		
 		obj3.setObjRef("obj4");
 		
-		assertNotNull("obj3 SHOULD have the objRef attribute", obj3.get(obj3.__objRef.id));
+		assertNotNull("obj3 SHOULD have the objRef attribute", obj3.get(DmtDMSAG.__objRef.id));
 	
 		@SuppressWarnings("unused")
 		ObjWithRefsREF obj = obj3.getObjRef();
 		
-		assertNull("obj3 should NOT have the objRef attribute", obj3.get(obj3.__objRef.id));
+		assertNull("obj3 should NOT have the objRef attribute", obj3.get(DmtDMSAG.__objRef.id));
 				
 		System.out.println("\n---------------------------------------- testCleanupDeadRef()\n\n");
 	}
@@ -125,6 +148,7 @@ public class TestLazyResolution {
 		DmcOmni.instance().lazyResolution(true);
 		DmcOmni.instance().backRefTracking(true);
 		DmcOmni.instance().setCacheIF(cache);
+		DmcOmni.instance().addCompactSchema(DmtDMSAG.instance());
 		
 		System.out.println("\n\nCreating OBJ 3\n");
 		ObjWithRefsDMO obj3 = new ObjWithRefsDMO();

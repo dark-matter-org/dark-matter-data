@@ -27,6 +27,7 @@ import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedDMW;
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
@@ -417,10 +418,10 @@ public class TestSerialization {
 		ObjWithRefs obj = (ObjWithRefs) deserializer.deserialize(dis);
 		
 		System.out.println(obj);
-		
-		assertNull("Should be no value for transString", obj.getDmcObject().get(ObjWithRefsDMO.__transString));
-		assertNull("Should be no value for nonperString", obj.getDmcObject().get(ObjWithRefsDMO.__nonperString));
-		assertNotNull("Should be a value for mvString", obj.getDmcObject().get(ObjWithRefsDMO.__mvString));
+
+		assertNull("Should be no value for transString", obj.getDmcObject().get(DmtDMSAG.__transString));
+		assertNull("Should be no value for nonperString", obj.getDmcObject().get(DmtDMSAG.__nonperString));
+		assertNotNull("Should be a value for mvString", obj.getDmcObject().get(DmtDMSAG.__mvString));
 	}
 	
 
