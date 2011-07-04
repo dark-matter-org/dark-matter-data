@@ -50,14 +50,17 @@ public class DmcAttributeInfo {
 	// for an object is sane.
 	final public Boolean		mandatory;
 	
-	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, Boolean opt){
-		name 		= n;
-		id			= i;
-		type		= t;
-		valueType	= at;
-		dataType	= dte;
-		mandatory	= opt;
-	}
+	final public int			mvsize;
+	
+//	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, Boolean opt){
+//		name 		= n;
+//		id			= i;
+//		type		= t;
+//		valueType	= at;
+//		dataType	= dte;
+//		mandatory	= opt;
+//		mvsize		= 0;
+//	}
 	
 	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte){
 		name 		= n;
@@ -66,10 +69,11 @@ public class DmcAttributeInfo {
 		valueType	= at;
 		dataType	= dte;
 		mandatory	= false;
+		mvsize		= 0;
 	}
 	
 	public String toString(){
-		return(name + " " + id + " " + type + " " + valueType + " " + dataType);
+		return(name + " " + id + " " + type + " " + valueType + " " + dataType + " must: " + mandatory + " index: " + mvsize);
 	}
 
 }

@@ -20,6 +20,7 @@ import java.util.Map;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcAttributeInfoRef;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectValidator;
 import org.dmd.dmc.DmcValueException;
@@ -39,22 +40,66 @@ public class AttributeSetValidator extends DmcObjectValidator {
 		
 	}
 
+//	@Override
+//	public void validateOld(DmcObject obj) throws DmcValueExceptionSet {
+//		DmcValueExceptionSet exceptions = null;
+//		
+//		// Cycle through the attribute definitions associated with the object
+//		// and verify that any that are NOT optional, exist in the object.
+//		Map<Integer,DmcAttributeInfo> mai = obj.getIdToAttrInfo();
+//		if (mai != null){
+//			Iterator<DmcAttributeInfo> it = mai.values().iterator();
+//			while(it.hasNext()){
+//				DmcAttributeInfo ai = it.next();
+//				if (ai.mandatory){
+//					if (obj.get(ai.id) == null){
+//						if (exceptions == null)
+//							exceptions = new DmcValueExceptionSet();
+//						exceptions.add(new DmcValueException("Mandatory attribute is missing: " + ai.name));
+//					}
+//				}
+//			}
+//		}
+//		
+//		// And now, cycle through the attributes of the object and verify that
+//		// they are allowed
+//		Iterator<DmcAttribute<?>> attrs = obj.getAttributes().values().iterator();
+//		while(attrs.hasNext()){
+//			DmcAttribute<?> attr = attrs.next();
+//			if (attr.getID() == DmcObject.__objectClass.id){
+//				// TODO: hang on to this so that we can access the auxiliary classes
+//				// to query them if required
+//			}
+//			else{
+//				if (obj.getIdToAttrInfo().get(attr.getID()) == null){
+////DebugInfo.debug("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName());
+//					if (exceptions == null)
+//						exceptions = new DmcValueExceptionSet();
+//					exceptions.add(new DmcValueException("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName()));
+//				}
+//			}
+//		}
+//		
+//		if (exceptions != null)
+//			throw(exceptions);
+//	}
+
 	@Override
 	public void validate(DmcObject obj) throws DmcValueExceptionSet {
 		DmcValueExceptionSet exceptions = null;
 		
 		// Cycle through the attribute definitions associated with the object
 		// and verify that any that are NOT optional, exist in the object.
-		Map<Integer,DmcAttributeInfo> mai = obj.getIdToAttrInfo();
+		Map<Integer,DmcAttributeInfoRef> mai = obj.getConstructionClassInfo().getIdToAttr();
 		if (mai != null){
-			Iterator<DmcAttributeInfo> it = mai.values().iterator();
+			Iterator<DmcAttributeInfoRef> it = mai.values().iterator();
 			while(it.hasNext()){
-				DmcAttributeInfo ai = it.next();
-				if (ai.mandatory){
-					if (obj.get(ai.id) == null){
+				DmcAttributeInfoRef air = it.next();
+				if (air.mandatory){
+					if (obj.get(air.info.id) == null){
 						if (exceptions == null)
 							exceptions = new DmcValueExceptionSet();
-						exceptions.add(new DmcValueException("Mandatory attribute is missing: " + ai.name));
+						exceptions.add(new DmcValueException("Mandatory attribute is missing: " + air.info.name));
 					}
 				}
 			}
@@ -65,17 +110,10 @@ public class AttributeSetValidator extends DmcObjectValidator {
 		Iterator<DmcAttribute<?>> attrs = obj.getAttributes().values().iterator();
 		while(attrs.hasNext()){
 			DmcAttribute<?> attr = attrs.next();
-			if (attr.getID() == DmcObject.__objectClass.id){
-				// TODO: hang on to this so that we can access the auxiliary classes
-				// to query them if required
-			}
-			else{
-				if (obj.getIdToAttrInfo().get(attr.getID()) == null){
-//DebugInfo.debug("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName());
-					if (exceptions == null)
-						exceptions = new DmcValueExceptionSet();
-					exceptions.add(new DmcValueException("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName()));
-				}
+			if (!obj.allowsAttribute(attr.getAttributeInfo())){
+				if (exceptions == null)
+					exceptions = new DmcValueExceptionSet();
+				exceptions.add(new DmcValueException("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName()));
 			}
 		}
 		

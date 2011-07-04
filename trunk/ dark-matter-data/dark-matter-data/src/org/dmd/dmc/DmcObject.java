@@ -111,7 +111,7 @@ abstract public class DmcObject implements Serializable {
 	
 	// The objectClass attribute is common to all objects and indicates the construction class
 	// and any auxiliary classes associated with the object
-    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinitionREF",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT,true);
+    public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinitionREF",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
 	
 	// At this level, all we have is a simple collection of attributes.
 	protected Map<Integer, DmcAttribute<?>>	attributes;
@@ -195,6 +195,13 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
+	 * @return The class info associated with this object.
+	 */
+	public DmcClassInfo getConstructionClassInfo(){
+		return(getConstructionClass().getClassInfo());
+	}
+	
+	/**
 	 * If a class of object doesn't support back reference tracking, it will overload this
 	 * method to return false. Otherwise, back reference tracking can be turned on for all 
 	 * objects.
@@ -204,6 +211,29 @@ abstract public class DmcObject implements Serializable {
 		return(true);
 	}
 	
+	/**
+	 * We cycle through the DmcClassInfo associated with our object class and any auxiliary classes
+	 * and determine if the attribute is allowable.
+	 * @param ai The attribute info for the attribute in question.
+	 * @return true is the attribute is allowed and false otherwise.
+	 */
+	public boolean allowsAttribute(DmcAttributeInfo ai){
+		boolean rc = false;
+		
+		if (ai.id == __objectClass.id)
+			return(true);
+		
+		DmcTypeClassDefinitionREFMV objClass = (DmcTypeClassDefinitionREFMV) attributes.get(__objectClass.id);
+		for(int i=0; i<objClass.getMVSize(); i++){
+			if (objClass.getMVnth(i).getClassInfo().allowsAttribute(ai)){
+				rc = true;
+				break;
+			}
+		}
+		
+		return(rc);
+	}
+	
 	////////////////////////////////////////////////////////////////////////////////
 	// Abstracts that are overridden in DMOs
 
@@ -211,13 +241,13 @@ abstract public class DmcObject implements Serializable {
 	 * Auto-generated derived classes override this to return their attribute mapping.
 	 * @return The map of unique integer IDs to attribute info.
 	 */
-	abstract public Map<Integer,DmcAttributeInfo> getIdToAttrInfo();
+//	abstract public Map<Integer,DmcAttributeInfo> getIdToAttrInfo();
 	
 	/**
 	 * Auto-generated derived classes override this to return their attribute mapping.
 	 * @return The map of attribute name to attribute info.
 	 */
-	abstract public Map<String,DmcAttributeInfo> getStringToAttrInfo();
+//	abstract public Map<String,DmcAttributeInfo> getStringToAttrInfo();
 	
 	/**
 	 * Auto-generated derived classes override this to return an empty instance 
@@ -475,7 +505,8 @@ abstract public class DmcObject implements Serializable {
 	 * @return The attribute info or null.
 	 */
 	public DmcAttributeInfo getAttributeInfo(String an){
-		DmcAttributeInfo rc = getStringToAttrInfo().get(an);
+//		DmcAttributeInfo rc = getStringToAttrInfo().get(an);
+		DmcAttributeInfo rc = DmcOmni.instance().getAttributeInfo(an);
 		
 		if (rc == null){
 			if (an.equals(__objectClass.name))
@@ -487,23 +518,35 @@ abstract public class DmcObject implements Serializable {
 	
 	/**
 	 * This method is generally used by object parsers to determine whether or not an attribute
-	 * is natively supported by a DMO (in which case it returns the attribute info) or whether
-	 * the attribute in question is associated with an auxiliary class (in which case we get
-	 * the appropriate attribute info from the AttributeDefinition).
-	 * @param an The attribute name.
+	 * is allowed by any of the classes in our objectClass attribute.
+	 * @param an The attribute id.
 	 * @return The attribute info or null.
 	 */
 	public DmcAttributeInfo getAttributeInfo(Integer id){
 		DmcAttributeInfo rc = null;
+//		
+//		if (getIdTo AttrInfo() != null)
+//			return(getIdToAttrInfo().get(id));
+//		
+//		return(rc);
+//		
+				
+		if (id == __objectClass.id)
+			return(__objectClass);
 		
-		if (getIdToAttrInfo() != null)
-			return(getIdToAttrInfo().get(id));
+		DmcTypeClassDefinitionREFMV objClass = (DmcTypeClassDefinitionREFMV) attributes.get(__objectClass.id);
+		for(int i=0; i<objClass.getMVSize(); i++){
+			rc = objClass.getMVnth(i).getClassInfo().allowsAttribute(id);
+			if (rc != null)
+				break;
+		}
 		
 		return(rc);
+
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
-	// Object class access/maniuplation
+	// Object class access/manipulation
 	
 	/**
 	 * @return The class name of this object.
