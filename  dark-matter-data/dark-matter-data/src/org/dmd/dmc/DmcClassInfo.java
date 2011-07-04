@@ -1,5 +1,6 @@
 package org.dmd.dmc;
 
+import java.util.Map;
 import java.util.TreeMap;
 
 import org.dmd.dms.generated.enums.ClassTypeEnum;
@@ -46,6 +47,33 @@ public class DmcClassInfo {
 	
 	public void addMay(DmcAttributeInfo info){
 		byID.put(info.id, new DmcAttributeInfoRef(info, false));
+	}
+	
+	public Map<Integer,DmcAttributeInfoRef>	getIdToAttr(){
+		return(byID);
+	}
+	
+	/**
+	 * @param ai The info associated withe attribute we're checking.
+	 * @return true if the attribute is contained in our allowed attributes map.
+	 */
+	public boolean allowsAttribute(DmcAttributeInfo ai){
+		boolean rc = true;
+		if (byID.get(ai.id) == null)
+			rc = false;
+		return(rc);
+	}
+	
+	/**
+	 * @param id The id of an attribute.
+	 * @return The attribute info if the id is in our allowed attributes map.
+	 */
+	public DmcAttributeInfo allowsAttribute(Integer id){
+		DmcAttributeInfo rc = null;
+		DmcAttributeInfoRef air = byID.get(id);
+		if (air != null)
+			rc = air.info;
+		return(rc);
 	}
 	
 	/**
