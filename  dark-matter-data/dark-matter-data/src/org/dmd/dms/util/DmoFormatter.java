@@ -136,8 +136,10 @@ public class DmoFormatter {
      
         out.write("    public final static String constructionClassName = \"" + cd.getName().getNameString() + "\";\n\n");
         
+        out.write("    public final static DmcClassInfo classInfo = " + cd.getDefinedIn().getDMSASGName() + ".__" + cd.getName() + ";\n\n");
+        
         StringBuffer staticInit = new StringBuffer();
-        out.write(getDmcAttributeInfo(cd, staticInit) + "\n");
+//        out.write(getDmcAttributeInfo(cd, staticInit) + "\n");
         
         out.write(getDMOValidatorInfo(cd, staticInit));
         
@@ -163,13 +165,13 @@ public class DmoFormatter {
         	out.write("    }\n\n");
         }
         
-    	out.write("    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){\n");
-    	out.write("        return(_ImAp);\n");
-    	out.write("    }\n\n");
-
-    	out.write("    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){\n");
-    	out.write("        return(_SmAp);\n");
-    	out.write("    }\n\n");
+//    	out.write("    public Map<Integer,DmcAttributeInfo> getIdToAttrInfo(){\n");
+//    	out.write("        return(_ImAp);\n");
+//    	out.write("    }\n\n");
+//
+//    	out.write("    public Map<String,DmcAttributeInfo> getStringToAttrInfo(){\n");
+//    	out.write("        return(_SmAp);\n");
+//    	out.write("    }\n\n");
 
     	out.write("    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){\n");
     	out.write("        return(_AvDmAp);\n");
@@ -224,41 +226,35 @@ public class DmoFormatter {
         out.close();
 	}
 	
-	String getDmcAttributeInfo(ClassDefinition cd, StringBuffer staticInit){
-		StringBuffer rc = new StringBuffer();
-		
-        rc.append("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
-        rc.append("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
-        
-		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
-			if (cd.isMust(ad.getName()))
-				appendAttributeInfo(rc, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType(), "true");
-			else
-				appendAttributeInfo(rc, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType(), "false");
-		}
-		
-//		rc.append("\n");
-//		rc.append("    static {\n");
-		
-		staticInit.append("        _ImAp = new HashMap<Integer,DmcAttributeInfo>();\n");
-        
-		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
-			staticInit.append("        _ImAp.put(__" + ad.getName() + ".id,__" + ad.getName() + ");\n");
-        }
-
-		staticInit.append("\n");
-
-		staticInit.append("        _SmAp = new HashMap<String ,DmcAttributeInfo>();\n");
-        
-		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
-			staticInit.append("        _SmAp.put(__" + ad.getName() + ".name,__" + ad.getName() + ");\n");
-        }
-
-//        rc.append("    }\n");
-
-		
-		return(rc.toString());
-	}
+//	String getDmcAttributeInfo(ClassDefinition cd, StringBuffer staticInit){
+//		StringBuffer rc = new StringBuffer();
+//		
+//        rc.append("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
+//        rc.append("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
+//        
+//		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
+//			if (cd.isMust(ad.getName()))
+//				appendAttributeInfo(rc, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType(), "true");
+//			else
+//				appendAttributeInfo(rc, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType(), "false");
+//		}
+//		
+//		staticInit.append("        _ImAp = new HashMap<Integer,DmcAttributeInfo>();\n");
+//        
+//		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
+//			staticInit.append("        _ImAp.put(__" + ad.getName() + ".id,__" + ad.getName() + ");\n");
+//        }
+//
+//		staticInit.append("\n");
+//
+//		staticInit.append("        _SmAp = new HashMap<String ,DmcAttributeInfo>();\n");
+//        
+//		for(AttributeDefinition ad: cd.getFullAttrMap().values()){
+//			staticInit.append("        _SmAp.put(__" + ad.getName() + ".name,__" + ad.getName() + ");\n");
+//        }
+//
+//		return(rc.toString());
+//	}
 	
 	String getDMOValidatorInfo(ClassDefinition cd , StringBuffer staticInit){
 		StringBuffer rc = new StringBuffer();
@@ -345,7 +341,7 @@ public class DmoFormatter {
         out.write("    public final static String _auxClass = \"" + cd.getName() + "\";\n");
         
         StringBuffer staticInit = new StringBuffer();
-        out.write(getDmcAttributeInfo(cd,staticInit) + "\n");
+//        out.write(getDmcAttributeInfo(cd,staticInit) + "\n");
         
         out.write("\n");
         out.write("    static {\n");
@@ -376,7 +372,7 @@ public class DmoFormatter {
 		sb.append("        boolean anyLeft = false;\n");
 		sb.append("\n");
 		for(AttributeDefinition ad : allAttr){
-			sb.append("        if (core.get(__" + ad.getName() + ") != null)\n");
+			sb.append("        if (core.get(" + ad.getDMSAGReference() + ") != null)\n");
 			sb.append("            anyLeft = true;\n");
 		}
 		sb.append("\n");
@@ -738,7 +734,8 @@ public class DmoFormatter {
 			String tn = cd.getIsNamedBy().getType().getName().getNameString();
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public " + tn + " getObjectName(){\n");
-			sb.append("        DmcAttribute<?> name = get(__" + cd.getIsNamedBy().getName() + ");\n");
+//			sb.append("        DmcAttribute<?> name = get(__" + cd.getIsNamedBy().getName() + ");\n");
+			sb.append("        DmcAttribute<?> name = get(" + cd.getIsNamedBy().getDMSAGReference() + ");\n");
 			sb.append("        if (name != null)\n");
 			sb.append("            return((" + tn + ")name.getSV());\n");
 			sb.append("    \n");
@@ -753,7 +750,8 @@ public class DmoFormatter {
 			}
 			
 			sb.append("    public DmcAttribute<?> getObjectNameAttribute(){\n");
-			sb.append("        DmcAttribute<?> name = get(__" + cd.getIsNamedBy().getName() + ");\n");
+//			sb.append("        DmcAttribute<?> name = get(__" + cd.getIsNamedBy().getName() + ");\n");
+			sb.append("        DmcAttribute<?> name = get(" + cd.getIsNamedBy().getDMSAGReference() + ");\n");
 			sb.append("        return(name);\n");
 			sb.append("    }\n\n");
 			
@@ -842,7 +840,7 @@ public class DmoFormatter {
 		sb.append("    static public DmcAttribute<?> rem" + functionName + "(DmcObject core){\n");
 		sb.append("        if (core == null)\n");
 		sb.append("            return(null);\n");
-		sb.append("        DmcAttribute<?> rc = core.rem(__" + ad.getName() + ");\n");
+		sb.append("        DmcAttribute<?> rc = core.rem(" + ad.getDMSAGReference() + ");\n");
 		sb.append("        removeAuxIfRequired(core);\n");
 		sb.append("        return(rc);\n");
 		sb.append("    }\n");
@@ -858,7 +856,7 @@ public class DmoFormatter {
     		typeName = ad.getType().getOriginalClass().getName() + "REF";
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
     		sb.append("    static public " + typeName + " get" + functionName + "(DmcObject core){\n");
-    		sb.append("        " + attrType + " attr = (" + attrType + ") get(core, __" + ad.getName() + ");\n");
+    		sb.append("        " + attrType + " attr = (" + attrType + ") get(core, " + ad.getDMSAGReference() + ");\n");
     		sb.append("        if (attr == null)\n");
     		
         	if (nullReturnValue == null)
@@ -873,7 +871,7 @@ public class DmoFormatter {
     	else{
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
     		sb.append("    static public " + typeName + " get" + functionName + "(DmcObject core){\n");
-    		sb.append("        " + attrType + " attr = (" + attrType + ") get(core, __" + ad.getName() + ");\n");
+    		sb.append("        " + attrType + " attr = (" + attrType + ") get(core, " + ad.getDMSAGReference() + ");\n");
     		sb.append("        if (attr == null)\n");
     		
         	if (nullReturnValue == null)
@@ -895,12 +893,12 @@ public class DmoFormatter {
     	sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
     	sb.append("    static public void set" + functionName + "(DmcObject core, Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute<?> attr = get(core, __" + ad.getName() + ");\n");
+    	sb.append("        DmcAttribute<?> attr = get(core, " + ad.getDMSAGReference() + ");\n");
     	sb.append("        if (attr == null)\n");
-    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        \n");
     	sb.append("        attr.set(value);\n");
-    	sb.append("        set(core, __" + ad.getName() + ",attr);\n");
+    	sb.append("        set(core, " + ad.getDMSAGReference() + ",attr);\n");
     	sb.append("    }\n\n");
     	
     	// Type specific setter
@@ -911,13 +909,13 @@ public class DmoFormatter {
         	sb.append("     */\n");
     		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         	sb.append("    static public void set" + functionName + "(DmcObject core, " + ad.getType().getOriginalClass().getName() + "DMO value){\n");
-        	sb.append("        DmcAttribute<?> attr = get(core, __" + ad.getName() + ");\n");
+        	sb.append("        DmcAttribute<?> attr = get(core, " + ad.getDMSAGReference() + ");\n");
         	sb.append("        if (attr == null)\n");
-        	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+        	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
         	sb.append("        \n");
         	sb.append("        try {\n");
         	sb.append("            attr.set(value);\n");
-        	sb.append("            set(core, __" + ad.getName() + ",attr);\n");
+        	sb.append("            set(core, " + ad.getDMSAGReference() + ",attr);\n");
         	sb.append("        } catch (DmcValueException e) {\n");
         	sb.append("            throw(new IllegalStateException(\"Type specific modification shouldn't cause an error.\", e));\n");
         	sb.append("        }\n");
@@ -930,13 +928,13 @@ public class DmoFormatter {
         	sb.append("     */\n");
     		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         	sb.append("    static public void set" + functionName + "(DmcObject core, " + ad.getType().getName() + " value){\n");
-        	sb.append("        DmcAttribute<?> attr = get(core, __" + ad.getName() + ");\n");
+        	sb.append("        DmcAttribute<?> attr = get(core, " + ad.getDMSAGReference() + ");\n");
         	sb.append("        if (attr == null)\n");
-        	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+        	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
         	sb.append("        \n");
         	sb.append("        try {\n");
         	sb.append("            attr.set(value);\n");
-        	sb.append("            set(core, __" + ad.getName() + ",attr);\n");
+        	sb.append("            set(core, " + ad.getDMSAGReference() + ",attr);\n");
         	sb.append("        } catch (DmcValueException e) {\n");
         	sb.append("            throw(new IllegalStateException(\"Type specific modification shouldn't cause an error.\", e));\n");
         	sb.append("        }\n");
@@ -975,7 +973,7 @@ public class DmoFormatter {
 		sb.append("    static public DmcAttribute<?> rem" + functionName + "(DmcObject core){\n");
 		sb.append("        if (core == null)\n");
 		sb.append("            return(null);\n");
-		sb.append("        DmcAttribute<?> rc = core.rem(__" + ad.getName() + ");\n");
+		sb.append("        DmcAttribute<?> rc = core.rem(" + ad.getDMSAGReference() + ");\n");
 		sb.append("        removeAuxIfRequired(core);\n");
 		sb.append("        return(rc);\n");
 		sb.append("    }\n");
@@ -992,7 +990,7 @@ public class DmoFormatter {
 	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    static public Iterator<" + typeName + "REF> get" + functionName + "(DmcObject core){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(core, __" + ad.getName() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(core, " + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
 			sb.append("\n");
@@ -1004,7 +1002,7 @@ public class DmoFormatter {
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    static public Iterator<" + typeName + "> get" + functionName + "(DmcObject core){\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(core, __" + ad.getName() + ");\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(core, " + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return( ((List<" + typeName + ">) Collections.EMPTY_LIST).iterator() );\n");
 			sb.append("\n");
@@ -1021,9 +1019,9 @@ public class DmoFormatter {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    static public DmcAttribute<?> add" + functionName + "(DmcObject core, Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute<?> attr = get(core, __" + ad.getName() + ");\n");
+    	sb.append("        DmcAttribute<?> attr = get(core, " + ad.getDMSAGReference() + ");\n");
     	sb.append("        if (attr == null)\n");
-    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
+    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        \n");
     	sb.append("        attr.add(value);\n");
     	sb.append("        add(core, __" + ad.getName() + ",attr);\n");
@@ -1039,7 +1037,7 @@ public class DmoFormatter {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    static public DmcAttribute<?> del" + functionName + "(DmcObject core, Object value) throws DmcValueException {\n");
-		sb.append("        return(del(core, __" + ad.getName() + ", value));\n");
+		sb.append("        return(del(core, " + ad.getDMSAGReference() + ", value));\n");
 		sb.append("    }\n\n");
 
 	}

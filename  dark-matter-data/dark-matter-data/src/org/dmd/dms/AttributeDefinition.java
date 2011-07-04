@@ -103,7 +103,7 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
      */
     public DmcAttributeInfo getAttributeInfo(){
     	if (attrInfo == null)
-    		attrInfo = new DmcAttributeInfo(getName().getNameString(), getDmdID(), getType().getName().getNameString(), getValueType(), getDataType(), true);
+    		attrInfo = new DmcAttributeInfo(getName().getNameString(), getDmdID(), getType().getName().getNameString(), getValueType(), getDataType());
     	
     	return(attrInfo);
     }
@@ -112,5 +112,9 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     	DmcAttribute<?> rc = (DmcAttribute<?>) getType().getAttributeHolder(ai);
     	rc.setAttributeInfo(ai);
     	return(rc);
+    }
+    
+    public String getDMSAGReference(){
+    	return(getDefinedIn().getDMSASGName() + ".__" + getName());
     }
 }

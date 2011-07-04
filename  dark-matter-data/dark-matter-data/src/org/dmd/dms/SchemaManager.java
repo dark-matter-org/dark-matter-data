@@ -27,6 +27,7 @@ import org.dmd.dmc.DmcNamedObjectREF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcObjectNameIF;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.StringName;
@@ -301,14 +302,14 @@ public class SchemaManager implements DmcNameResolverIF {
     	return(rc);
     }
     
-    public DmcAttributeInfo getAttributeInfo(Integer id){
-    	AttributeDefinition ad = attrByID.get(id);
-    	
-    	if (ad == null)
-    		return(null);
-    	
-    	return(ad.getAttributeInfo());
-    }
+//    public DmcAttributeInfo getAttributeInfo(Integer id){
+//    	AttributeDefinition ad = attrByID.get(id);
+//    	
+//    	if (ad == null)
+//    		return(null);
+//    	
+//    	return(ad.getAttributeInfo());
+//    }
         
     public DmcObjectName getNameValueInstance(Integer id) throws Exception {
     	AttributeDefinition ad = attrByID.get(id);
@@ -333,13 +334,21 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     public DmcAttribute<?> getAttributeInstance(Integer id) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
     	AttributeDefinition ad = attrByID.get(id);
+    	DmcAttributeInfo	ai = DmcOmni.instance().getInfo(id);
     	
-    	if (ad == null){
+//    	if (ad == null){
+//    		throw(new IllegalStateException("Tried to deserialize attribute with unknown ID: " + id));
+//    	}
+//    	
+//    	DmcAttribute<?> rc = (DmcAttribute<?>) ad.getType().getAttributeHolder(ad.getAttributeInfo());
+//    	rc.setAttributeInfo(ad.getAttributeInfo());
+    	
+    	if (ai == null){
     		throw(new IllegalStateException("Tried to deserialize attribute with unknown ID: " + id));
     	}
     	
-    	DmcAttribute<?> rc = (DmcAttribute<?>) ad.getType().getAttributeHolder(ad.getAttributeInfo());
-    	rc.setAttributeInfo(ad.getAttributeInfo());
+    	DmcAttribute<?> rc = (DmcAttribute<?>) ad.getType().getAttributeHolder(ai);
+    	rc.setAttributeInfo(ai);
     	
     	return(rc);
     }
@@ -365,9 +374,16 @@ public class SchemaManager implements DmcNameResolverIF {
     		throw(new IllegalStateException("No naming attribute has been defined of type: " + oni.getNameClass()));
     	}
     	
+    	DmcAttributeInfo ai = DmcOmni.instance().getInfo(ad.getDmdID());
+    	
+    	if (ai == null){
+    		throw(new IllegalStateException("No attribute info for attribute: " + ad.getName() + " id: " + ad.getDmdID()));
+    	}
+    	
     	DmcAttribute<DmcObjectNameIF> rc;
 		try {
-			rc = (DmcAttribute<DmcObjectNameIF>) ad.getType().getAttributeHolder(ad.getAttributeInfo());
+//			rc = (DmcAttribute<DmcObjectNameIF>) ad.getType().getAttributeHolder(ad.getAttributeInfo());
+			rc = (DmcAttribute<DmcObjectNameIF>) ad.getType().getAttributeHolder(ai);
 		} catch (Exception e) {
 			throw(new IllegalStateException("Unable to instantiate naming attribute of type: " + oni.getNameClass(),e));
 		}

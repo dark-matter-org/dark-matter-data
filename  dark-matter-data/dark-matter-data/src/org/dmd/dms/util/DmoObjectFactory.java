@@ -20,6 +20,7 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -106,6 +107,11 @@ public class DmoObjectFactory {
 			if (ai == null){
 				ai = ad.getAttributeInfo();
 			}
+			
+//			DmcAttributeInfo ai = DmcOmni.instance().getInfo(ad.getDmdID());
+			
+			if (ai == null)
+				throw(new IllegalStateException("Unknown attribute id: " + ad.getDmdID() + " for attribute: " + ad.getName()));
 			
 			NamedStringArray values = null;
 			

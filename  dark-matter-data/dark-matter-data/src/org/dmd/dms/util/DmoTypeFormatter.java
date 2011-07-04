@@ -390,7 +390,8 @@ public class DmoTypeFormatter {
       	String nameType = "DmcType" + td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + "SV";
     	String attrName = td.getOriginalClass().getIsNamedBy().getName().getNameString();
       	
-      	GenUtility.appendAttributeInfo(out, td.getOriginalClass().getIsNamedBy(), "false");
+//      	GenUtility.appendAttributeInfo(out, td.getOriginalClass().getIsNamedBy(), "false");
+      	GenUtility.appendAttributeInfo(out, td.getOriginalClass().getIsNamedBy());
       	out.write("    \n");
       	
       	out.write("    " + nameType + " myName;");
