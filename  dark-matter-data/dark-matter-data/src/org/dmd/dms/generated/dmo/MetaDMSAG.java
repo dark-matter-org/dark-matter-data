@@ -9,7 +9,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:242)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:246)
 public class MetaDMSAG implements DmcCompactSchemaIF {
 
 
@@ -80,6 +80,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __getMethod = new DmcAttributeInfo("getMethod",49,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __getType = new DmcAttributeInfo("getType",48,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __helperClassName = new DmcAttributeInfo("helperClassName",47,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __indexSize = new DmcAttributeInfo("indexSize",129,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __integerName = new DmcAttributeInfo("integerName",100,"IntegerName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __intendedToExtend = new DmcAttributeInfo("intendedToExtend",22,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __internalTypeDefList = new DmcAttributeInfo("internalTypeDefList",57,"TypeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -108,7 +109,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __must = new DmcAttributeInfo("must",26,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mustParm = new DmcAttributeInfo("mustParm",28,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mustReturn = new DmcAttributeInfo("mustReturn",30,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __mvsize = new DmcAttributeInfo("mvsize",129,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __nameAttributeDef = new DmcAttributeInfo("nameAttributeDef",90,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __nameType = new DmcAttributeInfo("nameType",103,"NameTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -239,6 +239,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__getMethod.id,__getMethod);
         _SmAp.put(__getType.id,__getType);
         _SmAp.put(__helperClassName.id,__helperClassName);
+        _SmAp.put(__indexSize.id,__indexSize);
         _SmAp.put(__integerName.id,__integerName);
         _SmAp.put(__intendedToExtend.id,__intendedToExtend);
         _SmAp.put(__internalTypeDefList.id,__internalTypeDefList);
@@ -267,7 +268,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__must.id,__must);
         _SmAp.put(__mustParm.id,__mustParm);
         _SmAp.put(__mustReturn.id,__mustReturn);
-        _SmAp.put(__mvsize.id,__mvsize);
         _SmAp.put(__name.id,__name);
         _SmAp.put(__nameAttributeDef.id,__nameAttributeDef);
         _SmAp.put(__nameType.id,__nameType);
@@ -341,9 +341,9 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __AttributeDefinition.addMay(__file);
         __AttributeDefinition.addMay(__genericArgs);
         __AttributeDefinition.addMay(__genericArgsImport);
+        __AttributeDefinition.addMay(__indexSize);
         __AttributeDefinition.addMay(__internalUse);
         __AttributeDefinition.addMay(__lineNumber);
-        __AttributeDefinition.addMay(__mvsize);
         __AttributeDefinition.addMay(__nullReturnValue);
         __AttributeDefinition.addMay(__obsoleteVersion);
         __AttributeDefinition.addMay(__secure);

@@ -276,7 +276,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	 * @param value The value to be set. if the value is null, that index location is nulled.
 	 * @return E
 	 */
-	public VALUE setMVnth(int index, Object value){
+	public VALUE setMVnth(int index, Object value) throws DmcValueException {
     	throw(new IllegalStateException("The setMVnth() method should be overloaded automatically by the DmcType[VALUE]MV class"));
 	}
 	
@@ -434,25 +434,67 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 				boolean first 		= true;
 				int 	dmoCount 	= 0;
 
-				while(iterator.hasNext()){
-					VALUE value = iterator.next();
-					if (value instanceof DmcObject){
-						dmoCount++;
-						if (first){
-							sb.append("[\n");
-							first = false;
+				if (attrInfo.indexSize > 0){
+					// For indexed attributes we display the index before each value and null
+					// values are allowed
+					int index = 0;
+					boolean pad = false;
+					if (attrInfo.indexSize > 9)
+						pad = true;
+					
+					while(iterator.hasNext()){
+						VALUE value = iterator.next();
+						
+						String indexstr = "" + index + " ";
+						if ((index < 10) && pad)
+							indexstr = " " + index + " ";
+						
+						if (value == null){
+							sb.append(name + " " + indexstr + "\n");
 						}
-						sb.append("{\n" + ((DmcObject)value).toOIF() + "}\n");
+						else{
+							if (value instanceof DmcObject){
+								dmoCount++;
+								if (first){
+									sb.append("[\n");
+									first = false;
+								}
+								sb.append("{\n" + ((DmcObject)value).toOIF() + "}\n");
+							}
+							else{
+								if (value instanceof DmcNamedObjectIF)
+									sb.append(name + " " + indexstr + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+								else
+									sb.append(name + " " + indexstr + formatValue(value) + "\n");
+
+							}
+						}
+						index++;
 					}
-					else{
-						if (value instanceof DmcNamedObjectIF)
-							sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-						else
-							sb.append(name + " " + formatValue(value) + "\n");	
-					}
+					if (dmoCount > 0)
+						sb.append("]\n");
 				}
-				if (dmoCount > 0)
-					sb.append("]\n");
+				else{
+					while(iterator.hasNext()){
+						VALUE value = iterator.next();
+						if (value instanceof DmcObject){
+							dmoCount++;
+							if (first){
+								sb.append("[\n");
+								first = false;
+							}
+							sb.append("{\n" + ((DmcObject)value).toOIF() + "}\n");
+						}
+						else{
+							if (value instanceof DmcNamedObjectIF)
+								sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+							else
+								sb.append(name + " " + formatValue(value) + "\n");	
+						}
+					}
+					if (dmoCount > 0)
+						sb.append("]\n");
+				}
 			}
 		}
 	}
@@ -515,28 +557,74 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 			if (iterator != null){
 				boolean first 		= true;
 				int 	dmoCount 	= 0;
-//				int		size		= getMVSize() - 1;
-				while(iterator.hasNext()){
-					VALUE value = iterator.next();
-					if (value instanceof DmcObject){
-						dmoCount++;
-						if (first){
+				
+				if (attrInfo.indexSize > 0){
+					// For indexed attributes we display the index before each value and null
+					// values are allowed
+					int index = 0;
+					boolean pad = false;
+					if (attrInfo.indexSize > 9)
+						pad = true;
+
+					while(iterator.hasNext()){
+						VALUE value = iterator.next();
+						
+						String indexstr = "" + index + " ";
+						if ((index < 10) && pad)
+							indexstr = " " + index + " ";
+
+						if (value == null){
 							addNameWithPadding(name,padding,sb);
-							sb.append("\n[\n");
-							first = false;
+							sb.append(indexstr + "\n");
 						}
-						sb.append("{\n" + ((DmcObject)value).toOIF() + "}\n");
+						else{
+							if (value instanceof DmcObject){
+								dmoCount++;
+								if (first){
+									addNameWithPadding(name,padding,sb);
+									sb.append(indexstr);
+									sb.append("\n[\n");
+									first = false;
+								}
+								sb.append("{\n" + ((DmcObject)value).toOIF() + "}\n");
+							}
+							else{
+								addNameWithPadding(name,padding,sb);
+								sb.append(indexstr);
+								if (value instanceof DmcNamedObjectIF)
+									sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+								else
+									sb.append(" " + formatValue(value) + "\n");
+							}
+						}
+						index++;
 					}
-					else{
-						addNameWithPadding(name,padding,sb);
-						if (value instanceof DmcNamedObjectIF)
-							sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
-						else
-							sb.append(" " + formatValue(value) + "\n");
-					}
+					if (dmoCount > 0)
+						sb.append("]\n");
 				}
-				if (dmoCount > 0)
-					sb.append("]\n");
+				else{
+					while(iterator.hasNext()){
+						VALUE value = iterator.next();
+						if (value instanceof DmcObject){
+							dmoCount++;
+							if (first){
+								addNameWithPadding(name,padding,sb);
+								sb.append("\n[\n");
+								first = false;
+							}
+							sb.append("{\n" + ((DmcObject)value).toOIF() + "}\n");
+						}
+						else{
+							addNameWithPadding(name,padding,sb);
+							if (value instanceof DmcNamedObjectIF)
+								sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
+							else
+								sb.append(" " + formatValue(value) + "\n");
+						}
+					}
+					if (dmoCount > 0)
+						sb.append("]\n");
+				}
 
 			}
 		}

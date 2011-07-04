@@ -48,7 +48,12 @@ public enum ModifyTypeEnum
     /**
      *  The REM operation removes the entire attribute from the object.
      */
-    REM(4);
+    REM(4),
+
+    /**
+     *  The NTH operation sets the value at the specified index.
+     */
+    NTH(5);
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,ModifyTypeEnum> lookup = new HashMap<Integer,ModifyTypeEnum>();

@@ -965,6 +965,94 @@ abstract public class DmcObject implements Serializable {
 		}
 	}
 	
+	/**
+	 * This method adds a value to a multi-valued attribute. If you had previously set the
+	 * same attribute to a different type, you get a class cast exception.
+	 * @param attrName  The attribute name.
+	 * @param attr      The attribute value to be stored.
+	 * @throws DmcValueException 
+	 */
+	@SuppressWarnings("unchecked")
+	public <T extends DmcAttribute> T nth(String attrName, int index, DmcAttribute attr) throws DmcValueException {
+		DmcAttributeInfo ai = getAttributeInfo(attrName);
+		
+		if (ai == null){
+			DmcValueException dve = new DmcValueException("Invalid attribute: " + attrName + " for class: " + this.getClass().getName());
+			throw(dve);
+		}
+		
+		return(nth(ai,index,attr));
+	}
+	
+	/**
+	 * This method adds a value to a multi-valued attribute. If you had previously set the
+	 * same attribute to a different type, you get a class cast exception.
+	 * @param ai   The attribute info.
+	 * @param attr The attribute value to be stored.
+	 * @throws DmcValueException 
+	 */
+	@SuppressWarnings("unchecked")
+	protected <T extends DmcAttribute> T nth(DmcAttributeInfo ai, int index, DmcAttribute attr) throws DmcValueException {
+		synchronized (attributes) {
+			DmcAttribute existing = (DmcAttribute) attributes.get(ai.id);
+			
+			if (existing == null){
+				attributes.put(ai.id, attr);
+				attr.setAttributeInfo(ai);
+			}
+			
+			// BIG NOTE: performing modification of an object and performing backref tracking
+			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
+			// a modifier on an object because we would wind up tracking the references twice,
+			// once while creating the modifier and again when the modifier is applied.
+			if (getModifier() == null){
+				if (supportsBackrefTracking()){
+					// TODO: need to have the upper bound of the IDs for the meta schema available
+					// so that we can check whether we want to track the back references.
+					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+						if ( (attr instanceof DmcTypeNamedObjectREF) && (getLastValue() != null)){
+							DmcObject obj = ((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject());
+							if (obj != null){
+								// We're modifying a reference attribute, so track that puppy
+								DmcAttribute mod = attr.getNew();
+								mod.setAttributeInfo(ai);
+								mod.add(getLastValue());
+								
+								Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
+								((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject()).addBackref(backrefMod);
+							}
+						}
+					}
+				}
+			}
+			else{
+				if (getLastValue() == null){
+					// Last value can be null in the case of indexed multi-valued attributes since this
+					// is how we remove an indexed value.
+					if ( (ai.indexSize == 0) || (ai.valueType != ValueTypeEnum.MULTI))
+						throw(new IllegalStateException("Code gen error! The nth() interface is not applicable to attribute: " + ai.name + " of valueType: " + ai.valueType));
+					getModifier().add(new Modifier(ModifyTypeEnum.NTH, ai, index));
+				}
+				else{
+					// Get an attribute value holder of the same type and hang on to the last
+					// value that was added to it
+					DmcAttribute mod = attr.getNew();
+					mod.setAttributeInfo(ai);
+					
+					mod.add(getLastValue());
+					getModifier().add(new Modifier(ModifyTypeEnum.ADD, mod, index));
+				}
+			}
+			
+			
+//		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
+//			// TODO implement attribute change listener hooks
+//		}
+	
+			return (T) (attr);
+		}
+	}
+	
 	////////////////////////////////////////////////////////////////////////////////
 	// Object formatting
 	

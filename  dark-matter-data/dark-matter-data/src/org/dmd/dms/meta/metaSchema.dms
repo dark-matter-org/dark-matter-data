@@ -265,6 +265,7 @@ enumValue		1 ADD  The ADD operation adds a new value to a multi-valued attribute
 enumValue		2 DEL  The DEL operation removes a value from a multi-valued attribute.
 enumValue		3 SET  The SET operation sets a new value for a single-valued attribute.
 enumValue		4 REM  The REM operation removes the entire attribute from the object.
+enumValue		5 NTH  The NTH operation sets the value at the specified index.
 
 EnumDefinition
 name			OperationalContextEnum
@@ -1626,11 +1627,15 @@ description					The classFilter is used to performing matching of objects based 
  their class or auxiliary classes.
 
 AttributeDefinition
-name						mvsize
+name						indexSize
 dmdID						129
 type						Integer
-description					The mvsize indicates for any multi-valued attribute, the maximum number
- of values that can be stored.
+description					The indexSize is used in conjunction with the MULTI valueType to
+ indicate that the attribute may have the specified number of values and is integer indexed.
+ Indexed attributes may be thought of as having a predetermined number of slots into which
+ values may be stored. When indexed, an attribute has values added to it using the setMVnth()
+ interface, not the usual add() interface. If you attempt to use add() with an indexed attribute,
+ an exception will be thrown.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -1877,7 +1882,7 @@ may				genericArgsImport
 may				designatedNameAttribute
 may				designatedFilterAttribute
 may				internalUse
-may				mvsize
+may				indexSize
 // obsolete
 //must          	isSingleValued
 //may            	reposName

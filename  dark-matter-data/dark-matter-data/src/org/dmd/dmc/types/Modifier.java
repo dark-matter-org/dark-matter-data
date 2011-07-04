@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.generated.enums.ModificationControlEnum;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 
 /**
@@ -56,6 +57,9 @@ public class Modifier implements Serializable {
 	int				attributeID;
 	String			value;
 	
+	// Used when dealing with indexed attributes
+	int				index;
+	
 	// Used when the modification is created through a DmcObject
 	DmcAttribute<?>	attribute;
 	
@@ -74,6 +78,7 @@ public class Modifier implements Serializable {
 		attributeName 	= null;
 		attributeID		= -1;
 		value 			= null;
+		index			= -1;
 		attribute		= null;
 		referringObject	= null;
 	}
@@ -88,15 +93,15 @@ public class Modifier implements Serializable {
 		attributeName 	= original.attributeName;
 		attributeID		= original.attributeID;
 		value 			= original.value;
+		index			= original.index;
 		attribute		= original.attribute;
 		referringObject	= original.referringObject;
 	}
 	
 	/**
 	 * Constructs a new Modifier.
-	 * @param an The attribute name.
 	 * @param op The operation.
-	 * @param v  The value.
+	 * @param attr  The attribute.
 	 */
 	@SuppressWarnings("unchecked")
 	public Modifier(ModifyTypeEnum op, DmcAttribute attr){
@@ -105,15 +110,15 @@ public class Modifier implements Serializable {
 		attributeName 	= attr.getName();
 		attributeID		= attr.getID();
 		value			= null;
+		index			= -1;
 		attribute 		= attr;
 		referringObject	= null;
 	}
 	
 	/**
 	 * Constructs a new Modifier for removal of an attribute
-	 * @param an The attribute name.
 	 * @param op The operation.
-	 * @param n  The name of the attribute.
+	 * @param ai The attribute info.
 	 */
 	public Modifier(ModifyTypeEnum op, DmcAttributeInfo ai){
 		operation 		= op;
@@ -121,6 +126,43 @@ public class Modifier implements Serializable {
 		attributeName 	= ai.name;
 		attributeID		= ai.id;
 		value			= "none";
+		index			= -1;
+		attribute 		= null;
+		referringObject	= null;
+	}
+	
+	/**
+	 * Constructs a new Modifier for the modification of an indexed attribute.
+	 * @param op The operation.
+	 * @param attr The attribute.
+	 * @param idx The index being altered.
+	 */
+	@SuppressWarnings("unchecked")
+	public Modifier(ModifyTypeEnum op, DmcAttribute attr, int idx){
+		operation 		= op;
+		haveAttribute	= true;
+		attributeName 	= attr.getName();
+		attributeID		= attr.getID();
+		value			= null;
+		index			= idx;
+		attribute 		= attr;
+		referringObject	= null;
+	}
+	
+	/**
+	 * Constructs a new Modifier for setting of the specified index to null.
+	 * @param an The attribute name.
+	 * @param op The operation.
+	 * @param n  The attriubte info.
+	 * @param idx The index being set to null.
+	 */
+	public Modifier(ModifyTypeEnum op, DmcAttributeInfo ai, int idx){
+		operation 		= op;
+		haveAttribute	= false;
+		attributeName 	= ai.name;
+		attributeID		= ai.id;
+		value			= "none";
+		index			= idx;
 		attribute 		= null;
 		referringObject	= null;
 	}
@@ -149,6 +191,7 @@ public class Modifier implements Serializable {
 		attributeName 	= attr.getName();
 		attributeID		= attr.getID();
 		value			= null;
+		index			= -1;
 		attribute 		= attr;
 		referringObject	= (DmcNamedObjectIF) referrer;
 	}
@@ -158,6 +201,8 @@ public class Modifier implements Serializable {
 	 * <attrname> ADD <value>
      * <attrname> DEL <value>
      * <attrname> SET <value>
+     * <attrname> NTH <index> <value>
+     * <attrname> NTH <index>
      * <attrname> REM
 	 * @param value The modification expression.
 	 * @throws DmcValueException
@@ -201,8 +246,18 @@ public class Modifier implements Serializable {
 			if (operation == ModifyTypeEnum.REM){
 				throw(new DmcValueException("Extraneous tokens in a REM operation. Should be just " + attributeName + " REM"));
 			}
-			
-			value = trimmed.substring(space2+1);
+			if (operation == ModifyTypeEnum.NTH){
+				int space3 = trimmed.indexOf(" ",space2+1);
+				if (space3 == -1){
+					// There's no value, just the index, which indicates that we're setting that index to null
+				}
+				else{
+					value = trimmed.substring(space3+1).trim();
+				}
+			}
+			else{
+				value = trimmed.substring(space2+1).trim();
+			}
 		}
 		
 		haveAttribute = false;
@@ -278,17 +333,16 @@ public class Modifier implements Serializable {
 		else {
 			if (value == null){
 				// We have a full attribute
-				return(getAttributeName() + " " + operation + " " + attribute.modifierFormat());
-//				if (attribute.getMVSize() == 0){
-//					// Must be multi-valued
-//					return(getAttributeName() + " " + operation + " " + attribute.getSV().toString());
-//				}
-//				else{
-//					return(getAttributeName() + " " + operation + " " + attribute.getMVnth(0).toString());
-//				}
+				if (index == -1)
+					return(getAttributeName() + " " + operation + " " + attribute.modifierFormat());
+				else
+					return(getAttributeName() + " " + operation + " " + index + " " + attribute.modifierFormat());
 			}
 			else{
-				return(attributeName + " " + operation + " " + value.toString());
+				if (index == -1)
+					return(attributeName + " " + operation + " " + value.toString());
+				else
+					return(attributeName + " " + operation + " " + index + " " + value.toString());
 			}
 		}
 	}
@@ -304,6 +358,9 @@ public class Modifier implements Serializable {
 			dos.writeInt(attributeID);
 			dos.writeUTF(value);
 		}
+		
+		if (operation == ModifyTypeEnum.NTH)
+			dos.writeInt(index);
 	}
 
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
@@ -319,7 +376,9 @@ public class Modifier implements Serializable {
 			attributeID		= dis.readInt();
 			value 			= dis.readUTF();
 		}
-			
+		
+		if (operation == ModifyTypeEnum.NTH)
+			index = dis.readInt();
 	}
 
 

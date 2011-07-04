@@ -377,7 +377,7 @@ AttributeDefinition
 name            		indexedString
 dmdID           		414
 valueType				MULTI
-mvsize					5
+indexSize				5
 type            		String
 
 

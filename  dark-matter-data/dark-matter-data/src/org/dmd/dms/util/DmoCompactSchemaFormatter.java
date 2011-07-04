@@ -112,7 +112,11 @@ public class DmoCompactSchemaFormatter {
 			out.write(", \"" + ad.getType().getName().getNameString() + "\"");
 			out.write(", ValueTypeEnum." + ad.getValueType());
 			out.write(", DataTypeEnum." + ad.getDataType());
-			out.write(");\n");
+			
+			if (ad.getIndexSize() == null)
+				out.write(");\n");
+			else
+				out.write(", " + ad.getIndexSize() + ");\n");
 		}
         
         out.write("\n");

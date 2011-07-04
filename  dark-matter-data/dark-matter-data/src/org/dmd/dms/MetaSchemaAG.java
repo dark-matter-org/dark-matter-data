@@ -225,7 +225,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _designatedFilterAttribute;
     public static AttributeDefinition _filterAttributeDef;
     public static AttributeDefinition _classFilter;
-    public static AttributeDefinition _mvsize;
+    public static AttributeDefinition _indexSize;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -447,7 +447,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _designatedFilterAttribute   = new AttributeDefinition("designatedFilterAttribute", _Boolean);
             _filterAttributeDef          = new AttributeDefinition("filterAttributeDef", _AttributeDefinitionREF);
             _classFilter                 = new AttributeDefinition("classFilter", _ClassFilter);
-            _mvsize                      = new AttributeDefinition("mvsize", _Integer);
+            _indexSize                   = new AttributeDefinition("indexSize", _Integer);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
@@ -884,6 +884,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ModifyTypeEnum              .addEnumValue("2 DEL  The DEL operation removes a value from a multi-valued attribute.");
             _ModifyTypeEnum              .addEnumValue("3 SET  The SET operation sets a new value for a single-valued attribute.");
             _ModifyTypeEnum              .addEnumValue("4 REM  The REM operation removes the entire attribute from the object.");
+            _ModifyTypeEnum              .addEnumValue("5 NTH  The NTH operation sets the value at the specified index.");
             _ModifyTypeEnum              .setName("ModifyTypeEnum");
             _ModifyTypeEnum              .setNullReturnValue("ModifyTypeEnum.NONE");
             _ModifyTypeEnum              .setDefinedIn(this);
@@ -1358,6 +1359,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _helperClassName             .setType(_String);
             _helperClassName             .setDefinedIn(this);
 
+            _indexSize                   .setDescription("The indexSize is used in conjunction with the MULTI valueType to indicate that the attribute may have the specified number of values and is integer indexed. Indexed attributes may be thought of as having a predetermined number of slots into which values may be stored. When indexed, an attribute has values added to it using the setMVnth() interface, not the usual add() interface. If you attempt to use add() with an indexed attribute, an exception will be thrown.");
+            _indexSize                   .setDmdID("129");
+            _indexSize                   .setName("indexSize");
+            _indexSize                   .setType(_Integer);
+            _indexSize                   .setDefinedIn(this);
+
             _integerName                 .setDescription("The object name for objects uniquely identified with an integer.");
             _integerName                 .setDesignatedNameAttribute("true");
             _integerName                 .setDmdID("100");
@@ -1544,12 +1551,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _mustReturn                  .setType(_AttributeDefinitionREF);
             _mustReturn                  .setValueType(ValueTypeEnum.MULTI);
             _mustReturn                  .setDefinedIn(this);
-
-            _mvsize                      .setDescription("The mvsize indicates for any multi-valued attribute, the maximum number of values that can be stored.");
-            _mvsize                      .setDmdID("129");
-            _mvsize                      .setName("mvsize");
-            _mvsize                      .setType(_Integer);
-            _mvsize                      .setDefinedIn(this);
 
             _name                        .setDescription("The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character.");
             _name                        .setDesignatedNameAttribute("true");
@@ -1802,7 +1803,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeDefinition         .addMay(_designatedNameAttribute);
             _AttributeDefinition         .addMay(_designatedFilterAttribute);
             _AttributeDefinition         .addMay(_internalUse);
-            _AttributeDefinition         .addMay(_mvsize);
+            _AttributeDefinition         .addMay(_indexSize);
             _AttributeDefinition         .addMust(_name);
             _AttributeDefinition         .addMust(_type);
             _AttributeDefinition         .setName("AttributeDefinition");
@@ -2203,7 +2204,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_designatedFilterAttribute);
             this.addAttributeDefList(_filterAttributeDef);
             this.addAttributeDefList(_classFilter);
-            this.addAttributeDefList(_mvsize);
+            this.addAttributeDefList(_indexSize);
             this.addAttributeDefList(_objectClass);
             this.setName("meta");
             this.setDescription("The meta schema defines the elements used to define schemas.");

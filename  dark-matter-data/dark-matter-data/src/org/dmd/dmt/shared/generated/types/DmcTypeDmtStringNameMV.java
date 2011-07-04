@@ -12,7 +12,7 @@ import org.dmd.dmt.shared.types.DmcTypeDmtStringName;    // DmcType import
  * The DmcTypeDmtStringNameMV provides storage for a multi-valued DmtStringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1947)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1956)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:100)
  */
 @SuppressWarnings("serial")
@@ -47,6 +47,9 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
     
     @Override
     public DmtStringName add(Object v) throws DmcValueException {
+        if (attrInfo.indexSize > 0)
+            throw(new IllegalStateException("You must use the setMVnth() method for indexed attribute: " + attrInfo.name));
+        
         DmtStringName rc = typeCheck(v);
         if (value == null)
             value = new ArrayList<DmtStringName>();
@@ -56,6 +59,9 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
     
     @Override
     public DmtStringName del(Object v){
+        if (attrInfo.indexSize > 0)
+            throw(new IllegalStateException("You must use the setMVnth(index,null) method to remove values from indexed attribute: " + attrInfo.name));
+        
         DmtStringName rc = null;
         try {
             rc = typeCheck(v);
@@ -88,8 +94,32 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
     }
     
     @Override
-    public DmtStringName getMVnth(int i){
-        return(value.get(i));
+    public DmtStringName getMVnth(int index){
+        if ( (attrInfo.indexSize > 0) && ((index < 0) || (index >= attrInfo.indexSize)) )
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
+        
+        return(value.get(index));
+    }
+    
+    @Override
+    public DmtStringName setMVnth(int index, Object v) throws DmcValueException {
+        if (attrInfo.indexSize == 0)
+            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+        
+        if ( (index < 0) || (index >= attrInfo.indexSize))
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
+        
+        DmtStringName rc = null;
+        
+        if (v != null)
+            rc = typeCheck(v);
+        
+        if (value == null)
+            value = new ArrayList<DmtStringName>(attrInfo.indexSize);
+        
+        value.set(index, rc);
+        
+        return(rc);
     }
     
     @Override

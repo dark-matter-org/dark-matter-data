@@ -1256,40 +1256,40 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     out.write("    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;\n\n");
                     out.write("    static Map<String ,DmcObjectValidator> _OvDmAp;\n\n");
                                         
-                    if (must != null){
-                    	for(String n: must){
-                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
-                        	String t = attrDef.getSV("type");
-                        	String ID = attrDef.getSV("dmdID");
-                        	
-                        	// MULTIVALUED 3
-                        	String mv = attrDef.getSV("valueType");
-                    		
-                        	writeAttributeInfo(out, n, ID, t, mv, "true");
-                    	}
-                    	
-                        out.write("\n");
-                    }
-                    
-                    if (may != null){
-                    	for(String n: may){
-                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
-                        	
-                        	if (attrDef == null){
-                        		System.out.println("Couldn't find attribute definition: " + n);
-                        		System.exit(1);
-                        	}
-                        	
-                        	String t = attrDef.getSV("type");
-                        	String ID = attrDef.getSV("dmdID");
-                        	
-                        	// MULTIVALUED 4
-                        	String mv = attrDef.getSV("valueType");
-                    		
-                        	writeAttributeInfo(out, n, ID, t, mv, "false");
-
-                    	}
-                    }
+//                    if (must != null){
+//                    	for(String n: must){
+//                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
+//                        	String t = attrDef.getSV("type");
+//                        	String ID = attrDef.getSV("dmdID");
+//                        	
+//                        	// MULTIVALUED 3
+//                        	String mv = attrDef.getSV("valueType");
+//                    		
+//                        	writeAttributeInfo(out, n, ID, t, mv, "true");
+//                    	}
+//                    	
+//                        out.write("\n");
+//                    }
+//                    
+//                    if (may != null){
+//                    	for(String n: may){
+//                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
+//                        	
+//                        	if (attrDef == null){
+//                        		System.out.println("Couldn't find attribute definition: " + n);
+//                        		System.exit(1);
+//                        	}
+//                        	
+//                        	String t = attrDef.getSV("type");
+//                        	String ID = attrDef.getSV("dmdID");
+//                        	
+//                        	// MULTIVALUED 4
+//                        	String mv = attrDef.getSV("valueType");
+//                    		
+//                        	writeAttributeInfo(out, n, ID, t, mv, "false");
+//
+//                    	}
+//                    }
                     
                     out.write("\n");
                     out.write("    static {\n");
@@ -1464,24 +1464,21 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	 * @param opt optional
 	 * @throws IOException
 	 */
-    void writeAttributeInfo(BufferedWriter out, String n, String ID, String t, String mv, String opt) throws IOException {
-    	out.write("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
-    	out.write("\"" + n + "\",");
-    	out.write(ID + ",");
-    	out.write("\"" + t + "\",");
-    	
-    	if (mv == null)
-    		out.write("ValueTypeEnum.SINGLE,");
-    	else
-       		out.write("ValueTypeEnum.MULTI,");
-    	
-   		out.write("DataTypeEnum.PERSISTENT");
-   	    	
-    	out.write(");\n");
-    	
-//    	out.write(opt + ");\n");
-
-    }
+//    void writeAttributeInfo(BufferedWriter out, String n, String ID, String t, String mv, String opt) throws IOException {
+//    	out.write("    public final static DmcAttributeInfo __" + n + " = new DmcAttributeInfo(");
+//    	out.write("\"" + n + "\",");
+//    	out.write(ID + ",");
+//    	out.write("\"" + t + "\",");
+//    	
+//    	if (mv == null)
+//    		out.write("ValueTypeEnum.SINGLE,");
+//    	else
+//       		out.write("ValueTypeEnum.MULTI,");
+//    	
+//   		out.write("DataTypeEnum.PERSISTENT");
+//   	    	
+//    	out.write(");\n");
+//    }
 
     /**
      * This method dumps a single valued attribute getter.
@@ -1955,8 +1952,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 out.write("@SuppressWarnings(\"serial\")\n");
                 out.write("public class " + cn + "REF extends DmcNamedObjectNontransportableREF<" + cn + "DMO> implements Serializable {\n\n");
             	
-            	writeAttributeInfo(out, "name", "2", "StringName", null, "false");
-            	out.write("\n");
+//            	writeAttributeInfo(out, "name", "2", "StringName", null, "false");
+//            	out.write("\n");
             	
             	if (cn.equals("ClassDefinition")){
             		out.write("    DmcClassInfo info;\n\n");
