@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeIntegerToString;    // DmcType import
  * The DmcTypeIntegerToStringMV provides storage for a multi-valued IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1940)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1956)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:267)
  */
 @SuppressWarnings("serial")
@@ -62,6 +62,9 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
     
     @Override
     public IntegerToString add(Object v) throws DmcValueException {
+        if (attrInfo.indexSize > 0)
+            throw(new IllegalStateException("You must use the setMVnth() method for indexed attribute: " + attrInfo.name));
+        
         IntegerToString rc = typeCheck(v);
         if (value == null)
             value = new ArrayList<IntegerToString>();
@@ -71,6 +74,9 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
     
     @Override
     public IntegerToString del(Object v){
+        if (attrInfo.indexSize > 0)
+            throw(new IllegalStateException("You must use the setMVnth(index,null) method to remove values from indexed attribute: " + attrInfo.name));
+        
         IntegerToString rc = null;
         try {
             rc = typeCheck(v);
@@ -103,8 +109,35 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
     }
     
     @Override
-    public IntegerToString getMVnth(int i){
-        return(value.get(i));
+    public IntegerToString getMVnth(int index){
+        if ( (attrInfo.indexSize > 0) && ((index < 0) || (index >= attrInfo.indexSize)) )
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
+        
+        return(value.get(index));
+    }
+    
+    @Override
+    public IntegerToString setMVnth(int index, Object v) throws DmcValueException {
+        if (attrInfo.indexSize == 0)
+            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+        
+        if ( (index < 0) || (index >= attrInfo.indexSize))
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
+        
+        IntegerToString rc = null;
+        
+        if (v != null)
+            rc = typeCheck(v);
+        
+        if (value == null){
+            value = new ArrayList<IntegerToString>(attrInfo.indexSize);
+            for(int i=0;i<attrInfo.indexSize;i++)
+                value.add(null);
+        }
+        
+        value.set(index, rc);
+        
+        return(rc);
     }
     
     @Override

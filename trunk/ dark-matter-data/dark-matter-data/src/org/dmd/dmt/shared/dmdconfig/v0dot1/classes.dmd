@@ -208,6 +208,7 @@ may				hsTestEnum
 may				hsNames
 may				nonperString
 may				transString
+may				indexedString
 
 ClassDefinition
 name            ClientCountFilter

@@ -24,6 +24,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerVar;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
@@ -883,25 +884,48 @@ public class GenUtility {
 			sb.append("        return(attr.getMVnth(i));\n");
 			sb.append("    }\n\n");
 			
-	    	sb.append("    /**\n");
-	    	sb.append("     * Adds another " + ad.getName() + " to the specified value.\n");
-	    	sb.append("     * @param value " + typeName + "\n");
-	    	sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-	    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + " value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
-	    	sb.append("        if (attr == null)\n");
-	    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
-	    	sb.append("        \n");
-	    	sb.append("        try{\n");
-	    	sb.append("            setLastValue(attr.add(value));\n");
-	    	sb.append("            add(" + ad.getDMSAGReference() + ",attr);\n");
-	    	sb.append("        }\n");
-	    	sb.append("        catch(DmcValueException ex){\n");
-	    	sb.append("            throw(new IllegalStateException(\"The type specific add() method shouldn't throw exceptions!\",ex));\n");
-	    	sb.append("        }\n");
-	    	sb.append("        return(attr);\n");
-	    	sb.append("    }\n\n");
+			if (ad.getIndexSize() == null){
+		    	sb.append("    /**\n");
+		    	sb.append("     * Adds another " + ad.getName() + " to the specified value.\n");
+		    	sb.append("     * @param value " + typeName + "\n");
+		    	sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + " value) {\n");
+		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        if (attr == null)\n");
+		    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        \n");
+		    	sb.append("        try{\n");
+		    	sb.append("            setLastValue(attr.add(value));\n");
+		    	sb.append("            add(" + ad.getDMSAGReference() + ",attr);\n");
+		    	sb.append("        }\n");
+		    	sb.append("        catch(DmcValueException ex){\n");
+		    	sb.append("            throw(new IllegalStateException(\"The type specific add() method shouldn't throw exceptions!\",ex));\n");
+		    	sb.append("        }\n");
+		    	sb.append("        return(attr);\n");
+		    	sb.append("    }\n\n");
+			}
+			else{
+		    	sb.append("    /**\n");
+		    	sb.append("     * Sets the value at the specified index.\n");
+		    	sb.append("     * @param value " + typeName + "\n");
+		    	sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		    	sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + typeName + " value) {\n");
+		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        if (attr == null)\n");
+		    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        \n");
+		    	sb.append("        try{\n");
+		    	sb.append("            setLastValue(attr.setMVnth(index,value));\n");
+		    	sb.append("            nth(" + ad.getDMSAGReference() + ", index, attr);\n");
+		    	sb.append("        }\n");
+		    	sb.append("        catch(DmcValueException ex){\n");
+		    	sb.append("            throw(new IllegalStateException(\"The type specific setNth() method shouldn't throw exceptions!\",ex));\n");
+		    	sb.append("        }\n");
+		    	sb.append("        return(attr);\n");
+		    	sb.append("    }\n\n");
+			}
 	    	
 	    	if (ad.getType().getAltType() != null){
 		    	sb.append("    /**\n");
@@ -1905,18 +1929,6 @@ public class GenUtility {
 			dmoREF = true;
 		}
 		
-//		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "MV.java";
-		
-//        if (progress != null)
-//        	progress.println("    Generating " + ofn);
-        
-//        if (nameAttr == null)
-//            DebugInfo.debug("public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "> {\n");
-//        else
-//        	DebugInfo.debug("public class DmcType" + typeName + "MV extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
-        
-        
-//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmotypedir, "DmcType" + typeName + REF + "MV.java");
 
         if (fileHeader != null)
@@ -1936,9 +1948,6 @@ public class GenUtility {
                  	                
         if (dmcTypeImport != null)
         	out.write("import " + dmcTypeImport + DMO + ";    // DmcType import\n");
-                 	                
-//        if (nameAttrImport != null)
-//        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
                  	                
         out.write("/**\n");
         out.write(" * The DmcType" + typeName + REF + "MV provides storage for a multi-valued " + typeName+ "\n");
@@ -1989,6 +1998,9 @@ public class GenUtility {
         
         out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " add(Object v) throws DmcValueException {\n");
+        out.write("        if (attrInfo.indexSize > 0)\n");
+        out.write("            throw(new IllegalStateException(\"You must use the setMVnth() method for indexed attribute: \" + attrInfo.name));\n");
+        out.write("        \n");
         out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
         out.write("        if (value == null)\n");
         out.write("            value = new ArrayList<" + typeName + DMO + genericArgs + ">();\n");
@@ -1999,6 +2011,9 @@ public class GenUtility {
         
         out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " del(Object v){\n");
+        out.write("        if (attrInfo.indexSize > 0)\n");
+        out.write("            throw(new IllegalStateException(\"You must use the setMVnth(index,null) method to remove values from indexed attribute: \" + attrInfo.name));\n");
+        out.write("        \n");
         out.write("        " + typeName + DMO + genericArgs + " rc = null;\n");
         out.write("        try {\n");
         out.write("            rc = typeCheck(v);\n");
@@ -2035,8 +2050,36 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    @Override\n");
-        out.write("    public " + typeName + DMO + genericArgs + " getMVnth(int i){\n");
-        out.write("        return(value.get(i));\n");
+        out.write("    public " + typeName + DMO + genericArgs + " getMVnth(int index){\n");
+        out.write("        if ( (attrInfo.indexSize > 0) && ((index < 0) || (index >= attrInfo.indexSize)) )\n");
+        out.write("            throw(new IllegalStateException(\"Index \" + index + \" for attribute: \" + attrInfo.name + \" is out of range: 0 < index < \" + attrInfo.indexSize));\n");
+        out.write("        \n");
+        out.write("        return(value.get(index));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+        out.write("    public " + typeName + DMO + genericArgs + " setMVnth(int index, Object v) throws DmcValueException {\n");
+        out.write("        if (attrInfo.indexSize == 0)\n");
+        out.write("            throw(new IllegalStateException(\"Attribute: \" + attrInfo.name + \" is not indexed. You can't use setMVnth().\"));\n");
+        out.write("        \n");
+        out.write("        if ( (index < 0) || (index >= attrInfo.indexSize))\n");
+        out.write("            throw(new IllegalStateException(\"Index \" + index + \" for attribute: \" + attrInfo.name + \" is out of range: 0 < index < \" + attrInfo.indexSize));\n");
+        out.write("        \n");
+        out.write("        " + typeName + DMO + genericArgs + " rc = null;\n");
+        out.write("        \n");
+        out.write("        if (v != null)\n");
+        out.write("            rc = typeCheck(v);\n");
+        out.write("        \n");
+        out.write("        if (value == null){\n");
+        out.write("            value = new ArrayList<" + typeName + DMO + genericArgs + ">(attrInfo.indexSize);\n");
+        out.write("            for(int i=0;i<attrInfo.indexSize;i++)\n");
+        out.write("                value.add(null);\n");
+        out.write("        }\n");
+        out.write("        \n");
+        out.write("        value.set(index, rc);\n");
+        out.write("        \n");
+        out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
         

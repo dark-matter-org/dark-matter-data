@@ -45,12 +45,12 @@ public class DmcAttributeInfo {
 	// Indicates if an attribute is transient or persistent
 	final public DataTypeEnum	dataType;
 	
-	// A flag to indicate if this is a mandatory (must have) or a may have attribute.
-	// This is used by the AttributeSet validator to determine whether the attribute set 
-	// for an object is sane.
-	final public Boolean		mandatory;
+//	// A flag to indicate if this is a mandatory (must have) or a may have attribute.
+//	// This is used by the AttributeSet validator to determine whether the attribute set 
+//	// for an object is sane.
+//	final public Boolean		mandatory;
 	
-	final public int			mvsize;
+	final public int			indexSize;
 	
 //	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, Boolean opt){
 //		name 		= n;
@@ -68,12 +68,26 @@ public class DmcAttributeInfo {
 		type		= t;
 		valueType	= at;
 		dataType	= dte;
-		mandatory	= false;
-		mvsize		= 0;
+//		mandatory	= false;
+		indexSize	= 0;
 	}
 	
+	public DmcAttributeInfo(String n, int i, String t, ValueTypeEnum at, DataTypeEnum dte, int is){
+		name 		= n;
+		id			= i;
+		type		= t;
+		valueType	= at;
+		dataType	= dte;
+//		mandatory	= false;
+		indexSize	= is;
+	}
+	
+//	public String toString(){
+//		return(name + " " + id + " " + type + " " + valueType + " " + dataType + " must: " + mandatory + " index: " + indexSize);
+//	}
+
 	public String toString(){
-		return(name + " " + id + " " + type + " " + valueType + " " + dataType + " must: " + mandatory + " index: " + mvsize);
+		return(name + " " + id + " " + type + " " + valueType + " " + dataType + " index: " + indexSize);
 	}
 
 }
