@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;    // DmcType import
  * The DmcTypeActionResponseREFMV provides storage for a multi-valued ActionResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1947)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2009)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:222)
  */
 @SuppressWarnings("serial")
@@ -102,8 +102,32 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
     }
     
     @Override
-    public ActionResponseDMO getMVnth(int i){
-        return(value.get(i));
+    public ActionResponseDMO getMVnth(int index){
+        return(value.get(index));
+    }
+    
+    @Override
+    public ActionResponseDMO setMVnth(int index, Object v) throws DmcValueException {
+        if (attrInfo.indexSize == 0)
+            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+        
+        if ( (index < 0) || (index >= attrInfo.indexSize))
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+        
+        ActionResponseDMO rc = null;
+        
+        if (v != null)
+            rc = typeCheck(v);
+        
+        if (value == null){
+            value = new ArrayList<ActionResponseDMO>(attrInfo.indexSize);
+            for(int i=0;i<attrInfo.indexSize;i++)
+                value.add(null);
+        }
+        
+        value.set(index, rc);
+        
+        return(rc);
     }
     
     @Override

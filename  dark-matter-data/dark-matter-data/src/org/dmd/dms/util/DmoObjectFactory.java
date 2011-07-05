@@ -26,6 +26,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
@@ -72,6 +73,8 @@ public class DmoObjectFactory {
             ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(0));
             throw(ex);
 		}
+		
+		DebugInfo.debug(uco.toOIF(15));
 		
 		dmo = cd.newDMOInstance();
 		

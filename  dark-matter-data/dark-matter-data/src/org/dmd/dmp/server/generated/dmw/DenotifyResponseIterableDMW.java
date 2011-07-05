@@ -25,7 +25,7 @@ import org.dmd.dmp.server.extended.DenotifyResponse;  // wrapper type import
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1446)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1511)
  *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:149)
  */
 public class DenotifyResponseIterableDMW extends DmwObjectIterator<DenotifyResponse, DenotifyResponseDMO> {

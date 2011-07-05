@@ -83,6 +83,7 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _transString;
     public static AttributeDefinition _nonperString;
     public static AttributeDefinition _indexedString;
+    public static AttributeDefinition _indexedObjRef;
 
     public static TypeDefinition _DmtStringName;
 
@@ -430,7 +431,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.setDmdID("10016");
             _ObjWithRefsOBJ.setClassType("STRUCTURAL");
             _ObjWithRefsOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ObjWithRefsOBJ.setLineNumber("211");
+            _ObjWithRefsOBJ.setLineNumber("213");
             _ObjWithRefsOBJ.setDerivedFrom("BaseObj");
             _ObjWithRefsOBJ.setIsNamedBy("name");
             _ObjWithRefsOBJ.setUseWrapperType("EXTENDED");
@@ -447,6 +448,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.addMay("hsNames");
             _ObjWithRefsOBJ.addMay("nonperString");
             _ObjWithRefsOBJ.addMay("transString");
+            _ObjWithRefsOBJ.addMay("indexedString");
+            _ObjWithRefsOBJ.addMay("indexedObjRef");
             _ObjWithRefsOBJ.addMust("name");
             _ObjWithRefsOBJ.addMust("svString");
             _ObjWithRefsOBJ.addMust("mvTestEnum");
@@ -460,7 +463,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterOBJ.setDmdID("10017");
             _ClientCountFilterOBJ.setClassType("STRUCTURAL");
             _ClientCountFilterOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterOBJ.setLineNumber("218");
+            _ClientCountFilterOBJ.setLineNumber("220");
             _ClientCountFilterOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterREF");
             _ClientCountFilterOBJ.setDmwIteratorClass("ClientCountFilterIterableDMW");
@@ -475,7 +478,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterRequestOBJ.setDmdID("10018");
             _ClientCountFilterRequestOBJ.setClassType("STRUCTURAL");
             _ClientCountFilterRequestOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterRequestOBJ.setLineNumber("227");
+            _ClientCountFilterRequestOBJ.setLineNumber("229");
             _ClientCountFilterRequestOBJ.setDerivedFrom("Request");
             _ClientCountFilterRequestOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterRequestOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterRequestREF");
@@ -1021,6 +1024,19 @@ public class DmtSchemaAG extends SchemaDefinition {
             _indexedStringOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _indexedStringOBJ.setLineNumber("382");
             addAttributeDefList(_indexedString);
+
+            AttributeDefinitionDMO _indexedObjRefOBJ = new AttributeDefinitionDMO();
+            _indexedObjRef = new AttributeDefinition(_indexedObjRefOBJ);
+            _indexedObjRefOBJ.setType("ObjWithRefs");
+            _indexedObjRefOBJ.setName("indexedObjRef");
+            _indexedObjRefOBJ.setDmdID("10415");
+            _indexedObjRefOBJ.setDescription("Indexed references to ObjWithRefs objects.");
+            _indexedObjRefOBJ.setIndexSize("10");
+            _indexedObjRefOBJ.setValueType("MULTI");
+            _indexedObjRef.setDefinedIn(this);
+            _indexedObjRefOBJ.setFile("C:/Dev/svn-web1/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _indexedObjRefOBJ.setLineNumber("390");
+            addAttributeDefList(_indexedObjRef);
 
     }
 

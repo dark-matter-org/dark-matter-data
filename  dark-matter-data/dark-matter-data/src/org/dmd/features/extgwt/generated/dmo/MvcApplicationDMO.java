@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:321)
 import java.io.Serializable;                                                      // Always required
 import java.util.*;                                                               // Always required
 import org.dmd.dmc.DmcAttribute;                                                  // Any attributes
@@ -136,7 +136,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:808)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public Iterator<MvcEventREF> getStartEvents(){
         DmcTypeMvcEventREFMV attr = (DmcTypeMvcEventREFMV) get(ExtgwtDMSAG.__startEvents);
         if (attr == null)
@@ -156,7 +156,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of MvcEventREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:828)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:830)
     public Iterator<MvcEventREF> getStartEventsREFs(){
         DmcTypeMvcEventREFMV attr = (DmcTypeMvcEventREFMV) get(ExtgwtDMSAG.__startEvents);
         if (attr == null)
@@ -169,7 +169,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Adds another startEvents to the specified value.
      * @param value MvcEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:843)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
     public DmcAttribute<?> addStartEvents(MvcEventDMO value) {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__startEvents);
         if (attr == null)
@@ -189,7 +189,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Adds another startEvents value.
      * @param value A value compatible with MvcEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1041)
     public DmcAttribute<?> addStartEvents(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__startEvents);
         if (attr == null)
@@ -203,7 +203,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Returns the number of values in startEvents
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public int getStartEventsSize(){
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__startEvents);
         if (attr == null)
@@ -216,7 +216,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Deletes a startEvents value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1011)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1088)
     public DmcAttribute<?> delStartEvents(Object value){
         DmcAttribute<?> attr = del(ExtgwtDMSAG.__startEvents, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -225,7 +225,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the startEvents attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1135)
     public void remStartEvents(){
          rem(ExtgwtDMSAG.__startEvents);
     }
@@ -234,7 +234,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of MvcEventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:808)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public Iterator<MvcEventREF> getDefinesEvent(){
         DmcTypeMvcEventREFMV attr = (DmcTypeMvcEventREFMV) get(ExtgwtDMSAG.__definesEvent);
         if (attr == null)
@@ -254,7 +254,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of MvcEventREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:828)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:830)
     public Iterator<MvcEventREF> getDefinesEventREFs(){
         DmcTypeMvcEventREFMV attr = (DmcTypeMvcEventREFMV) get(ExtgwtDMSAG.__definesEvent);
         if (attr == null)
@@ -267,7 +267,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Adds another definesEvent to the specified value.
      * @param value MvcEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:843)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
     public DmcAttribute<?> addDefinesEvent(MvcEventDMO value) {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__definesEvent);
         if (attr == null)
@@ -287,7 +287,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Adds another definesEvent value.
      * @param value A value compatible with MvcEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1041)
     public DmcAttribute<?> addDefinesEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__definesEvent);
         if (attr == null)
@@ -301,7 +301,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Returns the number of values in definesEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public int getDefinesEventSize(){
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__definesEvent);
         if (attr == null)
@@ -314,7 +314,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Deletes a definesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1011)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1088)
     public DmcAttribute<?> delDefinesEvent(Object value){
         DmcAttribute<?> attr = del(ExtgwtDMSAG.__definesEvent, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -323,12 +323,12 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the definesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1135)
     public void remDefinesEvent(){
          rem(ExtgwtDMSAG.__definesEvent);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -341,7 +341,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -360,7 +360,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -373,7 +373,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
@@ -382,7 +382,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of MvcControllerDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:808)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public Iterator<MvcControllerREF> getControllers(){
         DmcTypeMvcControllerREFMV attr = (DmcTypeMvcControllerREFMV) get(ExtgwtDMSAG.__controllers);
         if (attr == null)
@@ -402,7 +402,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of MvcControllerREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:828)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:830)
     public Iterator<MvcControllerREF> getControllersREFs(){
         DmcTypeMvcControllerREFMV attr = (DmcTypeMvcControllerREFMV) get(ExtgwtDMSAG.__controllers);
         if (attr == null)
@@ -415,7 +415,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Adds another controllers to the specified value.
      * @param value MvcController
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:843)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
     public DmcAttribute<?> addControllers(MvcControllerDMO value) {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__controllers);
         if (attr == null)
@@ -435,7 +435,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Adds another controllers value.
      * @param value A value compatible with MvcController
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1041)
     public DmcAttribute<?> addControllers(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__controllers);
         if (attr == null)
@@ -449,7 +449,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Returns the number of values in controllers
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public int getControllersSize(){
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__controllers);
         if (attr == null)
@@ -462,7 +462,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Deletes a controllers value.
      * @param value The MvcController to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1011)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1088)
     public DmcAttribute<?> delControllers(Object value){
         DmcAttribute<?> attr = del(ExtgwtDMSAG.__controllers, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -471,7 +471,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the controllers attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1135)
     public void remControllers(){
          rem(ExtgwtDMSAG.__controllers);
     }

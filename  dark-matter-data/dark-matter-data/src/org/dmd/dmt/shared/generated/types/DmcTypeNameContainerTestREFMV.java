@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // DmcType impo
  * The DmcTypeNameContainerTestREFMV provides storage for a multi-valued NameContainerTest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1956)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2009)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:222)
  */
 @SuppressWarnings("serial")
@@ -46,9 +46,6 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     
     @Override
     public NameContainerTestDMO add(Object v) throws DmcValueException {
-        if (attrInfo.indexSize > 0)
-            throw(new IllegalStateException("You must use the setMVnth() method for indexed attribute: " + attrInfo.name));
-        
         NameContainerTestDMO rc = typeCheck(v);
         if (value == null)
             value = new ArrayList<NameContainerTestDMO>();
@@ -58,9 +55,6 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     
     @Override
     public NameContainerTestDMO del(Object v){
-        if (attrInfo.indexSize > 0)
-            throw(new IllegalStateException("You must use the setMVnth(index,null) method to remove values from indexed attribute: " + attrInfo.name));
-        
         NameContainerTestDMO rc = null;
         try {
             rc = typeCheck(v);
@@ -94,9 +88,6 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     
     @Override
     public NameContainerTestDMO getMVnth(int index){
-        if ( (attrInfo.indexSize > 0) && ((index < 0) || (index >= attrInfo.indexSize)) )
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
-        
         return(value.get(index));
     }
     
@@ -106,15 +97,18 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
             throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
         
         if ( (index < 0) || (index >= attrInfo.indexSize))
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
         
         NameContainerTestDMO rc = null;
         
         if (v != null)
             rc = typeCheck(v);
         
-        if (value == null)
+        if (value == null){
             value = new ArrayList<NameContainerTestDMO>(attrInfo.indexSize);
+            for(int i=0;i<attrInfo.indexSize;i++)
+                value.add(null);
+        }
         
         value.set(index, rc);
         

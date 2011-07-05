@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:321)
 import java.io.Serializable;                                                          // Always required
 import java.util.*;                                                                   // Always required
 import org.dmd.dmc.DmcAttribute;                                                      // Any attributes
@@ -136,7 +136,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of ControllerDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:808)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:810)
     public Iterator<ControllerREF> getUsesController(){
         DmcTypeControllerREFMV attr = (DmcTypeControllerREFMV) get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -156,7 +156,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of ControllerREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:828)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:830)
     public Iterator<ControllerREF> getUsesControllerREFs(){
         DmcTypeControllerREFMV attr = (DmcTypeControllerREFMV) get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -169,7 +169,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Adds another usesController to the specified value.
      * @param value Controller
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:843)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:844)
     public DmcAttribute<?> addUsesController(ControllerDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -189,7 +189,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Adds another usesController value.
      * @param value A value compatible with Controller
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1041)
     public DmcAttribute<?> addUsesController(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -203,7 +203,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Returns the number of values in usesController
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public int getUsesControllerSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -216,7 +216,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Deletes a usesController value.
      * @param value The Controller to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1011)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1088)
     public DmcAttribute<?> delUsesController(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__usesController, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -225,12 +225,12 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the usesController attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1135)
     public void remUsesController(){
          rem(MvwDMSAG.__usesController);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public CamelCaseName getAppName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__appName);
         if (attr == null)
@@ -243,7 +243,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets appName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setAppName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__appName);
         if (attr == null)
@@ -262,7 +262,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets appName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setAppName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__appName);
         if (attr == null)
@@ -275,12 +275,12 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the appName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remAppName(){
          rem(MvwDMSAG.__appName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:571)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:572)
     public PlaceREF getDefaultPlace(){
         DmcTypePlaceREFSV attr = (DmcTypePlaceREFSV) get(MvwDMSAG.__defaultPlace);
         if (attr == null)
@@ -311,7 +311,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets defaultPlace to the specified value.
      * @param value PlaceDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:624)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public void setDefaultPlace(PlaceDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__defaultPlace);
         if (attr == null)
@@ -330,7 +330,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets defaultPlace to the specified value.
      * @param value A value compatible with DmcTypePlaceREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setDefaultPlace(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__defaultPlace);
         if (attr == null)
@@ -343,7 +343,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the defaultPlace attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remDefaultPlace(){
          rem(MvwDMSAG.__defaultPlace);
     }

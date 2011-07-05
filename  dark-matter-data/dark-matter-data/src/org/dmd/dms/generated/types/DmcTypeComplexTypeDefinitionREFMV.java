@@ -60,9 +60,6 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     
     @Override
     public ComplexTypeDefinitionREF add(Object v) throws DmcValueException {
-        if (attrInfo.indexSize > 0)
-            throw(new IllegalStateException("You must use the setMVnth() method for indexed attribute: " + attrInfo.name));
-        
         ComplexTypeDefinitionREF rc = typeCheck(v);
         if (value == null)
             value = new ArrayList<ComplexTypeDefinitionREF>();
@@ -72,9 +69,6 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     
     @Override
     public ComplexTypeDefinitionREF del(Object v){
-        if (attrInfo.indexSize > 0)
-            throw(new IllegalStateException("You must use the setMVnth(index,null) method to remove values from indexed attribute: " + attrInfo.name));
-        
         ComplexTypeDefinitionREF rc = null;
         try {
             rc = typeCheck(v);
@@ -108,9 +102,6 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     
     @Override
     public ComplexTypeDefinitionREF getMVnth(int index){
-        if ( (attrInfo.indexSize > 0) && ((index < 0) || (index >= attrInfo.indexSize)) )
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
-        
         return(value.get(index));
     }
     
@@ -120,7 +111,7 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
             throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
         
         if ( (index < 0) || (index >= attrInfo.indexSize))
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
         
         ComplexTypeDefinitionREF rc = null;
         

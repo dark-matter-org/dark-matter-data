@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;    // DmcType import
  * The DmcTypeNotifyRequestREFMV provides storage for a multi-valued NotifyRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1947)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2009)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:222)
  */
 @SuppressWarnings("serial")
@@ -102,8 +102,32 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
     }
     
     @Override
-    public NotifyRequestDMO getMVnth(int i){
-        return(value.get(i));
+    public NotifyRequestDMO getMVnth(int index){
+        return(value.get(index));
+    }
+    
+    @Override
+    public NotifyRequestDMO setMVnth(int index, Object v) throws DmcValueException {
+        if (attrInfo.indexSize == 0)
+            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+        
+        if ( (index < 0) || (index >= attrInfo.indexSize))
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+        
+        NotifyRequestDMO rc = null;
+        
+        if (v != null)
+            rc = typeCheck(v);
+        
+        if (value == null){
+            value = new ArrayList<NotifyRequestDMO>(attrInfo.indexSize);
+            for(int i=0;i<attrInfo.indexSize;i++)
+                value.add(null);
+        }
+        
+        value.set(index, rc);
+        
+        return(rc);
     }
     
     @Override

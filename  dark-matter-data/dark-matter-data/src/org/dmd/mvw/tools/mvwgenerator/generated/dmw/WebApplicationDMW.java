@@ -117,7 +117,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
      * @return An Iterator of ControllerDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1277)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1278)
     public ControllerIterableDMW getUsesControllerIterable(){
         DmcAttribute attr = ((WebApplicationDMO) core).get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -130,7 +130,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
      * Adds another usesController value.
      * @param value A value compatible with Controller
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1294)
     public DmcAttribute<?> addUsesController(Controller value){
         DmcAttribute<?> attr = ((WebApplicationDMO) core).addUsesController(((ControllerDMO)value.getDmcObject()));
         return(attr);
@@ -140,7 +140,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
      * Deletes a usesController value.
      * @param value The Controller to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1306)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1307)
     public void delUsesController(Controller value){
         ((WebApplicationDMO) core).delUsesController(value.getDMO());
     }
@@ -148,7 +148,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * @return A COPY of the collection of Controller objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1342)
     public ArrayList<Controller> getUsesControllerCopy(){
         DmcAttribute<?> attr = ((WebApplicationDMO) core).get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -167,7 +167,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * Removes the usesController attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remUsesController(){
         ((WebApplicationDMO) core).remUsesController();
     }

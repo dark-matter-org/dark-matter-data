@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:321)
 import java.io.Serializable;                                                      // Always required
 import java.util.*;                                                               // Always required
 import org.dmd.dmc.DmcAttribute;                                                  // Any attributes
@@ -133,7 +133,7 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -146,7 +146,7 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -165,7 +165,7 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -178,12 +178,12 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:571)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:572)
     public MvcMenuREF getAddToMenu(){
         DmcTypeMvcMenuREFSV attr = (DmcTypeMvcMenuREFSV) get(ExtgwtDMSAG.__addToMenu);
         if (attr == null)
@@ -214,7 +214,7 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets addToMenu to the specified value.
      * @param value MvcMenuDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:624)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public void setAddToMenu(MvcMenuDMO value) {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__addToMenu);
         if (attr == null)
@@ -233,7 +233,7 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets addToMenu to the specified value.
      * @param value A value compatible with DmcTypeMvcMenuREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setAddToMenu(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__addToMenu);
         if (attr == null)
@@ -246,12 +246,12 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
     /**
      * Removes the addToMenu attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remAddToMenu(){
          rem(ExtgwtDMSAG.__addToMenu);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:571)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:572)
     public MvcControllerREF getAssociatedController(){
         DmcTypeMvcControllerREFSV attr = (DmcTypeMvcControllerREFSV) get(ExtgwtDMSAG.__associatedController);
         if (attr == null)
@@ -282,7 +282,7 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets associatedController to the specified value.
      * @param value MvcControllerDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:624)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
     public void setAssociatedController(MvcControllerDMO value) {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__associatedController);
         if (attr == null)
@@ -301,7 +301,7 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets associatedController to the specified value.
      * @param value A value compatible with DmcTypeMvcControllerREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setAssociatedController(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__associatedController);
         if (attr == null)
@@ -314,12 +314,12 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
     /**
      * Removes the associatedController attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remAssociatedController(){
          rem(ExtgwtDMSAG.__associatedController);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public Integer getMenuOrder(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(ExtgwtDMSAG.__menuOrder);
         if (attr == null)
@@ -332,7 +332,7 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets menuOrder to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setMenuOrder(Integer value) {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__menuOrder);
         if (attr == null)
@@ -351,7 +351,7 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
      * Sets menuOrder to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setMenuOrder(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__menuOrder);
         if (attr == null)
@@ -364,7 +364,7 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
     /**
      * Removes the menuOrder attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remMenuOrder(){
          rem(ExtgwtDMSAG.__menuOrder);
     }

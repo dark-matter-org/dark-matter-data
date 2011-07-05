@@ -380,5 +380,12 @@ valueType				MULTI
 indexSize				5
 type            		String
 
+AttributeDefinition
+name					indexedObjRef
+dmdID					415
+type					ObjWithRefs
+valueType				MULTI
+indexSize				10
+description				Indexed references to ObjWithRefs objects.
 
 

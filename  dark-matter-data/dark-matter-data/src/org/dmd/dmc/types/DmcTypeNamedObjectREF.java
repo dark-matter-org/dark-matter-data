@@ -145,19 +145,43 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 				deleteUs = true;
 		}
 		else{
-    		Iterator<DmcNamedObjectREF> it = (Iterator<DmcNamedObjectREF>) getMV();
-    		while(it.hasNext()){
-    			DmcNamedObjectREF ref = it.next();
-    			if (!resolveIt(referrer, ref)){
-    				// Delete the reference from our multi-valued container - we can do
-    				// this safely because we're iterating over a copy of the collection
-    				del(ref);
-    			}
-    		}
-    		
-    		// There's nothing left in the collection, so we need to be removed
-    		if (getMVSize() == 0)
-    			deleteUs = true;
+			if (attrInfo.indexSize == 0){
+	    		Iterator<DmcNamedObjectREF> it = (Iterator<DmcNamedObjectREF>) getMV();
+	    		while(it.hasNext()){
+	    			DmcNamedObjectREF ref = it.next();
+	    			if (!resolveIt(referrer, ref)){
+	    				// Delete the reference from our multi-valued container - we can do
+	    				// this safely because we're iterating over a copy of the collection
+	    				del(ref);
+	    			}
+	    		}
+	    		
+	    		// There's nothing left in the collection, so we need to be removed
+	    		if (getMVSize() == 0)
+	    			deleteUs = true;
+			}
+			else{
+				boolean anyResolved = false;
+				for(int index=0; index<getMVSize(); index++){
+					DmcNamedObjectREF ref = getMVnth(index);
+					if (ref == null)
+						continue;
+	    			if (resolveIt(referrer, ref)){
+	    				anyResolved = true;
+	    			}
+	    			else{
+	    				// Set the index slot to null
+	    				try {
+							setMVnth(index, null);
+						} catch (DmcValueException e) {
+							throw(new IllegalStateException("Nulling an indexed attribute slot should not cause an exception."));
+						}
+	    			}
+				}
+				
+				if (!anyResolved)
+					deleteUs = true;
+			}
 		}
 		
 		return(deleteUs);
@@ -211,25 +235,40 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
     			rc = true;
     	}
     	else{
-    		Iterator<DmcNamedObjectREF> it = (Iterator<DmcNamedObjectREF>) getMV();
-    		if (DmcOmni.instance().cleanUpDeadRefs()){
-    			// IF we're cleaning up dead refs, we need only check the first
-    			// element to see if we're resolved. That's because it's an all
-    			// or nothing deal - we resolve everything in one shot and if something
-    			// isn't resolved, it will have been tossed
-    			DmcNamedObjectREF ref = it.next();
-    	    	if (ref.getObject() != null)
-    	    		rc = true;
+    		if (attrInfo.indexSize == 0){
+	    		Iterator<DmcNamedObjectREF> it = (Iterator<DmcNamedObjectREF>) getMV();
+	    		if (DmcOmni.instance().cleanUpDeadRefs()){
+	    			// IF we're cleaning up dead refs, we need only check the first
+	    			// element to see if we're resolved. That's because it's an all
+	    			// or nothing deal - we resolve everything in one shot and if something
+	    			// isn't resolved, it will have been tossed
+	    			DmcNamedObjectREF ref = it.next();
+	    	    	if (ref.getObject() != null)
+	    	    		rc = true;
+	    		}
+	    		else{
+	    			// Otherwise, we must cycle through all refs
+	    			rc = true;
+	    			while(it.hasNext()){
+	    				if (it.next().getObject() == null){
+	    					rc = false;
+	    					break;
+	    				}
+	    			}
+	    		}
     		}
     		else{
-    			// Otherwise, we must cycle through all refs
+    			// For indexed attributes we have to cycle through everything regardless
     			rc = true;
-    			while(it.hasNext()){
-    				if (it.next().getObject() == null){
-    					rc = false;
-    					break;
-    				}
-    			}
+				for(int index=0; index<getMVSize(); index++){
+					DmcNamedObjectREF ref = getMVnth(index);
+					if (ref == null)
+						continue;
+					if (ref.getObject() == null){
+						rc = false;
+						break;
+					}
+				}
     		}
     	}
     	

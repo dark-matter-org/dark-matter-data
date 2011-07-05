@@ -61,9 +61,6 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     
     @Override
     public Boolean add(Object v) throws DmcValueException {
-        if (attrInfo.indexSize > 0)
-            throw(new IllegalStateException("You must use the setMVnth() method for indexed attribute: " + attrInfo.name));
-        
         Boolean rc = typeCheck(v);
         if (value == null)
             value = new ArrayList<Boolean>();
@@ -73,9 +70,6 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     
     @Override
     public Boolean del(Object v){
-        if (attrInfo.indexSize > 0)
-            throw(new IllegalStateException("You must use the setMVnth(index,null) method to remove values from indexed attribute: " + attrInfo.name));
-        
         Boolean rc = null;
         try {
             rc = typeCheck(v);
@@ -109,9 +103,6 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     
     @Override
     public Boolean getMVnth(int index){
-        if ( (attrInfo.indexSize > 0) && ((index < 0) || (index >= attrInfo.indexSize)) )
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
-        
         return(value.get(index));
     }
     
@@ -121,7 +112,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
             throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
         
         if ( (index < 0) || (index >= attrInfo.indexSize))
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
         
         Boolean rc = null;
         

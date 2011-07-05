@@ -209,6 +209,7 @@ may				hsNames
 may				nonperString
 may				transString
 may				indexedString
+may				indexedObjRef
 
 ClassDefinition
 name            ClientCountFilter

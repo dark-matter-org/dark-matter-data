@@ -790,72 +790,125 @@ public class GenUtility {
 
 		
 		if (ad.getType().getIsRefType()){
-	    	sb.append("    /**\n");
-			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
-			sb.append("     */\n");
-	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+			if (ad.getIndexSize() == null){
+		    	sb.append("    /**\n");
+				sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
+				sb.append("     */\n");
+		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
+					sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+					sb.append("        if (attr == null)\n");
+					sb.append("            return( ((List<" + typeName + "DMO>) Collections.EMPTY_LIST).iterator() );\n");
+					sb.append("\n");
+					sb.append("        return(attr.getMV());\n");
+					sb.append("    }\n\n");
+					
+				}
+				else{
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
+					sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+					sb.append("        if (attr == null)\n");
+					sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+			    	sb.append("\n");
+			    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
+			    	sb.append("            if (attr.doLazyResolution(this)){\n");
+			    	sb.append("                rem(attr.getAttributeInfo());\n");
+					sb.append("                return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+			    	sb.append("            }\n");
+			    	sb.append("        }\n");
+			    	sb.append("\n");
+					sb.append("        return(attr.getMV());\n");
+					sb.append("    }\n\n");
+					
+			    	sb.append("    /**\n");
+					sb.append("     * @return An Iterator of " + typeName + "REFs without attempting lazy resolution (if it's turned on).\n");
+					sb.append("     */\n");
+			    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "REFs(){\n");
+					sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+					sb.append("        if (attr == null)\n");
+					sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+			    	sb.append("\n");
+					sb.append("        return(attr.getMV());\n");
+					sb.append("    }\n\n");
+				}
+			
+		    	sb.append("    /**\n");
+		    	sb.append("     * Adds another " + ad.getName() + " to the specified value.\n");
+		    	sb.append("     * @param value " + typeName + "\n");
+		    	sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");			
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
-				sb.append("        if (attr == null)\n");
-				sb.append("            return( ((List<" + typeName + "DMO>) Collections.EMPTY_LIST).iterator() );\n");
-				sb.append("\n");
-				sb.append("        return(attr.getMV());\n");
-				sb.append("    }\n\n");
-				
+		    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + "DMO value) {\n");
+		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        if (attr == null)\n");
+		    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        \n");
+		    	sb.append("        try{\n");
+		    	sb.append("            setLastValue(attr.add(value));\n");
+		    	sb.append("            add(" + ad.getDMSAGReference() + ",attr);\n");
+		    	sb.append("        }\n");
+		    	sb.append("        catch(DmcValueException ex){\n");
+		    	sb.append("            throw(new IllegalStateException(\"The type specific add() method shouldn't throw exceptions!\",ex));\n");
+		    	sb.append("        }\n");
+		    	sb.append("        return(attr);\n");
+		    	sb.append("    }\n\n");
 			}
 			else{
+		    	sb.append("    /**\n");
+				sb.append("     * @return The nth " + typeName + " value and attempt lazy resolution if it's on.\n");
+				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
+				sb.append("    public " + typeName + "REF getNth" + functionName + "(int i){\n");
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
-				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
-		    	sb.append("\n");
+				sb.append("            return(null);\n");
+				sb.append("\n");
 		    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
 		    	sb.append("            if (attr.doLazyResolution(this)){\n");
 		    	sb.append("                rem(attr.getAttributeInfo());\n");
-				sb.append("                return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+				sb.append("                return(null);\n");
 		    	sb.append("            }\n");
 		    	sb.append("        }\n");
-		    	sb.append("\n");
-				sb.append("        return(attr.getMV());\n");
+				sb.append("\n");
+				sb.append("        return(attr.getMVnth(i));\n");
 				sb.append("    }\n\n");
 				
 		    	sb.append("    /**\n");
-				sb.append("     * @return An Iterator of " + typeName + "REFs without attempting lazy resolution (if it's turned on).\n");
+				sb.append("     * @return The nth " + typeName + " value without attempting lazy resolution.\n");
 				sb.append("     */\n");
-		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "REFs(){\n");
+				sb.append("    public " + typeName + "REF getNthREF" + functionName + "(int i){\n");
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
-				sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
-		    	sb.append("\n");
-				sb.append("        return(attr.getMV());\n");
+				sb.append("            return(null);\n");
+				sb.append("\n");
+				sb.append("        return(attr.getMVnth(i));\n");
 				sb.append("    }\n\n");
-
+				
+		    	sb.append("    /**\n");
+		    	sb.append("     * Sets the " + ad.getName() + " value at the specified index.\n");
+		    	sb.append("     * @param value " + typeName + "\n");
+		    	sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		    	sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + typeName + "DMO value) {\n");
+		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        if (attr == null)\n");
+		    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        \n");
+		    	sb.append("        try{\n");
+		    	sb.append("            setLastValue(attr.setMVnth(index, value));\n");
+		    	sb.append("            nth(" + ad.getDMSAGReference() + ",index ,attr);\n");
+		    	sb.append("        }\n");
+		    	sb.append("        catch(DmcValueException ex){\n");
+		    	sb.append("            throw(new IllegalStateException(\"The type specific setNth() method shouldn't throw exceptions!\",ex));\n");
+		    	sb.append("        }\n");
+		    	sb.append("        return(attr);\n");
+		    	sb.append("    }\n\n");
 			}
-			
-	    	sb.append("    /**\n");
-	    	sb.append("     * Adds another " + ad.getName() + " to the specified value.\n");
-	    	sb.append("     * @param value " + typeName + "\n");
-	    	sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-	    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + "DMO value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
-	    	sb.append("        if (attr == null)\n");
-	    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
-	    	sb.append("        \n");
-	    	sb.append("        try{\n");
-	    	sb.append("            setLastValue(attr.add(value));\n");
-	    	sb.append("            add(" + ad.getDMSAGReference() + ",attr);\n");
-	    	sb.append("        }\n");
-	    	sb.append("        catch(DmcValueException ex){\n");
-	    	sb.append("            throw(new IllegalStateException(\"The type specific add() method shouldn't throw exceptions!\",ex));\n");
-	    	sb.append("        }\n");
-	    	sb.append("        return(attr);\n");
-	    	sb.append("    }\n\n");
 
 		}
 		else{
@@ -1998,9 +2051,9 @@ public class GenUtility {
         
         out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " add(Object v) throws DmcValueException {\n");
-        out.write("        if (attrInfo.indexSize > 0)\n");
-        out.write("            throw(new IllegalStateException(\"You must use the setMVnth() method for indexed attribute: \" + attrInfo.name));\n");
-        out.write("        \n");
+//        out.write("        if (attrInfo.indexSize > 0)\n");
+//        out.write("            throw(new IllegalStateException(\"You must use the setMVnth() method for indexed attribute: \" + attrInfo.name));\n");
+//        out.write("        \n");
         out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
         out.write("        if (value == null)\n");
         out.write("            value = new ArrayList<" + typeName + DMO + genericArgs + ">();\n");
@@ -2011,9 +2064,9 @@ public class GenUtility {
         
         out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " del(Object v){\n");
-        out.write("        if (attrInfo.indexSize > 0)\n");
-        out.write("            throw(new IllegalStateException(\"You must use the setMVnth(index,null) method to remove values from indexed attribute: \" + attrInfo.name));\n");
-        out.write("        \n");
+//        out.write("        if (attrInfo.indexSize > 0)\n");
+//        out.write("            throw(new IllegalStateException(\"You must use the setMVnth(index,null) method to remove values from indexed attribute: \" + attrInfo.name));\n");
+//        out.write("        \n");
         out.write("        " + typeName + DMO + genericArgs + " rc = null;\n");
         out.write("        try {\n");
         out.write("            rc = typeCheck(v);\n");
@@ -2051,9 +2104,9 @@ public class GenUtility {
         
         out.write("    @Override\n");
         out.write("    public " + typeName + DMO + genericArgs + " getMVnth(int index){\n");
-        out.write("        if ( (attrInfo.indexSize > 0) && ((index < 0) || (index >= attrInfo.indexSize)) )\n");
-        out.write("            throw(new IllegalStateException(\"Index \" + index + \" for attribute: \" + attrInfo.name + \" is out of range: 0 < index < \" + attrInfo.indexSize));\n");
-        out.write("        \n");
+//        out.write("        if ( (attrInfo.indexSize > 0) && ((index < 0) || (index >= attrInfo.indexSize)) )\n");
+//        out.write("            throw(new IllegalStateException(\"Index \" + index + \" for attribute: \" + attrInfo.name + \" is out of range: 0 < index < \" + attrInfo.indexSize));\n");
+//        out.write("        \n");
         out.write("        return(value.get(index));\n");
         out.write("    }\n");
         out.write("    \n");
@@ -2064,7 +2117,7 @@ public class GenUtility {
         out.write("            throw(new IllegalStateException(\"Attribute: \" + attrInfo.name + \" is not indexed. You can't use setMVnth().\"));\n");
         out.write("        \n");
         out.write("        if ( (index < 0) || (index >= attrInfo.indexSize))\n");
-        out.write("            throw(new IllegalStateException(\"Index \" + index + \" for attribute: \" + attrInfo.name + \" is out of range: 0 < index < \" + attrInfo.indexSize));\n");
+        out.write("            throw(new IllegalStateException(\"Index \" + index + \" for attribute: \" + attrInfo.name + \" is out of range: 0 <= index < \" + attrInfo.indexSize));\n");
         out.write("        \n");
         out.write("        " + typeName + DMO + genericArgs + " rc = null;\n");
         out.write("        \n");

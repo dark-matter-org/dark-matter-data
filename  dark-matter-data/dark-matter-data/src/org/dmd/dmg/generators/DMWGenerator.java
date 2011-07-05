@@ -1268,97 +1268,129 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		if (ad.getType().getIsRefType()){
 			String justdmo = ad.getType().getOriginalClass().getName().getNameString() + "DMO";
-
 			String itClass = ad.getType().getOriginalClass().getDmwIteratorClass();
-	    	sb.append("    /**\n");
-			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
-			sb.append("     */\n");
-			sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
-			sb.append("        DmcAttribute attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
-			sb.append("        if (attr == null)\n");
-			sb.append("            return(" + itClass+ ".emptyList);\n");
-			sb.append("        \n");
-			sb.append("        return(new " + itClass + "(attr.getMV()));\n");
-			sb.append("    }\n\n");
 			
-	    	////////////////////////////////////////////////////////////////////////////////
-	    	// adder
-
-			sb.append("    /**\n");
-			sb.append("     * Adds another " + ad.getName() + " value.\n");
-			sb.append("     * @param value A value compatible with " + typeName + "\n");
-			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public DmcAttribute<?> add" + functionName + "(" + auxHolderClass + " value){\n");
-	    	sb.append("        DmcAttribute<?> attr = " + dmocast + ".add" + functionName + "(((" + justdmo + ")value.getDmcObject()));\n");
-	    	sb.append("        return(attr);\n");
-			sb.append("    }\n\n");
-
-	    	////////////////////////////////////////////////////////////////////////////////
-	    	// deleter
-
-			sb.append("    /**\n");
-			sb.append("     * Deletes a " + ad.getName() + " value.\n");
-			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
-			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
-			sb.append("        " + dmocast + ".del" + functionName + "(value.getDMO());\n");
-			sb.append("    }\n\n");
-			
-	    	////////////////////////////////////////////////////////////////////////////////
-	    	// collection
-			
-			if (ad.getType().getOriginalClass().getIsNamedBy() != null){
-				String collectionClass 	= null;
-				String dmwClass			= null;
-				boolean isMULTI = false;
+			if (ad.getIndexSize() == null){
+				sb.append("    /**\n");
+				sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
+				sb.append("     */\n");
+				sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
+				sb.append("        DmcAttribute attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(" + itClass+ ".emptyList);\n");
+				sb.append("        \n");
+				sb.append("        return(new " + itClass + "(attr.getMV()));\n");
+				sb.append("    }\n\n");
 				
-				if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
-					dmwClass = ad.getType().getOriginalClass().getName().getNameString();
-				else
-					dmwClass = ad.getType().getOriginalClass().getName().getNameString() + "DMW";
-					
-			
-				switch(ad.getValueType()){
-				case MULTI:
-					collectionClass = "ArrayList";
-					isMULTI = true;
-					break;
-				case HASHSET:
-					collectionClass = "HashSet";
-					break;
-				case TREESET:
-					collectionClass = "TreeSet";
-					break;
-				}
-				
-		    	sb.append("    /**\n");
-				sb.append("     * @return A COPY of the collection of " + typeName + " objects.\n");
+		    	////////////////////////////////////////////////////////////////////////////////
+		    	// adder
+	
+				sb.append("    /**\n");
+				sb.append("     * Adds another " + ad.getName() + " value.\n");
+				sb.append("     * @param value A value compatible with " + typeName + "\n");
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public " + collectionClass + "<" + dmwClass + ">" + " get" + functionName + "Copy(){\n");
-				sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
-				sb.append("        if (attr == null)\n");
-				sb.append("            return(new " + collectionClass + "<" + dmwClass + ">());\n");
-				sb.append("        \n");
-				if (isMULTI)
-					sb.append("        " + collectionClass + "<" + dmwClass + "> rc = new " + collectionClass + "<" + dmwClass + ">(attr.getMVSize());\n");
-				else
-					sb.append("        " + collectionClass + "<" + dmwClass + "> rc = new " + collectionClass + "<" + dmwClass + ">();\n");
-				sb.append("        \n");
-				
-				sb.append("        " + itClass + " it = get" + functionName + "Iterable();\n");
-				sb.append("        while(it.hasNext()){\n");
-				sb.append("            rc.add(it.next());\n");
-				sb.append("        }\n");
-				sb.append("        \n");
-				sb.append("        return(rc);\n");
+				sb.append("    public DmcAttribute<?> add" + functionName + "(" + auxHolderClass + " value){\n");
+		    	sb.append("        DmcAttribute<?> attr = " + dmocast + ".add" + functionName + "(((" + justdmo + ")value.getDmcObject()));\n");
+		    	sb.append("        return(attr);\n");
 				sb.append("    }\n\n");
+	
+		    	////////////////////////////////////////////////////////////////////////////////
+		    	// deleter
+	
+				sb.append("    /**\n");
+				sb.append("     * Deletes a " + ad.getName() + " value.\n");
+				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
+				sb.append("        " + dmocast + ".del" + functionName + "(value.getDMO());\n");
+				sb.append("    }\n\n");
+				
+		    	////////////////////////////////////////////////////////////////////////////////
+		    	// collection
+				
+				if (ad.getType().getOriginalClass().getIsNamedBy() != null){
+					String collectionClass 	= null;
+					String dmwClass			= null;
+					boolean isMULTI = false;
+					
+					if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+						dmwClass = ad.getType().getOriginalClass().getName().getNameString();
+					else
+						dmwClass = ad.getType().getOriginalClass().getName().getNameString() + "DMW";
+						
+				
+					switch(ad.getValueType()){
+					case MULTI:
+						collectionClass = "ArrayList";
+						isMULTI = true;
+						break;
+					case HASHSET:
+						collectionClass = "HashSet";
+						break;
+					case TREESET:
+						collectionClass = "TreeSet";
+						break;
+					}
+					
+			    	sb.append("    /**\n");
+					sb.append("     * @return A COPY of the collection of " + typeName + " objects.\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public " + collectionClass + "<" + dmwClass + ">" + " get" + functionName + "Copy(){\n");
+					sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
+					sb.append("        if (attr == null)\n");
+					sb.append("            return(new " + collectionClass + "<" + dmwClass + ">());\n");
+					sb.append("        \n");
+					if (isMULTI)
+						sb.append("        " + collectionClass + "<" + dmwClass + "> rc = new " + collectionClass + "<" + dmwClass + ">(attr.getMVSize());\n");
+					else
+						sb.append("        " + collectionClass + "<" + dmwClass + "> rc = new " + collectionClass + "<" + dmwClass + ">();\n");
+					sb.append("        \n");
+					
+					sb.append("        " + itClass + " it = get" + functionName + "Iterable();\n");
+					sb.append("        while(it.hasNext()){\n");
+					sb.append("            rc.add(it.next());\n");
+					sb.append("        }\n");
+					sb.append("        \n");
+					sb.append("        return(rc);\n");
+					sb.append("    }\n\n");
+				}
 			}
-			
+			else{
+				// INDEXED ATTRIBUTES
+				
+				sb.append("    /**\n");
+				sb.append("     * Sets the " + ad.getName() + " value at the specified index.\n");
+				sb.append("     * @param value A value compatible with " + typeName + "\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + auxHolderClass + " value){\n");
+		    	sb.append("        DmcAttribute<?> attr = null;\n");
+		    	sb.append("        if (value == null)\n");
+		    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, null);\n");
+		    	sb.append("        else\n");
+		    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, ((" + justdmo + ")value.getDmcObject()));\n");
+		    	sb.append("        return(attr);\n");
+				sb.append("    }\n\n");
+				
+//				sb.append("    /**\n");
+//				sb.append("     * Gets the " + ad.getName() + " value at the specified index.\n");
+//				sb.append("     * @param value A value compatible with " + typeName + "\n");
+//				sb.append("     */\n");
+//				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+//				sb.append("    public DmcAttribute<?> getNth" + functionName + "(int index){\n");
+//		    	sb.append("        DmcAttribute<?> attr = " + dmocast + ".getNth" + functionName + "(index, ((" + justdmo + ")value.getDmcObject()));\n");
+//		    	sb.append("        return(attr);\n");
+//				sb.append("    }\n\n");
+				
+				
+			}
+
+			// 
 		}
 		else{
 			String itClass = ad.getType().getDmwIteratorClass();
@@ -1387,25 +1419,49 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
 			sb.append("    }\n\n");
 			
-			sb.append("    /**\n");
-			sb.append("     * Adds another " + ad.getName() + " value.\n");
-			sb.append("     * @param value A value compatible with " + typeName + "\n");
-			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public void add" + functionName + "(" + typeName + " value){\n");
-	    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
-			sb.append("    }\n\n");
+			if (ad.getIndexSize() == null){
+				sb.append("    /**\n");
+				sb.append("     * Adds another " + ad.getName() + " value.\n");
+				sb.append("     * @param value A value compatible with " + typeName + "\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public void add" + functionName + "(" + typeName + " value){\n");
+		    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
+				sb.append("    }\n\n");
+			}
+			else{
+				sb.append("    /**\n");
+				sb.append("     * Sets a " + ad.getName() + " value at the specified index.\n");
+				sb.append("     * @param value A value compatible with " + typeName + "\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public void setNth" + functionName + "(int index, " + typeName + " value){\n");
+		    	sb.append("        " + dmocast + ".setNth" + functionName + "(index, value);\n");
+				sb.append("    }\n\n");
+			}
 			
 			if (ad.getType().getAltType() != null){
 				String alt = ad.getType().getAltType();
-				sb.append("    /**\n");
-				sb.append("     * Adds another " + alt + " value.\n");
-				sb.append("     * @param value A value compatible with " + alt + "\n");
-				sb.append("     */\n");
-				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public void add" + functionName + "(" + alt + " value){\n");
-		    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
-				sb.append("    }\n\n");
+				if (ad.getIndexSize() == null){
+					sb.append("    /**\n");
+					sb.append("     * Adds another " + alt + " value.\n");
+					sb.append("     * @param value A value compatible with " + alt + "\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public void add" + functionName + "(" + alt + " value){\n");
+			    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
+					sb.append("    }\n\n");
+				}
+				else{
+					sb.append("    /**\n");
+					sb.append("     * Sets a " + alt + " value at the specified index\n");
+					sb.append("     * @param value A value compatible with " + alt + "\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public void setNth" + functionName + "(int index, " + alt + " value){\n");
+			    	sb.append("        " + dmocast + ".setNth" + functionName + "(index,value);\n");
+					sb.append("    }\n\n");
+				}
 			}
 			
 	    	////////////////////////////////////////////////////////////////////////////////

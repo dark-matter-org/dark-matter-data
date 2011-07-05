@@ -24,7 +24,6 @@ import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.enums.ModificationControlEnum;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 
 /**
@@ -173,9 +172,8 @@ public class Modifier implements Serializable {
 	 * operation is an ADD, it becomes a DEL. When the object being referred to is deleted, the
 	 * set of backref modifiers is run against the various objects that were referring to the
 	 * object.
-	 * @param an The attribute name.
-	 * @param op The operation.
-	 * @param v  The value.
+	 * @param op       The operation.
+	 * @param attr     The attribute.
 	 * @param referrer the object that is now referring to another object.
 	 */
 	@SuppressWarnings("unchecked")
@@ -192,6 +190,31 @@ public class Modifier implements Serializable {
 		attributeID		= attr.getID();
 		value			= null;
 		index			= -1;
+		attribute 		= attr;
+		referringObject	= (DmcNamedObjectIF) referrer;
+	}
+	
+	/**
+	 * Constructs a new backref Modifier for indexed attributes. This modifier constructs the
+	 * OPPOSITE of the operation in question i.e. if you're setting index 2 to point to
+	 * an object, the opposite operation is to set the index to null.
+	 * @param op       The operation.
+	 * @param attr     The attribute.
+	 * @param referrer The object that is now referring to another object.
+	 * @param idx      The index through which the reference is made.
+	 */
+	@SuppressWarnings("unchecked")
+	public Modifier(ModifyTypeEnum op, DmcAttribute attr, DmcObject referrer, int idx){
+		if (op == ModifyTypeEnum.NTH)
+			operation = ModifyTypeEnum.NTH;
+		else
+			throw(new IllegalStateException("Only the NTH operation can be specified for a backref Modifier with an index."));
+		
+		haveAttribute	= true;
+		attributeName 	= attr.getName();
+		attributeID		= attr.getID();
+		value			= null;
+		index			= idx;
 		attribute 		= attr;
 		referringObject	= (DmcNamedObjectIF) referrer;
 	}
@@ -330,19 +353,27 @@ public class Modifier implements Serializable {
 		if (operation == ModifyTypeEnum.REM){
 			return(getAttributeName() + " " + operation);
 		}
-		else {
+		else if (operation == ModifyTypeEnum.NTH){
 			if (value == null){
-				// We have a full attribute
-				if (index == -1)
-					return(getAttributeName() + " " + operation + " " + attribute.modifierFormat());
+				if (attribute == null)
+					return(getAttributeName() + " " + operation);					
 				else
 					return(getAttributeName() + " " + operation + " " + index + " " + attribute.modifierFormat());
 			}
 			else{
-				if (index == -1)
-					return(attributeName + " " + operation + " " + value.toString());
+				if (value.equals("none"))
+					return(attributeName + " " + operation + " " + index);
 				else
 					return(attributeName + " " + operation + " " + index + " " + value.toString());
+			}
+		}
+		else {
+			if (value == null){
+				// We have a full attribute
+				return(getAttributeName() + " " + operation + " " + attribute.modifierFormat());
+			}
+			else{
+				return(attributeName + " " + operation + " " + value.toString());
 			}
 		}
 	}

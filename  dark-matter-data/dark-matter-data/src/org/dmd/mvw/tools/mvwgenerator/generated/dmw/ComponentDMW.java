@@ -97,7 +97,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The number of EventDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1558)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1614)
     public int getFiresEventSize(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -109,7 +109,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are no EventDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1570)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1626)
     public boolean getFiresEventIsEmpty(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -121,7 +121,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are any EventDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1582)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1638)
     public boolean getFiresEventHasValue(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -133,7 +133,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The keyed Event object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1597)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1653)
     public Event getFiresEvent(Object key){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -146,7 +146,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * @return An Iterable of Event objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1621)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1677)
     public EventIterableDMW getFiresEventIterable(){
         DmcAttribute attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -164,7 +164,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another firesEvent value.
      * @param value EventDMW
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1643)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1699)
     public DmcAttribute<?> addFiresEvent(Event value) {
         return(((ComponentDMO) core).addFiresEvent(value.getDMO()));
     }
@@ -173,7 +173,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a firesEvent value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1655)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1711)
     public void delFiresEvent(Event value){
         ((ComponentDMO) core).delFiresEvent(value.getDMO());
     }
@@ -181,7 +181,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of Event objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1689)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1745)
     public TreeMap<CamelCaseName,Event> getFiresEventCopy(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -200,7 +200,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the firesEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1826)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1882)
     public void remFiresEvent(){
         ((ComponentDMO) core).remFiresEvent();
     }
@@ -208,7 +208,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The number of EventDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1558)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1614)
     public int getHandlesEventSize(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -220,7 +220,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are no EventDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1570)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1626)
     public boolean getHandlesEventIsEmpty(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -232,7 +232,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are any EventDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1582)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1638)
     public boolean getHandlesEventHasValue(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -244,7 +244,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The keyed Event object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1597)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1653)
     public Event getHandlesEvent(Object key){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -257,7 +257,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * @return An Iterable of Event objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1621)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1677)
     public EventIterableDMW getHandlesEventIterable(){
         DmcAttribute attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -275,7 +275,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another handlesEvent value.
      * @param value EventDMW
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1643)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1699)
     public DmcAttribute<?> addHandlesEvent(Event value) {
         return(((ComponentDMO) core).addHandlesEvent(value.getDMO()));
     }
@@ -284,7 +284,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a handlesEvent value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1655)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1711)
     public void delHandlesEvent(Event value){
         ((ComponentDMO) core).delHandlesEvent(value.getDMO());
     }
@@ -292,7 +292,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of Event objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1689)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1745)
     public TreeMap<CamelCaseName,Event> getHandlesEventCopy(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -311,7 +311,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1826)
+    // org.dmd.dmg.generators.DMWGenerator.formatMAPPED(DMWGenerator.java:1882)
     public void remHandlesEvent(){
         ((ComponentDMO) core).remHandlesEvent();
     }
@@ -356,7 +356,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * @return An Iterator of SchemaDefinitionDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1277)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1278)
     public SchemaDefinitionIterableDMW getUseSchemaIterable(){
         DmcAttribute attr = ((ComponentDMO) core).get(MvwDMSAG.__useSchema);
         if (attr == null)
@@ -369,7 +369,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another useSchema value.
      * @param value A value compatible with SchemaDefinition
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1294)
     public DmcAttribute<?> addUseSchema(SchemaDefinitionDMW value){
         DmcAttribute<?> attr = ((ComponentDMO) core).addUseSchema(((SchemaDefinitionDMO)value.getDmcObject()));
         return(attr);
@@ -379,7 +379,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a useSchema value.
      * @param value The SchemaDefinition to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1306)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1307)
     public void delUseSchema(SchemaDefinitionDMW value){
         ((ComponentDMO) core).delUseSchema(value.getDMO());
     }
@@ -387,7 +387,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of SchemaDefinition objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1342)
     public ArrayList<SchemaDefinitionDMW> getUseSchemaCopy(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__useSchema);
         if (attr == null)
@@ -406,7 +406,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the useSchema attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remUseSchema(){
         ((ComponentDMO) core).remUseSchema();
     }
@@ -482,7 +482,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * @return An Iterator of RunContextItemDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1277)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1278)
     public RunContextItemIterableDMW getUsesRunContextItemIterable(){
         DmcAttribute attr = ((ComponentDMO) core).get(MvwDMSAG.__usesRunContextItem);
         if (attr == null)
@@ -495,7 +495,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another usesRunContextItem value.
      * @param value A value compatible with RunContextItem
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1294)
     public DmcAttribute<?> addUsesRunContextItem(RunContextItem value){
         DmcAttribute<?> attr = ((ComponentDMO) core).addUsesRunContextItem(((RunContextItemDMO)value.getDmcObject()));
         return(attr);
@@ -505,7 +505,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a usesRunContextItem value.
      * @param value The RunContextItem to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1306)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1307)
     public void delUsesRunContextItem(RunContextItem value){
         ((ComponentDMO) core).delUsesRunContextItem(value.getDMO());
     }
@@ -513,7 +513,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of RunContextItem objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1342)
     public TreeSet<RunContextItem> getUsesRunContextItemCopy(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__usesRunContextItem);
         if (attr == null)
@@ -532,7 +532,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the usesRunContextItem attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remUsesRunContextItem(){
         ((ComponentDMO) core).remUsesRunContextItem();
     }
@@ -576,7 +576,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterator of GetWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1369)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1401)
     public GetWithOptionsIterableDMW getSendsGetRequestIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsGetRequest);
         if (attr == null)
@@ -589,7 +589,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsGetRequest value.
      * @param value A value compatible with GetWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1417)
     public void addSendsGetRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).addSendsGetRequest(value);
     }
@@ -598,7 +598,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsGetRequest value.
      * @param value A value compatible with GetWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1394)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1427)
     public void addSendsGetRequest(GetWithOptions value){
         ((ComponentDMO) core).addSendsGetRequest(value);
     }
@@ -607,7 +607,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Returns true if the collection contains the sendsGetRequest value.
      * @param value A value compatible with GetWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1418)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
     public boolean sendsGetRequestContains(GetWithOptions value){
         return(((ComponentDMO) core).sendsGetRequestContains(value));
     }
@@ -615,7 +615,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of GetWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1514)
     @SuppressWarnings("unchecked")
     public ArrayList<GetWithOptions> getSendsGetRequestCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsGetRequest);
@@ -636,7 +636,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsGetRequest value.
      * @param value The GetWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1485)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1541)
     public void delSendsGetRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).delSendsGetRequest(value);
     }
@@ -645,7 +645,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsGetRequest value.
      * @param value The GetWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1494)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1550)
     public void delSendsGetRequest(GetWithOptions value){
         ((ComponentDMO) core).delSendsGetRequest(value);
     }
@@ -653,7 +653,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the sendsGetRequest attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remSendsGetRequest(){
         ((ComponentDMO) core).remSendsGetRequest();
     }
@@ -697,7 +697,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterator of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1369)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1401)
     public RequestWithOptionsIterableDMW getSendsDeleteRequestIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsDeleteRequest);
         if (attr == null)
@@ -710,7 +710,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsDeleteRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1417)
     public void addSendsDeleteRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).addSendsDeleteRequest(value);
     }
@@ -719,7 +719,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsDeleteRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1394)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1427)
     public void addSendsDeleteRequest(RequestWithOptions value){
         ((ComponentDMO) core).addSendsDeleteRequest(value);
     }
@@ -728,7 +728,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Returns true if the collection contains the sendsDeleteRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1418)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
     public boolean sendsDeleteRequestContains(RequestWithOptions value){
         return(((ComponentDMO) core).sendsDeleteRequestContains(value));
     }
@@ -736,7 +736,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1514)
     @SuppressWarnings("unchecked")
     public ArrayList<RequestWithOptions> getSendsDeleteRequestCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsDeleteRequest);
@@ -757,7 +757,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsDeleteRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1485)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1541)
     public void delSendsDeleteRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).delSendsDeleteRequest(value);
     }
@@ -766,7 +766,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsDeleteRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1494)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1550)
     public void delSendsDeleteRequest(RequestWithOptions value){
         ((ComponentDMO) core).delSendsDeleteRequest(value);
     }
@@ -774,7 +774,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the sendsDeleteRequest attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remSendsDeleteRequest(){
         ((ComponentDMO) core).remSendsDeleteRequest();
     }
@@ -818,7 +818,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterator of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1369)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1401)
     public RequestWithOptionsIterableDMW getSendsSetRequestIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsSetRequest);
         if (attr == null)
@@ -831,7 +831,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsSetRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1417)
     public void addSendsSetRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).addSendsSetRequest(value);
     }
@@ -840,7 +840,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsSetRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1394)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1427)
     public void addSendsSetRequest(RequestWithOptions value){
         ((ComponentDMO) core).addSendsSetRequest(value);
     }
@@ -849,7 +849,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Returns true if the collection contains the sendsSetRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1418)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
     public boolean sendsSetRequestContains(RequestWithOptions value){
         return(((ComponentDMO) core).sendsSetRequestContains(value));
     }
@@ -857,7 +857,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1514)
     @SuppressWarnings("unchecked")
     public ArrayList<RequestWithOptions> getSendsSetRequestCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsSetRequest);
@@ -878,7 +878,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsSetRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1485)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1541)
     public void delSendsSetRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).delSendsSetRequest(value);
     }
@@ -887,7 +887,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsSetRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1494)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1550)
     public void delSendsSetRequest(RequestWithOptions value){
         ((ComponentDMO) core).delSendsSetRequest(value);
     }
@@ -895,7 +895,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the sendsSetRequest attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remSendsSetRequest(){
         ((ComponentDMO) core).remSendsSetRequest();
     }
@@ -939,7 +939,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterator of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1369)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1401)
     public RequestWithOptionsIterableDMW getSendsCreateRequestIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsCreateRequest);
         if (attr == null)
@@ -952,7 +952,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsCreateRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1417)
     public void addSendsCreateRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).addSendsCreateRequest(value);
     }
@@ -961,7 +961,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsCreateRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1394)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1427)
     public void addSendsCreateRequest(RequestWithOptions value){
         ((ComponentDMO) core).addSendsCreateRequest(value);
     }
@@ -970,7 +970,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Returns true if the collection contains the sendsCreateRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1418)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
     public boolean sendsCreateRequestContains(RequestWithOptions value){
         return(((ComponentDMO) core).sendsCreateRequestContains(value));
     }
@@ -978,7 +978,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1514)
     @SuppressWarnings("unchecked")
     public ArrayList<RequestWithOptions> getSendsCreateRequestCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsCreateRequest);
@@ -999,7 +999,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsCreateRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1485)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1541)
     public void delSendsCreateRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).delSendsCreateRequest(value);
     }
@@ -1008,7 +1008,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsCreateRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1494)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1550)
     public void delSendsCreateRequest(RequestWithOptions value){
         ((ComponentDMO) core).delSendsCreateRequest(value);
     }
@@ -1016,7 +1016,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the sendsCreateRequest attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remSendsCreateRequest(){
         ((ComponentDMO) core).remSendsCreateRequest();
     }
@@ -1060,7 +1060,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterator of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1369)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1401)
     public RequestWithOptionsIterableDMW getSendsActionRequestIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsActionRequest);
         if (attr == null)
@@ -1073,7 +1073,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsActionRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1417)
     public void addSendsActionRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).addSendsActionRequest(value);
     }
@@ -1082,7 +1082,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsActionRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1394)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1427)
     public void addSendsActionRequest(RequestWithOptions value){
         ((ComponentDMO) core).addSendsActionRequest(value);
     }
@@ -1091,7 +1091,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Returns true if the collection contains the sendsActionRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1418)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
     public boolean sendsActionRequestContains(RequestWithOptions value){
         return(((ComponentDMO) core).sendsActionRequestContains(value));
     }
@@ -1099,7 +1099,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1514)
     @SuppressWarnings("unchecked")
     public ArrayList<RequestWithOptions> getSendsActionRequestCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsActionRequest);
@@ -1120,7 +1120,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsActionRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1485)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1541)
     public void delSendsActionRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).delSendsActionRequest(value);
     }
@@ -1129,7 +1129,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsActionRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1494)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1550)
     public void delSendsActionRequest(RequestWithOptions value){
         ((ComponentDMO) core).delSendsActionRequest(value);
     }
@@ -1137,7 +1137,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the sendsActionRequest attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remSendsActionRequest(){
         ((ComponentDMO) core).remSendsActionRequest();
     }
@@ -1181,7 +1181,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterator of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1369)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1401)
     public RequestWithOptionsIterableDMW getSendsLoginRequestIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsLoginRequest);
         if (attr == null)
@@ -1194,7 +1194,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsLoginRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1417)
     public void addSendsLoginRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).addSendsLoginRequest(value);
     }
@@ -1203,7 +1203,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsLoginRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1394)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1427)
     public void addSendsLoginRequest(RequestWithOptions value){
         ((ComponentDMO) core).addSendsLoginRequest(value);
     }
@@ -1212,7 +1212,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Returns true if the collection contains the sendsLoginRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1418)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
     public boolean sendsLoginRequestContains(RequestWithOptions value){
         return(((ComponentDMO) core).sendsLoginRequestContains(value));
     }
@@ -1220,7 +1220,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1514)
     @SuppressWarnings("unchecked")
     public ArrayList<RequestWithOptions> getSendsLoginRequestCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsLoginRequest);
@@ -1241,7 +1241,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsLoginRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1485)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1541)
     public void delSendsLoginRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).delSendsLoginRequest(value);
     }
@@ -1250,7 +1250,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsLoginRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1494)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1550)
     public void delSendsLoginRequest(RequestWithOptions value){
         ((ComponentDMO) core).delSendsLoginRequest(value);
     }
@@ -1258,7 +1258,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the sendsLoginRequest attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remSendsLoginRequest(){
         ((ComponentDMO) core).remSendsLoginRequest();
     }
@@ -1302,7 +1302,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterator of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1369)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1401)
     public RequestWithOptionsIterableDMW getSendsLogoutRequestIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsLogoutRequest);
         if (attr == null)
@@ -1315,7 +1315,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsLogoutRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1385)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1417)
     public void addSendsLogoutRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).addSendsLogoutRequest(value);
     }
@@ -1324,7 +1324,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsLogoutRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1394)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1427)
     public void addSendsLogoutRequest(RequestWithOptions value){
         ((ComponentDMO) core).addSendsLogoutRequest(value);
     }
@@ -1333,7 +1333,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Returns true if the collection contains the sendsLogoutRequest value.
      * @param value A value compatible with RequestWithOptions
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1418)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
     public boolean sendsLogoutRequestContains(RequestWithOptions value){
         return(((ComponentDMO) core).sendsLogoutRequestContains(value));
     }
@@ -1341,7 +1341,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of RequestWithOptions objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1514)
     @SuppressWarnings("unchecked")
     public ArrayList<RequestWithOptions> getSendsLogoutRequestCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsLogoutRequest);
@@ -1362,7 +1362,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsLogoutRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1485)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1541)
     public void delSendsLogoutRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).delSendsLogoutRequest(value);
     }
@@ -1371,7 +1371,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsLogoutRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1494)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1550)
     public void delSendsLogoutRequest(RequestWithOptions value){
         ((ComponentDMO) core).delSendsLogoutRequest(value);
     }
@@ -1379,7 +1379,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the sendsLogoutRequest attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remSendsLogoutRequest(){
         ((ComponentDMO) core).remSendsLogoutRequest();
     }
@@ -1455,7 +1455,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * @return An Iterator of ViewDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1277)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1278)
     public ViewIterableDMW getInstantiatesViewIterable(){
         DmcAttribute attr = ((ComponentDMO) core).get(MvwDMSAG.__instantiatesView);
         if (attr == null)
@@ -1468,7 +1468,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another instantiatesView value.
      * @param value A value compatible with View
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1294)
     public DmcAttribute<?> addInstantiatesView(View value){
         DmcAttribute<?> attr = ((ComponentDMO) core).addInstantiatesView(((ViewDMO)value.getDmcObject()));
         return(attr);
@@ -1478,7 +1478,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a instantiatesView value.
      * @param value The View to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1306)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1307)
     public void delInstantiatesView(View value){
         ((ComponentDMO) core).delInstantiatesView(value.getDMO());
     }
@@ -1486,7 +1486,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of View objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1342)
     public ArrayList<View> getInstantiatesViewCopy(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__instantiatesView);
         if (attr == null)
@@ -1505,7 +1505,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the instantiatesView attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remInstantiatesView(){
         ((ComponentDMO) core).remInstantiatesView();
     }

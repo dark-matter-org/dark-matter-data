@@ -348,10 +348,27 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     	else{
     		dos.writeValueCount(getMVSize());
     		
-    		Iterator<VALUE> iterator = getMV();
-    		if (iterator != null){
-    			while(iterator.hasNext()){
-    				serializeValue(dos, iterator.next());
+    		if (attrInfo.indexSize == 0){
+	    		Iterator<VALUE> iterator = getMV();
+	    		if (iterator != null){
+	    			while(iterator.hasNext()){
+	    				serializeValue(dos, iterator.next());
+	    			}
+	    		}
+    		}
+    		else{
+    			// For indexed attributes we have to add a bit more encoding. If we have a value
+    			// at a particular index, we write the index and then serialize the value. If the
+    			// value at an index is null, we write -1 for the index and nothing for the value.
+    			for (int index=0; index<getMVSize(); index++){
+    				VALUE value = getMVnth(index);
+    				if (value == null)
+    					dos.writeInt(-1);
+    				else{
+    					dos.writeInt(index);
+    					serializeValue(dos, value);
+    				}
+    					
     			}
     		}
     	}
@@ -379,8 +396,21 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     		// READ: the number of values
     		int size = dis.readValueCount();
     		
-    		for(int i=0; i< size; i++){
-    			add(deserializeValue(dis));
+    		if (attrInfo.indexSize == 0){
+	    		for(int i=0; i< size; i++){
+	    			add(deserializeValue(dis));
+	    		}
+    		}
+    		else{
+	    		for(int i=0; i< size; i++){
+	    			int index = dis.readInt();
+	    			
+	    			if (index == -1)
+	    				continue;
+	    			
+	    			VALUE value = deserializeValue(dis);
+	    			setMVnth(index, value);
+	    		}
     		}
      		break;
      	}
@@ -558,7 +588,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 				boolean first 		= true;
 				int 	dmoCount 	= 0;
 				
-				if (attrInfo.indexSize > 0){
+				if ( (attrInfo != null) && (attrInfo.indexSize > 0) ){
 					// For indexed attributes we display the index before each value and null
 					// values are allowed
 					int index = 0;
@@ -655,47 +685,38 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	public String modifierFormat() {
 		String rc = null;
 		
-//		String name = "???";
-//		if (attrInfo != null)
-//			name = attrInfo.name;
-		
 		if (getMVSize() == 0){
 			if (getSV() instanceof DmcNamedObjectIF)
 				rc = "" + ((DmcNamedObjectIF)getSV()).getObjectName();
-//				rc = name + " " + ((DmcNamedObjectIF)getSV()).getObjectName();
 			else
 				rc = "" + getSV();
-//				rc = name + " " + getSV();
 		}
 		else{
-			if (getMVSize() > 1){
-//				String name = "???";
-//				if (attrInfo != null)
-//					name = attrInfo.name;
-//				DebugInfo.debug("*** Multiple values (" + getMVSize() + ") in a modifier for attribute: " + name + " ***");
-//				Iterator<VALUE> iterator = getMV();
-//				if (iterator != null){
-//					while(iterator.hasNext()){
-//						VALUE value = iterator.next();
-//						if (value instanceof DmcNamedObjectIF)
-//							DebugInfo.debug(name + " " + ((DmcNamedObjectIF)value).getObjectName());
-//						else
-//							DebugInfo.debug(name + " " + value);	
-//					}
-//				}
-				throw(new IllegalStateException("Multiple values in an attribute used by  a Modifier."));
+			if (attrInfo.indexSize == 0){
+				if (getMVSize() > 1){
+					throw(new IllegalStateException("Multiple values in an attribute used by  a Modifier."));
+				}
+				
+				Iterator<VALUE> iterator = getMV();
+				if (iterator != null){
+					while(iterator.hasNext()){
+						VALUE value = iterator.next();
+						if (value instanceof DmcNamedObjectIF)
+							rc = "" + ((DmcNamedObjectIF)value).getObjectName();
+						else
+							rc = "" + value;
+					}
+				}
 			}
-			
-			Iterator<VALUE> iterator = getMV();
-			if (iterator != null){
-				while(iterator.hasNext()){
-					VALUE value = iterator.next();
+			else{
+				for(int index=0; index<getMVSize(); index++){
+					VALUE value = getMVnth(index);
+					if (value == null)
+						continue;
 					if (value instanceof DmcNamedObjectIF)
 						rc = "" + ((DmcNamedObjectIF)value).getObjectName();
-//						rc = name + " " + ((DmcNamedObjectIF)value).getObjectName();
 					else
-						rc = "" + value;	
-//						rc = name + " " + value;	
+						rc = "" + value;					
 				}
 			}
 		}

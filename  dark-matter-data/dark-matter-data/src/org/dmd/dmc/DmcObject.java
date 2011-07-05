@@ -1018,7 +1018,7 @@ abstract public class DmcObject implements Serializable {
 								mod.setAttributeInfo(ai);
 								mod.add(getLastValue());
 								
-								Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
+								Modifier backrefMod = new Modifier(ModifyTypeEnum.NTH,mod,this,index);
 								((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject()).addBackref(backrefMod);
 							}
 						}
@@ -1040,7 +1040,7 @@ abstract public class DmcObject implements Serializable {
 					mod.setAttributeInfo(ai);
 					
 					mod.add(getLastValue());
-					getModifier().add(new Modifier(ModifyTypeEnum.ADD, mod, index));
+					getModifier().add(new Modifier(ModifyTypeEnum.NTH, mod, index));
 				}
 			}
 			

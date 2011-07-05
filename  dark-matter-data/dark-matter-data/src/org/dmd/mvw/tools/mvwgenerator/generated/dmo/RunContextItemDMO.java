@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:321)
 import java.io.Serializable;                                                  // Always required
 import java.util.*;                                                           // Always required
 import org.dmd.dmc.DmcAttribute;                                              // Any attributes
@@ -128,7 +128,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public Integer getItemOrder(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MvwDMSAG.__itemOrder);
         if (attr == null)
@@ -141,7 +141,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets itemOrder to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setItemOrder(Integer value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__itemOrder);
         if (attr == null)
@@ -160,7 +160,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets itemOrder to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setItemOrder(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__itemOrder);
         if (attr == null)
@@ -173,12 +173,12 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the itemOrder attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remItemOrder(){
          rem(MvwDMSAG.__itemOrder);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public String getContextImpl(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__contextImpl);
         if (attr == null)
@@ -191,7 +191,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets contextImpl to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setContextImpl(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__contextImpl);
         if (attr == null)
@@ -210,7 +210,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets contextImpl to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setContextImpl(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__contextImpl);
         if (attr == null)
@@ -223,7 +223,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the contextImpl attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remContextImpl(){
          rem(MvwDMSAG.__contextImpl);
     }
@@ -232,7 +232,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:919)
     public Iterator<String> getImportThis(){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -244,7 +244,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
     public String getNthImportThis(int i){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -257,7 +257,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Adds another importThis to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:945)
     public DmcAttribute<?> addImportThis(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -277,7 +277,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1009)
     public boolean importThisContains(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -289,7 +289,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Adds another importThis value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1041)
     public DmcAttribute<?> addImportThis(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -303,7 +303,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Returns the number of values in importThis
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public int getImportThisSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -316,7 +316,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Deletes a importThis value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1100)
     public DmcAttribute<?> delImportThis(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         
@@ -332,7 +332,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Deletes a importThis from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1116)
     public DmcAttribute<?> delImportThis(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         
@@ -347,12 +347,12 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the importThis attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1135)
     public void remImportThis(){
          rem(MvwDMSAG.__importThis);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public Boolean isCreateOnDemand(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__createOnDemand);
         if (attr == null)
@@ -365,7 +365,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets createOnDemand to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setCreateOnDemand(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__createOnDemand);
         if (attr == null)
@@ -384,7 +384,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets createOnDemand to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setCreateOnDemand(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__createOnDemand);
         if (attr == null)
@@ -397,12 +397,12 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the createOnDemand attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remCreateOnDemand(){
          rem(MvwDMSAG.__createOnDemand);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public Boolean isTheOne(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__theOne);
         if (attr == null)
@@ -415,7 +415,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets theOne to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setTheOne(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__theOne);
         if (attr == null)
@@ -434,7 +434,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets theOne to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setTheOne(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__theOne);
         if (attr == null)
@@ -447,12 +447,12 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the theOne attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remTheOne(){
          rem(MvwDMSAG.__theOne);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public CamelCaseName getItemName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__itemName);
         if (attr == null)
@@ -465,7 +465,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets itemName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setItemName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__itemName);
         if (attr == null)
@@ -484,7 +484,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets itemName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setItemName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__itemName);
         if (attr == null)
@@ -497,12 +497,12 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the itemName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remItemName(){
          rem(MvwDMSAG.__itemName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public String getUseClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__useClass);
         if (attr == null)
@@ -515,7 +515,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets useClass to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setUseClass(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__useClass);
         if (attr == null)
@@ -534,7 +534,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets useClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setUseClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__useClass);
         if (attr == null)
@@ -547,12 +547,12 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the useClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remUseClass(){
          rem(MvwDMSAG.__useClass);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public String getConstruction(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__construction);
         if (attr == null)
@@ -565,7 +565,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets construction to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setConstruction(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__construction);
         if (attr == null)
@@ -584,7 +584,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Sets construction to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setConstruction(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__construction);
         if (attr == null)
@@ -597,7 +597,7 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the construction attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remConstruction(){
          rem(MvwDMSAG.__construction);
     }

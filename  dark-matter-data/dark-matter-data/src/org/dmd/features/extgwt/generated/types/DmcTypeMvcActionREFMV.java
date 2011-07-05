@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcActionREFMV provides storage for a multi-valued MvcActionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1947)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2009)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
  */
 @SuppressWarnings("serial")
@@ -101,8 +101,32 @@ public class DmcTypeMvcActionREFMV extends DmcTypeMvcActionREF implements Serial
     }
     
     @Override
-    public MvcActionREF getMVnth(int i){
-        return(value.get(i));
+    public MvcActionREF getMVnth(int index){
+        return(value.get(index));
+    }
+    
+    @Override
+    public MvcActionREF setMVnth(int index, Object v) throws DmcValueException {
+        if (attrInfo.indexSize == 0)
+            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+        
+        if ( (index < 0) || (index >= attrInfo.indexSize))
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+        
+        MvcActionREF rc = null;
+        
+        if (v != null)
+            rc = typeCheck(v);
+        
+        if (value == null){
+            value = new ArrayList<MvcActionREF>(attrInfo.indexSize);
+            for(int i=0;i<attrInfo.indexSize;i++)
+                value.add(null);
+        }
+        
+        value.set(index, rc);
+        
+        return(rc);
     }
     
     @Override

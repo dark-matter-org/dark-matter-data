@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;    // DmcType import
  * The DmcTypeNotifyRequestREFSET provides storage for a set of NotifyRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2140)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2236)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:223)
  */
 @SuppressWarnings("serial")

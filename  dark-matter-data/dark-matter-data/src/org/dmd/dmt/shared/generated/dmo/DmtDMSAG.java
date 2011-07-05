@@ -52,6 +52,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __hsNames = new DmcAttributeInfo("hsNames", 10411, "NameContainer", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsString = new DmcAttributeInfo("hsString", 10142, "String", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsTestEnum = new DmcAttributeInfo("hsTestEnum", 10410, "DmtTestEnum", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __indexedObjRef = new DmcAttributeInfo("indexedObjRef", 10415, "ObjWithRefs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 10);
     public final static DmcAttributeInfo __indexedString = new DmcAttributeInfo("indexedString", 10414, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 5);
     public final static DmcAttributeInfo __intToString = new DmcAttributeInfo("intToString", 10080, "IntegerToString", ValueTypeEnum.HASHMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvBoolean = new DmcAttributeInfo("mvBoolean", 10001, "Boolean", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -123,6 +124,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__hsNames.id,__hsNames);
         _SmAp.put(__hsString.id,__hsString);
         _SmAp.put(__hsTestEnum.id,__hsTestEnum);
+        _SmAp.put(__indexedObjRef.id,__indexedObjRef);
         _SmAp.put(__indexedString.id,__indexedString);
         _SmAp.put(__intToString.id,__intToString);
         _SmAp.put(__mvBoolean.id,__mvBoolean);
@@ -284,6 +286,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __ObjWithRefs.addMay(__nonperString);
         __ObjWithRefs.addMay(__transString);
         __ObjWithRefs.addMay(__indexedString);
+        __ObjWithRefs.addMay(__indexedObjRef);
 
         __ClientCountFilter.addMay(__OUIFilter);
 

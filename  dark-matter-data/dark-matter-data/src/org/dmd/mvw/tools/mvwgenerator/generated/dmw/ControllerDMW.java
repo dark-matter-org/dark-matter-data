@@ -219,7 +219,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
      * @return An Iterator of PresenterDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1277)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1278)
     public PresenterIterableDMW getInstantiatesPresenterIterable(){
         DmcAttribute attr = ((ControllerDMO) core).get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -232,7 +232,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
      * Adds another instantiatesPresenter value.
      * @param value A value compatible with Presenter
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1294)
     public DmcAttribute<?> addInstantiatesPresenter(Presenter value){
         DmcAttribute<?> attr = ((ControllerDMO) core).addInstantiatesPresenter(((PresenterDMO)value.getDmcObject()));
         return(attr);
@@ -242,7 +242,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
      * Deletes a instantiatesPresenter value.
      * @param value The Presenter to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1306)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1307)
     public void delInstantiatesPresenter(Presenter value){
         ((ControllerDMO) core).delInstantiatesPresenter(value.getDMO());
     }
@@ -250,7 +250,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     /**
      * @return A COPY of the collection of Presenter objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1342)
     public ArrayList<Presenter> getInstantiatesPresenterCopy(){
         DmcAttribute<?> attr = ((ControllerDMO) core).get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -269,7 +269,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     /**
      * Removes the instantiatesPresenter attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remInstantiatesPresenter(){
         ((ControllerDMO) core).remInstantiatesPresenter();
     }

@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1399)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1457)
  *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:175)
  */
 public class DmtTestEnumIterableDMW extends DmwMVIterator<DmtTestEnum> {

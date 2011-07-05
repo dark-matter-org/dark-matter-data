@@ -151,7 +151,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
      * @return An Iterator of PresenterDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1277)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1278)
     public PresenterIterableDMW getInstantiatesPresenterIterable(){
         DmcAttribute attr = ((PresenterDMO) core).get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -164,7 +164,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
      * Adds another instantiatesPresenter value.
      * @param value A value compatible with Presenter
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1294)
     public DmcAttribute<?> addInstantiatesPresenter(Presenter value){
         DmcAttribute<?> attr = ((PresenterDMO) core).addInstantiatesPresenter(((PresenterDMO)value.getDmcObject()));
         return(attr);
@@ -174,7 +174,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
      * Deletes a instantiatesPresenter value.
      * @param value The Presenter to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1306)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1307)
     public void delInstantiatesPresenter(Presenter value){
         ((PresenterDMO) core).delInstantiatesPresenter(value.getDMO());
     }
@@ -182,7 +182,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
     /**
      * @return A COPY of the collection of Presenter objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1342)
     public ArrayList<Presenter> getInstantiatesPresenterCopy(){
         DmcAttribute<?> attr = ((PresenterDMO) core).get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -201,7 +201,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
     /**
      * Removes the instantiatesPresenter attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remInstantiatesPresenter(){
         ((PresenterDMO) core).remInstantiatesPresenter();
     }
@@ -277,7 +277,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
      * @return An Iterator of ViewDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1277)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1278)
     public ViewIterableDMW getManagesViewIterable(){
         DmcAttribute attr = ((PresenterDMO) core).get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -290,7 +290,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
      * Adds another managesView value.
      * @param value A value compatible with View
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1293)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1294)
     public DmcAttribute<?> addManagesView(View value){
         DmcAttribute<?> attr = ((PresenterDMO) core).addManagesView(((ViewDMO)value.getDmcObject()));
         return(attr);
@@ -300,7 +300,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
      * Deletes a managesView value.
      * @param value The View to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1306)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1307)
     public void delManagesView(View value){
         ((PresenterDMO) core).delManagesView(value.getDMO());
     }
@@ -308,7 +308,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
     /**
      * @return A COPY of the collection of View objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1341)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1342)
     public ArrayList<View> getManagesViewCopy(){
         DmcAttribute<?> attr = ((PresenterDMO) core).get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -327,7 +327,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
     /**
      * Removes the managesView attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1506)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
     public void remManagesView(){
         ((PresenterDMO) core).remManagesView();
     }
