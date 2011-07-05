@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.examples.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:321)
 import java.io.Serializable;                                    // Always required
 import java.util.*;                                             // Always required
 import org.dmd.dmc.DmcAttribute;                                // Any attributes
@@ -125,7 +125,7 @@ public class FolderDMO  extends DmcObject  implements DmcNamedObjectIF, Serializ
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public Integer getFolderID(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MailDMSAG.__folderID);
         if (attr == null)
@@ -138,7 +138,7 @@ public class FolderDMO  extends DmcObject  implements DmcNamedObjectIF, Serializ
      * Sets folderID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setFolderID(Integer value) {
         DmcAttribute<?> attr = get(MailDMSAG.__folderID);
         if (attr == null)
@@ -157,7 +157,7 @@ public class FolderDMO  extends DmcObject  implements DmcNamedObjectIF, Serializ
      * Sets folderID to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setFolderID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MailDMSAG.__folderID);
         if (attr == null)
@@ -170,12 +170,12 @@ public class FolderDMO  extends DmcObject  implements DmcNamedObjectIF, Serializ
     /**
      * Removes the folderID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remFolderID(){
          rem(MailDMSAG.__folderID);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -188,7 +188,7 @@ public class FolderDMO  extends DmcObject  implements DmcNamedObjectIF, Serializ
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -207,7 +207,7 @@ public class FolderDMO  extends DmcObject  implements DmcNamedObjectIF, Serializ
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -220,7 +220,7 @@ public class FolderDMO  extends DmcObject  implements DmcNamedObjectIF, Serializ
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remName(){
          rem(MetaDMSAG.__name);
     }

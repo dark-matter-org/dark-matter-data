@@ -27,7 +27,7 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeGetWithOptions;    // DmcType
  * The DmcTypeGetWithOptionsMV provides storage for a multi-valued GetWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1947)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2009)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:100)
  */
 @SuppressWarnings("serial")
@@ -103,8 +103,32 @@ public class DmcTypeGetWithOptionsMV extends DmcTypeGetWithOptions implements Se
     }
     
     @Override
-    public GetWithOptions getMVnth(int i){
-        return(value.get(i));
+    public GetWithOptions getMVnth(int index){
+        return(value.get(index));
+    }
+    
+    @Override
+    public GetWithOptions setMVnth(int index, Object v) throws DmcValueException {
+        if (attrInfo.indexSize == 0)
+            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+        
+        if ( (index < 0) || (index >= attrInfo.indexSize))
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+        
+        GetWithOptions rc = null;
+        
+        if (v != null)
+            rc = typeCheck(v);
+        
+        if (value == null){
+            value = new ArrayList<GetWithOptions>(attrInfo.indexSize);
+            for(int i=0;i<attrInfo.indexSize;i++)
+                value.add(null);
+        }
+        
+        value.set(index, rc);
+        
+        return(rc);
     }
     
     @Override

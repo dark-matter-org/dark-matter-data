@@ -28,7 +28,6 @@ import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedDMW;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
 import org.dmd.dmw.DmwDeserializer;

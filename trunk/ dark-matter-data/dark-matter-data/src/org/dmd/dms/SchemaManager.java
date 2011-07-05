@@ -336,10 +336,10 @@ public class SchemaManager implements DmcNameResolverIF {
     	AttributeDefinition ad = attrByID.get(id);
     	DmcAttributeInfo	ai = DmcOmni.instance().getInfo(id);
     	
-//    	if (ad == null){
-//    		throw(new IllegalStateException("Tried to deserialize attribute with unknown ID: " + id));
-//    	}
-//    	
+    	if (ad == null){
+    		throw(new IllegalStateException("Tried to deserialize attribute with unknown ID: " + id));
+    	}
+    	
 //    	DmcAttribute<?> rc = (DmcAttribute<?>) ad.getType().getAttributeHolder(ad.getAttributeInfo());
 //    	rc.setAttributeInfo(ad.getAttributeInfo());
     	

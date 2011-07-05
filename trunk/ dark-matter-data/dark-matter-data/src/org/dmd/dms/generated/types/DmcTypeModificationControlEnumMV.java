@@ -61,9 +61,6 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     
     @Override
     public ModificationControlEnum add(Object v) throws DmcValueException {
-        if (attrInfo.indexSize > 0)
-            throw(new IllegalStateException("You must use the setMVnth() method for indexed attribute: " + attrInfo.name));
-        
         ModificationControlEnum rc = typeCheck(v);
         if (value == null)
             value = new ArrayList<ModificationControlEnum>();
@@ -73,9 +70,6 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     
     @Override
     public ModificationControlEnum del(Object v){
-        if (attrInfo.indexSize > 0)
-            throw(new IllegalStateException("You must use the setMVnth(index,null) method to remove values from indexed attribute: " + attrInfo.name));
-        
         ModificationControlEnum rc = null;
         try {
             rc = typeCheck(v);
@@ -109,9 +103,6 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     
     @Override
     public ModificationControlEnum getMVnth(int index){
-        if ( (attrInfo.indexSize > 0) && ((index < 0) || (index >= attrInfo.indexSize)) )
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
-        
         return(value.get(index));
     }
     
@@ -121,7 +112,7 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
             throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
         
         if ( (index < 0) || (index >= attrInfo.indexSize))
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
         
         ModificationControlEnum rc = null;
         

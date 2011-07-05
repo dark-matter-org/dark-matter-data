@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.features.extgwt.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:321)
 import java.io.Serializable;                                           // Always required
 import java.util.*;                                                    // Always required
 import org.dmd.dmc.DmcAttribute;                                       // Any attributes
@@ -125,7 +125,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public String getUserDataCollection(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(ExtgwtDMSAG.__userDataCollection);
         if (attr == null)
@@ -138,7 +138,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      * Sets userDataCollection to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setUserDataCollection(String value) {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataCollection);
         if (attr == null)
@@ -157,7 +157,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      * Sets userDataCollection to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setUserDataCollection(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataCollection);
         if (attr == null)
@@ -170,12 +170,12 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
     /**
      * Removes the userDataCollection attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remUserDataCollection(){
          rem(ExtgwtDMSAG.__userDataCollection);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public String getUserDataGenericSpec(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(ExtgwtDMSAG.__userDataGenericSpec);
         if (attr == null)
@@ -188,7 +188,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      * Sets userDataGenericSpec to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setUserDataGenericSpec(String value) {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataGenericSpec);
         if (attr == null)
@@ -207,7 +207,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      * Sets userDataGenericSpec to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setUserDataGenericSpec(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataGenericSpec);
         if (attr == null)
@@ -220,12 +220,12 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
     /**
      * Removes the userDataGenericSpec attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remUserDataGenericSpec(){
          rem(ExtgwtDMSAG.__userDataGenericSpec);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -238,7 +238,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -257,7 +257,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -270,12 +270,12 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -288,7 +288,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -307,7 +307,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -320,12 +320,12 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public String getUserDataType(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(ExtgwtDMSAG.__userDataType);
         if (attr == null)
@@ -338,7 +338,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      * Sets userDataType to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setUserDataType(String value) {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataType);
         if (attr == null)
@@ -357,7 +357,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
      * Sets userDataType to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setUserDataType(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__userDataType);
         if (attr == null)
@@ -370,7 +370,7 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
     /**
      * Removes the userDataType attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remUserDataType(){
          rem(ExtgwtDMSAG.__userDataType);
     }

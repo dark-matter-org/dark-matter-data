@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:320)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:321)
 import java.io.Serializable;                                                  // Always required
 import java.util.*;                                                           // Always required
 import org.dmd.dmc.DmcAttribute;                                              // Any attributes
@@ -126,7 +126,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public String getArgVector(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__argVector);
         if (attr == null)
@@ -139,7 +139,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Sets argVector to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setArgVector(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__argVector);
         if (attr == null)
@@ -158,7 +158,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Sets argVector to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setArgVector(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__argVector);
         if (attr == null)
@@ -171,7 +171,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the argVector attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remArgVector(){
          rem(MvwDMSAG.__argVector);
     }
@@ -180,7 +180,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:865)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:919)
     public Iterator<String> getImportThis(){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -192,7 +192,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:877)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
     public String getNthImportThis(int i){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -205,7 +205,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Adds another importThis to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:890)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:945)
     public DmcAttribute<?> addImportThis(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -225,7 +225,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:932)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1009)
     public boolean importThisContains(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -237,7 +237,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Adds another importThis value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:964)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1041)
     public DmcAttribute<?> addImportThis(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -251,7 +251,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
     /**
      * Returns the number of values in importThis
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:981)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
     public int getImportThisSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -264,7 +264,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Deletes a importThis value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1023)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1100)
     public DmcAttribute<?> delImportThis(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         
@@ -280,7 +280,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Deletes a importThis from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1039)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1116)
     public DmcAttribute<?> delImportThis(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__importThis);
         
@@ -295,12 +295,12 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the importThis attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1135)
     public void remImportThis(){
          rem(MvwDMSAG.__importThis);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:641)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public CamelCaseName getEventName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__eventName);
         if (attr == null)
@@ -313,7 +313,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Sets eventName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:679)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
     public void setEventName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__eventName);
         if (attr == null)
@@ -332,7 +332,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
      * Sets eventName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:731)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setEventName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__eventName);
         if (attr == null)
@@ -345,7 +345,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the eventName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:746)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remEventName(){
          rem(MvwDMSAG.__eventName);
     }

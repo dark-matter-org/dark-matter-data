@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestBasicNamedObjectExtendedREFMV provides storage for a multi-valued TestBasicNamedObjectExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1956)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2009)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
  */
 @SuppressWarnings("serial")
@@ -45,9 +45,6 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMV extends DmcTypeTestBasicNa
     
     @Override
     public TestBasicNamedObjectExtendedREF add(Object v) throws DmcValueException {
-        if (attrInfo.indexSize > 0)
-            throw(new IllegalStateException("You must use the setMVnth() method for indexed attribute: " + attrInfo.name));
-        
         TestBasicNamedObjectExtendedREF rc = typeCheck(v);
         if (value == null)
             value = new ArrayList<TestBasicNamedObjectExtendedREF>();
@@ -57,9 +54,6 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMV extends DmcTypeTestBasicNa
     
     @Override
     public TestBasicNamedObjectExtendedREF del(Object v){
-        if (attrInfo.indexSize > 0)
-            throw(new IllegalStateException("You must use the setMVnth(index,null) method to remove values from indexed attribute: " + attrInfo.name));
-        
         TestBasicNamedObjectExtendedREF rc = null;
         try {
             rc = typeCheck(v);
@@ -93,9 +87,6 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMV extends DmcTypeTestBasicNa
     
     @Override
     public TestBasicNamedObjectExtendedREF getMVnth(int index){
-        if ( (attrInfo.indexSize > 0) && ((index < 0) || (index >= attrInfo.indexSize)) )
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
-        
         return(value.get(index));
     }
     
@@ -105,15 +96,18 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMV extends DmcTypeTestBasicNa
             throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
         
         if ( (index < 0) || (index >= attrInfo.indexSize))
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 < index < " + attrInfo.indexSize));
+            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
         
         TestBasicNamedObjectExtendedREF rc = null;
         
         if (v != null)
             rc = typeCheck(v);
         
-        if (value == null)
+        if (value == null){
             value = new ArrayList<TestBasicNamedObjectExtendedREF>(attrInfo.indexSize);
+            for(int i=0;i<attrInfo.indexSize;i++)
+                value.add(null);
+        }
         
         value.set(index, rc);
         
