@@ -881,7 +881,7 @@ public class GenUtility {
 				sb.append("     * @return The nth " + typeName + " value without attempting lazy resolution.\n");
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public " + typeName + "REF getNthREF" + functionName + "(int i){\n");
+				sb.append("    public " + typeName + "REF getNth" + functionName + "REF(int i){\n");
 				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 				sb.append("        if (attr == null)\n");
 				sb.append("            return(null);\n");
@@ -2039,11 +2039,21 @@ public class GenUtility {
         else
         	out.write("    public DmcAttribute<" + typeName + REF + genericArgs + "> cloneIt(){\n");
         out.write("        DmcType" + typeName + REF + "MV rc = getNew();\n");
-        out.write("        for(" + typeName + DMO + genericArgs + " val: value)\n");
-        out.write("        try {\n");
-        out.write("            rc.add(val);\n");
-        out.write("        } catch (DmcValueException e) {\n");
-        out.write("            throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
+        out.write("        if (attrInfo.indexSize == 0){\n");
+        out.write("            for(" + typeName + DMO + genericArgs + " val: value)\n");
+        out.write("            try {\n");
+        out.write("                rc.add(val);\n");
+        out.write("            } catch (DmcValueException e) {\n");
+        out.write("                throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
+        out.write("            }\n");
+        out.write("        }\n");
+        out.write("        else{\n");
+        out.write("            for(int index=0; index<value.size(); index++)\n");
+        out.write("                try {\n");
+        out.write("                    rc.setMVnth(index, value.get(index));\n");
+        out.write("                } catch (DmcValueException e) {\n");
+        out.write("                    throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
+        out.write("                }\n");
         out.write("        }\n");
         out.write("        return(rc);\n");
         out.write("    }\n");
@@ -2135,6 +2145,28 @@ public class GenUtility {
         out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
+        
+        out.write("    @Override\n");
+        out.write("    public boolean hasValue(){\n");
+        out.write("        boolean rc = false;\n");
+        out.write("        \n");
+        out.write("        if (attrInfo.indexSize == 0)\n");
+        out.write("            throw(new IllegalStateException(\"Attribute: \" + attrInfo.name + \" is not indexed. You can't use hasValue().\"));\n");
+        out.write("        \n");
+        out.write("        if (value == null)\n");
+        out.write("            return(rc);\n");
+        out.write("        \n");
+        out.write("        for(int i=0; i<value.size(); i++){\n");
+        out.write("            if (value.get(i) != null){\n");
+        out.write("                rc = true;\n");
+        out.write("                break;\n");
+        out.write("            }\n");
+        out.write("        }\n");
+        out.write("        \n");
+        out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+
         
 //        out.write("    public " + typeName + genericArgs + " getByKey(Object key){\n");
 //        out.write("        throw(new IllegalStateException(\"The getByKey() method is not valid for a MULTI attribute:\" + getName()));\n");

@@ -14,12 +14,14 @@ import java.io.IOException;
 
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmw.DmwDeserializer;
 import org.dmd.dmw.DmwOmni;
@@ -124,9 +126,42 @@ public class TestIndexedAttributes {
 		assertNull("Value at index 4 should be null", obj.getNthIndexedObjRef(4));
 	}
 	
+	
 	@Test
-	public void testModifiers() throws DmcValueException {
-		System.out.println("");
+	public void testRemovalOfEmptyAttributes() throws DmcValueException {
+		System.out.println("\ntestRemovalOfEmptyAttributes\n");
+		
+		ObjWithRefsDMO obj = new ObjWithRefsDMO();
+		obj.setName("obj1");
+		
+		ObjWithRefsDMO obj2 = new ObjWithRefsDMO();
+		obj2.setName("obj2");
+
+		ObjWithRefsDMO obj3 = new ObjWithRefsDMO();
+		obj3.setName("obj3");
+
+		ObjWithRefsDMO obj4 = new ObjWithRefsDMO();
+		obj4.setName("obj4");
+
+		obj.setNthIndexedObjRef(0, obj2);
+		obj.setNthIndexedObjRef(4, obj3);
+		obj.setNthIndexedObjRef(9, obj4);
+		
+		System.out.println(obj.toOIF(15));
+		
+		obj.setNthIndexedObjRef(0, null);
+		obj.setNthIndexedObjRef(4, null);
+		obj.setNthIndexedObjRef(9, null);
+		
+		assertNull("IndexObj attribute should be null", obj.get(DmtDMSAG.__indexedObjRef));
+
+		System.out.println(obj.toOIF(15));
+		
+	}
+	
+	@Test
+	public void testModifiers1() throws DmcValueException, DmcValueExceptionSet {
+		System.out.println("\ntestModifiers1");
 		
 		ObjWithRefsDMO obj = new ObjWithRefsDMO();
 		obj.setName("obj1");
@@ -143,10 +178,42 @@ public class TestIndexedAttributes {
 		ObjWithRefsDMO modrec = obj.getModificationRecorder();
 
 		modrec.setNthIndexedObjRef(0, obj2);
-		
 		modrec.setNthIndexedObjRef(4, obj3);
-		
 		modrec.setNthIndexedObjRef(9, obj4);
+		modrec.setNthIndexedObjRef(0, null);
+		
+		System.out.println(modrec.toOIF(15));
+		
+		obj.applyModifier(modrec.getModifier());
+		
+		System.out.println(obj.toOIF());
+	}
+	
+	@Test
+	public void testModifiers2() throws DmcValueException {
+		System.out.println("\ntestModifiers2");
+		
+		ObjWithRefsDMO obj = new ObjWithRefsDMO();
+		obj.setName("obj1");
+		
+		ObjWithRefsDMO obj2 = new ObjWithRefsDMO();
+		obj2.setName("obj2");
+
+		ObjWithRefsDMO obj3 = new ObjWithRefsDMO();
+		obj3.setName("obj3");
+
+		ObjWithRefsDMO obj4 = new ObjWithRefsDMO();
+		obj4.setName("obj4");
+		
+		ObjWithRefsDMO modrec = obj.getModificationRecorder();
+
+		modrec.setNthIndexedObjRef(0, obj2);
+		modrec.setNthIndexedObjRef(4, obj3);
+		modrec.setNthIndexedObjRef(9, obj4);
+		
+		modrec.setNthIndexedObjRef(0, null);
+		modrec.setNthIndexedObjRef(4, null);
+		modrec.setNthIndexedObjRef(9, null);
 		
 		System.out.println(modrec.toOIF(15));
 		

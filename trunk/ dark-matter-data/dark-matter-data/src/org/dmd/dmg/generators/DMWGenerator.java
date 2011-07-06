@@ -1377,6 +1377,60 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		    	sb.append("        return(attr);\n");
 				sb.append("    }\n\n");
 				
+		    	if (ad.getType().getIsRefType()){
+		    		if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+		    			String cname = null;
+		    			if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+		    				cname = ad.getType().getOriginalClass().getName().getNameString();
+		    			else
+		    				cname = ad.getType().getOriginalClass().getName().getNameString() + "DMW";
+		    				
+				    	sb.append("    /**\n");
+						sb.append("     * @return The " + cname + " object at the specified index.\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public " + cname + " getNth" + functionName + "(int index){\n");
+						sb.append("        " + ad.getType().getName() + "DMO dmo = " + dmocast + ".getNth" + functionName + "(index);\n");
+						sb.append("        if (dmo == null)\n");
+						sb.append("            return(null);\n");
+						sb.append("        \n");
+						sb.append("        return((" + cname + ")dmo.getContainer());\n");
+						sb.append("    }\n\n");
+		    		}
+		    		else{
+		    			String suffix = "";
+		    			if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
+		    				suffix = "";
+		    			else
+		    				suffix = "DMW";
+		    			
+				    	sb.append("    /**\n");
+						sb.append("     * @return The " + ad.getType().getName() + suffix + " object at the specified index.\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public " + ad.getType().getName() + suffix  + " getNth" + functionName + "(int index){\n");
+						sb.append("        " + ad.getType().getName() + "REF ref = " + dmocast + ".getNth" + functionName + "(index);\n");
+						sb.append("        if (ref == null)\n");
+						sb.append("            return(null);\n");
+						sb.append("        \n");
+						sb.append("        if (ref.getObject() == null)\n");
+						sb.append("            return(null);\n");
+						sb.append("        \n");
+						sb.append("        return((" + ad.getType().getName() + suffix + ")ref.getObject().getContainer());\n");
+						sb.append("    }\n\n");
+						
+				    	sb.append("    /**\n");
+						sb.append("     * @return The reference to the " + ad.getType().getName() + suffix + " object at the specified index.\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public " + ad.getType().getName() + suffix  + "REF getNth" + functionName + "REF(int index){\n");
+						sb.append("        " + ad.getType().getName() + "REF ref = " + dmocast + ".getNth" + functionName + "REF(index);\n");
+						sb.append("        return(ref);\n");
+						sb.append("    }\n\n");
+						
+		    		}
+		    	}
+
 //				sb.append("    /**\n");
 //				sb.append("     * Gets the " + ad.getName() + " value at the specified index.\n");
 //				sb.append("     * @param value A value compatible with " + typeName + "\n");

@@ -18,8 +18,8 @@ public class MailDMSAG implements DmcCompactSchemaIF {
 
     static String schemaName = "mail";
 
-    public final static DmcClassInfo __Folder = new DmcClassInfo("Folder", 901, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
-    public final static DmcClassInfo __MailItem = new DmcClassInfo("MailItem", 902, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __Folder = new DmcClassInfo("Folder", 901, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __MailItem = new DmcClassInfo("MailItem", 902, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MailDMSAG.__mailID);
     public final static DmcAttributeInfo __body = new DmcAttributeInfo("body", 905, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __email = new DmcAttributeInfo("email", 903, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __folderID = new DmcAttributeInfo("folderID", 900, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);

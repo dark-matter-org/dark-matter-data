@@ -17,8 +17,8 @@ public class ExsecurityDMSAG implements DmcCompactSchemaIF {
 
     static String schemaName = "exsecurity";
 
-    public final static DmcClassInfo __User = new DmcClassInfo("User", 5001, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
-    public final static DmcClassInfo __UserGroup = new DmcClassInfo("UserGroup", 5002, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __User = new DmcClassInfo("User", 5001, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __UserGroup = new DmcClassInfo("UserGroup", 5002, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
 
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;

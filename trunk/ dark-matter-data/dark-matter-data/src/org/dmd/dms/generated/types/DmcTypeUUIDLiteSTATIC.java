@@ -25,8 +25,8 @@ import org.dmd.dmc.types.UUIDLite;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1795)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1714)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1848)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1767)
  */
 public class DmcTypeUUIDLiteSTATIC {
     

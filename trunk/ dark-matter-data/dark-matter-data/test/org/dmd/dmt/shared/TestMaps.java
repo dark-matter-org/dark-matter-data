@@ -5,7 +5,12 @@ import java.util.Vector;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerToString;
+import org.dmd.dmp.server.generated.DmpSchemaAG;
+import org.dmd.dms.SchemaManager;
 import org.dmd.dmt.server.extended.ObjWithRefs;
+import org.dmd.dmt.server.generated.DmtSchemaAG;
+import org.dmd.util.exceptions.ResultException;
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestMaps {
@@ -14,6 +19,15 @@ public class TestMaps {
 	static final int	BACKREFS	= 1;
 	static final int	MODIFIER	= 2;
 	static final int	LASTVAL		= 3;
+
+	private SchemaManager schema;
+
+	@Before
+	public void initialize() throws ResultException, DmcValueException{
+		schema = new SchemaManager();
+		schema.manageSchema(new DmpSchemaAG());
+		schema.manageSchema(new DmtSchemaAG());
+	}
 
 	@Test
 	public void testMapReturns(){

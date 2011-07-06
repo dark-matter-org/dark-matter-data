@@ -323,6 +323,8 @@ public class Modifier implements Serializable {
 		if (attribute == null){
 			if (operation == ModifyTypeEnum.REM)
 				return(true);
+			if (operation == ModifyTypeEnum.NTH)
+				return(true);
 			return(false);
 		}
 		return(true);
@@ -330,6 +332,10 @@ public class Modifier implements Serializable {
 	
 	public ModifyTypeEnum getModifyType(){
 		return(operation);
+	}
+	
+	public int getIndex(){
+		return(index);
 	}
 	
 	/**

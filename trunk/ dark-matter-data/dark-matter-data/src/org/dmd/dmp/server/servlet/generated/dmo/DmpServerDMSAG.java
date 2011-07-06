@@ -19,11 +19,11 @@ public class DmpServerDMSAG implements DmcCompactSchemaIF {
 
     static String schemaName = "dmp.server";
 
-    public final static DmcClassInfo __PluginConfig = new DmcClassInfo("PluginConfig", 701, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
-    public final static DmcClassInfo __SessionFolderRI = new DmcClassInfo("SessionFolderRI", 704, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
-    public final static DmcClassInfo __SessionRI = new DmcClassInfo("SessionRI", 705, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
-    public final static DmcClassInfo __UserFolderRI = new DmcClassInfo("UserFolderRI", 702, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
-    public final static DmcClassInfo __UserRI = new DmcClassInfo("UserRI", 703, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __PluginConfig = new DmcClassInfo("PluginConfig", 701, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__camelCaseName);
+    public final static DmcClassInfo __SessionFolderRI = new DmcClassInfo("SessionFolderRI", 704, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
+    public final static DmcClassInfo __SessionRI = new DmcClassInfo("SessionRI", 705, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
+    public final static DmcClassInfo __UserFolderRI = new DmcClassInfo("UserFolderRI", 702, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
+    public final static DmcClassInfo __UserRI = new DmcClassInfo("UserRI", 703, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__dotName);
     public final static DmcAttributeInfo __idRI = new DmcAttributeInfo("idRI", 705, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __pluginClass = new DmcAttributeInfo("pluginClass", 703, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __pluginName = new DmcAttributeInfo("pluginName", 701, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);

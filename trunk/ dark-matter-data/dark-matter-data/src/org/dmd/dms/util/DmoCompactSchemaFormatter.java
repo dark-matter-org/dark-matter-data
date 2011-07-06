@@ -677,6 +677,7 @@ public class DmoCompactSchemaFormatter {
 	    			String ID = uco.getSV("dmdID");
 	    			String ct = uco.getSV("classType");
 	    			String derivedFrom = uco.getSV("derivedFrom");
+	    			String isNamedBy = uco.getSV("isNamedBy");
 	    			
 	    	    	out.write("    public final static DmcClassInfo __" + name + " = new DmcClassInfo(");
 	    	    	out.write("\"" + name + "\",");
@@ -687,6 +688,13 @@ public class DmoCompactSchemaFormatter {
 	    	   			out.write(",null");
 	    	   		else
 	    	   			out.write(",__" + derivedFrom);
+	    	   		
+	    	   		if (isNamedBy == null)
+	    	   			out.write(",null");
+	    	   		else{
+	    	   			out.write(",MetaDMSAG.__" + isNamedBy);
+	    	   		}
+
 	    	    	out.write(");\n");		
 	    		}
 	    		else{
@@ -702,6 +710,13 @@ public class DmoCompactSchemaFormatter {
 	    	   				out.write(",__" + cd.getDerivedFrom().getName());
 	    	   			else
 	    	   				out.write("," + parentRef);
+	    	   		}
+	    	   		if (cd.getIsNamedBy() == null)
+	    	   			out.write(",null");
+	    	   		else{
+	    	   			AttributeDefinition ad = cd.getIsNamedBy();
+	    	   			String schema = ad.getDefinedIn().getDMSASGName();
+	    	   			out.write("," + schema + ".__" + ad.getName());
 	    	   		}
 	    			out.write(");\n");
 	    		}

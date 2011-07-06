@@ -42,7 +42,7 @@ public class LDAPAttributeAUX {
      * This method will check to see if the object has any of our attributes.
      * If not, our aux class is automatically removed from the object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1897)
+    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1948)
     static private void removeAuxIfRequired(DmwWrapper corew){
         boolean anyLeft = false;
 
@@ -57,7 +57,7 @@ public class LDAPAttributeAUX {
      * This method will check to see if the object has our aux class.
      * If not, we add our aux class the object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1915)
+    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1966)
     static private void addAuxIfRequired(DmwWrapper corew) throws DmcValueException {
         if (!corew.hasAux(_auxClass))
             corew.addAux(_auxClass);
@@ -66,7 +66,7 @@ public class LDAPAttributeAUX {
     /**
      * This method checks if the object has this auxiliary class.
      */
-    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1925)
+    // org.dmd.dmg.generators.DMWGenerator.getCommonAUXFunctions(DMWGenerator.java:1976)
     static public boolean hasAux(DmwWrapper corew){
         if (corew == null)
             return(false);
@@ -76,7 +76,7 @@ public class LDAPAttributeAUX {
     /**
      * Removes the reposName attribute from the object.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:2020)
+    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:2071)
     static public DmcAttribute<?> remReposName(DmwWrapper corew){
         if (corew == null)
             return(null);
@@ -85,7 +85,7 @@ public class LDAPAttributeAUX {
         return(rc);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:2055)
+    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:2106)
     static public String getReposName(DmwWrapper corew){
         DmcTypeStringSV attr = (DmcTypeStringSV) corew.getDmcObject().get(__reposName);
         if (attr == null)
@@ -98,7 +98,7 @@ public class LDAPAttributeAUX {
      * Sets reposName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:2096)
+    // org.dmd.dmg.generators.DMWGenerator.formatAUXSV(DMWGenerator.java:2147)
     static public void setReposName(DmwWrapper corew, Object value) throws DmcValueException {
         DmcAttribute<?> attr = corew.getDmcObject().get(__reposName);
         if (attr == null){

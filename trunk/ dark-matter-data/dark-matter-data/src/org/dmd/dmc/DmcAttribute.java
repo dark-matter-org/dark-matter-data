@@ -308,6 +308,15 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     	throw(new IllegalStateException("The containsKey() method should be overloaded automatically by the DmcType[VALUE]MAP classes"));
 	}
 	
+	/**
+	 * If we have an indexed, multi-valued attribute, this method will traverse all of the slots to determine if we still
+	 * have any non-null values.
+	 * @return true if there are any values an false otherwise.
+	 */
+	public boolean hasValue(){
+    	throw(new IllegalStateException("The hasValue() method should be overloaded automatically by the DmcType[VALUE]MV classes"));		
+	}
+	
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Cloning
@@ -464,7 +473,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 				boolean first 		= true;
 				int 	dmoCount 	= 0;
 
-				if (attrInfo.indexSize > 0){
+				if ((attrInfo != null) && (attrInfo.indexSize > 0)){
 					// For indexed attributes we display the index before each value and null
 					// values are allowed
 					int index = 0;
