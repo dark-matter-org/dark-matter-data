@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeDate;    // DmcType import
  * The DmcTypeDateMV provides storage for a multi-valued Date
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:1956)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2009)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:267)
  */
 @SuppressWarnings("serial")
@@ -51,11 +51,21 @@ public class DmcTypeDateMV extends DmcTypeDate implements Serializable {
     @Override
     public DmcAttribute<Date> cloneIt(){
         DmcTypeDateMV rc = getNew();
-        for(Date val: value)
-        try {
-            rc.add(val);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        if (attrInfo.indexSize == 0){
+            for(Date val: value)
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+        }
+        else{
+            for(int index=0; index<value.size(); index++)
+                try {
+                    rc.setMVnth(index, value.get(index));
+                } catch (DmcValueException e) {
+                    throw(new IllegalStateException("typeCheck() should never fail here!",e));
+                }
         }
         return(rc);
     }
@@ -127,6 +137,26 @@ public class DmcTypeDateMV extends DmcTypeDate implements Serializable {
         }
         
         value.set(index, rc);
+        
+        return(rc);
+    }
+    
+    @Override
+    public boolean hasValue(){
+        boolean rc = false;
+        
+        if (attrInfo.indexSize == 0)
+            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+        
+        if (value == null)
+            return(rc);
+        
+        for(int i=0; i<value.size(); i++){
+            if (value.get(i) != null){
+                rc = true;
+                break;
+            }
+        }
         
         return(rc);
     }

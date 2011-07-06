@@ -36,11 +36,21 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
     @Override
     public DmcAttribute<DmtStringName> cloneIt(){
         DmcTypeDmtStringNameMV rc = getNew();
-        for(DmtStringName val: value)
-        try {
-            rc.add(val);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        if (attrInfo.indexSize == 0){
+            for(DmtStringName val: value)
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+        }
+        else{
+            for(int index=0; index<value.size(); index++)
+                try {
+                    rc.setMVnth(index, value.get(index));
+                } catch (DmcValueException e) {
+                    throw(new IllegalStateException("typeCheck() should never fail here!",e));
+                }
         }
         return(rc);
     }
@@ -112,6 +122,26 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
         }
         
         value.set(index, rc);
+        
+        return(rc);
+    }
+    
+    @Override
+    public boolean hasValue(){
+        boolean rc = false;
+        
+        if (attrInfo.indexSize == 0)
+            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+        
+        if (value == null)
+            return(rc);
+        
+        for(int i=0; i<value.size(); i++){
+            if (value.get(i) != null){
+                rc = true;
+                break;
+            }
+        }
         
         return(rc);
     }

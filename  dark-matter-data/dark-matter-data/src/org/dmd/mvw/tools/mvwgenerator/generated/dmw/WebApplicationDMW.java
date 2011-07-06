@@ -167,7 +167,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * Removes the usesController attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1613)
     public void remUsesController(){
         ((WebApplicationDMO) core).remUsesController();
     }

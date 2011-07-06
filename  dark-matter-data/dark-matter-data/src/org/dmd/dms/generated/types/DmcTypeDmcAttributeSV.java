@@ -24,7 +24,7 @@ import org.dmd.dmc.types.DmcTypeDmcAttribute;    // DmcType import
  * The DmcTypeDmcAttributeSV provides storage for a single-valued DmcAttribute
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1637)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1690)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:266)
  */
 @SuppressWarnings("serial")

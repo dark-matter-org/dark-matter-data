@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSliceDefinitionREFSET provides storage for a set of SliceDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2183)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2268)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:241)
  */
 @SuppressWarnings("serial")

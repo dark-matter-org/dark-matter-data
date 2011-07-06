@@ -32,13 +32,16 @@ public class DmcClassInfo {
 	
 	final TreeMap<Integer,DmcAttributeInfoRef>	byID;
 	
-	public DmcClassInfo(String n, int i, ClassTypeEnum ct, DataTypeEnum dt, DmcClassInfo bc){
-		name		= n;
-		id			= i;
-		classType	= ct;
-		dataType	= dt;
-		derivedFrom	= bc;
-		byID		= new TreeMap<Integer,DmcAttributeInfoRef>();
+	final public DmcAttributeInfo	nameAttribute;
+	
+	public DmcClassInfo(String n, int i, ClassTypeEnum ct, DataTypeEnum dt, DmcClassInfo bc, DmcAttributeInfo na){
+		name			= n;
+		id				= i;
+		classType		= ct;
+		dataType		= dt;
+		derivedFrom		= bc;
+		byID			= new TreeMap<Integer,DmcAttributeInfoRef>();
+		nameAttribute	= na;
 	}
 	
 	public void addMust(DmcAttributeInfo info){

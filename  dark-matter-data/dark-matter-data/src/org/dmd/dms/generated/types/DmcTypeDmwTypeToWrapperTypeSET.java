@@ -30,7 +30,7 @@ import org.dmd.dms.generated.types.DmcTypeDmwTypeToWrapperType;    // DmcType im
  * The DmcTypeDmwTypeToWrapperTypeSET provides storage for a set of DmwTypeToWrapperType
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2183)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2268)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
  */
 @SuppressWarnings("serial")

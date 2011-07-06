@@ -1586,7 +1586,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * @return The nth ObjWithRefs value without attempting lazy resolution.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:883)
-    public ObjWithRefsREF getNthREFIndexedObjRef(int i){
+    public ObjWithRefsREF getNthIndexedObjRefREF(int i){
         DmcTypeObjWithRefsREFMV attr = (DmcTypeObjWithRefsREFMV) get(DmtDMSAG.__indexedObjRef);
         if (attr == null)
             return(null);

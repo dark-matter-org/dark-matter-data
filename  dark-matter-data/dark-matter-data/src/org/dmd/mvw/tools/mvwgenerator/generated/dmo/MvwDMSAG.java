@@ -19,18 +19,18 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
 
     static String schemaName = "mvw";
 
-    public final static DmcClassInfo __MvwDefinition = new DmcClassInfo("MvwDefinition", 801, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null);
-    public final static DmcClassInfo __Component = new DmcClassInfo("Component", 805, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__MvwDefinition);
-    public final static DmcClassInfo __Activity = new DmcClassInfo("Activity", 810, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component);
-    public final static DmcClassInfo __Controller = new DmcClassInfo("Controller", 806, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component);
-    public final static DmcClassInfo __Presenter = new DmcClassInfo("Presenter", 807, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component);
-    public final static DmcClassInfo __Event = new DmcClassInfo("Event", 802, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
-    public final static DmcClassInfo __Module = new DmcClassInfo("Module", 803, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
-    public final static DmcClassInfo __Place = new DmcClassInfo("Place", 808, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
-    public final static DmcClassInfo __SubPlace = new DmcClassInfo("SubPlace", 809, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Place);
-    public final static DmcClassInfo __RunContextItem = new DmcClassInfo("RunContextItem", 811, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
-    public final static DmcClassInfo __View = new DmcClassInfo("View", 804, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
-    public final static DmcClassInfo __WebApplication = new DmcClassInfo("WebApplication", 812, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition);
+    public final static DmcClassInfo __MvwDefinition = new DmcClassInfo("MvwDefinition", 801, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__camelCaseName);
+    public final static DmcClassInfo __Component = new DmcClassInfo("Component", 805, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__componentName);
+    public final static DmcClassInfo __Activity = new DmcClassInfo("Activity", 810, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component,MvwDMSAG.__activityName);
+    public final static DmcClassInfo __Controller = new DmcClassInfo("Controller", 806, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component,MvwDMSAG.__controllerName);
+    public final static DmcClassInfo __Presenter = new DmcClassInfo("Presenter", 807, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component,MvwDMSAG.__presenterName);
+    public final static DmcClassInfo __Event = new DmcClassInfo("Event", 802, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__eventName);
+    public final static DmcClassInfo __Module = new DmcClassInfo("Module", 803, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__moduleName);
+    public final static DmcClassInfo __Place = new DmcClassInfo("Place", 808, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__placeName);
+    public final static DmcClassInfo __SubPlace = new DmcClassInfo("SubPlace", 809, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Place,MvwDMSAG.__placeName);
+    public final static DmcClassInfo __RunContextItem = new DmcClassInfo("RunContextItem", 811, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__itemName);
+    public final static DmcClassInfo __View = new DmcClassInfo("View", 804, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__viewName);
+    public final static DmcClassInfo __WebApplication = new DmcClassInfo("WebApplication", 812, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__appName);
     public final static DmcAttributeInfo __abstractActivity = new DmcAttributeInfo("abstractActivity", 858, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __activityName = new DmcAttributeInfo("activityName", 840, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __addedToRunContext = new DmcAttributeInfo("addedToRunContext", 859, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);

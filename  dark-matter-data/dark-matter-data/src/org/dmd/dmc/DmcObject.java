@@ -1039,16 +1039,20 @@ abstract public class DmcObject implements Serializable {
 					DmcAttribute mod = attr.getNew();
 					mod.setAttributeInfo(ai);
 					
-					mod.add(getLastValue());
+					mod.setMVnth(index, getLastValue());
 					getModifier().add(new Modifier(ModifyTypeEnum.NTH, mod, index));
 				}
 			}
 			
 			
+			// If there are no longer values stored in the attribute, remove it
+			if (!attr.hasValue())
+				rem(ai);
+			
 //		if ( (getContainer() != null) && (getContainer().getListenerManager() == null) ){
 //			// TODO implement attribute change listener hooks
 //		}
-	
+			
 			return (T) (attr);
 		}
 	}
@@ -1130,6 +1134,12 @@ abstract public class DmcObject implements Serializable {
 			}
 		}
 		else{
+			// If we have a naming attribute and it's available, dump it
+			if ( (getConstructionClassInfo() != null) && (getConstructionClassInfo().nameAttribute != null) ){
+				DmcAttribute attr = get(getConstructionClassInfo().nameAttribute);
+				if (attr != null)
+					attr.toOIF(sb);
+			}
 			// Just dump the modifier not the attributes
 			getModifier().toOIF(sb);
 		}
@@ -1163,6 +1173,12 @@ abstract public class DmcObject implements Serializable {
 			}
 		}
 		else{
+			// If we have a naming attribute and it's available, dump it
+			if ( (getConstructionClassInfo() != null) && (getConstructionClassInfo().nameAttribute != null) ){
+				DmcAttribute attr = get(getConstructionClassInfo().nameAttribute);
+				if (attr != null)
+					attr.toOIF(sb, padding);
+			}
 			// Just dump the modifier, not the attributes
 			getModifier().toOIF(sb, padding);
 		}
@@ -1576,6 +1592,59 @@ abstract public class DmcObject implements Serializable {
 						else{
 							if (existing.set(mod.getAttribute().getSV()) != null)
 								anyChange = true;
+						}
+					}
+					break;
+				case NTH:
+					// When a value is nulled, the modifier just contains the attribute info, not 
+					// a value holding attribute. 
+					int index = mod.getIndex();
+					Object value = null;
+					
+					if (mod.getAttribute() != null)
+						value = mod.getAttribute().getMVnth(index);
+					
+					if (existing == null){
+						if (value == null)
+							throw(new IllegalStateException("Setting an index on attribute: " + mod.getAttributeName() + " to null that's already null: " + index));
+
+						// NOTE: we add a clone of the attribute since, if we don't, we wind
+						// up storing the attribute instance that's in the modifier and adding
+						// stuff to it! 
+						add(mod.getAttributeName(), mod.getAttribute().cloneIt());
+						anyChange = true;
+					}
+					else{
+						
+						if (value == null){
+							// We're removing the value at the current slot
+							Object current = existing.getMVnth(index);
+							
+							if (current == null)
+								throw(new IllegalStateException("Setting an index on attribute: " + existing.getName() + " to null that's already null: " + index));
+							
+							existing.setMVnth(index, value);
+						}
+						else{
+							if (value instanceof DmcNamedObjectREF){
+								// If the attribute is an object reference, we have to determine
+								// whether we have the object or just its name - and perform the
+								// add() accordingly.
+								DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
+								if (ref.getObject() == null){
+									if ( existing.setMVnth(index, ref.getObjectName()) != null)
+										anyChange = true;
+								}
+								else{
+									if ( existing.setMVnth(index, ref.getObject()) != null)
+										anyChange = true;
+								}
+							}
+							else{
+								if ( existing.add(value) != null)
+									anyChange = true;
+							}
+							
 						}
 					}
 					break;

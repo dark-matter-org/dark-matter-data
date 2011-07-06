@@ -179,7 +179,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return An Iterator of Modifier objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1401)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1452)
     public ModifierIterableDMW getModifyIterable(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__modify);
         if (attr == null)
@@ -192,7 +192,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Adds another modify value.
      * @param value A value compatible with Modifier
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1417)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1468)
     public void addModify(Object value) throws DmcValueException {
         ((DMPEventDMO) core).addModify(value);
     }
@@ -201,7 +201,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Adds another modify value.
      * @param value A value compatible with Modifier
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1427)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1478)
     public void addModify(Modifier value){
         ((DMPEventDMO) core).addModify(value);
     }
@@ -210,7 +210,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Returns true if the collection contains the modify value.
      * @param value A value compatible with Modifier
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1525)
     public boolean modifyContains(Modifier value){
         return(((DMPEventDMO) core).modifyContains(value));
     }
@@ -218,7 +218,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * @return A COPY of the collection of Modifier objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1514)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1565)
     @SuppressWarnings("unchecked")
     public ArrayList<Modifier> getModifyCopy(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__modify);
@@ -239,7 +239,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1541)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1592)
     public void delModify(Object value) throws DmcValueException {
         ((DMPEventDMO) core).delModify(value);
     }
@@ -248,7 +248,7 @@ abstract public class DMPEventDMW extends DMPMessage {
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1550)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1601)
     public void delModify(Modifier value){
         ((DMPEventDMO) core).delModify(value);
     }
@@ -256,7 +256,7 @@ abstract public class DMPEventDMW extends DMPMessage {
     /**
      * Removes the modify attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1562)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1613)
     public void remModify(){
         ((DMPEventDMO) core).remModify();
     }

@@ -18,7 +18,7 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
 
     static String schemaName = "dmg";
 
-    public final static DmcClassInfo __DmgConfig = new DmcClassInfo("DmgConfig", 201, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null);
+    public final static DmcClassInfo __DmgConfig = new DmcClassInfo("DmgConfig", 201, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcAttributeInfo __alias = new DmcAttributeInfo("alias", 206, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __configSuffix = new DmcAttributeInfo("configSuffix", 202, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __genPackage = new DmcAttributeInfo("genPackage", 203, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
