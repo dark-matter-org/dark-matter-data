@@ -1080,6 +1080,9 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 				sb.append("        if (ref == null)\n");
 				sb.append("            return(null);\n");
 				sb.append("        \n");
+				sb.append("        if (ref.getObject() == null)\n");
+				sb.append("            return(null);\n");
+				sb.append("        \n");
 				sb.append("        return((" + ad.getType().getName() + suffix + ")ref.getObject().getContainer());\n");
 				sb.append("    }\n\n");
     		}

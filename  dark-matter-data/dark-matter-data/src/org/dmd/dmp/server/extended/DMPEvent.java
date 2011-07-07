@@ -229,9 +229,9 @@ public class DMPEvent extends DMPEventDMW {
 	 * that has the modifier sliced to contain only changes associated with the slice. If not,
 	 * null is returned.
 	 * <P>
-	 * If this is a CREATED event, we check to see if the newly created object contains any
-	 * of the attributes associated with the slice. If so, we create a new DmpEvent is returned
-	 * that has the new object
+	 * If this is a CREATED/LOADED event, we slice the object for the required attributes and return
+	 * a new DMPEvent with that information. NOTE: we always return a new event, even if all
+	 * we have is the name of the object.
 	 * @param dsi
 	 * @return
 	 */
@@ -268,7 +268,7 @@ public class DMPEvent extends DMPEventDMW {
 		}
 		else if ( (getEventTypeDMP() == DMPEventTypeEnum.CREATED) || (getEventTypeDMP() == DMPEventTypeEnum.LOADED)){
 			DmcObject sliced = getSourceObject().getSlice(dsi);
-			if (sliced.numberOfAttributes() > 1){
+//			if (sliced.numberOfAttributes() > 1){
 				// We have more than the objectClass attribute so create the new event
 				rc = new DMPEvent((DMPEventDMO) this.getDMO().shallowCopy());
 				
@@ -279,7 +279,7 @@ public class DMPEvent extends DMPEventDMW {
 				
 				// Replace it with the sliced object
 				rc.setSourceObject(sliced);
-			}
+//			}
 		}
 		else if (getEventTypeDMP() == DMPEventTypeEnum.DELETED){
 			// We clone the event because we have to tag it with a listenerID
