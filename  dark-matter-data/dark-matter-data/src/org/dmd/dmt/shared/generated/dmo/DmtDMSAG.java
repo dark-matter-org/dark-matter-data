@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:510)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:515)
 import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;         // DmpDMSAG
 import org.dmd.dms.generated.dmo.MetaDMSAG;               // MetaDMSAG
 import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions
@@ -87,7 +87,14 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __tsString = new DmcAttributeInfo("tsString", 10153, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
 
     public final static DmcSliceInfo __slice1 = new DmcSliceInfo("slice1");
+    // svBoolean
+    // mvFloat
+
     public final static DmcSliceInfo __sliceOfNamed = new DmcSliceInfo("sliceOfNamed");
+    // svString
+    // mvString
+    // mvTestEnum
+
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
