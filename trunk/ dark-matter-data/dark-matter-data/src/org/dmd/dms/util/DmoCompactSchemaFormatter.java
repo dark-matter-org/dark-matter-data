@@ -122,6 +122,11 @@ public class DmoCompactSchemaFormatter {
         out.write("\n");
         for(SliceDefinition slice: sd.getSliceDefList()){
 			out.write("    public final static DmcSliceInfo __" + slice.getName() + " = new DmcSliceInfo(\"" + slice.getName() + "\");\n");
+        	for(AttributeDefinition ad: slice.getSelectAttribute()){
+				out.write("    // " + ad.getName() + "\n");
+        	}
+        	out.write("\n");
+			
         }
         
         writeCommonPart1(out);
