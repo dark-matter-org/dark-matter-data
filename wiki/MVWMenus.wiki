@@ -1,0 +1,11 @@
+#summary MVW menu management.
+
+= Introduction =
+
+In any significant application, managing the menu structure is a challenge and, if you're trying to make your functionality modular it can be even more of a challenge. Ideally you want to be able to add functionality that is triggered by menu entries, tool bar buttons and/or keyboard shortcuts in a way that avoids having to create a monolithic component that knows about all of the possible functionality before hand.
+
+In a framework, such as Model View Whatever, there is the additional complication that you don't want to force the use of a particular toolkit or set of widgets on the user of the framework.
+
+So how do you implement menu management in a way that is modular and allows for the use of any widget set?
+
+Here's how it's done in MVW...
