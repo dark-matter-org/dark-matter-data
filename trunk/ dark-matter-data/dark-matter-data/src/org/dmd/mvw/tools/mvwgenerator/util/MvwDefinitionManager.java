@@ -24,8 +24,10 @@ import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.extended.SubPlace;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.Menu;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuItem;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
-import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -73,16 +75,21 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	Controller									centralDmpErrorHandler;
 	
-	// These are the events that are associated with View definitions.
-//	TreeMap<CamelCaseName, MvwEvent>			viewEvents;
-	
 	TreeMap<String,RunContextItemCollection>	contexts;
 	RunContextItemCollection					defaultContext;
-	
+		
 	final String 								controllerSubpackage 	= "controllers";
 	final String 								presenterSubpackage 	= "presenters";
 	final String 								viewSubpackage 			= "views";
 	final String 								activitySubpackage 		= "activities";
+	
+	// MENUS
+	TreeMap<CamelCaseName, Menu>				menus;
+	
+	TreeMap<CamelCaseName, MenuItem>			menuItems;
+	
+	TreeMap<CamelCaseName, Action>				actions;
+	
 	
 	// Gets set to true is any of our components send requests
 	boolean										needMvwComms;
@@ -122,6 +129,10 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		
 		centralDmpErrorHandler	= null;
 		centralRpcErrorHandler	= null;
+		
+		menus 		= new TreeMap<CamelCaseName, Menu>();
+		menuItems 	= new TreeMap<CamelCaseName, MenuItem>();
+		actions		= new TreeMap<CamelCaseName, Action>();
 	}
 	
 	public void reset() throws ResultException, DmcValueException{
@@ -236,7 +247,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				// Add the item to its module
 				rci.getDefinedInModule().addRunContextItem(rci);
 				
-DebugInfo.debug("\n" + rci.toOIF());
+//DebugInfo.debug("\n" + rci.toOIF());
 				
 				// Tell the controller its item
 				controller.setRunContextItem(rci);
@@ -370,6 +381,18 @@ DebugInfo.debug("\n" + rci.toOIF());
 			
 			// Add the item to its module
 			rci.getDefinedInModule().addRunContextItem(rci);
+		}
+		else if (def instanceof Menu){
+			Menu menu = (Menu) def;
+			menus.put(menu.getCamelCaseName(), menu);
+		}
+		else if (def instanceof MenuItem){
+			MenuItem item = (MenuItem) def;
+			menuItems.put(item.getCamelCaseName(), item);
+		}
+		else if (def instanceof Action){
+			Action action = (Action) def;
+			actions.put(action.getCamelCaseName(), action);
 		}
 		
 		if (def instanceof Component){

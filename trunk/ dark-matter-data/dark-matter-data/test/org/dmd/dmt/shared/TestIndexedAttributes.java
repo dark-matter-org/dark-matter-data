@@ -16,8 +16,11 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.IntegerToString;
+import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
+import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
@@ -62,8 +65,41 @@ public class TestIndexedAttributes {
 	}
 
 	@Test
-	public void testBasic(){
+	public void testBasicDMO(){
 		ObjWithRefsDMO obj = new ObjWithRefsDMO();
+		
+		obj.setNthIndexedString(0, "value1");
+		
+		System.out.println(obj.toOIF());
+		
+		assertEquals("Value at index 0 should be value1", "value1", obj.getNthIndexedString(0));
+		
+		assertEquals("Value at index 4 should be null", null, obj.getNthIndexedString(4));
+		
+		try{
+			obj.setNthIndexedString(-1, "garbage");
+			assertTrue("Should have thrown index exception", false);
+		}
+		catch(Exception ex){
+			System.out.println("Got expected exception:\n" + ex.toString());
+		}
+		
+		try{
+			obj.setNthIndexedString(6, "garbage");
+			assertTrue("Should have thrown index exception", false);
+		}
+		catch(Exception ex){
+			System.out.println("Got expected exception:\n" + ex.toString());
+		}
+		
+		obj.setNthIndexedString(0, null);
+		
+		assertEquals("Value at index 0 should be null", null, obj.getNthIndexedString(0));
+	}
+	
+	@Test
+	public void testBasicDMW(){
+		ObjWithRefs obj = new ObjWithRefs();
 		
 		obj.setNthIndexedString(0, "value1");
 		
@@ -223,7 +259,7 @@ public class TestIndexedAttributes {
 	public void serializeBasic() throws Exception {
 		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
 
-		System.out.println("");
+		System.out.println("\nserializeBasic()\n");
 		
 		ObjWithRefsDMO obj = new ObjWithRefsDMO();
 		obj.setName("obj1");
@@ -252,7 +288,7 @@ public class TestIndexedAttributes {
 	
 	@Test
 	public void deserializeBasic() throws Exception{
-		System.out.println("");
+		System.out.println("\ndeserializeBasic()\n");
 
 		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
 		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
@@ -267,6 +303,7 @@ public class TestIndexedAttributes {
 	
 	@Test
 	public void serializeSetRequestDMW() throws Exception{
+		System.out.println("\nserializeSetRequestDMW()\n");
 		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
 
 		ObjWithRefs obj = new ObjWithRefs();
@@ -303,16 +340,79 @@ public class TestIndexedAttributes {
 	
 	@Test
 	public void deserializeSetRequestDMW() throws Exception {
-		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
-		
-		DmwDeserializer	deserializer = new DmwDeserializer(DmwOmni.instance().getSchema());
-
-		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
+		System.out.println("\ndeserializeSetRequestDMW()\n");
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("object1");
+	
+		DataInputStream			is 				= new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
+		DmwDeserializer			deserializer 	= new DmwDeserializer(DmwOmni.instance().getSchema());
+		DmcTraceableInputStream dis 			= new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
 		
 		SetRequest request = (SetRequest) deserializer.deserialize(dis);
 		
-		System.out.println(request);
+		System.out.println("\n\n" + request + "\n");
 		
+		obj.applyModifier(request.getModifyAttribute());
+		
+		System.out.println("Modified object:\n\n" + obj.toOIF());
+
+	}
+
+	@Test
+	public void serializeModifyEventDMW() throws Exception{
+		System.out.println("\nserializeModifyEventDMW()\n");
+		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
+
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("object1");
+	
+		ObjWithRefs obj2 = new ObjWithRefs();
+		obj2.setName("obj2");
+
+		ObjWithRefs obj3 = new ObjWithRefs();
+		obj3.setName("obj3");
+
+		ObjWithRefs obj4 = new ObjWithRefs();
+		obj4.setName("obj4");
+
+		ObjWithRefs modrec = obj.getModificationRecorder();
+		modrec.setNthIndexedString(3, "fourth string");
+		modrec.setNthIndexedString(4, "fifth string");
+		modrec.setNthIndexedString(1, "second string");
+		modrec.setNthIndexedObjRef(0, obj2);
+		modrec.setNthIndexedObjRef(4, obj3);
+		modrec.setNthIndexedObjRef(5, null);
+		modrec.setNthIndexedObjRef(9, obj4);
+		
+		DMPEvent event = new DMPEvent(DMPEventTypeEnum.MODIFIED,modrec);
+				
+		System.out.println("\nStoring to file:\n\n" + event.toOIF() + "\n");
+
+		DmcTraceableOutputStream dos = new DmcTraceableOutputStream(os, true, 35);
+
+		event.serializeIt(dos);
+		
+		os.close();
+	}
+	
+	@Test
+	public void deserializeModifyEventDMW() throws Exception {
+		System.out.println("\ndeserializeModifyEventDMW()\n");
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("object1");
+	
+		DataInputStream			is 				= new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
+		DmwDeserializer			deserializer 	= new DmwDeserializer(DmwOmni.instance().getSchema());
+		DmcTraceableInputStream dis 			= new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
+		
+		DMPEvent event = (DMPEvent) deserializer.deserialize(dis);
+		
+		System.out.println("\n\n" + event + "\n");
+		
+		obj.applyModifier(event.getModifyAttribute());
+		
+		System.out.println("Modified object:\n\n" + obj.toOIF());
+
 	}
 
 }

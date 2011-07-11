@@ -20,11 +20,18 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     static String schemaName = "mvw";
 
     public final static DmcClassInfo __MvwDefinition = new DmcClassInfo("MvwDefinition", 801, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__camelCaseName);
+    public final static DmcClassInfo __Action = new DmcClassInfo("Action", 821, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__actionName);
     public final static DmcClassInfo __Component = new DmcClassInfo("Component", 805, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__componentName);
     public final static DmcClassInfo __Activity = new DmcClassInfo("Activity", 810, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component,MvwDMSAG.__activityName);
     public final static DmcClassInfo __Controller = new DmcClassInfo("Controller", 806, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component,MvwDMSAG.__controllerName);
     public final static DmcClassInfo __Presenter = new DmcClassInfo("Presenter", 807, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component,MvwDMSAG.__presenterName);
     public final static DmcClassInfo __Event = new DmcClassInfo("Event", 802, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__eventName);
+    public final static DmcClassInfo __MenuElementDefinition = new DmcClassInfo("MenuElementDefinition", 816, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__elementName);
+    public final static DmcClassInfo __Menu = new DmcClassInfo("Menu", 817, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MenuElementDefinition,MvwDMSAG.__elementName);
+    public final static DmcClassInfo __MenuBar = new DmcClassInfo("MenuBar", 818, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Menu,MvwDMSAG.__elementName);
+    public final static DmcClassInfo __SubMenu = new DmcClassInfo("SubMenu", 819, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Menu,MvwDMSAG.__elementName);
+    public final static DmcClassInfo __MenuItem = new DmcClassInfo("MenuItem", 820, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MenuElementDefinition,MvwDMSAG.__elementName);
+    public final static DmcClassInfo __MenuImplementationConfig = new DmcClassInfo("MenuImplementationConfig", 815, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__configName);
     public final static DmcClassInfo __Module = new DmcClassInfo("Module", 803, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__moduleName);
     public final static DmcClassInfo __Place = new DmcClassInfo("Place", 808, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__placeName);
     public final static DmcClassInfo __SubPlace = new DmcClassInfo("SubPlace", 809, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Place,MvwDMSAG.__placeName);
@@ -33,8 +40,14 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __View = new DmcClassInfo("View", 804, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__viewName);
     public final static DmcClassInfo __WebApplication = new DmcClassInfo("WebApplication", 812, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__appName);
     public final static DmcAttributeInfo __abstractActivity = new DmcAttributeInfo("abstractActivity", 858, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __actionName = new DmcAttributeInfo("actionName", 874, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __activityName = new DmcAttributeInfo("activityName", 840, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __addToMenu = new DmcAttributeInfo("addToMenu", 870, "Menu", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __addedToRunContext = new DmcAttributeInfo("addedToRunContext", 859, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __alternateMenuBar = new DmcAttributeInfo("alternateMenuBar", 867, "ImplAndClass", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __alternateMenuItem = new DmcAttributeInfo("alternateMenuItem", 879, "ImplAndClass", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __alternateSubMenu = new DmcAttributeInfo("alternateSubMenu", 877, "ImplAndClass", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __alwaysEnabled = new DmcAttributeInfo("alwaysEnabled", 871, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __appName = new DmcAttributeInfo("appName", 833, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __argVector = new DmcAttributeInfo("argVector", 803, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __broadcast = new DmcAttributeInfo("broadcast", 822, "Event", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -43,16 +56,22 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __centralRPCErrorHandler = new DmcAttributeInfo("centralRPCErrorHandler", 852, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __clickEvent = new DmcAttributeInfo("clickEvent", 819, "OperationSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __componentName = new DmcAttributeInfo("componentName", 811, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __configName = new DmcAttributeInfo("configName", 865, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __construction = new DmcAttributeInfo("construction", 828, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __contextImpl = new DmcAttributeInfo("contextImpl", 830, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __controllerName = new DmcAttributeInfo("controllerName", 834, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __createEvent = new DmcAttributeInfo("createEvent", 821, "OperationSpec", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __createOnDemand = new DmcAttributeInfo("createOnDemand", 861, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __defaultMenuBar = new DmcAttributeInfo("defaultMenuBar", 866, "ImplAndClass", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __defaultMenuItem = new DmcAttributeInfo("defaultMenuItem", 878, "ImplAndClass", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __defaultPlace = new DmcAttributeInfo("defaultPlace", 857, "Place", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __defaultSubMenu = new DmcAttributeInfo("defaultSubMenu", 876, "ImplAndClass", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __definedInModule = new DmcAttributeInfo("definedInModule", 800, "Module", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __deleteEvent = new DmcAttributeInfo("deleteEvent", 818, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __dependsOnModule = new DmcAttributeInfo("dependsOnModule", 805, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __displayDMO = new DmcAttributeInfo("displayDMO", 816, "DisplayDataSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __displayLabel = new DmcAttributeInfo("displayLabel", 873, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __elementName = new DmcAttributeInfo("elementName", 868, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __eventName = new DmcAttributeInfo("eventName", 809, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent", 801, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent", 802, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
@@ -64,6 +83,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __local = new DmcAttributeInfo("local", 832, "Event", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __localEvent = new DmcAttributeInfo("localEvent", 814, "EventWithArgs", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __managesView = new DmcAttributeInfo("managesView", 841, "View", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __menuOrder = new DmcAttributeInfo("menuOrder", 872, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __modifyEvent = new DmcAttributeInfo("modifyEvent", 820, "OperationSpec", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __moduleName = new DmcAttributeInfo("moduleName", 810, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __parentPlace = new DmcAttributeInfo("parentPlace", 856, "Place", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -84,8 +104,10 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __sendsSetRequest = new DmcAttributeInfo("sendsSetRequest", 846, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __sharedImport = new DmcAttributeInfo("sharedImport", 838, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __theOne = new DmcAttributeInfo("theOne", 863, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __triggersAction = new DmcAttributeInfo("triggersAction", 875, "Action", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass", 807, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useClass = new DmcAttributeInfo("useClass", 826, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __useImpl = new DmcAttributeInfo("useImpl", 869, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema", 843, "SchemaDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userDataImport = new DmcAttributeInfo("userDataImport", 804, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usesController = new DmcAttributeInfo("usesController", 842, "Controller", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -119,8 +141,14 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SImAp = new HashMap<String, DmcSliceInfo>();
 
         _SmAp.put(__abstractActivity.id,__abstractActivity);
+        _SmAp.put(__actionName.id,__actionName);
         _SmAp.put(__activityName.id,__activityName);
+        _SmAp.put(__addToMenu.id,__addToMenu);
         _SmAp.put(__addedToRunContext.id,__addedToRunContext);
+        _SmAp.put(__alternateMenuBar.id,__alternateMenuBar);
+        _SmAp.put(__alternateMenuItem.id,__alternateMenuItem);
+        _SmAp.put(__alternateSubMenu.id,__alternateSubMenu);
+        _SmAp.put(__alwaysEnabled.id,__alwaysEnabled);
         _SmAp.put(__appName.id,__appName);
         _SmAp.put(__argVector.id,__argVector);
         _SmAp.put(__broadcast.id,__broadcast);
@@ -129,16 +157,22 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__centralRPCErrorHandler.id,__centralRPCErrorHandler);
         _SmAp.put(__clickEvent.id,__clickEvent);
         _SmAp.put(__componentName.id,__componentName);
+        _SmAp.put(__configName.id,__configName);
         _SmAp.put(__construction.id,__construction);
         _SmAp.put(__contextImpl.id,__contextImpl);
         _SmAp.put(__controllerName.id,__controllerName);
         _SmAp.put(__createEvent.id,__createEvent);
         _SmAp.put(__createOnDemand.id,__createOnDemand);
+        _SmAp.put(__defaultMenuBar.id,__defaultMenuBar);
+        _SmAp.put(__defaultMenuItem.id,__defaultMenuItem);
         _SmAp.put(__defaultPlace.id,__defaultPlace);
+        _SmAp.put(__defaultSubMenu.id,__defaultSubMenu);
         _SmAp.put(__definedInModule.id,__definedInModule);
         _SmAp.put(__deleteEvent.id,__deleteEvent);
         _SmAp.put(__dependsOnModule.id,__dependsOnModule);
         _SmAp.put(__displayDMO.id,__displayDMO);
+        _SmAp.put(__displayLabel.id,__displayLabel);
+        _SmAp.put(__elementName.id,__elementName);
         _SmAp.put(__eventName.id,__eventName);
         _SmAp.put(__firesEvent.id,__firesEvent);
         _SmAp.put(__handlesEvent.id,__handlesEvent);
@@ -150,6 +184,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__local.id,__local);
         _SmAp.put(__localEvent.id,__localEvent);
         _SmAp.put(__managesView.id,__managesView);
+        _SmAp.put(__menuOrder.id,__menuOrder);
         _SmAp.put(__modifyEvent.id,__modifyEvent);
         _SmAp.put(__moduleName.id,__moduleName);
         _SmAp.put(__parentPlace.id,__parentPlace);
@@ -170,8 +205,10 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__sendsSetRequest.id,__sendsSetRequest);
         _SmAp.put(__sharedImport.id,__sharedImport);
         _SmAp.put(__theOne.id,__theOne);
+        _SmAp.put(__triggersAction.id,__triggersAction);
         _SmAp.put(__useBaseClass.id,__useBaseClass);
         _SmAp.put(__useClass.id,__useClass);
+        _SmAp.put(__useImpl.id,__useImpl);
         _SmAp.put(__useSchema.id,__useSchema);
         _SmAp.put(__userDataImport.id,__userDataImport);
         _SmAp.put(__usesController.id,__usesController);
@@ -181,16 +218,23 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__viewMethod.id,__viewMethod);
         _SmAp.put(__viewName.id,__viewName);
         _SmAp.put(__widget.id,__widget);
+        _CmAp.put(__Action.id,__Action);
         _CmAp.put(__Activity.id,__Activity);
         _CmAp.put(__Component.id,__Component);
         _CmAp.put(__Controller.id,__Controller);
         _CmAp.put(__Event.id,__Event);
         _CmAp.put(__I18NConfig.id,__I18NConfig);
+        _CmAp.put(__Menu.id,__Menu);
+        _CmAp.put(__MenuBar.id,__MenuBar);
+        _CmAp.put(__MenuElementDefinition.id,__MenuElementDefinition);
+        _CmAp.put(__MenuImplementationConfig.id,__MenuImplementationConfig);
+        _CmAp.put(__MenuItem.id,__MenuItem);
         _CmAp.put(__Module.id,__Module);
         _CmAp.put(__MvwDefinition.id,__MvwDefinition);
         _CmAp.put(__Place.id,__Place);
         _CmAp.put(__Presenter.id,__Presenter);
         _CmAp.put(__RunContextItem.id,__RunContextItem);
+        _CmAp.put(__SubMenu.id,__SubMenu);
         _CmAp.put(__SubPlace.id,__SubPlace);
         _CmAp.put(__View.id,__View);
         _CmAp.put(__WebApplication.id,__WebApplication);
@@ -288,6 +332,34 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __WebApplication.addMay(__usesController);
 
         __I18NConfig.addMust(__itemName);
+
+        __MenuImplementationConfig.addMust(__configName);
+        __MenuImplementationConfig.addMust(__defaultMenuBar);
+        __MenuImplementationConfig.addMust(__defaultSubMenu);
+        __MenuImplementationConfig.addMust(__defaultMenuItem);
+        __MenuImplementationConfig.addMay(__alternateMenuBar);
+        __MenuImplementationConfig.addMay(__alternateSubMenu);
+        __MenuImplementationConfig.addMay(__alternateMenuItem);
+
+        __MenuElementDefinition.addMust(__elementName);
+        __MenuElementDefinition.addMay(__useImpl);
+
+        __Menu.addMust(__elementName);
+
+        __MenuBar.addMust(__elementName);
+
+        __SubMenu.addMust(__elementName);
+        __SubMenu.addMust(__addToMenu);
+        __SubMenu.addMust(__menuOrder);
+        __SubMenu.addMust(__displayLabel);
+
+        __MenuItem.addMust(__elementName);
+        __MenuItem.addMust(__triggersAction);
+        __MenuItem.addMust(__addToMenu);
+        __MenuItem.addMust(__menuOrder);
+        __MenuItem.addMust(__displayLabel);
+
+        __Action.addMust(__actionName);
 
 
     }

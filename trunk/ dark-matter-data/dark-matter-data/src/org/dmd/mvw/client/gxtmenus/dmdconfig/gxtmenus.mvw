@@ -1,0 +1,10 @@
+Module
+moduleName	gxtmenus
+genPackage	org.dmd.mvw.client.gxtmenus
+description	The gxtmenus module provides menus based on Sencha's menu elements.
+
+MenuImplementationConfig
+configName		GxtMenuConfig
+defaultMenuBar	gxtMenuBar
+defaultSubMenu
+defaultMenuItem	

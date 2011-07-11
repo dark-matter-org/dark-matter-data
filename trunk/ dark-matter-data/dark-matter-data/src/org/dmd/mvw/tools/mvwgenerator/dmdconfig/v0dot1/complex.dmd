@@ -51,3 +51,10 @@ field String            varName     A variable name previously defined, usually 
 field EventScopeEnum    scope       The scope of the event
 description The OperationSpec type is used to indicate the events to be generated when an object
  is associated with some operation e.g. clicked, modified, created etc.
+
+ComplexTypeDefinition
+name ImplAndClass
+field String implName    The name of this implementation.
+field String scope       The class used to implement the required behaviour.
+description The ImplAndClass type is used to indicate the classes that are used to implement
+ various types of menu related functionality. 

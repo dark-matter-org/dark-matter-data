@@ -1489,12 +1489,23 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			else{
 				sb.append("    /**\n");
 				sb.append("     * Sets a " + ad.getName() + " value at the specified index.\n");
+				sb.append("     * @param index The index to set.\n");
 				sb.append("     * @param value A value compatible with " + typeName + "\n");
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public void setNth" + functionName + "(int index, " + typeName + " value){\n");
 		    	sb.append("        " + dmocast + ".setNth" + functionName + "(index, value);\n");
 				sb.append("    }\n\n");
+				
+				sb.append("    /**\n");
+				sb.append("     * Gets the " + ad.getName() + " value at the specified index.\n");
+				sb.append("     * @param index The index to retreive.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + typeName + " getNth" + functionName + "(int index){\n");
+		    	sb.append("        return(" + dmocast + ".getNth" + functionName + "(index));\n");
+				sb.append("    }\n\n");
+
 			}
 			
 			if (ad.getType().getAltType() != null){

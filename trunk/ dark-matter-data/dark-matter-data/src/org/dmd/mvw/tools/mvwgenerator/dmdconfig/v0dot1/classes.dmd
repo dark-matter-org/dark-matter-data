@@ -332,3 +332,95 @@ isNamedBy		itemName
 must			itemName
 description		The I18NConfig is a specialized RunContextItem that indicates an interface
  class used to access internationalized constants or messages.
+
+ClassDefinition
+name			MenuImplementationConfig
+classType		STRUCTURAL
+subpackage		menus
+dmdID			15
+derivedFrom		MvwDefinition
+useWrapperType	EXTENDED
+isNamedBy		configName
+must			configName
+must			defaultMenuBar
+must			defaultSubMenu
+must			defaultMenuItem
+may				alternateMenuBar
+may				alternateSubMenu
+may				alternateMenuItem
+description		The MenuImplementationConfig is used to define the various classes that will 
+ be used to implement an actual menu structure based the MVW menu definitions.
+
+ClassDefinition
+name			MenuElementDefinition
+classType		STRUCTURAL
+subpackage		menus
+dmdID			16
+derivedFrom		MvwDefinition
+isNamedBy		elementName
+must			elementName
+may				useImpl
+description		The MenuElementDefinition is common base for all definitions associated with
+ the definition of menu elements.
+
+ClassDefinition
+name			Menu
+classType		STRUCTURAL
+subpackage		menus
+dmdID			17
+derivedFrom		MenuElementDefinition
+useWrapperType	EXTENDED
+isNamedBy		elementName
+must			elementName
+description		The Menu is a common base for all definitions associated with
+ the definition of menus of different types e.g. toolbars, menubars, popups etc.
+
+ClassDefinition
+name			MenuBar
+classType		STRUCTURAL
+subpackage		menus
+dmdID			18
+derivedFrom		Menu
+useWrapperType	EXTENDED
+isNamedBy		elementName
+must			elementName
+description		The MenuImplementationConfig is used to define the various classes that will 
+
+ClassDefinition
+name			SubMenu
+classType		STRUCTURAL
+subpackage		menus
+dmdID			19
+derivedFrom		Menu
+useWrapperType	EXTENDED
+isNamedBy		elementName
+must			elementName
+must			addToMenu
+must			menuOrder
+must            displayLabel
+description		The SubMenu is used to define a submenu that is included as part of a Menu.
+
+ClassDefinition
+name			MenuItem
+classType		STRUCTURAL
+subpackage		menus
+dmdID			20
+derivedFrom		MenuElementDefinition
+useWrapperType	EXTENDED
+isNamedBy		elementName
+must			elementName
+must			triggersAction
+must			addToMenu
+must			menuOrder
+must            displayLabel
+description		The MenuItem is used to define triggerable menu items.
+
+ClassDefinition
+name			Action
+classType		STRUCTURAL
+subpackage		menus
+dmdID			21
+derivedFrom		MvwDefinition
+useWrapperType	EXTENDED
+isNamedBy		actionName
+must			actionName
