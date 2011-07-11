@@ -1,7 +1,8 @@
 package org.dmd.mvw.tools.mvwgenerator.extended;
 
-import org.dmd.dmc.types.CamelCaseName;
+import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.util.GenUtility;
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemDMW;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -20,7 +21,11 @@ public class RunContextItem extends RunContextItemDMW {
 	Presenter	presenter;
 
 	public RunContextItem(){
-		
+		super();
+	}
+	
+	public RunContextItem(RunContextItemDMO dmo, ClassDefinition cd){
+		super(dmo,cd);
 	}
 	
 	public void setView(View v){

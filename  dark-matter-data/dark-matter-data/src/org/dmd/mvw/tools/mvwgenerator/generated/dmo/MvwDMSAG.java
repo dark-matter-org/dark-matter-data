@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:510)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:515)
 import org.dmd.dmg.generated.dmo.DmgDMSAG;                // DmgDMSAG
 import org.dmd.dms.generated.dmo.MetaDMSAG;               // MetaDMSAG
 import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions
@@ -29,6 +29,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __Place = new DmcClassInfo("Place", 808, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__placeName);
     public final static DmcClassInfo __SubPlace = new DmcClassInfo("SubPlace", 809, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Place,MvwDMSAG.__placeName);
     public final static DmcClassInfo __RunContextItem = new DmcClassInfo("RunContextItem", 811, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__itemName);
+    public final static DmcClassInfo __I18NConfig = new DmcClassInfo("I18NConfig", 814, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__RunContextItem,MvwDMSAG.__itemName);
     public final static DmcClassInfo __View = new DmcClassInfo("View", 804, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__viewName);
     public final static DmcClassInfo __WebApplication = new DmcClassInfo("WebApplication", 812, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__appName);
     public final static DmcAttributeInfo __abstractActivity = new DmcAttributeInfo("abstractActivity", 858, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -184,6 +185,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__Component.id,__Component);
         _CmAp.put(__Controller.id,__Controller);
         _CmAp.put(__Event.id,__Event);
+        _CmAp.put(__I18NConfig.id,__I18NConfig);
         _CmAp.put(__Module.id,__Module);
         _CmAp.put(__MvwDefinition.id,__MvwDefinition);
         _CmAp.put(__Place.id,__Place);
@@ -284,6 +286,8 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __WebApplication.addMust(__appName);
         __WebApplication.addMust(__defaultPlace);
         __WebApplication.addMay(__usesController);
+
+        __I18NConfig.addMust(__itemName);
 
 
     }

@@ -56,5 +56,3 @@ construction 	new PlaceHistoryHandler(historyMapper)
 itemOrder    	8
 description		The history handler monitors place change and history events and
  keeps them in sync.
-
-

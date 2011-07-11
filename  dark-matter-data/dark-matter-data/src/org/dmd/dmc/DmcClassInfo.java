@@ -57,13 +57,17 @@ public class DmcClassInfo {
 	}
 	
 	/**
-	 * @param ai The info associated withe attribute we're checking.
+	 * @param ai The info associated with the attribute we're checking.
 	 * @return true if the attribute is contained in our allowed attributes map.
 	 */
 	public boolean allowsAttribute(DmcAttributeInfo ai){
 		boolean rc = true;
-		if (byID.get(ai.id) == null)
-			rc = false;
+		if (byID.get(ai.id) == null){
+			if (derivedFrom == null)
+				rc = false;
+			else
+				rc = derivedFrom.allowsAttribute(ai);
+		}
 		return(rc);
 	}
 	
@@ -74,7 +78,11 @@ public class DmcClassInfo {
 	public DmcAttributeInfo allowsAttribute(Integer id){
 		DmcAttributeInfo rc = null;
 		DmcAttributeInfoRef air = byID.get(id);
-		if (air != null)
+		if (air == null){
+			if (derivedFrom != null)
+				rc = derivedFrom.allowsAttribute(id);
+		}
+		else
 			rc = air.info;
 		return(rc);
 	}

@@ -87,7 +87,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public String getUseBaseClass(){
         return(((ActivityDMO) core).getUseBaseClass());
     }
@@ -96,7 +96,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Sets useBaseClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setUseBaseClass(Object value) throws DmcValueException {
         ((ActivityDMO) core).setUseBaseClass(value);
     }
@@ -105,7 +105,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Sets useBaseClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setUseBaseClass(String value){
         ((ActivityDMO) core).setUseBaseClass(value);
     }
@@ -113,12 +113,12 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * Removes the useBaseClass attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remUseBaseClass(){
         ((ActivityDMO) core).remUseBaseClass();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public Boolean isAbstractActivity(){
         return(((ActivityDMO) core).isAbstractActivity());
     }
@@ -127,7 +127,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Sets abstractActivity to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setAbstractActivity(Object value) throws DmcValueException {
         ((ActivityDMO) core).setAbstractActivity(value);
     }
@@ -136,7 +136,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Sets abstractActivity to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setAbstractActivity(Boolean value){
         ((ActivityDMO) core).setAbstractActivity(value);
     }
@@ -144,7 +144,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * Removes the abstractActivity attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remAbstractActivity(){
         ((ActivityDMO) core).remAbstractActivity();
     }
@@ -152,7 +152,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return The number of Controller items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1232)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1235)
     public int getUsesControllerSize(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -164,7 +164,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return true if there are no ControllerDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1245)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
     public boolean getUsesControllerIsEmpty(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -176,7 +176,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return true if there are any ControllerDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1257)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1260)
     public boolean getUsesControllerHasValue(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -189,7 +189,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * @return An Iterator of ControllerDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1278)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1281)
     public ControllerIterableDMW getUsesControllerIterable(){
         DmcAttribute attr = ((ActivityDMO) core).get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -202,7 +202,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Adds another usesController value.
      * @param value A value compatible with Controller
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1294)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1297)
     public DmcAttribute<?> addUsesController(Controller value){
         DmcAttribute<?> attr = ((ActivityDMO) core).addUsesController(((ControllerDMO)value.getDmcObject()));
         return(attr);
@@ -212,7 +212,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Deletes a usesController value.
      * @param value The Controller to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1307)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1310)
     public void delUsesController(Controller value){
         ((ActivityDMO) core).delUsesController(value.getDMO());
     }
@@ -220,7 +220,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of Controller objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1342)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1345)
     public ArrayList<Controller> getUsesControllerCopy(){
         DmcAttribute<?> attr = ((ActivityDMO) core).get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -239,7 +239,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * Removes the usesController attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1613)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1619)
     public void remUsesController(){
         ((ActivityDMO) core).remUsesController();
     }
@@ -247,7 +247,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return The number of View items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1232)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1235)
     public int getManagesViewSize(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -259,7 +259,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return true if there are no ViewDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1245)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
     public boolean getManagesViewIsEmpty(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -271,7 +271,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return true if there are any ViewDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1257)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1260)
     public boolean getManagesViewHasValue(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -284,7 +284,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * @return An Iterator of ViewDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1278)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1281)
     public ViewIterableDMW getManagesViewIterable(){
         DmcAttribute attr = ((ActivityDMO) core).get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -297,7 +297,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Adds another managesView value.
      * @param value A value compatible with View
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1294)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1297)
     public DmcAttribute<?> addManagesView(View value){
         DmcAttribute<?> attr = ((ActivityDMO) core).addManagesView(((ViewDMO)value.getDmcObject()));
         return(attr);
@@ -307,7 +307,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Deletes a managesView value.
      * @param value The View to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1307)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1310)
     public void delManagesView(View value){
         ((ActivityDMO) core).delManagesView(value.getDMO());
     }
@@ -315,7 +315,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of View objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1342)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1345)
     public ArrayList<View> getManagesViewCopy(){
         DmcAttribute<?> attr = ((ActivityDMO) core).get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -334,12 +334,12 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * Removes the managesView attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1613)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1619)
     public void remManagesView(){
         ((ActivityDMO) core).remManagesView();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public CamelCaseName getActivityName(){
         return(((ActivityDMO) core).getActivityName());
     }
@@ -348,7 +348,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Sets activityName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setActivityName(Object value) throws DmcValueException {
         ((ActivityDMO) core).setActivityName(value);
     }
@@ -357,7 +357,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Sets activityName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setActivityName(CamelCaseName value){
         ((ActivityDMO) core).setActivityName(value);
     }
@@ -365,7 +365,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * Removes the activityName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remActivityName(){
         ((ActivityDMO) core).remActivityName();
     }
