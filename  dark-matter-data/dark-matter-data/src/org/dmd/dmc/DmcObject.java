@@ -631,7 +631,7 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * Returns the holder of the value for the named attribute. Use this with caution!
 	 * This is generally used only by derived wrapper classes of DmcObject.
-	 * @param name The name of the attribute.
+	 * @param _name The name of the attribute.
 	 * @return DmcAttribute
 	 */
 	@SuppressWarnings("unchecked")
@@ -642,7 +642,7 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * Returns the holder of the value for the named attribute. Use this with caution!
 	 * This is generally used only by derived wrapper classes of DmcObject.
-	 * @param name The name of the attribute.
+	 * @param _name The name of the attribute.
 	 * @return DmcAttribute
 	 */
 	@SuppressWarnings("unchecked")
@@ -1620,8 +1620,8 @@ abstract public class DmcObject implements Serializable {
 							// We're removing the value at the current slot
 							Object current = existing.getMVnth(index);
 							
-							if (current == null)
-								throw(new IllegalStateException("Setting an index on attribute: " + existing.getName() + " to null that's already null: " + index));
+//							if (current == null)
+//								throw(new IllegalStateException("Setting an index on attribute: " + existing.getName() + " to null that's already null: " + index));
 							
 							existing.setMVnth(index, value);
 						}

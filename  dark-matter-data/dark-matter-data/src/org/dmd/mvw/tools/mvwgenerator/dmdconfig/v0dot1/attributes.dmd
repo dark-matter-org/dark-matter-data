@@ -482,10 +482,108 @@ description		When set on a Module, this indicates that extended classes for Acti
  is specified for any of these components, it takes precidence over the standard
 
 AttributeDefinition
-name			typeName
+name			configName
 dmdID			65
 type			CamelCaseName
-description		The name of a menu related implementation type.
+description		The name of a menu implementation configuration.
+
+AttributeDefinition
+name			defaultMenuBar
+dmdID			66
+type			ImplAndClass
+description		The name and class of the default menubar implementation.
+
+AttributeDefinition
+name			alternateMenuBar
+dmdID			67
+type			ImplAndClass
+valueType		MULTI
+description		The name and class of an alternate menubar implementation.
+
+AttributeDefinition
+name			elementName
+dmdID			68
+type			CamelCaseName
+description		The name of a menu related element.
+
+AttributeDefinition
+name			useImpl
+dmdID			69
+type			CamelCaseName
+description		The name of a menu element implementation.
+
+AttributeDefinition
+name			addToMenu
+dmdID			70
+type			Menu
+description		Indicates the menu to which an MenuItem should be added.
+
+AttributeDefinition
+name			alwaysEnabled
+dmdID			71
+type			Boolean
+description		Indicates if the item is always enabled. If not, there will be a
+ method generated that is called before the menu is shown to determine if the item
+ is enabled/disabled.
+
+AttributeDefinition
+name			menuOrder
+dmdID			72
+type			Integer
+description		Indicates the lorder in which a sub menu or menu item
+ should be displayed in the menu.
+
+AttributeDefinition
+name			displayLabel
+dmdID			73
+type			String
+description		The label to be displayed on something.
+
+AttributeDefinition
+name			actionName
+dmdID			74
+type			CamelCaseName
+description		The name of an Action.
+
+AttributeDefinition
+name			triggersAction
+dmdID			75
+type			Action
+description		Indicates the Action to be associated with a menu entry, button or
+ other UI component.
+
+AttributeDefinition
+name			defaultSubMenu
+dmdID			76
+type			ImplAndClass
+description		The name and class of the default submenu implementation.
+
+AttributeDefinition
+name			alternateSubMenu
+dmdID			77
+type			ImplAndClass
+valueType		MULTI
+description		The name and class of an alternate submenu implementation.
+
+AttributeDefinition
+name			defaultMenuItem
+dmdID			78
+type			ImplAndClass
+description		The name and class of the default menu item implementation.
+
+AttributeDefinition
+name			alternateMenuItem
+dmdID			79
+type			ImplAndClass
+valueType		MULTI
+description		The name and class of an alternate menu item implementation.
+
+//AttributeDefinition
+//name			triggersAction
+//dmdID			73
+//type			MVWAction
+//description		Indicates the MVWAction to be associated with a menu entry, button or
+//other UI component.
 
 //AttributeDefinition
 //name			dependsOnMVW
