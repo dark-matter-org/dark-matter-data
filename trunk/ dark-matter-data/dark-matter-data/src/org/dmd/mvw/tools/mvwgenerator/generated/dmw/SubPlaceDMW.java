@@ -68,7 +68,7 @@ abstract public class SubPlaceDMW extends Place implements DmcNamedObjectIF {
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public CamelCaseName getPlaceName(){
         return(((SubPlaceDMO) core).getPlaceName());
     }
@@ -77,7 +77,7 @@ abstract public class SubPlaceDMW extends Place implements DmcNamedObjectIF {
      * Sets placeName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setPlaceName(Object value) throws DmcValueException {
         ((SubPlaceDMO) core).setPlaceName(value);
     }
@@ -86,7 +86,7 @@ abstract public class SubPlaceDMW extends Place implements DmcNamedObjectIF {
      * Sets placeName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setPlaceName(CamelCaseName value){
         ((SubPlaceDMO) core).setPlaceName(value);
     }
@@ -94,12 +94,12 @@ abstract public class SubPlaceDMW extends Place implements DmcNamedObjectIF {
     /**
      * Removes the placeName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remPlaceName(){
         ((SubPlaceDMO) core).remPlaceName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public String getPlacePrefix(){
         return(((SubPlaceDMO) core).getPlacePrefix());
     }
@@ -108,7 +108,7 @@ abstract public class SubPlaceDMW extends Place implements DmcNamedObjectIF {
      * Sets placePrefix to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setPlacePrefix(Object value) throws DmcValueException {
         ((SubPlaceDMO) core).setPlacePrefix(value);
     }
@@ -117,7 +117,7 @@ abstract public class SubPlaceDMW extends Place implements DmcNamedObjectIF {
      * Sets placePrefix to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setPlacePrefix(String value){
         ((SubPlaceDMO) core).setPlacePrefix(value);
     }
@@ -125,7 +125,7 @@ abstract public class SubPlaceDMW extends Place implements DmcNamedObjectIF {
     /**
      * Removes the placePrefix attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remPlacePrefix(){
         ((SubPlaceDMO) core).remPlacePrefix();
     }
@@ -139,6 +139,9 @@ abstract public class SubPlaceDMW extends Place implements DmcNamedObjectIF {
         if (ref == null)
             return(null);
         
+        if (ref.getObject() == null)
+            return(null);
+        
         return((Place)ref.getObject().getContainer());
     }
 
@@ -146,7 +149,7 @@ abstract public class SubPlaceDMW extends Place implements DmcNamedObjectIF {
      * Sets the parentPlace to the specified value.
      * @param value A value compatible with PlaceREF
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1122)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1125)
     public void setParentPlace(Place value) {
         ((SubPlaceDMO) core).setParentPlace(value.getDMO());
     }
@@ -154,7 +157,7 @@ abstract public class SubPlaceDMW extends Place implements DmcNamedObjectIF {
     /**
      * Removes the parentPlace attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remParentPlace(){
         ((SubPlaceDMO) core).remParentPlace();
     }

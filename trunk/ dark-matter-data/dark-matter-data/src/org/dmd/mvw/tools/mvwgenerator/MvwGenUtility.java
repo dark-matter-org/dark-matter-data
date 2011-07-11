@@ -22,8 +22,10 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmg.generated.DmgSchemaAG;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaParser;
+import org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG;
 import org.dmd.mvw.tools.mvwgenerator.util.MvwDefinitionManager;
 import org.dmd.mvw.tools.mvwgenerator.util.MvwGenerator;
 import org.dmd.mvw.tools.mvwgenerator.util.MvwParser;
@@ -101,6 +103,11 @@ public class MvwGenUtility {
 		
 		baseWithMVWSchema = new SchemaManager();
 		
+		DmgSchemaAG	dmg = new DmgSchemaAG();
+		baseWithMVWSchema.manageSchema(dmg);
+		MvwSchemaAG mvw = new MvwSchemaAG();
+		baseWithMVWSchema.manageSchema(mvw);
+		
 		StringArrayList searchdirs = new StringArrayList();
 		if (srcdir.size() > 0){
 			searchdirs = new StringArrayList();
@@ -122,7 +129,8 @@ public class MvwGenUtility {
 		schemaFinder.findConfigs();
 		
 		schemaParser = new DmsSchemaParser(baseSchema, schemaFinder);
-		schemaParser.parseSchema(baseWithMVWSchema, "mvw", true);
+//		schemaParser.parseSchema(baseWithMVWSchema, "mvw", true);
+		
 		
 		defManager = new MvwDefinitionManager(baseWithMVWSchema, schemaParser);
 		

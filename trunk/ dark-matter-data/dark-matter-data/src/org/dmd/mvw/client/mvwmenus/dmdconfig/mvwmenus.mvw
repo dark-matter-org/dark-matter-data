@@ -1,0 +1,10 @@
+Module
+moduleName	mvwmenus
+genPackage	org.dmd.mvw.client.mvwmenus
+description	The mvwmenus module provides menu management functionality.
+
+Controller
+controllerName	MenuController
+subpackage		controllers
+description		The MenuController provides centralized management and access to menus,
+ menu items, toolbar and toolbar buttons.

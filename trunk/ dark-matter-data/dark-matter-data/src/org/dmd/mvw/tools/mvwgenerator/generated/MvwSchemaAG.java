@@ -31,6 +31,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static ClassDefinition _Activity;
     public static ClassDefinition _RunContextItem;
     public static ClassDefinition _WebApplication;
+    public static ClassDefinition _I18NConfig;
 
     public static AttributeDefinition _definedInModule;
     public static AttributeDefinition _firesEvent;
@@ -411,7 +412,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _WebApplicationOBJ.setDmdID("812");
             _WebApplicationOBJ.setClassType("STRUCTURAL");
             _WebApplicationOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _WebApplicationOBJ.setLineNumber("323");
+            _WebApplicationOBJ.setLineNumber("324");
             _WebApplicationOBJ.setDescription("The WebApplication definition allows for the definition of the superstructure for an application, basically it's the definition of the overall application controller.");
             _WebApplicationOBJ.setDerivedFrom("MvwDefinition");
             _WebApplicationOBJ.setIsNamedBy("appName");
@@ -424,6 +425,24 @@ public class MvwSchemaAG extends SchemaDefinition {
             _WebApplicationOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.WebApplicationIterableDMW");
             _WebApplication.setDefinedIn(this);
             addClassDefList(_WebApplication);
+
+            ClassDefinitionDMO _I18NConfigOBJ = new ClassDefinitionDMO();
+            _I18NConfig = new ClassDefinition(_I18NConfigOBJ);
+            _I18NConfigOBJ.setName("I18NConfig");
+            _I18NConfigOBJ.setDmdID("814");
+            _I18NConfigOBJ.setClassType("STRUCTURAL");
+            _I18NConfigOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _I18NConfigOBJ.setLineNumber("334");
+            _I18NConfigOBJ.setDescription("The I18NConfig is a specialized RunContextItem that indicates an interface class used to access internationalized constants or messages.");
+            _I18NConfigOBJ.setDerivedFrom("RunContextItem");
+            _I18NConfigOBJ.setIsNamedBy("itemName");
+            _I18NConfigOBJ.setUseWrapperType("EXTENDED");
+            _I18NConfigOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.I18NConfigREF");
+            _I18NConfigOBJ.setDmwIteratorClass("I18NConfigIterableDMW");
+            _I18NConfigOBJ.addMust("itemName");
+            _I18NConfigOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.I18NConfigIterableDMW");
+            _I18NConfig.setDefinedIn(this);
+            addClassDefList(_I18NConfig);
 
     }
 

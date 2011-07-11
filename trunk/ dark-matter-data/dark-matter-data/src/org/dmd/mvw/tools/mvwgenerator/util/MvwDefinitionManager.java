@@ -48,6 +48,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	Module										codeGenModule;
 	WebApplication								application;
 	
+	// This is the current module that we're reading
+	Module										currentModule;
+	
 	TreeMap<CamelCaseName, Module>				modules;
 	
 //	TreeMap<CamelCaseName, MvwEvent>			mvwEevents;
@@ -165,6 +168,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			if (codeGenModule == null)
 				codeGenModule = mod;
 			
+			currentModule = mod;
+			
 			// Read any schemas the module depends on
 			if (mod.getDependsOnSchemaHasValue()){
 				Iterator<String> it = dmo.getDependsOnSchema();
@@ -208,16 +213,16 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			
 			if (controller.isAddedToRunContext()){
 				// All Controllers run for the life of the application and so, are added to the run context
-				// so that are created on start up
+				// so that they are created on start up
 				RunContextItem rci = new RunContextItem();
 				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 				
 				rci.setItemName(controller.getControllerName().getNameString() + "RCI");
 				
 				if (controller.getSubpackage() == null)
-					rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + controller.getControllerName());
+					rci.setUseClass(currentModule.getGenPackage() + ".extended." + controller.getControllerName());
 				else
-					rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + controller.getSubpackage() + "." + controller.getControllerName());
+					rci.setUseClass(currentModule.getGenPackage() + ".extended." + controller.getSubpackage() + "." + controller.getControllerName());
 					
 				rci.setConstruction("new " + controller.getControllerName() + "(this)");
 				rci.setDefinedInModule(controller.getDefinedInModule());
@@ -230,6 +235,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				
 				// Add the item to its module
 				rci.getDefinedInModule().addRunContextItem(rci);
+				
+DebugInfo.debug("\n" + rci.toOIF());
 				
 				// Tell the controller its item
 				controller.setRunContextItem(rci);
@@ -268,9 +275,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			rci.setItemName(presenter.getPresenterName().getNameString() + "RCI");
 			
 			if (presenter.getSubpackage() == null)
-				rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + presenter.getPresenterName());
+				rci.setUseClass(currentModule.getGenPackage() + ".extended." + presenter.getPresenterName());
 			else
-				rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + presenter.getSubpackage() + "." + presenter.getPresenterName());
+				rci.setUseClass(currentModule.getGenPackage() + ".extended." + presenter.getSubpackage() + "." + presenter.getPresenterName());
 				
 			rci.setConstruction("new " + presenter.getPresenterName() + "(this)");
 			rci.setDefinedInModule(presenter.getDefinedInModule());
@@ -312,9 +319,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			rci.setItemName(view.getViewName().getNameString() + "RCI");
 			
 			if (view.getSubpackage() == null)
-				rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + view.getViewName());
+				rci.setUseClass(currentModule.getGenPackage() + ".extended." + view.getViewName());
 			else
-				rci.setUseClass(codeGenModule.getGenPackage() + ".extended." + view.getSubpackage() + "." + view.getViewName());
+				rci.setUseClass(currentModule.getGenPackage() + ".extended." + view.getSubpackage() + "." + view.getViewName());
 				
 			// BIG NOTE: we don't specify the arguments to the constructor, this will depend on figuring
 			// out if the component needs run context items

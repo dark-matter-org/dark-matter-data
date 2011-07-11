@@ -6,7 +6,8 @@ defFiles		types.dmd
 defFiles    	attributes.dmd
 defFiles		classes.dmd
 generatedFileHeader LGPL.txt
-schemaPackage org.dmd.dmg
+schemaPackage 	org.dmd.dmg
+dmwPackage		org.dmd.dmg
 description 	The dmg schema defines classes used by the Dark Matter Generator framework.
  The concept of the framework is to allow users to extend the overall code generation
  mechanism by providing their own generators that conform to the DarkMatterGeneratorIF

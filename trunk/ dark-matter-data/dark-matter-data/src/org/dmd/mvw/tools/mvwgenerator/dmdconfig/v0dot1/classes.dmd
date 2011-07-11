@@ -321,3 +321,14 @@ must			defaultPlace
 may				usesController
 description		The WebApplication definition allows for the definition of the superstructure
  for an application, basically it's the definition of the overall application controller. 
+
+ClassDefinition
+name			I18NConfig
+classType		STRUCTURAL
+dmdID			14
+derivedFrom		RunContextItem
+useWrapperType	EXTENDED
+isNamedBy		itemName
+must			itemName
+description		The I18NConfig is a specialized RunContextItem that indicates an interface
+ class used to access internationalized constants or messages.
