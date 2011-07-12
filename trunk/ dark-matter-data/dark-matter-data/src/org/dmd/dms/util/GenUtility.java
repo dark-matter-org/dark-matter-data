@@ -858,36 +858,51 @@ public class GenUtility {
 		    	sb.append("    }\n\n");
 			}
 			else{
-		    	sb.append("    /**\n");
-				sb.append("     * @return The nth " + typeName + " value and attempt lazy resolution if it's on.\n");
-				sb.append("     */\n");
-				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public " + typeName + "REF getNth" + functionName + "(int i){\n");
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
-				sb.append("        if (attr == null)\n");
-				sb.append("            return(null);\n");
-				sb.append("\n");
-		    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
-		    	sb.append("            if (attr.doLazyResolution(this)){\n");
-		    	sb.append("                rem(attr.getAttributeInfo());\n");
-				sb.append("                return(null);\n");
-		    	sb.append("            }\n");
-		    	sb.append("        }\n");
-				sb.append("\n");
-				sb.append("        return(attr.getMVnth(i));\n");
-				sb.append("    }\n\n");
-				
-		    	sb.append("    /**\n");
-				sb.append("     * @return The nth " + typeName + " value without attempting lazy resolution.\n");
-				sb.append("     */\n");
-				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public " + typeName + "REF getNth" + functionName + "REF(int i){\n");
-				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
-				sb.append("        if (attr == null)\n");
-				sb.append("            return(null);\n");
-				sb.append("\n");
-				sb.append("        return(attr.getMVnth(i));\n");
-				sb.append("    }\n\n");
+				if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+			    	sb.append("    /**\n");
+					sb.append("     * @return The nth " + typeName + " value without attempting lazy resolution.\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public " + typeName + "DMO getNth" + functionName + "(int i){\n");
+					sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+					sb.append("        if (attr == null)\n");
+					sb.append("            return(null);\n");
+					sb.append("\n");
+					sb.append("        return(attr.getMVnth(i));\n");
+					sb.append("    }\n\n");
+				}
+				else{
+			    	sb.append("    /**\n");
+					sb.append("     * @return The nth " + typeName + " value and attempt lazy resolution if it's on.\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public " + typeName + "REF getNth" + functionName + "(int i){\n");
+					sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+					sb.append("        if (attr == null)\n");
+					sb.append("            return(null);\n");
+					sb.append("\n");
+			    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
+			    	sb.append("            if (attr.doLazyResolution(this)){\n");
+			    	sb.append("                rem(attr.getAttributeInfo());\n");
+					sb.append("                return(null);\n");
+			    	sb.append("            }\n");
+			    	sb.append("        }\n");
+					sb.append("\n");
+					sb.append("        return(attr.getMVnth(i));\n");
+					sb.append("    }\n\n");
+					
+			    	sb.append("    /**\n");
+					sb.append("     * @return The nth " + typeName + " value without attempting lazy resolution.\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public " + typeName + "REF getNth" + functionName + "REF(int i){\n");
+					sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+					sb.append("        if (attr == null)\n");
+					sb.append("            return(null);\n");
+					sb.append("\n");
+					sb.append("        return(attr.getMVnth(i));\n");
+					sb.append("    }\n\n");
+				}
 				
 		    	sb.append("    /**\n");
 		    	sb.append("     * Sets the " + ad.getName() + " value at the specified index.\n");
@@ -908,6 +923,7 @@ public class GenUtility {
 		    	sb.append("        }\n");
 		    	sb.append("        return(attr);\n");
 		    	sb.append("    }\n\n");
+
 			}
 
 		}

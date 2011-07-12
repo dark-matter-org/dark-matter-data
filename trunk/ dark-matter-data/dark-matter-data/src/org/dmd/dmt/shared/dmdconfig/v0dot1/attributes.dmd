@@ -388,4 +388,18 @@ valueType				MULTI
 indexSize				10
 description				Indexed references to ObjWithRefs objects.
 
+AttributeDefinition
+name					indexedPlainObjRef
+dmdID					416
+type					TestBasicObjectFixed
+valueType				MULTI
+indexSize				10
+description				Indexed references to unnamed objects.
+
+AttributeDefinition
+name					plainObjRef
+dmdID					417
+type					TestBasicObjectFixed
+valueType				MULTI
+description				References to unnamed objects.
 

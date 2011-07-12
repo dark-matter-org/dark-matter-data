@@ -30,7 +30,7 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeMethodWithArgs;    // DmcType
  * The DmcTypeMethodWithArgsSET provides storage for a set of MethodWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2268)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2284)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:101)
  */
 @SuppressWarnings("serial")

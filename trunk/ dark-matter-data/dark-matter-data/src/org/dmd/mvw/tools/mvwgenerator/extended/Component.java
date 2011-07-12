@@ -6,6 +6,7 @@ import org.dmd.dmp.client.ErrorOptionsEnum;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.util.GenUtility;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ComponentDMW;
 import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;
@@ -49,6 +50,11 @@ public class Component extends ComponentDMW {
 	boolean							centralRpcErrorHandling;
 	
 	boolean							centralDmpErrorHandling;
+	
+	// Actions
+	
+	StringBuffer					actionVariables;
+	StringBuffer					actionInstantiations;
 	
 	public Component(){
 		
@@ -98,10 +104,18 @@ public class Component extends ComponentDMW {
 		return(eventRegistration.toString());
 	}
 	
-	public String getCommsContants(){
+	public String getCommsConstants(){
 		if (commsConstants.length() > 0)
 			commsConstants.append("\n");
 		return(commsConstants.toString());
+	}
+	
+	public String getActionVariables(){
+		return(actionVariables.toString());
+	}
+	
+	public String getActionInstantiations(){
+		return(actionInstantiations.toString());
 	}
 	
 	protected void initCodeGenInfo(boolean rpc, boolean dmp) throws ResultException {
@@ -119,6 +133,8 @@ public class Component extends ComponentDMW {
 		commsConstants			= new StringBuffer();
 		eventRegistration		= new StringBuffer();
 		commsHandlers			= new TreeMap<String, CommsHandler>();
+		actionVariables			= new StringBuffer();
+		actionInstantiations	= new StringBuffer();
 		
 		if (getHandlesEventHasValue()){
 			DebugInfo.debug(getObjectName().getNameString() + " handles " + getHandlesEventSize() + " events");
@@ -267,6 +283,27 @@ public class Component extends ComponentDMW {
 		if (getUseBaseClass() != null)
 			imports.addImport(getUseBaseClass(), "Specified base class");
 		
+		if (getImplementsActionHasValue()){
+			
+			for(Action action: getImplementsActionIterable()){
+				String capped = GenUtility.capTheName(action.getActionName().getNameString());
+				String cappedAction = GenUtility.capTheName(action.getActionName().getNameString()) + "Action";
+				
+				actionVariables.append("    protected final " + cappedAction + " " + action.getActionName() + ";\n");
+				
+				actionInstantiations.append("\n");
+				actionInstantiations.append("        " + action.getActionName() + " = new " + cappedAction + "(this);\n");
+				actionInstantiations.append("        MenuControllerRCI.addAction(" + action.getActionName() + ");\n");
+				
+				String i = getDefinedInModule().getGenPackage() + ".generated.mvw.actions." + cappedAction;
+				imports.addImport(i, "The " + action.getActionName() + " action");
+				imports.addImport("org.dmd.mvw.client.mvwmenus.interfaces.TriggerIF", "Required by actions");
+				
+				abstractMethods.append("\n");
+				abstractMethods.append("    abstract public void execute" + capped + "(TriggerIF trigger, Object widgetEvent);\n");
+			}
+		}
+		
 	}
 	
 	void addRequest(RequestWithOptions rwo, String type) throws ResultException{
@@ -308,6 +345,10 @@ public class Component extends ComponentDMW {
 		imports.addImport("org.dmd.dmp.shared.generated.dmo.RequestDMO", "DMP communications");
 		imports.addImport("org.dmd.dmp.shared.generated.dmo.ResponseDMO", "DMP communications");
 		imports.addImport("org.dmd.dmp.shared.generated.enums.ResponseTypeEnum", "DMP communications");
+	}
+	
+	public String genSubPackage(){
+		throw(new IllegalStateException("Must overload genSubPackage()"));
 	}
 	
 	class CommsHandler {

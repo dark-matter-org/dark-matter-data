@@ -1,17 +1,28 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
-import org.dmd.dmc.*;                                                  // If any attributes
-import org.dmd.dmc.types.CamelCaseName;                                // Primitive type
-import org.dmd.dms.*;                                                  // Always 2
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                  // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;          // Derived class
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;           // Required for getModificationRecorder()
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionDMO;         // Class not auxiliary or abstract
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;          // Attribute from mvw schema
+import org.dmd.dmc.*;                                                       // If any attributes
+import org.dmd.dmc.types.CamelCaseName;                                     // Primitive type
+import org.dmd.dms.*;                                                       // Always 2
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;                   // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;               // Derived class
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;                // Required for getModificationRecorder()
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionDMO;              // Class not auxiliary or abstract
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;               // Attribute from mvw schema
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ComponentREF;         // To support getMVCopy() for REFs
 
 /**
- * null
+ * The Action class allows for the definition of an intermediate component
+ * that binds behavioural triggers e.g. menu items, toolbar buttons etc. to
+ * action implementors e.g. Controllers, Presenters and Activities. The
+ * Action serves the same purpose as the com.google.gwt.user.client.Command
+ * interface, but provides some additional useful functionality. The
+ * implementation of the Action (see org.dmd.mvw.client.mvwmenus.base.Action)
+ * maintains a set of TriggerIF interfaces, which are the various
+ * implementations of the menu items, toolbar buttons etc. An implementing
+ * component can enable/disable its Actions which, in turn, can
+ * enable/disable its triggers.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -65,6 +76,38 @@ abstract public class ActionDMW extends MvwDefinition implements DmcNamedObjectI
             return( getObjectName().equals( ((ActionDMW) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    /**
+     * @return A Component object.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1077)
+    public Component getImplementedBy(){
+        ComponentREF ref = ((ActionDMO) core).getImplementedBy();
+        if (ref == null)
+            return(null);
+        
+        if (ref.getObject() == null)
+            return(null);
+        
+        return((Component)ref.getObject().getContainer());
+    }
+
+    /**
+     * Sets the implementedBy to the specified value.
+     * @param value A value compatible with ComponentREF
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1125)
+    public void setImplementedBy(Component value) {
+        ((ActionDMO) core).setImplementedBy(value.getDMO());
+    }
+
+    /**
+     * Removes the implementedBy attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
+    public void remImplementedBy(){
+        ((ActionDMO) core).remImplementedBy();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)

@@ -25,7 +25,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeImplAndClass;    //
  * The DmcTypeImplAndClassSV provides storage for a single-valued ImplAndClass
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1690)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1706)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:124)
  */
 @SuppressWarnings("serial")

@@ -66,7 +66,7 @@ public class UserFolderRIDMW extends DmwHierarchicObjectWrapper implements DmcNa
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public DotName getDotName(){
         return(((UserFolderRIDMO) core).getDotName());
     }
@@ -75,7 +75,7 @@ public class UserFolderRIDMW extends DmwHierarchicObjectWrapper implements DmcNa
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setDotName(Object value) throws DmcValueException {
         ((UserFolderRIDMO) core).setDotName(value);
     }
@@ -84,7 +84,7 @@ public class UserFolderRIDMW extends DmwHierarchicObjectWrapper implements DmcNa
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setDotName(DotName value){
         ((UserFolderRIDMO) core).setDotName(value);
     }
@@ -92,7 +92,7 @@ public class UserFolderRIDMW extends DmwHierarchicObjectWrapper implements DmcNa
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remDotName(){
         ((UserFolderRIDMO) core).remDotName();
     }

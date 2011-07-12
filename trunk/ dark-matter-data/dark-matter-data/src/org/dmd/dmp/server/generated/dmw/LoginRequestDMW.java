@@ -61,7 +61,7 @@ abstract public class LoginRequestDMW extends Request {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public String getUserName(){
         return(((LoginRequestDMO) core).getUserName());
     }
@@ -70,7 +70,7 @@ abstract public class LoginRequestDMW extends Request {
      * Sets userName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setUserName(Object value) throws DmcValueException {
         ((LoginRequestDMO) core).setUserName(value);
     }
@@ -79,7 +79,7 @@ abstract public class LoginRequestDMW extends Request {
      * Sets userName to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setUserName(String value){
         ((LoginRequestDMO) core).setUserName(value);
     }
@@ -87,12 +87,12 @@ abstract public class LoginRequestDMW extends Request {
     /**
      * Removes the userName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remUserName(){
         ((LoginRequestDMO) core).remUserName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public String getPassword(){
         return(((LoginRequestDMO) core).getPassword());
     }
@@ -101,7 +101,7 @@ abstract public class LoginRequestDMW extends Request {
      * Sets password to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setPassword(Object value) throws DmcValueException {
         ((LoginRequestDMO) core).setPassword(value);
     }
@@ -110,7 +110,7 @@ abstract public class LoginRequestDMW extends Request {
      * Sets password to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setPassword(String value){
         ((LoginRequestDMO) core).setPassword(value);
     }
@@ -118,7 +118,7 @@ abstract public class LoginRequestDMW extends Request {
     /**
      * Removes the password attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remPassword(){
         ((LoginRequestDMO) core).remPassword();
     }

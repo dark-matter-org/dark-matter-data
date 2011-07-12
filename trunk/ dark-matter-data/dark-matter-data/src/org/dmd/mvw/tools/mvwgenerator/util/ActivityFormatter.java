@@ -35,8 +35,12 @@ public class ActivityFormatter {
 
     	out.write("\n");
     	
-    	out.write(activity.getCommsContants());
+    	out.write(activity.getCommsConstants());
 
+    	if (activity.getImplementsActionHasValue()){
+    		out.write(activity.getActionVariables() + "\n");
+    	}
+    	
     	///////////////////////////////////////////////////////////////////////
     	// Constructor
 
@@ -51,6 +55,10 @@ public class ActivityFormatter {
         	out.write("        runcontext = rc;\n");
     	}
 
+    	if (activity.getImplementsActionHasValue()){
+    		out.write(activity.getActionInstantiations() + "\n");
+    	}
+    	
     	out.write("    }\n\n");
         
     	///////////////////////////////////////////////////////////////////////

@@ -348,7 +348,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Adds another instantiatesPresenter value.
      * @param value A value compatible with Presenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1041)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1057)
     public DmcAttribute<?> addInstantiatesPresenter(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -362,7 +362,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     /**
      * Returns the number of values in instantiatesPresenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1074)
     public int getInstantiatesPresenterSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -375,7 +375,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Deletes a instantiatesPresenter value.
      * @param value The Presenter to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1088)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1104)
     public DmcAttribute<?> delInstantiatesPresenter(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__instantiatesPresenter, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -384,7 +384,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the instantiatesPresenter attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1135)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1151)
     public void remInstantiatesPresenter(){
          rem(MvwDMSAG.__instantiatesPresenter);
     }

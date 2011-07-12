@@ -70,7 +70,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public DotName getDotName(){
         return(((SessionRIDMO) core).getDotName());
     }
@@ -79,7 +79,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setDotName(Object value) throws DmcValueException {
         ((SessionRIDMO) core).setDotName(value);
     }
@@ -88,7 +88,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setDotName(DotName value){
         ((SessionRIDMO) core).setDotName(value);
     }
@@ -96,12 +96,12 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remDotName(){
         ((SessionRIDMO) core).remDotName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public String getSessionIDRI(){
         return(((SessionRIDMO) core).getSessionIDRI());
     }
@@ -110,7 +110,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets sessionIDRI to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setSessionIDRI(Object value) throws DmcValueException {
         ((SessionRIDMO) core).setSessionIDRI(value);
     }
@@ -119,7 +119,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets sessionIDRI to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setSessionIDRI(String value){
         ((SessionRIDMO) core).setSessionIDRI(value);
     }
@@ -127,12 +127,12 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
     /**
      * Removes the sessionIDRI attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remSessionIDRI(){
         ((SessionRIDMO) core).remSessionIDRI();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public String getSessionHostRI(){
         return(((SessionRIDMO) core).getSessionHostRI());
     }
@@ -141,7 +141,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets sessionHostRI to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setSessionHostRI(Object value) throws DmcValueException {
         ((SessionRIDMO) core).setSessionHostRI(value);
     }
@@ -150,7 +150,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets sessionHostRI to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setSessionHostRI(String value){
         ((SessionRIDMO) core).setSessionHostRI(value);
     }
@@ -158,7 +158,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
     /**
      * Removes the sessionHostRI attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remSessionHostRI(){
         ((SessionRIDMO) core).remSessionHostRI();
     }
@@ -172,6 +172,9 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
         if (ref == null)
             return(null);
         
+        if (ref.getObject() == null)
+            return(null);
+        
         return((UserRIDMW)ref.getObject().getContainer());
     }
 
@@ -179,7 +182,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
      * Sets the userRefRI to the specified value.
      * @param value A value compatible with UserRIREF
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1122)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1125)
     public void setUserRefRI(UserRIDMW value) {
         ((SessionRIDMO) core).setUserRefRI(value.getDMO());
     }
@@ -187,7 +190,7 @@ public class SessionRIDMW extends DmwHierarchicObjectWrapper implements DmcNamed
     /**
      * Removes the userRefRI attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remUserRefRI(){
         ((SessionRIDMO) core).remUserRefRI();
     }

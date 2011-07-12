@@ -95,5 +95,11 @@ public class Activity extends ActivityDMW {
 		}
 
 	}
+	
+	@Override
+	public String genSubPackage(){
+		return("activities");
+	}
+
 
 }

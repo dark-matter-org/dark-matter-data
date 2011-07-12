@@ -1,34 +1,37 @@
 package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
-import java.util.ArrayList;                                             // To support getMVCopy()
-import java.util.Date;                                                  // For multi-valued containsDate
-import java.util.HashMap;                                               // To support getMVCopy()
-import java.util.HashSet;                                               // To support getMVCopy()
-import java.util.Iterator;                                              // To support getMVCopy()
-import org.dmd.dmc.*;                                                   // If any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                    // Alternative type for AttributeID values
-import org.dmd.dmc.DmcObjectName;                                       // Alternative type for NameContainer values
-import org.dmd.dmc.types.AttributeID;                                   // For multi-valued containsAttributeID
-import org.dmd.dmc.types.IntegerToString;                               // For multi-valued containsIntegerToString
-import org.dmd.dmc.types.NameContainer;                                 // For multi-valued containsNameContainer
-import org.dmd.dmc.types.StringName;                                    // Primitive type
-import org.dmd.dms.*;                                                   // Always 2
-import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Attribute from meta schema
-import org.dmd.dms.generated.dmw.AttributeIDIterableDMW;                // For multi-valued AttributeID
-import org.dmd.dms.generated.dmw.DateIterableDMW;                       // For multi-valued Date
-import org.dmd.dms.generated.dmw.IntegerToStringIterableDMW;            // For multi-valued IntegerToString
-import org.dmd.dms.generated.dmw.NameContainerIterableDMW;              // For multi-valued NameContainer
-import org.dmd.dms.generated.dmw.StringIterableDMW;                     // For multi-valued String
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor
-import org.dmd.dmt.server.extended.ObjWithRefs;                         // Is reference type aux
-import org.dmd.dmt.server.generated.dmw.BaseObjDMW;                     // Derived class
-import org.dmd.dmt.server.generated.dmw.DmtTestEnumIterableDMW;         // For multi-valued DmtTestEnum
-import org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW;         // For multi-valued ObjWithRefs
-import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                       // Attribute from dmt schema
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                 // Class not auxiliary or abstract
-import org.dmd.dmt.shared.generated.enums.DmtTestEnum;                  // For multi-valued containsDmtTestEnum
-import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;               // To support getMVCopy() for REFs
+import java.util.ArrayList;                                                      // To support getMVCopy()
+import java.util.Date;                                                           // For multi-valued containsDate
+import java.util.HashMap;                                                        // To support getMVCopy()
+import java.util.HashSet;                                                        // To support getMVCopy()
+import java.util.Iterator;                                                       // To support getMVCopy()
+import org.dmd.dmc.*;                                                            // If any attributes
+import org.dmd.dmc.DmcAttributeInfo;                                             // Alternative type for AttributeID values
+import org.dmd.dmc.DmcObjectName;                                                // Alternative type for NameContainer values
+import org.dmd.dmc.types.AttributeID;                                            // For multi-valued containsAttributeID
+import org.dmd.dmc.types.IntegerToString;                                        // For multi-valued containsIntegerToString
+import org.dmd.dmc.types.NameContainer;                                          // For multi-valued containsNameContainer
+import org.dmd.dmc.types.StringName;                                             // Primitive type
+import org.dmd.dms.*;                                                            // Always 2
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Attribute from meta schema
+import org.dmd.dms.generated.dmw.AttributeIDIterableDMW;                         // For multi-valued AttributeID
+import org.dmd.dms.generated.dmw.DateIterableDMW;                                // For multi-valued Date
+import org.dmd.dms.generated.dmw.IntegerToStringIterableDMW;                     // For multi-valued IntegerToString
+import org.dmd.dms.generated.dmw.NameContainerIterableDMW;                       // For multi-valued NameContainer
+import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor
+import org.dmd.dmt.server.extended.ObjWithRefs;                                  // Is reference type aux
+import org.dmd.dmt.server.generated.dmw.BaseObjDMW;                              // Derived class
+import org.dmd.dmt.server.generated.dmw.DmtTestEnumIterableDMW;                  // For multi-valued DmtTestEnum
+import org.dmd.dmt.server.generated.dmw.ObjWithRefsIterableDMW;                  // For multi-valued ObjWithRefs
+import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;                 // Is reference type aux
+import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedIterableDMW;         // For multi-valued TestBasicObjectFixed
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                                // Attribute from dmt schema
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;                          // Class not auxiliary or abstract
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                 // For multi-valued containsTestBasicObjectFixed
+import org.dmd.dmt.shared.generated.enums.DmtTestEnum;                           // For multi-valued containsDmtTestEnum
+import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;                        // To support getMVCopy() for REFs
 
 /**
  * null
@@ -1544,6 +1547,152 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
     public void remIndexedObjRef(){
         ((ObjWithRefsDMO) core).remIndexedObjRef();
+    }
+
+    /**
+     * @return The number of TestBasicObjectFixed items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1235)
+    public int getIndexedPlainObjRefSize(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__indexedPlainObjRef);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no TestBasicObjectFixedDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
+    public boolean getIndexedPlainObjRefIsEmpty(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__indexedPlainObjRef);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any TestBasicObjectFixedDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1260)
+    public boolean getIndexedPlainObjRefHasValue(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__indexedPlainObjRef);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * Sets the indexedPlainObjRef value at the specified index.
+     * @param value A value compatible with TestBasicObjectFixed
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1373)
+    public DmcAttribute<?> setNthIndexedPlainObjRef(int index, TestBasicObjectFixedDMW value){
+        DmcAttribute<?> attr = null;
+        if (value == null)
+            attr = ((ObjWithRefsDMO) core).setNthIndexedPlainObjRef(index, null);
+        else
+            attr = ((ObjWithRefsDMO) core).setNthIndexedPlainObjRef(index, ((TestBasicObjectFixedDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * @return The TestBasicObjectFixedDMW object at the specified index.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1394)
+    public TestBasicObjectFixedDMW getNthIndexedPlainObjRef(int index){
+        TestBasicObjectFixedDMO dmo = ((ObjWithRefsDMO) core).getNthIndexedPlainObjRef(index);
+        if (dmo == null)
+            return(null);
+        
+        return((TestBasicObjectFixedDMW)dmo.getContainer());
+    }
+
+    /**
+     * Removes the indexedPlainObjRef attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
+    public void remIndexedPlainObjRef(){
+        ((ObjWithRefsDMO) core).remIndexedPlainObjRef();
+    }
+
+    /**
+     * @return The number of TestBasicObjectFixed items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1235)
+    public int getPlainObjRefSize(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__plainObjRef);
+        if (attr == null)
+            return(0);
+        
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no TestBasicObjectFixedDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
+    public boolean getPlainObjRefIsEmpty(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__plainObjRef);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any TestBasicObjectFixedDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1260)
+    public boolean getPlainObjRefHasValue(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__plainObjRef);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of TestBasicObjectFixedDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1281)
+    public TestBasicObjectFixedIterableDMW getPlainObjRefIterable(){
+        DmcAttribute attr = ((ObjWithRefsDMO) core).get(DmtDMSAG.__plainObjRef);
+        if (attr == null)
+            return(TestBasicObjectFixedIterableDMW.emptyList);
+        
+        return(new TestBasicObjectFixedIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another plainObjRef value.
+     * @param value A value compatible with TestBasicObjectFixed
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1297)
+    public DmcAttribute<?> addPlainObjRef(TestBasicObjectFixedDMW value){
+        DmcAttribute<?> attr = ((ObjWithRefsDMO) core).addPlainObjRef(((TestBasicObjectFixedDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a plainObjRef value.
+     * @param value The TestBasicObjectFixed to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1310)
+    public void delPlainObjRef(TestBasicObjectFixedDMW value){
+        ((ObjWithRefsDMO) core).delPlainObjRef(value.getDMO());
+    }
+
+    /**
+     * Removes the plainObjRef attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
+    public void remPlainObjRef(){
+        ((ObjWithRefsDMO) core).remPlainObjRef();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)

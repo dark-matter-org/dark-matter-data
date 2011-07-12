@@ -67,7 +67,7 @@ abstract public class CreateRequestDMW extends Request {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public NameContainer getParentName(){
         return(((CreateRequestDMO) core).getParentName());
     }
@@ -76,7 +76,7 @@ abstract public class CreateRequestDMW extends Request {
      * Sets parentName to the specified value.
      * @param value A value compatible with DmcTypeNameContainer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setParentName(Object value) throws DmcValueException {
         ((CreateRequestDMO) core).setParentName(value);
     }
@@ -85,7 +85,7 @@ abstract public class CreateRequestDMW extends Request {
      * Sets parentName to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setParentName(NameContainer value){
         ((CreateRequestDMO) core).setParentName(value);
     }
@@ -94,7 +94,7 @@ abstract public class CreateRequestDMW extends Request {
      * Sets parentName to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1168)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1171)
     public void setParentName(DmcObjectName value){
         ((CreateRequestDMO) core).setParentName(value);
     }
@@ -102,7 +102,7 @@ abstract public class CreateRequestDMW extends Request {
     /**
      * Removes the parentName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remParentName(){
         ((CreateRequestDMO) core).remParentName();
     }
@@ -110,7 +110,7 @@ abstract public class CreateRequestDMW extends Request {
     /**
      * @return The number of Integer items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1232)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1235)
     public int getRequestIDSize(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -122,7 +122,7 @@ abstract public class CreateRequestDMW extends Request {
     /**
      * @return true if there are no IntegerDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1245)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
     public boolean getRequestIDIsEmpty(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -134,7 +134,7 @@ abstract public class CreateRequestDMW extends Request {
     /**
      * @return true if there are any IntegerDMO items.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1257)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1260)
     public boolean getRequestIDHasValue(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -146,7 +146,7 @@ abstract public class CreateRequestDMW extends Request {
     /**
      * @return An Iterator of Integer objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1452)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
     public IntegerIterableDMW getRequestIDIterable(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -159,7 +159,7 @@ abstract public class CreateRequestDMW extends Request {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1468)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
     public void addRequestID(Object value) throws DmcValueException {
         ((CreateRequestDMO) core).addRequestID(value);
     }
@@ -168,7 +168,7 @@ abstract public class CreateRequestDMW extends Request {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1478)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1484)
     public void addRequestID(Integer value){
         ((CreateRequestDMO) core).addRequestID(value);
     }
@@ -177,7 +177,7 @@ abstract public class CreateRequestDMW extends Request {
      * Returns true if the collection contains the requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1525)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1542)
     public boolean requestIDContains(Integer value){
         return(((CreateRequestDMO) core).requestIDContains(value));
     }
@@ -185,7 +185,7 @@ abstract public class CreateRequestDMW extends Request {
     /**
      * @return A COPY of the collection of Integer objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1565)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1582)
     @SuppressWarnings("unchecked")
     public ArrayList<Integer> getRequestIDCopy(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__requestID);
@@ -206,7 +206,7 @@ abstract public class CreateRequestDMW extends Request {
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1592)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1609)
     public void delRequestID(Object value) throws DmcValueException {
         ((CreateRequestDMO) core).delRequestID(value);
     }
@@ -215,7 +215,7 @@ abstract public class CreateRequestDMW extends Request {
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1601)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1618)
     public void delRequestID(Integer value){
         ((CreateRequestDMO) core).delRequestID(value);
     }
@@ -223,12 +223,12 @@ abstract public class CreateRequestDMW extends Request {
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1613)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
     public void remRequestID(){
         ((CreateRequestDMO) core).remRequestID();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public DmcObject getNewObject(){
         return(((CreateRequestDMO) core).getNewObject());
     }
@@ -237,7 +237,7 @@ abstract public class CreateRequestDMW extends Request {
      * Sets newObject to the specified value.
      * @param value A value compatible with DmcTypeDmcObject
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setNewObject(Object value) throws DmcValueException {
         ((CreateRequestDMO) core).setNewObject(value);
     }
@@ -246,7 +246,7 @@ abstract public class CreateRequestDMW extends Request {
      * Sets newObject to the specified value.
      * @param value DmcObject
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setNewObject(DmcObject value){
         ((CreateRequestDMO) core).setNewObject(value);
     }
@@ -254,7 +254,7 @@ abstract public class CreateRequestDMW extends Request {
     /**
      * Removes the newObject attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remNewObject(){
         ((CreateRequestDMO) core).remNewObject();
     }

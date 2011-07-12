@@ -144,7 +144,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Returns true if the collection contains the dependsOnModule value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1531)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1542)
     public boolean dependsOnModuleContains(String value){
         return(((ModuleDMO) core).dependsOnModuleContains(value));
     }
@@ -152,7 +152,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1571)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1582)
     @SuppressWarnings("unchecked")
     public TreeSet<String> getDependsOnModuleCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__dependsOnModule);
@@ -173,7 +173,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Deletes a dependsOnModule value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1598)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1609)
     public void delDependsOnModule(Object value) throws DmcValueException {
         ((ModuleDMO) core).delDependsOnModule(value);
     }
@@ -182,7 +182,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Deletes a dependsOnModule value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1607)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1618)
     public void delDependsOnModule(String value){
         ((ModuleDMO) core).delDependsOnModule(value);
     }
@@ -190,7 +190,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * Removes the dependsOnModule attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1619)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
     public void remDependsOnModule(){
         ((ModuleDMO) core).remDependsOnModule();
     }
@@ -265,7 +265,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Returns true if the collection contains the dependsOnSchema value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1531)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1542)
     public boolean dependsOnSchemaContains(String value){
         return(((ModuleDMO) core).dependsOnSchemaContains(value));
     }
@@ -273,7 +273,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1571)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1582)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDependsOnSchemaCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__dependsOnSchema);
@@ -294,7 +294,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Deletes a dependsOnSchema value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1598)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1609)
     public void delDependsOnSchema(Object value) throws DmcValueException {
         ((ModuleDMO) core).delDependsOnSchema(value);
     }
@@ -303,7 +303,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Deletes a dependsOnSchema value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1607)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1618)
     public void delDependsOnSchema(String value){
         ((ModuleDMO) core).delDependsOnSchema(value);
     }
@@ -311,7 +311,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * Removes the dependsOnSchema attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1619)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
     public void remDependsOnSchema(){
         ((ModuleDMO) core).remDependsOnSchema();
     }

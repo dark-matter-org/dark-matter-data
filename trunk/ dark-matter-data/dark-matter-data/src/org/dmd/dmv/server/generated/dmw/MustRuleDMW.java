@@ -60,7 +60,7 @@ abstract public class MustRuleDMW extends ClassRule {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public String getRuleTitle(){
         return(((MustRuleDMO) core).getRuleTitle());
     }
@@ -69,7 +69,7 @@ abstract public class MustRuleDMW extends ClassRule {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((MustRuleDMO) core).setRuleTitle(value);
     }
@@ -78,7 +78,7 @@ abstract public class MustRuleDMW extends ClassRule {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setRuleTitle(String value){
         ((MustRuleDMO) core).setRuleTitle(value);
     }
@@ -86,7 +86,7 @@ abstract public class MustRuleDMW extends ClassRule {
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remRuleTitle(){
         ((MustRuleDMO) core).remRuleTitle();
     }

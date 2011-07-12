@@ -67,4 +67,10 @@ public class Presenter extends PresenterDMW {
 		}
 
 	}
+	
+	@Override
+	public String genSubPackage(){
+		return("presenters");
+	}
+
 }
