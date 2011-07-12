@@ -172,7 +172,7 @@ abstract public class EventDMW extends MvwDefinition implements DmcNamedObjectIF
      * Returns true if the collection contains the importThis value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1531)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1542)
     public boolean importThisContains(String value){
         return(((EventDMO) core).importThisContains(value));
     }
@@ -180,7 +180,7 @@ abstract public class EventDMW extends MvwDefinition implements DmcNamedObjectIF
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1571)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1582)
     @SuppressWarnings("unchecked")
     public TreeSet<String> getImportThisCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__importThis);
@@ -201,7 +201,7 @@ abstract public class EventDMW extends MvwDefinition implements DmcNamedObjectIF
      * Deletes a importThis value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1598)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1609)
     public void delImportThis(Object value) throws DmcValueException {
         ((EventDMO) core).delImportThis(value);
     }
@@ -210,7 +210,7 @@ abstract public class EventDMW extends MvwDefinition implements DmcNamedObjectIF
      * Deletes a importThis value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1607)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1618)
     public void delImportThis(String value){
         ((EventDMO) core).delImportThis(value);
     }
@@ -218,7 +218,7 @@ abstract public class EventDMW extends MvwDefinition implements DmcNamedObjectIF
     /**
      * Removes the importThis attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1619)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
     public void remImportThis(){
         ((EventDMO) core).remImportThis();
     }

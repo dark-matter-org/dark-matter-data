@@ -15,17 +15,17 @@ import java.io.IOException;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
-import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.util.DmoDeserializer;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
+import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmw.DmwDeserializer;
 import org.dmd.dmw.DmwOmni;
 import org.dmd.util.DmcTraceableInputStream;
@@ -132,7 +132,7 @@ public class TestIndexedAttributes {
 	
 	@Test
 	public void testObjRefs() throws DmcValueException {
-		System.out.println("");
+		System.out.println("\n\ntestObjRefs()\n");
 		
 		ObjWithRefsDMO obj = new ObjWithRefsDMO();
 		
@@ -144,6 +144,11 @@ public class TestIndexedAttributes {
 
 		ObjWithRefsDMO obj4 = new ObjWithRefsDMO();
 		obj4.setName("obj4");
+		
+		TestBasicObjectFixedDMO	noname1 = new TestBasicObjectFixedDMO();
+		noname1.addHsInteger(56);
+		noname1.setSvBoolean(true);
+		noname1.setSvString("one string");
 
 		obj.setNthIndexedObjRef(0, obj2);
 		
@@ -151,11 +156,13 @@ public class TestIndexedAttributes {
 		
 		obj.setNthIndexedObjRef(9, obj4);
 		
+		obj.setNthIndexedPlainObjRef(5, noname1);
+		
 		assertNotNull("Value at index 4 should not be null", obj.getNthIndexedObjRef(4));
 
 		assertEquals("Value at index 4 should be obj3", obj3.getName().getNameString(), obj.getNthIndexedObjRef(4).getName().getNameString());
 
-		System.out.println(obj.toOIF(15));
+		System.out.println(obj.toOIF());
 		
 		obj.setNthIndexedObjRef(4, null);
 		

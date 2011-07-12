@@ -25,7 +25,7 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeGetWithOptions;    // DmcType
  * The DmcTypeGetWithOptionsSV provides storage for a single-valued GetWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1690)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1706)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:99)
  */
 @SuppressWarnings("serial")

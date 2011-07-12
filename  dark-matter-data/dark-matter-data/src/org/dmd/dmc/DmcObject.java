@@ -1641,7 +1641,7 @@ abstract public class DmcObject implements Serializable {
 								}
 							}
 							else{
-								if ( existing.add(value) != null)
+								if ( existing.setMVnth(index,value) != null)
 									anyChange = true;
 							}
 							

@@ -10,6 +10,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.Place;
 import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigLocation;
 
@@ -42,6 +43,9 @@ public class MvwGenerator {
 	// The generated/mvw/presenters
 	String 					activitiesdir;
 
+	// The generated/mvw/actions
+	String 					actionsdir;
+
 	PrintStream				progressStream;
 	
 	MvwDefinitionManager	defManager;
@@ -59,6 +63,7 @@ public class MvwGenerator {
 		controllersdir	= mvwdir + File.separator + "controllers";
 		presentersdir	= mvwdir + File.separator + "presenters";
 		activitiesdir	= mvwdir + File.separator + "activities";
+		actionsdir		= mvwdir + File.separator + "actions";
 		placesdir		= mvwdir + File.separator + "places";
 		createGenDirs();
 		
@@ -83,18 +88,45 @@ public class MvwGenerator {
 		}
 		
 		for(Controller controller: defManager.controllers.values()){
-			if (controller.getDefinedInModule() == defManager.codeGenModule)
+			if (controller.getDefinedInModule() == defManager.codeGenModule){
 				ControllerFormatter.formatControllerBaseImpl(controllersdir, controller);
+				
+				// NOTE: Actions are always generated in the context of the component that 
+				// implements them, regardless of which module they are defined in
+				if (controller.getImplementsActionHasValue()){
+					for(Action action: controller.getImplementsActionIterable()){
+						ActionFormatter.formatAction(actionsdir, action, controller);
+					}
+				}
+			}
 		}
 		
 		for(Presenter presenter: defManager.presenters.values()){
-			if (presenter.getDefinedInModule() == defManager.codeGenModule)
+			if (presenter.getDefinedInModule() == defManager.codeGenModule){
 				PresenterFormatter.formatPresenterBaseImpl(presentersdir, presenter);
+				
+				// NOTE: Actions are always generated in the context of the component that 
+				// implements them, regardless of which module they are defined in
+				if (presenter.getImplementsActionHasValue()){
+					for(Action action: presenter.getImplementsActionIterable()){
+						ActionFormatter.formatAction(actionsdir, action, presenter);
+					}
+				}
+			}
 		}
 		
 		for(Activity activity: defManager.activities.values()){
-			if (activity.getDefinedInModule() == defManager.codeGenModule)
+			if (activity.getDefinedInModule() == defManager.codeGenModule){
 				ActivityFormatter.formatActivity(activitiesdir, activity);
+				
+				// NOTE: Actions are always generated in the context of the component that 
+				// implements them, regardless of which module they are defined in
+				if (activity.getImplementsActionHasValue()){
+					for(Action action: activity.getImplementsActionIterable()){
+						ActionFormatter.formatAction(actionsdir, action, activity);
+					}
+				}
+			}
 		}
 		
 		for(Place place: defManager.places.values()){
@@ -152,6 +184,12 @@ public class MvwGenerator {
 			File activities = new File(activitiesdir);
 			if (!activities.exists())
 				activities.mkdir();
+		}
+		
+		if (defManager.actions.size() > 0){
+			File actions = new File(actionsdir);
+			if (!actions.exists())
+				actions.mkdir();
 		}
 		
 		if (defManager.places.size() > 0){

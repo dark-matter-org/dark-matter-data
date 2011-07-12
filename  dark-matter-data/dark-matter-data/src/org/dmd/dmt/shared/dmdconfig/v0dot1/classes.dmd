@@ -210,6 +210,8 @@ may				nonperString
 may				transString
 may				indexedString
 may				indexedObjRef
+may				indexedPlainObjRef
+may				plainObjRef
 
 ClassDefinition
 name            ClientCountFilter

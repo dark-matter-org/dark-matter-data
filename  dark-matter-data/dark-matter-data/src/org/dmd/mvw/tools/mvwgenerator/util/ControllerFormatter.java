@@ -36,7 +36,11 @@ public class ControllerFormatter {
     	
     	out.write("\n");
     	
-    	out.write(controller.getCommsContants());
+    	out.write(controller.getCommsConstants());
+    	
+    	if (controller.getImplementsActionHasValue()){
+    		out.write(controller.getActionVariables() + "\n");
+    	}
     	
     	///////////////////////////////////////////////////////////////////////
     	// Constructor
@@ -56,6 +60,10 @@ public class ControllerFormatter {
     	
     	out.write(controller.getEventRegistration() + "\n");
 
+    	if (controller.getImplementsActionHasValue()){
+    		out.write(controller.getActionInstantiations() + "\n");
+    	}
+    	
         out.write("    }\n\n");
         
     	///////////////////////////////////////////////////////////////////////

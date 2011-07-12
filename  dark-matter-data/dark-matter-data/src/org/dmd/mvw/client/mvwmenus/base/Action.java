@@ -57,7 +57,7 @@ public abstract class Action implements ActionIF {
 	 * Sets the state of all associated triggers to be enabled or disabled.
 	 * @param f True for enable and false for disabled.
 	 */
-	protected void setEnabled(boolean f){
+	public void setEnabled(boolean f){
 		if (triggers != null){
 			for(TriggerIF t: triggers){
 				if (f)

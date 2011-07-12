@@ -75,6 +75,8 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __eventName = new DmcAttributeInfo("eventName", 809, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent", 801, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent", 802, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __implementedBy = new DmcAttributeInfo("implementedBy", 881, "Component", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __implementsAction = new DmcAttributeInfo("implementsAction", 880, "Action", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __importThis = new DmcAttributeInfo("importThis", 831, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __instantiatesPresenter = new DmcAttributeInfo("instantiatesPresenter", 860, "Presenter", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __instantiatesView = new DmcAttributeInfo("instantiatesView", 862, "View", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -176,6 +178,8 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__eventName.id,__eventName);
         _SmAp.put(__firesEvent.id,__firesEvent);
         _SmAp.put(__handlesEvent.id,__handlesEvent);
+        _SmAp.put(__implementedBy.id,__implementedBy);
+        _SmAp.put(__implementsAction.id,__implementsAction);
         _SmAp.put(__importThis.id,__importThis);
         _SmAp.put(__instantiatesPresenter.id,__instantiatesPresenter);
         _SmAp.put(__instantiatesView.id,__instantiatesView);
@@ -292,6 +296,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __Component.addMay(__sendsLogoutRequest);
         __Component.addMay(MetaDMSAG.__subpackage);
         __Component.addMay(__instantiatesView);
+        __Component.addMay(__implementsAction);
 
         __Controller.addMust(__controllerName);
         __Controller.addMay(__centralDMPErrorHandler);
@@ -360,6 +365,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __MenuItem.addMust(__displayLabel);
 
         __Action.addMust(__actionName);
+        __Action.addMay(__implementedBy);
 
 
     }

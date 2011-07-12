@@ -65,6 +65,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<CamelCaseName, Activity>			activities;
 	
+	TreeMap<CamelCaseName, Component>			components;
+	
 	TreeMap<CamelCaseName, Place>				places;
 	
 	TreeMap<CamelCaseName, SubPlace>			subPlaces;
@@ -114,6 +116,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		controllers		= new TreeMap<CamelCaseName, Controller>();
 		presenters		= new TreeMap<CamelCaseName, Presenter>();
 		activities		= new TreeMap<CamelCaseName, Activity>();
+		components		= new TreeMap<CamelCaseName, Component>();
 		
 		places			= new TreeMap<CamelCaseName, Place>();
 		subPlaces		= new TreeMap<CamelCaseName, SubPlace>();
@@ -221,6 +224,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			Controller controller = (Controller) def;
 			controller.getDMO().addUsesRunContextItem("eventBus");
 			controllers.put(def.getCamelCaseName(), controller);
+			components.put(def.getCamelCaseName(), controller);
 			
 			if (controller.isAddedToRunContext()){
 				// All Controllers run for the life of the application and so, are added to the run context
@@ -278,6 +282,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			Presenter presenter = (Presenter) def;
 			presenter.getDMO().addUsesRunContextItem("eventBus");
 			presenters.put(def.getCamelCaseName(), presenter);
+			components.put(def.getCamelCaseName(), presenter);
 			
 			// All Presenters are available for access from the run context. They are created on demand.
 			RunContextItem rci = new RunContextItem();
@@ -314,6 +319,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			Activity activity = (Activity) def;
 //			activity.getDMO().addUsesRunContextItem("eventBus");
 			activities.put(def.getCamelCaseName(), activity);
+			components.put(def.getCamelCaseName(), activity);
 		}
 		else if (def instanceof View){
 			View view = (View) def;
@@ -479,9 +485,6 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			}
 		}
 		
-		if (errors != null)
-			throw(errors);
-		
 //		for(Place place: places.values()){
 //			Activity activity = place.getRunsActivity();
 //			if (activity.getPlace() == null){
@@ -496,6 +499,57 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 //				throw(ex);
 //			}
 //		}
+		
+		// Try to create the back association between Actions and their implementors
+		for(Component component: components.values()){
+			if (component.getImplementsActionHasValue()){
+				for(Action action: component.getImplementsActionIterable()){
+					if (action.getImplementedBy() == null)
+						action.setImplementedBy(component);
+					else{
+						if (errors == null)
+							errors = new ResultException();
+						
+						Component existing = action.getImplementedBy();
+						errors.addError("Multiple components implement the " + action.getActionName() + " action.");
+						errors.result.lastResult().moreMessages(existing.getComponentName() + " in file " + existing.getFile() + ":" + existing.getLineNumber());
+						errors.result.lastResult().moreMessages(component.getComponentName() + " in file " + component.getFile() + ":" + component.getLineNumber());
+					}
+				}
+				
+				// We also verify that the module in which the component is defined depends on
+				// the mvwmenus module, since we need the MenuController to be injected into
+				// Component to allow for registration of the actions
+				if (!component.getDefinedInModule().dependsOnModuleContains("mvwmenus")){
+					if (errors == null)
+						errors = new ResultException();
+					
+					errors.addError("The " + component.getDefinedInModule().getModuleName() + " module must depend on the mvwmenus module.");
+					errors.result.lastResult().moreMessages(component.getDefinedInModule().getFile());
+				}
+				else{
+					// We have the mvwmenus module, so indicate that the component uses the menu controller 
+					key.setNameString("MenuControllerRCI");
+					RunContextItemCollection rcic = contexts.get("Default");
+					RunContextItem rci = rcic.getItem("MenuControllerRCI");
+					component.addUsesRunContextItem(rci);
+				}
+			}
+		}
+		
+		// And ensure that all actions are implemented
+		for(Action action: actions.values()){
+			if (action.getImplementedBy() == null){
+				if (errors == null)
+					errors = new ResultException();
+				
+				errors.addError("The " + action.getActionName() + " action is not implemented by any Controller, Presenter or Activity.");
+			}
+		}
+		
+		
+		if (errors != null)
+			throw(errors);
 		
 		initCodeGenInfo();
 	}
@@ -526,6 +580,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		for(Place place: places.values()){
 			place.initCodeGenInfo();
+		}
+		for(Action action: actions.values()){
+			action.initCodeGenInfo();
 		}
 	}
 	

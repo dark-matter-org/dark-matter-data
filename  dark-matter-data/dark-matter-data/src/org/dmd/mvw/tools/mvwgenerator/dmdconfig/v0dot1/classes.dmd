@@ -173,6 +173,7 @@ may				sendsLoginRequest
 may				sendsLogoutRequest
 may				subpackage
 may				instantiatesView
+may				implementsAction
 description		The Component is an abstract base for classes that define the building blocks
  of Applications. The primary feature of an Component is that it fires and/or handles events.
  Beyond that, a component can be whatever you require it to be. A variety of derived component types
@@ -424,3 +425,11 @@ derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		actionName
 must			actionName
+may				implementedBy
+description		The Action class allows for the definition of an intermediate component that binds
+ behavioural triggers e.g. menu items, toolbar buttons etc. to action implementors e.g. Controllers,
+ Presenters and Activities. The Action serves the same purpose as the com.google.gwt.user.client.Command
+ interface, but provides some additional useful functionality. The implementation of the Action (see
+ org.dmd.mvw.client.mvwmenus.base.Action) maintains a set of TriggerIF interfaces, which are the various
+ implementations of the menu items, toolbar buttons etc. An implementing component can enable/disable its
+ Actions which, in turn, can enable/disable its triggers.

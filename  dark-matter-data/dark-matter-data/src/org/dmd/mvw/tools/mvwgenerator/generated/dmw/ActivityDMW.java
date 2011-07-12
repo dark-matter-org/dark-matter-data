@@ -239,7 +239,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * Removes the usesController attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1619)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
     public void remUsesController(){
         ((ActivityDMO) core).remUsesController();
     }
@@ -334,7 +334,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * Removes the managesView attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1619)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
     public void remManagesView(){
         ((ActivityDMO) core).remManagesView();
     }

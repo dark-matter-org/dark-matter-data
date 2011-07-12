@@ -578,6 +578,21 @@ type			ImplAndClass
 valueType		MULTI
 description		The name and class of an alternate menu item implementation.
 
+AttributeDefinition
+name			implementsAction
+dmdID			80
+type			Action
+valueType		MULTI
+description		Indicates the Actions to be implemented by a Component. 
+
+AttributeDefinition
+name			implementedBy
+dmdID			81
+type			Component
+internalUse		true
+description		Indicates the Component that implements an Action.
+
+
 //AttributeDefinition
 //name			triggersAction
 //dmdID			73

@@ -66,4 +66,10 @@ public class Controller extends ControllerDMW {
 			controllerInterfaces = new StringBuffer();
 		}
 	}
+	
+	@Override
+	public String genSubPackage(){
+		return("controllers");
+	}
+
 }

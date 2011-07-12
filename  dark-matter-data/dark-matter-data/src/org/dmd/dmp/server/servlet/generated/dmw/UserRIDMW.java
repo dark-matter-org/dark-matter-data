@@ -69,7 +69,7 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
         return(false);
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public DotName getDotName(){
         return(((UserRIDMO) core).getDotName());
     }
@@ -78,7 +78,7 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setDotName(Object value) throws DmcValueException {
         ((UserRIDMO) core).setDotName(value);
     }
@@ -87,7 +87,7 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setDotName(DotName value){
         ((UserRIDMO) core).setDotName(value);
     }
@@ -95,12 +95,12 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remDotName(){
         ((UserRIDMO) core).remDotName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public Integer getIdRI(){
         return(((UserRIDMO) core).getIdRI());
     }
@@ -109,7 +109,7 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
      * Sets idRI to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setIdRI(Object value) throws DmcValueException {
         ((UserRIDMO) core).setIdRI(value);
     }
@@ -118,7 +118,7 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
      * Sets idRI to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setIdRI(Integer value){
         ((UserRIDMO) core).setIdRI(value);
     }
@@ -126,12 +126,12 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
     /**
      * Removes the idRI attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remIdRI(){
         ((UserRIDMO) core).remIdRI();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public String getUserName(){
         return(((UserRIDMO) core).getUserName());
     }
@@ -140,7 +140,7 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
      * Sets userName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setUserName(Object value) throws DmcValueException {
         ((UserRIDMO) core).setUserName(value);
     }
@@ -149,7 +149,7 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
      * Sets userName to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setUserName(String value){
         ((UserRIDMO) core).setUserName(value);
     }
@@ -157,12 +157,12 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
     /**
      * Removes the userName attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remUserName(){
         ((UserRIDMO) core).remUserName();
     }
 
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1098)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public String getPassword(){
         return(((UserRIDMO) core).getPassword());
     }
@@ -171,7 +171,7 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
      * Sets password to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1145)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setPassword(Object value) throws DmcValueException {
         ((UserRIDMO) core).setPassword(value);
     }
@@ -180,7 +180,7 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
      * Sets password to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1154)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
     public void setPassword(String value){
         ((UserRIDMO) core).setPassword(value);
     }
@@ -188,7 +188,7 @@ public class UserRIDMW extends DmwHierarchicObjectWrapper implements DmcNamedObj
     /**
      * Removes the password attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1180)
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remPassword(){
         ((UserRIDMO) core).remPassword();
     }

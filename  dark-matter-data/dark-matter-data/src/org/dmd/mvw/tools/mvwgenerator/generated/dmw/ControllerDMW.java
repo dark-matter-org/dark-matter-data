@@ -269,7 +269,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     /**
      * Removes the instantiatesPresenter attribute value.
      */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1619)
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
     public void remInstantiatesPresenter(){
         ((ControllerDMO) core).remInstantiatesPresenter();
     }

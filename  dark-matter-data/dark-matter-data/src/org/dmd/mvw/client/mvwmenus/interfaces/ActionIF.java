@@ -28,14 +28,14 @@ public interface ActionIF {
 	 */
 	public void execute(TriggerIF ti, Object widgetEvent);
 	
-	/**
-	 * The action must determine the whether or not its associated triggers 
-	 * should be enabled or disabled depending on the current execution context.
-	 * Exactly what the execution context is will depend on the action. This
-	 * method will be called by the MenuController when it's setting the context
-	 * menu on a component.
-	 */
-	public void enableCheck();
+//	/**
+//	 * The action must determine the whether or not its associated triggers 
+//	 * should be enabled or disabled depending on the current execution context.
+//	 * Exactly what the execution context is will depend on the action. This
+//	 * method will be called by the MenuController when it's setting the context
+//	 * menu on a component.
+//	 */
+//	public void enableCheck();
 	
 	public void addTrigger(TriggerIF t);
 	
