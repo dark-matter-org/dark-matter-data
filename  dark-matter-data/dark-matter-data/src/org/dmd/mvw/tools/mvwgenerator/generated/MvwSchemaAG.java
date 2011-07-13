@@ -310,8 +310,8 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ControllerOBJ.setDmdID("806");
             _ControllerOBJ.setClassType("STRUCTURAL");
             _ControllerOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ControllerOBJ.setLineNumber("219");
-            _ControllerOBJ.setDescription("The Controller represents a behavioural component that lives throughout the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters and Views that are displayed, but may also provide behind the scenes management of things like communications, security, menu structure etc. Controllers do not implement Presenter interfaces i.e. they do not interact directly with Views; that is the role of Presenters. <p /> Because of their implied lifetime, Controllers are made part of the overall RunContext for an application and are constructed during initialization of the application. There is no need to instantiate Controllers separately. The RunContextItem created for a controller has the same name as the Controller itself. <p /> Controllers should not communicate with other Controllers directly; this type of communication should be performed using events. So, although it is possible to get the handle to another Controller via the RunContext, it is discouraged.");
+            _ControllerOBJ.setLineNumber("224");
+            _ControllerOBJ.setDescription("The Controller represents a behavioural component that lives throughout the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters and Views that are displayed, but may also provide behind the scenes management of things like communications, security, menu structure etc. Controllers do not implement Presenter interfaces i.e. they do not interact directly with Views; that is the role of Presenters. <p /> Because of their implied lifetime, Controllers are made part of the overall RunContext for an application and are constructed during initialization of the application. There is no need to instantiate Controllers separately. The RunContextItem created for a controller has the same name as the Controller itself with RCI appended. You may specify an itemOrder for the Controller to control when it is instantiated in the RunContext; use this option only if you know what you're doing! The default itemOrder is 50, most base related functionality starts in itemOrder 20 or lower. <p /> Controllers should not communicate with other Controllers directly; this type of communication should be performed using events. So, although it is possible to get the handle to another Controller via the RunContext, it is discouraged. <p />");
             _ControllerOBJ.setDerivedFrom("Component");
             _ControllerOBJ.setIsNamedBy("controllerName");
             _ControllerOBJ.setUseWrapperType("EXTENDED");
@@ -321,6 +321,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ControllerOBJ.addMay("centralRPCErrorHandler");
             _ControllerOBJ.addMay("addedToRunContext");
             _ControllerOBJ.addMay("instantiatesPresenter");
+            _ControllerOBJ.addMay("itemOrder");
             _ControllerOBJ.addMust("controllerName");
             _ControllerOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW");
             _Controller.setDefinedIn(this);
@@ -332,7 +333,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _PresenterOBJ.setDmdID("807");
             _PresenterOBJ.setClassType("STRUCTURAL");
             _PresenterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _PresenterOBJ.setLineNumber("236");
+            _PresenterOBJ.setLineNumber("242");
             _PresenterOBJ.setDescription("The Presenter is a behavioural component that manages one or more Views and thus implements the Presenter interface of any View it manages. Presenters populate and potentially update Views with data. This will often involve interacting with the communications interface(s) associated with an application. If a View allows the creation or alteration of data, those behaviours are usually handled directly by the View's Presenter.");
             _PresenterOBJ.setDerivedFrom("Component");
             _PresenterOBJ.setIsNamedBy("presenterName");
@@ -353,7 +354,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _PlaceOBJ.setDmdID("808");
             _PlaceOBJ.setClassType("STRUCTURAL");
             _PlaceOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _PlaceOBJ.setLineNumber("257");
+            _PlaceOBJ.setLineNumber("263");
             _PlaceOBJ.setDerivedFrom("MvwDefinition");
             _PlaceOBJ.setIsNamedBy("placeName");
             _PlaceOBJ.setUseWrapperType("EXTENDED");
@@ -372,7 +373,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SubPlaceOBJ.setDmdID("809");
             _SubPlaceOBJ.setClassType("STRUCTURAL");
             _SubPlaceOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _SubPlaceOBJ.setLineNumber("268");
+            _SubPlaceOBJ.setLineNumber("274");
             _SubPlaceOBJ.setDerivedFrom("Place");
             _SubPlaceOBJ.setIsNamedBy("placeName");
             _SubPlaceOBJ.setUseWrapperType("EXTENDED");
@@ -391,7 +392,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ActivityOBJ.setDmdID("810");
             _ActivityOBJ.setClassType("STRUCTURAL");
             _ActivityOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ActivityOBJ.setLineNumber("293");
+            _ActivityOBJ.setLineNumber("299");
             _ActivityOBJ.setDescription("If you are making use of Places, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <p /> Activities are meant to be short-lived, disposable entities that run in a particular Place. However, if you are building an application, it may be that you have a single Place and that all behaviour takes place within the guise of a single Activity. <p /> If the Activity manages a view, it will be generated as implementing the View's  presenter interface.");
             _ActivityOBJ.setDerivedFrom("Component");
             _ActivityOBJ.setIsNamedBy("activityName");
@@ -413,7 +414,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RunContextItemOBJ.setDmdID("811");
             _RunContextItemOBJ.setClassType("STRUCTURAL");
             _RunContextItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _RunContextItemOBJ.setLineNumber("312");
+            _RunContextItemOBJ.setLineNumber("318");
             _RunContextItemOBJ.setDescription("The RunContextItem allows for the generation of an overall RunContext for a WebApplication or WebSite.");
             _RunContextItemOBJ.setDerivedFrom("MvwDefinition");
             _RunContextItemOBJ.setIsNamedBy("itemName");
@@ -438,7 +439,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _WebApplicationOBJ.setDmdID("812");
             _WebApplicationOBJ.setClassType("STRUCTURAL");
             _WebApplicationOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _WebApplicationOBJ.setLineNumber("325");
+            _WebApplicationOBJ.setLineNumber("331");
             _WebApplicationOBJ.setDescription("The WebApplication definition allows for the definition of the superstructure for an application, basically it's the definition of the overall application controller.");
             _WebApplicationOBJ.setDerivedFrom("MvwDefinition");
             _WebApplicationOBJ.setIsNamedBy("appName");
@@ -458,7 +459,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _I18NConfigOBJ.setDmdID("814");
             _I18NConfigOBJ.setClassType("STRUCTURAL");
             _I18NConfigOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _I18NConfigOBJ.setLineNumber("336");
+            _I18NConfigOBJ.setLineNumber("342");
             _I18NConfigOBJ.setDescription("The I18NConfig is a specialized RunContextItem that indicates an interface class used to access internationalized constants or messages.");
             _I18NConfigOBJ.setDerivedFrom("RunContextItem");
             _I18NConfigOBJ.setIsNamedBy("itemName");
@@ -476,7 +477,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuImplementationConfigOBJ.setDmdID("815");
             _MenuImplementationConfigOBJ.setClassType("STRUCTURAL");
             _MenuImplementationConfigOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MenuImplementationConfigOBJ.setLineNumber("354");
+            _MenuImplementationConfigOBJ.setLineNumber("360");
             _MenuImplementationConfigOBJ.setDescription("The MenuImplementationConfig is used to define the various classes that will  be used to implement an actual menu structure based the MVW menu definitions.");
             _MenuImplementationConfigOBJ.setDerivedFrom("MvwDefinition");
             _MenuImplementationConfigOBJ.setIsNamedBy("configName");
@@ -501,7 +502,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuElementDefinitionOBJ.setDmdID("816");
             _MenuElementDefinitionOBJ.setClassType("STRUCTURAL");
             _MenuElementDefinitionOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MenuElementDefinitionOBJ.setLineNumber("366");
+            _MenuElementDefinitionOBJ.setLineNumber("372");
             _MenuElementDefinitionOBJ.setDescription("The MenuElementDefinition is common base for all definitions associated with the definition of menu elements.");
             _MenuElementDefinitionOBJ.setDerivedFrom("MvwDefinition");
             _MenuElementDefinitionOBJ.setIsNamedBy("elementName");
@@ -520,7 +521,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuOBJ.setDmdID("817");
             _MenuOBJ.setClassType("STRUCTURAL");
             _MenuOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MenuOBJ.setLineNumber("378");
+            _MenuOBJ.setLineNumber("384");
             _MenuOBJ.setDescription("The Menu is a common base for all definitions associated with the definition of menus of different types e.g. toolbars, menubars, popups etc.");
             _MenuOBJ.setDerivedFrom("MenuElementDefinition");
             _MenuOBJ.setIsNamedBy("elementName");
@@ -539,7 +540,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuBarOBJ.setDmdID("818");
             _MenuBarOBJ.setClassType("STRUCTURAL");
             _MenuBarOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MenuBarOBJ.setLineNumber("389");
+            _MenuBarOBJ.setLineNumber("395");
             _MenuBarOBJ.setDescription("The MenuImplementationConfig is used to define the various classes that will");
             _MenuBarOBJ.setDerivedFrom("Menu");
             _MenuBarOBJ.setIsNamedBy("elementName");
@@ -558,7 +559,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SubMenuOBJ.setDmdID("819");
             _SubMenuOBJ.setClassType("STRUCTURAL");
             _SubMenuOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _SubMenuOBJ.setLineNumber("403");
+            _SubMenuOBJ.setLineNumber("409");
             _SubMenuOBJ.setDescription("The SubMenu is used to define a submenu that is included as part of a Menu.");
             _SubMenuOBJ.setDerivedFrom("Menu");
             _SubMenuOBJ.setIsNamedBy("elementName");
@@ -580,7 +581,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuItemOBJ.setDmdID("820");
             _MenuItemOBJ.setClassType("STRUCTURAL");
             _MenuItemOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MenuItemOBJ.setLineNumber("418");
+            _MenuItemOBJ.setLineNumber("424");
             _MenuItemOBJ.setDescription("The MenuItem is used to define triggerable menu items.");
             _MenuItemOBJ.setDerivedFrom("MenuElementDefinition");
             _MenuItemOBJ.setIsNamedBy("elementName");
@@ -603,7 +604,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ActionOBJ.setDmdID("821");
             _ActionOBJ.setClassType("STRUCTURAL");
             _ActionOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ActionOBJ.setLineNumber("435");
+            _ActionOBJ.setLineNumber("441");
             _ActionOBJ.setDescription("The Action class allows for the definition of an intermediate component that binds behavioural triggers e.g. menu items, toolbar buttons etc. to action implementors e.g. Controllers, Presenters and Activities. The Action serves the same purpose as the com.google.gwt.user.client.Command interface, but provides some additional useful functionality. The implementation of the Action (see org.dmd.mvw.client.mvwmenus.base.Action) maintains a set of TriggerIF interfaces, which are the various implementations of the menu items, toolbar buttons etc. An implementing component can enable/disable its Actions which, in turn, can enable/disable its triggers.");
             _ActionOBJ.setDerivedFrom("MvwDefinition");
             _ActionOBJ.setIsNamedBy("actionName");
@@ -1428,7 +1429,7 @@ public class MvwSchemaAG extends SchemaDefinition {
 
             AttributeDefinitionDMO _menuOrderOBJ = new AttributeDefinitionDMO();
             _menuOrder = new AttributeDefinition(_menuOrderOBJ);
-            _menuOrderOBJ.setType("Integer");
+            _menuOrderOBJ.setType("String");
             _menuOrderOBJ.setName("menuOrder");
             _menuOrderOBJ.setDmdID("872");
             _menuOrderOBJ.setDescription("Indicates the lorder in which a sub menu or menu item should be displayed in the menu.");

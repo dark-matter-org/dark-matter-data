@@ -26,6 +26,7 @@ import org.dmd.dmc.DmcValueException;                                           
 import org.dmd.dmc.types.CamelCaseName;                                              // Naming attribute type
 import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                 // Required type
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                           // Required type
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;                                 // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                                // Required for MODREC constructor
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                    // Base class
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                    // Type specific set/add
@@ -48,10 +49,14 @@ import org.dmd.dmc.DmcObjectValidator;
  * overall RunContext for an application and are constructed during
  * initialization of the application. There is no need to instantiate
  * Controllers separately. The RunContextItem created for a controller has
- * the same name as the Controller itself. <p /> Controllers should not
- * communicate with other Controllers directly; this type of communication
- * should be performed using events. So, although it is possible to get the
- * handle to another Controller via the RunContext, it is discouraged.
+ * the same name as the Controller itself with RCI appended. You may specify
+ * an itemOrder for the Controller to control when it is instantiated in the
+ * RunContext; use this option only if you know what you're doing! The
+ * default itemOrder is 50, most base related functionality starts in
+ * itemOrder 20 or lower. <p /> Controllers should not communicate with other
+ * Controllers directly; this type of communication should be performed using
+ * events. So, although it is possible to get the handle to another
+ * Controller via the RunContext, it is discouraged. <p />
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -387,6 +392,56 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1151)
     public void remInstantiatesPresenter(){
          rem(MvwDMSAG.__instantiatesPresenter);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    public Integer getItemOrder(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MvwDMSAG.__itemOrder);
+        if (attr == null)
+            return(50);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets itemOrder to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
+    public void setItemOrder(Integer value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__itemOrder);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(MvwDMSAG.__itemOrder);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__itemOrder,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets itemOrder to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
+    public void setItemOrder(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__itemOrder);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(MvwDMSAG.__itemOrder);
+        
+        attr.set(value);
+        set(MvwDMSAG.__itemOrder,attr);
+    }
+
+    /**
+     * Removes the itemOrder attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
+    public void remItemOrder(){
+         rem(MvwDMSAG.__itemOrder);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)

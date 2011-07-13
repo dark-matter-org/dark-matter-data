@@ -25,7 +25,6 @@ import org.dmd.dmc.DmcSliceInfo;                                                
 import org.dmd.dmc.DmcValueException;                                           // Any attributes
 import org.dmd.dmc.types.CamelCaseName;                                         // Naming attribute type
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                      // Required type
-import org.dmd.dms.generated.types.DmcTypeIntegerSV;                            // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                           // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSV;                             // Required type
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuDMO;                    // Base class
@@ -247,8 +246,8 @@ public class SubMenuDMO  extends MenuDMO  implements DmcNamedObjectIF, Serializa
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
-    public Integer getMenuOrder(){
-        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MvwDMSAG.__menuOrder);
+    public String getMenuOrder(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__menuOrder);
         if (attr == null)
             return(null);
 
@@ -257,13 +256,13 @@ public class SubMenuDMO  extends MenuDMO  implements DmcNamedObjectIF, Serializa
 
     /**
      * Sets menuOrder to the specified value.
-     * @param value Integer
+     * @param value String
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
-    public void setMenuOrder(Integer value) {
+    public void setMenuOrder(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__menuOrder);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(MvwDMSAG.__menuOrder);
+            attr = new DmcTypeStringSV(MvwDMSAG.__menuOrder);
         
         try{
             attr.set(value);
@@ -276,13 +275,13 @@ public class SubMenuDMO  extends MenuDMO  implements DmcNamedObjectIF, Serializa
 
     /**
      * Sets menuOrder to the specified value.
-     * @param value A value compatible with DmcTypeIntegerSV
+     * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setMenuOrder(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__menuOrder);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(MvwDMSAG.__menuOrder);
+            attr = new DmcTypeStringSV(MvwDMSAG.__menuOrder);
         
         attr.set(value);
         set(MvwDMSAG.__menuOrder,attr);

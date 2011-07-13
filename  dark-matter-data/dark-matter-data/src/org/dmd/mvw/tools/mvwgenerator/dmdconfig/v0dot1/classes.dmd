@@ -202,6 +202,7 @@ may				centralDMPErrorHandler
 may				centralRPCErrorHandler
 may				addedToRunContext
 may				instantiatesPresenter
+may				itemOrder
 description		The Controller represents a behavioural component that lives throughout
  the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters
  and Views that are displayed, but may also provide behind the scenes management of things
@@ -211,11 +212,16 @@ description		The Controller represents a behavioural component that lives throug
  Because of their implied lifetime, Controllers are made part of the overall RunContext for
  an application and are constructed during initialization of the application. There is no
  need to instantiate Controllers separately. The RunContextItem created for a controller
- has the same name as the Controller itself.
+ has the same name as the Controller itself with RCI appended. You may specify an itemOrder
+ for the Controller to control when it is instantiated in the RunContext; use this option
+ only if you know what you're doing! The default itemOrder is 50, most base related functionality
+ starts in itemOrder 20 or lower.
  <p />
  Controllers should not communicate with other Controllers directly; this type of communication
  should be performed using events. So, although it is possible to get the handle to another
  Controller via the RunContext, it is discouraged.
+ <p />
+ 
 
 ClassDefinition
 name			Presenter

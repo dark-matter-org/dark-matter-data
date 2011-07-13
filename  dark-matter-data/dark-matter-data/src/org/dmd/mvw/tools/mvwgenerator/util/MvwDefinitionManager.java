@@ -242,6 +242,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				rci.setConstruction("new " + controller.getControllerName() + "(this)");
 				rci.setDefinedInModule(controller.getDefinedInModule());
 				
+				if (controller.getItemOrder() != null)
+					rci.setItemOrder(controller.getItemOrder());
+				
 				if (rcic == null){
 					rcic = new RunContextItemCollection(rci.getContextImpl());
 					contexts.put(rci.getContextImpl(), rcic);

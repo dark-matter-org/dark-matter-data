@@ -16,6 +16,7 @@
 package org.dmd.mvw.client.gxtmenus.implementation;
 
 import org.dmd.mvw.client.mvwmenus.base.Action;
+import org.dmd.mvw.client.mvwmenus.base.MenuItemBaseImpl;
 import org.dmd.mvw.client.mvwmenus.interfaces.TriggerIF;
 
 import com.extjs.gxt.ui.client.event.ComponentEvent;
@@ -30,6 +31,11 @@ public class ItemSelectionListener<E extends ComponentEvent> extends SelectionLi
 	Action		action;
 
 	public ItemSelectionListener(TriggerIF t, Action a){
+		trigger = t;
+		action = a;
+	}
+	
+	public ItemSelectionListener(MenuItemBaseImpl t, Action a){
 		trigger = t;
 		action = a;
 	}

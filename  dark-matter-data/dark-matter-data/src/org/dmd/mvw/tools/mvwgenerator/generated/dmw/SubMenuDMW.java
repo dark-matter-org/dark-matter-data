@@ -132,13 +132,13 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
-    public Integer getMenuOrder(){
+    public String getMenuOrder(){
         return(((SubMenuDMO) core).getMenuOrder());
     }
 
     /**
      * Sets menuOrder to the specified value.
-     * @param value A value compatible with DmcTypeInteger
+     * @param value A value compatible with DmcTypeString
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setMenuOrder(Object value) throws DmcValueException {
@@ -147,10 +147,10 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
 
     /**
      * Sets menuOrder to the specified value.
-     * @param value Integer
+     * @param value String
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
-    public void setMenuOrder(Integer value){
+    public void setMenuOrder(String value){
         ((SubMenuDMO) core).setMenuOrder(value);
     }
 
