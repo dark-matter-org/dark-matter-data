@@ -53,8 +53,9 @@ description The OperationSpec type is used to indicate the events to be generate
  is associated with some operation e.g. clicked, modified, created etc.
 
 ComplexTypeDefinition
-name ImplAndClass
-field String implName    The name of this implementation.
-field String scope       The class used to implement the required behaviour.
-description The ImplAndClass type is used to indicate the classes that are used to implement
- various types of menu related functionality. 
+name MenuElementTypeAndComment
+fieldSeparator :
+field String type    The name of this implementation.
+field String comment The class used to implement the required behaviour.
+description The MenuElementTypeAndComment type is used to indicate the strings that map to 
+ various menu and menu item implementations supported by a a particular menu implementation.

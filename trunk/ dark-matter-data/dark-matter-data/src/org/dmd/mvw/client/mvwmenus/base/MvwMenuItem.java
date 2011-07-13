@@ -15,72 +15,30 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.client.mvwmenus.base;
 
-
-import org.dmd.mvw.client.mvwmenus.interfaces.MenuSubItemIF;
 import org.dmd.mvw.client.mvwmenus.interfaces.TriggerIF;
 
 /**
  * The MenuItemInstance class provides a common base for menu items
- * that represent actual trigger points for functionality, as opposed
- * to submenus.
+ * that represent actual trigger points for functionality.
  */
-abstract public class MenuItemBaseImpl implements MenuSubItemIF, TriggerIF {
+abstract public class MvwMenuItem extends MvwItem implements TriggerIF {
 
-	String 	_name;
-	String 	_menuOrder;
-	String 	_addToMenu;
 	String 	_actionName;
-	boolean	_dynamic;
 	
 	// The action we trigger
 	protected Action	action;
 	
-//	/**
-//	 * 
-//	 * @param n The menu item name.
-//	 * @param o The menu order.
-//	 * @param an The action name.
-//	 * @param atm The add to menu name.
-//	 */
-//	protected MenuItemBaseImpl(String itemName, String menuOrder, String actionName, String addToMenu){
-//		_name 		= itemName;
-//		_menuOrder 	= menuOrder;
-//		_actionName = actionName;
-//		_addToMenu  = addToMenu;
-//	}
-
 	/**
-	 * 
+	 * Constructs a new menu item.
 	 * @param n   The menu item name.
 	 * @param o   The menu order.
 	 * @param an  The action name.
 	 * @param atm The add to menu name.
 	 * @param d   Dynamic flag
 	 */
-	protected MenuItemBaseImpl(String itemName, String menuOrder, String actionName, String addToMenu, boolean dynamic) {
-		_name 		= itemName;
-		_menuOrder 	= menuOrder;
+	protected MvwMenuItem(String itemName, String menuOrder, String actionName, String addToMenu, boolean dynamic) {
+		super(itemName,menuOrder,addToMenu,dynamic);
 		_actionName = actionName;
-		_addToMenu  = addToMenu;
-		_dynamic	= dynamic;
-	}
-
-	////////////////////////////////////////////////////////////////////////////////
-	// Partial MenuSubItemIF implementation
-
-	@Override
-	public String getMenuOrder() {
-		return(_menuOrder);
-	}
-
-	@Override
-	public String getName() {
-		return(_name);
-	}
-	
-	@Override
-	public String getAddToMenu(){
-		return(_addToMenu);
 	}
 	
 	/**
@@ -88,12 +46,7 @@ abstract public class MenuItemBaseImpl implements MenuSubItemIF, TriggerIF {
 	 * handling, since it will be called after the setAction() method is called.
 	 */
 	abstract public void initialize();
-	
-	@Override
-	public boolean isDynamic() {
-		return(_dynamic);
-	}
-	
+		
 	////////////////////////////////////////////////////////////////////////////////
 
 	/**

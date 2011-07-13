@@ -1,23 +1,25 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
-import java.util.ArrayList;                                                              // To support getMVCopy()
-import java.util.Iterator;                                                               // To support getMVCopy()
-import org.dmd.dmc.*;                                                                    // If any attributes
-import org.dmd.dmc.types.CamelCaseName;                                                  // Primitive type
-import org.dmd.dms.*;                                                                    // Always 2
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                    // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                            // Derived class
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;           // Required for getModificationRecorder()
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuImplementationConfigDMO;         // Class not auxiliary or abstract
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                            // Attribute from mvw schema
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ImplAndClassIterableDMW;             // For multi-valued ImplAndClass
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ImplAndClass;                      // For multi-valued containsImplAndClass
+import java.util.ArrayList;                                                                       // To support getMVCopy()
+import java.util.Iterator;                                                                        // To support getMVCopy()
+import org.dmd.dmc.*;                                                                             // If any attributes
+import org.dmd.dmc.types.CamelCaseName;                                                           // Primitive type
+import org.dmd.dms.*;                                                                             // Always 2
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                             // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                                     // Derived class
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;                    // Required for getModificationRecorder()
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuImplementationConfigDMO;                  // Class not auxiliary or abstract
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                                     // Attribute from mvw schema
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.MenuElementTypeAndCommentIterableDMW;         // For multi-valued MenuElementTypeAndComment
+import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuElementTypeAndComment;                  // For multi-valued containsMenuElementTypeAndComment
 
 /**
  * The MenuImplementationConfig is used to define the various classes that
  * will  be used to implement an actual menu structure based the MVW menu
- * definitions.
+ * definitions. <p /> The class specified by useClass must be derived from
+ * org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory and have a zero arg
+ * constructor.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -74,7 +76,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return The number of ImplAndClass items.
+     * @return The number of MenuElementTypeAndComment items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1235)
     public int getAlternateMenuBarSize(){
@@ -86,7 +88,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return true if there are no ImplAndClassDMO items.
+     * @return true if there are no MenuElementTypeAndCommentDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
     public boolean getAlternateMenuBarIsEmpty(){
@@ -98,7 +100,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return true if there are any ImplAndClassDMO items.
+     * @return true if there are any MenuElementTypeAndCommentDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1260)
     public boolean getAlternateMenuBarHasValue(){
@@ -110,20 +112,20 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return An Iterator of ImplAndClass objects.
+     * @return An Iterator of MenuElementTypeAndComment objects.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
-    public ImplAndClassIterableDMW getAlternateMenuBarIterable(){
+    public MenuElementTypeAndCommentIterableDMW getAlternateMenuBarIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__alternateMenuBar);
         if (attr == null)
-            return(ImplAndClassIterableDMW.emptyList);
+            return(MenuElementTypeAndCommentIterableDMW.emptyList);
         
-        return(new ImplAndClassIterableDMW(((MenuImplementationConfigDMO) core).getAlternateMenuBar()));
+        return(new MenuElementTypeAndCommentIterableDMW(((MenuImplementationConfigDMO) core).getAlternateMenuBar()));
     }
 
     /**
      * Adds another alternateMenuBar value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
     public void addAlternateMenuBar(Object value) throws DmcValueException {
@@ -132,35 +134,35 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Adds another alternateMenuBar value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1484)
-    public void addAlternateMenuBar(ImplAndClass value){
+    public void addAlternateMenuBar(MenuElementTypeAndComment value){
         ((MenuImplementationConfigDMO) core).addAlternateMenuBar(value);
     }
 
     /**
      * Returns true if the collection contains the alternateMenuBar value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1542)
-    public boolean alternateMenuBarContains(ImplAndClass value){
+    public boolean alternateMenuBarContains(MenuElementTypeAndComment value){
         return(((MenuImplementationConfigDMO) core).alternateMenuBarContains(value));
     }
 
     /**
-     * @return A COPY of the collection of ImplAndClass objects.
+     * @return A COPY of the collection of MenuElementTypeAndComment objects.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1582)
     @SuppressWarnings("unchecked")
-    public ArrayList<ImplAndClass> getAlternateMenuBarCopy(){
+    public ArrayList<MenuElementTypeAndComment> getAlternateMenuBarCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__alternateMenuBar);
         if (attr == null)
-            return(new ArrayList<ImplAndClass>());
+            return(new ArrayList<MenuElementTypeAndComment>());
         
-        ArrayList<ImplAndClass> rc = new ArrayList<ImplAndClass>(attr.getMVSize());
+        ArrayList<MenuElementTypeAndComment> rc = new ArrayList<MenuElementTypeAndComment>(attr.getMVSize());
         
-        Iterator<ImplAndClass> it = (Iterator<ImplAndClass>) attr.getMV();
+        Iterator<MenuElementTypeAndComment> it = (Iterator<MenuElementTypeAndComment>) attr.getMV();
         while(it.hasNext()){
             rc.add(it.next());
         }
@@ -170,7 +172,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Deletes a alternateMenuBar value.
-     * @param value The ImplAndClass to be deleted from set of attribute values.
+     * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1609)
     public void delAlternateMenuBar(Object value) throws DmcValueException {
@@ -179,10 +181,10 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Deletes a alternateMenuBar value.
-     * @param value The ImplAndClass to be deleted from set of attribute values.
+     * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1618)
-    public void delAlternateMenuBar(ImplAndClass value){
+    public void delAlternateMenuBar(MenuElementTypeAndComment value){
         ((MenuImplementationConfigDMO) core).delAlternateMenuBar(value);
     }
 
@@ -195,7 +197,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return The number of ImplAndClass items.
+     * @return The number of MenuElementTypeAndComment items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1235)
     public int getAlternateSubMenuSize(){
@@ -207,7 +209,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return true if there are no ImplAndClassDMO items.
+     * @return true if there are no MenuElementTypeAndCommentDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
     public boolean getAlternateSubMenuIsEmpty(){
@@ -219,7 +221,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return true if there are any ImplAndClassDMO items.
+     * @return true if there are any MenuElementTypeAndCommentDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1260)
     public boolean getAlternateSubMenuHasValue(){
@@ -231,20 +233,20 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return An Iterator of ImplAndClass objects.
+     * @return An Iterator of MenuElementTypeAndComment objects.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
-    public ImplAndClassIterableDMW getAlternateSubMenuIterable(){
+    public MenuElementTypeAndCommentIterableDMW getAlternateSubMenuIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__alternateSubMenu);
         if (attr == null)
-            return(ImplAndClassIterableDMW.emptyList);
+            return(MenuElementTypeAndCommentIterableDMW.emptyList);
         
-        return(new ImplAndClassIterableDMW(((MenuImplementationConfigDMO) core).getAlternateSubMenu()));
+        return(new MenuElementTypeAndCommentIterableDMW(((MenuImplementationConfigDMO) core).getAlternateSubMenu()));
     }
 
     /**
      * Adds another alternateSubMenu value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
     public void addAlternateSubMenu(Object value) throws DmcValueException {
@@ -253,35 +255,35 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Adds another alternateSubMenu value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1484)
-    public void addAlternateSubMenu(ImplAndClass value){
+    public void addAlternateSubMenu(MenuElementTypeAndComment value){
         ((MenuImplementationConfigDMO) core).addAlternateSubMenu(value);
     }
 
     /**
      * Returns true if the collection contains the alternateSubMenu value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1542)
-    public boolean alternateSubMenuContains(ImplAndClass value){
+    public boolean alternateSubMenuContains(MenuElementTypeAndComment value){
         return(((MenuImplementationConfigDMO) core).alternateSubMenuContains(value));
     }
 
     /**
-     * @return A COPY of the collection of ImplAndClass objects.
+     * @return A COPY of the collection of MenuElementTypeAndComment objects.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1582)
     @SuppressWarnings("unchecked")
-    public ArrayList<ImplAndClass> getAlternateSubMenuCopy(){
+    public ArrayList<MenuElementTypeAndComment> getAlternateSubMenuCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__alternateSubMenu);
         if (attr == null)
-            return(new ArrayList<ImplAndClass>());
+            return(new ArrayList<MenuElementTypeAndComment>());
         
-        ArrayList<ImplAndClass> rc = new ArrayList<ImplAndClass>(attr.getMVSize());
+        ArrayList<MenuElementTypeAndComment> rc = new ArrayList<MenuElementTypeAndComment>(attr.getMVSize());
         
-        Iterator<ImplAndClass> it = (Iterator<ImplAndClass>) attr.getMV();
+        Iterator<MenuElementTypeAndComment> it = (Iterator<MenuElementTypeAndComment>) attr.getMV();
         while(it.hasNext()){
             rc.add(it.next());
         }
@@ -291,7 +293,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Deletes a alternateSubMenu value.
-     * @param value The ImplAndClass to be deleted from set of attribute values.
+     * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1609)
     public void delAlternateSubMenu(Object value) throws DmcValueException {
@@ -300,10 +302,10 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Deletes a alternateSubMenu value.
-     * @param value The ImplAndClass to be deleted from set of attribute values.
+     * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1618)
-    public void delAlternateSubMenu(ImplAndClass value){
+    public void delAlternateSubMenu(MenuElementTypeAndComment value){
         ((MenuImplementationConfigDMO) core).delAlternateSubMenu(value);
     }
 
@@ -316,7 +318,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return The number of ImplAndClass items.
+     * @return The number of MenuElementTypeAndComment items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1235)
     public int getAlternateMenuItemSize(){
@@ -328,7 +330,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return true if there are no ImplAndClassDMO items.
+     * @return true if there are no MenuElementTypeAndCommentDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
     public boolean getAlternateMenuItemIsEmpty(){
@@ -340,7 +342,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return true if there are any ImplAndClassDMO items.
+     * @return true if there are any MenuElementTypeAndCommentDMO items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1260)
     public boolean getAlternateMenuItemHasValue(){
@@ -352,20 +354,20 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     /**
-     * @return An Iterator of ImplAndClass objects.
+     * @return An Iterator of MenuElementTypeAndComment objects.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1458)
-    public ImplAndClassIterableDMW getAlternateMenuItemIterable(){
+    public MenuElementTypeAndCommentIterableDMW getAlternateMenuItemIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__alternateMenuItem);
         if (attr == null)
-            return(ImplAndClassIterableDMW.emptyList);
+            return(MenuElementTypeAndCommentIterableDMW.emptyList);
         
-        return(new ImplAndClassIterableDMW(((MenuImplementationConfigDMO) core).getAlternateMenuItem()));
+        return(new MenuElementTypeAndCommentIterableDMW(((MenuImplementationConfigDMO) core).getAlternateMenuItem()));
     }
 
     /**
      * Adds another alternateMenuItem value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1474)
     public void addAlternateMenuItem(Object value) throws DmcValueException {
@@ -374,35 +376,35 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Adds another alternateMenuItem value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1484)
-    public void addAlternateMenuItem(ImplAndClass value){
+    public void addAlternateMenuItem(MenuElementTypeAndComment value){
         ((MenuImplementationConfigDMO) core).addAlternateMenuItem(value);
     }
 
     /**
      * Returns true if the collection contains the alternateMenuItem value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1542)
-    public boolean alternateMenuItemContains(ImplAndClass value){
+    public boolean alternateMenuItemContains(MenuElementTypeAndComment value){
         return(((MenuImplementationConfigDMO) core).alternateMenuItemContains(value));
     }
 
     /**
-     * @return A COPY of the collection of ImplAndClass objects.
+     * @return A COPY of the collection of MenuElementTypeAndComment objects.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1582)
     @SuppressWarnings("unchecked")
-    public ArrayList<ImplAndClass> getAlternateMenuItemCopy(){
+    public ArrayList<MenuElementTypeAndComment> getAlternateMenuItemCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__alternateMenuItem);
         if (attr == null)
-            return(new ArrayList<ImplAndClass>());
+            return(new ArrayList<MenuElementTypeAndComment>());
         
-        ArrayList<ImplAndClass> rc = new ArrayList<ImplAndClass>(attr.getMVSize());
+        ArrayList<MenuElementTypeAndComment> rc = new ArrayList<MenuElementTypeAndComment>(attr.getMVSize());
         
-        Iterator<ImplAndClass> it = (Iterator<ImplAndClass>) attr.getMV();
+        Iterator<MenuElementTypeAndComment> it = (Iterator<MenuElementTypeAndComment>) attr.getMV();
         while(it.hasNext()){
             rc.add(it.next());
         }
@@ -412,7 +414,7 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Deletes a alternateMenuItem value.
-     * @param value The ImplAndClass to be deleted from set of attribute values.
+     * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1609)
     public void delAlternateMenuItem(Object value) throws DmcValueException {
@@ -421,10 +423,10 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Deletes a alternateMenuItem value.
-     * @param value The ImplAndClass to be deleted from set of attribute values.
+     * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1618)
-    public void delAlternateMenuItem(ImplAndClass value){
+    public void delAlternateMenuItem(MenuElementTypeAndComment value){
         ((MenuImplementationConfigDMO) core).delAlternateMenuItem(value);
     }
 
@@ -468,13 +470,44 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
-    public ImplAndClass getDefaultMenuBar(){
+    public String getUseClass(){
+        return(((MenuImplementationConfigDMO) core).getUseClass());
+    }
+
+    /**
+     * Sets useClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
+    public void setUseClass(Object value) throws DmcValueException {
+        ((MenuImplementationConfigDMO) core).setUseClass(value);
+    }
+
+    /**
+     * Sets useClass to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
+    public void setUseClass(String value){
+        ((MenuImplementationConfigDMO) core).setUseClass(value);
+    }
+
+    /**
+     * Removes the useClass attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
+    public void remUseClass(){
+        ((MenuImplementationConfigDMO) core).remUseClass();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
+    public MenuElementTypeAndComment getDefaultMenuBar(){
         return(((MenuImplementationConfigDMO) core).getDefaultMenuBar());
     }
 
     /**
      * Sets defaultMenuBar to the specified value.
-     * @param value A value compatible with DmcTypeImplAndClass
+     * @param value A value compatible with DmcTypeMenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setDefaultMenuBar(Object value) throws DmcValueException {
@@ -483,10 +516,10 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Sets defaultMenuBar to the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
-    public void setDefaultMenuBar(ImplAndClass value){
+    public void setDefaultMenuBar(MenuElementTypeAndComment value){
         ((MenuImplementationConfigDMO) core).setDefaultMenuBar(value);
     }
 
@@ -499,13 +532,13 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
-    public ImplAndClass getDefaultSubMenu(){
+    public MenuElementTypeAndComment getDefaultSubMenu(){
         return(((MenuImplementationConfigDMO) core).getDefaultSubMenu());
     }
 
     /**
      * Sets defaultSubMenu to the specified value.
-     * @param value A value compatible with DmcTypeImplAndClass
+     * @param value A value compatible with DmcTypeMenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setDefaultSubMenu(Object value) throws DmcValueException {
@@ -514,10 +547,10 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Sets defaultSubMenu to the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
-    public void setDefaultSubMenu(ImplAndClass value){
+    public void setDefaultSubMenu(MenuElementTypeAndComment value){
         ((MenuImplementationConfigDMO) core).setDefaultSubMenu(value);
     }
 
@@ -530,13 +563,13 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
-    public ImplAndClass getDefaultMenuItem(){
+    public MenuElementTypeAndComment getDefaultMenuItem(){
         return(((MenuImplementationConfigDMO) core).getDefaultMenuItem());
     }
 
     /**
      * Sets defaultMenuItem to the specified value.
-     * @param value A value compatible with DmcTypeImplAndClass
+     * @param value A value compatible with DmcTypeMenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setDefaultMenuItem(Object value) throws DmcValueException {
@@ -545,10 +578,10 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
 
     /**
      * Sets defaultMenuItem to the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
-    public void setDefaultMenuItem(ImplAndClass value){
+    public void setDefaultMenuItem(MenuElementTypeAndComment value){
         ((MenuImplementationConfigDMO) core).setDefaultMenuItem(value);
     }
 
@@ -558,6 +591,37 @@ abstract public class MenuImplementationConfigDMW extends MvwDefinition implemen
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remDefaultMenuItem(){
         ((MenuImplementationConfigDMO) core).remDefaultMenuItem();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
+    public MenuElementTypeAndComment getDefaultSeparator(){
+        return(((MenuImplementationConfigDMO) core).getDefaultSeparator());
+    }
+
+    /**
+     * Sets defaultSeparator to the specified value.
+     * @param value A value compatible with DmcTypeMenuElementTypeAndComment
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
+    public void setDefaultSeparator(Object value) throws DmcValueException {
+        ((MenuImplementationConfigDMO) core).setDefaultSeparator(value);
+    }
+
+    /**
+     * Sets defaultSeparator to the specified value.
+     * @param value MenuElementTypeAndComment
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
+    public void setDefaultSeparator(MenuElementTypeAndComment value){
+        ((MenuImplementationConfigDMO) core).setDefaultSeparator(value);
+    }
+
+    /**
+     * Removes the defaultSeparator attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
+    public void remDefaultSeparator(){
+        ((MenuImplementationConfigDMO) core).remDefaultSeparator();
     }
 
 

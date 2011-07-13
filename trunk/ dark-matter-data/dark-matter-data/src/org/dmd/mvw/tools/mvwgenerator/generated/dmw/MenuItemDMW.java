@@ -72,6 +72,37 @@ public class MenuItemDMW extends MenuElementDefinitionDMW implements DmcNamedObj
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
+    public CamelCaseName getUseImpl(){
+        return(((MenuItemDMO) core).getUseImpl());
+    }
+
+    /**
+     * Sets useImpl to the specified value.
+     * @param value A value compatible with DmcTypeCamelCaseName
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
+    public void setUseImpl(Object value) throws DmcValueException {
+        ((MenuItemDMO) core).setUseImpl(value);
+    }
+
+    /**
+     * Sets useImpl to the specified value.
+     * @param value CamelCaseName
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
+    public void setUseImpl(CamelCaseName value){
+        ((MenuItemDMO) core).setUseImpl(value);
+    }
+
+    /**
+     * Removes the useImpl attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
+    public void remUseImpl(){
+        ((MenuItemDMO) core).remUseImpl();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public CamelCaseName getElementName(){
         return(((MenuItemDMO) core).getElementName());
     }

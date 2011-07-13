@@ -16,23 +16,26 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:321)
-import java.io.Serializable;                                                          // Always required
-import java.util.*;                                                                   // Always required
-import org.dmd.dmc.DmcAttribute;                                                      // Any attributes
-import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object
-import org.dmd.dmc.DmcOmni;                                                           // Lazy resolution
-import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                                 // Any attributes
-import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                    // Type specific set/add
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                 // Base class
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PlaceDMO;                         // Type specific set/add
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;                  // Helper class
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeControllerREFMV;         // Reference type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePlaceREFSV;              // Reference type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.PlaceREF;                       // Helper class
+import java.io.Serializable;                                                                        // Always required
+import java.util.*;                                                                                 // Always required
+import org.dmd.dmc.DmcAttribute;                                                                    // Any attributes
+import org.dmd.dmc.DmcNamedObjectIF;                                                                // Named object
+import org.dmd.dmc.DmcOmni;                                                                         // Lazy resolution
+import org.dmd.dmc.DmcSliceInfo;                                                                    // Required for object slicing
+import org.dmd.dmc.DmcValueException;                                                               // Any attributes
+import org.dmd.dmc.types.CamelCaseName;                                                             // Naming attribute type
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                                          // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                               // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                                  // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuImplementationConfigDMO;                    // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                               // Base class
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PlaceDMO;                                       // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;                                // Helper class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeControllerREFMV;                       // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuImplementationConfigREFSV;         // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePlaceREFSV;                            // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuImplementationConfigREF;                  // Helper class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.PlaceREF;                                     // Helper class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcClassInfo;
@@ -228,6 +231,74 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1151)
     public void remUsesController(){
          rem(MvwDMSAG.__usesController);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:572)
+    public MenuImplementationConfigREF getMenuImplementation(){
+        DmcTypeMenuImplementationConfigREFSV attr = (DmcTypeMenuImplementationConfigREFSV) get(MvwDMSAG.__menuImplementation);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to MenuImplementationConfig without attempting lazy resolution (if turned on).
+     */
+    public MenuImplementationConfigREF getMenuImplementationREF(){
+        DmcTypeMenuImplementationConfigREFSV attr = (DmcTypeMenuImplementationConfigREFSV) get(MvwDMSAG.__menuImplementation);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets menuImplementation to the specified value.
+     * @param value MenuImplementationConfigDMO
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    public void setMenuImplementation(MenuImplementationConfigDMO value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__menuImplementation);
+        if (attr == null)
+            attr = new DmcTypeMenuImplementationConfigREFSV(MvwDMSAG.__menuImplementation);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__menuImplementation,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets menuImplementation to the specified value.
+     * @param value A value compatible with DmcTypeMenuImplementationConfigREFSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
+    public void setMenuImplementation(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__menuImplementation);
+        if (attr == null)
+            attr = new DmcTypeMenuImplementationConfigREFSV(MvwDMSAG.__menuImplementation);
+        
+        attr.set(value);
+        set(MvwDMSAG.__menuImplementation,attr);
+    }
+
+    /**
+     * Removes the menuImplementation attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
+    public void remMenuImplementation(){
+         rem(MvwDMSAG.__menuImplementation);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)

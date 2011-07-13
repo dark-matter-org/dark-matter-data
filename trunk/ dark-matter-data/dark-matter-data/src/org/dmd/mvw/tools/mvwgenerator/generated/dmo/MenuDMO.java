@@ -20,11 +20,9 @@ import java.io.Serializable;                                                    
 import java.util.*;                                                                   // Always required
 import org.dmd.dmc.DmcAttribute;                                                      // Any attributes
 import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object
-import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing
 import org.dmd.dmc.DmcValueException;                                                 // Any attributes
 import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuElementDefinitionDMO;         // Base class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
@@ -42,7 +40,7 @@ import org.dmd.dmc.DmcObjectValidator;
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:133)
  */
 @SuppressWarnings("serial")
-public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcNamedObjectIF, Serializable  {
+abstract public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcNamedObjectIF, Serializable  {
 
     public final static String constructionClassName = "Menu";
 
@@ -75,32 +73,6 @@ public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcNamedObjec
 
     protected Map<String,DmcObjectValidator> getObjectValidators(){
         return(_OvDmAp);
-    }
-
-    @Override
-    public MenuDMO getNew(){
-        MenuDMO rc = new MenuDMO();
-        return(rc);
-    }
-
-    @Override
-    public MenuDMO getSlice(DmcSliceInfo info){
-        MenuDMO rc = new MenuDMO();
-        populateSlice(rc,info);
-        return(rc);
-    }
-
-    public MenuDMO(DmcTypeModifierMV mods) {
-        super("Menu");
-        modrec(true);
-        setModifier(mods);
-    }
-
-    public MenuDMO getModificationRecorder(){
-        MenuDMO rc = new MenuDMO();
-        rc.setElementName(getElementName());
-        rc.setModifier(new DmcTypeModifierMV());
-        return(rc);
     }
 
     // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:735)

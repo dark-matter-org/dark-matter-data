@@ -26,7 +26,11 @@ import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.Menu;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuBar;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuItem;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.Separator;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.SubMenu;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
 import org.dmd.util.exceptions.ResultException;
 
@@ -86,9 +90,17 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	final String 								activitySubpackage 		= "activities";
 	
 	// MENUS
-	TreeMap<CamelCaseName, Menu>				menus;
+	
+	MenuImplementationConfig					menuImplementation;
+	RunContextItem								menuFactoryRCI;
+	
+	TreeMap<CamelCaseName, MenuBar>				menuBars;
+	
+	TreeMap<CamelCaseName, SubMenu>				subMenus;
 	
 	TreeMap<CamelCaseName, MenuItem>			menuItems;
+	
+	TreeMap<CamelCaseName, Separator>			separators;
 	
 	TreeMap<CamelCaseName, Action>				actions;
 	
@@ -133,9 +145,30 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		centralDmpErrorHandler	= null;
 		centralRpcErrorHandler	= null;
 		
-		menus 		= new TreeMap<CamelCaseName, Menu>();
-		menuItems 	= new TreeMap<CamelCaseName, MenuItem>();
-		actions		= new TreeMap<CamelCaseName, Action>();
+		menuImplementation		= null;
+		menuFactoryRCI			= null;
+		
+		menuBars 				= new TreeMap<CamelCaseName, MenuBar>();
+		subMenus 				= new TreeMap<CamelCaseName, SubMenu>();
+		menuItems 				= new TreeMap<CamelCaseName, MenuItem>();
+		separators				= new TreeMap<CamelCaseName, Separator>();
+		actions					= new TreeMap<CamelCaseName, Action>();
+	}
+	
+	public TreeMap<CamelCaseName,MenuBar> getMenuBars(){
+		return(menuBars);
+	}
+	
+	public TreeMap<CamelCaseName,SubMenu> getSubMenus(){
+		return(subMenus);
+	}
+	
+	public TreeMap<CamelCaseName,MenuItem> getMenuItems(){
+		return(menuItems);
+	}
+	
+	public TreeMap<CamelCaseName,Separator> getSeparators(){
+		return(separators);
 	}
 	
 	public void reset() throws ResultException, DmcValueException{
@@ -148,6 +181,10 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	public RunContextItemCollection getDefaultContext(){
 		return(defaultContext);
+	}
+	
+	public MenuImplementationConfig getMenuImplementation(){
+		return(menuImplementation);
 	}
 	
 	/**
@@ -391,17 +428,64 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			// Add the item to its module
 			rci.getDefinedInModule().addRunContextItem(rci);
 		}
-		else if (def instanceof Menu){
-			Menu menu = (Menu) def;
-			menus.put(menu.getCamelCaseName(), menu);
+		else if (def instanceof MenuBar){
+			MenuBar menu = (MenuBar) def;
+			menuBars.put(menu.getCamelCaseName(), menu);
+		}
+		else if (def instanceof SubMenu){
+			SubMenu menu = (SubMenu) def;
+			subMenus.put(menu.getCamelCaseName(), menu);
 		}
 		else if (def instanceof MenuItem){
 			MenuItem item = (MenuItem) def;
 			menuItems.put(item.getCamelCaseName(), item);
 		}
+		else if (def instanceof Separator){
+			Separator sep = (Separator) def;
+			separators.put(sep.getCamelCaseName(), sep);
+		}
 		else if (def instanceof Action){
 			Action action = (Action) def;
 			actions.put(action.getCamelCaseName(), action);
+		}
+		else if (def instanceof MenuImplementationConfig){
+			if (menuImplementation == null){
+				menuImplementation = (MenuImplementationConfig) def;
+				
+				// The menu factory specified by the menu implementation is added 
+				// as a run context item.
+				RunContextItem rci = new RunContextItem();
+				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
+				
+				rci.setItemName("menuFactory");
+				
+				rci.setUseClass("org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory");
+				rci.setItemOrder(16);
+					
+				// We use the class specified in the menu implementation config to
+				// create the construction call.
+				rci.setConstruction("new " + menuImplementation.getUseClass() + "()");
+				rci.setDefinedInModule(menuImplementation.getDefinedInModule());
+				
+				if (rcic == null){
+					rcic = new RunContextItemCollection(rci.getContextImpl());
+					contexts.put(rci.getContextImpl(), rcic);
+				}
+				rcic.addItem(rci);
+				
+				// Add the item to its module
+				rci.getDefinedInModule().addRunContextItem(rci);
+				
+				menuFactoryRCI = rci;
+			}
+			else{
+				MenuImplementationConfig config = (MenuImplementationConfig) def;
+				ResultException ex = new ResultException();
+				ex.addError("Multiple menu implementations are specified as part of your loaded modules; only one menu implementation can be used.");
+				ex.result.lastResult().moreMessages("Menus from " + menuImplementation.getConfigName() + " defined in module " + menuImplementation.getDefinedInModule().getModuleName());
+				ex.result.lastResult().moreMessages("Menus from " + config.getConfigName() + " defined in module " + config.getDefinedInModule().getModuleName());
+				throw(ex);
+			}
 		}
 		
 		if (def instanceof Component){
@@ -550,6 +634,20 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			}
 		}
 		
+		if (application != null){
+			// We're generating the application, so some additional checking is required
+			if (menuBars.size() > 0){
+				// We have menu related functionality, so the application must specify a
+				// menu implementation
+				if (application.getMenuImplementation() == null){
+					if (errors == null)
+						errors = new ResultException();
+					
+					errors.addError("The " + application.getAppName() + " uses menu functionality and you must set the menuImplementation.");
+				}
+				
+			}
+		}
 		
 		if (errors != null)
 			throw(errors);

@@ -490,15 +490,15 @@ description		The name of a menu implementation configuration.
 AttributeDefinition
 name			defaultMenuBar
 dmdID			66
-type			ImplAndClass
-description		The name and class of the default menubar implementation.
+type			MenuElementTypeAndComment
+description		The name and description of the default menu bar implementation.
 
 AttributeDefinition
 name			alternateMenuBar
 dmdID			67
-type			ImplAndClass
+type			MenuElementTypeAndComment
 valueType		MULTI
-description		The name and class of an alternate menubar implementation.
+description		The name and description of various alternate menu bar implementations.
 
 AttributeDefinition
 name			elementName
@@ -555,28 +555,28 @@ description		Indicates the Action to be associated with a menu entry, button or
 AttributeDefinition
 name			defaultSubMenu
 dmdID			76
-type			ImplAndClass
-description		The name and class of the default submenu implementation.
+type			MenuElementTypeAndComment
+description		The name and description of the default submenu implementation.
 
 AttributeDefinition
 name			alternateSubMenu
 dmdID			77
-type			ImplAndClass
+type			MenuElementTypeAndComment
 valueType		MULTI
-description		The name and class of an alternate submenu implementation.
+description		The name and description of the various submenu implementations.
 
 AttributeDefinition
 name			defaultMenuItem
 dmdID			78
-type			ImplAndClass
-description		The name and class of the default menu item implementation.
+type			MenuElementTypeAndComment
+description		The name and description of the default menu item implementation.
 
 AttributeDefinition
 name			alternateMenuItem
 dmdID			79
-type			ImplAndClass
+type			MenuElementTypeAndComment
 valueType		MULTI
-description		The name and class of an alternate menu item implementation.
+description		The name and description of various alternate menu item implementations.
 
 AttributeDefinition
 name			implementsAction
@@ -592,6 +592,17 @@ type			Component
 internalUse		true
 description		Indicates the Component that implements an Action.
 
+AttributeDefinition
+name			defaultSeparator
+dmdID			82
+type			MenuElementTypeAndComment
+description		The name and description of the default separator implementation.
+
+AttributeDefinition
+name			menuImplementation
+dmdID			83
+type			MenuImplementationConfig
+description		A reference to a menu implementation.
 
 //AttributeDefinition
 //name			triggersAction

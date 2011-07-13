@@ -16,16 +16,21 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:321)
-import java.io.Serializable;                                         // Always required
-import java.util.*;                                                  // Always required
-import org.dmd.dmc.DmcAttribute;                                     // Any attributes
-import org.dmd.dmc.DmcNamedObjectIF;                                 // Named object
-import org.dmd.dmc.DmcSliceInfo;                                     // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                // Any attributes
-import org.dmd.dmc.types.CamelCaseName;                              // Naming attribute type
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;           // Required type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuDMO;         // Base class
+import java.io.Serializable;                                                          // Always required
+import java.util.*;                                                                   // Always required
+import org.dmd.dmc.DmcAttribute;                                                      // Any attributes
+import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object
+import org.dmd.dmc.DmcOmni;                                                           // Lazy resolution
+import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing
+import org.dmd.dmc.DmcValueException;                                                 // Any attributes
+import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeStringSV;                                   // Required type
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuDMO;                          // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuElementDefinitionDMO;         // Base class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuREFSV;               // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuREF;                        // Helper class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcClassInfo;
@@ -33,8 +38,7 @@ import org.dmd.dmc.DmcAttributeValidator;
 import org.dmd.dmc.DmcObjectValidator;
 
 /**
- * The MenuImplementationConfig is used to define the various classes that
- * will
+ * The Separator is used to define menu separators.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -42,11 +46,11 @@ import org.dmd.dmc.DmcObjectValidator;
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:133)
  */
 @SuppressWarnings("serial")
-public class MenuBarDMO  extends MenuDMO  implements DmcNamedObjectIF, Serializable  {
+public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamedObjectIF, Serializable  {
 
-    public final static String constructionClassName = "MenuBar";
+    public final static String constructionClassName = "Separator";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__MenuBar;
+    public final static DmcClassInfo classInfo = MvwDMSAG.__Separator;
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -61,11 +65,11 @@ public class MenuBarDMO  extends MenuDMO  implements DmcNamedObjectIF, Serializa
         _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
-    public MenuBarDMO() {
-        super("MenuBar");
+    public SeparatorDMO() {
+        super("Separator");
     }
 
-    protected MenuBarDMO(String oc) {
+    protected SeparatorDMO(String oc) {
         super(oc);
     }
 
@@ -78,26 +82,26 @@ public class MenuBarDMO  extends MenuDMO  implements DmcNamedObjectIF, Serializa
     }
 
     @Override
-    public MenuBarDMO getNew(){
-        MenuBarDMO rc = new MenuBarDMO();
+    public SeparatorDMO getNew(){
+        SeparatorDMO rc = new SeparatorDMO();
         return(rc);
     }
 
     @Override
-    public MenuBarDMO getSlice(DmcSliceInfo info){
-        MenuBarDMO rc = new MenuBarDMO();
+    public SeparatorDMO getSlice(DmcSliceInfo info){
+        SeparatorDMO rc = new SeparatorDMO();
         populateSlice(rc,info);
         return(rc);
     }
 
-    public MenuBarDMO(DmcTypeModifierMV mods) {
-        super("MenuBar");
+    public SeparatorDMO(DmcTypeModifierMV mods) {
+        super("Separator");
         modrec(true);
         setModifier(mods);
     }
 
-    public MenuBarDMO getModificationRecorder(){
-        MenuBarDMO rc = new MenuBarDMO();
+    public SeparatorDMO getModificationRecorder(){
+        SeparatorDMO rc = new SeparatorDMO();
         rc.setElementName(getElementName());
         rc.setModifier(new DmcTypeModifierMV());
         return(rc);
@@ -118,8 +122,8 @@ public class MenuBarDMO  extends MenuDMO  implements DmcNamedObjectIF, Serializa
     }
 
     public boolean equals(Object obj){
-        if (obj instanceof MenuBarDMO){
-            return( getObjectName().equals( ((MenuBarDMO) obj).getObjectName()) );
+        if (obj instanceof SeparatorDMO){
+            return( getObjectName().equals( ((SeparatorDMO) obj).getObjectName()) );
         }
         return(false);
     }
@@ -222,6 +226,124 @@ public class MenuBarDMO  extends MenuDMO  implements DmcNamedObjectIF, Serializa
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remElementName(){
          rem(MvwDMSAG.__elementName);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:572)
+    public MenuREF getAddToMenu(){
+        DmcTypeMenuREFSV attr = (DmcTypeMenuREFSV) get(MvwDMSAG.__addToMenu);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to Menu without attempting lazy resolution (if turned on).
+     */
+    public MenuREF getAddToMenuREF(){
+        DmcTypeMenuREFSV attr = (DmcTypeMenuREFSV) get(MvwDMSAG.__addToMenu);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets addToMenu to the specified value.
+     * @param value MenuDMO
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:625)
+    public void setAddToMenu(MenuDMO value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__addToMenu);
+        if (attr == null)
+            attr = new DmcTypeMenuREFSV(MvwDMSAG.__addToMenu);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__addToMenu,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets addToMenu to the specified value.
+     * @param value A value compatible with DmcTypeMenuREFSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
+    public void setAddToMenu(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__addToMenu);
+        if (attr == null)
+            attr = new DmcTypeMenuREFSV(MvwDMSAG.__addToMenu);
+        
+        attr.set(value);
+        set(MvwDMSAG.__addToMenu,attr);
+    }
+
+    /**
+     * Removes the addToMenu attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
+    public void remAddToMenu(){
+         rem(MvwDMSAG.__addToMenu);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    public String getMenuOrder(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__menuOrder);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets menuOrder to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
+    public void setMenuOrder(String value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__menuOrder);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MvwDMSAG.__menuOrder);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__menuOrder,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets menuOrder to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
+    public void setMenuOrder(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__menuOrder);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MvwDMSAG.__menuOrder);
+        
+        attr.set(value);
+        set(MvwDMSAG.__menuOrder,attr);
+    }
+
+    /**
+     * Removes the menuOrder attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
+    public void remMenuOrder(){
+         rem(MvwDMSAG.__menuOrder);
     }
 
 

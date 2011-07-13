@@ -128,6 +128,56 @@ public class SubMenuDMO  extends MenuDMO  implements DmcNamedObjectIF, Serializa
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    public CamelCaseName getUseImpl(){
+        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__useImpl);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets useImpl to the specified value.
+     * @param value CamelCaseName
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
+    public void setUseImpl(CamelCaseName value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__useImpl);
+        if (attr == null)
+            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__useImpl);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__useImpl,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets useImpl to the specified value.
+     * @param value A value compatible with DmcTypeCamelCaseNameSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
+    public void setUseImpl(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__useImpl);
+        if (attr == null)
+            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__useImpl);
+        
+        attr.set(value);
+        set(MvwDMSAG.__useImpl,attr);
+    }
+
+    /**
+     * Removes the useImpl attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
+    public void remUseImpl(){
+         rem(MvwDMSAG.__useImpl);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
     public CamelCaseName getElementName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__elementName);
         if (attr == null)
