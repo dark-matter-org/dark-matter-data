@@ -1,22 +1,24 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.DMWGenerator.formatImports(DMWGenerator.java:933)
-import java.util.ArrayList;                                                        // To support getMVCopy()
-import java.util.Iterator;                                                         // To support getMVCopy()
-import org.dmd.dmc.*;                                                              // If any attributes
-import org.dmd.dmc.types.CamelCaseName;                                            // Primitive type
-import org.dmd.dms.*;                                                              // Always 2
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                              // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                         // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                      // Derived class
-import org.dmd.mvw.tools.mvwgenerator.extended.Place;                              // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;                     // Required for getModificationRecorder()
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                 // For multi-valued containsController
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                      // Attribute from mvw schema
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.WebApplicationDMO;             // Class not auxiliary or abstract
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW;         // For multi-valued Controller
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;               // To support getMVCopy() for REFs
-import org.dmd.mvw.tools.mvwgenerator.generated.types.PlaceREF;                    // To support getMVCopy() for REFs
+import java.util.ArrayList;                                                                // To support getMVCopy()
+import java.util.Iterator;                                                                 // To support getMVCopy()
+import org.dmd.dmc.*;                                                                      // If any attributes
+import org.dmd.dmc.types.CamelCaseName;                                                    // Primitive type
+import org.dmd.dms.*;                                                                      // Always 2
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                      // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                                 // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                              // Derived class
+import org.dmd.mvw.tools.mvwgenerator.extended.Place;                                      // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;                             // Required for getModificationRecorder()
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;             // Is reference type aux
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                         // For multi-valued containsController
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                              // Attribute from mvw schema
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.WebApplicationDMO;                     // Class not auxiliary or abstract
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW;                 // For multi-valued Controller
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ControllerREF;                       // To support getMVCopy() for REFs
+import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuImplementationConfigREF;         // To support getMVCopy() for REFs
+import org.dmd.mvw.tools.mvwgenerator.generated.types.PlaceREF;                            // To support getMVCopy() for REFs
 
 /**
  * The WebApplication definition allows for the definition of the
@@ -170,6 +172,38 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
     public void remUsesController(){
         ((WebApplicationDMO) core).remUsesController();
+    }
+
+    /**
+     * @return A MenuImplementationConfig object.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1077)
+    public MenuImplementationConfig getMenuImplementation(){
+        MenuImplementationConfigREF ref = ((WebApplicationDMO) core).getMenuImplementation();
+        if (ref == null)
+            return(null);
+        
+        if (ref.getObject() == null)
+            return(null);
+        
+        return((MenuImplementationConfig)ref.getObject().getContainer());
+    }
+
+    /**
+     * Sets the menuImplementation to the specified value.
+     * @param value A value compatible with MenuImplementationConfigREF
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1125)
+    public void setMenuImplementation(MenuImplementationConfig value) {
+        ((WebApplicationDMO) core).setMenuImplementation(value.getDMO());
+    }
+
+    /**
+     * Removes the menuImplementation attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
+    public void remMenuImplementation(){
+        ((WebApplicationDMO) core).remMenuImplementation();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)

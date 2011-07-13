@@ -18,42 +18,41 @@ package org.dmd.mvw.tools.mvwgenerator.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ImplAndClass;    // base type import
 
 /**
- * The DmcTypeImplAndClassSTATIC provides static access to functions used to manage values of type ImplAndClass
+ * The DmcTypeSeparatorREFSTATIC provides static access to functions used to manage values of type SeparatorREF
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1864)
  *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1783)
  */
-public class DmcTypeImplAndClassSTATIC {
+public class DmcTypeSeparatorREFSTATIC {
     
-    public static DmcTypeImplAndClassSTATIC instance;
-    static DmcTypeImplAndClassSV typeHelper;
+    public static DmcTypeSeparatorREFSTATIC instance;
+    static DmcTypeSeparatorREFSV typeHelper;
     
     static {
-        instance = new DmcTypeImplAndClassSTATIC();
+        instance = new DmcTypeSeparatorREFSTATIC();
     }
     
-    protected DmcTypeImplAndClassSTATIC() {
-        typeHelper = new DmcTypeImplAndClassSV();
+    protected DmcTypeSeparatorREFSTATIC() {
+        typeHelper = new DmcTypeSeparatorREFSV();
     }
     
-    public ImplAndClass typeCheck(Object value) throws DmcValueException {
+    public SeparatorREF typeCheck(Object value) throws DmcValueException {
     	   return(typeHelper.typeCheck(value));
     }
     
-    public ImplAndClass cloneValue(ImplAndClass value) throws DmcValueException {
+    public SeparatorREF cloneValue(SeparatorREF value) throws DmcValueException {
     	   return(typeHelper.cloneValue(value));
     }
     
-    public void serializeValue(DmcOutputStreamIF dos, ImplAndClass value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, SeparatorREF value) throws Exception {
     	   typeHelper.serializeValue(dos, value);
     }
     
-    public ImplAndClass deserializeValue(DmcInputStreamIF dis) throws Exception {
+    public SeparatorREF deserializeValue(DmcInputStreamIF dis) throws Exception {
     	   return(typeHelper.deserializeValue(dis));
     }
     

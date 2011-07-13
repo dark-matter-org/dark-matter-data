@@ -24,45 +24,43 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ImplAndClass;    // base type import
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeImplAndClass;    // DmcType import
 /**
- * The DmcTypeImplAndClassSET provides storage for a set of ImplAndClass
+ * The DmcTypeSeparatorREFSET provides storage for a set of SeparatorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2284)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:126)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
-public class DmcTypeImplAndClassSET extends DmcTypeImplAndClass implements Serializable {
+public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Serializable {
     
-    Set<ImplAndClass> value;
+    Set<SeparatorREF> value;
     
-    public DmcTypeImplAndClassSET(){
+    public DmcTypeSeparatorREFSET(){
         value = null;
     }
     
-    public DmcTypeImplAndClassSET(DmcAttributeInfo ai){
+    public DmcTypeSeparatorREFSET(DmcAttributeInfo ai){
         super(ai);
         initValue();
     }
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<ImplAndClass>();
+            value = new HashSet<SeparatorREF>();
         else
-            value = new TreeSet<ImplAndClass>();
+            value = new TreeSet<SeparatorREF>();
     }
     
     @Override
-    public DmcTypeImplAndClassSET getNew(){
-        return(new DmcTypeImplAndClassSET(attrInfo));
+    public DmcTypeSeparatorREFSET getNew(){
+        return(new DmcTypeSeparatorREFSET(attrInfo));
     }
     
     @Override
-    public DmcAttribute<ImplAndClass> cloneIt(){
-        DmcTypeImplAndClassSET rc = getNew();
-        for(ImplAndClass val: value)
+    public DmcAttribute<SeparatorREF> cloneIt(){
+        DmcTypeSeparatorREFSET rc = getNew();
+        for(SeparatorREF val: value)
         try {
             rc.add(val);
         } catch (DmcValueException e) {
@@ -72,8 +70,8 @@ public class DmcTypeImplAndClassSET extends DmcTypeImplAndClass implements Seria
     }
     
     @Override
-    public ImplAndClass add(Object v) throws DmcValueException {
-        ImplAndClass rc = typeCheck(v);
+    public SeparatorREF add(Object v) throws DmcValueException {
+        SeparatorREF rc = typeCheck(v);
         if (value == null)
             initValue();
     
@@ -85,8 +83,8 @@ public class DmcTypeImplAndClassSET extends DmcTypeImplAndClass implements Seria
     }
     
     @Override
-    public ImplAndClass del(Object v){
-        ImplAndClass rc = null;
+    public SeparatorREF del(Object v){
+        SeparatorREF rc = null;
         try {
             rc = typeCheck(v);
         } catch (DmcValueException e) {
@@ -100,21 +98,21 @@ public class DmcTypeImplAndClassSET extends DmcTypeImplAndClass implements Seria
     }
     
     @Override
-    public Iterator<ImplAndClass> getMV(){
-        Set<ImplAndClass> clone = null;
+    public Iterator<SeparatorREF> getMV(){
+        Set<SeparatorREF> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ImplAndClass>(value);
+            clone = new HashSet<SeparatorREF>(value);
         else
-            clone = new TreeSet<ImplAndClass>(value);
+            clone = new TreeSet<SeparatorREF>(value);
         return(clone.iterator());
     }
     
-    public Set<ImplAndClass> getMVCopy(){
-        Set<ImplAndClass> clone = null;
+    public Set<SeparatorREF> getMVCopy(){
+        Set<SeparatorREF> clone = null;
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ImplAndClass>(value);
+            clone = new HashSet<SeparatorREF>(value);
         else
-            clone = new TreeSet<ImplAndClass>(value);
+            clone = new TreeSet<SeparatorREF>(value);
         return(clone);
     }
     
@@ -129,7 +127,7 @@ public class DmcTypeImplAndClassSET extends DmcTypeImplAndClass implements Seria
     public boolean contains(Object v){
         boolean rc = false;
         try {
-            ImplAndClass val = typeCheck(v);
+            SeparatorREF val = typeCheck(v);
             rc = value.contains(val);
         } catch (DmcValueException e) {
         }

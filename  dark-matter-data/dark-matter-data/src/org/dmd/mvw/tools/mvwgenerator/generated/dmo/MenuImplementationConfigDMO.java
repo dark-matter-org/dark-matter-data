@@ -16,19 +16,20 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:321)
-import java.io.Serializable;                                                         // Always required
-import java.util.*;                                                                  // Always required
-import org.dmd.dmc.DmcAttribute;                                                     // Any attributes
-import org.dmd.dmc.DmcNamedObjectIF;                                                 // Named object
-import org.dmd.dmc.DmcSliceInfo;                                                     // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                                // Any attributes
-import org.dmd.dmc.types.CamelCaseName;                                              // Naming attribute type
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                           // Required type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                // Base class
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeImplAndClassMV;         // Required type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeImplAndClassSV;         // Required type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ImplAndClass;                  // Primitive type and !auxiliary class
+import java.io.Serializable;                                                                      // Always required
+import java.util.*;                                                                               // Always required
+import org.dmd.dmc.DmcAttribute;                                                                  // Any attributes
+import org.dmd.dmc.DmcNamedObjectIF;                                                              // Named object
+import org.dmd.dmc.DmcSliceInfo;                                                                  // Required for object slicing
+import org.dmd.dmc.DmcValueException;                                                             // Any attributes
+import org.dmd.dmc.types.CamelCaseName;                                                           // Naming attribute type
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                                        // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                             // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeStringSV;                                               // Required type
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                             // Base class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuElementTypeAndCommentMV;         // Required type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuElementTypeAndCommentSV;         // Required type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuElementTypeAndComment;                  // Primitive type and !auxiliary class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcClassInfo;
@@ -38,7 +39,9 @@ import org.dmd.dmc.DmcObjectValidator;
 /**
  * The MenuImplementationConfig is used to define the various classes that
  * will  be used to implement an actual menu structure based the MVW menu
- * definitions.
+ * definitions. <p /> The class specified by useClass must be derived from
+ * org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory and have a zero arg
+ * constructor.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -129,24 +132,24 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     }
 
     /**
-     * @return An Iterator of ImplAndClass objects.
+     * @return An Iterator of MenuElementTypeAndComment objects.
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:935)
-    public Iterator<ImplAndClass> getAlternateMenuBar(){
-        DmcTypeImplAndClassMV attr = (DmcTypeImplAndClassMV) get(MvwDMSAG.__alternateMenuBar);
+    public Iterator<MenuElementTypeAndComment> getAlternateMenuBar(){
+        DmcTypeMenuElementTypeAndCommentMV attr = (DmcTypeMenuElementTypeAndCommentMV) get(MvwDMSAG.__alternateMenuBar);
         if (attr == null)
-            return( ((List<ImplAndClass>) Collections.EMPTY_LIST).iterator());
+            return( ((List<MenuElementTypeAndComment>) Collections.EMPTY_LIST).iterator());
 
         return(attr.getMV());
     }
 
     /**
-     * @return The nth ImplAndClass value.
+     * @return The nth MenuElementTypeAndComment value.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:947)
-    public ImplAndClass getNthAlternateMenuBar(int i){
-        DmcTypeImplAndClassMV attr = (DmcTypeImplAndClassMV) get(MvwDMSAG.__alternateMenuBar);
+    public MenuElementTypeAndComment getNthAlternateMenuBar(int i){
+        DmcTypeMenuElementTypeAndCommentMV attr = (DmcTypeMenuElementTypeAndCommentMV) get(MvwDMSAG.__alternateMenuBar);
         if (attr == null)
             return(null);
 
@@ -155,13 +158,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Adds another alternateMenuBar to the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
-    public DmcAttribute<?> addAlternateMenuBar(ImplAndClass value) {
+    public DmcAttribute<?> addAlternateMenuBar(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         if (attr == null)
-            attr = new DmcTypeImplAndClassMV(MvwDMSAG.__alternateMenuBar);
+            attr = new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateMenuBar);
         
         try{
             setLastValue(attr.add(value));
@@ -174,11 +177,11 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified ImplAndClass.
-     * @param value ImplAndClass
+     * Returns true if we contain a valued keyed by the specified MenuElementTypeAndComment.
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1025)
-    public boolean alternateMenuBarContains(ImplAndClass value) {
+    public boolean alternateMenuBarContains(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         if (attr == null)
             return(false);
@@ -187,13 +190,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Adds another alternateMenuBar value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1057)
     public DmcAttribute<?> addAlternateMenuBar(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         if (attr == null)
-            attr = new DmcTypeImplAndClassMV(MvwDMSAG.__alternateMenuBar);
+            attr = new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateMenuBar);
         
         setLastValue(attr.add(value));
         add(MvwDMSAG.__alternateMenuBar,attr);
@@ -214,14 +217,14 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Deletes a alternateMenuBar value.
-     * @param value The ImplAndClass to be deleted from set of attribute values.
+     * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1116)
     public DmcAttribute<?> delAlternateMenuBar(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeImplAndClassMV(MvwDMSAG.__alternateMenuBar), value);
+            delFromEmptyAttribute(new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateMenuBar), value);
         else
             attr = del(MvwDMSAG.__alternateMenuBar, value);
         
@@ -230,14 +233,14 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Deletes a alternateMenuBar from the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1132)
-    public DmcAttribute<?> delAlternateMenuBar(ImplAndClass value) {
+    public DmcAttribute<?> delAlternateMenuBar(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeImplAndClassMV(MvwDMSAG.__alternateMenuBar), value);
+            delFromEmptyAttribute(new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateMenuBar), value);
         else
             attr = del(MvwDMSAG.__alternateMenuBar, value);
         
@@ -253,24 +256,24 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     }
 
     /**
-     * @return An Iterator of ImplAndClass objects.
+     * @return An Iterator of MenuElementTypeAndComment objects.
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:935)
-    public Iterator<ImplAndClass> getAlternateSubMenu(){
-        DmcTypeImplAndClassMV attr = (DmcTypeImplAndClassMV) get(MvwDMSAG.__alternateSubMenu);
+    public Iterator<MenuElementTypeAndComment> getAlternateSubMenu(){
+        DmcTypeMenuElementTypeAndCommentMV attr = (DmcTypeMenuElementTypeAndCommentMV) get(MvwDMSAG.__alternateSubMenu);
         if (attr == null)
-            return( ((List<ImplAndClass>) Collections.EMPTY_LIST).iterator());
+            return( ((List<MenuElementTypeAndComment>) Collections.EMPTY_LIST).iterator());
 
         return(attr.getMV());
     }
 
     /**
-     * @return The nth ImplAndClass value.
+     * @return The nth MenuElementTypeAndComment value.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:947)
-    public ImplAndClass getNthAlternateSubMenu(int i){
-        DmcTypeImplAndClassMV attr = (DmcTypeImplAndClassMV) get(MvwDMSAG.__alternateSubMenu);
+    public MenuElementTypeAndComment getNthAlternateSubMenu(int i){
+        DmcTypeMenuElementTypeAndCommentMV attr = (DmcTypeMenuElementTypeAndCommentMV) get(MvwDMSAG.__alternateSubMenu);
         if (attr == null)
             return(null);
 
@@ -279,13 +282,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Adds another alternateSubMenu to the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
-    public DmcAttribute<?> addAlternateSubMenu(ImplAndClass value) {
+    public DmcAttribute<?> addAlternateSubMenu(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         if (attr == null)
-            attr = new DmcTypeImplAndClassMV(MvwDMSAG.__alternateSubMenu);
+            attr = new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateSubMenu);
         
         try{
             setLastValue(attr.add(value));
@@ -298,11 +301,11 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified ImplAndClass.
-     * @param value ImplAndClass
+     * Returns true if we contain a valued keyed by the specified MenuElementTypeAndComment.
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1025)
-    public boolean alternateSubMenuContains(ImplAndClass value) {
+    public boolean alternateSubMenuContains(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         if (attr == null)
             return(false);
@@ -311,13 +314,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Adds another alternateSubMenu value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1057)
     public DmcAttribute<?> addAlternateSubMenu(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         if (attr == null)
-            attr = new DmcTypeImplAndClassMV(MvwDMSAG.__alternateSubMenu);
+            attr = new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateSubMenu);
         
         setLastValue(attr.add(value));
         add(MvwDMSAG.__alternateSubMenu,attr);
@@ -338,14 +341,14 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Deletes a alternateSubMenu value.
-     * @param value The ImplAndClass to be deleted from set of attribute values.
+     * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1116)
     public DmcAttribute<?> delAlternateSubMenu(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeImplAndClassMV(MvwDMSAG.__alternateSubMenu), value);
+            delFromEmptyAttribute(new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateSubMenu), value);
         else
             attr = del(MvwDMSAG.__alternateSubMenu, value);
         
@@ -354,14 +357,14 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Deletes a alternateSubMenu from the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1132)
-    public DmcAttribute<?> delAlternateSubMenu(ImplAndClass value) {
+    public DmcAttribute<?> delAlternateSubMenu(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeImplAndClassMV(MvwDMSAG.__alternateSubMenu), value);
+            delFromEmptyAttribute(new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateSubMenu), value);
         else
             attr = del(MvwDMSAG.__alternateSubMenu, value);
         
@@ -377,24 +380,24 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     }
 
     /**
-     * @return An Iterator of ImplAndClass objects.
+     * @return An Iterator of MenuElementTypeAndComment objects.
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:935)
-    public Iterator<ImplAndClass> getAlternateMenuItem(){
-        DmcTypeImplAndClassMV attr = (DmcTypeImplAndClassMV) get(MvwDMSAG.__alternateMenuItem);
+    public Iterator<MenuElementTypeAndComment> getAlternateMenuItem(){
+        DmcTypeMenuElementTypeAndCommentMV attr = (DmcTypeMenuElementTypeAndCommentMV) get(MvwDMSAG.__alternateMenuItem);
         if (attr == null)
-            return( ((List<ImplAndClass>) Collections.EMPTY_LIST).iterator());
+            return( ((List<MenuElementTypeAndComment>) Collections.EMPTY_LIST).iterator());
 
         return(attr.getMV());
     }
 
     /**
-     * @return The nth ImplAndClass value.
+     * @return The nth MenuElementTypeAndComment value.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:947)
-    public ImplAndClass getNthAlternateMenuItem(int i){
-        DmcTypeImplAndClassMV attr = (DmcTypeImplAndClassMV) get(MvwDMSAG.__alternateMenuItem);
+    public MenuElementTypeAndComment getNthAlternateMenuItem(int i){
+        DmcTypeMenuElementTypeAndCommentMV attr = (DmcTypeMenuElementTypeAndCommentMV) get(MvwDMSAG.__alternateMenuItem);
         if (attr == null)
             return(null);
 
@@ -403,13 +406,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Adds another alternateMenuItem to the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:961)
-    public DmcAttribute<?> addAlternateMenuItem(ImplAndClass value) {
+    public DmcAttribute<?> addAlternateMenuItem(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         if (attr == null)
-            attr = new DmcTypeImplAndClassMV(MvwDMSAG.__alternateMenuItem);
+            attr = new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateMenuItem);
         
         try{
             setLastValue(attr.add(value));
@@ -422,11 +425,11 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     }
 
     /**
-     * Returns true if we contain a valued keyed by the specified ImplAndClass.
-     * @param value ImplAndClass
+     * Returns true if we contain a valued keyed by the specified MenuElementTypeAndComment.
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1025)
-    public boolean alternateMenuItemContains(ImplAndClass value) {
+    public boolean alternateMenuItemContains(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         if (attr == null)
             return(false);
@@ -435,13 +438,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Adds another alternateMenuItem value.
-     * @param value A value compatible with ImplAndClass
+     * @param value A value compatible with MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1057)
     public DmcAttribute<?> addAlternateMenuItem(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         if (attr == null)
-            attr = new DmcTypeImplAndClassMV(MvwDMSAG.__alternateMenuItem);
+            attr = new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateMenuItem);
         
         setLastValue(attr.add(value));
         add(MvwDMSAG.__alternateMenuItem,attr);
@@ -462,14 +465,14 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Deletes a alternateMenuItem value.
-     * @param value The ImplAndClass to be deleted from set of attribute values.
+     * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1116)
     public DmcAttribute<?> delAlternateMenuItem(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeImplAndClassMV(MvwDMSAG.__alternateMenuItem), value);
+            delFromEmptyAttribute(new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateMenuItem), value);
         else
             attr = del(MvwDMSAG.__alternateMenuItem, value);
         
@@ -478,14 +481,14 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Deletes a alternateMenuItem from the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1132)
-    public DmcAttribute<?> delAlternateMenuItem(ImplAndClass value) {
+    public DmcAttribute<?> delAlternateMenuItem(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeImplAndClassMV(MvwDMSAG.__alternateMenuItem), value);
+            delFromEmptyAttribute(new DmcTypeMenuElementTypeAndCommentMV(MvwDMSAG.__alternateMenuItem), value);
         else
             attr = del(MvwDMSAG.__alternateMenuItem, value);
         
@@ -551,8 +554,58 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
-    public ImplAndClass getDefaultMenuBar(){
-        DmcTypeImplAndClassSV attr = (DmcTypeImplAndClassSV) get(MvwDMSAG.__defaultMenuBar);
+    public String getUseClass(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__useClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets useClass to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
+    public void setUseClass(String value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__useClass);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MvwDMSAG.__useClass);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__useClass,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets useClass to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
+    public void setUseClass(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__useClass);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MvwDMSAG.__useClass);
+        
+        attr.set(value);
+        set(MvwDMSAG.__useClass,attr);
+    }
+
+    /**
+     * Removes the useClass attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
+    public void remUseClass(){
+         rem(MvwDMSAG.__useClass);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    public MenuElementTypeAndComment getDefaultMenuBar(){
+        DmcTypeMenuElementTypeAndCommentSV attr = (DmcTypeMenuElementTypeAndCommentSV) get(MvwDMSAG.__defaultMenuBar);
         if (attr == null)
             return(null);
 
@@ -561,13 +614,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Sets defaultMenuBar to the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
-    public void setDefaultMenuBar(ImplAndClass value) {
+    public void setDefaultMenuBar(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__defaultMenuBar);
         if (attr == null)
-            attr = new DmcTypeImplAndClassSV(MvwDMSAG.__defaultMenuBar);
+            attr = new DmcTypeMenuElementTypeAndCommentSV(MvwDMSAG.__defaultMenuBar);
         
         try{
             attr.set(value);
@@ -580,13 +633,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Sets defaultMenuBar to the specified value.
-     * @param value A value compatible with DmcTypeImplAndClassSV
+     * @param value A value compatible with DmcTypeMenuElementTypeAndCommentSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setDefaultMenuBar(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__defaultMenuBar);
         if (attr == null)
-            attr = new DmcTypeImplAndClassSV(MvwDMSAG.__defaultMenuBar);
+            attr = new DmcTypeMenuElementTypeAndCommentSV(MvwDMSAG.__defaultMenuBar);
         
         attr.set(value);
         set(MvwDMSAG.__defaultMenuBar,attr);
@@ -601,8 +654,8 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
-    public ImplAndClass getDefaultSubMenu(){
-        DmcTypeImplAndClassSV attr = (DmcTypeImplAndClassSV) get(MvwDMSAG.__defaultSubMenu);
+    public MenuElementTypeAndComment getDefaultSubMenu(){
+        DmcTypeMenuElementTypeAndCommentSV attr = (DmcTypeMenuElementTypeAndCommentSV) get(MvwDMSAG.__defaultSubMenu);
         if (attr == null)
             return(null);
 
@@ -611,13 +664,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Sets defaultSubMenu to the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
-    public void setDefaultSubMenu(ImplAndClass value) {
+    public void setDefaultSubMenu(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__defaultSubMenu);
         if (attr == null)
-            attr = new DmcTypeImplAndClassSV(MvwDMSAG.__defaultSubMenu);
+            attr = new DmcTypeMenuElementTypeAndCommentSV(MvwDMSAG.__defaultSubMenu);
         
         try{
             attr.set(value);
@@ -630,13 +683,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Sets defaultSubMenu to the specified value.
-     * @param value A value compatible with DmcTypeImplAndClassSV
+     * @param value A value compatible with DmcTypeMenuElementTypeAndCommentSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setDefaultSubMenu(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__defaultSubMenu);
         if (attr == null)
-            attr = new DmcTypeImplAndClassSV(MvwDMSAG.__defaultSubMenu);
+            attr = new DmcTypeMenuElementTypeAndCommentSV(MvwDMSAG.__defaultSubMenu);
         
         attr.set(value);
         set(MvwDMSAG.__defaultSubMenu,attr);
@@ -651,8 +704,8 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
-    public ImplAndClass getDefaultMenuItem(){
-        DmcTypeImplAndClassSV attr = (DmcTypeImplAndClassSV) get(MvwDMSAG.__defaultMenuItem);
+    public MenuElementTypeAndComment getDefaultMenuItem(){
+        DmcTypeMenuElementTypeAndCommentSV attr = (DmcTypeMenuElementTypeAndCommentSV) get(MvwDMSAG.__defaultMenuItem);
         if (attr == null)
             return(null);
 
@@ -661,13 +714,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Sets defaultMenuItem to the specified value.
-     * @param value ImplAndClass
+     * @param value MenuElementTypeAndComment
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
-    public void setDefaultMenuItem(ImplAndClass value) {
+    public void setDefaultMenuItem(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__defaultMenuItem);
         if (attr == null)
-            attr = new DmcTypeImplAndClassSV(MvwDMSAG.__defaultMenuItem);
+            attr = new DmcTypeMenuElementTypeAndCommentSV(MvwDMSAG.__defaultMenuItem);
         
         try{
             attr.set(value);
@@ -680,13 +733,13 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     /**
      * Sets defaultMenuItem to the specified value.
-     * @param value A value compatible with DmcTypeImplAndClassSV
+     * @param value A value compatible with DmcTypeMenuElementTypeAndCommentSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setDefaultMenuItem(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__defaultMenuItem);
         if (attr == null)
-            attr = new DmcTypeImplAndClassSV(MvwDMSAG.__defaultMenuItem);
+            attr = new DmcTypeMenuElementTypeAndCommentSV(MvwDMSAG.__defaultMenuItem);
         
         attr.set(value);
         set(MvwDMSAG.__defaultMenuItem,attr);
@@ -698,6 +751,56 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remDefaultMenuItem(){
          rem(MvwDMSAG.__defaultMenuItem);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    public MenuElementTypeAndComment getDefaultSeparator(){
+        DmcTypeMenuElementTypeAndCommentSV attr = (DmcTypeMenuElementTypeAndCommentSV) get(MvwDMSAG.__defaultSeparator);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets defaultSeparator to the specified value.
+     * @param value MenuElementTypeAndComment
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
+    public void setDefaultSeparator(MenuElementTypeAndComment value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__defaultSeparator);
+        if (attr == null)
+            attr = new DmcTypeMenuElementTypeAndCommentSV(MvwDMSAG.__defaultSeparator);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__defaultSeparator,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets defaultSeparator to the specified value.
+     * @param value A value compatible with DmcTypeMenuElementTypeAndCommentSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
+    public void setDefaultSeparator(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__defaultSeparator);
+        if (attr == null)
+            attr = new DmcTypeMenuElementTypeAndCommentSV(MvwDMSAG.__defaultSeparator);
+        
+        attr.set(value);
+        set(MvwDMSAG.__defaultSeparator,attr);
+    }
+
+    /**
+     * Removes the defaultSeparator attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
+    public void remDefaultSeparator(){
+         rem(MvwDMSAG.__defaultSeparator);
     }
 
 

@@ -69,6 +69,37 @@ abstract public class MenuBarDMW extends Menu implements DmcNamedObjectIF {
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
+    public CamelCaseName getUseImpl(){
+        return(((MenuBarDMO) core).getUseImpl());
+    }
+
+    /**
+     * Sets useImpl to the specified value.
+     * @param value A value compatible with DmcTypeCamelCaseName
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
+    public void setUseImpl(Object value) throws DmcValueException {
+        ((MenuBarDMO) core).setUseImpl(value);
+    }
+
+    /**
+     * Sets useImpl to the specified value.
+     * @param value CamelCaseName
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
+    public void setUseImpl(CamelCaseName value){
+        ((MenuBarDMO) core).setUseImpl(value);
+    }
+
+    /**
+     * Removes the useImpl attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
+    public void remUseImpl(){
+        ((MenuBarDMO) core).remUseImpl();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public CamelCaseName getElementName(){
         return(((MenuBarDMO) core).getElementName());
     }

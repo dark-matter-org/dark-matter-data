@@ -25,79 +25,79 @@ import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type
 
 @SuppressWarnings("serial")
 /**
- * The ImplAndClass class.
+ * The MenuElementTypeAndComment class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
  * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:87)
  */
-public class ImplAndClass implements Serializable {
+public class MenuElementTypeAndComment implements Serializable {
 
     // The name of this implementation.
-    String implName;
+    String type;
 
     // The class used to implement the required behaviour.
-    String scope;
+    String comment;
 
     /**
      * Default constructor.
      */
-    public ImplAndClass(){
+    public MenuElementTypeAndComment(){
     }
 
     /**
      * Copy constructor.
      */
-    public ImplAndClass(ImplAndClass original){
-        implName = original.implName;
-        scope = original.scope;
+    public MenuElementTypeAndComment(MenuElementTypeAndComment original){
+        type = original.type;
+        comment = original.comment;
     }
 
     /**
      * All fields constructor.
      */
-    public ImplAndClass(String f1, String f2) throws DmcValueException {
-        implName = DmcTypeStringSTATIC.instance.typeCheck(f1);
-        scope = DmcTypeStringSTATIC.instance.typeCheck(f2);
+    public MenuElementTypeAndComment(String f1, String f2) throws DmcValueException {
+        type = DmcTypeStringSTATIC.instance.typeCheck(f1);
+        comment = DmcTypeStringSTATIC.instance.typeCheck(f2);
     }
 
     /**
      * String based constructor.
      */
-    public ImplAndClass(String input) throws DmcValueException {
+    public MenuElementTypeAndComment(String input) throws DmcValueException {
         IntegerVar seppos = new IntegerVar(-1);
-        implName = DmcTypeStringSTATIC.instance.typeCheck(getNextField(input,seppos,"implName",false));
-        scope = DmcTypeStringSTATIC.instance.typeCheck(getNextField(input,seppos,"scope",true));
+        type = DmcTypeStringSTATIC.instance.typeCheck(getNextField(input,seppos,"type",false));
+        comment = DmcTypeStringSTATIC.instance.typeCheck(getNextField(input,seppos,"comment",true));
     }
 
     /**
      * Serialization.
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
-        DmcTypeStringSTATIC.instance.serializeValue(dos, implName);
-        DmcTypeStringSTATIC.instance.serializeValue(dos, scope);
+        DmcTypeStringSTATIC.instance.serializeValue(dos, type);
+        DmcTypeStringSTATIC.instance.serializeValue(dos, comment);
     }
 
     /**
      * Deserialization.
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
-        implName = DmcTypeStringSTATIC.instance.deserializeValue(dis);
-        scope = DmcTypeStringSTATIC.instance.deserializeValue(dis);
+        type = DmcTypeStringSTATIC.instance.deserializeValue(dis);
+        comment = DmcTypeStringSTATIC.instance.deserializeValue(dis);
     }
 
     /**
      * String form.
      */
     public String toString(){
-        return(implName.toString() + " " + scope.toString());
+        return(type.toString() + ":" + comment.toString());
     }
 
-    public String getImplName(){
-        return(implName);
+    public String getType(){
+        return(type);
     }
 
-    public String getScope(){
-        return(scope);
+    public String getComment(){
+        return(comment);
     }
 
     String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {
@@ -105,7 +105,7 @@ public class ImplAndClass implements Serializable {
     	   int start = seppos.intValue();
 
     	   if ( (start+1) >= input.length())
-    		   throw (new DmcValueException("Missing value for field: " + fn + " in complex type: ImplAndClass"));
+    		   throw (new DmcValueException("Missing value for field: " + fn + " in complex type: MenuElementTypeAndComment"));
 
     	   if (last){
     	       rc = input.substring(start+1);
@@ -113,15 +113,15 @@ public class ImplAndClass implements Serializable {
     	   else{
     	       int pos = -1;
     	       if (start > 0)
-    		       pos = input.indexOf(" ", start+1);
+    		       pos = input.indexOf(":", start+1);
     	       else
-    		       pos = input.indexOf(" ");
+    		       pos = input.indexOf(":");
 
     	       if (pos == -1)
-    		       throw (new DmcValueException("Missing value for field: " + fn + " in complex type: ImplAndClass"));
+    		       throw (new DmcValueException("Missing value for field: " + fn + " in complex type: MenuElementTypeAndComment"));
 
     		   while(pos < (input.length()-1)){
-    		       if ( input.charAt(pos+1) == ' ')
+    		       if ( input.charAt(pos+1) == ':')
     		           pos++;
     		       else
     		           break;

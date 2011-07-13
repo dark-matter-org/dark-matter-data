@@ -27,10 +27,10 @@ import com.google.gwt.user.client.ui.Widget;
  * The MenuInstance class is used by the MenuController to assist with the 
  * instantiation of top level menus e.g. tool bars, menu bars and popup menus.
  */
-abstract public class MenuInstanceBaseImpl {
+abstract public class MvwMenu {
 	
-	// The name of this menu as defined in the MVC spec.
-	String name;
+	// The name of this menu as defined in the MVW definition
+	String _name;
 	
 	// The sub items of this menu
 	// Key: menuOrder string from the MvcMenuItem or MvcSubmenu
@@ -40,13 +40,13 @@ abstract public class MenuInstanceBaseImpl {
 	/**
 	 * Derived classes should instantiate and set the menuComponent.
 	 */
-	protected MenuInstanceBaseImpl(String n){
-		name = n;
+	protected MvwMenu(String n){
+		_name = n;
 		items = new TreeMap<String, MenuSubItemIF>();
 	}
 	
 	public String getName(){
-		return(name);
+		return(_name);
 	}
 	
 	public void addSubItem(MenuSubItemIF msi){

@@ -141,6 +141,7 @@ public class MvwGenerator {
 			RunContextFormatter.formatAppRunContextInterface(mvwdir, defManager.getApplication(), defManager.getDefaultContext());
 			RunContextFormatter.formatImplementation(mvwdir, defManager.getApplication(), defManager.getDefaultContext());
 			WebApplicationFormatter.formatApplication(mvwdir, defManager.getApplication());
+			MenuBuilderFormatter.formatMenuBuilder(mvwdir, defManager);
 		}
 	}
 	

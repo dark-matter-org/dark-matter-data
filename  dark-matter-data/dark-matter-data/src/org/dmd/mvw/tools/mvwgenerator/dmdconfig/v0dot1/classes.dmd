@@ -326,6 +326,7 @@ isNamedBy		appName
 must			appName
 must			defaultPlace
 may				usesController
+may				menuImplementation
 description		The WebApplication definition allows for the definition of the superstructure
  for an application, basically it's the definition of the overall application controller. 
 
@@ -349,14 +350,19 @@ derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		configName
 must			configName
+must			useClass
 must			defaultMenuBar
 must			defaultSubMenu
 must			defaultMenuItem
+must			defaultSeparator
 may				alternateMenuBar
 may				alternateSubMenu
 may				alternateMenuItem
 description		The MenuImplementationConfig is used to define the various classes that will 
  be used to implement an actual menu structure based the MVW menu definitions.
+ <p />
+ The class specified by useClass must be derived from org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory
+ and have a zero arg constructor.
 
 ClassDefinition
 name			MenuElementDefinition
@@ -372,7 +378,7 @@ description		The MenuElementDefinition is common base for all definitions associ
 
 ClassDefinition
 name			Menu
-classType		STRUCTURAL
+classType		ABSTRACT
 subpackage		menus
 dmdID			17
 derivedFrom		MenuElementDefinition
@@ -391,6 +397,7 @@ derivedFrom		Menu
 useWrapperType	EXTENDED
 isNamedBy		elementName
 must			elementName
+may				useImpl
 description		The MenuImplementationConfig is used to define the various classes that will 
 
 ClassDefinition
@@ -405,6 +412,7 @@ must			elementName
 must			addToMenu
 must			menuOrder
 must            displayLabel
+may				useImpl
 description		The SubMenu is used to define a submenu that is included as part of a Menu.
 
 ClassDefinition
@@ -420,13 +428,28 @@ must			triggersAction
 must			addToMenu
 must			menuOrder
 must            displayLabel
+may				useImpl
 description		The MenuItem is used to define triggerable menu items.
+
+ClassDefinition
+name			Separator
+classType		STRUCTURAL
+subpackage		menus
+dmdID			21
+derivedFrom		MenuElementDefinition
+useWrapperType	EXTENDED
+isNamedBy		elementName
+must			elementName
+must			addToMenu
+must			menuOrder
+may				useImpl
+description		The Separator is used to define menu separators.
 
 ClassDefinition
 name			Action
 classType		STRUCTURAL
 subpackage		menus
-dmdID			21
+dmdID			22
 derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		actionName

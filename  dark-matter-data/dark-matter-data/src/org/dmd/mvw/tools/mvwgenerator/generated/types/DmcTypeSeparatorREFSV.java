@@ -19,46 +19,44 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ImplAndClass;    // base type import
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeImplAndClass;    // DmcType import
 /**
- * The DmcTypeImplAndClassSV provides storage for a single-valued ImplAndClass
+ * The DmcTypeSeparatorREFSV provides storage for a single-valued SeparatorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1706)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:124)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
-public class DmcTypeImplAndClassSV extends DmcTypeImplAndClass implements Serializable {
+public class DmcTypeSeparatorREFSV extends DmcTypeSeparatorREF implements Serializable {
     
-    ImplAndClass value;
+    SeparatorREF value;
     
-    public DmcTypeImplAndClassSV(){
+    public DmcTypeSeparatorREFSV(){
     
     }
     
-    public DmcTypeImplAndClassSV(DmcAttributeInfo ai){
+    public DmcTypeSeparatorREFSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeImplAndClassSV getNew(){
-        return(new DmcTypeImplAndClassSV(attrInfo));
+    public DmcTypeSeparatorREFSV getNew(){
+        return(new DmcTypeSeparatorREFSV(attrInfo));
     }
     
-    public DmcTypeImplAndClassSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeImplAndClassSV(ai));
+    public DmcTypeSeparatorREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeSeparatorREFSV(ai));
     }
     
     @Override
-    public DmcAttribute<ImplAndClass> cloneIt(){
-        DmcTypeImplAndClassSV rc = getNew();
+    public DmcAttribute<SeparatorREF> cloneIt(){
+        DmcTypeSeparatorREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     @Override
-    public ImplAndClass set(Object v) throws DmcValueException {
-        ImplAndClass rc = typeCheck(v);
+    public SeparatorREF set(Object v) throws DmcValueException {
+        SeparatorREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -74,7 +72,7 @@ public class DmcTypeImplAndClassSV extends DmcTypeImplAndClass implements Serial
     }
     
     @Override
-    public ImplAndClass getSV(){
+    public SeparatorREF getSV(){
         return(value);
     }
     

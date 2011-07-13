@@ -5,7 +5,7 @@ import org.dmd.dms.ClassDefinition;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.MenuDMW;
 
-public class Menu extends MenuDMW {
+abstract public class Menu extends MenuDMW {
 
 	public Menu(){
 		
