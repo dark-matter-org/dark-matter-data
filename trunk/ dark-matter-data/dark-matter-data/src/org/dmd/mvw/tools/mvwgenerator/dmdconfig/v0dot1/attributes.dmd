@@ -529,7 +529,7 @@ description		Indicates if the item is always enabled. If not, there will be a
 AttributeDefinition
 name			menuOrder
 dmdID			72
-type			Integer
+type			String
 description		Indicates the lorder in which a sub menu or menu item
  should be displayed in the menu.
 

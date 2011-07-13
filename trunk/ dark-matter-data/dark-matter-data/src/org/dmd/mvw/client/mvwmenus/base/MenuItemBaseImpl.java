@@ -24,7 +24,7 @@ import org.dmd.mvw.client.mvwmenus.interfaces.TriggerIF;
  * that represent actual trigger points for functionality, as opposed
  * to submenus.
  */
-abstract public class MenuItemBase implements MenuSubItemIF, TriggerIF {
+abstract public class MenuItemBaseImpl implements MenuSubItemIF, TriggerIF {
 
 	String 	_name;
 	String 	_menuOrder;
@@ -33,21 +33,21 @@ abstract public class MenuItemBase implements MenuSubItemIF, TriggerIF {
 	boolean	_dynamic;
 	
 	// The action we trigger
-	Action	action;
+	protected Action	action;
 	
-	/**
-	 * 
-	 * @param n The menu item name.
-	 * @param o The menu order.
-	 * @param an The action name.
-	 * @param atm The add to menu name.
-	 */
-	protected MenuItemBase(String itemName, String menuOrder, String actionName, String addToMenu){
-		_name 		= itemName;
-		_menuOrder 	= menuOrder;
-		_actionName = actionName;
-		_addToMenu  = addToMenu;
-	}
+//	/**
+//	 * 
+//	 * @param n The menu item name.
+//	 * @param o The menu order.
+//	 * @param an The action name.
+//	 * @param atm The add to menu name.
+//	 */
+//	protected MenuItemBaseImpl(String itemName, String menuOrder, String actionName, String addToMenu){
+//		_name 		= itemName;
+//		_menuOrder 	= menuOrder;
+//		_actionName = actionName;
+//		_addToMenu  = addToMenu;
+//	}
 
 	/**
 	 * 
@@ -57,7 +57,7 @@ abstract public class MenuItemBase implements MenuSubItemIF, TriggerIF {
 	 * @param atm The add to menu name.
 	 * @param d   Dynamic flag
 	 */
-	protected MenuItemBase(String itemName, String menuOrder, String actionName, String addToMenu, boolean dynamic) {
+	protected MenuItemBaseImpl(String itemName, String menuOrder, String actionName, String addToMenu, boolean dynamic) {
 		_name 		= itemName;
 		_menuOrder 	= menuOrder;
 		_actionName = actionName;
@@ -93,30 +93,6 @@ abstract public class MenuItemBase implements MenuSubItemIF, TriggerIF {
 	public boolean isDynamic() {
 		return(_dynamic);
 	}
-	////////////////////////////////////////////////////////////////////////////////
-	// Partial TriggerIF implementation
-	
-	/**
-	 * Called by the Action when it is in an enabled state.
-	 */
-	@Override
-	public void enable(){
-		getTrigger().enable();
-	}
-	
-	/**
-	 * Called by the Action when it can't be triggered.
-	 */
-	@Override
-	public void disable(){
-		getTrigger().disable();
-	}
-	
-	/**
-	 * Derived classes must overload this to return the component they use to represent
-	 * the menu item.
-	 */
-	abstract public TriggerIF getTrigger();
 	
 	////////////////////////////////////////////////////////////////////////////////
 
@@ -135,6 +111,7 @@ abstract public class MenuItemBase implements MenuSubItemIF, TriggerIF {
 	public void setAction(Action a){
 		action = a;
 		action.addTrigger(this);
+		initialize();
 	}
 	
 	public String toString(){
