@@ -6,7 +6,6 @@ import org.dmd.dmp.client.ErrorOptionsEnum;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.util.GenUtility;
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ComponentDMW;
 import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;
@@ -31,7 +30,7 @@ public class Component extends ComponentDMW {
 	
 	StringBuffer					commsMethods;
 	
-	StringBuffer					abstractMethods;
+	protected StringBuffer			abstractMethods;
 	
 	StringBuffer					fireMethods;
 	
@@ -52,9 +51,8 @@ public class Component extends ComponentDMW {
 	boolean							centralDmpErrorHandling;
 	
 	// Actions
-	
-	StringBuffer					actionVariables;
-	StringBuffer					actionInstantiations;
+	protected StringBuffer			actionVariables;
+	protected StringBuffer			actionInstantiations;
 	
 	public Component(){
 		
@@ -283,26 +281,26 @@ public class Component extends ComponentDMW {
 		if (getUseBaseClass() != null)
 			imports.addImport(getUseBaseClass(), "Specified base class");
 		
-		if (getImplementsActionHasValue()){
-			
-			for(Action action: getImplementsActionIterable()){
-				String capped = GenUtility.capTheName(action.getActionName().getNameString());
-				String cappedAction = GenUtility.capTheName(action.getActionName().getNameString()) + "Action";
-				
-				actionVariables.append("    protected final " + cappedAction + " " + action.getActionName() + ";\n");
-				
-				actionInstantiations.append("\n");
-				actionInstantiations.append("        " + action.getActionName() + " = new " + cappedAction + "(this);\n");
-				actionInstantiations.append("        MenuControllerRCI.addAction(" + action.getActionName() + ");\n");
-				
-				String i = getDefinedInModule().getGenPackage() + ".generated.mvw.actions." + cappedAction;
-				imports.addImport(i, "The " + action.getActionName() + " action");
-				imports.addImport("org.dmd.mvw.client.mvwmenus.interfaces.TriggerIF", "Required by actions");
-				
-				abstractMethods.append("\n");
-				abstractMethods.append("    abstract public void execute" + capped + "(TriggerIF trigger, Object widgetEvent);\n");
-			}
-		}
+//		if (getImplementsActionHasValue()){
+//			
+//			for(Action action: getImplementsActionIterable()){
+//				String capped = GenUtility.capTheName(action.getActionName().getNameString());
+//				String cappedAction = GenUtility.capTheName(action.getActionName().getNameString()) + "Action";
+//				
+//				actionVariables.append("    protected final " + cappedAction + " " + action.getActionName() + ";\n");
+//				
+//				actionInstantiations.append("\n");
+//				actionInstantiations.append("        " + action.getActionName() + " = new " + cappedAction + "(this);\n");
+//				actionInstantiations.append("        MenuControllerRCI.addAction(" + action.getActionName() + ");\n");
+//				
+//				String i = getDefinedInModule().getGenPackage() + ".generated.mvw.actions." + cappedAction;
+//				imports.addImport(i, "The " + action.getActionName() + " action");
+//				imports.addImport("org.dmd.mvw.client.mvwmenus.interfaces.TriggerIF", "Required by actions");
+//				
+//				abstractMethods.append("\n");
+//				abstractMethods.append("    abstract public void execute" + capped + "(TriggerIF trigger, Object widgetEvent);\n");
+//			}
+//		}
 		
 	}
 	

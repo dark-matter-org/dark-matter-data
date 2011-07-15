@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class ViewFormatter {
 
@@ -19,6 +20,7 @@ public class ViewFormatter {
         
         out.write(view.getInterfaceImports() + "\n");
         
+        out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("public interface " + view.getViewName() + " {\n\n");
         
         out.write("    public interface " + view.getViewName() + "Presenter {\n\n");
@@ -48,6 +50,7 @@ public class ViewFormatter {
         if (view.isWidget())
         	otherInterfaces = ", IsWidget";
         
+        out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("abstract public class " + view.getViewName() + "BaseImpl implements " + view.getViewName() + otherInterfaces + " {\n\n");
         
         out.write("    " + view.getViewName() + "Presenter presenter;\n\n");

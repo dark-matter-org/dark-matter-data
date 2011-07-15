@@ -173,7 +173,6 @@ may				sendsLoginRequest
 may				sendsLogoutRequest
 may				subpackage
 may				instantiatesView
-may				implementsAction
 description		The Component is an abstract base for classes that define the building blocks
  of Applications. The primary feature of an Component is that it fires and/or handles events.
  Beyond that, a component can be whatever you require it to be. A variety of derived component types
@@ -203,6 +202,7 @@ may				centralRPCErrorHandler
 may				addedToRunContext
 may				instantiatesPresenter
 may				itemOrder
+may				implementsAction
 description		The Controller represents a behavioural component that lives throughout
  the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters
  and Views that are displayed, but may also provide behind the scenes management of things
@@ -411,7 +411,8 @@ isNamedBy		elementName
 must			elementName
 must			addToMenu
 must			menuOrder
-must            displayLabel
+may            	displayLabel
+may				displayLabelI18N
 may				useImpl
 description		The SubMenu is used to define a submenu that is included as part of a Menu.
 
@@ -427,9 +428,12 @@ must			elementName
 must			triggersAction
 must			addToMenu
 must			menuOrder
-must            displayLabel
+may             displayLabel
+may				displayLabelI18N
 may				useImpl
-description		The MenuItem is used to define triggerable menu items.
+description		The MenuItem is used to define triggerable menu items. You must specify
+ either a displayLabel or a displayLabelI18N to indicate the label to be used for the
+ menu item.
 
 ClassDefinition
 name			Separator

@@ -16,11 +16,24 @@ public class RunContextItemCollection {
 	
 	TreeSet<String>	interfaces;
 	
+	int	longestTypeName;
+	int longestItemName;
+	
 	public RunContextItemCollection(String in){
 		implName 	= in;
 		byOrder 	= new TreeMap<String, RunContextItem>();
 		byName 		= new TreeMap<String, RunContextItem>();
 		interfaces	= new TreeSet<String>();
+		longestTypeName	= 0;
+		longestItemName		= 0;
+	}
+	
+	public int getLongestTypeName(){
+		return(longestTypeName);
+	}
+	
+	public int getLongestItemName(){
+		return(longestItemName);
 	}
 	
 	public void addItem(RunContextItem rci) throws ResultException{
@@ -35,6 +48,12 @@ public class RunContextItemCollection {
 		byName.put(rci.getItemName().getNameString(), rci);
 		byOrder.put(rci.getSortKey(), rci);
 		interfaces.add(rci.getInterfaceName());
+		
+		if (rci.getItemType().length() > longestTypeName)
+			longestTypeName = rci.getItemType().length();
+		
+		if (rci.getItemName().getNameString().length() > longestItemName)
+			longestItemName = rci.getItemName().getNameString().length();
 	}
 	
 	public RunContextItem getItem(String name){

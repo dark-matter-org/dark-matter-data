@@ -387,9 +387,9 @@ enumValue		2 EXTENDED Indicates that you want to use your own extended class.
 ///////////////////////////////////////////////////////////////////////////////
 // Object Validators
 //
-// Object validators provide validation at the object level. in the meta schema
-// we define two base level validators, must and may - these validators take 
-// care of checking that an object 
+// Object validators provide validation at the object level. In the meta schema
+// we define the AttributeSet validator that will verify the must/may attributes
+// of an object.
 
 ObjectValidatorDefinition
 name 			AttributeSet

@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class ActivityFormatter {
 
@@ -19,6 +20,7 @@ public class ActivityFormatter {
         
         out.write("\n");
         
+        out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("abstract public class " + activity.getActivityName() + "BaseImpl" + activity.getBaseClassName() + activity.getInterfaces() + "{\n\n");
 
     	boolean onDemand = false;
@@ -37,9 +39,9 @@ public class ActivityFormatter {
     	
     	out.write(activity.getCommsConstants());
 
-    	if (activity.getImplementsActionHasValue()){
-    		out.write(activity.getActionVariables() + "\n");
-    	}
+//    	if (activity.getImplementsActionHasValue()){
+//    		out.write(activity.getActionVariables() + "\n");
+//    	}
     	
     	///////////////////////////////////////////////////////////////////////
     	// Constructor
@@ -55,9 +57,9 @@ public class ActivityFormatter {
         	out.write("        runcontext = rc;\n");
     	}
 
-    	if (activity.getImplementsActionHasValue()){
-    		out.write(activity.getActionInstantiations() + "\n");
-    	}
+//    	if (activity.getImplementsActionHasValue()){
+//    		out.write(activity.getActionInstantiations() + "\n");
+//    	}
     	
     	out.write("    }\n\n");
         

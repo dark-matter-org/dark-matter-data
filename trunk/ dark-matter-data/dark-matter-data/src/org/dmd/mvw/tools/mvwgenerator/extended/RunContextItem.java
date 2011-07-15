@@ -6,6 +6,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemDMW;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.formatting.PrintfFormat;
 
 public class RunContextItem extends RunContextItemDMW {
 	
@@ -69,16 +70,16 @@ public class RunContextItem extends RunContextItemDMW {
 		return(getUseClass().substring(lastdot + 1));
 	}
 	
-	public String getDefinition(){
+	public String getDefinition(PrintfFormat format){
 		if (isCreateOnDemand())
 			return("");
-		return("    private final " + getItemType() + " " + getItemName() + ";\n");
+		return("    private final " + format.sprintf(getItemType()) + " " + getItemName() + ";\n");
 	}
 	
-	public String getInstantiation(){
+	public String getInstantiation(PrintfFormat format){
 		if (isCreateOnDemand())
 			return("");
-		return("        " + getItemName() + " = " + getConstruction() + ";\n");
+		return("        " + format.sprintf(getItemName()) + " = " + getConstruction() + ";\n");
 	}
 	
 	public String getImplVariable(){
@@ -122,13 +123,13 @@ public class RunContextItem extends RunContextItemDMW {
 		return("        " + getItemName() + " = ((" + getInterfaceName() + ")rc).get" + capped + "();\n");
 	}
 	
-	public String getInterfaceMethod(){
+	public String getInterfaceMethod(PrintfFormat format){
 		String capped = GenUtility.capTheName(getItemName().getNameString());
 		if (view == null)
-			return("    public " + getItemType() + " get" + capped + "();\n");
+			return("    public " + format.sprintf(getItemType()) + " get" + capped + "();\n");
 		else{
 			String pres = view.getViewName() + "." + view.getViewName() + "Presenter";
-			return("    public " + getItemType() + " get" + capped + "(" + pres + " presenter);\n");
+			return("    public " + format.sprintf(getItemType()) + " get" + capped + "(" + pres + " presenter);\n");
 		}
 	}
 	

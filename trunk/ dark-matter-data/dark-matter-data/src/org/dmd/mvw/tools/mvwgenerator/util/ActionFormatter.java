@@ -7,6 +7,7 @@ import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.extended.Component;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.exceptions.DebugInfo;
 
 
 public class ActionFormatter {
@@ -22,6 +23,7 @@ public class ActionFormatter {
         
         out.write("\n");
         
+        out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("public class " + name + "Action extends Action {\n\n");
         
         out.write("    " + action.getImplementedBy().getComponentName() + "BaseImpl component;\n\n");

@@ -576,7 +576,7 @@ name			alternateMenuItem
 dmdID			79
 type			MenuElementTypeAndComment
 valueType		MULTI
-description		The name and description of various alternate menu item implementations.
+description		The name and description of various alternate Menu item implementations.
 
 AttributeDefinition
 name			implementsAction
@@ -603,6 +603,14 @@ name			menuImplementation
 dmdID			83
 type			MenuImplementationConfig
 description		A reference to a menu implementation.
+
+AttributeDefinition
+name			displayLabelI18N
+dmdID			84
+type			String
+description		A reference to run context item with translated labels for your menu item.
+ If you had defined a run context item called constants (whose base interface was generated
+ by the GWT I18N creation mechanisms), you could use one its value by specifying constants.myLabel().
 
 //AttributeDefinition
 //name			triggersAction
