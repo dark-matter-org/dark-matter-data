@@ -25,13 +25,13 @@ import org.dmd.mvw.tools.mvwgenerator.extended.SubPlace;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.Menu;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuBar;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuItem;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.Separator;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.SubMenu;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.MenuElementDefinitionDMW;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -94,6 +94,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	MenuImplementationConfig					menuImplementation;
 	RunContextItem								menuFactoryRCI;
 	
+	TreeMap<CamelCaseName, MenuElementDefinitionDMW>	menuElements;
+	
 	TreeMap<CamelCaseName, MenuBar>				menuBars;
 	
 	TreeMap<CamelCaseName, SubMenu>				subMenus;
@@ -148,6 +150,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		menuImplementation		= null;
 		menuFactoryRCI			= null;
 		
+		menuElements			= new TreeMap<CamelCaseName, MenuElementDefinitionDMW>();
 		menuBars 				= new TreeMap<CamelCaseName, MenuBar>();
 		subMenus 				= new TreeMap<CamelCaseName, SubMenu>();
 		menuItems 				= new TreeMap<CamelCaseName, MenuItem>();
@@ -431,18 +434,22 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		else if (def instanceof MenuBar){
 			MenuBar menu = (MenuBar) def;
 			menuBars.put(menu.getCamelCaseName(), menu);
+			menuElements.put(menu.getCamelCaseName(), menu);
 		}
 		else if (def instanceof SubMenu){
 			SubMenu menu = (SubMenu) def;
 			subMenus.put(menu.getCamelCaseName(), menu);
+			menuElements.put(menu.getCamelCaseName(), menu);
 		}
 		else if (def instanceof MenuItem){
 			MenuItem item = (MenuItem) def;
 			menuItems.put(item.getCamelCaseName(), item);
+			menuElements.put(item.getCamelCaseName(), item);
 		}
 		else if (def instanceof Separator){
 			Separator sep = (Separator) def;
 			separators.put(sep.getCamelCaseName(), sep);
+			menuElements.put(sep.getCamelCaseName(), sep);
 		}
 		else if (def instanceof Action){
 			Action action = (Action) def;
@@ -645,6 +652,17 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 					
 					errors.addError("The " + application.getAppName() + " uses menu functionality and you must set the menuImplementation.");
 				}
+				
+				try{
+					menuImplementation.validateImplementations(menuElements);
+				}
+				catch(ResultException ex){
+					if (errors == null)
+						errors = ex;
+					else
+						errors.result.addResults(ex.result);
+				}
+				
 				
 			}
 		}

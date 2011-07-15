@@ -509,7 +509,7 @@ description		The name of a menu related element.
 AttributeDefinition
 name			useImpl
 dmdID			69
-type			CamelCaseName
+type			String
 description		The name of a menu element implementation.
 
 AttributeDefinition

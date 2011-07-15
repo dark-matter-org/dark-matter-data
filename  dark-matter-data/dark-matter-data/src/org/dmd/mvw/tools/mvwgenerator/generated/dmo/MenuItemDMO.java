@@ -132,8 +132,8 @@ public class MenuItemDMO  extends MenuElementDefinitionDMO  implements DmcNamedO
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
-    public CamelCaseName getUseImpl(){
-        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__useImpl);
+    public String getUseImpl(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__useImpl);
         if (attr == null)
             return(null);
 
@@ -142,13 +142,13 @@ public class MenuItemDMO  extends MenuElementDefinitionDMO  implements DmcNamedO
 
     /**
      * Sets useImpl to the specified value.
-     * @param value CamelCaseName
+     * @param value String
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
-    public void setUseImpl(CamelCaseName value) {
+    public void setUseImpl(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__useImpl);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__useImpl);
+            attr = new DmcTypeStringSV(MvwDMSAG.__useImpl);
         
         try{
             attr.set(value);
@@ -161,13 +161,13 @@ public class MenuItemDMO  extends MenuElementDefinitionDMO  implements DmcNamedO
 
     /**
      * Sets useImpl to the specified value.
-     * @param value A value compatible with DmcTypeCamelCaseNameSV
+     * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setUseImpl(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__useImpl);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__useImpl);
+            attr = new DmcTypeStringSV(MvwDMSAG.__useImpl);
         
         attr.set(value);
         set(MvwDMSAG.__useImpl,attr);

@@ -72,13 +72,13 @@ public class MenuItemDMW extends MenuElementDefinitionDMW implements DmcNamedObj
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
-    public CamelCaseName getUseImpl(){
+    public String getUseImpl(){
         return(((MenuItemDMO) core).getUseImpl());
     }
 
     /**
      * Sets useImpl to the specified value.
-     * @param value A value compatible with DmcTypeCamelCaseName
+     * @param value A value compatible with DmcTypeString
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
     public void setUseImpl(Object value) throws DmcValueException {
@@ -87,10 +87,10 @@ public class MenuItemDMW extends MenuElementDefinitionDMW implements DmcNamedObj
 
     /**
      * Sets useImpl to the specified value.
-     * @param value CamelCaseName
+     * @param value String
      */
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
-    public void setUseImpl(CamelCaseName value){
+    public void setUseImpl(String value){
         ((MenuItemDMO) core).setUseImpl(value);
     }
 
