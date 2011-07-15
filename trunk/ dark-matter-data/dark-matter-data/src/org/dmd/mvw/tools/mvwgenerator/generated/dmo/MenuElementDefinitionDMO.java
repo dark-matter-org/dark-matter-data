@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcValueException;                                         //
 import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
@@ -125,8 +126,8 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
-    public CamelCaseName getUseImpl(){
-        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__useImpl);
+    public String getUseImpl(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__useImpl);
         if (attr == null)
             return(null);
 
@@ -135,13 +136,13 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
 
     /**
      * Sets useImpl to the specified value.
-     * @param value CamelCaseName
+     * @param value String
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
-    public void setUseImpl(CamelCaseName value) {
+    public void setUseImpl(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__useImpl);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__useImpl);
+            attr = new DmcTypeStringSV(MvwDMSAG.__useImpl);
         
         try{
             attr.set(value);
@@ -154,13 +155,13 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
 
     /**
      * Sets useImpl to the specified value.
-     * @param value A value compatible with DmcTypeCamelCaseNameSV
+     * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
     public void setUseImpl(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__useImpl);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__useImpl);
+            attr = new DmcTypeStringSV(MvwDMSAG.__useImpl);
         
         attr.set(value);
         set(MvwDMSAG.__useImpl,attr);
