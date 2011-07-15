@@ -105,13 +105,13 @@ public class MvwGenerator {
 			if (presenter.getDefinedInModule() == defManager.codeGenModule){
 				PresenterFormatter.formatPresenterBaseImpl(presentersdir, presenter);
 				
-				// NOTE: Actions are always generated in the context of the component that 
-				// implements them, regardless of which module they are defined in
-				if (presenter.getImplementsActionHasValue()){
-					for(Action action: presenter.getImplementsActionIterable()){
-						ActionFormatter.formatAction(actionsdir, action, presenter);
-					}
-				}
+//				// NOTE: Actions are always generated in the context of the component that 
+//				// implements them, regardless of which module they are defined in
+//				if (presenter.getImplementsActionHasValue()){
+//					for(Action action: presenter.getImplementsActionIterable()){
+//						ActionFormatter.formatAction(actionsdir, action, presenter);
+//					}
+//				}
 			}
 		}
 		
@@ -121,11 +121,11 @@ public class MvwGenerator {
 				
 				// NOTE: Actions are always generated in the context of the component that 
 				// implements them, regardless of which module they are defined in
-				if (activity.getImplementsActionHasValue()){
-					for(Action action: activity.getImplementsActionIterable()){
-						ActionFormatter.formatAction(actionsdir, action, activity);
-					}
-				}
+//				if (activity.getImplementsActionHasValue()){
+//					for(Action action: activity.getImplementsActionIterable()){
+//						ActionFormatter.formatAction(actionsdir, action, activity);
+//					}
+//				}
 			}
 		}
 		
@@ -134,7 +134,7 @@ public class MvwGenerator {
 				PlaceFormatter.formatPlace(placesdir, place);
 		}
 				
-		RunContextFormatter.formatModuleRunContextInterface(mvwdir, defManager.getCodeGenModule());		
+		RunContextFormatter.formatModuleRunContextInterface(mvwdir, defManager.getCodeGenModule(), defManager.getDefaultContext());		
 		
 		if (defManager.getApplication() != null){
 			PlaceFormatter.formatPlaceHistoryMapper(placesdir, defManager.application, defManager.places);

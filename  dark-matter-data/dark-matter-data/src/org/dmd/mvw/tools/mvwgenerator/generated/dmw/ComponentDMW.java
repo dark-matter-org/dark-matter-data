@@ -18,20 +18,16 @@ import org.dmd.mvw.tools.mvwgenerator.extended.Event;                           
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                              // Derived class
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;                             // Is reference type aux
 import org.dmd.mvw.tools.mvwgenerator.extended.View;                                       // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;                               // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionDMO;                             // For multi-valued containsAction
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                          // Abstract class
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EventDMO;                              // For multi-valued containsEvent
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                              // Attribute from mvw schema
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;                     // For multi-valued containsRunContextItem
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                               // For multi-valued containsView
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ActionIterableDMW;                     // For multi-valued Action
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.EventIterableDMW;                      // For multi-valued Event
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.GetWithOptionsIterableDMW;             // For multi-valued GetWithOptions
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RequestWithOptionsIterableDMW;         // For multi-valued RequestWithOptions
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemIterableDMW;             // For multi-valued RunContextItem
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewIterableDMW;                       // For multi-valued View
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ActionREF;                           // To support getMVCopy() for REFs
 import org.dmd.mvw.tools.mvwgenerator.generated.types.EventREF;                            // To support getMVCopy() for REFs
 import org.dmd.mvw.tools.mvwgenerator.generated.types.RunContextItemREF;                   // To support getMVCopy() for REFs
 import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                             // To support getMVCopy() for REFs
@@ -1512,101 +1508,6 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
     public void remInstantiatesView(){
         ((ComponentDMO) core).remInstantiatesView();
-    }
-
-    /**
-     * @return The number of Action items.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1235)
-    public int getImplementsActionSize(){
-        DmcAttribute<?> attr = core.get(MvwDMSAG.__implementsAction);
-        if (attr == null)
-            return(0);
-        
-        return(attr.getMVSize());
-    }
-
-    /**
-     * @return true if there are no ActionDMO items.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1248)
-    public boolean getImplementsActionIsEmpty(){
-        DmcAttribute<?> attr = core.get(MvwDMSAG.__implementsAction);
-        if (attr == null)
-            return(true);
-        
-        return(false);
-    }
-
-    /**
-     * @return true if there are any ActionDMO items.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1260)
-    public boolean getImplementsActionHasValue(){
-        DmcAttribute<?> attr = core.get(MvwDMSAG.__implementsAction);
-        if (attr == null)
-            return(false);
-        
-        return(true);
-    }
-
-    /**
-     * @return An Iterator of ActionDMO objects.
-     */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1281)
-    public ActionIterableDMW getImplementsActionIterable(){
-        DmcAttribute attr = ((ComponentDMO) core).get(MvwDMSAG.__implementsAction);
-        if (attr == null)
-            return(ActionIterableDMW.emptyList);
-        
-        return(new ActionIterableDMW(attr.getMV()));
-    }
-
-    /**
-     * Adds another implementsAction value.
-     * @param value A value compatible with Action
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1297)
-    public DmcAttribute<?> addImplementsAction(Action value){
-        DmcAttribute<?> attr = ((ComponentDMO) core).addImplementsAction(((ActionDMO)value.getDmcObject()));
-        return(attr);
-    }
-
-    /**
-     * Deletes a implementsAction value.
-     * @param value The Action to be deleted from set of attribute values.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1310)
-    public void delImplementsAction(Action value){
-        ((ComponentDMO) core).delImplementsAction(value.getDMO());
-    }
-
-    /**
-     * @return A COPY of the collection of Action objects.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1345)
-    public ArrayList<Action> getImplementsActionCopy(){
-        DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__implementsAction);
-        if (attr == null)
-            return(new ArrayList<Action>());
-        
-        ArrayList<Action> rc = new ArrayList<Action>(attr.getMVSize());
-        
-        ActionIterableDMW it = getImplementsActionIterable();
-        while(it.hasNext()){
-            rc.add(it.next());
-        }
-        
-        return(rc);
-    }
-
-    /**
-     * Removes the implementsAction attribute value.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1630)
-    public void remImplementsAction(){
-        ((ComponentDMO) core).remImplementsAction();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)

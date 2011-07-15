@@ -9,6 +9,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.Place;
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class PlaceFormatter {
 
@@ -22,6 +23,7 @@ public class PlaceFormatter {
         out.write(place.getImports());
         out.write("\n");
         
+        out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("public class " + place.getPlaceName() + " extends MvwPlace {\n\n");
 
         out.write("    public " + place.getPlaceName() + "(String t){\n");

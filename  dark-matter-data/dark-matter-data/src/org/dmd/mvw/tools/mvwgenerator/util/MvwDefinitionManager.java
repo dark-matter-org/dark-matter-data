@@ -595,11 +595,11 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 //		}
 		
 		// Try to create the back association between Actions and their implementors
-		for(Component component: components.values()){
-			if (component.getImplementsActionHasValue()){
-				for(Action action: component.getImplementsActionIterable()){
+		for(Controller controller: controllers.values()){			
+			if (controller.getImplementsActionHasValue()){
+				for(Action action: controller.getImplementsActionIterable()){
 					if (action.getImplementedBy() == null)
-						action.setImplementedBy(component);
+						action.setImplementedBy(controller);
 					else{
 						if (errors == null)
 							errors = new ResultException();
@@ -607,26 +607,26 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 						Component existing = action.getImplementedBy();
 						errors.addError("Multiple components implement the " + action.getActionName() + " action.");
 						errors.result.lastResult().moreMessages(existing.getComponentName() + " in file " + existing.getFile() + ":" + existing.getLineNumber());
-						errors.result.lastResult().moreMessages(component.getComponentName() + " in file " + component.getFile() + ":" + component.getLineNumber());
+						errors.result.lastResult().moreMessages(controller.getComponentName() + " in file " + controller.getFile() + ":" + controller.getLineNumber());
 					}
 				}
 				
 				// We also verify that the module in which the component is defined depends on
 				// the mvwmenus module, since we need the MenuController to be injected into
 				// Component to allow for registration of the actions
-				if (!component.getDefinedInModule().dependsOnModuleContains("mvwmenus")){
+				if (!controller.getDefinedInModule().dependsOnModuleContains("mvwmenus")){
 					if (errors == null)
 						errors = new ResultException();
 					
-					errors.addError("The " + component.getDefinedInModule().getModuleName() + " module must depend on the mvwmenus module.");
-					errors.result.lastResult().moreMessages(component.getDefinedInModule().getFile());
+					errors.addError("The " + controller.getDefinedInModule().getModuleName() + " module must depend on the mvwmenus module.");
+					errors.result.lastResult().moreMessages(controller.getDefinedInModule().getFile());
 				}
 				else{
 					// We have the mvwmenus module, so indicate that the component uses the menu controller 
 					key.setNameString("MenuControllerRCI");
 					RunContextItemCollection rcic = contexts.get("Default");
 					RunContextItem rci = rcic.getItem("MenuControllerRCI");
-					component.addUsesRunContextItem(rci);
+					controller.addUsesRunContextItem(rci);
 				}
 			}
 		}
@@ -661,6 +661,48 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 						errors = ex;
 					else
 						errors.result.addResults(ex.result);
+				}
+				
+				// We create a run context item for the menu builder that we'll generate.
+				// It will be instantiated after all other components are initialized.
+				// All Presenters are available for access from the run context. They are created on demand.
+				RunContextItem rci = new RunContextItem();
+				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
+				
+				rci.setItemName("menuBuilder");
+				rci.setItemOrder(200);
+				rci.setUseClass(application.getDefinedInModule().getGenPackage() + ".generated.mvw." + application.getAppName() + "MenuBuilder");
+				rci.setConstruction("new " + application.getAppName() + "MenuBuilder" + "(this)");
+				rci.setDefinedInModule(application.getDefinedInModule());
+				
+				if (rcic == null){
+					rcic = new RunContextItemCollection(rci.getContextImpl());
+					contexts.put(rci.getContextImpl(), rcic);
+				}
+				rcic.addItem(rci);
+				
+				// Add the item to its module
+				rci.getDefinedInModule().addRunContextItem(rci);
+
+				
+				// Some additional checking to allow the use of display labels from I18N resources
+				for(MenuElementDefinitionDMW def: menuElements.values()){
+					try{
+						if (def instanceof MenuItem){
+							MenuItem item = (MenuItem) def;
+								item.initLabelInfo(defaultContext);
+						}
+						else if (def instanceof SubMenu){
+							SubMenu submenu = (SubMenu) def;
+							submenu.initLabelInfo(defaultContext);
+						}
+					}
+					catch(ResultException ex){
+						if (errors == null)
+							errors = ex;
+						else
+							errors.result.addResults(ex.result);
+					}
 				}
 				
 				

@@ -2,6 +2,7 @@ package org.dmd.mvw.tools.mvwgenerator.util;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.dmd.dms.util.GenUtility;
@@ -13,6 +14,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.menus.Separator;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.SubMenu;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class MenuBuilderFormatter {
 
@@ -31,11 +33,29 @@ public class MenuBuilderFormatter {
         if (manager.getMenuBars().size() > 0)
         	imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwMenu", "Menus are defined");
         
-//        if (manager.getSubMenus().size() > 0)
-//        	imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwSubMenu", "SubMenus are defined");
+        ArrayList<RunContextItem> rciList = new ArrayList<RunContextItem>();
         
-        if (manager.getMenuItems().size() > 0)
+        if (manager.getSubMenus().size() > 0){
+        	// Check to see if we need any message constants
+        	for(SubMenu submenu: manager.getSubMenus().values()){
+        		if (submenu.getRCI() != null){
+        			submenu.getRCI().addUsageImplImports(imports);
+        			rciList.add(submenu.getRCI());
+        		}
+        	}
+        }
+        
+        if (manager.getMenuItems().size() > 0){
         	imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwMenuItem", "Menu items are defined");
+        	
+        	// Check to see if we need any message constants
+        	for(MenuItem mi: manager.getMenuItems().values()){
+        		if (mi.getRCI() != null){
+        			mi.getRCI().addUsageImplImports(imports);
+        			rciList.add(mi.getRCI());
+        		}
+        	}
+        }
         
         if (manager.getSeparators().size() > 0)
         	imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwSeparators", "Separators are defined");
@@ -65,14 +85,21 @@ public class MenuBuilderFormatter {
         
         out.write("    final MenuController MenuControllerRCI;\n");
         out.write(menuFactoryRCI.getImplVariable() + "\n\n");
+        for(RunContextItem rci: rciList){
+        	out.write(rci.getImplVariable() + "\n");
+        }
             	
     	///////////////////////////////////////////////////////////////////////
     	// Constructor
     	
+        out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
     	out.write("    public " + name + "(MvwRunContextIF rc){\n\n");
     	
         out.write("        MenuControllerRCI = ((MvwmenusRunContextIF)rc).getMenuControllerRCI();\n\n");
         out.write(menuFactoryRCI.getImplVariableAssignment() + "\n");
+        for(RunContextItem rci: rciList){
+        	out.write(rci.getImplVariableAssignment() + "\n");
+        }
         
         if (manager.getMenuBars().size() > 0)
         	out.write("        MvwMenu      menu      = null;\n");
@@ -96,7 +123,7 @@ public class MenuBuilderFormatter {
         	out.write("\"" + mi.getAddToMenu().getElementName() + "\",");
         	out.write("false,");
         	out.write("\"" + mi.getTriggersAction().getActionName() + "\",");
-        	out.write("\"" + mi.getDisplayLabel() + "\",");
+        	out.write(mi.getLabelForCreation() + ",");
         	out.write("null");
         	out.write(");\n");
         	out.write("        MenuControllerRCI.addMenuItem(menuitem);\n\n");
@@ -120,7 +147,7 @@ public class MenuBuilderFormatter {
         	out.write("\"" + sub.getMenuOrder() + "\",");
         	out.write("\"" + sub.getAddToMenu().getElementName() + "\",");
         	out.write("false,");
-        	out.write("\"" + sub.getDisplayLabel() + "\",");
+        	out.write(sub.getLabelForCreation() + ",");
         	out.write("null");
         	out.write(");\n");
         	out.write("        MenuControllerRCI.addMenu(menu);\n\n");

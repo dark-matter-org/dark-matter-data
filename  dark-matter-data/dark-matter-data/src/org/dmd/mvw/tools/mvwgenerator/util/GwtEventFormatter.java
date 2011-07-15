@@ -8,6 +8,7 @@ import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 
@@ -106,6 +107,7 @@ public class GwtEventFormatter {
 		
         out.write(ImportManager.getFormattedImportsStatic() + "\n");
         
+        out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("public class " + eventName + " extends GwtEvent<" + handlerName + "> {\n\n");
         
         if (types.size() > 0){
@@ -164,6 +166,7 @@ public class GwtEventFormatter {
 		
         out.write(ImportManager.getFormattedImportsStatic() + "\n");
         
+        out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("public interface " + handlerName + " extends EventHandler {\n\n");
         
         out.write("    void handle" + capped + "(" + eventName + " event);\n\n");

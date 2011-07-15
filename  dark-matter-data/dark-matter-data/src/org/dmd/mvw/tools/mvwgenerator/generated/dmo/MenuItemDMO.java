@@ -41,7 +41,9 @@ import org.dmd.dmc.DmcAttributeValidator;
 import org.dmd.dmc.DmcObjectValidator;
 
 /**
- * The MenuItem is used to define triggerable menu items.
+ * The MenuItem is used to define triggerable menu items. You must specify
+ * either a displayLabel or a displayLabelI18N to indicate the label to be
+ * used for the menu item.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -129,6 +131,106 @@ public class MenuItemDMO  extends MenuElementDefinitionDMO  implements DmcNamedO
             return( getObjectName().equals( ((MenuItemDMO) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    public String getDisplayLabel(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__displayLabel);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets displayLabel to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
+    public void setDisplayLabel(String value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__displayLabel);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MvwDMSAG.__displayLabel);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__displayLabel,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets displayLabel to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
+    public void setDisplayLabel(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__displayLabel);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MvwDMSAG.__displayLabel);
+        
+        attr.set(value);
+        set(MvwDMSAG.__displayLabel,attr);
+    }
+
+    /**
+     * Removes the displayLabel attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
+    public void remDisplayLabel(){
+         rem(MvwDMSAG.__displayLabel);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
+    public String getDisplayLabelI18N(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__displayLabelI18N);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets displayLabelI18N to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
+    public void setDisplayLabelI18N(String value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__displayLabelI18N);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MvwDMSAG.__displayLabelI18N);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__displayLabelI18N,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets displayLabelI18N to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
+    public void setDisplayLabelI18N(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__displayLabelI18N);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MvwDMSAG.__displayLabelI18N);
+        
+        attr.set(value);
+        set(MvwDMSAG.__displayLabelI18N,attr);
+    }
+
+    /**
+     * Removes the displayLabelI18N attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
+    public void remDisplayLabelI18N(){
+         rem(MvwDMSAG.__displayLabelI18N);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
@@ -415,56 +517,6 @@ public class MenuItemDMO  extends MenuElementDefinitionDMO  implements DmcNamedO
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
     public void remMenuOrder(){
          rem(MvwDMSAG.__menuOrder);
-    }
-
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:642)
-    public String getDisplayLabel(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__displayLabel);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets displayLabel to the specified value.
-     * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:680)
-    public void setDisplayLabel(String value) {
-        DmcAttribute<?> attr = get(MvwDMSAG.__displayLabel);
-        if (attr == null)
-            attr = new DmcTypeStringSV(MvwDMSAG.__displayLabel);
-        
-        try{
-            attr.set(value);
-            set(MvwDMSAG.__displayLabel,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets displayLabel to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:732)
-    public void setDisplayLabel(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MvwDMSAG.__displayLabel);
-        if (attr == null)
-            attr = new DmcTypeStringSV(MvwDMSAG.__displayLabel);
-        
-        attr.set(value);
-        set(MvwDMSAG.__displayLabel,attr);
-    }
-
-    /**
-     * Removes the displayLabel attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:747)
-    public void remDisplayLabel(){
-         rem(MvwDMSAG.__displayLabel);
     }
 
 

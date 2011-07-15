@@ -6,6 +6,7 @@ import java.io.IOException;
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class ControllerFormatter {
 
@@ -20,6 +21,7 @@ public class ControllerFormatter {
         
         out.write("\n");
         
+        out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("abstract public class " + controller.getControllerName() + "BaseImpl " + controller.getControllerInterfaces() + "{\n\n");
         
     	boolean onDemand = false;

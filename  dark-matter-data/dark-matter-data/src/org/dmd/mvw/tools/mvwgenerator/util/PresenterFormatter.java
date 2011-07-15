@@ -41,9 +41,9 @@ public class PresenterFormatter {
     	
     	out.write(presenter.getCommsConstants());
     	
-    	if (presenter.getImplementsActionHasValue()){
-    		out.write(presenter.getActionVariables() + "\n");
-    	}
+//    	if (presenter.getImplementsActionHasValue()){
+//    		out.write(presenter.getActionVariables() + "\n");
+//    	}
     	
     	///////////////////////////////////////////////////////////////////////
     	// Constructor
@@ -59,9 +59,9 @@ public class PresenterFormatter {
         	out.write("        runcontext = rc;\n");
     	}
     		
-    	if (presenter.getImplementsActionHasValue()){
-    		out.write(presenter.getActionInstantiations() + "\n");
-    	}
+//    	if (presenter.getImplementsActionHasValue()){
+//    		out.write(presenter.getActionInstantiations() + "\n");
+//    	}
     	
         out.write("    }\n\n");
         

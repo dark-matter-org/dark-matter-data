@@ -15,7 +15,9 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.ActionREF;                
 import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuREF;                        // To support getMVCopy() for REFs
 
 /**
- * The MenuItem is used to define triggerable menu items.
+ * The MenuItem is used to define triggerable menu items. You must specify
+ * either a displayLabel or a displayLabelI18N to indicate the label to be
+ * used for the menu item.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -69,6 +71,68 @@ public class MenuItemDMW extends MenuElementDefinitionDMW implements DmcNamedObj
             return( getObjectName().equals( ((MenuItemDMW) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
+    public String getDisplayLabel(){
+        return(((MenuItemDMO) core).getDisplayLabel());
+    }
+
+    /**
+     * Sets displayLabel to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
+    public void setDisplayLabel(Object value) throws DmcValueException {
+        ((MenuItemDMO) core).setDisplayLabel(value);
+    }
+
+    /**
+     * Sets displayLabel to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
+    public void setDisplayLabel(String value){
+        ((MenuItemDMO) core).setDisplayLabel(value);
+    }
+
+    /**
+     * Removes the displayLabel attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
+    public void remDisplayLabel(){
+        ((MenuItemDMO) core).remDisplayLabel();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
+    public String getDisplayLabelI18N(){
+        return(((MenuItemDMO) core).getDisplayLabelI18N());
+    }
+
+    /**
+     * Sets displayLabelI18N to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
+    public void setDisplayLabelI18N(Object value) throws DmcValueException {
+        ((MenuItemDMO) core).setDisplayLabelI18N(value);
+    }
+
+    /**
+     * Sets displayLabelI18N to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
+    public void setDisplayLabelI18N(String value){
+        ((MenuItemDMO) core).setDisplayLabelI18N(value);
+    }
+
+    /**
+     * Removes the displayLabelI18N attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
+    public void remDisplayLabelI18N(){
+        ((MenuItemDMO) core).remDisplayLabelI18N();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
@@ -226,37 +290,6 @@ public class MenuItemDMW extends MenuElementDefinitionDMW implements DmcNamedObj
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remMenuOrder(){
         ((MenuItemDMO) core).remMenuOrder();
-    }
-
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
-    public String getDisplayLabel(){
-        return(((MenuItemDMO) core).getDisplayLabel());
-    }
-
-    /**
-     * Sets displayLabel to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
-    public void setDisplayLabel(Object value) throws DmcValueException {
-        ((MenuItemDMO) core).setDisplayLabel(value);
-    }
-
-    /**
-     * Sets displayLabel to the specified value.
-     * @param value String
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
-    public void setDisplayLabel(String value){
-        ((MenuItemDMO) core).setDisplayLabel(value);
-    }
-
-    /**
-     * Removes the displayLabel attribute value.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
-    public void remDisplayLabel(){
-        ((MenuItemDMO) core).remDisplayLabel();
     }
 
 

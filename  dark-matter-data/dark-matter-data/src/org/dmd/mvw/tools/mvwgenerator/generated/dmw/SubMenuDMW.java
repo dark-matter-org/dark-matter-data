@@ -69,6 +69,68 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
+    public String getDisplayLabel(){
+        return(((SubMenuDMO) core).getDisplayLabel());
+    }
+
+    /**
+     * Sets displayLabel to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
+    public void setDisplayLabel(Object value) throws DmcValueException {
+        ((SubMenuDMO) core).setDisplayLabel(value);
+    }
+
+    /**
+     * Sets displayLabel to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
+    public void setDisplayLabel(String value){
+        ((SubMenuDMO) core).setDisplayLabel(value);
+    }
+
+    /**
+     * Removes the displayLabel attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
+    public void remDisplayLabel(){
+        ((SubMenuDMO) core).remDisplayLabel();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
+    public String getDisplayLabelI18N(){
+        return(((SubMenuDMO) core).getDisplayLabelI18N());
+    }
+
+    /**
+     * Sets displayLabelI18N to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
+    public void setDisplayLabelI18N(Object value) throws DmcValueException {
+        ((SubMenuDMO) core).setDisplayLabelI18N(value);
+    }
+
+    /**
+     * Sets displayLabelI18N to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
+    public void setDisplayLabelI18N(String value){
+        ((SubMenuDMO) core).setDisplayLabelI18N(value);
+    }
+
+    /**
+     * Removes the displayLabelI18N attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
+    public void remDisplayLabelI18N(){
+        ((SubMenuDMO) core).remDisplayLabelI18N();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
     public String getUseImpl(){
         return(((SubMenuDMO) core).getUseImpl());
     }
@@ -191,37 +253,6 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
     public void remMenuOrder(){
         ((SubMenuDMO) core).remMenuOrder();
-    }
-
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1101)
-    public String getDisplayLabel(){
-        return(((SubMenuDMO) core).getDisplayLabel());
-    }
-
-    /**
-     * Sets displayLabel to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1148)
-    public void setDisplayLabel(Object value) throws DmcValueException {
-        ((SubMenuDMO) core).setDisplayLabel(value);
-    }
-
-    /**
-     * Sets displayLabel to the specified value.
-     * @param value String
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1157)
-    public void setDisplayLabel(String value){
-        ((SubMenuDMO) core).setDisplayLabel(value);
-    }
-
-    /**
-     * Removes the displayLabel attribute value.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1183)
-    public void remDisplayLabel(){
-        ((SubMenuDMO) core).remDisplayLabel();
     }
 
 
