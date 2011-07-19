@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // DmcType import
  * The DmcTypeWrapperTypeEnumSET provides storage for a set of WrapperTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2268)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2277)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:230)
  */
 @SuppressWarnings("serial")
@@ -59,80 +59,101 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2314)
     public DmcAttribute<WrapperTypeEnum> cloneIt(){
-        DmcTypeWrapperTypeEnumSET rc = getNew();
-        for(WrapperTypeEnum val: value)
-        try {
-            rc.add(val);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("typeCheck() should never fail here!",e));
-        }
-        return(rc);
+        synchronized(this){
+            DmcTypeWrapperTypeEnumSET rc = getNew();
+            for(WrapperTypeEnum val: value)
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+            return(rc);
+       }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2333)
     public WrapperTypeEnum add(Object v) throws DmcValueException {
-        WrapperTypeEnum rc = typeCheck(v);
-        if (value == null)
-            initValue();
-    
-        // If false is returned, we didn't modify the set, so return null
-        if (!value.add(rc))
-            rc = null;
-    
-        return(rc);
+        synchronized(this){
+            WrapperTypeEnum rc = typeCheck(v);
+            if (value == null)
+                initValue();
+        
+            // If false is returned, we didn't modify the set, so return null
+            if (!value.add(rc))
+                rc = null;
+        
+            return(rc);
+        }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2350)
     public WrapperTypeEnum del(Object v){
-        WrapperTypeEnum rc = null;
-        try {
-            rc = typeCheck(v);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+        synchronized(this){
+            WrapperTypeEnum rc = null;
+            try {
+                rc = typeCheck(v);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+            }
+            if (value.contains(rc))
+                value.remove(rc);
+            else
+                rc = null;
+            return(rc);
         }
-        if (value.contains(rc))
-            value.remove(rc);
-        else
-            rc = null;
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public Iterator<WrapperTypeEnum> getMV(){
-        Set<WrapperTypeEnum> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<WrapperTypeEnum>(value);
-        else
-            clone = new TreeSet<WrapperTypeEnum>(value);
-        return(clone.iterator());
-    }
-    
-    public Set<WrapperTypeEnum> getMVCopy(){
-        Set<WrapperTypeEnum> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<WrapperTypeEnum>(value);
-        else
-            clone = new TreeSet<WrapperTypeEnum>(value);
-        return(clone);
-    }
-    
-    @Override
-    public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            WrapperTypeEnum val = typeCheck(v);
-            rc = value.contains(val);
-        } catch (DmcValueException e) {
+        synchronized(this){
+            Set<WrapperTypeEnum> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                clone = new HashSet<WrapperTypeEnum>(value);
+            else
+                clone = new TreeSet<WrapperTypeEnum>(value);
+            return(clone.iterator());
         }
-        return(rc);
+    }
+    
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2382)
+    public Set<WrapperTypeEnum> getMVCopy(){
+        synchronized(this){
+            Set<WrapperTypeEnum> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                clone = new HashSet<WrapperTypeEnum>(value);
+            else
+                clone = new TreeSet<WrapperTypeEnum>(value);
+            return(clone);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2396)
+    public int getMVSize(){
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                WrapperTypeEnum val = typeCheck(v);
+                rc = value.contains(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
     }
     
 }

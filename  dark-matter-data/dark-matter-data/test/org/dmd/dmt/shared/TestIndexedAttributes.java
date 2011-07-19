@@ -422,4 +422,27 @@ public class TestIndexedAttributes {
 
 	}
 
+	@Test
+	public void testModifiersRemovalFromMissingAttribute() throws DmcValueException {
+		System.out.println("\ntestModifiers3");
+		
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("obj1");
+				
+		ObjWithRefs modrec = obj.getModificationRecorder();
+
+		modrec.setNthIndexedObjRef(0, null);
+		modrec.setNthIndexedObjRef(4, null);
+		modrec.setNthIndexedObjRef(9, null);
+		
+		assertEquals("Only three operations should exist in the modifier.", 3, modrec.getModifier().getMVSize());
+		
+		System.out.println(modrec.toOIF(15));
+		
+		DMPEvent event = new DMPEvent(DMPEventTypeEnum.MODIFIED,modrec);
+		
+		System.out.println(event.toOIF(15));
+	}
+	
+
 }

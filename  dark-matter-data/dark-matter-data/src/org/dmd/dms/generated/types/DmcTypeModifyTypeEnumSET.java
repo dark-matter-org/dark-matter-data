@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;    // DmcType import
  * The DmcTypeModifyTypeEnumSET provides storage for a set of ModifyTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2268)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2277)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:230)
  */
 @SuppressWarnings("serial")
@@ -59,80 +59,101 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2314)
     public DmcAttribute<ModifyTypeEnum> cloneIt(){
-        DmcTypeModifyTypeEnumSET rc = getNew();
-        for(ModifyTypeEnum val: value)
-        try {
-            rc.add(val);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("typeCheck() should never fail here!",e));
-        }
-        return(rc);
+        synchronized(this){
+            DmcTypeModifyTypeEnumSET rc = getNew();
+            for(ModifyTypeEnum val: value)
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+            return(rc);
+       }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2333)
     public ModifyTypeEnum add(Object v) throws DmcValueException {
-        ModifyTypeEnum rc = typeCheck(v);
-        if (value == null)
-            initValue();
-    
-        // If false is returned, we didn't modify the set, so return null
-        if (!value.add(rc))
-            rc = null;
-    
-        return(rc);
+        synchronized(this){
+            ModifyTypeEnum rc = typeCheck(v);
+            if (value == null)
+                initValue();
+        
+            // If false is returned, we didn't modify the set, so return null
+            if (!value.add(rc))
+                rc = null;
+        
+            return(rc);
+        }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2350)
     public ModifyTypeEnum del(Object v){
-        ModifyTypeEnum rc = null;
-        try {
-            rc = typeCheck(v);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+        synchronized(this){
+            ModifyTypeEnum rc = null;
+            try {
+                rc = typeCheck(v);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+            }
+            if (value.contains(rc))
+                value.remove(rc);
+            else
+                rc = null;
+            return(rc);
         }
-        if (value.contains(rc))
-            value.remove(rc);
-        else
-            rc = null;
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public Iterator<ModifyTypeEnum> getMV(){
-        Set<ModifyTypeEnum> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ModifyTypeEnum>(value);
-        else
-            clone = new TreeSet<ModifyTypeEnum>(value);
-        return(clone.iterator());
-    }
-    
-    public Set<ModifyTypeEnum> getMVCopy(){
-        Set<ModifyTypeEnum> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ModifyTypeEnum>(value);
-        else
-            clone = new TreeSet<ModifyTypeEnum>(value);
-        return(clone);
-    }
-    
-    @Override
-    public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            ModifyTypeEnum val = typeCheck(v);
-            rc = value.contains(val);
-        } catch (DmcValueException e) {
+        synchronized(this){
+            Set<ModifyTypeEnum> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                clone = new HashSet<ModifyTypeEnum>(value);
+            else
+                clone = new TreeSet<ModifyTypeEnum>(value);
+            return(clone.iterator());
         }
-        return(rc);
+    }
+    
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2382)
+    public Set<ModifyTypeEnum> getMVCopy(){
+        synchronized(this){
+            Set<ModifyTypeEnum> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                clone = new HashSet<ModifyTypeEnum>(value);
+            else
+                clone = new TreeSet<ModifyTypeEnum>(value);
+            return(clone);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2396)
+    public int getMVSize(){
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                ModifyTypeEnum val = typeCheck(v);
+                rc = value.contains(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
     }
     
 }

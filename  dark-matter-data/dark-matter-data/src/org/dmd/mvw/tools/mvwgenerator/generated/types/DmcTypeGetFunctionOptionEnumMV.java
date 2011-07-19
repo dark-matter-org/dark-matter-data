@@ -26,7 +26,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;    
  * The DmcTypeGetFunctionOptionEnumMV provides storage for a multi-valued GetFunctionOptionEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2025)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2037)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:325)
  */
 @SuppressWarnings("serial")
@@ -48,127 +48,157 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2065)
     public DmcAttribute<GetFunctionOptionEnum> cloneIt(){
-        DmcTypeGetFunctionOptionEnumMV rc = getNew();
-        if (attrInfo.indexSize == 0){
-            for(GetFunctionOptionEnum val: value)
-            try {
-                rc.add(val);
-            } catch (DmcValueException e) {
-                throw(new IllegalStateException("typeCheck() should never fail here!",e));
-            }
-        }
-        else{
-            for(int index=0; index<value.size(); index++)
+        synchronized(this){
+            DmcTypeGetFunctionOptionEnumMV rc = getNew();
+            if (attrInfo.indexSize == 0){
+                for(GetFunctionOptionEnum val: value)
                 try {
-                    rc.setMVnth(index, value.get(index));
+                    rc.add(val);
                 } catch (DmcValueException e) {
                     throw(new IllegalStateException("typeCheck() should never fail here!",e));
                 }
-        }
-        return(rc);
-    }
-    
-    @Override
-    public GetFunctionOptionEnum add(Object v) throws DmcValueException {
-        GetFunctionOptionEnum rc = typeCheck(v);
-        if (value == null)
-            value = new ArrayList<GetFunctionOptionEnum>();
-        value.add(rc);
-        return(rc);
-    }
-    
-    @Override
-    public GetFunctionOptionEnum del(Object v){
-        GetFunctionOptionEnum rc = null;
-        try {
-            rc = typeCheck(v);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
-        }
-        if (value.contains(rc))
-            value.remove(rc);
-        else
-            rc = null;
-        return(rc);
-    }
-    
-    @Override
-    public Iterator<GetFunctionOptionEnum> getMV(){
-        ArrayList<GetFunctionOptionEnum> clone = new ArrayList<GetFunctionOptionEnum>(value);
-        return(clone.iterator());
-    }
-    
-    public ArrayList<GetFunctionOptionEnum> getMVCopy(){
-        ArrayList<GetFunctionOptionEnum> clone = new ArrayList<GetFunctionOptionEnum>(value);
-        return(clone);
-    }
-    
-    @Override
-    public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public GetFunctionOptionEnum getMVnth(int index){
-        return(value.get(index));
-    }
-    
-    @Override
-    public GetFunctionOptionEnum setMVnth(int index, Object v) throws DmcValueException {
-        if (attrInfo.indexSize == 0)
-            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
-        
-        if ( (index < 0) || (index >= attrInfo.indexSize))
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
-        
-        GetFunctionOptionEnum rc = null;
-        
-        if (v != null)
-            rc = typeCheck(v);
-        
-        if (value == null){
-            value = new ArrayList<GetFunctionOptionEnum>(attrInfo.indexSize);
-            for(int i=0;i<attrInfo.indexSize;i++)
-                value.add(null);
-        }
-        
-        value.set(index, rc);
-        
-        return(rc);
-    }
-    
-    @Override
-    public boolean hasValue(){
-        boolean rc = false;
-        
-        if (attrInfo.indexSize == 0)
-            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
-        
-        if (value == null)
-            return(rc);
-        
-        for(int i=0; i<value.size(); i++){
-            if (value.get(i) != null){
-                rc = true;
-                break;
             }
+            else{
+                for(int index=0; index<value.size(); index++)
+                    try {
+                        rc.setMVnth(index, value.get(index));
+                    } catch (DmcValueException e) {
+                        throw(new IllegalStateException("typeCheck() should never fail here!",e));
+                    }
+            }
+            return(rc);
         }
-        
-        return(rc);
     }
     
     @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            GetFunctionOptionEnum val = typeCheck(v);
-            rc = value.contains(val);
-        } catch (DmcValueException e) {
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2094)
+    public GetFunctionOptionEnum add(Object v) throws DmcValueException {
+        synchronized(this){
+            GetFunctionOptionEnum rc = typeCheck(v);
+            if (value == null)
+                value = new ArrayList<GetFunctionOptionEnum>();
+            value.add(rc);
+            return(rc);
         }
-        return(rc);
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2107)
+    public GetFunctionOptionEnum del(Object v){
+        synchronized(this){
+            GetFunctionOptionEnum rc = null;
+            try {
+                rc = typeCheck(v);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+            }
+            if (value.contains(rc))
+                value.remove(rc);
+            else
+                rc = null;
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2126)
+    public Iterator<GetFunctionOptionEnum> getMV(){
+        synchronized(this){
+            ArrayList<GetFunctionOptionEnum> clone = new ArrayList<GetFunctionOptionEnum>(value);
+            return(clone.iterator());
+        }
+    }
+    
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2135)
+    public ArrayList<GetFunctionOptionEnum> getMVCopy(){
+        synchronized(this){
+            ArrayList<GetFunctionOptionEnum> clone = new ArrayList<GetFunctionOptionEnum>(value);
+            return(clone);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2145)
+    public int getMVSize(){
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2156)
+    public GetFunctionOptionEnum getMVnth(int index){
+        synchronized(this){
+            return(value.get(index));
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2165)
+    public GetFunctionOptionEnum setMVnth(int index, Object v) throws DmcValueException {
+        synchronized(this){
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            
+            if ( (index < 0) || (index >= attrInfo.indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            
+            GetFunctionOptionEnum rc = null;
+            
+            if (v != null)
+                rc = typeCheck(v);
+            
+            if (value == null){
+                value = new ArrayList<GetFunctionOptionEnum>(attrInfo.indexSize);
+                for(int i=0;i<attrInfo.indexSize;i++)
+                    value.add(null);
+            }
+            
+            value.set(index, rc);
+            
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2193)
+    public boolean hasValue(){
+        synchronized(this){
+            boolean rc = false;
+            
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            
+            if (value == null)
+                return(rc);
+            
+            for(int i=0; i<value.size(); i++){
+                if (value.get(i) != null){
+                    rc = true;
+                    break;
+                }
+            }
+            
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2217)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                GetFunctionOptionEnum val = typeCheck(v);
+                rc = value.contains(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
     }
     
 }

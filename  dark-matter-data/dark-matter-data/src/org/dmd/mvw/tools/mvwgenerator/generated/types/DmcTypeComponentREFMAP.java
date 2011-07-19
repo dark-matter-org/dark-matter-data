@@ -30,7 +30,7 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeComponentREFMAP provides storage for a map of ComponentREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2489)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2483)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
@@ -61,93 +61,120 @@ public class DmcTypeComponentREFMAP extends DmcTypeComponentREF implements Seria
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2526)
     public DmcAttribute<ComponentREF> cloneIt(){
-        DmcTypeComponentREFMAP rc = getNew();
-        for(ComponentREF val: value.values())
-        try {
-            rc.add(val);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        synchronized(this){
+            DmcTypeComponentREFMAP rc = getNew();
+            for(ComponentREF val: value.values())
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+            return(rc);
         }
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2542)
     public ComponentREF add(Object v) throws DmcValueException {
-        ComponentREF newval = typeCheck(v);
-        if (value == null)
-            initValue();
-        CamelCaseName key = (CamelCaseName)((DmcMappedAttributeIF)newval).getKey();
-        ComponentREF oldval = value.put(key,newval);
-        
-        if (oldval != null){
-            // We had a value with this key, ensure that the value actually changed
-            if (oldval.valuesAreEqual(newval))
-                newval = null;
+        synchronized(this){
+            ComponentREF newval = typeCheck(v);
+            if (value == null)
+                initValue();
+            CamelCaseName key = (CamelCaseName)((DmcMappedAttributeIF)newval).getKey();
+            ComponentREF oldval = value.put(key,newval);
+            
+            if (oldval != null){
+                // We had a value with this key, ensure that the value actually changed
+                if (oldval.valuesAreEqual(newval))
+                    newval = null;
+            }
+            
+            return(newval);
         }
-        
-        return(newval);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2563)
     public ComponentREF del(Object key){
-        if (key instanceof CamelCaseName)
-            return(value.remove(key));
-        else
-            throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
+        synchronized(this){
+           if (key instanceof CamelCaseName)
+                return(value.remove(key));
+            else
+                throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
+        }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2575)
     public Iterator<ComponentREF> getMV(){
-        Map<CamelCaseName,ComponentREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            clone = new HashMap<CamelCaseName,ComponentREF>(value);
-        else
-            clone = new TreeMap<CamelCaseName,ComponentREF>(value);
-        return(clone.values().iterator());
+        synchronized(this){
+            Map<CamelCaseName,ComponentREF> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+                clone = new HashMap<CamelCaseName,ComponentREF>(value);
+            else
+                clone = new TreeMap<CamelCaseName,ComponentREF>(value);
+            return(clone.values().iterator());
+        }
     }
     
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2588)
     public Map<CamelCaseName,ComponentREF> getMVCopy(){
-        Map<CamelCaseName,ComponentREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            clone = new HashMap<CamelCaseName,ComponentREF>(value);
-        else
-            clone = new TreeMap<CamelCaseName,ComponentREF>(value);
-        return(clone);
+        synchronized(this){
+            Map<CamelCaseName,ComponentREF> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+                clone = new HashMap<CamelCaseName,ComponentREF>(value);
+            else
+                clone = new TreeMap<CamelCaseName,ComponentREF>(value);
+            return(clone);
+        }
     }
     
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2601)
     @Override
     public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public ComponentREF getByKey(Object key){
-        if (key instanceof CamelCaseName)
-            return(value.get(key));
-        else
-            throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
-    }
-    
-    @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            ComponentREF val = typeCheck(v);
-            rc = value.containsValue(val);
-        } catch (DmcValueException e) {
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
         }
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2613)
+    public ComponentREF getByKey(Object key){
+        synchronized(this){
+            if (key instanceof CamelCaseName)
+                return(value.get(key));
+            else
+                throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2625)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                ComponentREF val = typeCheck(v);
+                rc = value.containsValue(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2640)
     public boolean containsKey(Object key){
-        boolean rc = false;
-        if (key instanceof CamelCaseName)
-            rc = value.containsKey(key);
-        return(rc);
+        synchronized(this){
+            boolean rc = false;
+           if (key instanceof CamelCaseName)
+                rc = value.containsKey(key);
+            return(rc);
+        }
     }
     
 }

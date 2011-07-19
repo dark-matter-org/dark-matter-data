@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypePresenterREFSET provides storage for a set of PresenterREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2284)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2288)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
@@ -58,80 +58,101 @@ public class DmcTypePresenterREFSET extends DmcTypePresenterREF implements Seria
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2325)
     public DmcAttribute<PresenterREF> cloneIt(){
-        DmcTypePresenterREFSET rc = getNew();
-        for(PresenterREF val: value)
-        try {
-            rc.add(val);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("typeCheck() should never fail here!",e));
-        }
-        return(rc);
+        synchronized(this){
+            DmcTypePresenterREFSET rc = getNew();
+            for(PresenterREF val: value)
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+            return(rc);
+       }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2344)
     public PresenterREF add(Object v) throws DmcValueException {
-        PresenterREF rc = typeCheck(v);
-        if (value == null)
-            initValue();
-    
-        // If false is returned, we didn't modify the set, so return null
-        if (!value.add(rc))
-            rc = null;
-    
-        return(rc);
+        synchronized(this){
+            PresenterREF rc = typeCheck(v);
+            if (value == null)
+                initValue();
+        
+            // If false is returned, we didn't modify the set, so return null
+            if (!value.add(rc))
+                rc = null;
+        
+            return(rc);
+        }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
     public PresenterREF del(Object v){
-        PresenterREF rc = null;
-        try {
-            rc = typeCheck(v);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+        synchronized(this){
+            PresenterREF rc = null;
+            try {
+                rc = typeCheck(v);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+            }
+            if (value.contains(rc))
+                value.remove(rc);
+            else
+                rc = null;
+            return(rc);
         }
-        if (value.contains(rc))
-            value.remove(rc);
-        else
-            rc = null;
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
     public Iterator<PresenterREF> getMV(){
-        Set<PresenterREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<PresenterREF>(value);
-        else
-            clone = new TreeSet<PresenterREF>(value);
-        return(clone.iterator());
-    }
-    
-    public Set<PresenterREF> getMVCopy(){
-        Set<PresenterREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<PresenterREF>(value);
-        else
-            clone = new TreeSet<PresenterREF>(value);
-        return(clone);
-    }
-    
-    @Override
-    public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            PresenterREF val = typeCheck(v);
-            rc = value.contains(val);
-        } catch (DmcValueException e) {
+        synchronized(this){
+            Set<PresenterREF> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                clone = new HashSet<PresenterREF>(value);
+            else
+                clone = new TreeSet<PresenterREF>(value);
+            return(clone.iterator());
         }
-        return(rc);
+    }
+    
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2393)
+    public Set<PresenterREF> getMVCopy(){
+        synchronized(this){
+            Set<PresenterREF> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                clone = new HashSet<PresenterREF>(value);
+            else
+                clone = new TreeSet<PresenterREF>(value);
+            return(clone);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    public int getMVSize(){
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2418)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                PresenterREF val = typeCheck(v);
+                rc = value.contains(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
     }
     
 }

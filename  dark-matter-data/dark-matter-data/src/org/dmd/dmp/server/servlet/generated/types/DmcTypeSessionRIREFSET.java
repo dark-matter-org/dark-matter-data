@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSessionRIREFSET provides storage for a set of SessionRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2268)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2288)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
@@ -58,80 +58,101 @@ public class DmcTypeSessionRIREFSET extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2325)
     public DmcAttribute<SessionRIREF> cloneIt(){
-        DmcTypeSessionRIREFSET rc = getNew();
-        for(SessionRIREF val: value)
-        try {
-            rc.add(val);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("typeCheck() should never fail here!",e));
-        }
-        return(rc);
+        synchronized(this){
+            DmcTypeSessionRIREFSET rc = getNew();
+            for(SessionRIREF val: value)
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+            return(rc);
+       }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2344)
     public SessionRIREF add(Object v) throws DmcValueException {
-        SessionRIREF rc = typeCheck(v);
-        if (value == null)
-            initValue();
-    
-        // If false is returned, we didn't modify the set, so return null
-        if (!value.add(rc))
-            rc = null;
-    
-        return(rc);
+        synchronized(this){
+            SessionRIREF rc = typeCheck(v);
+            if (value == null)
+                initValue();
+        
+            // If false is returned, we didn't modify the set, so return null
+            if (!value.add(rc))
+                rc = null;
+        
+            return(rc);
+        }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
     public SessionRIREF del(Object v){
-        SessionRIREF rc = null;
-        try {
-            rc = typeCheck(v);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+        synchronized(this){
+            SessionRIREF rc = null;
+            try {
+                rc = typeCheck(v);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+            }
+            if (value.contains(rc))
+                value.remove(rc);
+            else
+                rc = null;
+            return(rc);
         }
-        if (value.contains(rc))
-            value.remove(rc);
-        else
-            rc = null;
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
     public Iterator<SessionRIREF> getMV(){
-        Set<SessionRIREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<SessionRIREF>(value);
-        else
-            clone = new TreeSet<SessionRIREF>(value);
-        return(clone.iterator());
-    }
-    
-    public Set<SessionRIREF> getMVCopy(){
-        Set<SessionRIREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<SessionRIREF>(value);
-        else
-            clone = new TreeSet<SessionRIREF>(value);
-        return(clone);
-    }
-    
-    @Override
-    public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            SessionRIREF val = typeCheck(v);
-            rc = value.contains(val);
-        } catch (DmcValueException e) {
+        synchronized(this){
+            Set<SessionRIREF> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                clone = new HashSet<SessionRIREF>(value);
+            else
+                clone = new TreeSet<SessionRIREF>(value);
+            return(clone.iterator());
         }
-        return(rc);
+    }
+    
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2393)
+    public Set<SessionRIREF> getMVCopy(){
+        synchronized(this){
+            Set<SessionRIREF> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                clone = new HashSet<SessionRIREF>(value);
+            else
+                clone = new TreeSet<SessionRIREF>(value);
+            return(clone);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    public int getMVSize(){
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2418)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                SessionRIREF val = typeCheck(v);
+                rc = value.contains(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
     }
     
 }

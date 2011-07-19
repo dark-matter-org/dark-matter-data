@@ -24,7 +24,6 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerVar;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
@@ -35,6 +34,7 @@ import org.dmd.dms.MetaSchema;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -911,8 +911,18 @@ public class GenUtility {
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		    	sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + typeName + "DMO value) {\n");
 		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
-		    	sb.append("        if (attr == null)\n");
-		    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        if (attr == null){\n");
+		    	sb.append("            if (value == null){\n");
+		    	sb.append("                if (getModifier() == null)\n");
+		    	sb.append("                    throw(new IllegalStateException(\"Calling setNth() on a non-existent attribute with a null value makes no sense!\"));\n");
+		    	sb.append("                else{\n");
+		    	sb.append("                    nthNullFromEmptyAttribute(" + ad.getDMSAGReference() + ", index);\n");
+		    	sb.append("                    return(null);\n");
+		    	sb.append("                }\n");
+		    	sb.append("            }\n");
+		    	sb.append("            else\n");
+		    	sb.append("                attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        }\n");
 		    	sb.append("        \n");
 		    	sb.append("        try{\n");
 		    	sb.append("            setLastValue(attr.setMVnth(index, value));\n");
@@ -982,12 +992,22 @@ public class GenUtility {
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		    	sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + typeName + " value) {\n");
 		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
-		    	sb.append("        if (attr == null)\n");
-		    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        if (attr == null){\n");
+		    	sb.append("            if (value == null){\n");
+		    	sb.append("                if (getModifier() == null)\n");
+		    	sb.append("                    throw(new IllegalStateException(\"Calling setNth() on a non-existent attribute with a null value makes no sense!\"));\n");
+		    	sb.append("                else{\n");
+		    	sb.append("                    nthNullFromEmptyAttribute(" + ad.getDMSAGReference() + ", index);\n");
+		    	sb.append("                    return(null);\n");
+		    	sb.append("                }\n");
+		    	sb.append("            }\n");
+		    	sb.append("            else\n");
+		    	sb.append("                attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+		    	sb.append("        }\n");
 		    	sb.append("        \n");
 		    	sb.append("        try{\n");
-		    	sb.append("            setLastValue(attr.setMVnth(index,value));\n");
-		    	sb.append("            nth(" + ad.getDMSAGReference() + ", index, attr);\n");
+		    	sb.append("            setLastValue(attr.setMVnth(index, value));\n");
+		    	sb.append("            nth(" + ad.getDMSAGReference() + ",index ,attr);\n");
 		    	sb.append("        }\n");
 		    	sb.append("        catch(DmcValueException ex){\n");
 		    	sb.append("            throw(new IllegalStateException(\"The type specific setNth() method shouldn't throw exceptions!\",ex));\n");
@@ -1735,6 +1755,7 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         if (dmoREF)
             out.write("    public DmcAttribute<" + typeName + DMO + genericArgs + "> cloneIt(){\n");
         else
@@ -1746,6 +1767,7 @@ public class GenUtility {
         out.write("    \n");
 
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + typeName + DMO + genericArgs + " set(Object v) throws DmcValueException {\n");
         out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
         out.write("        // We only return a value if the value actually changed. This supports\n");
@@ -2050,154 +2072,169 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         if (dmoREF)
         	out.write("    public DmcAttribute<" + typeName + DMO + genericArgs + "> cloneIt(){\n");
         else
         	out.write("    public DmcAttribute<" + typeName + REF + genericArgs + "> cloneIt(){\n");
-        out.write("        DmcType" + typeName + REF + "MV rc = getNew();\n");
-        out.write("        if (attrInfo.indexSize == 0){\n");
-        out.write("            for(" + typeName + DMO + genericArgs + " val: value)\n");
-        out.write("            try {\n");
-        out.write("                rc.add(val);\n");
-        out.write("            } catch (DmcValueException e) {\n");
-        out.write("                throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
-        out.write("            }\n");
-        out.write("        }\n");
-        out.write("        else{\n");
-        out.write("            for(int index=0; index<value.size(); index++)\n");
+        out.write("        synchronized(this){\n");
+        out.write("            DmcType" + typeName + REF + "MV rc = getNew();\n");
+        out.write("            if (attrInfo.indexSize == 0){\n");
+        out.write("                for(" + typeName + DMO + genericArgs + " val: value)\n");
         out.write("                try {\n");
-        out.write("                    rc.setMVnth(index, value.get(index));\n");
+        out.write("                    rc.add(val);\n");
         out.write("                } catch (DmcValueException e) {\n");
         out.write("                    throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
         out.write("                }\n");
-        out.write("        }\n");
-        out.write("        return(rc);\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-        out.write("    @Override\n");
-        out.write("    public " + typeName + DMO + genericArgs + " add(Object v) throws DmcValueException {\n");
-//        out.write("        if (attrInfo.indexSize > 0)\n");
-//        out.write("            throw(new IllegalStateException(\"You must use the setMVnth() method for indexed attribute: \" + attrInfo.name));\n");
-//        out.write("        \n");
-        out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
-        out.write("        if (value == null)\n");
-        out.write("            value = new ArrayList<" + typeName + DMO + genericArgs + ">();\n");
-        out.write("        value.add(rc);\n");
-        out.write("        return(rc);\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-        out.write("    @Override\n");
-        out.write("    public " + typeName + DMO + genericArgs + " del(Object v){\n");
-//        out.write("        if (attrInfo.indexSize > 0)\n");
-//        out.write("            throw(new IllegalStateException(\"You must use the setMVnth(index,null) method to remove values from indexed attribute: \" + attrInfo.name));\n");
-//        out.write("        \n");
-        out.write("        " + typeName + DMO + genericArgs + " rc = null;\n");
-        out.write("        try {\n");
-        out.write("            rc = typeCheck(v);\n");
-        out.write("        } catch (DmcValueException e) {\n");
-        out.write("            throw(new IllegalStateException(\"Incompatible type passed to del():\" + getName(),e));\n");
-        out.write("        }\n");
-        out.write("        if (value.contains(rc))\n");
-        out.write("            value.remove(rc);\n");
-        out.write("        else\n");
-        out.write("            rc = null;\n");
-        out.write("        return(rc);\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-        out.write("    @Override\n");
-        out.write("    public Iterator<" + typeName + DMO + genericArgs + "> getMV(){\n");
-        out.write("        ArrayList<" + typeName + DMO + genericArgs + "> clone = new ArrayList<" + typeName + DMO + genericArgs + ">(value);\n");
-        out.write("        return(clone.iterator());\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-        out.write("    public ArrayList<" + typeName + DMO + genericArgs + "> getMVCopy(){\n");
-        out.write("        ArrayList<" + typeName + DMO + genericArgs + "> clone = new ArrayList<" + typeName + DMO + genericArgs + ">(value);\n");
-        out.write("        return(clone);\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-        out.write("    @Override\n");
-        out.write("    public int getMVSize(){\n");
-        out.write("        if (value == null)\n");
-        out.write("            return(0);\n");
-        out.write("        return(value.size());\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-        out.write("    @Override\n");
-        out.write("    public " + typeName + DMO + genericArgs + " getMVnth(int index){\n");
-//        out.write("        if ( (attrInfo.indexSize > 0) && ((index < 0) || (index >= attrInfo.indexSize)) )\n");
-//        out.write("            throw(new IllegalStateException(\"Index \" + index + \" for attribute: \" + attrInfo.name + \" is out of range: 0 < index < \" + attrInfo.indexSize));\n");
-//        out.write("        \n");
-        out.write("        return(value.get(index));\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-        out.write("    @Override\n");
-        out.write("    public " + typeName + DMO + genericArgs + " setMVnth(int index, Object v) throws DmcValueException {\n");
-        out.write("        if (attrInfo.indexSize == 0)\n");
-        out.write("            throw(new IllegalStateException(\"Attribute: \" + attrInfo.name + \" is not indexed. You can't use setMVnth().\"));\n");
-        out.write("        \n");
-        out.write("        if ( (index < 0) || (index >= attrInfo.indexSize))\n");
-        out.write("            throw(new IllegalStateException(\"Index \" + index + \" for attribute: \" + attrInfo.name + \" is out of range: 0 <= index < \" + attrInfo.indexSize));\n");
-        out.write("        \n");
-        out.write("        " + typeName + DMO + genericArgs + " rc = null;\n");
-        out.write("        \n");
-        out.write("        if (v != null)\n");
-        out.write("            rc = typeCheck(v);\n");
-        out.write("        \n");
-        out.write("        if (value == null){\n");
-        out.write("            value = new ArrayList<" + typeName + DMO + genericArgs + ">(attrInfo.indexSize);\n");
-        out.write("            for(int i=0;i<attrInfo.indexSize;i++)\n");
-        out.write("                value.add(null);\n");
-        out.write("        }\n");
-        out.write("        \n");
-        out.write("        value.set(index, rc);\n");
-        out.write("        \n");
-        out.write("        return(rc);\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-        out.write("    @Override\n");
-        out.write("    public boolean hasValue(){\n");
-        out.write("        boolean rc = false;\n");
-        out.write("        \n");
-        out.write("        if (attrInfo.indexSize == 0)\n");
-        out.write("            throw(new IllegalStateException(\"Attribute: \" + attrInfo.name + \" is not indexed. You can't use hasValue().\"));\n");
-        out.write("        \n");
-        out.write("        if (value == null)\n");
-        out.write("            return(rc);\n");
-        out.write("        \n");
-        out.write("        for(int i=0; i<value.size(); i++){\n");
-        out.write("            if (value.get(i) != null){\n");
-        out.write("                rc = true;\n");
-        out.write("                break;\n");
         out.write("            }\n");
+        out.write("            else{\n");
+        out.write("                for(int index=0; index<value.size(); index++)\n");
+        out.write("                    try {\n");
+        out.write("                        rc.setMVnth(index, value.get(index));\n");
+        out.write("                    } catch (DmcValueException e) {\n");
+        out.write("                        throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
+        out.write("                    }\n");
+        out.write("            }\n");
+        out.write("            return(rc);\n");
         out.write("        }\n");
-        out.write("        \n");
-        out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public " + typeName + DMO + genericArgs + " add(Object v) throws DmcValueException {\n");
+        out.write("        synchronized(this){\n");
+        out.write("            " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
+        out.write("            if (value == null)\n");
+        out.write("                value = new ArrayList<" + typeName + DMO + genericArgs + ">();\n");
+        out.write("            value.add(rc);\n");
+        out.write("            return(rc);\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public " + typeName + DMO + genericArgs + " del(Object v){\n");
+        out.write("        synchronized(this){\n");
+        out.write("            " + typeName + DMO + genericArgs + " rc = null;\n");
+        out.write("            try {\n");
+        out.write("                rc = typeCheck(v);\n");
+        out.write("            } catch (DmcValueException e) {\n");
+        out.write("                throw(new IllegalStateException(\"Incompatible type passed to del():\" + getName(),e));\n");
+        out.write("            }\n");
+        out.write("            if (value.contains(rc))\n");
+        out.write("                value.remove(rc);\n");
+        out.write("            else\n");
+        out.write("                rc = null;\n");
+        out.write("            return(rc);\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public Iterator<" + typeName + DMO + genericArgs + "> getMV(){\n");
+        out.write("        synchronized(this){\n");
+        out.write("            ArrayList<" + typeName + DMO + genericArgs + "> clone = new ArrayList<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("            return(clone.iterator());\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public ArrayList<" + typeName + DMO + genericArgs + "> getMVCopy(){\n");
+        out.write("        synchronized(this){\n");
+        out.write("            ArrayList<" + typeName + DMO + genericArgs + "> clone = new ArrayList<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("            return(clone);\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public int getMVSize(){\n");
+        out.write("        synchronized(this){\n");
+        out.write("            if (value == null)\n");
+        out.write("                return(0);\n");
+        out.write("            return(value.size());\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public " + typeName + DMO + genericArgs + " getMVnth(int index){\n");
+        out.write("        synchronized(this){\n");
+        out.write("            return(value.get(index));\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public " + typeName + DMO + genericArgs + " setMVnth(int index, Object v) throws DmcValueException {\n");
+        out.write("        synchronized(this){\n");
+        out.write("            if (attrInfo.indexSize == 0)\n");
+        out.write("                throw(new IllegalStateException(\"Attribute: \" + attrInfo.name + \" is not indexed. You can't use setMVnth().\"));\n");
+        out.write("            \n");
+        out.write("            if ( (index < 0) || (index >= attrInfo.indexSize))\n");
+        out.write("                throw(new IllegalStateException(\"Index \" + index + \" for attribute: \" + attrInfo.name + \" is out of range: 0 <= index < \" + attrInfo.indexSize));\n");
+        out.write("            \n");
+        out.write("            " + typeName + DMO + genericArgs + " rc = null;\n");
+        out.write("            \n");
+        out.write("            if (v != null)\n");
+        out.write("                rc = typeCheck(v);\n");
+        out.write("            \n");
+        out.write("            if (value == null){\n");
+        out.write("                value = new ArrayList<" + typeName + DMO + genericArgs + ">(attrInfo.indexSize);\n");
+        out.write("                for(int i=0;i<attrInfo.indexSize;i++)\n");
+        out.write("                    value.add(null);\n");
+        out.write("            }\n");
+        out.write("            \n");
+        out.write("            value.set(index, rc);\n");
+        out.write("            \n");
+        out.write("            return(rc);\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public boolean hasValue(){\n");
+        out.write("        synchronized(this){\n");
+        out.write("            boolean rc = false;\n");
+        out.write("            \n");
+        out.write("            if (attrInfo.indexSize == 0)\n");
+        out.write("                throw(new IllegalStateException(\"Attribute: \" + attrInfo.name + \" is not indexed. You can't use hasValue().\"));\n");
+        out.write("            \n");
+        out.write("            if (value == null)\n");
+        out.write("                return(rc);\n");
+        out.write("            \n");
+        out.write("            for(int i=0; i<value.size(); i++){\n");
+        out.write("                if (value.get(i) != null){\n");
+        out.write("                    rc = true;\n");
+        out.write("                    break;\n");
+        out.write("                }\n");
+        out.write("            }\n");
+        out.write("            \n");
+        out.write("            return(rc);\n");
+        out.write("        }\n");
         out.write("    }\n");
         out.write("    \n");
 
-        
-//        out.write("    public " + typeName + genericArgs + " getByKey(Object key){\n");
-//        out.write("        throw(new IllegalStateException(\"The getByKey() method is not valid for a MULTI attribute:\" + getName()));\n");
-//        out.write("    }\n");
-//        out.write("    \n");
-        
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public boolean contains(Object v){\n");
-        out.write("        boolean rc = false;\n");
-        out.write("        try {\n");
-        out.write("            " + typeName + DMO + genericArgs + " val = typeCheck(v);\n");
-        out.write("            rc = value.contains(val);\n");
-        out.write("        } catch (DmcValueException e) {\n");
+        out.write("        synchronized(this){\n");
+        out.write("            boolean rc = false;\n");
+        out.write("            try {\n");
+        out.write("                " + typeName + DMO + genericArgs + " val = typeCheck(v);\n");
+        out.write("                rc = value.contains(val);\n");
+        out.write("            } catch (DmcValueException e) {\n");
+        out.write("            }\n");
+        out.write("            return(rc);\n");
         out.write("        }\n");
-        out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -2231,18 +2268,6 @@ public class GenUtility {
 			dmoREF = true;
 		}
 		
-//		String ofn = dmotypedir + File.separator + "DmcType" + typeName + REF + "SET.java";
-		
-//        if (progress != null)
-//        	progress.println("    Generating " + ofn);
-        
-//        if (nameAttr == null)
-//            DebugInfo.debug("public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "> {\n");
-//        else
-//        	DebugInfo.debug("public class DmcType" + typeName + "SET extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
-        
-        
-//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmotypedir, "DmcType" + typeName + REF + "SET.java");
 
         if (fileHeader != null)
@@ -2266,17 +2291,6 @@ public class GenUtility {
         if (dmcTypeImport != null && (!dmcTypeImport.endsWith("ValueTypeEnum")))
         	out.write("import " + dmcTypeImport + DMO + ";    // DmcType import\n");
 
-//        if (baseTypeImport != null)
-//        	out.write("import " + baseTypeImport + ";    // base type import\n");
-//                 	                
-//        if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute"))) {
-//        	if (!primitiveImport.endsWith("ValueTypeEnum"))
-//        		out.write("import " + primitiveImport + DMO + ";    // primitive import\n");
-//        }
-                 	                
-//        if (nameAttrImport != null)
-//        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
-                 	                
         out.write("/**\n");
         out.write(" * The DmcType" + typeName + REF + "SET provides storage for a set of " + typeName + DMO + "\n");
         out.write(" * <P>\n");
@@ -2318,106 +2332,112 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         if (dmoREF)
             out.write("    public DmcAttribute<" + typeName + DMO + genericArgs + "> cloneIt(){\n");
         else
         	out.write("    public DmcAttribute<" + typeName + REF + genericArgs + "> cloneIt(){\n");
-        out.write("        DmcType" + typeName + REF + "SET rc = getNew();\n");
-        out.write("        for(" + typeName + DMO + genericArgs + " val: value)\n");
-        out.write("        try {\n");
-        out.write("            rc.add(val);\n");
-        out.write("        } catch (DmcValueException e) {\n");
-        out.write("            throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
-        out.write("        }\n");
-        out.write("        return(rc);\n");
+        out.write("        synchronized(this){\n");
+        out.write("            DmcType" + typeName + REF + "SET rc = getNew();\n");
+        out.write("            for(" + typeName + DMO + genericArgs + " val: value)\n");
+        out.write("            try {\n");
+        out.write("                rc.add(val);\n");
+        out.write("            } catch (DmcValueException e) {\n");
+        out.write("                throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
+        out.write("            }\n");
+        out.write("            return(rc);\n");
+        out.write("       }\n");
         out.write("    }\n");
         out.write("    \n");
         
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + typeName + DMO + genericArgs + " add(Object v) throws DmcValueException {\n");
-        out.write("        " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
-        out.write("        if (value == null)\n");
-        out.write("            initValue();\n");
-        out.write("    \n");
-        out.write("        // If false is returned, we didn't modify the set, so return null\n");
-        out.write("        if (!value.add(rc))\n");
-        out.write("            rc = null;\n");
-        out.write("    \n");
-        out.write("        return(rc);\n");
+        out.write("        synchronized(this){\n");
+        out.write("            " + typeName + DMO + genericArgs + " rc = typeCheck(v);\n");
+        out.write("            if (value == null)\n");
+        out.write("                initValue();\n");
+        out.write("        \n");
+        out.write("            // If false is returned, we didn't modify the set, so return null\n");
+        out.write("            if (!value.add(rc))\n");
+        out.write("                rc = null;\n");
+        out.write("        \n");
+        out.write("            return(rc);\n");
+        out.write("        }\n");
         out.write("    }\n");
         out.write("    \n");
         
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + typeName + DMO + genericArgs + " del(Object v){\n");
-        out.write("        " + typeName + DMO + genericArgs + " rc = null;\n");
-        out.write("        try {\n");
-        out.write("            rc = typeCheck(v);\n");
-        out.write("        } catch (DmcValueException e) {\n");
-        out.write("            throw(new IllegalStateException(\"Incompatible type passed to del():\" + getName(),e));\n");
+        out.write("        synchronized(this){\n");
+        out.write("            " + typeName + DMO + genericArgs + " rc = null;\n");
+        out.write("            try {\n");
+        out.write("                rc = typeCheck(v);\n");
+        out.write("            } catch (DmcValueException e) {\n");
+        out.write("                throw(new IllegalStateException(\"Incompatible type passed to del():\" + getName(),e));\n");
+        out.write("            }\n");
+        out.write("            if (value.contains(rc))\n");
+        out.write("                value.remove(rc);\n");
+        out.write("            else\n");
+        out.write("                rc = null;\n");
+        out.write("            return(rc);\n");
         out.write("        }\n");
-        out.write("        if (value.contains(rc))\n");
-        out.write("            value.remove(rc);\n");
-        out.write("        else\n");
-        out.write("            rc = null;\n");
-        out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
         
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public Iterator<" + typeName + DMO + genericArgs + "> getMV(){\n");
-        out.write("        Set<" + typeName + DMO + genericArgs + "> clone = null;\n");
-        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
-        out.write("            clone = new HashSet<" + typeName + DMO + genericArgs + ">(value);\n");
-        out.write("        else\n");
-        out.write("            clone = new TreeSet<" + typeName + DMO + genericArgs + ">(value);\n");
-        out.write("        return(clone.iterator());\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-        out.write("    public Set<" + typeName + DMO + genericArgs + "> getMVCopy(){\n");
-        out.write("        Set<" + typeName + DMO + genericArgs + "> clone = null;\n");
-        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
-        out.write("            clone = new HashSet<" + typeName + DMO + genericArgs + ">(value);\n");
-        out.write("        else\n");
-        out.write("            clone = new TreeSet<" + typeName + DMO + genericArgs + ">(value);\n");
-        out.write("        return(clone);\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-        out.write("    @Override\n");
-        out.write("    public int getMVSize(){\n");
-        out.write("        if (value == null)\n");
-        out.write("            return(0);\n");
-        out.write("        return(value.size());\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-//        out.write("    public " + typeName + genericArgs + " getMVnth(int i){\n");
-//        out.write("        throw(new IllegalStateException(\"The getMVnth() method is not valid for SET attribute:\" + getName()));\n");
-//        out.write("    }\n");
-//        out.write("    \n");
-//        
-//        out.write("    public " + typeName + genericArgs + " getByKey(Object key){\n");
-//        out.write("        throw(new IllegalStateException(\"The getByKey() method is not valid for a SET attribute:\" + getName()));\n");
-//        out.write("    }\n");
-//        out.write("    \n");
-        
-        out.write("    @Override\n");
-        out.write("    public boolean contains(Object v){\n");
-        out.write("        boolean rc = false;\n");
-        out.write("        try {\n");
-        out.write("            " + typeName + DMO + genericArgs + " val = typeCheck(v);\n");
-        out.write("            rc = value.contains(val);\n");
-        out.write("        } catch (DmcValueException e) {\n");
+        out.write("        synchronized(this){\n");
+        out.write("            Set<" + typeName + DMO + genericArgs + "> clone = null;\n");
+        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
+        out.write("                clone = new HashSet<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("            else\n");
+        out.write("                clone = new TreeSet<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("            return(clone.iterator());\n");
         out.write("        }\n");
-        out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
         
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public Set<" + typeName + DMO + genericArgs + "> getMVCopy(){\n");
+        out.write("        synchronized(this){\n");
+        out.write("            Set<" + typeName + DMO + genericArgs + "> clone = null;\n");
+        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
+        out.write("                clone = new HashSet<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("            else\n");
+        out.write("                clone = new TreeSet<" + typeName + DMO + genericArgs + ">(value);\n");
+        out.write("            return(clone);\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
         
+        out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public int getMVSize(){\n");
+        out.write("        synchronized(this){\n");
+        out.write("            if (value == null)\n");
+        out.write("                return(0);\n");
+        out.write("            return(value.size());\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
         
-        
-        
+        out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public boolean contains(Object v){\n");
+        out.write("        synchronized(this){\n");
+        out.write("            boolean rc = false;\n");
+        out.write("            try {\n");
+        out.write("                " + typeName + DMO + genericArgs + " val = typeCheck(v);\n");
+        out.write("                rc = value.contains(val);\n");
+        out.write("            } catch (DmcValueException e) {\n");
+        out.write("            }\n");
+        out.write("            return(rc);\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
         
         out.write("}\n\n");
         
@@ -2439,19 +2459,6 @@ public class GenUtility {
 	 * @throws IOException
 	 */
 	static public void dumpMAPType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, String keyClass, String keyImport, String fileHeader, PrintStream progress) throws IOException {
-		
-//		String ofn = dmotypedir + File.separator + "DmcType" + typeName + "MAP.java";
-		
-//        if (progress != null)
-//        	progress.println("    Generating " + ofn);
-        
-//        if (nameAttr == null)
-//            DebugInfo.debug("public class DmcType" + typeName + "MAP extends DmcType" + typeName + "<" + typeName + "> {\n");
-//        else
-//        	DebugInfo.debug("public class DmcType" + typeName + "MAP extends DmcType" + typeName + "<" + typeName + "," + nameAttr + "> {\n");
-        
-        
-//        BufferedWriter 	out = new BufferedWriter( new FileWriter(ofn) );
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmotypedir, "DmcType" + typeName + "MAP.java");
 
         if (fileHeader != null)
@@ -2475,9 +2482,6 @@ public class GenUtility {
                  	                
         if ((primitiveImport != null) && (!primitiveImport.endsWith("DmcAttribute")))
         	out.write("import " + primitiveImport + ";    // primitive import\n");
-                 	                
-//        if (nameAttrImport != null)
-//        	out.write("import " + nameAttrImport + ";    // name attribute import\n");
                  	                
         if (keyImport != null)
         	out.write("import " + keyImport + ";    // key type import\n");
@@ -2529,135 +2533,128 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public DmcAttribute<" + typeName + genericArgs + "> cloneIt(){\n");
-        out.write("        DmcType" + typeName + "MAP rc = getNew();\n");
-        out.write("        for(" + typeName + genericArgs + " val: value.values())\n");
-        out.write("        try {\n");
-        out.write("            rc.add(val);\n");
-        out.write("        } catch (DmcValueException e) {\n");
-        out.write("            throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
+        out.write("        synchronized(this){\n");
+        out.write("            DmcType" + typeName + "MAP rc = getNew();\n");
+        out.write("            for(" + typeName + genericArgs + " val: value.values())\n");
+        out.write("            try {\n");
+        out.write("                rc.add(val);\n");
+        out.write("            } catch (DmcValueException e) {\n");
+        out.write("                throw(new IllegalStateException(\"typeCheck() should never fail here!\",e));\n");
+        out.write("            }\n");
+        out.write("            return(rc);\n");
         out.write("        }\n");
-        out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
         
-//        out.write("    @Override\n");
-//        out.write("    public DmcAttribute<" + typeName + REF + "MAP> cloneit(){\n");
-//        out.write("        DmcType" + typeName + REF + "MAP rc = getNew();\n");
-//        out.write("        for(" + typeName + DMO + genericArgs + " val: value)\n");
-//        out.write("            rc.add(val);\n");
-//        out.write("    }\n");
-//        out.write("    \n");
-        
-        
-//        out.write("    public " + typeName + " set(Object v) throws DmcValueException {\n");
-//        out.write("        throw(new IllegalStateException(\"The set() method is not valid for a MAP attribute:\" + getName()));\n");
-//        out.write("    }\n");
-//        out.write("    \n");
-//        
-//        out.write("    public " + typeName + " getSV(){\n");
-//        out.write("        throw(new IllegalStateException(\"The getSV() method is not valid for a MAP attribute:\" + getName()));\n");
-//        out.write("    }\n");
-//        out.write("    \n");
-        
-//        out.write("    public " + typeName + genericArgs + " add(Object v) throws DmcValueException {\n");
-//        out.write("        " + typeName + genericArgs + " rc = typeCheck(v);\n");
-//        out.write("        if (value == null)\n");
-//        out.write("            initValue();\n");
-//        out.write("        " + keyClass + " key = (" + keyClass + ")((DmcMappedAttributeIF)rc).getKey();\n");
-//        out.write("        value.put(key,rc);\n");
-//        out.write("        return(rc);\n");
-//        out.write("    }\n");
-//        out.write("    \n");
-        
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + typeName + genericArgs + " add(Object v) throws DmcValueException {\n");
-        out.write("        " + typeName + genericArgs + " newval = typeCheck(v);\n");
-        out.write("        if (value == null)\n");
-        out.write("            initValue();\n");
-        out.write("        " + keyClass + " key = (" + keyClass + ")((DmcMappedAttributeIF)newval).getKey();\n");
-        out.write("        " + typeName + genericArgs + " oldval = value.put(key,newval);\n");
-        out.write("        \n");
-        out.write("        if (oldval != null){\n");
-        out.write("            // We had a value with this key, ensure that the value actually changed\n");
-        out.write("            if (oldval.valuesAreEqual(newval))\n");
-        out.write("                newval = null;\n");
+        out.write("        synchronized(this){\n");
+        out.write("            " + typeName + genericArgs + " newval = typeCheck(v);\n");
+        out.write("            if (value == null)\n");
+        out.write("                initValue();\n");
+        out.write("            " + keyClass + " key = (" + keyClass + ")((DmcMappedAttributeIF)newval).getKey();\n");
+        out.write("            " + typeName + genericArgs + " oldval = value.put(key,newval);\n");
+        out.write("            \n");
+        out.write("            if (oldval != null){\n");
+        out.write("                // We had a value with this key, ensure that the value actually changed\n");
+        out.write("                if (oldval.valuesAreEqual(newval))\n");
+        out.write("                    newval = null;\n");
+        out.write("            }\n");
+        out.write("            \n");
+        out.write("            return(newval);\n");
         out.write("        }\n");
-        out.write("        \n");
-        out.write("        return(newval);\n");
         out.write("    }\n");
         out.write("    \n");
         
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + typeName + genericArgs + " del(Object key){\n");
-        out.write("        if (key instanceof " + keyClass + ")\n");
-        out.write("            return(value.remove(key));\n");
-        out.write("        else\n");
-        out.write("            throw(new IllegalStateException(\"Incompatible key type: \" + key.getClass().getName() + \" passed to del():\" + getName()));\n");
+        out.write("        synchronized(this){\n");
+        out.write("           if (key instanceof " + keyClass + ")\n");
+        out.write("                return(value.remove(key));\n");
+        out.write("            else\n");
+        out.write("                throw(new IllegalStateException(\"Incompatible key type: \" + key.getClass().getName() + \" passed to del():\" + getName()));\n");
+        out.write("        }\n");
         out.write("    }\n");
         out.write("    \n");
         
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public Iterator<" + typeName + genericArgs + "> getMV(){\n");
-        out.write("        Map<" + keyClass + "," + typeName + genericArgs + "> clone = null;\n");
-        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)\n");
-        out.write("            clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
-        out.write("        else\n");
-        out.write("            clone = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
-        out.write("        return(clone.values().iterator());\n");
+        out.write("        synchronized(this){\n");
+        out.write("            Map<" + keyClass + "," + typeName + genericArgs + "> clone = null;\n");
+        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)\n");
+        out.write("                clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
+        out.write("            else\n");
+        out.write("                clone = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
+        out.write("            return(clone.values().iterator());\n");
+        out.write("        }\n");
         out.write("    }\n");
         out.write("    \n");
         
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public Map<" + keyClass + "," + typeName + genericArgs + "> getMVCopy(){\n");
-        out.write("        Map<" + keyClass + "," + typeName + genericArgs + "> clone = null;\n");
-        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)\n");
-        out.write("            clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
-        out.write("        else\n");
-        out.write("            clone = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
-        out.write("        return(clone);\n");
+        out.write("        synchronized(this){\n");
+        out.write("            Map<" + keyClass + "," + typeName + genericArgs + "> clone = null;\n");
+        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)\n");
+        out.write("                clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
+        out.write("            else\n");
+        out.write("                clone = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
+        out.write("            return(clone);\n");
+        out.write("        }\n");
         out.write("    }\n");
         out.write("    \n");
         
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    @Override\n");
         out.write("    public int getMVSize(){\n");
-        out.write("        if (value == null)\n");
-        out.write("            return(0);\n");
-        out.write("        return(value.size());\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-//        out.write("    public " + typeName + genericArgs + " getMVnth(int i){\n");
-//        out.write("        throw(new IllegalStateException(\"The getMVnth() method is not valid for MAP attribute:\" + getName()));\n");
-//        out.write("    }\n");
-//        out.write("    \n");
-        
-        out.write("    @Override\n");
-        out.write("    public " + typeName + genericArgs + " getByKey(Object key){\n");
-        out.write("        if (key instanceof " + keyClass + ")\n");
-        out.write("            return(value.get(key));\n");
-        out.write("        else\n");
-        out.write("            throw(new IllegalStateException(\"Incompatible type: \" + key.getClass().getName() + \" passed to del():\" + getName()));\n");
-        out.write("    }\n");
-        out.write("    \n");
-        
-        out.write("    @Override\n");
-        out.write("    public boolean contains(Object v){\n");
-        out.write("        boolean rc = false;\n");
-        out.write("        try {\n");
-        out.write("            " + typeName + genericArgs + " val = typeCheck(v);\n");
-        out.write("            rc = value.containsValue(val);\n");
-        out.write("        } catch (DmcValueException e) {\n");
+        out.write("        synchronized(this){\n");
+        out.write("            if (value == null)\n");
+        out.write("                return(0);\n");
+        out.write("            return(value.size());\n");
         out.write("        }\n");
-        out.write("        return(rc);\n");
         out.write("    }\n");
         out.write("    \n");
         
         out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public " + typeName + genericArgs + " getByKey(Object key){\n");
+        out.write("        synchronized(this){\n");
+        out.write("            if (key instanceof " + keyClass + ")\n");
+        out.write("                return(value.get(key));\n");
+        out.write("            else\n");
+        out.write("                throw(new IllegalStateException(\"Incompatible type: \" + key.getClass().getName() + \" passed to del():\" + getName()));\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("    public boolean contains(Object v){\n");
+        out.write("        synchronized(this){\n");
+        out.write("            boolean rc = false;\n");
+        out.write("            try {\n");
+        out.write("                " + typeName + genericArgs + " val = typeCheck(v);\n");
+        out.write("                rc = value.containsValue(val);\n");
+        out.write("            } catch (DmcValueException e) {\n");
+        out.write("            }\n");
+        out.write("            return(rc);\n");
+        out.write("        }\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
+        out.write("    @Override\n");
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public boolean containsKey(Object key){\n");
-        out.write("        boolean rc = false;\n");
-        out.write("        if (key instanceof " + keyClass + ")\n");
-        out.write("            rc = value.containsKey(key);\n");
-        out.write("        return(rc);\n");
+        out.write("        synchronized(this){\n");
+        out.write("            boolean rc = false;\n");
+        out.write("           if (key instanceof " + keyClass + ")\n");
+        out.write("                rc = value.containsKey(key);\n");
+        out.write("            return(rc);\n");
+        out.write("        }\n");
         out.write("    }\n");
         out.write("    \n");
         

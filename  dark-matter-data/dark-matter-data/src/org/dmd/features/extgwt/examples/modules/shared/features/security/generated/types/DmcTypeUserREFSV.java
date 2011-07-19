@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserREFSV provides storage for a single-valued UserREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1690)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1716)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
@@ -33,6 +33,7 @@ public class DmcTypeUserREFSV extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1748)
     public DmcAttribute<UserREF> cloneIt(){
         DmcTypeUserREFSV rc = getNew();
         rc.value = value;
@@ -40,6 +41,7 @@ public class DmcTypeUserREFSV extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1760)
     public UserREF set(Object v) throws DmcValueException {
         UserREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

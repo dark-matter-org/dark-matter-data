@@ -24,7 +24,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;    // D
  * The DmcTypeRequestOptionEnumSV provides storage for a single-valued RequestOptionEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1706)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1716)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
  */
 @SuppressWarnings("serial")
@@ -49,6 +49,7 @@ public class DmcTypeRequestOptionEnumSV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1748)
     public DmcAttribute<RequestOptionEnum> cloneIt(){
         DmcTypeRequestOptionEnumSV rc = getNew();
         rc.value = value;
@@ -56,6 +57,7 @@ public class DmcTypeRequestOptionEnumSV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1760)
     public RequestOptionEnum set(Object v) throws DmcValueException {
         RequestOptionEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

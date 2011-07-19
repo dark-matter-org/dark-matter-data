@@ -152,7 +152,7 @@ public class Modifier implements Serializable {
 	 * Constructs a new Modifier for setting of the specified index to null.
 	 * @param an The attribute name.
 	 * @param op The operation.
-	 * @param n  The attriubte info.
+	 * @param n  The attribute info.
 	 * @param idx The index being set to null.
 	 */
 	public Modifier(ModifyTypeEnum op, DmcAttributeInfo ai, int idx){

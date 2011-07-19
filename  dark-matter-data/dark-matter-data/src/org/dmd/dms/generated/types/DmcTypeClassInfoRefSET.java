@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeClassInfoRef;    // DmcType import
  * The DmcTypeClassInfoRefSET provides storage for a set of ClassInfoRef
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2268)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2277)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
  */
 @SuppressWarnings("serial")
@@ -60,80 +60,101 @@ public class DmcTypeClassInfoRefSET extends DmcTypeClassInfoRef implements Seria
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2314)
     public DmcAttribute<ClassInfoRef> cloneIt(){
-        DmcTypeClassInfoRefSET rc = getNew();
-        for(ClassInfoRef val: value)
-        try {
-            rc.add(val);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("typeCheck() should never fail here!",e));
-        }
-        return(rc);
+        synchronized(this){
+            DmcTypeClassInfoRefSET rc = getNew();
+            for(ClassInfoRef val: value)
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+            return(rc);
+       }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2333)
     public ClassInfoRef add(Object v) throws DmcValueException {
-        ClassInfoRef rc = typeCheck(v);
-        if (value == null)
-            initValue();
-    
-        // If false is returned, we didn't modify the set, so return null
-        if (!value.add(rc))
-            rc = null;
-    
-        return(rc);
+        synchronized(this){
+            ClassInfoRef rc = typeCheck(v);
+            if (value == null)
+                initValue();
+        
+            // If false is returned, we didn't modify the set, so return null
+            if (!value.add(rc))
+                rc = null;
+        
+            return(rc);
+        }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2350)
     public ClassInfoRef del(Object v){
-        ClassInfoRef rc = null;
-        try {
-            rc = typeCheck(v);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+        synchronized(this){
+            ClassInfoRef rc = null;
+            try {
+                rc = typeCheck(v);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+            }
+            if (value.contains(rc))
+                value.remove(rc);
+            else
+                rc = null;
+            return(rc);
         }
-        if (value.contains(rc))
-            value.remove(rc);
-        else
-            rc = null;
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public Iterator<ClassInfoRef> getMV(){
-        Set<ClassInfoRef> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ClassInfoRef>(value);
-        else
-            clone = new TreeSet<ClassInfoRef>(value);
-        return(clone.iterator());
-    }
-    
-    public Set<ClassInfoRef> getMVCopy(){
-        Set<ClassInfoRef> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            clone = new HashSet<ClassInfoRef>(value);
-        else
-            clone = new TreeSet<ClassInfoRef>(value);
-        return(clone);
-    }
-    
-    @Override
-    public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            ClassInfoRef val = typeCheck(v);
-            rc = value.contains(val);
-        } catch (DmcValueException e) {
+        synchronized(this){
+            Set<ClassInfoRef> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                clone = new HashSet<ClassInfoRef>(value);
+            else
+                clone = new TreeSet<ClassInfoRef>(value);
+            return(clone.iterator());
         }
-        return(rc);
+    }
+    
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2382)
+    public Set<ClassInfoRef> getMVCopy(){
+        synchronized(this){
+            Set<ClassInfoRef> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                clone = new HashSet<ClassInfoRef>(value);
+            else
+                clone = new TreeSet<ClassInfoRef>(value);
+            return(clone);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2396)
+    public int getMVSize(){
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                ClassInfoRef val = typeCheck(v);
+                rc = value.contains(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
     }
     
 }

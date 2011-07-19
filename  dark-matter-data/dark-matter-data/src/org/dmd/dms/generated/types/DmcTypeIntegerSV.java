@@ -24,7 +24,7 @@ import org.dmd.dmc.types.DmcTypeInteger;    // DmcType import
  * The DmcTypeIntegerSV provides storage for a single-valued Integer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1690)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1705)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:266)
  */
 @SuppressWarnings("serial")
@@ -49,6 +49,7 @@ public class DmcTypeIntegerSV extends DmcTypeInteger implements Serializable {
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1737)
     public DmcAttribute<Integer> cloneIt(){
         DmcTypeIntegerSV rc = getNew();
         rc.value = value;
@@ -56,6 +57,7 @@ public class DmcTypeIntegerSV extends DmcTypeInteger implements Serializable {
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1749)
     public Integer set(Object v) throws DmcValueException {
         Integer rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

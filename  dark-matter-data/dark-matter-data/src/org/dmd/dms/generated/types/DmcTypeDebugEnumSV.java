@@ -24,7 +24,7 @@ import org.dmd.dms.generated.enums.DebugEnum;    // DmcType import
  * The DmcTypeDebugEnumSV provides storage for a single-valued DebugEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1690)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1705)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:228)
  */
 @SuppressWarnings("serial")
@@ -49,6 +49,7 @@ public class DmcTypeDebugEnumSV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1737)
     public DmcAttribute<DebugEnum> cloneIt(){
         DmcTypeDebugEnumSV rc = getNew();
         rc.value = value;
@@ -56,6 +57,7 @@ public class DmcTypeDebugEnumSV extends DmcTypeDebugEnum implements Serializable
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1749)
     public DebugEnum set(Object v) throws DmcValueException {
         DebugEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

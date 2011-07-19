@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeDotNamedObjectREFSV provides storage for a single-valued DotNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1690)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1716)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
@@ -48,6 +48,7 @@ public class DmcTypeDotNamedObjectREFSV extends DmcTypeDotNamedObjectREF impleme
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1748)
     public DmcAttribute<DotNamedObjectREF> cloneIt(){
         DmcTypeDotNamedObjectREFSV rc = getNew();
         rc.value = value;
@@ -55,6 +56,7 @@ public class DmcTypeDotNamedObjectREFSV extends DmcTypeDotNamedObjectREF impleme
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1760)
     public DotNamedObjectREF set(Object v) throws DmcValueException {
         DotNamedObjectREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

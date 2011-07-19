@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcMenuItemREFSV provides storage for a single-valued MvcMenuItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1690)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1716)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
@@ -48,6 +48,7 @@ public class DmcTypeMvcMenuItemREFSV extends DmcTypeMvcMenuItemREF implements Se
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1748)
     public DmcAttribute<MvcMenuItemREF> cloneIt(){
         DmcTypeMvcMenuItemREFSV rc = getNew();
         rc.value = value;
@@ -55,6 +56,7 @@ public class DmcTypeMvcMenuItemREFSV extends DmcTypeMvcMenuItemREF implements Se
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1760)
     public MvcMenuItemREF set(Object v) throws DmcValueException {
         MvcMenuItemREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

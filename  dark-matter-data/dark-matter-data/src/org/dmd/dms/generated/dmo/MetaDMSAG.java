@@ -9,7 +9,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:246)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:251)
 public class MetaDMSAG implements DmcCompactSchemaIF {
 
 
