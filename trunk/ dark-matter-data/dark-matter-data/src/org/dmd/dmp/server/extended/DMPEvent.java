@@ -132,6 +132,16 @@ public class DMPEvent extends DMPEventDMW {
 									break;
 								}
 						}
+						else if (mod.getModifyType() == ModifyTypeEnum.NTH){
+							AttributeDefinition ad = DmwOmni.instance().getSchema().adef(mod.getAttributeName());
+							if (ad == null)
+								throw(new IllegalStateException("Malformed DMPEvent. Could not get definition for attribute: " + mod.getAttributeName()));
+							else
+								if (ad.getDataType() == DataTypeEnum.PERSISTENT){
+									rc = true;
+									break;
+								}
+						}
 						else
 							throw(new IllegalStateException("Malformed DMPEvent. Missing attribute for a Modifier: " + mod.toString()));
 					}

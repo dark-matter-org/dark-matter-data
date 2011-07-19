@@ -15,7 +15,7 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeIntegerNamedObjectREFMAP provides storage for a map of IntegerNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2489)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2483)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
@@ -46,93 +46,120 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2526)
     public DmcAttribute<IntegerNamedObjectREF> cloneIt(){
-        DmcTypeIntegerNamedObjectREFMAP rc = getNew();
-        for(IntegerNamedObjectREF val: value.values())
-        try {
-            rc.add(val);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        synchronized(this){
+            DmcTypeIntegerNamedObjectREFMAP rc = getNew();
+            for(IntegerNamedObjectREF val: value.values())
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+            return(rc);
         }
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2542)
     public IntegerNamedObjectREF add(Object v) throws DmcValueException {
-        IntegerNamedObjectREF newval = typeCheck(v);
-        if (value == null)
-            initValue();
-        IntegerName key = (IntegerName)((DmcMappedAttributeIF)newval).getKey();
-        IntegerNamedObjectREF oldval = value.put(key,newval);
-        
-        if (oldval != null){
-            // We had a value with this key, ensure that the value actually changed
-            if (oldval.valuesAreEqual(newval))
-                newval = null;
+        synchronized(this){
+            IntegerNamedObjectREF newval = typeCheck(v);
+            if (value == null)
+                initValue();
+            IntegerName key = (IntegerName)((DmcMappedAttributeIF)newval).getKey();
+            IntegerNamedObjectREF oldval = value.put(key,newval);
+            
+            if (oldval != null){
+                // We had a value with this key, ensure that the value actually changed
+                if (oldval.valuesAreEqual(newval))
+                    newval = null;
+            }
+            
+            return(newval);
         }
-        
-        return(newval);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2563)
     public IntegerNamedObjectREF del(Object key){
-        if (key instanceof IntegerName)
-            return(value.remove(key));
-        else
-            throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
+        synchronized(this){
+           if (key instanceof IntegerName)
+                return(value.remove(key));
+            else
+                throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
+        }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2575)
     public Iterator<IntegerNamedObjectREF> getMV(){
-        Map<IntegerName,IntegerNamedObjectREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            clone = new HashMap<IntegerName,IntegerNamedObjectREF>(value);
-        else
-            clone = new TreeMap<IntegerName,IntegerNamedObjectREF>(value);
-        return(clone.values().iterator());
+        synchronized(this){
+            Map<IntegerName,IntegerNamedObjectREF> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+                clone = new HashMap<IntegerName,IntegerNamedObjectREF>(value);
+            else
+                clone = new TreeMap<IntegerName,IntegerNamedObjectREF>(value);
+            return(clone.values().iterator());
+        }
     }
     
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2588)
     public Map<IntegerName,IntegerNamedObjectREF> getMVCopy(){
-        Map<IntegerName,IntegerNamedObjectREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            clone = new HashMap<IntegerName,IntegerNamedObjectREF>(value);
-        else
-            clone = new TreeMap<IntegerName,IntegerNamedObjectREF>(value);
-        return(clone);
+        synchronized(this){
+            Map<IntegerName,IntegerNamedObjectREF> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+                clone = new HashMap<IntegerName,IntegerNamedObjectREF>(value);
+            else
+                clone = new TreeMap<IntegerName,IntegerNamedObjectREF>(value);
+            return(clone);
+        }
     }
     
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2601)
     @Override
     public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public IntegerNamedObjectREF getByKey(Object key){
-        if (key instanceof IntegerName)
-            return(value.get(key));
-        else
-            throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
-    }
-    
-    @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            IntegerNamedObjectREF val = typeCheck(v);
-            rc = value.containsValue(val);
-        } catch (DmcValueException e) {
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
         }
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2613)
+    public IntegerNamedObjectREF getByKey(Object key){
+        synchronized(this){
+            if (key instanceof IntegerName)
+                return(value.get(key));
+            else
+                throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2625)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                IntegerNamedObjectREF val = typeCheck(v);
+                rc = value.containsValue(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2640)
     public boolean containsKey(Object key){
-        boolean rc = false;
-        if (key instanceof IntegerName)
-            rc = value.containsKey(key);
-        return(rc);
+        synchronized(this){
+            boolean rc = false;
+           if (key instanceof IntegerName)
+                rc = value.containsKey(key);
+            return(rc);
+        }
     }
     
 }

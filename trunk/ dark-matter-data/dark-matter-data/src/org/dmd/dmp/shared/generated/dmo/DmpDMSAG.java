@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:510)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:515)
 import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // DmrBaseDMSAG
 import org.dmd.dms.generated.dmo.MetaDMSAG;                        // MetaDMSAG
 import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions
@@ -19,28 +19,6 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
 
     static String schemaName = "dmp";
 
-    public final static DmcClassInfo __DMPMessage = new DmcClassInfo("DMPMessage", 501, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __DMPEvent = new DmcClassInfo("DMPEvent", 518, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__DMPMessage,null);
-    public final static DmcClassInfo __Request = new DmcClassInfo("Request", 502, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__DMPMessage,null);
-    public final static DmcClassInfo __ActionRequest = new DmcClassInfo("ActionRequest", 510, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __CreateRequest = new DmcClassInfo("CreateRequest", 514, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __DeleteRequest = new DmcClassInfo("DeleteRequest", 516, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __DenotifyRequest = new DmcClassInfo("DenotifyRequest", 521, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __GetRequest = new DmcClassInfo("GetRequest", 508, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __LoginRequest = new DmcClassInfo("LoginRequest", 504, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __LogoutRequest = new DmcClassInfo("LogoutRequest", 506, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __NotifyRequest = new DmcClassInfo("NotifyRequest", 519, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __SetRequest = new DmcClassInfo("SetRequest", 512, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __Response = new DmcClassInfo("Response", 503, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__DMPMessage,null);
-    public final static DmcClassInfo __ActionResponse = new DmcClassInfo("ActionResponse", 511, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __CreateResponse = new DmcClassInfo("CreateResponse", 515, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __DeleteResponse = new DmcClassInfo("DeleteResponse", 517, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __DenotifyResponse = new DmcClassInfo("DenotifyResponse", 522, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __GetResponse = new DmcClassInfo("GetResponse", 509, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __LoginResponse = new DmcClassInfo("LoginResponse", 505, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __LogoutResponse = new DmcClassInfo("LogoutResponse", 507, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __NotifyResponse = new DmcClassInfo("NotifyResponse", 520, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __SetResponse = new DmcClassInfo("SetResponse", 513, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Response,null);
     public final static DmcAttributeInfo __FQNList = new DmcAttributeInfo("FQNList", 507, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __actionName = new DmcAttributeInfo("actionName", 515, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __actionTrigger = new DmcAttributeInfo("actionTrigger", 525, "DmcObject", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -79,6 +57,28 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS", 518, "Long", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __trackingEnabled = new DmcAttributeInfo("trackingEnabled", 539, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userFQN = new DmcAttributeInfo("userFQN", 524, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo __DMPMessage = new DmcClassInfo("DMPMessage", 501, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __DMPEvent = new DmcClassInfo("DMPEvent", 518, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__DMPMessage,null);
+    public final static DmcClassInfo __Request = new DmcClassInfo("Request", 502, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__DMPMessage,null);
+    public final static DmcClassInfo __ActionRequest = new DmcClassInfo("ActionRequest", 510, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __CreateRequest = new DmcClassInfo("CreateRequest", 514, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __DeleteRequest = new DmcClassInfo("DeleteRequest", 516, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __DenotifyRequest = new DmcClassInfo("DenotifyRequest", 521, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __GetRequest = new DmcClassInfo("GetRequest", 508, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __LoginRequest = new DmcClassInfo("LoginRequest", 504, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __LogoutRequest = new DmcClassInfo("LogoutRequest", 506, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __NotifyRequest = new DmcClassInfo("NotifyRequest", 519, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __SetRequest = new DmcClassInfo("SetRequest", 512, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __Response = new DmcClassInfo("Response", 503, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__DMPMessage,null);
+    public final static DmcClassInfo __ActionResponse = new DmcClassInfo("ActionResponse", 511, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __CreateResponse = new DmcClassInfo("CreateResponse", 515, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __DeleteResponse = new DmcClassInfo("DeleteResponse", 517, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __DenotifyResponse = new DmcClassInfo("DenotifyResponse", 522, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __GetResponse = new DmcClassInfo("GetResponse", 509, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __LoginResponse = new DmcClassInfo("LoginResponse", 505, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __LogoutResponse = new DmcClassInfo("LogoutResponse", 507, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __NotifyResponse = new DmcClassInfo("NotifyResponse", 520, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __SetResponse = new DmcClassInfo("SetResponse", 513, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Response,null);
 
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;

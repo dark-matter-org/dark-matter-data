@@ -99,11 +99,6 @@ public class DmoCompactSchemaFormatter {
         out.write("    static String schemaName = \"" + sd.getName().getNameString() + "\";\n");
         out.write("\n");
 
-        TreeMap<String,ClassNode> hierarchy = getHierarchy(classes.values().iterator());
-        for(ClassNode cn: hierarchy.values()){
-        	cn.writeClassInfo(out);
-		}
-
         for(AttributeDefinition ad: attributes.values()){
 			//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
 			out.write("    public final static DmcAttributeInfo __" + ad.getName().getNameString() + " = new DmcAttributeInfo(");
@@ -119,6 +114,11 @@ public class DmoCompactSchemaFormatter {
 				out.write(", " + ad.getIndexSize() + ");\n");
 		}
         
+        TreeMap<String,ClassNode> hierarchy = getHierarchy(classes.values().iterator());
+        for(ClassNode cn: hierarchy.values()){
+        	cn.writeClassInfo(out);
+		}
+
         out.write("\n");
         for(SliceDefinition slice: sd.getSliceDefList()){
 			out.write("    public final static DmcSliceInfo __" + slice.getName() + " = new DmcSliceInfo(\"" + slice.getName() + "\");\n");

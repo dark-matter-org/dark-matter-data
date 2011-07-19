@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeComplexTypeDefinitionREFMV provides storage for a multi-valued ComplexTypeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2009)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2026)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:240)
  */
 @SuppressWarnings("serial")
@@ -47,127 +47,157 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2054)
     public DmcAttribute<ComplexTypeDefinitionREF> cloneIt(){
-        DmcTypeComplexTypeDefinitionREFMV rc = getNew();
-        if (attrInfo.indexSize == 0){
-            for(ComplexTypeDefinitionREF val: value)
-            try {
-                rc.add(val);
-            } catch (DmcValueException e) {
-                throw(new IllegalStateException("typeCheck() should never fail here!",e));
-            }
-        }
-        else{
-            for(int index=0; index<value.size(); index++)
+        synchronized(this){
+            DmcTypeComplexTypeDefinitionREFMV rc = getNew();
+            if (attrInfo.indexSize == 0){
+                for(ComplexTypeDefinitionREF val: value)
                 try {
-                    rc.setMVnth(index, value.get(index));
+                    rc.add(val);
                 } catch (DmcValueException e) {
                     throw(new IllegalStateException("typeCheck() should never fail here!",e));
                 }
-        }
-        return(rc);
-    }
-    
-    @Override
-    public ComplexTypeDefinitionREF add(Object v) throws DmcValueException {
-        ComplexTypeDefinitionREF rc = typeCheck(v);
-        if (value == null)
-            value = new ArrayList<ComplexTypeDefinitionREF>();
-        value.add(rc);
-        return(rc);
-    }
-    
-    @Override
-    public ComplexTypeDefinitionREF del(Object v){
-        ComplexTypeDefinitionREF rc = null;
-        try {
-            rc = typeCheck(v);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
-        }
-        if (value.contains(rc))
-            value.remove(rc);
-        else
-            rc = null;
-        return(rc);
-    }
-    
-    @Override
-    public Iterator<ComplexTypeDefinitionREF> getMV(){
-        ArrayList<ComplexTypeDefinitionREF> clone = new ArrayList<ComplexTypeDefinitionREF>(value);
-        return(clone.iterator());
-    }
-    
-    public ArrayList<ComplexTypeDefinitionREF> getMVCopy(){
-        ArrayList<ComplexTypeDefinitionREF> clone = new ArrayList<ComplexTypeDefinitionREF>(value);
-        return(clone);
-    }
-    
-    @Override
-    public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public ComplexTypeDefinitionREF getMVnth(int index){
-        return(value.get(index));
-    }
-    
-    @Override
-    public ComplexTypeDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
-        if (attrInfo.indexSize == 0)
-            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
-        
-        if ( (index < 0) || (index >= attrInfo.indexSize))
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
-        
-        ComplexTypeDefinitionREF rc = null;
-        
-        if (v != null)
-            rc = typeCheck(v);
-        
-        if (value == null){
-            value = new ArrayList<ComplexTypeDefinitionREF>(attrInfo.indexSize);
-            for(int i=0;i<attrInfo.indexSize;i++)
-                value.add(null);
-        }
-        
-        value.set(index, rc);
-        
-        return(rc);
-    }
-    
-    @Override
-    public boolean hasValue(){
-        boolean rc = false;
-        
-        if (attrInfo.indexSize == 0)
-            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
-        
-        if (value == null)
-            return(rc);
-        
-        for(int i=0; i<value.size(); i++){
-            if (value.get(i) != null){
-                rc = true;
-                break;
             }
+            else{
+                for(int index=0; index<value.size(); index++)
+                    try {
+                        rc.setMVnth(index, value.get(index));
+                    } catch (DmcValueException e) {
+                        throw(new IllegalStateException("typeCheck() should never fail here!",e));
+                    }
+            }
+            return(rc);
         }
-        
-        return(rc);
     }
     
     @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            ComplexTypeDefinitionREF val = typeCheck(v);
-            rc = value.contains(val);
-        } catch (DmcValueException e) {
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2083)
+    public ComplexTypeDefinitionREF add(Object v) throws DmcValueException {
+        synchronized(this){
+            ComplexTypeDefinitionREF rc = typeCheck(v);
+            if (value == null)
+                value = new ArrayList<ComplexTypeDefinitionREF>();
+            value.add(rc);
+            return(rc);
         }
-        return(rc);
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2096)
+    public ComplexTypeDefinitionREF del(Object v){
+        synchronized(this){
+            ComplexTypeDefinitionREF rc = null;
+            try {
+                rc = typeCheck(v);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+            }
+            if (value.contains(rc))
+                value.remove(rc);
+            else
+                rc = null;
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2115)
+    public Iterator<ComplexTypeDefinitionREF> getMV(){
+        synchronized(this){
+            ArrayList<ComplexTypeDefinitionREF> clone = new ArrayList<ComplexTypeDefinitionREF>(value);
+            return(clone.iterator());
+        }
+    }
+    
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2124)
+    public ArrayList<ComplexTypeDefinitionREF> getMVCopy(){
+        synchronized(this){
+            ArrayList<ComplexTypeDefinitionREF> clone = new ArrayList<ComplexTypeDefinitionREF>(value);
+            return(clone);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2134)
+    public int getMVSize(){
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2145)
+    public ComplexTypeDefinitionREF getMVnth(int index){
+        synchronized(this){
+            return(value.get(index));
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2154)
+    public ComplexTypeDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
+        synchronized(this){
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            
+            if ( (index < 0) || (index >= attrInfo.indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            
+            ComplexTypeDefinitionREF rc = null;
+            
+            if (v != null)
+                rc = typeCheck(v);
+            
+            if (value == null){
+                value = new ArrayList<ComplexTypeDefinitionREF>(attrInfo.indexSize);
+                for(int i=0;i<attrInfo.indexSize;i++)
+                    value.add(null);
+            }
+            
+            value.set(index, rc);
+            
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
+    public boolean hasValue(){
+        synchronized(this){
+            boolean rc = false;
+            
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            
+            if (value == null)
+                return(rc);
+            
+            for(int i=0; i<value.size(); i++){
+                if (value.get(i) != null){
+                    rc = true;
+                    break;
+                }
+            }
+            
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                ComplexTypeDefinitionREF val = typeCheck(v);
+                rc = value.contains(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
     }
     
 }

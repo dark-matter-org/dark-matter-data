@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DotName;    // key type import
  * The DmcTypeSessionFolderRIREFMAP provides storage for a map of SessionFolderRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2473)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2483)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
@@ -61,93 +61,120 @@ public class DmcTypeSessionFolderRIREFMAP extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2526)
     public DmcAttribute<SessionFolderRIREF> cloneIt(){
-        DmcTypeSessionFolderRIREFMAP rc = getNew();
-        for(SessionFolderRIREF val: value.values())
-        try {
-            rc.add(val);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        synchronized(this){
+            DmcTypeSessionFolderRIREFMAP rc = getNew();
+            for(SessionFolderRIREF val: value.values())
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+            return(rc);
         }
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2542)
     public SessionFolderRIREF add(Object v) throws DmcValueException {
-        SessionFolderRIREF newval = typeCheck(v);
-        if (value == null)
-            initValue();
-        DotName key = (DotName)((DmcMappedAttributeIF)newval).getKey();
-        SessionFolderRIREF oldval = value.put(key,newval);
-        
-        if (oldval != null){
-            // We had a value with this key, ensure that the value actually changed
-            if (oldval.valuesAreEqual(newval))
-                newval = null;
+        synchronized(this){
+            SessionFolderRIREF newval = typeCheck(v);
+            if (value == null)
+                initValue();
+            DotName key = (DotName)((DmcMappedAttributeIF)newval).getKey();
+            SessionFolderRIREF oldval = value.put(key,newval);
+            
+            if (oldval != null){
+                // We had a value with this key, ensure that the value actually changed
+                if (oldval.valuesAreEqual(newval))
+                    newval = null;
+            }
+            
+            return(newval);
         }
-        
-        return(newval);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2563)
     public SessionFolderRIREF del(Object key){
-        if (key instanceof DotName)
-            return(value.remove(key));
-        else
-            throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
+        synchronized(this){
+           if (key instanceof DotName)
+                return(value.remove(key));
+            else
+                throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
+        }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2575)
     public Iterator<SessionFolderRIREF> getMV(){
-        Map<DotName,SessionFolderRIREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            clone = new HashMap<DotName,SessionFolderRIREF>(value);
-        else
-            clone = new TreeMap<DotName,SessionFolderRIREF>(value);
-        return(clone.values().iterator());
+        synchronized(this){
+            Map<DotName,SessionFolderRIREF> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+                clone = new HashMap<DotName,SessionFolderRIREF>(value);
+            else
+                clone = new TreeMap<DotName,SessionFolderRIREF>(value);
+            return(clone.values().iterator());
+        }
     }
     
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2588)
     public Map<DotName,SessionFolderRIREF> getMVCopy(){
-        Map<DotName,SessionFolderRIREF> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            clone = new HashMap<DotName,SessionFolderRIREF>(value);
-        else
-            clone = new TreeMap<DotName,SessionFolderRIREF>(value);
-        return(clone);
+        synchronized(this){
+            Map<DotName,SessionFolderRIREF> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+                clone = new HashMap<DotName,SessionFolderRIREF>(value);
+            else
+                clone = new TreeMap<DotName,SessionFolderRIREF>(value);
+            return(clone);
+        }
     }
     
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2601)
     @Override
     public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public SessionFolderRIREF getByKey(Object key){
-        if (key instanceof DotName)
-            return(value.get(key));
-        else
-            throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
-    }
-    
-    @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            SessionFolderRIREF val = typeCheck(v);
-            rc = value.containsValue(val);
-        } catch (DmcValueException e) {
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
         }
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2613)
+    public SessionFolderRIREF getByKey(Object key){
+        synchronized(this){
+            if (key instanceof DotName)
+                return(value.get(key));
+            else
+                throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2625)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                SessionFolderRIREF val = typeCheck(v);
+                rc = value.containsValue(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2640)
     public boolean containsKey(Object key){
-        boolean rc = false;
-        if (key instanceof DotName)
-            rc = value.containsKey(key);
-        return(rc);
+        synchronized(this){
+            boolean rc = false;
+           if (key instanceof DotName)
+                rc = value.containsKey(key);
+            return(rc);
+        }
     }
     
 }

@@ -25,7 +25,7 @@ import org.dmd.dmc.types.DmcTypeClassInfoRef;    // DmcType import
  * The DmcTypeClassInfoRefSV provides storage for a single-valued ClassInfoRef
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1690)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1705)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:266)
  */
 @SuppressWarnings("serial")
@@ -50,6 +50,7 @@ public class DmcTypeClassInfoRefSV extends DmcTypeClassInfoRef implements Serial
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1737)
     public DmcAttribute<ClassInfoRef> cloneIt(){
         DmcTypeClassInfoRefSV rc = getNew();
         rc.value = value;
@@ -57,6 +58,7 @@ public class DmcTypeClassInfoRefSV extends DmcTypeClassInfoRef implements Serial
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1749)
     public ClassInfoRef set(Object v) throws DmcValueException {
         ClassInfoRef rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

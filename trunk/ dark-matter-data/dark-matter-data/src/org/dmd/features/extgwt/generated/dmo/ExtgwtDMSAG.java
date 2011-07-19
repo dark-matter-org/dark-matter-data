@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:510)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:515)
 import org.dmd.dmg.generated.dmo.DmgDMSAG;                // DmgDMSAG
 import org.dmd.dms.generated.dmo.MetaDMSAG;               // MetaDMSAG
 import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions
@@ -19,24 +19,6 @@ public class ExtgwtDMSAG implements DmcCompactSchemaIF {
 
     static String schemaName = "extgwt";
 
-    public final static DmcClassInfo __MvcDefinition = new DmcClassInfo("MvcDefinition", 601, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcAction = new DmcClassInfo("MvcAction", 610, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcApplication = new DmcClassInfo("MvcApplication", 605, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcConfig = new DmcClassInfo("MvcConfig", 602, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcController = new DmcClassInfo("MvcController", 606, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcEvent = new DmcClassInfo("MvcEvent", 603, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcMenu = new DmcClassInfo("MvcMenu", 611, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcBackgroundMenu = new DmcClassInfo("MvcBackgroundMenu", 616, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcMenuBar = new DmcClassInfo("MvcMenuBar", 612, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcPopupMenu = new DmcClassInfo("MvcPopupMenu", 615, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcSubMenu = new DmcClassInfo("MvcSubMenu", 614, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcToolBar = new DmcClassInfo("MvcToolBar", 613, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcMenuItem = new DmcClassInfo("MvcMenuItem", 617, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcMenuSeparator = new DmcClassInfo("MvcMenuSeparator", 618, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcRegistryItem = new DmcClassInfo("MvcRegistryItem", 609, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcServerEvent = new DmcClassInfo("MvcServerEvent", 604, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcView = new DmcClassInfo("MvcView", 607, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
-    public final static DmcClassInfo __MvcMultiView = new DmcClassInfo("MvcMultiView", 608, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcView,MetaDMSAG.__name);
     public final static DmcAttributeInfo __addToMenu = new DmcAttributeInfo("addToMenu", 623, "MvcMenu", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __alwaysEnabled = new DmcAttributeInfo("alwaysEnabled", 624, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __associatedController = new DmcAttributeInfo("associatedController", 631, "MvcController", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -72,6 +54,24 @@ public class ExtgwtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __userDataGenericSpec = new DmcAttributeInfo("userDataGenericSpec", 621, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userDataType = new DmcAttributeInfo("userDataType", 608, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usesRegistryItem = new DmcAttributeInfo("usesRegistryItem", 612, "MvcRegistryItem", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo __MvcDefinition = new DmcClassInfo("MvcDefinition", 601, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcAction = new DmcClassInfo("MvcAction", 610, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcApplication = new DmcClassInfo("MvcApplication", 605, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcConfig = new DmcClassInfo("MvcConfig", 602, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcController = new DmcClassInfo("MvcController", 606, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcEvent = new DmcClassInfo("MvcEvent", 603, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcMenu = new DmcClassInfo("MvcMenu", 611, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcBackgroundMenu = new DmcClassInfo("MvcBackgroundMenu", 616, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcMenuBar = new DmcClassInfo("MvcMenuBar", 612, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcPopupMenu = new DmcClassInfo("MvcPopupMenu", 615, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcSubMenu = new DmcClassInfo("MvcSubMenu", 614, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcToolBar = new DmcClassInfo("MvcToolBar", 613, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcMenu,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcMenuItem = new DmcClassInfo("MvcMenuItem", 617, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcMenuSeparator = new DmcClassInfo("MvcMenuSeparator", 618, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcRegistryItem = new DmcClassInfo("MvcRegistryItem", 609, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcServerEvent = new DmcClassInfo("MvcServerEvent", 604, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcView = new DmcClassInfo("MvcView", 607, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcDefinition,MetaDMSAG.__name);
+    public final static DmcClassInfo __MvcMultiView = new DmcClassInfo("MvcMultiView", 608, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvcView,MetaDMSAG.__name);
 
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;

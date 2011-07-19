@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:510)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:515)
 import org.dmd.dms.generated.dmo.MetaDMSAG;               // MetaDMSAG
 import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions
 import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions
@@ -18,16 +18,16 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
     static String schemaName = "dmv";
 
+    public final static DmcAttributeInfo __applyToAttribute = new DmcAttributeInfo("applyToAttribute", 303, "AttributeDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __applyToClass = new DmcAttributeInfo("applyToClass", 302, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __loadedFrom = new DmcAttributeInfo("loadedFrom", 301, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __ruleTitle = new DmcAttributeInfo("ruleTitle", 300, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcClassInfo __Rule = new DmcClassInfo("Rule", 301, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
     public final static DmcClassInfo __AttributeRule = new DmcClassInfo("AttributeRule", 302, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__Rule,null);
     public final static DmcClassInfo __IntegerRangeRule = new DmcClassInfo("IntegerRangeRule", 306, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__AttributeRule,null);
     public final static DmcClassInfo __ClassRule = new DmcClassInfo("ClassRule", 303, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__Rule,null);
     public final static DmcClassInfo __MayRule = new DmcClassInfo("MayRule", 305, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__ClassRule,null);
     public final static DmcClassInfo __MustRule = new DmcClassInfo("MustRule", 304, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__ClassRule,null);
-    public final static DmcAttributeInfo __applyToAttribute = new DmcAttributeInfo("applyToAttribute", 303, "AttributeDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __applyToClass = new DmcAttributeInfo("applyToClass", 302, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __loadedFrom = new DmcAttributeInfo("loadedFrom", 301, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __ruleTitle = new DmcAttributeInfo("ruleTitle", 300, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
 
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;

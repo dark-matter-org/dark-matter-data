@@ -31,7 +31,7 @@ import org.dmd.dmc.types.IntegerToString;    // primitive import
  * The DmcTypeIntegerToStringMAP provides storage for a map of IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2473)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2472)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:271)
  */
 @SuppressWarnings("serial")
@@ -62,93 +62,120 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2515)
     public DmcAttribute<IntegerToString> cloneIt(){
-        DmcTypeIntegerToStringMAP rc = getNew();
-        for(IntegerToString val: value.values())
-        try {
-            rc.add(val);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("typeCheck() should never fail here!",e));
+        synchronized(this){
+            DmcTypeIntegerToStringMAP rc = getNew();
+            for(IntegerToString val: value.values())
+            try {
+                rc.add(val);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("typeCheck() should never fail here!",e));
+            }
+            return(rc);
         }
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2531)
     public IntegerToString add(Object v) throws DmcValueException {
-        IntegerToString newval = typeCheck(v);
-        if (value == null)
-            initValue();
-        Integer key = (Integer)((DmcMappedAttributeIF)newval).getKey();
-        IntegerToString oldval = value.put(key,newval);
-        
-        if (oldval != null){
-            // We had a value with this key, ensure that the value actually changed
-            if (oldval.valuesAreEqual(newval))
-                newval = null;
+        synchronized(this){
+            IntegerToString newval = typeCheck(v);
+            if (value == null)
+                initValue();
+            Integer key = (Integer)((DmcMappedAttributeIF)newval).getKey();
+            IntegerToString oldval = value.put(key,newval);
+            
+            if (oldval != null){
+                // We had a value with this key, ensure that the value actually changed
+                if (oldval.valuesAreEqual(newval))
+                    newval = null;
+            }
+            
+            return(newval);
         }
-        
-        return(newval);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2552)
     public IntegerToString del(Object key){
-        if (key instanceof Integer)
-            return(value.remove(key));
-        else
-            throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
+        synchronized(this){
+           if (key instanceof Integer)
+                return(value.remove(key));
+            else
+                throw(new IllegalStateException("Incompatible key type: " + key.getClass().getName() + " passed to del():" + getName()));
+        }
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2564)
     public Iterator<IntegerToString> getMV(){
-        Map<Integer,IntegerToString> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            clone = new HashMap<Integer,IntegerToString>(value);
-        else
-            clone = new TreeMap<Integer,IntegerToString>(value);
-        return(clone.values().iterator());
+        synchronized(this){
+            Map<Integer,IntegerToString> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+                clone = new HashMap<Integer,IntegerToString>(value);
+            else
+                clone = new TreeMap<Integer,IntegerToString>(value);
+            return(clone.values().iterator());
+        }
     }
     
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2577)
     public Map<Integer,IntegerToString> getMVCopy(){
-        Map<Integer,IntegerToString> clone = null;
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            clone = new HashMap<Integer,IntegerToString>(value);
-        else
-            clone = new TreeMap<Integer,IntegerToString>(value);
-        return(clone);
+        synchronized(this){
+            Map<Integer,IntegerToString> clone = null;
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+                clone = new HashMap<Integer,IntegerToString>(value);
+            else
+                clone = new TreeMap<Integer,IntegerToString>(value);
+            return(clone);
+        }
     }
     
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2590)
     @Override
     public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public IntegerToString getByKey(Object key){
-        if (key instanceof Integer)
-            return(value.get(key));
-        else
-            throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
-    }
-    
-    @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            IntegerToString val = typeCheck(v);
-            rc = value.containsValue(val);
-        } catch (DmcValueException e) {
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
         }
-        return(rc);
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2602)
+    public IntegerToString getByKey(Object key){
+        synchronized(this){
+            if (key instanceof Integer)
+                return(value.get(key));
+            else
+                throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2614)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                IntegerToString val = typeCheck(v);
+                rc = value.containsValue(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2629)
     public boolean containsKey(Object key){
-        boolean rc = false;
-        if (key instanceof Integer)
-            rc = value.containsKey(key);
-        return(rc);
+        synchronized(this){
+            boolean rc = false;
+           if (key instanceof Integer)
+                rc = value.containsKey(key);
+            return(rc);
+        }
     }
     
 }

@@ -342,6 +342,8 @@ public class TestSerialization {
 		
 		System.out.println(request.toOIF(15));
 		
+		assertNotNull("Construction class info should not be null after deserialization.", request.getDMO().getConstructionClassInfo());
+		
 		ObjWithRefs dmw = (ObjWithRefs) request.getNewObjectWrapped();
 		
 		System.out.println("\n\nThe new object wrapped:\n" + dmw.toOIF(15));
@@ -424,7 +426,42 @@ public class TestSerialization {
 	}
 	
 
+	@Test
+	public void serializeNamedObject() throws Exception{
+		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
+
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("object1");
+		obj.addMvString("string1");
+				
+		System.out.println("\nStoring to file:\n\n" + obj.toOIF() + "\n");
+
+		DmcTraceableOutputStream dos = new DmcTraceableOutputStream(os, true, 35);
+
+		obj.serializeIt(dos);
+		
+		os.close();
+	}
 	
+	@Test
+	public void deserializeNamedObject() throws Exception {
+		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
+		
+		DmwDeserializer	deserializer = new DmwDeserializer(DmwOmni.instance().getSchema());
+
+		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
+		
+		ObjWithRefs obj = (ObjWithRefs) deserializer.deserialize(dis);
+		
+		ObjWithRefs modrec = obj.getModificationRecorder();
+		
+		modrec.setSvString("single string");
+		
+		System.out.println(modrec.toOIF());
+		
+	}
+	
+
 	
 	
 	

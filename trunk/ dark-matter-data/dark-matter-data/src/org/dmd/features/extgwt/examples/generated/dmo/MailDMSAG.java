@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:510)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:515)
 import org.dmd.dms.generated.dmo.MetaDMSAG;               // MetaDMSAG
 import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions
 import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions
@@ -18,14 +18,14 @@ public class MailDMSAG implements DmcCompactSchemaIF {
 
     static String schemaName = "mail";
 
-    public final static DmcClassInfo __Folder = new DmcClassInfo("Folder", 901, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
-    public final static DmcClassInfo __MailItem = new DmcClassInfo("MailItem", 902, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MailDMSAG.__mailID);
     public final static DmcAttributeInfo __body = new DmcAttributeInfo("body", 905, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __email = new DmcAttributeInfo("email", 903, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __folderID = new DmcAttributeInfo("folderID", 900, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mailID = new DmcAttributeInfo("mailID", 901, "IntegerName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __sender = new DmcAttributeInfo("sender", 902, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __subject = new DmcAttributeInfo("subject", 904, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo __Folder = new DmcClassInfo("Folder", 901, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __MailItem = new DmcClassInfo("MailItem", 902, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MailDMSAG.__mailID);
 
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;

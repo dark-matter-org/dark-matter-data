@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;    // DmcType import
  * The DmcTypeActionResponseREFMV provides storage for a multi-valued ActionResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2009)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2037)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:222)
  */
 @SuppressWarnings("serial")
@@ -48,127 +48,157 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
     }
     
     @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2065)
     public DmcAttribute<ActionResponseDMO> cloneIt(){
-        DmcTypeActionResponseREFMV rc = getNew();
-        if (attrInfo.indexSize == 0){
-            for(ActionResponseDMO val: value)
-            try {
-                rc.add(val);
-            } catch (DmcValueException e) {
-                throw(new IllegalStateException("typeCheck() should never fail here!",e));
-            }
-        }
-        else{
-            for(int index=0; index<value.size(); index++)
+        synchronized(this){
+            DmcTypeActionResponseREFMV rc = getNew();
+            if (attrInfo.indexSize == 0){
+                for(ActionResponseDMO val: value)
                 try {
-                    rc.setMVnth(index, value.get(index));
+                    rc.add(val);
                 } catch (DmcValueException e) {
                     throw(new IllegalStateException("typeCheck() should never fail here!",e));
                 }
-        }
-        return(rc);
-    }
-    
-    @Override
-    public ActionResponseDMO add(Object v) throws DmcValueException {
-        ActionResponseDMO rc = typeCheck(v);
-        if (value == null)
-            value = new ArrayList<ActionResponseDMO>();
-        value.add(rc);
-        return(rc);
-    }
-    
-    @Override
-    public ActionResponseDMO del(Object v){
-        ActionResponseDMO rc = null;
-        try {
-            rc = typeCheck(v);
-        } catch (DmcValueException e) {
-            throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
-        }
-        if (value.contains(rc))
-            value.remove(rc);
-        else
-            rc = null;
-        return(rc);
-    }
-    
-    @Override
-    public Iterator<ActionResponseDMO> getMV(){
-        ArrayList<ActionResponseDMO> clone = new ArrayList<ActionResponseDMO>(value);
-        return(clone.iterator());
-    }
-    
-    public ArrayList<ActionResponseDMO> getMVCopy(){
-        ArrayList<ActionResponseDMO> clone = new ArrayList<ActionResponseDMO>(value);
-        return(clone);
-    }
-    
-    @Override
-    public int getMVSize(){
-        if (value == null)
-            return(0);
-        return(value.size());
-    }
-    
-    @Override
-    public ActionResponseDMO getMVnth(int index){
-        return(value.get(index));
-    }
-    
-    @Override
-    public ActionResponseDMO setMVnth(int index, Object v) throws DmcValueException {
-        if (attrInfo.indexSize == 0)
-            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
-        
-        if ( (index < 0) || (index >= attrInfo.indexSize))
-            throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
-        
-        ActionResponseDMO rc = null;
-        
-        if (v != null)
-            rc = typeCheck(v);
-        
-        if (value == null){
-            value = new ArrayList<ActionResponseDMO>(attrInfo.indexSize);
-            for(int i=0;i<attrInfo.indexSize;i++)
-                value.add(null);
-        }
-        
-        value.set(index, rc);
-        
-        return(rc);
-    }
-    
-    @Override
-    public boolean hasValue(){
-        boolean rc = false;
-        
-        if (attrInfo.indexSize == 0)
-            throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
-        
-        if (value == null)
-            return(rc);
-        
-        for(int i=0; i<value.size(); i++){
-            if (value.get(i) != null){
-                rc = true;
-                break;
             }
+            else{
+                for(int index=0; index<value.size(); index++)
+                    try {
+                        rc.setMVnth(index, value.get(index));
+                    } catch (DmcValueException e) {
+                        throw(new IllegalStateException("typeCheck() should never fail here!",e));
+                    }
+            }
+            return(rc);
         }
-        
-        return(rc);
     }
     
     @Override
-    public boolean contains(Object v){
-        boolean rc = false;
-        try {
-            ActionResponseDMO val = typeCheck(v);
-            rc = value.contains(val);
-        } catch (DmcValueException e) {
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2094)
+    public ActionResponseDMO add(Object v) throws DmcValueException {
+        synchronized(this){
+            ActionResponseDMO rc = typeCheck(v);
+            if (value == null)
+                value = new ArrayList<ActionResponseDMO>();
+            value.add(rc);
+            return(rc);
         }
-        return(rc);
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2107)
+    public ActionResponseDMO del(Object v){
+        synchronized(this){
+            ActionResponseDMO rc = null;
+            try {
+                rc = typeCheck(v);
+            } catch (DmcValueException e) {
+                throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
+            }
+            if (value.contains(rc))
+                value.remove(rc);
+            else
+                rc = null;
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2126)
+    public Iterator<ActionResponseDMO> getMV(){
+        synchronized(this){
+            ArrayList<ActionResponseDMO> clone = new ArrayList<ActionResponseDMO>(value);
+            return(clone.iterator());
+        }
+    }
+    
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2135)
+    public ArrayList<ActionResponseDMO> getMVCopy(){
+        synchronized(this){
+            ArrayList<ActionResponseDMO> clone = new ArrayList<ActionResponseDMO>(value);
+            return(clone);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2145)
+    public int getMVSize(){
+        synchronized(this){
+            if (value == null)
+                return(0);
+            return(value.size());
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2156)
+    public ActionResponseDMO getMVnth(int index){
+        synchronized(this){
+            return(value.get(index));
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2165)
+    public ActionResponseDMO setMVnth(int index, Object v) throws DmcValueException {
+        synchronized(this){
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            
+            if ( (index < 0) || (index >= attrInfo.indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            
+            ActionResponseDMO rc = null;
+            
+            if (v != null)
+                rc = typeCheck(v);
+            
+            if (value == null){
+                value = new ArrayList<ActionResponseDMO>(attrInfo.indexSize);
+                for(int i=0;i<attrInfo.indexSize;i++)
+                    value.add(null);
+            }
+            
+            value.set(index, rc);
+            
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2193)
+    public boolean hasValue(){
+        synchronized(this){
+            boolean rc = false;
+            
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            
+            if (value == null)
+                return(rc);
+            
+            for(int i=0; i<value.size(); i++){
+                if (value.get(i) != null){
+                    rc = true;
+                    break;
+                }
+            }
+            
+            return(rc);
+        }
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2217)
+    public boolean contains(Object v){
+        synchronized(this){
+            boolean rc = false;
+            try {
+                ActionResponseDMO val = typeCheck(v);
+                rc = value.contains(val);
+            } catch (DmcValueException e) {
+            }
+            return(rc);
+        }
     }
     
 }

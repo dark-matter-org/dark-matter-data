@@ -244,7 +244,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * @return An Iterator of Modifier objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:919)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:945)
     public Iterator<Modifier> getModify(){
         DmcTypeModifierMV attr = (DmcTypeModifierMV) get(DmpDMSAG.__modify);
         if (attr == null)
@@ -256,7 +256,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * @return The nth Modifier value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:931)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:957)
     public Modifier getNthModify(int i){
         DmcTypeModifierMV attr = (DmcTypeModifierMV) get(DmpDMSAG.__modify);
         if (attr == null)
@@ -269,7 +269,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Adds another modify to the specified value.
      * @param value Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:945)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:971)
     public DmcAttribute<?> addModify(Modifier value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__modify);
         if (attr == null)
@@ -289,7 +289,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified Modifier.
      * @param value Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1009)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
     public boolean modifyContains(Modifier value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__modify);
         if (attr == null)
@@ -301,7 +301,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Adds another modify value.
      * @param value A value compatible with Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1041)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
     public DmcAttribute<?> addModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__modify);
         if (attr == null)
@@ -315,7 +315,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Returns the number of values in modify
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1058)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
     public int getModifySize(){
         DmcAttribute<?> attr = get(DmpDMSAG.__modify);
         if (attr == null)
@@ -328,7 +328,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a modify value.
      * @param value The Modifier to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1100)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
     public DmcAttribute<?> delModify(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__modify);
         
@@ -344,7 +344,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a modify from the specified value.
      * @param value Modifier
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1116)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
     public DmcAttribute<?> delModify(Modifier value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__modify);
         
@@ -359,7 +359,7 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the modify attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1135)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
     public void remModify(){
          rem(DmpDMSAG.__modify);
     }

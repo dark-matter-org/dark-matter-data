@@ -985,6 +985,21 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
+	 * This method is called in generated DMOs to handle the case where we're
+	 * using an empty DMO to create a modifier. When we perform setNth(#,null),
+	 * we have no attribute, so we create a specialized modifier. 
+	 * @param mod The appropriately typed attribute holder.
+	 * @param value The value to be deleted.
+	 */
+	protected void nthNullFromEmptyAttribute(DmcAttributeInfo ai, int idx){
+		try {
+			getModifier().add(new Modifier(ModifyTypeEnum.NTH, ai, idx));		
+		} catch (DmcValueException e) {
+			throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
+		}
+	}
+	
+	/**
 	 * This method adds a value to a multi-valued attribute. If you had previously set the
 	 * same attribute to a different type, you get a class cast exception.
 	 * @param ai   The attribute info.
