@@ -9,6 +9,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -424,7 +425,7 @@ public class TestIndexedAttributes {
 
 	@Test
 	public void testModifiersRemovalFromMissingAttribute() throws DmcValueException {
-		System.out.println("\ntestModifiers3");
+		System.out.println("\ntestModifiersRemovalFromMissingAttribute");
 		
 		ObjWithRefs obj = new ObjWithRefs();
 		obj.setName("obj1");
@@ -444,5 +445,114 @@ public class TestIndexedAttributes {
 		System.out.println(event.toOIF(15));
 	}
 	
+	@Test
+	public void testApplyModifierBaseType() throws DmcValueException, DmcValueExceptionSet {
+		System.out.println("\ntestApplyModifierBaseType");
+		
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("obj1");
+		
+		obj.setNthIndexedString(0, "zeroeth");
+		obj.setNthIndexedString(3, "fourth");
+		
+		System.out.println(obj.toOIF());
+				
+		ObjWithRefs modrec = obj.getModificationRecorder();
+		
+		modrec.setNthIndexedString(4, "fifth");
+		modrec.setNthIndexedString(3, null);
+
+		System.out.println(modrec.toOIF(15));
+		
+		obj.applyModifier(modrec.getModifier());
+		
+		assertEquals("3rd index should be null", null, obj.getNthIndexedString(3));
+		
+		assertEquals("4th index should be fifth", "fifth", obj.getNthIndexedString(4));
+		
+		System.out.println(obj.toOIF());
+	}
+	
+	@Test
+	public void testApplyModifierPlainObjectsSerialize() throws Exception {
+		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
+
+		System.out.println("\ntestApplyModifierPlainObjects");
+		
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("obj1");
+		
+		TestBasicObjectFixedDMW	obj2 = new TestBasicObjectFixedDMW();
+		obj2.setSvString("obj2 SV string");
+		
+		TestBasicObjectFixedDMW	obj3 = new TestBasicObjectFixedDMW();
+		obj3.setSvString("obj3 SV string");
+		
+		obj.setNthIndexedPlainObjRef(0, obj2);
+		obj.setNthIndexedPlainObjRef(4, obj3);
+		
+		System.out.println(obj.toOIF());
+				
+		ObjWithRefs modrec = obj.getModificationRecorder();
+		
+		modrec.setNthIndexedPlainObjRef(4, null);
+
+		System.out.println(modrec.toOIF(15));
+		
+		obj.applyModifier(modrec.getModifier());
+		
+		assertNotNull("0th index should not be null", obj.getNthIndexedPlainObjRef(0));
+		
+		assertNull("4th index should be null", obj.getNthIndexedPlainObjRef(4));
+		
+		System.out.println(obj.toOIF());
+		
+		DMPEvent event = new DMPEvent(DMPEventTypeEnum.MODIFIED,modrec);
+		
+		System.out.println(event.toOIF(15));
+		
+		DmcTraceableOutputStream dos = new DmcTraceableOutputStream(os, true, 35);
+
+		event.serializeIt(dos);
+		
+		os.close();
+	}
+	
+	@Test
+	public void testApplyModifierPlainObjectsDeserialize() throws Exception {
+		System.out.println("\ntestApplyModifierPlainObjectsDeserialize()\n");
+		
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("obj1");
+		
+		TestBasicObjectFixedDMW	obj2 = new TestBasicObjectFixedDMW();
+		obj2.setSvString("obj2 SV string");
+		
+		TestBasicObjectFixedDMW	obj3 = new TestBasicObjectFixedDMW();
+		obj3.setSvString("obj3 SV string");
+		
+		obj.setNthIndexedPlainObjRef(0, obj2);
+		obj.setNthIndexedPlainObjRef(4, obj3);
+	
+		DataInputStream			is 				= new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
+		DmwDeserializer			deserializer 	= new DmwDeserializer(DmwOmni.instance().getSchema());
+		DmcTraceableInputStream dis 			= new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
+		
+		DMPEvent event = (DMPEvent) deserializer.deserialize(dis);
+		
+		System.out.println("\n\n" + event + "\n");
+		
+		boolean modified = obj.applyModifier(event.getModifyAttribute());
+		
+		assertEquals("Object should be flagged as modified", true, modified);
+		
+		assertNotNull("0th index should not be null", obj.getNthIndexedPlainObjRef(0));
+		
+		assertNull("4th index should be null", obj.getNthIndexedPlainObjRef(4));
+		
+		System.out.println("Modified object:\n\n" + obj.toOIF());
+
+	}
+
 
 }

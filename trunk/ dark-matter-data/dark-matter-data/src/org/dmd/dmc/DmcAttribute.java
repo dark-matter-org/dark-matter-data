@@ -618,13 +618,11 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 						}
 						else{
 							if (value instanceof DmcObject){
-//								dmoCount++;
-								if (first){
+//								if (first){
 									addNameWithPadding(name,padding,sb);
-//									sb.append(indexstr);
-//									sb.append("\n[\n");
-									first = false;
-								}
+									sb.append(indexstr);
+//									first = false;
+//								}
 								sb.append(" {\n" + ((DmcObject)value).toOIF() + "}\n");
 							}
 							else{
@@ -638,8 +636,6 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 						}
 						index++;
 					}
-//					if (dmoCount > 0)
-//						sb.append("]\n");
 				}
 				else{
 					while(iterator.hasNext()){
