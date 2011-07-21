@@ -1638,6 +1638,10 @@ abstract public class DmcObject implements Serializable {
 //							if (current == null)
 //								throw(new IllegalStateException("Setting an index on attribute: " + existing.getName() + " to null that's already null: " + index));
 							
+							// we currently have a value and we're nulling it so there's been a change
+							if (current != null)
+								anyChange = true;
+							
 							existing.setMVnth(index, value);
 						}
 						else{
