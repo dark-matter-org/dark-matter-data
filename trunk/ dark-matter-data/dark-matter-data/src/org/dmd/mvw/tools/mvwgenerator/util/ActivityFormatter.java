@@ -46,18 +46,23 @@ public class ActivityFormatter {
     	///////////////////////////////////////////////////////////////////////
     	// Constructor
 
-    	out.write("    public " + activity.getActivityName() + "BaseImpl(MvwRunContextIF rc){\n");
+    	if (activity.usesRunContext())
+        	out.write("    public " + activity.getActivityName() + "BaseImpl(MvwRunContextIF rc){\n");
+    	else
+    		out.write("    public " + activity.getActivityName() + "BaseImpl(){\n");
 
     	for(RunContextItem rci: activity.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariableAssignment());
     	}
 
-    	if (onDemand){
+    	if (activity.usesRunContext() && onDemand){
         	out.write("\n");
         	out.write("        runcontext = rc;\n");
     	}
 
-//    	if (activity.getImplementsActionHasValue()){
+    	out.write(activity.getEventRegistration() + "\n");
+
+    	//    	if (activity.getImplementsActionHasValue()){
 //    		out.write(activity.getActionInstantiations() + "\n");
 //    	}
     	

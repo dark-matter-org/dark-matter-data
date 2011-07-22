@@ -1,7 +1,7 @@
 package org.dmd.mvw.client.mvwcomms.generated.mvw.controllers;
 
-// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
-// Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:78)
+// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
+// Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:114)
 import com.google.gwt.event.shared.EventBus;                                               // Used by eventBus
 import de.novanic.eventservice.client.event.RemoteEventService;                            // Used by eventService
 import org.dmd.dmc.DmcOmni;                                                                // Support for schema loading
@@ -12,6 +12,7 @@ import org.dmd.mvw.client.mvwcomms.generated.mvw.MvwcommsRunContextIF;          
 import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LoginCompleteEvent;                // Required by LoginCompleteEvent
 import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LoginCompleteEventHandler;         // Required by LoginCompleteEvent
 
+// Generated from: org.dmd.mvw.tools.mvwgenerator.util.ControllerFormatter.formatControllerBaseImpl(ControllerFormatter.java:24)
 abstract public class CommsControllerBaseImpl {
 
     protected final DMPServiceAsync dmpConnection;
@@ -28,6 +29,8 @@ abstract public class CommsControllerBaseImpl {
 
     }
 
+    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:183)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:333)
     protected void fireLoginCompleteEvent(){
         eventBus.fireEvent(new LoginCompleteEvent());
     }

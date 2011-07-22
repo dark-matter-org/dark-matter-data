@@ -20,6 +20,7 @@ public class GxtMenuFactory extends MvwMenuFactory {
 	
 	// Menu items
 	final static String MenuItem 		= "MenuItem";
+	final static String CheckMenuItem 	= "CheckMenuItem";
 	
 	// Separators
 	final static String Separator 		= "Separator";
@@ -48,6 +49,8 @@ public class GxtMenuFactory extends MvwMenuFactory {
 	public MvwMenuItem createMenuItem(String itemType, String itemName, String menuOrder, String addToMenu, boolean dynamic, String actionName, String label, ImageResource image) {
 		if (itemType.equals(MenuItem))
 			return(new MenuItem(itemName, menuOrder, actionName, addToMenu, dynamic, label));
+		else if (itemType.equals(CheckMenuItem))
+			return(new CheckMenuItem(itemName, menuOrder, actionName, addToMenu, dynamic, label));
 		else
 			throw(new IllegalStateException("Invalid menu item type identifier: " + itemType));
 	}

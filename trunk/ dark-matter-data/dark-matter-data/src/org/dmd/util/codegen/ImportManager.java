@@ -63,6 +63,12 @@ public class ImportManager {
 	}
 	
 	public void addImport(String cn, String reason){
+		// We take the first import we get
+		if (imports.get(cn) != null){
+//			DebugInfo.debug("Warning: duplicate import - " + cn + " - " + reason);
+			return;
+		}
+		
 		imports.put(cn, new ImportStatement(cn, reason));
 		if (cn.length() > longestImport)
 			longestImport = cn.length();
