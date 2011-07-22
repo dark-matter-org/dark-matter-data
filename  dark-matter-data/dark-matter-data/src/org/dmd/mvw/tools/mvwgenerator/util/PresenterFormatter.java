@@ -48,13 +48,16 @@ public class PresenterFormatter {
     	///////////////////////////////////////////////////////////////////////
     	// Constructor
 
-    	out.write("    public " + presenter.getPresenterName() + "BaseImpl(MvwRunContextIF rc){\n");
+    	if (presenter.usesRunContext())
+    		out.write("    public " + presenter.getPresenterName() + "BaseImpl(MvwRunContextIF rc){\n");
+    	else
+    		out.write("    public " + presenter.getPresenterName() + "BaseImpl(){\n");
 
     	for(RunContextItem rci: presenter.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariableAssignment());
     	}
 
-    	if (onDemand){
+    	if (presenter.usesRunContext() && onDemand){
         	out.write("\n");
         	out.write("        runcontext = rc;\n");
     	}

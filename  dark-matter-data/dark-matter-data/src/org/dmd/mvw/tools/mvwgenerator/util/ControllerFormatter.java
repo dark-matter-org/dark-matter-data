@@ -47,13 +47,16 @@ public class ControllerFormatter {
     	///////////////////////////////////////////////////////////////////////
     	// Constructor
     	
-    	out.write("    public " + controller.getControllerName() + "BaseImpl(MvwRunContextIF rc){\n");
+    	if (controller.usesRunContext())
+    		out.write("    public " + controller.getControllerName() + "BaseImpl(MvwRunContextIF rc){\n");
+    	else
+    		out.write("    public " + controller.getControllerName() + "BaseImpl(){\n");
     	
     	for(RunContextItem rci: controller.getUsesRunContextItemIterable()){
     		out.write(rci.getImplVariableAssignment());
     	}
     	
-    	if (onDemand){
+    	if (controller.usesRunContext() && onDemand){
         	out.write("\n");
         	out.write("        runcontext = rc;\n");
     	}

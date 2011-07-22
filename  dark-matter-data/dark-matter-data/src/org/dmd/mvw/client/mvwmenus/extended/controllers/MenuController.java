@@ -41,8 +41,7 @@ public class MenuController extends MenuControllerBaseImpl {
 	// Key: menu name
 	TreeMap<String,MvwBackgroundMenu>	backgroundMenus;
 
-	public MenuController(MvwRunContextIF rc) {
-		super(rc);
+	public MenuController() {
 		actions 		= new TreeMap<String, Action>();
 		menuItems		= new TreeMap<String, MvwMenuItem>();
 		separators		= new TreeMap<String, MvwSeparator>();

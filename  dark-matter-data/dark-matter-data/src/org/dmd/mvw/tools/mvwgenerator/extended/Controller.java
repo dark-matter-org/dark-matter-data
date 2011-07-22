@@ -16,6 +16,17 @@ public class Controller extends ControllerDMW {
 		
 	}
 	
+	@Override
+	public boolean usesRunContext(){
+		super.usesRunContext();
+		
+		if (getImplementsActionHasValue()){
+			usesRunContext.set(true);
+		}
+		
+		return(usesRunContext.booleanValue());
+	}
+	
 	public void setRunContextItem(RunContextItem i){
 		runContextItem = i;
 	}

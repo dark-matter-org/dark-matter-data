@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.EventDMW;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 public class Event extends EventDMW {
@@ -92,6 +93,7 @@ public class Event extends EventDMW {
 			registerForEvent.append("                }\n");
 			registerForEvent.append("            });\n\n");
 			
+			abstractMethod.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			abstractMethod.append("    abstract protected void on" + capped + "(");
 			if (types.size() > 0){
 				boolean first = true;
@@ -100,8 +102,9 @@ public class Event extends EventDMW {
 						first = false;
 					else
 						abstractMethod.append(", ");
-					capped = GenUtility.capTheName(members.get(i));
-					abstractMethod.append(types.get(i) + " " + capped);
+//					capped = GenUtility.capTheName(members.get(i));
+//					abstractMethod.append(types.get(i) + " " + capped);
+					abstractMethod.append(types.get(i) + " " + members.get(i));
 				}
 			}
 			abstractMethod.append(");\n\n");
@@ -237,6 +240,8 @@ public class Event extends EventDMW {
 		String 			capped 	= GenUtility.capTheName(getEventName().getNameString());
 		StringBuffer 	sb 		= new StringBuffer();
 		
+		sb.append("    // " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    protected void fire" + capped + getArgVector() + "{\n");
 		sb.append("        presenter.on" + capped + "(");
 		boolean first = true;
@@ -271,6 +276,8 @@ public class Event extends EventDMW {
 		}
 		args.append(")");
 
+		sb.append("    // " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    protected void fire" + capped + getArgVector() + "{\n");
 		sb.append("        presenter.on" + capped + args.toString() + ";\n");
 		sb.append("        eventBus.fireEvent(new " + capped + args.toString() + ");\n");
@@ -296,6 +303,8 @@ public class Event extends EventDMW {
 		}
 		args.append(")");
 
+		sb.append("    // " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    protected void fire" + capped + getArgVector() + "{\n");
 		sb.append("        eventBus.fireEvent(new " + capped + args.toString() + ");\n");
 		sb.append("    }\n\n");
@@ -321,6 +330,8 @@ public class Event extends EventDMW {
 		}
 		args.append(")");
 
+		sb.append("    // " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    protected void fire" + capped + getArgVector() + "{\n");
 		sb.append("        eventBus.fireEvent(new " + capped + args.toString() + ");\n");
 		sb.append("    }\n\n");

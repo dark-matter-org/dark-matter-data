@@ -12,6 +12,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;
 import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;
 import org.dmd.mvw.tools.mvwgenerator.types.GetWithOptions;
 import org.dmd.mvw.tools.mvwgenerator.types.RequestWithOptions;
+import org.dmd.util.BooleanVar;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -25,6 +26,8 @@ public class Component extends ComponentDMW {
 	StringBuffer					loadAttributeSchemas;
 	
 	boolean							hasCommsMethods;
+	
+	protected BooleanVar			usesRunContext;
 	
 	int								methodID;
 	
@@ -76,6 +79,35 @@ public class Component extends ComponentDMW {
 	
 	public boolean hasCommsMethods(){
 		return(hasCommsMethods);
+	}
+	
+	public boolean usesRunContext(){
+		if (usesRunContext == null){
+			usesRunContext = new BooleanVar();
+			
+			if (getHandlesEventHasValue())
+				usesRunContext.set(true);
+			else if (getFiresEventHasValue())
+				usesRunContext.set(true);
+			else if (getInstantiatesViewHasValue())
+				usesRunContext.set(true);
+			else if (getUsesRunContextItemHasValue())
+				usesRunContext.set(true);
+			else if (getSendsGetRequestHasValue())
+				usesRunContext.set(true);
+			else if (getSendsSetRequestHasValue())
+				usesRunContext.set(true);
+			else if (getSendsCreateRequestHasValue())
+				usesRunContext.set(true);
+			else if (getSendsDeleteRequestHasValue())
+				usesRunContext.set(true);
+			else if (getSendsLoginRequestHasValue())
+				usesRunContext.set(true);
+			else if (getSendsLogoutRequestHasValue())
+				usesRunContext.set(true);
+				
+		}
+		return(usesRunContext.booleanValue());
 	}
 	
 	public String getImports(){
@@ -280,6 +312,10 @@ public class Component extends ComponentDMW {
 		
 		if (getUseBaseClass() != null)
 			imports.addImport(getUseBaseClass(), "Specified base class");
+		
+		if (usesRunContext())
+			imports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Need the run context");
+
 		
 //		if (getImplementsActionHasValue()){
 //			

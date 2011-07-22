@@ -7,8 +7,10 @@ description	The mvw module provides base functionality on which all Modules
 RunContextItem
 itemName		eventBus
 useClass     	com.google.gwt.event.shared.EventBus
-importThis		com.google.gwt.event.shared.SimpleEventBus
-construction 	new SimpleEventBus()
+//importThis		com.google.gwt.event.shared.SimpleEventBus
+//construction 	new SimpleEventBus()
+importThis		org.dmd.mvw.client.mvw.MvwEventBus
+construction 	new MvwEventBus()
 itemOrder    	1
 description		The overall application event bus.
 

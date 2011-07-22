@@ -34,15 +34,36 @@ public class MenuImplementationConfig extends MenuImplementationConfigDMW {
 			
 			menubarTypes.put(getDefaultMenuBar().getType(), getDefaultMenuBar());
 			
+			if (getAlternateMenuBarHasValue()){
+				for(MenuElementTypeAndComment mtac: getAlternateMenuBarIterable()){
+					menubarTypes.put(mtac.getType(),mtac);
+				}
+			}
+			
 			submenuTypes.put(getDefaultSubMenu().getType(), getDefaultSubMenu());
+			
+			if (getAlternateSubMenuHasValue()){
+				for(MenuElementTypeAndComment mtac: getAlternateSubMenuIterable()){
+					submenuTypes.put(mtac.getType(),mtac);
+				}
+			}
 			
 			menuItemTypes.put(getDefaultMenuItem().getType(), getDefaultMenuItem());
 			
+			if (getAlternateMenuItemHasValue()){
+				for(MenuElementTypeAndComment mtac: getAlternateMenuItemIterable()){
+					menuItemTypes.put(mtac.getType(),mtac);
+				}
+			}
+			
 			separatorTypes.put(getDefaultSeparator().getType(), getDefaultSeparator());
+						
 		}
 	}
 	
 	public void validateImplementations(TreeMap<CamelCaseName, MenuElementDefinitionDMW> menuElements) throws ResultException {
+		initialize();
+		
 		ResultException errors = null;
 		
 		for(MenuElementDefinitionDMW def: menuElements.values()){
