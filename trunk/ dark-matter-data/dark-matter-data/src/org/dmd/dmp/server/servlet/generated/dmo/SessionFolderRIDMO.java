@@ -47,8 +47,6 @@ public class SessionFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF,
 
     public final static String constructionClassName = "SessionFolderRI";
 
-    public final static DmcClassInfo classInfo = DmpServerDMSAG.__SessionFolderRI;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

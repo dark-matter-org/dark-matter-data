@@ -51,8 +51,6 @@ abstract public class MvcDefinitionDMO  extends DmcObject  implements DmcNamedOb
 
     public final static String constructionClassName = "MvcDefinition";
 
-    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcDefinition;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

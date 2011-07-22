@@ -46,8 +46,6 @@ abstract public class RuleDMO  extends DmcObject  implements DmcNamedObjectIF, S
 
     public final static String constructionClassName = "Rule";
 
-    public final static DmcClassInfo classInfo = DmvDMSAG.__Rule;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

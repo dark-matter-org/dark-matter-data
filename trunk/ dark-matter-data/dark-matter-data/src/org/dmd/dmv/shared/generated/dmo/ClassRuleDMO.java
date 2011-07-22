@@ -46,8 +46,6 @@ abstract public class ClassRuleDMO  extends RuleDMO  implements Serializable  {
 
     public final static String constructionClassName = "ClassRule";
 
-    public final static DmcClassInfo classInfo = DmvDMSAG.__ClassRule;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

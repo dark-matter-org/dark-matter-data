@@ -53,8 +53,6 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
 
     public final static String constructionClassName = "LDAPHierarchicObject";
 
-    public final static DmcClassInfo classInfo = DmrLdapDMSAG.__LDAPHierarchicObject;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

@@ -13,7 +13,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeUserREFSET provides storage for a set of UserREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2288)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2298)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
@@ -43,7 +43,7 @@ public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2325)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2335)
     public DmcAttribute<UserREF> cloneIt(){
         synchronized(this){
             DmcTypeUserREFSET rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2344)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2354)
     public UserREF add(Object v) throws DmcValueException {
         synchronized(this){
             UserREF rc = typeCheck(v);
@@ -74,7 +74,7 @@ public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
     public UserREF del(Object v){
         synchronized(this){
             UserREF rc = null;
@@ -92,7 +92,7 @@ public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
     public Iterator<UserREF> getMV(){
         synchronized(this){
             Set<UserREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2393)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
     public Set<UserREF> getMVCopy(){
         synchronized(this){
             Set<UserREF> clone = null;
@@ -117,7 +117,7 @@ public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2417)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -127,7 +127,7 @@ public class DmcTypeUserREFSET extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2428)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

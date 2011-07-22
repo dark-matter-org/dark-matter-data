@@ -64,8 +64,6 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
 
     public final static String constructionClassName = "Activity";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__Activity;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
@@ -299,7 +297,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Adds another usesController value.
      * @param value A value compatible with Controller
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addUsesController(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -313,7 +311,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Returns the number of values in usesController
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getUsesControllerSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -326,7 +324,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Deletes a usesController value.
      * @param value The Controller to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
     public DmcAttribute<?> delUsesController(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__usesController, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -335,7 +333,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the usesController attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remUsesController(){
          rem(MvwDMSAG.__usesController);
     }
@@ -397,7 +395,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Adds another managesView value.
      * @param value A value compatible with View
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addManagesView(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -411,7 +409,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Returns the number of values in managesView
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getManagesViewSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__managesView);
         if (attr == null)
@@ -424,7 +422,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Deletes a managesView value.
      * @param value The View to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
     public DmcAttribute<?> delManagesView(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__managesView, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -433,7 +431,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the managesView attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remManagesView(){
          rem(MvwDMSAG.__managesView);
     }

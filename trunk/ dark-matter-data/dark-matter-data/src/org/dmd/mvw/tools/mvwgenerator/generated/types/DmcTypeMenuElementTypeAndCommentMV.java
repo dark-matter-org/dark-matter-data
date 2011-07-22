@@ -27,7 +27,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuElementTypeAndC
  * The DmcTypeMenuElementTypeAndCommentMV provides storage for a multi-valued MenuElementTypeAndComment
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2037)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2047)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:125)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeMenuElementTypeAndCommentMV extends DmcTypeMenuElementTypeAn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2065)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2075)
     public DmcAttribute<MenuElementTypeAndComment> cloneIt(){
         synchronized(this){
             DmcTypeMenuElementTypeAndCommentMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeMenuElementTypeAndCommentMV extends DmcTypeMenuElementTypeAn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2094)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2104)
     public MenuElementTypeAndComment add(Object v) throws DmcValueException {
         synchronized(this){
             MenuElementTypeAndComment rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeMenuElementTypeAndCommentMV extends DmcTypeMenuElementTypeAn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2107)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2117)
     public MenuElementTypeAndComment del(Object v){
         synchronized(this){
             MenuElementTypeAndComment rc = null;
@@ -104,7 +104,7 @@ public class DmcTypeMenuElementTypeAndCommentMV extends DmcTypeMenuElementTypeAn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2126)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2136)
     public Iterator<MenuElementTypeAndComment> getMV(){
         synchronized(this){
             ArrayList<MenuElementTypeAndComment> clone = new ArrayList<MenuElementTypeAndComment>(value);
@@ -112,7 +112,7 @@ public class DmcTypeMenuElementTypeAndCommentMV extends DmcTypeMenuElementTypeAn
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2135)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2145)
     public ArrayList<MenuElementTypeAndComment> getMVCopy(){
         synchronized(this){
             ArrayList<MenuElementTypeAndComment> clone = new ArrayList<MenuElementTypeAndComment>(value);
@@ -121,7 +121,7 @@ public class DmcTypeMenuElementTypeAndCommentMV extends DmcTypeMenuElementTypeAn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2145)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2155)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -131,7 +131,7 @@ public class DmcTypeMenuElementTypeAndCommentMV extends DmcTypeMenuElementTypeAn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2156)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2166)
     public MenuElementTypeAndComment getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -139,7 +139,7 @@ public class DmcTypeMenuElementTypeAndCommentMV extends DmcTypeMenuElementTypeAn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2165)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2175)
     public MenuElementTypeAndComment setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -166,7 +166,7 @@ public class DmcTypeMenuElementTypeAndCommentMV extends DmcTypeMenuElementTypeAn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2193)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -189,7 +189,7 @@ public class DmcTypeMenuElementTypeAndCommentMV extends DmcTypeMenuElementTypeAn
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2217)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

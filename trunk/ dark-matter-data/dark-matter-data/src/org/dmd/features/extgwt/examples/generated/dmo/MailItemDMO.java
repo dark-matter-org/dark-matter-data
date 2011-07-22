@@ -46,8 +46,6 @@ public class MailItemDMO  extends DmcObject  implements DmcNamedObjectIF, Serial
 
     public final static String constructionClassName = "MailItem";
 
-    public final static DmcClassInfo classInfo = MailDMSAG.__MailItem;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

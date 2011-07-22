@@ -23,6 +23,8 @@ public class SubMenuButton extends MvwSubMenu {
 			menuButton = new Button(label);
 		
 		menu	 = new Menu();
+		
+		menuButton.setMenu(menu);
 	}
 
 	@Override

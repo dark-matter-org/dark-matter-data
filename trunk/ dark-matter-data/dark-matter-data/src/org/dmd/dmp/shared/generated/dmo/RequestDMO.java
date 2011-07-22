@@ -45,8 +45,6 @@ abstract public class RequestDMO  extends DMPMessageDMO  implements Serializable
 
     public final static String constructionClassName = "Request";
 
-    public final static DmcClassInfo classInfo = DmpDMSAG.__Request;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

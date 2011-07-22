@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // DmcType impo
  * The DmcTypeNameContainerTestREFSV provides storage for a single-valued NameContainerTest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1716)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1726)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:221)
  */
 @SuppressWarnings("serial")
@@ -34,7 +34,7 @@ public class DmcTypeNameContainerTestREFSV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1748)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
     public DmcAttribute<NameContainerTestDMO> cloneIt(){
         DmcTypeNameContainerTestREFSV rc = getNew();
         rc.value = value;
@@ -42,7 +42,7 @@ public class DmcTypeNameContainerTestREFSV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1760)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1770)
     public NameContainerTestDMO set(Object v) throws DmcValueException {
         NameContainerTestDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

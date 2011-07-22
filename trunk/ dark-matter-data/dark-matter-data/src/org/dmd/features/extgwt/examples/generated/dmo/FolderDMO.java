@@ -47,8 +47,6 @@ public class FolderDMO  extends DmcObject  implements DmcNamedObjectIF, Serializ
 
     public final static String constructionClassName = "Folder";
 
-    public final static DmcClassInfo classInfo = MailDMSAG.__Folder;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

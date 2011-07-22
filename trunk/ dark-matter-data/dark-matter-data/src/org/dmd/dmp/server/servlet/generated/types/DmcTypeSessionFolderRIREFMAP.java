@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DotName;    // key type import
  * The DmcTypeSessionFolderRIREFMAP provides storage for a map of SessionFolderRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2483)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2493)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
@@ -61,7 +61,7 @@ public class DmcTypeSessionFolderRIREFMAP extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2526)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2536)
     public DmcAttribute<SessionFolderRIREF> cloneIt(){
         synchronized(this){
             DmcTypeSessionFolderRIREFMAP rc = getNew();
@@ -76,7 +76,7 @@ public class DmcTypeSessionFolderRIREFMAP extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2542)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2552)
     public SessionFolderRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             SessionFolderRIREF newval = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeSessionFolderRIREFMAP extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2563)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2573)
     public SessionFolderRIREF del(Object key){
         synchronized(this){
            if (key instanceof DotName)
@@ -107,7 +107,7 @@ public class DmcTypeSessionFolderRIREFMAP extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2585)
     public Iterator<SessionFolderRIREF> getMV(){
         synchronized(this){
             Map<DotName,SessionFolderRIREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeSessionFolderRIREFMAP extends DmcTypeSessionFolderRIREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2588)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2598)
     public Map<DotName,SessionFolderRIREF> getMVCopy(){
         synchronized(this){
             Map<DotName,SessionFolderRIREF> clone = null;
@@ -131,7 +131,7 @@ public class DmcTypeSessionFolderRIREFMAP extends DmcTypeSessionFolderRIREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2601)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2611)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -142,7 +142,7 @@ public class DmcTypeSessionFolderRIREFMAP extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2613)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2623)
     public SessionFolderRIREF getByKey(Object key){
         synchronized(this){
             if (key instanceof DotName)
@@ -153,7 +153,7 @@ public class DmcTypeSessionFolderRIREFMAP extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2625)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2635)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -167,7 +167,7 @@ public class DmcTypeSessionFolderRIREFMAP extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2640)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2650)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

@@ -58,8 +58,6 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
 
     public final static String constructionClassName = "Action";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__Action;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

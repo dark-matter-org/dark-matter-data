@@ -51,8 +51,6 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
 
     public final static String constructionClassName = "UserRI";
 
-    public final static DmcClassInfo classInfo = DmpServerDMSAG.__UserRI;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

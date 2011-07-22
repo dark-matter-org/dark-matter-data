@@ -49,8 +49,6 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
 
     public final static String constructionClassName = "SubPlace";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__SubPlace;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

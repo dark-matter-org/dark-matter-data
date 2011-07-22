@@ -33,6 +33,8 @@ import org.dmd.mvw.tools.mvwgenerator.extended.menus.SubMenu;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.MenuElementDefinitionDMW;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.exceptions.DebugInfo;
+
 
 /**
  * The MvwDefinitionManager manages a set of MVW definitions read from one or more .mvw 
@@ -294,10 +296,15 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				// Add the item to its module
 				rci.getDefinedInModule().addRunContextItem(rci);
 				
-//DebugInfo.debug("\n" + rci.toOIF());
+DebugInfo.debug("\n" + rci.toOIF());
 				
 				// Tell the controller its item
 				controller.setRunContextItem(rci);
+				
+				// Add to all definitions so that references can be resolved
+				rci.setCamelCaseName(rci.getObjectName());
+				checkAndAdd(rci,allDefs);
+
 			}
 			
 			if (controller.isCentralRPCErrorHandler()){

@@ -45,8 +45,6 @@ public class LoginRequestDMO  extends RequestDMO  implements Serializable  {
 
     public final static String constructionClassName = "LoginRequest";
 
-    public final static DmcClassInfo classInfo = DmpDMSAG.__LoginRequest;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

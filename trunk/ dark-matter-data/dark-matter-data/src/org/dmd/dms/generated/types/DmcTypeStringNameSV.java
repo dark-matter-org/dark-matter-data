@@ -25,7 +25,7 @@ import org.dmd.dmc.types.DmcTypeStringName;    // DmcType import
  * The DmcTypeStringNameSV provides storage for a single-valued StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1705)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1726)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:266)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypeStringNameSV extends DmcTypeStringName implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1737)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
     public DmcAttribute<StringName> cloneIt(){
         DmcTypeStringNameSV rc = getNew();
         rc.value = value;
@@ -58,7 +58,7 @@ public class DmcTypeStringNameSV extends DmcTypeStringName implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1749)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1770)
     public StringName set(Object v) throws DmcValueException {
         StringName rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

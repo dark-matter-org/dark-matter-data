@@ -49,8 +49,6 @@ public class SubMenuDMO  extends MenuDMO  implements DmcNamedObjectIF, Serializa
 
     public final static String constructionClassName = "SubMenu";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__SubMenu;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

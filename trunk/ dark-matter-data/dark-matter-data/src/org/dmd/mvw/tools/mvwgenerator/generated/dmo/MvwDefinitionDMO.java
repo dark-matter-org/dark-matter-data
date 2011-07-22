@@ -51,8 +51,6 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
 
     public final static String constructionClassName = "MvwDefinition";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__MvwDefinition;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

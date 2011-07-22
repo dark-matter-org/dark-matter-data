@@ -21,6 +21,7 @@ abstract public class GxtMenuItem extends MvwMenuItem implements TriggerIF {
 
 	@Override
 	public void initialize() {
+		System.out.println("GxtMenuItem.initialize() - " + getName());
 		item.addSelectionListener(new ItemSelectionListener<MenuEvent>(this, action));
 	}
 

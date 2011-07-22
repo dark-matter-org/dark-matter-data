@@ -38,7 +38,7 @@ import org.dmd.dmc.DmcClassInfo;
 @SuppressWarnings("serial")
 public class ClassDefinitionREF extends DmcNamedObjectNontransportableREF<ClassDefinitionDMO> implements Serializable {
 
-    DmcClassInfo info;
+    transient DmcClassInfo info;
 
     DmcTypeStringName myName;
 

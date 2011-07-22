@@ -52,8 +52,6 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
 
     public final static String constructionClassName = "SessionRI";
 
-    public final static DmcClassInfo classInfo = DmpServerDMSAG.__SessionRI;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

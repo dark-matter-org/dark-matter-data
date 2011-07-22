@@ -116,7 +116,7 @@ public class MenuBuilderFormatter {
         out.write("\n");
         
         for(MenuItem mi: manager.getMenuItems().values()){
-        	out.write("        menuitem = menuFactory.createSubMenu(");
+        	out.write("        menuitem = menuFactory.createMenuItem(");
         	out.write("\"" + mi.getUseImpl() + "\",");
         	out.write("\"" + mi.getElementName() + "\",");
         	out.write("\"" + mi.getMenuOrder() + "\",");

@@ -48,8 +48,6 @@ public class DenotifyResponseDMO  extends ResponseDMO  implements Serializable  
 
     public final static String constructionClassName = "DenotifyResponse";
 
-    public final static DmcClassInfo classInfo = DmpDMSAG.__DenotifyResponse;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

@@ -50,8 +50,6 @@ public class MvcMultiViewDMO  extends MvcViewDMO  implements DmcNamedObjectIF, S
 
     public final static String constructionClassName = "MvcMultiView";
 
-    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcMultiView;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

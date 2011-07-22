@@ -27,8 +27,6 @@ abstract public class TestAbstractFixedDMO  extends DmcObject  implements Serial
 
     public final static String constructionClassName = "TestAbstractFixed";
 
-    public final static DmcClassInfo classInfo = DmtDMSAG.__TestAbstractFixed;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

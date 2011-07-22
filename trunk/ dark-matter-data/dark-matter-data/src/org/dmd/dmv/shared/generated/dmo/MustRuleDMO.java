@@ -43,8 +43,6 @@ public class MustRuleDMO  extends ClassRuleDMO  implements Serializable  {
 
     public final static String constructionClassName = "MustRule";
 
-    public final static DmcClassInfo classInfo = DmvDMSAG.__MustRule;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

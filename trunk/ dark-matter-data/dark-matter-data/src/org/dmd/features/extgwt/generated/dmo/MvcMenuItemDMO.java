@@ -59,8 +59,6 @@ public class MvcMenuItemDMO  extends MvcDefinitionDMO  implements DmcNamedObject
 
     public final static String constructionClassName = "MvcMenuItem";
 
-    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcMenuItem;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

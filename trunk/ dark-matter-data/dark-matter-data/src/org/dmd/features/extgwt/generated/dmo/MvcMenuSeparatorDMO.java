@@ -55,8 +55,6 @@ public class MvcMenuSeparatorDMO  extends MvcDefinitionDMO  implements DmcNamedO
 
     public final static String constructionClassName = "MvcMenuSeparator";
 
-    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcMenuSeparator;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

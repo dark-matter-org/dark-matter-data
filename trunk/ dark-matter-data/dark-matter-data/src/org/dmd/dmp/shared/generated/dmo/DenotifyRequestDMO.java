@@ -50,8 +50,6 @@ public class DenotifyRequestDMO  extends RequestDMO  implements Serializable  {
 
     public final static String constructionClassName = "DenotifyRequest";
 
-    public final static DmcClassInfo classInfo = DmpDMSAG.__DenotifyRequest;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

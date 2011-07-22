@@ -28,8 +28,6 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
 
     public final static String constructionClassName = "ClientCountFilter";
 
-    public final static DmcClassInfo classInfo = DmtDMSAG.__ClientCountFilter;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

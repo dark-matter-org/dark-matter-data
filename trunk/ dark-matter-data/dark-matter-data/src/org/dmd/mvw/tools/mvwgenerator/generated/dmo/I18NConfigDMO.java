@@ -46,8 +46,6 @@ public class I18NConfigDMO  extends RunContextItemDMO  implements DmcNamedObject
 
     public final static String constructionClassName = "I18NConfig";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__I18NConfig;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

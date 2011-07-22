@@ -50,8 +50,6 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
 
     public final static String constructionClassName = "Separator";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__Separator;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

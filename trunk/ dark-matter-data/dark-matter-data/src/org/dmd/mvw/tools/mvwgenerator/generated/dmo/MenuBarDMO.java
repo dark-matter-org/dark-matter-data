@@ -47,8 +47,6 @@ public class MenuBarDMO  extends MenuDMO  implements DmcNamedObjectIF, Serializa
 
     public final static String constructionClassName = "MenuBar";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__MenuBar;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

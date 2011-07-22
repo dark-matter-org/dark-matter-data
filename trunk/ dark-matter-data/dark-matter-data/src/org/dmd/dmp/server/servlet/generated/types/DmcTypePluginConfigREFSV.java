@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypePluginConfigREFSV provides storage for a single-valued PluginConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1716)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1726)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypePluginConfigREFSV extends DmcTypePluginConfigREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1748)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
     public DmcAttribute<PluginConfigREF> cloneIt(){
         DmcTypePluginConfigREFSV rc = getNew();
         rc.value = value;
@@ -56,7 +56,7 @@ public class DmcTypePluginConfigREFSV extends DmcTypePluginConfigREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1760)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1770)
     public PluginConfigREF set(Object v) throws DmcValueException {
         PluginConfigREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

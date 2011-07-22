@@ -47,8 +47,6 @@ public class MvcServerEventDMO  extends MvcDefinitionDMO  implements DmcNamedObj
 
     public final static String constructionClassName = "MvcServerEvent";
 
-    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcServerEvent;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

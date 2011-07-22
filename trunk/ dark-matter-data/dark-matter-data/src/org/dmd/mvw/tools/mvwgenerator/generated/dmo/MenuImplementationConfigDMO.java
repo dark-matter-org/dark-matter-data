@@ -53,8 +53,6 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
 
     public final static String constructionClassName = "MenuImplementationConfig";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__MenuImplementationConfig;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
@@ -180,7 +178,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Returns true if we contain a valued keyed by the specified MenuElementTypeAndComment.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean alternateMenuBarContains(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         if (attr == null)
@@ -192,7 +190,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Adds another alternateMenuBar value.
      * @param value A value compatible with MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addAlternateMenuBar(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         if (attr == null)
@@ -206,7 +204,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     /**
      * Returns the number of values in alternateMenuBar
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getAlternateMenuBarSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         if (attr == null)
@@ -219,7 +217,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateMenuBar value.
      * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delAlternateMenuBar(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         
@@ -235,7 +233,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateMenuBar from the specified value.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delAlternateMenuBar(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         
@@ -250,7 +248,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     /**
      * Removes the alternateMenuBar attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remAlternateMenuBar(){
          rem(MvwDMSAG.__alternateMenuBar);
     }
@@ -304,7 +302,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Returns true if we contain a valued keyed by the specified MenuElementTypeAndComment.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean alternateSubMenuContains(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         if (attr == null)
@@ -316,7 +314,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Adds another alternateSubMenu value.
      * @param value A value compatible with MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addAlternateSubMenu(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         if (attr == null)
@@ -330,7 +328,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     /**
      * Returns the number of values in alternateSubMenu
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getAlternateSubMenuSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         if (attr == null)
@@ -343,7 +341,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateSubMenu value.
      * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delAlternateSubMenu(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         
@@ -359,7 +357,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateSubMenu from the specified value.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delAlternateSubMenu(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         
@@ -374,7 +372,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     /**
      * Removes the alternateSubMenu attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remAlternateSubMenu(){
          rem(MvwDMSAG.__alternateSubMenu);
     }
@@ -428,7 +426,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Returns true if we contain a valued keyed by the specified MenuElementTypeAndComment.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean alternateMenuItemContains(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         if (attr == null)
@@ -440,7 +438,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Adds another alternateMenuItem value.
      * @param value A value compatible with MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addAlternateMenuItem(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         if (attr == null)
@@ -454,7 +452,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     /**
      * Returns the number of values in alternateMenuItem
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getAlternateMenuItemSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         if (attr == null)
@@ -467,7 +465,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateMenuItem value.
      * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delAlternateMenuItem(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         
@@ -483,7 +481,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateMenuItem from the specified value.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delAlternateMenuItem(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         
@@ -498,7 +496,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     /**
      * Removes the alternateMenuItem attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remAlternateMenuItem(){
          rem(MvwDMSAG.__alternateMenuItem);
     }
