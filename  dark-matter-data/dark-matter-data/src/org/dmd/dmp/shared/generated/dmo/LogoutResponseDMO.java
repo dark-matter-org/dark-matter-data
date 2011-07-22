@@ -44,8 +44,6 @@ public class LogoutResponseDMO  extends ResponseDMO  implements Serializable  {
 
     public final static String constructionClassName = "LogoutResponse";
 
-    public final static DmcClassInfo classInfo = DmpDMSAG.__LogoutResponse;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

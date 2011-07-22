@@ -32,8 +32,6 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
 
     public final static String constructionClassName = "IntegerNamedObject";
 
-    public final static DmcClassInfo classInfo = DmtDMSAG.__IntegerNamedObject;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeLDAPHierarchicObjectREFSV provides storage for a single-valued LDAPHierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1716)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1726)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeLDAPHierarchicObjectREFSV extends DmcTypeLDAPHierarchicObjec
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1748)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
     public DmcAttribute<LDAPHierarchicObjectREF> cloneIt(){
         DmcTypeLDAPHierarchicObjectREFSV rc = getNew();
         rc.value = value;
@@ -56,7 +56,7 @@ public class DmcTypeLDAPHierarchicObjectREFSV extends DmcTypeLDAPHierarchicObjec
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1760)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1770)
     public LDAPHierarchicObjectREF set(Object v) throws DmcValueException {
         LDAPHierarchicObjectREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

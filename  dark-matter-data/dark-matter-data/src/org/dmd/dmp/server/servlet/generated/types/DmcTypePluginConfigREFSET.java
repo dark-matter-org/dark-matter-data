@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypePluginConfigREFSET provides storage for a set of PluginConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2288)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2298)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypePluginConfigREFSET extends DmcTypePluginConfigREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2325)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2335)
     public DmcAttribute<PluginConfigREF> cloneIt(){
         synchronized(this){
             DmcTypePluginConfigREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypePluginConfigREFSET extends DmcTypePluginConfigREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2344)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2354)
     public PluginConfigREF add(Object v) throws DmcValueException {
         synchronized(this){
             PluginConfigREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypePluginConfigREFSET extends DmcTypePluginConfigREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
     public PluginConfigREF del(Object v){
         synchronized(this){
             PluginConfigREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypePluginConfigREFSET extends DmcTypePluginConfigREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
     public Iterator<PluginConfigREF> getMV(){
         synchronized(this){
             Set<PluginConfigREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypePluginConfigREFSET extends DmcTypePluginConfigREF implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2393)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
     public Set<PluginConfigREF> getMVCopy(){
         synchronized(this){
             Set<PluginConfigREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypePluginConfigREFSET extends DmcTypePluginConfigREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2417)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypePluginConfigREFSET extends DmcTypePluginConfigREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2428)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

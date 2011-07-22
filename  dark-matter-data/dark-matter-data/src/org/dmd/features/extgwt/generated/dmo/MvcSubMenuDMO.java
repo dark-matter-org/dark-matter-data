@@ -51,8 +51,6 @@ public class MvcSubMenuDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
 
     public final static String constructionClassName = "MvcSubMenu";
 
-    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcSubMenu;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

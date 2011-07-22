@@ -51,8 +51,6 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
 
     public final static String constructionClassName = "HierarchicObject";
 
-    public final static DmcClassInfo classInfo = DmrBaseDMSAG.__HierarchicObject;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

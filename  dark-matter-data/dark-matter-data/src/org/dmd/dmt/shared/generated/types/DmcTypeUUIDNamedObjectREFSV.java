@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUUIDNamedObjectREFSV provides storage for a single-valued UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1716)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1726)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
@@ -33,7 +33,7 @@ public class DmcTypeUUIDNamedObjectREFSV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1748)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
     public DmcAttribute<UUIDNamedObjectREF> cloneIt(){
         DmcTypeUUIDNamedObjectREFSV rc = getNew();
         rc.value = value;
@@ -41,7 +41,7 @@ public class DmcTypeUUIDNamedObjectREFSV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1760)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1770)
     public UUIDNamedObjectREF set(Object v) throws DmcValueException {
         UUIDNamedObjectREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

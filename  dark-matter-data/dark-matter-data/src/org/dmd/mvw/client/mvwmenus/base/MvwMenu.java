@@ -81,7 +81,7 @@ abstract public class MvwMenu {
 		Iterator<String> keys = items.keySet().iterator();
 		while(keys.hasNext()){
 			MenuSubItemIF msi = items.get(keys.next());
-			msi.initialize();
+//			msi.initialize();
 			addToMenuContainer(msi);
 		}
 	}

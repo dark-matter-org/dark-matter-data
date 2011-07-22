@@ -56,8 +56,6 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
 
     public final static String constructionClassName = "TestBasicObjectFixed";
 
-    public final static DmcClassInfo classInfo = DmtDMSAG.__TestBasicObjectFixed;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
@@ -205,7 +203,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Boolean.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean mvBooleanContains(Boolean value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvBoolean);
         if (attr == null)
@@ -217,7 +215,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another mvBoolean value.
      * @param value A value compatible with Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addMvBoolean(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvBoolean);
         if (attr == null)
@@ -231,7 +229,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in mvBoolean
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvBooleanSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvBoolean);
         if (attr == null)
@@ -244,7 +242,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvBoolean value.
      * @param value The Boolean to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delMvBoolean(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvBoolean);
         
@@ -260,7 +258,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvBoolean from the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delMvBoolean(Boolean value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvBoolean);
         
@@ -275,7 +273,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the mvBoolean attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remMvBoolean(){
          rem(DmtDMSAG.__mvBoolean);
     }
@@ -379,7 +377,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Date.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean mvDateContains(Date value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDate);
         if (attr == null)
@@ -391,7 +389,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another mvDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addMvDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDate);
         if (attr == null)
@@ -405,7 +403,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in mvDate
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvDateSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDate);
         if (attr == null)
@@ -418,7 +416,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delMvDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDate);
         
@@ -434,7 +432,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvDate from the specified value.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delMvDate(Date value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDate);
         
@@ -449,7 +447,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the mvDate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remMvDate(){
          rem(DmtDMSAG.__mvDate);
     }
@@ -503,7 +501,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Date.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean hsDateContains(Date value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsDate);
         if (attr == null)
@@ -515,7 +513,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another hsDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addHsDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsDate);
         if (attr == null)
@@ -529,7 +527,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in hsDate
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getHsDateSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsDate);
         if (attr == null)
@@ -542,7 +540,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delHsDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsDate);
         
@@ -558,7 +556,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsDate from the specified value.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delHsDate(Date value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsDate);
         
@@ -573,7 +571,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the hsDate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remHsDate(){
          rem(DmtDMSAG.__hsDate);
     }
@@ -627,7 +625,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Date.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean tsDateContains(Date value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsDate);
         if (attr == null)
@@ -639,7 +637,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another tsDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addTsDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsDate);
         if (attr == null)
@@ -653,7 +651,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in tsDate
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getTsDateSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__tsDate);
         if (attr == null)
@@ -666,7 +664,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delTsDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsDate);
         
@@ -682,7 +680,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsDate from the specified value.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delTsDate(Date value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsDate);
         
@@ -697,7 +695,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the tsDate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remTsDate(){
          rem(DmtDMSAG.__tsDate);
     }
@@ -801,7 +799,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Double.
      * @param value Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean mvDoubleContains(Double value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDouble);
         if (attr == null)
@@ -813,7 +811,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another mvDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addMvDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDouble);
         if (attr == null)
@@ -827,7 +825,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in mvDouble
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvDoubleSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDouble);
         if (attr == null)
@@ -840,7 +838,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delMvDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDouble);
         
@@ -856,7 +854,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvDouble from the specified value.
      * @param value Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delMvDouble(Double value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDouble);
         
@@ -871,7 +869,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the mvDouble attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remMvDouble(){
          rem(DmtDMSAG.__mvDouble);
     }
@@ -925,7 +923,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Double.
      * @param value Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean hsDoubleContains(Double value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsDouble);
         if (attr == null)
@@ -937,7 +935,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another hsDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addHsDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsDouble);
         if (attr == null)
@@ -951,7 +949,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in hsDouble
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getHsDoubleSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsDouble);
         if (attr == null)
@@ -964,7 +962,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delHsDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsDouble);
         
@@ -980,7 +978,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsDouble from the specified value.
      * @param value Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delHsDouble(Double value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsDouble);
         
@@ -995,7 +993,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the hsDouble attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remHsDouble(){
          rem(DmtDMSAG.__hsDouble);
     }
@@ -1049,7 +1047,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Double.
      * @param value Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean tsDoubleContains(Double value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsDouble);
         if (attr == null)
@@ -1061,7 +1059,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another tsDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addTsDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsDouble);
         if (attr == null)
@@ -1075,7 +1073,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in tsDouble
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getTsDoubleSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__tsDouble);
         if (attr == null)
@@ -1088,7 +1086,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delTsDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsDouble);
         
@@ -1104,7 +1102,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsDouble from the specified value.
      * @param value Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delTsDouble(Double value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsDouble);
         
@@ -1119,7 +1117,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the tsDouble attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remTsDouble(){
          rem(DmtDMSAG.__tsDouble);
     }
@@ -1223,7 +1221,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Float.
      * @param value Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean mvFloatContains(Float value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvFloat);
         if (attr == null)
@@ -1235,7 +1233,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another mvFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addMvFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvFloat);
         if (attr == null)
@@ -1249,7 +1247,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in mvFloat
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvFloatSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvFloat);
         if (attr == null)
@@ -1262,7 +1260,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delMvFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvFloat);
         
@@ -1278,7 +1276,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvFloat from the specified value.
      * @param value Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delMvFloat(Float value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvFloat);
         
@@ -1293,7 +1291,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the mvFloat attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remMvFloat(){
          rem(DmtDMSAG.__mvFloat);
     }
@@ -1347,7 +1345,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Float.
      * @param value Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean hsFloatContains(Float value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsFloat);
         if (attr == null)
@@ -1359,7 +1357,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another hsFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addHsFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsFloat);
         if (attr == null)
@@ -1373,7 +1371,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in hsFloat
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getHsFloatSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsFloat);
         if (attr == null)
@@ -1386,7 +1384,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delHsFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsFloat);
         
@@ -1402,7 +1400,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsFloat from the specified value.
      * @param value Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delHsFloat(Float value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsFloat);
         
@@ -1417,7 +1415,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the hsFloat attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remHsFloat(){
          rem(DmtDMSAG.__hsFloat);
     }
@@ -1471,7 +1469,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Float.
      * @param value Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean tsFloatContains(Float value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsFloat);
         if (attr == null)
@@ -1483,7 +1481,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another tsFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addTsFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsFloat);
         if (attr == null)
@@ -1497,7 +1495,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in tsFloat
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getTsFloatSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__tsFloat);
         if (attr == null)
@@ -1510,7 +1508,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delTsFloat(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsFloat);
         
@@ -1526,7 +1524,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsFloat from the specified value.
      * @param value Float
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delTsFloat(Float value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsFloat);
         
@@ -1541,7 +1539,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the tsFloat attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remTsFloat(){
          rem(DmtDMSAG.__tsFloat);
     }
@@ -1645,7 +1643,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Integer.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean mvIntegerContains(Integer value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvInteger);
         if (attr == null)
@@ -1657,7 +1655,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another mvInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addMvInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvInteger);
         if (attr == null)
@@ -1671,7 +1669,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in mvInteger
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvIntegerSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvInteger);
         if (attr == null)
@@ -1684,7 +1682,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delMvInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvInteger);
         
@@ -1700,7 +1698,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvInteger from the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delMvInteger(Integer value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvInteger);
         
@@ -1715,7 +1713,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the mvInteger attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remMvInteger(){
          rem(DmtDMSAG.__mvInteger);
     }
@@ -1769,7 +1767,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Integer.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean hsIntegerContains(Integer value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsInteger);
         if (attr == null)
@@ -1781,7 +1779,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another hsInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addHsInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsInteger);
         if (attr == null)
@@ -1795,7 +1793,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in hsInteger
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getHsIntegerSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsInteger);
         if (attr == null)
@@ -1808,7 +1806,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delHsInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsInteger);
         
@@ -1824,7 +1822,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsInteger from the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delHsInteger(Integer value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsInteger);
         
@@ -1839,7 +1837,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the hsInteger attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remHsInteger(){
          rem(DmtDMSAG.__hsInteger);
     }
@@ -1893,7 +1891,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Integer.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean tsIntegerContains(Integer value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsInteger);
         if (attr == null)
@@ -1905,7 +1903,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another tsInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addTsInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsInteger);
         if (attr == null)
@@ -1919,7 +1917,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in tsInteger
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getTsIntegerSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__tsInteger);
         if (attr == null)
@@ -1932,7 +1930,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delTsInteger(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsInteger);
         
@@ -1948,7 +1946,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsInteger from the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delTsInteger(Integer value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsInteger);
         
@@ -1963,7 +1961,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the tsInteger attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remTsInteger(){
          rem(DmtDMSAG.__tsInteger);
     }
@@ -1972,7 +1970,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * @return An Iterator of IntegerToString objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1245)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1255)
     public Iterator<IntegerToString> getIntToString(){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1985,7 +1983,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * @param key The key of the value you want.
      * @return The IntegerToString associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1277)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1287)
     public IntegerToString getIntToString(Object key){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1998,7 +1996,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another intToString value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1294)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1304)
     public DmcAttribute<?> addIntToString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -2013,7 +2011,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1331)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1341)
     public DmcAttribute<?> addIntToString(IntegerToString value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -2033,7 +2031,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a intToString value.
      * @param key The key of the IntegerToString to be deleted from the map of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1392)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1402)
     public DmcAttribute<?> delIntToString(Object key) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         
@@ -2049,7 +2047,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1408)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1418)
     public DmcAttribute<?> delIntToString(Integer key) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         
@@ -2064,7 +2062,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the intToString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1460)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1470)
     public void remIntToString(){
          rem(DmtDMSAG.__intToString);
     }
@@ -2168,7 +2166,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Long.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean mvLongContains(Long value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvLong);
         if (attr == null)
@@ -2180,7 +2178,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another mvLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addMvLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvLong);
         if (attr == null)
@@ -2194,7 +2192,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in mvLong
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvLongSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvLong);
         if (attr == null)
@@ -2207,7 +2205,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delMvLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvLong);
         
@@ -2223,7 +2221,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvLong from the specified value.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delMvLong(Long value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvLong);
         
@@ -2238,7 +2236,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the mvLong attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remMvLong(){
          rem(DmtDMSAG.__mvLong);
     }
@@ -2292,7 +2290,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Long.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean hsLongContains(Long value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsLong);
         if (attr == null)
@@ -2304,7 +2302,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another hsLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addHsLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsLong);
         if (attr == null)
@@ -2318,7 +2316,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in hsLong
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getHsLongSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsLong);
         if (attr == null)
@@ -2331,7 +2329,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delHsLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsLong);
         
@@ -2347,7 +2345,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsLong from the specified value.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delHsLong(Long value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsLong);
         
@@ -2362,7 +2360,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the hsLong attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remHsLong(){
          rem(DmtDMSAG.__hsLong);
     }
@@ -2416,7 +2414,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified Long.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean tsLongContains(Long value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsLong);
         if (attr == null)
@@ -2428,7 +2426,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another tsLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addTsLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsLong);
         if (attr == null)
@@ -2442,7 +2440,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in tsLong
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getTsLongSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__tsLong);
         if (attr == null)
@@ -2455,7 +2453,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delTsLong(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsLong);
         
@@ -2471,7 +2469,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsLong from the specified value.
      * @param value Long
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delTsLong(Long value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsLong);
         
@@ -2486,7 +2484,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the tsLong attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remTsLong(){
          rem(DmtDMSAG.__tsLong);
     }
@@ -2590,7 +2588,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean mvStringContains(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -2602,7 +2600,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -2616,7 +2614,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in mvString
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvStringSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -2629,7 +2627,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         
@@ -2645,7 +2643,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a mvString from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delMvString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         
@@ -2660,7 +2658,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remMvString(){
          rem(DmtDMSAG.__mvString);
     }
@@ -2714,7 +2712,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean hsStringContains(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsString);
         if (attr == null)
@@ -2726,7 +2724,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another hsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addHsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsString);
         if (attr == null)
@@ -2740,7 +2738,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in hsString
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getHsStringSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsString);
         if (attr == null)
@@ -2753,7 +2751,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delHsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsString);
         
@@ -2769,7 +2767,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a hsString from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delHsString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsString);
         
@@ -2784,7 +2782,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the hsString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remHsString(){
          rem(DmtDMSAG.__hsString);
     }
@@ -2838,7 +2836,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean tsStringContains(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsString);
         if (attr == null)
@@ -2850,7 +2848,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another tsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addTsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsString);
         if (attr == null)
@@ -2864,7 +2862,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Returns the number of values in tsString
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getTsStringSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__tsString);
         if (attr == null)
@@ -2877,7 +2875,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delTsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsString);
         
@@ -2893,7 +2891,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a tsString from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delTsString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsString);
         
@@ -2908,7 +2906,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the tsString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remTsString(){
          rem(DmtDMSAG.__tsString);
     }

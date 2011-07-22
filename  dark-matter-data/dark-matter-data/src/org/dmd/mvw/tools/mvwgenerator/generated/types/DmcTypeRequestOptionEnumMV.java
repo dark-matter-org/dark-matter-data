@@ -26,7 +26,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;    // D
  * The DmcTypeRequestOptionEnumMV provides storage for a multi-valued RequestOptionEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2037)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2047)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:325)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2065)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2075)
     public DmcAttribute<RequestOptionEnum> cloneIt(){
         synchronized(this){
             DmcTypeRequestOptionEnumMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2094)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2104)
     public RequestOptionEnum add(Object v) throws DmcValueException {
         synchronized(this){
             RequestOptionEnum rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2107)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2117)
     public RequestOptionEnum del(Object v){
         synchronized(this){
             RequestOptionEnum rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2126)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2136)
     public Iterator<RequestOptionEnum> getMV(){
         synchronized(this){
             ArrayList<RequestOptionEnum> clone = new ArrayList<RequestOptionEnum>(value);
@@ -111,7 +111,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2135)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2145)
     public ArrayList<RequestOptionEnum> getMVCopy(){
         synchronized(this){
             ArrayList<RequestOptionEnum> clone = new ArrayList<RequestOptionEnum>(value);
@@ -120,7 +120,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2145)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2155)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -130,7 +130,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2156)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2166)
     public RequestOptionEnum getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -138,7 +138,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2165)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2175)
     public RequestOptionEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -165,7 +165,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2193)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -188,7 +188,7 @@ public class DmcTypeRequestOptionEnumMV extends DmcTypeRequestOptionEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2217)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

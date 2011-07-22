@@ -40,8 +40,6 @@ public class NotifyResponseDMO  extends ResponseDMO  implements Serializable  {
 
     public final static String constructionClassName = "NotifyResponse";
 
-    public final static DmcClassInfo classInfo = DmpDMSAG.__NotifyResponse;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

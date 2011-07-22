@@ -26,7 +26,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;    
  * The DmcTypeGetFunctionOptionEnumMV provides storage for a multi-valued GetFunctionOptionEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2037)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2047)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:325)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2065)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2075)
     public DmcAttribute<GetFunctionOptionEnum> cloneIt(){
         synchronized(this){
             DmcTypeGetFunctionOptionEnumMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2094)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2104)
     public GetFunctionOptionEnum add(Object v) throws DmcValueException {
         synchronized(this){
             GetFunctionOptionEnum rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2107)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2117)
     public GetFunctionOptionEnum del(Object v){
         synchronized(this){
             GetFunctionOptionEnum rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2126)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2136)
     public Iterator<GetFunctionOptionEnum> getMV(){
         synchronized(this){
             ArrayList<GetFunctionOptionEnum> clone = new ArrayList<GetFunctionOptionEnum>(value);
@@ -111,7 +111,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2135)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2145)
     public ArrayList<GetFunctionOptionEnum> getMVCopy(){
         synchronized(this){
             ArrayList<GetFunctionOptionEnum> clone = new ArrayList<GetFunctionOptionEnum>(value);
@@ -120,7 +120,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2145)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2155)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -130,7 +130,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2156)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2166)
     public GetFunctionOptionEnum getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -138,7 +138,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2165)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2175)
     public GetFunctionOptionEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -165,7 +165,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2193)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -188,7 +188,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2217)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

@@ -52,8 +52,6 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
 
     public final static String constructionClassName = "Response";
 
-    public final static DmcClassInfo classInfo = DmpDMSAG.__Response;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

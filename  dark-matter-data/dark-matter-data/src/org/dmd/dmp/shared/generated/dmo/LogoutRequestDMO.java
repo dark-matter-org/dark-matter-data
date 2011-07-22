@@ -44,8 +44,6 @@ public class LogoutRequestDMO  extends RequestDMO  implements Serializable  {
 
     public final static String constructionClassName = "LogoutRequest";
 
-    public final static DmcClassInfo classInfo = DmpDMSAG.__LogoutRequest;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

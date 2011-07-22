@@ -71,8 +71,6 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
 
     public final static String constructionClassName = "Controller";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__Controller;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
@@ -356,7 +354,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Adds another instantiatesPresenter value.
      * @param value A value compatible with Presenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addInstantiatesPresenter(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -370,7 +368,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     /**
      * Returns the number of values in instantiatesPresenter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getInstantiatesPresenterSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -383,7 +381,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Deletes a instantiatesPresenter value.
      * @param value The Presenter to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
     public DmcAttribute<?> delInstantiatesPresenter(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__instantiatesPresenter, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -392,7 +390,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the instantiatesPresenter attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remInstantiatesPresenter(){
          rem(MvwDMSAG.__instantiatesPresenter);
     }
@@ -504,7 +502,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Adds another implementsAction value.
      * @param value A value compatible with Action
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addImplementsAction(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__implementsAction);
         if (attr == null)
@@ -518,7 +516,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     /**
      * Returns the number of values in implementsAction
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getImplementsActionSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__implementsAction);
         if (attr == null)
@@ -531,7 +529,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Deletes a implementsAction value.
      * @param value The Action to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
     public DmcAttribute<?> delImplementsAction(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__implementsAction, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -540,7 +538,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the implementsAction attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remImplementsAction(){
          rem(MvwDMSAG.__implementsAction);
     }

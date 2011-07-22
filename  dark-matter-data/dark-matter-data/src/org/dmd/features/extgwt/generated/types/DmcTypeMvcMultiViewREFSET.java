@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcMultiViewREFSET provides storage for a set of MvcMultiViewREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2288)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2298)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeMvcMultiViewREFSET extends DmcTypeMvcMultiViewREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2325)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2335)
     public DmcAttribute<MvcMultiViewREF> cloneIt(){
         synchronized(this){
             DmcTypeMvcMultiViewREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeMvcMultiViewREFSET extends DmcTypeMvcMultiViewREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2344)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2354)
     public MvcMultiViewREF add(Object v) throws DmcValueException {
         synchronized(this){
             MvcMultiViewREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeMvcMultiViewREFSET extends DmcTypeMvcMultiViewREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
     public MvcMultiViewREF del(Object v){
         synchronized(this){
             MvcMultiViewREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeMvcMultiViewREFSET extends DmcTypeMvcMultiViewREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
     public Iterator<MvcMultiViewREF> getMV(){
         synchronized(this){
             Set<MvcMultiViewREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeMvcMultiViewREFSET extends DmcTypeMvcMultiViewREF implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2393)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
     public Set<MvcMultiViewREF> getMVCopy(){
         synchronized(this){
             Set<MvcMultiViewREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeMvcMultiViewREFSET extends DmcTypeMvcMultiViewREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2417)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeMvcMultiViewREFSET extends DmcTypeMvcMultiViewREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2428)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

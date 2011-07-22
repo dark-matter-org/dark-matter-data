@@ -1956,7 +1956,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 //            	out.write("\n");
             	
             	if (cn.equals("ClassDefinition")){
-            		out.write("    DmcClassInfo info;\n\n");
+            		out.write("    transient DmcClassInfo info;\n\n");
             	}
 
             	out.write("    DmcTypeStringName myName;\n\n");

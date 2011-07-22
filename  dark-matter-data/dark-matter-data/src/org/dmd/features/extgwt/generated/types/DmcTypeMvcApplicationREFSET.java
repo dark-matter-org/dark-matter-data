@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcApplicationREFSET provides storage for a set of MvcApplicationREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2288)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2298)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeMvcApplicationREFSET extends DmcTypeMvcApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2325)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2335)
     public DmcAttribute<MvcApplicationREF> cloneIt(){
         synchronized(this){
             DmcTypeMvcApplicationREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeMvcApplicationREFSET extends DmcTypeMvcApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2344)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2354)
     public MvcApplicationREF add(Object v) throws DmcValueException {
         synchronized(this){
             MvcApplicationREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeMvcApplicationREFSET extends DmcTypeMvcApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
     public MvcApplicationREF del(Object v){
         synchronized(this){
             MvcApplicationREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeMvcApplicationREFSET extends DmcTypeMvcApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
     public Iterator<MvcApplicationREF> getMV(){
         synchronized(this){
             Set<MvcApplicationREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeMvcApplicationREFSET extends DmcTypeMvcApplicationREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2393)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
     public Set<MvcApplicationREF> getMVCopy(){
         synchronized(this){
             Set<MvcApplicationREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeMvcApplicationREFSET extends DmcTypeMvcApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2417)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeMvcApplicationREFSET extends DmcTypeMvcApplicationREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2428)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

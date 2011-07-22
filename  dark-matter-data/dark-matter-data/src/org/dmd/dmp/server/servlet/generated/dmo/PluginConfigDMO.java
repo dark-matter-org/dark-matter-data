@@ -50,8 +50,6 @@ public class PluginConfigDMO  extends DmcObject  implements DmcNamedObjectIF, Se
 
     public final static String constructionClassName = "PluginConfig";
 
-    public final static DmcClassInfo classInfo = DmpServerDMSAG.__PluginConfig;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

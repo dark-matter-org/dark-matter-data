@@ -58,8 +58,6 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
 
     public final static String constructionClassName = "MvcAction";
 
-    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcAction;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
@@ -193,7 +191,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Adds another handlesEvent value.
      * @param value A value compatible with MvcEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addHandlesEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__handlesEvent);
         if (attr == null)
@@ -207,7 +205,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Returns the number of values in handlesEvent
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getHandlesEventSize(){
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__handlesEvent);
         if (attr == null)
@@ -220,7 +218,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Deletes a handlesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
     public DmcAttribute<?> delHandlesEvent(Object value){
         DmcAttribute<?> attr = del(ExtgwtDMSAG.__handlesEvent, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -229,7 +227,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remHandlesEvent(){
          rem(ExtgwtDMSAG.__handlesEvent);
     }

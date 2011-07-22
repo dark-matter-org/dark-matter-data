@@ -98,6 +98,7 @@ public class View extends ViewDMW {
 			viewImplMethods			= new StringBuffer();
 			
 			if (getUsesRunContextItemHasValue()){
+				viewImplImports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Using run context items");
 				for(RunContextItem rci: getUsesRunContextItemIterable()){
 					rci.addUsageImplImports(viewImplImports);
 				}

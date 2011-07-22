@@ -31,8 +31,6 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
 
     public final static String constructionClassName = "BaseObj";
 
-    public final static DmcClassInfo classInfo = DmtDMSAG.__BaseObj;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

@@ -49,8 +49,6 @@ public class NotifyRequestDMO  extends RequestDMO  implements Serializable  {
 
     public final static String constructionClassName = "NotifyRequest";
 
-    public final static DmcClassInfo classInfo = DmpDMSAG.__NotifyRequest;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

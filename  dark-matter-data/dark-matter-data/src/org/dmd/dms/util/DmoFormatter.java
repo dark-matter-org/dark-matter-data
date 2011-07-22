@@ -136,7 +136,7 @@ public class DmoFormatter {
      
         out.write("    public final static String constructionClassName = \"" + cd.getName().getNameString() + "\";\n\n");
         
-        out.write("    public final static DmcClassInfo classInfo = " + cd.getDefinedIn().getDMSASGName() + ".__" + cd.getName() + ";\n\n");
+//        out.write("    public final static DmcClassInfo classInfo = " + cd.getDefinedIn().getDMSASGName() + ".__" + cd.getName() + ";\n\n");
         
         StringBuffer staticInit = new StringBuffer();
 //        out.write(getDmcAttributeInfo(cd, staticInit) + "\n");

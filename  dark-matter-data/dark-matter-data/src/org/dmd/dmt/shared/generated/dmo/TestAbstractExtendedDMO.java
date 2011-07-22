@@ -27,8 +27,6 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
 
     public final static String constructionClassName = "TestAbstractExtended";
 
-    public final static DmcClassInfo classInfo = DmtDMSAG.__TestAbstractExtended;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

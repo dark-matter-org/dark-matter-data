@@ -50,8 +50,6 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
 
     public final static String constructionClassName = "DeleteRequest";
 
-    public final static DmcClassInfo classInfo = DmpDMSAG.__DeleteRequest;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
@@ -199,7 +197,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Adds another targets to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1014)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1024)
     public DmcAttribute<?> addTargets(DmcObjectName value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__targets);
         if (attr == null)
@@ -219,7 +217,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified NameContainer.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean targetsContains(NameContainer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__targets);
         if (attr == null)
@@ -231,7 +229,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified DmcObjectName.
      * @param value DmcObjectName
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1049)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1059)
     public boolean targetsContains(DmcObjectName value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__targets);
         if (attr == null)
@@ -243,7 +241,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Adds another targets value.
      * @param value A value compatible with NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addTargets(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__targets);
         if (attr == null)
@@ -257,7 +255,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Returns the number of values in targets
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getTargetsSize(){
         DmcAttribute<?> attr = get(DmpDMSAG.__targets);
         if (attr == null)
@@ -270,7 +268,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a targets value.
      * @param value The NameContainer to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delTargets(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__targets);
         
@@ -286,7 +284,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a targets from the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delTargets(NameContainer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__targets);
         
@@ -301,7 +299,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the targets attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remTargets(){
          rem(DmpDMSAG.__targets);
     }

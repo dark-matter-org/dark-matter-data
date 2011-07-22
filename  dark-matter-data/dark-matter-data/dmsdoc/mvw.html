@@ -17,8 +17,13 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (12)</h2>
+    <h2> Classes (21)</h2>
     <table>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#Action"> Action </a></td>
+      <td> actionName </td>
+      </tr>
       <tr>
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#Activity"> Activity </a></td>
@@ -38,6 +43,36 @@
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#Event"> Event </a></td>
       <td> eventName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#I18NConfig"> I18NConfig </a></td>
+      <td> itemName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#Menu"> Menu </a></td>
+      <td> elementName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#MenuBar"> MenuBar </a></td>
+      <td> elementName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#MenuElementDefinition"> MenuElementDefinition </a></td>
+      <td> elementName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#MenuImplementationConfig"> MenuImplementationConfig </a></td>
+      <td> configName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#MenuItem"> MenuItem </a></td>
+      <td> elementName </td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -66,6 +101,16 @@
       </tr>
       <tr>
       <td class="spacer"> </td>
+      <td> <a class="deflink" href="#Separator"> Separator </a></td>
+      <td> elementName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#SubMenu"> SubMenu </a></td>
+      <td> elementName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
       <td> <a class="deflink" href="#SubPlace"> SubPlace </a></td>
       <td> placeName </td>
       </tr>
@@ -81,7 +126,7 @@
       </tr>
     </table>
     </div>    <div class="typeList">
-    <h2>Types (7)</h2>
+    <h2>Types (8)</h2>
     <ul>
       <li> <a class="deflink" href="#EventWithArgs"> EventWithArgs </a></li>
       <li> <a class="deflink" href="#GetWithOptions"> GetWithOptions </a></li>
@@ -101,6 +146,79 @@
 <div class="classDetails">
 
 <h2> Class Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Action"> Action </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Action class allows for the definition of an intermediate component that binds behavioural triggers e.g. menu items, toolbar buttons etc. to action implementors e.g. Controllers, Presenters and Activities. The Action serves the same purpose as the com.google.gwt.user.client.Command interface, but provides some additional useful functionality. The implementation of the Action (see org.dmd.mvw.client.mvwmenus.base.Action) maintains a set of TriggerIF interfaces, which are the various implementations of the menu items, toolbar buttons etc. An implementing component can enable/disable its Actions which, in turn, can enable/disable its triggers.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#actionName">actionName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="mvw.html#actionName">actionName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of an Action. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
+      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+  </table>
 
   <table>
 
@@ -518,7 +636,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The Controller represents a behavioural component that lives throughout the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters and Views that are displayed, but may also provide behind the scenes management of things like communications, security, menu structure etc. Controllers do not implement Presenter interfaces i.e. they do not interact directly with Views; that is the role of Presenters. <p /> Because of their implied lifetime, Controllers are made part of the overall RunContext for an application and are constructed during initialization of the application. There is no need to instantiate Controllers separately. The RunContextItem created for a controller has the same name as the Controller itself. <p /> Controllers should not communicate with other Controllers directly; this type of communication should be performed using events. So, although it is possible to get the handle to another Controller via the RunContext, it is discouraged.</td>
+      <td colspan="2">The Controller represents a behavioural component that lives throughout the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters and Views that are displayed, but may also provide behind the scenes management of things like communications, security, menu structure etc. Controllers do not implement Presenter interfaces i.e. they do not interact directly with Views; that is the role of Presenters. <p /> Because of their implied lifetime, Controllers are made part of the overall RunContext for an application and are constructed during initialization of the application. There is no need to instantiate Controllers separately. The RunContextItem created for a controller has the same name as the Controller itself with RCI appended. You may specify an itemOrder for the Controller to control when it is instantiated in the RunContext; use this option only if you know what you're doing! The default itemOrder is 50, most base related functionality starts in itemOrder 20 or lower. <p /> Controllers should not communicate with other Controllers directly; this type of communication should be performed using events. So, although it is possible to get the handle to another Controller via the RunContext, it is discouraged. <p /></td>
     </tr>
 
     <tr>
@@ -635,6 +753,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="mvw.html#implementsAction">implementsAction</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="mvw.html#Action">Action</a> </td>
+      <td> Indicates the Actions to be implemented by a Component. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="mvw.html#instantiatesPresenter">instantiatesPresenter</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="mvw.html#Presenter">Presenter</a> </td>
       <td> Indicates that a Component makes use of a particular Presenter; a method will be created on the componet's BaseImpl that allows you to get a presenter of this type. This is used in conjunction with instantiatesView attribute, in that an appropriate  presenter must be passed to the generated get*View() method to get a view instance. </td>
@@ -646,6 +772,14 @@
       <td> <a href="mvw.html#instantiatesView">instantiatesView</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="mvw.html#View">View</a> </td>
       <td> Indicates that a component instantiates a particular View; a method will created on the component BaseImpl that allows you to get an instance of this view and bind it to the appropriate presenter. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#itemOrder">itemOrder</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> The order in which a RunContextItem should be instantiated. </td>
     </tr>
 
     <tr>
@@ -829,6 +963,649 @@
 
   <table>
 
+    <tr> <td class="className" colspan="4"> <a name="I18NConfig"> I18NConfig </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The I18NConfig is a specialized RunContextItem that indicates an interface class used to access internationalized constants or messages.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a> <br />
+      <a href="mvw.html#RunContextItem">RunContextItem</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#itemName">itemName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#construction">construction</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The statement used to construct the RunContextItem instance. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
+      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#itemName">itemName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of a RunContextItem. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#useClass">useClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fully qualified class name of a RunContextItem. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="mvw.html#contextImpl">contextImpl</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The context implementation in which this RunContextItem definition should be used. All items are part of the Default implementation, but if you need other implementations, just respecify the item with different useClass and/or different construction syntax. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#createOnDemand">createOnDemand</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates that a RunContextItem will be created on demand when requested from the RunContext. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#importThis">importThis</a> </td>
+      <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Allows for the specification of other import statements in various definitions. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#itemOrder">itemOrder</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> The order in which a RunContextItem should be instantiated. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#theOne">theOne</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates that a Presenter or View will be the only one created from the run context. If this flag is false (the default), calling getXView() or getXPresenter() will return a new instance of the component. This is also used in conjunction (internally) with the createOnDemand attribute on RunContextItems. <p /> Morpheus may not agree with your decision in this regard. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Menu"> Menu </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Menu is a common base for all definitions associated with the definition of menus of different types e.g. toolbars, menubars, popups etc.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a> <br />
+      <a href="mvw.html#MenuElementDefinition">MenuElementDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="mvw.html#MenuBar">MenuBar</a> </div>      <div class="derived"> <a href="mvw.html#SubMenu">SubMenu</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#elementName">elementName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
+      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#elementName">elementName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of a menu related element. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#useImpl">useImpl</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a menu element implementation. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="MenuBar"> MenuBar </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The MenuImplementationConfig is used to define the various classes that will</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a> <br />
+      <a href="mvw.html#MenuElementDefinition">MenuElementDefinition</a> <br />
+      <a href="mvw.html#Menu">Menu</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#elementName">elementName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
+      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#elementName">elementName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of a menu related element. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#useImpl">useImpl</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a menu element implementation. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="MenuElementDefinition"> MenuElementDefinition </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The MenuElementDefinition is common base for all definitions associated with the definition of menu elements.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="mvw.html#Menu">Menu</a> </div>      <div class="derived"> <a href="mvw.html#MenuItem">MenuItem</a> </div>      <div class="derived"> <a href="mvw.html#Separator">Separator</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#elementName">elementName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
+      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#elementName">elementName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of a menu related element. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#useImpl">useImpl</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a menu element implementation. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="MenuImplementationConfig"> MenuImplementationConfig </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The MenuImplementationConfig is used to define the various classes that will  be used to implement an actual menu structure based the MVW menu definitions. <p /> The class specified by useClass must be derived from org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory and have a zero arg constructor.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#configName">configName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#configName">configName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of a menu implementation configuration. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#defaultMenuBar">defaultMenuBar</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </td>
+      <td> The name and description of the default menu bar implementation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#defaultMenuItem">defaultMenuItem</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </td>
+      <td> The name and description of the default menu item implementation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#defaultSeparator">defaultSeparator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </td>
+      <td> The name and description of the default separator implementation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#defaultSubMenu">defaultSubMenu</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </td>
+      <td> The name and description of the default submenu implementation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
+      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#useClass">useClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fully qualified class name of a RunContextItem. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="mvw.html#alternateMenuBar">alternateMenuBar</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </td>
+      <td> The name and description of various alternate menu bar implementations. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#alternateMenuItem">alternateMenuItem</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </td>
+      <td> The name and description of various alternate Menu item implementations. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#alternateSubMenu">alternateSubMenu</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </td>
+      <td> The name and description of the various submenu implementations. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="MenuItem"> MenuItem </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The MenuItem is used to define triggerable menu items. You must specify either a displayLabel or a displayLabelI18N to indicate the label to be used for the menu item.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a> <br />
+      <a href="mvw.html#MenuElementDefinition">MenuElementDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#elementName">elementName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="mvw.html#addToMenu">addToMenu</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Menu">Menu</a> </td>
+      <td> Indicates the menu to which an MenuItem should be added. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
+      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#elementName">elementName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of a menu related element. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#menuOrder">menuOrder</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the lorder in which a sub menu or menu item should be displayed in the menu. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#triggersAction">triggersAction</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Action">Action</a> </td>
+      <td> Indicates the Action to be associated with a menu entry, button or other UI component. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#displayLabel">displayLabel</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The label to be displayed on something. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#displayLabelI18N">displayLabelI18N</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A reference to run context item with translated labels for your menu item. If you had defined a run context item called constants (whose base interface was generated by the GWT I18N creation mechanisms), you could use one its value by specifying constants.myLabel(). </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#useImpl">useImpl</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a menu element implementation. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
     <tr> <td class="className" colspan="4"> <a name="Module"> Module </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -951,7 +1728,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="mvw.html#Component">Component</a> </div>      <div class="derived"> <a href="mvw.html#Event">Event</a> </div>      <div class="derived"> <a href="mvw.html#Module">Module</a> </div>      <div class="derived"> <a href="mvw.html#Place">Place</a> </div>      <div class="derived"> <a href="mvw.html#RunContextItem">RunContextItem</a> </div>      <div class="derived"> <a href="mvw.html#View">View</a> </div>      <div class="derived"> <a href="mvw.html#WebApplication">WebApplication</a> </div>      </td>
+      <div class="derived"> <a href="mvw.html#Action">Action</a> </div>      <div class="derived"> <a href="mvw.html#Component">Component</a> </div>      <div class="derived"> <a href="mvw.html#Event">Event</a> </div>      <div class="derived"> <a href="mvw.html#MenuElementDefinition">MenuElementDefinition</a> </div>      <div class="derived"> <a href="mvw.html#MenuImplementationConfig">MenuImplementationConfig</a> </div>      <div class="derived"> <a href="mvw.html#Module">Module</a> </div>      <div class="derived"> <a href="mvw.html#Place">Place</a> </div>      <div class="derived"> <a href="mvw.html#RunContextItem">RunContextItem</a> </div>      <div class="derived"> <a href="mvw.html#View">View</a> </div>      <div class="derived"> <a href="mvw.html#WebApplication">WebApplication</a> </div>      </td>
     </tr>
 
     <tr>
@@ -1329,6 +2106,13 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="mvw.html#I18NConfig">I18NConfig</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Wrapper</td>
       <td colspan="2">EXTENDED</td>
     </tr>
@@ -1429,6 +2213,219 @@
       <td> <a href="mvw.html#theOne">theOne</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates that a Presenter or View will be the only one created from the run context. If this flag is false (the default), calling getXView() or getXPresenter() will return a new instance of the component. This is also used in conjunction (internally) with the createOnDemand attribute on RunContextItems. <p /> Morpheus may not agree with your decision in this regard. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Separator"> Separator </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Separator is used to define menu separators.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a> <br />
+      <a href="mvw.html#MenuElementDefinition">MenuElementDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#elementName">elementName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="mvw.html#addToMenu">addToMenu</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Menu">Menu</a> </td>
+      <td> Indicates the menu to which an MenuItem should be added. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
+      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#elementName">elementName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of a menu related element. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#menuOrder">menuOrder</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the lorder in which a sub menu or menu item should be displayed in the menu. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#useImpl">useImpl</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a menu element implementation. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="SubMenu"> SubMenu </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The SubMenu is used to define a submenu that is included as part of a Menu.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a> <br />
+      <a href="mvw.html#MenuElementDefinition">MenuElementDefinition</a> <br />
+      <a href="mvw.html#Menu">Menu</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#elementName">elementName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="mvw.html#addToMenu">addToMenu</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Menu">Menu</a> </td>
+      <td> Indicates the menu to which an MenuItem should be added. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
+      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#elementName">elementName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of a menu related element. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#menuOrder">menuOrder</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the lorder in which a sub menu or menu item should be displayed in the menu. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#displayLabel">displayLabel</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The label to be displayed on something. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#displayLabelI18N">displayLabelI18N</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A reference to run context item with translated labels for your menu item. If you had defined a run context item called constants (whose base interface was generated by the GWT I18N creation mechanisms), you could use one its value by specifying constants.myLabel(). </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#useImpl">useImpl</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a menu element implementation. </td>
     </tr>
 
   </table>
@@ -1840,6 +2837,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="mvw.html#menuImplementation">menuImplementation</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#MenuImplementationConfig">MenuImplementationConfig</a> </td>
+      <td> A reference to a menu implementation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="mvw.html#usesController">usesController</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="mvw.html#Controller">Controller</a> </td>
       <td> Indicates Controllers that are used by an application or a site. </td>
@@ -1868,6 +2873,19 @@
       <td>Indicates that an Activity should be derived from AbstractActivity</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="actionName"> actionName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name of an Action.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="activityName"> activityName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -1881,6 +2899,19 @@
       <td>The name of an Activity.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="addToMenu"> addToMenu </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#Menu">Menu</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates the menu to which an MenuItem should be added.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="addedToRunContext"> addedToRunContext </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -1892,6 +2923,58 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates whether a RunContextItem should be generated for a Controller; defaults to true. However, if you need manual control over ordering and creation of the context item, for example in the case of base Controllers like the CommController, this can be set to false.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="alternateMenuBar"> alternateMenuBar </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name and description of various alternate menu bar implementations.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="alternateMenuItem"> alternateMenuItem </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name and description of various alternate Menu item implementations.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="alternateSubMenu"> alternateSubMenu </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name and description of the various submenu implementations.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="alwaysEnabled"> alwaysEnabled </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates if the item is always enabled. If not, there will be a method generated that is called before the menu is shown to determine if the item is enabled/disabled.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="appName"> appName </a> </td></tr>
@@ -1998,6 +3081,19 @@
       <td>The name of a component.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="configName"> configName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name of a menu implementation configuration.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="construction"> construction </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2063,6 +3159,32 @@
       <td>Indicates that a RunContextItem will be created on demand when requested from the RunContext.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="defaultMenuBar"> defaultMenuBar </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name and description of the default menu bar implementation.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="defaultMenuItem"> defaultMenuItem </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name and description of the default menu item implementation.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="defaultPlace"> defaultPlace </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2074,6 +3196,32 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the DefaultPlace for a WebApplication.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="defaultSeparator"> defaultSeparator </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name and description of the default separator implementation.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="defaultSubMenu"> defaultSubMenu </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#MenuElementTypeAndComment">MenuElementTypeAndComment</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name and description of the default submenu implementation.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="definedInModule"> definedInModule </a> </td></tr>
@@ -2128,6 +3276,45 @@
       <td>Indicates data to be displayed in a View. The attributes takes the form Class SINGLE|MULTI varname.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="displayLabel"> displayLabel </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The label to be displayed on something.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="displayLabelI18N"> displayLabelI18N </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A reference to run context item with translated labels for your menu item. If you had defined a run context item called constants (whose base interface was generated by the GWT I18N creation mechanisms), you could use one its value by specifying constants.myLabel().</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="elementName"> elementName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name of a menu related element.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="eventName"> eventName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2165,6 +3352,32 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This attributes holds a list of MvwEvents that are handled by various MVW components.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="implementedBy"> implementedBy </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#Component">Component</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates the Component that implements an Action.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="implementsAction"> implementsAction </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="mvw.html#Action">Action</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates the Actions to be implemented by a Component.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="importThis"> importThis </a> </td></tr>
@@ -2269,6 +3482,32 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates Views that are managed by a Component.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="menuImplementation"> menuImplementation </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#MenuImplementationConfig">MenuImplementationConfig</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A reference to a menu implementation.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="menuOrder"> menuOrder </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates the lorder in which a sub menu or menu item should be displayed in the menu.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="modifyEvent"> modifyEvent </a> </td></tr>
@@ -2531,6 +3770,19 @@
       <td>Indicates that a Presenter or View will be the only one created from the run context. If this flag is false (the default), calling getXView() or getXPresenter() will return a new instance of the component. This is also used in conjunction (internally) with the createOnDemand attribute on RunContextItems. <p /> Morpheus may not agree with your decision in this regard.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="triggersAction"> triggersAction </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#Action">Action</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates the Action to be associated with a menu entry, button or other UI component.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="useBaseClass"> useBaseClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2555,6 +3807,19 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The fully qualified class name of a RunContextItem.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="useImpl"> useImpl </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name of a menu element implementation.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="useSchema"> useSchema </a> </td></tr>

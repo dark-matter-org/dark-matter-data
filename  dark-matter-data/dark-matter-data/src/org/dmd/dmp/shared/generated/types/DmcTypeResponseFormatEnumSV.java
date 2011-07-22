@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;    // DmcType impo
  * The DmcTypeResponseFormatEnumSV provides storage for a single-valued ResponseFormatEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1716)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1726)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeResponseFormatEnumSV extends DmcTypeResponseFormatEnum imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1748)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
     public DmcAttribute<ResponseFormatEnum> cloneIt(){
         DmcTypeResponseFormatEnumSV rc = getNew();
         rc.value = value;
@@ -57,7 +57,7 @@ public class DmcTypeResponseFormatEnumSV extends DmcTypeResponseFormatEnum imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1760)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1770)
     public ResponseFormatEnum set(Object v) throws DmcValueException {
         ResponseFormatEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

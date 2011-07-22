@@ -58,8 +58,6 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
 
     public final static String constructionClassName = "MvcConfig";
 
-    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcConfig;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
@@ -193,7 +191,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Adds another dependsOnMVC value.
      * @param value A value compatible with MvcConfig
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addDependsOnMVC(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__dependsOnMVC);
         if (attr == null)
@@ -207,7 +205,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Returns the number of values in dependsOnMVC
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getDependsOnMVCSize(){
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__dependsOnMVC);
         if (attr == null)
@@ -220,7 +218,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Deletes a dependsOnMVC value.
      * @param value The MvcConfig to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
     public DmcAttribute<?> delDependsOnMVC(Object value){
         DmcAttribute<?> attr = del(ExtgwtDMSAG.__dependsOnMVC, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -229,7 +227,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the dependsOnMVC attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remDependsOnMVC(){
          rem(ExtgwtDMSAG.__dependsOnMVC);
     }
@@ -283,7 +281,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1045)
     public boolean dependsOnContains(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOn);
         if (attr == null)
@@ -295,7 +293,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Adds another dependsOn value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1067)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1077)
     public DmcAttribute<?> addDependsOn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOn);
         if (attr == null)
@@ -309,7 +307,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Returns the number of values in dependsOn
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1084)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getDependsOnSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOn);
         if (attr == null)
@@ -322,7 +320,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Deletes a dependsOn value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
     public DmcAttribute<?> delDependsOn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOn);
         
@@ -338,7 +336,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Deletes a dependsOn from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1142)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
     public DmcAttribute<?> delDependsOn(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependsOn);
         
@@ -353,7 +351,7 @@ public class MvcConfigDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the dependsOn attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1161)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
     public void remDependsOn(){
          rem(MetaDMSAG.__dependsOn);
     }

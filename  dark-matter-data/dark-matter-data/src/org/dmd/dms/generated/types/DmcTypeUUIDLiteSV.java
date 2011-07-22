@@ -25,7 +25,7 @@ import org.dmd.dmc.types.DmcTypeUUIDLite;    // DmcType import
  * The DmcTypeUUIDLiteSV provides storage for a single-valued UUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1705)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1726)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:266)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypeUUIDLiteSV extends DmcTypeUUIDLite implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1737)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
     public DmcAttribute<UUIDLite> cloneIt(){
         DmcTypeUUIDLiteSV rc = getNew();
         rc.value = value;
@@ -58,7 +58,7 @@ public class DmcTypeUUIDLiteSV extends DmcTypeUUIDLite implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1749)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1770)
     public UUIDLite set(Object v) throws DmcValueException {
         UUIDLite rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

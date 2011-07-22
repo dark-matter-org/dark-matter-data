@@ -31,8 +31,6 @@ public class UserDMO  extends DmcObject  implements DmcNamedObjectIF, Serializab
 
     public final static String constructionClassName = "User";
 
-    public final static DmcClassInfo classInfo = ExsecurityDMSAG.__User;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

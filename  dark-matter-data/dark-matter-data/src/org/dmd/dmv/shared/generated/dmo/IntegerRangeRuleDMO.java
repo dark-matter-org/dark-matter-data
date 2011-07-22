@@ -43,8 +43,6 @@ public class IntegerRangeRuleDMO  extends AttributeRuleDMO  implements Serializa
 
     public final static String constructionClassName = "IntegerRangeRule";
 
-    public final static DmcClassInfo classInfo = DmvDMSAG.__IntegerRangeRule;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

@@ -47,8 +47,6 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
 
     public final static String constructionClassName = "UserFolderRI";
 
-    public final static DmcClassInfo classInfo = DmpServerDMSAG.__UserFolderRI;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

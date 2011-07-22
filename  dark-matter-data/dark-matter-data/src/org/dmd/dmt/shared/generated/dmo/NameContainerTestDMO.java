@@ -32,8 +32,6 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
 
     public final static String constructionClassName = "NameContainerTest";
 
-    public final static DmcClassInfo classInfo = DmtDMSAG.__NameContainerTest;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

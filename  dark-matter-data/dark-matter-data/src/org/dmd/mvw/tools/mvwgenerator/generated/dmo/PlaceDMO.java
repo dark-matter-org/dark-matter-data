@@ -50,8 +50,6 @@ public class PlaceDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
 
     public final static String constructionClassName = "Place";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__Place;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

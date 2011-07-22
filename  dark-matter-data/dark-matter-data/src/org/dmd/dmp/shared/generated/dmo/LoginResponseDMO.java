@@ -47,8 +47,6 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
 
     public final static String constructionClassName = "LoginResponse";
 
-    public final static DmcClassInfo classInfo = DmpDMSAG.__LoginResponse;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

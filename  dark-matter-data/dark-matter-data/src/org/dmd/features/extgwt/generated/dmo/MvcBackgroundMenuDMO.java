@@ -50,8 +50,6 @@ public class MvcBackgroundMenuDMO  extends MvcMenuDMO  implements DmcNamedObject
 
     public final static String constructionClassName = "MvcBackgroundMenu";
 
-    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcBackgroundMenu;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

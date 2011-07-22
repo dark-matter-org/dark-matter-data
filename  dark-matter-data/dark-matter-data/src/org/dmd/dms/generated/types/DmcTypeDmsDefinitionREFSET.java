@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeDmsDefinitionREFSET provides storage for a set of DmsDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2277)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2298)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:241)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeDmsDefinitionREFSET extends DmcTypeDmsDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2314)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2335)
     public DmcAttribute<DmsDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeDmsDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeDmsDefinitionREFSET extends DmcTypeDmsDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2333)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2354)
     public DmsDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             DmsDefinitionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeDmsDefinitionREFSET extends DmcTypeDmsDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
     public DmsDefinitionREF del(Object v){
         synchronized(this){
             DmsDefinitionREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeDmsDefinitionREFSET extends DmcTypeDmsDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
     public Iterator<DmsDefinitionREF> getMV(){
         synchronized(this){
             Set<DmsDefinitionREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeDmsDefinitionREFSET extends DmcTypeDmsDefinitionREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
     public Set<DmsDefinitionREF> getMVCopy(){
         synchronized(this){
             Set<DmsDefinitionREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeDmsDefinitionREFSET extends DmcTypeDmsDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2396)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2417)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeDmsDefinitionREFSET extends DmcTypeDmsDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2428)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

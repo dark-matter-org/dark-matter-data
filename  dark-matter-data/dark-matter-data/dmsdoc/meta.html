@@ -400,17 +400,17 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="meta.html#internalUse">internalUse</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> Indicates if an attribute is used and set within the Dark Matter Data code generation mechanisms. In the documentation generation code, attributes marked as internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated. </td>
+      <td> <a href="meta.html#indexSize">indexSize</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> The indexSize is used in conjunction with the MULTI valueType to indicate that the attribute may have the specified number of values and is integer indexed. Indexed attributes may be thought of as having a predetermined number of slots into which values may be stored. When indexed, an attribute has values added to it using the setMVnth() interface, not the usual add() interface. If you attempt to use add() with an indexed attribute, an exception will be thrown. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="meta.html#mvsize">mvsize</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The mvsize indicates for any multi-valued attribute, the maximum number of values that can be stored. </td>
+      <td> <a href="meta.html#internalUse">internalUse</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an attribute is used and set within the Dark Matter Data code generation mechanisms. In the documentation generation code, attributes marked as internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated. </td>
     </tr>
 
     <tr>
@@ -2166,6 +2166,19 @@
       <td>This attribute indicates the full name of the generated helper class for  object references i.e. if you had a ClassDefinition X, the framework generates a  types/XREF class which is subsequently used by the DmcTypeXREF class to store references to objects of the defined class.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="indexSize"> indexSize </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The indexSize is used in conjunction with the MULTI valueType to indicate that the attribute may have the specified number of values and is integer indexed. Indexed attributes may be thought of as having a predetermined number of slots into which values may be stored. When indexed, an attribute has values added to it using the setMVnth() interface, not the usual add() interface. If you attempt to use add() with an indexed attribute, an exception will be thrown.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="integerName"> integerName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2528,19 +2541,6 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the set of return vals that must be returned as part of a particular action response message.</td>
-    </tr>
-
-    <tr> <td class="className" colspan="3"> <a name="mvsize"> mvsize </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>The mvsize indicates for any multi-valued attribute, the maximum number of values that can be stored.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="name"> name </a> </td></tr>

@@ -53,8 +53,6 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
 
     public final static String constructionClassName = "DotNamedObject";
 
-    public final static DmcClassInfo classInfo = DmrBaseDMSAG.__DotNamedObject;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

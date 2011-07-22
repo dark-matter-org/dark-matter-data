@@ -44,8 +44,6 @@ abstract public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcN
 
     public final static String constructionClassName = "Menu";
 
-    public final static DmcClassInfo classInfo = MvwDMSAG.__Menu;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

@@ -31,8 +31,6 @@ public class UserGroupDMO  extends DmcObject  implements DmcNamedObjectIF, Seria
 
     public final static String constructionClassName = "UserGroup";
 
-    public final static DmcClassInfo classInfo = ExsecurityDMSAG.__UserGroup;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

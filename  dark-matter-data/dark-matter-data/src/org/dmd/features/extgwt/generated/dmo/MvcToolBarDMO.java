@@ -47,8 +47,6 @@ public class MvcToolBarDMO  extends MvcMenuDMO  implements DmcNamedObjectIF, Ser
 
     public final static String constructionClassName = "MvcToolBar";
 
-    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcToolBar;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;

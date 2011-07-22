@@ -47,8 +47,6 @@ public class MvcRegistryItemDMO  extends MvcDefinitionDMO  implements DmcNamedOb
 
     public final static String constructionClassName = "MvcRegistryItem";
 
-    public final static DmcClassInfo classInfo = ExtgwtDMSAG.__MvcRegistryItem;
-
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
     static Map<String ,DmcObjectValidator> _OvDmAp;
