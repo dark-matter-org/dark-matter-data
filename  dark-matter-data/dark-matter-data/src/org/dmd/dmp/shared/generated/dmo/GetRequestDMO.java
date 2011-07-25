@@ -219,9 +219,12 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getTargetsSize(){
         DmcAttribute<?> attr = get(DmpDMSAG.__targets);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (DmpDMSAG.__targets.indexSize == 0)
+                return(0);
+            else
+                return(DmpDMSAG.__targets.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -229,7 +232,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a targets value.
      * @param value The NameContainer to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delTargets(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__targets);
         
@@ -245,7 +248,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a targets from the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delTargets(NameContainer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__targets);
         
@@ -260,7 +263,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the targets attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remTargets(){
          rem(DmpDMSAG.__targets);
     }
@@ -593,9 +596,12 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getAttributeSelectorSize(){
         DmcAttribute<?> attr = get(DmpDMSAG.__attributeSelector);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (DmpDMSAG.__attributeSelector.indexSize == 0)
+                return(0);
+            else
+                return(DmpDMSAG.__attributeSelector.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -603,7 +609,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a attributeSelector value.
      * @param value The AttributeID to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delAttributeSelector(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__attributeSelector);
         
@@ -619,7 +625,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a attributeSelector from the specified value.
      * @param value AttributeID
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delAttributeSelector(AttributeID value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__attributeSelector);
         
@@ -634,7 +640,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the attributeSelector attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remAttributeSelector(){
          rem(DmpDMSAG.__attributeSelector);
     }

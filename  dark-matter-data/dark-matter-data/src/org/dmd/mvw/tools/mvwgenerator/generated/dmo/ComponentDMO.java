@@ -131,7 +131,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * @return An Iterator of EventDMO objects.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1209)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1212)
     @SuppressWarnings("unchecked")
     public Iterator<EventREF> getFiresEvent(){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__firesEvent);
@@ -151,7 +151,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * @return An Iterator of EventREFs without attempting lazy resolution (if it's turned on).
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1239)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1242)
     @SuppressWarnings("unchecked")
     public Iterator<EventREF> getFiresEventREFs(){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__firesEvent);
@@ -165,7 +165,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * @param key The key of the value you want.
      * @return The Event associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1273)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1276)
     public EventREF getFiresEvent(Object key){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -178,7 +178,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Adds another firesEvent value.
      * @param value A value compatible with Event
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1307)
     public DmcAttribute<?> addFiresEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -193,7 +193,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Adds another firesEvent value.
      * @param value Event
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1320)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1323)
     public DmcAttribute<?> addFiresEvent(EventDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -232,7 +232,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the firesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1470)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1473)
     public void remFiresEvent(){
          rem(MvwDMSAG.__firesEvent);
     }
@@ -240,7 +240,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * @return An Iterator of EventDMO objects.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1209)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1212)
     @SuppressWarnings("unchecked")
     public Iterator<EventREF> getHandlesEvent(){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__handlesEvent);
@@ -260,7 +260,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * @return An Iterator of EventREFs without attempting lazy resolution (if it's turned on).
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1239)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1242)
     @SuppressWarnings("unchecked")
     public Iterator<EventREF> getHandlesEventREFs(){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__handlesEvent);
@@ -274,7 +274,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * @param key The key of the value you want.
      * @return The Event associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1273)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1276)
     public EventREF getHandlesEvent(Object key){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -287,7 +287,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Adds another handlesEvent value.
      * @param value A value compatible with Event
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1304)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1307)
     public DmcAttribute<?> addHandlesEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -302,7 +302,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Adds another handlesEvent value.
      * @param value Event
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1320)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1323)
     public DmcAttribute<?> addHandlesEvent(EventDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -341,7 +341,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1470)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1473)
     public void remHandlesEvent(){
          rem(MvwDMSAG.__handlesEvent);
     }
@@ -420,9 +420,12 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getUseSchemaSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__useSchema);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__useSchema.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__useSchema.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -430,7 +433,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a useSchema value.
      * @param value The SchemaDefinition to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delUseSchema(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__useSchema, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -439,7 +442,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the useSchema attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remUseSchema(){
          rem(MvwDMSAG.__useSchema);
     }
@@ -568,9 +571,12 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getUsesRunContextItemSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__usesRunContextItem);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__usesRunContextItem.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__usesRunContextItem.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -578,7 +584,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a usesRunContextItem value.
      * @param value The RunContextItem to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delUsesRunContextItem(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__usesRunContextItem, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -587,7 +593,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the usesRunContextItem attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remUsesRunContextItem(){
          rem(MvwDMSAG.__usesRunContextItem);
     }
@@ -670,9 +676,12 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getSendsGetRequestSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsGetRequest);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__sendsGetRequest.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__sendsGetRequest.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -680,7 +689,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsGetRequest value.
      * @param value The GetWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delSendsGetRequest(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsGetRequest);
         
@@ -696,7 +705,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsGetRequest from the specified value.
      * @param value GetWithOptions
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delSendsGetRequest(GetWithOptions value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsGetRequest);
         
@@ -711,7 +720,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the sendsGetRequest attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remSendsGetRequest(){
          rem(MvwDMSAG.__sendsGetRequest);
     }
@@ -794,9 +803,12 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getSendsDeleteRequestSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsDeleteRequest);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__sendsDeleteRequest.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__sendsDeleteRequest.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -804,7 +816,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsDeleteRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delSendsDeleteRequest(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsDeleteRequest);
         
@@ -820,7 +832,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsDeleteRequest from the specified value.
      * @param value RequestWithOptions
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delSendsDeleteRequest(RequestWithOptions value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsDeleteRequest);
         
@@ -835,7 +847,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the sendsDeleteRequest attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remSendsDeleteRequest(){
          rem(MvwDMSAG.__sendsDeleteRequest);
     }
@@ -918,9 +930,12 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getSendsSetRequestSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsSetRequest);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__sendsSetRequest.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__sendsSetRequest.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -928,7 +943,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsSetRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delSendsSetRequest(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsSetRequest);
         
@@ -944,7 +959,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsSetRequest from the specified value.
      * @param value RequestWithOptions
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delSendsSetRequest(RequestWithOptions value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsSetRequest);
         
@@ -959,7 +974,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the sendsSetRequest attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remSendsSetRequest(){
          rem(MvwDMSAG.__sendsSetRequest);
     }
@@ -1042,9 +1057,12 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getSendsCreateRequestSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsCreateRequest);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__sendsCreateRequest.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__sendsCreateRequest.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1052,7 +1070,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsCreateRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delSendsCreateRequest(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsCreateRequest);
         
@@ -1068,7 +1086,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsCreateRequest from the specified value.
      * @param value RequestWithOptions
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delSendsCreateRequest(RequestWithOptions value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsCreateRequest);
         
@@ -1083,7 +1101,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the sendsCreateRequest attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remSendsCreateRequest(){
          rem(MvwDMSAG.__sendsCreateRequest);
     }
@@ -1166,9 +1184,12 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getSendsActionRequestSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsActionRequest);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__sendsActionRequest.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__sendsActionRequest.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1176,7 +1197,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsActionRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delSendsActionRequest(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsActionRequest);
         
@@ -1192,7 +1213,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsActionRequest from the specified value.
      * @param value RequestWithOptions
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delSendsActionRequest(RequestWithOptions value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsActionRequest);
         
@@ -1207,7 +1228,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the sendsActionRequest attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remSendsActionRequest(){
          rem(MvwDMSAG.__sendsActionRequest);
     }
@@ -1290,9 +1311,12 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getSendsLoginRequestSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsLoginRequest);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__sendsLoginRequest.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__sendsLoginRequest.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1300,7 +1324,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsLoginRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delSendsLoginRequest(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsLoginRequest);
         
@@ -1316,7 +1340,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsLoginRequest from the specified value.
      * @param value RequestWithOptions
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delSendsLoginRequest(RequestWithOptions value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsLoginRequest);
         
@@ -1331,7 +1355,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the sendsLoginRequest attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remSendsLoginRequest(){
          rem(MvwDMSAG.__sendsLoginRequest);
     }
@@ -1414,9 +1438,12 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getSendsLogoutRequestSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsLogoutRequest);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__sendsLogoutRequest.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__sendsLogoutRequest.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1424,7 +1451,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsLogoutRequest value.
      * @param value The RequestWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delSendsLogoutRequest(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsLogoutRequest);
         
@@ -1440,7 +1467,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a sendsLogoutRequest from the specified value.
      * @param value RequestWithOptions
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delSendsLogoutRequest(RequestWithOptions value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__sendsLogoutRequest);
         
@@ -1455,7 +1482,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the sendsLogoutRequest attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remSendsLogoutRequest(){
          rem(MvwDMSAG.__sendsLogoutRequest);
     }
@@ -1584,9 +1611,12 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getInstantiatesViewSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesView);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__instantiatesView.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__instantiatesView.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1594,7 +1624,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a instantiatesView value.
      * @param value The View to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delInstantiatesView(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__instantiatesView, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -1603,7 +1633,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * Removes the instantiatesView attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remInstantiatesView(){
          rem(MvwDMSAG.__instantiatesView);
     }

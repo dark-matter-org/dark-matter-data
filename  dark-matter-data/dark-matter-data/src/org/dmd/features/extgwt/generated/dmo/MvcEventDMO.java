@@ -456,9 +456,12 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getDefinedBySize(){
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__definedBy);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (ExtgwtDMSAG.__definedBy.indexSize == 0)
+                return(0);
+            else
+                return(ExtgwtDMSAG.__definedBy.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -466,7 +469,7 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Deletes a definedBy value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delDefinedBy(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__definedBy);
         
@@ -482,7 +485,7 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Deletes a definedBy from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delDefinedBy(String value) {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__definedBy);
         
@@ -497,7 +500,7 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     /**
      * Removes the definedBy attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remDefinedBy(){
          rem(ExtgwtDMSAG.__definedBy);
     }
@@ -580,9 +583,12 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getEmittedBySize(){
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__emittedBy);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (ExtgwtDMSAG.__emittedBy.indexSize == 0)
+                return(0);
+            else
+                return(ExtgwtDMSAG.__emittedBy.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -590,7 +596,7 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Deletes a emittedBy value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delEmittedBy(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__emittedBy);
         
@@ -606,7 +612,7 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
      * Deletes a emittedBy from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delEmittedBy(String value) {
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__emittedBy);
         
@@ -621,7 +627,7 @@ public class MvcEventDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF,
     /**
      * Removes the emittedBy attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remEmittedBy(){
          rem(ExtgwtDMSAG.__emittedBy);
     }

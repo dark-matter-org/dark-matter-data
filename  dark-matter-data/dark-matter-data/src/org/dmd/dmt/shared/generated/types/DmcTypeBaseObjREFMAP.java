@@ -15,7 +15,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeBaseObjREFMAP provides storage for a map of BaseObjREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2493)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2500)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
@@ -46,7 +46,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2536)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2543)
     public DmcAttribute<BaseObjREF> cloneIt(){
         synchronized(this){
             DmcTypeBaseObjREFMAP rc = getNew();
@@ -61,7 +61,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2552)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2559)
     public BaseObjREF add(Object v) throws DmcValueException {
         synchronized(this){
             BaseObjREF newval = typeCheck(v);
@@ -81,7 +81,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2573)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2580)
     public BaseObjREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -92,7 +92,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2585)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2592)
     public Iterator<BaseObjREF> getMV(){
         synchronized(this){
             Map<StringName,BaseObjREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2598)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2605)
     public Map<StringName,BaseObjREF> getMVCopy(){
         synchronized(this){
             Map<StringName,BaseObjREF> clone = null;
@@ -116,7 +116,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2611)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2618)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -127,7 +127,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2623)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2630)
     public BaseObjREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -138,7 +138,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2635)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2642)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -152,7 +152,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2650)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2657)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

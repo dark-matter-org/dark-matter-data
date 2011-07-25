@@ -208,9 +208,12 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getHandlesEventSize(){
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__handlesEvent);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (ExtgwtDMSAG.__handlesEvent.indexSize == 0)
+                return(0);
+            else
+                return(ExtgwtDMSAG.__handlesEvent.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -218,7 +221,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
      * Deletes a handlesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delHandlesEvent(Object value){
         DmcAttribute<?> attr = del(ExtgwtDMSAG.__handlesEvent, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -227,7 +230,7 @@ public class MvcActionDMO  extends MvcDefinitionDMO  implements DmcNamedObjectIF
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remHandlesEvent(){
          rem(ExtgwtDMSAG.__handlesEvent);
     }

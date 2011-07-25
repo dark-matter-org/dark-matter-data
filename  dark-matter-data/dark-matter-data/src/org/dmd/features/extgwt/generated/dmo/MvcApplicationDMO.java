@@ -204,9 +204,12 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getStartEventsSize(){
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__startEvents);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (ExtgwtDMSAG.__startEvents.indexSize == 0)
+                return(0);
+            else
+                return(ExtgwtDMSAG.__startEvents.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -214,7 +217,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Deletes a startEvents value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delStartEvents(Object value){
         DmcAttribute<?> attr = del(ExtgwtDMSAG.__startEvents, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -223,7 +226,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the startEvents attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remStartEvents(){
          rem(ExtgwtDMSAG.__startEvents);
     }
@@ -302,9 +305,12 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getDefinesEventSize(){
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__definesEvent);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (ExtgwtDMSAG.__definesEvent.indexSize == 0)
+                return(0);
+            else
+                return(ExtgwtDMSAG.__definesEvent.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -312,7 +318,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Deletes a definesEvent value.
      * @param value The MvcEvent to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delDefinesEvent(Object value){
         DmcAttribute<?> attr = del(ExtgwtDMSAG.__definesEvent, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -321,7 +327,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the definesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remDefinesEvent(){
          rem(ExtgwtDMSAG.__definesEvent);
     }
@@ -450,9 +456,12 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getControllersSize(){
         DmcAttribute<?> attr = get(ExtgwtDMSAG.__controllers);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (ExtgwtDMSAG.__controllers.indexSize == 0)
+                return(0);
+            else
+                return(ExtgwtDMSAG.__controllers.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -460,7 +469,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
      * Deletes a controllers value.
      * @param value The MvcController to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delControllers(Object value){
         DmcAttribute<?> attr = del(ExtgwtDMSAG.__controllers, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -469,7 +478,7 @@ public class MvcApplicationDMO  extends MvcDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the controllers attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remControllers(){
          rem(ExtgwtDMSAG.__controllers);
     }

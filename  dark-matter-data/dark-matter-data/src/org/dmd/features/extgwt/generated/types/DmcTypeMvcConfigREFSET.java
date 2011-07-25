@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcConfigREFSET provides storage for a set of MvcConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2298)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2305)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeMvcConfigREFSET extends DmcTypeMvcConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2335)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2342)
     public DmcAttribute<MvcConfigREF> cloneIt(){
         synchronized(this){
             DmcTypeMvcConfigREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeMvcConfigREFSET extends DmcTypeMvcConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2354)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
     public MvcConfigREF add(Object v) throws DmcValueException {
         synchronized(this){
             MvcConfigREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeMvcConfigREFSET extends DmcTypeMvcConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2378)
     public MvcConfigREF del(Object v){
         synchronized(this){
             MvcConfigREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeMvcConfigREFSET extends DmcTypeMvcConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
     public Iterator<MvcConfigREF> getMV(){
         synchronized(this){
             Set<MvcConfigREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeMvcConfigREFSET extends DmcTypeMvcConfigREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2410)
     public Set<MvcConfigREF> getMVCopy(){
         synchronized(this){
             Set<MvcConfigREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeMvcConfigREFSET extends DmcTypeMvcConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2417)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeMvcConfigREFSET extends DmcTypeMvcConfigREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2428)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

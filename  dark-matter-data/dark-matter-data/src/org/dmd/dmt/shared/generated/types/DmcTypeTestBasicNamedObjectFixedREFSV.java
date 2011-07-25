@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestBasicNamedObjectFixedREFSV provides storage for a single-valued TestBasicNamedObjectFixedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1726)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1729)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
@@ -33,7 +33,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFSV extends DmcTypeTestBasicNamed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1761)
     public DmcAttribute<TestBasicNamedObjectFixedREF> cloneIt(){
         DmcTypeTestBasicNamedObjectFixedREFSV rc = getNew();
         rc.value = value;
@@ -41,7 +41,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFSV extends DmcTypeTestBasicNamed
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1770)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1773)
     public TestBasicNamedObjectFixedREF set(Object v) throws DmcValueException {
         TestBasicNamedObjectFixedREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
