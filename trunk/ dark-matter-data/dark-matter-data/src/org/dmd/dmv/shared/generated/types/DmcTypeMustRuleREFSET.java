@@ -29,7 +29,7 @@ import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;    // DmcType import
  * The DmcTypeMustRuleREFSET provides storage for a set of MustRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2298)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2305)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:223)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2335)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2342)
     public DmcAttribute<MustRuleDMO> cloneIt(){
         synchronized(this){
             DmcTypeMustRuleREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2354)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
     public MustRuleDMO add(Object v) throws DmcValueException {
         synchronized(this){
             MustRuleDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2378)
     public MustRuleDMO del(Object v){
         synchronized(this){
             MustRuleDMO rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
     public Iterator<MustRuleDMO> getMV(){
         synchronized(this){
             Set<MustRuleDMO> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2410)
     public Set<MustRuleDMO> getMVCopy(){
         synchronized(this){
             Set<MustRuleDMO> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2417)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeMustRuleREFSET extends DmcTypeMustRuleREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2428)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

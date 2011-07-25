@@ -25,8 +25,8 @@ import java.util.Date;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1886)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1805)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1889)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1808)
  */
 public class DmcTypeDateSTATIC {
     

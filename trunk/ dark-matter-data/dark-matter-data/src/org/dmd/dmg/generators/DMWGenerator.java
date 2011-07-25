@@ -1234,11 +1234,13 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public int get" + functionName + "Size(){\n");
-//		sb.append("        DmcAttribute<?> attr = core.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
 		sb.append("        DmcAttribute<?> attr = core.get(" + ad.getDMSAGReference() + ");\n");
-		sb.append("        if (attr == null)\n");
-		sb.append("            return(0);\n");
-		sb.append("        \n");
+		sb.append("        if (attr == null){\n");
+		sb.append("            if (" + ad.getDMSAGReference() + ".indexSize == 0)\n");
+		sb.append("                return(0);\n");
+		sb.append("            else\n");
+		sb.append("                return(" + ad.getDMSAGReference() + ".indexSize);\n");
+		sb.append("        }\n");
 		sb.append("        return(attr.getMVSize());\n");
 		sb.append("    }\n\n");
     	

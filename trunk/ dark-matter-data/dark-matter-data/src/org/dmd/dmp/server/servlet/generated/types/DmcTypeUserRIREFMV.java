@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserRIREFMV provides storage for a multi-valued UserRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2047)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2050)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeUserRIREFMV extends DmcTypeUserRIREF implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2075)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2078)
     public DmcAttribute<UserRIREF> cloneIt(){
         synchronized(this){
             DmcTypeUserRIREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeUserRIREFMV extends DmcTypeUserRIREF implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2104)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2107)
     public UserRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             UserRIREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypeUserRIREFMV extends DmcTypeUserRIREF implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2117)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2120)
     public UserRIREF del(Object v){
         synchronized(this){
             UserRIREF rc = null;
@@ -102,7 +102,7 @@ public class DmcTypeUserRIREFMV extends DmcTypeUserRIREF implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2136)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2139)
     public Iterator<UserRIREF> getMV(){
         synchronized(this){
             ArrayList<UserRIREF> clone = new ArrayList<UserRIREF>(value);
@@ -110,7 +110,7 @@ public class DmcTypeUserRIREFMV extends DmcTypeUserRIREF implements Serializable
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2145)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2148)
     public ArrayList<UserRIREF> getMVCopy(){
         synchronized(this){
             ArrayList<UserRIREF> clone = new ArrayList<UserRIREF>(value);
@@ -119,17 +119,21 @@ public class DmcTypeUserRIREFMV extends DmcTypeUserRIREF implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2155)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2158)
     public int getMVSize(){
         synchronized(this){
-            if (value == null)
-                return(0);
-            return(value.size());
+            if (attrInfo.indexSize == 0){
+                if (value == null)
+                    return(0);
+                return(value.size());
+            }
+            else
+                return(attrInfo.indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2166)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
     public UserRIREF getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -137,7 +141,7 @@ public class DmcTypeUserRIREFMV extends DmcTypeUserRIREF implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2175)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
     public UserRIREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -164,7 +168,7 @@ public class DmcTypeUserRIREFMV extends DmcTypeUserRIREF implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2210)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -187,7 +191,7 @@ public class DmcTypeUserRIREFMV extends DmcTypeUserRIREF implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

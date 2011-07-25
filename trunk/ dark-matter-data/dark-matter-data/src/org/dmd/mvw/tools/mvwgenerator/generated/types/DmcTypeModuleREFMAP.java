@@ -30,7 +30,7 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeModuleREFMAP provides storage for a map of ModuleREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2493)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2500)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
@@ -61,7 +61,7 @@ public class DmcTypeModuleREFMAP extends DmcTypeModuleREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2536)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2543)
     public DmcAttribute<ModuleREF> cloneIt(){
         synchronized(this){
             DmcTypeModuleREFMAP rc = getNew();
@@ -76,7 +76,7 @@ public class DmcTypeModuleREFMAP extends DmcTypeModuleREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2552)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2559)
     public ModuleREF add(Object v) throws DmcValueException {
         synchronized(this){
             ModuleREF newval = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeModuleREFMAP extends DmcTypeModuleREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2573)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2580)
     public ModuleREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
@@ -107,7 +107,7 @@ public class DmcTypeModuleREFMAP extends DmcTypeModuleREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2585)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2592)
     public Iterator<ModuleREF> getMV(){
         synchronized(this){
             Map<CamelCaseName,ModuleREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeModuleREFMAP extends DmcTypeModuleREF implements Serializabl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2598)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2605)
     public Map<CamelCaseName,ModuleREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,ModuleREF> clone = null;
@@ -131,7 +131,7 @@ public class DmcTypeModuleREFMAP extends DmcTypeModuleREF implements Serializabl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2611)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2618)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -142,7 +142,7 @@ public class DmcTypeModuleREFMAP extends DmcTypeModuleREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2623)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2630)
     public ModuleREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
@@ -153,7 +153,7 @@ public class DmcTypeModuleREFMAP extends DmcTypeModuleREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2635)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2642)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -167,7 +167,7 @@ public class DmcTypeModuleREFMAP extends DmcTypeModuleREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2650)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2657)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

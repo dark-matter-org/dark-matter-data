@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.ResponseDMO;    // DmcType import
  * The DmcTypeResponseREFMV provides storage for a multi-valued Response
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2047)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2050)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:222)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2075)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2078)
     public DmcAttribute<ResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeResponseREFMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2104)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2107)
     public ResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             ResponseDMO rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2117)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2120)
     public ResponseDMO del(Object v){
         synchronized(this){
             ResponseDMO rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2136)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2139)
     public Iterator<ResponseDMO> getMV(){
         synchronized(this){
             ArrayList<ResponseDMO> clone = new ArrayList<ResponseDMO>(value);
@@ -111,7 +111,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2145)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2148)
     public ArrayList<ResponseDMO> getMVCopy(){
         synchronized(this){
             ArrayList<ResponseDMO> clone = new ArrayList<ResponseDMO>(value);
@@ -120,17 +120,21 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2155)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2158)
     public int getMVSize(){
         synchronized(this){
-            if (value == null)
-                return(0);
-            return(value.size());
+            if (attrInfo.indexSize == 0){
+                if (value == null)
+                    return(0);
+                return(value.size());
+            }
+            else
+                return(attrInfo.indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2166)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
     public ResponseDMO getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -138,7 +142,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2175)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
     public ResponseDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -165,7 +169,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2210)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -188,7 +192,7 @@ public class DmcTypeResponseREFMV extends DmcTypeResponseREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

@@ -188,9 +188,12 @@ public class TestOneLevelSubpackageDMO  extends DmcObject  implements DmcNamedOb
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvStringSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (DmtDMSAG.__mvString.indexSize == 0)
+                return(0);
+            else
+                return(DmtDMSAG.__mvString.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -198,7 +201,7 @@ public class TestOneLevelSubpackageDMO  extends DmcObject  implements DmcNamedOb
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         
@@ -214,7 +217,7 @@ public class TestOneLevelSubpackageDMO  extends DmcObject  implements DmcNamedOb
      * Deletes a mvString from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delMvString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         
@@ -229,7 +232,7 @@ public class TestOneLevelSubpackageDMO  extends DmcObject  implements DmcNamedOb
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remMvString(){
          rem(DmtDMSAG.__mvString);
     }

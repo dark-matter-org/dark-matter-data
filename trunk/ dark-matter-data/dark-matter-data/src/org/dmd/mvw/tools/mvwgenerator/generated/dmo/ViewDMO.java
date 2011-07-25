@@ -269,9 +269,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getLocalSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__local);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__local.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__local.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -279,7 +282,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a local value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delLocal(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__local, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -288,7 +291,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the local attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remLocal(){
          rem(MvwDMSAG.__local);
     }
@@ -367,9 +370,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getBroadcastSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__broadcast);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__broadcast.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__broadcast.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -377,7 +383,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a broadcast value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delBroadcast(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__broadcast, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -386,7 +392,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the broadcast attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remBroadcast(){
          rem(MvwDMSAG.__broadcast);
     }
@@ -465,9 +471,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getBroadcastOnlySize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__broadcastOnly);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__broadcastOnly.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__broadcastOnly.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -475,7 +484,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a broadcastOnly value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delBroadcastOnly(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__broadcastOnly, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -484,7 +493,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the broadcastOnly attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remBroadcastOnly(){
          rem(MvwDMSAG.__broadcastOnly);
     }
@@ -567,9 +576,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getViewImportSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__viewImport);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__viewImport.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__viewImport.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -577,7 +589,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a viewImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delViewImport(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__viewImport);
         
@@ -593,7 +605,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a viewImport from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delViewImport(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__viewImport);
         
@@ -608,7 +620,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the viewImport attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remViewImport(){
          rem(MvwDMSAG.__viewImport);
     }
@@ -691,9 +703,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getPresenterImportSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__presenterImport);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__presenterImport.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__presenterImport.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -701,7 +716,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a presenterImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delPresenterImport(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__presenterImport);
         
@@ -717,7 +732,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a presenterImport from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delPresenterImport(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__presenterImport);
         
@@ -732,7 +747,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the presenterImport attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remPresenterImport(){
          rem(MvwDMSAG.__presenterImport);
     }
@@ -815,9 +830,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getSharedImportSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__sharedImport);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__sharedImport.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__sharedImport.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -825,7 +843,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a sharedImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delSharedImport(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__sharedImport);
         
@@ -841,7 +859,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a sharedImport from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delSharedImport(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__sharedImport);
         
@@ -856,7 +874,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the sharedImport attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remSharedImport(){
          rem(MvwDMSAG.__sharedImport);
     }
@@ -1035,9 +1053,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getUsesRunContextItemSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__usesRunContextItem);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__usesRunContextItem.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__usesRunContextItem.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1045,7 +1066,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a usesRunContextItem value.
      * @param value The RunContextItem to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delUsesRunContextItem(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__usesRunContextItem, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -1054,7 +1075,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the usesRunContextItem attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remUsesRunContextItem(){
          rem(MvwDMSAG.__usesRunContextItem);
     }
@@ -1187,9 +1208,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getExtendsInterfaceSize(){
         DmcAttribute<?> attr = get(MetaDMSAG.__extendsInterface);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MetaDMSAG.__extendsInterface.indexSize == 0)
+                return(0);
+            else
+                return(MetaDMSAG.__extendsInterface.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1197,7 +1221,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a extendsInterface value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delExtendsInterface(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__extendsInterface);
         
@@ -1213,7 +1237,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a extendsInterface from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delExtendsInterface(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__extendsInterface);
         
@@ -1228,7 +1252,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the extendsInterface attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remExtendsInterface(){
          rem(MetaDMSAG.__extendsInterface);
     }
@@ -1311,9 +1335,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getPresenterMethodSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__presenterMethod);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__presenterMethod.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__presenterMethod.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1321,7 +1348,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a presenterMethod value.
      * @param value The MethodWithArgs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delPresenterMethod(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__presenterMethod);
         
@@ -1337,7 +1364,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a presenterMethod from the specified value.
      * @param value MethodWithArgs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delPresenterMethod(MethodWithArgs value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__presenterMethod);
         
@@ -1352,7 +1379,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the presenterMethod attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remPresenterMethod(){
          rem(MvwDMSAG.__presenterMethod);
     }
@@ -1435,9 +1462,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getViewMethodSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__viewMethod);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__viewMethod.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__viewMethod.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1445,7 +1475,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a viewMethod value.
      * @param value The MethodWithArgs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delViewMethod(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__viewMethod);
         
@@ -1461,7 +1491,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a viewMethod from the specified value.
      * @param value MethodWithArgs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delViewMethod(MethodWithArgs value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__viewMethod);
         
@@ -1476,7 +1506,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the viewMethod attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remViewMethod(){
          rem(MvwDMSAG.__viewMethod);
     }
@@ -1559,9 +1589,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getDisplayDMOSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__displayDMO);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__displayDMO.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__displayDMO.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1569,7 +1602,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a displayDMO value.
      * @param value The DisplayDataSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delDisplayDMO(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__displayDMO);
         
@@ -1585,7 +1618,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a displayDMO from the specified value.
      * @param value DisplayDataSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delDisplayDMO(DisplayDataSpec value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__displayDMO);
         
@@ -1600,7 +1633,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the displayDMO attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remDisplayDMO(){
          rem(MvwDMSAG.__displayDMO);
     }
@@ -1683,9 +1716,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getSelectEventSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__selectEvent);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__selectEvent.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__selectEvent.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1693,7 +1729,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a selectEvent value.
      * @param value The EventSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delSelectEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__selectEvent);
         
@@ -1709,7 +1745,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a selectEvent from the specified value.
      * @param value EventSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delSelectEvent(EventSpec value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__selectEvent);
         
@@ -1724,7 +1760,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the selectEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remSelectEvent(){
          rem(MvwDMSAG.__selectEvent);
     }
@@ -1807,9 +1843,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getDeleteEventSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__deleteEvent);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__deleteEvent.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__deleteEvent.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1817,7 +1856,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a deleteEvent value.
      * @param value The EventSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delDeleteEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__deleteEvent);
         
@@ -1833,7 +1872,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a deleteEvent from the specified value.
      * @param value EventSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delDeleteEvent(EventSpec value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__deleteEvent);
         
@@ -1848,7 +1887,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the deleteEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remDeleteEvent(){
          rem(MvwDMSAG.__deleteEvent);
     }
@@ -1931,9 +1970,12 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getClickEventSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__clickEvent);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__clickEvent.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__clickEvent.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -1941,7 +1983,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a clickEvent value.
      * @param value The OperationSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delClickEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__clickEvent);
         
@@ -1957,7 +1999,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
      * Deletes a clickEvent from the specified value.
      * @param value OperationSpec
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delClickEvent(OperationSpec value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__clickEvent);
         
@@ -1972,7 +2014,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the clickEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remClickEvent(){
          rem(MvwDMSAG.__clickEvent);
     }

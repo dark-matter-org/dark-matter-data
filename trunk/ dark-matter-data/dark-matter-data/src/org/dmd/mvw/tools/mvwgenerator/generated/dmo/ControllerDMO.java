@@ -371,9 +371,12 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getInstantiatesPresenterSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__instantiatesPresenter);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__instantiatesPresenter.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__instantiatesPresenter.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -381,7 +384,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Deletes a instantiatesPresenter value.
      * @param value The Presenter to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delInstantiatesPresenter(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__instantiatesPresenter, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -390,7 +393,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the instantiatesPresenter attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remInstantiatesPresenter(){
          rem(MvwDMSAG.__instantiatesPresenter);
     }
@@ -519,9 +522,12 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getImplementsActionSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__implementsAction);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__implementsAction.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__implementsAction.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -529,7 +535,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
      * Deletes a implementsAction value.
      * @param value The Action to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delImplementsAction(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__implementsAction, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -538,7 +544,7 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the implementsAction attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remImplementsAction(){
          rem(MvwDMSAG.__implementsAction);
     }

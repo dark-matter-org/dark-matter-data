@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvcMenuItemREFSET provides storage for a set of MvcMenuItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2298)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2305)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeMvcMenuItemREFSET extends DmcTypeMvcMenuItemREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2335)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2342)
     public DmcAttribute<MvcMenuItemREF> cloneIt(){
         synchronized(this){
             DmcTypeMvcMenuItemREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeMvcMenuItemREFSET extends DmcTypeMvcMenuItemREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2354)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
     public MvcMenuItemREF add(Object v) throws DmcValueException {
         synchronized(this){
             MvcMenuItemREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeMvcMenuItemREFSET extends DmcTypeMvcMenuItemREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2378)
     public MvcMenuItemREF del(Object v){
         synchronized(this){
             MvcMenuItemREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeMvcMenuItemREFSET extends DmcTypeMvcMenuItemREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
     public Iterator<MvcMenuItemREF> getMV(){
         synchronized(this){
             Set<MvcMenuItemREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeMvcMenuItemREFSET extends DmcTypeMvcMenuItemREF implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2410)
     public Set<MvcMenuItemREF> getMVCopy(){
         synchronized(this){
             Set<MvcMenuItemREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeMvcMenuItemREFSET extends DmcTypeMvcMenuItemREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2417)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeMvcMenuItemREFSET extends DmcTypeMvcMenuItemREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2428)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

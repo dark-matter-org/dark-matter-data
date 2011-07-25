@@ -9,7 +9,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1512)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1515)
  *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:175)
  */
 public class EventScopeEnumIterableDMW extends DmwMVIterator<EventScopeEnum> {

@@ -207,9 +207,12 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getAlternateMenuBarSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__alternateMenuBar.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__alternateMenuBar.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -217,7 +220,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateMenuBar value.
      * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delAlternateMenuBar(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         
@@ -233,7 +236,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateMenuBar from the specified value.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delAlternateMenuBar(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuBar);
         
@@ -248,7 +251,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     /**
      * Removes the alternateMenuBar attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remAlternateMenuBar(){
          rem(MvwDMSAG.__alternateMenuBar);
     }
@@ -331,9 +334,12 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getAlternateSubMenuSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__alternateSubMenu.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__alternateSubMenu.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -341,7 +347,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateSubMenu value.
      * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delAlternateSubMenu(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         
@@ -357,7 +363,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateSubMenu from the specified value.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delAlternateSubMenu(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateSubMenu);
         
@@ -372,7 +378,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     /**
      * Removes the alternateSubMenu attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remAlternateSubMenu(){
          rem(MvwDMSAG.__alternateSubMenu);
     }
@@ -455,9 +461,12 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getAlternateMenuItemSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__alternateMenuItem.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__alternateMenuItem.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -465,7 +474,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateMenuItem value.
      * @param value The MenuElementTypeAndComment to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delAlternateMenuItem(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         
@@ -481,7 +490,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
      * Deletes a alternateMenuItem from the specified value.
      * @param value MenuElementTypeAndComment
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delAlternateMenuItem(MenuElementTypeAndComment value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__alternateMenuItem);
         
@@ -496,7 +505,7 @@ public class MenuImplementationConfigDMO  extends MvwDefinitionDMO  implements D
     /**
      * Removes the alternateMenuItem attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remAlternateMenuItem(){
          rem(MvwDMSAG.__alternateMenuItem);
     }

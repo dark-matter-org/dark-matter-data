@@ -1094,9 +1094,12 @@ public class GenUtility {
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append("    public int get" + functionName + "Size(){\n");
     	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
-    	sb.append("        if (attr == null)\n");
-    	sb.append("            return(0);\n");
-    	sb.append("        \n");
+    	sb.append("        if (attr == null){\n");
+    	sb.append("            if (" + ad.getDMSAGReference() + ".indexSize == 0)\n");
+    	sb.append("                return(0);\n");
+    	sb.append("            else\n");
+    	sb.append("                return(" + ad.getDMSAGReference() + ".indexSize);\n");
+    	sb.append("        }\n");
     	sb.append("        return(attr.getMVSize());\n");
 		sb.append("    }\n\n");
 
@@ -2155,9 +2158,13 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public int getMVSize(){\n");
         out.write("        synchronized(this){\n");
-        out.write("            if (value == null)\n");
-        out.write("                return(0);\n");
-        out.write("            return(value.size());\n");
+        out.write("            if (attrInfo.indexSize == 0){\n");
+        out.write("                if (value == null)\n");
+        out.write("                    return(0);\n");
+        out.write("                return(value.size());\n");
+        out.write("            }\n");
+        out.write("            else\n");
+        out.write("                return(attrInfo.indexSize);\n");
         out.write("        }\n");
         out.write("    }\n");
         out.write("    \n");

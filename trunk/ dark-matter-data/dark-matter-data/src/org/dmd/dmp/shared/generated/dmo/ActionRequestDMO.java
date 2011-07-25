@@ -227,9 +227,12 @@ public class ActionRequestDMO  extends RequestDMO  implements Serializable  {
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getObjectListSize(){
         DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (DmpDMSAG.__objectList.indexSize == 0)
+                return(0);
+            else
+                return(DmpDMSAG.__objectList.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -237,7 +240,7 @@ public class ActionRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delObjectList(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         
@@ -253,7 +256,7 @@ public class ActionRequestDMO  extends RequestDMO  implements Serializable  {
      * Deletes a objectList from the specified value.
      * @param value DmcObject
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delObjectList(DmcObject value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__objectList);
         
@@ -268,7 +271,7 @@ public class ActionRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remObjectList(){
          rem(DmpDMSAG.__objectList);
     }

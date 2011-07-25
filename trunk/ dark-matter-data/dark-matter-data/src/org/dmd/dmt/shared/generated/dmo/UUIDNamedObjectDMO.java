@@ -244,9 +244,12 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvBooleanSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvBoolean);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (DmtDMSAG.__mvBoolean.indexSize == 0)
+                return(0);
+            else
+                return(DmtDMSAG.__mvBoolean.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -254,7 +257,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
      * Deletes a mvBoolean value.
      * @param value The Boolean to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delMvBoolean(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvBoolean);
         
@@ -270,7 +273,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
      * Deletes a mvBoolean from the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delMvBoolean(Boolean value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvBoolean);
         
@@ -285,7 +288,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
     /**
      * Removes the mvBoolean attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remMvBoolean(){
          rem(DmtDMSAG.__mvBoolean);
     }
@@ -418,9 +421,12 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvStringSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (DmtDMSAG.__mvString.indexSize == 0)
+                return(0);
+            else
+                return(DmtDMSAG.__mvString.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -428,7 +434,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         
@@ -444,7 +450,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
      * Deletes a mvString from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delMvString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         
@@ -459,7 +465,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remMvString(){
          rem(DmtDMSAG.__mvString);
     }
@@ -592,9 +598,12 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvDateSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDate);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (DmtDMSAG.__mvDate.indexSize == 0)
+                return(0);
+            else
+                return(DmtDMSAG.__mvDate.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -602,7 +611,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
      * Deletes a mvDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delMvDate(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDate);
         
@@ -618,7 +627,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
      * Deletes a mvDate from the specified value.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delMvDate(Date value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDate);
         
@@ -633,7 +642,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
     /**
      * Removes the mvDate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remMvDate(){
          rem(DmtDMSAG.__mvDate);
     }
@@ -766,9 +775,12 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getMvDoubleSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDouble);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (DmtDMSAG.__mvDouble.indexSize == 0)
+                return(0);
+            else
+                return(DmtDMSAG.__mvDouble.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -776,7 +788,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
      * Deletes a mvDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delMvDouble(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDouble);
         
@@ -792,7 +804,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
      * Deletes a mvDouble from the specified value.
      * @param value Double
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delMvDouble(Double value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvDouble);
         
@@ -807,7 +819,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
     /**
      * Removes the mvDouble attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remMvDouble(){
          rem(DmtDMSAG.__mvDouble);
     }

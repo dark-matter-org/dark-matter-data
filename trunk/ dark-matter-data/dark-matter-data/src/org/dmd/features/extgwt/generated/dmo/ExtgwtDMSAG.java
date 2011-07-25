@@ -3,7 +3,7 @@ package org.dmd.features.extgwt.generated.dmo;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
-// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:76)
+// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:515)
 import org.dmd.dmg.generated.dmo.DmgDMSAG;                // DmgDMSAG
 import org.dmd.dms.generated.dmo.MetaDMSAG;               // MetaDMSAG

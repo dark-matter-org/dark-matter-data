@@ -256,9 +256,12 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getRequestIDSize(){
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (DmpDMSAG.__requestID.indexSize == 0)
+                return(0);
+            else
+                return(DmpDMSAG.__requestID.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -266,7 +269,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1136)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1139)
     public DmcAttribute<?> delRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         
@@ -282,7 +285,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
      * Deletes a requestID from the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1152)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1155)
     public DmcAttribute<?> delRequestID(Integer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         
@@ -297,7 +300,7 @@ abstract public class DMPMessageDMO  extends DmcObject  implements de.novanic.ev
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remRequestID(){
          rem(DmpDMSAG.__requestID);
     }

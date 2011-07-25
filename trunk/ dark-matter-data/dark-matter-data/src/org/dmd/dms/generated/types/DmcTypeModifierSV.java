@@ -25,7 +25,7 @@ import org.dmd.dmc.types.DmcTypeModifier;    // DmcType import
  * The DmcTypeModifierSV provides storage for a single-valued Modifier
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1726)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1729)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:266)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypeModifierSV extends DmcTypeModifier implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1761)
     public DmcAttribute<Modifier> cloneIt(){
         DmcTypeModifierSV rc = getNew();
         rc.value = value;
@@ -58,7 +58,7 @@ public class DmcTypeModifierSV extends DmcTypeModifier implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1770)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1773)
     public Modifier set(Object v) throws DmcValueException {
         Modifier rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

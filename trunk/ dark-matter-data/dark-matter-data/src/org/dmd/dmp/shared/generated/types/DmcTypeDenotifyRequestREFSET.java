@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.DenotifyRequestDMO;    // DmcType import
  * The DmcTypeDenotifyRequestREFSET provides storage for a set of DenotifyRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2298)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2305)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:223)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2335)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2342)
     public DmcAttribute<DenotifyRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeDenotifyRequestREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2354)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
     public DenotifyRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             DenotifyRequestDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2378)
     public DenotifyRequestDMO del(Object v){
         synchronized(this){
             DenotifyRequestDMO rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
     public Iterator<DenotifyRequestDMO> getMV(){
         synchronized(this){
             Set<DenotifyRequestDMO> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2410)
     public Set<DenotifyRequestDMO> getMVCopy(){
         synchronized(this){
             Set<DenotifyRequestDMO> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2417)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2428)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

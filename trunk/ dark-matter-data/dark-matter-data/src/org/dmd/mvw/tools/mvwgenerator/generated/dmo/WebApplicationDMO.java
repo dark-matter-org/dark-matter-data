@@ -207,9 +207,12 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getUsesControllerSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__usesController);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__usesController.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__usesController.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -217,7 +220,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
      * Deletes a usesController value.
      * @param value The Controller to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delUsesController(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__usesController, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -226,7 +229,7 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     /**
      * Removes the usesController attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remUsesController(){
          rem(MvwDMSAG.__usesController);
     }

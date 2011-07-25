@@ -314,9 +314,12 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getUsesControllerSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__usesController);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__usesController.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__usesController.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -324,7 +327,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Deletes a usesController value.
      * @param value The Controller to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delUsesController(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__usesController, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -333,7 +336,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the usesController attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remUsesController(){
          rem(MvwDMSAG.__usesController);
     }
@@ -412,9 +415,12 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1094)
     public int getManagesViewSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__managesView);
-        if (attr == null)
-            return(0);
-        
+        if (attr == null){
+            if (MvwDMSAG.__managesView.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__managesView.indexSize);
+        }
         return(attr.getMVSize());
     }
 
@@ -422,7 +428,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
      * Deletes a managesView value.
      * @param value The View to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1124)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1127)
     public DmcAttribute<?> delManagesView(Object value){
         DmcAttribute<?> attr = del(MvwDMSAG.__managesView, ((DmcNamedObjectIF)value).getObjectName());
         return(attr);
@@ -431,7 +437,7 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     /**
      * Removes the managesView attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1171)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1174)
     public void remManagesView(){
          rem(MvwDMSAG.__managesView);
     }
