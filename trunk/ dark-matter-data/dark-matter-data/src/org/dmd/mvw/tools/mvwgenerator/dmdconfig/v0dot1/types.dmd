@@ -25,6 +25,14 @@ typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestWithOptions
 primitiveType	org.dmd.mvw.tools.mvwgenerator.types.RequestWithOptions
 description		The RequestWithOptions type is used to handle indications that
  a component will perform delete or set operations.
+ 
+TypeDefinition
+name			EditField
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEditField
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.EditField
+description		The EditField type is used to specify compact mappings of attributes
+ to their field type editors and optionally their labels and tool tips.
+
 
 EnumDefinition
 name            SelectionTypeEnum

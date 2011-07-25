@@ -1,0 +1,9 @@
+Module
+moduleName	gxtforms
+genPackage	org.dmd.mvw.client.gxtforms
+description	The gxtforms module provides definitions of FieldEditors to be used
+ in conjunction with Model View Whatever's form binding mechanisms.
+
+FieldEditor
+editorName		GxtString
+useClass		

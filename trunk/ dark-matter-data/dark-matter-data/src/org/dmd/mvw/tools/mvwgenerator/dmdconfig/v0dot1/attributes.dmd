@@ -612,6 +612,33 @@ description		A reference to run context item with translated labels for your men
  If you had defined a run context item called constants (whose base interface was generated
  by the GWT I18N creation mechanisms), you could use one its value by specifying constants.myLabel().
 
+AttributeDefinition
+name			bindingName
+dmdID			85
+type			CamelCaseName
+description		The name of a FormBinding.
+
+AttributeDefinition
+name			editObject
+dmdID			86
+type			ClassDefinition
+description		The class of object to be editted by a Form.
+
+AttributeDefinition
+name			editField
+dmdID			87
+type			EditField
+description		The specification of an attribute to the field editor to be used and optionally
+ the label and tooltip to be used.
+
+AttributeDefinition
+name			editorName
+dmdID			88
+type			CamelCaseName
+description		The name of a FieldEditor.
+
+
+
 //AttributeDefinition
 //name			triggersAction
 //dmdID			73
