@@ -17,7 +17,7 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (21)</h2>
+    <h2> Classes (23)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -43,6 +43,16 @@
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#Event"> Event </a></td>
       <td> eventName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#FieldEditor"> FieldEditor </a></td>
+      <td> editorName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#FormBindingDefinition"> FormBindingDefinition </a></td>
+      <td> bindingName </td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -126,8 +136,9 @@
       </tr>
     </table>
     </div>    <div class="typeList">
-    <h2>Types (8)</h2>
+    <h2>Types (9)</h2>
     <ul>
+      <li> <a class="deflink" href="#EditField"> EditField </a></li>
       <li> <a class="deflink" href="#EventWithArgs"> EventWithArgs </a></li>
       <li> <a class="deflink" href="#GetWithOptions"> GetWithOptions </a></li>
       <li> <a class="deflink" href="#MethodWithArgs"> MethodWithArgs </a></li>
@@ -963,6 +974,176 @@
 
   <table>
 
+    <tr> <td class="className" colspan="4"> <a name="FieldEditor"> FieldEditor </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The FieldEditor class allows for the definition of implementation specific field editors. The specified class must implement the org.dmd.mvw.client.mvwforms.interfaces.FieldInstanceIF interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition instance and so that it can interact with the AttributeTracker and the SetRequestGenerator.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#editorName">editorName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
+      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#editorName">editorName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of a FieldEditor. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#useClass">useClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fully qualified class name of a RunContextItem. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="FormBindingDefinition"> FormBindingDefinition </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The FormBinding class allows for the definition of bindings between DMO attributes and the editors that will be used to display and edit their values.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="mvw.html#MvwDefinition">MvwDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="mvw.html#bindingName">bindingName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="mvw.html#bindingName">bindingName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of a FormBinding. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#camelCaseName">camelCaseName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#definedInModule">definedInModule</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Module">Module</a> </td>
+      <td> All MvwDefinitions are defined in an Module file that ends with a .mvw extension. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#editField">editField</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#EditField">EditField</a> </td>
+      <td> The specification of an attribute to the field editor to be used and optionally the label and tooltip to be used. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#editObject">editObject</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> The class of object to be editted by a Form. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
     <tr> <td class="className" colspan="4"> <a name="I18NConfig"> I18NConfig </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -1728,7 +1909,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="mvw.html#Action">Action</a> </div>      <div class="derived"> <a href="mvw.html#Component">Component</a> </div>      <div class="derived"> <a href="mvw.html#Event">Event</a> </div>      <div class="derived"> <a href="mvw.html#MenuElementDefinition">MenuElementDefinition</a> </div>      <div class="derived"> <a href="mvw.html#MenuImplementationConfig">MenuImplementationConfig</a> </div>      <div class="derived"> <a href="mvw.html#Module">Module</a> </div>      <div class="derived"> <a href="mvw.html#Place">Place</a> </div>      <div class="derived"> <a href="mvw.html#RunContextItem">RunContextItem</a> </div>      <div class="derived"> <a href="mvw.html#View">View</a> </div>      <div class="derived"> <a href="mvw.html#WebApplication">WebApplication</a> </div>      </td>
+      <div class="derived"> <a href="mvw.html#Action">Action</a> </div>      <div class="derived"> <a href="mvw.html#Component">Component</a> </div>      <div class="derived"> <a href="mvw.html#Event">Event</a> </div>      <div class="derived"> <a href="mvw.html#FieldEditor">FieldEditor</a> </div>      <div class="derived"> <a href="mvw.html#FormBindingDefinition">FormBindingDefinition</a> </div>      <div class="derived"> <a href="mvw.html#MenuElementDefinition">MenuElementDefinition</a> </div>      <div class="derived"> <a href="mvw.html#MenuImplementationConfig">MenuImplementationConfig</a> </div>      <div class="derived"> <a href="mvw.html#Module">Module</a> </div>      <div class="derived"> <a href="mvw.html#Place">Place</a> </div>      <div class="derived"> <a href="mvw.html#RunContextItem">RunContextItem</a> </div>      <div class="derived"> <a href="mvw.html#View">View</a> </div>      <div class="derived"> <a href="mvw.html#WebApplication">WebApplication</a> </div>      </td>
     </tr>
 
     <tr>
@@ -3003,6 +3184,19 @@
       <td>Indicates an argument vector for an event or interface.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="bindingName"> bindingName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name of a FormBinding.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="broadcast"> broadcast </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3300,6 +3494,45 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>A reference to run context item with translated labels for your menu item. If you had defined a run context item called constants (whose base interface was generated by the GWT I18N creation mechanisms), you could use one its value by specifying constants.myLabel().</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="editField"> editField </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#EditField">EditField</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The specification of an attribute to the field editor to be used and optionally the label and tooltip to be used.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="editObject"> editObject </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The class of object to be editted by a Form.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="editorName"> editorName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name of a FieldEditor.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="elementName"> elementName </a> </td></tr>
@@ -3948,6 +4181,25 @@
 <h2> Type Details </h2>
 
   <table>
+
+    <tr> <td class="typeName" colspan="3"> <a name="EditField"> EditField </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td> The EditField type is used to specify compact mappings of attributes to their field type editors and optionally their labels and tool tips. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type class</td>
+      <td>org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEditField</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Primitive type</td>
+      <td>org.dmd.mvw.tools.mvwgenerator.types.EditField</td>
+    </tr>
 
     <tr> <td class="typeName" colspan="3"> <a name="EventWithArgs"> EventWithArgs </a> </td></tr>
     <tr>

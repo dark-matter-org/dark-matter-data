@@ -57,7 +57,11 @@ public class ConfigVersion {
 			// We have a clashing version
 			ResultException ex = new ResultException("Clashing versions for the " + name + " configuration file.");
 			ex.result.lastResult().moreMessages("Originally from: " + existing.getFileName());
+			if (existing.getJarFilename() != null)
+				ex.result.lastResult().moreMessages("              in .jar: " + existing.getJarFilename());
 			ex.result.lastResult().moreMessages("Clashing version from: " + newVersion.getFileName());
+			if (newVersion.getJarFilename() != null)
+				ex.result.lastResult().moreMessages("              in .jar: " + newVersion.getJarFilename());
 			ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());
 			throw(ex);
 		}

@@ -27,7 +27,7 @@ public class EditField implements DmcMappedAttributeIF, Serializable {
 	
 	public EditField(){
 		attribute 	= null;
-		fieldEditor 	= null;
+		fieldEditor = null;
 		label		= null;
 		tip			= null;
 	}

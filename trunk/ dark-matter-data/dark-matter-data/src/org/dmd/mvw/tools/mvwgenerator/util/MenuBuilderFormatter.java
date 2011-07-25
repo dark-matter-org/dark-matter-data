@@ -2,7 +2,7 @@ package org.dmd.mvw.tools.mvwgenerator.util;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.dmd.dms.util.GenUtility;
@@ -33,14 +33,14 @@ public class MenuBuilderFormatter {
         if (manager.getMenuBars().size() > 0)
         	imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwMenu", "Menus are defined");
         
-        ArrayList<RunContextItem> rciList = new ArrayList<RunContextItem>();
+        HashMap<String,RunContextItem>		rcis = new HashMap<String, RunContextItem>();
         
         if (manager.getSubMenus().size() > 0){
         	// Check to see if we need any message constants
         	for(SubMenu submenu: manager.getSubMenus().values()){
         		if (submenu.getRCI() != null){
         			submenu.getRCI().addUsageImplImports(imports);
-        			rciList.add(submenu.getRCI());
+        			rcis.put(submenu.getRCI().getObjectName().getNameString(), submenu.getRCI());
         		}
         	}
         }
@@ -52,7 +52,7 @@ public class MenuBuilderFormatter {
         	for(MenuItem mi: manager.getMenuItems().values()){
         		if (mi.getRCI() != null){
         			mi.getRCI().addUsageImplImports(imports);
-        			rciList.add(mi.getRCI());
+        			rcis.put(mi.getRCI().getObjectName().getNameString(), mi.getRCI());
         		}
         	}
         }
@@ -85,7 +85,8 @@ public class MenuBuilderFormatter {
         
         out.write("    final MenuController MenuControllerRCI;\n");
         out.write(menuFactoryRCI.getImplVariable() + "\n\n");
-        for(RunContextItem rci: rciList){
+
+        for(RunContextItem rci: rcis.values()){
         	out.write(rci.getImplVariable() + "\n");
         }
             	
@@ -97,15 +98,12 @@ public class MenuBuilderFormatter {
     	
         out.write("        MenuControllerRCI = ((MvwmenusRunContextIF)rc).getMenuControllerRCI();\n\n");
         out.write(menuFactoryRCI.getImplVariableAssignment() + "\n");
-        for(RunContextItem rci: rciList){
+        for(RunContextItem rci: rcis.values()){
         	out.write(rci.getImplVariableAssignment() + "\n");
         }
         
         if (manager.getMenuBars().size() > 0)
         	out.write("        MvwMenu      menu      = null;\n");
-        
-//        if (manager.getSubMenus().size() > 0)
-//        	out.write("        MvwSubMenu   submenu   = null;\n");
         
         if (manager.getMenuItems().size() > 0)
         	out.write("        MvwMenuItem  menuitem  = null;\n");
