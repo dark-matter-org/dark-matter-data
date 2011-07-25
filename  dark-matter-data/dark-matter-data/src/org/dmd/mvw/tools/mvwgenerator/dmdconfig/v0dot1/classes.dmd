@@ -12,54 +12,6 @@ may         	description
 description		The MvwDefinition class provide a common base for all MVW definition
  classes.
 
-//ClassDefinition
-//name 			MvwConfig
-//derivedFrom		MvwDefinition
-//classType   	STRUCTURAL
-//useWrapperType	EXTENDED
-//isNamedBy		camelCaseName
-//must			camelCaseName
-//must			genPackage
-//may         	dependsOnMvw
-//description The MvwConfig class is stored in a file with a .mvw suffix and contains
-// various Model View Whatever (MVW) definitions. The name of the MvwConfig can be
-// referred to via the dependsOnMvw attribute so that MVW definitions defined elsewhere
-// can be used.
-
-//ClassDefinition
-//name			MvwEvent
-//classType       ABSTRACT
-//useWrapperType	EXTENDED
-//derivedFrom		MvwDefinition
-//isNamedBy		eventName
-//must			eventName
-//may				description
-//may             argVector
-//may             userDataImport
-//description		The MvwEvent is an autonomous definition of some kind of event that is fired
-// and handled by components in a Model-View-Whatever application. Specification of an MvwEvent
-// will result the creation of a GwtEvent.Type<H> class and its associated EventHandler class.
-
-//ClassDefinition
-//name			LocalEvent
-//classType       STRUCTURAL
-//useWrapperType	EXTENDED
-//derivedFrom		MvwEvent
-//isNamedBy		eventCause
-//must			eventCause
-//description		The LocalEvent is fired by producers that want to define a tightly bound
-// event interface so that consumers can register just for events that the producer fires.
- 
-//ClassDefinition
-//name			BroadcastEvent
-//classType       STRUCTURAL
-//useWrapperType	EXTENDED
-//derivedFrom		MvwEvent
-//isNamedBy		eventName
-//must			eventName
-//description		The BroadcastEvent is fired by producers that want to publish an event on
-// the Event Bus.
-
 ClassDefinition
 name			Event
 classType       STRUCTURAL
@@ -466,3 +418,33 @@ description		The Action class allows for the definition of an intermediate compo
  org.dmd.mvw.client.mvwmenus.base.Action) maintains a set of TriggerIF interfaces, which are the various
  implementations of the menu items, toolbar buttons etc. An implementing component can enable/disable its
  Actions which, in turn, can enable/disable its triggers.
+
+ClassDefinition
+name			FormBindingDefinition
+classType		STRUCTURAL
+subpackage		forms
+dmdID			23
+derivedFrom		MvwDefinition
+useWrapperType	EXTENDED
+isNamedBy		bindingName
+must			bindingName
+must			editObject
+must			editField
+description		The FormBinding class allows for the definition of bindings between DMO attributes
+ and the editors that will be used to display and edit their values. 
+
+ClassDefinition
+name			FieldEditor
+classType		STRUCTURAL
+subpackage		forms
+dmdID			24
+derivedFrom		MvwDefinition
+useWrapperType	EXTENDED
+isNamedBy		editorName
+must			editorName
+must			useClass
+description		The FieldEditor class allows for the definition of implementation specific field
+ editors. The specified class must implement the org.dmd.mvw.client.mvwforms.interfaces.FieldInstanceIF
+ interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition
+ instance and so that it can interact with the AttributeTracker and the SetRequestGenerator.
+
