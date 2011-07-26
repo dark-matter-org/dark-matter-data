@@ -32,6 +32,7 @@ import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.MetaSchema;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
@@ -180,6 +181,7 @@ public class GenUtility {
 			
 		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.ABSTRACT) && (cd.getClassType() != ClassTypeEnum.AUXILIARY)){
 			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.types.DmcTypeModifierMV", "Required for MODREC constructor");
+			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.dmo.MetaDMSAG", "Required for MODREC constructor");
 			addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcSliceInfo", "Required for object slicing");
 		}
 			
@@ -2036,6 +2038,10 @@ public class GenUtility {
         out.write("import org.dmd.dmc.DmcAttribute;\n");
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dmc.DmcValueException;\n");
+        
+        if (typeName.equals("Modifier"))
+            out.write("import org.dmd.dms.generated.dmo.MetaDMSAG;\n");
+        	
 
         if ( (baseTypeImport != null) && (!baseTypeImport.endsWith("DmcAttribute")))
         	out.write("import " + baseTypeImport + ";    // base type import\n");
@@ -2059,6 +2065,8 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    public DmcType" + typeName + REF + "MV(){\n");
+        if (typeName.equals("Modifier"))
+            out.write("        super(MetaDMSAG.__modify);\n");
         out.write("    \n");
         out.write("    }\n");
         out.write("    \n");

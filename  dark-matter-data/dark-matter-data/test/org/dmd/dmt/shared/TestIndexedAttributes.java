@@ -554,5 +554,30 @@ public class TestIndexedAttributes {
 
 	}
 
+	@Test
+	public void removeAllValues() throws DmcValueException, DmcValueExceptionSet {
+		System.out.println("\nremoveAllValues()");
+		
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("obj1");
+		obj.setNthIndexedString(0, "string0");
+		obj.setNthIndexedString(3, "string3");
+		
+		System.out.println("BEFORE:\n" + obj.toOIF());
+				
+		ObjWithRefs modrec = obj.getModificationRecorder();
+
+		modrec.setNthIndexedString(0, null);
+		modrec.setNthIndexedString(3, null);
+		
+		obj.applyModifier(modrec.getModifier());
+		
+		assertNull("The empty attribute should have been removed.", obj.getDMO().get(DmtDMSAG.__indexedString));
+		
+		System.out.println(obj.toOIF());
+		
+	}
+	
+
 
 }

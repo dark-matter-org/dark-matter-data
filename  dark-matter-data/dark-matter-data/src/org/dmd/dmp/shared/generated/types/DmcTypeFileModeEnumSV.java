@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.enums.FileModeEnum;    // DmcType import
  * The DmcTypeFileModeEnumSV provides storage for a single-valued FileModeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1729)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeFileModeEnumSV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1761)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
     public DmcAttribute<FileModeEnum> cloneIt(){
         DmcTypeFileModeEnumSV rc = getNew();
         rc.value = value;
@@ -57,7 +57,7 @@ public class DmcTypeFileModeEnumSV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1773)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
     public FileModeEnum set(Object v) throws DmcValueException {
         FileModeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

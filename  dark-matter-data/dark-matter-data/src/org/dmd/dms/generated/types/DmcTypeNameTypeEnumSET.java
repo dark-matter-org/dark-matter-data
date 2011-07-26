@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.NameTypeEnum;    // DmcType import
  * The DmcTypeNameTypeEnumSET provides storage for a set of NameTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2305)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2313)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:230)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeNameTypeEnumSET extends DmcTypeNameTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2350)
     public DmcAttribute<NameTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeNameTypeEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeNameTypeEnumSET extends DmcTypeNameTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public NameTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             NameTypeEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeNameTypeEnumSET extends DmcTypeNameTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2378)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2386)
     public NameTypeEnum del(Object v){
         synchronized(this){
             NameTypeEnum rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeNameTypeEnumSET extends DmcTypeNameTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
     public Iterator<NameTypeEnum> getMV(){
         synchronized(this){
             Set<NameTypeEnum> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeNameTypeEnumSET extends DmcTypeNameTypeEnum implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2418)
     public Set<NameTypeEnum> getMVCopy(){
         synchronized(this){
             Set<NameTypeEnum> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeNameTypeEnumSET extends DmcTypeNameTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2432)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeNameTypeEnumSET extends DmcTypeNameTypeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2443)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

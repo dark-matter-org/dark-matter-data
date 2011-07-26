@@ -31,7 +31,6 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __handlerID = new DmcAttributeInfo("handlerID", 531, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __lastResponse = new DmcAttributeInfo("lastResponse", 510, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __listenerID = new DmcAttributeInfo("listenerID", 538, "Long", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __modify = new DmcAttributeInfo("modify", 522, "Modifier", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __newObject = new DmcAttributeInfo("newObject", 513, "DmcObject", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __notifyOriginator = new DmcAttributeInfo("notifyOriginator", 527, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __objectList = new DmcAttributeInfo("objectList", 512, "DmcObject", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -114,7 +113,6 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__handlerID.id,__handlerID);
         _SmAp.put(__lastResponse.id,__lastResponse);
         _SmAp.put(__listenerID.id,__listenerID);
-        _SmAp.put(__modify.id,__modify);
         _SmAp.put(__newObject.id,__newObject);
         _SmAp.put(__notifyOriginator.id,__notifyOriginator);
         _SmAp.put(__objectList.id,__objectList);
@@ -218,7 +216,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         __ActionResponse.addMay(__objectList);
 
         __SetRequest.addMust(__target);
-        __SetRequest.addMust(__modify);
+        __SetRequest.addMust(MetaDMSAG.__modify);
         __SetRequest.addMay(__targetObjectClass);
 
         __SetResponse.addMust(__timeMS);
@@ -239,7 +237,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         __DMPEvent.addMust(__eventTypeDMP);
         __DMPEvent.addMay(__source);
         __DMPEvent.addMay(__sourceObjectClass);
-        __DMPEvent.addMay(__modify);
+        __DMPEvent.addMay(MetaDMSAG.__modify);
         __DMPEvent.addMay(__sourceObject);
         __DMPEvent.addMay(__originatorID);
         __DMPEvent.addMay(__notifyOriginator);

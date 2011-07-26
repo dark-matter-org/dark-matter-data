@@ -12,9 +12,9 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.server.generated.dmw.DMPEventDMW;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
 import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dms.AttributeDefinition;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
@@ -194,7 +194,7 @@ public class DMPEvent extends DMPEventDMW {
 	 */
 	public void setModify(DmcTypeModifierMV mods){
 		try {
-			getDmcObject().add(DmpDMSAG.__modify,mods);
+			getDmcObject().add(MetaDMSAG.__modify,mods);
 		} catch (DmcValueException e) {
 			throw(new IllegalStateException("Setting the modify attribute directly with a DmcTypeModifierMV shouldn't thrown an exception.",e));
 		}
@@ -206,7 +206,7 @@ public class DMPEvent extends DMPEventDMW {
 	 * @return The modify attribute.
 	 */
 	public DmcTypeModifierMV getModifyAttribute(){
-		return (DmcTypeModifierMV) (getDmcObject().get(DmpDMSAG.__modify));
+		return (DmcTypeModifierMV) (getDmcObject().get(MetaDMSAG.__modify));
 	}
 	
 	/**
@@ -270,7 +270,7 @@ public class DMPEvent extends DMPEventDMW {
 				
 				try {
 					// And then we replace the modifier with our sliced modifier
-					rc.getDMO().set(DmpDMSAG.__modify, sliced);
+					rc.getDMO().set(MetaDMSAG.__modify, sliced);
 				} catch (DmcValueException e) {
 					throw(new IllegalStateException("Dropping the sliced modifier in our shallow copy shouldn't throw an exception!"));
 				}

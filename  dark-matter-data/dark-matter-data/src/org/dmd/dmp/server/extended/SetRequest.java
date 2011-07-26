@@ -5,9 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.generated.dmw.SetRequestDMW;
-import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmw.DmwWrapper;
 
@@ -56,7 +55,7 @@ public class SetRequest extends SetRequestDMW {
 	 */
 	public void setModify(DmcTypeModifierMV mods){
 		try {
-			getDmcObject().add(DmpDMSAG.__modify,mods);
+			getDmcObject().add(MetaDMSAG.__modify,mods);
 		} catch (DmcValueException e) {
 			throw(new IllegalStateException("Setting the modify attribute directly with a DmcTypeModifierMV shouldn't thrown an exception.",e));
 		}
@@ -68,7 +67,7 @@ public class SetRequest extends SetRequestDMW {
 	 * @return The modify attribute.
 	 */
 	public DmcTypeModifierMV getModifyAttribute(){
-		return (DmcTypeModifierMV) (getDmcObject().get(DmpDMSAG.__modify));
+		return (DmcTypeModifierMV) (getDmcObject().get(MetaDMSAG.__modify));
 	}
 	
 	public SetResponse getResponse(){
