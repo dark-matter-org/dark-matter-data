@@ -182,6 +182,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _useWrapperType;
     public static AttributeDefinition _originalClass;
     public static AttributeDefinition _FQN;
+    public static AttributeDefinition _modify;
     public static AttributeDefinition _schemaBaseID;
     public static AttributeDefinition _schemaIDRange;
     public static AttributeDefinition _subpackage;
@@ -404,6 +405,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _useWrapperType              = new AttributeDefinition("useWrapperType", _WrapperTypeEnumREF);
             _originalClass               = new AttributeDefinition("originalClass", _ClassDefinitionREF);
             _FQN                         = new AttributeDefinition("FQN", _FullyQualifiedName);
+            _modify                      = new AttributeDefinition("modify", _Modifier);
             _schemaBaseID                = new AttributeDefinition("schemaBaseID", _Integer);
             _schemaIDRange               = new AttributeDefinition("schemaIDRange", _Integer);
             _subpackage                  = new AttributeDefinition("subpackage", _String);
@@ -1531,6 +1533,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _maySendProgress             .setType(_Boolean);
             _maySendProgress             .setDefinedIn(this);
 
+            _modify                      .setDescription("A set of modifications to an object.");
+            _modify                      .setDmdID("85");
+            _modify                      .setName("modify");
+            _modify                      .setType(_Modifier);
+            _modify                      .setValueType(ValueTypeEnum.MULTI);
+            _modify                      .setDefinedIn(this);
+
             _must                        .setDescription("Indicates the set of attributes that an instance of a class MUST have. When accessed in Java, this is a set of references to AttributeDefinition objects.");
             _must                        .setDmdID("26");
             _must                        .setName("must");
@@ -2161,6 +2170,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_useWrapperType);
             this.addAttributeDefList(_originalClass);
             this.addAttributeDefList(_FQN);
+            this.addAttributeDefList(_modify);
             this.addAttributeDefList(_schemaBaseID);
             this.addAttributeDefList(_schemaIDRange);
             this.addAttributeDefList(_subpackage);

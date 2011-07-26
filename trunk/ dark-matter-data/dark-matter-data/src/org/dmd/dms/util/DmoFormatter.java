@@ -26,6 +26,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -126,7 +127,7 @@ public class DmoFormatter {
         out.write(getImports(cd,anySVAttributes,anyMVAttributes));
         
         out.write("import org.dmd.dms.generated.dmo.MetaVCAG;\n");
-        out.write("import org.dmd.dmc.DmcClassInfo;\n");
+//        out.write("import org.dmd.dmc.DmcClassInfo;\n");
         out.write("import org.dmd.dmc.DmcAttributeValidator;\n");
         out.write("import org.dmd.dmc.DmcObjectValidator;\n\n");
         
@@ -209,7 +210,7 @@ public class DmoFormatter {
 		        out.write("    public " + cd.getName() + "DMO getModificationRecorder(){\n");
 		        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO();\n");
 		        out.write("        rc.set" + upper + "(get" + upper + "());\n");
-		        out.write("        rc.setModifier(new DmcTypeModifierMV());\n");
+		        out.write("        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
 		        out.write("        return(rc);\n");
 		        out.write("    }\n\n");
 	        	

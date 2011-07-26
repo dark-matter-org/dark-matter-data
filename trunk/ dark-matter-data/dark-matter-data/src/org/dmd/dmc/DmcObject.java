@@ -1665,6 +1665,11 @@ abstract public class DmcObject implements Serializable {
 							}
 							
 						}
+						
+						if (!existing.hasValue()){
+							rem(existing.getAttributeInfo());
+						}
+
 					}
 					break;
 				case REM:

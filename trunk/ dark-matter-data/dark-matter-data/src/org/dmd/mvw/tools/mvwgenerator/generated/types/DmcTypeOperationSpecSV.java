@@ -25,7 +25,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeOperationSpec;    /
  * The DmcTypeOperationSpecSV provides storage for a single-valued OperationSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1729)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:124)
  */
 @SuppressWarnings("serial")
@@ -50,7 +50,7 @@ public class DmcTypeOperationSpecSV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1761)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
     public DmcAttribute<OperationSpec> cloneIt(){
         DmcTypeOperationSpecSV rc = getNew();
         rc.value = value;
@@ -58,7 +58,7 @@ public class DmcTypeOperationSpecSV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1773)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
     public OperationSpec set(Object v) throws DmcValueException {
         OperationSpec rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

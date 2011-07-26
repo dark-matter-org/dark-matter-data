@@ -29,7 +29,7 @@ import org.dmd.dmc.types.DmcTypeBoolean;    // DmcType import
  * The DmcTypeBooleanSET provides storage for a set of Boolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2305)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2313)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2350)
     public DmcAttribute<Boolean> cloneIt(){
         synchronized(this){
             DmcTypeBooleanSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public Boolean add(Object v) throws DmcValueException {
         synchronized(this){
             Boolean rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2378)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2386)
     public Boolean del(Object v){
         synchronized(this){
             Boolean rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
     public Iterator<Boolean> getMV(){
         synchronized(this){
             Set<Boolean> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2418)
     public Set<Boolean> getMVCopy(){
         synchronized(this){
             Set<Boolean> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2432)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeBooleanSET extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2443)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

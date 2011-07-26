@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcServerEventREFSV provides storage for a single-valued MvcServerEventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1729)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeMvcServerEventREFSV extends DmcTypeMvcServerEventREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1761)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
     public DmcAttribute<MvcServerEventREF> cloneIt(){
         DmcTypeMvcServerEventREFSV rc = getNew();
         rc.value = value;
@@ -56,7 +56,7 @@ public class DmcTypeMvcServerEventREFSV extends DmcTypeMvcServerEventREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1773)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
     public MvcServerEventREF set(Object v) throws DmcValueException {
         MvcServerEventREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

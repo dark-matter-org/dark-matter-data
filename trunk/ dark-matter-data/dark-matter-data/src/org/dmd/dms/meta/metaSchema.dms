@@ -1291,6 +1291,13 @@ description			The fully qualified name of a hierarchic object. The exact form of
 //description			The name of a hierarchic object's parent.
 
 AttributeDefinition
+name                modify
+dmdID				85
+type                Modifier
+valueType			MULTI
+description         A set of modifications to an object.
+
+AttributeDefinition
 name				schemaBaseID
 dmdID				86
 type				Integer

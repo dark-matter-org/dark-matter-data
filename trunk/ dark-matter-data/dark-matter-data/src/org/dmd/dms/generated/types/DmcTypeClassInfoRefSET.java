@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeClassInfoRef;    // DmcType import
  * The DmcTypeClassInfoRefSET provides storage for a set of ClassInfoRef
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2305)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2313)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
  */
 @SuppressWarnings("serial")
@@ -60,7 +60,7 @@ public class DmcTypeClassInfoRefSET extends DmcTypeClassInfoRef implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2350)
     public DmcAttribute<ClassInfoRef> cloneIt(){
         synchronized(this){
             DmcTypeClassInfoRefSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeClassInfoRefSET extends DmcTypeClassInfoRef implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public ClassInfoRef add(Object v) throws DmcValueException {
         synchronized(this){
             ClassInfoRef rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeClassInfoRefSET extends DmcTypeClassInfoRef implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2378)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2386)
     public ClassInfoRef del(Object v){
         synchronized(this){
             ClassInfoRef rc = null;
@@ -109,7 +109,7 @@ public class DmcTypeClassInfoRefSET extends DmcTypeClassInfoRef implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
     public Iterator<ClassInfoRef> getMV(){
         synchronized(this){
             Set<ClassInfoRef> clone = null;
@@ -121,7 +121,7 @@ public class DmcTypeClassInfoRefSET extends DmcTypeClassInfoRef implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2418)
     public Set<ClassInfoRef> getMVCopy(){
         synchronized(this){
             Set<ClassInfoRef> clone = null;
@@ -134,7 +134,7 @@ public class DmcTypeClassInfoRefSET extends DmcTypeClassInfoRef implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2432)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeClassInfoRefSET extends DmcTypeClassInfoRef implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2443)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

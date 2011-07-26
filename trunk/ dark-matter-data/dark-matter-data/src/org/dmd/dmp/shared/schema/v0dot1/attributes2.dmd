@@ -160,12 +160,12 @@ dmdID				21
 type                ClassDefinition
 description         Expedient way to ask for just objects of a particular class.
 
-AttributeDefinition
-name                modify
-dmdID				22
-type                Modifier
-valueType			MULTI
-description         A set of modifications to an object.
+//AttributeDefinition
+//name                modify
+//dmdID				22
+//type                Modifier
+//valueType			MULTI
+//description         A set of modifications to an object.
 
 AttributeDefinition
 name				eventTypeDMP

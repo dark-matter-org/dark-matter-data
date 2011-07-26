@@ -36,6 +36,7 @@ import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -455,13 +456,13 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 		        	// have to instantiate our derived wrapper class instead
 			        out.write("    public " + cd.getName() + " getModificationRecorder(){\n");
 			        out.write("        " + cd.getName() + " rc = new " + cd.getName() + "();\n");
-			        out.write("        rc.setModifier(new DmcTypeModifierMV());\n");
+			        out.write("        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
 			        out.write("        return(rc);\n");
 			        out.write("    }\n\n");
 		        }
 		        else{
 			        out.write("    public " + cd.getName() + "DMW getModificationRecorder(){\n");
-			        out.write("        " + cd.getName() + "DMW rc = new " + cd.getName() + "DMW(new DmcTypeModifierMV());\n");
+			        out.write("        " + cd.getName() + "DMW rc = new " + cd.getName() + "DMW(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
 			        out.write("        return(rc);\n");
 			        out.write("    }\n\n");
 		        }
@@ -475,7 +476,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			        out.write("    public " + cd.getName() + " getModificationRecorder(){\n");
 			        out.write("        " + cd.getName() + " rc = new " + cd.getName() + "();\n");
 			        out.write("        rc.set" + upper + "(get" + upper + "());\n");
-			        out.write("        rc.setModifier(new DmcTypeModifierMV());\n");
+			        out.write("        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
 			        out.write("        return(rc);\n");
 			        out.write("    }\n\n");
 		        }
@@ -483,7 +484,7 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 			        out.write("    public " + cd.getName() + "DMW getModificationRecorder(){\n");
 			        out.write("        " + cd.getName() + "DMW rc = new " + cd.getName() + "DMW();\n");
 			        out.write("        rc.set" + upper + "(get" + upper + "());\n");
-			        out.write("        rc.setModifier(new DmcTypeModifierMV());\n");
+			        out.write("        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
 			        out.write("        return(rc);\n");
 			        out.write("    }\n\n");
 		        }
@@ -780,8 +781,10 @@ public class DMWGenerator implements DarkMatterGeneratorIF {
 
 		addImport(uniqueImports, longestImport, "org.dmd.dms.*", "Always 2");
 		
-		if ( (cd.getClassType() != ClassTypeEnum.ABSTRACT) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
+		if ( (cd.getClassType() != ClassTypeEnum.ABSTRACT) && (cd.getClassType() != ClassTypeEnum.AUXILIARY)){
 			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.types.DmcTypeModifierMV", "Required for MODREC constructor");
+			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.dmo.MetaDMSAG", "Required for MODREC constructor");
+		}
 		
 		
 //		if ( (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED) && (cd.getIsNamedBy() != null)){

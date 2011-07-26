@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcBackgroundMenuREFMAP provides storage for a map of MvcBackgroundMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2500)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2501)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
@@ -61,7 +61,7 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2543)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2544)
     public DmcAttribute<MvcBackgroundMenuREF> cloneIt(){
         synchronized(this){
             DmcTypeMvcBackgroundMenuREFMAP rc = getNew();
@@ -76,7 +76,7 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2559)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2560)
     public MvcBackgroundMenuREF add(Object v) throws DmcValueException {
         synchronized(this){
             MvcBackgroundMenuREF newval = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2580)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2581)
     public MvcBackgroundMenuREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -107,7 +107,7 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2592)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2593)
     public Iterator<MvcBackgroundMenuREF> getMV(){
         synchronized(this){
             Map<StringName,MvcBackgroundMenuREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2605)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2606)
     public Map<StringName,MvcBackgroundMenuREF> getMVCopy(){
         synchronized(this){
             Map<StringName,MvcBackgroundMenuREF> clone = null;
@@ -131,7 +131,7 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2618)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2619)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -142,7 +142,7 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2630)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2631)
     public MvcBackgroundMenuREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -153,7 +153,7 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2642)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2643)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -167,7 +167,7 @@ public class DmcTypeMvcBackgroundMenuREFMAP extends DmcTypeMvcBackgroundMenuREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2657)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2658)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

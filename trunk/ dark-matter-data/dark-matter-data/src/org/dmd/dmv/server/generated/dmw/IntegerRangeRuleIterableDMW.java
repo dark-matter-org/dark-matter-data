@@ -26,7 +26,7 @@ import org.dmd.dmv.server.extended.IntegerRangeRule;  // wrapper type import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1569)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:149)
+ *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:150)
  */
 public class IntegerRangeRuleIterableDMW extends DmwObjectIterator<IntegerRangeRule, IntegerRangeRuleDMO> {
 

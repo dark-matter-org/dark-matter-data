@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // DmcType im
  * The DmcTypeResponseCategoryEnumSV provides storage for a single-valued ResponseCategoryEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1729)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeResponseCategoryEnumSV extends DmcTypeResponseCategoryEnum i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1761)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
     public DmcAttribute<ResponseCategoryEnum> cloneIt(){
         DmcTypeResponseCategoryEnumSV rc = getNew();
         rc.value = value;
@@ -57,7 +57,7 @@ public class DmcTypeResponseCategoryEnumSV extends DmcTypeResponseCategoryEnum i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1773)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
     public ResponseCategoryEnum set(Object v) throws DmcValueException {
         ResponseCategoryEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

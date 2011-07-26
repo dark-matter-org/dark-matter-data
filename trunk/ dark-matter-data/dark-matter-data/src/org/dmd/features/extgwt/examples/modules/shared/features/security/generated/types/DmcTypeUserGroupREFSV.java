@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserGroupREFSV provides storage for a single-valued UserGroupREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1729)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
@@ -33,7 +33,7 @@ public class DmcTypeUserGroupREFSV extends DmcTypeUserGroupREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1761)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
     public DmcAttribute<UserGroupREF> cloneIt(){
         DmcTypeUserGroupREFSV rc = getNew();
         rc.value = value;
@@ -41,7 +41,7 @@ public class DmcTypeUserGroupREFSV extends DmcTypeUserGroupREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1773)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
     public UserGroupREF set(Object v) throws DmcValueException {
         UserGroupREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcSubMenuREFMV provides storage for a multi-valued MvcSubMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2050)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2051)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeMvcSubMenuREFMV extends DmcTypeMvcSubMenuREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2078)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2079)
     public DmcAttribute<MvcSubMenuREF> cloneIt(){
         synchronized(this){
             DmcTypeMvcSubMenuREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeMvcSubMenuREFMV extends DmcTypeMvcSubMenuREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2107)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2108)
     public MvcSubMenuREF add(Object v) throws DmcValueException {
         synchronized(this){
             MvcSubMenuREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypeMvcSubMenuREFMV extends DmcTypeMvcSubMenuREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2120)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2121)
     public MvcSubMenuREF del(Object v){
         synchronized(this){
             MvcSubMenuREF rc = null;
@@ -102,7 +102,7 @@ public class DmcTypeMvcSubMenuREFMV extends DmcTypeMvcSubMenuREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2139)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2140)
     public Iterator<MvcSubMenuREF> getMV(){
         synchronized(this){
             ArrayList<MvcSubMenuREF> clone = new ArrayList<MvcSubMenuREF>(value);
@@ -110,7 +110,7 @@ public class DmcTypeMvcSubMenuREFMV extends DmcTypeMvcSubMenuREF implements Seri
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2148)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2149)
     public ArrayList<MvcSubMenuREF> getMVCopy(){
         synchronized(this){
             ArrayList<MvcSubMenuREF> clone = new ArrayList<MvcSubMenuREF>(value);
@@ -119,7 +119,7 @@ public class DmcTypeMvcSubMenuREFMV extends DmcTypeMvcSubMenuREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2158)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2159)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -133,7 +133,7 @@ public class DmcTypeMvcSubMenuREFMV extends DmcTypeMvcSubMenuREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
     public MvcSubMenuREF getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -141,7 +141,7 @@ public class DmcTypeMvcSubMenuREFMV extends DmcTypeMvcSubMenuREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
     public MvcSubMenuREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -168,7 +168,7 @@ public class DmcTypeMvcSubMenuREFMV extends DmcTypeMvcSubMenuREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2210)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2211)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -191,7 +191,7 @@ public class DmcTypeMvcSubMenuREFMV extends DmcTypeMvcSubMenuREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
