@@ -4,15 +4,19 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.mvw.client.mvwforms.interfaces.FieldInstanceIF;
 
 import com.extjs.gxt.ui.client.widget.form.TextField;
+import com.google.gwt.user.client.ui.AbstractImagePrototype;
 
-public class GxtString extends TextField<String >implements FieldInstanceIF {
+public class GxtTextField extends TextField<String> implements FieldInstanceIF {
+	
 	
 	boolean mandatory;
 
-	public GxtString(){
+	public GxtTextField(){
 		mandatory = false;
-	}
+		getImages().setInvalid(AbstractImagePrototype.create(GxtFormsResources.resources.blank16x16()));
 
+	}
+	
 	@Override
 	public void setLabel(String label){
 		setFieldLabel(label);

@@ -29,7 +29,7 @@ import org.dmd.dmc.types.DmcTypeDouble;    // DmcType import
  * The DmcTypeDoubleSET provides storage for a set of Double
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2313)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2324)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
     public DmcAttribute<Double> cloneIt(){
         synchronized(this){
             DmcTypeDoubleSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
     public Double add(Object v) throws DmcValueException {
         synchronized(this){
             Double rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2386)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
     public Double del(Object v){
         synchronized(this){
             Double rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
     public Iterator<Double> getMV(){
         synchronized(this){
             Set<Double> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2429)
     public Set<Double> getMVCopy(){
         synchronized(this){
             Set<Double> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2432)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2443)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeDoubleSET extends DmcTypeDouble implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2443)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2454)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

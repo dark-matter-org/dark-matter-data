@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeClassInfoRef;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeClassInfoRefSV extends DmcTypeClassInfoRef implements Serializable {
     
-    ClassInfoRef value;
+    protected ClassInfoRef value;
     
     public DmcTypeClassInfoRefSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeClassInfoRefSV extends DmcTypeClassInfoRef implements Serial
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public ClassInfoRef getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public ClassInfoRef set(Object v) throws DmcValueException {
         ClassInfoRef rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

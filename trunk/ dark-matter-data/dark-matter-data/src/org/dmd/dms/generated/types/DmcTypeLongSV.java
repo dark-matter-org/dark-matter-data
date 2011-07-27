@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeLong;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeLongSV extends DmcTypeLong implements Serializable {
     
-    Long value;
+    protected Long value;
     
     public DmcTypeLongSV(){
     
@@ -56,8 +56,15 @@ public class DmcTypeLongSV extends DmcTypeLong implements Serializable {
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public Long getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public Long set(Object v) throws DmcValueException {
         Long rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

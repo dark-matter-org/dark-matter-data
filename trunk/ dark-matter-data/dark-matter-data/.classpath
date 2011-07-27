@@ -7,8 +7,17 @@
 	<classpathentry kind="lib" path="extjars/gwteventservice-1.1.1.jar"/>
 	<classpathentry kind="lib" path="extjars/exampleDMSchema.jar"/>
 	<classpathentry kind="lib" path="extjars/commons-io-2.0.1.jar"/>
-	<classpathentry kind="lib" path="extjars/gwt-user-2.2.0.jar"/>
 	<classpathentry kind="lib" path="extjars/gwt-servlet-2.2.0.jar"/>
 	<classpathentry kind="lib" path="extjars/gxt-2.2.4-gwt22.jar"/>
+	<classpathentry kind="lib" path="/Library/OpenSource/gwt-2.2.0/gwt-user.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/Library/OpenSource/gwt-2.2.0/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/Library/OpenSource/gwt-2.2.0/gwt-dev.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/Library/OpenSource/gwt-2.2.0/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

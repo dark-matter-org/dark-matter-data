@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeFilterContainer;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeFilterContainerSV extends DmcTypeFilterContainer implements Serializable {
     
-    FilterContainer value;
+    protected FilterContainer value;
     
     public DmcTypeFilterContainerSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeFilterContainerSV extends DmcTypeFilterContainer implements 
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public FilterContainer getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public FilterContainer set(Object v) throws DmcValueException {
         FilterContainer rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

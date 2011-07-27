@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeAttributeID;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeAttributeIDSV extends DmcTypeAttributeID implements Serializable {
     
-    AttributeID value;
+    protected AttributeID value;
     
     public DmcTypeAttributeIDSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeAttributeIDSV extends DmcTypeAttributeID implements Serializ
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public AttributeID getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public AttributeID set(Object v) throws DmcValueException {
         AttributeID rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeFullyQualifiedName;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeFullyQualifiedNameSV extends DmcTypeFullyQualifiedName implements Serializable {
     
-    FullyQualifiedName value;
+    protected FullyQualifiedName value;
     
     public DmcTypeFullyQualifiedNameSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeFullyQualifiedNameSV extends DmcTypeFullyQualifiedName imple
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public FullyQualifiedName getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public FullyQualifiedName set(Object v) throws DmcValueException {
         FullyQualifiedName rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

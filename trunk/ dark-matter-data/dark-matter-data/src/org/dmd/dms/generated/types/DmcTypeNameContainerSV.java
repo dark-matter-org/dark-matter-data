@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeNameContainer;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeNameContainerSV extends DmcTypeNameContainer implements Serializable {
     
-    NameContainer value;
+    protected NameContainer value;
     
     public DmcTypeNameContainerSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeNameContainerSV extends DmcTypeNameContainer implements Seri
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public NameContainer getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public NameContainer set(Object v) throws DmcValueException {
         NameContainer rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

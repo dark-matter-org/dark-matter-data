@@ -29,7 +29,7 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DmcTypeAttributeValidatorDefinitionREFSV extends DmcTypeAttributeValidatorDefinitionREF implements Serializable {
     
-    AttributeValidatorDefinitionREF value;
+    protected AttributeValidatorDefinitionREF value;
     
     public DmcTypeAttributeValidatorDefinitionREFSV(){
     
@@ -55,8 +55,15 @@ public class DmcTypeAttributeValidatorDefinitionREFSV extends DmcTypeAttributeVa
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public AttributeValidatorDefinitionREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public AttributeValidatorDefinitionREF set(Object v) throws DmcValueException {
         AttributeValidatorDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

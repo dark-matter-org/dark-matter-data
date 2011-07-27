@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeLabelledIntegerDataPoint;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeLabelledIntegerDataPointSV extends DmcTypeLabelledIntegerDataPoint implements Serializable {
     
-    LabelledIntegerDataPoint value;
+    protected LabelledIntegerDataPoint value;
     
     public DmcTypeLabelledIntegerDataPointSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeLabelledIntegerDataPointSV extends DmcTypeLabelledIntegerDat
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public LabelledIntegerDataPoint getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public LabelledIntegerDataPoint set(Object v) throws DmcValueException {
         LabelledIntegerDataPoint rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

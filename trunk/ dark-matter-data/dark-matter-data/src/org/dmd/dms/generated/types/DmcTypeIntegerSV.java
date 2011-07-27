@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeInteger;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeIntegerSV extends DmcTypeInteger implements Serializable {
     
-    Integer value;
+    protected Integer value;
     
     public DmcTypeIntegerSV(){
     
@@ -56,8 +56,15 @@ public class DmcTypeIntegerSV extends DmcTypeInteger implements Serializable {
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public Integer getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public Integer set(Object v) throws DmcValueException {
         Integer rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

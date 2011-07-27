@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeDotName;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeDotNameSV extends DmcTypeDotName implements Serializable {
     
-    DotName value;
+    protected DotName value;
     
     public DmcTypeDotNameSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeDotNameSV extends DmcTypeDotName implements Serializable {
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public DotName getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public DotName set(Object v) throws DmcValueException {
         DotName rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

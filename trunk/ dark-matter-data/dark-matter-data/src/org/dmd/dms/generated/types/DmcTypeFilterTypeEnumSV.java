@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.FilterTypeEnum;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeFilterTypeEnumSV extends DmcTypeFilterTypeEnum implements Serializable {
     
-    FilterTypeEnum value;
+    protected FilterTypeEnum value;
     
     public DmcTypeFilterTypeEnumSV(){
     
@@ -56,8 +56,15 @@ public class DmcTypeFilterTypeEnumSV extends DmcTypeFilterTypeEnum implements Se
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public FilterTypeEnum getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public FilterTypeEnum set(Object v) throws DmcValueException {
         FilterTypeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

@@ -637,6 +637,13 @@ dmdID			88
 type			CamelCaseName
 description		The name of a FieldEditor.
 
+AttributeDefinition
+name			mandatoryStyle
+dmdID			89
+type			String
+description		The style to be used to indicate that a field is mandatory. How this is used
+ will depend on the implementation of FieldEditors that are being used.
+
 
 
 //AttributeDefinition

@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint implements Serializable {
     
-    TimeDoubleDataPoint value;
+    protected TimeDoubleDataPoint value;
     
     public DmcTypeTimeDoubleDataPointSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint imp
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public TimeDoubleDataPoint getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public TimeDoubleDataPoint set(Object v) throws DmcValueException {
         TimeDoubleDataPoint rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
