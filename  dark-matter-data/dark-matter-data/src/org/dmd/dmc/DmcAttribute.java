@@ -19,6 +19,9 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Iterator;
 
+import org.dmd.dmc.types.Modifier;
+import org.dmd.dms.generated.enums.ModifyTypeEnum;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.util.exceptions.DebugInfo;
 
 //import org.dmd.util.exceptions.DebugInfo;
@@ -728,7 +731,173 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 		return(rc);
 	}
 	
-
+	protected void addModsSV(DmcTypeModifierMV mods, DmcAttribute<?> existingValue, DmcAdapterIF adapter){
+		try {
+			if (existingValue == null){
+				if (adapter.hasValue())
+					mods.add(new Modifier(ModifyTypeEnum.SET, this));
+			}
+			else{
+				if (!adapter.hasValue())
+					mods.add(new Modifier(ModifyTypeEnum.REM, attrInfo));
+				else
+					mods.add(new Modifier(ModifyTypeEnum.SET, this));
+			}
+		} catch (DmcValueException e) {
+			throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
+		}
+	}
+	
+	protected boolean valueChangedSV(DmcAttribute<?> existingValue, DmcAdapterIF adapter){
+		boolean rc = false;
+		
+		if (existingValue == null){
+			if (adapter.hasValue())
+				rc = true;
+		}
+		else{
+			if (!adapter.hasValue())
+				rc = true;
+			else{
+				if (!existingValue.getSV().equals(adapter.getValue()))
+					rc = true;
+			}
+		}
+		
+		return(rc);
+	}
+	
+	protected void addModsMV(DmcTypeModifierMV mods, DmcAttribute<?> existingValue, DmcAdapterIF adapter){
+		try {
+			if (existingValue == null){
+				if (adapter.hasValue()){
+					if (attrInfo.indexSize == 0){
+						for(int i=0; i<getMVSize(); i++){
+							DmcAttribute<?> mod = getNew();
+							mod.add(getMVnth(i));
+							mods.add(new Modifier(ModifyTypeEnum.ADD, mod));
+						}
+					}
+					else{
+						for(int index=0; index<getMVSize(); index++){
+							if (getMVnth(index) != null){
+								DmcAttribute<?> mod = getNew();
+								mod.setMVnth(index,getMVnth(index));
+								mods.add(new Modifier(ModifyTypeEnum.NTH, mod, index));
+							}
+						}
+					}
+				}
+			}
+			else{
+				if (!adapter.hasValue())
+					mods.add(new Modifier(ModifyTypeEnum.REM, attrInfo));
+				else{
+					// Have to determine the delta
+					if (attrInfo.indexSize == 0){
+						for(int i=0; i<getMVSize(); i++){
+							if (!existingValue.contains(getMVnth(i))){
+								// The existing value is missing this value, add it
+								DmcAttribute<?> mod = getNew();
+								mod.add(getMVnth(i));
+								mods.add(new Modifier(ModifyTypeEnum.ADD, mod));
+							}
+						}
+						
+						for(int i=0; i<existingValue.getMVSize(); i++){
+							if (!contains(existingValue.getMVnth(i))){
+								// The value no longer exists, delete it
+								DmcAttribute<?> mod = getNew();
+								mod.add(existingValue.getMVnth(i));
+								mods.add(new Modifier(ModifyTypeEnum.DEL, mod));
+							}
+						}
+					}
+					else{
+						for(int index=0; index<getMVSize(); index++){
+							Object existing = existingValue.getMVnth(index);
+							Object current  = getMVnth(index);
+							boolean replace = false;
+							
+							if (existing == null){
+								if (current != null)
+									replace = true;
+							}
+							else{
+								if (current == null)
+									replace = true;
+								else{
+									if (!existing.equals(current))
+										replace = true;
+								}
+							}
+							
+							if (replace){
+								DmcAttribute<?> mod = getNew();
+								mod.setMVnth(index,current);
+								mods.add(new Modifier(ModifyTypeEnum.NTH, mod, index));
+							}
+						}
+					}
+				}
+			}
+		} catch (DmcValueException e) {
+			throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));
+		}
+	}
+	
+	protected boolean valueChangedMV(DmcAttribute<?> existingValue, DmcAdapterIF adapter){
+		boolean rc = false;
+		
+		if (existingValue == null){
+			if (adapter.hasValue())
+				rc = true;
+		}
+		else{
+			if (!adapter.hasValue())
+				rc = true;
+			else{
+				if (attrInfo.indexSize == 0){
+					if (existingValue.getMVSize() != getMVSize())
+						rc = true;
+					else{
+						for(int i=0; i<getMVSize(); i++){
+							if (!existingValue.contains(getMVnth(i))){
+								rc = true;
+								break;
+							}
+						}
+					}
+				}
+				else{
+					for(int i=0; i<attrInfo.indexSize; i++){
+						Object existing = existingValue.getMVnth(i);
+						Object current  = getMVnth(i);
+						
+						if (existing == null){
+							if (current != null){
+								rc = true;
+								break;
+							}
+						}
+						else{
+							if (current == null){
+								rc = true;
+								break;
+							}
+							else{
+								if (!existing.equals(current))
+									rc = true;
+							}
+						}
+					}
+				}
+					
+			}
+		}
+		
+		return(rc);
+	}
 	
 //	/**
 //	 * Appends this attribute to the string buffer with the appropriate
