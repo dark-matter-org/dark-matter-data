@@ -27,13 +27,13 @@ import org.dmd.dmc.types.DmcTypeUUIDLite;    // DmcType import
  * The DmcTypeUUIDLiteMV provides storage for a multi-valued UUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2056)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2067)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:267)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
     
-    ArrayList<UUIDLite> value;
+    protected ArrayList<UUIDLite> value;
     
     public DmcTypeUUIDLiteMV(){
     
@@ -49,7 +49,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2086)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2097)
     public DmcAttribute<UUIDLite> cloneIt(){
         synchronized(this){
             DmcTypeUUIDLiteMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2115)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2126)
     public UUIDLite add(Object v) throws DmcValueException {
         synchronized(this){
             UUIDLite rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2128)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2139)
     public UUIDLite del(Object v){
         synchronized(this){
             UUIDLite rc = null;
@@ -104,7 +104,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2147)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2158)
     public Iterator<UUIDLite> getMV(){
         synchronized(this){
             ArrayList<UUIDLite> clone = new ArrayList<UUIDLite>(value);
@@ -112,7 +112,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2156)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2167)
     public ArrayList<UUIDLite> getMVCopy(){
         synchronized(this){
             ArrayList<UUIDLite> clone = new ArrayList<UUIDLite>(value);
@@ -121,7 +121,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2166)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2177)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -135,7 +135,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2181)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2192)
     public UUIDLite getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -143,7 +143,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2190)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2201)
     public UUIDLite setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -170,7 +170,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2218)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2229)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -193,7 +193,7 @@ public class DmcTypeUUIDLiteMV extends DmcTypeUUIDLite implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2242)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2253)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

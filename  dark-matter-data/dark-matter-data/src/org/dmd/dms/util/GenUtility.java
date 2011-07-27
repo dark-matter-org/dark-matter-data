@@ -1736,7 +1736,7 @@ public class GenUtility {
         out.write("public class DmcType" + typeName + REF + "SV extends DmcType" + typeName + REF + " implements Serializable {\n");
         
         out.write("    \n");
-        out.write("    " + typeName + DMO + genericArgs + " value;\n");
+        out.write("    protected " + typeName + DMO + genericArgs + " value;\n");
         out.write("    \n");
         
         out.write("    public DmcType" + typeName + REF + "SV(){\n");
@@ -1768,6 +1768,17 @@ public class GenUtility {
         out.write("        DmcType" + typeName + REF + "SV rc = getNew();\n");
         out.write("        rc.value = value;\n");
         out.write("        return(rc);\n");
+        out.write("    }\n");
+        out.write("    \n");
+
+		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+        if (dmoREF)
+            out.write("    public " + typeName + DMO + genericArgs + " getSVCopy(){\n");
+        else
+        	out.write("    public " + typeName + REF + genericArgs + " getSVCopy(){\n");
+        out.write("        if (value == null)\n");
+        out.write("            return(null);\n");
+        out.write("        return(cloneValue(value));\n");
         out.write("    }\n");
         out.write("    \n");
 
@@ -2061,7 +2072,7 @@ public class GenUtility {
         out.write("public class DmcType" + typeName + REF + "MV extends DmcType" + typeName + REF + " implements Serializable {\n");
         
         out.write("    \n");
-        out.write("    ArrayList<" + typeName + DMO + genericArgs + "> value;\n");
+        out.write("    protected ArrayList<" + typeName + DMO + genericArgs + "> value;\n");
         out.write("    \n");
         
         out.write("    public DmcType" + typeName + REF + "MV(){\n");

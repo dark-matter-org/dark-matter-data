@@ -29,7 +29,7 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DmcTypeSliceDefinitionREFSV extends DmcTypeSliceDefinitionREF implements Serializable {
     
-    SliceDefinitionREF value;
+    protected SliceDefinitionREF value;
     
     public DmcTypeSliceDefinitionREFSV(){
     
@@ -55,8 +55,15 @@ public class DmcTypeSliceDefinitionREFSV extends DmcTypeSliceDefinitionREF imple
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public SliceDefinitionREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public SliceDefinitionREF set(Object v) throws DmcValueException {
         SliceDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

@@ -25,8 +25,8 @@ import org.dmd.dms.generated.types.Field;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1891)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1810)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1902)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1821)
  */
 public class DmcTypeFieldSTATIC {
     

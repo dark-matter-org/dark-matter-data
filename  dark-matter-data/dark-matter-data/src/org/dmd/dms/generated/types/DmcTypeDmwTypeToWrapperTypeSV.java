@@ -31,7 +31,7 @@ import org.dmd.dms.generated.types.DmcTypeDmwTypeToWrapperType;    // DmcType im
 @SuppressWarnings("serial")
 public class DmcTypeDmwTypeToWrapperTypeSV extends DmcTypeDmwTypeToWrapperType implements Serializable {
     
-    DmwTypeToWrapperType value;
+    protected DmwTypeToWrapperType value;
     
     public DmcTypeDmwTypeToWrapperTypeSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeDmwTypeToWrapperTypeSV extends DmcTypeDmwTypeToWrapperType i
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public DmwTypeToWrapperType getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public DmwTypeToWrapperType set(Object v) throws DmcValueException {
         DmwTypeToWrapperType rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

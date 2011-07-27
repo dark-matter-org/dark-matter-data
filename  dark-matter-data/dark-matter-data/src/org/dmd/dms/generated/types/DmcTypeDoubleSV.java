@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeDouble;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeDoubleSV extends DmcTypeDouble implements Serializable {
     
-    Double value;
+    protected Double value;
     
     public DmcTypeDoubleSV(){
     
@@ -56,8 +56,15 @@ public class DmcTypeDoubleSV extends DmcTypeDouble implements Serializable {
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public Double getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public Double set(Object v) throws DmcValueException {
         Double rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

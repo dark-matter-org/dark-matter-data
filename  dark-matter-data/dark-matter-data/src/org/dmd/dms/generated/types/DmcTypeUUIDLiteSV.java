@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeUUIDLite;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeUUIDLiteSV extends DmcTypeUUIDLite implements Serializable {
     
-    UUIDLite value;
+    protected UUIDLite value;
     
     public DmcTypeUUIDLiteSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeUUIDLiteSV extends DmcTypeUUIDLite implements Serializable {
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public UUIDLite getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public UUIDLite set(Object v) throws DmcValueException {
         UUIDLite rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

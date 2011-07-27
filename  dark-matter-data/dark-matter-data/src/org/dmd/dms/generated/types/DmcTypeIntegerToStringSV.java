@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeIntegerToString;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToStringSV extends DmcTypeIntegerToString implements Serializable {
     
-    IntegerToString value;
+    protected IntegerToString value;
     
     public DmcTypeIntegerToStringSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeIntegerToStringSV extends DmcTypeIntegerToString implements 
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public IntegerToString getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public IntegerToString set(Object v) throws DmcValueException {
         IntegerToString rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

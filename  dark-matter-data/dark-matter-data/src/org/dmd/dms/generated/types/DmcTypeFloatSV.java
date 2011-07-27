@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeFloat;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeFloatSV extends DmcTypeFloat implements Serializable {
     
-    Float value;
+    protected Float value;
     
     public DmcTypeFloatSV(){
     
@@ -56,8 +56,15 @@ public class DmcTypeFloatSV extends DmcTypeFloat implements Serializable {
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public Float getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public Float set(Object v) throws DmcValueException {
         Float rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

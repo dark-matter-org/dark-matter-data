@@ -31,7 +31,7 @@ import org.dmd.dmc.types.IntegerToString;    // primitive import
  * The DmcTypeIntegerToStringMAP provides storage for a map of IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2508)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2519)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:271)
  */
 @SuppressWarnings("serial")
@@ -62,7 +62,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2551)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2562)
     public DmcAttribute<IntegerToString> cloneIt(){
         synchronized(this){
             DmcTypeIntegerToStringMAP rc = getNew();
@@ -77,7 +77,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2578)
     public IntegerToString add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerToString newval = typeCheck(v);
@@ -97,7 +97,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2588)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2599)
     public IntegerToString del(Object key){
         synchronized(this){
            if (key instanceof Integer)
@@ -108,7 +108,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2600)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2611)
     public Iterator<IntegerToString> getMV(){
         synchronized(this){
             Map<Integer,IntegerToString> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2613)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2624)
     public Map<Integer,IntegerToString> getMVCopy(){
         synchronized(this){
             Map<Integer,IntegerToString> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2637)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -143,7 +143,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2638)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2649)
     public IntegerToString getByKey(Object key){
         synchronized(this){
             if (key instanceof Integer)
@@ -154,7 +154,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2650)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2661)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -168,7 +168,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2665)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2676)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

@@ -434,7 +434,7 @@ description		The FormBinding class allows for the definition of bindings between
  and the editors that will be used to display and edit their values. 
 
 ClassDefinition
-name			FieldEditor
+name			FieldEditorDefinition
 classType		STRUCTURAL
 subpackage		forms
 dmdID			24
@@ -448,3 +448,14 @@ description		The FieldEditor class allows for the definition of implementation s
  interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition
  instance and so that it can interact with the AttributeTracker and the SetRequestGenerator.
 
+ClassDefinition
+name			FormImplementationConfig
+classType		STRUCTURAL
+subpackage		forms
+dmdID			25
+derivedFrom		MvwDefinition
+useWrapperType	EXTENDED
+isNamedBy		configName
+must			configName
+may				mandatoryStyle
+description		The  

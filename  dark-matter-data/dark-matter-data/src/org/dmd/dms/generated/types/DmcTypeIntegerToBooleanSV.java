@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeIntegerToBoolean;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToBooleanSV extends DmcTypeIntegerToBoolean implements Serializable {
     
-    IntegerToBoolean value;
+    protected IntegerToBoolean value;
     
     public DmcTypeIntegerToBooleanSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeIntegerToBooleanSV extends DmcTypeIntegerToBoolean implement
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public IntegerToBoolean getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public IntegerToBoolean set(Object v) throws DmcValueException {
         IntegerToBoolean rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

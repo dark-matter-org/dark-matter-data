@@ -29,7 +29,7 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DmcTypeComplexTypeDefinitionREFSV extends DmcTypeComplexTypeDefinitionREF implements Serializable {
     
-    ComplexTypeDefinitionREF value;
+    protected ComplexTypeDefinitionREF value;
     
     public DmcTypeComplexTypeDefinitionREFSV(){
     
@@ -55,8 +55,15 @@ public class DmcTypeComplexTypeDefinitionREFSV extends DmcTypeComplexTypeDefinit
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public ComplexTypeDefinitionREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public ComplexTypeDefinitionREF set(Object v) throws DmcValueException {
         ComplexTypeDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

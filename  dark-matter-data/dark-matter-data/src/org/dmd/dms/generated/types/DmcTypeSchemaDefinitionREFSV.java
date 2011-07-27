@@ -29,7 +29,7 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DmcTypeSchemaDefinitionREFSV extends DmcTypeSchemaDefinitionREF implements Serializable {
     
-    SchemaDefinitionREF value;
+    protected SchemaDefinitionREF value;
     
     public DmcTypeSchemaDefinitionREFSV(){
     
@@ -55,8 +55,15 @@ public class DmcTypeSchemaDefinitionREFSV extends DmcTypeSchemaDefinitionREF imp
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public SchemaDefinitionREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public SchemaDefinitionREF set(Object v) throws DmcValueException {
         SchemaDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

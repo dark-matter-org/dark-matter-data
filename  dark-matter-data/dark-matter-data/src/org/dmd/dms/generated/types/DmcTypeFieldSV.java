@@ -31,7 +31,7 @@ import org.dmd.dms.generated.types.DmcTypeField;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeFieldSV extends DmcTypeField implements Serializable {
     
-    Field value;
+    protected Field value;
     
     public DmcTypeFieldSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeFieldSV extends DmcTypeField implements Serializable {
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public Field getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public Field set(Object v) throws DmcValueException {
         Field rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

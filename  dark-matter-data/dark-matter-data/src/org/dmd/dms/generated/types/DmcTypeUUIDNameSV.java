@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeUUIDName;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNameSV extends DmcTypeUUIDName implements Serializable {
     
-    UUIDName value;
+    protected UUIDName value;
     
     public DmcTypeUUIDNameSV(){
     
@@ -57,8 +57,15 @@ public class DmcTypeUUIDNameSV extends DmcTypeUUIDName implements Serializable {
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public UUIDName getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public UUIDName set(Object v) throws DmcValueException {
         UUIDName rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

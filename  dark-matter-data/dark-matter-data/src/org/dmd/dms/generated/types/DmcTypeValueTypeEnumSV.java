@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeValueTypeEnumSV extends DmcTypeValueTypeEnum implements Serializable {
     
-    ValueTypeEnum value;
+    protected ValueTypeEnum value;
     
     public DmcTypeValueTypeEnumSV(){
     
@@ -56,8 +56,15 @@ public class DmcTypeValueTypeEnumSV extends DmcTypeValueTypeEnum implements Seri
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public ValueTypeEnum getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public ValueTypeEnum set(Object v) throws DmcValueException {
         ValueTypeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

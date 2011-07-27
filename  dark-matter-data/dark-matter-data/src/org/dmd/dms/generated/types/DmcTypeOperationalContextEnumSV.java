@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.OperationalContextEnum;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeOperationalContextEnumSV extends DmcTypeOperationalContextEnum implements Serializable {
     
-    OperationalContextEnum value;
+    protected OperationalContextEnum value;
     
     public DmcTypeOperationalContextEnumSV(){
     
@@ -56,8 +56,15 @@ public class DmcTypeOperationalContextEnumSV extends DmcTypeOperationalContextEn
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public OperationalContextEnum getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public OperationalContextEnum set(Object v) throws DmcValueException {
         OperationalContextEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
