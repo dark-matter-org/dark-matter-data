@@ -133,8 +133,9 @@ public class MvwGenerator {
 			if (place.getDefinedInModule() == defManager.codeGenModule)
 				PlaceFormatter.formatPlace(placesdir, place);
 		}
-				
-		RunContextFormatter.formatModuleRunContextInterface(mvwdir, defManager.getCodeGenModule(), defManager.getDefaultContext());		
+			
+		if (defManager.getCodeGenModule() != null)
+			RunContextFormatter.formatModuleRunContextInterface(mvwdir, defManager.getCodeGenModule(), defManager.getDefaultContext());		
 		
 		if (defManager.getApplication() != null){
 			PlaceFormatter.formatPlaceHistoryMapper(placesdir, defManager.application, defManager.places);
