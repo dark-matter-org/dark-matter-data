@@ -45,13 +45,6 @@ public class StringMVAdapter extends DmcTypeStringMV implements DmcAdapterIF {
 			value = existingValue.getMVCopy();
 	}
 
-	public void reset(){
-		if (existingValue == null)
-			value = null;
-		else
-			value = existingValue.getMVCopy();
-	}
-	
 	public boolean valueChanged(){
 		return(valueChangedMV(existingValue, this));
 	}

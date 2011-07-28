@@ -8,13 +8,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUUIDNamedObjectREFSV provides storage for a single-valued UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1731)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNamedObjectREFSV extends DmcTypeUUIDNamedObjectREF implements Serializable {
     
-    UUIDNamedObjectREF value;
+    protected UUIDNamedObjectREF value;
     
     public DmcTypeUUIDNamedObjectREFSV(){
     
@@ -33,15 +33,22 @@ public class DmcTypeUUIDNamedObjectREFSV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1763)
     public DmcAttribute<UUIDNamedObjectREF> cloneIt(){
         DmcTypeUUIDNamedObjectREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public UUIDNamedObjectREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public UUIDNamedObjectREF set(Object v) throws DmcValueException {
         UUIDNamedObjectREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

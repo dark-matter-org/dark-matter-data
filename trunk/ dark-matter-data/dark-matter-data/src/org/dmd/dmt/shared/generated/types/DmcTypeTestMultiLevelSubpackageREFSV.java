@@ -8,13 +8,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestMultiLevelSubpackageREFSV provides storage for a single-valued TestMultiLevelSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1731)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestMultiLevelSubpackageREFSV extends DmcTypeTestMultiLevelSubpackageREF implements Serializable {
     
-    TestMultiLevelSubpackageREF value;
+    protected TestMultiLevelSubpackageREF value;
     
     public DmcTypeTestMultiLevelSubpackageREFSV(){
     
@@ -33,15 +33,22 @@ public class DmcTypeTestMultiLevelSubpackageREFSV extends DmcTypeTestMultiLevelS
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1763)
     public DmcAttribute<TestMultiLevelSubpackageREF> cloneIt(){
         DmcTypeTestMultiLevelSubpackageREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public TestMultiLevelSubpackageREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public TestMultiLevelSubpackageREF set(Object v) throws DmcValueException {
         TestMultiLevelSubpackageREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeLabelledIntegerDataPoint;    // DmcType import
  * The DmcTypeLabelledIntegerDataPointMV provides storage for a multi-valued LabelledIntegerDataPoint
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2067)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2071)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:267)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeLabelledIntegerDataPointMV extends DmcTypeLabelledIntegerDat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2097)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2101)
     public DmcAttribute<LabelledIntegerDataPoint> cloneIt(){
         synchronized(this){
             DmcTypeLabelledIntegerDataPointMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeLabelledIntegerDataPointMV extends DmcTypeLabelledIntegerDat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2126)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2130)
     public LabelledIntegerDataPoint add(Object v) throws DmcValueException {
         synchronized(this){
             LabelledIntegerDataPoint rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeLabelledIntegerDataPointMV extends DmcTypeLabelledIntegerDat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2139)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2143)
     public LabelledIntegerDataPoint del(Object v){
         synchronized(this){
             LabelledIntegerDataPoint rc = null;
@@ -104,7 +104,7 @@ public class DmcTypeLabelledIntegerDataPointMV extends DmcTypeLabelledIntegerDat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2158)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2162)
     public Iterator<LabelledIntegerDataPoint> getMV(){
         synchronized(this){
             ArrayList<LabelledIntegerDataPoint> clone = new ArrayList<LabelledIntegerDataPoint>(value);
@@ -112,7 +112,7 @@ public class DmcTypeLabelledIntegerDataPointMV extends DmcTypeLabelledIntegerDat
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2167)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2171)
     public ArrayList<LabelledIntegerDataPoint> getMVCopy(){
         synchronized(this){
             ArrayList<LabelledIntegerDataPoint> clone = new ArrayList<LabelledIntegerDataPoint>(value);
@@ -121,7 +121,7 @@ public class DmcTypeLabelledIntegerDataPointMV extends DmcTypeLabelledIntegerDat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2177)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2181)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -135,7 +135,7 @@ public class DmcTypeLabelledIntegerDataPointMV extends DmcTypeLabelledIntegerDat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2192)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2196)
     public LabelledIntegerDataPoint getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -143,7 +143,7 @@ public class DmcTypeLabelledIntegerDataPointMV extends DmcTypeLabelledIntegerDat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2201)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2205)
     public LabelledIntegerDataPoint setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -170,7 +170,7 @@ public class DmcTypeLabelledIntegerDataPointMV extends DmcTypeLabelledIntegerDat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2229)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2233)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -193,7 +193,7 @@ public class DmcTypeLabelledIntegerDataPointMV extends DmcTypeLabelledIntegerDat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2253)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2257)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

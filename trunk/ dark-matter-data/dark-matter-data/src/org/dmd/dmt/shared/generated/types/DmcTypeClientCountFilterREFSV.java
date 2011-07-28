@@ -9,13 +9,13 @@ import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;    // DmcType impo
  * The DmcTypeClientCountFilterREFSV provides storage for a single-valued ClientCountFilter
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1731)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:221)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClientCountFilterREFSV extends DmcTypeClientCountFilterREF implements Serializable {
     
-    ClientCountFilterDMO value;
+    protected ClientCountFilterDMO value;
     
     public DmcTypeClientCountFilterREFSV(){
     
@@ -34,15 +34,22 @@ public class DmcTypeClientCountFilterREFSV extends DmcTypeClientCountFilterREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1763)
     public DmcAttribute<ClientCountFilterDMO> cloneIt(){
         DmcTypeClientCountFilterREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public ClientCountFilterDMO getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public ClientCountFilterDMO set(Object v) throws DmcValueException {
         ClientCountFilterDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

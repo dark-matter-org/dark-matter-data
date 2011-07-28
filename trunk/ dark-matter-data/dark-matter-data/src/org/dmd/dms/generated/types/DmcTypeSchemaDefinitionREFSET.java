@@ -28,13 +28,13 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSchemaDefinitionREFSET provides storage for a set of SchemaDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2324)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2330)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:241)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF implements Serializable {
     
-    Set<SchemaDefinitionREF> value;
+    protected Set<SchemaDefinitionREF> value;
     
     public DmcTypeSchemaDefinitionREFSET(){
         value = null;
@@ -58,7 +58,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2367)
     public DmcAttribute<SchemaDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeSchemaDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2386)
     public SchemaDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             SchemaDefinitionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
     public SchemaDefinitionREF del(Object v){
         synchronized(this){
             SchemaDefinitionREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2422)
     public Iterator<SchemaDefinitionREF> getMV(){
         synchronized(this){
             Set<SchemaDefinitionREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2429)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
     public Set<SchemaDefinitionREF> getMVCopy(){
         synchronized(this){
             Set<SchemaDefinitionREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2443)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2449)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2454)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2460)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

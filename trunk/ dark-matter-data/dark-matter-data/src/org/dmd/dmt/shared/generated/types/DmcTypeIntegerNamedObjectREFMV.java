@@ -10,13 +10,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeIntegerNamedObjectREFMV provides storage for a multi-valued IntegerNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2051)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2067)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF implements Serializable {
     
-    ArrayList<IntegerNamedObjectREF> value;
+    protected ArrayList<IntegerNamedObjectREF> value;
     
     public DmcTypeIntegerNamedObjectREFMV(){
     
@@ -32,7 +32,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2079)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2097)
     public DmcAttribute<IntegerNamedObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeIntegerNamedObjectREFMV rc = getNew();
@@ -57,7 +57,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2108)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2126)
     public IntegerNamedObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerNamedObjectREF rc = typeCheck(v);
@@ -69,7 +69,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2121)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2139)
     public IntegerNamedObjectREF del(Object v){
         synchronized(this){
             IntegerNamedObjectREF rc = null;
@@ -87,7 +87,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2140)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2158)
     public Iterator<IntegerNamedObjectREF> getMV(){
         synchronized(this){
             ArrayList<IntegerNamedObjectREF> clone = new ArrayList<IntegerNamedObjectREF>(value);
@@ -95,7 +95,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2149)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2167)
     public ArrayList<IntegerNamedObjectREF> getMVCopy(){
         synchronized(this){
             ArrayList<IntegerNamedObjectREF> clone = new ArrayList<IntegerNamedObjectREF>(value);
@@ -104,7 +104,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2159)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2177)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -118,7 +118,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2192)
     public IntegerNamedObjectREF getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -126,7 +126,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2201)
     public IntegerNamedObjectREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -153,7 +153,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2211)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2229)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -176,7 +176,7 @@ public class DmcTypeIntegerNamedObjectREFMV extends DmcTypeIntegerNamedObjectREF
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2253)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

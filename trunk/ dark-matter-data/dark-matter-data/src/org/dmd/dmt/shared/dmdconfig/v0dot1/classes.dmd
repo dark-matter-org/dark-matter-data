@@ -203,6 +203,7 @@ may				mvString
 may				intToString
 may				attrIDs
 may				hsDate
+may				hsString
 must			mvTestEnum
 may				hsTestEnum
 may				hsNames

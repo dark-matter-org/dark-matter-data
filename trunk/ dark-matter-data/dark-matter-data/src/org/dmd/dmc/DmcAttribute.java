@@ -772,9 +772,11 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 			if (existingValue == null){
 				if (adapter.hasValue()){
 					if (attrInfo.indexSize == 0){
-						for(int i=0; i<getMVSize(); i++){
+						Iterator<VALUE> it = getMV();
+						while(it.hasNext()){
+							VALUE current = it.next();
 							DmcAttribute<?> mod = getNew();
-							mod.add(getMVnth(i));
+							mod.add(current);
 							mods.add(new Modifier(ModifyTypeEnum.ADD, mod));
 						}
 					}
@@ -795,20 +797,23 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 				else{
 					// Have to determine the delta
 					if (attrInfo.indexSize == 0){
-						for(int i=0; i<getMVSize(); i++){
-							if (!existingValue.contains(getMVnth(i))){
+						Iterator<VALUE> it = getMV();
+						while(it.hasNext()){
+							VALUE current = it.next();
+							if (!existingValue.contains(current)){
 								// The existing value is missing this value, add it
 								DmcAttribute<?> mod = getNew();
-								mod.add(getMVnth(i));
+								mod.add(current);
 								mods.add(new Modifier(ModifyTypeEnum.ADD, mod));
 							}
 						}
-						
-						for(int i=0; i<existingValue.getMVSize(); i++){
-							if (!contains(existingValue.getMVnth(i))){
+						Iterator<?> eit = existingValue.getMV();
+						while(eit.hasNext()){
+							Object current = eit.next();
+							if (!contains(current)){
 								// The value no longer exists, delete it
 								DmcAttribute<?> mod = getNew();
-								mod.add(existingValue.getMVnth(i));
+								mod.add(current);
 								mods.add(new Modifier(ModifyTypeEnum.DEL, mod));
 							}
 						}

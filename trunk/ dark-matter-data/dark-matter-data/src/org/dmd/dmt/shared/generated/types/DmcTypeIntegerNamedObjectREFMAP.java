@@ -15,14 +15,14 @@ import org.dmd.dmc.types.IntegerName;    // key type import
  * The DmcTypeIntegerNamedObjectREFMAP provides storage for a map of IntegerNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2501)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2519)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectREF<IntegerNamedObjectREF,IntegerName> {
 public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectREF implements Serializable {
     
-    Map<IntegerName,IntegerNamedObjectREF> value;
+    protected Map<IntegerName,IntegerNamedObjectREF> value;
     
     public DmcTypeIntegerNamedObjectREFMAP(){
         value = null;
@@ -46,7 +46,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2544)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2562)
     public DmcAttribute<IntegerNamedObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeIntegerNamedObjectREFMAP rc = getNew();
@@ -61,7 +61,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2560)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2578)
     public IntegerNamedObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerNamedObjectREF newval = typeCheck(v);
@@ -81,7 +81,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2581)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2599)
     public IntegerNamedObjectREF del(Object key){
         synchronized(this){
            if (key instanceof IntegerName)
@@ -92,7 +92,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2593)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2611)
     public Iterator<IntegerNamedObjectREF> getMV(){
         synchronized(this){
             Map<IntegerName,IntegerNamedObjectREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2606)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2624)
     public Map<IntegerName,IntegerNamedObjectREF> getMVCopy(){
         synchronized(this){
             Map<IntegerName,IntegerNamedObjectREF> clone = null;
@@ -116,7 +116,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2619)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2637)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -127,7 +127,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2631)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2649)
     public IntegerNamedObjectREF getByKey(Object key){
         synchronized(this){
             if (key instanceof IntegerName)
@@ -138,7 +138,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2643)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2661)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -152,7 +152,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2658)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2676)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

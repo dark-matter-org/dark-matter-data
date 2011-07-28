@@ -10,13 +10,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestMultiLevelSubpackageREFMV provides storage for a multi-valued TestMultiLevelSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2051)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2067)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelSubpackageREF implements Serializable {
     
-    ArrayList<TestMultiLevelSubpackageREF> value;
+    protected ArrayList<TestMultiLevelSubpackageREF> value;
     
     public DmcTypeTestMultiLevelSubpackageREFMV(){
     
@@ -32,7 +32,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2079)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2097)
     public DmcAttribute<TestMultiLevelSubpackageREF> cloneIt(){
         synchronized(this){
             DmcTypeTestMultiLevelSubpackageREFMV rc = getNew();
@@ -57,7 +57,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2108)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2126)
     public TestMultiLevelSubpackageREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestMultiLevelSubpackageREF rc = typeCheck(v);
@@ -69,7 +69,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2121)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2139)
     public TestMultiLevelSubpackageREF del(Object v){
         synchronized(this){
             TestMultiLevelSubpackageREF rc = null;
@@ -87,7 +87,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2140)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2158)
     public Iterator<TestMultiLevelSubpackageREF> getMV(){
         synchronized(this){
             ArrayList<TestMultiLevelSubpackageREF> clone = new ArrayList<TestMultiLevelSubpackageREF>(value);
@@ -95,7 +95,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2149)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2167)
     public ArrayList<TestMultiLevelSubpackageREF> getMVCopy(){
         synchronized(this){
             ArrayList<TestMultiLevelSubpackageREF> clone = new ArrayList<TestMultiLevelSubpackageREF>(value);
@@ -104,7 +104,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2159)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2177)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -118,7 +118,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2192)
     public TestMultiLevelSubpackageREF getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -126,7 +126,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2201)
     public TestMultiLevelSubpackageREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -153,7 +153,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2211)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2229)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -176,7 +176,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMV extends DmcTypeTestMultiLevelS
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2253)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
