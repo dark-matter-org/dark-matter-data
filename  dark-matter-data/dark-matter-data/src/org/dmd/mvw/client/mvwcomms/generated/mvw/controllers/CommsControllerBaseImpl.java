@@ -30,7 +30,7 @@ abstract public class CommsControllerBaseImpl {
     }
 
     // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:183)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:333)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:334)
     protected void fireLoginCompleteEvent(){
         eventBus.fireEvent(new LoginCompleteEvent());
     }
