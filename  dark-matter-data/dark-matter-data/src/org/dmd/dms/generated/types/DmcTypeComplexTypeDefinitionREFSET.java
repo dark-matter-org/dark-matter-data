@@ -28,13 +28,13 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeComplexTypeDefinitionREFSET provides storage for a set of ComplexTypeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2324)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2330)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:241)
  */
 @SuppressWarnings("serial")
 public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefinitionREF implements Serializable {
     
-    Set<ComplexTypeDefinitionREF> value;
+    protected Set<ComplexTypeDefinitionREF> value;
     
     public DmcTypeComplexTypeDefinitionREFSET(){
         value = null;
@@ -58,7 +58,7 @@ public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2367)
     public DmcAttribute<ComplexTypeDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeComplexTypeDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2386)
     public ComplexTypeDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             ComplexTypeDefinitionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
     public ComplexTypeDefinitionREF del(Object v){
         synchronized(this){
             ComplexTypeDefinitionREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2422)
     public Iterator<ComplexTypeDefinitionREF> getMV(){
         synchronized(this){
             Set<ComplexTypeDefinitionREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefini
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2429)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
     public Set<ComplexTypeDefinitionREF> getMVCopy(){
         synchronized(this){
             Set<ComplexTypeDefinitionREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2443)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2449)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2454)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2460)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

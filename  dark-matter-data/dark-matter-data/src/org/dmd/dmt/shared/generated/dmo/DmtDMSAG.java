@@ -292,6 +292,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __ObjWithRefs.addMay(__intToString);
         __ObjWithRefs.addMay(__attrIDs);
         __ObjWithRefs.addMay(__hsDate);
+        __ObjWithRefs.addMay(__hsString);
         __ObjWithRefs.addMay(__hsTestEnum);
         __ObjWithRefs.addMay(__hsNames);
         __ObjWithRefs.addMay(__nonperString);

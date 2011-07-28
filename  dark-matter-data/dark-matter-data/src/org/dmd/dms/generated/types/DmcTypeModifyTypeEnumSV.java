@@ -24,7 +24,7 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;    // DmcType import
  * The DmcTypeModifyTypeEnumSV provides storage for a single-valued ModifyTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1731)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1733)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:228)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeModifyTypeEnumSV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1763)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1765)
     public DmcAttribute<ModifyTypeEnum> cloneIt(){
         DmcTypeModifyTypeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1776)
     public ModifyTypeEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeModifyTypeEnumSV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1788)
     public ModifyTypeEnum set(Object v) throws DmcValueException {
         ModifyTypeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

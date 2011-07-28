@@ -1681,6 +1681,8 @@ public class GenUtility {
 	 * @throws IOException
 	 */
 	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String nameAttrID, String genericArgs, boolean isRef, boolean isNameType, boolean isFilterType, String fileHeader, PrintStream progress) throws IOException {
+		AdapterFormatter.dumpAdapterSV(dmotypedir, typeName, basePackage);
+
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;
@@ -2026,6 +2028,8 @@ public class GenUtility {
 	 * @throws IOException
 	 */
 	static public void dumpMVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
+		AdapterFormatter.dumpAdapterMV(dmotypedir, typeName, basePackage);
+
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;
@@ -2284,6 +2288,8 @@ public class GenUtility {
 	 * @throws IOException
 	 */
 	static public void dumpSETType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
+		AdapterFormatter.dumpAdapterSET(dmotypedir, typeName, basePackage);
+
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;
@@ -2329,7 +2335,7 @@ public class GenUtility {
         out.write("public class DmcType" + typeName + REF + "SET extends DmcType" + typeName + REF + " implements Serializable {\n");
         
         out.write("    \n");
-        out.write("    Set<" + typeName + DMO + genericArgs + "> value;\n");
+        out.write("    protected Set<" + typeName + DMO + genericArgs + "> value;\n");
         out.write("    \n");
         
         out.write("    public DmcType" + typeName + REF + "SET(){\n");
@@ -2484,8 +2490,10 @@ public class GenUtility {
 	 * @param progress
 	 * @throws IOException
 	 */
-	static public void dumpMAPType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, String keyClass, String keyImport, String fileHeader, PrintStream progress) throws IOException {
-        BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmotypedir, "DmcType" + typeName + "MAP.java");
+	static public void dumpMAPType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String primitiveImport, String nameAttrImport, String nameAttr, String genericArgs, String keyClass, String keyImport, String fileHeader, PrintStream progress) throws IOException {		
+		AdapterFormatter.dumpAdapterMAP(dmotypedir, typeName, basePackage);
+		
+		BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmotypedir, "DmcType" + typeName + "MAP.java");
 
         if (fileHeader != null)
         	out.write(fileHeader);
@@ -2530,7 +2538,7 @@ public class GenUtility {
         }
         
         out.write("    \n");
-        out.write("    Map<" + keyClass + "," + typeName + genericArgs + "> value;\n");
+        out.write("    protected Map<" + keyClass + "," + typeName + genericArgs + "> value;\n");
         out.write("    \n");
         
         out.write("    public DmcType" + typeName + "MAP(){\n");

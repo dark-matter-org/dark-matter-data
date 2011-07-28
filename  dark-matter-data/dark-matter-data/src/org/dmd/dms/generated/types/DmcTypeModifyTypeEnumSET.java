@@ -29,13 +29,13 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;    // DmcType import
  * The DmcTypeModifyTypeEnumSET provides storage for a set of ModifyTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2324)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2330)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:230)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements Serializable {
     
-    Set<ModifyTypeEnum> value;
+    protected Set<ModifyTypeEnum> value;
     
     public DmcTypeModifyTypeEnumSET(){
         value = null;
@@ -59,7 +59,7 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2367)
     public DmcAttribute<ModifyTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeModifyTypeEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2386)
     public ModifyTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ModifyTypeEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
     public ModifyTypeEnum del(Object v){
         synchronized(this){
             ModifyTypeEnum rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2422)
     public Iterator<ModifyTypeEnum> getMV(){
         synchronized(this){
             Set<ModifyTypeEnum> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2429)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
     public Set<ModifyTypeEnum> getMVCopy(){
         synchronized(this){
             Set<ModifyTypeEnum> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2443)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2449)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeModifyTypeEnumSET extends DmcTypeModifyTypeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2454)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2460)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

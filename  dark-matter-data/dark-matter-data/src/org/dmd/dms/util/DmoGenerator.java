@@ -47,6 +47,7 @@ public class DmoGenerator {
 	String dmodir;
 	String auxwdir;
 	String typedir;
+	String adapterdir;
 	String enumdir;
 	
 	// If the schema has a generatedFileHeader attribute, we read the specified file
@@ -86,6 +87,7 @@ public class DmoGenerator {
 		dmodir 		= gendir + File.separator + "dmo";
 		auxwdir 	= gendir + File.separator + "auxw";
 		typedir 	= gendir + File.separator + "types";
+		adapterdir 	= typedir + File.separator + "adapters";
 		enumdir 	= gendir + File.separator + "enums";
 		
 		fileHeader 	= null;
@@ -182,6 +184,10 @@ public class DmoGenerator {
 		File tdf = new File(typedir);
 		if (!tdf.exists())
 			tdf.mkdir();
+		
+		File addf = new File(adapterdir);
+		if (!addf.exists())
+			addf.mkdir();
 		
 		File edf = new File(enumdir);
 		if (!edf.exists())

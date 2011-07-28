@@ -8,13 +8,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestDerivedDiffSubpackageREFSV provides storage for a single-valued TestDerivedDiffSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1731)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestDerivedDiffSubpackageREFSV extends DmcTypeTestDerivedDiffSubpackageREF implements Serializable {
     
-    TestDerivedDiffSubpackageREF value;
+    protected TestDerivedDiffSubpackageREF value;
     
     public DmcTypeTestDerivedDiffSubpackageREFSV(){
     
@@ -33,15 +33,22 @@ public class DmcTypeTestDerivedDiffSubpackageREFSV extends DmcTypeTestDerivedDif
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1763)
     public DmcAttribute<TestDerivedDiffSubpackageREF> cloneIt(){
         DmcTypeTestDerivedDiffSubpackageREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    public TestDerivedDiffSubpackageREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
+    @Override
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1786)
     public TestDerivedDiffSubpackageREF set(Object v) throws DmcValueException {
         TestDerivedDiffSubpackageREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

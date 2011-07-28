@@ -26,7 +26,7 @@ import org.dmd.dmc.types.DmcTypeLong;    // DmcType import
  * The DmcTypeLongMV provides storage for a multi-valued Long
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2067)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2071)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:267)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2097)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2101)
     public DmcAttribute<Long> cloneIt(){
         synchronized(this){
             DmcTypeLongMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2126)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2130)
     public Long add(Object v) throws DmcValueException {
         synchronized(this){
             Long rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2139)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2143)
     public Long del(Object v){
         synchronized(this){
             Long rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2158)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2162)
     public Iterator<Long> getMV(){
         synchronized(this){
             ArrayList<Long> clone = new ArrayList<Long>(value);
@@ -111,7 +111,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2167)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2171)
     public ArrayList<Long> getMVCopy(){
         synchronized(this){
             ArrayList<Long> clone = new ArrayList<Long>(value);
@@ -120,7 +120,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2177)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2181)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -134,7 +134,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2192)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2196)
     public Long getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -142,7 +142,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2201)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2205)
     public Long setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -169,7 +169,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2229)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2233)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -192,7 +192,7 @@ public class DmcTypeLongMV extends DmcTypeLong implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2253)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2257)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

@@ -14,13 +14,13 @@ import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;    // DmcType i
  * The DmcTypeTestBasicObjectFixedREFSET provides storage for a set of TestBasicObjectFixedDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2306)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2324)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:223)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFixedREF implements Serializable {
     
-    Set<TestBasicObjectFixedDMO> value;
+    protected Set<TestBasicObjectFixedDMO> value;
     
     public DmcTypeTestBasicObjectFixedREFSET(){
         value = null;
@@ -44,7 +44,7 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2343)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
     public DmcAttribute<TestBasicObjectFixedDMO> cloneIt(){
         synchronized(this){
             DmcTypeTestBasicObjectFixedREFSET rc = getNew();
@@ -59,7 +59,7 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
     public TestBasicObjectFixedDMO add(Object v) throws DmcValueException {
         synchronized(this){
             TestBasicObjectFixedDMO rc = typeCheck(v);
@@ -75,7 +75,7 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
     public TestBasicObjectFixedDMO del(Object v){
         synchronized(this){
             TestBasicObjectFixedDMO rc = null;
@@ -93,7 +93,7 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2398)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
     public Iterator<TestBasicObjectFixedDMO> getMV(){
         synchronized(this){
             Set<TestBasicObjectFixedDMO> clone = null;
@@ -105,7 +105,7 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2411)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2429)
     public Set<TestBasicObjectFixedDMO> getMVCopy(){
         synchronized(this){
             Set<TestBasicObjectFixedDMO> clone = null;
@@ -118,7 +118,7 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2443)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -128,7 +128,7 @@ public class DmcTypeTestBasicObjectFixedREFSET extends DmcTypeTestBasicObjectFix
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2454)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
