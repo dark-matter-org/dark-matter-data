@@ -4,7 +4,8 @@ genPackage	org.dmd.mvw.client.gxtforms
 description	The gxtforms module provides definitions of FieldEditors to be used
  in conjunction with Model View Whatever's form binding mechanisms.
 
-FieldEditor
-editorName		GxtTextField
-useClass		org.dmd.mvw.client.gxtforms.implementation.GxtTextField
-description		
+FieldEditorDefinition
+editorName		GxtTextFieldOld
+useClass		com.belairnetworks.web.controller.common.forms.GxtTextField
+description		Provides standard presentation of a single valued attribute as 
+ text field.

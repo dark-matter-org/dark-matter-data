@@ -117,4 +117,31 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     public String getDMSAGReference(){
     	return(getDefinedIn().getDMSASGName() + ".__" + getName());
     }
+    
+    public String getAdapterClassImport(){
+    	return(getType().getDefinedIn().getSchemaPackage() + ".generated.types.adapters." + getAdapterClassName());
+    }
+    
+    public String getAdapterClassName(){
+    	String suffix = "";
+    	
+    	switch(getValueType()){
+    	case HASHMAPPED:
+    	case TREEMAPPED:
+    		suffix = "MAP";
+    		break;
+    	case HASHSET:
+    	case TREESET:
+    		suffix = "SET";
+    		break;
+    	case MULTI:
+    		suffix = "MV";
+    		break;
+    	case SINGLE:
+    		suffix = "SV";
+    		break;
+    	}
+    	
+    	return(getType().getName() + suffix + "Adapter");
+    }
 }

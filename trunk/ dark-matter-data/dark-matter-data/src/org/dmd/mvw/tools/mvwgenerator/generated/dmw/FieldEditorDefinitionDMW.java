@@ -14,10 +14,10 @@ import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                   
 /**
  * The FieldEditor class allows for the definition of implementation specific
  * field editors. The specified class must implement the
- * org.dmd.mvw.client.mvwforms.interfaces.FieldInstanceIF interface so that
- * it can be initialized by the FormBinder that is generated for each
- * FormBindingDefinition instance and so that it can interact with the
- * AttributeTracker and the SetRequestGenerator.
+ * org.dmd.dmc.DmcPresentationIF interface so that it can be initialized by
+ * the FormBinder that is generated for each FormBindingDefinition instance
+ * and so that it can interact with the AttributeTracker and the
+ * SetRequestGenerator.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>

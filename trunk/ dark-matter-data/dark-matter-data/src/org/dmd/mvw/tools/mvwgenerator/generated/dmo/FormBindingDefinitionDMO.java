@@ -27,11 +27,12 @@ import org.dmd.dmc.types.CamelCaseName;                                         
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                              // Type specific set/add
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                       // Required for MODREC constructor
 import org.dmd.dms.generated.types.ClassDefinitionREF;                            // Helper class
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                              // Required type
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                        // Required type
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;                   // Reference type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                             // Required for MODREC constructor
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;             // Base class
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEditFieldSV;         // Required type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEditFieldMV;         // Required type
 import org.dmd.mvw.tools.mvwgenerator.types.EditField;                            // Primitive type and !auxiliary class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
@@ -127,6 +128,56 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
             return( getObjectName().equals( ((FormBindingDefinitionDMO) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public Boolean isStrictlyChecked(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__strictlyChecked);
+        if (attr == null)
+            return(true);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets strictlyChecked to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setStrictlyChecked(Boolean value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__strictlyChecked);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__strictlyChecked);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__strictlyChecked,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets strictlyChecked to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setStrictlyChecked(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__strictlyChecked);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__strictlyChecked);
+        
+        attr.set(value);
+        set(MvwDMSAG.__strictlyChecked,attr);
+    }
+
+    /**
+     * Removes the strictlyChecked attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remStrictlyChecked(){
+         rem(MvwDMSAG.__strictlyChecked);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
@@ -247,52 +298,129 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
          rem(MvwDMSAG.__editObject);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
-    public EditField getEditField(){
-        DmcTypeEditFieldSV attr = (DmcTypeEditFieldSV) get(MvwDMSAG.__editField);
+    /**
+     * @return An Iterator of EditField objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:947)
+    public Iterator<EditField> getEditField(){
+        DmcTypeEditFieldMV attr = (DmcTypeEditFieldMV) get(MvwDMSAG.__editField);
+        if (attr == null)
+            return( ((List<EditField>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth EditField value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public EditField getNthEditField(int i){
+        DmcTypeEditFieldMV attr = (DmcTypeEditFieldMV) get(MvwDMSAG.__editField);
         if (attr == null)
             return(null);
 
-        return(attr.getSV());
+        return(attr.getMVnth(i));
     }
 
     /**
-     * Sets editField to the specified value.
+     * Adds another editField to the specified value.
      * @param value EditField
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
-    public void setEditField(EditField value) {
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:973)
+    public DmcAttribute<?> addEditField(EditField value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__editField);
         if (attr == null)
-            attr = new DmcTypeEditFieldSV(MvwDMSAG.__editField);
+            attr = new DmcTypeEditFieldMV(MvwDMSAG.__editField);
         
         try{
-            attr.set(value);
-            set(MvwDMSAG.__editField,attr);
+            setLastValue(attr.add(value));
+            add(MvwDMSAG.__editField,attr);
         }
         catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
         }
+        return(attr);
     }
 
     /**
-     * Sets editField to the specified value.
-     * @param value A value compatible with DmcTypeEditFieldSV
+     * Returns true if we contain a valued keyed by the specified EditField.
+     * @param value EditField
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
-    public void setEditField(Object value) throws DmcValueException {
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1047)
+    public boolean editFieldContains(EditField value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__editField);
         if (attr == null)
-            attr = new DmcTypeEditFieldSV(MvwDMSAG.__editField);
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another editField value.
+     * @param value A value compatible with EditField
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1079)
+    public DmcAttribute<?> addEditField(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__editField);
+        if (attr == null)
+            attr = new DmcTypeEditFieldMV(MvwDMSAG.__editField);
         
-        attr.set(value);
-        set(MvwDMSAG.__editField,attr);
+        setLastValue(attr.add(value));
+        add(MvwDMSAG.__editField,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in editField
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1096)
+    public int getEditFieldSize(){
+        DmcAttribute<?> attr = get(MvwDMSAG.__editField);
+        if (attr == null){
+            if (MvwDMSAG.__editField.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__editField.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a editField value.
+     * @param value The EditField to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1141)
+    public DmcAttribute<?> delEditField(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__editField);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeEditFieldMV(MvwDMSAG.__editField), value);
+        else
+            attr = del(MvwDMSAG.__editField, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a editField from the specified value.
+     * @param value EditField
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1157)
+    public DmcAttribute<?> delEditField(EditField value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__editField);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeEditFieldMV(MvwDMSAG.__editField), value);
+        else
+            attr = del(MvwDMSAG.__editField, value);
+        
+        return(attr);
     }
 
     /**
      * Removes the editField attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1176)
     public void remEditField(){
          rem(MvwDMSAG.__editField);
     }

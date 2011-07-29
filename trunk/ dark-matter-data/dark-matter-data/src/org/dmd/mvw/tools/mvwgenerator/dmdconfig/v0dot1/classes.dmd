@@ -427,6 +427,7 @@ dmdID			23
 derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		bindingName
+may				strictlyChecked
 must			bindingName
 must			editObject
 must			editField
@@ -457,5 +458,5 @@ derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
 isNamedBy		configName
 must			configName
-may				mandatoryStyle
+//may				mandatoryStyle
 description		The  

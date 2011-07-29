@@ -628,6 +628,7 @@ AttributeDefinition
 name			editField
 dmdID			87
 type			EditField
+valueType		MULTI
 description		The specification of an attribute to the field editor to be used and optionally
  the label and tooltip to be used.
 
@@ -638,11 +639,21 @@ type			CamelCaseName
 description		The name of a FieldEditor.
 
 AttributeDefinition
-name			mandatoryStyle
+name			strictlyChecked
 dmdID			89
-type			String
-description		The style to be used to indicate that a field is mandatory. How this is used
- will depend on the implementation of FieldEditors that are being used.
+type			Boolean
+nullReturnValue	true
+description		By default when creating form bindings, the MVW Generator will ensure that the 
+ attributes you refer to in your editFields are part of the class specified by editObject. In cases
+ where you might be using auxiliary classes though, you can turn strict checking off by setting
+ it to false.
+
+//AttributeDefinition
+//name			mandatoryStyle
+//dmdID			89
+//type			String
+//description		The style to be used to indicate that a field is mandatory. How this is used
+// will depend on the implementation of FieldEditors that are being used.
 
 
 

@@ -10,6 +10,8 @@ import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.CamelCaseName;
+import org.dmd.dms.AttributeDefinition;
+import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
@@ -24,6 +26,9 @@ import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.extended.SubPlace;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
+import org.dmd.mvw.tools.mvwgenerator.extended.forms.FieldEditorDefinition;
+import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
+import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormImplementationConfig;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuBar;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;
@@ -32,6 +37,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.menus.Separator;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.SubMenu;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.MenuElementDefinitionDMW;
+import org.dmd.mvw.tools.mvwgenerator.types.EditField;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.DebugInfo;
 
@@ -108,6 +114,16 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<CamelCaseName, Action>				actions;
 	
+	// FORMS
+	
+//	TreeMap<CamelCaseName, FormImplementationConfig>	formImplementations;
+	
+	TreeMap<CamelCaseName, FieldEditorDefinition>		fieldEditors;
+	
+	TreeMap<CamelCaseName, FormBindingDefinition>		formBindings;
+	
+	
+	
 	
 	// Gets set to true is any of our components send requests
 	boolean										needMvwComms;
@@ -158,6 +174,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		menuItems 				= new TreeMap<CamelCaseName, MenuItem>();
 		separators				= new TreeMap<CamelCaseName, Separator>();
 		actions					= new TreeMap<CamelCaseName, Action>();
+		
+		fieldEditors			= new TreeMap<CamelCaseName, FieldEditorDefinition>();
+		formBindings			= new TreeMap<CamelCaseName, FormBindingDefinition>();
 	}
 	
 	public TreeMap<CamelCaseName,MenuBar> getMenuBars(){
@@ -174,6 +193,10 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	public TreeMap<CamelCaseName,Separator> getSeparators(){
 		return(separators);
+	}
+	
+	public TreeMap<CamelCaseName,FormBindingDefinition> getFormBindings(){
+		return(formBindings);
 	}
 	
 	public void reset() throws ResultException, DmcValueException{
@@ -512,6 +535,14 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				throw(ex);
 			}
 		}
+		else if(def instanceof FieldEditorDefinition){
+			FieldEditorDefinition fed = (FieldEditorDefinition) def;
+			fieldEditors.put(fed.getEditorName(), fed);
+		}
+		else if (def instanceof FormBindingDefinition){
+			FormBindingDefinition fbd = (FormBindingDefinition) def;
+			formBindings.put(fbd.getBindingName(), fbd);
+		}
 		
 		if (def instanceof Component){
 			Component component = (Component) def;
@@ -731,6 +762,57 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				}
 				
 				
+			}
+		}
+		
+		if (formBindings.size() > 0){
+			for(FormBindingDefinition fbd: formBindings.values()){
+				// We only do this checking if we're generated code for the 
+				// binding definition's module. Otherwise, in autogen mode
+				// we will get multiple errors.
+				if (fbd.getDefinedInModule() == codeGenModule){
+					for(EditField field: fbd.getEditFieldIterable()){
+						key.setNameString(field.getFieldEditor());
+						FieldEditorDefinition fed = fieldEditors.get(key);
+						
+						if (fed == null){
+							if (errors == null)
+								errors = new ResultException();
+							
+							errors.addError("Unknown FieldEditorDefinition reference: " + field.getFieldEditor());
+							errors.result.lastResult().fileName(fbd.getFile());
+							errors.result.lastResult().lineNumber(fbd.getLineNumber());
+						}
+						else
+							field.setEditorDef(fed);
+						
+						AttributeDefinition	def = readSchemas.adef(field.getAttribute());
+						if (def == null){
+							if (errors == null)
+								errors = new ResultException();
+							
+							errors.addError("Unknown attribute reference: " + field.getAttribute());
+							errors.result.lastResult().fileName(fbd.getFile());
+							errors.result.lastResult().lineNumber(fbd.getLineNumber());
+						}
+						else{
+							field.setAttrDef(def);
+							
+							if (fbd.isStrictlyChecked()){
+								ClassDefinition cd = (ClassDefinition) fbd.getEditObject();
+								if (cd.hasAttribute(def.getName().getNameString()) == null){
+									if (errors == null)
+										errors = new ResultException();
+									
+									errors.addError("Attribute: " + field.getAttribute() + " is not an attribute of editObject: " + cd.getName());
+									errors.result.lastResult().fileName(fbd.getFile());
+									errors.result.lastResult().lineNumber(fbd.getLineNumber());
+								}
+							}
+						}
+						
+					}
+				}
 			}
 		}
 		
