@@ -30,14 +30,14 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMvcDefinitionREFMAP provides storage for a map of MvcDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2501)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2532)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF<MvcDefinitionREF,StringName> {
 public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implements Serializable {
     
-    Map<StringName,MvcDefinitionREF> value;
+    protected Map<StringName,MvcDefinitionREF> value;
     
     public DmcTypeMvcDefinitionREFMAP(){
         value = null;
@@ -61,7 +61,7 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2544)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2575)
     public DmcAttribute<MvcDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeMvcDefinitionREFMAP rc = getNew();
@@ -76,7 +76,7 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2560)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2591)
     public MvcDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             MvcDefinitionREF newval = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2581)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2612)
     public MvcDefinitionREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -107,7 +107,7 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2593)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2624)
     public Iterator<MvcDefinitionREF> getMV(){
         synchronized(this){
             Map<StringName,MvcDefinitionREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2606)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2637)
     public Map<StringName,MvcDefinitionREF> getMVCopy(){
         synchronized(this){
             Map<StringName,MvcDefinitionREF> clone = null;
@@ -131,7 +131,7 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2619)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2650)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -142,7 +142,7 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2631)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2662)
     public MvcDefinitionREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -153,7 +153,7 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2643)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -167,7 +167,7 @@ public class DmcTypeMvcDefinitionREFMAP extends DmcTypeMvcDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2658)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2689)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

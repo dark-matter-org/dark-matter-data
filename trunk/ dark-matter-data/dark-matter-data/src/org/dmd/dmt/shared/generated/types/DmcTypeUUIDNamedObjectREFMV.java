@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUUIDNamedObjectREFMV provides storage for a multi-valued UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2067)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
  */
 @SuppressWarnings("serial")
@@ -32,7 +32,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2097)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
     public DmcAttribute<UUIDNamedObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeUUIDNamedObjectREFMV rc = getNew();
@@ -57,7 +57,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2126)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
     public UUIDNamedObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             UUIDNamedObjectREF rc = typeCheck(v);
@@ -69,7 +69,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2139)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
     public UUIDNamedObjectREF del(Object v){
         synchronized(this){
             UUIDNamedObjectREF rc = null;
@@ -87,7 +87,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2158)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
     public Iterator<UUIDNamedObjectREF> getMV(){
         synchronized(this){
             ArrayList<UUIDNamedObjectREF> clone = new ArrayList<UUIDNamedObjectREF>(value);
@@ -95,7 +95,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2167)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
     public ArrayList<UUIDNamedObjectREF> getMVCopy(){
         synchronized(this){
             ArrayList<UUIDNamedObjectREF> clone = new ArrayList<UUIDNamedObjectREF>(value);
@@ -104,7 +104,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2177)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -118,7 +118,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2192)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
     public UUIDNamedObjectREF getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -126,7 +126,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2201)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
     public UUIDNamedObjectREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -153,7 +153,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2229)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -176,7 +176,7 @@ public class DmcTypeUUIDNamedObjectREFMV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2253)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

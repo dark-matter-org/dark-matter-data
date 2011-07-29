@@ -15,14 +15,14 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeUserREFMAP provides storage for a map of UserREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2501)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2532)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUserREFMAP extends DmcTypeUserREF<UserREF,StringName> {
 public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
     
-    Map<StringName,UserREF> value;
+    protected Map<StringName,UserREF> value;
     
     public DmcTypeUserREFMAP(){
         value = null;
@@ -46,7 +46,7 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2544)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2575)
     public DmcAttribute<UserREF> cloneIt(){
         synchronized(this){
             DmcTypeUserREFMAP rc = getNew();
@@ -61,7 +61,7 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2560)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2591)
     public UserREF add(Object v) throws DmcValueException {
         synchronized(this){
             UserREF newval = typeCheck(v);
@@ -81,7 +81,7 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2581)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2612)
     public UserREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -92,7 +92,7 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2593)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2624)
     public Iterator<UserREF> getMV(){
         synchronized(this){
             Map<StringName,UserREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2606)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2637)
     public Map<StringName,UserREF> getMVCopy(){
         synchronized(this){
             Map<StringName,UserREF> clone = null;
@@ -116,7 +116,7 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2619)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2650)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -127,7 +127,7 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2631)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2662)
     public UserREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -138,7 +138,7 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2643)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -152,7 +152,7 @@ public class DmcTypeUserREFMAP extends DmcTypeUserREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2658)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2689)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

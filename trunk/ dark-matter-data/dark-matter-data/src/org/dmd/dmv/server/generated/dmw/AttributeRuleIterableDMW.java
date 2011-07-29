@@ -25,7 +25,7 @@ import org.dmd.dmv.server.extended.AttributeRule;  // wrapper type import
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1569)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1571)
  *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:150)
  */
 public class AttributeRuleIterableDMW extends DmwObjectIterator<AttributeRule, AttributeRuleDMO> {

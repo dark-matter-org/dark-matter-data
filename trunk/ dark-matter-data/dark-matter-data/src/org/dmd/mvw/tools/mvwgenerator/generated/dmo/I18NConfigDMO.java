@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:322)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:323)
 import java.io.Serializable;                                                   // Always required
 import java.util.*;                                                            // Always required
 import org.dmd.dmc.DmcAttribute;                                               // Any attributes
@@ -122,7 +122,7 @@ public class I18NConfigDMO  extends RunContextItemDMO  implements DmcNamedObject
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:643)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public CamelCaseName getItemName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__itemName);
         if (attr == null)
@@ -135,7 +135,7 @@ public class I18NConfigDMO  extends RunContextItemDMO  implements DmcNamedObject
      * Sets itemName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
     public void setItemName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__itemName);
         if (attr == null)
@@ -154,7 +154,7 @@ public class I18NConfigDMO  extends RunContextItemDMO  implements DmcNamedObject
      * Sets itemName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:733)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
     public void setItemName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__itemName);
         if (attr == null)
@@ -167,7 +167,7 @@ public class I18NConfigDMO  extends RunContextItemDMO  implements DmcNamedObject
     /**
      * Removes the itemName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
     public void remItemName(){
          rem(MvwDMSAG.__itemName);
     }

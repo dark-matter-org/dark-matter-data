@@ -41,7 +41,8 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static ClassDefinition _Separator;
     public static ClassDefinition _Action;
     public static ClassDefinition _FormBindingDefinition;
-    public static ClassDefinition _FieldEditor;
+    public static ClassDefinition _FieldEditorDefinition;
+    public static ClassDefinition _FormImplementationConfig;
 
     public static AttributeDefinition _definedInModule;
     public static AttributeDefinition _firesEvent;
@@ -130,6 +131,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _editObject;
     public static AttributeDefinition _editField;
     public static AttributeDefinition _editorName;
+    public static AttributeDefinition _mandatoryStyle;
 
     public static TypeDefinition _EventWithArgs;
     public static TypeDefinition _MethodWithArgs;
@@ -680,25 +682,45 @@ public class MvwSchemaAG extends SchemaDefinition {
             _FormBindingDefinition.setDefinedIn(this);
             addClassDefList(_FormBindingDefinition);
 
-            ClassDefinitionDMO _FieldEditorOBJ = new ClassDefinitionDMO();
-            _FieldEditor = new ClassDefinition(_FieldEditorOBJ);
-            _FieldEditorOBJ.setName("FieldEditor");
-            _FieldEditorOBJ.setDmdID("824");
-            _FieldEditorOBJ.setClassType("STRUCTURAL");
-            _FieldEditorOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _FieldEditorOBJ.setLineNumber("450");
-            _FieldEditorOBJ.setDescription("The FieldEditor class allows for the definition of implementation specific field editors. The specified class must implement the org.dmd.mvw.client.mvwforms.interfaces.FieldInstanceIF interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition instance and so that it can interact with the AttributeTracker and the SetRequestGenerator.");
-            _FieldEditorOBJ.setDerivedFrom("MvwDefinition");
-            _FieldEditorOBJ.setIsNamedBy("editorName");
-            _FieldEditorOBJ.setUseWrapperType("EXTENDED");
-            _FieldEditorOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.FieldEditorREF");
-            _FieldEditorOBJ.setDmwIteratorClass("FieldEditorIterableDMW");
-            _FieldEditorOBJ.addMust("editorName");
-            _FieldEditorOBJ.addMust("useClass");
-            _FieldEditorOBJ.setSubpackage("forms");
-            _FieldEditorOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.FieldEditorIterableDMW");
-            _FieldEditor.setDefinedIn(this);
-            addClassDefList(_FieldEditor);
+            ClassDefinitionDMO _FieldEditorDefinitionOBJ = new ClassDefinitionDMO();
+            _FieldEditorDefinition = new ClassDefinition(_FieldEditorDefinitionOBJ);
+            _FieldEditorDefinitionOBJ.setName("FieldEditorDefinition");
+            _FieldEditorDefinitionOBJ.setDmdID("824");
+            _FieldEditorDefinitionOBJ.setClassType("STRUCTURAL");
+            _FieldEditorDefinitionOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _FieldEditorDefinitionOBJ.setLineNumber("450");
+            _FieldEditorDefinitionOBJ.setDescription("The FieldEditor class allows for the definition of implementation specific field editors. The specified class must implement the org.dmd.mvw.client.mvwforms.interfaces.FieldInstanceIF interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition instance and so that it can interact with the AttributeTracker and the SetRequestGenerator.");
+            _FieldEditorDefinitionOBJ.setDerivedFrom("MvwDefinition");
+            _FieldEditorDefinitionOBJ.setIsNamedBy("editorName");
+            _FieldEditorDefinitionOBJ.setUseWrapperType("EXTENDED");
+            _FieldEditorDefinitionOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.FieldEditorDefinitionREF");
+            _FieldEditorDefinitionOBJ.setDmwIteratorClass("FieldEditorDefinitionIterableDMW");
+            _FieldEditorDefinitionOBJ.addMust("editorName");
+            _FieldEditorDefinitionOBJ.addMust("useClass");
+            _FieldEditorDefinitionOBJ.setSubpackage("forms");
+            _FieldEditorDefinitionOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.FieldEditorDefinitionIterableDMW");
+            _FieldEditorDefinition.setDefinedIn(this);
+            addClassDefList(_FieldEditorDefinition);
+
+            ClassDefinitionDMO _FormImplementationConfigOBJ = new ClassDefinitionDMO();
+            _FormImplementationConfig = new ClassDefinition(_FormImplementationConfigOBJ);
+            _FormImplementationConfigOBJ.setName("FormImplementationConfig");
+            _FormImplementationConfigOBJ.setDmdID("825");
+            _FormImplementationConfigOBJ.setClassType("STRUCTURAL");
+            _FormImplementationConfigOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _FormImplementationConfigOBJ.setLineNumber("461");
+            _FormImplementationConfigOBJ.setDescription("The");
+            _FormImplementationConfigOBJ.setDerivedFrom("MvwDefinition");
+            _FormImplementationConfigOBJ.setIsNamedBy("configName");
+            _FormImplementationConfigOBJ.setUseWrapperType("EXTENDED");
+            _FormImplementationConfigOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.FormImplementationConfigREF");
+            _FormImplementationConfigOBJ.setDmwIteratorClass("FormImplementationConfigIterableDMW");
+            _FormImplementationConfigOBJ.addMay("mandatoryStyle");
+            _FormImplementationConfigOBJ.addMust("configName");
+            _FormImplementationConfigOBJ.setSubpackage("forms");
+            _FormImplementationConfigOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.FormImplementationConfigIterableDMW");
+            _FormImplementationConfig.setDefinedIn(this);
+            addClassDefList(_FormImplementationConfig);
 
     }
 
@@ -1699,6 +1721,17 @@ public class MvwSchemaAG extends SchemaDefinition {
             _editorNameOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _editorNameOBJ.setLineNumber("639");
             addAttributeDefList(_editorName);
+
+            AttributeDefinitionDMO _mandatoryStyleOBJ = new AttributeDefinitionDMO();
+            _mandatoryStyle = new AttributeDefinition(_mandatoryStyleOBJ);
+            _mandatoryStyleOBJ.setType("String");
+            _mandatoryStyleOBJ.setName("mandatoryStyle");
+            _mandatoryStyleOBJ.setDmdID("889");
+            _mandatoryStyleOBJ.setDescription("The style to be used to indicate that a field is mandatory. How this is used will depend on the implementation of FieldEditors that are being used.");
+            _mandatoryStyle.setDefinedIn(this);
+            _mandatoryStyleOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _mandatoryStyleOBJ.setLineNumber("646");
+            addAttributeDefList(_mandatoryStyle);
 
     }
 

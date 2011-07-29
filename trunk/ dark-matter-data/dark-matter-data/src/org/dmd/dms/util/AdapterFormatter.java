@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 public class AdapterFormatter {
@@ -47,6 +48,8 @@ public class AdapterFormatter {
         	out.write("import " + baseImport + ";\n\n");
 
         out.write("@SuppressWarnings(\"serial\")\n");
+        out.write("// " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("// " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
         out.write("public class " + className + " extends " + baseClass + " implements DmcAdapterIF {\n\n");
         
         out.write("    " + baseClass + " existingValue;\n\n");

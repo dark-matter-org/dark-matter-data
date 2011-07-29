@@ -29,13 +29,13 @@ import org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO;    // DmcType import
  * The DmcTypeDeleteResponseREFSET provides storage for a set of DeleteResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2306)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2332)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:223)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implements Serializable {
     
-    Set<DeleteResponseDMO> value;
+    protected Set<DeleteResponseDMO> value;
     
     public DmcTypeDeleteResponseREFSET(){
         value = null;
@@ -59,7 +59,7 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2343)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public DmcAttribute<DeleteResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeDeleteResponseREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2388)
     public DeleteResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             DeleteResponseDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
     public DeleteResponseDMO del(Object v){
         synchronized(this){
             DeleteResponseDMO rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2398)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public Iterator<DeleteResponseDMO> getMV(){
         synchronized(this){
             Set<DeleteResponseDMO> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2411)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
     public Set<DeleteResponseDMO> getMVCopy(){
         synchronized(this){
             Set<DeleteResponseDMO> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2451)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2462)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

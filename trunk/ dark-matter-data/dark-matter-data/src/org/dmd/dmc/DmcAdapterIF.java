@@ -21,4 +21,6 @@ public interface DmcAdapterIF {
 	public void resetToExisting();
 	
 	public void addMods(DmcTypeModifierMV mods);
+	
+	public DmcAttributeInfo getAttributeInfo();
 }

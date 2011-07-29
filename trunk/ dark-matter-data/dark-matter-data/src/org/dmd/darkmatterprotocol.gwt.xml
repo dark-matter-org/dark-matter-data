@@ -34,6 +34,8 @@
     <source path='dms/generated/types'/>
     <source path='dms/extended'/>
     <source path='dms/types'/>
+    <source path='dmt/shared/generated'/>
+    <source path='dmt/shared/types'/>
     <source path='mvw/client'/>
     <source path='features/extgwt/client'/>
 

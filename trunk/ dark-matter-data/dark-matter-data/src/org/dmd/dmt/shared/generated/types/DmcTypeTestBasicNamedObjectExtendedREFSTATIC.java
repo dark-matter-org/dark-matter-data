@@ -9,8 +9,8 @@ import org.dmd.dmc.DmcOutputStreamIF;
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1902)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1821)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1907)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1822)
  */
 public class DmcTypeTestBasicNamedObjectExtendedREFSTATIC {
     

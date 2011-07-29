@@ -24,13 +24,13 @@ import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;    // DmcType import
  * The DmcTypeLogoutRequestREFSV provides storage for a single-valued LogoutRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:221)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLogoutRequestREFSV extends DmcTypeLogoutRequestREF implements Serializable {
     
-    LogoutRequestDMO value;
+    protected LogoutRequestDMO value;
     
     public DmcTypeLogoutRequestREFSV(){
     
@@ -49,15 +49,22 @@ public class DmcTypeLogoutRequestREFSV extends DmcTypeLogoutRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<LogoutRequestDMO> cloneIt(){
         DmcTypeLogoutRequestREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public LogoutRequestDMO getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public LogoutRequestDMO set(Object v) throws DmcValueException {
         LogoutRequestDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

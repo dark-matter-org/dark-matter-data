@@ -24,13 +24,13 @@ import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;    // DmcType import
  * The DmcTypeMustRuleREFSV provides storage for a single-valued MustRule
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:221)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMustRuleREFSV extends DmcTypeMustRuleREF implements Serializable {
     
-    MustRuleDMO value;
+    protected MustRuleDMO value;
     
     public DmcTypeMustRuleREFSV(){
     
@@ -49,15 +49,22 @@ public class DmcTypeMustRuleREFSV extends DmcTypeMustRuleREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<MustRuleDMO> cloneIt(){
         DmcTypeMustRuleREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public MustRuleDMO getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public MustRuleDMO set(Object v) throws DmcValueException {
         MustRuleDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

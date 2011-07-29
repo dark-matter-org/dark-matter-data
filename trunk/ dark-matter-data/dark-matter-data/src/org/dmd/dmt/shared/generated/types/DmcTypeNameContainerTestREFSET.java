@@ -14,7 +14,7 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // DmcType impo
  * The DmcTypeNameContainerTestREFSET provides storage for a set of NameContainerTestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2324)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2332)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:223)
  */
 @SuppressWarnings("serial")
@@ -44,7 +44,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2361)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public DmcAttribute<NameContainerTestDMO> cloneIt(){
         synchronized(this){
             DmcTypeNameContainerTestREFSET rc = getNew();
@@ -59,7 +59,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2380)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2388)
     public NameContainerTestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             NameContainerTestDMO rc = typeCheck(v);
@@ -75,7 +75,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
     public NameContainerTestDMO del(Object v){
         synchronized(this){
             NameContainerTestDMO rc = null;
@@ -93,7 +93,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public Iterator<NameContainerTestDMO> getMV(){
         synchronized(this){
             Set<NameContainerTestDMO> clone = null;
@@ -105,7 +105,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2429)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
     public Set<NameContainerTestDMO> getMVCopy(){
         synchronized(this){
             Set<NameContainerTestDMO> clone = null;
@@ -118,7 +118,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2443)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2451)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -128,7 +128,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2454)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2462)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

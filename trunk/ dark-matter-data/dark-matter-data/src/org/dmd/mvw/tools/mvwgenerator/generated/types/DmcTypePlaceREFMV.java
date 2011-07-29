@@ -25,13 +25,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypePlaceREFMV provides storage for a multi-valued PlaceREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2051)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
  */
 @SuppressWarnings("serial")
 public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     
-    ArrayList<PlaceREF> value;
+    protected ArrayList<PlaceREF> value;
     
     public DmcTypePlaceREFMV(){
     
@@ -47,7 +47,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2079)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
     public DmcAttribute<PlaceREF> cloneIt(){
         synchronized(this){
             DmcTypePlaceREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2108)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
     public PlaceREF add(Object v) throws DmcValueException {
         synchronized(this){
             PlaceREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2121)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
     public PlaceREF del(Object v){
         synchronized(this){
             PlaceREF rc = null;
@@ -102,7 +102,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2140)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
     public Iterator<PlaceREF> getMV(){
         synchronized(this){
             ArrayList<PlaceREF> clone = new ArrayList<PlaceREF>(value);
@@ -110,7 +110,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2149)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
     public ArrayList<PlaceREF> getMVCopy(){
         synchronized(this){
             ArrayList<PlaceREF> clone = new ArrayList<PlaceREF>(value);
@@ -119,7 +119,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2159)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -133,7 +133,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
     public PlaceREF getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -141,7 +141,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
     public PlaceREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -168,7 +168,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2211)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -191,7 +191,7 @@ public class DmcTypePlaceREFMV extends DmcTypePlaceREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

@@ -24,13 +24,13 @@ import org.dmd.dmp.shared.generated.enums.FileModeEnum;    // DmcType import
  * The DmcTypeFileModeEnumSV provides storage for a single-valued FileModeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFileModeEnumSV extends DmcTypeFileModeEnum implements Serializable {
     
-    FileModeEnum value;
+    protected FileModeEnum value;
     
     public DmcTypeFileModeEnumSV(){
     
@@ -49,15 +49,22 @@ public class DmcTypeFileModeEnumSV extends DmcTypeFileModeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<FileModeEnum> cloneIt(){
         DmcTypeFileModeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public FileModeEnum getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public FileModeEnum set(Object v) throws DmcValueException {
         FileModeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

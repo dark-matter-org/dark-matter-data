@@ -28,13 +28,13 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeFolderREFSET provides storage for a set of FolderREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2306)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2332)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializable {
     
-    Set<FolderREF> value;
+    protected Set<FolderREF> value;
     
     public DmcTypeFolderREFSET(){
         value = null;
@@ -58,7 +58,7 @@ public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2343)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public DmcAttribute<FolderREF> cloneIt(){
         synchronized(this){
             DmcTypeFolderREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2388)
     public FolderREF add(Object v) throws DmcValueException {
         synchronized(this){
             FolderREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
     public FolderREF del(Object v){
         synchronized(this){
             FolderREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2398)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public Iterator<FolderREF> getMV(){
         synchronized(this){
             Set<FolderREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializabl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2411)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
     public Set<FolderREF> getMVCopy(){
         synchronized(this){
             Set<FolderREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2451)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeFolderREFSET extends DmcTypeFolderREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2462)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

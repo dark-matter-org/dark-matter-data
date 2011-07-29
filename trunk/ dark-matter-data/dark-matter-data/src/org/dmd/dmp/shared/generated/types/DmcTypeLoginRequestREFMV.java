@@ -26,13 +26,13 @@ import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;    // DmcType import
  * The DmcTypeLoginRequestREFMV provides storage for a multi-valued LoginRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2051)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:222)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements Serializable {
     
-    ArrayList<LoginRequestDMO> value;
+    protected ArrayList<LoginRequestDMO> value;
     
     public DmcTypeLoginRequestREFMV(){
     
@@ -48,7 +48,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2079)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
     public DmcAttribute<LoginRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeLoginRequestREFMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2108)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
     public LoginRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             LoginRequestDMO rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2121)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
     public LoginRequestDMO del(Object v){
         synchronized(this){
             LoginRequestDMO rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2140)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
     public Iterator<LoginRequestDMO> getMV(){
         synchronized(this){
             ArrayList<LoginRequestDMO> clone = new ArrayList<LoginRequestDMO>(value);
@@ -111,7 +111,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2149)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
     public ArrayList<LoginRequestDMO> getMVCopy(){
         synchronized(this){
             ArrayList<LoginRequestDMO> clone = new ArrayList<LoginRequestDMO>(value);
@@ -120,7 +120,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2159)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -134,7 +134,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
     public LoginRequestDMO getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -142,7 +142,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
     public LoginRequestDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -169,7 +169,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2211)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -192,7 +192,7 @@ public class DmcTypeLoginRequestREFMV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

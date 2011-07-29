@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:322)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:323)
 import java.io.Serializable;                                                     // Always required
 import java.util.*;                                                              // Always required
 import org.dmd.dmc.DmcAttribute;                                                 // Any attributes
@@ -125,7 +125,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:643)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public CamelCaseName getPlaceName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__placeName);
         if (attr == null)
@@ -138,7 +138,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets placeName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
     public void setPlaceName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__placeName);
         if (attr == null)
@@ -157,7 +157,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets placeName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:733)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
     public void setPlaceName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__placeName);
         if (attr == null)
@@ -170,12 +170,12 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
     /**
      * Removes the placeName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
     public void remPlaceName(){
          rem(MvwDMSAG.__placeName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:643)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public String getPlacePrefix(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__placePrefix);
         if (attr == null)
@@ -188,7 +188,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets placePrefix to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
     public void setPlacePrefix(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__placePrefix);
         if (attr == null)
@@ -207,7 +207,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets placePrefix to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:733)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
     public void setPlacePrefix(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__placePrefix);
         if (attr == null)
@@ -220,12 +220,12 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
     /**
      * Removes the placePrefix attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
     public void remPlacePrefix(){
          rem(MvwDMSAG.__placePrefix);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:573)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:574)
     public PlaceREF getParentPlace(){
         DmcTypePlaceREFSV attr = (DmcTypePlaceREFSV) get(MvwDMSAG.__parentPlace);
         if (attr == null)
@@ -256,7 +256,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets parentPlace to the specified value.
      * @param value PlaceDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:626)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:627)
     public void setParentPlace(PlaceDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__parentPlace);
         if (attr == null)
@@ -275,7 +275,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
      * Sets parentPlace to the specified value.
      * @param value A value compatible with DmcTypePlaceREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:733)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
     public void setParentPlace(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__parentPlace);
         if (attr == null)
@@ -288,7 +288,7 @@ public class SubPlaceDMO  extends PlaceDMO  implements DmcNamedObjectIF, Seriali
     /**
      * Removes the parentPlace attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
     public void remParentPlace(){
          rem(MvwDMSAG.__parentPlace);
     }

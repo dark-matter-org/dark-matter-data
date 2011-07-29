@@ -28,13 +28,13 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeEventREFSET provides storage for a set of EventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2306)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2332)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEventREFSET extends DmcTypeEventREF implements Serializable {
     
-    Set<EventREF> value;
+    protected Set<EventREF> value;
     
     public DmcTypeEventREFSET(){
         value = null;
@@ -58,7 +58,7 @@ public class DmcTypeEventREFSET extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2343)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public DmcAttribute<EventREF> cloneIt(){
         synchronized(this){
             DmcTypeEventREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeEventREFSET extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2388)
     public EventREF add(Object v) throws DmcValueException {
         synchronized(this){
             EventREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeEventREFSET extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
     public EventREF del(Object v){
         synchronized(this){
             EventREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeEventREFSET extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2398)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public Iterator<EventREF> getMV(){
         synchronized(this){
             Set<EventREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeEventREFSET extends DmcTypeEventREF implements Serializable 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2411)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
     public Set<EventREF> getMVCopy(){
         synchronized(this){
             Set<EventREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeEventREFSET extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2451)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeEventREFSET extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2462)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

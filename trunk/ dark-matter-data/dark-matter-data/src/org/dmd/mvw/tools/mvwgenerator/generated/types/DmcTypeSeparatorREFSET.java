@@ -28,13 +28,13 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSeparatorREFSET provides storage for a set of SeparatorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2306)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2332)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Serializable {
     
-    Set<SeparatorREF> value;
+    protected Set<SeparatorREF> value;
     
     public DmcTypeSeparatorREFSET(){
         value = null;
@@ -58,7 +58,7 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2343)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public DmcAttribute<SeparatorREF> cloneIt(){
         synchronized(this){
             DmcTypeSeparatorREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2388)
     public SeparatorREF add(Object v) throws DmcValueException {
         synchronized(this){
             SeparatorREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
     public SeparatorREF del(Object v){
         synchronized(this){
             SeparatorREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2398)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public Iterator<SeparatorREF> getMV(){
         synchronized(this){
             Set<SeparatorREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2411)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
     public Set<SeparatorREF> getMVCopy(){
         synchronized(this){
             Set<SeparatorREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2451)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeSeparatorREFSET extends DmcTypeSeparatorREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2462)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

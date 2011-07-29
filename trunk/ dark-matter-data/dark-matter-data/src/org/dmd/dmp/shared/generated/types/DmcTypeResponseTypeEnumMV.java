@@ -26,13 +26,13 @@ import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;    // DmcType import
  * The DmcTypeResponseTypeEnumMV provides storage for a multi-valued ResponseTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2051)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:325)
  */
 @SuppressWarnings("serial")
 public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum implements Serializable {
     
-    ArrayList<ResponseTypeEnum> value;
+    protected ArrayList<ResponseTypeEnum> value;
     
     public DmcTypeResponseTypeEnumMV(){
     
@@ -48,7 +48,7 @@ public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2079)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
     public DmcAttribute<ResponseTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeResponseTypeEnumMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2108)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
     public ResponseTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ResponseTypeEnum rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2121)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
     public ResponseTypeEnum del(Object v){
         synchronized(this){
             ResponseTypeEnum rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2140)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
     public Iterator<ResponseTypeEnum> getMV(){
         synchronized(this){
             ArrayList<ResponseTypeEnum> clone = new ArrayList<ResponseTypeEnum>(value);
@@ -111,7 +111,7 @@ public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum implement
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2149)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
     public ArrayList<ResponseTypeEnum> getMVCopy(){
         synchronized(this){
             ArrayList<ResponseTypeEnum> clone = new ArrayList<ResponseTypeEnum>(value);
@@ -120,7 +120,7 @@ public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2159)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -134,7 +134,7 @@ public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
     public ResponseTypeEnum getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -142,7 +142,7 @@ public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
     public ResponseTypeEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -169,7 +169,7 @@ public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2211)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -192,7 +192,7 @@ public class DmcTypeResponseTypeEnumMV extends DmcTypeResponseTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

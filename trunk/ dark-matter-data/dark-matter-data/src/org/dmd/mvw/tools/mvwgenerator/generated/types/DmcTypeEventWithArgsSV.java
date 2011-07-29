@@ -25,13 +25,13 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEventWithArgs;    // DmcType 
  * The DmcTypeEventWithArgsSV provides storage for a single-valued EventWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:99)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEventWithArgsSV extends DmcTypeEventWithArgs implements Serializable {
     
-    EventWithArgs value;
+    protected EventWithArgs value;
     
     public DmcTypeEventWithArgsSV(){
     
@@ -50,15 +50,22 @@ public class DmcTypeEventWithArgsSV extends DmcTypeEventWithArgs implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<EventWithArgs> cloneIt(){
         DmcTypeEventWithArgsSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public EventWithArgs getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public EventWithArgs set(Object v) throws DmcValueException {
         EventWithArgs rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

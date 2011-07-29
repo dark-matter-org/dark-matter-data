@@ -25,13 +25,13 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeGetWithOptions;    // DmcType
  * The DmcTypeGetWithOptionsSV provides storage for a single-valued GetWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:99)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGetWithOptionsSV extends DmcTypeGetWithOptions implements Serializable {
     
-    GetWithOptions value;
+    protected GetWithOptions value;
     
     public DmcTypeGetWithOptionsSV(){
     
@@ -50,15 +50,22 @@ public class DmcTypeGetWithOptionsSV extends DmcTypeGetWithOptions implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<GetWithOptions> cloneIt(){
         DmcTypeGetWithOptionsSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public GetWithOptions getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public GetWithOptions set(Object v) throws DmcValueException {
         GetWithOptions rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

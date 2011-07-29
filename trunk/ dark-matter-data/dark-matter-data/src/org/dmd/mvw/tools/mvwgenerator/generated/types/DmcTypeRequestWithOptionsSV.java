@@ -25,13 +25,13 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestWithOptions;    // Dmc
  * The DmcTypeRequestWithOptionsSV provides storage for a single-valued RequestWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:99)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRequestWithOptionsSV extends DmcTypeRequestWithOptions implements Serializable {
     
-    RequestWithOptions value;
+    protected RequestWithOptions value;
     
     public DmcTypeRequestWithOptionsSV(){
     
@@ -50,15 +50,22 @@ public class DmcTypeRequestWithOptionsSV extends DmcTypeRequestWithOptions imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<RequestWithOptions> cloneIt(){
         DmcTypeRequestWithOptionsSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public RequestWithOptions getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public RequestWithOptions set(Object v) throws DmcValueException {
         RequestWithOptions rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

@@ -26,13 +26,13 @@ import org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO;    // DmcType import
  * The DmcTypeLogoutResponseREFMV provides storage for a multi-valued LogoutResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2051)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:222)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF implements Serializable {
     
-    ArrayList<LogoutResponseDMO> value;
+    protected ArrayList<LogoutResponseDMO> value;
     
     public DmcTypeLogoutResponseREFMV(){
     
@@ -48,7 +48,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2079)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
     public DmcAttribute<LogoutResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeLogoutResponseREFMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2108)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
     public LogoutResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             LogoutResponseDMO rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2121)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
     public LogoutResponseDMO del(Object v){
         synchronized(this){
             LogoutResponseDMO rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2140)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
     public Iterator<LogoutResponseDMO> getMV(){
         synchronized(this){
             ArrayList<LogoutResponseDMO> clone = new ArrayList<LogoutResponseDMO>(value);
@@ -111,7 +111,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2149)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
     public ArrayList<LogoutResponseDMO> getMVCopy(){
         synchronized(this){
             ArrayList<LogoutResponseDMO> clone = new ArrayList<LogoutResponseDMO>(value);
@@ -120,7 +120,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2159)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -134,7 +134,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
     public LogoutResponseDMO getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -142,7 +142,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
     public LogoutResponseDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -169,7 +169,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2211)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -192,7 +192,7 @@ public class DmcTypeLogoutResponseREFMV extends DmcTypeLogoutResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
