@@ -1,8 +1,8 @@
 package org.dmd.dms.generated.adapters;
 
-import org.dmd.dmc.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dms.generated.types.DmcTypeStringSET;
 

@@ -24,7 +24,7 @@ import org.dmd.dmc.types.DmcTypeDmcAttribute;    // DmcType import
  * The DmcTypeDmcAttributeSV provides storage for a single-valued DmcAttribute
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1733)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:266)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeDmcAttributeSV extends DmcTypeDmcAttribute implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1765)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<DmcAttribute<?>> cloneIt(){
         DmcTypeDmcAttributeSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1776)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
     public DmcAttribute<?> getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeDmcAttributeSV extends DmcTypeDmcAttribute implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1788)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public DmcAttribute<?> set(Object v) throws DmcValueException {
         DmcAttribute<?> rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

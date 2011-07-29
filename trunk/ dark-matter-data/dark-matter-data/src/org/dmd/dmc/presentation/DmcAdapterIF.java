@@ -1,5 +1,7 @@
-package org.dmd.dmc;
+package org.dmd.dmc.presentation;
 
+import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 
 /**

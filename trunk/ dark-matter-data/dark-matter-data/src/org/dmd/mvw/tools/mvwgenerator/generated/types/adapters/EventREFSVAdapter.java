@@ -1,14 +1,14 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.types.adapters;
 
-import org.dmd.dmc.DmcAdapterIF;
+import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventREFSV;
 
 @SuppressWarnings("serial")
-// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:51)
-// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:13)
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
+// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class EventREFSVAdapter extends DmcTypeEventREFSV implements DmcAdapterIF {
 
     DmcTypeEventREFSV existingValue;

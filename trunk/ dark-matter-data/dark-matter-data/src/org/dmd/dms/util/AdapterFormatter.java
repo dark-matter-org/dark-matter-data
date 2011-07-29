@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
-import org.dmd.util.exceptions.ResultException;
 
 public class AdapterFormatter {
 	
@@ -36,7 +35,7 @@ public class AdapterFormatter {
 
         out.write("package " + packageName + ";\n\n");
         
-        out.write("import org.dmd.dmc.DmcAdapterIF;\n");
+        out.write("import org.dmd.dmc.presentation.DmcAdapterIF;\n");
         out.write("import org.dmd.dmc.DmcAttribute;\n");
         out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
         out.write("import org.dmd.dms.generated.types.DmcTypeModifierMV;\n");

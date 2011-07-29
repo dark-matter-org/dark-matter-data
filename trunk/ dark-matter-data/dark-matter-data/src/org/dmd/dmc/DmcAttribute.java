@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Iterator;
 
+import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;

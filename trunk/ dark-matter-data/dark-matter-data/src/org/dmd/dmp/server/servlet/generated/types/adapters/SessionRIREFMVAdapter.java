@@ -1,14 +1,14 @@
 package org.dmd.dmp.server.servlet.generated.types.adapters;
 
-import org.dmd.dmc.DmcAdapterIF;
+import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmp.server.servlet.generated.types.DmcTypeSessionRIREFMV;
 
 @SuppressWarnings("serial")
-// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:51)
-// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:17)
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
+// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class SessionRIREFMVAdapter extends DmcTypeSessionRIREFMV implements DmcAdapterIF {
 
     DmcTypeSessionRIREFMV existingValue;

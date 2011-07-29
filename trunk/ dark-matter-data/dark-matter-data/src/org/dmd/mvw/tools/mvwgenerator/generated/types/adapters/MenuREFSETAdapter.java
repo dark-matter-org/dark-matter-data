@@ -1,14 +1,14 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.types.adapters;
 
-import org.dmd.dmc.DmcAdapterIF;
+import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuREFSET;
 
 @SuppressWarnings("serial")
-// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:51)
-// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:21)
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
+// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class MenuREFSETAdapter extends DmcTypeMenuREFSET implements DmcAdapterIF {
 
     DmcTypeMenuREFSET existingValue;

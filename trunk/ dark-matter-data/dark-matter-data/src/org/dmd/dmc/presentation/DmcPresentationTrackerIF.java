@@ -1,4 +1,7 @@
-package org.dmd.dmc;
+package org.dmd.dmc.presentation;
+
+import org.dmd.dmc.DmcAttributeInfo;
+
 
 /**
  * The DmcPresentationTrackerIF defines a component that is responsible for tracking
@@ -17,7 +20,13 @@ public interface DmcPresentationTrackerIF {
 	 * Adds a listener that's interested in the tracker's state of readiness.
 	 * @param listener
 	 */
-	public void addListener(DmcReadyListenerIF listener);
+	public void addReadyListener(DmcReadyListenerIF listener);
+
+	/**
+	 * Adds a listener that's interested in whether anything has changed.
+	 * @param listener
+	 */
+	public void addChangeListener(DmcChangeListenerIF listener);
 
 	/**
 	 * Indicates that the presentation component is "ready". Exactly what "ready" means
@@ -38,4 +47,21 @@ public interface DmcPresentationTrackerIF {
 	 * to determine their current state.
 	 */
 	public void startTracking();
+	
+	/**
+	 * Calling this method will call the reset method on all presentations; this will
+	 * cause them all to display their original values.
+	 */
+	public void reset();
+	
+	/**
+	 * In some cases, it's necessary for presentations to interact e.g. altering a combo box
+	 * may necessitate alterring the enabled/visibility state of other components. Since all
+	 * presentations are available via the tracker, this interface lets you find a presentation
+	 * based on the attribute it's displaying.
+	 * @param ai the attribute info of the presentation you want
+	 * @return the presentation whose adapter matches the attribute info
+	 */
+	public DmcPresentationIF getPresentation(DmcAttributeInfo ai);
+	
 }

@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;    // DmcType import
  * The DmcTypeValueTypeEnumMV provides storage for a multi-valued ValueTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2071)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:229)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2101)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
     public DmcAttribute<ValueTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeValueTypeEnumMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2130)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
     public ValueTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ValueTypeEnum rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2143)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
     public ValueTypeEnum del(Object v){
         synchronized(this){
             ValueTypeEnum rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2162)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
     public Iterator<ValueTypeEnum> getMV(){
         synchronized(this){
             ArrayList<ValueTypeEnum> clone = new ArrayList<ValueTypeEnum>(value);
@@ -111,7 +111,7 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum implements Seri
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2171)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
     public ArrayList<ValueTypeEnum> getMVCopy(){
         synchronized(this){
             ArrayList<ValueTypeEnum> clone = new ArrayList<ValueTypeEnum>(value);
@@ -120,7 +120,7 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2181)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -134,7 +134,7 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2196)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
     public ValueTypeEnum getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -142,7 +142,7 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2205)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
     public ValueTypeEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -169,7 +169,7 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2233)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -192,7 +192,7 @@ public class DmcTypeValueTypeEnumMV extends DmcTypeValueTypeEnum implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2257)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

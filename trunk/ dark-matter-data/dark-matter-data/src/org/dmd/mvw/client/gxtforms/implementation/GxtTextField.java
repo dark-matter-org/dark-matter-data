@@ -1,10 +1,9 @@
 package org.dmd.mvw.client.gxtforms.implementation;
 
-import org.dmd.dmc.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcPresentationIF;
-import org.dmd.dmc.DmcPresentationTrackerIF;
-import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.presentation.DmcAdapterIF;
+import org.dmd.dmc.presentation.DmcPresentationIF;
+import org.dmd.dmc.presentation.DmcPresentationTrackerIF;
 
 import com.extjs.gxt.ui.client.event.Events;
 import com.extjs.gxt.ui.client.event.FieldEvent;
@@ -134,6 +133,12 @@ public class GxtTextField extends TextField<String> implements DmcPresentationIF
 	@Override
 	public void setTracker(DmcPresentationTrackerIF t) {
 		tracker = t;
+	}
+
+	@Override
+	public boolean valueChanged() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 		
 }
