@@ -26,7 +26,6 @@ import org.dmd.dmc.types.CamelCaseName;                                       //
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor
-import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
@@ -120,56 +119,6 @@ public class FormImplementationConfigDMO  extends MvwDefinitionDMO  implements D
             return( getObjectName().equals( ((FormImplementationConfigDMO) obj).getObjectName()) );
         }
         return(false);
-    }
-
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
-    public String getMandatoryStyle(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__mandatoryStyle);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets mandatoryStyle to the specified value.
-     * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
-    public void setMandatoryStyle(String value) {
-        DmcAttribute<?> attr = get(MvwDMSAG.__mandatoryStyle);
-        if (attr == null)
-            attr = new DmcTypeStringSV(MvwDMSAG.__mandatoryStyle);
-        
-        try{
-            attr.set(value);
-            set(MvwDMSAG.__mandatoryStyle,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets mandatoryStyle to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
-    public void setMandatoryStyle(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MvwDMSAG.__mandatoryStyle);
-        if (attr == null)
-            attr = new DmcTypeStringSV(MvwDMSAG.__mandatoryStyle);
-        
-        attr.set(value);
-        set(MvwDMSAG.__mandatoryStyle,attr);
-    }
-
-    /**
-     * Removes the mandatoryStyle attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
-    public void remMandatoryStyle(){
-         rem(MvwDMSAG.__mandatoryStyle);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)

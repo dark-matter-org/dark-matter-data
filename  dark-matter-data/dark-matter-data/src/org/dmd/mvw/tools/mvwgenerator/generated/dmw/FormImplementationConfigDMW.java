@@ -69,37 +69,6 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1104)
-    public String getMandatoryStyle(){
-        return(((FormImplementationConfigDMO) core).getMandatoryStyle());
-    }
-
-    /**
-     * Sets mandatoryStyle to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1151)
-    public void setMandatoryStyle(Object value) throws DmcValueException {
-        ((FormImplementationConfigDMO) core).setMandatoryStyle(value);
-    }
-
-    /**
-     * Sets mandatoryStyle to the specified value.
-     * @param value String
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1160)
-    public void setMandatoryStyle(String value){
-        ((FormImplementationConfigDMO) core).setMandatoryStyle(value);
-    }
-
-    /**
-     * Removes the mandatoryStyle attribute value.
-     */
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1186)
-    public void remMandatoryStyle(){
-        ((FormImplementationConfigDMO) core).remMandatoryStyle();
-    }
-
-    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1104)
     public CamelCaseName getConfigName(){
         return(((FormImplementationConfigDMO) core).getConfigName());
     }
