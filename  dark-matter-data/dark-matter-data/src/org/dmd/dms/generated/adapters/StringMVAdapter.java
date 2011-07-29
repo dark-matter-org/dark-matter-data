@@ -1,13 +1,8 @@
 package org.dmd.dms.generated.adapters;
 
-import java.util.Collections;
-
-import org.dmd.dmc.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
-import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.types.Modifier;
-import org.dmd.dms.generated.enums.ModifyTypeEnum;
+import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dms.generated.types.DmcTypeStringMV;
 

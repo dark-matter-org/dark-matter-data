@@ -1,12 +1,14 @@
 package org.dmd.dms.generated.types.adapters;
 
-import org.dmd.dmc.DmcAdapterIF;
+import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dms.generated.types.DmcTypeFieldSV;
 
 @SuppressWarnings("serial")
+// org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
+// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class FieldSVAdapter extends DmcTypeFieldSV implements DmcAdapterIF {
 
     DmcTypeFieldSV existingValue;

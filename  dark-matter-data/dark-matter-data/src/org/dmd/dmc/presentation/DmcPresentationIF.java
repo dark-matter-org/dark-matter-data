@@ -1,4 +1,6 @@
-package org.dmd.dmc;
+package org.dmd.dmc.presentation;
+
+
 
 /**
  * The DmcPresentationIF is generally implemented by widgets that present attribute values
@@ -66,5 +68,21 @@ public interface DmcPresentationIF {
 	 * of modifications.
 	 */
 	public void reset();
+	
+	/**
+	 * This aspect is more tricky than it might first appear. Although the adapter has a
+	 * valueChanged() method on it that could be used by a DmcPresentationTrackerIF component,
+	 * that method can't take into account changes in the presentation state that are 
+	 * caused by partial user input. For example, if you decide to present a multi-valued
+	 * attribute as a comma separated set of values, and the user enters a comma at
+	 * the end of your input component, the presentation has changed (and change listeners
+	 * would be interested - for example to enable a Cancel button). However, because the input
+	 * is only partial, you haven't altered the underlying adapter value.
+	 * <p />
+	 * So, this method should indicate whether or not the presentation has outwardly changed
+	 * in any way.
+	 * @return true if there have been any user interaction and false otherwise
+	 */
+	public boolean valueChanged();
 	
 }

@@ -1,4 +1,4 @@
-package org.dmd.dmc;
+package org.dmd.dmc.presentation;
 
 /**
  * The DmcReadyListenerIF interface should be implemented by components that are 
