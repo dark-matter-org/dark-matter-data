@@ -23,13 +23,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMenuElementDefinitionREFSV provides storage for a single-valued MenuElementDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMenuElementDefinitionREFSV extends DmcTypeMenuElementDefinitionREF implements Serializable {
     
-    MenuElementDefinitionREF value;
+    protected MenuElementDefinitionREF value;
     
     public DmcTypeMenuElementDefinitionREFSV(){
     
@@ -48,15 +48,22 @@ public class DmcTypeMenuElementDefinitionREFSV extends DmcTypeMenuElementDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<MenuElementDefinitionREF> cloneIt(){
         DmcTypeMenuElementDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public MenuElementDefinitionREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public MenuElementDefinitionREF set(Object v) throws DmcValueException {
         MenuElementDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

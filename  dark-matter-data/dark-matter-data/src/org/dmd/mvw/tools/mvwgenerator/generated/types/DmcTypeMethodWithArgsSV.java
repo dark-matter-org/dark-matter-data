@@ -25,13 +25,13 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeMethodWithArgs;    // DmcType
  * The DmcTypeMethodWithArgsSV provides storage for a single-valued MethodWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:99)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMethodWithArgsSV extends DmcTypeMethodWithArgs implements Serializable {
     
-    MethodWithArgs value;
+    protected MethodWithArgs value;
     
     public DmcTypeMethodWithArgsSV(){
     
@@ -50,15 +50,22 @@ public class DmcTypeMethodWithArgsSV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<MethodWithArgs> cloneIt(){
         DmcTypeMethodWithArgsSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public MethodWithArgs getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public MethodWithArgs set(Object v) throws DmcValueException {
         MethodWithArgs rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

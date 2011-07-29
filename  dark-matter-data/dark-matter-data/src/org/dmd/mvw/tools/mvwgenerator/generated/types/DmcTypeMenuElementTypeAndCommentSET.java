@@ -30,13 +30,13 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuElementTypeAndC
  * The DmcTypeMenuElementTypeAndCommentSET provides storage for a set of MenuElementTypeAndComment
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2306)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2332)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:126)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeAndComment implements Serializable {
     
-    Set<MenuElementTypeAndComment> value;
+    protected Set<MenuElementTypeAndComment> value;
     
     public DmcTypeMenuElementTypeAndCommentSET(){
         value = null;
@@ -60,7 +60,7 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2343)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public DmcAttribute<MenuElementTypeAndComment> cloneIt(){
         synchronized(this){
             DmcTypeMenuElementTypeAndCommentSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2388)
     public MenuElementTypeAndComment add(Object v) throws DmcValueException {
         synchronized(this){
             MenuElementTypeAndComment rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
     public MenuElementTypeAndComment del(Object v){
         synchronized(this){
             MenuElementTypeAndComment rc = null;
@@ -109,7 +109,7 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2398)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public Iterator<MenuElementTypeAndComment> getMV(){
         synchronized(this){
             Set<MenuElementTypeAndComment> clone = null;
@@ -121,7 +121,7 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2411)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
     public Set<MenuElementTypeAndComment> getMVCopy(){
         synchronized(this){
             Set<MenuElementTypeAndComment> clone = null;
@@ -134,7 +134,7 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2451)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2462)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

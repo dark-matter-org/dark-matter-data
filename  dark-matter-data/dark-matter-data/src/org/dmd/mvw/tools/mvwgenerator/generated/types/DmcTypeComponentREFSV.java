@@ -23,13 +23,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeComponentREFSV provides storage for a single-valued ComponentREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
 public class DmcTypeComponentREFSV extends DmcTypeComponentREF implements Serializable {
     
-    ComponentREF value;
+    protected ComponentREF value;
     
     public DmcTypeComponentREFSV(){
     
@@ -48,15 +48,22 @@ public class DmcTypeComponentREFSV extends DmcTypeComponentREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<ComponentREF> cloneIt(){
         DmcTypeComponentREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public ComponentREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public ComponentREF set(Object v) throws DmcValueException {
         ComponentREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

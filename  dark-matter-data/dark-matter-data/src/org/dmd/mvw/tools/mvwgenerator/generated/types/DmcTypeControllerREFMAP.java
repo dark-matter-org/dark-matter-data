@@ -30,14 +30,14 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeControllerREFMAP provides storage for a map of ControllerREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2501)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2532)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeControllerREFMAP extends DmcTypeControllerREF<ControllerREF,CamelCaseName> {
 public class DmcTypeControllerREFMAP extends DmcTypeControllerREF implements Serializable {
     
-    Map<CamelCaseName,ControllerREF> value;
+    protected Map<CamelCaseName,ControllerREF> value;
     
     public DmcTypeControllerREFMAP(){
         value = null;
@@ -61,7 +61,7 @@ public class DmcTypeControllerREFMAP extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2544)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2575)
     public DmcAttribute<ControllerREF> cloneIt(){
         synchronized(this){
             DmcTypeControllerREFMAP rc = getNew();
@@ -76,7 +76,7 @@ public class DmcTypeControllerREFMAP extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2560)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2591)
     public ControllerREF add(Object v) throws DmcValueException {
         synchronized(this){
             ControllerREF newval = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeControllerREFMAP extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2581)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2612)
     public ControllerREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
@@ -107,7 +107,7 @@ public class DmcTypeControllerREFMAP extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2593)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2624)
     public Iterator<ControllerREF> getMV(){
         synchronized(this){
             Map<CamelCaseName,ControllerREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeControllerREFMAP extends DmcTypeControllerREF implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2606)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2637)
     public Map<CamelCaseName,ControllerREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,ControllerREF> clone = null;
@@ -131,7 +131,7 @@ public class DmcTypeControllerREFMAP extends DmcTypeControllerREF implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2619)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2650)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -142,7 +142,7 @@ public class DmcTypeControllerREFMAP extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2631)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2662)
     public ControllerREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
@@ -153,7 +153,7 @@ public class DmcTypeControllerREFMAP extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2643)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -167,7 +167,7 @@ public class DmcTypeControllerREFMAP extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2658)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2689)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

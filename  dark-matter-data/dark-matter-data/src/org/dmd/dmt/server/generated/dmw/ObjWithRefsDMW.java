@@ -847,6 +847,130 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     }
 
     /**
+     * @return The number of String items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1238)
+    public int getHsStringSize(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__hsString);
+        if (attr == null){
+            if (DmtDMSAG.__hsString.indexSize == 0)
+                return(0);
+            else
+                return(DmtDMSAG.__hsString.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * @return true if there are no StringDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1253)
+    public boolean getHsStringIsEmpty(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__hsString);
+        if (attr == null)
+            return(true);
+        
+        return(false);
+    }
+
+    /**
+     * @return true if there are any StringDMO items.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1265)
+    public boolean getHsStringHasValue(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__hsString);
+        if (attr == null)
+            return(false);
+        
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1463)
+    public StringIterableDMW getHsStringIterable(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__hsString);
+        if (attr == null)
+            return(StringIterableDMW.emptyList);
+        
+        return(new StringIterableDMW(((ObjWithRefsDMO) core).getHsString()));
+    }
+
+    /**
+     * Adds another hsString value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1479)
+    public void addHsString(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).addHsString(value);
+    }
+
+    /**
+     * Adds another hsString value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1489)
+    public void addHsString(String value){
+        ((ObjWithRefsDMO) core).addHsString(value);
+    }
+
+    /**
+     * Returns true if the collection contains the hsString value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1547)
+    public boolean hsStringContains(String value){
+        return(((ObjWithRefsDMO) core).hsStringContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of String objects.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1587)
+    @SuppressWarnings("unchecked")
+    public HashSet<String> getHsStringCopy(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__hsString);
+        if (attr == null)
+            return(new HashSet<String>());
+        
+        HashSet<String> rc = new HashSet<String>(attr.getMVSize());
+        
+        Iterator<String> it = (Iterator<String>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a hsString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1614)
+    public void delHsString(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).delHsString(value);
+    }
+
+    /**
+     * Deletes a hsString value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1623)
+    public void delHsString(String value){
+        ((ObjWithRefsDMO) core).delHsString(value);
+    }
+
+    /**
+     * Removes the hsString attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1635)
+    public void remHsString(){
+        ((ObjWithRefsDMO) core).remHsString();
+    }
+
+    /**
      * @return The number of DmtTestEnum items.
      */
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1238)

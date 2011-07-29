@@ -246,6 +246,12 @@ valueType	HASHSET
 description	An hs String.
 
 AttributeDefinition
+name		anotherSVString
+dmdID		143
+type		String
+description	A sv String.
+
+AttributeDefinition
 name		tsString
 dmdID		153
 type		String

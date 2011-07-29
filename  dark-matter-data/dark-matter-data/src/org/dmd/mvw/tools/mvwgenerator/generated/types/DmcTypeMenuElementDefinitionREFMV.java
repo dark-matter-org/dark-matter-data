@@ -25,13 +25,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMenuElementDefinitionREFMV provides storage for a multi-valued MenuElementDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2051)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMenuElementDefinitionREFMV extends DmcTypeMenuElementDefinitionREF implements Serializable {
     
-    ArrayList<MenuElementDefinitionREF> value;
+    protected ArrayList<MenuElementDefinitionREF> value;
     
     public DmcTypeMenuElementDefinitionREFMV(){
     
@@ -47,7 +47,7 @@ public class DmcTypeMenuElementDefinitionREFMV extends DmcTypeMenuElementDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2079)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
     public DmcAttribute<MenuElementDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeMenuElementDefinitionREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeMenuElementDefinitionREFMV extends DmcTypeMenuElementDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2108)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
     public MenuElementDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             MenuElementDefinitionREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypeMenuElementDefinitionREFMV extends DmcTypeMenuElementDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2121)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
     public MenuElementDefinitionREF del(Object v){
         synchronized(this){
             MenuElementDefinitionREF rc = null;
@@ -102,7 +102,7 @@ public class DmcTypeMenuElementDefinitionREFMV extends DmcTypeMenuElementDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2140)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
     public Iterator<MenuElementDefinitionREF> getMV(){
         synchronized(this){
             ArrayList<MenuElementDefinitionREF> clone = new ArrayList<MenuElementDefinitionREF>(value);
@@ -110,7 +110,7 @@ public class DmcTypeMenuElementDefinitionREFMV extends DmcTypeMenuElementDefinit
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2149)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
     public ArrayList<MenuElementDefinitionREF> getMVCopy(){
         synchronized(this){
             ArrayList<MenuElementDefinitionREF> clone = new ArrayList<MenuElementDefinitionREF>(value);
@@ -119,7 +119,7 @@ public class DmcTypeMenuElementDefinitionREFMV extends DmcTypeMenuElementDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2159)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -133,7 +133,7 @@ public class DmcTypeMenuElementDefinitionREFMV extends DmcTypeMenuElementDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
     public MenuElementDefinitionREF getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -141,7 +141,7 @@ public class DmcTypeMenuElementDefinitionREFMV extends DmcTypeMenuElementDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
     public MenuElementDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -168,7 +168,7 @@ public class DmcTypeMenuElementDefinitionREFMV extends DmcTypeMenuElementDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2211)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -191,7 +191,7 @@ public class DmcTypeMenuElementDefinitionREFMV extends DmcTypeMenuElementDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

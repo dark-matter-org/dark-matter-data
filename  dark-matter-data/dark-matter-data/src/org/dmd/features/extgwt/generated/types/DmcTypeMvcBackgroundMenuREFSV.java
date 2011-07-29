@@ -23,13 +23,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcBackgroundMenuREFSV provides storage for a single-valued MvcBackgroundMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcBackgroundMenuREFSV extends DmcTypeMvcBackgroundMenuREF implements Serializable {
     
-    MvcBackgroundMenuREF value;
+    protected MvcBackgroundMenuREF value;
     
     public DmcTypeMvcBackgroundMenuREFSV(){
     
@@ -48,15 +48,22 @@ public class DmcTypeMvcBackgroundMenuREFSV extends DmcTypeMvcBackgroundMenuREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<MvcBackgroundMenuREF> cloneIt(){
         DmcTypeMvcBackgroundMenuREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public MvcBackgroundMenuREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public MvcBackgroundMenuREF set(Object v) throws DmcValueException {
         MvcBackgroundMenuREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

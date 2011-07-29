@@ -23,6 +23,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __OUIFilter = new DmcAttributeInfo("OUIFilter", 10407, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __anObjName = new DmcAttributeInfo("anObjName", 10400, "NameContainer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __anotherDmtName = new DmcAttributeInfo("anotherDmtName", 10402, "DmtStringName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __anotherSVString = new DmcAttributeInfo("anotherSVString", 10143, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __attrIDs = new DmcAttributeInfo("attrIDs", 10406, "AttributeID", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __clientCountFilter = new DmcAttributeInfo("clientCountFilter", 10408, "ClientCountFilter", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __dmtStringName = new DmcAttributeInfo("dmtStringName", 10401, "DmtStringName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -122,6 +123,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__OUIFilter.id,__OUIFilter);
         _SmAp.put(__anObjName.id,__anObjName);
         _SmAp.put(__anotherDmtName.id,__anotherDmtName);
+        _SmAp.put(__anotherSVString.id,__anotherSVString);
         _SmAp.put(__attrIDs.id,__attrIDs);
         _SmAp.put(__clientCountFilter.id,__clientCountFilter);
         _SmAp.put(__dmtStringName.id,__dmtStringName);
@@ -285,6 +287,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __ObjWithRefs.addMust(MetaDMSAG.__name);
         __ObjWithRefs.addMust(__svString);
         __ObjWithRefs.addMust(__mvTestEnum);
+        __ObjWithRefs.addMay(__anotherSVString);
         __ObjWithRefs.addMay(__objRef);
         __ObjWithRefs.addMay(__objRefMV);
         __ObjWithRefs.addMay(__objRefHM);

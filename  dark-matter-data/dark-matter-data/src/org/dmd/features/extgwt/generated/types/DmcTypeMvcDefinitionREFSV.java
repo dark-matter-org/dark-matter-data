@@ -23,13 +23,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcDefinitionREFSV provides storage for a single-valued MvcDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcDefinitionREFSV extends DmcTypeMvcDefinitionREF implements Serializable {
     
-    MvcDefinitionREF value;
+    protected MvcDefinitionREF value;
     
     public DmcTypeMvcDefinitionREFSV(){
     
@@ -48,15 +48,22 @@ public class DmcTypeMvcDefinitionREFSV extends DmcTypeMvcDefinitionREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<MvcDefinitionREF> cloneIt(){
         DmcTypeMvcDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public MvcDefinitionREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public MvcDefinitionREF set(Object v) throws DmcValueException {
         MvcDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

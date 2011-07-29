@@ -1681,7 +1681,6 @@ public class GenUtility {
 	 * @throws IOException
 	 */
 	static public void dumpSVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String nameAttrID, String genericArgs, boolean isRef, boolean isNameType, boolean isFilterType, String fileHeader, PrintStream progress) throws IOException {
-		AdapterFormatter.dumpAdapterSV(dmotypedir, typeName, basePackage);
 
 		String DMO = "";
 		String REF = "";
@@ -1821,6 +1820,10 @@ public class GenUtility {
 
 //        if (nameAttr != null)
         	dumpSTATICType(dmotypedir, basePackage, baseTypeImport, typeName, dmcTypeImport, nameAttrImport, nameAttr, nameAttrID, genericArgs, isRef, isNameType, isFilterType, fileHeader, progress);
+
+        	if (!dmoREF)
+        		AdapterFormatter.dumpAdapterSV(dmotypedir, typeName, basePackage);
+
 	}
 
 	/**
@@ -2028,8 +2031,6 @@ public class GenUtility {
 	 * @throws IOException
 	 */
 	static public void dumpMVType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
-		AdapterFormatter.dumpAdapterMV(dmotypedir, typeName, basePackage);
-
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;
@@ -2271,6 +2272,9 @@ public class GenUtility {
         out.write("}\n\n");
         
         out.close();
+        
+        if (!dmoREF)
+    		AdapterFormatter.dumpAdapterMV(dmotypedir, typeName, basePackage);
 
 	}
 
@@ -2288,8 +2292,6 @@ public class GenUtility {
 	 * @throws IOException
 	 */
 	static public void dumpSETType(String dmotypedir, String basePackage, String baseTypeImport, String typeName, String dmcTypeImport, String nameAttrImport, String nameAttr, String genericArgs, boolean isRef, String fileHeader, PrintStream progress) throws IOException {
-		AdapterFormatter.dumpAdapterSET(dmotypedir, typeName, basePackage);
-
 		String DMO = "";
 		String REF = "";
 		boolean dmoREF = false;
@@ -2474,6 +2476,9 @@ public class GenUtility {
         out.write("}\n\n");
         
         out.close();
+
+        if (!dmoREF)
+    		AdapterFormatter.dumpAdapterSET(dmotypedir, typeName, basePackage);
 
 	}
 

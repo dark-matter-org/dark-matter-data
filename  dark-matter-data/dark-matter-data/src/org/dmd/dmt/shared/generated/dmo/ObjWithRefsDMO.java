@@ -130,6 +130,56 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
         return(false);
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public String getAnotherSVString(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__anotherSVString);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets anotherSVString to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setAnotherSVString(String value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__anotherSVString);
+        if (attr == null)
+            attr = new DmcTypeStringSV(DmtDMSAG.__anotherSVString);
+        
+        try{
+            attr.set(value);
+            set(DmtDMSAG.__anotherSVString,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets anotherSVString to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setAnotherSVString(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmtDMSAG.__anotherSVString);
+        if (attr == null)
+            attr = new DmcTypeStringSV(DmtDMSAG.__anotherSVString);
+        
+        attr.set(value);
+        set(DmtDMSAG.__anotherSVString,attr);
+    }
+
+    /**
+     * Removes the anotherSVString attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remAnotherSVString(){
+         rem(DmtDMSAG.__anotherSVString);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:574)
     public ObjWithRefsREF getObjRef(){
         DmcTypeObjWithRefsREFSV attr = (DmcTypeObjWithRefsREFSV) get(DmtDMSAG.__objRef);

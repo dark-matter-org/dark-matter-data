@@ -24,13 +24,13 @@ import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;    // DmcType import
  * The DmcTypeDMPEventTypeEnumSV provides storage for a single-valued DMPEventTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDMPEventTypeEnumSV extends DmcTypeDMPEventTypeEnum implements Serializable {
     
-    DMPEventTypeEnum value;
+    protected DMPEventTypeEnum value;
     
     public DmcTypeDMPEventTypeEnumSV(){
     
@@ -49,15 +49,22 @@ public class DmcTypeDMPEventTypeEnumSV extends DmcTypeDMPEventTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<DMPEventTypeEnum> cloneIt(){
         DmcTypeDMPEventTypeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public DMPEventTypeEnum getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public DMPEventTypeEnum set(Object v) throws DmcValueException {
         DMPEventTypeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

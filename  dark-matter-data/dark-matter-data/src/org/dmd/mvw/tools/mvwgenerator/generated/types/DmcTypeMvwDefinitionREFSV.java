@@ -23,13 +23,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvwDefinitionREFSV provides storage for a single-valued MvwDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1730)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvwDefinitionREFSV extends DmcTypeMvwDefinitionREF implements Serializable {
     
-    MvwDefinitionREF value;
+    protected MvwDefinitionREF value;
     
     public DmcTypeMvwDefinitionREFSV(){
     
@@ -48,15 +48,22 @@ public class DmcTypeMvwDefinitionREFSV extends DmcTypeMvwDefinitionREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
     public DmcAttribute<MvwDefinitionREF> cloneIt(){
         DmcTypeMvwDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    public MvwDefinitionREF getSVCopy(){
+        if (value == null)
+            return(null);
+        return(cloneValue(value));
+    }
+    
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
     public MvwDefinitionREF set(Object v) throws DmcValueException {
         MvwDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

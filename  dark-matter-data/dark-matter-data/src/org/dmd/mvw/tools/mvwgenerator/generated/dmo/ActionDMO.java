@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:322)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:323)
 import java.io.Serializable;                                                         // Always required
 import java.util.*;                                                                  // Always required
 import org.dmd.dmc.DmcAttribute;                                                     // Any attributes
@@ -134,7 +134,7 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:573)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:574)
     public ComponentREF getImplementedBy(){
         DmcTypeComponentREFSV attr = (DmcTypeComponentREFSV) get(MvwDMSAG.__implementedBy);
         if (attr == null)
@@ -165,7 +165,7 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Sets implementedBy to the specified value.
      * @param value ComponentDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:626)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:627)
     public void setImplementedBy(ComponentDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__implementedBy);
         if (attr == null)
@@ -184,7 +184,7 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Sets implementedBy to the specified value.
      * @param value A value compatible with DmcTypeComponentREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:733)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
     public void setImplementedBy(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__implementedBy);
         if (attr == null)
@@ -197,12 +197,12 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the implementedBy attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
     public void remImplementedBy(){
          rem(MvwDMSAG.__implementedBy);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:643)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public CamelCaseName getActionName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__actionName);
         if (attr == null)
@@ -215,7 +215,7 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Sets actionName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:681)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
     public void setActionName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__actionName);
         if (attr == null)
@@ -234,7 +234,7 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
      * Sets actionName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:733)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
     public void setActionName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__actionName);
         if (attr == null)
@@ -247,7 +247,7 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     /**
      * Removes the actionName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
     public void remActionName(){
          rem(MvwDMSAG.__actionName);
     }

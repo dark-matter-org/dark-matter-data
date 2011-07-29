@@ -10,13 +10,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserGroupREFMV provides storage for a multi-valued UserGroupREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2051)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serializable {
     
-    ArrayList<UserGroupREF> value;
+    protected ArrayList<UserGroupREF> value;
     
     public DmcTypeUserGroupREFMV(){
     
@@ -32,7 +32,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2079)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
     public DmcAttribute<UserGroupREF> cloneIt(){
         synchronized(this){
             DmcTypeUserGroupREFMV rc = getNew();
@@ -57,7 +57,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2108)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
     public UserGroupREF add(Object v) throws DmcValueException {
         synchronized(this){
             UserGroupREF rc = typeCheck(v);
@@ -69,7 +69,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2121)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
     public UserGroupREF del(Object v){
         synchronized(this){
             UserGroupREF rc = null;
@@ -87,7 +87,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2140)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
     public Iterator<UserGroupREF> getMV(){
         synchronized(this){
             ArrayList<UserGroupREF> clone = new ArrayList<UserGroupREF>(value);
@@ -95,7 +95,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2149)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
     public ArrayList<UserGroupREF> getMVCopy(){
         synchronized(this){
             ArrayList<UserGroupREF> clone = new ArrayList<UserGroupREF>(value);
@@ -104,7 +104,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2159)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -118,7 +118,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
     public UserGroupREF getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -126,7 +126,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
     public UserGroupREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -153,7 +153,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2211)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -176,7 +176,7 @@ public class DmcTypeUserGroupREFMV extends DmcTypeUserGroupREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

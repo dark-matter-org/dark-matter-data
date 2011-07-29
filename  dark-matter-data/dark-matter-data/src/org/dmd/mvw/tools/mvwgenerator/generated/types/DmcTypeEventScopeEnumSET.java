@@ -29,13 +29,13 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.EventScopeEnum;    // DmcT
  * The DmcTypeEventScopeEnumSET provides storage for a set of EventScopeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2306)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2332)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:326)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEventScopeEnumSET extends DmcTypeEventScopeEnum implements Serializable {
     
-    Set<EventScopeEnum> value;
+    protected Set<EventScopeEnum> value;
     
     public DmcTypeEventScopeEnumSET(){
         value = null;
@@ -59,7 +59,7 @@ public class DmcTypeEventScopeEnumSET extends DmcTypeEventScopeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2343)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public DmcAttribute<EventScopeEnum> cloneIt(){
         synchronized(this){
             DmcTypeEventScopeEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeEventScopeEnumSET extends DmcTypeEventScopeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2388)
     public EventScopeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             EventScopeEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeEventScopeEnumSET extends DmcTypeEventScopeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
     public EventScopeEnum del(Object v){
         synchronized(this){
             EventScopeEnum rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeEventScopeEnumSET extends DmcTypeEventScopeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2398)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public Iterator<EventScopeEnum> getMV(){
         synchronized(this){
             Set<EventScopeEnum> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeEventScopeEnumSET extends DmcTypeEventScopeEnum implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2411)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
     public Set<EventScopeEnum> getMVCopy(){
         synchronized(this){
             Set<EventScopeEnum> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeEventScopeEnumSET extends DmcTypeEventScopeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2451)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeEventScopeEnumSET extends DmcTypeEventScopeEnum implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2462)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

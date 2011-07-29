@@ -7,4 +7,8 @@ public interface ImageResources extends ClientBundle {
 
 	ImageResource blank16x16();
 
+	ImageResource required();
+
+	ImageResource exclamation();
+
 }

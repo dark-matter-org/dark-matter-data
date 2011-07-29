@@ -15,14 +15,14 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeUserGroupREFMAP provides storage for a map of UserGroupREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2501)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2532)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF<UserGroupREF,StringName> {
 public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Serializable {
     
-    Map<StringName,UserGroupREF> value;
+    protected Map<StringName,UserGroupREF> value;
     
     public DmcTypeUserGroupREFMAP(){
         value = null;
@@ -46,7 +46,7 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2544)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2575)
     public DmcAttribute<UserGroupREF> cloneIt(){
         synchronized(this){
             DmcTypeUserGroupREFMAP rc = getNew();
@@ -61,7 +61,7 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2560)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2591)
     public UserGroupREF add(Object v) throws DmcValueException {
         synchronized(this){
             UserGroupREF newval = typeCheck(v);
@@ -81,7 +81,7 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2581)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2612)
     public UserGroupREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -92,7 +92,7 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2593)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2624)
     public Iterator<UserGroupREF> getMV(){
         synchronized(this){
             Map<StringName,UserGroupREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2606)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2637)
     public Map<StringName,UserGroupREF> getMVCopy(){
         synchronized(this){
             Map<StringName,UserGroupREF> clone = null;
@@ -116,7 +116,7 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2619)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2650)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -127,7 +127,7 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2631)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2662)
     public UserGroupREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -138,7 +138,7 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2643)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -152,7 +152,7 @@ public class DmcTypeUserGroupREFMAP extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2658)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2689)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

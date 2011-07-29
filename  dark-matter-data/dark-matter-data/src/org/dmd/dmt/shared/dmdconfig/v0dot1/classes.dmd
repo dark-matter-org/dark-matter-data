@@ -196,6 +196,7 @@ useWrapperType	EXTENDED
 isNamedBy		name
 must			name
 must			svString
+may				anotherSVString
 may				objRef
 may				objRefMV
 may				objRefHM

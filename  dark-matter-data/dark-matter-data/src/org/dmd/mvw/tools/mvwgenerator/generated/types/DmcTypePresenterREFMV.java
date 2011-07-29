@@ -25,13 +25,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypePresenterREFMV provides storage for a multi-valued PresenterREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2051)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
  */
 @SuppressWarnings("serial")
 public class DmcTypePresenterREFMV extends DmcTypePresenterREF implements Serializable {
     
-    ArrayList<PresenterREF> value;
+    protected ArrayList<PresenterREF> value;
     
     public DmcTypePresenterREFMV(){
     
@@ -47,7 +47,7 @@ public class DmcTypePresenterREFMV extends DmcTypePresenterREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2079)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
     public DmcAttribute<PresenterREF> cloneIt(){
         synchronized(this){
             DmcTypePresenterREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypePresenterREFMV extends DmcTypePresenterREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2108)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
     public PresenterREF add(Object v) throws DmcValueException {
         synchronized(this){
             PresenterREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypePresenterREFMV extends DmcTypePresenterREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2121)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
     public PresenterREF del(Object v){
         synchronized(this){
             PresenterREF rc = null;
@@ -102,7 +102,7 @@ public class DmcTypePresenterREFMV extends DmcTypePresenterREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2140)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
     public Iterator<PresenterREF> getMV(){
         synchronized(this){
             ArrayList<PresenterREF> clone = new ArrayList<PresenterREF>(value);
@@ -110,7 +110,7 @@ public class DmcTypePresenterREFMV extends DmcTypePresenterREF implements Serial
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2149)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
     public ArrayList<PresenterREF> getMVCopy(){
         synchronized(this){
             ArrayList<PresenterREF> clone = new ArrayList<PresenterREF>(value);
@@ -119,7 +119,7 @@ public class DmcTypePresenterREFMV extends DmcTypePresenterREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2159)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -133,7 +133,7 @@ public class DmcTypePresenterREFMV extends DmcTypePresenterREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
     public PresenterREF getMVnth(int index){
         synchronized(this){
             return(value.get(index));
@@ -141,7 +141,7 @@ public class DmcTypePresenterREFMV extends DmcTypePresenterREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
     public PresenterREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -168,7 +168,7 @@ public class DmcTypePresenterREFMV extends DmcTypePresenterREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2211)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -191,7 +191,7 @@ public class DmcTypePresenterREFMV extends DmcTypePresenterREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

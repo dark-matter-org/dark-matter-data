@@ -13,13 +13,13 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeUserGroupREFSET provides storage for a set of UserGroupREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2306)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2332)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Serializable {
     
-    Set<UserGroupREF> value;
+    protected Set<UserGroupREF> value;
     
     public DmcTypeUserGroupREFSET(){
         value = null;
@@ -43,7 +43,7 @@ public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2343)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
     public DmcAttribute<UserGroupREF> cloneIt(){
         synchronized(this){
             DmcTypeUserGroupREFSET rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2388)
     public UserGroupREF add(Object v) throws DmcValueException {
         synchronized(this){
             UserGroupREF rc = typeCheck(v);
@@ -74,7 +74,7 @@ public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
     public UserGroupREF del(Object v){
         synchronized(this){
             UserGroupREF rc = null;
@@ -92,7 +92,7 @@ public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2398)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
     public Iterator<UserGroupREF> getMV(){
         synchronized(this){
             Set<UserGroupREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2411)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
     public Set<UserGroupREF> getMVCopy(){
         synchronized(this){
             Set<UserGroupREF> clone = null;
@@ -117,7 +117,7 @@ public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2451)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -127,7 +127,7 @@ public class DmcTypeUserGroupREFSET extends DmcTypeUserGroupREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2462)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
