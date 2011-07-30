@@ -648,6 +648,20 @@ description		By default when creating form bindings, the MVW Generator will ensu
  where you might be using auxiliary classes though, you can turn strict checking off by setting
  it to false.
 
+AttributeDefinition
+name			mappingName
+dmdID			90
+type			CamelCaseName
+description		The name of a GxtEnumMapping.
+
+AttributeDefinition
+name			unsetValue
+dmdID			91
+type			String
+description		The enum value that indicates when an enum is not set i.e. its attribute would
+ be removed. 
+
+
 //AttributeDefinition
 //name			mandatoryStyle
 //dmdID			89

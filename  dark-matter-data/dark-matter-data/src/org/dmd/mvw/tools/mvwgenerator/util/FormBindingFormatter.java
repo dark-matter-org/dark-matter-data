@@ -5,12 +5,13 @@ import java.io.IOException;
 
 import org.dmd.dmc.presentation.DmcPresentationTrackerIF;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.util.GenUtility;
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
 import org.dmd.mvw.tools.mvwgenerator.types.EditField;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class FormBindingFormatter {
 
@@ -25,6 +26,8 @@ public class FormBindingFormatter {
         for(EditField field: binding.getEditFieldIterable()){
         	imports.addImport(field.getAttrDef().getAdapterClassImport(), "Adapter for " + field.getAttribute());
         	imports.addImport(field.getEditorDef().getUseClass(), "Editor");
+        	
+        	imports.addImport(field.getAttrDef().getDefinedIn().getDMSASGImport(),"Required schema");
         }
         
         ClassDefinition cd = (ClassDefinition) binding.getEditObject();
@@ -35,6 +38,7 @@ public class FormBindingFormatter {
         
         out.write(imports.getFormattedImports() + "\n");
         
+        out.write("// " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("public class " + name + " {\n\n");
         
         out.write("    " + cd.getName() + "DMO dmo;\n\n");
@@ -58,14 +62,72 @@ public class FormBindingFormatter {
         	
         	out.write("        " + field.getAttribute() + " = new " + editor + "();\n");
         	out.write("        " + field.getAttribute() + ".setLabel(\"" + field.getLabel() + "\");\n");
+        	
         	if (field.isMandatory())
             	out.write("        " + field.getAttribute() + ".setMandatory(true);\n");
+        	
+        	if (field.isReadOnly())
+            	out.write("        " + field.getAttribute() + ".setReadOnly(true);\n");
+        	
+        	if (field.getTip() != null)
+            	out.write("        " + field.getAttribute() + ".setToolTip(\"" + field.getTip() + "\");\n");
+        	
+        	String attr = field.getAttrDef().getDefinedIn().getDMSASGName() + ".__" + field.getAttribute();
+        	out.write("        " + field.getAttribute() + "Adapter = new " + field.getAttrDef().getAdapterClassName() + "(" + attr + ");\n");
+        	out.write("        " + field.getAttribute() + ".setAdapter(" + field.getAttribute() + "Adapter);\n");
         	out.write("\n");
         }
         
-        out.write("\n");
         out.write("    }\n");
+        
+        
+        ///////////////////////////////////////////////////////////////////////
+        out.write("    public void setObject(" + cd.getName() + "DMO obj){\n");
+        out.write("        dmo = obj;\n\n");
+        for(EditField field: binding.getEditFieldIterable()){
+        	String attr = field.getAttrDef().getDefinedIn().getDMSASGName() + ".__" + field.getAttribute();
+        	out.write("        " + field.getAttribute() + "Adapter.setExisting(dmo.get(" + attr + "));\n");
+        	out.write("        " + field.getAttribute() + ".setAdapter(" + field.getAttribute() + "Adapter);\n");
+        	out.write("\n");
+        }
+        
+        out.write("    }\n\n");
 
+        ///////////////////////////////////////////////////////////////////////
+        out.write("    public void setTracker(DmcPresentationTrackerIF t){\n");
+        out.write("        tracker = t;\n");
+        out.write("\n");
+        for(EditField field: binding.getEditFieldIterable()){
+        	out.write("        tracker.track(" + field.getAttribute() + ");\n");
+        }
+        
+        out.write("    }\n\n");
+
+        ///////////////////////////////////////////////////////////////////////
+        out.write("    public " + cd.getName() + "DMO getModRec(){\n");
+        out.write("        " + cd.getName() + "DMO modrec = dmo.getModificationRecorder();\n");
+        out.write("\n");
+        
+        for(EditField field: binding.getEditFieldIterable()){
+        	out.write("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
+        }
+        out.write("\n");
+        out.write("        return(modrec);\n");
+        out.write("    }\n\n");
+        
+        
+        ///////////////////////////////////////////////////////////////////////
+        for(EditField field: binding.getEditFieldIterable()){
+        	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
+        	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
+        	String capped = GenUtility.capTheName(field.getAttribute());
+        	
+        	out.write("    public " + editor + " get" + capped + "(){\n");
+        	out.write("        return(" + field.getAttribute() + ");\n");
+        	out.write("    }\n");
+        	out.write("\n");
+        }
+   
         out.write("}\n\n");
         
         out.close();

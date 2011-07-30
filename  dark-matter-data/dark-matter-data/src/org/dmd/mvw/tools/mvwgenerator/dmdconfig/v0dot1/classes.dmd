@@ -460,3 +460,20 @@ isNamedBy		configName
 must			configName
 //may				mandatoryStyle
 description		The  
+
+ClassDefinition
+name			GxtEnumMapping
+classType		STRUCTURAL
+subpackage		forms
+dmdID			26
+derivedFrom		MvwDefinition
+useWrapperType	EXTENDED
+isNamedBy		mappingName
+must			mappingName
+must			enumName
+must			unsetValue
+description		The GxtEnumMapping class allows for generation of a set of static data instances
+ that represent the values from the specified enumeration (type). NOTE: this mechanism is only 
+ useful if you are using the Sencha's Gxt widget set.
+ 
+

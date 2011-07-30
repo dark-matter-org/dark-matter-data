@@ -25,8 +25,16 @@ package org.dmd.dmc.presentation;
  */
 public interface DmcPresentationIF {
 	
+	/**
+	 * Sets the label to be associated with this presentation.
+	 * @param label
+	 */
 	public void setLabel(String label);
 	
+	/**
+	 * Sets the tool tip to be associated with this presentation.
+	 * @param tooltip
+	 */
 	public void setToolTip(String tooltip);
 	
 	/**
@@ -37,9 +45,15 @@ public interface DmcPresentationIF {
 	public void setMandatory(boolean mandatory);
 	
 	/**
+	 * Sets whether or not the presentation is edittable.
+	 * @param readonly true if we're read only and false otherwise.
+	 */
+	public void setReadOnly(boolean readonly);
+	
+	/**
 	 * Sets the adapter associated with the attribute being displayed. The existing value
 	 * of the adapter may be null, but the adapter is always an instance of the type of
-	 * attribute being presented.
+	 * attribute being presented. 
 	 * @param adapter the adapter.
 	 */
 	public void setAdapter(DmcAdapterIF adapter);
