@@ -11,7 +11,8 @@ import org.dmd.dmc.DmcAttributeInfo;
 public interface DmcPresentationTrackerIF {
 	
 	/**
-	 * Adds the specified presentation implementation to the tracker.
+	 * Adds the specified presentation implementation to the tracker. The tracker
+	 * should also set itself on the presentation by calling its setTracker() method.
 	 * @param dpi
 	 */
 	public void track(DmcPresentationIF dpi);
