@@ -215,6 +215,9 @@ may				indexedObjRef
 may				indexedPlainObjRef
 may				plainObjRef
 may 			svTestEnum
+may				svBoolean
+may				onOff
+may				enabledDisabled
 
 ClassDefinition
 name            ClientCountFilter

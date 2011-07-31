@@ -1918,6 +1918,99 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1104)
+    public Boolean isSvBoolean(){
+        return(((ObjWithRefsDMO) core).isSvBoolean());
+    }
+
+    /**
+     * Sets svBoolean to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1151)
+    public void setSvBoolean(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).setSvBoolean(value);
+    }
+
+    /**
+     * Sets svBoolean to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1160)
+    public void setSvBoolean(Boolean value){
+        ((ObjWithRefsDMO) core).setSvBoolean(value);
+    }
+
+    /**
+     * Removes the svBoolean attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1186)
+    public void remSvBoolean(){
+        ((ObjWithRefsDMO) core).remSvBoolean();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1104)
+    public Boolean isOnOff(){
+        return(((ObjWithRefsDMO) core).isOnOff());
+    }
+
+    /**
+     * Sets onOff to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1151)
+    public void setOnOff(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).setOnOff(value);
+    }
+
+    /**
+     * Sets onOff to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1160)
+    public void setOnOff(Boolean value){
+        ((ObjWithRefsDMO) core).setOnOff(value);
+    }
+
+    /**
+     * Removes the onOff attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1186)
+    public void remOnOff(){
+        ((ObjWithRefsDMO) core).remOnOff();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1104)
+    public Boolean isEnabledDisabled(){
+        return(((ObjWithRefsDMO) core).isEnabledDisabled());
+    }
+
+    /**
+     * Sets enabledDisabled to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1151)
+    public void setEnabledDisabled(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).setEnabledDisabled(value);
+    }
+
+    /**
+     * Sets enabledDisabled to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1160)
+    public void setEnabledDisabled(Boolean value){
+        ((ObjWithRefsDMO) core).setEnabledDisabled(value);
+    }
+
+    /**
+     * Removes the enabledDisabled attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1186)
+    public void remEnabledDisabled(){
+        ((ObjWithRefsDMO) core).remEnabledDisabled();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1104)
     public StringName getName(){
         return(((ObjWithRefsDMO) core).getName());
     }

@@ -413,3 +413,15 @@ AttributeDefinition
 name            		svTestEnum
 dmdID           		418
 type            		DmtTestEnum
+
+AttributeDefinition
+name            		onOff
+dmdID           		419
+type            		Boolean
+
+AttributeDefinition
+name            		enabledDisabled
+dmdID           		420
+type            		Boolean
+
+

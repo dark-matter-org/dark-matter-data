@@ -88,6 +88,8 @@ public class DmtSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _indexedPlainObjRef;
     public static AttributeDefinition _plainObjRef;
     public static AttributeDefinition _svTestEnum;
+    public static AttributeDefinition _onOff;
+    public static AttributeDefinition _enabledDisabled;
 
     public static TypeDefinition _DmtStringName;
 
@@ -435,7 +437,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.setDmdID("10016");
             _ObjWithRefsOBJ.setClassType("STRUCTURAL");
             _ObjWithRefsOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ObjWithRefsOBJ.setLineNumber("218");
+            _ObjWithRefsOBJ.setLineNumber("221");
             _ObjWithRefsOBJ.setDerivedFrom("BaseObj");
             _ObjWithRefsOBJ.setIsNamedBy("name");
             _ObjWithRefsOBJ.setUseWrapperType("EXTENDED");
@@ -459,6 +461,9 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.addMay("indexedPlainObjRef");
             _ObjWithRefsOBJ.addMay("plainObjRef");
             _ObjWithRefsOBJ.addMay("svTestEnum");
+            _ObjWithRefsOBJ.addMay("svBoolean");
+            _ObjWithRefsOBJ.addMay("onOff");
+            _ObjWithRefsOBJ.addMay("enabledDisabled");
             _ObjWithRefsOBJ.addMust("name");
             _ObjWithRefsOBJ.addMust("svString");
             _ObjWithRefsOBJ.addMust("mvTestEnum");
@@ -472,7 +477,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterOBJ.setDmdID("10017");
             _ClientCountFilterOBJ.setClassType("STRUCTURAL");
             _ClientCountFilterOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterOBJ.setLineNumber("225");
+            _ClientCountFilterOBJ.setLineNumber("228");
             _ClientCountFilterOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterREF");
             _ClientCountFilterOBJ.setDmwIteratorClass("ClientCountFilterIterableDMW");
@@ -487,7 +492,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterRequestOBJ.setDmdID("10018");
             _ClientCountFilterRequestOBJ.setClassType("STRUCTURAL");
             _ClientCountFilterRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterRequestOBJ.setLineNumber("234");
+            _ClientCountFilterRequestOBJ.setLineNumber("237");
             _ClientCountFilterRequestOBJ.setDerivedFrom("Request");
             _ClientCountFilterRequestOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterRequestOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterRequestREF");
@@ -1090,8 +1095,28 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svTestEnumOBJ.setDmdID("10418");
             _svTestEnum.setDefinedIn(this);
             _svTestEnumOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
-            _svTestEnumOBJ.setLineNumber("415");
+            _svTestEnumOBJ.setLineNumber("416");
             addAttributeDefList(_svTestEnum);
+
+            AttributeDefinitionDMO _onOffOBJ = new AttributeDefinitionDMO();
+            _onOff = new AttributeDefinition(_onOffOBJ);
+            _onOffOBJ.setType("Boolean");
+            _onOffOBJ.setName("onOff");
+            _onOffOBJ.setDmdID("10419");
+            _onOff.setDefinedIn(this);
+            _onOffOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _onOffOBJ.setLineNumber("421");
+            addAttributeDefList(_onOff);
+
+            AttributeDefinitionDMO _enabledDisabledOBJ = new AttributeDefinitionDMO();
+            _enabledDisabled = new AttributeDefinition(_enabledDisabledOBJ);
+            _enabledDisabledOBJ.setType("Boolean");
+            _enabledDisabledOBJ.setName("enabledDisabled");
+            _enabledDisabledOBJ.setDmdID("10420");
+            _enabledDisabled.setDefinedIn(this);
+            _enabledDisabledOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _enabledDisabledOBJ.setLineNumber("426");
+            addAttributeDefList(_enabledDisabled);
 
     }
 

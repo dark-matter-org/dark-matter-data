@@ -75,16 +75,16 @@ public class Tracker implements DmcPresentationTrackerIF {
 		ready.put(dpi.getID(), dpi);
 		
 		if (dpi.valueChanged()){
-			System.out.println("value has changed");
+			System.out.println("Tracker: value has changed " + dpi.getAdapter().getAttributeInfo().name);
 			changed.put(dpi.getID(), dpi);
 		}
 		else{
-			System.out.println("value has NOT changed");
+			System.out.println("Tracker: value has NOT changed " + dpi.getAdapter().getAttributeInfo().name);
 			changed.remove(dpi.getID());
 		}
 		
-		System.out.println("not ready size = " + notReady.size());
-		System.out.println("changed size   = " + changed.size());
+		System.out.println("Tracker: not ready size = " + notReady.size());
+		System.out.println("Tracker: changed size   = " + changed.size());
 		
 		for(DmcReadyListenerIF listener: readyListeners)
 			listener.isReady((notReady.size() == 0) && (changed.size() > 0));
