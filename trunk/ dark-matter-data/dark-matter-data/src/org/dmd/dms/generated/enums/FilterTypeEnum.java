@@ -31,34 +31,34 @@ public enum FilterTypeEnum
     NONE(0),
 
     /**
-     *  Indicates that the rest of the filter ops that follow will be ANDed
+     * Indicates that the rest of the filter ops that follow will be ANDed
      * together.
      */
     AND(1),
 
     /**
-     *   Indicates that the rest of the filter ops that follow will be ORed
+     * Indicates that the rest of the filter ops that follow will be ORed
      * together.
      */
     OR(2),
 
     /**
-     *   Performs a test for equality.
+     * Performs a test for equality.
      */
     EQ(3),
 
     /**
-     *   Performs a test for inequality.
+     * Performs a test for inequality.
      */
     NE(4),
 
     /**
-     *   Performs a test for the presence of an attribute.
+     * Performs a test for the presence of an attribute.
      */
     PR(5),
 
     /**
-     *   Performs a test to see if an attribute is not present.
+     * Performs a test to see if an attribute is not present.
      */
     NP(6);
 

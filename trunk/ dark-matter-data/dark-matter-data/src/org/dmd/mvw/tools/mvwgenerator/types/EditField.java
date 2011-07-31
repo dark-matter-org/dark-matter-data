@@ -65,7 +65,7 @@ public class EditField implements DmcMappedAttributeIF, Serializable {
 	}
 	
 	public EditField(String v) throws DmcValueException{
-		String value = v.trim();
+		String value = v.replaceAll("\t", " ").trim();
 		int spacepos = value.indexOf(" ");
 		
 		if (spacepos == -1){

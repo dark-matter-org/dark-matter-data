@@ -31,27 +31,27 @@ public enum ModifyTypeEnum
     NONE(0),
 
     /**
-     *  The ADD operation adds a new value to a multi-valued attribute.
+     * The ADD operation adds a new value to a multi-valued attribute.
      */
     ADD(1),
 
     /**
-     *  The DEL operation removes a value from a multi-valued attribute.
+     * The DEL operation removes a value from a multi-valued attribute.
      */
     DEL(2),
 
     /**
-     *  The SET operation sets a new value for a single-valued attribute.
+     * The SET operation sets a new value for a single-valued attribute.
      */
     SET(3),
 
     /**
-     *  The REM operation removes the entire attribute from the object.
+     * The REM operation removes the entire attribute from the object.
      */
     REM(4),
 
     /**
-     *  The NTH operation sets the value at the specified index.
+     * The NTH operation sets the value at the specified index.
      */
     NTH(5);
 
