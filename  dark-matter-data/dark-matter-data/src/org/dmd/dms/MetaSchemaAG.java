@@ -835,12 +835,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnumREF          .setDefinedIn(this);
 
             _ClassTypeEnum               .setDescription("The ClassTypeEnum enumeration indicates the types of classes that can be defined; these definitions are borrowed from LDAP directory parlance. See the individual enum value definitions for details.");
-            _ClassTypeEnum               .addEnumValue("0 UNKNOWN Unknown value.");
-            _ClassTypeEnum               .addEnumValue("1 ABSTRACT An abstract class is one that provides a base class for a set of related derived classes, but which can't be instantiated by itself.");
-            _ClassTypeEnum               .addEnumValue("2 STRUCTURAL A structural class is a class that can be instantiated by itself.");
-            _ClassTypeEnum               .addEnumValue("3 AUXILIARY An auxiliary class is basically a collection of additional attributes that can be added to an instance of a STRUCTURAL class; an AUXILIARY class can't be instantiated on its own.");
-            _ClassTypeEnum               .addEnumValue("4 EXTENSIBLE An extensible class is basically a free-form class that allows ANY attribute to be set on it.");
-            _ClassTypeEnum               .addEnumValue("5 INTERFACE An interface class provides an interface for a set of implementing classes.");
+            _ClassTypeEnum               .addEnumValue("0 UNKNOWN		Unknown value.");
+            _ClassTypeEnum               .addEnumValue("1 ABSTRACT		An abstract class is one that provides a base class for a set of related derived classes, but which can't be instantiated by itself.");
+            _ClassTypeEnum               .addEnumValue("2 STRUCTURAL	A structural class is a class that can be instantiated by itself.");
+            _ClassTypeEnum               .addEnumValue("3 AUXILIARY 	An auxiliary class is basically a collection of additional attributes that can be added to an instance of a STRUCTURAL class; an AUXILIARY class can't be instantiated on its own.");
+            _ClassTypeEnum               .addEnumValue("4 EXTENSIBLE 	An extensible class is basically a free-form class that allows ANY attribute to be set on it.");
+            _ClassTypeEnum               .addEnumValue("5 INTERFACE		An interface class provides an interface for a set of implementing classes.");
             _ClassTypeEnum               .setName("ClassTypeEnum");
             _ClassTypeEnum               .setNullReturnValue("ClassTypeEnum.UNKNOWN");
             _ClassTypeEnum               .setDefinedIn(this);

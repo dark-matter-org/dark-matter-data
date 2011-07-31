@@ -45,6 +45,9 @@ public class EnumValue {
 	// A brief description of the enumeration value
 	String 	description;
 	
+	// A label that may be used in user interfaces
+	String label;
+	
 	/**
 	 * Constructs a new EnumValue.
 	 */
@@ -59,6 +62,7 @@ public class EnumValue {
 		id = original.id;
 		name = original.name;
 		description = original.description;
+		label = original.label;
 	}
 	
 	/**
@@ -79,35 +83,82 @@ public class EnumValue {
 			throw(new DmcValueException("null value passed to EnumValue.set()"));
 		}
 		
-		int space1 = v.indexOf(" ");
-		int space2 = v.indexOf(" ", space1+1);
+		String value = v.replaceAll("\t", " ").trim();
 		
-		if ( (space1 == -1) || (space2 == -1) ){
-			throw(new DmcValueException("Incorrect number of tokens for EnumValue.set(): " + v));
-		}
+		int space = value.indexOf(" ");
+		if (space == -1)
+			throw(new DmcValueException("Missing enum value name: " + value + " - value should be of the form: int enum_val_name [description] <: label>"));
 		
 		try {
-			id = Integer.valueOf(v.substring(0,space1));
+			id = Integer.valueOf(value.substring(0,space));
 		} catch (NumberFormatException e) {
-			throw(new DmcValueException("Invalid enum integer value: " + v.substring(space1) + "\n" + e));
+			throw(new DmcValueException("Invalid enum integer value: " + value + "\n" + e));
 		}
 		
-		String tmp = v.substring(space1+1,space2);
+		String remainder = value.substring(space+1).trim();
+		space = remainder.indexOf(" ");
+		
+		if (space == -1)
+			throw(new DmcValueException("Missing enum description: " + value + " - value should be of the form: int enum_val_name [description] <: label>"));
+		
+		String tmp = remainder.substring(0,space);
 		if (Character.isLetter(tmp.charAt(0))){
 			name = tmp.toUpperCase();
 		}
 		else{
-			throw(new DmcValueException("Enum value name must start with a character: " + v.substring(space1+1,space2)));
+			throw(new DmcValueException("Enum value name must start with a character: " + tmp));
 		}
 		
-		description = v.substring(space2+1);
+		remainder = remainder.substring(space+1).trim();
+		int colon = remainder.indexOf(":");
+		
+		if (colon == -1){
+			description = remainder.trim();
+		}
+		else{
+			description = remainder.substring(0,colon).trim();
+			
+			if ( (colon+1) == remainder.length()){
+				throw(new DmcValueException("Missing label value: " + value + " - value should be of the form: int enum_val_name [description] <: label>"));
+			}
+			
+			label = remainder.substring(colon+1).trim();
+		}
+		
+		
+		
+//		int space1 = value.indexOf(" ");
+//		int space2 = value.indexOf(" ", space1+1);
+//		
+//		if ( (space1 == -1) || (space2 == -1) ){
+//			throw(new DmcValueException("Incorrect number of tokens for EnumValue.set(): " + value));
+//		}
+//		
+//		try {
+//			id = Integer.valueOf(value.substring(0,space1));
+//		} catch (NumberFormatException e) {
+//			throw(new DmcValueException("Invalid enum integer value: " + value.substring(space1) + "\n" + e));
+//		}
+//		
+//		String tmp = value.substring(space1+1,space2);
+//		if (Character.isLetter(tmp.charAt(0))){
+//			name = tmp.toUpperCase();
+//		}
+//		else{
+//			throw(new DmcValueException("Enum value name must start with a character: " + value.substring(space1+1,space2)));
+//		}
+//		
+//		description = value.substring(space2+1);
 	}
 	
 	/**
 	 * Returns the EnumValue in its string representation.
 	 */
 	public String toString(){
-		return(id + " " + name + " " + description);
+		if (label == null)
+			return(id + " " + name + " " + description);
+		else
+			return(id + " " + name + " " + description + " : " + label);
 	}
 
 	/**
@@ -131,16 +182,25 @@ public class EnumValue {
 		return description;
 	}
 
+	/**
+	 * @return the label
+	 */
+	public String getLabel() {
+		return label;
+	}
+
 	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
 		dos.writeInt(id);
 		dos.writeUTF(name);
 		dos.writeUTF(description);
+		dos.writeUTF(label);
 	}
 
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
 		id 			= dis.readInt();
 		name 		= dis.readUTF();
 		description = dis.readUTF();
+		label 		= dis.readUTF();
 	}
 
 

@@ -26,13 +26,13 @@ import java.util.*;
 public enum OperationalContextEnum
 {
     /**
-     *       Indicates that the component follows basic Dark Matter Object rules
-     * which likewise conform to GWT JRE Emulation.
+     * Indicates that the component follows basic Dark Matter Object rules which
+     * likewise conform to GWT JRE Emulation.
      */
     DMO(0),
 
     /**
-     *  indicates that the component operates in a ful Java environment; no
+     * indicates that the component operates in a ful Java environment; no
      * restrictions.
      */
     FULLJAVA(1);
