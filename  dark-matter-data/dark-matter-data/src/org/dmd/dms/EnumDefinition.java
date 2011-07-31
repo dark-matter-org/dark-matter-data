@@ -15,9 +15,12 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import java.util.Iterator;
+
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmo.EnumDefinitionDMO;
 import org.dmd.dms.generated.dmw.EnumDefinitionDMW;
+import org.dmd.dms.types.EnumValue;
 
 public class EnumDefinition extends EnumDefinitionDMW {
 
@@ -34,6 +37,20 @@ public class EnumDefinition extends EnumDefinitionDMW {
     
 	protected EnumDefinition(String mn) throws DmcValueException {
 		super(mn);
+	}
+	
+	public EnumValue getEnumValue(String valueName){
+		EnumValue rc = null;
+		
+		Iterator<EnumValue> values = getEnumValue();
+		while(values.hasNext()){
+			EnumValue value = values.next();
+			if (value.getName().equals(valueName)){
+				rc = value;
+				break;
+			}
+		}
+		return(rc);
 	}
 
 }

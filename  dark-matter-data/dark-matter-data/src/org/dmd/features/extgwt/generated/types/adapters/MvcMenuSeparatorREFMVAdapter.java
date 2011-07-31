@@ -55,6 +55,11 @@ public class MvcMenuSeparatorREFMVAdapter extends DmcTypeMvcMenuSeparatorREFMV i
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

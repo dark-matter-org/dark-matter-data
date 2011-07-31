@@ -12,7 +12,10 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
 import org.dmd.mvw.tools.mvwgenerator.extended.Component;
@@ -29,6 +32,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FieldEditorDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormImplementationConfig;
+import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuBar;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;
@@ -122,7 +126,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<CamelCaseName, FormBindingDefinition>		formBindings;
 	
-	
+	TreeMap<CamelCaseName, GxtEnumMapping>				enumMappings;
 	
 	
 	// Gets set to true is any of our components send requests
@@ -177,6 +181,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		
 		fieldEditors			= new TreeMap<CamelCaseName, FieldEditorDefinition>();
 		formBindings			= new TreeMap<CamelCaseName, FormBindingDefinition>();
+		enumMappings			= new TreeMap<CamelCaseName, GxtEnumMapping>();
 	}
 	
 	public TreeMap<CamelCaseName,MenuBar> getMenuBars(){
@@ -197,6 +202,10 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	public TreeMap<CamelCaseName,FormBindingDefinition> getFormBindings(){
 		return(formBindings);
+	}
+	
+	public TreeMap<CamelCaseName,GxtEnumMapping> getEnumMappings(){
+		return(enumMappings);
 	}
 	
 	public void reset() throws ResultException, DmcValueException{
@@ -543,6 +552,10 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			FormBindingDefinition fbd = (FormBindingDefinition) def;
 			formBindings.put(fbd.getBindingName(), fbd);
 		}
+		else if (def instanceof GxtEnumMapping){
+			GxtEnumMapping gem = (GxtEnumMapping) def;
+			enumMappings.put(gem.getMappingName(), gem);
+		}
 		
 		if (def instanceof Component){
 			Component component = (Component) def;
@@ -811,6 +824,36 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 							}
 						}
 						
+					}
+				}
+			}
+		}
+		
+		if (enumMappings.size() > 0){
+			for(GxtEnumMapping mapping: enumMappings.values()){
+				if (mapping.getDefinedInModule() == codeGenModule){
+					EnumDefinition ed = readSchemas.isEnum(mapping.getEnumName());
+					if (ed == null){
+						if (errors == null)
+							errors = new ResultException();
+						
+						errors.addError(mapping.getEnumName() + " is not a known enum type.");
+						errors.result.lastResult().fileName(mapping.getFile());
+						errors.result.lastResult().lineNumber(mapping.getLineNumber());
+					}
+					else{
+						mapping.setEnumDef(ed);
+					
+						EnumValue ev = ed.getEnumValue(mapping.getUnsetValue());
+						if (ev == null){
+							if (errors == null)
+								errors = new ResultException();
+							
+							errors.addError(mapping.getUnsetValue() + " is not a valid member of enum: " + ed.getName());
+							errors.result.lastResult().fileName(mapping.getFile());
+							errors.result.lastResult().lineNumber(mapping.getLineNumber());
+							
+						}
 					}
 				}
 			}

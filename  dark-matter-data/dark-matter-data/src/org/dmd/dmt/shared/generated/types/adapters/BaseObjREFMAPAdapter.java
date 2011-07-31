@@ -55,6 +55,11 @@ public class BaseObjREFMAPAdapter extends DmcTypeBaseObjREFMAP implements DmcAda
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

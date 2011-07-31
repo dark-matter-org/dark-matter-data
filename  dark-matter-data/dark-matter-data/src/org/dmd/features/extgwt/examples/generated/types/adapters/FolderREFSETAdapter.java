@@ -55,6 +55,11 @@ public class FolderREFSETAdapter extends DmcTypeFolderREFSET implements DmcAdapt
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

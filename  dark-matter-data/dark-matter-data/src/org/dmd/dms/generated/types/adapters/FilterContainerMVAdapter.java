@@ -55,6 +55,11 @@ public class FilterContainerMVAdapter extends DmcTypeFilterContainerMV implement
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

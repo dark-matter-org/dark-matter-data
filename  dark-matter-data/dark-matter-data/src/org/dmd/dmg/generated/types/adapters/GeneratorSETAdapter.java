@@ -55,6 +55,11 @@ public class GeneratorSETAdapter extends DmcTypeGeneratorSET implements DmcAdapt
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

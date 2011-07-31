@@ -55,6 +55,11 @@ public class FieldEditorDefinitionREFSETAdapter extends DmcTypeFieldEditorDefini
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

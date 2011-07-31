@@ -55,6 +55,11 @@ public class EventSpecSETAdapter extends DmcTypeEventSpecSET implements DmcAdapt
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

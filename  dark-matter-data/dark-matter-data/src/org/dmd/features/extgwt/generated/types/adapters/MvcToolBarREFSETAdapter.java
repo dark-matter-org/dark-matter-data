@@ -55,6 +55,11 @@ public class MvcToolBarREFSETAdapter extends DmcTypeMvcToolBarREFSET implements 
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

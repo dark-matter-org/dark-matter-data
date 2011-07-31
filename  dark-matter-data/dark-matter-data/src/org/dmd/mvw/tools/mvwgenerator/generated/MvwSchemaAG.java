@@ -135,6 +135,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _strictlyChecked;
     public static AttributeDefinition _mappingName;
     public static AttributeDefinition _unsetValue;
+    public static AttributeDefinition _useNameAsLabel;
 
     public static TypeDefinition _EventWithArgs;
     public static TypeDefinition _MethodWithArgs;
@@ -731,13 +732,14 @@ public class MvwSchemaAG extends SchemaDefinition {
             _GxtEnumMappingOBJ.setDmdID("826");
             _GxtEnumMappingOBJ.setClassType("STRUCTURAL");
             _GxtEnumMappingOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _GxtEnumMappingOBJ.setLineNumber("478");
+            _GxtEnumMappingOBJ.setLineNumber("479");
             _GxtEnumMappingOBJ.setDescription("The GxtEnumMapping class allows for generation of a set of static data instances that represent the values from the specified enumeration (type). NOTE: this mechanism is only  useful if you are using the Sencha's Gxt widget set.");
             _GxtEnumMappingOBJ.setDerivedFrom("MvwDefinition");
             _GxtEnumMappingOBJ.setIsNamedBy("mappingName");
             _GxtEnumMappingOBJ.setUseWrapperType("EXTENDED");
             _GxtEnumMappingOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.GxtEnumMappingREF");
             _GxtEnumMappingOBJ.setDmwIteratorClass("GxtEnumMappingIterableDMW");
+            _GxtEnumMappingOBJ.addMay("useNameAsLabel");
             _GxtEnumMappingOBJ.addMust("mappingName");
             _GxtEnumMappingOBJ.addMust("enumName");
             _GxtEnumMappingOBJ.addMust("unsetValue");
@@ -1780,6 +1782,17 @@ public class MvwSchemaAG extends SchemaDefinition {
             _unsetValueOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _unsetValueOBJ.setLineNumber("663");
             addAttributeDefList(_unsetValue);
+
+            AttributeDefinitionDMO _useNameAsLabelOBJ = new AttributeDefinitionDMO();
+            _useNameAsLabel = new AttributeDefinition(_useNameAsLabelOBJ);
+            _useNameAsLabelOBJ.setType("Boolean");
+            _useNameAsLabelOBJ.setName("useNameAsLabel");
+            _useNameAsLabelOBJ.setDmdID("892");
+            _useNameAsLabelOBJ.setDescription("Specifies that the mapping should use the enum value eg. VALUE1 as the display label for the value. It would be set to lower case and the first letter captitalized e.g. Value1. The default is to use the description part of the enum definition as the label.");
+            _useNameAsLabel.setDefinedIn(this);
+            _useNameAsLabelOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useNameAsLabelOBJ.setLineNumber("671");
+            addAttributeDefList(_useNameAsLabel);
 
     }
 

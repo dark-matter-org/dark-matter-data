@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ModificationControlEnum;    // DmcType import
  * The DmcTypeModificationControlEnumSET provides storage for a set of ModificationControlEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2332)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2334)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:230)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeModificationControlEnumSET extends DmcTypeModificationContro
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
     public DmcAttribute<ModificationControlEnum> cloneIt(){
         synchronized(this){
             DmcTypeModificationControlEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeModificationControlEnumSET extends DmcTypeModificationContro
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2388)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
     public ModificationControlEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ModificationControlEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeModificationControlEnumSET extends DmcTypeModificationContro
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
     public ModificationControlEnum del(Object v){
         synchronized(this){
             ModificationControlEnum rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeModificationControlEnumSET extends DmcTypeModificationContro
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2426)
     public Iterator<ModificationControlEnum> getMV(){
         synchronized(this){
             Set<ModificationControlEnum> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeModificationControlEnumSET extends DmcTypeModificationContro
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
     public Set<ModificationControlEnum> getMVCopy(){
         synchronized(this){
             Set<ModificationControlEnum> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeModificationControlEnumSET extends DmcTypeModificationContro
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2451)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2453)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeModificationControlEnumSET extends DmcTypeModificationContro
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2462)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

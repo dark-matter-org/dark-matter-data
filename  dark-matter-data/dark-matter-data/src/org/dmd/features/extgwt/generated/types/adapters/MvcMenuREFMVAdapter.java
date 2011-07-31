@@ -55,6 +55,11 @@ public class MvcMenuREFMVAdapter extends DmcTypeMvcMenuREFMV implements DmcAdapt
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

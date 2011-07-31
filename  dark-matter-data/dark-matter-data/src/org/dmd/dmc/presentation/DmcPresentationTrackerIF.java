@@ -55,14 +55,16 @@ public interface DmcPresentationTrackerIF {
 	 */
 	public void reset();
 	
-	/**
-	 * In some cases, it's necessary for presentations to interact e.g. altering a combo box
-	 * may necessitate alterring the enabled/visibility state of other components. Since all
-	 * presentations are available via the tracker, this interface lets you find a presentation
-	 * based on the attribute it's displaying.
-	 * @param ai the attribute info of the presentation you want
-	 * @return the presentation whose adapter matches the attribute info
-	 */
-	public DmcPresentationIF getPresentation(DmcAttributeInfo ai);
+	// NOTE: dropped this for now because of indexed attributes - multiple presentations
+	// will wind up feeding off the same attribute.
+//	/**
+//	 * In some cases, it's necessary for presentations to interact e.g. altering a combo box
+//	 * may necessitate alterring the enabled/visibility state of other components. Since all
+//	 * presentations are available via the tracker, this interface lets you find a presentation
+//	 * based on the attribute it's displaying.
+//	 * @param ai the attribute info of the presentation you want
+//	 * @return the presentation whose adapter matches the attribute info
+//	 */
+//	public DmcPresentationIF getPresentation(DmcAttributeInfo ai);
 	
 }

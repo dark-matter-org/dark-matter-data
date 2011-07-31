@@ -63,6 +63,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __svLong = new DmcAttributeInfo("svLong", 10110, "Long", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString", 10140, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svTestBasicNamedObjectFixed = new DmcAttributeInfo("svTestBasicNamedObjectFixed", 10300, "TestBasicNamedObjectFixed", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __svTestEnum = new DmcAttributeInfo("svTestEnum", 10418, "DmtTestEnum", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __transString = new DmcAttributeInfo("transString", 10412, "String", ValueTypeEnum.HASHSET, DataTypeEnum.TRANSIENT);
     public final static DmcAttributeInfo __tsDate = new DmcAttributeInfo("tsDate", 10013, "Date", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsDouble = new DmcAttributeInfo("tsDouble", 10043, "Double", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
@@ -163,6 +164,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__svLong.id,__svLong);
         _SmAp.put(__svString.id,__svString);
         _SmAp.put(__svTestBasicNamedObjectFixed.id,__svTestBasicNamedObjectFixed);
+        _SmAp.put(__svTestEnum.id,__svTestEnum);
         _SmAp.put(__transString.id,__transString);
         _SmAp.put(__tsDate.id,__tsDate);
         _SmAp.put(__tsDouble.id,__tsDouble);
@@ -304,6 +306,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __ObjWithRefs.addMay(__indexedObjRef);
         __ObjWithRefs.addMay(__indexedPlainObjRef);
         __ObjWithRefs.addMay(__plainObjRef);
+        __ObjWithRefs.addMay(__svTestEnum);
 
         __ClientCountFilter.addMay(__OUIFilter);
 

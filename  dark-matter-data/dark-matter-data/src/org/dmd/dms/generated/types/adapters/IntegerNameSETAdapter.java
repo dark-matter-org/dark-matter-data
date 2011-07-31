@@ -55,6 +55,11 @@ public class IntegerNameSETAdapter extends DmcTypeIntegerNameSET implements DmcA
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

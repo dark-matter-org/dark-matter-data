@@ -55,6 +55,11 @@ public class FilterTypeEnumMVAdapter extends DmcTypeFilterTypeEnumMV implements 
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

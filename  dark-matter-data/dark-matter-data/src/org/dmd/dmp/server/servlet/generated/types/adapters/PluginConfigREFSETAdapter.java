@@ -55,6 +55,11 @@ public class PluginConfigREFSETAdapter extends DmcTypePluginConfigREFSET impleme
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

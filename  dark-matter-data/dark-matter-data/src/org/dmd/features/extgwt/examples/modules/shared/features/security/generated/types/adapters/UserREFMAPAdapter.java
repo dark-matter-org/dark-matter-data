@@ -55,6 +55,11 @@ public class UserREFMAPAdapter extends DmcTypeUserREFMAP implements DmcAdapterIF
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

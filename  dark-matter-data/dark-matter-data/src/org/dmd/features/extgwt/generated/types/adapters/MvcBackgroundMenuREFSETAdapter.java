@@ -55,6 +55,11 @@ public class MvcBackgroundMenuREFSETAdapter extends DmcTypeMvcBackgroundMenuREFS
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

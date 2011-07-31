@@ -55,6 +55,11 @@ public class MvcViewREFSVAdapter extends DmcTypeMvcViewREFSV implements DmcAdapt
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

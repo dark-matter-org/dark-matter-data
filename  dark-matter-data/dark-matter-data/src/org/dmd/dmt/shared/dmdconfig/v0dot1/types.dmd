@@ -8,8 +8,9 @@ description		The DmtStringName type was created to test the definition of name t
 
 EnumDefinition
 name			DmtTestEnum
-enumValue		0 TEST1 First test.
-enumValue		1 TEST2 Second test.
-enumValue		2 TEST3 Third test.
-description		The DmtTestEnum is used for testing operations on eneumerated types
+enumValue		0 UNKNOWN Unknown
+enumValue		1 TEST1 First test
+enumValue		2 TEST2 Second test
+enumValue		3 TEST3 Third test
+description		The DmtTestEnum is used for testing operations on enumerated types
 

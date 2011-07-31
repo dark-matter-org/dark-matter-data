@@ -72,6 +72,37 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1104)
+    public Boolean isUseNameAsLabel(){
+        return(((GxtEnumMappingDMO) core).isUseNameAsLabel());
+    }
+
+    /**
+     * Sets useNameAsLabel to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1151)
+    public void setUseNameAsLabel(Object value) throws DmcValueException {
+        ((GxtEnumMappingDMO) core).setUseNameAsLabel(value);
+    }
+
+    /**
+     * Sets useNameAsLabel to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1160)
+    public void setUseNameAsLabel(Boolean value){
+        ((GxtEnumMappingDMO) core).setUseNameAsLabel(value);
+    }
+
+    /**
+     * Removes the useNameAsLabel attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1186)
+    public void remUseNameAsLabel(){
+        ((GxtEnumMappingDMO) core).remUseNameAsLabel();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1104)
     public CamelCaseName getMappingName(){
         return(((GxtEnumMappingDMO) core).getMappingName());
     }

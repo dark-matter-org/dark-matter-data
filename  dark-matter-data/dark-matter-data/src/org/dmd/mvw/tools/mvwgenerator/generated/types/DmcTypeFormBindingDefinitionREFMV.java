@@ -136,12 +136,14 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
     public FormBindingDefinitionREF getMVnth(int index){
         synchronized(this){
+            if (value == null)
+                return(null);
             return(value.get(index));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
     public FormBindingDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -168,7 +170,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -191,7 +193,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2260)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

@@ -55,6 +55,11 @@ public class TestOneLevelSubpackageREFMVAdapter extends DmcTypeTestOneLevelSubpa
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

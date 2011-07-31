@@ -55,6 +55,11 @@ public class TestBasicNamedObjectFixedREFSETAdapter extends DmcTypeTestBasicName
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

@@ -55,6 +55,11 @@ public class ComplexTypeDefinitionREFSETAdapter extends DmcTypeComplexTypeDefini
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

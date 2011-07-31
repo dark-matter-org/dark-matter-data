@@ -55,6 +55,11 @@ public class MvcApplicationREFMVAdapter extends DmcTypeMvcApplicationREFMV imple
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

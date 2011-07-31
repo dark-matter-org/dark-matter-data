@@ -55,6 +55,11 @@ public class TestDerivedSubpackageREFSETAdapter extends DmcTypeTestDerivedSubpac
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

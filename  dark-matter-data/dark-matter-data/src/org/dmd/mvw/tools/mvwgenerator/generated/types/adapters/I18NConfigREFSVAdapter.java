@@ -55,6 +55,11 @@ public class I18NConfigREFSVAdapter extends DmcTypeI18NConfigREFSV implements Dm
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

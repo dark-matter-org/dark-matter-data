@@ -107,6 +107,11 @@ public class AdapterFormatter {
         out.write("    }\n\n");
 
         out.write("    @Override\n");
+        out.write("    public DmcAttribute<?> getExisting() {\n");
+        out.write("    	   return(existingValue);\n");
+        out.write("    }\n\n");
+        
+        out.write("    @Override\n");
         out.write("    public Object getValue() {\n");
         out.write("    	   return(value);\n");
         out.write("    }\n\n");

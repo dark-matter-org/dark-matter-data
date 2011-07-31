@@ -55,6 +55,11 @@ public class BooleanMVAdapter extends DmcTypeBooleanMV implements DmcAdapterIF {
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

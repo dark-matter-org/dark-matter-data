@@ -55,6 +55,11 @@ public class DisplayDataSpecSVAdapter extends DmcTypeDisplayDataSpecSV implement
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

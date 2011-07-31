@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcSliceInfo;                                              //
 import org.dmd.dmc.DmcValueException;                                         // Any attributes
 import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                          // Required type
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type
@@ -123,6 +124,56 @@ public class GxtEnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObj
             return( getObjectName().equals( ((GxtEnumMappingDMO) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public Boolean isUseNameAsLabel(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__useNameAsLabel);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets useNameAsLabel to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setUseNameAsLabel(Boolean value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__useNameAsLabel);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__useNameAsLabel);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__useNameAsLabel,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets useNameAsLabel to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setUseNameAsLabel(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__useNameAsLabel);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__useNameAsLabel);
+        
+        attr.set(value);
+        set(MvwDMSAG.__useNameAsLabel,attr);
+    }
+
+    /**
+     * Removes the useNameAsLabel attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remUseNameAsLabel(){
+         rem(MvwDMSAG.__useNameAsLabel);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)

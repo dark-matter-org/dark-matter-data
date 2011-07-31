@@ -55,6 +55,11 @@ public class CamelCaseNameSVAdapter extends DmcTypeCamelCaseNameSV implements Dm
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

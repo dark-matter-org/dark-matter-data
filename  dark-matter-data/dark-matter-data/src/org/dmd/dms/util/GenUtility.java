@@ -2197,6 +2197,8 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + typeName + DMO + genericArgs + " getMVnth(int index){\n");
         out.write("        synchronized(this){\n");
+        out.write("            if (value == null)\n");
+        out.write("                return(null);\n");
         out.write("            return(value.get(index));\n");
         out.write("        }\n");
         out.write("    }\n");

@@ -55,6 +55,11 @@ public class WrapperTypeEnumMVAdapter extends DmcTypeWrapperTypeEnumMV implement
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

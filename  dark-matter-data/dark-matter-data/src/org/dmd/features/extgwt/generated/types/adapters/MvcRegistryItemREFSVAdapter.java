@@ -55,6 +55,11 @@ public class MvcRegistryItemREFSVAdapter extends DmcTypeMvcRegistryItemREFSV imp
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

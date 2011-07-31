@@ -55,6 +55,11 @@ public class MvcConfigREFSVAdapter extends DmcTypeMvcConfigREFSV implements DmcA
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

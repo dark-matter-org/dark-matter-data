@@ -55,6 +55,11 @@ public class MvcApplicationREFSETAdapter extends DmcTypeMvcApplicationREFSET imp
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

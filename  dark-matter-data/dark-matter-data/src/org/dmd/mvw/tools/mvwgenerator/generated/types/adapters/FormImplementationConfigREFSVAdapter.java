@@ -55,6 +55,11 @@ public class FormImplementationConfigREFSVAdapter extends DmcTypeFormImplementat
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

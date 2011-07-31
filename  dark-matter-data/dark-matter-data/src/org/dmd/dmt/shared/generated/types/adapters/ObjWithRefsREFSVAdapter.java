@@ -55,6 +55,11 @@ public class ObjWithRefsREFSVAdapter extends DmcTypeObjWithRefsREFSV implements 
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

@@ -55,6 +55,11 @@ public class DMPEventTypeEnumSVAdapter extends DmcTypeDMPEventTypeEnumSV impleme
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

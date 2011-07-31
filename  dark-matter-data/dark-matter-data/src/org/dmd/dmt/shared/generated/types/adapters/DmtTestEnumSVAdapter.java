@@ -55,6 +55,11 @@ public class DmtTestEnumSVAdapter extends DmcTypeDmtTestEnumSV implements DmcAda
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }
