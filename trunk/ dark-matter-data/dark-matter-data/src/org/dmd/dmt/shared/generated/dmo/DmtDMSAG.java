@@ -27,6 +27,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __attrIDs = new DmcAttributeInfo("attrIDs", 10406, "AttributeID", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __clientCountFilter = new DmcAttributeInfo("clientCountFilter", 10408, "ClientCountFilter", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __dmtStringName = new DmcAttributeInfo("dmtStringName", 10401, "DmtStringName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __enabledDisabled = new DmcAttributeInfo("enabledDisabled", 10420, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsDate = new DmcAttributeInfo("hsDate", 10012, "Date", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsDouble = new DmcAttributeInfo("hsDouble", 10042, "Double", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsFloat = new DmcAttributeInfo("hsFloat", 10052, "Float", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
@@ -53,6 +54,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __objRef = new DmcAttributeInfo("objRef", 10403, "ObjWithRefs", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __objRefHM = new DmcAttributeInfo("objRefHM", 10405, "ObjWithRefs", ValueTypeEnum.HASHMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __objRefMV = new DmcAttributeInfo("objRefMV", 10404, "ObjWithRefs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __onOff = new DmcAttributeInfo("onOff", 10419, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __plainObjRef = new DmcAttributeInfo("plainObjRef", 10417, "TestBasicObjectFixed", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svBoolean = new DmcAttributeInfo("svBoolean", 10000, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svDate = new DmcAttributeInfo("svDate", 10010, "Date", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -128,6 +130,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__attrIDs.id,__attrIDs);
         _SmAp.put(__clientCountFilter.id,__clientCountFilter);
         _SmAp.put(__dmtStringName.id,__dmtStringName);
+        _SmAp.put(__enabledDisabled.id,__enabledDisabled);
         _SmAp.put(__hsDate.id,__hsDate);
         _SmAp.put(__hsDouble.id,__hsDouble);
         _SmAp.put(__hsFloat.id,__hsFloat);
@@ -154,6 +157,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__objRef.id,__objRef);
         _SmAp.put(__objRefHM.id,__objRefHM);
         _SmAp.put(__objRefMV.id,__objRefMV);
+        _SmAp.put(__onOff.id,__onOff);
         _SmAp.put(__plainObjRef.id,__plainObjRef);
         _SmAp.put(__svBoolean.id,__svBoolean);
         _SmAp.put(__svDate.id,__svDate);
@@ -307,6 +311,9 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __ObjWithRefs.addMay(__indexedPlainObjRef);
         __ObjWithRefs.addMay(__plainObjRef);
         __ObjWithRefs.addMay(__svTestEnum);
+        __ObjWithRefs.addMay(__svBoolean);
+        __ObjWithRefs.addMay(__onOff);
+        __ObjWithRefs.addMay(__enabledDisabled);
 
         __ClientCountFilter.addMay(__OUIFilter);
 
