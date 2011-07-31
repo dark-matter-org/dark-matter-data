@@ -23,9 +23,6 @@ import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.util.exceptions.DebugInfo;
-
-//import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The DmcAttribute is an abstract base class from which all attribute values

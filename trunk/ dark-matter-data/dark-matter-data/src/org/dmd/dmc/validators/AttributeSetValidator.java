@@ -19,13 +19,11 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcAttributeInfoRef;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectValidator;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The AttributeSetValidator will verify that an object has all of its "must" attributes
