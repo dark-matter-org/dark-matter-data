@@ -55,6 +55,11 @@ public class SessionRIREFSETAdapter extends DmcTypeSessionRIREFSET implements Dm
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

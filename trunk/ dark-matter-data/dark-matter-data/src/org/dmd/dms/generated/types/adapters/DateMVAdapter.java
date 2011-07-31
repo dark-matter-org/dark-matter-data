@@ -55,6 +55,11 @@ public class DateMVAdapter extends DmcTypeDateMV implements DmcAdapterIF {
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

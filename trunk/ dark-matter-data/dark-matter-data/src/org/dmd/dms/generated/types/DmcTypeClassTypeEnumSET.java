@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;    // DmcType import
  * The DmcTypeClassTypeEnumSET provides storage for a set of ClassTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2332)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2334)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:230)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
     public DmcAttribute<ClassTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeClassTypeEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2388)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
     public ClassTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ClassTypeEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
     public ClassTypeEnum del(Object v){
         synchronized(this){
             ClassTypeEnum rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2426)
     public Iterator<ClassTypeEnum> getMV(){
         synchronized(this){
             Set<ClassTypeEnum> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
     public Set<ClassTypeEnum> getMVCopy(){
         synchronized(this){
             Set<ClassTypeEnum> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2451)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2453)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2462)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeEnumDefinitionREFSET provides storage for a set of EnumDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2332)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2334)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:241)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeEnumDefinitionREFSET extends DmcTypeEnumDefinitionREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
     public DmcAttribute<EnumDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeEnumDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeEnumDefinitionREFSET extends DmcTypeEnumDefinitionREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2388)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
     public EnumDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             EnumDefinitionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeEnumDefinitionREFSET extends DmcTypeEnumDefinitionREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2405)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
     public EnumDefinitionREF del(Object v){
         synchronized(this){
             EnumDefinitionREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeEnumDefinitionREFSET extends DmcTypeEnumDefinitionREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2424)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2426)
     public Iterator<EnumDefinitionREF> getMV(){
         synchronized(this){
             Set<EnumDefinitionREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeEnumDefinitionREFSET extends DmcTypeEnumDefinitionREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
     public Set<EnumDefinitionREF> getMVCopy(){
         synchronized(this){
             Set<EnumDefinitionREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeEnumDefinitionREFSET extends DmcTypeEnumDefinitionREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2451)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2453)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeEnumDefinitionREFSET extends DmcTypeEnumDefinitionREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2462)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

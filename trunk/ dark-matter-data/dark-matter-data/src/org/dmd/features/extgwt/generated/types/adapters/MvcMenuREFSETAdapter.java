@@ -55,6 +55,11 @@ public class MvcMenuREFSETAdapter extends DmcTypeMvcMenuREFSET implements DmcAda
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

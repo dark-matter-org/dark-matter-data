@@ -55,6 +55,11 @@ public class SessionFolderRIREFSETAdapter extends DmcTypeSessionFolderRIREFSET i
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

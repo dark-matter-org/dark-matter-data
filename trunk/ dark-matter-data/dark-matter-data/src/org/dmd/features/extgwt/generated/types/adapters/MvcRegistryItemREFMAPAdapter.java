@@ -55,6 +55,11 @@ public class MvcRegistryItemREFMAPAdapter extends DmcTypeMvcRegistryItemREFMAP i
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

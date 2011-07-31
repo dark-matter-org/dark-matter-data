@@ -55,6 +55,11 @@ public class TimeDoubleDataPointSETAdapter extends DmcTypeTimeDoubleDataPointSET
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

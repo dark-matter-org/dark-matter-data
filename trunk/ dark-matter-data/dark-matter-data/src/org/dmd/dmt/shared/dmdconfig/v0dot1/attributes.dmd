@@ -409,3 +409,7 @@ type					TestBasicObjectFixed
 valueType				MULTI
 description				References to unnamed objects.
 
+AttributeDefinition
+name            		svTestEnum
+dmdID           		418
+type            		DmtTestEnum

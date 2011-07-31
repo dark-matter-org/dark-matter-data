@@ -55,6 +55,11 @@ public class IntegerToStringSETAdapter extends DmcTypeIntegerToStringSET impleme
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

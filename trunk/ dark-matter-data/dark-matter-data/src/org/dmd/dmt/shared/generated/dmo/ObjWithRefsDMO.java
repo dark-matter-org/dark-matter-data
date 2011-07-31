@@ -31,6 +31,7 @@ import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                
 import org.dmd.dmt.shared.generated.enums.DmtTestEnum;                              // Primitive type and !auxiliary class
 import org.dmd.dmt.shared.generated.types.DmcTypeDmtTestEnumMV;                     // Required type
 import org.dmd.dmt.shared.generated.types.DmcTypeDmtTestEnumSET;                    // Required type
+import org.dmd.dmt.shared.generated.types.DmcTypeDmtTestEnumSV;                     // Required type
 import org.dmd.dmt.shared.generated.types.DmcTypeObjWithRefsREFMAP;                 // Reference type
 import org.dmd.dmt.shared.generated.types.DmcTypeObjWithRefsREFMV;                  // Reference type
 import org.dmd.dmt.shared.generated.types.DmcTypeObjWithRefsREFSV;                  // Reference type
@@ -2054,6 +2055,56 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1176)
     public void remPlainObjRef(){
          rem(DmtDMSAG.__plainObjRef);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public DmtTestEnum getSvTestEnum(){
+        DmcTypeDmtTestEnumSV attr = (DmcTypeDmtTestEnumSV) get(DmtDMSAG.__svTestEnum);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets svTestEnum to the specified value.
+     * @param value DmtTestEnum
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setSvTestEnum(DmtTestEnum value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__svTestEnum);
+        if (attr == null)
+            attr = new DmcTypeDmtTestEnumSV(DmtDMSAG.__svTestEnum);
+        
+        try{
+            attr.set(value);
+            set(DmtDMSAG.__svTestEnum,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets svTestEnum to the specified value.
+     * @param value A value compatible with DmcTypeDmtTestEnumSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setSvTestEnum(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmtDMSAG.__svTestEnum);
+        if (attr == null)
+            attr = new DmcTypeDmtTestEnumSV(DmtDMSAG.__svTestEnum);
+        
+        attr.set(value);
+        set(DmtDMSAG.__svTestEnum,attr);
+    }
+
+    /**
+     * Removes the svTestEnum attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remSvTestEnum(){
+         rem(DmtDMSAG.__svTestEnum);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)

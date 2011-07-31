@@ -55,6 +55,11 @@ public class I18NConfigREFSETAdapter extends DmcTypeI18NConfigREFSET implements 
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

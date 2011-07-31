@@ -3,10 +3,8 @@ package org.dmd.mvw.tools.mvwgenerator.util;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-import org.dmd.dmc.presentation.DmcPresentationTrackerIF;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.util.GenUtility;
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
 import org.dmd.mvw.tools.mvwgenerator.types.EditField;
 import org.dmd.util.FileUpdateManager;
@@ -46,10 +44,7 @@ public class FormBindingFormatter {
         out.write("    DmcPresentationTrackerIF	tracker;\n\n");
         
         for(EditField field: binding.getEditFieldIterable()){
-        	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
-        	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
-        	out.write("    " + editor + " " + field.getAttribute() + ";\n");
-        	out.write("    " + field.getAttrDef().getAdapterClassName() + " " + field.getAttribute() + "Adapter;\n\n");
+        	out.write(getDeclaration(field));
         }
         
         out.write("\n");
@@ -57,25 +52,7 @@ public class FormBindingFormatter {
         out.write("\n");
         
         for(EditField field: binding.getEditFieldIterable()){
-        	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
-        	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
-        	
-        	out.write("        " + field.getAttribute() + " = new " + editor + "();\n");
-        	out.write("        " + field.getAttribute() + ".setLabel(\"" + field.getLabel() + "\");\n");
-        	
-        	if (field.isMandatory())
-            	out.write("        " + field.getAttribute() + ".setMandatory(true);\n");
-        	
-        	if (field.isReadOnly())
-            	out.write("        " + field.getAttribute() + ".setReadOnly(true);\n");
-        	
-        	if (field.getTip() != null)
-            	out.write("        " + field.getAttribute() + ".setToolTip(\"" + field.getTip() + "\");\n");
-        	
-        	String attr = field.getAttrDef().getDefinedIn().getDMSASGName() + ".__" + field.getAttribute();
-        	out.write("        " + field.getAttribute() + "Adapter = new " + field.getAttrDef().getAdapterClassName() + "(" + attr + ");\n");
-        	out.write("        " + field.getAttribute() + ".setAdapter(" + field.getAttribute() + "Adapter);\n");
-        	out.write("\n");
+        	out.write(getInstantiation(field));
         }
         
         out.write("    }\n");
@@ -85,10 +62,7 @@ public class FormBindingFormatter {
         out.write("    public void setObject(" + cd.getName() + "DMO obj){\n");
         out.write("        dmo = obj;\n\n");
         for(EditField field: binding.getEditFieldIterable()){
-        	String attr = field.getAttrDef().getDefinedIn().getDMSASGName() + ".__" + field.getAttribute();
-        	out.write("        " + field.getAttribute() + "Adapter.setExisting(dmo.get(" + attr + "));\n");
-        	out.write("        " + field.getAttribute() + ".setAdapter(" + field.getAttribute() + "Adapter);\n");
-        	out.write("\n");
+        	out.write(getSetAdapter(field));
         }
         
         out.write("    }\n\n");
@@ -98,7 +72,8 @@ public class FormBindingFormatter {
         out.write("        tracker = t;\n");
         out.write("\n");
         for(EditField field: binding.getEditFieldIterable()){
-        	out.write("        tracker.track(" + field.getAttribute() + ");\n");
+        	out.write(getSetTracker(field));
+//        	out.write("        tracker.track(" + field.getAttribute() + ");\n");
         }
         
         out.write("    }\n\n");
@@ -109,7 +84,8 @@ public class FormBindingFormatter {
         out.write("\n");
         
         for(EditField field: binding.getEditFieldIterable()){
-        	out.write("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
+        	out.write(getAddMods(field));
+//        	out.write("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
         }
         out.write("\n");
         out.write("        return(modrec);\n");
@@ -118,14 +94,15 @@ public class FormBindingFormatter {
         
         ///////////////////////////////////////////////////////////////////////
         for(EditField field: binding.getEditFieldIterable()){
-        	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
-        	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
-        	String capped = GenUtility.capTheName(field.getAttribute());
-        	
-        	out.write("    public " + editor + " get" + capped + "(){\n");
-        	out.write("        return(" + field.getAttribute() + ");\n");
-        	out.write("    }\n");
-        	out.write("\n");
+        	out.write(getAccessMethod(field));
+//        	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
+//        	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
+//        	String capped = GenUtility.capTheName(field.getAttribute());
+//        	
+//        	out.write("    public " + editor + " get" + capped + "(){\n");
+//        	out.write("        return(" + field.getAttribute() + ");\n");
+//        	out.write("    }\n");
+//        	out.write("\n");
         }
    
         out.write("}\n\n");
@@ -133,5 +110,147 @@ public class FormBindingFormatter {
         out.close();
 	}
 	
+	static String getAccessMethod(EditField field){
+		StringBuffer sb = new StringBuffer();
+    	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
+    	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
+    	String capped = GenUtility.capTheName(field.getAttribute());
+		
+		if (field.getAttrDef().getIndexSize() != null){
+			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
+				sb.append("    public " + editor + " get" + capped + i + "(){\n");
+				sb.append("        return(" + field.getAttribute() + i + ");\n");
+				sb.append("    }\n");
+				sb.append("\n");
+			}
+		}
+		else{
+			sb.append("    public " + editor + " get" + capped + "(){\n");
+			sb.append("        return(" + field.getAttribute() + ");\n");
+			sb.append("    }\n");
+			sb.append("\n");
+		}
+
+		return(sb.toString());
+	}
 	
+	static String getAddMods(EditField field){
+		StringBuffer sb = new StringBuffer();
+		
+		if (field.getAttrDef().getIndexSize() != null){
+			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
+				sb.append("        " + field.getAttribute() + "Adapter" + i + ".addMods(modrec.getModifier());\n");
+			}
+		}
+		else{
+			sb.append("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
+		}
+
+		return(sb.toString());
+	}
+	
+	static String getSetTracker(EditField field){
+		StringBuffer sb = new StringBuffer();
+		
+		if (field.getAttrDef().getIndexSize() != null){
+			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
+				sb.append("        tracker.track(" + field.getAttribute() + i + ");\n");
+			}
+		}
+		else{
+			sb.append("        tracker.track(" + field.getAttribute() + ");\n");
+		}
+
+		return(sb.toString());
+	}
+	
+	static String getSetAdapter(EditField field){
+		StringBuffer sb = new StringBuffer();
+    	String attr = field.getAttrDef().getDefinedIn().getDMSASGName() + ".__" + field.getAttribute();
+		
+		if (field.getAttrDef().getIndexSize() != null){
+			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
+				sb.append("        " + field.getAttribute() + "Adapter" + i + ".setExisting(dmo.get(" + attr + "));\n");
+				sb.append("        " + field.getAttribute() + i + ".setAdapter(" + field.getAttribute() + "Adapter" + i + ");\n");
+				sb.append("\n");
+			}
+		}
+		else{
+			sb.append("        " + field.getAttribute() + "Adapter.setExisting(dmo.get(" + attr + "));\n");
+			sb.append("        " + field.getAttribute() + ".setAdapter(" + field.getAttribute() + "Adapter);\n");
+			sb.append("\n");
+		}
+
+		return(sb.toString());
+	}
+	
+	static String getDeclaration(EditField field){
+		StringBuffer sb = new StringBuffer();
+    	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
+    	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
+		
+		if (field.getAttrDef().getIndexSize() != null){
+			// This is indexed, so we actually create a separate editor for each index
+			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
+		    	sb.append("    " + editor + " " + field.getAttribute() + i + ";\n");
+		    	sb.append("    " + field.getAttrDef().getAdapterClassName() + " " + field.getAttribute() + "Adapter" + i + ";\n\n");				
+			}
+		}
+		else{
+	    	sb.append("    " + editor + " " + field.getAttribute() + ";\n");
+	    	sb.append("    " + field.getAttrDef().getAdapterClassName() + " " + field.getAttribute() + "Adapter;\n\n");
+		}
+
+		return(sb.toString());
+	}
+	
+	static String getInstantiation(EditField field){
+		StringBuffer sb = new StringBuffer();
+		
+    	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
+    	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
+    	
+		if (field.getAttrDef().getIndexSize() != null){
+			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
+				sb.append("        " + field.getAttribute() + i + " = new " + editor + "();\n");
+				sb.append("        " + field.getAttribute() + i + ".setValueIndex(" + i + ");\n");
+				
+				sb.append("        " + field.getAttribute() + i + ".setLabel(\"" + field.getLabel() + "\");\n");
+		    	
+		    	if (field.isMandatory())
+		    		sb.append("        " + field.getAttribute() + i + ".setMandatory(true);\n");
+		    	
+		    	if (field.isReadOnly())
+		    		sb.append("        " + field.getAttribute() + i + ".setReadOnly(true);\n");
+		    	
+		    	if (field.getTip() != null)
+		    		sb.append("        " + field.getAttribute() + i + ".setToolTip(\"" + field.getTip() + "\");\n");
+		    	
+		    	String attr = field.getAttrDef().getDefinedIn().getDMSASGName() + ".__" + field.getAttribute();
+		    	sb.append("        " + field.getAttribute() + "Adapter" + i + " = new " + field.getAttrDef().getAdapterClassName() + "(" + attr + ");\n");
+		    	sb.append("        " + field.getAttribute() + i + ".setAdapter(" + field.getAttribute() + "Adapter" + i + ");\n");
+		    	sb.append("\n");
+			}
+		}
+		else{
+			sb.append("        " + field.getAttribute() + " = new " + editor + "();\n");
+			sb.append("        " + field.getAttribute() + ".setLabel(\"" + field.getLabel() + "\");\n");
+	    	
+	    	if (field.isMandatory())
+	    		sb.append("        " + field.getAttribute() + ".setMandatory(true);\n");
+	    	
+	    	if (field.isReadOnly())
+	    		sb.append("        " + field.getAttribute() + ".setReadOnly(true);\n");
+	    	
+	    	if (field.getTip() != null)
+	    		sb.append("        " + field.getAttribute() + ".setToolTip(\"" + field.getTip() + "\");\n");
+	    	
+	    	String attr = field.getAttrDef().getDefinedIn().getDMSASGName() + ".__" + field.getAttribute();
+	    	sb.append("        " + field.getAttribute() + "Adapter = new " + field.getAttrDef().getAdapterClassName() + "(" + attr + ");\n");
+	    	sb.append("        " + field.getAttribute() + ".setAdapter(" + field.getAttribute() + "Adapter);\n");
+	    	sb.append("\n");
+		}
+
+    	return(sb.toString());
+	}
 }

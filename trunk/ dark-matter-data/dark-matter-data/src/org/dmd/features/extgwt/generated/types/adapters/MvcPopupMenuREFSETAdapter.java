@@ -55,6 +55,11 @@ public class MvcPopupMenuREFSETAdapter extends DmcTypeMvcPopupMenuREFSET impleme
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

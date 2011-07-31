@@ -53,4 +53,10 @@ public class StringSETAdapter extends DmcTypeStringSET implements DmcAdapterIF {
 		return(value);
 	}
 
+	@Override
+	public DmcAttribute<?> getExisting() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

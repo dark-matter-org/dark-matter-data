@@ -55,6 +55,11 @@ public class MvcSubMenuREFMAPAdapter extends DmcTypeMvcSubMenuREFMAP implements 
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

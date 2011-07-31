@@ -5,7 +5,7 @@ import java.util.*;
 import org.dmd.dmc.DmcEnumIF;
 
 /**
- * The DmtTestEnum is used for testing operations on eneumerated types
+ * The DmtTestEnum is used for testing operations on enumerated types
  * <P>
  * Generated from the dmt schema at version 0.1
  * <P>
@@ -14,11 +14,13 @@ import org.dmd.dmc.DmcEnumIF;
  */
 public enum DmtTestEnum implements DmcEnumIF
 {
-    TEST1(0,"First test."),
+    UNKNOWN(0,"Unknown"),
 
-    TEST2(1,"Second test."),
+    TEST1(1,"First test"),
 
-    TEST3(2,"Third test.");
+    TEST2(2,"Second test"),
+
+    TEST3(3,"Third test");
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,DmtTestEnum> lookup = new HashMap<Integer,DmtTestEnum>();

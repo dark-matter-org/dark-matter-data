@@ -55,6 +55,11 @@ public class TestMultiLevelSubpackageREFMVAdapter extends DmcTypeTestMultiLevelS
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

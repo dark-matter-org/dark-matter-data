@@ -55,6 +55,11 @@ public class HierarchicObjectREFMAPAdapter extends DmcTypeHierarchicObjectREFMAP
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

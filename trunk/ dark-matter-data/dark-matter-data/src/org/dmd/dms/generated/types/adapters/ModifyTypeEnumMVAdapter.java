@@ -55,6 +55,11 @@ public class ModifyTypeEnumMVAdapter extends DmcTypeModifyTypeEnumMV implements 
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

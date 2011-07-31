@@ -55,6 +55,11 @@ public class UserGroupREFSETAdapter extends DmcTypeUserGroupREFSET implements Dm
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

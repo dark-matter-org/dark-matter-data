@@ -55,6 +55,11 @@ public class MenuItemREFSVAdapter extends DmcTypeMenuItemREFSV implements DmcAda
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

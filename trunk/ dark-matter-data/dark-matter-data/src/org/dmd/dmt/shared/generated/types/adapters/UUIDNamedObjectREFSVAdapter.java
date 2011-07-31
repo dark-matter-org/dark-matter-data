@@ -55,6 +55,11 @@ public class UUIDNamedObjectREFSVAdapter extends DmcTypeUUIDNamedObjectREFSV imp
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

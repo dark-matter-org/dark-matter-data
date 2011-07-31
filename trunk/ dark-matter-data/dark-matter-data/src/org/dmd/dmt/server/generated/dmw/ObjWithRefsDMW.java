@@ -90,6 +90,37 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
         return(false);
     }
 
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1104)
+    public String getAnotherSVString(){
+        return(((ObjWithRefsDMO) core).getAnotherSVString());
+    }
+
+    /**
+     * Sets anotherSVString to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1151)
+    public void setAnotherSVString(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).setAnotherSVString(value);
+    }
+
+    /**
+     * Sets anotherSVString to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1160)
+    public void setAnotherSVString(String value){
+        ((ObjWithRefsDMO) core).setAnotherSVString(value);
+    }
+
+    /**
+     * Removes the anotherSVString attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1186)
+    public void remAnotherSVString(){
+        ((ObjWithRefsDMO) core).remAnotherSVString();
+    }
+
     /**
      * @return A ObjWithRefs object.
      */
@@ -1853,6 +1884,37 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     // org.dmd.dmg.generators.DMWGenerator.formatMV(DMWGenerator.java:1635)
     public void remPlainObjRef(){
         ((ObjWithRefsDMO) core).remPlainObjRef();
+    }
+
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1104)
+    public DmtTestEnum getSvTestEnum(){
+        return(((ObjWithRefsDMO) core).getSvTestEnum());
+    }
+
+    /**
+     * Sets svTestEnum to the specified value.
+     * @param value A value compatible with DmcTypeDmtTestEnum
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1151)
+    public void setSvTestEnum(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).setSvTestEnum(value);
+    }
+
+    /**
+     * Sets svTestEnum to the specified value.
+     * @param value DmtTestEnum
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1160)
+    public void setSvTestEnum(DmtTestEnum value){
+        ((ObjWithRefsDMO) core).setSvTestEnum(value);
+    }
+
+    /**
+     * Removes the svTestEnum attribute value.
+     */
+    // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1186)
+    public void remSvTestEnum(){
+        ((ObjWithRefsDMO) core).remSvTestEnum();
     }
 
     // org.dmd.dmg.generators.DMWGenerator.formatSV(DMWGenerator.java:1104)

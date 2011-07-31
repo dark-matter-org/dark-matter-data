@@ -55,6 +55,11 @@ public class RequestOptionEnumSVAdapter extends DmcTypeRequestOptionEnumSV imple
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

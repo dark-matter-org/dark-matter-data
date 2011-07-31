@@ -55,6 +55,11 @@ public class DmtTestEnumSETAdapter extends DmcTypeDmtTestEnumSET implements DmcA
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

@@ -55,6 +55,11 @@ public class DotNamedObjectREFMAPAdapter extends DmcTypeDotNamedObjectREFMAP imp
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

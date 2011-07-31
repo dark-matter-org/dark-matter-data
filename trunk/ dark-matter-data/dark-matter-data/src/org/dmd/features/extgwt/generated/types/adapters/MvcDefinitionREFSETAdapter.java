@@ -55,6 +55,11 @@ public class MvcDefinitionREFSETAdapter extends DmcTypeMvcDefinitionREFSET imple
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

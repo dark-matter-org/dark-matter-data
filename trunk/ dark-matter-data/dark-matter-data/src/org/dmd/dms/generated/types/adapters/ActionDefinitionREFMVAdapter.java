@@ -55,6 +55,11 @@ public class ActionDefinitionREFMVAdapter extends DmcTypeActionDefinitionREFMV i
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

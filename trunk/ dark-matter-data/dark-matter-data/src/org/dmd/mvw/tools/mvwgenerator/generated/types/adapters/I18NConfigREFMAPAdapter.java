@@ -55,6 +55,11 @@ public class I18NConfigREFMAPAdapter extends DmcTypeI18NConfigREFMAP implements 
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

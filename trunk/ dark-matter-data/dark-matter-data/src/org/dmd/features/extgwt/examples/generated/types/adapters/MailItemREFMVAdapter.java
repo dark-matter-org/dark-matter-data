@@ -55,6 +55,11 @@ public class MailItemREFMVAdapter extends DmcTypeMailItemREFMV implements DmcAda
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

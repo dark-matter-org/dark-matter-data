@@ -55,6 +55,11 @@ public class EditFieldSVAdapter extends DmcTypeEditFieldSV implements DmcAdapter
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

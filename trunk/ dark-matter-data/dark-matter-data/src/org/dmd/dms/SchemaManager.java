@@ -815,6 +815,11 @@ public class SchemaManager implements DmcNameResolverIF {
         return((AttributeDefinition)attrDefs.get(nameKey));
     }
     
+    public EnumDefinition isEnum(String name){
+    	StringName nameKey = new StringName(name);
+    	return(enumDefs.get(nameKey));
+    }
+    
     /**
      * Returns the attribute definition associated with the specified identifier.
      * @param id The identifier of the attribute.
@@ -1970,7 +1975,7 @@ DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
             return(rc);
         }
     }
-
+    
     /**
      * This function will return the class definition associated with the
      * given name.

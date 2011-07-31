@@ -55,6 +55,11 @@ public class IntegerToUUIDLiteSETAdapter extends DmcTypeIntegerToUUIDLiteSET imp
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

@@ -57,4 +57,10 @@ public class StringSVAdapter extends DmcTypeStringSV implements DmcAdapterIF {
 		return(value);
 	}
 
+	@Override
+	public DmcAttribute<?> getExisting() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

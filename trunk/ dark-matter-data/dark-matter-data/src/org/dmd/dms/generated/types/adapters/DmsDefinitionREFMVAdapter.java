@@ -55,6 +55,11 @@ public class DmsDefinitionREFMVAdapter extends DmcTypeDmsDefinitionREFMV impleme
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

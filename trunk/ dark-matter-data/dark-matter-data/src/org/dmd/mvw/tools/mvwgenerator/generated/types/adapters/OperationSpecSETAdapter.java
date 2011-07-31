@@ -55,6 +55,11 @@ public class OperationSpecSETAdapter extends DmcTypeOperationSpecSET implements 
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

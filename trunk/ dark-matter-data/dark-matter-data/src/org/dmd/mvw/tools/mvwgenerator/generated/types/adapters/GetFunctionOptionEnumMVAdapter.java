@@ -55,6 +55,11 @@ public class GetFunctionOptionEnumMVAdapter extends DmcTypeGetFunctionOptionEnum
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

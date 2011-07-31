@@ -55,6 +55,11 @@ public class ControllerREFSETAdapter extends DmcTypeControllerREFSET implements 
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

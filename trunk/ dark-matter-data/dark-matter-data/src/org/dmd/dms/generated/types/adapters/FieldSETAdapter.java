@@ -55,6 +55,11 @@ public class FieldSETAdapter extends DmcTypeFieldSET implements DmcAdapterIF {
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

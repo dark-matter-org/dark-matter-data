@@ -55,6 +55,11 @@ public class SubMenuREFSVAdapter extends DmcTypeSubMenuREFSV implements DmcAdapt
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

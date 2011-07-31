@@ -659,7 +659,15 @@ name			unsetValue
 dmdID			91
 type			String
 description		The enum value that indicates when an enum is not set i.e. its attribute would
- be removed. 
+ be removed.
+
+AttributeDefinition
+name			useNameAsLabel
+dmdID			92
+type			Boolean
+description		Specifies that the mapping should use the enum value eg. VALUE1 as the display
+ label for the value. It would be set to lower case and the first letter captitalized e.g. Value1.
+ The default is to use the description part of the enum definition as the label.
 
 
 //AttributeDefinition

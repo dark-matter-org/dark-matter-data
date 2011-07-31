@@ -55,6 +55,11 @@ public class ObjectValidatorDefinitionREFMVAdapter extends DmcTypeObjectValidato
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

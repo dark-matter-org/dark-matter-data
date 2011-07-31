@@ -20,6 +20,8 @@ public interface DmcAdapterIF {
 	
 	public void setExisting(DmcAttribute<?> attr);
 	
+	public DmcAttribute<?> getExisting();
+	
 	public void resetToExisting();
 	
 	public void addMods(DmcTypeModifierMV mods);

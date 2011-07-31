@@ -100,6 +100,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass", 807, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useClass = new DmcAttributeInfo("useClass", 826, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useImpl = new DmcAttributeInfo("useImpl", 869, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __useNameAsLabel = new DmcAttributeInfo("useNameAsLabel", 892, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema", 843, "SchemaDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userDataImport = new DmcAttributeInfo("userDataImport", 804, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usesController = new DmcAttributeInfo("usesController", 842, "Controller", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -238,6 +239,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__useBaseClass.id,__useBaseClass);
         _SmAp.put(__useClass.id,__useClass);
         _SmAp.put(__useImpl.id,__useImpl);
+        _SmAp.put(__useNameAsLabel.id,__useNameAsLabel);
         _SmAp.put(__useSchema.id,__useSchema);
         _SmAp.put(__userDataImport.id,__userDataImport);
         _SmAp.put(__usesController.id,__usesController);
@@ -424,6 +426,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __GxtEnumMapping.addMust(__mappingName);
         __GxtEnumMapping.addMust(MetaDMSAG.__enumName);
         __GxtEnumMapping.addMust(__unsetValue);
+        __GxtEnumMapping.addMay(__useNameAsLabel);
 
 
     }

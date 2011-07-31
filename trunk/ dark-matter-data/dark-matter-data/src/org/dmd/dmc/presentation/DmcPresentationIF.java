@@ -73,15 +73,21 @@ public interface DmcPresentationIF {
 	 * are in a ready state. Your presentation implementation should call the tracker's
 	 * isReady() or isNotReady() methods when its readiness state changes.
 	 * @param t The tracker component.
+	 * @param id A uniquely assigned identifier that you must return via the getID() method.
 	 */
-	public void setTracker(DmcPresentationTrackerIF t);
+	public void setTracker(DmcPresentationTrackerIF t, int id);
+	
+	/**
+	 * @return the identifier that was assigned when setTracker() was called.
+	 */
+	public int getID();
 	
 	/**
 	 * When this method is called, the presentation should have its adapter resetToExisting()
 	 * and display the original value. This supports things like being able to cancel a set
 	 * of modifications.
 	 */
-	public void reset();
+	public void resetToExisting();
 	
 	/**
 	 * This aspect is more tricky than it might first appear. Although the adapter has a
@@ -98,5 +104,16 @@ public interface DmcPresentationIF {
 	 * @return true if there have been any user interaction and false otherwise
 	 */
 	public boolean valueChanged();
+	
+	/**
+	 * For multi-valued attributes that have a specified index (indexed attributes), the attribute
+	 * should be thought of as containing a predetermined number of slots that can either empty 
+	 * (null) or have a value of the associated type. When a form binding is generated for an
+	 * indexed attribute, it actually creates a separate editor instance for each possible index.
+	 * When the editor (the component that implements the DmcPresentationIF interface) is initialized,
+	 * it will be told which index of the attribute it is responsible for displaying/editting.
+	 * @param index
+	 */
+	public void setValueIndex(int index);
 	
 }

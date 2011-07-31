@@ -55,6 +55,11 @@ public class SchemaDefinitionREFSVAdapter extends DmcTypeSchemaDefinitionREFSV i
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

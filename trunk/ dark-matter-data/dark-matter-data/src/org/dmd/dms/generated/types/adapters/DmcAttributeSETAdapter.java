@@ -55,6 +55,11 @@ public class DmcAttributeSETAdapter extends DmcTypeDmcAttributeSET implements Dm
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

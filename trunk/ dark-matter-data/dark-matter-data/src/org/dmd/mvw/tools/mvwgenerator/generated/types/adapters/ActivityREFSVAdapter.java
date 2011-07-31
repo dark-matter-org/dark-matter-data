@@ -55,6 +55,11 @@ public class ActivityREFSVAdapter extends DmcTypeActivityREFSV implements DmcAda
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }

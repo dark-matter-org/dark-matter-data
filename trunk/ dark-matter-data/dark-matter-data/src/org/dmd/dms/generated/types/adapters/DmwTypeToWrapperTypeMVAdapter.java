@@ -55,6 +55,11 @@ public class DmwTypeToWrapperTypeMVAdapter extends DmcTypeDmwTypeToWrapperTypeMV
     }
 
     @Override
+    public DmcAttribute<?> getExisting() {
+    	   return(existingValue);
+    }
+
+    @Override
     public Object getValue() {
     	   return(value);
     }
