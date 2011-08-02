@@ -431,6 +431,8 @@ may				strictlyChecked
 must			bindingName
 must			editObject
 must			editField
+may				useI18NConfig
+may				tipsFromI18N
 description		The FormBinding class allows for the definition of bindings between DMO attributes
  and the editors that will be used to display and edit their values. 
 

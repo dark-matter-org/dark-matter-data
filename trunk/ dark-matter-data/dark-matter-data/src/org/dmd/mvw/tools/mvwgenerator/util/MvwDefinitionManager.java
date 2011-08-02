@@ -21,6 +21,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
 import org.dmd.mvw.tools.mvwgenerator.extended.Component;
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
+import org.dmd.mvw.tools.mvwgenerator.extended.I18NConfig;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.Place;
@@ -480,6 +481,19 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			
 			// Add the item to its module
 			rci.getDefinedInModule().addRunContextItem(rci);
+		}
+		else if (def instanceof I18NConfig){
+			I18NConfig i18n = (I18NConfig) def;
+			RunContextItemCollection rcic = contexts.get(i18n.getContextImpl());
+			
+			if (rcic == null){
+				rcic = new RunContextItemCollection(i18n.getContextImpl());
+				contexts.put(i18n.getContextImpl(), rcic);
+			}
+			rcic.addItem(i18n);
+			
+			// Add the item to its module
+			i18n.getDefinedInModule().addRunContextItem(i18n);
 		}
 		else if (def instanceof MenuBar){
 			MenuBar menu = (MenuBar) def;
