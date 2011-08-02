@@ -630,7 +630,8 @@ dmdID			87
 type			EditField
 valueType		MULTI
 description		The specification of an attribute to the field editor to be used and optionally
- the label and tooltip to be used.
+ the label and tooltip to be used. The format for this attribute is <br>
+ attribute_name field_editor [MUST|RO] [: label] [: tool tip]
 
 AttributeDefinition
 name			editorName
@@ -669,6 +670,25 @@ description		Specifies that the mapping should use the enum value eg. VALUE1 as 
  label for the value. It would be set to lower case and the first letter captitalized e.g. Value1.
  The default is to use the description part of the enum definition as the label.
 
+AttributeDefinition
+name			useI18NConfig
+dmdID			93
+type			I18NConfig
+description		Specifies that a FormBindingDefinition or GxtEnumMapping should attempt to extract
+ the labels for its attributes/enum values from the specified I18NConfig, which should refer to a
+ class that extends com.google.gwt.i18n.client.Messages/Constants.
+ <p />
+ The convention used is that attribute labels are defined as [attribute_name]Label and enum value
+ labels are defined as <enum_value>Label. When you define an editField, just omit the label portion
+ and the label will be picked up from the I18N configuration; if you specify a label, it overrides
+ the I18N config.
+
+AttributeDefinition
+name			tipsFromI18N
+dmdID			94
+type			Boolean
+description		Specifies that tool tips should also be retrieved from an I18N configuration.
+ The convention is that a tool tip for an attribute is named [attribute_name]Tip
 
 //AttributeDefinition
 //name			mandatoryStyle

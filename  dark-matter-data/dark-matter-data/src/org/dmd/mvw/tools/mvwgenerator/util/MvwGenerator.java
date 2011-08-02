@@ -13,6 +13,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigLocation;
 
@@ -80,6 +81,12 @@ public class MvwGenerator {
 //		for(MvwEvent event: defManager.viewEvents.values()){
 //			GwtEventFormatter.formatEvent(eventsdir, event);
 //		}
+		
+		if (!defManager.getCodeGenModule().getModuleName().equals(loc.getConfigName())){
+//			DebugInfo.debug("Codegen module does not equal config name - config is empty.");
+			System.out.println("\nThe " + loc.getConfigName() + ".mvw config file is empty - no code generated");
+			return;
+		}
 		
 		createGenDir(mvwdir);
 		
@@ -180,8 +187,10 @@ public class MvwGenerator {
 			}
 		}
 			
-		if (defManager.getCodeGenModule() != null)
+		if (defManager.getCodeGenModule() != null){
+			DebugInfo.debug("Generating run context for: " + defManager.getCodeGenModule().getFile());
 			RunContextFormatter.formatModuleRunContextInterface(mvwdir, defManager.getCodeGenModule(), defManager.getDefaultContext());		
+		}
 		
 		if (defManager.getApplication() != null){
 			createGenDir(placesdir);

@@ -191,7 +191,7 @@ public class MvwGenUtility {
             		
             		if (!loc.isFromJAR()){
             			// Wasn't in a jar, so try to generate
-//            			DebugInfo.debug("Generating: " + loc.getConfigName());
+//            			DebugInfo.debug("Config is not from JAR - generating: " + loc.getConfigName());
             			generateFromConfig(version);
             		}
             	}
