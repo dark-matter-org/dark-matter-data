@@ -1,8 +1,5 @@
 package org.dmd.dmc.presentation;
 
-import org.dmd.dmc.DmcAttributeInfo;
-
-
 /**
  * The DmcPresentationTrackerIF defines a component that is responsible for tracking
  * the status of a component that implements the DmcPresentationIF. Generally,
