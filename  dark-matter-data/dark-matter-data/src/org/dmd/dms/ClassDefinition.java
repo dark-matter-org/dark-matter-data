@@ -683,12 +683,13 @@ public class ClassDefinition extends ClassDefinitionDMW {
 	 * the DMOs are generated for different generation contexts.
 	 * @throws DmcValueException  
 	 */
-	public void adjustJavaClass(String context) {
-		String genPackage = getDmwPackage(context);
+	public void adjustJavaClass(String genContext, String genSuffix){
+		String genPackage = getDmwPackage(genContext);
 				
-		if (getDmwWrapperType(context) == WrapperTypeEnum.BASE){
+		if (getDmwWrapperType(genContext) == WrapperTypeEnum.BASE){
 			try {
-				setJavaClass(genPackage + ".generated." + context + "." + getName() + "DMW");
+//				setJavaClass(genPackage + ".generated." + context + "." + getName() + "DMW");
+				setJavaClass(genPackage + ".generated." + genContext + "." + getName() + genSuffix);
 			} catch (DmcValueException e) {
 				e.printStackTrace();
 			}
@@ -730,6 +731,16 @@ public class ClassDefinition extends ClassDefinitionDMW {
 					if (existing != null)
 						throw(new IllegalStateException("Multiple dmwWrapperType values with the same context on class " + getName()));
 					wrapperTypeMap.put(curr.getDmwType(), curr);
+				}
+			}
+			
+			if (getUseWrapperType() == WrapperTypeEnum.EXTENDED){
+				try {
+					DmwTypeToWrapperType ttw = new DmwTypeToWrapperType("dmw", WrapperTypeEnum.EXTENDED);
+					wrapperTypeMap.put(ttw.getDmwType(), ttw);
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		}

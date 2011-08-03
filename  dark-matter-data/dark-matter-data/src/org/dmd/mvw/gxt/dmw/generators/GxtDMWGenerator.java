@@ -36,6 +36,7 @@ public class GxtDMWGenerator extends BaseDMWGenerator {
 		baseWrapperImport 		= "org.dmd.mvw.client.gxt.dmw.GxtWrapper";
 		namedWrapperImport		= "org.dmd.mvw.client.gxt.dmw.GxtNamedObjectWrapper";
 		hierarchicWrapperImport	= "org.dmd.mvw.client.gxt.dmw.GxtHierarchicObjectWrapper";
+		useWrappedObjectRefs 	= false;
 	}
 	
 	
@@ -50,12 +51,17 @@ public class GxtDMWGenerator extends BaseDMWGenerator {
 	@Override
 	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
 		gendir = loc.getConfigParentDirectory() + File.separator + "generated";
+		
+		// These will be created as required
 		dmwdir = gendir + File.separator + "gxt";
 		auxwdir = gendir + File.separator + "auxw";
 		
 		schema = sm;
 		
-		createGenDirs();
+		
+		createIfRequired(gendir);
+		
+//		createGenDirs();
 		
 //		createTypeIterables(config, loc, f, sm);
 		
@@ -67,23 +73,23 @@ public class GxtDMWGenerator extends BaseDMWGenerator {
 //		sformatter.dumpSchema(gendir, config.getGenPackage(), sd, sm);
 	}
 
-	/**
-	 * Creates the output directory structure for our code.
-	 */
-	void createGenDirs(){
-		File gdf = new File(gendir);
-		if (!gdf.exists())
-			gdf.mkdir();
-		
-		File ddf = new File(dmwdir);
-		if (!ddf.exists())
-			ddf.mkdir();
-		
-		File adf = new File(auxwdir);
-		if (!adf.exists())
-			adf.mkdir();
-		
-	}
+//	/**
+//	 * Creates the output directory structure for our code.
+//	 */
+//	void createGenDirs(){
+//		File gdf = new File(gendir);
+//		if (!gdf.exists())
+//			gdf.mkdir();
+//		
+//		File ddf = new File(dmwdir);
+//		if (!ddf.exists())
+//			ddf.mkdir();
+//		
+//		File adf = new File(auxwdir);
+//		if (!adf.exists())
+//			adf.mkdir();
+//		
+//	}
 
 
 }
