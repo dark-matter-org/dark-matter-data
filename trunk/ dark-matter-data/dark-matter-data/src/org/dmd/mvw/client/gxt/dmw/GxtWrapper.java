@@ -31,6 +31,10 @@ import com.extjs.gxt.ui.client.util.Util;
 public class GxtWrapper extends DmcContainer implements Model, ModelData, DmcContainerIF {
 	
 	protected transient ChangeEventSupport changeEventSupport;
+	
+	protected GxtWrapper(){
+		
+	}
 
 	protected GxtWrapper(DmcObject obj){
 		super(obj);
