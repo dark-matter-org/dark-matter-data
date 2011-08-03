@@ -24,7 +24,6 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 
 /**
  * The DmcTypeDmcObject type is meant to refer to raw DmcObjects. The typeCheck() will

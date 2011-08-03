@@ -60,6 +60,7 @@ public class ClassFilter extends DmcFilter {
 	}
 
 	@Override
+	@SuppressWarnings("unused")
 	public boolean objectMatches(DmcObject obj) {
 		boolean rc = false;
 		Iterator<ClassDefinitionREF> refs= obj.getObjectClass();
