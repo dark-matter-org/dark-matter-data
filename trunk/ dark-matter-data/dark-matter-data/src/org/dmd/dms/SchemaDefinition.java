@@ -97,6 +97,12 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 					dmwToPackageMapping.put(curr.getKeyAsString(), curr);
 				}
 			}
+			
+			if (getDmwPackage() != null){
+				// Backwards compatibility
+				StringToString entry = new StringToString("dmw",getDmwPackage());
+				dmwToPackageMapping.put(entry.getKeyAsString(), entry);				
+			}
 		}
 		StringToString existing = dmwToPackageMapping.get(context);
 		if (existing == null)

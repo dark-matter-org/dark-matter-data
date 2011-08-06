@@ -20,11 +20,14 @@ import org.dmd.util.parsing.ConfigLocation;
 public class DmwDMWGenerator extends BaseDMWGeneratorNew {
 
 	public DmwDMWGenerator(){
-		genContext			= "dmw";
-		genSuffix			= "DMW";
+		genContext				= "dmw";
+		genSuffix				= "DMW";
 		baseWrapperImport 		= "org.dmd.dmw.DmwWrapper";
 		namedWrapperImport		= "org.dmd.dmw.DmwNamedObjectWrapper";
-		hierarchicWrapperImport	= "org.dmd.dmw.DmwHierarchicObjectWrapper";		
+		hierarchicWrapperImport	= "org.dmd.dmw.DmwHierarchicObjectWrapper";	
+		
+		useWrappedObjectRefs 	= true;
+		fullJavaEnvironment		= true;
 	}
 	
 	@Override
@@ -34,8 +37,6 @@ public class DmwDMWGenerator extends BaseDMWGeneratorNew {
 		auxwdir = gendir + File.separator + "auxw";
 		
 		schema = sm;
-		
-		createGenDirs();
 		
 		createTypeIterables(config, loc, f, sm);
 		
@@ -49,6 +50,7 @@ public class DmwDMWGenerator extends BaseDMWGeneratorNew {
 
 	////////////////////////////////////////////////////////////////////////////////
 	// Our functionality
+	
 
 	void createTypeIterables(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
 		SchemaDefinition sd = sm.isSchema(config.getSchemaToLoad());

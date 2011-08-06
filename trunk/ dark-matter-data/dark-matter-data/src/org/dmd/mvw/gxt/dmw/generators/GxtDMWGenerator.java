@@ -20,23 +20,26 @@ import java.io.IOException;
 
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.generators.BaseDMWGenerator;
+import org.dmd.dmg.generators.BaseDMWGeneratorNew;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
-public class GxtDMWGenerator extends BaseDMWGenerator {
+public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 
 
 	public GxtDMWGenerator(){
 //		sformatter = new SchemaFormatter();
 		
-		genContext			= "gxt";
-		genSuffix			= "GXT";
+		genContext				= "gxt";
+		genSuffix				= "GXT";
 		baseWrapperImport 		= "org.dmd.mvw.client.gxt.dmw.GxtWrapper";
 		namedWrapperImport		= "org.dmd.mvw.client.gxt.dmw.GxtNamedObjectWrapper";
 		hierarchicWrapperImport	= "org.dmd.mvw.client.gxt.dmw.GxtHierarchicObjectWrapper";
+		
 		useWrappedObjectRefs 	= false;
+		fullJavaEnvironment		= false;
 	}
 	
 	

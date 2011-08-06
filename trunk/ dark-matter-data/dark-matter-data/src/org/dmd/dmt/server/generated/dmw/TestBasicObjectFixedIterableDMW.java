@@ -11,7 +11,7 @@ import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;  // wrapper typ
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1571)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:150)
+ *    Called from: org.dmd.dmg.generators.DmwDMWGenerator.createTypeIterables(DmwDMWGenerator.java:75)
  */
 public class TestBasicObjectFixedIterableDMW extends DmwObjectIterator<TestBasicObjectFixedDMW, TestBasicObjectFixedDMO> {
 

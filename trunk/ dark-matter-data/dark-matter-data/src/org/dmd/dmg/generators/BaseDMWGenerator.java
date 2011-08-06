@@ -93,6 +93,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	// don't have full java, we just want to use the object REFs right from the DMOs.
 	protected	Boolean				useWrappedObjectRefs;
 	
+	protected	Boolean				fullJavaEnvironment;
+	
 	// Derived classes will set these attributes to contain the fully qualified
 	// names of the wrapper classes for each category of object i.e. unnamed objects,
 	// named objects and hierarchically named objects.
@@ -131,7 +133,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	// Our functionality
 
 	protected void createWrappers(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
-		
+
 		int lastdot = -1;
 		
 		lastdot = baseWrapperImport.lastIndexOf(".");
@@ -157,7 +159,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		if (cdefs != null){
 			while(cdefs.hasNext()){
 				ClassDefinition cd = cdefs.next();
-								
 				cd.adjustJavaClass(genContext,genSuffix);
 				
 				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
@@ -250,9 +251,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
         	if (cd.getDerivedFrom().getDMWPackage() != null)
         		cd.getDerivedFrom().adjustJavaClass(genContext,genSuffix);
 
-//            if ( cd.getDerivedFrom().getUseWrapperType() == WrapperTypeEnum.EXTENDED){
-//            	if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED)
-            if ( cd.getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED){
+            if ( cd.getDerivedFrom().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED){
             	if (cd.getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
             		out.write("abstract public class " + cd.getName() + genSuffix + " extends " + cd.getDerivedFrom().getName() + " " + impl + "{\n");
             	else{
@@ -280,8 +279,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	        out.write("        super();\n");	       
 	        out.write("    }\n\n");	 
 	        
-//	        if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED)
-		    if (cd.getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
+	        if (cd.getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
 		        out.write("    abstract public " + cd.getName() + " getModificationRecorder();\n\n");
 	        else
 	        	out.write("    abstract public " + cd.getName() + genSuffix + " getModificationRecorder();\n\n");
@@ -291,26 +289,28 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
         	String schemaName = GeneratorUtils.dotNameToCamelCase(cd.getDefinedIn().getName().getNameString()) + "SchemaAG";
         	String classDef = cd.getDmwPackage(genContext) + ".generated." + schemaName + "._" + cd.getName();
         	
-//	        out.write("    public " + cd.getName() + genSuffix + "() {\n");
-//	        out.write("        super(new " + cd.getName() + "DMO(), " + classDef + ");\n");
-//	        out.write("    }\n\n");
+        	if (fullJavaEnvironment){
+		        out.write("    public " + cd.getName() + genSuffix + "() {\n");
+		        out.write("        super(new " + cd.getName() + "DMO(), " + classDef + ");\n");
+		        out.write("    }\n\n");
+		        
+		        // Modification recorder constructor
+		        out.write("    public " + cd.getName() + genSuffix + "(DmcTypeModifierMV mods) {\n");
+		        out.write("        super(new " + cd.getName() + "DMO(mods), " + classDef + ");\n");
+		        out.write("    }\n\n");
+        	}
+	        else{
+		        out.write("    public " + cd.getName() + genSuffix + "() {\n");
+		        out.write("        super(new " + cd.getName() + "DMO());\n");
+		        out.write("    }\n\n");
 	        
-	        out.write("    public " + cd.getName() + genSuffix + "() {\n");
-	        out.write("        super(new " + cd.getName() + "DMO());\n");
-	        out.write("    }\n\n");
-	        
-	        // Modification recorder constructor
-//	        out.write("    public " + cd.getName() + genSuffix + "(DmcTypeModifierMV mods) {\n");
-//	        out.write("        super(new " + cd.getName() + "DMO(mods), " + classDef + ");\n");
-//	        out.write("    }\n\n");
-	        
-	        out.write("    public " + cd.getName() + genSuffix + "(DmcTypeModifierMV mods) {\n");
-	        out.write("        super(new " + cd.getName() + "DMO(mods));\n");
-	        out.write("    }\n\n");
+		        out.write("    public " + cd.getName() + genSuffix + "(DmcTypeModifierMV mods) {\n");
+		        out.write("        super(new " + cd.getName() + "DMO(mods));\n");
+		        out.write("    }\n\n");
+	        }
 	        
 	        if (cd.getIsNamedBy() == null){
-//		        if (cd.getUseWrapperType() ==  WrapperTypeEnum.EXTENDED){
-			    if (cd.getDmwWrapperType(genContext) ==  WrapperTypeEnum.EXTENDED){
+	        	if (cd.getDmwWrapperType(genContext) ==  WrapperTypeEnum.EXTENDED){
 		        	// If the wrapper type is extended, we're abstract at this level, so we
 		        	// have to instantiate our derived wrapper class instead
 			        out.write("    public " + cd.getName() + " getModificationRecorder(){\n");
@@ -321,7 +321,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		        }
 		        else{
 			        out.write("    public " + cd.getName() + genSuffix + " getModificationRecorder(){\n");
-			        out.write("        " + cd.getName() + genSuffix + " rc = new " + cd.getName() + genSuffix + "(new DmcTypeModifierMV());\n");
+			        out.write("        " + cd.getName() + genSuffix + " rc = new " + cd.getName() + genSuffix + "(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
 			        out.write("        return(rc);\n");
 			        out.write("    }\n\n");
 		        }
@@ -329,8 +329,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	        else{
 	        	String upper = GenUtility.capTheName(cd.getIsNamedBy().getObjectName().toString());
 	        	
-//		        if (cd.getUseWrapperType() ==  WrapperTypeEnum.EXTENDED){
-			    if (cd.getDmwWrapperType(genContext) ==  WrapperTypeEnum.EXTENDED){
+	        	if (cd.getDmwWrapperType(genContext) ==  WrapperTypeEnum.EXTENDED){
 		        	// If the wrapper type is extended, we're abstract at this level, so we
 		        	// have to instantiate our derived wrapper class instead
 			        out.write("    public " + cd.getName() + " getModificationRecorder(){\n");
@@ -349,17 +348,30 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			        out.write("    }\n\n");
 		        }
 	        }
+	        
+	        if (fullJavaEnvironment){
+		        out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
+		        out.write("        super(obj, " + classDef + ");\n");
+		        out.write("    }\n\n");
+	        }
         }
 
-        if (anyAttributes){
+//        if (anyAttributes){
 	        out.write("    public " + cd.getName() + "DMO getDMO() {\n");
 	        out.write("        return((" + cd.getName() + "DMO) core);\n");
 	        out.write("    }\n\n");
-        }
+//        }
 
-        out.write("    protected " + cd.getName() + genSuffix + "(" + cd.getName() + "DMO obj) {\n");
-        out.write("        super(obj);\n");
-        out.write("    }\n\n");
+        if (fullJavaEnvironment){
+	        out.write("    protected " + cd.getName() + genSuffix + "(" + cd.getName() + "DMO obj, ClassDefinition cd) {\n");
+	        out.write("        super(obj,cd);\n");
+	        out.write("    }\n\n");
+        }
+        else{
+	        out.write("    protected " + cd.getName() + genSuffix + "(" + cd.getName() + "DMO obj) {\n");
+	        out.write("        super(obj);\n");
+	        out.write("    }\n\n");
+        }
 	        
         out.write(getAccessFunctions(cd));
         out.write("\n");
@@ -443,6 +455,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, StringBuffer sb){
 		IntegerVar		longestImport	= new IntegerVar();
 		TreeMap<StringName,TypeDefinition>	types = new TreeMap<StringName,TypeDefinition>();
+		TreeMap<StringName,TypeDefinition>	iterables = new TreeMap<StringName,TypeDefinition>();
 		TreeSet<String>						genericImports	= new TreeSet<String>();
 		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
 		boolean								needDmwOmni		= false;
@@ -485,6 +498,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
 					
+					iterables.put(td.getName(),td);
 					break;
 				case MULTI:
 				case HASHSET:
@@ -493,6 +507,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 					
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
+					
+					iterables.put(td.getName(),td);
 					
 					break;
 				}
@@ -507,9 +523,9 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 
 				if (ad.getGenericArgsImport() != null)
 					genericImports.add(ad.getGenericArgsImport());
-				
+
 				if (ad.getValueType() != ValueTypeEnum.SINGLE){
-					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute schema");
+					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
 				}
 
 				allAttr.add(ad);
@@ -545,6 +561,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
 
+					iterables.put(td.getName(),td);
 					break;
 				case MULTI:
 				case HASHSET:
@@ -552,6 +569,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 					anyMVAttributes = true;
 					if (ad.getType().getIsRefType())
 						anyMVRefs = true;
+
+					iterables.put(td.getName(),td);
 					break;
 				}
 
@@ -567,7 +586,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 					genericImports.add(ad.getGenericArgsImport());
 
 				if (ad.getValueType() != ValueTypeEnum.SINGLE){
-					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute schema");
+					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
 				}
 				
 				allAttr.add(ad);
@@ -583,9 +602,10 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 				
 //		addImport(uniqueImports, longestImport, "org.dmd.dms.*", "Always 2");
 		
-		if ( (cd.getClassType() != ClassTypeEnum.ABSTRACT) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
+		if ( (cd.getClassType() != ClassTypeEnum.ABSTRACT) && (cd.getClassType() != ClassTypeEnum.AUXILIARY)){
 			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.types.DmcTypeModifierMV", "Required for MODREC constructor");
-		
+			addImport(uniqueImports, longestImport, "org.dmd.dms.generated.dmo.MetaDMSAG", "Required for MODREC constructor");
+		}
 		
 		if (cd.getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED){
 			addImport(uniqueImports, longestImport, cd.getDmeImport(), "Required for getModificationRecorder()");
@@ -644,7 +664,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			
 			if (ta.valueType != ValueTypeEnum.SINGLE)
 				addImport(uniqueImports, longestImport, "java.util.Iterator", "To support getMVCopy()");
-							
+
 			switch(ta.valueType){
 			case SINGLE:
 				break;
@@ -665,6 +685,19 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 				break;
 			}
 				
+		}
+		
+		if (useWrappedObjectRefs){
+			Iterator<TypeDefinition> t  = iterables.values().iterator();
+			while(t.hasNext()){
+				TypeDefinition td = t.next();
+				
+				addImport(uniqueImports, longestImport, td.getDmwIteratorImport(), "For multi-valued " + td.getName().getNameString());
+				
+				if (td.getPrimitiveType() != null)
+					addImport(uniqueImports, longestImport, td.getPrimitiveType(), "For multi-valued contains" + td.getName().getNameString());
+				
+			}
 		}
 		
 		if (cd.getClassType() == ClassTypeEnum.ABSTRACT){
@@ -721,7 +754,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		return(sb.toString());
 	}
 	
-
 	String getAccessFunctions(ClassDefinition cd){
 		StringBuffer sb	= new StringBuffer();
 		
@@ -773,7 +805,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 				formatMAPPED(cd, ad, sb);
 				break;
 			}
-
 		}
 		
 		return(sb.toString());
@@ -825,8 +856,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
     	if (ad.getType().getIsRefType()){
     		if (ad.getType().getOriginalClass().getIsNamedBy() == null){
     			String cname = null;
-//    			if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
-        		if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
+
+    			if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
     				cname = ad.getType().getOriginalClass().getName().getNameString();
     			else
     				cname = ad.getType().getOriginalClass().getName().getNameString() + genSuffix;
@@ -845,13 +876,12 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
     		}
     		else{
     			String suffix = "";
-//    			if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
-        		if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
+    			if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
     				suffix = "";
     			else
     				suffix = genSuffix;
     			
-        		if (useWrappedObjectRefs){
+    			if (useWrappedObjectRefs){
 			    	sb.append("    /**\n");
 					sb.append("     * @return A " + ad.getType().getName() + suffix + " object.\n");
 					sb.append("     */\n");
@@ -861,9 +891,12 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 					sb.append("        if (ref == null)\n");
 					sb.append("            return(null);\n");
 					sb.append("        \n");
+					sb.append("        if (ref.getObject() == null)\n");
+					sb.append("            return(null);\n");
+					sb.append("        \n");
 					sb.append("        return((" + ad.getType().getName() + suffix + ")ref.getObject().getContainer());\n");
 					sb.append("    }\n\n");
-        		}
+    			}
         		else{
 			    	sb.append("    /**\n");
 					sb.append("     * @return A reference to a " + ad.getType().getName() + " object.\n");
@@ -880,16 +913,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
     		}
     	}
     	else{
-//    		if (genericArgs.equals("<DmcObjectName>")){
-//    			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-//    			if (typeName.equals("DmcAttribute"))
-//    				sb.append("    public DmcAttribute" + genericArgs + " get" + functionName + "(){\n");
-//    			else
-//    				sb.append("    public " + typeName + " get" + functionName + "(){\n");
-//    			sb.append("        return(mycore.get" + functionName + "());\n");
-//    	    	sb.append("    }\n\n");
-//    		}
-    		
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			if (typeName.equals("DmcAttribute")){
 				sb.append("    public DmcAttribute" + genericArgs + " get" + functionName + "(){\n");
@@ -1028,9 +1051,12 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("    public int get" + functionName + "Size(){\n");
 		sb.append("        return(" + dmocast + ".get" + functionName + "Size());\n");
 //		sb.append("        DmcAttribute<?> attr = core.get(" + ad.getDMSAGReference() + ");\n");
-//		sb.append("        if (attr == null)\n");
-//		sb.append("            return(0);\n");
-//		sb.append("        \n");
+//		sb.append("        if (attr == null){\n");
+//		sb.append("            if (" + ad.getDMSAGReference() + ".indexSize == 0)\n");
+//		sb.append("                return(0);\n");
+//		sb.append("            else\n");
+//		sb.append("                return(" + ad.getDMSAGReference() + ".indexSize);\n");
+//		sb.append("        }\n");
 //		sb.append("        return(attr.getMVSize());\n");
 		sb.append("    }\n\n");
     	
@@ -1071,121 +1097,193 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			String justdmo = ad.getType().getOriginalClass().getName().getNameString() + "DMO";
 			String itClass = ad.getType().getOriginalClass().getDmwIteratorClass();
 			
-	    	sb.append("    /**\n");
-			sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
-			sb.append("     */\n");
-			sb.append("    @SuppressWarnings(\"unchecked\")\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
-			sb.append("        DmcAttribute attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
-			sb.append("        if (attr == null)\n");
-			sb.append("            return(" + itClass+ ".emptyList);\n");
-			sb.append("        \n");
-			sb.append("        return(new " + itClass + "(attr.getMV()));\n");
-			sb.append("    }\n\n");
-			
-	    	////////////////////////////////////////////////////////////////////////////////
-	    	// adder
-
-			sb.append("    /**\n");
-			sb.append("     * Adds another " + ad.getName() + " value.\n");
-			sb.append("     * @param value A value compatible with " + typeName + "\n");
-			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public DmcAttribute<?> add" + functionName + "(" + auxHolderClass + " value){\n");
-	    	sb.append("        DmcAttribute<?> attr = " + dmocast + ".add" + functionName + "(((" + justdmo + ")value.getDmcObject()));\n");
-	    	sb.append("        return(attr);\n");
-			sb.append("    }\n\n");
-
-	    	////////////////////////////////////////////////////////////////////////////////
-	    	// deleter
-
-			sb.append("    /**\n");
-			sb.append("     * Deletes a " + ad.getName() + " value.\n");
-			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
-			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
-			sb.append("        " + dmocast + ".del" + functionName + "(value.getDMO());\n");
-			sb.append("    }\n\n");
-			
-	    	////////////////////////////////////////////////////////////////////////////////
-	    	// collection
-			
-			if (ad.getType().getOriginalClass().getIsNamedBy() != null){
-				String collectionClass 	= null;
-				String dmwClass			= null;
-				boolean isMULTI = false;
+			if (ad.getIndexSize() == null){
+				sb.append("    /**\n");
+				sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
+				sb.append("     */\n");
+				sb.append("    @SuppressWarnings(\"unchecked\")\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
+				sb.append("        DmcAttribute attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(" + itClass+ ".emptyList);\n");
+				sb.append("        \n");
+				sb.append("        return(new " + itClass + "(attr.getMV()));\n");
+				sb.append("    }\n\n");
 				
-//				if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
-				if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
-					dmwClass = ad.getType().getOriginalClass().getName().getNameString();
-				else
-					dmwClass = ad.getType().getOriginalClass().getName().getNameString() + genSuffix;
-					
-			
-				switch(ad.getValueType()){
-				case MULTI:
-					collectionClass = "ArrayList";
-					isMULTI = true;
-					break;
-				case HASHSET:
-					collectionClass = "HashSet";
-					break;
-				case TREESET:
-					collectionClass = "TreeSet";
-					break;
-				}
-				
-		    	sb.append("    /**\n");
-				sb.append("     * @return A COPY of the collection of " + typeName + " objects.\n");
+		    	////////////////////////////////////////////////////////////////////////////////
+		    	// adder
+	
+				sb.append("    /**\n");
+				sb.append("     * Adds another " + ad.getName() + " value.\n");
+				sb.append("     * @param value A value compatible with " + typeName + "\n");
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public " + collectionClass + "<" + dmwClass + ">" + " get" + functionName + "Copy(){\n");
-				sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
-				sb.append("        if (attr == null)\n");
-				sb.append("            return(new " + collectionClass + "<" + dmwClass + ">());\n");
-				sb.append("        \n");
-				if (isMULTI)
-					sb.append("        " + collectionClass + "<" + dmwClass + "> rc = new " + collectionClass + "<" + dmwClass + ">(attr.getMVSize());\n");
-				else
-					sb.append("        " + collectionClass + "<" + dmwClass + "> rc = new " + collectionClass + "<" + dmwClass + ">();\n");
-				sb.append("        \n");
-				
-				sb.append("        " + itClass + " it = get" + functionName + "Iterable();\n");
-				sb.append("        while(it.hasNext()){\n");
-				sb.append("            rc.add(it.next());\n");
-				sb.append("        }\n");
-				sb.append("        \n");
-				sb.append("        return(rc);\n");
+				sb.append("    public DmcAttribute<?> add" + functionName + "(" + auxHolderClass + " value){\n");
+		    	sb.append("        DmcAttribute<?> attr = " + dmocast + ".add" + functionName + "(((" + justdmo + ")value.getDmcObject()));\n");
+		    	sb.append("        return(attr);\n");
 				sb.append("    }\n\n");
+	
+		    	////////////////////////////////////////////////////////////////////////////////
+		    	// deleter
+	
+				sb.append("    /**\n");
+				sb.append("     * Deletes a " + ad.getName() + " value.\n");
+				sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
+				sb.append("        " + dmocast + ".del" + functionName + "(value.getDMO());\n");
+				sb.append("    }\n\n");
+				
+		    	////////////////////////////////////////////////////////////////////////////////
+		    	// collection
+				
+				if (ad.getType().getOriginalClass().getIsNamedBy() != null){
+					String collectionClass 	= null;
+					String dmwClass			= null;
+					boolean isMULTI = false;
+					
+					if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
+						dmwClass = ad.getType().getOriginalClass().getName().getNameString();
+					else
+						dmwClass = ad.getType().getOriginalClass().getName().getNameString() + genSuffix;
+						
+				
+					switch(ad.getValueType()){
+					case MULTI:
+						collectionClass = "ArrayList";
+						isMULTI = true;
+						break;
+					case HASHSET:
+						collectionClass = "HashSet";
+						break;
+					case TREESET:
+						collectionClass = "TreeSet";
+						break;
+					}
+					
+			    	sb.append("    /**\n");
+					sb.append("     * @return A COPY of the collection of " + typeName + " objects.\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public " + collectionClass + "<" + dmwClass + ">" + " get" + functionName + "Copy(){\n");
+					sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
+					sb.append("        if (attr == null)\n");
+					sb.append("            return(new " + collectionClass + "<" + dmwClass + ">());\n");
+					sb.append("        \n");
+					if (isMULTI)
+						sb.append("        " + collectionClass + "<" + dmwClass + "> rc = new " + collectionClass + "<" + dmwClass + ">(attr.getMVSize());\n");
+					else
+						sb.append("        " + collectionClass + "<" + dmwClass + "> rc = new " + collectionClass + "<" + dmwClass + ">();\n");
+					sb.append("        \n");
+					
+					sb.append("        " + itClass + " it = get" + functionName + "Iterable();\n");
+					sb.append("        while(it.hasNext()){\n");
+					sb.append("            rc.add(it.next());\n");
+					sb.append("        }\n");
+					sb.append("        \n");
+					sb.append("        return(rc);\n");
+					sb.append("    }\n\n");
+				}
 			}
-			
+			else{
+				// INDEXED ATTRIBUTES
+				
+				sb.append("    /**\n");
+				sb.append("     * Sets the " + ad.getName() + " value at the specified index.\n");
+				sb.append("     * @param value A value compatible with " + typeName + "\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + auxHolderClass + " value){\n");
+		    	sb.append("        DmcAttribute<?> attr = null;\n");
+		    	sb.append("        if (value == null)\n");
+		    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, null);\n");
+		    	sb.append("        else\n");
+		    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, ((" + justdmo + ")value.getDmcObject()));\n");
+		    	sb.append("        return(attr);\n");
+				sb.append("    }\n\n");
+				
+		    	if (ad.getType().getIsRefType()){
+		    		if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+		    			String cname = null;
+		    			if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
+		    				cname = ad.getType().getOriginalClass().getName().getNameString();
+		    			else
+		    				cname = ad.getType().getOriginalClass().getName().getNameString() + "DMW";
+		    				
+				    	sb.append("    /**\n");
+						sb.append("     * @return The " + cname + " object at the specified index.\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public " + cname + " getNth" + functionName + "(int index){\n");
+						sb.append("        " + ad.getType().getName() + "DMO dmo = " + dmocast + ".getNth" + functionName + "(index);\n");
+						sb.append("        if (dmo == null)\n");
+						sb.append("            return(null);\n");
+						sb.append("        \n");
+						sb.append("        return((" + cname + ")dmo.getContainer());\n");
+						sb.append("    }\n\n");
+		    		}
+		    		else{
+		    			String suffix = "";
+		    			if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
+		    				suffix = "";
+		    			else
+		    				suffix = genSuffix;
+		    			
+				    	sb.append("    /**\n");
+						sb.append("     * @return The " + ad.getType().getName() + suffix + " object at the specified index.\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public " + ad.getType().getName() + suffix  + " getNth" + functionName + "(int index){\n");
+						sb.append("        " + ad.getType().getName() + "REF ref = " + dmocast + ".getNth" + functionName + "(index);\n");
+						sb.append("        if (ref == null)\n");
+						sb.append("            return(null);\n");
+						sb.append("        \n");
+						sb.append("        if (ref.getObject() == null)\n");
+						sb.append("            return(null);\n");
+						sb.append("        \n");
+						sb.append("        return((" + ad.getType().getName() + suffix + ")ref.getObject().getContainer());\n");
+						sb.append("    }\n\n");
+						
+				    	sb.append("    /**\n");
+						sb.append("     * @return The reference to the " + ad.getType().getName() + suffix + " object at the specified index.\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public " + ad.getType().getName() + suffix  + "REF getNth" + functionName + "REF(int index){\n");
+						sb.append("        " + ad.getType().getName() + "REF ref = " + dmocast + ".getNth" + functionName + "REF(index);\n");
+						sb.append("        return(ref);\n");
+						sb.append("    }\n\n");
+						
+		    		}
+		    	}				
+			}
 		}
 		else{
-//			String itClass = ad.getType().getDmwIteratorClass();
-			
-//	    	sb.append("    /**\n");
-//			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
-//			sb.append("     */\n");
-//			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-//			sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
-//			sb.append("        DmcAttribute<?> attr = core.get(" + cd.getName() + "DMO.__" + ad.getName() + ");\n");
-//			sb.append("        if (attr == null)\n");
-//			sb.append("            return(" + itClass+ ".emptyList);\n");
-//			sb.append("        \n");
-//			sb.append("        return(new " + itClass + "(" + dmocast + ".get" + functionName + "()));\n");
-//			sb.append("    }\n\n");
-			
-	    	sb.append("    /**\n");
-			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
-			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
-			sb.append("        return(" + dmocast + ".get" + functionName + "());\n");
-			sb.append("    }\n\n");
-			
-			
+			if (useWrappedObjectRefs){
+				String itClass = ad.getType().getDmwIteratorClass();
+
+		    	sb.append("    /**\n");
+				sb.append("     * @return An Iterator of " + typeName + " objects.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
+				sb.append("        DmcAttribute<?> attr = core.get(" + ad.getDMSAGReference() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(" + itClass+ ".emptyList);\n");
+				sb.append("        \n");
+				sb.append("        return(new " + itClass + "(" + dmocast + ".get" + functionName + "()));\n");
+				sb.append("    }\n\n");
+			}
+			else{
+		    	sb.append("    /**\n");
+				sb.append("     * @return An Iterator of " + typeName + " objects.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+				sb.append("        return(" + dmocast + ".get" + functionName + "());\n");
+				sb.append("    }\n\n");
+			}
 			
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// adder
@@ -1199,25 +1297,59 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
 			sb.append("    }\n\n");
 			
-			sb.append("    /**\n");
-			sb.append("     * Adds another " + ad.getName() + " value.\n");
-			sb.append("     * @param value A value compatible with " + typeName + "\n");
-			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public void add" + functionName + "(" + typeName + " value){\n");
-	    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
-			sb.append("    }\n\n");
+			if (ad.getIndexSize() == null){
+				sb.append("    /**\n");
+				sb.append("     * Adds another " + ad.getName() + " value.\n");
+				sb.append("     * @param value A value compatible with " + typeName + "\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public void add" + functionName + "(" + typeName + " value){\n");
+		    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
+				sb.append("    }\n\n");
+			}
+			else{
+				sb.append("    /**\n");
+				sb.append("     * Sets a " + ad.getName() + " value at the specified index.\n");
+				sb.append("     * @param index The index to set.\n");
+				sb.append("     * @param value A value compatible with " + typeName + "\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public void setNth" + functionName + "(int index, " + typeName + " value){\n");
+		    	sb.append("        " + dmocast + ".setNth" + functionName + "(index, value);\n");
+				sb.append("    }\n\n");
+				
+				sb.append("    /**\n");
+				sb.append("     * Gets the " + ad.getName() + " value at the specified index.\n");
+				sb.append("     * @param index The index to retreive.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + typeName + " getNth" + functionName + "(int index){\n");
+		    	sb.append("        return(" + dmocast + ".getNth" + functionName + "(index));\n");
+				sb.append("    }\n\n");
+			}
 			
 			if (ad.getType().getAltType() != null){
 				String alt = ad.getType().getAltType();
-				sb.append("    /**\n");
-				sb.append("     * Adds another " + alt + " value.\n");
-				sb.append("     * @param value A value compatible with " + alt + "\n");
-				sb.append("     */\n");
-				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public void add" + functionName + "(" + alt + " value){\n");
-		    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
-				sb.append("    }\n\n");
+				if (ad.getIndexSize() == null){
+					sb.append("    /**\n");
+					sb.append("     * Adds another " + alt + " value.\n");
+					sb.append("     * @param value A value compatible with " + alt + "\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public void add" + functionName + "(" + alt + " value){\n");
+			    	sb.append("        " + dmocast + ".add" + functionName + "(value);\n");
+					sb.append("    }\n\n");
+				}
+				else{
+					sb.append("    /**\n");
+					sb.append("     * Sets a " + alt + " value at the specified index\n");
+					sb.append("     * @param value A value compatible with " + alt + "\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public void setNth" + functionName + "(int index, " + alt + " value){\n");
+			    	sb.append("        " + dmocast + ".setNth" + functionName + "(index,value);\n");
+					sb.append("    }\n\n");
+				}
 			}
 			
 	    	////////////////////////////////////////////////////////////////////////////////
@@ -1414,8 +1546,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("        \n");
 		sb.append("        return((" + typeName + ")attr.getByKey(key));\n");
 		sb.append("    }\n\n");
-		
-    	
 
 		if (ad.getType().getIsRefType()){
 			String itClass = ad.getType().getOriginalClass().getDmwIteratorClass();
@@ -1478,15 +1608,11 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 				String dmwClass			= null;
 				String keyClass = ad.getType().getOriginalClass().getIsNamedBy().getType().getName().getNameString();
 				
-//				String dmoREF			= ad.getType().getOriginalClass().getName() + "REF";
-				
-//				if (ad.getType().getOriginalClass().getUseWrapperType() == WrapperTypeEnum.EXTENDED)
 				if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
 					dmwClass = ad.getType().getOriginalClass().getName().getNameString();
 				else
 					dmwClass = ad.getType().getOriginalClass().getName().getNameString() + genSuffix;
 					
-			
 				switch(ad.getValueType()){
 				case HASHMAPPED:
 					collectionClass = "HashMap";
@@ -1514,10 +1640,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 				sb.append("        }\n");
 				sb.append("        return(rc);\n");
 				sb.append("    }\n\n");
-			
 			}
-			
-
 		}
 		else{
 			String itClass = ad.getType().getDmwIteratorClass();
@@ -1575,7 +1698,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("        " + dmocast + ".del" + functionName + "(value);\n");
 			sb.append("    }\n\n");
 
-			
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// collection
 			
@@ -1616,7 +1738,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("        \n");
 			sb.append("        return(rc);\n");
 			sb.append("    }\n\n");
-
 		}
 		
     	////////////////////////////////////////////////////////////////////////////////
@@ -1642,7 +1763,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("    }\n\n");
 
 	}
-
 
 	String getCommonAUXFunctions(){
 		StringBuffer sb = new StringBuffer();
@@ -1711,7 +1831,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	
 	String getAUXAccessFunctions(ClassDefinition cd){
 		StringBuffer sb	= new StringBuffer();
-		
 		
 		for(AttributeDefinition ad : allAttr){
 			switch(ad.getValueType()){
@@ -1801,12 +1920,8 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("        \n");
 			sb.append("        " + REF + " ref = (" + REF + ") attr.getSV();\n");
 			sb.append("        \n");
-//			sb.append("        " + auxHolderClass + " ref = (" + auxHolderClass + ") attr.getAuxData();\n");
-//			sb.append("        \n");
 			sb.append("        return((" + auxHolderClass + ")ref.getObject().getContainer());\n");
 			sb.append("    }\n\n");
-			
-    		
     	}
     	else{
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -1841,7 +1956,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("        }\n\n");
 	    	sb.append("        attr.set(value);\n");
 	    	sb.append("        corew.getDmcObject().set(" + staticName + ", attr);\n");
-//	    	sb.append("        attr.setAuxData(value);\n");
 			sb.append("    }\n\n");
 
     	}
@@ -1861,7 +1975,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
         	sb.append("        attr.set(value);\n");
         	sb.append("        corew.getDmcObject().set(" + staticName + ",attr);\n");
         	sb.append("    }\n\n");
-
     	}
 	}
 	
@@ -1958,7 +2071,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 		sb.append("        return(true);\n");
 		sb.append("    }\n\n");
 
-
 		////////////////////////////////////////////////////////////////////////////////
     	// getter
 
@@ -2009,45 +2121,10 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-//			sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    static public void del" + functionName + "(" + baseWrapper + " corew, " + auxHolderClass + " value){\n");
-//			sb.append("        " + attrType + " attr = (" + attrType + ") corew.getDmcObject().del(__" + ad.getName() + ", value);\n");
 			sb.append("        corew.getDmcObject().del(__" + ad.getName() + ", value);\n");
-			
-			// NOTE: COMPLICATED STUFF - when we have a utility object that we're using to populate a modifier, we
-			// have to handle the case where the object doesn't contain the attribute we're trying to delete the
-			// value from. So, we have to create a holder for the attribute and add the operation directly to the modifier.
-			
-//	    	sb.append("        if (attr == null){\n");
-//	    	sb.append("            DmcTypeModifier mods = corew.getModifier();\n");
-//	    	sb.append("            if (mods != null){\n");
-//	    	sb.append("        		   try {\n");
-//	    	sb.append("        	           attr = new " + attrType + "();\n");
-//	    	sb.append("        		       attr.setName(__" + ad.getName() + ".name);\n");
-//	    	sb.append("        		       attr.add(value.getDmcObject());\n");
-//	    	sb.append("        		       mods.add(new Modification(ModifyTypeEnum.DEL, attr));\n");
-//	    	sb.append("        	       } catch (DmcValueException e) {\n");
-//	    	sb.append("        		       e.printStackTrace();\n");
-//	    	sb.append("        	       }\n");
-//	    	sb.append("        	   }\n");
-//	    	sb.append("            return;\n");
-//	    	sb.append("        }\n");
-//	    	sb.append("        \n");
-//	    	
-//	    	
-//	    	sb.append("        attr.del(value.getDmcObject());\n");
-	    	
-	    	
-//	    	sb.append("        \n");
-//	    	sb.append("        ArrayList<" + auxHolderClass + "> refs = (ArrayList<" + auxHolderClass + ">) attr.getAuxData();\n");
-//	    	sb.append("        \n");
-//	    	sb.append("        if (refs != null){\n");
-//	    	sb.append("            refs.remove(value);\n");
-//	    	sb.append("        }\n");
 	    	sb.append("        removeAuxIfRequired(corew);\n");
 			sb.append("    }\n\n");
-
-
 		}
 		else{
 	    	sb.append("    /**\n");
@@ -2083,7 +2160,6 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 	    	sb.append("        removeAuxIfRequired(corew);\n");
 			sb.append("    }\n\n");
 		}
-		
 	}
 
 	/**
