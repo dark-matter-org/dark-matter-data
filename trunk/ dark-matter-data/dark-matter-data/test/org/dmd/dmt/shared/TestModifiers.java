@@ -361,4 +361,26 @@ public class TestModifiers {
 		System.out.println(request);
 	}
 	
+	@Test
+	public void testOIFObjectWithModifier() throws DmcValueException{
+		System.out.println("\n***** testOIFObjectWithModifier\n");
+		
+		ObjWithRefs	obj = new ObjWithRefs();
+		obj.setName("object 1");
+
+		ObjWithRefs modrec = obj.getModificationRecorder();
+		
+		modrec.addMvString("another value");
+		modrec.addHsTestEnum(DmtTestEnum.TEST1);
+
+		System.out.println(modrec.toOIF());
+		
+		modrec = obj.getModificationRecorder();
+		
+		System.out.println(modrec.toOIF());
+
+		
+		
+	}
+	
 }

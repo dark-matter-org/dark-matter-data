@@ -1177,7 +1177,8 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 				sb.append("        if (attr == null)\n");
 				sb.append("            return(" + itClass+ ".emptyList);\n");
 				sb.append("        \n");
-				sb.append("        return(new " + itClass + "(attr.getMV()));\n");
+				sb.append("        return(new " + itClass + "(" + dmocast + ".get" + functionName + "()));\n");
+//				sb.append("        return(new " + itClass + "(attr.getMV()));\n");
 				sb.append("    }\n\n");
 				
 		    	////////////////////////////////////////////////////////////////////////////////
