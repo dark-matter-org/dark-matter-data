@@ -82,6 +82,9 @@ public class MvwGenerator {
 //			GwtEventFormatter.formatEvent(eventsdir, event);
 //		}
 		
+		if (defManager.getCodeGenModule() == null)
+			return;
+		
 		if (!defManager.getCodeGenModule().getModuleName().equals(loc.getConfigName())){
 //			DebugInfo.debug("Codegen module does not equal config name - config is empty.");
 			System.out.println("\nThe " + loc.getConfigName() + ".mvw config file is empty - no code generated");

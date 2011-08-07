@@ -309,11 +309,14 @@ public class MvwGenUtility {
 			
 		} catch (ResultException e) {
 			System.err.println("\n" + e.toString());
+			System.exit(1);
 		} catch (DmcValueException e) {
 			e.printStackTrace();
+			System.exit(1);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.exit(1);
 		}
 		
 	}

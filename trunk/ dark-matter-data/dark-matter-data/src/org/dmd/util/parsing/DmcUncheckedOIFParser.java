@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 
@@ -260,6 +261,13 @@ public class DmcUncheckedOIFParser {
             }
             catch(ResultException ex){
 //            	DebugInfo.debug(ex.toString());
+            	
+            	// This is here to prevent problems when this same instance of the parser is used
+            	// in multiple parsing exercises and we don't want to keep throwing/catching the 
+            	// same exception.
+            	if (ex == exG)
+            		throw(exG);
+            	
             	if (exG == null)
             		exG = ex;
             	else

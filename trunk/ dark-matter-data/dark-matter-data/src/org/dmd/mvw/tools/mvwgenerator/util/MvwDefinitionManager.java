@@ -264,7 +264,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				Iterator<String> it = dmo.getDependsOnSchema();
 				while(it.hasNext()){
 					String ref = it.next();
-					schemaParser.parseSchema(readSchemas, ref, true);
+					schemaParser.parseSchema(readSchemas, ref, false);
 				}
 			}
 		}
