@@ -31,7 +31,7 @@ public enum ResponseFormatEnum implements DmcEnumIF
 {
     STANDARD(0,"Indicates that the responses should be in standard flat format."),
 
-    DOM(1," Indicates that the response should be in DOM format i.e. the hierarchic structure of the data should be reflected by indenting children in subarrays beneath an object.");
+    DOM(1,"Indicates that the response should be in DOM format i.e. the hierarchic structure of the data should be reflected by indenting children in subarrays beneath an object.");
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,ResponseFormatEnum> lookup = new HashMap<Integer,ResponseFormatEnum>();

@@ -16,24 +16,27 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:323)
-import java.io.Serializable;                                                      // Always required
-import java.util.*;                                                               // Always required
-import org.dmd.dmc.DmcAttribute;                                                  // Any attributes
-import org.dmd.dmc.DmcNamedObjectIF;                                              // Named object
-import org.dmd.dmc.DmcOmni;                                                       // Lazy resolution
-import org.dmd.dmc.DmcSliceInfo;                                                  // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                             // Any attributes
-import org.dmd.dmc.types.CamelCaseName;                                           // Naming attribute type
-import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                              // Type specific set/add
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                       // Required for MODREC constructor
-import org.dmd.dms.generated.types.ClassDefinitionREF;                            // Helper class
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;                              // Required type
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                        // Required type
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;                   // Reference type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                             // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;             // Base class
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEditFieldMV;         // Required type
-import org.dmd.mvw.tools.mvwgenerator.types.EditField;                            // Primitive type and !auxiliary class
+import java.io.Serializable;                                                          // Always required
+import java.util.*;                                                                   // Always required
+import org.dmd.dmc.DmcAttribute;                                                      // Any attributes
+import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object
+import org.dmd.dmc.DmcOmni;                                                           // Lazy resolution
+import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing
+import org.dmd.dmc.DmcValueException;                                                 // Any attributes
+import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type
+import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                                  // Type specific set/add
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor
+import org.dmd.dms.generated.types.ClassDefinitionREF;                                // Helper class
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                  // Required type
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;                       // Reference type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.I18NConfigDMO;                    // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                 // Base class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEditFieldMV;             // Required type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeI18NConfigREFSV;         // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.I18NConfigREF;                  // Helper class
+import org.dmd.mvw.tools.mvwgenerator.types.EditField;                                // Primitive type and !auxiliary class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -178,6 +181,124 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
     public void remStrictlyChecked(){
          rem(MvwDMSAG.__strictlyChecked);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:574)
+    public I18NConfigREF getUseI18NConfig(){
+        DmcTypeI18NConfigREFSV attr = (DmcTypeI18NConfigREFSV) get(MvwDMSAG.__useI18NConfig);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to I18NConfig without attempting lazy resolution (if turned on).
+     */
+    public I18NConfigREF getUseI18NConfigREF(){
+        DmcTypeI18NConfigREFSV attr = (DmcTypeI18NConfigREFSV) get(MvwDMSAG.__useI18NConfig);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets useI18NConfig to the specified value.
+     * @param value I18NConfigDMO
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:627)
+    public void setUseI18NConfig(I18NConfigDMO value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__useI18NConfig);
+        if (attr == null)
+            attr = new DmcTypeI18NConfigREFSV(MvwDMSAG.__useI18NConfig);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__useI18NConfig,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets useI18NConfig to the specified value.
+     * @param value A value compatible with DmcTypeI18NConfigREFSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setUseI18NConfig(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__useI18NConfig);
+        if (attr == null)
+            attr = new DmcTypeI18NConfigREFSV(MvwDMSAG.__useI18NConfig);
+        
+        attr.set(value);
+        set(MvwDMSAG.__useI18NConfig,attr);
+    }
+
+    /**
+     * Removes the useI18NConfig attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remUseI18NConfig(){
+         rem(MvwDMSAG.__useI18NConfig);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public Boolean isTipsFromI18N(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__tipsFromI18N);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets tipsFromI18N to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setTipsFromI18N(Boolean value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__tipsFromI18N);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__tipsFromI18N);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__tipsFromI18N,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets tipsFromI18N to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setTipsFromI18N(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__tipsFromI18N);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__tipsFromI18N);
+        
+        attr.set(value);
+        set(MvwDMSAG.__tipsFromI18N,attr);
+    }
+
+    /**
+     * Removes the tipsFromI18N attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remTipsFromI18N(){
+         rem(MvwDMSAG.__tipsFromI18N);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)

@@ -95,10 +95,12 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __sharedImport = new DmcAttributeInfo("sharedImport", 838, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __strictlyChecked = new DmcAttributeInfo("strictlyChecked", 889, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __theOne = new DmcAttributeInfo("theOne", 863, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __tipsFromI18N = new DmcAttributeInfo("tipsFromI18N", 894, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __triggersAction = new DmcAttributeInfo("triggersAction", 875, "Action", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __unsetValue = new DmcAttributeInfo("unsetValue", 891, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass", 807, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useClass = new DmcAttributeInfo("useClass", 826, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __useI18NConfig = new DmcAttributeInfo("useI18NConfig", 893, "I18NConfig", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useImpl = new DmcAttributeInfo("useImpl", 869, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useNameAsLabel = new DmcAttributeInfo("useNameAsLabel", 892, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema", 843, "SchemaDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -234,10 +236,12 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__sharedImport.id,__sharedImport);
         _SmAp.put(__strictlyChecked.id,__strictlyChecked);
         _SmAp.put(__theOne.id,__theOne);
+        _SmAp.put(__tipsFromI18N.id,__tipsFromI18N);
         _SmAp.put(__triggersAction.id,__triggersAction);
         _SmAp.put(__unsetValue.id,__unsetValue);
         _SmAp.put(__useBaseClass.id,__useBaseClass);
         _SmAp.put(__useClass.id,__useClass);
+        _SmAp.put(__useI18NConfig.id,__useI18NConfig);
         _SmAp.put(__useImpl.id,__useImpl);
         _SmAp.put(__useNameAsLabel.id,__useNameAsLabel);
         _SmAp.put(__useSchema.id,__useSchema);
@@ -417,6 +421,8 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __FormBindingDefinition.addMust(__editObject);
         __FormBindingDefinition.addMust(__editField);
         __FormBindingDefinition.addMay(__strictlyChecked);
+        __FormBindingDefinition.addMay(__useI18NConfig);
+        __FormBindingDefinition.addMay(__tipsFromI18N);
 
         __FieldEditorDefinition.addMust(__editorName);
         __FieldEditorDefinition.addMust(__useClass);

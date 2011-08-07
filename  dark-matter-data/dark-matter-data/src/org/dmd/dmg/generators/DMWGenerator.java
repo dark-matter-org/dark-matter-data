@@ -20,11 +20,12 @@ import org.dmd.util.parsing.ConfigLocation;
 public class DMWGenerator extends BaseDMWGeneratorNew {
 
 	public DMWGenerator(){
-		genContext			= "dmw";
-		genSuffix			= "DMW";
+		genContext				= "dmw";
+		genSuffix				= "DMW";
 		baseWrapperImport 		= "org.dmd.dmw.DmwWrapper";
 		namedWrapperImport		= "org.dmd.dmw.DmwNamedObjectWrapper";
-		hierarchicWrapperImport	= "org.dmd.dmw.DmwHierarchicObjectWrapper";		
+		hierarchicWrapperImport	= "org.dmd.dmw.DmwHierarchicObjectWrapper";
+		fullJavaEnvironment		= true;
 	}
 	
 	@Override
