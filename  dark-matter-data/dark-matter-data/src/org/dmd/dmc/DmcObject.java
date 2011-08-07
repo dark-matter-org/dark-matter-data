@@ -1197,8 +1197,12 @@ abstract public class DmcObject implements Serializable {
 				if (attr != null)
 					attr.toOIF(sb, padding);
 			}
+			
 			// Just dump the modifier, not the attributes
-			getModifier().toOIF(sb, padding);
+			if (getModifier().getMVSize() > 0)
+				getModifier().toOIF(sb, padding);
+			else
+				sb.append("* no modifications\n");
 		}
 		
 
