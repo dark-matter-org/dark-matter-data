@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                              // If any attributes
 import org.dmd.dms.*;                                              // Always 2
 import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;           // Is reference type aux
@@ -51,7 +51,7 @@ abstract public class AttributeRuleDMW extends Rule {
     /**
      * @return A AttributeDefinitionDMW object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:984)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:999)
     public AttributeDefinitionDMW getApplyToAttribute(){
         AttributeDefinitionREF ref = ((AttributeRuleDMO) core).getApplyToAttribute();
         if (ref == null)
@@ -67,7 +67,7 @@ abstract public class AttributeRuleDMW extends Rule {
      * Sets the applyToAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1037)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1052)
     public void setApplyToAttribute(AttributeDefinitionDMW value) {
         ((AttributeRuleDMO) core).setApplyToAttribute(value.getDMO());
     }
@@ -75,7 +75,7 @@ abstract public class AttributeRuleDMW extends Rule {
     /**
      * Removes the applyToAttribute attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remApplyToAttribute(){
         ((AttributeRuleDMO) core).remApplyToAttribute();
     }

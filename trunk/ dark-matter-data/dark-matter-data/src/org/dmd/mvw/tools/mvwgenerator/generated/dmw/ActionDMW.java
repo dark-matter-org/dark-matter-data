@@ -1,6 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                                       // If any attributes
 import org.dmd.dmc.types.CamelCaseName;                                     // Primitive type
 import org.dmd.dms.*;                                                       // Always 2
@@ -50,6 +50,12 @@ abstract public class ActionDMW extends MvwDefinition implements DmcNamedObjectI
         super(obj, org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._Action);
     }
 
+    public Action cloneIt() {
+        Action rc = new Action();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public ActionDMO getDMO() {
         return((ActionDMO) core);
     }
@@ -58,7 +64,7 @@ abstract public class ActionDMW extends MvwDefinition implements DmcNamedObjectI
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public CamelCaseName getObjectName(){
         return(((ActionDMO) core).getActionName());
     }
@@ -81,7 +87,7 @@ abstract public class ActionDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * @return A Component object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:984)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:999)
     public Component getImplementedBy(){
         ComponentREF ref = ((ActionDMO) core).getImplementedBy();
         if (ref == null)
@@ -97,7 +103,7 @@ abstract public class ActionDMW extends MvwDefinition implements DmcNamedObjectI
      * Sets the implementedBy to the specified value.
      * @param value A value compatible with ComponentREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1037)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1052)
     public void setImplementedBy(Component value) {
         ((ActionDMO) core).setImplementedBy(value.getDMO());
     }
@@ -105,12 +111,12 @@ abstract public class ActionDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * Removes the implementedBy attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remImplementedBy(){
         ((ActionDMO) core).remImplementedBy();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public CamelCaseName getActionName(){
         return(((ActionDMO) core).getActionName());
     }
@@ -119,7 +125,7 @@ abstract public class ActionDMW extends MvwDefinition implements DmcNamedObjectI
      * Sets actionName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setActionName(Object value) throws DmcValueException {
         ((ActionDMO) core).setActionName(value);
     }
@@ -128,7 +134,7 @@ abstract public class ActionDMW extends MvwDefinition implements DmcNamedObjectI
      * Sets actionName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setActionName(CamelCaseName value){
         ((ActionDMO) core).setActionName(value);
     }
@@ -136,7 +142,7 @@ abstract public class ActionDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * Removes the actionName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remActionName(){
         ((ActionDMO) core).remActionName();
     }

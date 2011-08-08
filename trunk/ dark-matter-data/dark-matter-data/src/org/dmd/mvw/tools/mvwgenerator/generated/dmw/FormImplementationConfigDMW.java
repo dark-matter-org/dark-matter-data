@@ -1,6 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                                                    // If any attributes
 import org.dmd.dmc.types.CamelCaseName;                                                  // Primitive type
 import org.dmd.dms.*;                                                                    // Always 2
@@ -39,6 +39,12 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
         super(obj, org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._FormImplementationConfig);
     }
 
+    public FormImplementationConfig cloneIt() {
+        FormImplementationConfig rc = new FormImplementationConfig();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public FormImplementationConfigDMO getDMO() {
         return((FormImplementationConfigDMO) core);
     }
@@ -47,7 +53,7 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public CamelCaseName getObjectName(){
         return(((FormImplementationConfigDMO) core).getConfigName());
     }
@@ -67,7 +73,7 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public CamelCaseName getConfigName(){
         return(((FormImplementationConfigDMO) core).getConfigName());
     }
@@ -76,7 +82,7 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
      * Sets configName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setConfigName(Object value) throws DmcValueException {
         ((FormImplementationConfigDMO) core).setConfigName(value);
     }
@@ -85,7 +91,7 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
      * Sets configName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setConfigName(CamelCaseName value){
         ((FormImplementationConfigDMO) core).setConfigName(value);
     }
@@ -93,7 +99,7 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
     /**
      * Removes the configName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remConfigName(){
         ((FormImplementationConfigDMO) core).remConfigName();
     }

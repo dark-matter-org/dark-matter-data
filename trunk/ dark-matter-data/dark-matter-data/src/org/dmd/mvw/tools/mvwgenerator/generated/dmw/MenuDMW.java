@@ -1,6 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                                                 // If any attributes
 import org.dmd.dmc.types.CamelCaseName;                                               // Primitive type
 import org.dmd.dms.*;                                                                 // Always 2
@@ -33,7 +33,7 @@ abstract public class MenuDMW extends MenuElementDefinitionDMW implements DmcNam
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public CamelCaseName getObjectName(){
         return(((MenuDMO) core).getElementName());
     }
@@ -53,7 +53,7 @@ abstract public class MenuDMW extends MenuElementDefinitionDMW implements DmcNam
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public CamelCaseName getElementName(){
         return(((MenuDMO) core).getElementName());
     }
@@ -62,7 +62,7 @@ abstract public class MenuDMW extends MenuElementDefinitionDMW implements DmcNam
      * Sets elementName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setElementName(Object value) throws DmcValueException {
         ((MenuDMO) core).setElementName(value);
     }
@@ -71,7 +71,7 @@ abstract public class MenuDMW extends MenuElementDefinitionDMW implements DmcNam
      * Sets elementName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setElementName(CamelCaseName value){
         ((MenuDMO) core).setElementName(value);
     }
@@ -79,7 +79,7 @@ abstract public class MenuDMW extends MenuElementDefinitionDMW implements DmcNam
     /**
      * Removes the elementName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remElementName(){
         ((MenuDMO) core).remElementName();
     }

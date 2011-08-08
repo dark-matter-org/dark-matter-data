@@ -1,10 +1,12 @@
 package org.dmd.dmg.generators;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
+import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
@@ -99,4 +101,23 @@ public class DMWGenerator extends BaseDMWGeneratorNew {
 		}
 	}
 
+	@Override
+	protected void createCloneItMethod(BufferedWriter out, DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm, ClassDefinition cd)  throws IOException {
+		if (cd.getClassType() == ClassTypeEnum.STRUCTURAL){
+			if (cd.getDmwWrapperType(genContext) ==  WrapperTypeEnum.EXTENDED){
+				out.write("    public " + cd.getName() + " cloneIt() {\n");
+		        out.write("        " + cd.getName() + " rc = new " + cd.getName() + "();\n");
+		        out.write("        rc.setDmcObject(getDMO().cloneIt());\n");
+		        out.write("        return(rc);\n");
+		        out.write("    }\n\n");
+			}
+			else{
+				out.write("    public " + cd.getName() + genSuffix + " cloneIt() {\n");
+		        out.write("        " + cd.getName() + genSuffix + " rc = new " + cd.getName() + genSuffix + "();\n");
+		        out.write("        rc.setDmcObject(getDMO().cloneIt());\n");
+		        out.write("        return(rc);\n");
+		        out.write("    }\n\n");
+			}
+		}
+	}
 }

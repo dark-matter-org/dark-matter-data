@@ -1,6 +1,6 @@
 package org.dmd.dmp.server.servlet.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                                    // If any attributes
 import org.dmd.dmc.types.DotName;                                        // Primitive type
 import org.dmd.dmp.server.servlet.generated.dmo.UserFolderRIDMO;         // Class not auxiliary or abstract
@@ -38,6 +38,12 @@ public class UserFolderRIDMW extends DmwHierarchicObjectWrapper implements DmcNa
         super(obj, org.dmd.dmp.server.servlet.generated.DmpServerSchemaAG._UserFolderRI);
     }
 
+    public UserFolderRIDMW cloneIt() {
+        UserFolderRIDMW rc = new UserFolderRIDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public UserFolderRIDMO getDMO() {
         return((UserFolderRIDMO) core);
     }
@@ -46,7 +52,7 @@ public class UserFolderRIDMW extends DmwHierarchicObjectWrapper implements DmcNa
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public DotName getObjectName(){
         return(((UserFolderRIDMO) core).getDotName());
     }
@@ -66,7 +72,7 @@ public class UserFolderRIDMW extends DmwHierarchicObjectWrapper implements DmcNa
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public DotName getDotName(){
         return(((UserFolderRIDMO) core).getDotName());
     }
@@ -75,7 +81,7 @@ public class UserFolderRIDMW extends DmwHierarchicObjectWrapper implements DmcNa
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setDotName(Object value) throws DmcValueException {
         ((UserFolderRIDMO) core).setDotName(value);
     }
@@ -84,7 +90,7 @@ public class UserFolderRIDMW extends DmwHierarchicObjectWrapper implements DmcNa
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setDotName(DotName value){
         ((UserFolderRIDMO) core).setDotName(value);
     }
@@ -92,7 +98,7 @@ public class UserFolderRIDMW extends DmwHierarchicObjectWrapper implements DmcNa
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remDotName(){
         ((UserFolderRIDMO) core).remDotName();
     }

@@ -1,6 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                                          // If any attributes
 import org.dmd.dmc.types.CamelCaseName;                                        // Primitive type
 import org.dmd.dms.*;                                                          // Always 2
@@ -42,6 +42,12 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
         super(obj, org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._GxtEnumMapping);
     }
 
+    public GxtEnumMapping cloneIt() {
+        GxtEnumMapping rc = new GxtEnumMapping();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public GxtEnumMappingDMO getDMO() {
         return((GxtEnumMappingDMO) core);
     }
@@ -50,7 +56,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public CamelCaseName getObjectName(){
         return(((GxtEnumMappingDMO) core).getMappingName());
     }
@@ -70,7 +76,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Boolean isUseNameAsLabel(){
         return(((GxtEnumMappingDMO) core).isUseNameAsLabel());
     }
@@ -79,7 +85,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Sets useNameAsLabel to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setUseNameAsLabel(Object value) throws DmcValueException {
         ((GxtEnumMappingDMO) core).setUseNameAsLabel(value);
     }
@@ -88,7 +94,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Sets useNameAsLabel to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setUseNameAsLabel(Boolean value){
         ((GxtEnumMappingDMO) core).setUseNameAsLabel(value);
     }
@@ -96,12 +102,12 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
     /**
      * Removes the useNameAsLabel attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remUseNameAsLabel(){
         ((GxtEnumMappingDMO) core).remUseNameAsLabel();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public CamelCaseName getMappingName(){
         return(((GxtEnumMappingDMO) core).getMappingName());
     }
@@ -110,7 +116,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Sets mappingName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setMappingName(Object value) throws DmcValueException {
         ((GxtEnumMappingDMO) core).setMappingName(value);
     }
@@ -119,7 +125,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Sets mappingName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setMappingName(CamelCaseName value){
         ((GxtEnumMappingDMO) core).setMappingName(value);
     }
@@ -127,12 +133,12 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
     /**
      * Removes the mappingName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remMappingName(){
         ((GxtEnumMappingDMO) core).remMappingName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getEnumName(){
         return(((GxtEnumMappingDMO) core).getEnumName());
     }
@@ -141,7 +147,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Sets enumName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setEnumName(Object value) throws DmcValueException {
         ((GxtEnumMappingDMO) core).setEnumName(value);
     }
@@ -150,7 +156,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Sets enumName to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setEnumName(String value){
         ((GxtEnumMappingDMO) core).setEnumName(value);
     }
@@ -158,12 +164,12 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
     /**
      * Removes the enumName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remEnumName(){
         ((GxtEnumMappingDMO) core).remEnumName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getUnsetValue(){
         return(((GxtEnumMappingDMO) core).getUnsetValue());
     }
@@ -172,7 +178,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Sets unsetValue to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setUnsetValue(Object value) throws DmcValueException {
         ((GxtEnumMappingDMO) core).setUnsetValue(value);
     }
@@ -181,7 +187,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Sets unsetValue to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setUnsetValue(String value){
         ((GxtEnumMappingDMO) core).setUnsetValue(value);
     }
@@ -189,7 +195,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
     /**
      * Removes the unsetValue attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remUnsetValue(){
         ((GxtEnumMappingDMO) core).remUnsetValue();
     }

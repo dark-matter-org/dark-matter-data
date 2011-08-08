@@ -1,6 +1,6 @@
 package org.dmd.dmt.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import java.util.ArrayList;                                                     // To support getMVCopy()
 import java.util.Date;                                                          // For multi-valued containsDate
 import java.util.HashMap;                                                       // To support getMVCopy()
@@ -62,7 +62,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Boolean isSvBoolean(){
         return(((TestBasicObjectFixedDMO) core).isSvBoolean());
     }
@@ -71,7 +71,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svBoolean to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setSvBoolean(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).setSvBoolean(value);
     }
@@ -80,7 +80,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svBoolean to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setSvBoolean(Boolean value){
         ((TestBasicObjectFixedDMO) core).setSvBoolean(value);
     }
@@ -88,7 +88,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the svBoolean attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSvBoolean(){
         ((TestBasicObjectFixedDMO) core).remSvBoolean();
     }
@@ -96,7 +96,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Boolean items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getMvBooleanSize(){
         return(((TestBasicObjectFixedDMO) core).getMvBooleanSize());
     }
@@ -104,7 +104,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no BooleanDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getMvBooleanIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getMvBooleanSize() == 0)
             return(true);
@@ -114,7 +114,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any BooleanDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getMvBooleanHasValue(){
         if (((TestBasicObjectFixedDMO) core).getMvBooleanSize() == 0)
             return(false);
@@ -124,7 +124,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Boolean objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public BooleanIterableDMW getMvBooleanIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvBoolean);
         if (attr == null)
@@ -137,7 +137,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvBoolean value.
      * @param value A value compatible with Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addMvBoolean(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addMvBoolean(value);
     }
@@ -146,7 +146,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvBoolean value.
      * @param value A value compatible with Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addMvBoolean(Boolean value){
         ((TestBasicObjectFixedDMO) core).addMvBoolean(value);
     }
@@ -155,7 +155,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the mvBoolean value.
      * @param value A value compatible with Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean mvBooleanContains(Boolean value){
         return(((TestBasicObjectFixedDMO) core).mvBooleanContains(value));
     }
@@ -163,7 +163,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Boolean objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<Boolean> getMvBooleanCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvBoolean);
@@ -184,7 +184,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvBoolean value.
      * @param value The Boolean to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delMvBoolean(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delMvBoolean(value);
     }
@@ -193,7 +193,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvBoolean value.
      * @param value The Boolean to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delMvBoolean(Boolean value){
         ((TestBasicObjectFixedDMO) core).delMvBoolean(value);
     }
@@ -201,12 +201,12 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the mvBoolean attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remMvBoolean(){
         ((TestBasicObjectFixedDMO) core).remMvBoolean();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Date getSvDate(){
         return(((TestBasicObjectFixedDMO) core).getSvDate());
     }
@@ -215,7 +215,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svDate to the specified value.
      * @param value A value compatible with DmcTypeDate
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setSvDate(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).setSvDate(value);
     }
@@ -224,7 +224,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svDate to the specified value.
      * @param value Date
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setSvDate(Date value){
         ((TestBasicObjectFixedDMO) core).setSvDate(value);
     }
@@ -232,7 +232,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the svDate attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSvDate(){
         ((TestBasicObjectFixedDMO) core).remSvDate();
     }
@@ -240,7 +240,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Date items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getMvDateSize(){
         return(((TestBasicObjectFixedDMO) core).getMvDateSize());
     }
@@ -248,7 +248,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no DateDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getMvDateIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getMvDateSize() == 0)
             return(true);
@@ -258,7 +258,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any DateDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getMvDateHasValue(){
         if (((TestBasicObjectFixedDMO) core).getMvDateSize() == 0)
             return(false);
@@ -268,7 +268,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Date objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public DateIterableDMW getMvDateIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvDate);
         if (attr == null)
@@ -281,7 +281,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addMvDate(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addMvDate(value);
     }
@@ -290,7 +290,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addMvDate(Date value){
         ((TestBasicObjectFixedDMO) core).addMvDate(value);
     }
@@ -299,7 +299,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the mvDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean mvDateContains(Date value){
         return(((TestBasicObjectFixedDMO) core).mvDateContains(value));
     }
@@ -307,7 +307,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Date objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<Date> getMvDateCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvDate);
@@ -328,7 +328,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delMvDate(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delMvDate(value);
     }
@@ -337,7 +337,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delMvDate(Date value){
         ((TestBasicObjectFixedDMO) core).delMvDate(value);
     }
@@ -345,7 +345,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the mvDate attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remMvDate(){
         ((TestBasicObjectFixedDMO) core).remMvDate();
     }
@@ -353,7 +353,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Date items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getHsDateSize(){
         return(((TestBasicObjectFixedDMO) core).getHsDateSize());
     }
@@ -361,7 +361,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no DateDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getHsDateIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getHsDateSize() == 0)
             return(true);
@@ -371,7 +371,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any DateDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getHsDateHasValue(){
         if (((TestBasicObjectFixedDMO) core).getHsDateSize() == 0)
             return(false);
@@ -381,7 +381,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Date objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public DateIterableDMW getHsDateIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsDate);
         if (attr == null)
@@ -394,7 +394,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addHsDate(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addHsDate(value);
     }
@@ -403,7 +403,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addHsDate(Date value){
         ((TestBasicObjectFixedDMO) core).addHsDate(value);
     }
@@ -412,7 +412,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the hsDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean hsDateContains(Date value){
         return(((TestBasicObjectFixedDMO) core).hsDateContains(value));
     }
@@ -420,7 +420,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Date objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public HashSet<Date> getHsDateCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsDate);
@@ -441,7 +441,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delHsDate(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delHsDate(value);
     }
@@ -450,7 +450,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delHsDate(Date value){
         ((TestBasicObjectFixedDMO) core).delHsDate(value);
     }
@@ -458,7 +458,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the hsDate attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remHsDate(){
         ((TestBasicObjectFixedDMO) core).remHsDate();
     }
@@ -466,7 +466,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Date items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getTsDateSize(){
         return(((TestBasicObjectFixedDMO) core).getTsDateSize());
     }
@@ -474,7 +474,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no DateDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getTsDateIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getTsDateSize() == 0)
             return(true);
@@ -484,7 +484,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any DateDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getTsDateHasValue(){
         if (((TestBasicObjectFixedDMO) core).getTsDateSize() == 0)
             return(false);
@@ -494,7 +494,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Date objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public DateIterableDMW getTsDateIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsDate);
         if (attr == null)
@@ -507,7 +507,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addTsDate(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addTsDate(value);
     }
@@ -516,7 +516,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addTsDate(Date value){
         ((TestBasicObjectFixedDMO) core).addTsDate(value);
     }
@@ -525,7 +525,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the tsDate value.
      * @param value A value compatible with Date
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean tsDateContains(Date value){
         return(((TestBasicObjectFixedDMO) core).tsDateContains(value));
     }
@@ -533,7 +533,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Date objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public TreeSet<Date> getTsDateCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsDate);
@@ -554,7 +554,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delTsDate(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delTsDate(value);
     }
@@ -563,7 +563,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsDate value.
      * @param value The Date to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delTsDate(Date value){
         ((TestBasicObjectFixedDMO) core).delTsDate(value);
     }
@@ -571,12 +571,12 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the tsDate attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remTsDate(){
         ((TestBasicObjectFixedDMO) core).remTsDate();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Double getSvDouble(){
         return(((TestBasicObjectFixedDMO) core).getSvDouble());
     }
@@ -585,7 +585,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svDouble to the specified value.
      * @param value A value compatible with DmcTypeDouble
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setSvDouble(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).setSvDouble(value);
     }
@@ -594,7 +594,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svDouble to the specified value.
      * @param value Double
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setSvDouble(Double value){
         ((TestBasicObjectFixedDMO) core).setSvDouble(value);
     }
@@ -602,7 +602,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the svDouble attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSvDouble(){
         ((TestBasicObjectFixedDMO) core).remSvDouble();
     }
@@ -610,7 +610,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Double items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getMvDoubleSize(){
         return(((TestBasicObjectFixedDMO) core).getMvDoubleSize());
     }
@@ -618,7 +618,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no DoubleDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getMvDoubleIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getMvDoubleSize() == 0)
             return(true);
@@ -628,7 +628,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any DoubleDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getMvDoubleHasValue(){
         if (((TestBasicObjectFixedDMO) core).getMvDoubleSize() == 0)
             return(false);
@@ -638,7 +638,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Double objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public DoubleIterableDMW getMvDoubleIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvDouble);
         if (attr == null)
@@ -651,7 +651,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addMvDouble(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addMvDouble(value);
     }
@@ -660,7 +660,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addMvDouble(Double value){
         ((TestBasicObjectFixedDMO) core).addMvDouble(value);
     }
@@ -669,7 +669,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the mvDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean mvDoubleContains(Double value){
         return(((TestBasicObjectFixedDMO) core).mvDoubleContains(value));
     }
@@ -677,7 +677,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Double objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<Double> getMvDoubleCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvDouble);
@@ -698,7 +698,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delMvDouble(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delMvDouble(value);
     }
@@ -707,7 +707,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delMvDouble(Double value){
         ((TestBasicObjectFixedDMO) core).delMvDouble(value);
     }
@@ -715,7 +715,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the mvDouble attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remMvDouble(){
         ((TestBasicObjectFixedDMO) core).remMvDouble();
     }
@@ -723,7 +723,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Double items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getHsDoubleSize(){
         return(((TestBasicObjectFixedDMO) core).getHsDoubleSize());
     }
@@ -731,7 +731,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no DoubleDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getHsDoubleIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getHsDoubleSize() == 0)
             return(true);
@@ -741,7 +741,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any DoubleDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getHsDoubleHasValue(){
         if (((TestBasicObjectFixedDMO) core).getHsDoubleSize() == 0)
             return(false);
@@ -751,7 +751,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Double objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public DoubleIterableDMW getHsDoubleIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsDouble);
         if (attr == null)
@@ -764,7 +764,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addHsDouble(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addHsDouble(value);
     }
@@ -773,7 +773,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addHsDouble(Double value){
         ((TestBasicObjectFixedDMO) core).addHsDouble(value);
     }
@@ -782,7 +782,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the hsDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean hsDoubleContains(Double value){
         return(((TestBasicObjectFixedDMO) core).hsDoubleContains(value));
     }
@@ -790,7 +790,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Double objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public HashSet<Double> getHsDoubleCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsDouble);
@@ -811,7 +811,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delHsDouble(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delHsDouble(value);
     }
@@ -820,7 +820,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delHsDouble(Double value){
         ((TestBasicObjectFixedDMO) core).delHsDouble(value);
     }
@@ -828,7 +828,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the hsDouble attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remHsDouble(){
         ((TestBasicObjectFixedDMO) core).remHsDouble();
     }
@@ -836,7 +836,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Double items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getTsDoubleSize(){
         return(((TestBasicObjectFixedDMO) core).getTsDoubleSize());
     }
@@ -844,7 +844,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no DoubleDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getTsDoubleIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getTsDoubleSize() == 0)
             return(true);
@@ -854,7 +854,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any DoubleDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getTsDoubleHasValue(){
         if (((TestBasicObjectFixedDMO) core).getTsDoubleSize() == 0)
             return(false);
@@ -864,7 +864,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Double objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public DoubleIterableDMW getTsDoubleIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsDouble);
         if (attr == null)
@@ -877,7 +877,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addTsDouble(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addTsDouble(value);
     }
@@ -886,7 +886,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addTsDouble(Double value){
         ((TestBasicObjectFixedDMO) core).addTsDouble(value);
     }
@@ -895,7 +895,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the tsDouble value.
      * @param value A value compatible with Double
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean tsDoubleContains(Double value){
         return(((TestBasicObjectFixedDMO) core).tsDoubleContains(value));
     }
@@ -903,7 +903,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Double objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public TreeSet<Double> getTsDoubleCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsDouble);
@@ -924,7 +924,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delTsDouble(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delTsDouble(value);
     }
@@ -933,7 +933,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsDouble value.
      * @param value The Double to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delTsDouble(Double value){
         ((TestBasicObjectFixedDMO) core).delTsDouble(value);
     }
@@ -941,12 +941,12 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the tsDouble attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remTsDouble(){
         ((TestBasicObjectFixedDMO) core).remTsDouble();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Float getSvFloat(){
         return(((TestBasicObjectFixedDMO) core).getSvFloat());
     }
@@ -955,7 +955,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svFloat to the specified value.
      * @param value A value compatible with DmcTypeFloat
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setSvFloat(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).setSvFloat(value);
     }
@@ -964,7 +964,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svFloat to the specified value.
      * @param value Float
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setSvFloat(Float value){
         ((TestBasicObjectFixedDMO) core).setSvFloat(value);
     }
@@ -972,7 +972,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the svFloat attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSvFloat(){
         ((TestBasicObjectFixedDMO) core).remSvFloat();
     }
@@ -980,7 +980,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Float items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getMvFloatSize(){
         return(((TestBasicObjectFixedDMO) core).getMvFloatSize());
     }
@@ -988,7 +988,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no FloatDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getMvFloatIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getMvFloatSize() == 0)
             return(true);
@@ -998,7 +998,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any FloatDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getMvFloatHasValue(){
         if (((TestBasicObjectFixedDMO) core).getMvFloatSize() == 0)
             return(false);
@@ -1008,7 +1008,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Float objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public FloatIterableDMW getMvFloatIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvFloat);
         if (attr == null)
@@ -1021,7 +1021,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addMvFloat(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addMvFloat(value);
     }
@@ -1030,7 +1030,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addMvFloat(Float value){
         ((TestBasicObjectFixedDMO) core).addMvFloat(value);
     }
@@ -1039,7 +1039,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the mvFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean mvFloatContains(Float value){
         return(((TestBasicObjectFixedDMO) core).mvFloatContains(value));
     }
@@ -1047,7 +1047,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Float objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<Float> getMvFloatCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvFloat);
@@ -1068,7 +1068,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delMvFloat(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delMvFloat(value);
     }
@@ -1077,7 +1077,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delMvFloat(Float value){
         ((TestBasicObjectFixedDMO) core).delMvFloat(value);
     }
@@ -1085,7 +1085,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the mvFloat attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remMvFloat(){
         ((TestBasicObjectFixedDMO) core).remMvFloat();
     }
@@ -1093,7 +1093,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Float items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getHsFloatSize(){
         return(((TestBasicObjectFixedDMO) core).getHsFloatSize());
     }
@@ -1101,7 +1101,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no FloatDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getHsFloatIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getHsFloatSize() == 0)
             return(true);
@@ -1111,7 +1111,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any FloatDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getHsFloatHasValue(){
         if (((TestBasicObjectFixedDMO) core).getHsFloatSize() == 0)
             return(false);
@@ -1121,7 +1121,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Float objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public FloatIterableDMW getHsFloatIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsFloat);
         if (attr == null)
@@ -1134,7 +1134,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addHsFloat(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addHsFloat(value);
     }
@@ -1143,7 +1143,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addHsFloat(Float value){
         ((TestBasicObjectFixedDMO) core).addHsFloat(value);
     }
@@ -1152,7 +1152,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the hsFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean hsFloatContains(Float value){
         return(((TestBasicObjectFixedDMO) core).hsFloatContains(value));
     }
@@ -1160,7 +1160,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Float objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public HashSet<Float> getHsFloatCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsFloat);
@@ -1181,7 +1181,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delHsFloat(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delHsFloat(value);
     }
@@ -1190,7 +1190,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delHsFloat(Float value){
         ((TestBasicObjectFixedDMO) core).delHsFloat(value);
     }
@@ -1198,7 +1198,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the hsFloat attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remHsFloat(){
         ((TestBasicObjectFixedDMO) core).remHsFloat();
     }
@@ -1206,7 +1206,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Float items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getTsFloatSize(){
         return(((TestBasicObjectFixedDMO) core).getTsFloatSize());
     }
@@ -1214,7 +1214,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no FloatDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getTsFloatIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getTsFloatSize() == 0)
             return(true);
@@ -1224,7 +1224,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any FloatDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getTsFloatHasValue(){
         if (((TestBasicObjectFixedDMO) core).getTsFloatSize() == 0)
             return(false);
@@ -1234,7 +1234,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Float objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public FloatIterableDMW getTsFloatIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsFloat);
         if (attr == null)
@@ -1247,7 +1247,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addTsFloat(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addTsFloat(value);
     }
@@ -1256,7 +1256,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addTsFloat(Float value){
         ((TestBasicObjectFixedDMO) core).addTsFloat(value);
     }
@@ -1265,7 +1265,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the tsFloat value.
      * @param value A value compatible with Float
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean tsFloatContains(Float value){
         return(((TestBasicObjectFixedDMO) core).tsFloatContains(value));
     }
@@ -1273,7 +1273,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Float objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public TreeSet<Float> getTsFloatCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsFloat);
@@ -1294,7 +1294,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delTsFloat(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delTsFloat(value);
     }
@@ -1303,7 +1303,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsFloat value.
      * @param value The Float to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delTsFloat(Float value){
         ((TestBasicObjectFixedDMO) core).delTsFloat(value);
     }
@@ -1311,12 +1311,12 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the tsFloat attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remTsFloat(){
         ((TestBasicObjectFixedDMO) core).remTsFloat();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Integer getSvInteger(){
         return(((TestBasicObjectFixedDMO) core).getSvInteger());
     }
@@ -1325,7 +1325,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svInteger to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setSvInteger(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).setSvInteger(value);
     }
@@ -1334,7 +1334,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svInteger to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setSvInteger(Integer value){
         ((TestBasicObjectFixedDMO) core).setSvInteger(value);
     }
@@ -1342,7 +1342,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the svInteger attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSvInteger(){
         ((TestBasicObjectFixedDMO) core).remSvInteger();
     }
@@ -1350,7 +1350,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Integer items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getMvIntegerSize(){
         return(((TestBasicObjectFixedDMO) core).getMvIntegerSize());
     }
@@ -1358,7 +1358,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no IntegerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getMvIntegerIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getMvIntegerSize() == 0)
             return(true);
@@ -1368,7 +1368,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any IntegerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getMvIntegerHasValue(){
         if (((TestBasicObjectFixedDMO) core).getMvIntegerSize() == 0)
             return(false);
@@ -1378,7 +1378,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Integer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public IntegerIterableDMW getMvIntegerIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvInteger);
         if (attr == null)
@@ -1391,7 +1391,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addMvInteger(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addMvInteger(value);
     }
@@ -1400,7 +1400,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addMvInteger(Integer value){
         ((TestBasicObjectFixedDMO) core).addMvInteger(value);
     }
@@ -1409,7 +1409,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the mvInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean mvIntegerContains(Integer value){
         return(((TestBasicObjectFixedDMO) core).mvIntegerContains(value));
     }
@@ -1417,7 +1417,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Integer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<Integer> getMvIntegerCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvInteger);
@@ -1438,7 +1438,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delMvInteger(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delMvInteger(value);
     }
@@ -1447,7 +1447,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delMvInteger(Integer value){
         ((TestBasicObjectFixedDMO) core).delMvInteger(value);
     }
@@ -1455,7 +1455,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the mvInteger attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remMvInteger(){
         ((TestBasicObjectFixedDMO) core).remMvInteger();
     }
@@ -1463,7 +1463,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Integer items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getHsIntegerSize(){
         return(((TestBasicObjectFixedDMO) core).getHsIntegerSize());
     }
@@ -1471,7 +1471,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no IntegerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getHsIntegerIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getHsIntegerSize() == 0)
             return(true);
@@ -1481,7 +1481,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any IntegerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getHsIntegerHasValue(){
         if (((TestBasicObjectFixedDMO) core).getHsIntegerSize() == 0)
             return(false);
@@ -1491,7 +1491,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Integer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public IntegerIterableDMW getHsIntegerIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsInteger);
         if (attr == null)
@@ -1504,7 +1504,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addHsInteger(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addHsInteger(value);
     }
@@ -1513,7 +1513,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addHsInteger(Integer value){
         ((TestBasicObjectFixedDMO) core).addHsInteger(value);
     }
@@ -1522,7 +1522,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the hsInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean hsIntegerContains(Integer value){
         return(((TestBasicObjectFixedDMO) core).hsIntegerContains(value));
     }
@@ -1530,7 +1530,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Integer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public HashSet<Integer> getHsIntegerCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsInteger);
@@ -1551,7 +1551,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delHsInteger(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delHsInteger(value);
     }
@@ -1560,7 +1560,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delHsInteger(Integer value){
         ((TestBasicObjectFixedDMO) core).delHsInteger(value);
     }
@@ -1568,7 +1568,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the hsInteger attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remHsInteger(){
         ((TestBasicObjectFixedDMO) core).remHsInteger();
     }
@@ -1576,7 +1576,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Integer items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getTsIntegerSize(){
         return(((TestBasicObjectFixedDMO) core).getTsIntegerSize());
     }
@@ -1584,7 +1584,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no IntegerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getTsIntegerIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getTsIntegerSize() == 0)
             return(true);
@@ -1594,7 +1594,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any IntegerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getTsIntegerHasValue(){
         if (((TestBasicObjectFixedDMO) core).getTsIntegerSize() == 0)
             return(false);
@@ -1604,7 +1604,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Integer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public IntegerIterableDMW getTsIntegerIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsInteger);
         if (attr == null)
@@ -1617,7 +1617,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addTsInteger(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addTsInteger(value);
     }
@@ -1626,7 +1626,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addTsInteger(Integer value){
         ((TestBasicObjectFixedDMO) core).addTsInteger(value);
     }
@@ -1635,7 +1635,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the tsInteger value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean tsIntegerContains(Integer value){
         return(((TestBasicObjectFixedDMO) core).tsIntegerContains(value));
     }
@@ -1643,7 +1643,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Integer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public TreeSet<Integer> getTsIntegerCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsInteger);
@@ -1664,7 +1664,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delTsInteger(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delTsInteger(value);
     }
@@ -1673,7 +1673,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsInteger value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delTsInteger(Integer value){
         ((TestBasicObjectFixedDMO) core).delTsInteger(value);
     }
@@ -1681,7 +1681,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the tsInteger attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remTsInteger(){
         ((TestBasicObjectFixedDMO) core).remTsInteger();
     }
@@ -1689,7 +1689,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1686)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1701)
     public int getIntToStringSize(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1701,7 +1701,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1698)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1713)
     public boolean getIntToStringIsEmpty(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1713,7 +1713,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any IntegerToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1710)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1725)
     public boolean getIntToStringHasValue(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1725,7 +1725,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The keyed IntegerToString object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1726)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1741)
     public IntegerToString getIntToString(Object key){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1737,7 +1737,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1889)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1904)
     public IntegerToStringIterableDMW getIntToStringIterable(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -1750,7 +1750,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another intToString value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1915)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1930)
     public void addIntToString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addIntToString(value);
     }
@@ -1759,7 +1759,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1924)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1939)
     public void addIntToString(IntegerToString value) {
         ((TestBasicObjectFixedDMO) core).addIntToString(value);
     }
@@ -1768,7 +1768,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1936)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1951)
     public void delIntToString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delIntToString(value);
     }
@@ -1777,7 +1777,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a intToString value.
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1945)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1960)
     public void delIntToString(Integer value){
         ((TestBasicObjectFixedDMO) core).delIntToString(value);
     }
@@ -1785,7 +1785,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of IntegerToString objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1971)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1986)
     @SuppressWarnings("unchecked")
     public HashMap<Integer,IntegerToString> getIntToStringCopy(){
         DmcAttribute<?> attr = ((TestBasicObjectFixedDMO) core).get(DmtDMSAG.__intToString);
@@ -1806,12 +1806,12 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the intToString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2027)
     public void remIntToString(){
         ((TestBasicObjectFixedDMO) core).remIntToString();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Long getSvLong(){
         return(((TestBasicObjectFixedDMO) core).getSvLong());
     }
@@ -1820,7 +1820,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svLong to the specified value.
      * @param value A value compatible with DmcTypeLong
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setSvLong(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).setSvLong(value);
     }
@@ -1829,7 +1829,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svLong to the specified value.
      * @param value Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setSvLong(Long value){
         ((TestBasicObjectFixedDMO) core).setSvLong(value);
     }
@@ -1837,7 +1837,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the svLong attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSvLong(){
         ((TestBasicObjectFixedDMO) core).remSvLong();
     }
@@ -1845,7 +1845,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Long items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getMvLongSize(){
         return(((TestBasicObjectFixedDMO) core).getMvLongSize());
     }
@@ -1853,7 +1853,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no LongDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getMvLongIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getMvLongSize() == 0)
             return(true);
@@ -1863,7 +1863,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any LongDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getMvLongHasValue(){
         if (((TestBasicObjectFixedDMO) core).getMvLongSize() == 0)
             return(false);
@@ -1873,7 +1873,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Long objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public LongIterableDMW getMvLongIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvLong);
         if (attr == null)
@@ -1886,7 +1886,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addMvLong(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addMvLong(value);
     }
@@ -1895,7 +1895,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addMvLong(Long value){
         ((TestBasicObjectFixedDMO) core).addMvLong(value);
     }
@@ -1904,7 +1904,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the mvLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean mvLongContains(Long value){
         return(((TestBasicObjectFixedDMO) core).mvLongContains(value));
     }
@@ -1912,7 +1912,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Long objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<Long> getMvLongCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvLong);
@@ -1933,7 +1933,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delMvLong(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delMvLong(value);
     }
@@ -1942,7 +1942,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delMvLong(Long value){
         ((TestBasicObjectFixedDMO) core).delMvLong(value);
     }
@@ -1950,7 +1950,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the mvLong attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remMvLong(){
         ((TestBasicObjectFixedDMO) core).remMvLong();
     }
@@ -1958,7 +1958,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Long items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getHsLongSize(){
         return(((TestBasicObjectFixedDMO) core).getHsLongSize());
     }
@@ -1966,7 +1966,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no LongDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getHsLongIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getHsLongSize() == 0)
             return(true);
@@ -1976,7 +1976,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any LongDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getHsLongHasValue(){
         if (((TestBasicObjectFixedDMO) core).getHsLongSize() == 0)
             return(false);
@@ -1986,7 +1986,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Long objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public LongIterableDMW getHsLongIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsLong);
         if (attr == null)
@@ -1999,7 +1999,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addHsLong(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addHsLong(value);
     }
@@ -2008,7 +2008,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addHsLong(Long value){
         ((TestBasicObjectFixedDMO) core).addHsLong(value);
     }
@@ -2017,7 +2017,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the hsLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean hsLongContains(Long value){
         return(((TestBasicObjectFixedDMO) core).hsLongContains(value));
     }
@@ -2025,7 +2025,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Long objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public HashSet<Long> getHsLongCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsLong);
@@ -2046,7 +2046,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delHsLong(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delHsLong(value);
     }
@@ -2055,7 +2055,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delHsLong(Long value){
         ((TestBasicObjectFixedDMO) core).delHsLong(value);
     }
@@ -2063,7 +2063,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the hsLong attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remHsLong(){
         ((TestBasicObjectFixedDMO) core).remHsLong();
     }
@@ -2071,7 +2071,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of Long items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getTsLongSize(){
         return(((TestBasicObjectFixedDMO) core).getTsLongSize());
     }
@@ -2079,7 +2079,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no LongDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getTsLongIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getTsLongSize() == 0)
             return(true);
@@ -2089,7 +2089,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any LongDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getTsLongHasValue(){
         if (((TestBasicObjectFixedDMO) core).getTsLongSize() == 0)
             return(false);
@@ -2099,7 +2099,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of Long objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public LongIterableDMW getTsLongIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsLong);
         if (attr == null)
@@ -2112,7 +2112,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addTsLong(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addTsLong(value);
     }
@@ -2121,7 +2121,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addTsLong(Long value){
         ((TestBasicObjectFixedDMO) core).addTsLong(value);
     }
@@ -2130,7 +2130,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the tsLong value.
      * @param value A value compatible with Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean tsLongContains(Long value){
         return(((TestBasicObjectFixedDMO) core).tsLongContains(value));
     }
@@ -2138,7 +2138,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Long objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public TreeSet<Long> getTsLongCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsLong);
@@ -2159,7 +2159,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delTsLong(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delTsLong(value);
     }
@@ -2168,7 +2168,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsLong value.
      * @param value The Long to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delTsLong(Long value){
         ((TestBasicObjectFixedDMO) core).delTsLong(value);
     }
@@ -2176,12 +2176,12 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the tsLong attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remTsLong(){
         ((TestBasicObjectFixedDMO) core).remTsLong();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getSvString(){
         return(((TestBasicObjectFixedDMO) core).getSvString());
     }
@@ -2190,7 +2190,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setSvString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).setSvString(value);
     }
@@ -2199,7 +2199,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setSvString(String value){
         ((TestBasicObjectFixedDMO) core).setSvString(value);
     }
@@ -2207,7 +2207,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSvString(){
         ((TestBasicObjectFixedDMO) core).remSvString();
     }
@@ -2215,7 +2215,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getMvStringSize(){
         return(((TestBasicObjectFixedDMO) core).getMvStringSize());
     }
@@ -2223,7 +2223,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getMvStringIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getMvStringSize() == 0)
             return(true);
@@ -2233,7 +2233,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getMvStringHasValue(){
         if (((TestBasicObjectFixedDMO) core).getMvStringSize() == 0)
             return(false);
@@ -2243,7 +2243,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public StringIterableDMW getMvStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -2256,7 +2256,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addMvString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addMvString(value);
     }
@@ -2265,7 +2265,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addMvString(String value){
         ((TestBasicObjectFixedDMO) core).addMvString(value);
     }
@@ -2274,7 +2274,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean mvStringContains(String value){
         return(((TestBasicObjectFixedDMO) core).mvStringContains(value));
     }
@@ -2282,7 +2282,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getMvStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
@@ -2303,7 +2303,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delMvString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delMvString(value);
     }
@@ -2312,7 +2312,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delMvString(String value){
         ((TestBasicObjectFixedDMO) core).delMvString(value);
     }
@@ -2320,7 +2320,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remMvString(){
         ((TestBasicObjectFixedDMO) core).remMvString();
     }
@@ -2328,7 +2328,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getHsStringSize(){
         return(((TestBasicObjectFixedDMO) core).getHsStringSize());
     }
@@ -2336,7 +2336,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getHsStringIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getHsStringSize() == 0)
             return(true);
@@ -2346,7 +2346,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getHsStringHasValue(){
         if (((TestBasicObjectFixedDMO) core).getHsStringSize() == 0)
             return(false);
@@ -2356,7 +2356,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public StringIterableDMW getHsStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsString);
         if (attr == null)
@@ -2369,7 +2369,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addHsString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addHsString(value);
     }
@@ -2378,7 +2378,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another hsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addHsString(String value){
         ((TestBasicObjectFixedDMO) core).addHsString(value);
     }
@@ -2387,7 +2387,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the hsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean hsStringContains(String value){
         return(((TestBasicObjectFixedDMO) core).hsStringContains(value));
     }
@@ -2395,7 +2395,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public HashSet<String> getHsStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsString);
@@ -2416,7 +2416,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delHsString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delHsString(value);
     }
@@ -2425,7 +2425,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a hsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delHsString(String value){
         ((TestBasicObjectFixedDMO) core).delHsString(value);
     }
@@ -2433,7 +2433,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the hsString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remHsString(){
         ((TestBasicObjectFixedDMO) core).remHsString();
     }
@@ -2441,7 +2441,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getTsStringSize(){
         return(((TestBasicObjectFixedDMO) core).getTsStringSize());
     }
@@ -2449,7 +2449,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getTsStringIsEmpty(){
         if (((TestBasicObjectFixedDMO) core).getTsStringSize() == 0)
             return(true);
@@ -2459,7 +2459,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getTsStringHasValue(){
         if (((TestBasicObjectFixedDMO) core).getTsStringSize() == 0)
             return(false);
@@ -2469,7 +2469,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public StringIterableDMW getTsStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsString);
         if (attr == null)
@@ -2482,7 +2482,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addTsString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).addTsString(value);
     }
@@ -2491,7 +2491,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Adds another tsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addTsString(String value){
         ((TestBasicObjectFixedDMO) core).addTsString(value);
     }
@@ -2500,7 +2500,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Returns true if the collection contains the tsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean tsStringContains(String value){
         return(((TestBasicObjectFixedDMO) core).tsStringContains(value));
     }
@@ -2508,7 +2508,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public TreeSet<String> getTsStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsString);
@@ -2529,7 +2529,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delTsString(Object value) throws DmcValueException {
         ((TestBasicObjectFixedDMO) core).delTsString(value);
     }
@@ -2538,7 +2538,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Deletes a tsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delTsString(String value){
         ((TestBasicObjectFixedDMO) core).delTsString(value);
     }
@@ -2546,7 +2546,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the tsString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remTsString(){
         ((TestBasicObjectFixedDMO) core).remTsString();
     }
@@ -2554,7 +2554,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * @return A TestBasicNamedObjectFixedDMW object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:984)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:999)
     public TestBasicNamedObjectFixedDMW getSvTestBasicNamedObjectFixed(){
         TestBasicNamedObjectFixedREF ref = ((TestBasicObjectFixedDMO) core).getSvTestBasicNamedObjectFixed();
         if (ref == null)
@@ -2570,7 +2570,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * Sets the svTestBasicNamedObjectFixed to the specified value.
      * @param value A value compatible with TestBasicNamedObjectFixedREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1037)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1052)
     public void setSvTestBasicNamedObjectFixed(TestBasicNamedObjectFixedDMW value) {
         ((TestBasicObjectFixedDMO) core).setSvTestBasicNamedObjectFixed(value.getDMO());
     }
@@ -2578,7 +2578,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
     /**
      * Removes the svTestBasicNamedObjectFixed attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSvTestBasicNamedObjectFixed(){
         ((TestBasicObjectFixedDMO) core).remSvTestBasicNamedObjectFixed();
     }

@@ -1,6 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                                      // If any attributes
 import org.dmd.dmc.types.CamelCaseName;                                    // Primitive type
 import org.dmd.dms.*;                                                      // Always 2
@@ -40,6 +40,12 @@ abstract public class I18NConfigDMW extends RunContextItem implements DmcNamedOb
         super(obj, org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._I18NConfig);
     }
 
+    public I18NConfig cloneIt() {
+        I18NConfig rc = new I18NConfig();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public I18NConfigDMO getDMO() {
         return((I18NConfigDMO) core);
     }
@@ -48,7 +54,7 @@ abstract public class I18NConfigDMW extends RunContextItem implements DmcNamedOb
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public CamelCaseName getObjectName(){
         return(((I18NConfigDMO) core).getItemName());
     }
@@ -68,7 +74,7 @@ abstract public class I18NConfigDMW extends RunContextItem implements DmcNamedOb
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public CamelCaseName getItemName(){
         return(((I18NConfigDMO) core).getItemName());
     }
@@ -77,7 +83,7 @@ abstract public class I18NConfigDMW extends RunContextItem implements DmcNamedOb
      * Sets itemName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setItemName(Object value) throws DmcValueException {
         ((I18NConfigDMO) core).setItemName(value);
     }
@@ -86,7 +92,7 @@ abstract public class I18NConfigDMW extends RunContextItem implements DmcNamedOb
      * Sets itemName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setItemName(CamelCaseName value){
         ((I18NConfigDMO) core).setItemName(value);
     }
@@ -94,7 +100,7 @@ abstract public class I18NConfigDMW extends RunContextItem implements DmcNamedOb
     /**
      * Removes the itemName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remItemName(){
         ((I18NConfigDMO) core).remItemName();
     }
