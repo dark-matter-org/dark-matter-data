@@ -227,6 +227,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _filterAttributeDef;
     public static AttributeDefinition _classFilter;
     public static AttributeDefinition _indexSize;
+    public static AttributeDefinition _excludeFromContext;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -450,6 +451,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _filterAttributeDef          = new AttributeDefinition("filterAttributeDef", _AttributeDefinitionREF);
             _classFilter                 = new AttributeDefinition("classFilter", _ClassFilter);
             _indexSize                   = new AttributeDefinition("indexSize", _Integer);
+            _excludeFromContext          = new AttributeDefinition("excludeFromContext", _String);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
@@ -1231,7 +1233,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _dmwPackage                  .setType(_String);
             _dmwPackage                  .setDefinedIn(this);
 
-            _dmwTypeToPackage            .setDescription("The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage GXT com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used.");
+            _dmwTypeToPackage            .setDescription("The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage gxt com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used.");
             _dmwTypeToPackage            .setDmdID("123");
             _dmwTypeToPackage            .setName("dmwTypeToPackage");
             _dmwTypeToPackage            .setType(_StringToString);
@@ -1284,6 +1286,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _enumValue                   .setType(_EnumValue);
             _enumValue                   .setValueType(ValueTypeEnum.MULTI);
             _enumValue                   .setDefinedIn(this);
+
+            _excludeFromContext          .setDescription("The excludeFromContext attribute is used to indicate that a class of object (and all of its derivatives) should be excluded from the wrapper generation for the specified context. An example usage is in the Dark Matter Protocol where we don't want to generate wrappers for the message objects in a gxt context.");
+            _excludeFromContext          .setDmdID("130");
+            _excludeFromContext          .setName("excludeFromContext");
+            _excludeFromContext          .setType(_String);
+            _excludeFromContext          .setValueType(ValueTypeEnum.MULTI);
+            _excludeFromContext          .setDefinedIn(this);
 
             _extendedClass               .setDescription("The extendedClass indicates the fully qualified name of the class that is derived from the generated ComplexType to provide additional behaviour.");
             _extendedClass               .setDmdID("106");
@@ -1853,6 +1862,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassDefinition             .addMay(_subpackage);
             _ClassDefinition             .addMay(_dataType);
             _ClassDefinition             .addMay(_supportsBackrefTracking);
+            _ClassDefinition             .addMay(_excludeFromContext);
             _ClassDefinition             .addMay(_abbrev);
             _ClassDefinition             .addMay(_obsoleteVersion);
             _ClassDefinition             .addMay(_isTransportable);
@@ -2215,6 +2225,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_filterAttributeDef);
             this.addAttributeDefList(_classFilter);
             this.addAttributeDefList(_indexSize);
+            this.addAttributeDefList(_excludeFromContext);
             this.addAttributeDefList(_objectClass);
             this.setName("meta");
             this.setDescription("The meta schema defines the elements used to define schemas.");

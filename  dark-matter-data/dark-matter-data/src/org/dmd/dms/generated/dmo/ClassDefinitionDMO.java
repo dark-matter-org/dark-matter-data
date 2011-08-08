@@ -73,6 +73,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(MetaDMSAG.__dmwIteratorClass.id,MetaDMSAG.__dmwIteratorClass);
         _ImAp.put(MetaDMSAG.__dmwIteratorImport.id,MetaDMSAG.__dmwIteratorImport);
         _ImAp.put(MetaDMSAG.__dmwWrapperType.id,MetaDMSAG.__dmwWrapperType);
+        _ImAp.put(MetaDMSAG.__excludeFromContext.id,MetaDMSAG.__excludeFromContext);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__intendedToExtend.id,MetaDMSAG.__intendedToExtend);
         _ImAp.put(MetaDMSAG.__internalTypeRef.id,MetaDMSAG.__internalTypeRef);
@@ -116,6 +117,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(MetaDMSAG.__dmwIteratorClass.name,MetaDMSAG.__dmwIteratorClass);
         _SmAp.put(MetaDMSAG.__dmwIteratorImport.name,MetaDMSAG.__dmwIteratorImport);
         _SmAp.put(MetaDMSAG.__dmwWrapperType.name,MetaDMSAG.__dmwWrapperType);
+        _SmAp.put(MetaDMSAG.__excludeFromContext.name,MetaDMSAG.__excludeFromContext);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__intendedToExtend.name,MetaDMSAG.__intendedToExtend);
         _SmAp.put(MetaDMSAG.__internalTypeRef.name,MetaDMSAG.__internalTypeRef);
@@ -935,6 +937,39 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         
         attr.add(value);
         add(MetaDMSAG.__dmwWrapperType,attr);
+        return(attr);
+    }
+
+    /**
+     * The excludeFromContext attribute is used to indicate that a class of
+     * object (and all of its derivatives) should be excluded from the wrapper
+     * generation for the specified context. An example usage is in the Dark
+     * Matter Protocol where we don't want to generate wrappers for the message
+     * objects in a gxt context.
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1686)
+    public Iterator<String> getExcludeFromContext(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__excludeFromContext);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another excludeFromContext value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1730)
+    public DmcAttribute addExcludeFromContext(Object value) throws DmcValueException {
+        DmcAttribute attr = get(MetaDMSAG.__excludeFromContext);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__excludeFromContext);
+        
+        attr.add(value);
+        add(MetaDMSAG.__excludeFromContext,attr);
         return(attr);
     }
 

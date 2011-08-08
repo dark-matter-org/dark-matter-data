@@ -68,6 +68,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __enumName = new DmcAttributeInfo("enumName",99,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __enumString = new DmcAttributeInfo("enumString",70,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __enumValue = new DmcAttributeInfo("enumValue",33,"EnumValue",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __excludeFromContext = new DmcAttributeInfo("excludeFromContext",130,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __extendedClass = new DmcAttributeInfo("extendedClass",106,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __extendsInterface = new DmcAttributeInfo("extendsInterface",119,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __field = new DmcAttributeInfo("field",105,"Field",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -228,6 +229,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__enumName.id,__enumName);
         _SmAp.put(__enumString.id,__enumString);
         _SmAp.put(__enumValue.id,__enumValue);
+        _SmAp.put(__excludeFromContext.id,__excludeFromContext);
         _SmAp.put(__extendedClass.id,__extendedClass);
         _SmAp.put(__extendsInterface.id,__extendsInterface);
         _SmAp.put(__field.id,__field);
@@ -386,6 +388,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ClassDefinition.addMay(__dmwIteratorClass);
         __ClassDefinition.addMay(__dmwIteratorImport);
         __ClassDefinition.addMay(__dmwWrapperType);
+        __ClassDefinition.addMay(__excludeFromContext);
         __ClassDefinition.addMay(__file);
         __ClassDefinition.addMay(__intendedToExtend);
         __ClassDefinition.addMay(__internalTypeRef);

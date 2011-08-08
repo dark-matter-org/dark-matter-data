@@ -500,6 +500,45 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * The excludeFromContext attribute is used to indicate that a class of
+     * object (and all of its derivatives) should be excluded from the wrapper
+     * generation for the specified context. An example usage is in the Dark
+     * Matter Protocol where we don't want to generate wrappers for the message
+     * objects in a gxt context.
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1713)
+    public Iterator<String> getExcludeFromContext(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__excludeFromContext);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another excludeFromContext value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1760)
+    public DmcAttribute addExcludeFromContext(Object value) throws DmcValueException {
+        return(mycore.addExcludeFromContext(value));
+    }
+
+    /**
+     * Returns the number of excludeFromContext values.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1771)
+    public int getExcludeFromContextSize(){
+        DmcAttribute attr = mycore.get(MetaDMSAG.__excludeFromContext);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * This attribute stores an abbreviated form of the name of an attribute or
      * class. This concept is borrowed from directory technology where shortened
      * name forms are often used as part of distinguished names (DNs).
