@@ -1,6 +1,6 @@
 package org.dmd.dmt.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                                    // If any attributes
 import org.dmd.dms.*;                                                    // Always 2
 import org.dmd.dmt.server.extended.TestAbstractExtended;                 // Required for getModificationRecorder()
@@ -32,7 +32,7 @@ abstract public class TestAbstractExtendedDMW extends DmwWrapper {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getSvString(){
         return(((TestAbstractExtendedDMO) core).getSvString());
     }
@@ -41,7 +41,7 @@ abstract public class TestAbstractExtendedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setSvString(Object value) throws DmcValueException {
         ((TestAbstractExtendedDMO) core).setSvString(value);
     }
@@ -50,7 +50,7 @@ abstract public class TestAbstractExtendedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setSvString(String value){
         ((TestAbstractExtendedDMO) core).setSvString(value);
     }
@@ -58,7 +58,7 @@ abstract public class TestAbstractExtendedDMW extends DmwWrapper {
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSvString(){
         ((TestAbstractExtendedDMO) core).remSvString();
     }

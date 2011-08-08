@@ -1,6 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                                         // If any attributes
 import org.dmd.dmc.types.CamelCaseName;                                       // Primitive type
 import org.dmd.dms.*;                                                         // Always 2
@@ -35,7 +35,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public CamelCaseName getObjectName(){
         return(((MvwDefinitionDMO) core).getCamelCaseName());
     }
@@ -55,7 +55,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getFile(){
         return(((MvwDefinitionDMO) core).getFile());
     }
@@ -64,7 +64,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setFile(Object value) throws DmcValueException {
         ((MvwDefinitionDMO) core).setFile(value);
     }
@@ -73,7 +73,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets file to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setFile(String value){
         ((MvwDefinitionDMO) core).setFile(value);
     }
@@ -81,12 +81,12 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * Removes the file attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remFile(){
         ((MvwDefinitionDMO) core).remFile();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Integer getLineNumber(){
         return(((MvwDefinitionDMO) core).getLineNumber());
     }
@@ -95,7 +95,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setLineNumber(Object value) throws DmcValueException {
         ((MvwDefinitionDMO) core).setLineNumber(value);
     }
@@ -104,7 +104,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setLineNumber(Integer value){
         ((MvwDefinitionDMO) core).setLineNumber(value);
     }
@@ -112,12 +112,12 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * Removes the lineNumber attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remLineNumber(){
         ((MvwDefinitionDMO) core).remLineNumber();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getDescription(){
         return(((MvwDefinitionDMO) core).getDescription());
     }
@@ -126,7 +126,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setDescription(Object value) throws DmcValueException {
         ((MvwDefinitionDMO) core).setDescription(value);
     }
@@ -135,7 +135,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setDescription(String value){
         ((MvwDefinitionDMO) core).setDescription(value);
     }
@@ -143,12 +143,12 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remDescription(){
         ((MvwDefinitionDMO) core).remDescription();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public CamelCaseName getCamelCaseName(){
         return(((MvwDefinitionDMO) core).getCamelCaseName());
     }
@@ -157,7 +157,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets camelCaseName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setCamelCaseName(Object value) throws DmcValueException {
         ((MvwDefinitionDMO) core).setCamelCaseName(value);
     }
@@ -166,7 +166,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets camelCaseName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setCamelCaseName(CamelCaseName value){
         ((MvwDefinitionDMO) core).setCamelCaseName(value);
     }
@@ -174,7 +174,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * Removes the camelCaseName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remCamelCaseName(){
         ((MvwDefinitionDMO) core).remCamelCaseName();
     }
@@ -182,7 +182,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * @return A Module object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:984)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:999)
     public Module getDefinedInModule(){
         ModuleREF ref = ((MvwDefinitionDMO) core).getDefinedInModule();
         if (ref == null)
@@ -198,7 +198,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
      * Sets the definedInModule to the specified value.
      * @param value A value compatible with ModuleREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1037)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1052)
     public void setDefinedInModule(Module value) {
         ((MvwDefinitionDMO) core).setDefinedInModule(value.getDMO());
     }
@@ -206,7 +206,7 @@ abstract public class MvwDefinitionDMW extends DmwNamedObjectWrapper implements 
     /**
      * Removes the definedInModule attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remDefinedInModule(){
         ((MvwDefinitionDMO) core).remDefinedInModule();
     }

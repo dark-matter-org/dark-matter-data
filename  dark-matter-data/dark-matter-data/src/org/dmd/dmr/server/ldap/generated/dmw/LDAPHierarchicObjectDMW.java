@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.server.ldap.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                                         // If any attributes
 import org.dmd.dmc.types.FullyQualifiedName;                                  // Primitive type
 import org.dmd.dmr.server.base.extended.HierarchicObject;                     // Derived class
@@ -61,6 +61,12 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
         super(obj, org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG._LDAPHierarchicObject);
     }
 
+    public LDAPHierarchicObject cloneIt() {
+        LDAPHierarchicObject rc = new LDAPHierarchicObject();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public LDAPHierarchicObjectDMO getDMO() {
         return((LDAPHierarchicObjectDMO) core);
     }
@@ -69,7 +75,7 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public FullyQualifiedName getObjectName(){
         return(((LDAPHierarchicObjectDMO) core).getFQN());
     }
@@ -89,7 +95,7 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public FullyQualifiedName getFQN(){
         return(((LDAPHierarchicObjectDMO) core).getFQN());
     }
@@ -98,7 +104,7 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setFQN(Object value) throws DmcValueException {
         ((LDAPHierarchicObjectDMO) core).setFQN(value);
     }
@@ -107,7 +113,7 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setFQN(FullyQualifiedName value){
         ((LDAPHierarchicObjectDMO) core).setFQN(value);
     }
@@ -115,7 +121,7 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remFQN(){
         ((LDAPHierarchicObjectDMO) core).remFQN();
     }

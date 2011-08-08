@@ -1,6 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import java.util.ArrayList;                                                             // To support getMVCopy()
 import java.util.Iterator;                                                              // To support getMVCopy()
 import java.util.TreeSet;                                                               // To support getMVCopy()
@@ -62,6 +62,12 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
         super(obj, org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._View);
     }
 
+    public View cloneIt() {
+        View rc = new View();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public ViewDMO getDMO() {
         return((ViewDMO) core);
     }
@@ -70,7 +76,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public CamelCaseName getObjectName(){
         return(((ViewDMO) core).getViewName());
     }
@@ -90,7 +96,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getUseBaseClass(){
         return(((ViewDMO) core).getUseBaseClass());
     }
@@ -99,7 +105,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets useBaseClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setUseBaseClass(Object value) throws DmcValueException {
         ((ViewDMO) core).setUseBaseClass(value);
     }
@@ -108,7 +114,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets useBaseClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setUseBaseClass(String value){
         ((ViewDMO) core).setUseBaseClass(value);
     }
@@ -116,7 +122,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the useBaseClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remUseBaseClass(){
         ((ViewDMO) core).remUseBaseClass();
     }
@@ -124,7 +130,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of Event items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getLocalSize(){
         return(((ViewDMO) core).getLocalSize());
     }
@@ -132,7 +138,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getLocalIsEmpty(){
         if (((ViewDMO) core).getLocalSize() == 0)
             return(true);
@@ -142,7 +148,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getLocalHasValue(){
         if (((ViewDMO) core).getLocalSize() == 0)
             return(false);
@@ -153,7 +159,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * @return An Iterator of EventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1214)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1229)
     public EventIterableDMW getLocalIterable(){
         DmcAttribute attr = ((ViewDMO) core).get(MvwDMSAG.__local);
         if (attr == null)
@@ -166,7 +172,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another local value.
      * @param value A value compatible with Event
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1245)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1260)
     public DmcAttribute<?> addLocal(Event value){
         DmcAttribute<?> attr = ((ViewDMO) core).addLocal(((EventDMO)value.getDmcObject()));
         return(attr);
@@ -176,7 +182,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a local value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1270)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1285)
     public void delLocal(Event value){
         ((ViewDMO) core).delLocal(value.getDMO());
     }
@@ -184,7 +190,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of Event objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1317)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1332)
     public TreeSet<Event> getLocalCopy(){
         DmcAttribute<?> attr = ((ViewDMO) core).get(MvwDMSAG.__local);
         if (attr == null)
@@ -203,7 +209,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the local attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remLocal(){
         ((ViewDMO) core).remLocal();
     }
@@ -211,7 +217,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of Event items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getBroadcastSize(){
         return(((ViewDMO) core).getBroadcastSize());
     }
@@ -219,7 +225,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getBroadcastIsEmpty(){
         if (((ViewDMO) core).getBroadcastSize() == 0)
             return(true);
@@ -229,7 +235,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getBroadcastHasValue(){
         if (((ViewDMO) core).getBroadcastSize() == 0)
             return(false);
@@ -240,7 +246,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * @return An Iterator of EventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1214)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1229)
     public EventIterableDMW getBroadcastIterable(){
         DmcAttribute attr = ((ViewDMO) core).get(MvwDMSAG.__broadcast);
         if (attr == null)
@@ -253,7 +259,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another broadcast value.
      * @param value A value compatible with Event
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1245)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1260)
     public DmcAttribute<?> addBroadcast(Event value){
         DmcAttribute<?> attr = ((ViewDMO) core).addBroadcast(((EventDMO)value.getDmcObject()));
         return(attr);
@@ -263,7 +269,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a broadcast value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1270)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1285)
     public void delBroadcast(Event value){
         ((ViewDMO) core).delBroadcast(value.getDMO());
     }
@@ -271,7 +277,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of Event objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1317)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1332)
     public ArrayList<Event> getBroadcastCopy(){
         DmcAttribute<?> attr = ((ViewDMO) core).get(MvwDMSAG.__broadcast);
         if (attr == null)
@@ -290,7 +296,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the broadcast attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remBroadcast(){
         ((ViewDMO) core).remBroadcast();
     }
@@ -298,7 +304,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of Event items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getBroadcastOnlySize(){
         return(((ViewDMO) core).getBroadcastOnlySize());
     }
@@ -306,7 +312,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getBroadcastOnlyIsEmpty(){
         if (((ViewDMO) core).getBroadcastOnlySize() == 0)
             return(true);
@@ -316,7 +322,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getBroadcastOnlyHasValue(){
         if (((ViewDMO) core).getBroadcastOnlySize() == 0)
             return(false);
@@ -327,7 +333,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * @return An Iterator of EventDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1214)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1229)
     public EventIterableDMW getBroadcastOnlyIterable(){
         DmcAttribute attr = ((ViewDMO) core).get(MvwDMSAG.__broadcastOnly);
         if (attr == null)
@@ -340,7 +346,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another broadcastOnly value.
      * @param value A value compatible with Event
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1245)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1260)
     public DmcAttribute<?> addBroadcastOnly(Event value){
         DmcAttribute<?> attr = ((ViewDMO) core).addBroadcastOnly(((EventDMO)value.getDmcObject()));
         return(attr);
@@ -350,7 +356,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a broadcastOnly value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1270)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1285)
     public void delBroadcastOnly(Event value){
         ((ViewDMO) core).delBroadcastOnly(value.getDMO());
     }
@@ -358,7 +364,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of Event objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1317)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1332)
     public ArrayList<Event> getBroadcastOnlyCopy(){
         DmcAttribute<?> attr = ((ViewDMO) core).get(MvwDMSAG.__broadcastOnly);
         if (attr == null)
@@ -377,7 +383,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the broadcastOnly attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remBroadcastOnly(){
         ((ViewDMO) core).remBroadcastOnly();
     }
@@ -385,7 +391,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getViewImportSize(){
         return(((ViewDMO) core).getViewImportSize());
     }
@@ -393,7 +399,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getViewImportIsEmpty(){
         if (((ViewDMO) core).getViewImportSize() == 0)
             return(true);
@@ -403,7 +409,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getViewImportHasValue(){
         if (((ViewDMO) core).getViewImportSize() == 0)
             return(false);
@@ -413,7 +419,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public StringIterableDMW getViewImportIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__viewImport);
         if (attr == null)
@@ -426,7 +432,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another viewImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addViewImport(Object value) throws DmcValueException {
         ((ViewDMO) core).addViewImport(value);
     }
@@ -435,7 +441,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another viewImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addViewImport(String value){
         ((ViewDMO) core).addViewImport(value);
     }
@@ -444,7 +450,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Returns true if the collection contains the viewImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean viewImportContains(String value){
         return(((ViewDMO) core).viewImportContains(value));
     }
@@ -452,7 +458,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public TreeSet<String> getViewImportCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__viewImport);
@@ -473,7 +479,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a viewImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delViewImport(Object value) throws DmcValueException {
         ((ViewDMO) core).delViewImport(value);
     }
@@ -482,7 +488,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a viewImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delViewImport(String value){
         ((ViewDMO) core).delViewImport(value);
     }
@@ -490,7 +496,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the viewImport attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remViewImport(){
         ((ViewDMO) core).remViewImport();
     }
@@ -498,7 +504,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getPresenterImportSize(){
         return(((ViewDMO) core).getPresenterImportSize());
     }
@@ -506,7 +512,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getPresenterImportIsEmpty(){
         if (((ViewDMO) core).getPresenterImportSize() == 0)
             return(true);
@@ -516,7 +522,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getPresenterImportHasValue(){
         if (((ViewDMO) core).getPresenterImportSize() == 0)
             return(false);
@@ -526,7 +532,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public StringIterableDMW getPresenterImportIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__presenterImport);
         if (attr == null)
@@ -539,7 +545,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another presenterImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addPresenterImport(Object value) throws DmcValueException {
         ((ViewDMO) core).addPresenterImport(value);
     }
@@ -548,7 +554,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another presenterImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addPresenterImport(String value){
         ((ViewDMO) core).addPresenterImport(value);
     }
@@ -557,7 +563,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Returns true if the collection contains the presenterImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean presenterImportContains(String value){
         return(((ViewDMO) core).presenterImportContains(value));
     }
@@ -565,7 +571,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public TreeSet<String> getPresenterImportCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__presenterImport);
@@ -586,7 +592,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a presenterImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delPresenterImport(Object value) throws DmcValueException {
         ((ViewDMO) core).delPresenterImport(value);
     }
@@ -595,7 +601,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a presenterImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delPresenterImport(String value){
         ((ViewDMO) core).delPresenterImport(value);
     }
@@ -603,7 +609,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the presenterImport attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remPresenterImport(){
         ((ViewDMO) core).remPresenterImport();
     }
@@ -611,7 +617,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getSharedImportSize(){
         return(((ViewDMO) core).getSharedImportSize());
     }
@@ -619,7 +625,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getSharedImportIsEmpty(){
         if (((ViewDMO) core).getSharedImportSize() == 0)
             return(true);
@@ -629,7 +635,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getSharedImportHasValue(){
         if (((ViewDMO) core).getSharedImportSize() == 0)
             return(false);
@@ -639,7 +645,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public StringIterableDMW getSharedImportIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sharedImport);
         if (attr == null)
@@ -652,7 +658,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another sharedImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addSharedImport(Object value) throws DmcValueException {
         ((ViewDMO) core).addSharedImport(value);
     }
@@ -661,7 +667,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another sharedImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addSharedImport(String value){
         ((ViewDMO) core).addSharedImport(value);
     }
@@ -670,7 +676,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Returns true if the collection contains the sharedImport value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean sharedImportContains(String value){
         return(((ViewDMO) core).sharedImportContains(value));
     }
@@ -678,7 +684,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public TreeSet<String> getSharedImportCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sharedImport);
@@ -699,7 +705,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a sharedImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delSharedImport(Object value) throws DmcValueException {
         ((ViewDMO) core).delSharedImport(value);
     }
@@ -708,7 +714,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a sharedImport value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delSharedImport(String value){
         ((ViewDMO) core).delSharedImport(value);
     }
@@ -716,12 +722,12 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the sharedImport attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remSharedImport(){
         ((ViewDMO) core).remSharedImport();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getSubpackage(){
         return(((ViewDMO) core).getSubpackage());
     }
@@ -730,7 +736,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets subpackage to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setSubpackage(Object value) throws DmcValueException {
         ((ViewDMO) core).setSubpackage(value);
     }
@@ -739,7 +745,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets subpackage to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setSubpackage(String value){
         ((ViewDMO) core).setSubpackage(value);
     }
@@ -747,12 +753,12 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the subpackage attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSubpackage(){
         ((ViewDMO) core).remSubpackage();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Boolean isTheOne(){
         return(((ViewDMO) core).isTheOne());
     }
@@ -761,7 +767,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets theOne to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setTheOne(Object value) throws DmcValueException {
         ((ViewDMO) core).setTheOne(value);
     }
@@ -770,7 +776,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets theOne to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setTheOne(Boolean value){
         ((ViewDMO) core).setTheOne(value);
     }
@@ -778,7 +784,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the theOne attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remTheOne(){
         ((ViewDMO) core).remTheOne();
     }
@@ -786,7 +792,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of RunContextItem items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getUsesRunContextItemSize(){
         return(((ViewDMO) core).getUsesRunContextItemSize());
     }
@@ -794,7 +800,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no RunContextItemDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getUsesRunContextItemIsEmpty(){
         if (((ViewDMO) core).getUsesRunContextItemSize() == 0)
             return(true);
@@ -804,7 +810,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any RunContextItemDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getUsesRunContextItemHasValue(){
         if (((ViewDMO) core).getUsesRunContextItemSize() == 0)
             return(false);
@@ -815,7 +821,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * @return An Iterator of RunContextItemDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1214)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1229)
     public RunContextItemIterableDMW getUsesRunContextItemIterable(){
         DmcAttribute attr = ((ViewDMO) core).get(MvwDMSAG.__usesRunContextItem);
         if (attr == null)
@@ -828,7 +834,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another usesRunContextItem value.
      * @param value A value compatible with RunContextItem
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1245)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1260)
     public DmcAttribute<?> addUsesRunContextItem(RunContextItem value){
         DmcAttribute<?> attr = ((ViewDMO) core).addUsesRunContextItem(((RunContextItemDMO)value.getDmcObject()));
         return(attr);
@@ -838,7 +844,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a usesRunContextItem value.
      * @param value The RunContextItem to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1270)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1285)
     public void delUsesRunContextItem(RunContextItem value){
         ((ViewDMO) core).delUsesRunContextItem(value.getDMO());
     }
@@ -846,7 +852,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of RunContextItem objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1317)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1332)
     public TreeSet<RunContextItem> getUsesRunContextItemCopy(){
         DmcAttribute<?> attr = ((ViewDMO) core).get(MvwDMSAG.__usesRunContextItem);
         if (attr == null)
@@ -865,12 +871,12 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the usesRunContextItem attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remUsesRunContextItem(){
         ((ViewDMO) core).remUsesRunContextItem();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Boolean isWidget(){
         return(((ViewDMO) core).isWidget());
     }
@@ -879,7 +885,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets widget to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setWidget(Object value) throws DmcValueException {
         ((ViewDMO) core).setWidget(value);
     }
@@ -888,7 +894,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets widget to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setWidget(Boolean value){
         ((ViewDMO) core).setWidget(value);
     }
@@ -896,7 +902,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the widget attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remWidget(){
         ((ViewDMO) core).remWidget();
     }
@@ -904,7 +910,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getExtendsInterfaceSize(){
         return(((ViewDMO) core).getExtendsInterfaceSize());
     }
@@ -912,7 +918,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getExtendsInterfaceIsEmpty(){
         if (((ViewDMO) core).getExtendsInterfaceSize() == 0)
             return(true);
@@ -922,7 +928,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getExtendsInterfaceHasValue(){
         if (((ViewDMO) core).getExtendsInterfaceSize() == 0)
             return(false);
@@ -932,7 +938,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public StringIterableDMW getExtendsInterfaceIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__extendsInterface);
         if (attr == null)
@@ -945,7 +951,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another extendsInterface value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addExtendsInterface(Object value) throws DmcValueException {
         ((ViewDMO) core).addExtendsInterface(value);
     }
@@ -954,7 +960,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another extendsInterface value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addExtendsInterface(String value){
         ((ViewDMO) core).addExtendsInterface(value);
     }
@@ -963,7 +969,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Returns true if the collection contains the extendsInterface value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean extendsInterfaceContains(String value){
         return(((ViewDMO) core).extendsInterfaceContains(value));
     }
@@ -971,7 +977,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getExtendsInterfaceCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__extendsInterface);
@@ -992,7 +998,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a extendsInterface value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delExtendsInterface(Object value) throws DmcValueException {
         ((ViewDMO) core).delExtendsInterface(value);
     }
@@ -1001,7 +1007,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a extendsInterface value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delExtendsInterface(String value){
         ((ViewDMO) core).delExtendsInterface(value);
     }
@@ -1009,7 +1015,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the extendsInterface attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remExtendsInterface(){
         ((ViewDMO) core).remExtendsInterface();
     }
@@ -1017,7 +1023,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of MethodWithArgs items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getPresenterMethodSize(){
         return(((ViewDMO) core).getPresenterMethodSize());
     }
@@ -1025,7 +1031,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no MethodWithArgsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getPresenterMethodIsEmpty(){
         if (((ViewDMO) core).getPresenterMethodSize() == 0)
             return(true);
@@ -1035,7 +1041,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any MethodWithArgsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getPresenterMethodHasValue(){
         if (((ViewDMO) core).getPresenterMethodSize() == 0)
             return(false);
@@ -1045,7 +1051,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return An Iterator of MethodWithArgs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public MethodWithArgsIterableDMW getPresenterMethodIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__presenterMethod);
         if (attr == null)
@@ -1058,7 +1064,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another presenterMethod value.
      * @param value A value compatible with MethodWithArgs
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addPresenterMethod(Object value) throws DmcValueException {
         ((ViewDMO) core).addPresenterMethod(value);
     }
@@ -1067,7 +1073,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another presenterMethod value.
      * @param value A value compatible with MethodWithArgs
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addPresenterMethod(MethodWithArgs value){
         ((ViewDMO) core).addPresenterMethod(value);
     }
@@ -1076,7 +1082,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Returns true if the collection contains the presenterMethod value.
      * @param value A value compatible with MethodWithArgs
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean presenterMethodContains(MethodWithArgs value){
         return(((ViewDMO) core).presenterMethodContains(value));
     }
@@ -1084,7 +1090,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of MethodWithArgs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<MethodWithArgs> getPresenterMethodCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__presenterMethod);
@@ -1105,7 +1111,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a presenterMethod value.
      * @param value The MethodWithArgs to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delPresenterMethod(Object value) throws DmcValueException {
         ((ViewDMO) core).delPresenterMethod(value);
     }
@@ -1114,7 +1120,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a presenterMethod value.
      * @param value The MethodWithArgs to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delPresenterMethod(MethodWithArgs value){
         ((ViewDMO) core).delPresenterMethod(value);
     }
@@ -1122,7 +1128,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the presenterMethod attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remPresenterMethod(){
         ((ViewDMO) core).remPresenterMethod();
     }
@@ -1130,7 +1136,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of MethodWithArgs items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getViewMethodSize(){
         return(((ViewDMO) core).getViewMethodSize());
     }
@@ -1138,7 +1144,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no MethodWithArgsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getViewMethodIsEmpty(){
         if (((ViewDMO) core).getViewMethodSize() == 0)
             return(true);
@@ -1148,7 +1154,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any MethodWithArgsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getViewMethodHasValue(){
         if (((ViewDMO) core).getViewMethodSize() == 0)
             return(false);
@@ -1158,7 +1164,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return An Iterator of MethodWithArgs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public MethodWithArgsIterableDMW getViewMethodIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__viewMethod);
         if (attr == null)
@@ -1171,7 +1177,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another viewMethod value.
      * @param value A value compatible with MethodWithArgs
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addViewMethod(Object value) throws DmcValueException {
         ((ViewDMO) core).addViewMethod(value);
     }
@@ -1180,7 +1186,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another viewMethod value.
      * @param value A value compatible with MethodWithArgs
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addViewMethod(MethodWithArgs value){
         ((ViewDMO) core).addViewMethod(value);
     }
@@ -1189,7 +1195,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Returns true if the collection contains the viewMethod value.
      * @param value A value compatible with MethodWithArgs
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean viewMethodContains(MethodWithArgs value){
         return(((ViewDMO) core).viewMethodContains(value));
     }
@@ -1197,7 +1203,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of MethodWithArgs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<MethodWithArgs> getViewMethodCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__viewMethod);
@@ -1218,7 +1224,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a viewMethod value.
      * @param value The MethodWithArgs to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delViewMethod(Object value) throws DmcValueException {
         ((ViewDMO) core).delViewMethod(value);
     }
@@ -1227,7 +1233,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a viewMethod value.
      * @param value The MethodWithArgs to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delViewMethod(MethodWithArgs value){
         ((ViewDMO) core).delViewMethod(value);
     }
@@ -1235,7 +1241,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the viewMethod attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remViewMethod(){
         ((ViewDMO) core).remViewMethod();
     }
@@ -1243,7 +1249,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of DisplayDataSpec items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getDisplayDMOSize(){
         return(((ViewDMO) core).getDisplayDMOSize());
     }
@@ -1251,7 +1257,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no DisplayDataSpecDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getDisplayDMOIsEmpty(){
         if (((ViewDMO) core).getDisplayDMOSize() == 0)
             return(true);
@@ -1261,7 +1267,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any DisplayDataSpecDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getDisplayDMOHasValue(){
         if (((ViewDMO) core).getDisplayDMOSize() == 0)
             return(false);
@@ -1271,7 +1277,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return An Iterator of DisplayDataSpec objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public DisplayDataSpecIterableDMW getDisplayDMOIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__displayDMO);
         if (attr == null)
@@ -1284,7 +1290,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another displayDMO value.
      * @param value A value compatible with DisplayDataSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addDisplayDMO(Object value) throws DmcValueException {
         ((ViewDMO) core).addDisplayDMO(value);
     }
@@ -1293,7 +1299,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another displayDMO value.
      * @param value A value compatible with DisplayDataSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addDisplayDMO(DisplayDataSpec value){
         ((ViewDMO) core).addDisplayDMO(value);
     }
@@ -1302,7 +1308,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Returns true if the collection contains the displayDMO value.
      * @param value A value compatible with DisplayDataSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean displayDMOContains(DisplayDataSpec value){
         return(((ViewDMO) core).displayDMOContains(value));
     }
@@ -1310,7 +1316,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of DisplayDataSpec objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<DisplayDataSpec> getDisplayDMOCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__displayDMO);
@@ -1331,7 +1337,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a displayDMO value.
      * @param value The DisplayDataSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delDisplayDMO(Object value) throws DmcValueException {
         ((ViewDMO) core).delDisplayDMO(value);
     }
@@ -1340,7 +1346,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a displayDMO value.
      * @param value The DisplayDataSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delDisplayDMO(DisplayDataSpec value){
         ((ViewDMO) core).delDisplayDMO(value);
     }
@@ -1348,7 +1354,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the displayDMO attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remDisplayDMO(){
         ((ViewDMO) core).remDisplayDMO();
     }
@@ -1356,7 +1362,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of EventSpec items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getSelectEventSize(){
         return(((ViewDMO) core).getSelectEventSize());
     }
@@ -1364,7 +1370,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no EventSpecDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getSelectEventIsEmpty(){
         if (((ViewDMO) core).getSelectEventSize() == 0)
             return(true);
@@ -1374,7 +1380,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any EventSpecDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getSelectEventHasValue(){
         if (((ViewDMO) core).getSelectEventSize() == 0)
             return(false);
@@ -1384,7 +1390,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return An Iterator of EventSpec objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public EventSpecIterableDMW getSelectEventIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__selectEvent);
         if (attr == null)
@@ -1397,7 +1403,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another selectEvent value.
      * @param value A value compatible with EventSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addSelectEvent(Object value) throws DmcValueException {
         ((ViewDMO) core).addSelectEvent(value);
     }
@@ -1406,7 +1412,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another selectEvent value.
      * @param value A value compatible with EventSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addSelectEvent(EventSpec value){
         ((ViewDMO) core).addSelectEvent(value);
     }
@@ -1415,7 +1421,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Returns true if the collection contains the selectEvent value.
      * @param value A value compatible with EventSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean selectEventContains(EventSpec value){
         return(((ViewDMO) core).selectEventContains(value));
     }
@@ -1423,7 +1429,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of EventSpec objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<EventSpec> getSelectEventCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__selectEvent);
@@ -1444,7 +1450,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a selectEvent value.
      * @param value The EventSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delSelectEvent(Object value) throws DmcValueException {
         ((ViewDMO) core).delSelectEvent(value);
     }
@@ -1453,7 +1459,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a selectEvent value.
      * @param value The EventSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delSelectEvent(EventSpec value){
         ((ViewDMO) core).delSelectEvent(value);
     }
@@ -1461,7 +1467,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the selectEvent attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remSelectEvent(){
         ((ViewDMO) core).remSelectEvent();
     }
@@ -1469,7 +1475,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of EventSpec items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getDeleteEventSize(){
         return(((ViewDMO) core).getDeleteEventSize());
     }
@@ -1477,7 +1483,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no EventSpecDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getDeleteEventIsEmpty(){
         if (((ViewDMO) core).getDeleteEventSize() == 0)
             return(true);
@@ -1487,7 +1493,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any EventSpecDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getDeleteEventHasValue(){
         if (((ViewDMO) core).getDeleteEventSize() == 0)
             return(false);
@@ -1497,7 +1503,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return An Iterator of EventSpec objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public EventSpecIterableDMW getDeleteEventIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__deleteEvent);
         if (attr == null)
@@ -1510,7 +1516,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another deleteEvent value.
      * @param value A value compatible with EventSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addDeleteEvent(Object value) throws DmcValueException {
         ((ViewDMO) core).addDeleteEvent(value);
     }
@@ -1519,7 +1525,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another deleteEvent value.
      * @param value A value compatible with EventSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addDeleteEvent(EventSpec value){
         ((ViewDMO) core).addDeleteEvent(value);
     }
@@ -1528,7 +1534,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Returns true if the collection contains the deleteEvent value.
      * @param value A value compatible with EventSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean deleteEventContains(EventSpec value){
         return(((ViewDMO) core).deleteEventContains(value));
     }
@@ -1536,7 +1542,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of EventSpec objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<EventSpec> getDeleteEventCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__deleteEvent);
@@ -1557,7 +1563,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a deleteEvent value.
      * @param value The EventSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delDeleteEvent(Object value) throws DmcValueException {
         ((ViewDMO) core).delDeleteEvent(value);
     }
@@ -1566,7 +1572,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a deleteEvent value.
      * @param value The EventSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delDeleteEvent(EventSpec value){
         ((ViewDMO) core).delDeleteEvent(value);
     }
@@ -1574,7 +1580,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the deleteEvent attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remDeleteEvent(){
         ((ViewDMO) core).remDeleteEvent();
     }
@@ -1582,7 +1588,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return The number of OperationSpec items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getClickEventSize(){
         return(((ViewDMO) core).getClickEventSize());
     }
@@ -1590,7 +1596,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are no OperationSpecDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getClickEventIsEmpty(){
         if (((ViewDMO) core).getClickEventSize() == 0)
             return(true);
@@ -1600,7 +1606,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return true if there are any OperationSpecDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getClickEventHasValue(){
         if (((ViewDMO) core).getClickEventSize() == 0)
             return(false);
@@ -1610,7 +1616,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return An Iterator of OperationSpec objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public OperationSpecIterableDMW getClickEventIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__clickEvent);
         if (attr == null)
@@ -1623,7 +1629,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another clickEvent value.
      * @param value A value compatible with OperationSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addClickEvent(Object value) throws DmcValueException {
         ((ViewDMO) core).addClickEvent(value);
     }
@@ -1632,7 +1638,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Adds another clickEvent value.
      * @param value A value compatible with OperationSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addClickEvent(OperationSpec value){
         ((ViewDMO) core).addClickEvent(value);
     }
@@ -1641,7 +1647,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Returns true if the collection contains the clickEvent value.
      * @param value A value compatible with OperationSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean clickEventContains(OperationSpec value){
         return(((ViewDMO) core).clickEventContains(value));
     }
@@ -1649,7 +1655,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of OperationSpec objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public ArrayList<OperationSpec> getClickEventCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__clickEvent);
@@ -1670,7 +1676,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a clickEvent value.
      * @param value The OperationSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delClickEvent(Object value) throws DmcValueException {
         ((ViewDMO) core).delClickEvent(value);
     }
@@ -1679,7 +1685,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Deletes a clickEvent value.
      * @param value The OperationSpec to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delClickEvent(OperationSpec value){
         ((ViewDMO) core).delClickEvent(value);
     }
@@ -1687,12 +1693,12 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the clickEvent attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remClickEvent(){
         ((ViewDMO) core).remClickEvent();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public OperationSpec getModifyEvent(){
         return(((ViewDMO) core).getModifyEvent());
     }
@@ -1701,7 +1707,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets modifyEvent to the specified value.
      * @param value A value compatible with DmcTypeOperationSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setModifyEvent(Object value) throws DmcValueException {
         ((ViewDMO) core).setModifyEvent(value);
     }
@@ -1710,7 +1716,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets modifyEvent to the specified value.
      * @param value OperationSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setModifyEvent(OperationSpec value){
         ((ViewDMO) core).setModifyEvent(value);
     }
@@ -1718,12 +1724,12 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the modifyEvent attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remModifyEvent(){
         ((ViewDMO) core).remModifyEvent();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public OperationSpec getCreateEvent(){
         return(((ViewDMO) core).getCreateEvent());
     }
@@ -1732,7 +1738,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets createEvent to the specified value.
      * @param value A value compatible with DmcTypeOperationSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setCreateEvent(Object value) throws DmcValueException {
         ((ViewDMO) core).setCreateEvent(value);
     }
@@ -1741,7 +1747,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets createEvent to the specified value.
      * @param value OperationSpec
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setCreateEvent(OperationSpec value){
         ((ViewDMO) core).setCreateEvent(value);
     }
@@ -1749,12 +1755,12 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the createEvent attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remCreateEvent(){
         ((ViewDMO) core).remCreateEvent();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public CamelCaseName getViewName(){
         return(((ViewDMO) core).getViewName());
     }
@@ -1763,7 +1769,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets viewName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setViewName(Object value) throws DmcValueException {
         ((ViewDMO) core).setViewName(value);
     }
@@ -1772,7 +1778,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
      * Sets viewName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setViewName(CamelCaseName value){
         ((ViewDMO) core).setViewName(value);
     }
@@ -1780,7 +1786,7 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
     /**
      * Removes the viewName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remViewName(){
         ((ViewDMO) core).remViewName();
     }

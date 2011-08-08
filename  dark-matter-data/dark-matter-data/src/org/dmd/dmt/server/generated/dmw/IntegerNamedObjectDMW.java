@@ -1,6 +1,6 @@
 package org.dmd.dmt.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                                  // If any attributes
 import org.dmd.dmc.types.IntegerName;                                  // Primitive type
 import org.dmd.dms.*;                                                  // Always 2
@@ -46,7 +46,7 @@ public class IntegerNamedObjectDMW extends DmwNamedObjectWrapper implements DmcN
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public IntegerName getObjectName(){
         return(((IntegerNamedObjectDMO) core).getIntegerName());
     }
@@ -66,7 +66,7 @@ public class IntegerNamedObjectDMW extends DmwNamedObjectWrapper implements DmcN
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getSvString(){
         return(((IntegerNamedObjectDMO) core).getSvString());
     }
@@ -75,7 +75,7 @@ public class IntegerNamedObjectDMW extends DmwNamedObjectWrapper implements DmcN
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setSvString(Object value) throws DmcValueException {
         ((IntegerNamedObjectDMO) core).setSvString(value);
     }
@@ -84,7 +84,7 @@ public class IntegerNamedObjectDMW extends DmwNamedObjectWrapper implements DmcN
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setSvString(String value){
         ((IntegerNamedObjectDMO) core).setSvString(value);
     }
@@ -92,12 +92,12 @@ public class IntegerNamedObjectDMW extends DmwNamedObjectWrapper implements DmcN
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSvString(){
         ((IntegerNamedObjectDMO) core).remSvString();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public IntegerName getIntegerName(){
         return(((IntegerNamedObjectDMO) core).getIntegerName());
     }
@@ -106,7 +106,7 @@ public class IntegerNamedObjectDMW extends DmwNamedObjectWrapper implements DmcN
      * Sets integerName to the specified value.
      * @param value A value compatible with DmcTypeIntegerName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setIntegerName(Object value) throws DmcValueException {
         ((IntegerNamedObjectDMO) core).setIntegerName(value);
     }
@@ -115,7 +115,7 @@ public class IntegerNamedObjectDMW extends DmwNamedObjectWrapper implements DmcN
      * Sets integerName to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setIntegerName(IntegerName value){
         ((IntegerNamedObjectDMO) core).setIntegerName(value);
     }
@@ -123,7 +123,7 @@ public class IntegerNamedObjectDMW extends DmwNamedObjectWrapper implements DmcN
     /**
      * Removes the integerName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remIntegerName(){
         ((IntegerNamedObjectDMO) core).remIntegerName();
     }

@@ -1,6 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                                                 // If any attributes
 import org.dmd.dmc.types.CamelCaseName;                                               // Primitive type
 import org.dmd.dms.*;                                                                 // Always 2
@@ -39,6 +39,12 @@ public class MenuElementDefinitionDMW extends MvwDefinition implements DmcNamedO
         super(obj, org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._MenuElementDefinition);
     }
 
+    public MenuElementDefinitionDMW cloneIt() {
+        MenuElementDefinitionDMW rc = new MenuElementDefinitionDMW();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public MenuElementDefinitionDMO getDMO() {
         return((MenuElementDefinitionDMO) core);
     }
@@ -47,7 +53,7 @@ public class MenuElementDefinitionDMW extends MvwDefinition implements DmcNamedO
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public CamelCaseName getObjectName(){
         return(((MenuElementDefinitionDMO) core).getElementName());
     }
@@ -67,7 +73,7 @@ public class MenuElementDefinitionDMW extends MvwDefinition implements DmcNamedO
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getUseImpl(){
         return(((MenuElementDefinitionDMO) core).getUseImpl());
     }
@@ -76,7 +82,7 @@ public class MenuElementDefinitionDMW extends MvwDefinition implements DmcNamedO
      * Sets useImpl to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setUseImpl(Object value) throws DmcValueException {
         ((MenuElementDefinitionDMO) core).setUseImpl(value);
     }
@@ -85,7 +91,7 @@ public class MenuElementDefinitionDMW extends MvwDefinition implements DmcNamedO
      * Sets useImpl to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setUseImpl(String value){
         ((MenuElementDefinitionDMO) core).setUseImpl(value);
     }
@@ -93,12 +99,12 @@ public class MenuElementDefinitionDMW extends MvwDefinition implements DmcNamedO
     /**
      * Removes the useImpl attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remUseImpl(){
         ((MenuElementDefinitionDMO) core).remUseImpl();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public CamelCaseName getElementName(){
         return(((MenuElementDefinitionDMO) core).getElementName());
     }
@@ -107,7 +113,7 @@ public class MenuElementDefinitionDMW extends MvwDefinition implements DmcNamedO
      * Sets elementName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setElementName(Object value) throws DmcValueException {
         ((MenuElementDefinitionDMO) core).setElementName(value);
     }
@@ -116,7 +122,7 @@ public class MenuElementDefinitionDMW extends MvwDefinition implements DmcNamedO
      * Sets elementName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setElementName(CamelCaseName value){
         ((MenuElementDefinitionDMO) core).setElementName(value);
     }
@@ -124,7 +130,7 @@ public class MenuElementDefinitionDMW extends MvwDefinition implements DmcNamedO
     /**
      * Removes the elementName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remElementName(){
         ((MenuElementDefinitionDMO) core).remElementName();
     }

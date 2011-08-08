@@ -1,6 +1,6 @@
 package org.dmd.dmt.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import java.util.Date;                                      // Primitive type
 import org.dmd.dmc.*;                                       // If any attributes
 import org.dmd.dmc.types.StringName;                        // Primitive type
@@ -32,7 +32,7 @@ abstract public class BaseObjDMW extends DmwNamedObjectWrapper implements DmcNam
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public StringName getObjectName(){
         return(((BaseObjDMO) core).getName());
     }
@@ -52,7 +52,7 @@ abstract public class BaseObjDMW extends DmwNamedObjectWrapper implements DmcNam
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Date getSvDate(){
         return(((BaseObjDMO) core).getSvDate());
     }
@@ -61,7 +61,7 @@ abstract public class BaseObjDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets svDate to the specified value.
      * @param value A value compatible with DmcTypeDate
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setSvDate(Object value) throws DmcValueException {
         ((BaseObjDMO) core).setSvDate(value);
     }
@@ -70,7 +70,7 @@ abstract public class BaseObjDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets svDate to the specified value.
      * @param value Date
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setSvDate(Date value){
         ((BaseObjDMO) core).setSvDate(value);
     }
@@ -78,12 +78,12 @@ abstract public class BaseObjDMW extends DmwNamedObjectWrapper implements DmcNam
     /**
      * Removes the svDate attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remSvDate(){
         ((BaseObjDMO) core).remSvDate();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public StringName getName(){
         return(((BaseObjDMO) core).getName());
     }
@@ -92,7 +92,7 @@ abstract public class BaseObjDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setName(Object value) throws DmcValueException {
         ((BaseObjDMO) core).setName(value);
     }
@@ -101,7 +101,7 @@ abstract public class BaseObjDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setName(StringName value){
         ((BaseObjDMO) core).setName(value);
     }
@@ -109,7 +109,7 @@ abstract public class BaseObjDMW extends DmwNamedObjectWrapper implements DmcNam
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remName(){
         ((BaseObjDMO) core).remName();
     }

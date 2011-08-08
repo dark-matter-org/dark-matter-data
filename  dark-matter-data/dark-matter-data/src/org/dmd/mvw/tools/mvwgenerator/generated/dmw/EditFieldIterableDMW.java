@@ -10,7 +10,7 @@ import org.dmd.mvw.tools.mvwgenerator.types.EditField;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1517)
- *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:86)
+ *    Called from: org.dmd.dmg.generators.DMWGenerator.createTypeIterables(DMWGenerator.java:88)
  */
 public class EditFieldIterableDMW extends DmwMVIterator<EditField> {
 

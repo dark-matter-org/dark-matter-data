@@ -1,6 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import java.util.Iterator;                                                     // To support getMVCopy()
 import java.util.TreeSet;                                                      // To support getMVCopy()
 import org.dmd.dmc.*;                                                          // If any attributes
@@ -44,6 +44,12 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
         super(obj, org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG._RunContextItem);
     }
 
+    public RunContextItem cloneIt() {
+        RunContextItem rc = new RunContextItem();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public RunContextItemDMO getDMO() {
         return((RunContextItemDMO) core);
     }
@@ -52,7 +58,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:867)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:882)
     public CamelCaseName getObjectName(){
         return(((RunContextItemDMO) core).getItemName());
     }
@@ -72,7 +78,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Integer getItemOrder(){
         return(((RunContextItemDMO) core).getItemOrder());
     }
@@ -81,7 +87,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets itemOrder to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setItemOrder(Object value) throws DmcValueException {
         ((RunContextItemDMO) core).setItemOrder(value);
     }
@@ -90,7 +96,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets itemOrder to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setItemOrder(Integer value){
         ((RunContextItemDMO) core).setItemOrder(value);
     }
@@ -98,12 +104,12 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * Removes the itemOrder attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remItemOrder(){
         ((RunContextItemDMO) core).remItemOrder();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getContextImpl(){
         return(((RunContextItemDMO) core).getContextImpl());
     }
@@ -112,7 +118,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets contextImpl to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setContextImpl(Object value) throws DmcValueException {
         ((RunContextItemDMO) core).setContextImpl(value);
     }
@@ -121,7 +127,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets contextImpl to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setContextImpl(String value){
         ((RunContextItemDMO) core).setContextImpl(value);
     }
@@ -129,7 +135,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * Removes the contextImpl attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remContextImpl(){
         ((RunContextItemDMO) core).remContextImpl();
     }
@@ -137,7 +143,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1158)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
     public int getImportThisSize(){
         return(((RunContextItemDMO) core).getImportThisSize());
     }
@@ -145,7 +151,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1174)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
     public boolean getImportThisIsEmpty(){
         if (((RunContextItemDMO) core).getImportThisSize() == 0)
             return(true);
@@ -155,7 +161,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
     public boolean getImportThisHasValue(){
         if (((RunContextItemDMO) core).getImportThisSize() == 0)
             return(false);
@@ -165,7 +171,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
     public StringIterableDMW getImportThisIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__importThis);
         if (attr == null)
@@ -178,7 +184,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Adds another importThis value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1479)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
     public void addImportThis(Object value) throws DmcValueException {
         ((RunContextItemDMO) core).addImportThis(value);
     }
@@ -187,7 +193,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Adds another importThis value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
     public void addImportThis(String value){
         ((RunContextItemDMO) core).addImportThis(value);
     }
@@ -196,7 +202,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Returns true if the collection contains the importThis value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1546)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
     public boolean importThisContains(String value){
         return(((RunContextItemDMO) core).importThisContains(value));
     }
@@ -204,7 +210,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1586)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
     @SuppressWarnings("unchecked")
     public TreeSet<String> getImportThisCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__importThis);
@@ -225,7 +231,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Deletes a importThis value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1613)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
     public void delImportThis(Object value) throws DmcValueException {
         ((RunContextItemDMO) core).delImportThis(value);
     }
@@ -234,7 +240,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Deletes a importThis value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1622)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
     public void delImportThis(String value){
         ((RunContextItemDMO) core).delImportThis(value);
     }
@@ -242,12 +248,12 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * Removes the importThis attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1634)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
     public void remImportThis(){
         ((RunContextItemDMO) core).remImportThis();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Boolean isCreateOnDemand(){
         return(((RunContextItemDMO) core).isCreateOnDemand());
     }
@@ -256,7 +262,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets createOnDemand to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setCreateOnDemand(Object value) throws DmcValueException {
         ((RunContextItemDMO) core).setCreateOnDemand(value);
     }
@@ -265,7 +271,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets createOnDemand to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setCreateOnDemand(Boolean value){
         ((RunContextItemDMO) core).setCreateOnDemand(value);
     }
@@ -273,12 +279,12 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * Removes the createOnDemand attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remCreateOnDemand(){
         ((RunContextItemDMO) core).remCreateOnDemand();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public Boolean isTheOne(){
         return(((RunContextItemDMO) core).isTheOne());
     }
@@ -287,7 +293,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets theOne to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setTheOne(Object value) throws DmcValueException {
         ((RunContextItemDMO) core).setTheOne(value);
     }
@@ -296,7 +302,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets theOne to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setTheOne(Boolean value){
         ((RunContextItemDMO) core).setTheOne(value);
     }
@@ -304,12 +310,12 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * Removes the theOne attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remTheOne(){
         ((RunContextItemDMO) core).remTheOne();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public CamelCaseName getItemName(){
         return(((RunContextItemDMO) core).getItemName());
     }
@@ -318,7 +324,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets itemName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setItemName(Object value) throws DmcValueException {
         ((RunContextItemDMO) core).setItemName(value);
     }
@@ -327,7 +333,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets itemName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setItemName(CamelCaseName value){
         ((RunContextItemDMO) core).setItemName(value);
     }
@@ -335,12 +341,12 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * Removes the itemName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remItemName(){
         ((RunContextItemDMO) core).remItemName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getUseClass(){
         return(((RunContextItemDMO) core).getUseClass());
     }
@@ -349,7 +355,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets useClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setUseClass(Object value) throws DmcValueException {
         ((RunContextItemDMO) core).setUseClass(value);
     }
@@ -358,7 +364,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets useClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setUseClass(String value){
         ((RunContextItemDMO) core).setUseClass(value);
     }
@@ -366,12 +372,12 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * Removes the useClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remUseClass(){
         ((RunContextItemDMO) core).remUseClass();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getConstruction(){
         return(((RunContextItemDMO) core).getConstruction());
     }
@@ -380,7 +386,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets construction to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setConstruction(Object value) throws DmcValueException {
         ((RunContextItemDMO) core).setConstruction(value);
     }
@@ -389,7 +395,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
      * Sets construction to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setConstruction(String value){
         ((RunContextItemDMO) core).setConstruction(value);
     }
@@ -397,7 +403,7 @@ abstract public class RunContextItemDMW extends MvwDefinition implements DmcName
     /**
      * Removes the construction attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remConstruction(){
         ((RunContextItemDMO) core).remConstruction();
     }

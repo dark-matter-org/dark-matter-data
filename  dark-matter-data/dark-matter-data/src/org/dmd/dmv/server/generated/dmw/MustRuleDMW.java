@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.server.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:840)
+// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
 import org.dmd.dmc.*;                                         // If any attributes
 import org.dmd.dms.*;                                         // Always 2
 import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor
@@ -52,6 +52,12 @@ abstract public class MustRuleDMW extends ClassRule {
         super(obj, org.dmd.dmv.server.generated.DmvSchemaAG._MustRule);
     }
 
+    public MustRule cloneIt() {
+        MustRule rc = new MustRule();
+        rc.setDmcObject(getDMO().cloneIt());
+        return(rc);
+    }
+
     public MustRuleDMO getDMO() {
         return((MustRuleDMO) core);
     }
@@ -60,7 +66,7 @@ abstract public class MustRuleDMW extends ClassRule {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1012)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
     public String getRuleTitle(){
         return(((MustRuleDMO) core).getRuleTitle());
     }
@@ -69,7 +75,7 @@ abstract public class MustRuleDMW extends ClassRule {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1071)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((MustRuleDMO) core).setRuleTitle(value);
     }
@@ -78,7 +84,7 @@ abstract public class MustRuleDMW extends ClassRule {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1080)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
     public void setRuleTitle(String value){
         ((MustRuleDMO) core).setRuleTitle(value);
     }
@@ -86,7 +92,7 @@ abstract public class MustRuleDMW extends ClassRule {
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remRuleTitle(){
         ((MustRuleDMO) core).remRuleTitle();
     }
