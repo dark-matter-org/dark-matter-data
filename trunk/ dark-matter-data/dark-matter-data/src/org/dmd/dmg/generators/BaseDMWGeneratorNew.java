@@ -160,6 +160,12 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 		if (cdefs != null){
 			while(cdefs.hasNext()){
 				ClassDefinition cd = cdefs.next();
+				
+				if (cd.generateWrapper(genContext) == false){
+//					DebugInfo.debug("Skipping " + cd.getName() + " for context " + genContext);
+					continue;
+				}
+				
 				cd.adjustJavaClass(genContext,genSuffix);
 				
 				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
@@ -1260,19 +1266,36 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 			else{
 				// INDEXED ATTRIBUTES
 				
-				sb.append("    /**\n");
-				sb.append("     * Sets the " + ad.getName() + " value at the specified index.\n");
-				sb.append("     * @param value A value compatible with " + typeName + "\n");
-				sb.append("     */\n");
-				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + auxHolderClass + " value){\n");
-		    	sb.append("        DmcAttribute<?> attr = null;\n");
-		    	sb.append("        if (value == null)\n");
-		    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, null);\n");
-		    	sb.append("        else\n");
-		    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, ((" + justdmo + ")value.getDmcObject()));\n");
-		    	sb.append("        return(attr);\n");
-				sb.append("    }\n\n");
+				if (useWrappedObjectRefs){
+					sb.append("    /**\n");
+					sb.append("     * Sets the " + ad.getName() + " value at the specified index.\n");
+					sb.append("     * @param value A value compatible with " + typeName + "\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + auxHolderClass + " value){\n");
+			    	sb.append("        DmcAttribute<?> attr = null;\n");
+			    	sb.append("        if (value == null)\n");
+			    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, null);\n");
+			    	sb.append("        else\n");
+			    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, ((" + justdmo + ")value.getDmcObject()));\n");
+			    	sb.append("        return(attr);\n");
+					sb.append("    }\n\n");
+				}
+				else{
+					sb.append("    /**\n");
+					sb.append("     * Sets the " + ad.getName() + " value at the specified index.\n");
+					sb.append("     * @param value A value compatible with " + typeName + "\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + justdmo + " value){\n");
+			    	sb.append("        DmcAttribute<?> attr = null;\n");
+			    	sb.append("        if (value == null)\n");
+			    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, null);\n");
+			    	sb.append("        else\n");
+			    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, value);\n");
+			    	sb.append("        return(attr);\n");
+					sb.append("    }\n\n");
+				}
 				
 		    	if (ad.getType().getIsRefType()){
 		    		if (ad.getType().getOriginalClass().getIsNamedBy() == null){
@@ -1714,17 +1737,29 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 		}
 		else{
 			String itClass = ad.getType().getDmwIteratorClass();
-	    	sb.append("    /**\n");
-			sb.append("     * @return An Iterator of " + typeName + " objects.\n");
-			sb.append("     */\n");
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
-			sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
-			sb.append("        if (attr == null)\n");
-			sb.append("            return(" + itClass+ ".emptyList);\n");
-			sb.append("        \n");
-			sb.append("        return(new " + itClass + "(" + dmocast + ".get" + functionName + "()));\n");
-			sb.append("    }\n\n");
+			
+			if (useWrappedObjectRefs){
+		    	sb.append("    /**\n");
+				sb.append("     * @return An Iterator of " + typeName + " objects.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
+				sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
+				sb.append("        if (attr == null)\n");
+				sb.append("            return(" + itClass+ ".emptyList);\n");
+				sb.append("        \n");
+				sb.append("        return(new " + itClass + "(" + dmocast + ".get" + functionName + "()));\n");
+				sb.append("    }\n\n");
+			}
+			else{
+		    	sb.append("    /**\n");
+				sb.append("     * @return An Iterator of " + typeName + " objects.\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+				sb.append("        return(" + dmocast + ".get" + functionName + "());\n");
+				sb.append("    }\n\n");
+			}
 			
 	    	////////////////////////////////////////////////////////////////////////////////
 	    	// adder

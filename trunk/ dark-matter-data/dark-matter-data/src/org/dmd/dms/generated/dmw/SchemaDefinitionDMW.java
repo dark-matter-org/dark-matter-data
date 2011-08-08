@@ -336,7 +336,7 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * The dmwTypeToPackage attribute is used to indicate alternative generation
      * packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For
      * instance, if we  want to generate GXT wrappers for use with Sencha's GXT
-     * model classes, we could specify dmwTypeToPackage GXT com.example.client.
+     * model classes, we could specify dmwTypeToPackage gxt com.example.client.
      * Each of schemas that's loaded for generation would have to have this same
      * attribute specified so that, if there were derived classes across schemas,
      * the appropriate wrapper derivations could be determined. See the

@@ -1644,6 +1644,16 @@ description					The indexSize is used in conjunction with the MULTI valueType to
  interface, not the usual add() interface. If you attempt to use add() with an indexed attribute,
  an exception will be thrown.
 
+AttributeDefinition
+name						excludeFromContext
+dmdID						130
+type						String
+valueType					MULTI
+description					The excludeFromContext attribute is used to indicate that
+ a class of object (and all of its derivatives) should be excluded from the wrapper
+ generation for the specified context. An example usage is in the Dark Matter Protocol
+ where we don't want to generate wrappers for the message objects in a gxt context.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -1740,6 +1750,7 @@ may            	allowedParents
 may				subpackage
 may				dataType
 may				supportsBackrefTracking
+may				excludeFromContext
 //
 //may            	implements
 may           	abbrev

@@ -10,6 +10,7 @@ usesInterface	de.novanic.eventservice.client.event.Event
 must            requestID
 may				timeMS
 may				trackingEnabled
+excludeFromContext	gxt
 description     The DMPMessage class provides a common base for all messages that
  comprise the Dark Matter Protocol (DMP).
 

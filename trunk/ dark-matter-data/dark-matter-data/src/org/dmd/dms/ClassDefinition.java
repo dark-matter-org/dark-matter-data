@@ -20,10 +20,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
@@ -159,7 +161,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
      */
     private ArrayList<ClassDefinition> allImplemented;
     private ArrayList<ClassDefinition> allImplementors;
-    
+        
     StringName nameKey;
 
     /**
@@ -748,6 +750,29 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		if (existing == null)
 			return(WrapperTypeEnum.BASE);
 		return(existing.getWrapperType());
+	}
+	
+	/**
+	 * Determines whether or not we want to generate a wrapper for this class of object
+	 * in the specified context. We ascend the class hierarchy and return false if any
+	 * of our base classes are excluded.
+	 * @param context The context 
+	 * @return true if we want to generate and false otherwise.
+	 */
+	public boolean generateWrapper(String context){
+		boolean rc = true;
+		
+		if (getExcludeFromContextSize() > 0){
+			DmcAttribute<?> exclude = getDMO().get(MetaDMSAG.__excludeFromContext);
+			if (exclude.contains(context))
+				rc = false;
+		}
+		
+		if (rc && (getDerivedFrom() != null)){
+			rc = getDerivedFrom().generateWrapper(context);
+		}
+		
+		return(rc);
 	}
 
 	///////////////////////////////////////////////////////////////////////////////
