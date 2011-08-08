@@ -26,7 +26,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
-import org.dmd.util.exceptions.DebugInfo;
+//import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
@@ -74,7 +74,7 @@ public class DmoObjectFactory {
             throw(ex);
 		}
 		
-		DebugInfo.debug(uco.toOIF(15));
+//		DebugInfo.debug(uco.toOIF(15));
 		
 		dmo = cd.newDMOInstance();
 		
