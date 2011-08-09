@@ -36,6 +36,8 @@ public class DMWGenerator extends BaseDMWGeneratorNew {
 		dmwdir = gendir + File.separator + "dmw";
 		auxwdir = gendir + File.separator + "auxw";
 		
+		createIfRequired(gendir);
+
 		schema = sm;
 		
 		createTypeIterables(config, loc, f, sm);
@@ -58,6 +60,8 @@ public class DMWGenerator extends BaseDMWGeneratorNew {
 		
 		Iterator<ClassDefinition>	classes = sd.getClassDefList();
 		if (classes != null){
+			createIfRequired(dmwdir);
+			
 			// We only generate the iterators for unnamed classes. Named classes will have their
 			// Iterable generated along with the types because internal types are generated for them
 			while(classes.hasNext()){
