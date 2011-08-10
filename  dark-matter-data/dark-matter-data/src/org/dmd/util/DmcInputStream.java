@@ -170,6 +170,11 @@ public class DmcInputStream extends DataInputStream implements DmcInputStreamIF 
 		
 		return(rc);
 	}
-	
+
+	@Override
+	public int readBytes(byte[] b) throws Exception {
+		return(super.read(b));
+	}
+
 	
 }
