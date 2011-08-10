@@ -41,6 +41,8 @@ public interface DmcInputStreamIF {
 	
 	public byte readByte() throws Exception;
 	
+	public int readBytes(byte[] b) throws Exception;
+	
 	public char readChar() throws Exception;
 	
 	public double readDouble() throws Exception;

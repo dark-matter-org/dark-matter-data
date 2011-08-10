@@ -104,6 +104,14 @@ public class DmcTraceableOutputStream implements DmcOutputStreamIF {
 	}
 
 	@Override
+	public void writeBytes(byte[] v) throws Exception {
+		dos.write(v);
+		if (calledFrom)
+			System.out.print(format.sprintf(DebugInfo.getShortWhereWeWereCalledFrom()) + " ");
+		System.out.println("  bytes: (some bytes that I'm not gonna show)");		
+	}
+
+	@Override
 	public void writeChar(int v) throws IOException {
 		dos.writeChar(v);
 		if (calledFrom)

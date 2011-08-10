@@ -35,6 +35,8 @@ public interface DmcOutputStreamIF {
 	
 	public void writeBytes(String v) throws Exception;
 	
+	public void writeBytes(byte[] v) throws Exception;
+	
 	public void writeChar(int v) throws Exception;
 	
 	public void writeChars(String v) throws Exception;

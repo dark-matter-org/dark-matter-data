@@ -152,6 +152,17 @@ public class DmcTraceableInputStream implements DmcInputStreamIF {
 	}
 
 	@Override
+	public int readBytes(byte[] b) throws Exception {
+		int rc = dis.read(b);
+		
+		if (calledFrom)
+			System.out.print(format.sprintf(DebugInfo.getShortWhereWeWereCalledFrom()) + " ");
+		System.out.println("  bytes: " + rc + " (bytes not actually shown)");
+
+		return(rc);
+	}
+	
+	@Override
 	public char readChar() throws Exception {
 		char rc = dis.readChar();
 		if (calledFrom)
@@ -297,6 +308,6 @@ public class DmcTraceableInputStream implements DmcInputStreamIF {
 		
 		return(rc);
 	}
-	
+
 
 }

@@ -81,6 +81,11 @@ public class DmcOutputStream extends DataOutputStream implements DmcOutputStream
 		super.writeShort(size);
 	}
 
+	@Override
+	public void writeBytes(byte[] v) throws Exception {
+		super.write(v);
+	}
+
 
 //	@Override
 //	public void writeBoolean(boolean v) throws ResultException {
