@@ -16,6 +16,7 @@
 package org.dmd.mvw.client.gxt.widget.grid;
 
 import org.dmd.features.extgwt.client.DmoExtGWTWrapperBase;
+import org.dmd.mvw.client.gxt.dmw.GxtWrapper;
 
 import com.extjs.gxt.ui.client.event.ComponentEvent;
 import com.extjs.gxt.ui.client.event.EventType;
@@ -60,8 +61,8 @@ public class GridEventListener implements Listener<ComponentEvent> {
 				grid.setContextMenu(backgroundMenu);
 			}
 			else{
-				DmoExtGWTWrapperBase obj = (DmoExtGWTWrapperBase) ge.getModel();
- 				System.out.println(obj.toOIF(15));
+				GxtWrapper obj = (GxtWrapper) ge.getModel();
+ 				System.out.println(obj.toOIF());
 				
 //				grid.setContextMenu(mvcMenuController.getPopupMenuForObject(obj.getDmcObject()));
 			}
