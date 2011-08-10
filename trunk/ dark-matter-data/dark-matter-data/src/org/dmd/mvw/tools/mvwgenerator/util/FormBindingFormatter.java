@@ -170,13 +170,21 @@ public class FormBindingFormatter {
 		
 		if (field.getAttrDef().getIndexSize() != null){
 			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
-				sb.append("        " + field.getAttribute() + "Adapter" + i + ".setExisting(dmo.get(" + attr + "));\n");
+				sb.append("        " + field.getAttribute() + "Adapter" + i + ".setEmpty();\n");
+				sb.append("        if (dmo == null)\n");
+				sb.append("            " + field.getAttribute() + "Adapter" + i + ".setExisting(null);\n");
+				sb.append("        else\n");
+				sb.append("            " + field.getAttribute() + "Adapter" + i + ".setExisting(dmo.get(" + attr + "));\n");
 				sb.append("        " + field.getAttribute() + i + ".setAdapter(" + field.getAttribute() + "Adapter" + i + ");\n");
 				sb.append("\n");
 			}
 		}
 		else{
-			sb.append("        " + field.getAttribute() + "Adapter.setExisting(dmo.get(" + attr + "));\n");
+			sb.append("        " + field.getAttribute() + "Adapter.setEmpty();\n");
+			sb.append("        if (dmo == null)\n");
+			sb.append("            " + field.getAttribute() + "Adapter.setExisting(null);\n");
+			sb.append("        else\n");
+			sb.append("            " + field.getAttribute() + "Adapter.setExisting(dmo.get(" + attr + "));\n");
 			sb.append("        " + field.getAttribute() + ".setAdapter(" + field.getAttribute() + "Adapter);\n");
 			sb.append("\n");
 		}
