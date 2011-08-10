@@ -3,7 +3,6 @@ package org.dmd.mvw.client.mvwmenus.extended.controllers;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcObject;
-import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;
 import org.dmd.mvw.client.mvwmenus.base.Action;
 import org.dmd.mvw.client.mvwmenus.base.MvwBackgroundMenu;
 import org.dmd.mvw.client.mvwmenus.base.MvwMenu;
@@ -12,8 +11,6 @@ import org.dmd.mvw.client.mvwmenus.base.MvwPopupMenu;
 import org.dmd.mvw.client.mvwmenus.base.MvwSeparator;
 import org.dmd.mvw.client.mvwmenus.base.MvwSubMenu;
 import org.dmd.mvw.client.mvwmenus.generated.mvw.controllers.MenuControllerBaseImpl;
-
-import com.google.gwt.user.client.ui.Widget;
 
 public class MenuController extends MenuControllerBaseImpl {
 	
