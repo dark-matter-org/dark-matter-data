@@ -663,13 +663,22 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * @return An iterator over the names of this object's attributes.
+	 * Retrieves the names of attributes in this object. If you only want the single
+	 * valued attributes.
+	 * @param onlySV  if true, will only return single valued attribute names.
+	 * @return The set of attribute names.
 	 */
 	@SuppressWarnings("unchecked")
-	public ArrayList<String> getAttributeNames(){
+	public ArrayList<String> getAttributeNames(boolean onlySV){
 		ArrayList<String>	names = new ArrayList<String>();
 		for(DmcAttribute attr: attributes.values()){
-			names.add(attr.getName());
+			if (onlySV){
+				if (attr.getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
+					names.add(attr.getName());
+				}
+			}
+			else
+				names.add(attr.getName());
 		}
 		return(names);
 	}

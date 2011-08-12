@@ -72,6 +72,8 @@ public class MvwGenerator {
 		actionsdir		= mvwdir + File.separator + "actions";
 		placesdir		= mvwdir + File.separator + "places";
 		formsdir		= mvwdir + File.separator + "forms";
+		
+		createGenDir(gendir);
 //		createGenDirs();
 		
 //		for(MvwEvent event: defManager.mvwEevents.values()){
@@ -122,6 +124,7 @@ public class MvwGenerator {
 					// implements them, regardless of which module they are defined in
 					if (controller.getImplementsActionHasValue()){
 						for(Action action: controller.getImplementsActionIterable()){
+							createGenDir(actionsdir);
 							ActionFormatter.formatAction(actionsdir, action, controller);
 						}
 					}
