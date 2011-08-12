@@ -27,6 +27,12 @@ public interface DmcPresentationTrackerIF {
 	public void addChangeListener(DmcChangeListenerIF listener);
 
 	/**
+	 * Adds a listener that's interested in any value change in a presenter.
+	 * @param listener
+	 */
+	public void addValueChangeListener(DmcValueChangeListenerIF listener);
+
+	/**
 	 * Indicates that the presentation component is "ready". Exactly what "ready" means
 	 * is implementation specific.
 	 * @param dpi

@@ -24,6 +24,7 @@ public class Tracker implements DmcPresentationTrackerIF {
 	
 	ArrayList<DmcReadyListenerIF>		readyListeners;
 	ArrayList<DmcChangeListenerIF>		changeListeners;
+	ArrayList<DmcValueChangeListenerIF>	valueChangeListeners;
 	
 	public Tracker(){
 		uniqueID		= 0;
@@ -33,6 +34,7 @@ public class Tracker implements DmcPresentationTrackerIF {
 		changed			= new HashMap<Integer, DmcPresentationIF>();
 		readyListeners 	= new ArrayList<DmcReadyListenerIF>();
 		changeListeners = new ArrayList<DmcChangeListenerIF>();
+		valueChangeListeners	= new ArrayList<DmcValueChangeListenerIF>();
 	}
 
 	@Override
@@ -43,6 +45,11 @@ public class Tracker implements DmcPresentationTrackerIF {
 	@Override
 	public void addChangeListener(DmcChangeListenerIF listener) {
 		changeListeners.add(listener);
+	}
+
+	@Override
+	public void addValueChangeListener(DmcValueChangeListenerIF listener) {
+		valueChangeListeners.add(listener);
 	}
 
 	@Override
@@ -65,6 +72,9 @@ public class Tracker implements DmcPresentationTrackerIF {
 		
 		for(DmcChangeListenerIF listener: changeListeners)
 			listener.isChanged(changed.size() > 0);
+		
+		for(DmcValueChangeListenerIF listener: valueChangeListeners)
+			listener.valueUpdated(dpi);
 	}
 
 	@Override
@@ -91,6 +101,9 @@ public class Tracker implements DmcPresentationTrackerIF {
 		
 		for(DmcChangeListenerIF listener: changeListeners)
 			listener.isChanged(changed.size() > 0);
+		
+		for(DmcValueChangeListenerIF listener: valueChangeListeners)
+			listener.valueUpdated(dpi);
 	}
 
 	@Override
