@@ -172,7 +172,7 @@ public class GxtWrapper extends DmcContainer implements Model, ModelData, DmcCon
 	public Collection<String> getPropertyNames() {
 	    Set<String> set = new FastSet();
 	    if (core.getAttributes() != null) {
-		    set.addAll(core.getAttributeNames());
+		    set.addAll(core.getAttributeNames(true));
 	    }
 	    return set;
 	}

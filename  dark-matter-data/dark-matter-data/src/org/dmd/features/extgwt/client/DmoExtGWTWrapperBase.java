@@ -236,7 +236,7 @@ public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Model, Model
 	    Set<String> set = new FastSet();
 	    if (core.getAttributes() != null) {
 //	    	set.addAll(core.getAttributes().keySet());
-		    set.addAll(core.getAttributeNames());
+		    set.addAll(core.getAttributeNames(true));
 	    }
 	    return set;
 	}
