@@ -65,6 +65,9 @@ public class FormBindingFormatter {
         	out.write(getSetAdapter(field));
         }
         
+        out.write("\n");
+        out.write("        tracker.reset();\n");
+        
         out.write("    }\n\n");
 
         ///////////////////////////////////////////////////////////////////////
