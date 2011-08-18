@@ -864,8 +864,10 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 					if (existingValue.getMVSize() != getMVSize())
 						rc = true;
 					else{
-						for(int i=0; i<getMVSize(); i++){
-							if (!existingValue.contains(getMVnth(i))){
+						Iterator<VALUE>	iterator = getMV();
+						while(iterator.hasNext()){
+							VALUE val = iterator.next();
+							if (!existingValue.contains(val)){
 								rc = true;
 								break;
 							}

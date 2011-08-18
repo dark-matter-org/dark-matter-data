@@ -475,6 +475,7 @@ must			mappingName
 must			enumName
 must			unsetValue
 may				useNameAsLabel
+may				skipEnumValue
 description		The GxtEnumMapping class allows for generation of a set of static data instances
  that represent the values from the specified enumeration (type). NOTE: this mechanism is only 
  useful if you are using the Sencha's Gxt widget set.

@@ -124,6 +124,10 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     
     public String getAdapterClassName(){
     	String suffix = "";
+    	String REF = "";
+    	
+    	if (getType().getIsRefType())
+    		REF = "REF";
     	
     	switch(getValueType()){
     	case HASHMAPPED:
@@ -142,6 +146,6 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     		break;
     	}
     	
-    	return(getType().getName() + suffix + "Adapter");
+    	return(getType().getName() + REF + suffix + "Adapter");
     }
 }

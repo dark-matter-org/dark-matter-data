@@ -690,6 +690,13 @@ type			Boolean
 description		Specifies that tool tips should also be retrieved from an I18N configuration.
  The convention is that a tool tip for an attribute is named [attribute_name]Tip
 
+AttributeDefinition
+name			skipEnumValue
+dmdID			95
+type			String
+valueType		HASHSET
+description		Specifies an enum value that should be left out of the enum mapping.
+
 //AttributeDefinition
 //name			mandatoryStyle
 //dmdID			89
