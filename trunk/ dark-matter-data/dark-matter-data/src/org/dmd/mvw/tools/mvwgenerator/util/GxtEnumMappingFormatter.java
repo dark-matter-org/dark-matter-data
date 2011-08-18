@@ -2,10 +2,8 @@ package org.dmd.mvw.tools.mvwgenerator.util;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.List;
 
 import org.dmd.dms.util.GenUtility;
-import org.dmd.mvw.client.gxtforms.implementation.GxtEnumValue;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;

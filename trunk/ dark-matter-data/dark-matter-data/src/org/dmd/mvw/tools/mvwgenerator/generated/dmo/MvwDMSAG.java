@@ -93,6 +93,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __sendsLogoutRequest = new DmcAttributeInfo("sendsLogoutRequest", 850, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __sendsSetRequest = new DmcAttributeInfo("sendsSetRequest", 846, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __sharedImport = new DmcAttributeInfo("sharedImport", 838, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __skipEnumValue = new DmcAttributeInfo("skipEnumValue", 895, "String", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __strictlyChecked = new DmcAttributeInfo("strictlyChecked", 889, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __theOne = new DmcAttributeInfo("theOne", 863, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tipsFromI18N = new DmcAttributeInfo("tipsFromI18N", 894, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -234,6 +235,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__sendsLogoutRequest.id,__sendsLogoutRequest);
         _SmAp.put(__sendsSetRequest.id,__sendsSetRequest);
         _SmAp.put(__sharedImport.id,__sharedImport);
+        _SmAp.put(__skipEnumValue.id,__skipEnumValue);
         _SmAp.put(__strictlyChecked.id,__strictlyChecked);
         _SmAp.put(__theOne.id,__theOne);
         _SmAp.put(__tipsFromI18N.id,__tipsFromI18N);
@@ -433,6 +435,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __GxtEnumMapping.addMust(MetaDMSAG.__enumName);
         __GxtEnumMapping.addMust(__unsetValue);
         __GxtEnumMapping.addMay(__useNameAsLabel);
+        __GxtEnumMapping.addMay(__skipEnumValue);
 
 
     }

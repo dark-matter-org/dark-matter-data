@@ -1,14 +1,18 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
+import java.util.HashSet;                                                      // To support getMVCopy()
+import java.util.Iterator;                                                     // To support getMVCopy()
 import org.dmd.dmc.*;                                                          // If any attributes
 import org.dmd.dmc.types.CamelCaseName;                                        // Primitive type
 import org.dmd.dms.*;                                                          // Always 2
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                    // Required for MODREC constructor
+import org.dmd.dms.generated.dmw.StringIterableDMW;                            // For multi-valued String
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                          // Required for MODREC constructor
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                  // Derived class
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;           // Required for getModificationRecorder()
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.GxtEnumMappingDMO;         // Class not auxiliary or abstract
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                  // Attribute from mvw schema
 
 /**
  * The GxtEnumMapping class allows for generation of a set of static data
@@ -105,6 +109,119 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
     public void remUseNameAsLabel(){
         ((GxtEnumMappingDMO) core).remUseNameAsLabel();
+    }
+
+    /**
+     * @return The number of String items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1173)
+    public int getSkipEnumValueSize(){
+        return(((GxtEnumMappingDMO) core).getSkipEnumValueSize());
+    }
+
+    /**
+     * @return true if there are no StringDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1189)
+    public boolean getSkipEnumValueIsEmpty(){
+        if (((GxtEnumMappingDMO) core).getSkipEnumValueSize() == 0)
+            return(true);
+        return(false);
+    }
+
+    /**
+     * @return true if there are any StringDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1204)
+    public boolean getSkipEnumValueHasValue(){
+        if (((GxtEnumMappingDMO) core).getSkipEnumValueSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1468)
+    public StringIterableDMW getSkipEnumValueIterable(){
+        DmcAttribute<?> attr = core.get(MvwDMSAG.__skipEnumValue);
+        if (attr == null)
+            return(StringIterableDMW.emptyList);
+        
+        return(new StringIterableDMW(((GxtEnumMappingDMO) core).getSkipEnumValue()));
+    }
+
+    /**
+     * Adds another skipEnumValue value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1494)
+    public void addSkipEnumValue(Object value) throws DmcValueException {
+        ((GxtEnumMappingDMO) core).addSkipEnumValue(value);
+    }
+
+    /**
+     * Adds another skipEnumValue value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1504)
+    public void addSkipEnumValue(String value){
+        ((GxtEnumMappingDMO) core).addSkipEnumValue(value);
+    }
+
+    /**
+     * Returns true if the collection contains the skipEnumValue value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1561)
+    public boolean skipEnumValueContains(String value){
+        return(((GxtEnumMappingDMO) core).skipEnumValueContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of String objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1601)
+    @SuppressWarnings("unchecked")
+    public HashSet<String> getSkipEnumValueCopy(){
+        DmcAttribute<?> attr = core.get(MvwDMSAG.__skipEnumValue);
+        if (attr == null)
+            return(new HashSet<String>());
+        
+        HashSet<String> rc = new HashSet<String>(attr.getMVSize());
+        
+        Iterator<String> it = (Iterator<String>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a skipEnumValue value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1628)
+    public void delSkipEnumValue(Object value) throws DmcValueException {
+        ((GxtEnumMappingDMO) core).delSkipEnumValue(value);
+    }
+
+    /**
+     * Deletes a skipEnumValue value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1637)
+    public void delSkipEnumValue(String value){
+        ((GxtEnumMappingDMO) core).delSkipEnumValue(value);
+    }
+
+    /**
+     * Removes the skipEnumValue attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1649)
+    public void remSkipEnumValue(){
+        ((GxtEnumMappingDMO) core).remSkipEnumValue();
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)

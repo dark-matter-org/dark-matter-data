@@ -1,5 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.extended.forms;
 
+import java.util.HashSet;
 import java.util.Iterator;
 
 import org.dmd.dms.EnumDefinition;
@@ -27,10 +28,15 @@ public class GxtEnumMapping extends GxtEnumMappingDMW {
 	
 	public String getStaticValues(){
 		StringBuffer sb = new StringBuffer();
+		HashSet<String>	skip = getSkipEnumValueCopy();
 		
 		Iterator<EnumValue> values = edef.getEnumValue();
 		while(values.hasNext()){
 			EnumValue value = values.next();
+			
+			if ( (skip != null) && (skip.contains(value.getName())))
+				continue;
+			
 			sb.append("    final GxtEnumValue ");
 			sb.append(value.getName());
 			sb.append(" = new GxtEnumValue(");
@@ -38,7 +44,8 @@ public class GxtEnumMapping extends GxtEnumMappingDMW {
 			sb.append(value.getId() + ", ");
 			sb.append("\"" + sortPad(value.getId()) + "\", ");
 			if (isUseNameAsLabel())
-				sb.append("\"" + toMixed(value.getName()) + "\");\n");
+				sb.append("\"" + value.getName() + "\");\n");
+//				sb.append("\"" + toMixed(value.getName()) + "\");\n");
 			else
 				sb.append("\"" + toMixed(value.getDescription()) + "\");\n");
 		}
@@ -47,6 +54,7 @@ public class GxtEnumMapping extends GxtEnumMappingDMW {
 	}
 	
 	public String getConstructor(){
+		HashSet<String>	skip = getSkipEnumValueCopy();
 		String 			name 	= GenUtility.capTheName(getMappingName().getNameString());
 		StringBuffer sb = new StringBuffer();
 		sb.append("    ArrayList<GxtEnumValue> mapping;\n\n");
@@ -55,6 +63,10 @@ public class GxtEnumMapping extends GxtEnumMappingDMW {
 		Iterator<EnumValue> values = edef.getEnumValue();
 		while(values.hasNext()){
 			EnumValue value = values.next();
+			
+			if ( (skip != null) && (skip.contains(value.getName())))
+				continue;
+			
 			sb.append("        mapping.add(" + value.getName() + ");\n");
 		}
 		sb.append("    }\n\n");

@@ -27,6 +27,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                                   //
 import org.dmd.dms.generated.types.DmcTypeBooleanSV;                          // Required type
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeStringSET;                          // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class
 
@@ -174,6 +175,133 @@ public class GxtEnumMappingDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
     public void remUseNameAsLabel(){
          rem(MvwDMSAG.__useNameAsLabel);
+    }
+
+    /**
+     * @return An Iterator of String objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:947)
+    public Iterator<String> getSkipEnumValue(){
+        DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__skipEnumValue);
+        if (attr == null)
+            return( ((List<String>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth String value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:959)
+    public String getNthSkipEnumValue(int i){
+        DmcTypeStringSET attr = (DmcTypeStringSET) get(MvwDMSAG.__skipEnumValue);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
+     * Adds another skipEnumValue to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:973)
+    public DmcAttribute<?> addSkipEnumValue(String value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
+        if (attr == null)
+            attr = new DmcTypeStringSET(MvwDMSAG.__skipEnumValue);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(MvwDMSAG.__skipEnumValue,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Returns true if we contain a valued keyed by the specified String.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1047)
+    public boolean skipEnumValueContains(String value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another skipEnumValue value.
+     * @param value A value compatible with String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1079)
+    public DmcAttribute<?> addSkipEnumValue(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
+        if (attr == null)
+            attr = new DmcTypeStringSET(MvwDMSAG.__skipEnumValue);
+        
+        setLastValue(attr.add(value));
+        add(MvwDMSAG.__skipEnumValue,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in skipEnumValue
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1096)
+    public int getSkipEnumValueSize(){
+        DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
+        if (attr == null){
+            if (MvwDMSAG.__skipEnumValue.indexSize == 0)
+                return(0);
+            else
+                return(MvwDMSAG.__skipEnumValue.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a skipEnumValue value.
+     * @param value The String to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1141)
+    public DmcAttribute<?> delSkipEnumValue(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringSET(MvwDMSAG.__skipEnumValue), value);
+        else
+            attr = del(MvwDMSAG.__skipEnumValue, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a skipEnumValue from the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1157)
+    public DmcAttribute<?> delSkipEnumValue(String value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__skipEnumValue);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringSET(MvwDMSAG.__skipEnumValue), value);
+        else
+            attr = del(MvwDMSAG.__skipEnumValue, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the skipEnumValue attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1176)
+    public void remSkipEnumValue(){
+         rem(MvwDMSAG.__skipEnumValue);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)

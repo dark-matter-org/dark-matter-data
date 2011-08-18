@@ -76,7 +76,14 @@ public class FormBindingFormatter {
         out.write("\n");
         for(EditField field: binding.getEditFieldIterable()){
         	out.write(getSetTracker(field));
-//        	out.write("        tracker.track(" + field.getAttribute() + ");\n");
+        }
+        
+        out.write("    }\n\n");
+
+        ///////////////////////////////////////////////////////////////////////
+        out.write("    public void setEnabledAll(boolean enabled){\n");
+        for(EditField field: binding.getEditFieldIterable()){
+        	out.write(getSetEnabled(field));
         }
         
         out.write("    }\n\n");
@@ -87,8 +94,7 @@ public class FormBindingFormatter {
         out.write("\n");
         
         for(EditField field: binding.getEditFieldIterable()){
-        	out.write(getAddMods(field));
-//        	out.write("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
+        	out.write(getAddMods(field));//        	out.write("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
         }
         out.write("\n");
         out.write("        return(modrec);\n");
@@ -98,14 +104,6 @@ public class FormBindingFormatter {
         ///////////////////////////////////////////////////////////////////////
         for(EditField field: binding.getEditFieldIterable()){
         	out.write(getAccessMethod(field));
-//        	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
-//        	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
-//        	String capped = GenUtility.capTheName(field.getAttribute());
-//        	
-//        	out.write("    public " + editor + " get" + capped + "(){\n");
-//        	out.write("        return(" + field.getAttribute() + ");\n");
-//        	out.write("    }\n");
-//        	out.write("\n");
         }
    
         out.write("}\n\n");
@@ -165,6 +163,19 @@ public class FormBindingFormatter {
 		}
 
 		return(sb.toString());
+	}
+	
+	static String getSetEnabled(EditField field){
+		if (field.getAttrDef().getIndexSize() != null){
+			StringBuffer sb = new StringBuffer();
+			
+			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
+				sb.append("        " + field.getAttribute() + i + ".setEnabled(enabled);\n");
+			}
+			
+			return(sb.toString());
+		}
+		return("        " + field.getAttribute() + ".setEnabled(enabled);\n");
 	}
 	
 	static String getSetAdapter(EditField field){
