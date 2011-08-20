@@ -21,39 +21,40 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;    // DmcType import
+import org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestTypeWithOptions;    // DmcType import
 /**
- * The DmcTypeGetFunctionOptionEnumMV provides storage for a multi-valued GetFunctionOptionEnum
+ * The DmcTypeRequestTypeWithOptionsMV provides storage for a multi-valued RequestTypeWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:325)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:100)
  */
 @SuppressWarnings("serial")
-public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum implements Serializable {
+public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptions implements Serializable {
     
-    protected ArrayList<GetFunctionOptionEnum> value;
+    protected ArrayList<RequestTypeWithOptions> value;
     
-    public DmcTypeGetFunctionOptionEnumMV(){
+    public DmcTypeRequestTypeWithOptionsMV(){
     
     }
     
-    public DmcTypeGetFunctionOptionEnumMV(DmcAttributeInfo ai){
+    public DmcTypeRequestTypeWithOptionsMV(DmcAttributeInfo ai){
         super(ai);
     }
     
     @Override
-    public DmcTypeGetFunctionOptionEnumMV getNew(){
-        return(new DmcTypeGetFunctionOptionEnumMV(attrInfo));
+    public DmcTypeRequestTypeWithOptionsMV getNew(){
+        return(new DmcTypeRequestTypeWithOptionsMV(attrInfo));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
-    public DmcAttribute<GetFunctionOptionEnum> cloneIt(){
+    public DmcAttribute<RequestTypeWithOptions> cloneIt(){
         synchronized(this){
-            DmcTypeGetFunctionOptionEnumMV rc = getNew();
+            DmcTypeRequestTypeWithOptionsMV rc = getNew();
             if (attrInfo.indexSize == 0){
-                for(GetFunctionOptionEnum val: value)
+                for(RequestTypeWithOptions val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -74,11 +75,11 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
-    public GetFunctionOptionEnum add(Object v) throws DmcValueException {
+    public RequestTypeWithOptions add(Object v) throws DmcValueException {
         synchronized(this){
-            GetFunctionOptionEnum rc = typeCheck(v);
+            RequestTypeWithOptions rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<GetFunctionOptionEnum>();
+                value = new ArrayList<RequestTypeWithOptions>();
             value.add(rc);
             return(rc);
         }
@@ -86,9 +87,9 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
-    public GetFunctionOptionEnum del(Object v){
+    public RequestTypeWithOptions del(Object v){
         synchronized(this){
-            GetFunctionOptionEnum rc = null;
+            RequestTypeWithOptions rc = null;
             try {
                 rc = typeCheck(v);
             } catch (DmcValueException e) {
@@ -104,17 +105,17 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
-    public Iterator<GetFunctionOptionEnum> getMV(){
+    public Iterator<RequestTypeWithOptions> getMV(){
         synchronized(this){
-            ArrayList<GetFunctionOptionEnum> clone = new ArrayList<GetFunctionOptionEnum>(value);
+            ArrayList<RequestTypeWithOptions> clone = new ArrayList<RequestTypeWithOptions>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
-    public ArrayList<GetFunctionOptionEnum> getMVCopy(){
+    public ArrayList<RequestTypeWithOptions> getMVCopy(){
         synchronized(this){
-            ArrayList<GetFunctionOptionEnum> clone = new ArrayList<GetFunctionOptionEnum>(value);
+            ArrayList<RequestTypeWithOptions> clone = new ArrayList<RequestTypeWithOptions>(value);
             return(clone);
         }
     }
@@ -135,7 +136,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
-    public GetFunctionOptionEnum getMVnth(int index){
+    public RequestTypeWithOptions getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -145,7 +146,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
-    public GetFunctionOptionEnum setMVnth(int index, Object v) throws DmcValueException {
+    public RequestTypeWithOptions setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
@@ -153,13 +154,13 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
             if ( (index < 0) || (index >= attrInfo.indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
             
-            GetFunctionOptionEnum rc = null;
+            RequestTypeWithOptions rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<GetFunctionOptionEnum>(attrInfo.indexSize);
+                value = new ArrayList<RequestTypeWithOptions>(attrInfo.indexSize);
                 for(int i=0;i<attrInfo.indexSize;i++)
                     value.add(null);
             }
@@ -199,7 +200,7 @@ public class DmcTypeGetFunctionOptionEnumMV extends DmcTypeGetFunctionOptionEnum
         synchronized(this){
             boolean rc = false;
             try {
-                GetFunctionOptionEnum val = typeCheck(v);
+                RequestTypeWithOptions val = typeCheck(v);
                 rc = value.contains(val);
             } catch (DmcValueException e) {
             }

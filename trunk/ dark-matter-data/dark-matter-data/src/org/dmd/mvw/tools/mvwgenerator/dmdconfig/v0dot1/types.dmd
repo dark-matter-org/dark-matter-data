@@ -25,7 +25,15 @@ typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestWithOptions
 primitiveType	org.dmd.mvw.tools.mvwgenerator.types.RequestWithOptions
 description		The RequestWithOptions type is used to handle indications that
  a component will perform delete or set operations.
- 
+
+TypeDefinition
+name			RequestTypeWithOptions
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestTypeWithOptions
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions
+description		The RequestTypeWithOptions type is used to handle indications that
+ a component will send the specified request type and use the specified function
+ to send/receieve.
+
 TypeDefinition
 name			EditField
 typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEditField
@@ -48,26 +56,28 @@ enumValue		1 BROADCAST Multi-selection supported.
 enumValue		2 BROADCASTONLY Multi-selection supported.
 description		The SelectionTypeEnum indicates the selection mode of operations
 
-EnumDefinition
-name            GetFunctionOptionEnum
-enumValue		0 NONE Indicates that no options are specified.
-enumValue		1 DMPERRORS Indicates that DMP error responses will be handled locally.
-enumValue		2 RPCERRORS Indicates that RPC errors will be handled locally.
-enumValue		3 CENTRALDMPERRORS Indicates that you want DMP errors centrally handled.
-enumValue		4 CENTRALRPCERRORS Indicates that you want RPC errors centrally handled.
-enumValue		5 CENTRALERRORS Indicates that you want DMP/RPC errors centrally handled.
-enumValue		6 CACHE Indicates that you want the results centrally cached.
-enumValue		7 EVENTS Indicates that you want notification of events associated with the get request.
-description		The GetFunctionModifierEnum indicates a set of modifiers that direct
- code generation for standard Dark Matter Protocol get request handling.
+//EnumDefinition
+//name            GetFunctionOptionEnum
+//enumValue		0 NONE Indicates that no options are specified.
+//enumValue		1 DMPERRORS 		Indicates that DMP error responses will be handled locally.
+//enumValue		2 RPCERRORS 		Indicates that RPC errors will be handled locally.
+//enumValue		3 CENTRALDMPERRORS 	Indicates that you want DMP errors centrally handled.
+//enumValue		4 CENTRALRPCERRORS 	Indicates that you want RPC errors centrally handled.
+//enumValue		5 CENTRALERRORS 	Indicates that you want DMP/RPC errors centrally handled.
+//enumValue		6 CACHE 			Indicates that you want the results centrally cached.
+//enumValue		7 EVENTS 			Indicates that you want notification of events associated with the get request.
+//description		The GetFunctionModifierEnum indicates a set of modifiers that direct
+// code generation for standard Dark Matter Protocol get request handling.
 
 EnumDefinition
 name            RequestOptionEnum
-enumValue		0 NONE Indicates that no options are specified.
-enumValue		1 DMPERRORS Indicates that DMP error responses will be handled locally.
-enumValue		2 RPCERRORS Indicates that RPC errors will be handled locally.
-enumValue		3 CENTRALDMPERRORS Indicates that you want DMP errors centrally handled.
-enumValue		4 CENTRALRPCERRORS Indicates that you want RPC errors centrally handled.
-enumValue		5 CENTRALERRORS Indicates that you want DMP/RPC errors centrally handled.
+enumValue		0 NONE 				Indicates that no options are specified.
+enumValue		1 DMPERRORS 		Indicates that DMP error responses will be handled locally.
+enumValue		2 RPCERRORS 		Indicates that RPC errors will be handled locally.
+enumValue		3 CENTRALDMPERRORS 	Indicates that you want DMP errors centrally handled.
+enumValue		4 CENTRALRPCERRORS 	Indicates that you want RPC errors centrally handled.
+enumValue		5 CENTRALERRORS 	Indicates that you want DMP/RPC errors centrally handled.
+enumValue		6 CACHE 			Indicates that you want the results centrally cached.
+enumValue		7 EVENTS 			Indicates that you want notification of events associated with the get request.
 description		The RequestOptionEnum indicates a set of modifiers that direct
- code generation for standard Dark Matter Protocol delete and set request handling.
+ code generation for standard Dark Matter Protocol request handling.

@@ -328,54 +328,54 @@ valueType		MULTI
 description		Indicates the schemas that a component uses. Your module must specify dependsOnSchema
  for the appropriate schemas.
 
-AttributeDefinition
-name			sendsGetRequest
-dmdID			44
-type			GetWithOptions
-valueType		MULTI
-description		Indicates that a component performs get requests.
+//AttributeDefinition
+//name			sendsGetRequest
+//dmdID			44
+//type			GetWithOptions
+//valueType		MULTI
+//description		Indicates that a component performs get requests.
 
-AttributeDefinition
-name			sendsDeleteRequest
-dmdID			45
-type			RequestWithOptions
-valueType		MULTI
-description		Indicates that a component performs delete requests.
-
-AttributeDefinition
-name			sendsSetRequest
-dmdID			46
-type			RequestWithOptions
-valueType		MULTI
-description		Indicates that a component performs set requests.
-
-AttributeDefinition
-name			sendsCreateRequest
-dmdID			47
-type			RequestWithOptions
-valueType		MULTI
-description		Indicates that a component performs create requests.
-
-AttributeDefinition
-name			sendsActionRequest
-dmdID			48
-type			RequestWithOptions
-valueType		MULTI
-description		Indicates that a component performs action requests.
-
-AttributeDefinition
-name			sendsLoginRequest
-dmdID			49
-type			RequestWithOptions
-valueType		MULTI
-description		Indicates that a component performs login requests.
-
-AttributeDefinition
-name			sendsLogoutRequest
-dmdID			50
-type			RequestWithOptions
-valueType		MULTI
-description		Indicates that a component performs logout requests.
+//AttributeDefinition
+//name			sendsDeleteRequest
+//dmdID			45
+//type			RequestWithOptions
+//valueType		MULTI
+//description		Indicates that a component performs delete requests.
+//
+//AttributeDefinition
+//name			sendsSetRequest
+//dmdID			46
+//type			RequestWithOptions
+//valueType		MULTI
+//description		Indicates that a component performs set requests.
+//
+//AttributeDefinition
+//name			sendsCreateRequest
+//dmdID			47
+//type			RequestWithOptions
+//valueType		MULTI
+//description		Indicates that a component performs create requests.
+//
+//AttributeDefinition
+//name			sendsActionRequest
+//dmdID			48
+//type			RequestWithOptions
+//valueType		MULTI
+//description		Indicates that a component performs action requests.
+//
+//AttributeDefinition
+//name			sendsLoginRequest
+//dmdID			49
+//type			RequestWithOptions
+//valueType		MULTI
+//description		Indicates that a component performs login requests.
+//
+//AttributeDefinition
+//name			sendsLogoutRequest
+//dmdID			50
+//type			RequestWithOptions
+//valueType		MULTI
+//description		Indicates that a component performs logout requests.
 
 AttributeDefinition
 name			centralDMPErrorHandler
@@ -696,6 +696,21 @@ dmdID			95
 type			String
 valueType		HASHSET
 description		Specifies an enum value that should be left out of the enum mapping.
+
+AttributeDefinition
+name			sendsRequest
+dmdID			96
+type			RequestTypeWithOptions
+valueType		MULTI
+description		Indicates that a component sends the specified type of request. This works for 
+ standard requests from the Dark Matter Protocol as well as for requests that you have derived
+ from Request. The classes you derive MUST end with the standard Request/Response suffixes e.g.
+ if you had a request to perform some operation you could have OperationRequest and OperationResponse.
+ <p/>
+ The form of this attribute is: sendRequest requestName functionName [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS]
+ <p/>
+ Or, for get requests: sendRequest GetRequest functionName [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS CACHE EVENTS]
+
 
 //AttributeDefinition
 //name			mandatoryStyle

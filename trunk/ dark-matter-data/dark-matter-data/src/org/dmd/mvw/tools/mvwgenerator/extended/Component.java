@@ -8,10 +8,8 @@ import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ComponentDMW;
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;
 import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;
-import org.dmd.mvw.tools.mvwgenerator.types.GetWithOptions;
-import org.dmd.mvw.tools.mvwgenerator.types.RequestWithOptions;
+import org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -93,17 +91,19 @@ public class Component extends ComponentDMW {
 				usesRunContext.set(true);
 			else if (getUsesRunContextItemHasValue())
 				usesRunContext.set(true);
-			else if (getSendsGetRequestHasValue())
-				usesRunContext.set(true);
-			else if (getSendsSetRequestHasValue())
-				usesRunContext.set(true);
-			else if (getSendsCreateRequestHasValue())
-				usesRunContext.set(true);
-			else if (getSendsDeleteRequestHasValue())
-				usesRunContext.set(true);
-			else if (getSendsLoginRequestHasValue())
-				usesRunContext.set(true);
-			else if (getSendsLogoutRequestHasValue())
+//			else if (getSendsGetRequestHasValue())
+//				usesRunContext.set(true);
+//			else if (getSendsSetRequestHasValue())
+//				usesRunContext.set(true);
+//			else if (getSendsCreateRequestHasValue())
+//				usesRunContext.set(true);
+//			else if (getSendsDeleteRequestHasValue())
+//				usesRunContext.set(true);
+//			else if (getSendsLoginRequestHasValue())
+//				usesRunContext.set(true);
+//			else if (getSendsLogoutRequestHasValue())
+//				usesRunContext.set(true);
+			else if (getSendsRequestHasValue())
 				usesRunContext.set(true);
 				
 		}
@@ -206,68 +206,79 @@ public class Component extends ComponentDMW {
 			}
 		}
 		
-		if (getSendsActionRequestHasValue()){
-			standardCommsInit();
-			for(RequestWithOptions request: getSendsActionRequestIterable()){
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.ActionRequestDMO", "Component sends action requests");
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.ActionResponseDMO", "Component sends action requests");
-				addRequest(request,"Action");
-			}
-		}
+//		if (getSendsActionRequestHasValue()){
+//			standardCommsInit();
+//			for(RequestWithOptions request: getSendsActionRequestIterable()){
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.ActionRequestDMO", "Component sends action requests");
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.ActionResponseDMO", "Component sends action requests");
+//				addRequest(request,"Action");
+//			}
+//		}
+//		
+//		if (getSendsCreateRequestHasValue()){
+//			standardCommsInit();
+//			for(RequestWithOptions request: getSendsCreateRequestIterable()){
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.CreateRequestDMO", "Component sends create requests");
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.CreateResponseDMO", "Component sends create requests");
+//				addRequest(request,"Create");
+//			}
+//		}
+//		
+//		if (getSendsDeleteRequestHasValue()){
+//			standardCommsInit();
+//			for(RequestWithOptions request: getSendsDeleteRequestIterable()){
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO", "Component sends delete requests");
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO", "Component sends delete requests");
+//				addRequest(request,"Delete");
+//			}
+//		}
+//		
+//		if (getSendsGetRequestHasValue()){
+//			standardCommsInit();
+//			for(GetWithOptions request: getSendsGetRequestIterable()){
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.GetRequestDMO", "Component sends get requests");
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.GetResponseDMO", "Component sends get requests");
+//				addRequest(request);
+//			}
+//		}
 		
-		if (getSendsCreateRequestHasValue()){
+		// NEW!
+		if (getSendsRequestHasValue()){
 			standardCommsInit();
-			for(RequestWithOptions request: getSendsCreateRequestIterable()){
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.CreateRequestDMO", "Component sends create requests");
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.CreateResponseDMO", "Component sends create requests");
-				addRequest(request,"Create");
-			}
-		}
-		
-		if (getSendsDeleteRequestHasValue()){
-			standardCommsInit();
-			for(RequestWithOptions request: getSendsDeleteRequestIterable()){
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO", "Component sends delete requests");
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO", "Component sends delete requests");
-				addRequest(request,"Delete");
-			}
-		}
-		
-		if (getSendsGetRequestHasValue()){
-			standardCommsInit();
-			for(GetWithOptions request: getSendsGetRequestIterable()){
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.GetRequestDMO", "Component sends get requests");
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.GetResponseDMO", "Component sends get requests");
+			for(RequestTypeWithOptions request: getSendsRequestIterable()){
+				
+				imports.addImport(request.getRequestImport(), "Component sends " + request.getRequestType() + "Requests");
+				imports.addImport(request.getResponseImport(), "Component receives " + request.getRequestType() + "Responses");
 				addRequest(request);
 			}
 		}
 		
-		if (getSendsSetRequestHasValue()){
-			standardCommsInit();
-			for(RequestWithOptions request: getSendsSetRequestIterable()){
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.SetRequestDMO", "Component sends set requests");
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.SetResponseDMO", "Component sends set requests");
-				addRequest(request,"Set");
-			}
-		}
-		
-		if (getSendsLoginRequestHasValue()){
-			standardCommsInit();
-			for(RequestWithOptions request: getSendsLoginRequestIterable()){
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.LoginRequestDMO", "Component sends login requests");
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.LoginResponseDMO", "Component sends login requests");
-				addRequest(request,"Login");
-			}
-		}
-		
-		if (getSendsLogoutRequestHasValue()){
-			standardCommsInit();
-			for(RequestWithOptions request: getSendsLogoutRequestIterable()){
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO", "Component sends logout requests");
-				imports.addImport("org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO", "Component sends logout requests");
-				addRequest(request,"Logout");
-			}
-		}
+//		if (getSendsSetRequestHasValue()){
+//			standardCommsInit();
+//			for(RequestWithOptions request: getSendsSetRequestIterable()){
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.SetRequestDMO", "Component sends set requests");
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.SetResponseDMO", "Component sends set requests");
+//				addRequest(request,"Set");
+//			}
+//		}
+//		
+//		if (getSendsLoginRequestHasValue()){
+//			standardCommsInit();
+//			for(RequestWithOptions request: getSendsLoginRequestIterable()){
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.LoginRequestDMO", "Component sends login requests");
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.LoginResponseDMO", "Component sends login requests");
+//				addRequest(request,"Login");
+//			}
+//		}
+//		
+//		if (getSendsLogoutRequestHasValue()){
+//			standardCommsInit();
+//			for(RequestWithOptions request: getSendsLogoutRequestIterable()){
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO", "Component sends logout requests");
+//				imports.addImport("org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO", "Component sends logout requests");
+//				addRequest(request,"Logout");
+//			}
+//		}
 		
 		if (hasCommsMethods){
 			for(CommsHandler ch: commsHandlers.values()){
@@ -340,15 +351,31 @@ public class Component extends ComponentDMW {
 		
 	}
 	
-	void addRequest(RequestWithOptions rwo, String type) throws ResultException{
-		CommsHandler ch = new CommsHandler(methodID++, rwo, type);
+//	void addRequest(RequestWithOptions rwo, String type) throws ResultException{
+//		CommsHandler ch = new CommsHandler(methodID++, rwo, type);
+//		CommsHandler existing = commsHandlers.get(ch.key);
+//		
+//		if (existing != null){
+//			ResultException ex = new ResultException();
+//			ex.addError("Duplicate function names for send request attributes in a component: " + rwo.getFunctionName());
+//			ex.result.lastResult().moreMessages("Existing request: sends" + existing.requestType + "Request");
+//			ex.result.lastResult().moreMessages(" Another request: sends" + type + "Request");			
+//			ex.setLocationInfo(getFile(), getLineNumber());
+//			throw(ex);
+//		}
+//		
+//		commsHandlers.put(ch.key, ch);
+//	}
+	
+	void addRequest(RequestTypeWithOptions rtwo) throws ResultException{
+		CommsHandler ch = new CommsHandler(methodID++, rtwo);
 		CommsHandler existing = commsHandlers.get(ch.key);
 		
 		if (existing != null){
 			ResultException ex = new ResultException();
-			ex.addError("Duplicate function names for send request attributes in a component: " + rwo.getFunctionName());
+			ex.addError("Duplicate function names for sendRequest attributes in a component: " + rtwo.getFunctionName());
 			ex.result.lastResult().moreMessages("Existing request: sends" + existing.requestType + "Request");
-			ex.result.lastResult().moreMessages(" Another request: sends" + type + "Request");			
+			ex.result.lastResult().moreMessages(" Another request: sends" + rtwo.getRequestType() + "Request");			
 			ex.setLocationInfo(getFile(), getLineNumber());
 			throw(ex);
 		}
@@ -356,21 +383,21 @@ public class Component extends ComponentDMW {
 		commsHandlers.put(ch.key, ch);
 	}
 	
-	void addRequest(GetWithOptions gwo) throws ResultException{
-		CommsHandler ch = new CommsHandler(methodID++, gwo);
-		CommsHandler existing = commsHandlers.get(ch.key);
-		
-		if (existing != null){
-			ResultException ex = new ResultException();
-			ex.addError("Duplicate function names for send request attributes in a component: " + gwo.getFunctionName());
-			ex.result.lastResult().moreMessages("Existing request: sends" + existing.requestType + "Request");
-			ex.result.lastResult().moreMessages(" Another request: sendsGetRequest");			
-			ex.setLocationInfo(getFile(), getLineNumber());
-			throw(ex);
-		}
-		
-		commsHandlers.put(ch.key, ch);
-	}
+//	void addRequest(GetWithOptions gwo) throws ResultException{
+//		CommsHandler ch = new CommsHandler(methodID++, gwo);
+//		CommsHandler existing = commsHandlers.get(ch.key);
+//		
+//		if (existing != null){
+//			ResultException ex = new ResultException();
+//			ex.addError("Duplicate function names for send request attributes in a component: " + gwo.getFunctionName());
+//			ex.result.lastResult().moreMessages("Existing request: sends" + existing.requestType + "Request");
+//			ex.result.lastResult().moreMessages(" Another request: sendsGetRequest");			
+//			ex.setLocationInfo(getFile(), getLineNumber());
+//			throw(ex);
+//		}
+//		
+//		commsHandlers.put(ch.key, ch);
+//	}
 	
 	void standardCommsInit(){
 		hasCommsMethods = true;
@@ -386,43 +413,57 @@ public class Component extends ComponentDMW {
 	}
 	
 	class CommsHandler {
-		int 				methodID;
-		RequestWithOptions	request;
-		GetWithOptions		getRequest;
+		int 					methodID;
+//		RequestWithOptions		request;
+		RequestTypeWithOptions	requestDef;
+//		GetWithOptions			getRequest;
 		
-		String  			baseName;
-		String				key;
-		String				requestType;
-		String 				constant;
+		String  				baseName;
+		String					key;
+		String					requestType;
+		String 					constant;
 		
-		ErrorOptionsEnum 	rpc = ErrorOptionsEnum.CENTRAL;
-		ErrorOptionsEnum	dmp = ErrorOptionsEnum.CENTRAL;
+		ErrorOptionsEnum 		rpc = ErrorOptionsEnum.CENTRAL;
+		ErrorOptionsEnum		dmp = ErrorOptionsEnum.CENTRAL;
 
-		CommsHandler(int id, RequestWithOptions rwo, String type){
+//		CommsHandler(int id, RequestWithOptions rwo, String type){
+//			methodID 	= id;
+//			request		= rwo;
+//			requestDef	= null;
+//			getRequest	= null;
+//			
+//			baseName 	= GenUtility.capTheName(rwo.getFunctionName());
+//			requestType	= type;
+//			key			= baseName;
+//			constant 	= baseName.toUpperCase() + requestType.toUpperCase() + "CALLBACK";
+//			initErrorHandlingFlags();
+//		}
+		
+		CommsHandler(int id, RequestTypeWithOptions rtwo){
 			methodID 	= id;
-			request		= rwo;
-			getRequest	= null;
+//			request		= null;
+			requestDef	= rtwo;
+//			getRequest	= null;
 			
-			baseName 	= GenUtility.capTheName(rwo.getFunctionName());
-			requestType	= type;
-//			key			= requestType + baseName;
+			baseName 	= GenUtility.capTheName(rtwo.getFunctionName());
+			requestType	= rtwo.getRequestType();
 			key			= baseName;
 			constant 	= baseName.toUpperCase() + requestType.toUpperCase() + "CALLBACK";
 			initErrorHandlingFlags();
 		}
 		
-		CommsHandler(int id, GetWithOptions rwo){
-			methodID 	= id;
-			request		= null;
-			getRequest	= rwo;
-			
-			baseName 	= GenUtility.capTheName(rwo.getFunctionName());
-			requestType	= "Get";
-//			key			= requestType + baseName;
-			key			= baseName;
-			constant 	= baseName.toUpperCase() + requestType.toUpperCase() + "CALLBACK";
-			initErrorHandlingFlags();
-		}
+//		CommsHandler(int id, GetWithOptions rwo){
+//			methodID 	= id;
+//			request		= null;
+//			requestDef	= null;
+//			getRequest	= rwo;
+//			
+//			baseName 	= GenUtility.capTheName(rwo.getFunctionName());
+//			requestType	= "Get";
+//			key			= baseName;
+//			constant 	= baseName.toUpperCase() + requestType.toUpperCase() + "CALLBACK";
+//			initErrorHandlingFlags();
+//		}
 		
 		void initErrorHandlingFlags(){
 			boolean 			centralRpc 	= false;
@@ -430,37 +471,51 @@ public class Component extends ComponentDMW {
 			boolean 			centralDmp 	= false;
 			boolean				localDmp	= false;
 			
-			if (request == null){
-				if (getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALRPCERRORS) ||
-						getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALERRORS))
+			if (requestDef != null){
+				if (requestDef.getOptions().contains(RequestOptionEnum.CENTRALRPCERRORS) ||
+						requestDef.getOptions().contains(RequestOptionEnum.CENTRALERRORS))
 					centralRpc = true;
 				
-				if (getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALDMPERRORS) ||
-						getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALERRORS))
+				if (requestDef.getOptions().contains(RequestOptionEnum.CENTRALDMPERRORS) ||
+						requestDef.getOptions().contains(RequestOptionEnum.CENTRALERRORS))
 					centralDmp = true;
 				
-				if (getRequest.getOptions().contains(GetFunctionOptionEnum.RPCERRORS))
+				if (requestDef.getOptions().contains(RequestOptionEnum.RPCERRORS))
 					localRpc = true;
 				
-				if (getRequest.getOptions().contains(GetFunctionOptionEnum.DMPERRORS))
-					localDmp = true;
-				
-			}
-			else{
-				if (request.getOptions().contains(RequestOptionEnum.CENTRALRPCERRORS) ||
-						request.getOptions().contains(RequestOptionEnum.CENTRALERRORS))
-					centralRpc = true;
-				
-				if (request.getOptions().contains(RequestOptionEnum.CENTRALDMPERRORS) ||
-						request.getOptions().contains(RequestOptionEnum.CENTRALERRORS))
-					centralDmp = true;
-				
-				if (request.getOptions().contains(RequestOptionEnum.RPCERRORS))
-					localRpc = true;
-				
-				if (request.getOptions().contains(RequestOptionEnum.DMPERRORS))
+				if (requestDef.getOptions().contains(RequestOptionEnum.DMPERRORS))
 					localDmp = true;
 			}
+//			else if (request != null){
+//				if (request.getOptions().contains(RequestOptionEnum.CENTRALRPCERRORS) ||
+//						request.getOptions().contains(RequestOptionEnum.CENTRALERRORS))
+//					centralRpc = true;
+//				
+//				if (request.getOptions().contains(RequestOptionEnum.CENTRALDMPERRORS) ||
+//						request.getOptions().contains(RequestOptionEnum.CENTRALERRORS))
+//					centralDmp = true;
+//				
+//				if (request.getOptions().contains(RequestOptionEnum.RPCERRORS))
+//					localRpc = true;
+//				
+//				if (request.getOptions().contains(RequestOptionEnum.DMPERRORS))
+//					localDmp = true;
+//			}
+//			else{
+//				if (getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALRPCERRORS) ||
+//						getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALERRORS))
+//					centralRpc = true;
+//				
+//				if (getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALDMPERRORS) ||
+//						getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALERRORS))
+//					centralDmp = true;
+//				
+//				if (getRequest.getOptions().contains(GetFunctionOptionEnum.RPCERRORS))
+//					localRpc = true;
+//				
+//				if (getRequest.getOptions().contains(GetFunctionOptionEnum.DMPERRORS))
+//					localDmp = true;
+//			}
 			
 			// Default handling depends on whether or not we have central rpc/dmp error handlers
 			if (!centralDmp && !localDmp){
@@ -499,8 +554,12 @@ public class Component extends ComponentDMW {
 			
 			sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(){\n");
 			sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
-			if (getRequest != null){
-				if (getRequest.getOptions().contains(GetFunctionOptionEnum.EVENTS))
+//			if (getRequest != null){
+//				if (getRequest.getOptions().contains(GetFunctionOptionEnum.EVENTS))
+//					sb.append("        request.setRegisterForEvents(true);\n");
+//			}
+			if (requestType.equals("Get")){
+				if (requestDef.getOptions().contains(RequestOptionEnum.EVENTS))
 					sb.append("        request.setRegisterForEvents(true);\n");
 			}
 			sb.append("        request.setHandlerID(" + constant + ");\n");
@@ -512,15 +571,19 @@ public class Component extends ComponentDMW {
 			boolean dmp = false;
 			boolean rpc = false;
 			
-			if (request == null){
-				dmp = getRequest.getOptions().contains(GetFunctionOptionEnum.DMPERRORS);
-				rpc = getRequest.getOptions().contains(GetFunctionOptionEnum.RPCERRORS);
+			if (requestDef != null){
+				dmp = requestDef.getOptions().contains(RequestOptionEnum.DMPERRORS);
+				rpc = requestDef.getOptions().contains(RequestOptionEnum.RPCERRORS);
 			}
-			else{
-				dmp = request.getOptions().contains(RequestOptionEnum.DMPERRORS);
-				rpc = request.getOptions().contains(RequestOptionEnum.RPCERRORS);
-			}
-			
+//			else if (request != null){
+//				dmp = request.getOptions().contains(RequestOptionEnum.DMPERRORS);
+//				rpc = request.getOptions().contains(RequestOptionEnum.RPCERRORS);
+//			}
+//			else{
+//				dmp = getRequest.getOptions().contains(GetFunctionOptionEnum.DMPERRORS);
+//				rpc = getRequest.getOptions().contains(GetFunctionOptionEnum.RPCERRORS);				
+//			}
+						
 			String responseCast = requestType + "ResponseDMO";
 			String requestCast	= requestType + "RequestDMO";
 			

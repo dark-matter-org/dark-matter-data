@@ -4,16 +4,16 @@ import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeGetFunctionOptionEnumMV;
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeRequestTypeWithOptionsMV;
 
 @SuppressWarnings("serial")
 // org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
-public class GetFunctionOptionEnumMVAdapter extends DmcTypeGetFunctionOptionEnumMV implements DmcAdapterIF {
+public class RequestTypeWithOptionsMVAdapter extends DmcTypeRequestTypeWithOptionsMV implements DmcAdapterIF {
 
-    DmcTypeGetFunctionOptionEnumMV existingValue;
+    DmcTypeRequestTypeWithOptionsMV existingValue;
 
-    public GetFunctionOptionEnumMVAdapter(DmcAttributeInfo ai){
+    public RequestTypeWithOptionsMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;
     }
 
@@ -39,7 +39,7 @@ public class GetFunctionOptionEnumMVAdapter extends DmcTypeGetFunctionOptionEnum
 
     @Override
     public void setExisting(DmcAttribute<?> attr) {
-    	existingValue = (DmcTypeGetFunctionOptionEnumMV) attr;
+    	existingValue = (DmcTypeRequestTypeWithOptionsMV) attr;
     	if (existingValue != null)
     		value = existingValue.getMVCopy();
     }

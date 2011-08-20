@@ -10,6 +10,7 @@ import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.CamelCaseName;
+import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.EnumDefinition;
@@ -43,6 +44,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.menus.SubMenu;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.MenuElementDefinitionDMW;
 import org.dmd.mvw.tools.mvwgenerator.types.EditField;
+import org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.DebugInfo;
 
@@ -580,34 +582,41 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			if (component.getFiresEventHasValue())
 				component.getDMO().addUsesRunContextItem("eventBus");
 			
-			if (component.getSendsGetRequestHasValue()){
+			
+			
+//			if (component.getSendsGetRequestHasValue()){
+//				component.getDMO().addUsesRunContextItem("commsController");
+//				needMvwComms = true;
+//			}
+//			else 
+			if (component.getSendsRequestHasValue()){
 				component.getDMO().addUsesRunContextItem("commsController");
 				needMvwComms = true;
 			}
-			else if (component.getSendsActionRequestHasValue()){
-				component.getDMO().addUsesRunContextItem("commsController");
-				needMvwComms = true;
-			}
-			else if (component.getSendsCreateRequestHasValue()){
-				component.getDMO().addUsesRunContextItem("commsController");
-				needMvwComms = true;
-			}
-			else if (component.getSendsDeleteRequestHasValue()){
-				component.getDMO().addUsesRunContextItem("commsController");
-				needMvwComms = true;
-			}
-			else if (component.getSendsSetRequestHasValue()){
-				component.getDMO().addUsesRunContextItem("commsController");
-				needMvwComms = true;
-			}
-			else if (component.getSendsLoginRequestHasValue()){
-				component.getDMO().addUsesRunContextItem("commsController");
-				needMvwComms = true;
-			}
-			else if (component.getSendsLogoutRequestHasValue()){
-				component.getDMO().addUsesRunContextItem("commsController");
-				needMvwComms = true;
-			}
+//			else if (component.getSendsActionRequestHasValue()){
+//				component.getDMO().addUsesRunContextItem("commsController");
+//				needMvwComms = true;
+//			}
+//			else if (component.getSendsCreateRequestHasValue()){
+//				component.getDMO().addUsesRunContextItem("commsController");
+//				needMvwComms = true;
+//			}
+//			else if (component.getSendsDeleteRequestHasValue()){
+//				component.getDMO().addUsesRunContextItem("commsController");
+//				needMvwComms = true;
+//			}
+//			else if (component.getSendsSetRequestHasValue()){
+//				component.getDMO().addUsesRunContextItem("commsController");
+//				needMvwComms = true;
+//			}
+//			else if (component.getSendsLoginRequestHasValue()){
+//				component.getDMO().addUsesRunContextItem("commsController");
+//				needMvwComms = true;
+//			}
+//			else if (component.getSendsLogoutRequestHasValue()){
+//				component.getDMO().addUsesRunContextItem("commsController");
+//				needMvwComms = true;
+//			}
 		}
 	}
 	
@@ -868,6 +877,45 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 							errors.result.lastResult().lineNumber(mapping.getLineNumber());
 							
 						}
+					}
+				}
+			}
+		}
+		
+		if (components.size() > 0){
+			for(Component component: components.values()){
+				if (component.getSendsRequestHasValue()){
+					if (readSchemas.isSchema("dmp") == null){
+						DmpSchemaAG dmp = new DmpSchemaAG();
+						readSchemas.manageSchema(dmp);
+					}
+					
+					component.getDMO().addUsesRunContextItem("commsController");
+					needMvwComms = true;
+					// Try to resolve reference to the request being sent and set the 
+					// import information
+					for(RequestTypeWithOptions rq: component.getSendsRequestIterable()){
+						String request = rq.getRequestType() + "Request";
+						String response = rq.getRequestType() + "Response";
+						ClassDefinition cd = readSchemas.cdef(request);
+						if (cd == null){
+							ResultException ex = new ResultException();
+							ex.addError("Unknown request type: " + request);
+							ex.result.lastResult().lineNumber(component.getLineNumber());
+							ex.result.lastResult().fileName(component.getFile());
+							throw(ex);
+						}
+						rq.setRequestImport(cd.getDmoImport());
+						
+						cd = readSchemas.cdef(response);
+						if (cd == null){
+							ResultException ex = new ResultException();
+							ex.addError("Unknown response type: " + response);
+							ex.result.lastResult().lineNumber(component.getLineNumber());
+							ex.result.lastResult().fileName(component.getFile());
+							throw(ex);
+						}
+						rq.setResponseImport(cd.getDmoImport());
 					}
 				}
 			}

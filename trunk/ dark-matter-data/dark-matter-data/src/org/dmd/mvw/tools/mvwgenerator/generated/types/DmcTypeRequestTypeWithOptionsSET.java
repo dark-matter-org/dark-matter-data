@@ -24,46 +24,47 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;    // DmcType import
+import org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestTypeWithOptions;    // DmcType import
 /**
- * The DmcTypeGetFunctionOptionEnumSET provides storage for a set of GetFunctionOptionEnum
+ * The DmcTypeRequestTypeWithOptionsSET provides storage for a set of RequestTypeWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2334)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:326)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:101)
  */
 @SuppressWarnings("serial")
-public class DmcTypeGetFunctionOptionEnumSET extends DmcTypeGetFunctionOptionEnum implements Serializable {
+public class DmcTypeRequestTypeWithOptionsSET extends DmcTypeRequestTypeWithOptions implements Serializable {
     
-    protected Set<GetFunctionOptionEnum> value;
+    protected Set<RequestTypeWithOptions> value;
     
-    public DmcTypeGetFunctionOptionEnumSET(){
+    public DmcTypeRequestTypeWithOptionsSET(){
         value = null;
     }
     
-    public DmcTypeGetFunctionOptionEnumSET(DmcAttributeInfo ai){
+    public DmcTypeRequestTypeWithOptionsSET(DmcAttributeInfo ai){
         super(ai);
         initValue();
     }
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<GetFunctionOptionEnum>();
+            value = new HashSet<RequestTypeWithOptions>();
         else
-            value = new TreeSet<GetFunctionOptionEnum>();
+            value = new TreeSet<RequestTypeWithOptions>();
     }
     
     @Override
-    public DmcTypeGetFunctionOptionEnumSET getNew(){
-        return(new DmcTypeGetFunctionOptionEnumSET(attrInfo));
+    public DmcTypeRequestTypeWithOptionsSET getNew(){
+        return(new DmcTypeRequestTypeWithOptionsSET(attrInfo));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
-    public DmcAttribute<GetFunctionOptionEnum> cloneIt(){
+    public DmcAttribute<RequestTypeWithOptions> cloneIt(){
         synchronized(this){
-            DmcTypeGetFunctionOptionEnumSET rc = getNew();
-            for(GetFunctionOptionEnum val: value)
+            DmcTypeRequestTypeWithOptionsSET rc = getNew();
+            for(RequestTypeWithOptions val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -75,9 +76,9 @@ public class DmcTypeGetFunctionOptionEnumSET extends DmcTypeGetFunctionOptionEnu
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
-    public GetFunctionOptionEnum add(Object v) throws DmcValueException {
+    public RequestTypeWithOptions add(Object v) throws DmcValueException {
         synchronized(this){
-            GetFunctionOptionEnum rc = typeCheck(v);
+            RequestTypeWithOptions rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -91,9 +92,9 @@ public class DmcTypeGetFunctionOptionEnumSET extends DmcTypeGetFunctionOptionEnu
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
-    public GetFunctionOptionEnum del(Object v){
+    public RequestTypeWithOptions del(Object v){
         synchronized(this){
-            GetFunctionOptionEnum rc = null;
+            RequestTypeWithOptions rc = null;
             try {
                 rc = typeCheck(v);
             } catch (DmcValueException e) {
@@ -109,25 +110,25 @@ public class DmcTypeGetFunctionOptionEnumSET extends DmcTypeGetFunctionOptionEnu
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2426)
-    public Iterator<GetFunctionOptionEnum> getMV(){
+    public Iterator<RequestTypeWithOptions> getMV(){
         synchronized(this){
-            Set<GetFunctionOptionEnum> clone = null;
+            Set<RequestTypeWithOptions> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<GetFunctionOptionEnum>(value);
+                clone = new HashSet<RequestTypeWithOptions>(value);
             else
-                clone = new TreeSet<GetFunctionOptionEnum>(value);
+                clone = new TreeSet<RequestTypeWithOptions>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
-    public Set<GetFunctionOptionEnum> getMVCopy(){
+    public Set<RequestTypeWithOptions> getMVCopy(){
         synchronized(this){
-            Set<GetFunctionOptionEnum> clone = null;
+            Set<RequestTypeWithOptions> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<GetFunctionOptionEnum>(value);
+                clone = new HashSet<RequestTypeWithOptions>(value);
             else
-                clone = new TreeSet<GetFunctionOptionEnum>(value);
+                clone = new TreeSet<RequestTypeWithOptions>(value);
             return(clone);
         }
     }
@@ -148,7 +149,7 @@ public class DmcTypeGetFunctionOptionEnumSET extends DmcTypeGetFunctionOptionEnu
         synchronized(this){
             boolean rc = false;
             try {
-                GetFunctionOptionEnum val = typeCheck(v);
+                RequestTypeWithOptions val = typeCheck(v);
                 rc = value.contains(val);
             } catch (DmcValueException e) {
             }
