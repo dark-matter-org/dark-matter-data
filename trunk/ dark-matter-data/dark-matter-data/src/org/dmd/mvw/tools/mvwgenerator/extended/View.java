@@ -159,6 +159,14 @@ public class View extends ViewDMW {
 					viewImplImports.addImport(imp, "View import");
 				}
 			}
+			
+			if (getPresenterMethodHasValue()){
+				for(MethodWithArgs method: getPresenterMethodIterable()){
+					if (method.getComment() != null)
+						presenterInterface.append("        // " + method.getComment() + "\n");
+					presenterInterface.append("        " + method.getSignature() + ";\n\n");
+				}
+			}
 						
 			if (getPresenterImportHasValue()){
 				for(String imp: getPresenterImportIterable()){
