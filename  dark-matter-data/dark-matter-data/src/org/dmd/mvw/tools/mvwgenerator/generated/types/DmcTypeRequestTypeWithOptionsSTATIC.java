@@ -18,42 +18,42 @@ package org.dmd.mvw.tools.mvwgenerator.generated.types;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;    // DmcType import
+import org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions;    // base type import
 
 /**
- * The DmcTypeGetFunctionOptionEnumSTATIC provides static access to functions used to manage values of type GetFunctionOptionEnum
+ * The DmcTypeRequestTypeWithOptionsSTATIC provides static access to functions used to manage values of type RequestTypeWithOptions
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1907)
  *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1822)
  */
-public class DmcTypeGetFunctionOptionEnumSTATIC {
+public class DmcTypeRequestTypeWithOptionsSTATIC {
     
-    public static DmcTypeGetFunctionOptionEnumSTATIC instance;
-    static DmcTypeGetFunctionOptionEnumSV typeHelper;
+    public static DmcTypeRequestTypeWithOptionsSTATIC instance;
+    static DmcTypeRequestTypeWithOptionsSV typeHelper;
     
     static {
-        instance = new DmcTypeGetFunctionOptionEnumSTATIC();
+        instance = new DmcTypeRequestTypeWithOptionsSTATIC();
     }
     
-    protected DmcTypeGetFunctionOptionEnumSTATIC() {
-        typeHelper = new DmcTypeGetFunctionOptionEnumSV();
+    protected DmcTypeRequestTypeWithOptionsSTATIC() {
+        typeHelper = new DmcTypeRequestTypeWithOptionsSV();
     }
     
-    public GetFunctionOptionEnum typeCheck(Object value) throws DmcValueException {
+    public RequestTypeWithOptions typeCheck(Object value) throws DmcValueException {
     	   return(typeHelper.typeCheck(value));
     }
     
-    public GetFunctionOptionEnum cloneValue(GetFunctionOptionEnum value) throws DmcValueException {
+    public RequestTypeWithOptions cloneValue(RequestTypeWithOptions value) throws DmcValueException {
     	   return(typeHelper.cloneValue(value));
     }
     
-    public void serializeValue(DmcOutputStreamIF dos, GetFunctionOptionEnum value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, RequestTypeWithOptions value) throws Exception {
     	   typeHelper.serializeValue(dos, value);
     }
     
-    public GetFunctionOptionEnum deserializeValue(DmcInputStreamIF dis) throws Exception {
+    public RequestTypeWithOptions deserializeValue(DmcInputStreamIF dis) throws Exception {
     	   return(typeHelper.deserializeValue(dis));
     }
     

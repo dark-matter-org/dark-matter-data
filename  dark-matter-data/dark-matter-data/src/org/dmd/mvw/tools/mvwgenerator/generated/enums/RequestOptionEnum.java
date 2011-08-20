@@ -21,8 +21,7 @@ import org.dmd.dmc.DmcEnumIF;
 
 /**
  * The RequestOptionEnum indicates a set of modifiers that direct code
- * generation for standard Dark Matter Protocol delete and set request
- * handling.
+ * generation for standard Dark Matter Protocol request handling.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -41,7 +40,11 @@ public enum RequestOptionEnum implements DmcEnumIF
 
     CENTRALRPCERRORS(4,"Indicates that you want RPC errors centrally handled."),
 
-    CENTRALERRORS(5,"Indicates that you want DMP/RPC errors centrally handled.");
+    CENTRALERRORS(5,"Indicates that you want DMP/RPC errors centrally handled."),
+
+    CACHE(6,"Indicates that you want the results centrally cached."),
+
+    EVENTS(7,"Indicates that you want notification of events associated with the get request.");
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,RequestOptionEnum> lookup = new HashMap<Integer,RequestOptionEnum>();

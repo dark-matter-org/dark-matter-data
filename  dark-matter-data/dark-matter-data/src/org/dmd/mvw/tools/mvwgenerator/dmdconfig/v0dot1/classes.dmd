@@ -116,13 +116,14 @@ may				handlesEvent
 may				useSchema
 may				useBaseClass
 may				usesRunContextItem
-may				sendsGetRequest
-may				sendsDeleteRequest
-may				sendsSetRequest
-may				sendsCreateRequest
-may				sendsActionRequest
-may				sendsLoginRequest
-may				sendsLogoutRequest
+//may				sendsGetRequest
+may				sendsRequest
+//may				sendsDeleteRequest
+//may				sendsSetRequest
+//may				sendsCreateRequest
+//may				sendsActionRequest
+//may				sendsLoginRequest
+//may				sendsLogoutRequest
 may				subpackage
 may				instantiatesView
 description		The Component is an abstract base for classes that define the building blocks

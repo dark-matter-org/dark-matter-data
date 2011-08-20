@@ -14,6 +14,8 @@ import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO;
+import org.dmd.dmp.shared.generated.dmo.RequestDMO;
+import org.dmd.dmp.shared.generated.dmo.ResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.SetResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;
@@ -43,5 +45,7 @@ public interface DMPServiceAsync {
 	void notify(NotifyRequestDMO notifyRequest, AsyncCallback<NotifyResponseDMO> callback);
 
 	void denotify(DenotifyRequestDMO denotifyRequest, AsyncCallback<DenotifyResponseDMO> callback);
+
+	void otherRequest(RequestDMO request, AsyncCallback<ResponseDMO> callback);
 
 }

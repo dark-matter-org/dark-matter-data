@@ -8,25 +8,25 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;
+import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;
 
 /**
  * The GetWithMods class is used to store a base function name fragment along with
- * a set of GetFunctionOptionEnum values:
+ * a set of RequestOptionEnum values:
  * eventName (type arg1, type arg2...) com.example.class java.util.Hashmap
  */
 @SuppressWarnings("serial")
 public class GetWithOptions implements DmcMappedAttributeIF, Serializable {
 
 	String 							functionName;
-	HashSet<GetFunctionOptionEnum> 	options;
+	HashSet<RequestOptionEnum> 	options;
 	
 	public GetWithOptions(){
 		functionName 	= null;
 		options 		= null;
 	}
 	
-	public GetWithOptions(String fn, HashSet<GetFunctionOptionEnum> o){
+	public GetWithOptions(String fn, HashSet<RequestOptionEnum> o){
 		functionName 	= fn;
 		options 		= o;
 	}
@@ -42,17 +42,17 @@ public class GetWithOptions implements DmcMappedAttributeIF, Serializable {
 		
 		if (spacepos == -1){
 			functionName 	= value;
-			options 		= new HashSet<GetFunctionOptionEnum>();
-			options.add(GetFunctionOptionEnum.NONE);
+			options 		= new HashSet<RequestOptionEnum>();
+			options.add(RequestOptionEnum.NONE);
 		}
 		else{
 			functionName = value.substring(0, spacepos);
-			options = new HashSet<GetFunctionOptionEnum>();
+			options = new HashSet<RequestOptionEnum>();
 			String remainder = value.substring(spacepos+1);
 			String[] opts = remainder.split(" ");
 			for(int i=0; i<opts.length; i++){
 				if (opts[i].length() > 0){
-					GetFunctionOptionEnum val = GetFunctionOptionEnum.get(opts[i]);
+					RequestOptionEnum val = RequestOptionEnum.get(opts[i]);
 					if (val == null)
 						throw(new DmcValueException(opts[i] + " is not a valid option."));
 					options.add(val);
@@ -67,7 +67,7 @@ public class GetWithOptions implements DmcMappedAttributeIF, Serializable {
 		return(functionName);
 	}
 	
-	public HashSet<GetFunctionOptionEnum> getOptions(){
+	public HashSet<RequestOptionEnum> getOptions(){
 		return(options);
 	}
 	
@@ -78,7 +78,7 @@ public class GetWithOptions implements DmcMappedAttributeIF, Serializable {
 		else{
 			StringBuffer sb = new StringBuffer();
 			sb.append(functionName);
-			Iterator<GetFunctionOptionEnum> it = options.iterator();
+			Iterator<RequestOptionEnum> it = options.iterator();
 			while(it.hasNext()){
 				sb.append(" " + it.next());
 			}
@@ -119,7 +119,7 @@ public class GetWithOptions implements DmcMappedAttributeIF, Serializable {
 		}
 		else{
 			dos.writeInt(options.size());
-			Iterator<GetFunctionOptionEnum> it = options.iterator();
+			Iterator<RequestOptionEnum> it = options.iterator();
 			while(it.hasNext()){
 				dos.writeInt(it.next().intValue());
 			}
@@ -128,13 +128,13 @@ public class GetWithOptions implements DmcMappedAttributeIF, Serializable {
 	
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
 		functionName = dis.readUTF();
-		options = new HashSet<GetFunctionOptionEnum>();
+		options = new HashSet<RequestOptionEnum>();
 		int size = dis.readInt();
 		
 		if (size > 0){
 			for(int i=0; i<size; i++){
 				int val = dis.readInt();
-				options.add(GetFunctionOptionEnum.get(val));
+				options.add(RequestOptionEnum.get(val));
 			}
 		}
 	}

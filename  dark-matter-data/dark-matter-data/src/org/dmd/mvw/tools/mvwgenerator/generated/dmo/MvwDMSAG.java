@@ -85,13 +85,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __runsActivity = new DmcAttributeInfo("runsActivity", 855, "Activity", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __selectEvent = new DmcAttributeInfo("selectEvent", 817, "EventSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __selectedDMO = new DmcAttributeInfo("selectedDMO", 806, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsActionRequest = new DmcAttributeInfo("sendsActionRequest", 848, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsCreateRequest = new DmcAttributeInfo("sendsCreateRequest", 847, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsDeleteRequest = new DmcAttributeInfo("sendsDeleteRequest", 845, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsGetRequest = new DmcAttributeInfo("sendsGetRequest", 844, "GetWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsLoginRequest = new DmcAttributeInfo("sendsLoginRequest", 849, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsLogoutRequest = new DmcAttributeInfo("sendsLogoutRequest", 850, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __sendsSetRequest = new DmcAttributeInfo("sendsSetRequest", 846, "RequestWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __sendsRequest = new DmcAttributeInfo("sendsRequest", 896, "RequestTypeWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __sharedImport = new DmcAttributeInfo("sharedImport", 838, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __skipEnumValue = new DmcAttributeInfo("skipEnumValue", 895, "String", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __strictlyChecked = new DmcAttributeInfo("strictlyChecked", 889, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -227,13 +221,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__runsActivity.id,__runsActivity);
         _SmAp.put(__selectEvent.id,__selectEvent);
         _SmAp.put(__selectedDMO.id,__selectedDMO);
-        _SmAp.put(__sendsActionRequest.id,__sendsActionRequest);
-        _SmAp.put(__sendsCreateRequest.id,__sendsCreateRequest);
-        _SmAp.put(__sendsDeleteRequest.id,__sendsDeleteRequest);
-        _SmAp.put(__sendsGetRequest.id,__sendsGetRequest);
-        _SmAp.put(__sendsLoginRequest.id,__sendsLoginRequest);
-        _SmAp.put(__sendsLogoutRequest.id,__sendsLogoutRequest);
-        _SmAp.put(__sendsSetRequest.id,__sendsSetRequest);
+        _SmAp.put(__sendsRequest.id,__sendsRequest);
         _SmAp.put(__sharedImport.id,__sharedImport);
         _SmAp.put(__skipEnumValue.id,__skipEnumValue);
         _SmAp.put(__strictlyChecked.id,__strictlyChecked);
@@ -325,13 +313,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __Component.addMay(__useSchema);
         __Component.addMay(__useBaseClass);
         __Component.addMay(__usesRunContextItem);
-        __Component.addMay(__sendsGetRequest);
-        __Component.addMay(__sendsDeleteRequest);
-        __Component.addMay(__sendsSetRequest);
-        __Component.addMay(__sendsCreateRequest);
-        __Component.addMay(__sendsActionRequest);
-        __Component.addMay(__sendsLoginRequest);
-        __Component.addMay(__sendsLogoutRequest);
+        __Component.addMay(__sendsRequest);
         __Component.addMay(MetaDMSAG.__subpackage);
         __Component.addMay(__instantiatesView);
 

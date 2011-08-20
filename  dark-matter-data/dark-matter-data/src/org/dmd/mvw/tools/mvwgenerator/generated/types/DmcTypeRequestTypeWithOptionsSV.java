@@ -19,45 +19,46 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.mvw.tools.mvwgenerator.generated.enums.GetFunctionOptionEnum;    // DmcType import
+import org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions;    // base type import
+import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestTypeWithOptions;    // DmcType import
 /**
- * The DmcTypeGetFunctionOptionEnumSV provides storage for a single-valued GetFunctionOptionEnum
+ * The DmcTypeRequestTypeWithOptionsSV provides storage for a single-valued RequestTypeWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:324)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:99)
  */
 @SuppressWarnings("serial")
-public class DmcTypeGetFunctionOptionEnumSV extends DmcTypeGetFunctionOptionEnum implements Serializable {
+public class DmcTypeRequestTypeWithOptionsSV extends DmcTypeRequestTypeWithOptions implements Serializable {
     
-    protected GetFunctionOptionEnum value;
+    protected RequestTypeWithOptions value;
     
-    public DmcTypeGetFunctionOptionEnumSV(){
+    public DmcTypeRequestTypeWithOptionsSV(){
     
     }
     
-    public DmcTypeGetFunctionOptionEnumSV(DmcAttributeInfo ai){
+    public DmcTypeRequestTypeWithOptionsSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeGetFunctionOptionEnumSV getNew(){
-        return(new DmcTypeGetFunctionOptionEnumSV(attrInfo));
+    public DmcTypeRequestTypeWithOptionsSV getNew(){
+        return(new DmcTypeRequestTypeWithOptionsSV(attrInfo));
     }
     
-    public DmcTypeGetFunctionOptionEnumSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeGetFunctionOptionEnumSV(ai));
+    public DmcTypeRequestTypeWithOptionsSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeRequestTypeWithOptionsSV(ai));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
-    public DmcAttribute<GetFunctionOptionEnum> cloneIt(){
-        DmcTypeGetFunctionOptionEnumSV rc = getNew();
+    public DmcAttribute<RequestTypeWithOptions> cloneIt(){
+        DmcTypeRequestTypeWithOptionsSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
-    public GetFunctionOptionEnum getSVCopy(){
+    public RequestTypeWithOptions getSVCopy(){
         if (value == null)
             return(null);
         return(cloneValue(value));
@@ -65,8 +66,8 @@ public class DmcTypeGetFunctionOptionEnumSV extends DmcTypeGetFunctionOptionEnum
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
-    public GetFunctionOptionEnum set(Object v) throws DmcValueException {
-        GetFunctionOptionEnum rc = typeCheck(v);
+    public RequestTypeWithOptions set(Object v) throws DmcValueException {
+        RequestTypeWithOptions rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -82,7 +83,7 @@ public class DmcTypeGetFunctionOptionEnumSV extends DmcTypeGetFunctionOptionEnum
     }
     
     @Override
-    public GetFunctionOptionEnum getSV(){
+    public RequestTypeWithOptions getSV(){
         return(value);
     }
     

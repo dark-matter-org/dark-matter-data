@@ -36,7 +36,7 @@ public class RequestWithOptions implements DmcMappedAttributeIF, Serializable {
 		options 		= gwm.options;
 	}
 	
-	public RequestWithOptions(String v) throws DmcValueException{
+	public RequestWithOptions(String v) throws DmcValueException {
 		String value = v.trim();
 		int spacepos = value.indexOf(" ");
 		
