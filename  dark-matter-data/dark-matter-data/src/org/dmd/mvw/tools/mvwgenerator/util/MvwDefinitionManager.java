@@ -15,7 +15,6 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.DmsSchemaParser;
 import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
@@ -33,7 +32,6 @@ import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FieldEditorDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
-import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormImplementationConfig;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuBar;
@@ -46,7 +44,6 @@ import org.dmd.mvw.tools.mvwgenerator.generated.dmw.MenuElementDefinitionDMW;
 import org.dmd.mvw.tools.mvwgenerator.types.EditField;
 import org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions;
 import org.dmd.util.exceptions.ResultException;
-import org.dmd.util.exceptions.DebugInfo;
 
 
 /**
@@ -927,6 +924,16 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 								throw(ex);
 							}
 							rq.setClassImport(cd.getDmoImport());
+							
+							if (rq.getRequestType().equals("Set") || rq.getRequestType().equals("Delete")){
+								if (cd.getIsNamedBy() == null){
+									ResultException ex = new ResultException();
+									ex.addError(rq.getRequestType() + "Requests are only applicable to named objects.");
+									ex.result.lastResult().lineNumber(component.getLineNumber());
+									ex.result.lastResult().fileName(component.getFile());
+									throw(ex);
+								}
+							}
 						}
 					}
 				}

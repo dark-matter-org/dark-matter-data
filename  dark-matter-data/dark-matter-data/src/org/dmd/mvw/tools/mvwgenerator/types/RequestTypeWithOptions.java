@@ -95,7 +95,7 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 		
 		int optionStart = 2;
 		
-		if (requestType.equals("Set") || requestType.equals("Delete") || requestType.equals("Create")){
+		if (requestType.equals("Set") || requestType.equals("Create")){
 			optionStart = 3;
 			if (tokens.size() < 3)
 				throw(new DmcValueException("Too few tokens for a " + requestType + "Request. Value should be of the form: <request type> <function name> <className> [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS  CENTRALERRORS]"));				
@@ -145,6 +145,10 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 	
 	public void setClassImport(String ci){
 		classImport = ci;
+	}
+	
+	public String getClassImport(){
+		return(classImport);
 	}
 	
 	public String getRequestImport(){

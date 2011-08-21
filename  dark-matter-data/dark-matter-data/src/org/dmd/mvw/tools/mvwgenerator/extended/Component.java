@@ -206,79 +206,23 @@ public class Component extends ComponentDMW {
 			}
 		}
 		
-//		if (getSendsActionRequestHasValue()){
-//			standardCommsInit();
-//			for(RequestWithOptions request: getSendsActionRequestIterable()){
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.ActionRequestDMO", "Component sends action requests");
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.ActionResponseDMO", "Component sends action requests");
-//				addRequest(request,"Action");
-//			}
-//		}
-//		
-//		if (getSendsCreateRequestHasValue()){
-//			standardCommsInit();
-//			for(RequestWithOptions request: getSendsCreateRequestIterable()){
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.CreateRequestDMO", "Component sends create requests");
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.CreateResponseDMO", "Component sends create requests");
-//				addRequest(request,"Create");
-//			}
-//		}
-//		
-//		if (getSendsDeleteRequestHasValue()){
-//			standardCommsInit();
-//			for(RequestWithOptions request: getSendsDeleteRequestIterable()){
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO", "Component sends delete requests");
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO", "Component sends delete requests");
-//				addRequest(request,"Delete");
-//			}
-//		}
-//		
-//		if (getSendsGetRequestHasValue()){
-//			standardCommsInit();
-//			for(GetWithOptions request: getSendsGetRequestIterable()){
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.GetRequestDMO", "Component sends get requests");
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.GetResponseDMO", "Component sends get requests");
-//				addRequest(request);
-//			}
-//		}
-		
-		// NEW!
 		if (getSendsRequestHasValue()){
 			standardCommsInit();
 			for(RequestTypeWithOptions request: getSendsRequestIterable()){
 				
 				imports.addImport(request.getRequestImport(), "Component sends " + request.getRequestType() + "Requests");
 				imports.addImport(request.getResponseImport(), "Component receives " + request.getRequestType() + "Responses");
+				if (request.isUsingClassInfo()){
+					imports.addImport(request.getClassImport(), "Component uses " + request.getClassName() + " objects");
+					if (request.getRequestType().equals("Set")){
+						imports.addImport("org.dmd.dmc.DmcValueException", "Used when creating " + request.getRequestType() + "Requests");
+						imports.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "Used when creating " + request.getRequestType() + "Requests");
+					}
+				}
+					
 				addRequest(request);
 			}
 		}
-		
-//		if (getSendsSetRequestHasValue()){
-//			standardCommsInit();
-//			for(RequestWithOptions request: getSendsSetRequestIterable()){
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.SetRequestDMO", "Component sends set requests");
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.SetResponseDMO", "Component sends set requests");
-//				addRequest(request,"Set");
-//			}
-//		}
-//		
-//		if (getSendsLoginRequestHasValue()){
-//			standardCommsInit();
-//			for(RequestWithOptions request: getSendsLoginRequestIterable()){
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.LoginRequestDMO", "Component sends login requests");
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.LoginResponseDMO", "Component sends login requests");
-//				addRequest(request,"Login");
-//			}
-//		}
-//		
-//		if (getSendsLogoutRequestHasValue()){
-//			standardCommsInit();
-//			for(RequestWithOptions request: getSendsLogoutRequestIterable()){
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO", "Component sends logout requests");
-//				imports.addImport("org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO", "Component sends logout requests");
-//				addRequest(request,"Logout");
-//			}
-//		}
 		
 		if (hasCommsMethods){
 			for(CommsHandler ch: commsHandlers.values()){
@@ -351,22 +295,6 @@ public class Component extends ComponentDMW {
 		
 	}
 	
-//	void addRequest(RequestWithOptions rwo, String type) throws ResultException{
-//		CommsHandler ch = new CommsHandler(methodID++, rwo, type);
-//		CommsHandler existing = commsHandlers.get(ch.key);
-//		
-//		if (existing != null){
-//			ResultException ex = new ResultException();
-//			ex.addError("Duplicate function names for send request attributes in a component: " + rwo.getFunctionName());
-//			ex.result.lastResult().moreMessages("Existing request: sends" + existing.requestType + "Request");
-//			ex.result.lastResult().moreMessages(" Another request: sends" + type + "Request");			
-//			ex.setLocationInfo(getFile(), getLineNumber());
-//			throw(ex);
-//		}
-//		
-//		commsHandlers.put(ch.key, ch);
-//	}
-	
 	void addRequest(RequestTypeWithOptions rtwo) throws ResultException{
 		CommsHandler ch = new CommsHandler(methodID++, rtwo);
 		CommsHandler existing = commsHandlers.get(ch.key);
@@ -382,22 +310,6 @@ public class Component extends ComponentDMW {
 		
 		commsHandlers.put(ch.key, ch);
 	}
-	
-//	void addRequest(GetWithOptions gwo) throws ResultException{
-//		CommsHandler ch = new CommsHandler(methodID++, gwo);
-//		CommsHandler existing = commsHandlers.get(ch.key);
-//		
-//		if (existing != null){
-//			ResultException ex = new ResultException();
-//			ex.addError("Duplicate function names for send request attributes in a component: " + gwo.getFunctionName());
-//			ex.result.lastResult().moreMessages("Existing request: sends" + existing.requestType + "Request");
-//			ex.result.lastResult().moreMessages(" Another request: sendsGetRequest");			
-//			ex.setLocationInfo(getFile(), getLineNumber());
-//			throw(ex);
-//		}
-//		
-//		commsHandlers.put(ch.key, ch);
-//	}
 	
 	void standardCommsInit(){
 		hasCommsMethods = true;
@@ -488,14 +400,44 @@ public class Component extends ComponentDMW {
 		}
 		
 		void addSendRequestFunction(StringBuffer sb){
+			sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    protected void send" + baseName + "Request(" + requestType + "RequestDMO request){\n");
+			sb.append("        commsController.send" + requestType + "Request(request,this,ErrorOptionsEnum." + rpc + ",ErrorOptionsEnum." + dmp + ");\n");
+			sb.append("    }\n\n");
+			
 			if (requestDef.isUsingClassInfo()){
-				
+				if (requestDef.getRequestType().equals("Set")){
+					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(" + requestDef.getClassName()+ "DMO modrec){\n");
+					sb.append("        if (modrec.getModifier() == null)\n");
+					sb.append("            throw(new IllegalStateException(\"The DMO passed here should have a modifier.\"));\n");
+					sb.append("    \n");
+					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
+					sb.append("        request.setHandlerID(" + constant + ");\n");
+					sb.append("    \n");
+					sb.append("        request.setTarget(modrec.getObjectName());\n");
+					sb.append("        try{\n");
+					sb.append("            request.add(MetaDMSAG.__modify, modrec.getModifier());\n");
+					sb.append("            request.setTargetObjectClass(modrec.getConstructionClass());\n");
+					sb.append("        } catch (DmcValueException e) {\n");
+					sb.append("            throw(new IllegalStateException(\"Setting the modifier on a SetRequest shouldn't thrown an exception.\",e));\n");
+					sb.append("        }\n");
+					sb.append("    \n");
+					sb.append("        return(request);\n");
+					sb.append("    }\n\n");
+				}
+				else if (requestDef.getRequestType().equals("Create")){
+					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(" + requestDef.getClassName()+ "DMO newobj){\n");
+					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
+					sb.append("        request.setHandlerID(" + constant + ");\n");
+					sb.append("        request.setNewObject(newobj);\n");
+					sb.append("        return(request);\n");
+					sb.append("    }\n\n");
+				}
 			}
 			else{
-				sb.append("    protected void send" + baseName + "Request(" + requestType + "RequestDMO request){\n");
-				sb.append("        commsController.send" + requestType + "Request(request,this,ErrorOptionsEnum." + rpc + ",ErrorOptionsEnum." + dmp + ");\n");
-				sb.append("    }\n\n");
-				
+				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(){\n");
 				sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
 				if (requestType.equals("Get")){
