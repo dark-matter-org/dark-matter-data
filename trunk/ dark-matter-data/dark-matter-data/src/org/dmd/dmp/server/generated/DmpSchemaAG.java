@@ -60,6 +60,8 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static ClassDefinition _NotifyResponse;
     public static ClassDefinition _DenotifyRequest;
     public static ClassDefinition _DenotifyResponse;
+    public static ClassDefinition _PreAuthRequest;
+    public static ClassDefinition _PreAuthResponse;
 
     public static AttributeDefinition _requestID;
     public static AttributeDefinition _sessionID;
@@ -506,7 +508,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _NotifyRequestOBJ.setClassType("STRUCTURAL");
             _NotifyRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
             _NotifyRequestOBJ.setLineNumber("249");
-            _NotifyRequestOBJ.setDescription("The NotifyRequest allwos you to register for events on an arbitrary object or set of objects.");
+            _NotifyRequestOBJ.setDescription("The NotifyRequest allows you to register for events on an arbitrary object or set of objects.");
             _NotifyRequestOBJ.setDerivedFrom("Request");
             _NotifyRequestOBJ.setUseWrapperType("EXTENDED");
             _NotifyRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.NotifyRequestREF");
@@ -572,6 +574,36 @@ public class DmpSchemaAG extends SchemaDefinition {
             _DenotifyResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.DenotifyResponseIterableDMW");
             _DenotifyResponse.setDefinedIn(this);
             addClassDefList(_DenotifyResponse);
+
+            ClassDefinitionDMO _PreAuthRequestOBJ = new ClassDefinitionDMO();
+            _PreAuthRequest = new ClassDefinition(_PreAuthRequestOBJ);
+            _PreAuthRequestOBJ.setName("PreAuthRequest");
+            _PreAuthRequestOBJ.setDmdID("523");
+            _PreAuthRequestOBJ.setClassType("ABSTRACT");
+            _PreAuthRequestOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
+            _PreAuthRequestOBJ.setLineNumber("291");
+            _PreAuthRequestOBJ.setDescription("The PreAuthRequest allows for the retrieval of information from the servlet before a user has authenticated. Exactly what type of information can be  retrieved is application specific.");
+            _PreAuthRequestOBJ.setDerivedFrom("Request");
+            _PreAuthRequestOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.PreAuthRequestREF");
+            _PreAuthRequestOBJ.setDmwIteratorClass("PreAuthRequestIterableDMW");
+            _PreAuthRequestOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.PreAuthRequestIterableDMW");
+            _PreAuthRequest.setDefinedIn(this);
+            addClassDefList(_PreAuthRequest);
+
+            ClassDefinitionDMO _PreAuthResponseOBJ = new ClassDefinitionDMO();
+            _PreAuthResponse = new ClassDefinition(_PreAuthResponseOBJ);
+            _PreAuthResponseOBJ.setName("PreAuthResponse");
+            _PreAuthResponseOBJ.setDmdID("524");
+            _PreAuthResponseOBJ.setClassType("ABSTRACT");
+            _PreAuthResponseOBJ.setFile("/Users/peter/softdev/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/classes2.dmd");
+            _PreAuthResponseOBJ.setLineNumber("298");
+            _PreAuthResponseOBJ.setDescription("The PreAuthResponse is sent as a result of a PreAuthRequest.");
+            _PreAuthResponseOBJ.setDerivedFrom("Response");
+            _PreAuthResponseOBJ.setDmtREFImport("org.dmd.dmp.shared.generated.types.PreAuthResponseREF");
+            _PreAuthResponseOBJ.setDmwIteratorClass("PreAuthResponseIterableDMW");
+            _PreAuthResponseOBJ.setDmwIteratorImport("org.dmd.dmp.server.generated.dmw.PreAuthResponseIterableDMW");
+            _PreAuthResponse.setDefinedIn(this);
+            addClassDefList(_PreAuthResponse);
 
     }
 

@@ -244,7 +244,7 @@ derivedFrom     Request
 must            target
 may            	scope
 may             filter
-description		The NotifyRequest allwos you to register for events on an arbitrary object or set
+description		The NotifyRequest allows you to register for events on an arbitrary object or set
  of objects.
 
 ClassDefinition
@@ -279,3 +279,20 @@ may            	scope
 may             filter
 description		The DenotifyResponse is sent as a result of a DenotifyRequest.
 
+ClassDefinition
+name			PreAuthRequest
+classType       ABSTRACT
+dmdID			23
+//useWrapperType	EXTENDED
+derivedFrom     Request
+description		The PreAuthRequest allows for the retrieval of information from the
+ servlet before a user has authenticated. Exactly what type of information can be 
+ retrieved is application specific.
+
+ClassDefinition
+name			PreAuthResponse
+classType       ABSTRACT
+dmdID			24
+//useWrapperType	EXTENDED
+derivedFrom     Response
+description		The PreAuthResponse is sent as a result of a PreAuthRequest.

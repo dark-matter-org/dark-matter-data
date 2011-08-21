@@ -28,7 +28,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required fo
 import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor
 
 /**
- * The NotifyRequest allwos you to register for events on an arbitrary object
+ * The NotifyRequest allows you to register for events on an arbitrary object
  * or set of objects.
  * <P>
  * Generated from the dmp schema at version 0.1

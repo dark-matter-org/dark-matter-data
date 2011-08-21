@@ -29,6 +29,8 @@ import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.LogoutResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.NotifyResponseDMO;
+import org.dmd.dmp.shared.generated.dmo.PreAuthRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.PreAuthResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.RequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
@@ -154,6 +156,12 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 
 	@Override
 	public ResponseDMO otherRequest(RequestDMO request) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public PreAuthResponseDMO preauth(PreAuthRequestDMO request) {
 		// TODO Auto-generated method stub
 		return null;
 	}
