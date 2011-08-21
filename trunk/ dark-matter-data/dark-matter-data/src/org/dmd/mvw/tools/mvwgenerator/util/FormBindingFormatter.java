@@ -140,11 +140,13 @@ public class FormBindingFormatter {
 		
 		if (field.getAttrDef().getIndexSize() != null){
 			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
-				sb.append("        " + field.getAttribute() + "Adapter" + i + ".addMods(modrec.getModifier());\n");
+				sb.append("        if (" + field.getAttribute() + "Adapter" + i + ".valueChanged())\n");
+				sb.append("            " + field.getAttribute() + "Adapter" + i + ".addMods(modrec.getModifier());\n");
 			}
 		}
 		else{
-			sb.append("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
+			sb.append("        if (" + field.getAttribute() + "Adapter.valueChanged())\n");
+			sb.append("            " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
 		}
 
 		return(sb.toString());

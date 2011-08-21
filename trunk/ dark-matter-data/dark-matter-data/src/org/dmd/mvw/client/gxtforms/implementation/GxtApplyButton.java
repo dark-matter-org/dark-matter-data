@@ -11,22 +11,25 @@ import com.extjs.gxt.ui.client.widget.button.Button;
 public class GxtApplyButton extends Button implements DmcReadyListenerIF  {
 	
 	Listener<ButtonEvent>		listener;
+	GxtApplyButtonListenerIF	clickListener;
 	DmcPresentationTrackerIF	tracker;
 	
-	public GxtApplyButton(String label, DmcPresentationTrackerIF t){
+	public GxtApplyButton(String label, DmcPresentationTrackerIF t, GxtApplyButtonListenerIF cl){
 		super(label);
 		
 		tracker = t;
 		tracker.addReadyListener(this);
+		
+		clickListener = cl;
 		
 		listener = new Listener<ButtonEvent>() {
 
 			@Override
 			public void handleEvent(ButtonEvent be) {
 				if (be.getType() == Events.Select)
-					System.out.println("Button pressed");
+					clickListener.applyButtonClicked();
 				if (be.getType() == Events.Render){
-					System.out.println("Button rendered");
+//					System.out.println("Button rendered");
 					tracker.startTracking();
 				}
 			}
@@ -38,7 +41,7 @@ public class GxtApplyButton extends Button implements DmcReadyListenerIF  {
 
 	@Override
 	public void isReady(boolean ready) {
-		System.out.println("Tracking button isReady() " + ready);
+//		System.out.println("Tracking button isReady() " + ready);
 		setEnabled(ready);
 	}
 

@@ -28,9 +28,10 @@ public class RequestTypeWithOptionsTest {
 	public void testTypeAndFunction() throws DmcValueException{
 		RequestTypeWithOptions rt = null;
 		
-		rt = new RequestTypeWithOptions("SetRequest setContact");
+		rt = new RequestTypeWithOptions("SetRequest setContact Contact");
 		assertEquals("Request type should be Set", "Set", rt.getRequestType());			
 		assertEquals("Function should be setContact", "setContact", rt.getFunctionName());			
+		assertEquals("Class name should be Contact", "Contact", rt.getClassName());			
 	}
 
 	@Test
@@ -38,32 +39,30 @@ public class RequestTypeWithOptionsTest {
 		RequestTypeWithOptions rt = null;
 		
 		try {
-			rt = new RequestTypeWithOptions("SetRequest setContact moose");
-			assertTrue("Should have indicated invalid option.", false);			
+			rt = new RequestTypeWithOptions("SetRequest setContact");
+			assertTrue("Should have indicated missing class.", false);			
 		} catch (DmcValueException e) {
 			System.out.println("Expected exception: " + e.toString());
 		}
 	}
 	
 	@Test
-	public void testValidOption() throws DmcValueException{
+	public void testIncorrectOption2() throws DmcValueException{
 		RequestTypeWithOptions rt = null;
 		
-		rt = new RequestTypeWithOptions("SetRequest setContact CENTRALERRORS");
-		assertEquals("Request type should be Set", "Set", rt.getRequestType());			
-		assertEquals("Function should be setContact", "setContact", rt.getFunctionName());
-		HashSet<RequestOptionEnum>	options = rt.getOptions();
-		
-		assertEquals("Should have 1 option", 1, options.size());
-		
-		assertEquals("Should have CONTRALERRORS option", true, options.contains(RequestOptionEnum.CENTRALERRORS));
+		try {
+			rt = new RequestTypeWithOptions("SetRequest setContact CENTRALERRORS");
+			assertTrue("Should have indicated missing class.", false);			
+		} catch (DmcValueException e) {
+			System.out.println("Expected exception: " + e.toString());
+		}
 	}
-
+	
 	@Test
 	public void testValidOptions() throws DmcValueException{
 		RequestTypeWithOptions rt = null;
 		
-		rt = new RequestTypeWithOptions("SetRequest setContact CENTRALERRORS DMPERRORS");
+		rt = new RequestTypeWithOptions("SetRequest setContact Contact CENTRALERRORS DMPERRORS");
 		assertEquals("Request type should be Set", "Set", rt.getRequestType());			
 		assertEquals("Function should be setContact", "setContact", rt.getFunctionName());
 		HashSet<RequestOptionEnum>	options = rt.getOptions();
@@ -108,7 +107,7 @@ public class RequestTypeWithOptionsTest {
 		assertEquals("Function should be getContact", "getContact", rt.getFunctionName());
 		HashSet<RequestOptionEnum>	options = rt.getOptions();
 		
-		assertEquals("Should have 3 option3", 3, options.size());
+		assertEquals("Should have 3 options", 3, options.size());
 		
 		assertEquals("Should have CACHE option", true, options.contains(RequestOptionEnum.CACHE));
 	}

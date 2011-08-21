@@ -290,6 +290,9 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 				// gets its own event channel, which is named based on its session identifier.
 				LoginResponseDMO lr = (LoginResponseDMO) response;
 				eventDomain = DomainFactory.getDomain(lr.getSessionID());
+				
+				// Hang on to the session identifier
+				sessionID = lr.getSessionID();
 			
 				eventService.addListener(eventDomain, new RemoteEventListener() {
 			        public void apply(Event anEvent) {
