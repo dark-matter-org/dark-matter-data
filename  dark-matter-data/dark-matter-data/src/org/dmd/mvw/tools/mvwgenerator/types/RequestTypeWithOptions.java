@@ -32,6 +32,12 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;
  * <p/>
  * sendsRequest GetRequest functionName DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS CACHE EVENTS
  * <p/>
+ * sendsRequest SetRequest functionName className DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS
+ * <p/>
+ * sendsRequest DeleteRequest functionName className DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS
+ * <p/>
+ * sendsRequest CreateRequest functionName className DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS
+ * <p/>
  * The CACHE and EVENT options are only allowable with GetRequests
  */
 @SuppressWarnings("serial")
@@ -39,6 +45,7 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 	
 	transient String			requestImport;
 	transient String			responseImport;
+	transient String			classImport;
 	
 	// Indicates that this not a standard Dark Matter Protocol request i.e. not defined
 	// in the DMP schema.
@@ -46,23 +53,28 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 
 	String						requestType;
 	String 						functionName;
+	// Class name is only specified with Set, Delete or Create requests
+	String						className;
 	HashSet<RequestOptionEnum> 	options;
 	
 	public RequestTypeWithOptions(){
 		requestType		= null;
 		functionName 	= null;
+		className		= null;
 		options 		= null;
 	}
 	
-	public RequestTypeWithOptions(String rt, String fn, HashSet<RequestOptionEnum> o){
+	public RequestTypeWithOptions(String rt, String fn, String cn, HashSet<RequestOptionEnum> o){
 		requestType		= rt;
 		functionName 	= fn;
+		className		= cn;
 		options 		= o;
 	}
 	
 	public RequestTypeWithOptions(RequestTypeWithOptions rtwo){
 		requestType		= rtwo.requestType;
 		functionName 	= rtwo.functionName;
+		className		= rtwo.className;
 		options 		= rtwo.options;
 	}
 	
@@ -70,7 +82,7 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 		ArrayList<String>	tokens = CheapSplitter.split(v, ' ', false, true);
 		
 		if (tokens.size() < 2){
-			throw(new DmcValueException("Too few tokens. Value should be of the form: <request type> <function name> [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS  CENTRALERRORS]"));
+			throw(new DmcValueException("Too few tokens. Value should be of the form: <request type> <function name> [className] [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS  CENTRALERRORS]"));
 		}
 		
 		requestType = tokens.get(0);
@@ -81,9 +93,22 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 		}
 		functionName = tokens.get(1);
 		
-		if (tokens.size() > 2){
+		int optionStart = 2;
+		
+		if (requestType.equals("Set") || requestType.equals("Delete") || requestType.equals("Create")){
+			optionStart = 3;
+			if (tokens.size() < 3)
+				throw(new DmcValueException("Too few tokens for a " + requestType + "Request. Value should be of the form: <request type> <function name> <className> [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS  CENTRALERRORS]"));				
+			className = tokens.get(2);
+			
+			if (RequestOptionEnum.get(className) != null)
+				throw(new DmcValueException("Missing class name for " + requestType + "Request. Value should be of the form: <request type> <function name> <className> [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS  CENTRALERRORS]"));				
+			
+		}
+		
+		if (tokens.size() > optionStart){
 			options = new HashSet<RequestOptionEnum>();
-			for(int i=2; i<tokens.size(); i++){
+			for(int i=optionStart; i<tokens.size(); i++){
 				RequestOptionEnum val = RequestOptionEnum.get(tokens.get(i));
 				if (val == null)
 					throw(new DmcValueException(tokens.get(i) + " is not a valid option."));
@@ -96,10 +121,30 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 		}
 	}
 	
+	/**
+	 * @return true if the request is not defined as part of the Dark Matter Schema.
+	 */
+	public boolean isOtherRequestType(){
+		return(isOther);
+	}
+	
+	/**
+	 * @return true if this is a Set, Create or Delete request.
+	 */
+	public boolean isUsingClassInfo(){
+		if (className == null)
+			return(false);
+		return(true);
+	}
+	
 	public void setRequestImport(String ri){
 		if (!ri.contains(".dmp."))
 			isOther = true;
 		requestImport = ri;
+	}
+	
+	public void setClassImport(String ci){
+		classImport = ci;
 	}
 	
 	public String getRequestImport(){
@@ -120,6 +165,10 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 	
 	public String getFunctionName(){
 		return(functionName);
+	}
+	
+	public String getClassName(){
+		return(className);
 	}
 	
 	public HashSet<RequestOptionEnum> getOptions(){
@@ -173,6 +222,7 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 	public void serializeIt(DmcOutputStreamIF dos) throws Exception {
 		dos.writeUTF(requestType);
 		dos.writeUTF(functionName);
+		dos.writeUTF(className);
 		if (options.size() == 0){
 			dos.writeInt(0);
 		}
@@ -188,6 +238,7 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception {
 		requestType = dis.readUTF();
 		functionName = dis.readUTF();
+		className = dis.readUTF();
 		options = new HashSet<RequestOptionEnum>();
 		int size = dis.readInt();
 		

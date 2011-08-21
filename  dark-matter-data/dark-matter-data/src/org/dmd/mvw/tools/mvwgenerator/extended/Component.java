@@ -414,9 +414,7 @@ public class Component extends ComponentDMW {
 	
 	class CommsHandler {
 		int 					methodID;
-//		RequestWithOptions		request;
 		RequestTypeWithOptions	requestDef;
-//		GetWithOptions			getRequest;
 		
 		String  				baseName;
 		String					key;
@@ -426,24 +424,9 @@ public class Component extends ComponentDMW {
 		ErrorOptionsEnum 		rpc = ErrorOptionsEnum.CENTRAL;
 		ErrorOptionsEnum		dmp = ErrorOptionsEnum.CENTRAL;
 
-//		CommsHandler(int id, RequestWithOptions rwo, String type){
-//			methodID 	= id;
-//			request		= rwo;
-//			requestDef	= null;
-//			getRequest	= null;
-//			
-//			baseName 	= GenUtility.capTheName(rwo.getFunctionName());
-//			requestType	= type;
-//			key			= baseName;
-//			constant 	= baseName.toUpperCase() + requestType.toUpperCase() + "CALLBACK";
-//			initErrorHandlingFlags();
-//		}
-		
 		CommsHandler(int id, RequestTypeWithOptions rtwo){
 			methodID 	= id;
-//			request		= null;
 			requestDef	= rtwo;
-//			getRequest	= null;
 			
 			baseName 	= GenUtility.capTheName(rtwo.getFunctionName());
 			requestType	= rtwo.getRequestType();
@@ -451,19 +434,6 @@ public class Component extends ComponentDMW {
 			constant 	= baseName.toUpperCase() + requestType.toUpperCase() + "CALLBACK";
 			initErrorHandlingFlags();
 		}
-		
-//		CommsHandler(int id, GetWithOptions rwo){
-//			methodID 	= id;
-//			request		= null;
-//			requestDef	= null;
-//			getRequest	= rwo;
-//			
-//			baseName 	= GenUtility.capTheName(rwo.getFunctionName());
-//			requestType	= "Get";
-//			key			= baseName;
-//			constant 	= baseName.toUpperCase() + requestType.toUpperCase() + "CALLBACK";
-//			initErrorHandlingFlags();
-//		}
 		
 		void initErrorHandlingFlags(){
 			boolean 			centralRpc 	= false;
@@ -486,36 +456,6 @@ public class Component extends ComponentDMW {
 				if (requestDef.getOptions().contains(RequestOptionEnum.DMPERRORS))
 					localDmp = true;
 			}
-//			else if (request != null){
-//				if (request.getOptions().contains(RequestOptionEnum.CENTRALRPCERRORS) ||
-//						request.getOptions().contains(RequestOptionEnum.CENTRALERRORS))
-//					centralRpc = true;
-//				
-//				if (request.getOptions().contains(RequestOptionEnum.CENTRALDMPERRORS) ||
-//						request.getOptions().contains(RequestOptionEnum.CENTRALERRORS))
-//					centralDmp = true;
-//				
-//				if (request.getOptions().contains(RequestOptionEnum.RPCERRORS))
-//					localRpc = true;
-//				
-//				if (request.getOptions().contains(RequestOptionEnum.DMPERRORS))
-//					localDmp = true;
-//			}
-//			else{
-//				if (getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALRPCERRORS) ||
-//						getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALERRORS))
-//					centralRpc = true;
-//				
-//				if (getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALDMPERRORS) ||
-//						getRequest.getOptions().contains(GetFunctionOptionEnum.CENTRALERRORS))
-//					centralDmp = true;
-//				
-//				if (getRequest.getOptions().contains(GetFunctionOptionEnum.RPCERRORS))
-//					localRpc = true;
-//				
-//				if (getRequest.getOptions().contains(GetFunctionOptionEnum.DMPERRORS))
-//					localDmp = true;
-//			}
 			
 			// Default handling depends on whether or not we have central rpc/dmp error handlers
 			if (!centralDmp && !localDmp){
@@ -548,23 +488,24 @@ public class Component extends ComponentDMW {
 		}
 		
 		void addSendRequestFunction(StringBuffer sb){
-			sb.append("    protected void send" + baseName + "Request(" + requestType + "RequestDMO request){\n");
-			sb.append("        commsController.send" + requestType + "Request(request,this,ErrorOptionsEnum." + rpc + ",ErrorOptionsEnum." + dmp + ");\n");
-			sb.append("    }\n\n");
-			
-			sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(){\n");
-			sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
-//			if (getRequest != null){
-//				if (getRequest.getOptions().contains(GetFunctionOptionEnum.EVENTS))
-//					sb.append("        request.setRegisterForEvents(true);\n");
-//			}
-			if (requestType.equals("Get")){
-				if (requestDef.getOptions().contains(RequestOptionEnum.EVENTS))
-					sb.append("        request.setRegisterForEvents(true);\n");
+			if (requestDef.isUsingClassInfo()){
+				
 			}
-			sb.append("        request.setHandlerID(" + constant + ");\n");
-			sb.append("        return(request);\n");
-			sb.append("    }\n\n");
+			else{
+				sb.append("    protected void send" + baseName + "Request(" + requestType + "RequestDMO request){\n");
+				sb.append("        commsController.send" + requestType + "Request(request,this,ErrorOptionsEnum." + rpc + ",ErrorOptionsEnum." + dmp + ");\n");
+				sb.append("    }\n\n");
+				
+				sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(){\n");
+				sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
+				if (requestType.equals("Get")){
+					if (requestDef.getOptions().contains(RequestOptionEnum.EVENTS))
+						sb.append("        request.setRegisterForEvents(true);\n");
+				}
+				sb.append("        request.setHandlerID(" + constant + ");\n");
+				sb.append("        return(request);\n");
+				sb.append("    }\n\n");
+			}
 		}
 		
 		void addHandlers(StringBuffer success, StringBuffer dmpError, StringBuffer rpcError, StringBuffer abstractFunctions){
@@ -575,14 +516,6 @@ public class Component extends ComponentDMW {
 				dmp = requestDef.getOptions().contains(RequestOptionEnum.DMPERRORS);
 				rpc = requestDef.getOptions().contains(RequestOptionEnum.RPCERRORS);
 			}
-//			else if (request != null){
-//				dmp = request.getOptions().contains(RequestOptionEnum.DMPERRORS);
-//				rpc = request.getOptions().contains(RequestOptionEnum.RPCERRORS);
-//			}
-//			else{
-//				dmp = getRequest.getOptions().contains(GetFunctionOptionEnum.DMPERRORS);
-//				rpc = getRequest.getOptions().contains(GetFunctionOptionEnum.RPCERRORS);				
-//			}
 						
 			String responseCast = requestType + "ResponseDMO";
 			String requestCast	= requestType + "RequestDMO";

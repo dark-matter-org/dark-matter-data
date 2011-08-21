@@ -53,7 +53,7 @@ public class ViewFormatter {
         out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("abstract public class " + view.getViewName() + "BaseImpl implements " + view.getViewName() + otherInterfaces + " {\n\n");
         
-        out.write("    " + view.getViewName() + "Presenter presenter;\n\n");
+        out.write("    protected " + view.getViewName() + "Presenter presenter;\n\n");
         
         if (view.getUsesRunContextItemHasValue()){
         	for(RunContextItem rci: view.getUsesRunContextItemIterable()){

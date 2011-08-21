@@ -916,6 +916,18 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 							throw(ex);
 						}
 						rq.setResponseImport(cd.getDmoImport());
+						
+						if (rq.isUsingClassInfo()){
+							cd = readSchemas.cdef(rq.getClassName());
+							if (cd == null){
+								ResultException ex = new ResultException();
+								ex.addError("Unknown class: " + rq.getClassName() + " in " + rq.getRequestType() + "Request spec");
+								ex.result.lastResult().lineNumber(component.getLineNumber());
+								ex.result.lastResult().fileName(component.getFile());
+								throw(ex);
+							}
+							rq.setClassImport(cd.getDmoImport());
+						}
 					}
 				}
 			}

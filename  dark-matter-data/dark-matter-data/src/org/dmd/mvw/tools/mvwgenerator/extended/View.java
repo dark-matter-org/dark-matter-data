@@ -162,8 +162,11 @@ public class View extends ViewDMW {
 			
 			if (getPresenterMethodHasValue()){
 				for(MethodWithArgs method: getPresenterMethodIterable()){
-					if (method.getComment() != null)
-						presenterInterface.append("        // " + method.getComment() + "\n");
+					if (method.getComment().length() > 0){
+						presenterInterface.append("        /** \n");
+						presenterInterface.append("         * " + method.getComment() + "\n");
+						presenterInterface.append("         */ \n");
+					}
 					presenterInterface.append("        " + method.getSignature() + ";\n\n");
 				}
 			}
@@ -189,6 +192,11 @@ public class View extends ViewDMW {
 			
 			if (getViewMethodHasValue()){
 				for(MethodWithArgs method: getViewMethodIterable()){
+					if (method.getComment().length() > 0){
+						viewInterface.append("    /** \n");
+						viewInterface.append("     * " + method.getComment() + "\n");
+						viewInterface.append("     */ \n");
+					}
 					viewInterface.append("    public " + method.getSignature() + ";\n\n");
 				}
 			}
