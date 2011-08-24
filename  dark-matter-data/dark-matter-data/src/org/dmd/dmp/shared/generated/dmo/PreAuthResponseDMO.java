@@ -16,9 +16,15 @@
 package org.dmd.dmp.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:323)
-import java.io.Serializable;                                 // Always required
-import java.util.*;                                          // Always required
-import org.dmd.dmp.shared.generated.dmo.ResponseDMO;         // Base class
+import java.io.Serializable;                                  // Always required
+import java.util.*;                                           // Always required
+import org.dmd.dmc.DmcAttribute;                              // Any attributes
+import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing
+import org.dmd.dmc.DmcValueException;                         // Any attributes
+import org.dmd.dmp.shared.generated.dmo.ResponseDMO;          // Base class
+import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -33,7 +39,7 @@ import org.dmd.dmc.DmcObjectValidator;
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:134)
  */
 @SuppressWarnings("serial")
-abstract public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
+public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
 
     public final static String constructionClassName = "PreAuthResponse";
 
@@ -64,6 +70,125 @@ abstract public class PreAuthResponseDMO  extends ResponseDMO  implements Serial
 
     protected Map<String,DmcObjectValidator> getObjectValidators(){
         return(_OvDmAp);
+    }
+
+    @Override
+    public PreAuthResponseDMO getNew(){
+        PreAuthResponseDMO rc = new PreAuthResponseDMO();
+        return(rc);
+    }
+
+    @Override
+    public PreAuthResponseDMO getSlice(DmcSliceInfo info){
+        PreAuthResponseDMO rc = new PreAuthResponseDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
+    public PreAuthResponseDMO(DmcTypeModifierMV mods) {
+        super("PreAuthResponse");
+        modrec(true);
+        setModifier(mods);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public String getAppName(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__appName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets appName to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setAppName(String value) {
+        DmcAttribute<?> attr = get(DmpDMSAG.__appName);
+        if (attr == null)
+            attr = new DmcTypeStringSV(DmpDMSAG.__appName);
+        
+        try{
+            attr.set(value);
+            set(DmpDMSAG.__appName,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets appName to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setAppName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmpDMSAG.__appName);
+        if (attr == null)
+            attr = new DmcTypeStringSV(DmpDMSAG.__appName);
+        
+        attr.set(value);
+        set(DmpDMSAG.__appName,attr);
+    }
+
+    /**
+     * Removes the appName attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remAppName(){
+         rem(DmpDMSAG.__appName);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public String getAppVersion(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__appVersion);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets appVersion to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setAppVersion(String value) {
+        DmcAttribute<?> attr = get(DmpDMSAG.__appVersion);
+        if (attr == null)
+            attr = new DmcTypeStringSV(DmpDMSAG.__appVersion);
+        
+        try{
+            attr.set(value);
+            set(DmpDMSAG.__appVersion,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets appVersion to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setAppVersion(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmpDMSAG.__appVersion);
+        if (attr == null)
+            attr = new DmcTypeStringSV(DmpDMSAG.__appVersion);
+        
+        attr.set(value);
+        set(DmpDMSAG.__appVersion,attr);
+    }
+
+    /**
+     * Removes the appVersion attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remAppVersion(){
+         rem(DmpDMSAG.__appVersion);
     }
 
 

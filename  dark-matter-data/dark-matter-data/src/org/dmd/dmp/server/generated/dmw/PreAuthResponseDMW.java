@@ -16,9 +16,13 @@
 package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
+import org.dmd.dmc.*;                                               // If any attributes
+import org.dmd.dmp.server.extended.PreAuthResponse;                 // Required for getModificationRecorder()
 import org.dmd.dmp.server.extended.Response;                        // Derived class
-import org.dmd.dmp.shared.generated.dmo.PreAuthResponseDMO;         // Abstract class
+import org.dmd.dmp.shared.generated.dmo.PreAuthResponseDMO;         // Class not auxiliary or abstract
 import org.dmd.dms.*;                                               // Always 2
+import org.dmd.dms.generated.dmo.MetaDMSAG;                         // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeModifierMV;               // Required for MODREC constructor
 
 /**
  * The PreAuthResponse is sent as a result of a PreAuthRequest.
@@ -30,11 +34,23 @@ import org.dmd.dms.*;                                               // Always 2
  */
 abstract public class PreAuthResponseDMW extends Response {
 
-    protected PreAuthResponseDMW() {
-        super();
+    public PreAuthResponseDMW() {
+        super(new PreAuthResponseDMO(), org.dmd.dmp.server.generated.DmpSchemaAG._PreAuthResponse);
     }
 
-    abstract public PreAuthResponseDMW getModificationRecorder();
+    public PreAuthResponseDMW(DmcTypeModifierMV mods) {
+        super(new PreAuthResponseDMO(mods), org.dmd.dmp.server.generated.DmpSchemaAG._PreAuthResponse);
+    }
+
+    public PreAuthResponse getModificationRecorder(){
+        PreAuthResponse rc = new PreAuthResponse();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
+    public PreAuthResponseDMW(PreAuthResponseDMO obj) {
+        super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._PreAuthResponse);
+    }
 
     public PreAuthResponseDMO getDMO() {
         return((PreAuthResponseDMO) core);
@@ -42,6 +58,68 @@ abstract public class PreAuthResponseDMW extends Response {
 
     protected PreAuthResponseDMW(PreAuthResponseDMO obj, ClassDefinition cd) {
         super(obj,cd);
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
+    public String getAppName(){
+        return(((PreAuthResponseDMO) core).getAppName());
+    }
+
+    /**
+     * Sets appName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
+    public void setAppName(Object value) throws DmcValueException {
+        ((PreAuthResponseDMO) core).setAppName(value);
+    }
+
+    /**
+     * Sets appName to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
+    public void setAppName(String value){
+        ((PreAuthResponseDMO) core).setAppName(value);
+    }
+
+    /**
+     * Removes the appName attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
+    public void remAppName(){
+        ((PreAuthResponseDMO) core).remAppName();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
+    public String getAppVersion(){
+        return(((PreAuthResponseDMO) core).getAppVersion());
+    }
+
+    /**
+     * Sets appVersion to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
+    public void setAppVersion(Object value) throws DmcValueException {
+        ((PreAuthResponseDMO) core).setAppVersion(value);
+    }
+
+    /**
+     * Sets appVersion to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
+    public void setAppVersion(String value){
+        ((PreAuthResponseDMO) core).setAppVersion(value);
+    }
+
+    /**
+     * Removes the appVersion attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
+    public void remAppVersion(){
+        ((PreAuthResponseDMO) core).remAppVersion();
     }
 
 

@@ -16,9 +16,12 @@
 package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:855)
+import org.dmd.dmp.server.extended.PreAuthRequest;                 // Required for getModificationRecorder()
 import org.dmd.dmp.server.extended.Request;                        // Derived class
-import org.dmd.dmp.shared.generated.dmo.PreAuthRequestDMO;         // Abstract class
+import org.dmd.dmp.shared.generated.dmo.PreAuthRequestDMO;         // Class not auxiliary or abstract
 import org.dmd.dms.*;                                              // Always 2
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor
 
 /**
  * The PreAuthRequest allows for the retrieval of information from the
@@ -32,11 +35,23 @@ import org.dmd.dms.*;                                              // Always 2
  */
 abstract public class PreAuthRequestDMW extends Request {
 
-    protected PreAuthRequestDMW() {
-        super();
+    public PreAuthRequestDMW() {
+        super(new PreAuthRequestDMO(), org.dmd.dmp.server.generated.DmpSchemaAG._PreAuthRequest);
     }
 
-    abstract public PreAuthRequestDMW getModificationRecorder();
+    public PreAuthRequestDMW(DmcTypeModifierMV mods) {
+        super(new PreAuthRequestDMO(mods), org.dmd.dmp.server.generated.DmpSchemaAG._PreAuthRequest);
+    }
+
+    public PreAuthRequest getModificationRecorder(){
+        PreAuthRequest rc = new PreAuthRequest();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
+    public PreAuthRequestDMW(PreAuthRequestDMO obj) {
+        super(obj, org.dmd.dmp.server.generated.DmpSchemaAG._PreAuthRequest);
+    }
 
     public PreAuthRequestDMO getDMO() {
         return((PreAuthRequestDMO) core);

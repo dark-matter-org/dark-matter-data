@@ -22,6 +22,8 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __FQNList = new DmcAttributeInfo("FQNList", 507, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __actionName = new DmcAttributeInfo("actionName", 515, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __actionTrigger = new DmcAttributeInfo("actionTrigger", 525, "DmcObject", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __appName = new DmcAttributeInfo("appName", 541, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __appVersion = new DmcAttributeInfo("appVersion", 542, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __attributeSelector = new DmcAttributeInfo("attributeSelector", 533, "AttributeID", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __blockingFactor = new DmcAttributeInfo("blockingFactor", 519, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __cacheResponse = new DmcAttributeInfo("cacheResponse", 534, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -68,7 +70,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __LoginRequest = new DmcClassInfo("LoginRequest", 504, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
     public final static DmcClassInfo __LogoutRequest = new DmcClassInfo("LogoutRequest", 506, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
     public final static DmcClassInfo __NotifyRequest = new DmcClassInfo("NotifyRequest", 519, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
-    public final static DmcClassInfo __PreAuthRequest = new DmcClassInfo("PreAuthRequest", 523, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__Request,null);
+    public final static DmcClassInfo __PreAuthRequest = new DmcClassInfo("PreAuthRequest", 523, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
     public final static DmcClassInfo __SetRequest = new DmcClassInfo("SetRequest", 512, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Request,null);
     public final static DmcClassInfo __Response = new DmcClassInfo("Response", 503, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__DMPMessage,null);
     public final static DmcClassInfo __ActionResponse = new DmcClassInfo("ActionResponse", 511, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Response,null);
@@ -79,7 +81,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __LoginResponse = new DmcClassInfo("LoginResponse", 505, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
     public final static DmcClassInfo __LogoutResponse = new DmcClassInfo("LogoutResponse", 507, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
     public final static DmcClassInfo __NotifyResponse = new DmcClassInfo("NotifyResponse", 520, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
-    public final static DmcClassInfo __PreAuthResponse = new DmcClassInfo("PreAuthResponse", 524, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__Response,null);
+    public final static DmcClassInfo __PreAuthResponse = new DmcClassInfo("PreAuthResponse", 524, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Response,null);
     public final static DmcClassInfo __SetResponse = new DmcClassInfo("SetResponse", 513, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,__Response,null);
 
 
@@ -107,6 +109,8 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__FQNList.id,__FQNList);
         _SmAp.put(__actionName.id,__actionName);
         _SmAp.put(__actionTrigger.id,__actionTrigger);
+        _SmAp.put(__appName.id,__appName);
+        _SmAp.put(__appVersion.id,__appVersion);
         _SmAp.put(__attributeSelector.id,__attributeSelector);
         _SmAp.put(__blockingFactor.id,__blockingFactor);
         _SmAp.put(__cacheResponse.id,__cacheResponse);
@@ -266,6 +270,8 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         __DenotifyResponse.addMay(__filter);
 
 
+        __PreAuthResponse.addMay(__appName);
+        __PreAuthResponse.addMay(__appVersion);
 
 
     }

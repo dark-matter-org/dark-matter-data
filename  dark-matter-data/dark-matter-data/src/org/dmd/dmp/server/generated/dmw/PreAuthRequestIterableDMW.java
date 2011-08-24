@@ -19,7 +19,7 @@ import java.util.Iterator;
 
 import org.dmd.dmw.DmwObjectIterator;
 import org.dmd.dmp.shared.generated.dmo.PreAuthRequestDMO;  // dmo type import
-import org.dmd.dmp.server.generated.dmw.PreAuthRequestDMW;  // wrapper type import
+import org.dmd.dmp.server.extended.PreAuthRequest;  // wrapper type import
 /**
  * The PreAuthRequestIterableDMW wraps an Iterator for a particular type and makes 
  * it Iterable.
@@ -28,7 +28,7 @@ import org.dmd.dmp.server.generated.dmw.PreAuthRequestDMW;  // wrapper type impo
  * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1571)
  *    Called from: org.dmd.dmg.generators.DmwDMWGenerator.createTypeIterables(DmwDMWGenerator.java:75)
  */
-public class PreAuthRequestIterableDMW extends DmwObjectIterator<PreAuthRequestDMW, PreAuthRequestDMO> {
+public class PreAuthRequestIterableDMW extends DmwObjectIterator<PreAuthRequest, PreAuthRequestDMO> {
 
     public final static PreAuthRequestIterableDMW emptyList = new PreAuthRequestIterableDMW();
 

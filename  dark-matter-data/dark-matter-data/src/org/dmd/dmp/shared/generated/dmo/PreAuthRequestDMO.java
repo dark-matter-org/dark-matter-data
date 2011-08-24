@@ -16,9 +16,12 @@
 package org.dmd.dmp.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:323)
-import java.io.Serializable;                                // Always required
-import java.util.*;                                         // Always required
-import org.dmd.dmp.shared.generated.dmo.RequestDMO;         // Base class
+import java.io.Serializable;                                  // Always required
+import java.util.*;                                           // Always required
+import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing
+import org.dmd.dmp.shared.generated.dmo.RequestDMO;           // Base class
+import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -35,7 +38,7 @@ import org.dmd.dmc.DmcObjectValidator;
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:134)
  */
 @SuppressWarnings("serial")
-abstract public class PreAuthRequestDMO  extends RequestDMO  implements Serializable  {
+public class PreAuthRequestDMO  extends RequestDMO  implements Serializable  {
 
     public final static String constructionClassName = "PreAuthRequest";
 
@@ -66,6 +69,25 @@ abstract public class PreAuthRequestDMO  extends RequestDMO  implements Serializ
 
     protected Map<String,DmcObjectValidator> getObjectValidators(){
         return(_OvDmAp);
+    }
+
+    @Override
+    public PreAuthRequestDMO getNew(){
+        PreAuthRequestDMO rc = new PreAuthRequestDMO();
+        return(rc);
+    }
+
+    @Override
+    public PreAuthRequestDMO getSlice(DmcSliceInfo info){
+        PreAuthRequestDMO rc = new PreAuthRequestDMO();
+        populateSlice(rc,info);
+        return(rc);
+    }
+
+    public PreAuthRequestDMO(DmcTypeModifierMV mods) {
+        super("PreAuthRequest");
+        modrec(true);
+        setModifier(mods);
     }
 
 
