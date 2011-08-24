@@ -25,6 +25,7 @@ may             sessionID
 may             readableFormat
 may             responseFormat
 may				originatorID
+may				timeoutSeconds
 description     The request class provides a common base for all request messages.
 
 ClassDefinition

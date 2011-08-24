@@ -290,6 +290,13 @@ dmdID				39
 type                Boolean
 description         A flag used for debug purposes to allow you to turn logging behaviour for a messages.
 
+AttributeDefinition
+name                timeoutSeconds
+dmdID				40
+type                Integer
+nullReturnValue		2
+description         A timeout flag that may be set on messages.
+
 
 //AttributeDefinition
 //name                targetObject

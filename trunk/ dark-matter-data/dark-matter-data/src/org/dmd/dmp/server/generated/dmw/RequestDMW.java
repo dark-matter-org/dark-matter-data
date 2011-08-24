@@ -202,5 +202,36 @@ abstract public class RequestDMW extends DMPMessage {
         ((RequestDMO) core).remOriginatorID();
     }
 
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1027)
+    public Integer getTimeoutSeconds(){
+        return(((RequestDMO) core).getTimeoutSeconds());
+    }
+
+    /**
+     * Sets timeoutSeconds to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1086)
+    public void setTimeoutSeconds(Object value) throws DmcValueException {
+        ((RequestDMO) core).setTimeoutSeconds(value);
+    }
+
+    /**
+     * Sets timeoutSeconds to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1095)
+    public void setTimeoutSeconds(Integer value){
+        ((RequestDMO) core).setTimeoutSeconds(value);
+    }
+
+    /**
+     * Removes the timeoutSeconds attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1121)
+    public void remTimeoutSeconds(){
+        ((RequestDMO) core).remTimeoutSeconds();
+    }
+
 
 }

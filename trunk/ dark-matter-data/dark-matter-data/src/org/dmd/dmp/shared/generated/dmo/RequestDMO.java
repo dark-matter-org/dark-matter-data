@@ -323,6 +323,56 @@ abstract public class RequestDMO  extends DMPMessageDMO  implements Serializable
          rem(DmpDMSAG.__originatorID);
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public Integer getTimeoutSeconds(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmpDMSAG.__timeoutSeconds);
+        if (attr == null)
+            return(2);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets timeoutSeconds to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setTimeoutSeconds(Integer value) {
+        DmcAttribute<?> attr = get(DmpDMSAG.__timeoutSeconds);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmpDMSAG.__timeoutSeconds);
+        
+        try{
+            attr.set(value);
+            set(DmpDMSAG.__timeoutSeconds,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets timeoutSeconds to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setTimeoutSeconds(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmpDMSAG.__timeoutSeconds);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmpDMSAG.__timeoutSeconds);
+        
+        attr.set(value);
+        set(DmpDMSAG.__timeoutSeconds,attr);
+    }
+
+    /**
+     * Removes the timeoutSeconds attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remTimeoutSeconds(){
+         rem(DmpDMSAG.__timeoutSeconds);
+    }
+
 
 
 
