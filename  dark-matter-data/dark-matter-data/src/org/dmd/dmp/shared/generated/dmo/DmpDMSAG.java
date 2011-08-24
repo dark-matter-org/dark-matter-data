@@ -54,6 +54,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __targetObjectClass = new DmcAttributeInfo("targetObjectClass", 536, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __targets = new DmcAttributeInfo("targets", 537, "NameContainer", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __timeMS = new DmcAttributeInfo("timeMS", 518, "Long", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __timeoutSeconds = new DmcAttributeInfo("timeoutSeconds", 540, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __trackingEnabled = new DmcAttributeInfo("trackingEnabled", 539, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userFQN = new DmcAttributeInfo("userFQN", 524, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcClassInfo __DMPMessage = new DmcClassInfo("DMPMessage", 501, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
@@ -138,6 +139,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__targetObjectClass.id,__targetObjectClass);
         _SmAp.put(__targets.id,__targets);
         _SmAp.put(__timeMS.id,__timeMS);
+        _SmAp.put(__timeoutSeconds.id,__timeoutSeconds);
         _SmAp.put(__trackingEnabled.id,__trackingEnabled);
         _SmAp.put(__userFQN.id,__userFQN);
         _CmAp.put(__ActionRequest.id,__ActionRequest);
@@ -174,6 +176,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         __Request.addMay(__readableFormat);
         __Request.addMay(__responseFormat);
         __Request.addMay(__originatorID);
+        __Request.addMay(__timeoutSeconds);
 
         __Response.addMust(__lastResponse);
         __Response.addMust(__responseType);
