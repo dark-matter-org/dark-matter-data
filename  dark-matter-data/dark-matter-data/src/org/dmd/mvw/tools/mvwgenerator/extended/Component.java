@@ -447,6 +447,17 @@ public class Component extends ComponentDMW {
 				sb.append("        request.setHandlerID(" + constant + ");\n");
 				sb.append("        return(request);\n");
 				sb.append("    }\n\n");
+				
+				// Provide the mechanism to deregister for events
+				if (requestType.equals("Get")){
+					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    protected void denotifyFor" + baseName + "Events(){\n");
+//					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
+//					sb.append("        request.setHandlerID(" + constant + ");\n");
+					sb.append("        // TODO: fill in denotify request and send it\n");
+					sb.append("    }\n\n");
+					
+				}
 			}
 		}
 		
