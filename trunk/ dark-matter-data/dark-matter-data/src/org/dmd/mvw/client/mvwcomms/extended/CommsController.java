@@ -323,12 +323,26 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	 */
 	void handleAsynchronousInfo(Object async){
 		if (async instanceof DMPEventDMO){
-			System.out.println("CommsController got event");
+			System.out.println("CommsController.handleAsynchronousInfo got event");
 			
 		}
 		else if (async instanceof ResponseDMO){
-			System.out.println("CommsController get response");
+			ResponseDMO response = (ResponseDMO) async;
+			System.out.println("CommsController.handleAsynchronousInfo got response:\n\n" + response.toOIF() + "\n\n");
 			
+			
+			ResponseCallback cb = requests.get(response.getNthRequestID(0));
+
+			if (cb == null){
+				System.out.println("CommsController.handleAsynchronousInfo couldn't get callback");
+			}
+			else{
+				cb.getHandler().handleResponse(response);
+				if (response.isLastResponse()){
+					System.out.println("CommsController.handleAsynchronousInfo is last response...");
+					requests.remove(response.getNthRequestID(0));
+				}
+			}
 		}
 	}
 
