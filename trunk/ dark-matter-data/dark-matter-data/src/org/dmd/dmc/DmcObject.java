@@ -1636,8 +1636,8 @@ abstract public class DmcObject implements Serializable {
 						value = mod.getAttribute().getMVnth(index);
 					
 					if (existing == null){
-						if (value == null)
-							throw(new IllegalStateException("Setting an index on attribute: " + mod.getAttributeName() + " to null that's already null: " + index));
+//						if (value == null)
+//							throw(new IllegalStateException("Setting an index on attribute: " + mod.getAttributeName() + " to null that's already null: " + index));
 
 						// NOTE: we add a clone of the attribute since, if we don't, we wind
 						// up storing the attribute instance that's in the modifier and adding
