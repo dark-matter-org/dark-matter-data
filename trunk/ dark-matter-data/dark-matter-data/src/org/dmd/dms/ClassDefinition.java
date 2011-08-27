@@ -700,9 +700,12 @@ public class ClassDefinition extends ClassDefinitionDMW {
 			try {
 				if (getSubpackage() != null){
 					setJavaClass(genPackage + ".extended." + getSubpackage() + "." + getName());
+					setDmeImport(genPackage + ".extended." + getSubpackage() + "." + getName());
 				}
-				else
+				else{
 					setJavaClass(genPackage + ".extended." + getName());
+					setDmeImport(genPackage + ".extended." + getName());
+				}
 			} catch (DmcValueException e) {
 				e.printStackTrace();
 			}
