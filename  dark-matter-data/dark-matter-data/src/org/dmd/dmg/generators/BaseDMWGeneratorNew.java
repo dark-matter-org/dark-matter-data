@@ -32,7 +32,6 @@ import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dmg.util.SchemaFormatter;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
-import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
@@ -278,8 +277,12 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
         
         String impl = "";
         
-        if (cd.getIsNamedBy() != null)
-        	impl = "implements DmcNamedObjectIF ";
+        if (cd.getIsNamedBy() != null){
+        	if (cd.getIsNamedBy().getType().getIsHierarchicName())
+            	impl = "implements DmcHierarchicNamedObjectIF ";
+        	else
+        		impl = "implements DmcNamedObjectIF ";
+        }
         
         out.write("/**\n");
         CodeFormatter.dumpCodeComment(cd.getDescription(),out," * ");
@@ -364,20 +367,24 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
         	String classDef = cd.getDmwPackage(genContext) + ".generated." + schemaName + "._" + cd.getName();
         	
         	if (fullJavaEnvironment){
+                out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		        out.write("    public " + cd.getName() + genSuffix + "() {\n");
 		        out.write("        super(new " + cd.getName() + "DMO(), " + classDef + ");\n");
 		        out.write("    }\n\n");
 		        
 		        // Modification recorder constructor
+                out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		        out.write("    public " + cd.getName() + genSuffix + "(DmcTypeModifierMV mods) {\n");
 		        out.write("        super(new " + cd.getName() + "DMO(mods), " + classDef + ");\n");
 		        out.write("    }\n\n");
         	}
 	        else{
+                out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		        out.write("    public " + cd.getName() + genSuffix + "() {\n");
 		        out.write("        super(new " + cd.getName() + "DMO());\n");
 		        out.write("    }\n\n");
 	        
+                out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		        out.write("    public " + cd.getName() + genSuffix + "(DmcTypeModifierMV mods) {\n");
 		        out.write("        super(new " + cd.getName() + "DMO(mods));\n");
 		        out.write("    }\n\n");
@@ -387,6 +394,7 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 	        	if (cd.getDmwWrapperType(genContext) ==  WrapperTypeEnum.EXTENDED){
 		        	// If the wrapper type is extended, we're abstract at this level, so we
 		        	// have to instantiate our derived wrapper class instead
+	                out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			        out.write("    public " + cd.getName() + " getModificationRecorder(){\n");
 			        out.write("        " + cd.getName() + " rc = new " + cd.getName() + "();\n");
 			        out.write("        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
@@ -394,6 +402,7 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 			        out.write("    }\n\n");
 		        }
 		        else{
+	                out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			        out.write("    public " + cd.getName() + genSuffix + " getModificationRecorder(){\n");
 			        out.write("        " + cd.getName() + genSuffix + " rc = new " + cd.getName() + genSuffix + "(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
 			        out.write("        return(rc);\n");
@@ -406,6 +415,7 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 	        	if (cd.getDmwWrapperType(genContext) ==  WrapperTypeEnum.EXTENDED){
 		        	// If the wrapper type is extended, we're abstract at this level, so we
 		        	// have to instantiate our derived wrapper class instead
+	                out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			        out.write("    public " + cd.getName() + " getModificationRecorder(){\n");
 			        out.write("        " + cd.getName() + " rc = new " + cd.getName() + "();\n");
 			        out.write("        rc.set" + upper + "(get" + upper + "());\n");
@@ -414,6 +424,7 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 			        out.write("    }\n\n");
 		        }
 		        else{
+	                out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			        out.write("    public " + cd.getName() + genSuffix + " getModificationRecorder(){\n");
 			        out.write("        " + cd.getName() + genSuffix + " rc = new " + cd.getName() + genSuffix + "();\n");
 			        out.write("        rc.set" + upper + "(get" + upper + "());\n");
@@ -421,9 +432,11 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 			        out.write("        return(rc);\n");
 			        out.write("    }\n\n");
 		        }
+	        	
 	        }
 	        
 	        if (fullJavaEnvironment){
+                out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		        out.write("    public " + cd.getName() + "DMW(" + cd.getName() + "DMO obj) {\n");
 		        out.write("        super(obj, " + classDef + ");\n");
 		        out.write("    }\n\n");
@@ -440,14 +453,24 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 //        }
 
         if (fullJavaEnvironment){
+            out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 	        out.write("    protected " + cd.getName() + genSuffix + "(" + cd.getName() + "DMO obj, ClassDefinition cd) {\n");
 	        out.write("        super(obj,cd);\n");
 	        out.write("    }\n\n");
         }
         else{
-	        out.write("    protected " + cd.getName() + genSuffix + "(" + cd.getName() + "DMO obj) {\n");
-	        out.write("        super(obj);\n");
-	        out.write("    }\n\n");
+        	if (cd.getClassType() == ClassTypeEnum.ABSTRACT){
+                out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		        out.write("    protected " + cd.getName() + genSuffix + "(" + cd.getName() + "DMO obj) {\n");
+		        out.write("        super(obj);\n");
+		        out.write("    }\n\n");
+        	}
+        	else{
+                out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+    	        out.write("    public " + cd.getName() + genSuffix + "(" + cd.getName() + "DMO obj) {\n");
+    	        out.write("        super(obj);\n");
+    	        out.write("    }\n\n");
+        	}
         }
 	        
         out.write(getAccessFunctions(cd));
@@ -899,6 +922,13 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 			sb.append("        return(false);\n");
 			sb.append("    }\n\n");
 
+        	if (cd.getIsNamedBy().getType().getIsHierarchicName()){
+    			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+    			sb.append("    public " + nameType + " getHierarchicObjectName(){\n");
+    			sb.append("        return(" + dmocast + ".get" + attrNameCapped.toString() + "());\n");
+    			sb.append("    }\n\n");
+    			
+        	}
 		}
 		
 		for(AttributeDefinition ad : allAttr){
