@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeFieldSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class FieldSETAdapter extends DmcTypeFieldSET implements DmcAdapterIF {
 
-    DmcTypeFieldSET existingValue;
+    transient DmcTypeFieldSET existingValue;
 
     public FieldSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

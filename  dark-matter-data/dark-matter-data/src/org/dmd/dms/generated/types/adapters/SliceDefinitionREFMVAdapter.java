@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeSliceDefinitionREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class SliceDefinitionREFMVAdapter extends DmcTypeSliceDefinitionREFMV implements DmcAdapterIF {
 
-    DmcTypeSliceDefinitionREFMV existingValue;
+    transient DmcTypeSliceDefinitionREFMV existingValue;
 
     public SliceDefinitionREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

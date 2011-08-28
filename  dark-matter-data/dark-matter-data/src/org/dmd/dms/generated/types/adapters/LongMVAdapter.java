@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeLongMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class LongMVAdapter extends DmcTypeLongMV implements DmcAdapterIF {
 
-    DmcTypeLongMV existingValue;
+    transient DmcTypeLongMV existingValue;
 
     public LongMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeEnumDefinitionREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class EnumDefinitionREFMVAdapter extends DmcTypeEnumDefinitionREFMV implements DmcAdapterIF {
 
-    DmcTypeEnumDefinitionREFMV existingValue;
+    transient DmcTypeEnumDefinitionREFMV existingValue;
 
     public EnumDefinitionREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

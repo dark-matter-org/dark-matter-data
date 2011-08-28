@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeDotNameSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class DotNameSETAdapter extends DmcTypeDotNameSET implements DmcAdapterIF {
 
-    DmcTypeDotNameSET existingValue;
+    transient DmcTypeDotNameSET existingValue;
 
     public DotNameSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

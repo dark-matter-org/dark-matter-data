@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeClassTypeEnumSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class ClassTypeEnumSETAdapter extends DmcTypeClassTypeEnumSET implements DmcAdapterIF {
 
-    DmcTypeClassTypeEnumSET existingValue;
+    transient DmcTypeClassTypeEnumSET existingValue;
 
     public ClassTypeEnumSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

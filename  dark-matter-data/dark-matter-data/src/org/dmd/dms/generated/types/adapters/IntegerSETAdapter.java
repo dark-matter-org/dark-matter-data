@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class IntegerSETAdapter extends DmcTypeIntegerSET implements DmcAdapterIF {
 
-    DmcTypeIntegerSET existingValue;
+    transient DmcTypeIntegerSET existingValue;
 
     public IntegerSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

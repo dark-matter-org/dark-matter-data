@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeSchemaDefinitionREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class SchemaDefinitionREFSVAdapter extends DmcTypeSchemaDefinitionREFSV implements DmcAdapterIF {
 
-    DmcTypeSchemaDefinitionREFSV existingValue;
+    transient DmcTypeSchemaDefinitionREFSV existingValue;
 
     public SchemaDefinitionREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

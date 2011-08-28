@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeDoubleSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class DoubleSVAdapter extends DmcTypeDoubleSV implements DmcAdapterIF {
 
-    DmcTypeDoubleSV existingValue;
+    transient DmcTypeDoubleSV existingValue;
 
     public DoubleSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

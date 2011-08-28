@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerToUUIDLiteMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class IntegerToUUIDLiteMVAdapter extends DmcTypeIntegerToUUIDLiteMV implements DmcAdapterIF {
 
-    DmcTypeIntegerToUUIDLiteMV existingValue;
+    transient DmcTypeIntegerToUUIDLiteMV existingValue;
 
     public IntegerToUUIDLiteMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

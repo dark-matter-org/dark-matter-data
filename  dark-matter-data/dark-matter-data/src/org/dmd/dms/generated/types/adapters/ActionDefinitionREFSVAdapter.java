@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeActionDefinitionREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class ActionDefinitionREFSVAdapter extends DmcTypeActionDefinitionREFSV implements DmcAdapterIF {
 
-    DmcTypeActionDefinitionREFSV existingValue;
+    transient DmcTypeActionDefinitionREFSV existingValue;
 
     public ActionDefinitionREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

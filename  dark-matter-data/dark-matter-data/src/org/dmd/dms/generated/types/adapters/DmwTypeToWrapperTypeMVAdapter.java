@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeDmwTypeToWrapperTypeMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class DmwTypeToWrapperTypeMVAdapter extends DmcTypeDmwTypeToWrapperTypeMV implements DmcAdapterIF {
 
-    DmcTypeDmwTypeToWrapperTypeMV existingValue;
+    transient DmcTypeDmwTypeToWrapperTypeMV existingValue;
 
     public DmwTypeToWrapperTypeMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

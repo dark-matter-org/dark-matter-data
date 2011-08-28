@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeLongSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class LongSVAdapter extends DmcTypeLongSV implements DmcAdapterIF {
 
-    DmcTypeLongSV existingValue;
+    transient DmcTypeLongSV existingValue;
 
     public LongSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

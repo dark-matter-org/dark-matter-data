@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class FullyQualifiedNameSETAdapter extends DmcTypeFullyQualifiedNameSET implements DmcAdapterIF {
 
-    DmcTypeFullyQualifiedNameSET existingValue;
+    transient DmcTypeFullyQualifiedNameSET existingValue;
 
     public FullyQualifiedNameSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

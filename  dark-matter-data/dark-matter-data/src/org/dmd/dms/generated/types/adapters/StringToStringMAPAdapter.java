@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeStringToStringMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class StringToStringMAPAdapter extends DmcTypeStringToStringMAP implements DmcAdapterIF {
 
-    DmcTypeStringToStringMAP existingValue;
+    transient DmcTypeStringToStringMAP existingValue;
 
     public StringToStringMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeDateSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class DateSVAdapter extends DmcTypeDateSV implements DmcAdapterIF {
 
-    DmcTypeDateSV existingValue;
+    transient DmcTypeDateSV existingValue;
 
     public DateSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

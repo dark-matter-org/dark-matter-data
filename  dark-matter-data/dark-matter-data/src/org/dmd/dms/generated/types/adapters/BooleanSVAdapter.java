@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeBooleanSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class BooleanSVAdapter extends DmcTypeBooleanSV implements DmcAdapterIF {
 
-    DmcTypeBooleanSV existingValue;
+    transient DmcTypeBooleanSV existingValue;
 
     public BooleanSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

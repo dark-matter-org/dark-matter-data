@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeEnumDefinitionREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class EnumDefinitionREFSETAdapter extends DmcTypeEnumDefinitionREFSET implements DmcAdapterIF {
 
-    DmcTypeEnumDefinitionREFSET existingValue;
+    transient DmcTypeEnumDefinitionREFSET existingValue;
 
     public EnumDefinitionREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

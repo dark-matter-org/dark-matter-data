@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerNameMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class IntegerNameMVAdapter extends DmcTypeIntegerNameMV implements DmcAdapterIF {
 
-    DmcTypeIntegerNameMV existingValue;
+    transient DmcTypeIntegerNameMV existingValue;
 
     public IntegerNameMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

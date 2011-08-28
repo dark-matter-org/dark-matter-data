@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeTimeDoubleDataPointSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class TimeDoubleDataPointSETAdapter extends DmcTypeTimeDoubleDataPointSET implements DmcAdapterIF {
 
-    DmcTypeTimeDoubleDataPointSET existingValue;
+    transient DmcTypeTimeDoubleDataPointSET existingValue;
 
     public TimeDoubleDataPointSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;
