@@ -11,7 +11,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
  * derived from a a ClassDefinition. This information is used to assist during object
  * deserialization and may also be used in filtering.
  */
-public class DmcClassInfo {
+public class DmcClassInfo implements Comparable<DmcClassInfo>{
 
 	// The string name of the attribute
 	final public String 		name;
@@ -126,5 +126,29 @@ public class DmcClassInfo {
 	public String toString(){
 		return(name + " " + id + " " + classType + " " + dataType);
 	}
+
+	@Override
+	public int compareTo(DmcClassInfo dci) {
+		if (id == dci.id)
+			return(0);
+		if (id < dci.id)
+			return(-1);
+		return(1);
+	}
+	
+	@Override
+	public boolean equals(Object obj){
+		if (obj instanceof DmcClassInfo){
+			if (id == ((DmcClassInfo)obj).id)
+				return(true);
+		}
+		return(false);
+	}
+
+	@Override
+	public int hashCode(){
+		return(id);
+	}
+
 
 }
