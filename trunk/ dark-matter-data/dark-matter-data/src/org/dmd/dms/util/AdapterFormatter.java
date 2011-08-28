@@ -51,7 +51,7 @@ public class AdapterFormatter {
         out.write("// " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
         out.write("public class " + className + " extends " + baseClass + " implements DmcAdapterIF {\n\n");
         
-        out.write("    " + baseClass + " existingValue;\n\n");
+        out.write("    transient " + baseClass + " existingValue;\n\n");
         
         out.write("    public " + className + "(DmcAttributeInfo ai){\n");
         out.write("    	   attrInfo = ai;\n");
