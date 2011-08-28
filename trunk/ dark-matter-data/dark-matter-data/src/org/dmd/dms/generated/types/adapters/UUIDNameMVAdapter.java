@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeUUIDNameMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class UUIDNameMVAdapter extends DmcTypeUUIDNameMV implements DmcAdapterIF {
 
-    DmcTypeUUIDNameMV existingValue;
+    transient DmcTypeUUIDNameMV existingValue;
 
     public UUIDNameMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeWrapperTypeEnumMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class WrapperTypeEnumMVAdapter extends DmcTypeWrapperTypeEnumMV implements DmcAdapterIF {
 
-    DmcTypeWrapperTypeEnumMV existingValue;
+    transient DmcTypeWrapperTypeEnumMV existingValue;
 
     public WrapperTypeEnumMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

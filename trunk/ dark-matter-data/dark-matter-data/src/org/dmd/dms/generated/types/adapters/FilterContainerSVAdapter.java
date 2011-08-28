@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeFilterContainerSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class FilterContainerSVAdapter extends DmcTypeFilterContainerSV implements DmcAdapterIF {
 
-    DmcTypeFilterContainerSV existingValue;
+    transient DmcTypeFilterContainerSV existingValue;
 
     public FilterContainerSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

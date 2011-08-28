@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerToBooleanSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class IntegerToBooleanSVAdapter extends DmcTypeIntegerToBooleanSV implements DmcAdapterIF {
 
-    DmcTypeIntegerToBooleanSV existingValue;
+    transient DmcTypeIntegerToBooleanSV existingValue;
 
     public IntegerToBooleanSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

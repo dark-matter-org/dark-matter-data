@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeOperationalContextEnumSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class OperationalContextEnumSVAdapter extends DmcTypeOperationalContextEnumSV implements DmcAdapterIF {
 
-    DmcTypeOperationalContextEnumSV existingValue;
+    transient DmcTypeOperationalContextEnumSV existingValue;
 
     public OperationalContextEnumSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

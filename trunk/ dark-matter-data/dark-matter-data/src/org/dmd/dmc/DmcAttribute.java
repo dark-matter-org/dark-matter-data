@@ -733,13 +733,13 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 		try {
 			if (existingValue == null){
 				if (adapter.hasValue())
-					mods.add(new Modifier(ModifyTypeEnum.SET, this));
+					mods.add(new Modifier(ModifyTypeEnum.SET, this.cloneIt()));
 			}
 			else{
 				if (!adapter.hasValue())
 					mods.add(new Modifier(ModifyTypeEnum.REM, attrInfo));
 				else
-					mods.add(new Modifier(ModifyTypeEnum.SET, this));
+					mods.add(new Modifier(ModifyTypeEnum.SET, this.cloneIt()));
 			}
 		} catch (DmcValueException e) {
 			throw(new IllegalStateException("Changes to the Modifier shouldn't throw an exception.", e));

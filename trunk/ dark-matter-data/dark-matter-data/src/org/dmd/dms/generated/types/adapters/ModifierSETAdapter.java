@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class ModifierSETAdapter extends DmcTypeModifierSET implements DmcAdapterIF {
 
-    DmcTypeModifierSET existingValue;
+    transient DmcTypeModifierSET existingValue;
 
     public ModifierSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

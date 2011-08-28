@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerToBooleanSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class IntegerToBooleanSETAdapter extends DmcTypeIntegerToBooleanSET implements DmcAdapterIF {
 
-    DmcTypeIntegerToBooleanSET existingValue;
+    transient DmcTypeIntegerToBooleanSET existingValue;
 
     public IntegerToBooleanSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

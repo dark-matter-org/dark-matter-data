@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeComplexTypeDefinitionREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class ComplexTypeDefinitionREFSETAdapter extends DmcTypeComplexTypeDefinitionREFSET implements DmcAdapterIF {
 
-    DmcTypeComplexTypeDefinitionREFSET existingValue;
+    transient DmcTypeComplexTypeDefinitionREFSET existingValue;
 
     public ComplexTypeDefinitionREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

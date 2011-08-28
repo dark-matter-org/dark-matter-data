@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeOperationalContextEnumSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class OperationalContextEnumSETAdapter extends DmcTypeOperationalContextEnumSET implements DmcAdapterIF {
 
-    DmcTypeOperationalContextEnumSET existingValue;
+    transient DmcTypeOperationalContextEnumSET existingValue;
 
     public OperationalContextEnumSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

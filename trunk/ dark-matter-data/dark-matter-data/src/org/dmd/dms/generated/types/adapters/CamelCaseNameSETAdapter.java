@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class CamelCaseNameSETAdapter extends DmcTypeCamelCaseNameSET implements DmcAdapterIF {
 
-    DmcTypeCamelCaseNameSET existingValue;
+    transient DmcTypeCamelCaseNameSET existingValue;
 
     public CamelCaseNameSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

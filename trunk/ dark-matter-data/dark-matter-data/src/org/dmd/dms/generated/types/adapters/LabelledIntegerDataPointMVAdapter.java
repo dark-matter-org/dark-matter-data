@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeLabelledIntegerDataPointMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class LabelledIntegerDataPointMVAdapter extends DmcTypeLabelledIntegerDataPointMV implements DmcAdapterIF {
 
-    DmcTypeLabelledIntegerDataPointMV existingValue;
+    transient DmcTypeLabelledIntegerDataPointMV existingValue;
 
     public LabelledIntegerDataPointMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

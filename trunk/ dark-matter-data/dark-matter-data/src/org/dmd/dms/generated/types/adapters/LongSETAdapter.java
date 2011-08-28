@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeLongSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class LongSETAdapter extends DmcTypeLongSET implements DmcAdapterIF {
 
-    DmcTypeLongSET existingValue;
+    transient DmcTypeLongSET existingValue;
 
     public LongSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

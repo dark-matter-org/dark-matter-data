@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeFloatMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class FloatMVAdapter extends DmcTypeFloatMV implements DmcAdapterIF {
 
-    DmcTypeFloatMV existingValue;
+    transient DmcTypeFloatMV existingValue;
 
     public FloatMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

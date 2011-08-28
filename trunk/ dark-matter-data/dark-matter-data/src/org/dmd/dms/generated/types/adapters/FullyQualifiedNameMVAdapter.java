@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class FullyQualifiedNameMVAdapter extends DmcTypeFullyQualifiedNameMV implements DmcAdapterIF {
 
-    DmcTypeFullyQualifiedNameMV existingValue;
+    transient DmcTypeFullyQualifiedNameMV existingValue;
 
     public FullyQualifiedNameMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

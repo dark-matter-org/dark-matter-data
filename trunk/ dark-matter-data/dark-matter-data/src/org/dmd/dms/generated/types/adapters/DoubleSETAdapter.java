@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeDoubleSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class DoubleSETAdapter extends DmcTypeDoubleSET implements DmcAdapterIF {
 
-    DmcTypeDoubleSET existingValue;
+    transient DmcTypeDoubleSET existingValue;
 
     public DoubleSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

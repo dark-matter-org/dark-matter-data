@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeClassInfoRefMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class ClassInfoRefMVAdapter extends DmcTypeClassInfoRefMV implements DmcAdapterIF {
 
-    DmcTypeClassInfoRefMV existingValue;
+    transient DmcTypeClassInfoRefMV existingValue;
 
     public ClassInfoRefMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

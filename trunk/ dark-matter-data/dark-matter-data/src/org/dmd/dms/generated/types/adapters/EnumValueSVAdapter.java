@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeEnumValueSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class EnumValueSVAdapter extends DmcTypeEnumValueSV implements DmcAdapterIF {
 
-    DmcTypeEnumValueSV existingValue;
+    transient DmcTypeEnumValueSV existingValue;
 
     public EnumValueSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

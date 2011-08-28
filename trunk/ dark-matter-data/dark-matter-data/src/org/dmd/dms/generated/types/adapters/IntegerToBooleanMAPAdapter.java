@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerToBooleanMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class IntegerToBooleanMAPAdapter extends DmcTypeIntegerToBooleanMAP implements DmcAdapterIF {
 
-    DmcTypeIntegerToBooleanMAP existingValue;
+    transient DmcTypeIntegerToBooleanMAP existingValue;
 
     public IntegerToBooleanMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

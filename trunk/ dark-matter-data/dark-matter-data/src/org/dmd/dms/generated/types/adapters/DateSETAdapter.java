@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeDateSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class DateSETAdapter extends DmcTypeDateSET implements DmcAdapterIF {
 
-    DmcTypeDateSET existingValue;
+    transient DmcTypeDateSET existingValue;
 
     public DateSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

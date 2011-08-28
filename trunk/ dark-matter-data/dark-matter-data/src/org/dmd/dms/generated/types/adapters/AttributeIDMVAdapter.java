@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeAttributeIDMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class AttributeIDMVAdapter extends DmcTypeAttributeIDMV implements DmcAdapterIF {
 
-    DmcTypeAttributeIDMV existingValue;
+    transient DmcTypeAttributeIDMV existingValue;
 
     public AttributeIDMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeFloatSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class FloatSETAdapter extends DmcTypeFloatSET implements DmcAdapterIF {
 
-    DmcTypeFloatSET existingValue;
+    transient DmcTypeFloatSET existingValue;
 
     public FloatSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

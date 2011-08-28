@@ -9,7 +9,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class ModifierMVAdapter extends DmcTypeModifierMV implements DmcAdapterIF {
 
-    DmcTypeModifierMV existingValue;
+    transient DmcTypeModifierMV existingValue;
 
     public ModifierMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

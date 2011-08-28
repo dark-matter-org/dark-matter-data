@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeBooleanSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class BooleanSETAdapter extends DmcTypeBooleanSET implements DmcAdapterIF {
 
-    DmcTypeBooleanSET existingValue;
+    transient DmcTypeBooleanSET existingValue;
 
     public BooleanSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

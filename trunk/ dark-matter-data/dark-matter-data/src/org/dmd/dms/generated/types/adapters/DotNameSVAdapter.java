@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeDotNameSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class DotNameSVAdapter extends DmcTypeDotNameSV implements DmcAdapterIF {
 
-    DmcTypeDotNameSV existingValue;
+    transient DmcTypeDotNameSV existingValue;
 
     public DotNameSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

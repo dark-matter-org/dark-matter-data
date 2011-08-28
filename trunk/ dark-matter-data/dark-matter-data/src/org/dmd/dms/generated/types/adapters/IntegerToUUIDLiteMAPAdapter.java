@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerToUUIDLiteMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class IntegerToUUIDLiteMAPAdapter extends DmcTypeIntegerToUUIDLiteMAP implements DmcAdapterIF {
 
-    DmcTypeIntegerToUUIDLiteMAP existingValue;
+    transient DmcTypeIntegerToUUIDLiteMAP existingValue;
 
     public IntegerToUUIDLiteMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;
