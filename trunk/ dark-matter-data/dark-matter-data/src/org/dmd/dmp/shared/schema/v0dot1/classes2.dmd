@@ -231,6 +231,7 @@ may             sourceObjectClass
 may				modify
 may             sourceObject
 may				originatorID
+may				handlerID
 may				notifyOriginator
 may				slice
 may				listenerID

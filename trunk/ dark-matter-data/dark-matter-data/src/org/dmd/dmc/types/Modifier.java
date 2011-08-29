@@ -22,6 +22,7 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
@@ -356,6 +357,11 @@ public class Modifier implements Serializable {
 	}
 	
 	public String toString(){
+		if (attribute != null){
+			if (attribute.getAttributeInfo() == null)
+				attribute.setAttributeInfo(DmcOmni.instance().getAttributeInfo(getAttributeName()));
+		}
+		
 		if (operation == ModifyTypeEnum.REM){
 			return(getAttributeName() + " " + operation);
 		}

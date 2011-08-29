@@ -20,10 +20,16 @@ public class Activity extends ActivityDMW {
 	
 	public String getInterfaces(){
 		if (hasCommsMethods()){
-			if (interfaces.length() == 0)
+			if (interfaces.length() == 0){
 				interfaces.append("implements ResponseHandlerIF");
-			else
+				if (handlesObjectEvents())
+					interfaces.append(", EventHandlerIF");
+			}
+			else{
 				interfaces.append(", ResponseHandlerIF");
+				if (handlesObjectEvents())
+					interfaces.append(", EventHandlerIF");
+			}
 		}
 		return(interfaces.toString());
 	}

@@ -25,6 +25,8 @@ public class Component extends ComponentDMW {
 	
 	boolean							hasCommsMethods;
 	
+	boolean							handlesObjectEvents;
+	
 	protected BooleanVar			usesRunContext;
 	
 	int								methodID;
@@ -77,6 +79,10 @@ public class Component extends ComponentDMW {
 	
 	public boolean hasCommsMethods(){
 		return(hasCommsMethods);
+	}
+	
+	public boolean handlesObjectEvents(){
+		return(handlesObjectEvents);
 	}
 	
 	public boolean usesRunContext(){
@@ -219,6 +225,14 @@ public class Component extends ComponentDMW {
 						imports.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "Used when creating " + request.getRequestType() + "Requests");
 					}
 				}
+				
+				if (request.getRequestType().equals("Get")){
+					if (request.getOptions().contains(RequestOptionEnum.EVENTS)){
+						imports.addImport("org.dmd.dmp.client.EventHandlerIF", "Handles events resulting from GetRequests");
+						imports.addImport("org.dmd.dmp.shared.generated.dmo.DMPEventDMO", "Events");
+						handlesObjectEvents = true;
+					}
+				}
 					
 				addRequest(request);
 			}
@@ -231,6 +245,7 @@ public class Component extends ComponentDMW {
 				commsConstants.append("    private final int " + ch.constant + " = " + ch.methodID +";\n");
 			}
 			
+			commsMethods.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			commsMethods.append("    @Override\n");
 			commsMethods.append("    public void handleResponse(ResponseDMO response){\n");
 			commsMethods.append("        if (response.getResponseType() == ResponseTypeEnum.ERROR){\n");
@@ -252,6 +267,17 @@ public class Component extends ComponentDMW {
 			commsMethods.append("    }\n\n");
 			
 			
+			
+			if (handlesObjectEvents){
+				commsMethods.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+				commsMethods.append("    @Override\n");
+				commsMethods.append("    public void handleEvent(DMPEventDMO event){\n");
+				commsMethods.append("        // Coming soon\n");
+				commsMethods.append("    }\n\n");
+			}
+			
+			
+			commsMethods.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			commsMethods.append("    @Override\n");
 			commsMethods.append("    public void handleRPCFailure(Throwable caught, RequestDMO request){\n");
 			if (rpcErrorCases.length() == 0){
@@ -449,13 +475,21 @@ public class Component extends ComponentDMW {
 				sb.append("    }\n\n");
 				
 				// Provide the mechanism to deregister for events
-				if (requestType.equals("Get")){
+				if ( (requestType.equals("Get")) && (requestDef.getOptions().contains(RequestOptionEnum.EVENTS))){
 					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 					sb.append("    protected void denotifyFor" + baseName + "Events(){\n");
 //					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
 //					sb.append("        request.setHandlerID(" + constant + ");\n");
 					sb.append("        // TODO: fill in denotify request and send it\n");
 					sb.append("    }\n\n");
+					
+					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    protected void handle" + baseName + "Event(){\n");
+//					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
+//					sb.append("        request.setHandlerID(" + constant + ");\n");
+					sb.append("        // TODO: fill in denotify request and send it\n");
+					sb.append("    }\n\n");
+					
 					
 				}
 			}
@@ -492,6 +526,7 @@ public class Component extends ComponentDMW {
 				rpcError.append("            handle" + baseName + "ResponseRPCError(caught,(" + requestCast + ")request);\n");
 				rpcError.append("            break;\n");
 				
+				abstractFunctions.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				abstractFunctions.append("    abstract protected void handle" + baseName + "ResponseRPCError(Throwable caught, " + requestCast + " request);\n\n");
 			}
 			else{
@@ -503,8 +538,13 @@ public class Component extends ComponentDMW {
 			success.append("                handle" + baseName + "Response((" + responseCast + ")response);\n");
 			success.append("                break;\n");
 			
+			abstractFunctions.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			abstractFunctions.append("    abstract protected void handle" + baseName + "Response(" + responseCast + " response);\n\n");
 
+			if (requestType.equals("Get") && requestDef.getOptions().contains(RequestOptionEnum.EVENTS) ){
+				abstractFunctions.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+				abstractFunctions.append("    abstract protected void handleEventFrom" + baseName + "(DMPEventDMO event);\n\n");
+			}
 			
 		}
 		

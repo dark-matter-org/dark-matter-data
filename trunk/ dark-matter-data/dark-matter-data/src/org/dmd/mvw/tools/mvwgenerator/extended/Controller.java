@@ -38,6 +38,8 @@ public class Controller extends ControllerDMW {
 	public String getControllerInterfaces(){
 		if (hasCommsMethods()){
 			controllerInterfaces.append("implements ResponseHandlerIF");
+			if (handlesObjectEvents())
+				controllerInterfaces.append(", EventHandlerIF");
 		}
 		if (isCentralDMPErrorHandler()){
 			if (controllerInterfaces.length() > 0)
