@@ -25,6 +25,8 @@ public class Presenter extends PresenterDMW {
 	public String getPresenterInterfaces(){
 		if (hasCommsMethods()){
 			presenterInterfaces.append(", ResponseHandlerIF");
+			if (handlesObjectEvents())
+				presenterInterfaces.append(", EventHandlerIF");
 		}
 //		if (isCentralDMPErrorHandler()){
 //			if (presenterInterfaces.length() > 0)

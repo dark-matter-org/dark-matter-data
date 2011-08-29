@@ -29,6 +29,8 @@ public class ResponseCallback {
 	// Where to send the responses
 	ResponseHandlerIF 		handler;
 	
+	EventHandlerIF			eventHandler;
+	
 	// The original request
 	RequestDMO				request;
 	
@@ -45,6 +47,17 @@ public class ResponseCallback {
 	protected ResponseCallback(RequestDMO req, ResponseHandlerIF h, CommsControllerIF cc, int cbid, ErrorOptionsEnum rpc, ErrorOptionsEnum dmp){
 		request			= req;
 		handler 		= h;
+		eventHandler	= null;
+		commsController	= cc;
+		callbackID		= cbid;
+		RPC				= rpc;
+		DMP				= dmp;
+	}
+	
+	protected ResponseCallback(RequestDMO req, ResponseHandlerIF h, EventHandlerIF eh, CommsControllerIF cc, int cbid, ErrorOptionsEnum rpc, ErrorOptionsEnum dmp){
+		request			= req;
+		handler 		= h;
+		eventHandler	= eh;
 		commsController	= cc;
 		callbackID		= cbid;
 		RPC				= rpc;

@@ -13,6 +13,10 @@ public class GetResponseCallback extends ResponseCallback implements AsyncCallba
 		super(req,h,cc,ID,rpc,dmp);
 	}
 
+	public GetResponseCallback(GetRequestDMO req, ResponseHandlerIF h, EventHandlerIF eh, CommsControllerIF cc, ErrorOptionsEnum rpc, ErrorOptionsEnum dmp){
+		super(req,h,eh,cc,ID,rpc,dmp);
+	}
+
 	@Override
 	public void onFailure(Throwable caught) {
 		rpcError(caught);

@@ -1,12 +1,6 @@
 package org.dmd.mvw.client.mvwcomms.extended;
 
-import java.util.ArrayList;
 import java.util.TreeMap;
-
-import de.novanic.eventservice.client.event.Event;
-import de.novanic.eventservice.client.event.domain.Domain;
-import de.novanic.eventservice.client.event.domain.DomainFactory;
-import de.novanic.eventservice.client.event.listener.RemoteEventListener;
 
 import org.dmd.dmp.client.ActionResponseCallback;
 import org.dmd.dmp.client.CentralDMPErrorHandlerIF;
@@ -15,6 +9,7 @@ import org.dmd.dmp.client.CommsControllerIF;
 import org.dmd.dmp.client.CreateResponseCallback;
 import org.dmd.dmp.client.DeleteResponseCallback;
 import org.dmd.dmp.client.ErrorOptionsEnum;
+import org.dmd.dmp.client.EventHandlerIF;
 import org.dmd.dmp.client.GetResponseCallback;
 import org.dmd.dmp.client.LoginResponseCallback;
 import org.dmd.dmp.client.LogoutResponseCallback;
@@ -34,9 +29,13 @@ import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 import org.dmd.dms.extended.ActionTriggerInfo;
-import org.dmd.features.extgwt.client.ServerEventHandlerIF;
 import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;
 import org.dmd.mvw.client.mvwcomms.generated.mvw.controllers.CommsControllerBaseImpl;
+
+import de.novanic.eventservice.client.event.Event;
+import de.novanic.eventservice.client.event.domain.Domain;
+import de.novanic.eventservice.client.event.domain.DomainFactory;
+import de.novanic.eventservice.client.event.listener.RemoteEventListener;
 
 /**
  * The CommsController provides standardized access to the Dark Matter Protocol connection
@@ -66,6 +65,8 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// appropriate handler.
 	// Key: requestID
 	TreeMap<Integer, ResponseCallback>	requests;
+	
+	TreeMap<Integer, ResponseCallback>	eventHandlers;
 	
 	// Our event domain for use with the gwteventservice
 	Domain						eventDomain;
@@ -141,6 +142,17 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		}
 		else{
 			GetResponseCallback cb = new GetResponseCallback(request, handler, this, rpc, dmp);
+			requests.put(request.getNthRequestID(0), cb);
+			dmpConnection.get(request, cb);
+		}
+	}
+	
+	public void sendGetRequest(GetRequestDMO request, ResponseHandlerIF handler, EventHandlerIF eh, ErrorOptionsEnum rpc, ErrorOptionsEnum dmp){
+		if (sessionID == null){
+			throw(new IllegalStateException("Attempted to send get request but we're not logged in."));
+		}
+		else{
+			GetResponseCallback cb = new GetResponseCallback(request, handler, eh, this, rpc, dmp);
 			requests.put(request.getNthRequestID(0), cb);
 			dmpConnection.get(request, cb);
 		}
@@ -323,13 +335,13 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	 */
 	void handleAsynchronousInfo(Object async){
 		if (async instanceof DMPEventDMO){
-			System.out.println("CommsController.handleAsynchronousInfo got event");
+			DMPEventDMO event = (DMPEventDMO) async;
+			System.out.println("CommsController.handleAsynchronousInfo got event:\n\n" + event.toOIF() + "\n\n");
 			
 		}
 		else if (async instanceof ResponseDMO){
 			ResponseDMO response = (ResponseDMO) async;
 			System.out.println("CommsController.handleAsynchronousInfo got response:\n\n" + response.toOIF() + "\n\n");
-			
 			
 			ResponseCallback cb = requests.get(response.getNthRequestID(0));
 
