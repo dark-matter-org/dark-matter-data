@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcRegistryItemREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class MvcRegistryItemREFMVAdapter extends DmcTypeMvcRegistryItemREFMV implements DmcAdapterIF {
 
-    DmcTypeMvcRegistryItemREFMV existingValue;
+    transient DmcTypeMvcRegistryItemREFMV existingValue;
 
     public MvcRegistryItemREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -309,6 +309,15 @@ dmdID				42
 type                String
 description         The version of an application.
 
+AttributeDefinition
+name                myOwnEvent
+dmdID				43
+type                Boolean
+description         This flag is set by the CommsController on events when they are received. If
+ the originatorID on an event matches the originatorID returned in the LoginResponse, it means
+ that the event occurred because of a request sent by you; so myOwnEvent will be true. If the event
+ was caused by another client, it will be false.
+
 
 //AttributeDefinition
 //name                targetObject

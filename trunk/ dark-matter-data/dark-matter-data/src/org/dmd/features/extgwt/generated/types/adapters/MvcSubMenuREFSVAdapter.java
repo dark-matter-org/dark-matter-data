@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcSubMenuREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class MvcSubMenuREFSVAdapter extends DmcTypeMvcSubMenuREFSV implements DmcAdapterIF {
 
-    DmcTypeMvcSubMenuREFSV existingValue;
+    transient DmcTypeMvcSubMenuREFSV existingValue;
 
     public MvcSubMenuREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

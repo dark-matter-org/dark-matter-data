@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcMenuBarREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class MvcMenuBarREFSETAdapter extends DmcTypeMvcMenuBarREFSET implements DmcAdapterIF {
 
-    DmcTypeMvcMenuBarREFSET existingValue;
+    transient DmcTypeMvcMenuBarREFSET existingValue;
 
     public MvcMenuBarREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuImplementationC
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class MenuImplementationConfigREFMVAdapter extends DmcTypeMenuImplementationConfigREFMV implements DmcAdapterIF {
 
-    DmcTypeMenuImplementationConfigREFMV existingValue;
+    transient DmcTypeMenuImplementationConfigREFMV existingValue;
 
     public MenuImplementationConfigREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

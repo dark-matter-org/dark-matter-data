@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuItemREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class MenuItemREFSETAdapter extends DmcTypeMenuItemREFSET implements DmcAdapterIF {
 
-    DmcTypeMenuItemREFSET existingValue;
+    transient DmcTypeMenuItemREFSET existingValue;
 
     public MenuItemREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -36,7 +36,7 @@ public class GxtCancelButton extends Button implements DmcChangeListenerIF {
 
 	@Override
 	public void isChanged(boolean changed) {
-		System.out.println("Cancel button isChanged() " + changed);
+//		System.out.println("Cancel button isChanged() " + changed);
 		setEnabled(changed);
 	}
 

@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeActivityREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class ActivityREFSETAdapter extends DmcTypeActivityREFSET implements DmcAdapterIF {
 
-    DmcTypeActivityREFSET existingValue;
+    transient DmcTypeActivityREFSET existingValue;
 
     public ActivityREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

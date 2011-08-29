@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeObjWithRefsREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class ObjWithRefsREFMVAdapter extends DmcTypeObjWithRefsREFMV implements DmcAdapterIF {
 
-    DmcTypeObjWithRefsREFMV existingValue;
+    transient DmcTypeObjWithRefsREFMV existingValue;
 
     public ObjWithRefsREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

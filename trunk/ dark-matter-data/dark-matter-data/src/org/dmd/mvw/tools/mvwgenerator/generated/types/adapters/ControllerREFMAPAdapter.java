@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeControllerREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class ControllerREFMAPAdapter extends DmcTypeControllerREFMAP implements DmcAdapterIF {
 
-    DmcTypeControllerREFMAP existingValue;
+    transient DmcTypeControllerREFMAP existingValue;
 
     public ControllerREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

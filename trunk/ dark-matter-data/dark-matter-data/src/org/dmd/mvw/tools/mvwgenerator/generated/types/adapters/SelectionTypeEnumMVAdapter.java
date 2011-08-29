@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSelectionTypeEnumMV
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class SelectionTypeEnumMVAdapter extends DmcTypeSelectionTypeEnumMV implements DmcAdapterIF {
 
-    DmcTypeSelectionTypeEnumMV existingValue;
+    transient DmcTypeSelectionTypeEnumMV existingValue;
 
     public SelectionTypeEnumMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

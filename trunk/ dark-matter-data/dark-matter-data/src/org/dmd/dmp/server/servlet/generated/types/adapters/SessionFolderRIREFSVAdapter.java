@@ -11,7 +11,7 @@ import org.dmd.dmp.server.servlet.generated.types.DmcTypeSessionFolderRIREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class SessionFolderRIREFSVAdapter extends DmcTypeSessionFolderRIREFSV implements DmcAdapterIF {
 
-    DmcTypeSessionFolderRIREFSV existingValue;
+    transient DmcTypeSessionFolderRIREFSV existingValue;
 
     public SessionFolderRIREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.dmp.server.servlet.generated.types.DmcTypeUserRIREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class UserRIREFMAPAdapter extends DmcTypeUserRIREFMAP implements DmcAdapterIF {
 
-    DmcTypeUserRIREFMAP existingValue;
+    transient DmcTypeUserRIREFMAP existingValue;
 
     public UserRIREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

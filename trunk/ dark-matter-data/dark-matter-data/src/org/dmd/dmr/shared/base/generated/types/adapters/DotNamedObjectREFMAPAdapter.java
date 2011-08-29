@@ -11,7 +11,7 @@ import org.dmd.dmr.shared.base.generated.types.DmcTypeDotNamedObjectREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class DotNamedObjectREFMAPAdapter extends DmcTypeDotNamedObjectREFMAP implements DmcAdapterIF {
 
-    DmcTypeDotNamedObjectREFMAP existingValue;
+    transient DmcTypeDotNamedObjectREFMAP existingValue;
 
     public DotNamedObjectREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

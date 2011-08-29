@@ -11,7 +11,7 @@ import org.dmd.dmv.shared.generated.types.DmcTypeRuleREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class RuleREFMVAdapter extends DmcTypeRuleREFMV implements DmcAdapterIF {
 
-    DmcTypeRuleREFMV existingValue;
+    transient DmcTypeRuleREFMV existingValue;
 
     public RuleREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

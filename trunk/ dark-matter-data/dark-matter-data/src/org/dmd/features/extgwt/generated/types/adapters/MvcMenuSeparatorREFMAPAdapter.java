@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcMenuSeparatorREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class MvcMenuSeparatorREFMAPAdapter extends DmcTypeMvcMenuSeparatorREFMAP implements DmcAdapterIF {
 
-    DmcTypeMvcMenuSeparatorREFMAP existingValue;
+    transient DmcTypeMvcMenuSeparatorREFMAP existingValue;
 
     public MvcMenuSeparatorREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

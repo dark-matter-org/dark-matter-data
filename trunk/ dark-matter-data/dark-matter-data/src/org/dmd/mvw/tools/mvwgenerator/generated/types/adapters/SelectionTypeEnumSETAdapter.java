@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSelectionTypeEnumSE
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class SelectionTypeEnumSETAdapter extends DmcTypeSelectionTypeEnumSET implements DmcAdapterIF {
 
-    DmcTypeSelectionTypeEnumSET existingValue;
+    transient DmcTypeSelectionTypeEnumSET existingValue;
 
     public SelectionTypeEnumSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

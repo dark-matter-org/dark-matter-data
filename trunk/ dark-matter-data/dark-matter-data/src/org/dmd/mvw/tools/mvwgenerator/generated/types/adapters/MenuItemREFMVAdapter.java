@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuItemREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class MenuItemREFMVAdapter extends DmcTypeMenuItemREFMV implements DmcAdapterIF {
 
-    DmcTypeMenuItemREFMV existingValue;
+    transient DmcTypeMenuItemREFMV existingValue;
 
     public MenuItemREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

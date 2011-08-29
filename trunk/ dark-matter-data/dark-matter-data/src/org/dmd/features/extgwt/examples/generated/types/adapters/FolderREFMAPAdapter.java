@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.examples.generated.types.DmcTypeFolderREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class FolderREFMAPAdapter extends DmcTypeFolderREFMAP implements DmcAdapterIF {
 
-    DmcTypeFolderREFMAP existingValue;
+    transient DmcTypeFolderREFMAP existingValue;
 
     public FolderREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

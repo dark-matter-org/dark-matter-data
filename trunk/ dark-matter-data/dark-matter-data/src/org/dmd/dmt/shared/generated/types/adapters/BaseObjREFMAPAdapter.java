@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeBaseObjREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class BaseObjREFMAPAdapter extends DmcTypeBaseObjREFMAP implements DmcAdapterIF {
 
-    DmcTypeBaseObjREFMAP existingValue;
+    transient DmcTypeBaseObjREFMAP existingValue;
 
     public BaseObjREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

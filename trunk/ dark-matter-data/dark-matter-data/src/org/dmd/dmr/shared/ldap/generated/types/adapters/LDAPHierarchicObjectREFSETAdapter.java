@@ -11,7 +11,7 @@ import org.dmd.dmr.shared.ldap.generated.types.DmcTypeLDAPHierarchicObjectREFSET
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class LDAPHierarchicObjectREFSETAdapter extends DmcTypeLDAPHierarchicObjectREFSET implements DmcAdapterIF {
 
-    DmcTypeLDAPHierarchicObjectREFSET existingValue;
+    transient DmcTypeLDAPHierarchicObjectREFSET existingValue;
 
     public LDAPHierarchicObjectREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

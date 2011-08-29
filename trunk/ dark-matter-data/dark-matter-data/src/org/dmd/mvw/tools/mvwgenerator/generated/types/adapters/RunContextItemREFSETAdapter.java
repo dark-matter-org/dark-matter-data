@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeRunContextItemREFSE
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class RunContextItemREFSETAdapter extends DmcTypeRunContextItemREFSET implements DmcAdapterIF {
 
-    DmcTypeRunContextItemREFSET existingValue;
+    transient DmcTypeRunContextItemREFSET existingValue;
 
     public RunContextItemREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

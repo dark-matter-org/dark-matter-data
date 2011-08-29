@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeWebApplicationREFSE
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class WebApplicationREFSETAdapter extends DmcTypeWebApplicationREFSET implements DmcAdapterIF {
 
-    DmcTypeWebApplicationREFSET existingValue;
+    transient DmcTypeWebApplicationREFSET existingValue;
 
     public WebApplicationREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

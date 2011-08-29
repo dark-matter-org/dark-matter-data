@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeIntegerNamedObjectREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class IntegerNamedObjectREFSVAdapter extends DmcTypeIntegerNamedObjectREFSV implements DmcAdapterIF {
 
-    DmcTypeIntegerNamedObjectREFSV existingValue;
+    transient DmcTypeIntegerNamedObjectREFSV existingValue;
 
     public IntegerNamedObjectREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

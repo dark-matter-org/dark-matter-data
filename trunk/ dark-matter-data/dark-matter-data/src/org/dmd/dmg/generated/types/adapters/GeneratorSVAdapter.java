@@ -11,7 +11,7 @@ import org.dmd.dmg.generated.types.DmcTypeGeneratorSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class GeneratorSVAdapter extends DmcTypeGeneratorSV implements DmcAdapterIF {
 
-    DmcTypeGeneratorSV existingValue;
+    transient DmcTypeGeneratorSV existingValue;
 
     public GeneratorSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

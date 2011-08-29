@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeGxtEnumMappingREFMA
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class GxtEnumMappingREFMAPAdapter extends DmcTypeGxtEnumMappingREFMAP implements DmcAdapterIF {
 
-    DmcTypeGxtEnumMappingREFMAP existingValue;
+    transient DmcTypeGxtEnumMappingREFMAP existingValue;
 
     public GxtEnumMappingREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

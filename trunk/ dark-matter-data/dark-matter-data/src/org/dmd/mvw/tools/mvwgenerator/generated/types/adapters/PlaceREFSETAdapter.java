@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePlaceREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class PlaceREFSETAdapter extends DmcTypePlaceREFSET implements DmcAdapterIF {
 
-    DmcTypePlaceREFSET existingValue;
+    transient DmcTypePlaceREFSET existingValue;
 
     public PlaceREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeBaseObjREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class BaseObjREFSETAdapter extends DmcTypeBaseObjREFSET implements DmcAdapterIF {
 
-    DmcTypeBaseObjREFSET existingValue;
+    transient DmcTypeBaseObjREFSET existingValue;
 
     public BaseObjREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

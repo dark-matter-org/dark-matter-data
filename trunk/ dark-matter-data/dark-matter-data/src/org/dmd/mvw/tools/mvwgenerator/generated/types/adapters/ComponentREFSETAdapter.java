@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeComponentREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class ComponentREFSETAdapter extends DmcTypeComponentREFSET implements DmcAdapterIF {
 
-    DmcTypeComponentREFSET existingValue;
+    transient DmcTypeComponentREFSET existingValue;
 
     public ComponentREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

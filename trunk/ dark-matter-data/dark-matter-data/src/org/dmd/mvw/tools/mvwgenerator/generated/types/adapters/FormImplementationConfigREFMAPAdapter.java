@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeFormImplementationC
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class FormImplementationConfigREFMAPAdapter extends DmcTypeFormImplementationConfigREFMAP implements DmcAdapterIF {
 
-    DmcTypeFormImplementationConfigREFMAP existingValue;
+    transient DmcTypeFormImplementationConfigREFMAP existingValue;
 
     public FormImplementationConfigREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

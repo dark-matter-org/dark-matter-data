@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSubMenuREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class SubMenuREFMVAdapter extends DmcTypeSubMenuREFMV implements DmcAdapterIF {
 
-    DmcTypeSubMenuREFMV existingValue;
+    transient DmcTypeSubMenuREFMV existingValue;
 
     public SubMenuREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

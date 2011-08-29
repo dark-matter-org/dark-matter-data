@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcViewREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class MvcViewREFMAPAdapter extends DmcTypeMvcViewREFMAP implements DmcAdapterIF {
 
-    DmcTypeMvcViewREFMAP existingValue;
+    transient DmcTypeMvcViewREFMAP existingValue;
 
     public MvcViewREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

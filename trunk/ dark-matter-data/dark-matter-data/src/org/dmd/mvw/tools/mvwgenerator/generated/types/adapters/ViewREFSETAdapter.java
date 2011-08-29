@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeViewREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class ViewREFSETAdapter extends DmcTypeViewREFSET implements DmcAdapterIF {
 
-    DmcTypeViewREFSET existingValue;
+    transient DmcTypeViewREFSET existingValue;
 
     public ViewREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeTestMultiLevelSubpackageREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class TestMultiLevelSubpackageREFSETAdapter extends DmcTypeTestMultiLevelSubpackageREFSET implements DmcAdapterIF {
 
-    DmcTypeTestMultiLevelSubpackageREFSET existingValue;
+    transient DmcTypeTestMultiLevelSubpackageREFSET existingValue;
 
     public TestMultiLevelSubpackageREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

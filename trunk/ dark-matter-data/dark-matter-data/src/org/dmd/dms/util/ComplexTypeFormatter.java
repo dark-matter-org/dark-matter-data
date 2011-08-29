@@ -321,7 +321,7 @@ public class ComplexTypeFormatter {
     	
     	while(fields.hasNext()){
     		Field field = fields.next();
-    		DebugInfo.debug("field type = " + field.getType().getObjectName());
+//    		DebugInfo.debug("field type = " + field.getType().getObjectName());
     		
         	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
         	
@@ -329,23 +329,23 @@ public class ComplexTypeFormatter {
         	
         	if (type.getInternallyGenerated()){
         		if (type.getIsEnumType()){
-        			System.out.println(type);
-        			DebugInfo.debug("Need enum code");
+//        			System.out.println(type);
+//        			DebugInfo.debug("Need enum code");
 //        			System.exit(1);
         		}
         		else{
-        			System.out.println("ORIGINAL CLASS:\n" + type.getOriginalClass());
+//        			System.out.println("ORIGINAL CLASS:\n" + type.getOriginalClass());
         			
         			uniqueImports.put(type.getOriginalClass().getJavaClass(), "Object reference");
         			uniqueImports.put(type.getOriginalClass().getDmtREFImport(), "Object reference");
         			
         			
-        			DebugInfo.debug("Need object reference code");
+//        			DebugInfo.debug("Need object reference code");
 //        			System.exit(1);
         		}
         	}
         	
-        	DebugInfo.debug("\n" + type.toOIF());
+//        	DebugInfo.debug("\n" + type.toOIF());
         	
         	if (primitiveType == null){
 //    			DebugInfo.debug("Couldn't get primitive type");

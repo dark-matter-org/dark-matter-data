@@ -80,6 +80,10 @@ public class ResponseCallback {
 		return(handler);
 	}
 	
+	public EventHandlerIF getEventHandler(){
+		return(eventHandler);
+	}
+	
 	public RequestDMO getRequest(){
 		return(request);
 	}

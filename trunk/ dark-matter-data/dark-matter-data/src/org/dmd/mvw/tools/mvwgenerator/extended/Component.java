@@ -47,6 +47,8 @@ public class Component extends ComponentDMW {
 	
 	StringBuffer					eventRegistration;
 	
+	StringBuffer					objEventHandlers;
+	
 	TreeMap<String,CommsHandler>	commsHandlers;
 	
 	boolean							centralRpcErrorHandling;
@@ -164,6 +166,7 @@ public class Component extends ComponentDMW {
 		abstractMethods			= new StringBuffer();
 		fireMethods				= new StringBuffer();
 		errorCases				= new StringBuffer();
+		objEventHandlers		= new StringBuffer();
 		rpcErrorCases			= new StringBuffer();
 		successCases			= new StringBuffer();
 		commsConstants			= new StringBuffer();
@@ -241,7 +244,7 @@ public class Component extends ComponentDMW {
 		if (hasCommsMethods){
 			for(CommsHandler ch: commsHandlers.values()){
 				ch.addSendRequestFunction(commsMethods);
-				ch.addHandlers(successCases, errorCases, rpcErrorCases, abstractMethods);
+				ch.addHandlers(successCases, errorCases, rpcErrorCases, abstractMethods, objEventHandlers);
 				commsConstants.append("    private final int " + ch.constant + " = " + ch.methodID +";\n");
 			}
 			
@@ -272,7 +275,9 @@ public class Component extends ComponentDMW {
 				commsMethods.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				commsMethods.append("    @Override\n");
 				commsMethods.append("    public void handleEvent(DMPEventDMO event){\n");
-				commsMethods.append("        // Coming soon\n");
+				commsMethods.append("        switch(event.getHandlerID()){\n");
+				commsMethods.append(objEventHandlers.toString());
+				commsMethods.append("        }\n");
 				commsMethods.append("    }\n\n");
 			}
 			
@@ -284,9 +289,9 @@ public class Component extends ComponentDMW {
 				commsMethods.append("        throw(new IllegalStateException(\"RPC errors are supposed to be centrally handled!\"));\n");
 			}
 			else{
-				commsMethods.append("            switch(request.getHandlerID()){\n");
+				commsMethods.append("        switch(request.getHandlerID()){\n");
 				commsMethods.append(rpcErrorCases.toString());
-				commsMethods.append("            }\n");
+				commsMethods.append("        }\n");
 			}
 			commsMethods.append("    }\n\n");
 		}
@@ -426,10 +431,18 @@ public class Component extends ComponentDMW {
 		}
 		
 		void addSendRequestFunction(StringBuffer sb){
-			sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    protected void send" + baseName + "Request(" + requestType + "RequestDMO request){\n");
-			sb.append("        commsController.send" + requestType + "Request(request,this,ErrorOptionsEnum." + rpc + ",ErrorOptionsEnum." + dmp + ");\n");
-			sb.append("    }\n\n");
+			if (requestType.equals("Get") && requestDef.getOptions().contains(RequestOptionEnum.EVENTS)){
+				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    protected void send" + baseName + "Request(" + requestType + "RequestDMO request){\n");
+				sb.append("        commsController.send" + requestType + "Request(request,this,this,ErrorOptionsEnum." + rpc + ",ErrorOptionsEnum." + dmp + ");\n");
+				sb.append("    }\n\n");
+			}
+			else{
+				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    protected void send" + baseName + "Request(" + requestType + "RequestDMO request){\n");
+				sb.append("        commsController.send" + requestType + "Request(request,this,ErrorOptionsEnum." + rpc + ",ErrorOptionsEnum." + dmp + ");\n");
+				sb.append("    }\n\n");
+			}
 			
 			if (requestDef.isUsingClassInfo()){
 				if (requestDef.getRequestType().equals("Set")){
@@ -495,7 +508,7 @@ public class Component extends ComponentDMW {
 			}
 		}
 		
-		void addHandlers(StringBuffer success, StringBuffer dmpError, StringBuffer rpcError, StringBuffer abstractFunctions){
+		void addHandlers(StringBuffer success, StringBuffer dmpError, StringBuffer rpcError, StringBuffer abstractFunctions, StringBuffer objEventHandlers){
 			boolean dmp = false;
 			boolean rpc = false;
 			
@@ -544,6 +557,10 @@ public class Component extends ComponentDMW {
 			if (requestType.equals("Get") && requestDef.getOptions().contains(RequestOptionEnum.EVENTS) ){
 				abstractFunctions.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				abstractFunctions.append("    abstract protected void handleEventFrom" + baseName + "(DMPEventDMO event);\n\n");
+				
+				objEventHandlers.append("        case " + constant + ":\n");
+				objEventHandlers.append("            handleEventFrom" + baseName + "(event);\n");
+				objEventHandlers.append("            break;\n");
 			}
 			
 		}

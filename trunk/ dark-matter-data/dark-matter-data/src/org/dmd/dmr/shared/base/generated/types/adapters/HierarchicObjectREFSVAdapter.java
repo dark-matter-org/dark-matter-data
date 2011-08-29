@@ -11,7 +11,7 @@ import org.dmd.dmr.shared.base.generated.types.DmcTypeHierarchicObjectREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class HierarchicObjectREFSVAdapter extends DmcTypeHierarchicObjectREFSV implements DmcAdapterIF {
 
-    DmcTypeHierarchicObjectREFSV existingValue;
+    transient DmcTypeHierarchicObjectREFSV existingValue;
 
     public HierarchicObjectREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

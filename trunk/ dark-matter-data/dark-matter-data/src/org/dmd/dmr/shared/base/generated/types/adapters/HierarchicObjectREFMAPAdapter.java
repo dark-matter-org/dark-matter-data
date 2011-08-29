@@ -11,7 +11,7 @@ import org.dmd.dmr.shared.base.generated.types.DmcTypeHierarchicObjectREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class HierarchicObjectREFMAPAdapter extends DmcTypeHierarchicObjectREFMAP implements DmcAdapterIF {
 
-    DmcTypeHierarchicObjectREFMAP existingValue;
+    transient DmcTypeHierarchicObjectREFMAP existingValue;
 
     public HierarchicObjectREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

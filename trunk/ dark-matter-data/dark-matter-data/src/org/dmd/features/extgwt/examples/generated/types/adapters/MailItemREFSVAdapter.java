@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.examples.generated.types.DmcTypeMailItemREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class MailItemREFSVAdapter extends DmcTypeMailItemREFSV implements DmcAdapterIF {
 
-    DmcTypeMailItemREFSV existingValue;
+    transient DmcTypeMailItemREFSV existingValue;
 
     public MailItemREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicNamedObjectExtendedREF
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class TestBasicNamedObjectExtendedREFMVAdapter extends DmcTypeTestBasicNamedObjectExtendedREFMV implements DmcAdapterIF {
 
-    DmcTypeTestBasicNamedObjectExtendedREFMV existingValue;
+    transient DmcTypeTestBasicNamedObjectExtendedREFMV existingValue;
 
     public TestBasicNamedObjectExtendedREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

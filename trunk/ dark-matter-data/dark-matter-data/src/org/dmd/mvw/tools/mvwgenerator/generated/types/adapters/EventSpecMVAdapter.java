@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventSpecMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class EventSpecMVAdapter extends DmcTypeEventSpecMV implements DmcAdapterIF {
 
-    DmcTypeEventSpecMV existingValue;
+    transient DmcTypeEventSpecMV existingValue;
 
     public EventSpecMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

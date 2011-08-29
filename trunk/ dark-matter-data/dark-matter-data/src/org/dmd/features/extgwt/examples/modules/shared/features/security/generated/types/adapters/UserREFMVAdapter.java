@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.examples.modules.shared.features.security.generat
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class UserREFMVAdapter extends DmcTypeUserREFMV implements DmcAdapterIF {
 
-    DmcTypeUserREFMV existingValue;
+    transient DmcTypeUserREFMV existingValue;
 
     public UserREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

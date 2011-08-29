@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMethodWithArgsSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class MethodWithArgsSETAdapter extends DmcTypeMethodWithArgsSET implements DmcAdapterIF {
 
-    DmcTypeMethodWithArgsSET existingValue;
+    transient DmcTypeMethodWithArgsSET existingValue;
 
     public MethodWithArgsSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

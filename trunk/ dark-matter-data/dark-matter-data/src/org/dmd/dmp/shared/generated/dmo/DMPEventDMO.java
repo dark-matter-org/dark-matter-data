@@ -473,6 +473,56 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public Integer getHandlerID(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmpDMSAG.__handlerID);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets handlerID to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setHandlerID(Integer value) {
+        DmcAttribute<?> attr = get(DmpDMSAG.__handlerID);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmpDMSAG.__handlerID);
+        
+        try{
+            attr.set(value);
+            set(DmpDMSAG.__handlerID,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets handlerID to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setHandlerID(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmpDMSAG.__handlerID);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmpDMSAG.__handlerID);
+        
+        attr.set(value);
+        set(DmpDMSAG.__handlerID,attr);
+    }
+
+    /**
+     * Removes the handlerID attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remHandlerID(){
+         rem(DmpDMSAG.__handlerID);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public Boolean isNotifyOriginator(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(DmpDMSAG.__notifyOriginator);
         if (attr == null)
@@ -620,6 +670,56 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
     public void remListenerID(){
          rem(DmpDMSAG.__listenerID);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public Boolean isMyOwnEvent(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(DmpDMSAG.__myOwnEvent);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets myOwnEvent to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setMyOwnEvent(Boolean value) {
+        DmcAttribute<?> attr = get(DmpDMSAG.__myOwnEvent);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(DmpDMSAG.__myOwnEvent);
+        
+        try{
+            attr.set(value);
+            set(DmpDMSAG.__myOwnEvent,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets myOwnEvent to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setMyOwnEvent(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmpDMSAG.__myOwnEvent);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(DmpDMSAG.__myOwnEvent);
+        
+        attr.set(value);
+        set(DmpDMSAG.__myOwnEvent,attr);
+    }
+
+    /**
+     * Removes the myOwnEvent attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remMyOwnEvent(){
+         rem(DmpDMSAG.__myOwnEvent);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)

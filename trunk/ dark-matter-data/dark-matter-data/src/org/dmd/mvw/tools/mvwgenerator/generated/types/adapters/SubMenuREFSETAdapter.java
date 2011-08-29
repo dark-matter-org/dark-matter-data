@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSubMenuREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class SubMenuREFSETAdapter extends DmcTypeSubMenuREFSET implements DmcAdapterIF {
 
-    DmcTypeSubMenuREFSET existingValue;
+    transient DmcTypeSubMenuREFSET existingValue;
 
     public SubMenuREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

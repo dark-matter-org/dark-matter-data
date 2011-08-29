@@ -23,6 +23,7 @@ import org.dmd.dmc.DmcSliceInfo;                              // Required for ob
 import org.dmd.dmc.DmcValueException;                         // Any attributes
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;          // Base class
 import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;          // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type
 
@@ -35,7 +36,12 @@ import org.dmd.dmc.DmcObjectValidator;
  * login is successful, a session ID will be assigned and a request root will
  * be given. All subsequent requests must contain the session ID and all
  * requests will be checked to ensure that they pertain to objects at or
- * below the request root.
+ * below the request root. <p/> The response may also have an originatorID
+ * that is a unique identifier assigned by the  server. In some systems, this
+ * identifier will be stamped on all incoming requests and passed through to
+ * the events that are generated as a result of those requests. In this way,
+ * a client can tell whether the events it receives came from its own
+ * requests or from requests made by other clients.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>
@@ -143,6 +149,56 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
     public void remSessionID(){
          rem(DmpDMSAG.__sessionID);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public Integer getOriginatorID(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmpDMSAG.__originatorID);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets originatorID to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setOriginatorID(Integer value) {
+        DmcAttribute<?> attr = get(DmpDMSAG.__originatorID);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmpDMSAG.__originatorID);
+        
+        try{
+            attr.set(value);
+            set(DmpDMSAG.__originatorID,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets originatorID to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setOriginatorID(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmpDMSAG.__originatorID);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmpDMSAG.__originatorID);
+        
+        attr.set(value);
+        set(DmpDMSAG.__originatorID,attr);
+    }
+
+    /**
+     * Removes the originatorID attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remOriginatorID(){
+         rem(DmpDMSAG.__originatorID);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
