@@ -11,7 +11,7 @@ import org.dmd.dmp.shared.generated.types.DmcTypeResponseFormatEnumSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class ResponseFormatEnumSETAdapter extends DmcTypeResponseFormatEnumSET implements DmcAdapterIF {
 
-    DmcTypeResponseFormatEnumSET existingValue;
+    transient DmcTypeResponseFormatEnumSET existingValue;
 
     public ResponseFormatEnumSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

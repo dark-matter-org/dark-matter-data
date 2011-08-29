@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeIntegerNamedObjectREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class IntegerNamedObjectREFMAPAdapter extends DmcTypeIntegerNamedObjectREFMAP implements DmcAdapterIF {
 
-    DmcTypeIntegerNamedObjectREFMAP existingValue;
+    transient DmcTypeIntegerNamedObjectREFMAP existingValue;
 
     public IntegerNamedObjectREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

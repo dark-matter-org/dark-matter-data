@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcMenuREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class MvcMenuREFMVAdapter extends DmcTypeMvcMenuREFMV implements DmcAdapterIF {
 
-    DmcTypeMvcMenuREFMV existingValue;
+    transient DmcTypeMvcMenuREFMV existingValue;
 
     public MvcMenuREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

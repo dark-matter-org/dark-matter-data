@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeI18NConfigREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class I18NConfigREFSVAdapter extends DmcTypeI18NConfigREFSV implements DmcAdapterIF {
 
-    DmcTypeI18NConfigREFSV existingValue;
+    transient DmcTypeI18NConfigREFSV existingValue;
 
     public I18NConfigREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

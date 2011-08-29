@@ -11,7 +11,7 @@ import org.dmd.dmp.server.servlet.generated.types.DmcTypePluginConfigREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class PluginConfigREFMVAdapter extends DmcTypePluginConfigREFMV implements DmcAdapterIF {
 
-    DmcTypePluginConfigREFMV existingValue;
+    transient DmcTypePluginConfigREFMV existingValue;
 
     public PluginConfigREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

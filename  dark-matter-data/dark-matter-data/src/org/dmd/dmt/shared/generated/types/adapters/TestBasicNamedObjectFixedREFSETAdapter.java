@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicNamedObjectFixedREFSET
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class TestBasicNamedObjectFixedREFSETAdapter extends DmcTypeTestBasicNamedObjectFixedREFSET implements DmcAdapterIF {
 
-    DmcTypeTestBasicNamedObjectFixedREFSET existingValue;
+    transient DmcTypeTestBasicNamedObjectFixedREFSET existingValue;
 
     public TestBasicNamedObjectFixedREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.examples.modules.shared.features.security.generat
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class UserGroupREFSETAdapter extends DmcTypeUserGroupREFSET implements DmcAdapterIF {
 
-    DmcTypeUserGroupREFSET existingValue;
+    transient DmcTypeUserGroupREFSET existingValue;
 
     public UserGroupREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

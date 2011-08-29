@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeUUIDNamedObjectREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class UUIDNamedObjectREFSETAdapter extends DmcTypeUUIDNamedObjectREFSET implements DmcAdapterIF {
 
-    DmcTypeUUIDNamedObjectREFSET existingValue;
+    transient DmcTypeUUIDNamedObjectREFSET existingValue;
 
     public UUIDNamedObjectREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

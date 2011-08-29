@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcServerEventREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class MvcServerEventREFSETAdapter extends DmcTypeMvcServerEventREFSET implements DmcAdapterIF {
 
-    DmcTypeMvcServerEventREFSET existingValue;
+    transient DmcTypeMvcServerEventREFSET existingValue;
 
     public MvcServerEventREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

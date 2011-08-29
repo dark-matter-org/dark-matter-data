@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventScopeEnumMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class EventScopeEnumMVAdapter extends DmcTypeEventScopeEnumMV implements DmcAdapterIF {
 
-    DmcTypeEventScopeEnumMV existingValue;
+    transient DmcTypeEventScopeEnumMV existingValue;
 
     public EventScopeEnumMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

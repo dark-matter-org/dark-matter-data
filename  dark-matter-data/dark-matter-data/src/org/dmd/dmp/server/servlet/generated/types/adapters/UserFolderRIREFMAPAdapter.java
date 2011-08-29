@@ -11,7 +11,7 @@ import org.dmd.dmp.server.servlet.generated.types.DmcTypeUserFolderRIREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class UserFolderRIREFMAPAdapter extends DmcTypeUserFolderRIREFMAP implements DmcAdapterIF {
 
-    DmcTypeUserFolderRIREFMAP existingValue;
+    transient DmcTypeUserFolderRIREFMAP existingValue;
 
     public UserFolderRIREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

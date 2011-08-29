@@ -11,7 +11,7 @@ import org.dmd.dmv.shared.generated.types.DmcTypeRuleREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class RuleREFSVAdapter extends DmcTypeRuleREFSV implements DmcAdapterIF {
 
-    DmcTypeRuleREFSV existingValue;
+    transient DmcTypeRuleREFSV existingValue;
 
     public RuleREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

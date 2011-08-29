@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeGetWithOptionsSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class GetWithOptionsSVAdapter extends DmcTypeGetWithOptionsSV implements DmcAdapterIF {
 
-    DmcTypeGetWithOptionsSV existingValue;
+    transient DmcTypeGetWithOptionsSV existingValue;
 
     public GetWithOptionsSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

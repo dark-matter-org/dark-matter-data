@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeOperationSpecSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class OperationSpecSETAdapter extends DmcTypeOperationSpecSET implements DmcAdapterIF {
 
-    DmcTypeOperationSpecSET existingValue;
+    transient DmcTypeOperationSpecSET existingValue;
 
     public OperationSpecSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

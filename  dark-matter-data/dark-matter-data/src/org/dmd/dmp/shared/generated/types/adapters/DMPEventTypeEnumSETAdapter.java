@@ -11,7 +11,7 @@ import org.dmd.dmp.shared.generated.types.DmcTypeDMPEventTypeEnumSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class DMPEventTypeEnumSETAdapter extends DmcTypeDMPEventTypeEnumSET implements DmcAdapterIF {
 
-    DmcTypeDMPEventTypeEnumSET existingValue;
+    transient DmcTypeDMPEventTypeEnumSET existingValue;
 
     public DMPEventTypeEnumSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

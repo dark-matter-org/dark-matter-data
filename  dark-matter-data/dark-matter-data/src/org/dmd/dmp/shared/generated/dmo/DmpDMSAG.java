@@ -33,6 +33,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __handlerID = new DmcAttributeInfo("handlerID", 531, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __lastResponse = new DmcAttributeInfo("lastResponse", 510, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __listenerID = new DmcAttributeInfo("listenerID", 538, "Long", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __myOwnEvent = new DmcAttributeInfo("myOwnEvent", 543, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __newObject = new DmcAttributeInfo("newObject", 513, "DmcObject", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __notifyOriginator = new DmcAttributeInfo("notifyOriginator", 527, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __objectList = new DmcAttributeInfo("objectList", 512, "DmcObject", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -120,6 +121,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__handlerID.id,__handlerID);
         _SmAp.put(__lastResponse.id,__lastResponse);
         _SmAp.put(__listenerID.id,__listenerID);
+        _SmAp.put(__myOwnEvent.id,__myOwnEvent);
         _SmAp.put(__newObject.id,__newObject);
         _SmAp.put(__notifyOriginator.id,__notifyOriginator);
         _SmAp.put(__objectList.id,__objectList);
@@ -181,6 +183,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         __Request.addMay(__responseFormat);
         __Request.addMay(__originatorID);
         __Request.addMay(__timeoutSeconds);
+        __Request.addMay(__notifyOriginator);
 
         __Response.addMust(__lastResponse);
         __Response.addMust(__responseType);
@@ -192,6 +195,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         __LoginRequest.addMust(DmrBaseDMSAG.__password);
 
         __LoginResponse.addMay(__sessionID);
+        __LoginResponse.addMay(__originatorID);
         __LoginResponse.addMay(__requestRoot);
         __LoginResponse.addMay(__userFQN);
 
@@ -251,9 +255,11 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         __DMPEvent.addMay(MetaDMSAG.__modify);
         __DMPEvent.addMay(__sourceObject);
         __DMPEvent.addMay(__originatorID);
+        __DMPEvent.addMay(__handlerID);
         __DMPEvent.addMay(__notifyOriginator);
         __DMPEvent.addMay(__slice);
         __DMPEvent.addMay(__listenerID);
+        __DMPEvent.addMay(__myOwnEvent);
 
         __NotifyRequest.addMust(__target);
         __NotifyRequest.addMay(__scope);

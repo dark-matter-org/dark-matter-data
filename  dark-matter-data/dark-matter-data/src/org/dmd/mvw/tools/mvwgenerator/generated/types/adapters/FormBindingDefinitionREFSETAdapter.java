@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeFormBindingDefiniti
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class FormBindingDefinitionREFSETAdapter extends DmcTypeFormBindingDefinitionREFSET implements DmcAdapterIF {
 
-    DmcTypeFormBindingDefinitionREFSET existingValue;
+    transient DmcTypeFormBindingDefinitionREFSET existingValue;
 
     public FormBindingDefinitionREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

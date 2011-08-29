@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeActionREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class ActionREFMVAdapter extends DmcTypeActionREFMV implements DmcAdapterIF {
 
-    DmcTypeActionREFMV existingValue;
+    transient DmcTypeActionREFMV existingValue;
 
     public ActionREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

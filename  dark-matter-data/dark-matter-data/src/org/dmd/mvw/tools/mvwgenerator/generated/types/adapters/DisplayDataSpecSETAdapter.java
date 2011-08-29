@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeDisplayDataSpecSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class DisplayDataSpecSETAdapter extends DmcTypeDisplayDataSpecSET implements DmcAdapterIF {
 
-    DmcTypeDisplayDataSpecSET existingValue;
+    transient DmcTypeDisplayDataSpecSET existingValue;
 
     public DisplayDataSpecSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

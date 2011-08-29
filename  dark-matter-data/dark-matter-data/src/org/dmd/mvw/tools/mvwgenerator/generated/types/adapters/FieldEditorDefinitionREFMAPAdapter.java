@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeFieldEditorDefiniti
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class FieldEditorDefinitionREFMAPAdapter extends DmcTypeFieldEditorDefinitionREFMAP implements DmcAdapterIF {
 
-    DmcTypeFieldEditorDefinitionREFMAP existingValue;
+    transient DmcTypeFieldEditorDefinitionREFMAP existingValue;
 
     public FieldEditorDefinitionREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

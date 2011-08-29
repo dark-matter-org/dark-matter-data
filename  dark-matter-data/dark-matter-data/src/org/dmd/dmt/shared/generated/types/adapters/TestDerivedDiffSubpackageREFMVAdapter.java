@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeTestDerivedDiffSubpackageREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class TestDerivedDiffSubpackageREFMVAdapter extends DmcTypeTestDerivedDiffSubpackageREFMV implements DmcAdapterIF {
 
-    DmcTypeTestDerivedDiffSubpackageREFMV existingValue;
+    transient DmcTypeTestDerivedDiffSubpackageREFMV existingValue;
 
     public TestDerivedDiffSubpackageREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

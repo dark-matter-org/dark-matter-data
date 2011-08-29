@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeTestOneLevelSubpackageREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class TestOneLevelSubpackageREFSETAdapter extends DmcTypeTestOneLevelSubpackageREFSET implements DmcAdapterIF {
 
-    DmcTypeTestOneLevelSubpackageREFSET existingValue;
+    transient DmcTypeTestOneLevelSubpackageREFSET existingValue;
 
     public TestOneLevelSubpackageREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

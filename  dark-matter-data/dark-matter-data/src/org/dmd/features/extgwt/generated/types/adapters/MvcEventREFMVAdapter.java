@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcEventREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class MvcEventREFMVAdapter extends DmcTypeMvcEventREFMV implements DmcAdapterIF {
 
-    DmcTypeMvcEventREFMV existingValue;
+    transient DmcTypeMvcEventREFMV existingValue;
 
     public MvcEventREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeActivityREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class ActivityREFSVAdapter extends DmcTypeActivityREFSV implements DmcAdapterIF {
 
-    DmcTypeActivityREFSV existingValue;
+    transient DmcTypeActivityREFSV existingValue;
 
     public ActivityREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

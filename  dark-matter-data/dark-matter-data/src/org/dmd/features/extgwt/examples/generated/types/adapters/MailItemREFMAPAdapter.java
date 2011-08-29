@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.examples.generated.types.DmcTypeMailItemREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class MailItemREFMAPAdapter extends DmcTypeMailItemREFMAP implements DmcAdapterIF {
 
-    DmcTypeMailItemREFMAP existingValue;
+    transient DmcTypeMailItemREFMAP existingValue;
 
     public MailItemREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

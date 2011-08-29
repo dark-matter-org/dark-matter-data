@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcDefinitionREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class MvcDefinitionREFSVAdapter extends DmcTypeMvcDefinitionREFSV implements DmcAdapterIF {
 
-    DmcTypeMvcDefinitionREFSV existingValue;
+    transient DmcTypeMvcDefinitionREFSV existingValue;
 
     public MvcDefinitionREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

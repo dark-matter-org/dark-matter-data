@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePresenterREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class PresenterREFMAPAdapter extends DmcTypePresenterREFMAP implements DmcAdapterIF {
 
-    DmcTypePresenterREFMAP existingValue;
+    transient DmcTypePresenterREFMAP existingValue;
 
     public PresenterREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

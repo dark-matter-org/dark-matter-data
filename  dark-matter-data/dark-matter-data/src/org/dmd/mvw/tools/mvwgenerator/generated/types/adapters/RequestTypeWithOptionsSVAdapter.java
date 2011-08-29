@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeRequestTypeWithOpti
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class RequestTypeWithOptionsSVAdapter extends DmcTypeRequestTypeWithOptionsSV implements DmcAdapterIF {
 
-    DmcTypeRequestTypeWithOptionsSV existingValue;
+    transient DmcTypeRequestTypeWithOptionsSV existingValue;
 
     public RequestTypeWithOptionsSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

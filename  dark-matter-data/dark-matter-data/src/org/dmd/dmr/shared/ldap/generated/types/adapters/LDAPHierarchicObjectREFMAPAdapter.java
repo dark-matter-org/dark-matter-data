@@ -11,7 +11,7 @@ import org.dmd.dmr.shared.ldap.generated.types.DmcTypeLDAPHierarchicObjectREFMAP
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class LDAPHierarchicObjectREFMAPAdapter extends DmcTypeLDAPHierarchicObjectREFMAP implements DmcAdapterIF {
 
-    DmcTypeLDAPHierarchicObjectREFMAP existingValue;
+    transient DmcTypeLDAPHierarchicObjectREFMAP existingValue;
 
     public LDAPHierarchicObjectREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

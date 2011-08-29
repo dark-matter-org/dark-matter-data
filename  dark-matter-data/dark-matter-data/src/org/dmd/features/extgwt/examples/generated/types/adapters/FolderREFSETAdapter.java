@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.examples.generated.types.DmcTypeFolderREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class FolderREFSETAdapter extends DmcTypeFolderREFSET implements DmcAdapterIF {
 
-    DmcTypeFolderREFSET existingValue;
+    transient DmcTypeFolderREFSET existingValue;
 
     public FolderREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcSubMenuREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class MvcSubMenuREFMAPAdapter extends DmcTypeMvcSubMenuREFMAP implements DmcAdapterIF {
 
-    DmcTypeMvcSubMenuREFMAP existingValue;
+    transient DmcTypeMvcSubMenuREFMAP existingValue;
 
     public MvcSubMenuREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

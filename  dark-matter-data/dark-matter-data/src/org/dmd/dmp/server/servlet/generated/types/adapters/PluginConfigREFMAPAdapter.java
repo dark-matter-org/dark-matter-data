@@ -11,7 +11,7 @@ import org.dmd.dmp.server.servlet.generated.types.DmcTypePluginConfigREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class PluginConfigREFMAPAdapter extends DmcTypePluginConfigREFMAP implements DmcAdapterIF {
 
-    DmcTypePluginConfigREFMAP existingValue;
+    transient DmcTypePluginConfigREFMAP existingValue;
 
     public PluginConfigREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEditFieldSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class EditFieldSETAdapter extends DmcTypeEditFieldSET implements DmcAdapterIF {
 
-    DmcTypeEditFieldSET existingValue;
+    transient DmcTypeEditFieldSET existingValue;
 
     public EditFieldSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

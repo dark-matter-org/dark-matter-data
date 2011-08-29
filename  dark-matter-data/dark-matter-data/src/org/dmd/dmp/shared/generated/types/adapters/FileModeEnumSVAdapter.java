@@ -11,7 +11,7 @@ import org.dmd.dmp.shared.generated.types.DmcTypeFileModeEnumSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class FileModeEnumSVAdapter extends DmcTypeFileModeEnumSV implements DmcAdapterIF {
 
-    DmcTypeFileModeEnumSV existingValue;
+    transient DmcTypeFileModeEnumSV existingValue;
 
     public FileModeEnumSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

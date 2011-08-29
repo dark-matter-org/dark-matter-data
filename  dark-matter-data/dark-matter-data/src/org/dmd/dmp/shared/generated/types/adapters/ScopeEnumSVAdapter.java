@@ -11,7 +11,7 @@ import org.dmd.dmp.shared.generated.types.DmcTypeScopeEnumSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class ScopeEnumSVAdapter extends DmcTypeScopeEnumSV implements DmcAdapterIF {
 
-    DmcTypeScopeEnumSV existingValue;
+    transient DmcTypeScopeEnumSV existingValue;
 
     public ScopeEnumSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

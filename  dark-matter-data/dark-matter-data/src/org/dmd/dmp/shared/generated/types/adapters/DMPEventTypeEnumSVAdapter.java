@@ -11,7 +11,7 @@ import org.dmd.dmp.shared.generated.types.DmcTypeDMPEventTypeEnumSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class DMPEventTypeEnumSVAdapter extends DmcTypeDMPEventTypeEnumSV implements DmcAdapterIF {
 
-    DmcTypeDMPEventTypeEnumSV existingValue;
+    transient DmcTypeDMPEventTypeEnumSV existingValue;
 
     public DMPEventTypeEnumSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcBackgroundMenuREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class MvcBackgroundMenuREFSETAdapter extends DmcTypeMvcBackgroundMenuREFSET implements DmcAdapterIF {
 
-    DmcTypeMvcBackgroundMenuREFSET existingValue;
+    transient DmcTypeMvcBackgroundMenuREFSET existingValue;
 
     public MvcBackgroundMenuREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

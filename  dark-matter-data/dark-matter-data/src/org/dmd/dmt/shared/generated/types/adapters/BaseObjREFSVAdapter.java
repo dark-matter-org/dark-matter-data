@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeBaseObjREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class BaseObjREFSVAdapter extends DmcTypeBaseObjREFSV implements DmcAdapterIF {
 
-    DmcTypeBaseObjREFSV existingValue;
+    transient DmcTypeBaseObjREFSV existingValue;
 
     public BaseObjREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

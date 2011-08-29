@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuBarREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class MenuBarREFSVAdapter extends DmcTypeMenuBarREFSV implements DmcAdapterIF {
 
-    DmcTypeMenuBarREFSV existingValue;
+    transient DmcTypeMenuBarREFSV existingValue;
 
     public MenuBarREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

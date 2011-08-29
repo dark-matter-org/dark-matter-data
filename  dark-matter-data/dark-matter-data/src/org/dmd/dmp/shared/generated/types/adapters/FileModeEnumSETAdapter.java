@@ -11,7 +11,7 @@ import org.dmd.dmp.shared.generated.types.DmcTypeFileModeEnumSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class FileModeEnumSETAdapter extends DmcTypeFileModeEnumSET implements DmcAdapterIF {
 
-    DmcTypeFileModeEnumSET existingValue;
+    transient DmcTypeFileModeEnumSET existingValue;
 
     public FileModeEnumSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePlaceREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class PlaceREFSVAdapter extends DmcTypePlaceREFSV implements DmcAdapterIF {
 
-    DmcTypePlaceREFSV existingValue;
+    transient DmcTypePlaceREFSV existingValue;
 
     public PlaceREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

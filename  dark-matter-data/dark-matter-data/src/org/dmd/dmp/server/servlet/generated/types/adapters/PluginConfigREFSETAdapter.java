@@ -11,7 +11,7 @@ import org.dmd.dmp.server.servlet.generated.types.DmcTypePluginConfigREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class PluginConfigREFSETAdapter extends DmcTypePluginConfigREFSET implements DmcAdapterIF {
 
-    DmcTypePluginConfigREFSET existingValue;
+    transient DmcTypePluginConfigREFSET existingValue;
 
     public PluginConfigREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

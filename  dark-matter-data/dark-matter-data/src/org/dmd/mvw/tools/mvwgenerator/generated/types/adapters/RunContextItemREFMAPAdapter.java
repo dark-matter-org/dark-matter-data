@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeRunContextItemREFMA
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class RunContextItemREFMAPAdapter extends DmcTypeRunContextItemREFMAP implements DmcAdapterIF {
 
-    DmcTypeRunContextItemREFMAP existingValue;
+    transient DmcTypeRunContextItemREFMAP existingValue;
 
     public RunContextItemREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

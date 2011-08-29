@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeObjWithRefsREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class ObjWithRefsREFSETAdapter extends DmcTypeObjWithRefsREFSET implements DmcAdapterIF {
 
-    DmcTypeObjWithRefsREFSET existingValue;
+    transient DmcTypeObjWithRefsREFSET existingValue;
 
     public ObjWithRefsREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

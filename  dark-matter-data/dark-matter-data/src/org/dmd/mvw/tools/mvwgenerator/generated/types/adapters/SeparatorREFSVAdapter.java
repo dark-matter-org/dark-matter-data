@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSeparatorREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class SeparatorREFSVAdapter extends DmcTypeSeparatorREFSV implements DmcAdapterIF {
 
-    DmcTypeSeparatorREFSV existingValue;
+    transient DmcTypeSeparatorREFSV existingValue;
 
     public SeparatorREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeUUIDNamedObjectREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class UUIDNamedObjectREFSVAdapter extends DmcTypeUUIDNamedObjectREFSV implements DmcAdapterIF {
 
-    DmcTypeUUIDNamedObjectREFSV existingValue;
+    transient DmcTypeUUIDNamedObjectREFSV existingValue;
 
     public UUIDNamedObjectREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

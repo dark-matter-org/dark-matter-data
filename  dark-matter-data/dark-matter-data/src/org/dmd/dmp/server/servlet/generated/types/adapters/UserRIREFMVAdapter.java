@@ -11,7 +11,7 @@ import org.dmd.dmp.server.servlet.generated.types.DmcTypeUserRIREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class UserRIREFMVAdapter extends DmcTypeUserRIREFMV implements DmcAdapterIF {
 
-    DmcTypeUserRIREFMV existingValue;
+    transient DmcTypeUserRIREFMV existingValue;
 
     public UserRIREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

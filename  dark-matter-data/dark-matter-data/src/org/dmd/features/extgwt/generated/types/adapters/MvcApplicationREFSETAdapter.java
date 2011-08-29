@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcApplicationREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class MvcApplicationREFSETAdapter extends DmcTypeMvcApplicationREFSET implements DmcAdapterIF {
 
-    DmcTypeMvcApplicationREFSET existingValue;
+    transient DmcTypeMvcApplicationREFSET existingValue;
 
     public MvcApplicationREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

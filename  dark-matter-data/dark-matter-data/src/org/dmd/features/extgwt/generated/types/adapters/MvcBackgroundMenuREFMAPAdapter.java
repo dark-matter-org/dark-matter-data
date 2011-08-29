@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcBackgroundMenuREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class MvcBackgroundMenuREFMAPAdapter extends DmcTypeMvcBackgroundMenuREFMAP implements DmcAdapterIF {
 
-    DmcTypeMvcBackgroundMenuREFMAP existingValue;
+    transient DmcTypeMvcBackgroundMenuREFMAP existingValue;
 
     public MvcBackgroundMenuREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

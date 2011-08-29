@@ -11,7 +11,7 @@ import org.dmd.dmp.server.servlet.generated.types.DmcTypeSessionRIREFSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class SessionRIREFSVAdapter extends DmcTypeSessionRIREFSV implements DmcAdapterIF {
 
-    DmcTypeSessionRIREFSV existingValue;
+    transient DmcTypeSessionRIREFSV existingValue;
 
     public SessionRIREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

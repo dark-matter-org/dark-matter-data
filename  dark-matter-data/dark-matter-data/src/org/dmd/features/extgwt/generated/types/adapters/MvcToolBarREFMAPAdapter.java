@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcToolBarREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class MvcToolBarREFMAPAdapter extends DmcTypeMvcToolBarREFMAP implements DmcAdapterIF {
 
-    DmcTypeMvcToolBarREFMAP existingValue;
+    transient DmcTypeMvcToolBarREFMAP existingValue;
 
     public MvcToolBarREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeIntegerNamedObjectREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class IntegerNamedObjectREFSETAdapter extends DmcTypeIntegerNamedObjectREFSET implements DmcAdapterIF {
 
-    DmcTypeIntegerNamedObjectREFSET existingValue;
+    transient DmcTypeIntegerNamedObjectREFSET existingValue;
 
     public IntegerNamedObjectREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcMultiViewREFMV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
 public class MvcMultiViewREFMVAdapter extends DmcTypeMvcMultiViewREFMV implements DmcAdapterIF {
 
-    DmcTypeMvcMultiViewREFMV existingValue;
+    transient DmcTypeMvcMultiViewREFMV existingValue;
 
     public MvcMultiViewREFMVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

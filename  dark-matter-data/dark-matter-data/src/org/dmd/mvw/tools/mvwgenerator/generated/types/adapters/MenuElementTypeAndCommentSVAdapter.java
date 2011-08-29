@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuElementTypeAndC
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class MenuElementTypeAndCommentSVAdapter extends DmcTypeMenuElementTypeAndCommentSV implements DmcAdapterIF {
 
-    DmcTypeMenuElementTypeAndCommentSV existingValue;
+    transient DmcTypeMenuElementTypeAndCommentSV existingValue;
 
     public MenuElementTypeAndCommentSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

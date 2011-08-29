@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeTestMultiLevelSubpackageREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class TestMultiLevelSubpackageREFMAPAdapter extends DmcTypeTestMultiLevelSubpackageREFMAP implements DmcAdapterIF {
 
-    DmcTypeTestMultiLevelSubpackageREFMAP existingValue;
+    transient DmcTypeTestMultiLevelSubpackageREFMAP existingValue;
 
     public TestMultiLevelSubpackageREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

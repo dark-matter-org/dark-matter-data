@@ -11,7 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMvwDefinitionREFSET
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class MvwDefinitionREFSETAdapter extends DmcTypeMvwDefinitionREFSET implements DmcAdapterIF {
 
-    DmcTypeMvwDefinitionREFSET existingValue;
+    transient DmcTypeMvwDefinitionREFSET existingValue;
 
     public MvwDefinitionREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

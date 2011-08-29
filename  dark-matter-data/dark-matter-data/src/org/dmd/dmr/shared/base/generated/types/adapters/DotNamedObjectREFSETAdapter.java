@@ -11,7 +11,7 @@ import org.dmd.dmr.shared.base.generated.types.DmcTypeDotNamedObjectREFSET;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
 public class DotNamedObjectREFSETAdapter extends DmcTypeDotNamedObjectREFSET implements DmcAdapterIF {
 
-    DmcTypeDotNamedObjectREFSET existingValue;
+    transient DmcTypeDotNamedObjectREFSET existingValue;
 
     public DotNamedObjectREFSETAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

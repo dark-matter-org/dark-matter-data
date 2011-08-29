@@ -21,6 +21,7 @@ import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.GetResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;
@@ -51,6 +52,12 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// and will be set automatically on all requests.
 	String						sessionID;
 	
+	// Some systems will assign a unique identifier that will be used to stamp
+	// all incoming requests and, subsequently, all events that are generated from
+	// those requests. This will allow us to determine if an event resulted from
+	// something we did or a request from a different client.
+	Integer						originatorID;
+	
 	// Handle to the centralized Dark Matter Protocol error handler if one has been set
 	CentralDMPErrorHandlerIF	DMPErrorHandler;
 	
@@ -66,7 +73,11 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// Key: requestID
 	TreeMap<Integer, ResponseCallback>	requests;
 	
-	TreeMap<Integer, ResponseCallback>	eventHandlers;
+	// When we send a GetRequest with registerForEvents, we will receive a GetResponse that
+	// has a unique listenerID. When we receive event notifications, we'll forward those events
+	// back to the component that made the original GetRequest.
+	// Key: listenerID
+	TreeMap<Long, ResponseCallback>	eventHandlers;
 	
 	// Our event domain for use with the gwteventservice
 	Domain						eventDomain;
@@ -75,9 +86,11 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		super(rc);
 		requestID			= 1;
 		sessionID			= null;
+		originatorID		= null;
 		DMPErrorHandler		= null;
 		RPCErrorHandler		= null;
 		requests			= new TreeMap<Integer, ResponseCallback>();
+		eventHandlers		= new TreeMap<Long, ResponseCallback>();
 	}
 	
 
@@ -305,6 +318,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 				
 				// Hang on to the session identifier
 				sessionID = lr.getSessionID();
+				originatorID = lr.getOriginatorID();
 			
 				eventService.addListener(eventDomain, new RemoteEventListener() {
 			        public void apply(Event anEvent) {
@@ -320,11 +334,31 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 					eventDomain = null;
 				}
 			}
+			else if (cb.getCallbackID() == GetResponseCallback.ID)
+				registerEventHandler(cb, (GetResponseDMO) response);
 			
 			cb.getHandler().handleResponse(response);
 		}
 		else{
 			cb.getHandler().handleResponse(response);
+		}
+	}
+	
+	/**
+	 * Checks to see if the callback has an event handler and thens verifies that we've registered
+	 * the event handler with the listenerID.
+	 * @param cb
+	 * @param getResponse
+	 */
+	void registerEventHandler(ResponseCallback cb, GetResponseDMO getResponse){
+		if (cb.getEventHandler() == null)
+			return;
+		
+		if (getResponse.getListenerID() != null){
+			if (eventHandlers.get(getResponse.getListenerID()) == null){
+				System.out.println("CommsController.registerEventHandler: registering event handler for listenerID: " + getResponse.getListenerID());
+				eventHandlers.put(getResponse.getListenerID(), cb);
+			}
 		}
 	}
 
@@ -338,6 +372,22 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			DMPEventDMO event = (DMPEventDMO) async;
 			System.out.println("CommsController.handleAsynchronousInfo got event:\n\n" + event.toOIF() + "\n\n");
 			
+			ResponseCallback cb = eventHandlers.get(event.getListenerID());
+			
+			if (cb == null){
+				System.out.println("CommsController.handleAsynchronousInfo couldn't get callback for event with listenerID: " + event.getListenerID());
+			}
+			else{
+				// Set the handleID on the event so that the callback will know how to route the event
+				event.setHandlerID(cb.getRequest().getHandlerID());
+				
+				if ( (originatorID != null) && (event.getOriginatorID() != null)){
+					if (originatorID == event.getOriginatorID())
+						event.setMyOwnEvent(true);
+				}
+				
+				cb.getEventHandler().handleEvent(event);
+			}
 		}
 		else if (async instanceof ResponseDMO){
 			ResponseDMO response = (ResponseDMO) async;
@@ -349,6 +399,9 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 				System.out.println("CommsController.handleAsynchronousInfo couldn't get callback");
 			}
 			else{
+				if (cb.getCallbackID() == GetResponseCallback.ID)
+					registerEventHandler(cb, (GetResponseDMO) response);					
+				
 				cb.getHandler().handleResponse(response);
 				if (response.isLastResponse()){
 					System.out.println("CommsController.handleAsynchronousInfo is last response...");

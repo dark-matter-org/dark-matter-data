@@ -11,7 +11,7 @@ import org.dmd.features.extgwt.generated.types.DmcTypeMvcServerEventREFMAP;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMAP(AdapterFormatter.java:24)
 public class MvcServerEventREFMAPAdapter extends DmcTypeMvcServerEventREFMAP implements DmcAdapterIF {
 
-    DmcTypeMvcServerEventREFMAP existingValue;
+    transient DmcTypeMvcServerEventREFMAP existingValue;
 
     public MvcServerEventREFMAPAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;

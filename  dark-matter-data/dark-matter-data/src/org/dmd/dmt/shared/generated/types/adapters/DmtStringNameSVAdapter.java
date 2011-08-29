@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeDmtStringNameSV;
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
 public class DmtStringNameSVAdapter extends DmcTypeDmtStringNameSV implements DmcAdapterIF {
 
-    DmcTypeDmtStringNameSV existingValue;
+    transient DmcTypeDmtStringNameSV existingValue;
 
     public DmtStringNameSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;
