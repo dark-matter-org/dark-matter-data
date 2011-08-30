@@ -26,6 +26,8 @@ public class Tracker implements DmcPresentationTrackerIF {
 	ArrayList<DmcChangeListenerIF>		changeListeners;
 	ArrayList<DmcValueChangeListenerIF>	valueChangeListeners;
 	
+	boolean	debug;
+	
 	public Tracker(){
 		uniqueID		= 0;
 		presenters 		= new HashMap<Integer, DmcPresentationIF>();
@@ -35,6 +37,15 @@ public class Tracker implements DmcPresentationTrackerIF {
 		readyListeners 	= new ArrayList<DmcReadyListenerIF>();
 		changeListeners = new ArrayList<DmcChangeListenerIF>();
 		valueChangeListeners	= new ArrayList<DmcValueChangeListenerIF>();
+		debug = false;
+	}
+	
+	public void debug(boolean d){
+		debug = d;
+	}
+	
+	public boolean debug(){
+		return(debug);
 	}
 
 	@Override
@@ -54,7 +65,8 @@ public class Tracker implements DmcPresentationTrackerIF {
 
 	@Override
 	public void isNotReady(DmcPresentationIF dpi) {
-//		System.out.println(dpi.getAdapter().getAttributeInfo().name + " is NOT ready");
+		if (debug)
+			System.out.println(dpi.getAdapter().getAttributeInfo().name + " is NOT ready");
 
 		ready.remove(dpi.getID());
 		notReady.put(dpi.getID(), dpi);
@@ -79,22 +91,34 @@ public class Tracker implements DmcPresentationTrackerIF {
 
 	@Override
 	public void isReady(DmcPresentationIF dpi) {
-//		System.out.println(dpi.getAdapter().getAttributeInfo().name + " is ready");
+		if (debug)
+			System.out.println(dpi.getAdapter().getAttributeInfo().name + " is ready");
 		
 		notReady.remove(dpi.getID());
 		ready.put(dpi.getID(), dpi);
 		
 		if (dpi.valueChanged()){
-//			System.out.println("Tracker: value has changed " + dpi.getAdapter().getAttributeInfo().name);
+			if (debug)
+				System.out.println("Tracker: value has changed " + dpi.getAdapter().getAttributeInfo().name);
 			changed.put(dpi.getID(), dpi);
 		}
 		else{
-//			System.out.println("Tracker: value has NOT changed " + dpi.getAdapter().getAttributeInfo().name);
+			if (debug)
+				System.out.println("Tracker: value has NOT changed " + dpi.getAdapter().getAttributeInfo().name);
 			changed.remove(dpi.getID());
 		}
 		
-//		System.out.println("Tracker: not ready size = " + notReady.size());
-//		System.out.println("Tracker: changed size   = " + changed.size());
+		if (debug){
+			System.out.println("Tracker: not ready size = " + notReady.size());
+			for(DmcPresentationIF pi: notReady.values()){
+				System.out.println("    " + pi.getAdapter().getAttributeInfo().name);
+			}
+			System.out.println("\nTracker: changed size   = " + changed.size());
+			for(DmcPresentationIF pi: changed.values()){
+				System.out.println("    " + pi.getAdapter().getAttributeInfo().name);
+			}
+			System.out.println();
+		}
 		
 		for(DmcReadyListenerIF listener: readyListeners)
 			listener.isReady((notReady.size() == 0) && (changed.size() > 0));
@@ -115,7 +139,8 @@ public class Tracker implements DmcPresentationTrackerIF {
 				notReady.put(p.getID(), p);
 		}
 		
-//		System.out.println("not ready size = " + notReady.size());
+		if (debug)
+			System.out.println("not ready size = " + notReady.size());
 		
 		for(DmcReadyListenerIF listener: readyListeners)
 			listener.isReady((notReady.size() == 0) && (changed.size() > 0));
@@ -151,7 +176,7 @@ public class Tracker implements DmcPresentationTrackerIF {
 		for(DmcChangeListenerIF listener: changeListeners)
 			listener.isChanged(changed.size() > 0);
 	}
-
+	
 //	@Override
 //	public DmcPresentationIF getPresentation(DmcAttributeInfo ai) {
 //		return(presenters.get(ai.id));
