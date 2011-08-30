@@ -79,6 +79,7 @@ public class GxtWrapper extends DmcContainer implements Model, ModelData, DmcCon
 		DmcTypeModifier mods = (DmcTypeModifier) event.get(MetaDMSAG.__modify);
 		if (mods != null)
 			core.applyModifier(mods);
+		fireUpdateEvent();
 	}
 	
 	/**

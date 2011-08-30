@@ -11,19 +11,24 @@ import com.extjs.gxt.ui.client.widget.button.Button;
 public class GxtCancelButton extends Button implements DmcChangeListenerIF {
 	
 	Listener<ButtonEvent>		listener;
+	GxtCancelButtonListenerIF	clickListener;
 	DmcPresentationTrackerIF	tracker;
 	
-	public GxtCancelButton(String label, DmcPresentationTrackerIF t){
+	public GxtCancelButton(String label, DmcPresentationTrackerIF t, GxtCancelButtonListenerIF cl){
 		super(label);
 		
 		tracker = t;
+		
+		clickListener = cl;
 		
 		listener = new Listener<ButtonEvent>() {
 
 			@Override
 			public void handleEvent(ButtonEvent be) {
-				if (be.getType() == Events.Select)
+				if (be.getType() == Events.Select){
 					tracker.reset();
+					clickListener.cancelButtonClicked();
+				}
 			}
 		};
 		

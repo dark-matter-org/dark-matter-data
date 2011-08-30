@@ -58,6 +58,17 @@ public interface DmcPresentationTrackerIF {
 	 */
 	public void reset();
 	
+	/**
+	 * Sets whether the tracker is in debug mode or not.
+	 * @param d true for debug.
+	 */
+	public void debug(boolean d);
+	
+	/**
+	 * @return the tracker's debug state.
+	 */
+	public boolean debug();
+	
 	// NOTE: dropped this for now because of indexed attributes - multiple presentations
 	// will wind up feeding off the same attribute.
 //	/**
