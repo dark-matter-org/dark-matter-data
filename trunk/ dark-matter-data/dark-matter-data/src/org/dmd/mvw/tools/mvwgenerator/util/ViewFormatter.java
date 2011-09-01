@@ -29,7 +29,7 @@ public class ViewFormatter {
         
         out.write("    }\n\n");
         
-        out.write("    public void setPresenter(" + view.getViewName() + "Presenter presenter);\n\n");
+//        out.write("    public void setPresenter(" + view.getViewName() + "Presenter presenter);\n\n");
         
         out.write(view.getViewMethods());
         
@@ -63,8 +63,8 @@ public class ViewFormatter {
         }
         
         if (view.getUsesRunContextItemHasValue()){
-            out.write("    protected " + view.getViewName() + "BaseImpl(MvwRunContextIF rc){\n");
-            out.write("        presenter = null;\n\n");
+            out.write("    protected " + view.getViewName() + "BaseImpl(" + view.getViewName() + "Presenter p, MvwRunContextIF rc){\n");
+            out.write("        presenter = p;\n\n");
             if (view.getUsesRunContextItemHasValue()){
             	for(RunContextItem rci: view.getUsesRunContextItemIterable()){
             		out.write(rci.getImplVariableAssignment());
@@ -73,15 +73,15 @@ public class ViewFormatter {
             out.write("    }\n\n");
         }
         else{
-            out.write("    protected " + view.getViewName() + "BaseImpl(){\n");
-            out.write("        presenter = null;\n");
+            out.write("    protected " + view.getViewName() + "BaseImpl(" + view.getViewName() + "Presenter p){\n");
+            out.write("        presenter = p;\n");
             out.write("    }\n\n");
         }
         
-        out.write("    public void setPresenter(" + view.getViewName() + "Presenter p){\n");
-        out.write("        presenter = p;\n");
-        out.write("    }\n");
-        out.write("    \n");
+//        out.write("    public void setPresenter(" + view.getViewName() + "Presenter p){\n");
+//        out.write("        presenter = p;\n");
+//        out.write("    }\n");
+//        out.write("    \n");
         
         out.write(view.getViewImplMethods());
         
