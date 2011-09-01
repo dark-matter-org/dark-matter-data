@@ -154,25 +154,27 @@ public class RunContextItem extends RunContextItemDMW {
 				sb.append("\n");
 			}
 			else{
-				String args = "";
 				String pres	= view.getViewName() + "." + view.getViewName() + "Presenter";
+				String args = "";
 				
-				if (view.getUsesRunContextItemHasValue()){
-					args = "this";
-				}
+				if (view.getUsesRunContextItemHasValue())
+					args = "presenter, this";
+				else
+					args = "presenter";
 				
 				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    @Override\n");
 				sb.append("    public " + getItemType() + " get" + capped + "(" + pres + " presenter){\n");
 				if (isTheOne()){
 					sb.append("        if (" +  getItemName() + " == null)\n");
+					if (args.length() > 0)
 					sb.append("            " + getItemName() + " = " + getConstruction() + "(" + args + ");\n");
-					sb.append("        " + getItemName()+ ".setPresenter(presenter);\n");
+//					sb.append("        " + getItemName()+ ".setPresenter(presenter);\n");
 					sb.append("        return(" + getItemName() + ");\n");
 				}
 				else{
 					sb.append("        " + getItemType() + " view = " + getConstruction() + "(" + args + ");\n");
-					sb.append("        view.setPresenter(presenter);\n");
+//					sb.append("        view.setPresenter(presenter);\n");
 					sb.append("        return(view);\n");
 				}
 				sb.append("    }\n");
