@@ -917,16 +917,32 @@ abstract public class DmcObject implements Serializable {
 				}
 			}
 			
-			if (getContainer() == null){
-				attr.del(value);
+			if (value instanceof DmcNamedObjectREF){
+				DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
+				if (ref.getObject() == null)
+					attr.del(ref.getObjectName());
+				else
+					attr.del(ref.getObject());
 			}
 			else{
-//			if (getContainer().getListenerManager() == null)
-				attr.del(value);
-//			else{
-//				// TODO implement attribute change listener hooks
-//			}
+				if (value instanceof DmcMappedAttributeIF)
+					attr.del(((DmcMappedAttributeIF)value).getKey());
+				else if (value instanceof DmcNamedObjectIF)
+					attr.del(((DmcNamedObjectIF)value).getObjectName());
+				else
+					attr.del(value);
 			}
+			
+//			if (getContainer() == null){
+//				attr.del(value);
+//			}
+//			else{
+////			if (getContainer().getListenerManager() == null)
+//				attr.del(value);
+////			else{
+////				// TODO implement attribute change listener hooks
+////			}
+//			}
 			
 			// If we have no further elements in the multi-value attribute, remove it
 			if (attr.getMVSize() == 0)
