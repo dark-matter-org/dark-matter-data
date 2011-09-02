@@ -85,7 +85,7 @@ public class Activity extends ActivityDMW {
 					}
 					else
 						interfaces.append(", ");
-					interfaces.append(view.getViewName() + "Presenter");
+					interfaces.append(view.getViewName() + "PresenterIF");
 				}
 			}
 			

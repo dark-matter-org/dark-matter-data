@@ -104,7 +104,7 @@ public class RunContextItem extends RunContextItemDMW {
 				sb.append("    }\n\n");		
 			}
 			else{
-				String pres	= view.getViewName() + "." + view.getViewName() + "Presenter";
+				String pres	= view.getViewName() + "IF." + view.getViewName() + "PresenterIF";
 				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public " + getItemType() + " getNew" + getPlainName() + "(" + pres + " presenter){\n");
 				sb.append("        return( ((" + getInterfaceName() + ")runcontext).get" + capped + "(presenter));\n");
