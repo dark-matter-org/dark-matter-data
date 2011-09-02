@@ -128,7 +128,7 @@ public class RunContextItem extends RunContextItemDMW {
 		if (view == null)
 			return("    public " + format.sprintf(getItemType()) + " get" + capped + "();\n");
 		else{
-			String pres = view.getViewName() + "." + view.getViewName() + "Presenter";
+			String pres = view.getViewName() + "IF." + view.getViewName() + "PresenterIF";
 			return("    public " + format.sprintf(getItemType()) + " get" + capped + "(" + pres + " presenter);\n");
 		}
 	}
@@ -154,7 +154,7 @@ public class RunContextItem extends RunContextItemDMW {
 				sb.append("\n");
 			}
 			else{
-				String pres	= view.getViewName() + "." + view.getViewName() + "Presenter";
+				String pres	= view.getViewName() + "IF." + view.getViewName() + "PresenterIF";
 				String args = "";
 				
 				if (view.getUsesRunContextItemHasValue())
@@ -194,6 +194,9 @@ public class RunContextItem extends RunContextItemDMW {
 	
 	public void addInterfaceImports(ImportManager im){
 		im.addImport(getUseClass(), "Used by " + getItemName());
+		if (view != null){
+			im.addImport(view.getViewImport(),"The " + view.getViewName());
+		}
 	}
 	
 	public String getInterfaceName(){
@@ -207,6 +210,10 @@ public class RunContextItem extends RunContextItemDMW {
 		String mod = GenUtility.capTheName(getDefinedInModule().getModuleName().getNameString());
 		String prefix = getDefinedInModule().getGenPackage() + ".generated.mvw.";
 		im.addImport(prefix + mod + "RunContextIF", mod + " run context");
+		
+		if (view != null){
+			im.addImport(view.getViewImport(), "The " + view.getViewName());
+		}
 	}
 	
 	public void addRunContextImplImports(ImportManager im){
@@ -220,5 +227,9 @@ public class RunContextItem extends RunContextItemDMW {
 		String mod = GenUtility.capTheName(getDefinedInModule().getModuleName().getNameString());
 		String prefix = getDefinedInModule().getGenPackage() + ".generated.mvw.";
 		im.addImport(prefix + mod + "RunContextIF", mod + " run context");
+		
+		if (view != null){
+			im.addImport(view.getViewImport(), "The " + view.getViewName());
+		}
 	}
 }
