@@ -74,7 +74,7 @@ public class View extends ViewDMW {
 	}
 	
 	public String getPresenterImport(){
-		return(getDefinedInModule().getGenPackage() + ".generated.mvw.views." + getViewName() + "." + getViewName() + "Presenter");
+		return(getDefinedInModule().getGenPackage() + ".generated.mvw.views." + getViewName() + "IF." + getViewName() + "PresenterIF");
 	}
 	
 	public ImportManager getPresenterImplImports(){

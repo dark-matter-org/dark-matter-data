@@ -21,7 +21,7 @@ public class ActivityFormatter {
         out.write("\n");
         
         out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-        out.write("abstract public class " + activity.getActivityName() + "BaseImpl" + activity.getBaseClassName() + activity.getInterfaces() + "{\n\n");
+        out.write("abstract public class " + activity.getActivityName() + "BaseImpl" + activity.getBaseClassName() + activity.getInterfaces() + " {\n\n");
 
     	boolean onDemand = false;
     	for(RunContextItem rci: activity.getUsesRunContextItemIterable()){
