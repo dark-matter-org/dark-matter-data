@@ -63,7 +63,7 @@ public class Presenter extends PresenterDMW {
 					}
 					else
 						presenterInterfaces.append(", ");
-					presenterInterfaces.append(view.getViewName() + "Presenter");
+					presenterInterfaces.append(view.getViewName() + "PresenterIF");
 				}
 			}
 		}
