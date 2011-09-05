@@ -92,6 +92,12 @@ public class LogoutRequestDMO  extends RequestDMO  implements Serializable  {
         setModifier(mods);
     }
 
+    public LogoutRequestDMO getModificationRecorder(){
+        LogoutRequestDMO rc = new LogoutRequestDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public String getUserName(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmrBaseDMSAG.__userName);

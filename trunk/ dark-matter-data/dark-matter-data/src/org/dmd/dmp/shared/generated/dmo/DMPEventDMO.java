@@ -108,6 +108,12 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
         setModifier(mods);
     }
 
+    public DMPEventDMO getModificationRecorder(){
+        DMPEventDMO rc = new DMPEventDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public NameContainer getSource(){
         DmcTypeNameContainerSV attr = (DmcTypeNameContainerSV) get(DmpDMSAG.__source);

@@ -100,6 +100,12 @@ public class GetResponseDMO  extends ResponseDMO  implements Serializable  {
         setModifier(mods);
     }
 
+    public GetResponseDMO getModificationRecorder(){
+        GetResponseDMO rc = new GetResponseDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     /**
      * @return An Iterator of NameContainer objects.
      */

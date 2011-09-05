@@ -98,6 +98,12 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
         setModifier(mods);
     }
 
+    public DeleteRequestDMO getModificationRecorder(){
+        DeleteRequestDMO rc = new DeleteRequestDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public ScopeEnum getScope(){
         DmcTypeScopeEnumSV attr = (DmcTypeScopeEnumSV) get(DmpDMSAG.__scope);

@@ -95,6 +95,12 @@ public class ActionResponseDMO  extends ResponseDMO  implements Serializable  {
         setModifier(mods);
     }
 
+    public ActionResponseDMO getModificationRecorder(){
+        ActionResponseDMO rc = new ActionResponseDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     /**
      * @return An Iterator of DmcObject objects.
      */

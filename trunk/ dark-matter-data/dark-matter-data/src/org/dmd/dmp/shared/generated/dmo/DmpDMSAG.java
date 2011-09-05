@@ -184,6 +184,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         __Request.addMay(__originatorID);
         __Request.addMay(__timeoutSeconds);
         __Request.addMay(__notifyOriginator);
+        __Request.addMay(DmrBaseDMSAG.__userName);
 
         __Response.addMust(__lastResponse);
         __Response.addMust(__responseType);

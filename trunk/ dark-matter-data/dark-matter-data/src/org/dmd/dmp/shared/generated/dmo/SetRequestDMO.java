@@ -101,6 +101,12 @@ public class SetRequestDMO  extends RequestDMO  implements Serializable  {
         setModifier(mods);
     }
 
+    public SetRequestDMO getModificationRecorder(){
+        SetRequestDMO rc = new SetRequestDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:574)
     public ClassDefinitionREF getTargetObjectClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(DmpDMSAG.__targetObjectClass);

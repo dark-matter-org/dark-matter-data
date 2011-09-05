@@ -92,6 +92,12 @@ public class LogoutResponseDMO  extends ResponseDMO  implements Serializable  {
         setModifier(mods);
     }
 
+    public LogoutResponseDMO getModificationRecorder(){
+        LogoutResponseDMO rc = new LogoutResponseDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public String getSessionID(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__sessionID);
