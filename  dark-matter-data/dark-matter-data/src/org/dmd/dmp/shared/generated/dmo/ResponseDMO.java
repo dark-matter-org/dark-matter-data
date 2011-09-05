@@ -100,6 +100,12 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
         setModifier(mods);
     }
 
+    public ResponseDMO getModificationRecorder(){
+        ResponseDMO rc = new ResponseDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public Integer getHandlerID(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmpDMSAG.__handlerID);

@@ -93,6 +93,12 @@ public class LoginRequestDMO  extends RequestDMO  implements Serializable  {
         setModifier(mods);
     }
 
+    public LoginRequestDMO getModificationRecorder(){
+        LoginRequestDMO rc = new LoginRequestDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public String getUserName(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmrBaseDMSAG.__userName);

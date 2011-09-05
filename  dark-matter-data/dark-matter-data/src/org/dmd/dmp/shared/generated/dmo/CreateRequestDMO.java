@@ -97,6 +97,12 @@ public class CreateRequestDMO  extends RequestDMO  implements Serializable  {
         setModifier(mods);
     }
 
+    public CreateRequestDMO getModificationRecorder(){
+        CreateRequestDMO rc = new CreateRequestDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public NameContainer getParentName(){
         DmcTypeNameContainerSV attr = (DmcTypeNameContainerSV) get(DmpDMSAG.__parentName);

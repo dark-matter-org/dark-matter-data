@@ -23,6 +23,7 @@ import org.dmd.dmc.DmcValueException;                                          /
 import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;                         // Base class
 import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;                  // Primitive type and !auxiliary class
 import org.dmd.dmp.shared.generated.types.DmcTypeResponseFormatEnumSV;         // Required type
+import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;                     // Attribute from dmr.base schema
 import org.dmd.dms.generated.types.DmcTypeBooleanSV;                           // Required type
 import org.dmd.dms.generated.types.DmcTypeIntegerSV;                           // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSV;                            // Required type
@@ -421,6 +422,56 @@ abstract public class RequestDMO  extends DMPMessageDMO  implements Serializable
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
     public void remNotifyOriginator(){
          rem(DmpDMSAG.__notifyOriginator);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    public String getUserName(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmrBaseDMSAG.__userName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets userName to the specified value.
+     * @param value String
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    public void setUserName(String value) {
+        DmcAttribute<?> attr = get(DmrBaseDMSAG.__userName);
+        if (attr == null)
+            attr = new DmcTypeStringSV(DmrBaseDMSAG.__userName);
+        
+        try{
+            attr.set(value);
+            set(DmrBaseDMSAG.__userName,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets userName to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    public void setUserName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmrBaseDMSAG.__userName);
+        if (attr == null)
+            attr = new DmcTypeStringSV(DmrBaseDMSAG.__userName);
+        
+        attr.set(value);
+        set(DmrBaseDMSAG.__userName,attr);
+    }
+
+    /**
+     * Removes the userName attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    public void remUserName(){
+         rem(DmrBaseDMSAG.__userName);
     }
 
 

@@ -48,6 +48,7 @@ public class FormBindingFormatter {
         }
         
         out.write("\n");
+        out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + name + "(){\n");
         out.write("\n");
         
@@ -55,10 +56,11 @@ public class FormBindingFormatter {
         	out.write(getInstantiation(field));
         }
         
-        out.write("    }\n");
+        out.write("    }\n\n");
         
         
         ///////////////////////////////////////////////////////////////////////
+        out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public void setObject(" + cd.getName() + "DMO obj){\n");
         out.write("        dmo = obj;\n\n");
         for(EditField field: binding.getEditFieldIterable()){
@@ -71,6 +73,7 @@ public class FormBindingFormatter {
         out.write("    }\n\n");
 
         ///////////////////////////////////////////////////////////////////////
+        out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public void setTracker(DmcPresentationTrackerIF t){\n");
         out.write("        tracker = t;\n");
         out.write("\n");
@@ -81,6 +84,7 @@ public class FormBindingFormatter {
         out.write("    }\n\n");
 
         ///////////////////////////////////////////////////////////////////////
+        out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public void setEnabledAll(boolean enabled){\n");
         for(EditField field: binding.getEditFieldIterable()){
         	out.write(getSetEnabled(field));
@@ -89,16 +93,47 @@ public class FormBindingFormatter {
         out.write("    }\n\n");
 
         ///////////////////////////////////////////////////////////////////////
-        out.write("    public " + cd.getName() + "DMO getModRec(){\n");
-        out.write("        " + cd.getName() + "DMO modrec = dmo.getModificationRecorder();\n");
-        out.write("\n");
-        
-        for(EditField field: binding.getEditFieldIterable()){
-        	out.write(getAddMods(field));//        	out.write("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
+        if (binding.getEditObject().getIsNamedBy() == null){
+	        out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+	        out.write("    public " + cd.getName() + "DMO getModifiedObject(){\n");
+	        out.write("        if (dmo == null)\n");
+	        out.write("            return(null);\n");
+	        out.write("\n");
+	        out.write("        " + cd.getName() + "DMO modrec = dmo.getModificationRecorder();\n");
+	        out.write("\n");
+	        
+	        for(EditField field: binding.getEditFieldIterable()){
+	        	out.write(getAddMods(field));//        	out.write("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
+	        }
+	        out.write("\n");
+	        out.write("        " + cd.getName() + "DMO rc = (" + cd.getName() + "DMO) dmo.cloneIt();\n");
+	        out.write("\n");
+	        out.write("        try {\n");
+	        out.write("            rc.applyModifier(modrec.getModifier());\n");
+	        out.write("        } catch(Exception ex){\n");
+	        out.write("            throw(new IllegalStateException(\"Shouldn't thrown an exception when modifying an object.\", ex));\n");
+	        out.write("        }\n");
+	        out.write("        \n");
+	        
+	        out.write("        return(rc);\n");
+	        out.write("    }\n\n");
         }
-        out.write("\n");
-        out.write("        return(modrec);\n");
-        out.write("    }\n\n");
+        else{
+	        out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+	        out.write("    public " + cd.getName() + "DMO getModRec(){\n");
+	        out.write("        if (dmo == null)\n");
+	        out.write("            return(null);\n");
+	        out.write("\n");
+	        out.write("        " + cd.getName() + "DMO modrec = dmo.getModificationRecorder();\n");
+	        out.write("\n");
+	        
+	        for(EditField field: binding.getEditFieldIterable()){
+	        	out.write(getAddMods(field));//        	out.write("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
+	        }
+	        out.write("\n");
+	        out.write("        return(modrec);\n");
+	        out.write("    }\n\n");
+        }
         
         
         ///////////////////////////////////////////////////////////////////////

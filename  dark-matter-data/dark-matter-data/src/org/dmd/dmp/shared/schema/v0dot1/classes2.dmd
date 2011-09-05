@@ -27,6 +27,7 @@ may             responseFormat
 may				originatorID
 may				timeoutSeconds
 may				notifyOriginator
+may				userName
 description     The request class provides a common base for all request messages.
 
 ClassDefinition

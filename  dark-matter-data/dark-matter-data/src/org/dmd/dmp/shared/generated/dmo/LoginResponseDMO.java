@@ -101,6 +101,12 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
         setModifier(mods);
     }
 
+    public LoginResponseDMO getModificationRecorder(){
+        LoginResponseDMO rc = new LoginResponseDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public String getSessionID(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__sessionID);

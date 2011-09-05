@@ -96,6 +96,12 @@ public class DenotifyResponseDMO  extends ResponseDMO  implements Serializable  
         setModifier(mods);
     }
 
+    public DenotifyResponseDMO getModificationRecorder(){
+        DenotifyResponseDMO rc = new DenotifyResponseDMO();
+        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        return(rc);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
     public NameContainer getTarget(){
         DmcTypeNameContainerSV attr = (DmcTypeNameContainerSV) get(DmpDMSAG.__target);

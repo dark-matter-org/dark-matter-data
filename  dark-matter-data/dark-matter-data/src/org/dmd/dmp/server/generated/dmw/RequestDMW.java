@@ -265,5 +265,36 @@ abstract public class RequestDMW extends DMPMessage {
         ((RequestDMO) core).remNotifyOriginator();
     }
 
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1057)
+    public String getUserName(){
+        return(((RequestDMO) core).getUserName());
+    }
+
+    /**
+     * Sets userName to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1116)
+    public void setUserName(Object value) throws DmcValueException {
+        ((RequestDMO) core).setUserName(value);
+    }
+
+    /**
+     * Sets userName to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1125)
+    public void setUserName(String value){
+        ((RequestDMO) core).setUserName(value);
+    }
+
+    /**
+     * Removes the userName attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1151)
+    public void remUserName(){
+        ((RequestDMO) core).remUserName();
+    }
+
 
 }
