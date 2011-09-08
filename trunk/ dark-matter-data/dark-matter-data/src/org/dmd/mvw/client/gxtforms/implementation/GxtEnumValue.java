@@ -50,6 +50,10 @@ public class GxtEnumValue extends BaseModel {
 		return(get("label"));
 	}
 	
+	public String toString(){
+		return(getEnumValue() + " - " + numericValue + " - " + getSortOrder() + " - " + getLabel());
+	}
+	
 //	@SuppressWarnings("unchecked")
 //	@Override
 //	public <X> X get(String property) {
