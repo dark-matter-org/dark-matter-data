@@ -103,7 +103,7 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:736)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(MvwDMSAG.__eventName);
         if (name != null)

@@ -123,7 +123,7 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:736)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(MvwDMSAG.__viewName);
         if (name != null)

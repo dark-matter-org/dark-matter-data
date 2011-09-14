@@ -112,7 +112,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:736)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(MvwDMSAG.__bindingName);
         if (name != null)
