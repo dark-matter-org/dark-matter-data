@@ -70,6 +70,14 @@ public class Activity extends ActivityDMW {
 				}
 			}
 			
+			
+			// If we instantiate presenters, add their run context items
+			if (getInstantiatesPresenterHasValue()){
+				for(Presenter presenter: getInstantiatesPresenterIterable()){
+					addUsesRunContextItem(presenter.getRunContextItem());
+				}
+			}
+
 			super.initCodeGenInfo(rpc,dmp);
 			interfaces = new StringBuffer();
 			

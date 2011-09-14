@@ -237,6 +237,7 @@ may				useBaseClass
 may				abstractActivity
 may				usesController
 may				managesView
+may				instantiatesPresenter
 description		If you are making use of Places, you'll define an Activity for
  each of them; all activities are derived from com.google.gwt.app.place.Activity. If you
  have common functionality that you wish to use for your Activity classes, implement

@@ -343,6 +343,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __Activity.addMay(__abstractActivity);
         __Activity.addMay(__usesController);
         __Activity.addMay(__managesView);
+        __Activity.addMay(__instantiatesPresenter);
 
         __RunContextItem.addMust(__itemName);
         __RunContextItem.addMust(__useClass);
