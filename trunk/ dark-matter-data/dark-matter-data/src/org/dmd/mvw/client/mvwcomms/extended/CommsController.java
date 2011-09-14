@@ -333,6 +333,14 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 					eventService.removeListeners(eventDomain);
 					eventDomain = null;
 				}
+				
+				fireLogoutCompleteEvent();
+				
+				requestID			= 1;
+				sessionID			= null;
+				originatorID		= null;
+				requests			= new TreeMap<Integer, ResponseCallback>();
+				eventHandlers		= new TreeMap<Long, ResponseCallback>();
 			}
 			else if (cb.getCallbackID() == GetResponseCallback.ID)
 				registerEventHandler(cb, (GetResponseDMO) response);
