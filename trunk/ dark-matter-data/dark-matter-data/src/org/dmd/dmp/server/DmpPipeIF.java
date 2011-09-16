@@ -11,4 +11,11 @@ import org.dmd.dmp.server.extended.DMPMessage;
 public interface DmpPipeIF
 {
     public void sendMessage(DMPMessage msg);
+    
+    /**
+     * Implementors should overload this method to return a meaningful name
+     * for the connection associated with this pipe.
+     * @return A name tha tmay be useful in logging etc.
+     */
+    public String getName();
 }
