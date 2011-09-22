@@ -236,7 +236,11 @@ public class Component extends ComponentDMW {
 						handlesObjectEvents = true;
 					}
 				}
-					
+
+				if (request.getRequestType().equals("Action")){
+					imports.addImport("org.dmd.dms.extended.ActionTriggerInfo", "Sends action requests");
+				}
+				
 				addRequest(request);
 			}
 		}
@@ -476,34 +480,44 @@ public class Component extends ComponentDMW {
 				}
 			}
 			else{
-				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(){\n");
-				sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
-				if (requestType.equals("Get")){
-					if (requestDef.getOptions().contains(RequestOptionEnum.EVENTS))
-						sb.append("        request.setRegisterForEvents(true);\n");
+				if (requestType.equals("Action")){
+					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(ActionTriggerInfo ati){\n");
+					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request(ati);\n");
+					sb.append("        request.setHandlerID(" + constant + ");\n");
+					sb.append("        return(request);\n");
+					sb.append("    }\n\n");
 				}
-				sb.append("        request.setHandlerID(" + constant + ");\n");
-				sb.append("        return(request);\n");
-				sb.append("    }\n\n");
-				
-				// Provide the mechanism to deregister for events
-				if ( (requestType.equals("Get")) && (requestDef.getOptions().contains(RequestOptionEnum.EVENTS))){
+				else{
 					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    protected void denotifyFor" + baseName + "Events(){\n");
-//					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
-//					sb.append("        request.setHandlerID(" + constant + ");\n");
-					sb.append("        // TODO: fill in denotify request and send it\n");
+					sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(){\n");
+					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
+					if (requestType.equals("Get")){
+						if (requestDef.getOptions().contains(RequestOptionEnum.EVENTS))
+							sb.append("        request.setRegisterForEvents(true);\n");
+					}
+					sb.append("        request.setHandlerID(" + constant + ");\n");
+					sb.append("        return(request);\n");
 					sb.append("    }\n\n");
 					
-					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    protected void handle" + baseName + "Event(){\n");
-//					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
-//					sb.append("        request.setHandlerID(" + constant + ");\n");
-					sb.append("        // TODO: fill in denotify request and send it\n");
-					sb.append("    }\n\n");
-					
-					
+					// Provide the mechanism to deregister for events
+					if ( (requestType.equals("Get")) && (requestDef.getOptions().contains(RequestOptionEnum.EVENTS))){
+						sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    protected void denotifyFor" + baseName + "Events(){\n");
+	//					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
+	//					sb.append("        request.setHandlerID(" + constant + ");\n");
+						sb.append("        // TODO: fill in denotify request and send it\n");
+						sb.append("    }\n\n");
+						
+						sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    protected void handle" + baseName + "Event(){\n");
+	//					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
+	//					sb.append("        request.setHandlerID(" + constant + ");\n");
+						sb.append("        // TODO: fill in denotify request and send it\n");
+						sb.append("    }\n\n");
+						
+						
+					}
 				}
 			}
 		}

@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.ScopeEnum;    // DmcType import
  * The DmcTypeScopeEnumSET provides storage for a set of ScopeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2334)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2360)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:326)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
     public DmcAttribute<ScopeEnum> cloneIt(){
         synchronized(this){
             DmcTypeScopeEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
     public ScopeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ScopeEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2433)
     public ScopeEnum del(Object v){
         synchronized(this){
             ScopeEnum rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2426)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2452)
     public Iterator<ScopeEnum> getMV(){
         synchronized(this){
             Set<ScopeEnum> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2465)
     public Set<ScopeEnum> getMVCopy(){
         synchronized(this){
             Set<ScopeEnum> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2453)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2479)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2490)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

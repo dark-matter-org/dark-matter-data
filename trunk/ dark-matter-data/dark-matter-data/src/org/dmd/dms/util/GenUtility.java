@@ -48,7 +48,11 @@ public class GenUtility {
 
 	static public String getImports(ActionDefinition ad, ArrayList<AttributeDefinition> allAttr, BooleanVar anySVAttributes, BooleanVar anyMVAttributes) throws ResultException {
 		attributeInfo = new StringBuffer();
-		return(getImports(null,ad.getMayParm(),ad.getMustParm(),allAttr,anySVAttributes,anyMVAttributes));
+		return(getImports((ClassDefinition)null,ad,ad.getMayParm(),ad.getMustParm(),allAttr,anySVAttributes,anyMVAttributes));
+	}
+	
+	public static String getImports(ClassDefinition cd, Iterator<AttributeDefinition> may, Iterator<AttributeDefinition> must, ArrayList<AttributeDefinition> allAttr, BooleanVar anySVAttributes, BooleanVar anyMVAttributes) throws ResultException{
+		return(getImports(cd,null,may,must,allAttr,anySVAttributes,anyMVAttributes));
 	}
 		
 	/**
@@ -61,7 +65,7 @@ public class GenUtility {
 	 * @return
 	 * @throws ResultException 
 	 */
-	public static String getImports(ClassDefinition cd, Iterator<AttributeDefinition> may, Iterator<AttributeDefinition> must, ArrayList<AttributeDefinition> allAttr, BooleanVar anySVAttributes, BooleanVar anyMVAttributes) throws ResultException{
+	static String getImports(ClassDefinition cd, ActionDefinition act, Iterator<AttributeDefinition> may, Iterator<AttributeDefinition> must, ArrayList<AttributeDefinition> allAttr, BooleanVar anySVAttributes, BooleanVar anyMVAttributes) throws ResultException{
 		boolean								anyAttributes	= false;
 		boolean								anyAttributesAtThisLevel = false;
 		IntegerVar							longestImport	= new IntegerVar();
@@ -113,7 +117,10 @@ public class GenUtility {
 				if ((cd != null) && (cd.getClassType() == ClassTypeEnum.AUXILIARY))
 					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
 					
-				if (ad.getDefinedIn() != cd.getDefinedIn())
+				if ((cd != null) && (ad.getDefinedIn() != cd.getDefinedIn()))
+					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
+					
+				if ((act != null) && (ad.getDefinedIn() != act.getDefinedIn()))
 					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
 					
 				allAttr.add(ad);
@@ -160,7 +167,10 @@ public class GenUtility {
 				if ((cd != null) && (cd.getClassType() == ClassTypeEnum.AUXILIARY))
 					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
 
-				if (ad.getDefinedIn() != cd.getDefinedIn())
+				if ((cd != null) && (ad.getDefinedIn() != cd.getDefinedIn()))
+					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
+					
+				if ((act != null) && (ad.getDefinedIn() != act.getDefinedIn()))
 					addImport(uniqueImports, longestImport, ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
 					
 				allAttr.add(ad);
@@ -211,8 +221,7 @@ public class GenUtility {
 //				DebugInfo.debug("HERE");
 //			}
 
-			if ( (td.getPrimitiveType() != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY) ){
-				
+			if ( (td.getPrimitiveType() != null) && (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY) ){
 				if (td.getInternallyGenerated() && td.getIsRefType()){
 					// We have an internally generated reference type, only import if
 					// the definition is from a different schema, otherwise, we're
@@ -228,6 +237,24 @@ public class GenUtility {
 					addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type and !auxiliary class");
 				}
 			}
+			
+			if ( (td.getPrimitiveType() != null) && (act != null) ){
+				if (td.getInternallyGenerated() && td.getIsRefType()){
+					// We have an internally generated reference type, only import if
+					// the definition is from a different schema, otherwise, we're
+					// already in the same package and don't need to import it
+					if (act.getDefinedIn() != td.getDefinedIn()){
+						// NOTE: GetRequest has an unneeded ClassDefinitionDMO import because of this
+						// need to figure out the right criteria
+						
+//						addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type and !auxiliary - internally generated reference type");
+					}
+				}
+				else{
+					addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Primitive type and !auxiliary class");
+				}
+			}
+
 			
 			if (td.getAltType() != null){
 				if (td.getAltTypeImport() != null)
@@ -252,7 +279,7 @@ public class GenUtility {
 					
 					if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
 						addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcOmni", "Lazy resolution");
-					
+										
 				}
 			}
 			else{
@@ -269,7 +296,6 @@ public class GenUtility {
 		}
 		
 		if (cd != null){
-				
 			if (cd.getDerivedFrom() == null){
 				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
 					addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcObject", "Auxiliary class");
