@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;    // DmcType import
  * The DmcTypeDeleteRequestREFMV provides storage for a multi-valued DeleteRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2098)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:222)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2128)
     public DmcAttribute<DeleteRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeDeleteRequestREFMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2157)
     public DeleteRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             DeleteRequestDMO rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2170)
     public DeleteRequestDMO del(Object v){
         synchronized(this){
             DeleteRequestDMO rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2189)
     public Iterator<DeleteRequestDMO> getMV(){
         synchronized(this){
             ArrayList<DeleteRequestDMO> clone = new ArrayList<DeleteRequestDMO>(value);
@@ -111,7 +111,7 @@ public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF implement
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2198)
     public ArrayList<DeleteRequestDMO> getMVCopy(){
         synchronized(this){
             ArrayList<DeleteRequestDMO> clone = new ArrayList<DeleteRequestDMO>(value);
@@ -120,7 +120,7 @@ public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -134,7 +134,7 @@ public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2223)
     public DeleteRequestDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public DeleteRequestDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -171,7 +171,7 @@ public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2262)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -194,7 +194,7 @@ public class DmcTypeDeleteRequestREFMV extends DmcTypeDeleteRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2260)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2286)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

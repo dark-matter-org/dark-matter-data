@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:323)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:349)
 import java.io.Serializable;                                  // Always required
 import java.util.*;                                           // Always required
 import org.dmd.dmc.DmcAttribute;                              // Any attributes
@@ -97,7 +97,7 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
     public String getAppName(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__appName);
         if (attr == null)
@@ -110,7 +110,7 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets appName to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:708)
     public void setAppName(String value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__appName);
         if (attr == null)
@@ -129,7 +129,7 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets appName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:760)
     public void setAppName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__appName);
         if (attr == null)
@@ -142,12 +142,12 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Removes the appName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
     public void remAppName(){
          rem(DmpDMSAG.__appName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:644)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:670)
     public String getAppVersion(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__appVersion);
         if (attr == null)
@@ -160,7 +160,7 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets appVersion to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:682)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:708)
     public void setAppVersion(String value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__appVersion);
         if (attr == null)
@@ -179,7 +179,7 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets appVersion to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:760)
     public void setAppVersion(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__appVersion);
         if (attr == null)
@@ -192,7 +192,7 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Removes the appVersion attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:749)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
     public void remAppVersion(){
          rem(DmpDMSAG.__appVersion);
     }

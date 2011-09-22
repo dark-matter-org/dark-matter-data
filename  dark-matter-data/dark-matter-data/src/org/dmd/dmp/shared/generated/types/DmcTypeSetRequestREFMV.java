@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;    // DmcType import
  * The DmcTypeSetRequestREFMV provides storage for a multi-valued SetRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2098)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:222)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2128)
     public DmcAttribute<SetRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeSetRequestREFMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2157)
     public SetRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             SetRequestDMO rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2170)
     public SetRequestDMO del(Object v){
         synchronized(this){
             SetRequestDMO rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2189)
     public Iterator<SetRequestDMO> getMV(){
         synchronized(this){
             ArrayList<SetRequestDMO> clone = new ArrayList<SetRequestDMO>(value);
@@ -111,7 +111,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2198)
     public ArrayList<SetRequestDMO> getMVCopy(){
         synchronized(this){
             ArrayList<SetRequestDMO> clone = new ArrayList<SetRequestDMO>(value);
@@ -120,7 +120,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -134,7 +134,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2223)
     public SetRequestDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
     public SetRequestDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -171,7 +171,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2262)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -194,7 +194,7 @@ public class DmcTypeSetRequestREFMV extends DmcTypeSetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2260)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2286)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
