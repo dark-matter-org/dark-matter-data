@@ -145,7 +145,7 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 						String importloc = dep.getDmwPackage(genContext);
 						
 						if (cd.getSubpackage() != null)
-							importloc = dep.getDmwPackage(genContext) + cd.getSubpackage() + ".*";
+							importloc = dep.getDmwPackage(genContext) + ".extended." + cd.getSubpackage() + ".*";
 						imports.addImport(importloc, "Extended wrappers from the " + dep.getName() + " schema");
 						
 					}
@@ -174,7 +174,7 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 				String importloc = sd.getDmwPackage(genContext);
 				
 				if (cd.getSubpackage() != null)
-					importloc = sd.getDmwPackage(genContext) + cd.getSubpackage() + ".*";
+					importloc = sd.getDmwPackage(genContext) + ".extended." + cd.getSubpackage() + ".*";
 				imports.addImport(importloc, "Extended wrappers from the " + sd.getName() + " schema");
 				
 			}
@@ -207,7 +207,10 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 			String dmocast = cd.getName() + "DMO";
 			
 			sb.append("        case " + cd.getName() + "ID:\n");
-			sb.append("            rc = new " + wrapper + "((" + dmocast + ")obj);\n");
+			if (cd.getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
+				sb.append("            rc = new " + cd.getName() + "((" + dmocast + ")obj);\n");
+			else
+				sb.append("            rc = new " + wrapper + "((" + dmocast + ")obj);\n");
 			sb.append("            break;\n");
 		}
 		
