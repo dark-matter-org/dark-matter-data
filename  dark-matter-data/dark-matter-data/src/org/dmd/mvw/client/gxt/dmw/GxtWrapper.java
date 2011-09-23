@@ -1,6 +1,7 @@
 package org.dmd.mvw.client.gxt.dmw;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -28,24 +29,37 @@ import com.extjs.gxt.ui.client.data.ModelData;
 import com.extjs.gxt.ui.client.data.PropertyChangeEvent;
 import com.extjs.gxt.ui.client.util.Util;
 
+/**
+ * The GxtWrapper provides a mapping from Dark Matter Objects to the ModelData interface
+ * required to interwork with GXT's grid and list mechanisms. 
+ */
 public class GxtWrapper extends DmcContainer implements Model, ModelData, DmcContainerIF {
 	
 	protected transient ChangeEventSupport changeEventSupport;
 	
+	// In some cases, you may need to add additional information to the wrapper that
+	// doesn't come directly from the DMO. These additional values are stored here.
+	private HashMap<String,Object>	additionalValues;
+	
 	protected GxtWrapper(){
-		
+		additionalValues = null;
 	}
 
 	protected GxtWrapper(DmcObject obj){
 		super(obj);
+		additionalValues = null;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
 	public <X> X get(String property) {
 		DmcAttribute attr = core.get(property);
-		if (attr == null)
-			return(null);
+		if (attr == null){
+			// It's not in the DMO, it may be in our additionalValues
+			if (additionalValues == null)
+				return(null);
+			return (X) (additionalValues.get(property));
+		}
 		return (X) (attr.getSV());
 	}
 	
@@ -186,8 +200,18 @@ public class GxtWrapper extends DmcContainer implements Model, ModelData, DmcCon
 
 	@Override
 	public <X> X set(String property, X value) {
-		// TODO Auto-generated method stub
-		return null;
+		throw(new IllegalStateException("The set() method on GxtWrapper is NOT supported. Use setAdditional() to sett additional non-DMO data on a GxtWrapper."));
+	}
+	
+	@SuppressWarnings("unchecked")
+	public <X> X setAdditional(String property, X value){
+		X rc = null;
+		if (additionalValues == null)
+			additionalValues = new HashMap<String, Object>();
+		rc = (X) additionalValues.get(property);
+		additionalValues.put(property, value);
+		fireUpdateEvent();
+		return(rc);
 	}
 
 	@Override
