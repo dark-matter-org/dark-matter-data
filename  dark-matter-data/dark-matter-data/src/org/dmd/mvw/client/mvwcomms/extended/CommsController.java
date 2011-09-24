@@ -32,6 +32,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 import org.dmd.dms.extended.ActionTriggerInfo;
 import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;
+import org.dmd.mvw.client.mvwcomms.CentralEventHandlerIF;
 import org.dmd.mvw.client.mvwcomms.generated.mvw.controllers.CommsControllerBaseImpl;
 
 import de.novanic.eventservice.client.event.Event;
@@ -65,6 +66,10 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// Handle to the centralized GWT RPC error handler if one has been set
 	CentralRPCErrorHandlerIF	RPCErrorHandler;
 	
+	// Handle to a centralized event handler that handles events that are not 
+	// routed directly back to a known component
+	CentralEventHandlerIF		centralEventHandler;
+	
 	// Our currently outstanding requests. For most normal requests, they will be sent
 	// and the last response will be sent back immediately and the request will be removed.
 	// However, for long standing requests that may have multiple responses, the responses
@@ -90,8 +95,16 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		originatorID		= null;
 		DMPErrorHandler		= null;
 		RPCErrorHandler		= null;
+		centralEventHandler	= null;
 		requests			= new TreeMap<Integer, ResponseCallback>();
 		eventHandlers		= new TreeMap<Long, ResponseCallback>();
+	}
+	
+	public void setCentralEventHandler(CentralEventHandlerIF eh){
+		if (centralEventHandler == null)
+			centralEventHandler = eh;
+		else
+			throw(new IllegalStateException("You should only register one central event handler."));
 	}
 	
 
@@ -388,6 +401,12 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		if (async instanceof DMPEventDMO){
 			DMPEventDMO event = (DMPEventDMO) async;
 			System.out.println("CommsController.handleAsynchronousInfo got event:\n\n" + event.toOIF() + "\n\n");
+			
+			if (event.getListenerID() == null){
+				if (centralEventHandler != null)
+					centralEventHandler.handleEvent(event);
+				return;
+			}
 			
 			ResponseCallback cb = eventHandlers.get(event.getListenerID());
 			
