@@ -79,7 +79,7 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 	}
 	
 	public RequestTypeWithOptions(String v) throws DmcValueException {
-		ArrayList<String>	tokens = CheapSplitter.split(v, ' ', false, true);
+		ArrayList<String>	tokens = CheapSplitter.split(v.replaceAll("\t", " ").trim(), ' ', false, true);
 		
 		if (tokens.size() < 2){
 			throw(new DmcValueException("Too few tokens. Value should be of the form: <request type> <function name> [className] [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS  CENTRALERRORS]"));
