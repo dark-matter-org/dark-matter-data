@@ -61,6 +61,8 @@ public class PresenterFormatter {
         	out.write("\n");
         	out.write("        runcontext = rc;\n");
     	}
+    	
+    	out.write(presenter.getEventRegistration() + "\n");
     		
 //    	if (presenter.getImplementsActionHasValue()){
 //    		out.write(presenter.getActionInstantiations() + "\n");
