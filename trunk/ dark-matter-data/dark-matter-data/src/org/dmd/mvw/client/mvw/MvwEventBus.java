@@ -26,10 +26,23 @@ public class MvwEventBus extends SimpleEventBus {
 			super.fireEvent(event);
 		}
 		catch(UmbrellaException umbrella){
-			int index = 1;
+//			int index = 1;
 			for(Throwable t: umbrella.getCauses()){
-				System.out.println("EXCEPTION " + index + ":\n" + t.getMessage() + "\n" + extractTheStack(t) + "\n\n");
+				dumpThrowable(t);
+//				System.out.println("EXCEPTION " + index + ":\n" + t.getMessage() + "\n" + extractTheStack(t) + "\n\n");
 			}
+		}
+	}
+	
+	void dumpThrowable(Throwable throwable){
+		if (throwable instanceof UmbrellaException){
+			UmbrellaException umbrella = (UmbrellaException) throwable;
+			for(Throwable t: umbrella.getCauses()){
+				dumpThrowable(t);
+			}
+		}
+		else{
+			System.out.println("EXCEPTION :" + throwable.getMessage() + "\n" + extractTheStack(throwable) + "\n\n");			
 		}
 	}
 	
@@ -39,9 +52,10 @@ public class MvwEventBus extends SimpleEventBus {
 			super.fireEventFromSource(event,source);
 		}
 		catch(UmbrellaException umbrella){
-			int index = 1;
+//			int index = 1;
 			for(Throwable t: umbrella.getCauses()){
-				System.out.println("EXCEPTION " + index + ":\n" + extractTheStack(t) + "\n\n");
+				dumpThrowable(t);
+//				System.out.println("EXCEPTION " + index + ":\n" + extractTheStack(t) + "\n\n");
 			}
 		}
 	}
