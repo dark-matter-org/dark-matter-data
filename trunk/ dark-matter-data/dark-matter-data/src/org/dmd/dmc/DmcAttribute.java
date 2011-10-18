@@ -132,6 +132,8 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	public String getName(){
 		if (attrInfo == null){
 			attrInfo = DmcOmni.instance().getInfo(ID);
+			if (attrInfo == null)
+				throw(new IllegalStateException("Unknown attribute ID: " + ID + " - you are missing a required schema."));
 		}
 		return(attrInfo.name);
 	}
