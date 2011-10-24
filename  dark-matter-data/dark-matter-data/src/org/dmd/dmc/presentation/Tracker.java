@@ -47,6 +47,13 @@ public class Tracker implements DmcPresentationTrackerIF {
 	public boolean debug(){
 		return(debug);
 	}
+	
+	String getFieldName(DmcPresentationIF dpi){
+		if (dpi.getAdapter() == null)
+			return(dpi.getLabel());
+		else
+			return(dpi.getAdapter().getAttributeInfo().name);
+	}
 
 	@Override
 	public void addReadyListener(DmcReadyListenerIF listener) {
@@ -66,7 +73,7 @@ public class Tracker implements DmcPresentationTrackerIF {
 	@Override
 	public void isNotReady(DmcPresentationIF dpi) {
 		if (debug)
-			System.out.println(dpi.getAdapter().getAttributeInfo().name + " is NOT ready");
+			System.out.println(getFieldName(dpi) + " is NOT ready");
 
 		ready.remove(dpi.getID());
 		notReady.put(dpi.getID(), dpi);
@@ -92,30 +99,30 @@ public class Tracker implements DmcPresentationTrackerIF {
 	@Override
 	public void isReady(DmcPresentationIF dpi) {
 		if (debug)
-			System.out.println(dpi.getAdapter().getAttributeInfo().name + " is ready");
+			System.out.println(getFieldName(dpi) + " is ready");
 		
 		notReady.remove(dpi.getID());
 		ready.put(dpi.getID(), dpi);
 		
 		if (dpi.valueChanged()){
 			if (debug)
-				System.out.println("Tracker: value has changed " + dpi.getAdapter().getAttributeInfo().name);
+				System.out.println("Tracker: value has changed " + getFieldName(dpi));
 			changed.put(dpi.getID(), dpi);
 		}
 		else{
 			if (debug)
-				System.out.println("Tracker: value has NOT changed " + dpi.getAdapter().getAttributeInfo().name);
+				System.out.println("Tracker: value has NOT changed " + getFieldName(dpi));
 			changed.remove(dpi.getID());
 		}
 		
 		if (debug){
 			System.out.println("Tracker: not ready size = " + notReady.size());
 			for(DmcPresentationIF pi: notReady.values()){
-				System.out.println("    " + pi.getAdapter().getAttributeInfo().name);
+				System.out.println("    " + getFieldName(pi));
 			}
 			System.out.println("\nTracker: changed size   = " + changed.size());
 			for(DmcPresentationIF pi: changed.values()){
-				System.out.println("    " + pi.getAdapter().getAttributeInfo().name);
+				System.out.println("    " + getFieldName(pi));
 			}
 			System.out.println();
 		}
