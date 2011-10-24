@@ -218,5 +218,10 @@ public class GxtTextField extends TextField<String> implements DmcPresentationIF
 		adapter.resetToExisting();
 		setDisplayValue();
 	}
+
+	@Override
+	public String getLabel() {
+		return(getFieldLabel());
+	}
 		
 }

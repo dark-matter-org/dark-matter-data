@@ -32,6 +32,11 @@ public interface DmcPresentationIF {
 	public void setLabel(String label);
 	
 	/**
+	 * @return The label of this presentation component.
+	 */
+	public String getLabel();
+	
+	/**
 	 * Sets the tool tip to be associated with this presentation.
 	 * @param tooltip
 	 */
