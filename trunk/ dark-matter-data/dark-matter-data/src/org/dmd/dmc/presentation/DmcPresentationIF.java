@@ -1,5 +1,7 @@
 package org.dmd.dmc.presentation;
 
+import org.dmd.dmc.DmcObject;
+
 
 
 /**
@@ -120,5 +122,17 @@ public interface DmcPresentationIF {
 	 * @param index
 	 */
 	public void setValueIndex(int index);
+	
+	/**
+	 * In cases where validation depends on relationships between attributes in an object,
+	 * it's useful to have access to the object.
+	 * @param dmo The associated DMO.
+	 */
+	public void setDMO(DmcObject dmo);
+	
+	/**
+	 * @return the object previously set via setDMO.
+	 */
+	public DmcObject getDMO();
 	
 }
