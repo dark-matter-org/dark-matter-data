@@ -63,6 +63,12 @@ public class FormBindingFormatter {
         out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public void setObject(" + cd.getName() + "DMO obj){\n");
         out.write("        dmo = obj;\n\n");
+        
+        for(EditField field: binding.getEditFieldIterable()){
+        	out.write(getSetDMO(field));
+        }
+        out.write("\n");
+        
         for(EditField field: binding.getEditFieldIterable()){
         	out.write(getSetAdapter(field));
         }
@@ -308,6 +314,24 @@ public class FormBindingFormatter {
 	    	sb.append("        " + field.getAttribute() + "Adapter = new " + field.getAttrDef().getAdapterClassName() + "(" + attr + ");\n");
 	    	sb.append("        " + field.getAttribute() + ".setAdapter(" + field.getAttribute() + "Adapter);\n");
 	    	sb.append("\n");
+		}
+
+    	return(sb.toString());
+	}
+	
+	static String getSetDMO(EditField field){
+		StringBuffer sb = new StringBuffer();
+		
+    	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
+    	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
+    	
+		if (field.getAttrDef().getIndexSize() != null){
+			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
+				sb.append("        " + field.getAttribute() + i + ".setDMO(dmo);\n");
+			}
+		}
+		else{
+			sb.append("        " + field.getAttribute() + ".setDMO(dmo);\n");
 		}
 
     	return(sb.toString());

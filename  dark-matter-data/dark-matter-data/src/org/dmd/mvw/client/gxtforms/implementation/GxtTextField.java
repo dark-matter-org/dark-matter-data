@@ -1,6 +1,7 @@
 package org.dmd.mvw.client.gxtforms.implementation;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.presentation.DmcPresentationIF;
@@ -28,6 +29,8 @@ public class GxtTextField extends TextField<String> implements DmcPresentationIF
 	int							attrIndex;
 
 	Listener<FieldEvent>		listener;
+	
+	DmcObject					DMO;
 
 	public GxtTextField(){
 		instance = this;
@@ -222,6 +225,16 @@ public class GxtTextField extends TextField<String> implements DmcPresentationIF
 	@Override
 	public String getLabel() {
 		return(getFieldLabel());
+	}
+
+	@Override
+	public void setDMO(DmcObject dmo) {
+		DMO = dmo;
+	}
+
+	@Override
+	public DmcObject getDMO() {
+		return(DMO);
 	}
 		
 }
