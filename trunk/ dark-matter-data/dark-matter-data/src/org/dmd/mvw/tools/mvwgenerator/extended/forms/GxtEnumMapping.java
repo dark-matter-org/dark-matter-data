@@ -45,9 +45,11 @@ public class GxtEnumMapping extends GxtEnumMappingDMW {
 			sb.append("\"" + sortPad(value.getId()) + "\", ");
 			if (isUseNameAsLabel())
 				sb.append("\"" + value.getName() + "\");\n");
-//				sb.append("\"" + toMixed(value.getName()) + "\");\n");
+			else if (value.getLabel() == null)
+				sb.append("\"" + value.getDescription() + "\");\n");
 			else
-				sb.append("\"" + toMixed(value.getDescription()) + "\");\n");
+				sb.append("\"" + value.getLabel() + "\");\n");
+				
 		}
 		
 		return(sb.toString());

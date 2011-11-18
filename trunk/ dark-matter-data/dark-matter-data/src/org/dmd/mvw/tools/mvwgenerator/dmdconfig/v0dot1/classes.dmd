@@ -480,6 +480,11 @@ may				useNameAsLabel
 may				skipEnumValue
 description		The GxtEnumMapping class allows for generation of a set of static data instances
  that represent the values from the specified enumeration (type). NOTE: this mechanism is only 
- useful if you are using the Sencha's Gxt widget set.
+ useful if you are using the Sencha's GXT widget set.
+ <p />
+ Enum values are comprised of an integer, a name, a description and optionally, a label as follows - int name description : label.
+ If you specify useNameAsLabel, the uppercase name value of the enum is used to display the value
+ of the. If useNameAsLabel is not specified, the label will be used if it has been specified. Otherwise,
+ the description is used.
  
 
