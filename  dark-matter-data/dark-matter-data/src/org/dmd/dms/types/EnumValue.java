@@ -24,9 +24,9 @@ import org.dmd.dmc.DmcValueException;
  * The EnumValue class is used to store the definition of one enumerated value
  * that comprises part of an overall EnumDefinition.
  * <P>
- * The value of an EnumValue is comprised of at least three tokens:
- * [enum integer value] [enum value name] [enum description]
- * For example: 0 ABSTRACT Here is the definition of abstract.
+ * The value of an EnumValue is comprised of at least three tokens and possibly a label:
+ * [enum integer value] [enum value name] [enum description] <: label>
+ * For example: 0 ABSTRACT Here is the definition of abstract. : Abstract
  * <P>
  * Within an EnumDefinition, each EnumValue must have a unique integer identifier
  * and a unique value name.
