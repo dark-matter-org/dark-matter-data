@@ -1392,7 +1392,7 @@ abstract public class DmcObject implements Serializable {
 	 * @throws DmcValueExceptionSet
 	 */
 	public void resolveReferencesExceptClass(DmcNameResolverIF rx) throws DmcValueExceptionSet {
-		resolveReferences(rx, true);
+		resolveReferencesWithBackrefs(rx, true);
 	}
 	
 	/**
@@ -1406,68 +1406,102 @@ abstract public class DmcObject implements Serializable {
 		synchronized (attributes) {
 			DmcValueExceptionSet	errors = null;
 	
+			for(DmcAttribute<?> attr : attributes.values()){
+				if (skipClass && (attr.ID == __objectClass.id))
+					continue;
+					
+				if (attr instanceof DmcTypeNamedObjectREF){
+					DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
+					
+					if (attr.getMVSize() == 0){
+						DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
+						if (ref.isResolved())
+							continue;
+						
+						DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+						
+						if (obj == null){
+							DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
+							if (errors == null)
+								errors = new DmcValueExceptionSet();
+							errors.add(ex);
+						}
+						else{
+							if (obj instanceof DmcContainerIF)
+								ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+							else
+								ref.setObject(obj);
+						}
+					}
+					else{
+						Iterator<DmcNamedObjectREF> refs = reference.getMV();
+						if (refs != null){
+							while(refs.hasNext()){
+								DmcNamedObjectREF ref = refs.next();
+								
+								// Note: ref may be null if this is an indexed attribute and
+								// there is no value at the current index
+								if ( (ref == null) || ref.isResolved())
+									continue;
+								
+								DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+								
+								if (obj == null){
+									DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
+									if (errors == null)
+										errors = new DmcValueExceptionSet();
+									errors.add(ex);
+								}
+								else{
+									if (obj instanceof DmcContainerIF)
+										ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+									else
+										ref.setObject(obj);
+								}
+							}
+						}
+					}
+				}
+				else if (attr instanceof DmcTypeComplexTypeWithRefs){
+					try {
+						((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
+					} catch (DmcValueException e) {
+						if (errors == null)
+							errors = new DmcValueExceptionSet();
+						errors.add(e);
+					}
+				}
+			}
+			
+			if (errors != null)
+				throw(errors);
+		}
+	}
+	
+	/**
+	 * We perform object resolution and optionally skip the class attribute.
+	 * @param rx A name resolver.
+	 * @param skipClass Indicates whether we should skip the class attribute or not.
+	 * @throws Exception 
+	 */
+	@SuppressWarnings("unchecked")
+	public void resolveReferencesWithBackrefs(DmcNameResolverIF rx, boolean skipClass) throws DmcValueExceptionSet {
+		synchronized (attributes) {
+			DmcValueExceptionSet	errors = null;
+	
 			for(DmcAttribute attr : attributes.values()){
 				if (skipClass && (attr.ID == __objectClass.id))
 					continue;
 					
 				if (attr instanceof DmcTypeNamedObjectREF){
 					DmcTypeNamedObjectREF ref = (DmcTypeNamedObjectREF) attr;
-					try {
-						ref.resolveReferences(rx);
-					} catch (DmcValueException e) {
-						if (errors == null)
-							errors = new DmcValueExceptionSet();
-						errors.add(e);
-					}
-//					DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
-//					
-//					if (attr.getMVSize() == 0){
-//						DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
-//						if (ref.isResolved())
-//							continue;
-//						
-//						DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
-//						
-//						if (obj == null){
-//							DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
-//							if (errors == null)
-//								errors = new DmcValueExceptionSet();
-//							errors.add(ex);
-//						}
-//						else{
-//							if (obj instanceof DmcContainerIF)
-//								ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-//							else
-//								ref.setObject(obj);
-//						}
-//					}
-//					else{
-//						Iterator<DmcNamedObjectREF> refs = reference.getMV();
-//						if (refs != null){
-//							while(refs.hasNext()){
-//								DmcNamedObjectREF ref = refs.next();
-//								
-//								// Note: ref may be null if this is an indexed attribute and
-//								// there is no value at the current index
-//								if ( (ref == null) || ref.isResolved())
-//									continue;
-//								
-//								DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
-//								
-//								if (obj == null){
-//									DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
-//									if (errors == null)
-//										errors = new DmcValueExceptionSet();
-//									errors.add(ex);
-//								}
-//								else{
-//									if (obj instanceof DmcContainerIF)
-//										ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-//									else
-//										ref.setObject(obj);
-//								}
-//							}
-//						}
+//					try {
+//						ref.resolveReferences(rx);
+						ref.doLazyResolution(this);
+//					} catch (DmcValueException e) {
+//						if (errors == null)
+//							errors = new DmcValueExceptionSet();
+//						errors.add(e);
 //					}
 				}
 				else if (attr instanceof DmcTypeComplexTypeWithRefs){
