@@ -1411,56 +1411,64 @@ abstract public class DmcObject implements Serializable {
 					continue;
 					
 				if (attr instanceof DmcTypeNamedObjectREF){
-					DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
-					
-					if (attr.getMVSize() == 0){
-						DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
-						if (ref.isResolved())
-							continue;
-						
-						DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
-						
-						if (obj == null){
-							DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
-							if (errors == null)
-								errors = new DmcValueExceptionSet();
-							errors.add(ex);
-						}
-						else{
-							if (obj instanceof DmcContainerIF)
-								ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-							else
-								ref.setObject(obj);
-						}
+					DmcTypeNamedObjectREF ref = (DmcTypeNamedObjectREF) attr;
+					try {
+						ref.resolveReferences(rx);
+					} catch (DmcValueException e) {
+						if (errors == null)
+							errors = new DmcValueExceptionSet();
+						errors.add(e);
 					}
-					else{
-						Iterator<DmcNamedObjectREF> refs = reference.getMV();
-						if (refs != null){
-							while(refs.hasNext()){
-								DmcNamedObjectREF ref = refs.next();
-								
-								// Note: ref may be null if this is an indexed attribute and
-								// there is no value at the current index
-								if ( (ref == null) || ref.isResolved())
-									continue;
-								
-								DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
-								
-								if (obj == null){
-									DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
-									if (errors == null)
-										errors = new DmcValueExceptionSet();
-									errors.add(ex);
-								}
-								else{
-									if (obj instanceof DmcContainerIF)
-										ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-									else
-										ref.setObject(obj);
-								}
-							}
-						}
-					}
+//					DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
+//					
+//					if (attr.getMVSize() == 0){
+//						DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
+//						if (ref.isResolved())
+//							continue;
+//						
+//						DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+//						
+//						if (obj == null){
+//							DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
+//							if (errors == null)
+//								errors = new DmcValueExceptionSet();
+//							errors.add(ex);
+//						}
+//						else{
+//							if (obj instanceof DmcContainerIF)
+//								ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+//							else
+//								ref.setObject(obj);
+//						}
+//					}
+//					else{
+//						Iterator<DmcNamedObjectREF> refs = reference.getMV();
+//						if (refs != null){
+//							while(refs.hasNext()){
+//								DmcNamedObjectREF ref = refs.next();
+//								
+//								// Note: ref may be null if this is an indexed attribute and
+//								// there is no value at the current index
+//								if ( (ref == null) || ref.isResolved())
+//									continue;
+//								
+//								DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+//								
+//								if (obj == null){
+//									DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
+//									if (errors == null)
+//										errors = new DmcValueExceptionSet();
+//									errors.add(ex);
+//								}
+//								else{
+//									if (obj instanceof DmcContainerIF)
+//										ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+//									else
+//										ref.setObject(obj);
+//								}
+//							}
+//						}
+//					}
 				}
 				else if (attr instanceof DmcTypeComplexTypeWithRefs){
 					try {
