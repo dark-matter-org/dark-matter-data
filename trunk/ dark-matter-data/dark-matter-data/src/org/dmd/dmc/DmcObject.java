@@ -1380,12 +1380,36 @@ abstract public class DmcObject implements Serializable {
 	 * @param rx A name resolver.
 	 * @throws Exception 
 	 */
-	@SuppressWarnings("unchecked")
 	public void resolveReferences(DmcNameResolverIF rx) throws DmcValueExceptionSet {
+		resolveReferences(rx, false);
+	}
+	
+	/**
+	 * This method is used to resolve references in environments where the complete schema
+	 * and its associated ClassDefinition objects are not available e.g. in GWT UIs. Resolution
+	 * is performed as usual, but we skip the object class.
+	 * @param rx A name resolver.
+	 * @throws DmcValueExceptionSet
+	 */
+	public void resolveReferencesExceptClass(DmcNameResolverIF rx) throws DmcValueExceptionSet {
+		resolveReferences(rx, true);
+	}
+	
+	/**
+	 * We perform object resolution and optionally skip the class attribute.
+	 * @param rx A name resolver.
+	 * @param skipClass Indicates whether we should skip the class attribute or not.
+	 * @throws Exception 
+	 */
+	@SuppressWarnings("unchecked")
+	public void resolveReferences(DmcNameResolverIF rx, boolean skipClass) throws DmcValueExceptionSet {
 		synchronized (attributes) {
 			DmcValueExceptionSet	errors = null;
 	
 			for(DmcAttribute attr : attributes.values()){
+				if (skipClass && (attr.ID == __objectClass.id))
+					continue;
+					
 				if (attr instanceof DmcTypeNamedObjectREF){
 					DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
 					
@@ -1414,7 +1438,10 @@ abstract public class DmcObject implements Serializable {
 						if (refs != null){
 							while(refs.hasNext()){
 								DmcNamedObjectREF ref = refs.next();
-								if (ref.isResolved())
+								
+								// Note: ref may be null if this is an indexed attribute and
+								// there is no value at the current index
+								if ( (ref == null) || ref.isResolved())
 									continue;
 								
 								DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
