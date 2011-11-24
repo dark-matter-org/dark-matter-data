@@ -20,6 +20,13 @@ public class FormBindingFormatter {
         BufferedWriter 	out 	= FileUpdateManager.instance().getWriter(outdir, name + ".java");
         ImportManager	imports = new ImportManager();
 
+        if (binding.getEditObject().getIsNamedBy() == null){
+            imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "Required when edit object is unnamed");
+            imports.addImport("org.dmd.dmc.DmcValueException", "Required when edit object is unnamed");
+            imports.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "Required when edit object is unnamed");
+            imports.addImport("org.dmd.dms.generated.types.DmcTypeModifierMV", "Required when edit object is unnamed");
+        }
+        
         imports.addImport("org.dmd.dmc.presentation.DmcPresentationTrackerIF", "Presentation tracker");
         for(EditField field: binding.getEditFieldIterable()){
         	imports.addImport(field.getAttrDef().getAdapterClassImport(), "Adapter for " + field.getAttribute());
@@ -103,10 +110,28 @@ public class FormBindingFormatter {
 	        out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	        out.write("    public " + cd.getName() + "DMO getModifiedObject(){\n");
 	        out.write("        if (dmo == null)\n");
-	        out.write("            return(null);\n");
+	        out.write("            return(null);\n\n");
+	        
+	        out.write("        " + cd.getName() + "DMO modrec = (" + cd.getName() + "DMO) dmo.getNew();\n");
+	        out.write("        modrec.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
 	        out.write("\n");
-	        out.write("        " + cd.getName() + "DMO modrec = dmo.getModificationRecorder();\n");
-	        out.write("\n");
+	        out.write("        if (dmo instanceof DmcNamedObjectIF){\n");
+	        out.write("            DmcNamedObjectIF origObj	= (DmcNamedObjectIF) dmo;\n");
+//	        out.write("            modrec 		= (" + cd.getName() + "DMO) dmo.getNew();\n");
+	        out.write("            try {\n");
+	        out.write("                modrec.set(origObj.getObjectNameAttribute().getAttributeInfo(), origObj.getObjectNameAttribute());\n");
+	        out.write("            } catch (DmcValueException e) {\n");
+	        out.write("                e.printStackTrace();\n");
+	        out.write("            }\n");
+//	        out.write("            modrec.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
+	        out.write("        }\n\n");
+//	        out.write("        else{\n");
+//	        out.write("            throw(new IllegalStateException(\"Only named objects can be used in form bindings, this is not named:\\n\" + dmo.toOIF()));\n");
+//	        out.write("        }\n\n");
+
+//	        out.write("\n");
+//	        out.write("        " + cd.getName() + "DMO modrec = dmo.getModificationRecorder();\n");
+//	        out.write("\n");
 	        
 	        for(EditField field: binding.getEditFieldIterable()){
 	        	out.write(getAddMods(field));//        	out.write("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
