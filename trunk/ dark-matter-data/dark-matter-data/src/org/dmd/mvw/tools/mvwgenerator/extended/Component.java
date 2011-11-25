@@ -457,6 +457,7 @@ public class Component extends ComponentDMW {
 					sb.append("    \n");
 					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
 					sb.append("        request.setHandlerID(" + constant + ");\n");
+					sb.append("        request.setNotifyOriginator(true);\n");
 					sb.append("    \n");
 					sb.append("        request.setTarget(modrec.getObjectName());\n");
 					sb.append("        try{\n");
@@ -474,6 +475,7 @@ public class Component extends ComponentDMW {
 					sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(" + requestDef.getClassName()+ "DMO newobj){\n");
 					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request();\n");
 					sb.append("        request.setHandlerID(" + constant + ");\n");
+					sb.append("        request.setNotifyOriginator(true);\n");
 					sb.append("        request.setNewObject(newobj);\n");
 					sb.append("        return(request);\n");
 					sb.append("    }\n\n");
@@ -485,6 +487,7 @@ public class Component extends ComponentDMW {
 					sb.append("    protected " + requestType + "RequestDMO get" + baseName + "Request(ActionTriggerInfo ati){\n");
 					sb.append("        " + requestType + "RequestDMO request = commsController.get" + requestType + "Request(ati);\n");
 					sb.append("        request.setHandlerID(" + constant + ");\n");
+					sb.append("        request.setNotifyOriginator(true);\n");
 					sb.append("        return(request);\n");
 					sb.append("    }\n\n");
 				}
@@ -497,6 +500,7 @@ public class Component extends ComponentDMW {
 							sb.append("        request.setRegisterForEvents(true);\n");
 					}
 					sb.append("        request.setHandlerID(" + constant + ");\n");
+					sb.append("        request.setNotifyOriginator(true);\n");
 					sb.append("        return(request);\n");
 					sb.append("    }\n\n");
 					
