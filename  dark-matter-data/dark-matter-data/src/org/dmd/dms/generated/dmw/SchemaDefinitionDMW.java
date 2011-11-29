@@ -486,6 +486,43 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
+     * A list of extended reference type definition references.
+     * @return An Iterator of ExtendedReferenceTypeDefinition objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1701)
+    public ExtendedReferenceTypeDefinitionIterableDMW getExtendedReferenceTypeDefList(){
+        DmcAttribute attr = (DmcTypeExtendedReferenceTypeDefinitionREFMV) mycore.get(MetaDMSAG.__extendedReferenceTypeDefList);
+        if (attr == null)
+            return(ExtendedReferenceTypeDefinitionIterableDMW.emptyList);
+
+        return(new ExtendedReferenceTypeDefinitionIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another extendedReferenceTypeDefList value.
+     * @param value A value compatible with ExtendedReferenceTypeDefinition
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1748)
+    public DmcAttribute addExtendedReferenceTypeDefList(ExtendedReferenceTypeDefinition value) throws DmcValueException {
+        DmcAttribute attr = mycore.addExtendedReferenceTypeDefList(value.getDmcObject());
+        return(attr);
+    }
+
+    /**
+     * Returns the number of extendedReferenceTypeDefList values.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1771)
+    public int getExtendedReferenceTypeDefListSize(){
+        DmcAttribute attr = mycore.get(MetaDMSAG.__extendedReferenceTypeDefList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
      * A list of type definitions that were generated internally to represent
      * enums and object references.
      * @return An Iterator of TypeDefinition objects.

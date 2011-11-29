@@ -559,6 +559,24 @@ public class TypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setAltTypeImport(value);
     }
 
+    /**
+     * This flag is used to indicate taht an internally generated type is an
+     * extended reference type.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1569)
+    public Boolean getIsExtendedRefType(){
+        return(mycore.getIsExtendedRefType());
+    }
+
+    /**
+     * Sets isExtendedRefType to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1621)
+    public void setIsExtendedRefType(Object value) throws DmcValueException {
+        mycore.setIsExtendedRefType(value);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

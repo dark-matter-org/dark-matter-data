@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeIntegerName;    // DmcType import
  * The DmcTypeIntegerNameMV provides storage for a multi-valued IntegerName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:267)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2132)
     public DmcAttribute<IntegerName> cloneIt(){
         synchronized(this){
             DmcTypeIntegerNameMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2161)
     public IntegerName add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerName rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
     public IntegerName del(Object v){
         synchronized(this){
             IntegerName rc = null;
@@ -104,7 +104,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2193)
     public Iterator<IntegerName> getMV(){
         synchronized(this){
             ArrayList<IntegerName> clone = new ArrayList<IntegerName>(value);
@@ -112,7 +112,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2202)
     public ArrayList<IntegerName> getMVCopy(){
         synchronized(this){
             ArrayList<IntegerName> clone = new ArrayList<IntegerName>(value);
@@ -121,7 +121,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -135,7 +135,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
     public IntegerName getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2238)
     public IntegerName setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -172,7 +172,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2266)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -195,7 +195,7 @@ public class DmcTypeIntegerNameMV extends DmcTypeIntegerName implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2260)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

@@ -218,6 +218,7 @@ may 			svTestEnum
 may				svBoolean
 may				onOff
 may				enabledDisabled
+may				someRelation
 
 ClassDefinition
 name            ClientCountFilter

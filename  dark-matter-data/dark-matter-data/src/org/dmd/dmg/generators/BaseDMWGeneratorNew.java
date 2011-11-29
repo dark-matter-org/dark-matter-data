@@ -514,7 +514,8 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
         String schemaName = cd.getDefinedIn().getDmwPackage(genContext) + ".generated." + tmp + "SchemaAG";
         String classDef   = schemaName + "._" + cd.getName();
         
-        out.write("package " + cd.getDefinedIn().getDmwPackage(genContext) + ".generated.auxw;\n\n");
+//        out.write("package " + cd.getDefinedIn().getDmwPackage(genContext) + ".generated.auxw;\n\n");
+        out.write("package " + cd.getDefinedIn().getDmwPackage(genContext) + ".generated.dmw;\n\n");
         
         anyMVAttributes = false;
         anySVAttributes = false;

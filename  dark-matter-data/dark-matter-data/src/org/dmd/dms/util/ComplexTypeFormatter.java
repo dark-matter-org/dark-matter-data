@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dms.ComplexTypeDefinition;
+import org.dmd.dms.ExtendedReferenceTypeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;

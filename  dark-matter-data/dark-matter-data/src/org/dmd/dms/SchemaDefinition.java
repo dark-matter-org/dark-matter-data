@@ -264,6 +264,8 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     		this.addEnumDefList((EnumDefinition) def);
     	else if (def instanceof SliceDefinition)
     		this.addSliceDefList((SliceDefinition) def);
+    	else if (def instanceof ExtendedReferenceTypeDefinition)
+    		this.addExtendedReferenceTypeDefList((ExtendedReferenceTypeDefinition) def);
     	else if (def instanceof ComplexTypeDefinition)
     		this.addComplexTypeDefList((ComplexTypeDefinition) def);
         else{

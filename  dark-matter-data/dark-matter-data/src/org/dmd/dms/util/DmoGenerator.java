@@ -45,7 +45,7 @@ public class DmoGenerator {
 	
 	String gendir;
 	String dmodir;
-	String auxwdir;
+	String auxdir;
 	String typedir;
 	String adapterdir;
 	String enumdir;
@@ -85,7 +85,8 @@ public class DmoGenerator {
 	public void generateCode(SchemaManager sm, SchemaDefinition sd, ConfigLocation sl) throws IOException, ResultException {
 		gendir 		= sl.getConfigParentDirectory() + File.separator + "generated";
 		dmodir 		= gendir + File.separator + "dmo";
-		auxwdir 	= gendir + File.separator + "auxw";
+		// NOTE: on windows, you can't create a folder called "aux" - don't ask me why!
+		auxdir 		= gendir + File.separator + "dmo";
 		typedir 	= gendir + File.separator + "types";
 		adapterdir 	= typedir + File.separator + "adapters";
 		enumdir 	= gendir + File.separator + "enums";
@@ -102,11 +103,13 @@ public class DmoGenerator {
 		enumFormatter.setFileHeader(fileHeader);
 		actionFormatter.setFileHeader(fileHeader);
 		
-		dmoFormatter.dumpDMOs(sm, sd, dmodir, auxwdir);
+		dmoFormatter.dumpDMOs(sm, sd, dmodir, auxdir);
 		
 		typeFormatter.dumpTypes(sd, typedir);
 		
 		ComplexTypeFormatter.dumpComplexTypes(fileHeader, sd, typedir);
+		
+		ExtendedReferenceTypeFormatter.dumpExtendedReferenceTypes(fileHeader, sd, typedir);
 		
 		enumFormatter.dumpEnums(sd, enumdir);
 		
@@ -177,7 +180,7 @@ public class DmoGenerator {
 		if (!ddf.exists())
 			ddf.mkdir();
 		
-		File adf = new File(auxwdir);
+		File adf = new File(auxdir);
 		if (!adf.exists())
 			adf.mkdir();
 		

@@ -22,6 +22,7 @@ import java.util.Iterator;
 
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ComplexTypeDefinition;
+import org.dmd.dms.ExtendedReferenceTypeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
@@ -128,10 +129,38 @@ public class DmoTypeFormatter {
 			}
 		}
 
+		Iterator<ExtendedReferenceTypeDefinition> ertdl = sd.getExtendedReferenceTypeDefList();
+		if (ertdl != null){
+			while(ertdl.hasNext()){
+				ExtendedReferenceTypeDefinition ertd = ertdl.next();
+				
+				String tn 				= ertd.getName().getNameString();
+				String primitiveImport 	= ertd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + tn;
+				String schemaPackage	= ertd.getDefinedIn().getSchemaPackage();
+				String baseTypeImport	= ertd.getDefinedIn().getSchemaPackage() + ".generated.types." + tn;
+				String nameAttrID		= null;
+				
+				// 						dmotypedir 		basePackage 	baseTypeImport 	typeName 	primitiveImport 	nameAttrImport 	nameAttr 	nameAttrID	generic	isRef	isNameType	isFilterType	fileHeader 	progress
+				GenUtility.dumpSVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,		nameAttrID,	"",		false,	false,		false,			fileHeader,	progress);
+				GenUtility.dumpMVType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,								fileHeader,	progress);
+				GenUtility.dumpSETType(	outdir, 		schemaPackage,	baseTypeImport,	tn,			primitiveImport,	null,			null,					"",		false,								fileHeader,	progress);
+
+			}
+		}
+
 	}
 	
 	private void dumpNormalREFType(TypeDefinition td, String outdir) throws IOException{
 //		String ofn = outdir + File.separator + "DmcType" + td.getName().getNameString() + "REF.java";
+		
+		// Don't generate for extended reference types - the original will
+		// be null
+		if (td.getOriginalClass() == null)
+			return;
+		
+		// We don't generate for extended reference types
+		if (td.getIsExtendedRefType())
+			return;
 		
 		// Don't generate for abstracts
 		if (td.getOriginalClass().getClassType() == ClassTypeEnum.ABSTRACT)

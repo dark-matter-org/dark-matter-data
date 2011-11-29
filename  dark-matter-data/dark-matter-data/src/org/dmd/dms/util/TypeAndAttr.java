@@ -21,7 +21,7 @@ public class TypeAndAttr {
 	}
 	
 	public String getImport(){
-		if (td.getIsRefType()){
+		if (td.getIsRefType() && !td.getIsExtendedRefType()){
 			if (td.getName().getNameString().endsWith("REF")){
 //				DebugInfo.debug("Normal REF");
 				return td.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + td.getName() + getSuffix();

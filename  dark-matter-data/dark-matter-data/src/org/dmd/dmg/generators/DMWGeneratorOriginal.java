@@ -95,7 +95,7 @@ public class DMWGeneratorOriginal implements DarkMatterGeneratorIF {
 	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
 		gendir = loc.getConfigParentDirectory() + File.separator + "generated";
 		dmwdir = gendir + File.separator + "dmw";
-		auxwdir = gendir + File.separator + "auxw";
+		auxwdir = gendir + File.separator + "dmw";
 		
 		schema = sm;
 		
@@ -493,7 +493,8 @@ public class DMWGeneratorOriginal implements DarkMatterGeneratorIF {
         String schemaName = cd.getDefinedIn().getDmwPackage() + ".generated." + tmp + "SchemaAG";
         String classDef   = schemaName + "._" + cd.getName();
         
-        out.write("package " + cd.getDefinedIn().getDmwPackage() + ".generated.auxw;\n\n");
+//        out.write("package " + cd.getDefinedIn().getDmwPackage() + ".generated.auxw;\n\n");
+        out.write("package " + cd.getDefinedIn().getDmwPackage() + ".generated.dmw;\n\n");
         
         anyMVAttributes = false;
         anySVAttributes = false;

@@ -8,8 +8,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestBasicNamedObjectExtendedREFSV provides storage for a single-valued TestBasicNamedObjectExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1774)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:522)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicNamedObjectExtendedREFSV extends DmcTypeTestBasicNamedObjectExtendedREF implements Serializable {
@@ -33,14 +33,14 @@ public class DmcTypeTestBasicNamedObjectExtendedREFSV extends DmcTypeTestBasicNa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1790)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1806)
     public DmcAttribute<TestBasicNamedObjectExtendedREF> cloneIt(){
         DmcTypeTestBasicNamedObjectExtendedREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1801)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1817)
     public TestBasicNamedObjectExtendedREF getSVCopy(){
         if (value == null)
             return(null);
@@ -48,7 +48,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFSV extends DmcTypeTestBasicNa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1829)
     public TestBasicNamedObjectExtendedREF set(Object v) throws DmcValueException {
         TestBasicNamedObjectExtendedREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

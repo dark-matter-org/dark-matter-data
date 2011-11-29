@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeLabelledIntegerDataPoint;    // DmcType import
  * The DmcTypeLabelledIntegerDataPointSET provides storage for a set of LabelledIntegerDataPoint
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2334)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2364)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
  */
 @SuppressWarnings("serial")
@@ -60,7 +60,7 @@ public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2401)
     public DmcAttribute<LabelledIntegerDataPoint> cloneIt(){
         synchronized(this){
             DmcTypeLabelledIntegerDataPointSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2420)
     public LabelledIntegerDataPoint add(Object v) throws DmcValueException {
         synchronized(this){
             LabelledIntegerDataPoint rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
     public LabelledIntegerDataPoint del(Object v){
         synchronized(this){
             LabelledIntegerDataPoint rc = null;
@@ -109,7 +109,7 @@ public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2426)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
     public Iterator<LabelledIntegerDataPoint> getMV(){
         synchronized(this){
             Set<LabelledIntegerDataPoint> clone = null;
@@ -121,7 +121,7 @@ public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDa
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2469)
     public Set<LabelledIntegerDataPoint> getMVCopy(){
         synchronized(this){
             Set<LabelledIntegerDataPoint> clone = null;
@@ -134,7 +134,7 @@ public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2453)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2494)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

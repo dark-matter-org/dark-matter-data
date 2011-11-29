@@ -504,7 +504,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * object (and all of its derivatives) should be excluded from the wrapper
      * generation for the specified context. An example usage is in the Dark
      * Matter Protocol where we don't want to generate wrappers for the message
-     * objects in a gxt context.
+     * objects in a GXT context.
      * @return An Iterator of String objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1713)

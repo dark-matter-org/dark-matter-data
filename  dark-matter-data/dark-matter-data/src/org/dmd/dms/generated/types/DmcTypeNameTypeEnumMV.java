@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.NameTypeEnum;    // DmcType import
  * The DmcTypeNameTypeEnumMV provides storage for a multi-valued NameTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:229)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeNameTypeEnumMV extends DmcTypeNameTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2132)
     public DmcAttribute<NameTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeNameTypeEnumMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeNameTypeEnumMV extends DmcTypeNameTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2161)
     public NameTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             NameTypeEnum rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeNameTypeEnumMV extends DmcTypeNameTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
     public NameTypeEnum del(Object v){
         synchronized(this){
             NameTypeEnum rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeNameTypeEnumMV extends DmcTypeNameTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2193)
     public Iterator<NameTypeEnum> getMV(){
         synchronized(this){
             ArrayList<NameTypeEnum> clone = new ArrayList<NameTypeEnum>(value);
@@ -111,7 +111,7 @@ public class DmcTypeNameTypeEnumMV extends DmcTypeNameTypeEnum implements Serial
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2202)
     public ArrayList<NameTypeEnum> getMVCopy(){
         synchronized(this){
             ArrayList<NameTypeEnum> clone = new ArrayList<NameTypeEnum>(value);
@@ -120,7 +120,7 @@ public class DmcTypeNameTypeEnumMV extends DmcTypeNameTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -134,7 +134,7 @@ public class DmcTypeNameTypeEnumMV extends DmcTypeNameTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
     public NameTypeEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeNameTypeEnumMV extends DmcTypeNameTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2238)
     public NameTypeEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -171,7 +171,7 @@ public class DmcTypeNameTypeEnumMV extends DmcTypeNameTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2266)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -194,7 +194,7 @@ public class DmcTypeNameTypeEnumMV extends DmcTypeNameTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2260)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
