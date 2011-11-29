@@ -64,6 +64,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp.put(MetaDMSAG.__dmwPackage.id,MetaDMSAG.__dmwPackage);
         _ImAp.put(MetaDMSAG.__dmwTypeToPackage.id,MetaDMSAG.__dmwTypeToPackage);
         _ImAp.put(MetaDMSAG.__enumDefList.id,MetaDMSAG.__enumDefList);
+        _ImAp.put(MetaDMSAG.__extendedReferenceTypeDefList.id,MetaDMSAG.__extendedReferenceTypeDefList);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__generatedFileHeader.id,MetaDMSAG.__generatedFileHeader);
         _ImAp.put(MetaDMSAG.__internalTypeDefList.id,MetaDMSAG.__internalTypeDefList);
@@ -92,6 +93,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(MetaDMSAG.__dmwPackage.name,MetaDMSAG.__dmwPackage);
         _SmAp.put(MetaDMSAG.__dmwTypeToPackage.name,MetaDMSAG.__dmwTypeToPackage);
         _SmAp.put(MetaDMSAG.__enumDefList.name,MetaDMSAG.__enumDefList);
+        _SmAp.put(MetaDMSAG.__extendedReferenceTypeDefList.name,MetaDMSAG.__extendedReferenceTypeDefList);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__generatedFileHeader.name,MetaDMSAG.__generatedFileHeader);
         _SmAp.put(MetaDMSAG.__internalTypeDefList.name,MetaDMSAG.__internalTypeDefList);
@@ -673,6 +675,35 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         
         attr.add(value);
         add(MetaDMSAG.__enumDefList,attr);
+        return(attr);
+    }
+
+    /**
+     * A list of extended reference type definition references.
+     * @return An Iterator of ExtendedReferenceTypeDefinitionDMO objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1680)
+    public Iterator<ExtendedReferenceTypeDefinitionREF> getExtendedReferenceTypeDefList(){
+        DmcTypeExtendedReferenceTypeDefinitionREFMV attr = (DmcTypeExtendedReferenceTypeDefinitionREFMV) get(MetaDMSAG.__extendedReferenceTypeDefList);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another extendedReferenceTypeDefList value.
+     * @param value A value compatible with DmcTypeExtendedReferenceTypeDefinitionREFMV
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1730)
+    public DmcAttribute addExtendedReferenceTypeDefList(Object value) throws DmcValueException {
+        DmcAttribute attr = get(MetaDMSAG.__extendedReferenceTypeDefList);
+        if (attr == null)
+            attr = new DmcTypeExtendedReferenceTypeDefinitionREFMV(MetaDMSAG.__extendedReferenceTypeDefList);
+        
+        attr.add(value);
+        add(MetaDMSAG.__extendedReferenceTypeDefList,attr);
         return(attr);
     }
 

@@ -70,6 +70,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _ImAp.put(MetaDMSAG.__helperClassName.id,MetaDMSAG.__helperClassName);
         _ImAp.put(MetaDMSAG.__internallyGenerated.id,MetaDMSAG.__internallyGenerated);
         _ImAp.put(MetaDMSAG.__isEnumType.id,MetaDMSAG.__isEnumType);
+        _ImAp.put(MetaDMSAG.__isExtendedRefType.id,MetaDMSAG.__isExtendedRefType);
         _ImAp.put(MetaDMSAG.__isFilterType.id,MetaDMSAG.__isFilterType);
         _ImAp.put(MetaDMSAG.__isHierarchicName.id,MetaDMSAG.__isHierarchicName);
         _ImAp.put(MetaDMSAG.__isNameType.id,MetaDMSAG.__isNameType);
@@ -100,6 +101,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _SmAp.put(MetaDMSAG.__helperClassName.name,MetaDMSAG.__helperClassName);
         _SmAp.put(MetaDMSAG.__internallyGenerated.name,MetaDMSAG.__internallyGenerated);
         _SmAp.put(MetaDMSAG.__isEnumType.name,MetaDMSAG.__isEnumType);
+        _SmAp.put(MetaDMSAG.__isExtendedRefType.name,MetaDMSAG.__isExtendedRefType);
         _SmAp.put(MetaDMSAG.__isFilterType.name,MetaDMSAG.__isFilterType);
         _SmAp.put(MetaDMSAG.__isHierarchicName.name,MetaDMSAG.__isHierarchicName);
         _SmAp.put(MetaDMSAG.__isNameType.name,MetaDMSAG.__isNameType);
@@ -588,6 +590,34 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(MetaDMSAG.__isEnumType,attr);
+    }
+
+    /**
+     * This flag is used to indicate taht an internally generated type is an
+     * extended reference type.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1543)
+    public Boolean getIsExtendedRefType(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__isExtendedRefType);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets isExtendedRefType to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1594)
+    @SuppressWarnings("unchecked")
+    public void setIsExtendedRefType(Object value) throws DmcValueException {
+        DmcAttribute attr = get(MetaDMSAG.__isExtendedRefType);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__isExtendedRefType);
+        
+        attr.set(value);
+        set(MetaDMSAG.__isExtendedRefType,attr);
     }
 
     /**

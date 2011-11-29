@@ -26,7 +26,7 @@ import org.dmd.dmc.types.DmcTypeBoolean;    // DmcType import
  * The DmcTypeBooleanMV provides storage for a multi-valued Boolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:267)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2132)
     public DmcAttribute<Boolean> cloneIt(){
         synchronized(this){
             DmcTypeBooleanMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2161)
     public Boolean add(Object v) throws DmcValueException {
         synchronized(this){
             Boolean rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
     public Boolean del(Object v){
         synchronized(this){
             Boolean rc = null;
@@ -103,7 +103,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2193)
     public Iterator<Boolean> getMV(){
         synchronized(this){
             ArrayList<Boolean> clone = new ArrayList<Boolean>(value);
@@ -111,7 +111,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2202)
     public ArrayList<Boolean> getMVCopy(){
         synchronized(this){
             ArrayList<Boolean> clone = new ArrayList<Boolean>(value);
@@ -120,7 +120,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -134,7 +134,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
     public Boolean getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2238)
     public Boolean setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -171,7 +171,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2266)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -194,7 +194,7 @@ public class DmcTypeBooleanMV extends DmcTypeBoolean implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2260)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

@@ -29,7 +29,7 @@ import org.dmd.dmc.types.DmcTypeDmcAttribute;    // DmcType import
  * The DmcTypeDmcAttributeSET provides storage for a set of DmcAttribute
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2334)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2364)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2401)
     public DmcAttribute<DmcAttribute<?>> cloneIt(){
         synchronized(this){
             DmcTypeDmcAttributeSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2420)
     public DmcAttribute<?> add(Object v) throws DmcValueException {
         synchronized(this){
             DmcAttribute<?> rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
     public DmcAttribute<?> del(Object v){
         synchronized(this){
             DmcAttribute<?> rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2426)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
     public Iterator<DmcAttribute<?>> getMV(){
         synchronized(this){
             Set<DmcAttribute<?>> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2469)
     public Set<DmcAttribute<?>> getMVCopy(){
         synchronized(this){
             Set<DmcAttribute<?>> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2453)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2494)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

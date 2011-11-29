@@ -10,4 +10,5 @@ defFiles    	attributes.dmd
 defFiles		classes.dmd
 defFiles		slices.dmd
 defFiles		actions.dmd
+defFiles		extendedRefs.dmd
 description		The dmt schema defines a sets of definitions for Dark Matter Testing purposes.

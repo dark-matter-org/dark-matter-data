@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint;    // DmcType import
  * The DmcTypeTimeDoubleDataPointMV provides storage for a multi-valued TimeDoubleDataPoint
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:267)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2132)
     public DmcAttribute<TimeDoubleDataPoint> cloneIt(){
         synchronized(this){
             DmcTypeTimeDoubleDataPointMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2161)
     public TimeDoubleDataPoint add(Object v) throws DmcValueException {
         synchronized(this){
             TimeDoubleDataPoint rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
     public TimeDoubleDataPoint del(Object v){
         synchronized(this){
             TimeDoubleDataPoint rc = null;
@@ -104,7 +104,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2193)
     public Iterator<TimeDoubleDataPoint> getMV(){
         synchronized(this){
             ArrayList<TimeDoubleDataPoint> clone = new ArrayList<TimeDoubleDataPoint>(value);
@@ -112,7 +112,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2202)
     public ArrayList<TimeDoubleDataPoint> getMVCopy(){
         synchronized(this){
             ArrayList<TimeDoubleDataPoint> clone = new ArrayList<TimeDoubleDataPoint>(value);
@@ -121,7 +121,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -135,7 +135,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
     public TimeDoubleDataPoint getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2238)
     public TimeDoubleDataPoint setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -172,7 +172,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2266)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -195,7 +195,7 @@ public class DmcTypeTimeDoubleDataPointMV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2260)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

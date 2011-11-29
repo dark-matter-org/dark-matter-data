@@ -31,9 +31,12 @@ import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.StringName;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
+import org.dmd.dms.generated.types.ClassDefinitionREF;
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;
 import org.dmd.dms.generated.types.Field;
 import org.dmd.dmw.DmwWrapper;
 import org.dmd.util.exceptions.DebugInfo;
@@ -112,9 +115,14 @@ public class SchemaManager implements DmcNameResolverIF {
     public int  longestClassName;
 
     // Key: StringName
-    // Value: SliceDefinition
+    // Value: ComplexTypeDefinition
     public HashMap<StringName,ComplexTypeDefinition>     	complexTypeDefs;
     public int  longestComplexTypeName;
+
+    // Key: StringName
+    // Value: ExtendedReferenceTypeDefinition
+    public HashMap<StringName,ExtendedReferenceTypeDefinition>	extendedReferenceTypeDefs;
+    public int  longestExtendedReferenceTypeName;
 
     // Key: StringName
     // Value: SliceDefinition
@@ -207,22 +215,23 @@ public class SchemaManager implements DmcNameResolverIF {
     
     void init() throws ResultException, DmcValueException{
         // Create our various hashmaps
-        allDefs     			= new HashMap<StringName,DmsDefinition>();
-        enumDefs 				= new HashMap<StringName,EnumDefinition>();
-        typeDefs    			= new HashMap<StringName,TypeDefinition>();
-        attrDefs    			= new HashMap<StringName,AttributeDefinition>();
-        attrByID				= new TreeMap<Integer, AttributeDefinition>();
-        classesByID				= new TreeMap<Integer, ClassDefinition>();
-        actionDefs  			= new HashMap<StringName,ActionDefinition>();
-        classDefs   			= new HashMap<StringName,ClassDefinition>();
-        complexTypeDefs   		= new HashMap<StringName,ComplexTypeDefinition>();
-        sliceDefs   			= new HashMap<StringName,SliceDefinition>();
-        objectValidatorDefs   	= new HashMap<StringName,ObjectValidatorDefinition>();
-        attributeValidatorDefs	= new HashMap<StringName,AttributeValidatorDefinition>();
-        schemaDefs  			= new TreeMap<StringName,SchemaDefinition>();
-        classAbbrevs			= new HashMap<StringName,ClassDefinition>();
-        attrAbbrevs 			= new HashMap<StringName,AttributeDefinition>();
-        hierarchicObjects		= null;
+        allDefs     				= new HashMap<StringName,DmsDefinition>();
+        enumDefs 					= new HashMap<StringName,EnumDefinition>();
+        typeDefs    				= new HashMap<StringName,TypeDefinition>();
+        attrDefs    				= new HashMap<StringName,AttributeDefinition>();
+        attrByID					= new TreeMap<Integer, AttributeDefinition>();
+        classesByID					= new TreeMap<Integer, ClassDefinition>();
+        actionDefs  				= new HashMap<StringName,ActionDefinition>();
+        classDefs   				= new HashMap<StringName,ClassDefinition>();
+        complexTypeDefs   			= new HashMap<StringName,ComplexTypeDefinition>();
+        extendedReferenceTypeDefs   = new HashMap<StringName,ExtendedReferenceTypeDefinition>();
+        sliceDefs   				= new HashMap<StringName,SliceDefinition>();
+        objectValidatorDefs   		= new HashMap<StringName,ObjectValidatorDefinition>();
+        attributeValidatorDefs		= new HashMap<StringName,AttributeValidatorDefinition>();
+        schemaDefs  				= new TreeMap<StringName,SchemaDefinition>();
+        classAbbrevs				= new HashMap<StringName,ClassDefinition>();
+        attrAbbrevs 				= new HashMap<StringName,AttributeDefinition>();
+        hierarchicObjects			= null;
         
 //        reposNames  = new HashMap<String,DmsDefinition>();
         dict        			= null;
@@ -973,6 +982,44 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueException 
      * @throws DmcValueExceptionSet 
      */
+    void addExtendedReferenceType(ExtendedReferenceTypeDefinition ertd) throws ResultException, DmcValueException {
+        if (checkAndAdd(ertd.getObjectName(),ertd,extendedReferenceTypeDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(ertd.getObjectName(),ertd,extendedReferenceTypeDefs,"extended reference type names"));
+        	throw(ex);
+        }
+        
+        TypeDefinition td  = new TypeDefinition();
+        td.setInternallyGenerated(true);
+        td.setIsExtendedRefType(true);
+        td.setName(ertd.getName());
+        td.setDescription("This is an internally generated type to represent extendedreference type " + ertd.getName() + " values.");
+        td.setIsEnumType(false);
+        td.setIsRefType(true);
+        
+        td.setTypeClassName(ertd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + ertd.getName());
+        td.setPrimitiveType(ertd.getDefinedIn().getSchemaPackage() + ".generated.types." + ertd.getName());
+        td.setDefinedIn(ertd.getDefinedIn());
+                
+//        td.setDmwIteratorClass(cd.getDmwIteratorClass());
+//        td.setDmwIteratorImport(cd.getDmwIteratorImport());
+                
+        // We add the new type to the schema's list of internally generated types
+        ertd.getDefinedIn().addInternalTypeDefList(td);
+        ertd.getDefinedIn().addTypeDefList(td);
+        
+        // And then we add the type
+        addType(td);
+        
+        // We hang on to this so taht we can set some further info after the extendedReferenceClass has been resolved
+        ertd.setInternalType(td);
+    }
+
+    /**
+     * Adds the specified slice definition to the schema if it doesn't already exist.
+     * @throws DmcValueException 
+     * @throws DmcValueExceptionSet 
+     */
     void addSlice(SliceDefinition sd) throws ResultException, DmcValueException {
         if (checkAndAdd(sd.getObjectName(),sd,sliceDefs) == false){
         	ResultException ex = new ResultException();
@@ -1428,6 +1475,9 @@ public class SchemaManager implements DmcNameResolverIF {
     		this.addEnum((EnumDefinition) def);
     	else if (def instanceof SliceDefinition)
     		this.addSlice((SliceDefinition) def);
+    	// Note: test for extended ref before conplex type because it is derived from complex type
+    	else if (def instanceof ExtendedReferenceTypeDefinition)
+    		this.addExtendedReferenceType((ExtendedReferenceTypeDefinition) def);
     	else if (def instanceof ComplexTypeDefinition)
     		this.addComplexType((ComplexTypeDefinition) def);
     	else if (def instanceof ObjectValidatorDefinition)
@@ -2115,6 +2165,86 @@ DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
     		}
     	}
     	
+    	// And more of the same kind of magic with extended references types - we have to
+    	// preresolve the type references in the same way as with attributes
+    	Iterator<ExtendedReferenceTypeDefinition> ertdl = sd.getExtendedReferenceTypeDefList();
+    	if (ertdl != null){
+    		while(ertdl.hasNext()){
+    			ExtendedReferenceTypeDefinition ertd = ertdl.next();
+    			
+    	        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) ertd.getDMO().get(MetaDMSAG.__extendedReferenceClass);
+    			if (attr == null){
+					ResultException ex = new ResultException();
+					ex.addError("Missing extendedReferenceClass for ExtendedReferenceTypeDefinition: " + ertd.getName());
+					ex.result.lastResult().fileName(ertd.getFile());
+					ex.result.lastResult().lineNumber(ertd.getLineNumber());
+					throw(ex);    				
+    			}
+    			
+    			try {
+					attr.resolveReferences(this);
+				} catch (DmcValueException e) {
+					ResultException ex = new ResultException();
+					ex.addError("Unknown class referred to by extendedReferenceClass: " + attr.getSV().getObjectName().getNameString());
+					ex.result.lastResult().fileName(ertd.getFile());
+					ex.result.lastResult().lineNumber(ertd.getLineNumber());
+					throw(ex);
+				}
+				
+				try {
+					ertd.getInternalType().setOriginalClass(ertd.getExtendedReferenceClass());
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+
+//				ClassDefinition cd = cdef(attr.getName());
+//				if (cd == null){
+//					ResultException ex = new ResultException();
+//					ex.addError("Missing extendedReferenceClass for ExtendedReferenceTypeDefinition: " + ertd.getName());
+//					ex.result.lastResult().fileName(ertd.getFile());
+//					ex.result.lastResult().lineNumber(ertd.getLineNumber());
+//					throw(ex);
+//				}
+    			
+    			
+				if (ertd.getExtendedReferenceClass().getIsNamedBy() == null){
+					ResultException ex = new ResultException();
+					ex.addError("The class: " + ertd.getExtendedReferenceClass().getObjectName().getNameString() + " referred to in ExtendedReferenceTypeDefinition " + ertd.getName() + " is not a named object.");
+					ex.result.lastResult().fileName(ertd.getFile());
+					ex.result.lastResult().lineNumber(ertd.getLineNumber());
+					throw(ex);
+				}
+
+    			Iterator<Field> fields = ertd.getField();
+    			while(fields.hasNext()){
+    				Field field = fields.next();
+    				DmcNamedObjectREF ref = (DmcNamedObjectREF)field.getType();
+    				
+        			// It might be a "real" type, so try that first
+        			TypeDefinition td = tdef(ref.getObjectName().getNameString());
+        			
+        			if( td == null){
+        				ClassDefinition cd = cdef(ref.getObjectName().getNameString());
+        				if (cd == null){
+        					ResultException ex = new ResultException();
+        					ex.addError("The type: " + ref.getObjectName() + " referred to in ExtendedReferenceTypeDefinition " + ertd.getName() + " is invalid.");
+        					ex.result.lastResult().fileName(ertd.getFile());
+        					ex.result.lastResult().lineNumber(ertd.getLineNumber());
+        					throw(ex);
+        				}
+        				else{
+            				ref.setObject((DmcNamedObjectIF) cd.getInternalTypeRef().getDmcObject());
+        				}
+        			}
+        			else{
+        				ref.setObject((DmcNamedObjectIF) td.getDmcObject());
+        			}
+    			}
+    		}
+    	}
+    	
     	Iterator<ActionDefinition> actdl = sd.getActionDefList();
     	if (actdl != null){
     		while(actdl.hasNext()){
@@ -2366,6 +2496,14 @@ DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
      */
     public Iterator<ComplexTypeDefinition> getComplexTypes(){
     	return(complexTypeDefs.values().iterator());
+    }
+
+    /**
+     * Returns the defined complex types.
+     * @return
+     */
+    public Iterator<ExtendedReferenceTypeDefinition> getExtendedReferenceTypes(){
+    	return(extendedReferenceTypeDefs.values().iterator());
     }
 }
 

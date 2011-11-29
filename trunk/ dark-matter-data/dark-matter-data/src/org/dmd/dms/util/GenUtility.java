@@ -262,7 +262,7 @@ public class GenUtility {
 			}
 			
 			
-			if (td.getIsRefType()){
+			if (td.getIsRefType() && !td.getIsExtendedRefType()){
 				addImport(uniqueImports, longestImport, ta.getImport(), "Reference type");
 				
 				addImport(uniqueImports, longestImport, td.getOriginalClass().getDmoImport(), "Type specific set/add");
@@ -283,6 +283,9 @@ public class GenUtility {
 				}
 			}
 			else{
+				if (td.getIsExtendedRefType())
+					addImport(uniqueImports, longestImport, td.getPrimitiveType(), "Extended reference type");
+
 				addImport(uniqueImports, longestImport, ta.getImport(), "Required type");
 			}
 			
@@ -596,7 +599,7 @@ public class GenUtility {
     	functionName.append(ad.getName());
     	functionName.setCharAt(0,Character.toUpperCase(functionName.charAt(0)));
 		
-    	if (ad.getType().getIsRefType()){
+    	if (ad.getType().getIsRefType() && !ad.getType().getIsExtendedRefType()){
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			if (ad.getType().getOriginalClass().getIsNamedBy() == null){
 				sb.append("    public " + typeName + "DMO get" + functionName + "(){\n");		
@@ -819,7 +822,15 @@ public class GenUtility {
 		
 		if (ad.getType().getIsRefType()){
 			if (ad.getIndexSize() == null){
-		    	sb.append("    /**\n");
+				String REF = "REF";
+				String DMO = "DMO";
+				
+				if  (ad.getType().getIsExtendedRefType()){
+					REF = "";
+					DMO = "";
+				}
+
+				sb.append("    /**\n");
 				sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
 				sb.append("     */\n");
 		    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
@@ -835,16 +846,17 @@ public class GenUtility {
 					
 				}
 				else{
+					
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
+					sb.append("    public Iterator<" + typeName + REF + "> get" + functionName + "(){\n");
 					sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 					sb.append("        if (attr == null)\n");
-					sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+					sb.append("            return( ((List<" + typeName + REF + ">) Collections.EMPTY_LIST).iterator() );\n");
 			    	sb.append("\n");
 			    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
 			    	sb.append("            if (attr.doLazyResolution(this)){\n");
 			    	sb.append("                rem(attr.getAttributeInfo());\n");
-					sb.append("                return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+					sb.append("                return( ((List<" + typeName + REF + ">) Collections.EMPTY_LIST).iterator() );\n");
 			    	sb.append("            }\n");
 			    	sb.append("        }\n");
 			    	sb.append("\n");
@@ -856,10 +868,10 @@ public class GenUtility {
 					sb.append("     */\n");
 			    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "REFs(){\n");
+					sb.append("    public Iterator<" + typeName + REF + "> get" + functionName + "REFs(){\n");
 					sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 					sb.append("        if (attr == null)\n");
-					sb.append("            return( ((List<" + typeName + "REF>) Collections.EMPTY_LIST).iterator() );\n");
+					sb.append("            return( ((List<" + typeName + REF + ">) Collections.EMPTY_LIST).iterator() );\n");
 			    	sb.append("\n");
 					sb.append("        return(attr.getMV());\n");
 					sb.append("    }\n\n");
@@ -870,7 +882,7 @@ public class GenUtility {
 		    	sb.append("     * @param value " + typeName + "\n");
 		    	sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-		    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + "DMO value) {\n");
+		    	sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + DMO + " value) {\n");
 		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 		    	sb.append("        if (attr == null)\n");
 		    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");

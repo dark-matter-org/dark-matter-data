@@ -424,4 +424,10 @@ name            		enabledDisabled
 dmdID           		420
 type            		Boolean
 
+AttributeDefinition
+name            		someRelation
+dmdID           		421
+type            		SomeRelation
+valueType				MULTI
+
 

@@ -26,7 +26,6 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -336,7 +335,8 @@ public class DmoFormatter {
         if (fileHeader != null)
         	out.write(fileHeader);
 
-        out.write("package " + cd.getDefinedIn().getSchemaPackage() + ".generated.auxw;\n\n");
+//        out.write("package " + cd.getDefinedIn().getSchemaPackage() + ".generated.auxw;\n\n");
+        out.write("package " + cd.getDefinedIn().getSchemaPackage() + ".generated.dmo;\n\n");
         
         // This call updates allAttr and staticNames
         out.write(getImports(cd,anySVAttributes,anyMVAttributes));
