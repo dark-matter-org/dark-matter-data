@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // DmcType impo
  * The DmcTypeNameContainerTestREFMV provides storage for a multi-valued NameContainerTest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2114)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2117)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:251)
  */
 @SuppressWarnings("serial")
@@ -33,7 +33,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2147)
     public DmcAttribute<NameContainerTestDMO> cloneIt(){
         synchronized(this){
             DmcTypeNameContainerTestREFMV rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2176)
     public NameContainerTestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             NameContainerTestDMO rc = typeCheck(v);
@@ -70,7 +70,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2189)
     public NameContainerTestDMO del(Object v){
         synchronized(this){
             NameContainerTestDMO rc = null;
@@ -88,7 +88,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2205)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
     public Iterator<NameContainerTestDMO> getMV(){
         synchronized(this){
             ArrayList<NameContainerTestDMO> clone = new ArrayList<NameContainerTestDMO>(value);
@@ -96,7 +96,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2214)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2217)
     public ArrayList<NameContainerTestDMO> getMVCopy(){
         synchronized(this){
             ArrayList<NameContainerTestDMO> clone = new ArrayList<NameContainerTestDMO>(value);
@@ -105,7 +105,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2224)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -119,7 +119,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2239)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2242)
     public NameContainerTestDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -129,7 +129,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2250)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2253)
     public NameContainerTestDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -156,7 +156,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2278)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2281)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -179,7 +179,7 @@ public class DmcTypeNameContainerTestREFMV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2305)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

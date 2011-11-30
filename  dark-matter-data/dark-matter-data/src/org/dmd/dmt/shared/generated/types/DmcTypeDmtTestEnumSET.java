@@ -14,7 +14,7 @@ import org.dmd.dmt.shared.generated.enums.DmtTestEnum;    // DmcType import
  * The DmcTypeDmtTestEnumSET provides storage for a set of DmtTestEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2376)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:355)
  */
 @SuppressWarnings("serial")
@@ -44,7 +44,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2413)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
     public DmcAttribute<DmtTestEnum> cloneIt(){
         synchronized(this){
             DmcTypeDmtTestEnumSET rc = getNew();
@@ -59,7 +59,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2432)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
     public DmtTestEnum add(Object v) throws DmcValueException {
         synchronized(this){
             DmtTestEnum rc = typeCheck(v);
@@ -75,7 +75,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2449)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2452)
     public DmtTestEnum del(Object v){
         synchronized(this){
             DmtTestEnum rc = null;
@@ -93,7 +93,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2468)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2471)
     public Iterator<DmtTestEnum> getMV(){
         synchronized(this){
             Set<DmtTestEnum> clone = null;
@@ -105,7 +105,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2481)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2484)
     public Set<DmtTestEnum> getMVCopy(){
         synchronized(this){
             Set<DmtTestEnum> clone = null;
@@ -118,7 +118,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2498)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -128,7 +128,7 @@ public class DmcTypeDmtTestEnumSET extends DmcTypeDmtTestEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2506)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2509)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

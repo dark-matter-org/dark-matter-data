@@ -30,6 +30,7 @@ import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
+import org.dmd.dms.ExtendedReferenceTypeDefinition;
 import org.dmd.dms.MetaSchema;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
@@ -38,6 +39,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
@@ -821,14 +823,15 @@ public class GenUtility {
 
 		
 		if (ad.getType().getIsRefType()){
+			String REF = "REF";
+			String DMO = "DMO";
+			
+			if  (ad.getType().getIsExtendedRefType()){
+				REF = "";
+				DMO = "";
+			}
+			
 			if (ad.getIndexSize() == null){
-				String REF = "REF";
-				String DMO = "DMO";
-				
-				if  (ad.getType().getIsExtendedRefType()){
-					REF = "";
-					DMO = "";
-				}
 
 				sb.append("    /**\n");
 				sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
@@ -903,7 +906,7 @@ public class GenUtility {
 					sb.append("     * @return The nth " + typeName + " value without attempting lazy resolution.\n");
 					sb.append("     */\n");
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public " + typeName + "DMO getNth" + functionName + "(int i){\n");
+					sb.append("    public " + typeName + DMO + " getNth" + functionName + "(int i){\n");
 					sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 					sb.append("        if (attr == null)\n");
 					sb.append("            return(null);\n");
@@ -916,7 +919,7 @@ public class GenUtility {
 					sb.append("     * @return The nth " + typeName + " value and attempt lazy resolution if it's on.\n");
 					sb.append("     */\n");
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public " + typeName + "REF getNth" + functionName + "(int i){\n");
+					sb.append("    public " + typeName + REF + " getNth" + functionName + "(int i){\n");
 					sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 					sb.append("        if (attr == null)\n");
 					sb.append("            return(null);\n");
@@ -935,7 +938,7 @@ public class GenUtility {
 					sb.append("     * @return The nth " + typeName + " value without attempting lazy resolution.\n");
 					sb.append("     */\n");
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public " + typeName + "REF getNth" + functionName + "REF(int i){\n");
+					sb.append("    public " + typeName + REF + " getNth" + functionName + "REF(int i){\n");
 					sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 					sb.append("        if (attr == null)\n");
 					sb.append("            return(null);\n");
@@ -949,7 +952,7 @@ public class GenUtility {
 		    	sb.append("     * @param value " + typeName + "\n");
 		    	sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-		    	sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + typeName + "DMO value) {\n");
+		    	sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + typeName + DMO + " value) {\n");
 		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 		    	sb.append("        if (attr == null){\n");
 		    	sb.append("            if (value == null){\n");
@@ -2804,6 +2807,171 @@ public class GenUtility {
   		out.write("        super(ai);\n");
   		out.write("    }\n\n");
       		            	
+  		out.write("    protected " + cn + " typeCheck(Object value) throws DmcValueException {\n");
+  		out.write("        " + cn + " rc = null;\n\n");
+  		
+  		out.write("        if (value instanceof " + cn + "){\n");
+  		out.write("            rc = (" + cn + ")value;\n");
+  		out.write("        }\n");
+  	
+		out.write("        else if (value instanceof String){\n");
+		out.write("            rc = new " + cn + "((String)value);\n");
+		out.write("        }\n");
+  	
+		out.write("        else{\n");
+		out.write("            throw(new DmcValueException(\"Object of class: \" + value.getClass().getName() + \" passed where object compatible with " + cn + " expected.\"));\n");
+		out.write("        }\n");
+          
+		out.write("        return(rc);\n");
+  		out.write("    }\n");
+
+  		out.write("\n");
+      
+  		out.write("    /**\n");
+  		out.write("     * Returns a clone of a value associated with this type.\n");
+  		out.write("     */\n");
+  		out.write("    public " + cn + " cloneValue(" + cn + " val){\n");
+ 		out.write("        return(new " + cn + "(val));\n");
+  		out.write("    }\n\n");
+      	
+  		out.write("    /**\n");
+  		out.write("     * Writes a " + cn + ".\n");
+  		out.write("     */\n");
+  		out.write("    @Override\n");
+  		out.write("    public void serializeValue(DmcOutputStreamIF dos, " + cn + " value) throws Exception {\n");
+  		out.write("        value.serializeIt(dos);\n");
+  		out.write("    }\n\n");
+  	
+  		out.write("    /**\n");
+  		out.write("     * Reads a " + cn + ".\n");
+      	out.write("     */\n");
+      	out.write("    @Override\n");
+      	out.write("    public " + cn + " deserializeValue(DmcInputStreamIF dis) throws Exception {\n");
+      	out.write("        " + cn + " rc = new " + cn + "();\n");
+      	out.write("        rc.deserializeIt(dis);\n");
+      	out.write("        return(rc);\n");
+      	out.write("    }\n\n");
+      	
+      	if (containsRefs){
+	  		out.write("    /**\n");
+	  		out.write("     * Resolves a " + cn + ".\n");
+	  		out.write("     */\n");
+	  		out.write("    @Override\n");
+	  		out.write("    public void resolveValue(DmcNameResolverIF resolver, " + cn + " value, String attrName) throws DmcValueException {\n");
+	  		out.write("        value.resolve(resolver,attrName);\n");
+	  		out.write("    }\n\n");
+      	}
+
+  	        		
+      	out.write("\n");
+      	out.write("\n");
+
+      out.write("}\n");
+
+      out.close();
+
+  }
+  
+	/**
+	 * Dumps the DmcType required for a generated complex type.
+	 * @param header The file header or ""
+	 * @param basePackage The base package where this code will be generated - .generated.types will be appended to this package.
+	 * @param od The output directory.
+	 * @param cn The class name of the complex type.
+	 * @param containsRefs a flag to indicate if the complex type contains reference types
+	 * @throws IOException
+	 */
+    static public void dumpExtendedReferenceTypeDmcType(String header, String basePackage, String od, String cn, boolean containsRefs, ExtendedReferenceTypeDefinition ertd) throws IOException {
+    	BufferedWriter out = FileUpdateManager.instance().getWriter(od, "DmcType" + cn + ".java");
+    	ImportManager imports = new ImportManager();
+    	
+    	imports.addImport("org.dmd.dmc.DmcInputStreamIF", "Serialization support");
+    	imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support");
+    	
+    	imports.addImport("org.dmd.dmc.DmcAttributeInfo", "Standard attribute interface");
+    	imports.addImport("org.dmd.dmc.DmcValueException", "Value exceptions");
+    	imports.addImport("org.dmd.dmc.types.DmcTypeNamedObjectREF", "The class we extend");
+    	
+    	imports.addImport(ertd.getExtendedReferenceClass().getDmoImport(), "The class we refer to");
+    	
+      	imports.addImport(ertd.getExtendedReferenceClass().getIsNamedBy().getType().getPrimitiveType(), "Name type");
+    	imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support");
+
+    	out.write(header);
+    	out.write("package " + basePackage + ".generated.types;\n\n");
+    	
+    	out.write(imports.getFormattedImports() + "\n\n");
+    	
+      
+//    	out.write("import java.io.Serializable;\n");
+//    	out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
+//      	out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+
+//      	out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
+//      	out.write("import org.dmd.dmc.DmcValueException;\n");
+//      	out.write("import org.dmd.dmc.types.DmcTypeNamedObjectREF;\n");
+      	
+//      	if (containsRefs){
+//          	out.write("import org.dmd.dmc.types.DmcTypeComplexTypeWithRefs;\n");
+//          	out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
+//      	}
+//      	else
+//          	out.write("import org.dmd.dmc.DmcAttribute;\n");
+
+
+  		out.write("@SuppressWarnings(\"serial\")\n");
+
+  		out.write("/**\n * The DmcType" + cn + " class.\n");
+  		out.write(" * This code was auto-generated and shouldn't be alterred manually.\n");
+  		out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+  		out.write(" *    Called from: " + DebugInfo.getWhereWeWereCalledFrom() + "\n");
+  		out.write(" */\n");
+      
+//  		if (containsRefs)
+//  	  		out.write("abstract public class DmcType" + cn + " extends DmcTypeComplexTypeWithRefs<" + cn + ">" + " implements Serializable {\n\n");
+//  		else
+//  			out.write("abstract public class DmcType" + cn + " extends DmcAttribute<" + cn + ">" + " implements Serializable {\n\n");
+  		
+  		String ref = ertd.getExtendedReferenceClass().getName().getNameString();
+  		String nametype = ertd.getExtendedReferenceClass().getIsNamedBy().getType().getName().getNameString();
+  		
+		out.write("abstract public class DmcType" + cn + " extends DmcTypeNamedObjectREF<" + ertd.getName() + ", " + nametype + "> {\n\n");
+      	
+  		out.write("    /**\n");
+  		out.write("     * Default constructor.\n");
+  		out.write("     */\n");
+      	out.write("    public DmcType" + cn + "(){\n");
+      	out.write("    }\n\n");
+      		            	
+      	out.write("    /**\n");
+      	out.write("     * Default constructor.\n");
+      	out.write("     */\n");
+      	out.write("    public DmcType" + cn + "(DmcAttributeInfo ai){\n");
+  		out.write("        super(ai);\n");
+  		out.write("    }\n\n");
+      		            	
+      	out.write("    @Override\n");
+      	out.write("    protected " + ertd.getName() + " getNewHelper(){\n");
+      	out.write("        return(new " + ertd.getName() + "());\n");
+      	out.write("    }\n\n");
+
+      	out.write("    @Override\n");
+      	out.write("    protected " + nametype + " getNewName(){\n");
+      	out.write("        return(new " + nametype + "());\n");
+      	out.write("    }\n\n");
+
+      	out.write("    @Override\n");
+      	out.write("    protected String getDMOClassName(){\n");
+      	out.write("        return(" + ertd.getExtendedReferenceClass().getName() + "DMO.class.getName());\n");
+      	out.write("    }\n\n");
+      	
+      	out.write("    @Override\n");
+      	out.write("    protected boolean isDMO(Object value){\n");
+      	out.write("        if (value instanceof " + ertd.getExtendedReferenceClass().getName() + "DMO)\n");
+      	out.write("            return(true);\n");
+      	out.write("        return(false);\n");
+    	out.write("    }\n\n");
+
   		out.write("    protected " + cn + " typeCheck(Object value) throws DmcValueException {\n");
   		out.write("        " + cn + " rc = null;\n\n");
   		

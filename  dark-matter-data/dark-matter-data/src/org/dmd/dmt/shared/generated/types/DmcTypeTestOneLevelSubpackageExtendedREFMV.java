@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestOneLevelSubpackageExtendedREFMV provides storage for a multi-valued TestOneLevelSubpackageExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2114)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2117)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:523)
  */
 @SuppressWarnings("serial")
@@ -32,7 +32,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2147)
     public DmcAttribute<TestOneLevelSubpackageExtendedREF> cloneIt(){
         synchronized(this){
             DmcTypeTestOneLevelSubpackageExtendedREFMV rc = getNew();
@@ -57,7 +57,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2176)
     public TestOneLevelSubpackageExtendedREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestOneLevelSubpackageExtendedREF rc = typeCheck(v);
@@ -69,7 +69,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2189)
     public TestOneLevelSubpackageExtendedREF del(Object v){
         synchronized(this){
             TestOneLevelSubpackageExtendedREF rc = null;
@@ -87,7 +87,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2205)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
     public Iterator<TestOneLevelSubpackageExtendedREF> getMV(){
         synchronized(this){
             ArrayList<TestOneLevelSubpackageExtendedREF> clone = new ArrayList<TestOneLevelSubpackageExtendedREF>(value);
@@ -95,7 +95,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLe
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2214)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2217)
     public ArrayList<TestOneLevelSubpackageExtendedREF> getMVCopy(){
         synchronized(this){
             ArrayList<TestOneLevelSubpackageExtendedREF> clone = new ArrayList<TestOneLevelSubpackageExtendedREF>(value);
@@ -104,7 +104,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2224)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -118,7 +118,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2239)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2242)
     public TestOneLevelSubpackageExtendedREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -128,7 +128,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2250)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2253)
     public TestOneLevelSubpackageExtendedREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -155,7 +155,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2278)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2281)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -178,7 +178,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMV extends DmcTypeTestOneLe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2305)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

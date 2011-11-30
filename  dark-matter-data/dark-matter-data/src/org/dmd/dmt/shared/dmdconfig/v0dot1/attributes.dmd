@@ -425,9 +425,22 @@ dmdID           		420
 type            		Boolean
 
 AttributeDefinition
-name            		someRelation
+name            		someRelationSV
 dmdID           		421
 type            		SomeRelation
 valueType				MULTI
+
+AttributeDefinition
+name            		someRelationMV
+dmdID           		422
+type            		SomeRelation
+valueType				MULTI
+
+AttributeDefinition
+name            		someRelationMVI
+dmdID           		423
+type            		SomeRelation
+valueType				MULTI
+indexSize				8
 
 

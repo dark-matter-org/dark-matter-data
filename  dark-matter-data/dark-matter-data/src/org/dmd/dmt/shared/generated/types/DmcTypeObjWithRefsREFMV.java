@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeObjWithRefsREFMV provides storage for a multi-valued ObjWithRefsREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2114)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2117)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:523)
  */
 @SuppressWarnings("serial")
@@ -32,7 +32,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2147)
     public DmcAttribute<ObjWithRefsREF> cloneIt(){
         synchronized(this){
             DmcTypeObjWithRefsREFMV rc = getNew();
@@ -57,7 +57,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2176)
     public ObjWithRefsREF add(Object v) throws DmcValueException {
         synchronized(this){
             ObjWithRefsREF rc = typeCheck(v);
@@ -69,7 +69,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2189)
     public ObjWithRefsREF del(Object v){
         synchronized(this){
             ObjWithRefsREF rc = null;
@@ -87,7 +87,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2205)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
     public Iterator<ObjWithRefsREF> getMV(){
         synchronized(this){
             ArrayList<ObjWithRefsREF> clone = new ArrayList<ObjWithRefsREF>(value);
@@ -95,7 +95,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2214)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2217)
     public ArrayList<ObjWithRefsREF> getMVCopy(){
         synchronized(this){
             ArrayList<ObjWithRefsREF> clone = new ArrayList<ObjWithRefsREF>(value);
@@ -104,7 +104,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2224)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -118,7 +118,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2239)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2242)
     public ObjWithRefsREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -128,7 +128,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2250)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2253)
     public ObjWithRefsREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -155,7 +155,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2278)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2281)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -178,7 +178,7 @@ public class DmcTypeObjWithRefsREFMV extends DmcTypeObjWithRefsREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2305)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

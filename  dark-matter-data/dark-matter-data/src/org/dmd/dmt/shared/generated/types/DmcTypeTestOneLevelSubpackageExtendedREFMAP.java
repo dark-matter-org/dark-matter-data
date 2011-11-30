@@ -15,7 +15,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestOneLevelSubpackageExtendedREFMAP provides storage for a map of TestOneLevelSubpackageExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2576)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2579)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -46,7 +46,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2619)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2622)
     public DmcAttribute<TestOneLevelSubpackageExtendedREF> cloneIt(){
         synchronized(this){
             DmcTypeTestOneLevelSubpackageExtendedREFMAP rc = getNew();
@@ -61,7 +61,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2635)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2638)
     public TestOneLevelSubpackageExtendedREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestOneLevelSubpackageExtendedREF newval = typeCheck(v);
@@ -81,7 +81,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2656)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2659)
     public TestOneLevelSubpackageExtendedREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -92,7 +92,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2671)
     public Iterator<TestOneLevelSubpackageExtendedREF> getMV(){
         synchronized(this){
             Map<StringName,TestOneLevelSubpackageExtendedREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2681)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2684)
     public Map<StringName,TestOneLevelSubpackageExtendedREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestOneLevelSubpackageExtendedREF> clone = null;
@@ -116,7 +116,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2694)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2697)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -127,7 +127,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2706)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2709)
     public TestOneLevelSubpackageExtendedREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -138,7 +138,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2718)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2721)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -152,7 +152,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2733)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2736)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

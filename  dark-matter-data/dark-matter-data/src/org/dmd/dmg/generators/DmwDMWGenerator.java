@@ -82,6 +82,10 @@ public class DmwDMWGenerator extends BaseDMWGeneratorNew {
 		if (types != null){
 			while(types.hasNext()){
 				TypeDefinition td = types.next();
+				
+				if (td.getIsExtendedRefType())
+					continue;
+				
 				String genericArgs = td.getGenericArgs();
 				if (genericArgs == null)
 					genericArgs = "";
