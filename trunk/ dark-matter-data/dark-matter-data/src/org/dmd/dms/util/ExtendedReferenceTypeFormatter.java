@@ -348,7 +348,7 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
 
         out.close();
         
-        GenUtility.dumpComplexTypeDmcType(header, ertd.getDefinedIn().getSchemaPackage(), od, ctn, hasRefs);
+        GenUtility.dumpExtendedReferenceTypeDmcType(header, ertd.getDefinedIn().getSchemaPackage(), od, ctn, hasRefs, ertd);
 
     }
     
