@@ -79,6 +79,8 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
       	
       	imports.addImport(ertd.getExtendedReferenceClass().getDmoImport(), "Object based constructor");
 
+      	imports.addImport("org.dmd.dmc.DmcExtendedReferenceIF", "Marker interface for extended references");
+
 //        out.write("import java.io.Serializable;\n");
 //        out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
 //        out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
@@ -119,7 +121,7 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         out.write(" * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write(" */\n");
 
-        out.write("public class " + ctn + " extends " + ertd.getExtendedReferenceClass().getName() + "REF implements Serializable {\n\n");
+        out.write("public class " + ctn + " extends " + ertd.getExtendedReferenceClass().getName() + "REF implements Serializable, DmcExtendedReferenceIF {\n\n");
         
         out.write(getComplexTypeFieldInstances(ertd));
         	
