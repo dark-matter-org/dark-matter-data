@@ -13,7 +13,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTestOneLevelSubpackageREFSET provides storage for a set of TestOneLevelSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2382)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:524)
  */
 @SuppressWarnings("serial")
@@ -43,7 +43,7 @@ public class DmcTypeTestOneLevelSubpackageREFSET extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2419)
     public DmcAttribute<TestOneLevelSubpackageREF> cloneIt(){
         synchronized(this){
             DmcTypeTestOneLevelSubpackageREFSET rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeTestOneLevelSubpackageREFSET extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2438)
     public TestOneLevelSubpackageREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestOneLevelSubpackageREF rc = typeCheck(v);
@@ -74,7 +74,7 @@ public class DmcTypeTestOneLevelSubpackageREFSET extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2452)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2455)
     public TestOneLevelSubpackageREF del(Object v){
         synchronized(this){
             TestOneLevelSubpackageREF rc = null;
@@ -92,7 +92,7 @@ public class DmcTypeTestOneLevelSubpackageREFSET extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2471)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2474)
     public Iterator<TestOneLevelSubpackageREF> getMV(){
         synchronized(this){
             Set<TestOneLevelSubpackageREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeTestOneLevelSubpackageREFSET extends DmcTypeTestOneLevelSubp
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2484)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2487)
     public Set<TestOneLevelSubpackageREF> getMVCopy(){
         synchronized(this){
             Set<TestOneLevelSubpackageREF> clone = null;
@@ -117,7 +117,7 @@ public class DmcTypeTestOneLevelSubpackageREFSET extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2498)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2501)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -127,7 +127,7 @@ public class DmcTypeTestOneLevelSubpackageREFSET extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2509)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

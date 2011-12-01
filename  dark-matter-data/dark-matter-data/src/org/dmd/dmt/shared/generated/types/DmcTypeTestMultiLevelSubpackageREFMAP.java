@@ -15,7 +15,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestMultiLevelSubpackageREFMAP provides storage for a map of TestMultiLevelSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2579)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2582)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -46,7 +46,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2622)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2625)
     public DmcAttribute<TestMultiLevelSubpackageREF> cloneIt(){
         synchronized(this){
             DmcTypeTestMultiLevelSubpackageREFMAP rc = getNew();
@@ -61,7 +61,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2638)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2641)
     public TestMultiLevelSubpackageREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestMultiLevelSubpackageREF newval = typeCheck(v);
@@ -81,7 +81,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2662)
     public TestMultiLevelSubpackageREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -92,7 +92,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2671)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2674)
     public Iterator<TestMultiLevelSubpackageREF> getMV(){
         synchronized(this){
             Map<StringName,TestMultiLevelSubpackageREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2684)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2687)
     public Map<StringName,TestMultiLevelSubpackageREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestMultiLevelSubpackageREF> clone = null;
@@ -116,7 +116,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2700)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -127,7 +127,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2709)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2712)
     public TestMultiLevelSubpackageREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -138,7 +138,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2721)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2724)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -152,7 +152,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2736)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2739)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

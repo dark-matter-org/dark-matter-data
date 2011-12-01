@@ -6,14 +6,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.ExtendedReferenceTypeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
-import org.dmd.dms.generated.types.DmcTypeStringNameSTATIC;
-import org.dmd.dms.generated.types.DmcTypeStringNameSV;
 import org.dmd.dms.generated.types.Field;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
@@ -78,6 +76,8 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
       	imports.addImport(ertd.getExtendedReferenceClass().getIsNamedBy().getType().getPrimitiveType(), "Name type");
       	
       	imports.addImport(nameBaseImport + staticNameType, "Static type for name");
+      	
+      	imports.addImport(ertd.getExtendedReferenceClass().getDmoImport(), "Object based constructor");
 
 //        out.write("import java.io.Serializable;\n");
 //        out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
@@ -128,7 +128,10 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         out.write("     */\n");
         out.write("    public " + ctn + "(){\n");
     	out.write("    }\n\n");
-        		            	
+        		      
+    	///////////////////////////////////////////////////////////////////////
+    	// Copy constructor
+    	
         out.write("    /**\n");
         out.write("     * Copy constructor.\n");
         out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -139,10 +142,13 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         fields = ertd.getField();
         while(fields.hasNext()){
         	Field field = fields.next();
-        	out.write("        " + field.getName() + " = original." + field.getName() + ";\n");
+        	out.write("        _" + field.getName() + " = original._" + field.getName() + ";\n");
         }
     	out.write("    }\n\n");
         
+    	///////////////////////////////////////////////////////////////////////
+    	// All fields constructor with name
+    	
     	String nametype = ertd.getExtendedReferenceClass().getIsNamedBy().getType().getName().getNameString();
     	String attrName = ertd.getExtendedReferenceClass().getIsNamedBy().getName().getNameString();
     	
@@ -150,20 +156,22 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         out.write("     * All fields constructor.\n");
         out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("     */\n");
-        out.write("    public " + ctn + "(" + nametype + " n, ");
+        out.write("    public " + ctn + "(" + nametype + " name, ");
         int fnum = 1;
         fields = ertd.getField();
         while(fields.hasNext()){
         	Field field = fields.next();
-        	out.write(field.getType().getObjectName() + " f" + fnum);
+//        	out.write(field.getType().getObjectName() + " f" + fnum);
+        	out.write(field.getType().getObjectName() + " " + field.getName());
 
         	fnum++;
         	if (fnum <= ertd.getFieldSize())
         		out.write(", ");
         }
         
-        out.write(") throws DmcValueException {\n");
-        out.write("        super(n);\n");
+//        out.write(") throws DmcValueException {\n");
+        out.write(") {\n");
+        out.write("        setName(name);\n");
         fnum = 1;
         fields = ertd.getField();
         while(fields.hasNext()){
@@ -171,14 +179,60 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
         	
         	if (type.getIsRefType()){
-        		out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "REFSTATIC.instance.typeCheck(f" + fnum + ");\n");
+//        		out.write("        _" + field.getName() + " = DmcType" + field.getType().getObjectName() + "REFSTATIC.instance.typeCheck(f" + fnum + ");\n");
+        		out.write("        _" + field.getName() + " = " + field.getName() + ";\n");
         	}
         	else{
-        		out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "STATIC.instance.typeCheck(f" + fnum + ");\n");
+//        		out.write("        _" + field.getName() + " = DmcType" + field.getType().getObjectName() + "STATIC.instance.typeCheck(f" + fnum + ");\n");
+        		out.write("        _" + field.getName() + " = " + field.getName() + ";\n");
         	}
         	fnum++;
         }
     	out.write("    }\n\n");
+    	
+    	///////////////////////////////////////////////////////////////////////
+    	// All fields constructor with object
+    	
+        out.write("    /**\n");
+        out.write("     * All fields constructor.\n");
+        out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("     */\n");
+        out.write("    public " + ctn + "(" + ertd.getExtendedReferenceClass().getName().getNameString() + "DMO obj, ");
+        fnum = 1;
+        fields = ertd.getField();
+        while(fields.hasNext()){
+        	Field field = fields.next();
+//        	out.write(field.getType().getObjectName() + " f" + fnum);
+        	out.write(field.getType().getObjectName() + " " + field.getName());
+
+        	fnum++;
+        	if (fnum <= ertd.getFieldSize())
+        		out.write(", ");
+        }
+        
+//        out.write(") throws DmcValueException {\n");
+        out.write(") {\n");
+        out.write("        super(obj);\n");
+        fnum = 1;
+        fields = ertd.getField();
+        while(fields.hasNext()){
+        	Field field = fields.next();
+        	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
+        	
+        	if (type.getIsRefType()){
+//        		out.write("        _" + field.getName() + " = DmcType" + field.getType().getObjectName() + "REFSTATIC.instance.typeCheck(f" + fnum + ");\n");
+        		out.write("        _" + field.getName() + " = " + field.getName() + ";\n");
+        	}
+        	else{
+//        		out.write("        _" + field.getName() + " = DmcType" + field.getType().getObjectName() + "STATIC.instance.typeCheck(f" + fnum + ");\n");
+        		out.write("        _" + field.getName() + " = " + field.getName() + ";\n");
+        	}
+        	fnum++;
+        }
+    	out.write("    }\n\n");
+    	
+    	///////////////////////////////////////////////////////////////////////
+    	// String based constructor
     	
         out.write("    /**\n");
         out.write("     * String based constructor.\n");
@@ -205,14 +259,16 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         		REF = "REF";
         	
         	if (fnum == ertd.getFieldSize())
-            	out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + REF + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.getName() + "\",true));\n");
+            	out.write("        _" + field.getName() + " = DmcType" + field.getType().getObjectName() + REF + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.getName() + "\",true));\n");
             else
-        		out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + REF + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.getName() + "\",false));\n");
+        		out.write("        _" + field.getName() + " = DmcType" + field.getType().getObjectName() + REF + "STATIC.instance.typeCheck(getNextField(input,seppos,\"" + field.getName() + "\",false));\n");
             
         	fnum++;
         }
     	out.write("    }\n\n");
     	
+    	///////////////////////////////////////////////////////////////////////
+    	// Serialization
     	
         out.write("    /**\n");
         out.write("     * Serialization.\n");
@@ -226,9 +282,9 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
         	
         	if (type.getIsRefType())
-            	out.write("        DmcType" + field.getType().getObjectName() + "REFSTATIC.instance.serializeValue(dos, " + field.getName() + ");\n");
+            	out.write("        DmcType" + field.getType().getObjectName() + "REFSTATIC.instance.serializeValue(dos, _" + field.getName() + ");\n");
         	else
-        		out.write("        DmcType" + field.getType().getObjectName() + "STATIC.instance.serializeValue(dos, " + field.getName() + ");\n");
+        		out.write("        DmcType" + field.getType().getObjectName() + "STATIC.instance.serializeValue(dos, _" + field.getName() + ");\n");
         }
     	out.write("    }\n\n");
     	
@@ -247,11 +303,14 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
         	
         	if (type.getIsRefType())
-            	out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "REFSTATIC.instance.deserializeValue(dis);\n");
+            	out.write("        _" + field.getName() + " = DmcType" + field.getType().getObjectName() + "REFSTATIC.instance.deserializeValue(dis);\n");
         	else
-        		out.write("        " + field.getName() + " = DmcType" + field.getType().getObjectName() + "STATIC.instance.deserializeValue(dis);\n");
+        		out.write("        _" + field.getName() + " = DmcType" + field.getType().getObjectName() + "STATIC.instance.deserializeValue(dis);\n");
         }
     	out.write("    }\n\n");
+    	
+    	///////////////////////////////////////////////////////////////////////
+    	// String form
     	
         out.write("    /**\n");
         out.write("     * String form.\n");
@@ -266,13 +325,30 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         fields = ertd.getField();
         while(fields.hasNext()){
         	Field field = fields.next();
-        	out.write(field.getName() + ".toString()");
+        	out.write("_" + field.getName() + ".toString()");
         	if (fnum < ertd.getFieldSize())
         		out.write(" + \"" + fieldSeparator + "\" + ");
         	fnum++;
         }
         out.write(");\n");
     	out.write("    }\n\n");
+    	
+    	///////////////////////////////////////////////////////////////////////
+    	// Getter/setters
+    	
+        out.write("    public void setName(" + nametype + " name){\n");
+        out.write("        try{\n");
+        out.write("            super.setName(name);\n");
+    	out.write("            object = null;\n");
+    	out.write("        } catch (DmcValueException e) {\n");
+    	out.write("            throw new IllegalStateException(\"Setting name with a specific type shouldn't throw an exception.\",e);\n");
+    	out.write("        }\n\n");
+    	out.write("    }\n\n");
+ 	
+        out.write("    public void setObject(" + ertd.getExtendedReferenceClass().getName().getNameString() + "DMO obj){\n");
+    	out.write("        super.setObject(obj);\n");
+    	out.write("    }\n\n");
+ 	
     	
         fields = ertd.getField();
         while(fields.hasNext()){
@@ -284,8 +360,17 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         	else
         		out.write("    public " + field.getType().getObjectName() + " get" + GenUtility.capTheName(field.getName()) + "(){\n");
         	
-        	out.write("        return(" + field.getName() + ");\n");
+        	out.write("        return(_" + field.getName() + ");\n");
         	out.write("    }\n\n");
+        	
+        	if (type.getIsRefType())
+                out.write("    public void set" + GenUtility.capTheName(field.getName()) + "(" + field.getType().getObjectName() + " " + field.getName() + "){\n");
+        	else
+        		out.write("    public void set" + GenUtility.capTheName(field.getName()) + "(" + field.getType().getObjectName() + " " + field.getName() + "){\n");
+        	
+        	out.write("        _" + field.getName() + " = " + field.getName() + ";\n");
+        	out.write("    }\n\n");
+        	
         }
         
         if (hasRefs){
@@ -307,6 +392,9 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
 
         	out.write("    }\n\n");
         }
+    	
+    	///////////////////////////////////////////////////////////////////////
+    	// Parsing support
     	
     	out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
     	out.write("    	   String rc = null;\n");
@@ -362,9 +450,9 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
     		sb.append("    // " + field.getDescription() + "\n");
     		
     		if (type.getIsRefType())
-        		sb.append("    " + field.getType().getObjectName() + "REF " + field.getName() + ";\n\n");
+        		sb.append("    " + field.getType().getObjectName() + "REF _" + field.getName() + ";\n\n");
     		else
-    			sb.append("    " + field.getType().getObjectName() + " " + field.getName() + ";\n\n");
+    			sb.append("    " + field.getType().getObjectName() + " _" + field.getName() + ";\n\n");
     	}
     	
     	return(sb.toString());

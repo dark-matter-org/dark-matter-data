@@ -1,7 +1,7 @@
 package org.dmd.dmt.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.GenUtility.dumpExtendedReferenceTypeDmcType(GenUtility.java:2903)
+// Called from: org.dmd.dms.util.GenUtility.dumpExtendedReferenceTypeDmcType(GenUtility.java:2906)
 import org.dmd.dmc.DmcAttributeInfo;                            // Standard attribute interface
 import org.dmd.dmc.DmcInputStreamIF;                            // Serialization support
 import org.dmd.dmc.DmcOutputStreamIF;                           // Serialization support
@@ -15,8 +15,8 @@ import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;         // The class we 
 /**
  * The DmcTypeSomeRelation class.
  * This code was auto-generated and shouldn't be alterred manually.
- * Generated from: org.dmd.dms.util.GenUtility.dumpExtendedReferenceTypeDmcType(GenUtility.java:2926)
- *    Called from: Called from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:351)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpExtendedReferenceTypeDmcType(GenUtility.java:2929)
+ *    Called from: Called from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:439)
  */
 abstract public class DmcTypeSomeRelation extends DmcTypeNamedObjectREF<SomeRelation, StringName> {
 
