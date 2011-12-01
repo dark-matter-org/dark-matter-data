@@ -917,7 +917,7 @@ abstract public class DmcObject implements Serializable {
 				}
 			}
 			
-			if (value instanceof DmcNamedObjectREF){
+			if ( (value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){
 				DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
 				if (ref.getObject() == null)
 					attr.del(ref.getObjectName());
@@ -1622,7 +1622,7 @@ abstract public class DmcObject implements Serializable {
 						Iterator<Object> it = (Iterator<Object>) mod.getAttribute().getMV();
 						Object value = it.next();
 						
-						if (value instanceof DmcNamedObjectREF){
+						if ((value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){
 							// If the attribute is an object reference, we have to determine
 							// whether we have the object or just its name - and perform the
 							// add() accordingly.
@@ -1653,7 +1653,7 @@ abstract public class DmcObject implements Serializable {
 						Iterator<Object> it = (Iterator<Object>) mod.getAttribute().getMV();
 						Object value = it.next();
 						
-						if (value instanceof DmcNamedObjectREF){						
+						if ( (value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){						
 							// If the attribute is an object reference, we have to determine
 							// whether we have the object or just its name - and perform the
 							// del() accordingly.
@@ -1691,7 +1691,7 @@ abstract public class DmcObject implements Serializable {
 					else{
 						Object value = mod.getAttribute().getSV();
 						
-						if (value instanceof DmcNamedObjectREF){						
+						if ((value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){						
 							// If the attribute is an object reference, we have to determine
 							// whether we have the object or just its name - and perform the
 							// set() accordingly.
@@ -1748,7 +1748,7 @@ abstract public class DmcObject implements Serializable {
 							existing.setMVnth(index, value);
 						}
 						else{
-							if (value instanceof DmcNamedObjectREF){
+							if ((value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){
 								// If the attribute is an object reference, we have to determine
 								// whether we have the object or just its name - and perform the
 								// add() accordingly.
