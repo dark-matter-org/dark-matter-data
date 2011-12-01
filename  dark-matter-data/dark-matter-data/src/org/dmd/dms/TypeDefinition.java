@@ -179,6 +179,10 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	
 	String getTypeName(String suffix){
 		String tn = getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + getName().getNameString() + suffix;
+		
+		// If it's an extended reference type, we're good at this stage
+		if (getIsExtendedRefType())
+			return(tn);
 
 		if (getIsRefType() && (!getName().getNameString().endsWith("REF"))){
 			tn = getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + getName().getNameString() + "REF" + suffix;

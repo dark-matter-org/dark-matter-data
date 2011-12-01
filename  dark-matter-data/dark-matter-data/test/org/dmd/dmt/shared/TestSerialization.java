@@ -16,6 +16,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.IntegerToString;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmc.types.UUIDName;
 import org.dmd.dmp.server.extended.CreateRequest;
 import org.dmd.dmp.server.extended.DMPEvent;
@@ -30,6 +31,7 @@ import org.dmd.dmt.server.generated.dmw.TestBasicNamedObjectFixedDMW;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
+import org.dmd.dmt.shared.generated.types.SomeRelation;
 import org.dmd.dmw.DmwDeserializer;
 import org.dmd.dmw.DmwOmni;
 import org.dmd.dmw.DmwWrapper;
@@ -458,6 +460,45 @@ public class TestSerialization {
 		modrec.setSvString("single string");
 		
 		System.out.println(modrec.toOIF());
+		
+	}
+	
+	@Test
+	public void serializeExtendedReference() throws Exception{
+		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
+
+		SomeRelation	rel = new SomeRelation(new StringName("some name"), 4, 2);
+
+		ObjWithRefs obj = new ObjWithRefs();
+		obj.setName("object1");
+		obj.setNthSomeRelationMVI(1, rel);
+				
+		System.out.println("\nSerializing:\n\n" + obj.toOIF() + "\n");
+
+		DmcTraceableOutputStream dos = new DmcTraceableOutputStream(os, true, 35);
+
+		obj.serializeIt(dos);
+		
+		os.close();
+	}
+	
+	@Test
+	public void deserializeExtendedReference() throws Exception {
+		DataInputStream	is = new DataInputStream(new FileInputStream(temp.getAbsolutePath()));
+		
+		DmwDeserializer	deserializer = new DmwDeserializer(DmwOmni.instance().getSchema());
+
+		DmcTraceableInputStream dis = new DmcTraceableInputStream(is, DmwOmni.instance().getSchema(), true, 35);
+		
+		ObjWithRefs obj = (ObjWithRefs) deserializer.deserialize(dis);
+		
+		System.out.println("Deserialized:\n" + obj.toOIF());
+		
+//		ObjWithRefs modrec = obj.getModificationRecorder();
+//		
+//		modrec.setSvString("single string");
+//		
+//		System.out.println(modrec.toOIF());
 		
 	}
 	

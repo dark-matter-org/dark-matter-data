@@ -468,7 +468,9 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 				sb.append("\n{\n" + ((DmcObject)getSV()).toOIF() + "}\n");
 			}
 			else{
-				if (getSV() instanceof DmcNamedObjectIF)
+				if (getSV() instanceof DmcExtendedReferenceIF)
+					sb.append(name + " " + formatValue(getSV()) + "\n");
+				else if (getSV() instanceof DmcNamedObjectIF)
 					sb.append(name + " " + ((DmcNamedObjectIF)getSV()).getObjectName() + "\n");
 				else
 					sb.append(name + " " + formatValue(getSV()) + "\n");
@@ -508,7 +510,9 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 								sb.append(" {\n" + ((DmcObject)value).toOIF() + "}\n");
 							}
 							else{
-								if (value instanceof DmcNamedObjectIF)
+								if (value instanceof DmcExtendedReferenceIF)
+									sb.append(name + " " + indexstr + formatValue(value) + "\n");
+								else if (value instanceof DmcNamedObjectIF)
 									sb.append(name + " " + indexstr + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 								else
 									sb.append(name + " " + indexstr + formatValue(value) + "\n");
@@ -532,7 +536,9 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 							sb.append("{\n" + ((DmcObject)value).toOIF() + "}\n");
 						}
 						else{
-							if (value instanceof DmcNamedObjectIF)
+							if (value instanceof DmcExtendedReferenceIF)
+								sb.append(name + " " + formatValue(value) + "\n");	
+							else if (value instanceof DmcNamedObjectIF)
 								sb.append(name + " " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 							else
 								sb.append(name + " " + formatValue(value) + "\n");	
@@ -571,7 +577,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 				sb.append(name + "\n{\n" + ((DmcObject)getSV()).toOIF() + "}\n");
 			}
 			else{
-				if (getSV() instanceof DmcNamedObjectIF){
+				if ( (getSV() instanceof DmcNamedObjectIF) && !(getSV() instanceof DmcExtendedReferenceIF)){
 					addNameWithPadding(name,padding,sb);
 					sb.append(" " + ((DmcNamedObjectIF)getSV()).getObjectName() + "\n");
 				}
@@ -635,7 +641,10 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 							else{
 								addNameWithPadding(name,padding,sb);
 								sb.append(indexstr);
-								if (value instanceof DmcNamedObjectIF)
+								
+								if (value instanceof DmcExtendedReferenceIF)
+									sb.append(" " + formatValue(value) + "\n");
+								else if (value instanceof DmcNamedObjectIF)
 									sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 								else
 									sb.append(" " + formatValue(value) + "\n");
@@ -658,7 +667,9 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 						}
 						else{
 							addNameWithPadding(name,padding,sb);
-							if (value instanceof DmcNamedObjectIF)
+							if (value instanceof DmcExtendedReferenceIF)
+								sb.append(" " + formatValue(value) + "\n");
+							else if (value instanceof DmcNamedObjectIF)
 								sb.append(" " + ((DmcNamedObjectIF)value).getObjectName() + "\n");
 							else
 								sb.append(" " + formatValue(value) + "\n");
@@ -698,7 +709,9 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 		String rc = null;
 		
 		if (getMVSize() == 0){
-			if (getSV() instanceof DmcNamedObjectIF)
+			if (getSV() instanceof DmcExtendedReferenceIF)
+				rc = "" + getSV();
+			else if (getSV() instanceof DmcNamedObjectIF)
 				rc = "" + ((DmcNamedObjectIF)getSV()).getObjectName();
 			else
 				rc = "" + getSV();
@@ -713,7 +726,9 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 				if (iterator != null){
 					while(iterator.hasNext()){
 						VALUE value = iterator.next();
-						if (value instanceof DmcNamedObjectIF)
+						if (value instanceof DmcExtendedReferenceIF)
+							rc = "" + value;
+						else if (value instanceof DmcNamedObjectIF)
 							rc = "" + ((DmcNamedObjectIF)value).getObjectName();
 						else
 							rc = "" + value;
@@ -725,7 +740,9 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 					VALUE value = getMVnth(index);
 					if (value == null)
 						continue;
-					if (value instanceof DmcNamedObjectIF)
+					if (value instanceof DmcExtendedReferenceIF)
+						rc = "" + value;
+					else if (value instanceof DmcNamedObjectIF)
 						rc = "" + ((DmcNamedObjectIF)value).getObjectName();
 					else
 						rc = "" + value;					

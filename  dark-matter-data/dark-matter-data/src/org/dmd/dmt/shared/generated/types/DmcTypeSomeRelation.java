@@ -16,7 +16,7 @@ import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;         // The class we 
  * The DmcTypeSomeRelation class.
  * This code was auto-generated and shouldn't be alterred manually.
  * Generated from: org.dmd.dms.util.GenUtility.dumpExtendedReferenceTypeDmcType(GenUtility.java:2929)
- *    Called from: Called from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:439)
+ *    Called from: Called from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:441)
  */
 abstract public class DmcTypeSomeRelation extends DmcTypeNamedObjectREF<SomeRelation, StringName> {
 
