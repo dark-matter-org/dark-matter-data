@@ -11,6 +11,7 @@ import org.dmd.dmc.types.StringName;                                // Name type
 import org.dmd.dms.generated.types.DmcTypeIntegerSTATIC;            // Standard type
 import org.dmd.dms.generated.types.DmcTypeStringNameSTATIC;         // Static type for name
 import org.dmd.dms.generated.types.DmcTypeStringNameSV;             // Name type
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;             // Object based constructor
 
 
 @SuppressWarnings("serial")
@@ -23,10 +24,10 @@ import org.dmd.dms.generated.types.DmcTypeStringNameSV;             // Name type
 public class SomeRelation extends ObjWithRefsREF implements Serializable {
 
     // Some kind of counter.
-    Integer count;
+    Integer _count;
 
     // The order in which something is done.
-    Integer order;
+    Integer _order;
 
     /**
      * Default constructor.
@@ -36,28 +37,38 @@ public class SomeRelation extends ObjWithRefsREF implements Serializable {
 
     /**
      * Copy constructor.
-     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:134)
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:137)
      */
     public SomeRelation(SomeRelation original){
         myName = original.myName;
         object = original.object;
-        count = original.count;
-        order = original.order;
+        _count = original._count;
+        _order = original._order;
     }
 
     /**
      * All fields constructor.
-     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:151)
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:157)
      */
-    public SomeRelation(StringName n, Integer f1, Integer f2) throws DmcValueException {
-        super(n);
-        count = DmcTypeIntegerSTATIC.instance.typeCheck(f1);
-        order = DmcTypeIntegerSTATIC.instance.typeCheck(f2);
+    public SomeRelation(StringName name, Integer count, Integer order) {
+        setName(name);
+        _count = count;
+        _order = order;
+    }
+
+    /**
+     * All fields constructor.
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:198)
+     */
+    public SomeRelation(ObjWithRefsDMO obj, Integer count, Integer order) {
+        super(obj);
+        _count = count;
+        _order = order;
     }
 
     /**
      * String based constructor.
-     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:185)
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:239)
      */
     public SomeRelation(String input) throws DmcValueException {
         IntegerVar seppos = new IntegerVar(-1);
@@ -65,46 +76,68 @@ public class SomeRelation extends ObjWithRefsREF implements Serializable {
         myName = new DmcTypeStringNameSV(__name);
         myName.set(n);
 
-        count = DmcTypeIntegerSTATIC.instance.typeCheck(getNextField(input,seppos,"count",false));
-        order = DmcTypeIntegerSTATIC.instance.typeCheck(getNextField(input,seppos,"order",true));
+        _count = DmcTypeIntegerSTATIC.instance.typeCheck(getNextField(input,seppos,"count",false));
+        _order = DmcTypeIntegerSTATIC.instance.typeCheck(getNextField(input,seppos,"order",true));
     }
 
     /**
      * Serialization.
-     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:219)
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:275)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
         DmcTypeStringNameSTATIC.instance.serializeValue(dos, myName.getSV());
-        DmcTypeIntegerSTATIC.instance.serializeValue(dos, count);
-        DmcTypeIntegerSTATIC.instance.serializeValue(dos, order);
+        DmcTypeIntegerSTATIC.instance.serializeValue(dos, _count);
+        DmcTypeIntegerSTATIC.instance.serializeValue(dos, _order);
     }
 
     /**
      * Deserialization.
-     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:237)
+     * Generated from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:293)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
         StringName n = DmcTypeStringNameSTATIC.instance.deserializeValue(dis);
         myName = new DmcTypeStringNameSV(__name);
         myName.set(n);
 
-        count = DmcTypeIntegerSTATIC.instance.deserializeValue(dis);
-        order = DmcTypeIntegerSTATIC.instance.deserializeValue(dis);
+        _count = DmcTypeIntegerSTATIC.instance.deserializeValue(dis);
+        _order = DmcTypeIntegerSTATIC.instance.deserializeValue(dis);
     }
 
     /**
      * String form.
      */
     public String toString(){
-        return(myName.getSV().getNameString() + ":" + count.toString() + ":" + order.toString());
+        return(myName.getSV().getNameString() + ":" + _count.toString() + ":" + _order.toString());
+    }
+
+    public void setName(StringName name){
+        try{
+            super.setName(name);
+            object = null;
+        } catch (DmcValueException e) {
+            throw new IllegalStateException("Setting name with a specific type shouldn't throw an exception.",e);
+        }
+
+    }
+
+    public void setObject(ObjWithRefsDMO obj){
+        super.setObject(obj);
     }
 
     public Integer getCount(){
-        return(count);
+        return(_count);
+    }
+
+    public void setCount(Integer count){
+        _count = count;
     }
 
     public Integer getOrder(){
-        return(order);
+        return(_order);
+    }
+
+    public void setOrder(Integer order){
+        _order = order;
     }
 
     String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {

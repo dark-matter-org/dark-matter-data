@@ -15,7 +15,7 @@ import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelation;    // DmcType imp
  * The DmcTypeSomeRelationSET provides storage for a set of SomeRelation
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2382)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:146)
  */
 @SuppressWarnings("serial")
@@ -45,7 +45,7 @@ public class DmcTypeSomeRelationSET extends DmcTypeSomeRelation implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2419)
     public DmcAttribute<SomeRelation> cloneIt(){
         synchronized(this){
             DmcTypeSomeRelationSET rc = getNew();
@@ -60,7 +60,7 @@ public class DmcTypeSomeRelationSET extends DmcTypeSomeRelation implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2438)
     public SomeRelation add(Object v) throws DmcValueException {
         synchronized(this){
             SomeRelation rc = typeCheck(v);
@@ -76,7 +76,7 @@ public class DmcTypeSomeRelationSET extends DmcTypeSomeRelation implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2452)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2455)
     public SomeRelation del(Object v){
         synchronized(this){
             SomeRelation rc = null;
@@ -94,7 +94,7 @@ public class DmcTypeSomeRelationSET extends DmcTypeSomeRelation implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2471)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2474)
     public Iterator<SomeRelation> getMV(){
         synchronized(this){
             Set<SomeRelation> clone = null;
@@ -106,7 +106,7 @@ public class DmcTypeSomeRelationSET extends DmcTypeSomeRelation implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2484)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2487)
     public Set<SomeRelation> getMVCopy(){
         synchronized(this){
             Set<SomeRelation> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeSomeRelationSET extends DmcTypeSomeRelation implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2498)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2501)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -129,7 +129,7 @@ public class DmcTypeSomeRelationSET extends DmcTypeSomeRelation implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2509)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

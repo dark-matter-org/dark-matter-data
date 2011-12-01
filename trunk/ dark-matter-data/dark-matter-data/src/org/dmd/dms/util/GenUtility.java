@@ -291,6 +291,9 @@ public class GenUtility {
 				addImport(uniqueImports, longestImport, ta.getImport(), "Required type");
 			}
 			
+			if (td.getIsExtendedRefType())
+				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcOmni", "Lazy resolution");
+			
 			if (td.getHelperClassName() != null){
 				addImport(uniqueImports, longestImport, td.getHelperClassName(), "Helper class");
 			}

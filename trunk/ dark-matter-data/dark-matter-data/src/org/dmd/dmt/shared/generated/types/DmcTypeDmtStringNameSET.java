@@ -15,7 +15,7 @@ import org.dmd.dmt.shared.types.DmcTypeDmtStringName;    // DmcType import
  * The DmcTypeDmtStringNameSET provides storage for a set of DmtStringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2379)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2382)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:102)
  */
 @SuppressWarnings("serial")
@@ -45,7 +45,7 @@ public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2419)
     public DmcAttribute<DmtStringName> cloneIt(){
         synchronized(this){
             DmcTypeDmtStringNameSET rc = getNew();
@@ -60,7 +60,7 @@ public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2435)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2438)
     public DmtStringName add(Object v) throws DmcValueException {
         synchronized(this){
             DmtStringName rc = typeCheck(v);
@@ -76,7 +76,7 @@ public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2452)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2455)
     public DmtStringName del(Object v){
         synchronized(this){
             DmtStringName rc = null;
@@ -94,7 +94,7 @@ public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2471)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2474)
     public Iterator<DmtStringName> getMV(){
         synchronized(this){
             Set<DmtStringName> clone = null;
@@ -106,7 +106,7 @@ public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2484)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2487)
     public Set<DmtStringName> getMVCopy(){
         synchronized(this){
             Set<DmtStringName> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2498)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2501)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -129,7 +129,7 @@ public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2509)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
