@@ -13,6 +13,7 @@ import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
 import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;
+import org.dmd.dmt.shared.generated.types.SomeRelation;
 import org.dmd.dmw.DmwOmni;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -204,6 +205,26 @@ public class TestLazyResolution {
 		DmcOmni.instance().backRefTracking(true);
 		
 		obj1.addObjRefHM(obj2);
+	}
+	
+	@Test
+	public void testExtendedReferences1() throws DmcValueException{
+		TestDataCache cache = new TestDataCache();
+
+		ObjWithRefs obj1 = new ObjWithRefs();
+		obj1.setName("object1");
+		
+		ObjWithRefs obj2 = new ObjWithRefs();
+		obj2.setName("object2");
+		
+		SomeRelation	rel1 = new SomeRelation(obj2.getName(), 1, 1);
+
+		DmcOmni.instance().reset();
+		DmcOmni.instance().backRefTracking(true);
+		
+		obj1.setNthSomeRelationMVI(1, rel1);
+		
+		
 	}
 
 
