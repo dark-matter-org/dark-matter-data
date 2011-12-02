@@ -141,7 +141,7 @@ public class DmoDeserializer {
 		}
 		
 		if (hasRefs && markHasRefs)
-			dmo.setHasRefs(true);
+			dmo.setHasUnresolvedRefs(true);
 
 		return(dmo);
 	}	

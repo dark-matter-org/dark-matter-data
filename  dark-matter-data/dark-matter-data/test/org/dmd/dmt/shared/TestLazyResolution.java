@@ -51,6 +51,7 @@ public class TestLazyResolution {
 
 	@Test
 	public void testBasicResolutionSV() throws DmcValueException {
+		System.out.println("\n>>>---------------------------------------- testBasicResolutionSV()\n\n");
 		TestDataCache cache = new TestDataCache();
 		
 		ObjWithRefsDMO obj1 = new ObjWithRefsDMO();
@@ -86,13 +87,12 @@ public class TestLazyResolution {
 
 		assertEquals("obj1 getBackRefs() must indicate obj3 reference", obj1.getBackRefs(), OBJ3REF);
 
-		System.out.println("obj1.getBackrefs() = " + obj1.getBackRefs());
-		
-		System.out.println("\n---------------------------------------- testBasicResolutionSV()\n\n");
+		System.out.println("\n<<<---------------------------------------- testBasicResolutionSV()\n\n");
 	}
 
 	@Test
 	public void testCleanupDeadRef() throws DmcValueException {
+		System.out.println("\n>>>---------------------------------------- testCleanupDeadRef()\n\n");
 		TestDataCache cache = new TestDataCache();
 		
 		ObjWithRefsDMO obj1 = new ObjWithRefsDMO();
@@ -115,16 +115,20 @@ public class TestLazyResolution {
 		obj3.setSvString("Some other value");
 		cache.add(obj3);
 		
+		// We set the object reference to be a non-existent object
 		obj3.setObjRef("obj4");
 		
+		// The reference attribute should be there, and unresolved
 		assertNotNull("obj3 SHOULD have the objRef attribute", obj3.get(DmtDMSAG.__objRef.id));
 	
+		// We now attempt to retrieve object reference to the non-existent object
+		// This should automatically remove the attribute because cleanUpDeadRefs is turned on
 		@SuppressWarnings("unused")
 		ObjWithRefsREF obj = obj3.getObjRef();
 		
 		assertNull("obj3 should NOT have the objRef attribute", obj3.get(DmtDMSAG.__objRef.id));
 				
-		System.out.println("\n---------------------------------------- testCleanupDeadRef()\n\n");
+		System.out.println("\n<<<---------------------------------------- testCleanupDeadRef()\n\n");
 	}
 	
 	@Test
@@ -213,17 +217,25 @@ public class TestLazyResolution {
 
 		ObjWithRefs obj1 = new ObjWithRefs();
 		obj1.setName("object1");
+		cache.add(obj1);
 		
 		ObjWithRefs obj2 = new ObjWithRefs();
 		obj2.setName("object2");
+		cache.add(obj2);
 		
 		SomeRelation	rel1 = new SomeRelation(obj2.getName(), 1, 1);
 
 		DmcOmni.instance().reset();
+		DmcOmni.instance().addResolver(cache);
+		DmcOmni.instance().logger(new TestLogger());
+		DmcOmni.instance().lazyResolution(true);
+		DmcOmni.instance().backRefTracking(true);
+		DmcOmni.instance().setCacheIF(cache);
 		DmcOmni.instance().backRefTracking(true);
 		
 		obj1.setNthSomeRelationMVI(1, rel1);
 		
+		assertNotNull("someRelationMV objref shouldn't be null", obj1.getNthSomeRelationMVI(1));
 		
 	}
 

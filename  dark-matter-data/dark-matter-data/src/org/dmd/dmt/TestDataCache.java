@@ -3,6 +3,7 @@ package org.dmd.dmt;
 import java.util.HashMap;
 
 import org.dmd.dmc.DmcCacheIF;
+import org.dmd.dmc.DmcContainerIF;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
@@ -45,7 +46,11 @@ public class TestDataCache implements DmcNameResolverIF, DmcCacheIF {
 		DmcNamedObjectIF obj = data.get(name);
 		if (obj == null)
 			return(null);
-		return (DmcObject) (obj);
+		
+		if (obj instanceof DmcObject)
+			return (DmcObject) (obj);
+		
+		return(((DmcContainerIF)obj).getDmcObject());
 	}
 
 	@Override

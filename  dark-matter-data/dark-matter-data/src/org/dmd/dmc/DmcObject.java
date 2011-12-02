@@ -380,7 +380,7 @@ abstract public class DmcObject implements Serializable {
 	 * info vector storage space associated with this flag. 
 	 * @param f Flag to indicate that the object may have unresolved references.
 	 */
-	public void setHasRefs(Boolean f){
+	public void setHasUnresolvedRefs(Boolean f){
 		if (f == false)
 			shrinkInfo(HASREFS);
 		else
@@ -391,7 +391,7 @@ abstract public class DmcObject implements Serializable {
 	 * @return True if something has marked this object as having unresolved references
 	 * and false otherwise.
 	 */
-	public Boolean hasRefs(){
+	public Boolean hasUnresolvedRefs(){
 		Boolean hr = (Boolean) getInfo(HASREFS,HASREFS_SIZE);
 		if (hr == null)
 			return(false);

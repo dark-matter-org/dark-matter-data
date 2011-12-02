@@ -17,8 +17,7 @@ package org.dmd.dmc;
 
 /**
  * The DmcNameResolverIF interface defines an entity that maintains a name mapping for a set
- * of DmcNameObjectIF instances and can find those instances based on a String
- * name.
+ * of DmcNameObjectIF instances and can find those instances based on a DmcObjectName.
  */
 
 public interface DmcNameResolverIF {

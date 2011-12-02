@@ -126,7 +126,7 @@ public class DmwDeserializer {
 		}
 		
 		if (hasRefs && markHasRefs)
-			dmo.setHasRefs(true);
+			dmo.setHasUnresolvedRefs(true);
 		
 		return(rc);
 	}	
