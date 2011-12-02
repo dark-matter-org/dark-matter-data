@@ -54,7 +54,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * during the life cycle of an object, but will only take up additional space as required.
  * Again, there is some overhead, but the benefits of that overhead are very useful.
  * <p>
- * There are currently 5 additional pieces of information stored for a DMC object:
+ * There are currently 6 additional pieces of information stored for a DMC object:
  * <ul>
  * <li>
  * CONTAINER[0] - if the DMO is wrapped by a DMW generated class, this holds the
@@ -89,6 +89,13 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * referring to it is in MODREC mode. If we didn't keep track of this, we would wind up
  * tracking references twice.
  * </li>
+ * <li>
+ * HASREFS[5] - the HASREFS flag is a Boolean to indicate that a recently deserialized
+ * object has object reference attributes associated with it. This information can be
+ * used to flag objects on which you may want to call resolveReferences(). This can be
+ * useful for set and modify requests (arriving from a client or north bound interface),
+ * or when you are loading a set of objects from a persistent store.
+ * </li>
  * </ul>
  */
 @SuppressWarnings("serial")
@@ -100,6 +107,7 @@ abstract public class DmcObject implements Serializable {
 	static final int	MODIFIER		= 2;
 	static final int	LASTVAL			= 3;
 	static final int	MODREC			= 4;
+	static final int	HASREFS			= 5;
 	
 	// The associated sizes of the info vector when storing various information. 
 	// All of this information is static to cut down on needless operations.
@@ -108,6 +116,7 @@ abstract public class DmcObject implements Serializable {
 	static final int	MODIFIER_SIZE	= 3;
 	static final int	LASTVAL_SIZE	= 4;
 	static final int	MODREC_SIZE		= 5;
+	static final int	HASREFS_SIZE	= 6;
 	
 	// The objectClass attribute is common to all objects and indicates the construction class
 	// and any auxiliary classes associated with the object
@@ -116,20 +125,6 @@ abstract public class DmcObject implements Serializable {
 	// At this level, all we have is a simple collection of attributes.
 	protected Map<Integer, DmcAttribute<?>>	attributes;
 	
-//	// If the modifier is set on an object, all changes to the object are tracked.
-//	transient DmcTypeModifierMV				modifier;
-//	
-//	// In order to build modifiers without imposing unnecessary storage on DmcAttributes,
-//	// the attribute access functions in generated DMOs store the last typeChecked() value
-//	// here.
-//	transient Object						lastValue;
-//	
-//	// This is the handle to the container object that wraps this object. This
-//	// may or may not have a value, depending on the usage context. Also,
-//	// the behaviour of this object is completely up to whoever implements it.
-//	// This handle facilitates hooks for things like object change notification.
-//	transient DmcContainerIF 				container;
-
 	// The info map is used to reduce the memory footprint of the DmcObject by compacting
 	// various additional information that may be required into a single value. This comes
 	// with a slight processing overhead, but that's seen to be reasonable when you're
@@ -374,6 +369,34 @@ abstract public class DmcObject implements Serializable {
 			return(false);
 		return(mr);
 	}
+	
+	/**
+	 * This method can called from things like deserializers e.g. DmwDeserializer that
+	 * know if an object has reference attributes. Code that uses objects marked as
+	 * having references can then call resolveReferences() immediately, or at a later time,
+	 * for instance when a cache has been fully populated.
+	 * <p />
+	 * Once resolution has been performed, you can call setHasRefs(false) to free the
+	 * info vector storage space associated with this flag. 
+	 * @param f Flag to indicate that the object may have unresolved references.
+	 */
+	public void setHasRefs(Boolean f){
+		if (f == false)
+			shrinkInfo(HASREFS);
+		else
+			setInfo(HASREFS,HASREFS_SIZE,f);
+	}
+	
+	/**
+	 * @return True if something has marked this object as having unresolved references
+	 * and false otherwise.
+	 */
+	public Boolean hasRefs(){
+		Boolean hr = (Boolean) getInfo(HASREFS,HASREFS_SIZE);
+		if (hr == null)
+			return(false);
+		return(hr);
+	}
 
 	/**
 	 * This method manages the info vector and grows it to the appropriate size to manage
@@ -393,6 +416,8 @@ abstract public class DmcObject implements Serializable {
 //			DebugInfo.debug("NEW INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
 			
 			switch(index){
+			case HASREFS:
+				info.add(null);
 			case MODREC:
 				info.add(null);
 			case LASTVAL:
@@ -471,6 +496,17 @@ abstract public class DmcObject implements Serializable {
 				}
 				// If the container was null, we'll wind up nulling the info vector
 			}
+		}
+		else if (index == HASREFS){
+			// HASREFS should only be set on the object when it has first been populated
+			// via parsing or deserialization, the only other piece of information that
+			// me be present would be the container if the object is wrapped.
+			if (info.get(CONTAINER) != null){
+				// We just have the container, shrink to 1
+				newinfo = new Vector<Object>(1,1);
+				newinfo.add(info.get(CONTAINER));
+			}
+			// If the container was null, we'll wind up nulling the info vector
 		}
 		info = newinfo;
 		newinfo = null;

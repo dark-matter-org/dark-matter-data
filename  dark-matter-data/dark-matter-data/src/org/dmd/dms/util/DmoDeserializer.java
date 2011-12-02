@@ -20,11 +20,11 @@ import java.io.IOException;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREF;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -63,6 +63,21 @@ public class DmoDeserializer {
 	 * @throws Exception 
 	 */
 	public DmcObject deserialize(DmcInputStreamIF dis) throws Exception {
+		return(deserialize(dis, false));
+	}
+		
+	/**
+	 * This method will read a set of serialized objects from the input stream and return them.
+	 * @param dis The input stream.
+	 * @param markHasRefs If true, the deserialized objects will be flagged as having unresolved object references.
+	 * Use the hasRefs() method on the object to check this flag.
+	 * @return An array of Dark Matter Objects (DMO).
+	 * @throws Exception 
+	 * @throws IOException
+	 * @throws ResultException 
+	 * @throws Exception 
+	 */
+	public DmcObject deserialize(DmcInputStreamIF dis, boolean markHasRefs) throws Exception {
 		DmcObject dmo = null;
 		
 //		// READ: The first part of any object is its objectClass attribute; read its
@@ -107,6 +122,7 @@ public class DmoDeserializer {
 		
 		// READ: the number of attributes
 		int attrCount = dis.readAttributeCount();
+		boolean		hasRefs = false;
 		
 		for(int i=0; i<attrCount; i++){
 			DmcAttribute<?> attr = dis.getAttributeInstance();
@@ -118,8 +134,15 @@ public class DmoDeserializer {
 				dmo.set(attr.getAttributeInfo(), attr);
 			else
 				dmo.add(attr.getAttributeInfo(), attr);
+			
+			// If this is an object reference, set our has refs flag
+			if (attr instanceof DmcTypeNamedObjectREF<?,?>)
+				hasRefs = true;
 		}
 		
+		if (hasRefs && markHasRefs)
+			dmo.setHasRefs(true);
+
 		return(dmo);
 	}	
 	
