@@ -27,18 +27,11 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements Serializable, DmcNamedObjectIF, DmcMappedAttributeIF  {
 	
-	// The name of the object being referred to - the form of this is
-	// completely up to you. There is no standard nomenclature; this
-	// will depend on your implementation domain. The only caveat is
-	// is that the name should allow you to find the referenced object
-	// by whatever means you come up with.
-//	protected DmcObjectNameIF	name;
-		
 	/**
-	 * Constructs a new object reference attribute.
+	 * Constructs a new named object reference.
 	 */
 	public DmcNamedObjectREF(){
-//		name= null;
+
 	}
 	
 	/**
@@ -61,23 +54,7 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	 * Sets the name of the object being referred to. NOTE: USE WITH CAUTION!!!
 	 * @param n The name of the object.
 	 */
-//	public void setName(DmcObjectNameIF n){
-//		name = n;
-//	}
 	abstract public void setName(DmcObjectName n) throws DmcValueException;
-	
-//	/**
-//	 * Returns the name of the object to which we are referring.
-//	 */
-//	@Override
-//	public DmcObjectNameIF getObjectName() {
-//		return(name);
-//	}
-	
-	/**
-	 * Returns the name of the object to which we are referring.
-	 */
-	abstract public DmcObjectName getObjectName();
 	
 	/**
 	 * Override toString() to provide the object name.
@@ -87,11 +64,20 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 		return(getObjectName().getNameString());
 	}
 	
-	@SuppressWarnings("unchecked")
+	///////////////////////////////////////////////////////////////////////////
+	// DmcNamedObjectIF partial implementation
+	
+	// getObjectName() and getObjectNameAttribute() are implemented in the
+	// auto-generated REF types for all named objects.
+	
+	/**
+	 * @return true if the object passed as argument is a DmcNamedObjectREF and
+	 * has a DmcObjectName that equals our DmcObjectName.
+	 */
 	@Override
 	public boolean equals(Object obj){
 		if (obj instanceof DmcNamedObjectREF){
-			DmcNamedObjectREF ref = (DmcNamedObjectREF) obj;
+			DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>) obj;
 			if ( (getObjectName() != null) && (ref.getObjectName() != null))
 				return(getObjectName().equals(ref.getObjectName()));
 			
@@ -100,7 +86,8 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 		return(false);
 	}
 	
-	// DmcMappedAttributeIF
+	///////////////////////////////////////////////////////////////////////////
+	// DmcMappedAttributeIF implementation
 	
 	/**
 	 * Returns the key associated with this attribute value.
