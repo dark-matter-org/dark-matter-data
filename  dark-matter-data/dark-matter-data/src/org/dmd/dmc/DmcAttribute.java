@@ -927,95 +927,104 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 		return(rc);
 	}
 	
-//	/**
-//	 * Appends this attribute to the string buffer with the appropriate
-//	 * indent and padding of the attribute name.
-//	 * @param sb      The string buffer being populated.
-//	 * @param padding The width of the area in which the name will be displayed.
-//	 * @param indent  The padding in front of the attribute name.
-//	 */
-//	void toJSON(StringBuffer sb, int padding, String indent){
-//    	sb.append(indent);
-//    	addJSONNameWithPadding(this,sb,padding);
-//    	
-//    	if (sv == null){
-//    		sb.append("[\n");
-//    		formatValueAsJSON(sb, padding, indent + "  ");
-//    		sb.append("\n" + indent + "]");
-//    	}
-//    	else
-//    		formatValueAsJSON(sb, padding, indent + "  ");
-//    }
-//
-//    void toCompactJSON(StringBuffer sb){
-//    	sb.append("\"" + name + "\":");
-//    	
-//    	if (sv == null){
-//    		sb.append("[");
-//    		formatValueAsCompactJSON(sb);
-//    		sb.append("]");
-//    	}
-//    	else
-//    		formatValueAsCompactJSON(sb);
-//    	
-//    }
-//    
-//    /**
-//     * This method may be overloaded to properly format attributes that refer directly
-//     * to DmcObjects or that are object references.
-//     */
-//    protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {
-//    	if (mv == null){
-//    		sb.append("\"" + sv.toString() + "\"");
-//    	}
-//    	else {
-//    		int max = mv.size()- 1;
-//    		for(int i=0; i<mv.size(); i++){
-//        		sb.append(indent + "  " + "\"" + mv.get(i).toString() + "\"");
-//        		if (i < max)
-//        			sb.append(", \n");
-//    		}
-//    	}
-//    }
-//    
-//    /**
-//     * This method may be overloaded to properly format attributes that refer directly
-//     * to DmcObjects or that are object references.
-//     */
-//    protected void formatValueAsCompactJSON(StringBuffer sb) {
-//    	if (mv == null){
-//    		sb.append("\"" + sv.toString() + "\"");
-//    	}
-//    	else {
-//    		int max = mv.size()- 1;
-//    		for(int i=0; i<mv.size(); i++){
-//        		sb.append("\"" + mv.get(i).toString() + "\"");
-//        		if (i < max)
-//        			sb.append(",");
-//    		}
-//    	}
-//    }
-//    
-//	/**
-//	 * Adds the attribute name and pads it with the required number of spaces. If the name is
-//	 * longer than the padding, we do nothing.
-//	 * @param attrName The name of the attribute.
-//	 * @param padding  The amount of padding.
-//	 * @param sb       The buffer where we're building the output.
-//	 */
-//	private void addJSONNameWithPadding(DmcAttributeNG<?> attr, StringBuffer sb, int padding){
-//		sb.append("\"" + attr.getName() + "\": ");
-//		
-//		// If this is a multivalued attribute, don't apply the padding. This will leave
-//		// the starting bracket just after the attribute name.
-//		if (attr.sv == null)
-//			return;
-//		
-//		if (attr.getName().length() < padding){
-//			for(int i=attr.getName().length(); i<padding; i++)
-//				sb.append(" ");
-//		}
-//	}
+	/**
+	 * Appends this attribute to the string buffer with the appropriate
+	 * indent and padding of the attribute name.
+	 * @param sb      The string buffer being populated.
+	 * @param padding The width of the area in which the name will be displayed.
+	 * @param indent  The padding in front of the attribute name.
+	 */
+	void toJSON(StringBuffer sb, int padding, String indent){
+    	sb.append(indent);
+    	addJSONNameWithPadding(this,sb,padding);
+    	
+    	if (getMVSize() == 0){
+    		formatValueAsJSON(sb, padding, indent + "  ");
+    	}
+    	else{
+    		sb.append("[\n");
+    		formatValueAsJSON(sb, padding, indent + "  ");
+    		sb.append("\n" + indent + "]");
+    	}
+    }
+
+    void toCompactJSON(StringBuffer sb){
+		String name = "???";
+		if (attrInfo == null){
+			if ( (attrInfo = DmcOmni.instance().getInfo(ID)) != null)
+				name = attrInfo.name;
+		}
+		else
+			name = attrInfo.name;
+
+		sb.append("\"" + name + "\":");
+    	
+    	if (getMVSize() == 0){
+    		formatValueAsCompactJSON(sb);
+    	}
+    	else{
+    		sb.append("[");
+			formatValueAsCompactJSON(sb);
+			sb.append("]");
+    	}
+    }
+    
+    /**
+     * This method may be overloaded to properly format attributes that refer directly
+     * to DmcObjects or that are object references.
+     */
+    protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {
+    	if (getMVSize() == 0){
+    		sb.append("\"" + getSV().toString() + "\"");
+    	}
+    	else {
+    		int max = getMVSize()- 1;
+    		for(int i=0; i<getMVSize(); i++){
+        		sb.append(indent + "  " + "\"" + getMVnth(i).toString() + "\"");
+        		if (i < max)
+        			sb.append(", \n");
+    		}
+    	}
+    }
+    
+    /**
+     * This method may be overloaded to properly format attributes that refer directly
+     * to DmcObjects or that are object references.
+     */
+    protected void formatValueAsCompactJSON(StringBuffer sb) {
+    	if (getMVSize() == 0){
+    		sb.append("\"" + getSV().toString() + "\"");
+    	}
+    	else {
+    		int max = getMVSize()- 1;
+    		for(int i=0; i<getMVSize(); i++){
+        		sb.append("\"" + getMVnth(i).toString() + "\"");
+        		if (i < max)
+        			sb.append(",");
+    		}
+    	}
+    }
+    
+	/**
+	 * Adds the attribute name and pads it with the required number of spaces. If the name is
+	 * longer than the padding, we do nothing.
+	 * @param attrName The name of the attribute.
+	 * @param padding  The amount of padding.
+	 * @param sb       The buffer where we're building the output.
+	 */
+	private void addJSONNameWithPadding(DmcAttribute<?> attr, StringBuffer sb, int padding){
+		sb.append("\"" + attr.getName() + "\": ");
+		
+		// If this is a multivalued attribute, don't apply the padding. This will leave
+		// the starting bracket just after the attribute name.
+		if (getMVSize() > 0)
+			return;
+		
+		if (attr.getName().length() < padding){
+			for(int i=attr.getName().length(); i<padding; i++)
+				sb.append(" ");
+		}
+	}
 	
 
 }
