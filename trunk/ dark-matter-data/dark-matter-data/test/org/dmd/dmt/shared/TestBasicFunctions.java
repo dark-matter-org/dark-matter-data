@@ -223,4 +223,22 @@ public class TestBasicFunctions {
 		
 		
 	}
+	
+	@Test
+	public void testJSONDisplay() throws DmcValueException{
+		ObjWithRefsDMO dmo = new ObjWithRefsDMO();
+		
+		dmo.setName("obj1");
+		dmo.addMvString("mv string 0");
+		dmo.addMvString("mv string 1");
+		dmo.setSvBoolean(true);
+		dmo.setSvString("sv string");
+		
+		System.out.println(dmo.toOIF());
+		
+		System.out.println(dmo.toJSON());
+		
+		
+		System.out.println(dmo.toCompactJSON());
+	}
 }
