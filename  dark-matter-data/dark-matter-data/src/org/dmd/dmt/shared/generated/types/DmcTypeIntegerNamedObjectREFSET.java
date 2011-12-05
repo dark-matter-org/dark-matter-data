@@ -13,7 +13,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeIntegerNamedObjectREFSET provides storage for a set of IntegerNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2382)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2403)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:524)
  */
 @SuppressWarnings("serial")
@@ -43,7 +43,7 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2419)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2440)
     public DmcAttribute<IntegerNamedObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeIntegerNamedObjectREFSET rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2438)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2459)
     public IntegerNamedObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerNamedObjectREF rc = typeCheck(v);
@@ -74,7 +74,7 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2455)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
     public IntegerNamedObjectREF del(Object v){
         synchronized(this){
             IntegerNamedObjectREF rc = null;
@@ -92,7 +92,7 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2474)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
     public Iterator<IntegerNamedObjectREF> getMV(){
         synchronized(this){
             Set<IntegerNamedObjectREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2487)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2508)
     public Set<IntegerNamedObjectREF> getMVCopy(){
         synchronized(this){
             Set<IntegerNamedObjectREF> clone = null;
@@ -117,7 +117,7 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2501)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2522)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -127,7 +127,7 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2533)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
