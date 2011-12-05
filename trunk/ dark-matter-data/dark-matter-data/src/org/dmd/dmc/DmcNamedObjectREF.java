@@ -17,6 +17,8 @@ package org.dmd.dmc;
 
 import java.io.Serializable;
 
+import org.dmd.dmc.types.Modifier;
+
 
 /**
  * The DmcNamedObjectREF is an abstract base class that defines helper class for implementing
@@ -27,11 +29,35 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements Serializable, DmcNamedObjectIF, DmcMappedAttributeIF  {
 	
+	protected transient Modifier backrefModifier;
+	
 	/**
 	 * Constructs a new named object reference.
 	 */
 	public DmcNamedObjectREF(){
 
+	}
+	
+	/**
+	 * Sets the modifier that will remove this object reference if the object being
+	 * referred to is deleted. This is used to efficiently remove the back reference
+	 * when an object is no longer referenced. This mechanism is used by the Dark Matter 
+	 * back reference tracking mechanisms; don't mess with it unless you know what 
+	 * you're doing ;-)
+	 * @param mod The back reference modifier.
+	 */
+	public void setBackrefModifier(Modifier mod){
+		backrefModifier = mod;
+	}
+	
+	/**
+	 * If back reference tracking was turned on when this reference was resolved, this
+	 * will return the handle to back reference modifier that was created on the
+	 * object being referred to.
+	 * @return The back reference modifier.
+	 */
+	public Modifier getBackrefModifier(){
+		return(backrefModifier);
 	}
 	
 	/**

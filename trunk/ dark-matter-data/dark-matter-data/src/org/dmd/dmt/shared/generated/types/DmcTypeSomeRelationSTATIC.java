@@ -10,8 +10,8 @@ import org.dmd.dmt.shared.generated.types.SomeRelation;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1955)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1870)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1964)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1879)
  */
 public class DmcTypeSomeRelationSTATIC {
     

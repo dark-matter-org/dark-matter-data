@@ -971,8 +971,15 @@ public class GenUtility {
 		    	sb.append("        }\n");
 		    	sb.append("        \n");
 		    	sb.append("        try{\n");
-		    	sb.append("            setLastValue(attr.setMVnth(index, value));\n");
-		    	sb.append("            nth(" + ad.getDMSAGReference() + ",index ,attr);\n");
+		    	if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+			    	sb.append("            setLastValue(attr.setMVnth(index, value));\n");
+			    	sb.append("            nth(" + ad.getDMSAGReference() + ", index ,attr, null);\n");
+		    	}
+		    	else{
+		    		sb.append("            " + typeName + REF + " previous = (" + typeName + REF + ") attr.getMVnth(index);\n");
+			    	sb.append("            setLastValue(attr.setMVnth(index, value));\n");
+			    	sb.append("            nth(" + ad.getDMSAGReference() + ",index ,attr,previous);\n");
+		    	}
 		    	sb.append("        }\n");
 		    	sb.append("        catch(DmcValueException ex){\n");
 		    	sb.append("            throw(new IllegalStateException(\"The type specific setNth() method shouldn't throw exceptions!\",ex));\n");
@@ -1052,8 +1059,9 @@ public class GenUtility {
 		    	sb.append("        }\n");
 		    	sb.append("        \n");
 		    	sb.append("        try{\n");
+		    	sb.append("            " + typeName + " previous = (" + typeName + ") attr.getMVnth(index);\n");
 		    	sb.append("            setLastValue(attr.setMVnth(index, value));\n");
-		    	sb.append("            nth(" + ad.getDMSAGReference() + ",index ,attr);\n");
+		    	sb.append("            nth(" + ad.getDMSAGReference() + ",index ,attr,previous);\n");
 		    	sb.append("        }\n");
 		    	sb.append("        catch(DmcValueException ex){\n");
 		    	sb.append("            throw(new IllegalStateException(\"The type specific setNth() method shouldn't throw exceptions!\",ex));\n");
@@ -1172,7 +1180,8 @@ public class GenUtility {
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value){\n");
-		    	sb.append("        DmcAttribute<?> attr = del(" + ad.getDMSAGReference() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
+//		    	sb.append("        DmcAttribute<?> attr = del(" + ad.getDMSAGReference() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
+		    	sb.append("        DmcAttribute<?> attr = del(" + ad.getDMSAGReference() + ", value);\n");
 				sb.append("        return(attr);\n");
 				sb.append("    }\n\n");
 			}
@@ -2192,16 +2201,28 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + typeName + DMO + genericArgs + " del(Object v){\n");
         out.write("        synchronized(this){\n");
+        out.write("            " + typeName + DMO + genericArgs + " key = null;\n");
         out.write("            " + typeName + DMO + genericArgs + " rc = null;\n");
         out.write("            try {\n");
-        out.write("                rc = typeCheck(v);\n");
+        out.write("                key = typeCheck(v);\n");
         out.write("            } catch (DmcValueException e) {\n");
         out.write("                throw(new IllegalStateException(\"Incompatible type passed to del():\" + getName(),e));\n");
         out.write("            }\n");
-        out.write("            if (value.contains(rc))\n");
+        
+        
+        out.write("            int indexof = value.indexOf(key);\n");
+        out.write("            if (indexof != -1){\n");
+        out.write("                rc = value.get(indexof);\n");
         out.write("                value.remove(rc);\n");
-        out.write("            else\n");
-        out.write("                rc = null;\n");
+        out.write("            }\n\n");
+        
+        
+//        out.write("            if (value.contains(rc))\n");
+//        out.write("                value.remove(rc);\n");
+//        out.write("            else\n");
+//        out.write("                rc = null;\n");
+        
+        
         out.write("            return(rc);\n");
         out.write("        }\n");
         out.write("    }\n");

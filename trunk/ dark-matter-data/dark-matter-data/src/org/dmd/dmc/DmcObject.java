@@ -154,7 +154,7 @@ abstract public class DmcObject implements Serializable {
             attr.add(new StringName(oc));
 			add(__objectClass,attr);
 		} catch (DmcValueException e) {
-			throw(new IllegalStateException("Setting the objectClass using a String shouldn't never croak!", e));
+			throw(new IllegalStateException("Setting the objectClass using a String shouldn't ever croak!", e));
 		}
 	}
 	
@@ -307,6 +307,35 @@ abstract public class DmcObject implements Serializable {
 		} catch (DmcValueException e) {
 			throw(new IllegalStateException("Backref modifier shouldn't throw exceptions.",e));
 		}
+	}
+	
+	/**
+	 * @return true if this object has any other objects referring to it. This mechanism is
+	 * only valid if you've turned on back reference tracking via DmcOmni.
+	 */
+	public boolean isReferenced(){
+		if (getBackref() == null)
+			return(false);
+		if (getBackref().getMVSize() > 0)
+			return(true);
+		return(false);
+	}
+	
+	/**
+	 * @return the number of references to this object.  This mechanism is
+	 * only valid if you've turned on back reference tracking via DmcOmni.
+	 */
+	public int referenceCount(){
+		if (getBackref() == null)
+			return(0);
+		
+		return(getBackref().getMVSize());
+	}
+	
+	protected void removeBackref(Modifier mod){
+		if (getBackref() == null)
+			throw(new IllegalStateException("Tried to remove backreference from an object with no backrefs."));
+		getBackref().del(mod);
 	}
 	
 	protected DmcTypeModifierMV getBackref(){
@@ -776,10 +805,15 @@ abstract public class DmcObject implements Serializable {
 					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
 						if (attr instanceof DmcTypeNamedObjectREF){
 							// We're modifying a reference attribute, so track that puppy
-							Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
 							DmcObject obj = ((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject());
-							if (obj != null)
+							if (obj != null){
+								Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
 								obj.addBackref(backrefMod);
+								
+								// Let the reference know the backref modifier - this allows us to 
+								// easily remove the backref if the reference is deleted
+								((DmcNamedObjectREF)attr.getSV()).setBackrefModifier(backrefMod);
+							}
 						}
 					}
 				}
@@ -851,6 +885,10 @@ abstract public class DmcObject implements Serializable {
 								
 								Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
 								((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject()).addBackref(backrefMod);
+								
+								// Let the reference know the backref modifier - this allows us to 
+								// easily remove the backref if the reference is deleted
+								((DmcNamedObjectREF)getLastValue()).setBackrefModifier(backrefMod);
 							}
 						}
 					}
@@ -940,6 +978,7 @@ abstract public class DmcObject implements Serializable {
 	public <T extends DmcAttribute> T del(DmcAttributeInfo ai, Object value){
 		synchronized (attributes) {
 			DmcAttribute attr = (DmcAttribute) attributes.get(ai.id);
+			DmcNamedObjectREF ref = null;
 			
 			if (getModifier() != null){
 				try {
@@ -954,20 +993,48 @@ abstract public class DmcObject implements Serializable {
 			}
 			
 			if ( (value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){
-				DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
+				ref = (DmcNamedObjectREF)value;
 				if (ref.getObject() == null)
 					attr.del(ref.getObjectName());
 				else
 					attr.del(ref.getObject());
+				
 			}
 			else{
-				if (value instanceof DmcMappedAttributeIF)
-					attr.del(((DmcMappedAttributeIF)value).getKey());
+				Object rc = null;
+				if ( (attr.attrInfo.valueType == ValueTypeEnum.HASHSET) || (attr.attrInfo.valueType == ValueTypeEnum.TREESET))
+					rc = attr.del(value);
+				else if (value instanceof DmcExtendedReferenceIF)
+					rc = attr.del(value);
+				else if (value instanceof DmcMappedAttributeIF)
+					rc = attr.del(((DmcMappedAttributeIF)value).getKey());
 				else if (value instanceof DmcNamedObjectIF)
-					attr.del(((DmcNamedObjectIF)value).getObjectName());
+					rc = attr.del(((DmcNamedObjectIF)value).getObjectName());
 				else
-					attr.del(value);
+					rc = attr.del(value);
+				
+				if (rc instanceof DmcNamedObjectREF)
+					ref = (DmcNamedObjectREF) rc;
 			}
+			
+			// BIG NOTE: performing modification of an object and performing backref tracking
+			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
+			// a modifier on an object because we would wind up tracking the references twice,
+			// once while creating the modifier and again when the modifier is applied.
+			if ((ref != null) && (getModifier() == null)){
+//System.out.println("Resolved ref " + ref.getObjectName().getNameString() + " hash = " + System.identityHashCode(ref));
+				if (supportsBackrefTracking()){
+					// TODO: need to have the upper bound of the IDs for the meta schema available
+					// so that we can check whether we want to track the back references.
+					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+						if (ref.getObject() != null){
+							if (ref.getBackrefModifier() != null)
+								((DmcObject)ref.getObject()).removeBackref(ref.getBackrefModifier());
+						}
+					}
+				}
+			}
+			
 			
 //			if (getContainer() == null){
 //				attr.del(value);
@@ -1021,6 +1088,39 @@ abstract public class DmcObject implements Serializable {
 				}
 			}
 			
+			// BIG NOTE: performing modification of an object and performing backref tracking
+			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
+			// a modifier on an object because we would wind up tracking the references twice,
+			// once while creating the modifier and again when the modifier is applied.
+			if ((getModifier() == null) && (attr != null)){
+				if (supportsBackrefTracking()){
+					if (attr instanceof DmcTypeNamedObjectREF){
+						// TODO: need to have the upper bound of the IDs for the meta schema available
+						// so that we can check whether we want to track the back references.
+						if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+							if (attr.attrInfo.valueType == ValueTypeEnum.SINGLE){
+								DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
+								if (ref.getObject() != null){
+									if (ref.getBackrefModifier() != null)
+										((DmcObject)ref.getObject()).removeBackref(ref.getBackrefModifier());
+								}
+							}
+							else{
+								for(int i=0; i< attr.getMVSize(); i++){
+									DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getMVnth(i);
+									if ((ref != null) && (ref.getObject() != null)){
+										if (ref.getBackrefModifier() != null)
+											((DmcObject)ref.getObject()).removeBackref(ref.getBackrefModifier());
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+
+			
 //		if ( (getContainer() != null) && (getContainer().getListenerManager() != null)){
 //			// TODO implement attribute change listener hooks
 //		}
@@ -1029,24 +1129,26 @@ abstract public class DmcObject implements Serializable {
 		}
 	}
 	
-	/**
-	 * This method adds a value to a multi-valued attribute. If you had previously set the
-	 * same attribute to a different type, you get a class cast exception.
-	 * @param attrName  The attribute name.
-	 * @param attr      The attribute value to be stored.
-	 * @throws DmcValueException 
-	 */
-	@SuppressWarnings("unchecked")
-	public <T extends DmcAttribute> T nth(String attrName, int index, DmcAttribute attr) throws DmcValueException {
-		DmcAttributeInfo ai = getAttributeInfo(attrName);
-		
-		if (ai == null){
-			DmcValueException dve = new DmcValueException("Invalid attribute: " + attrName + " for class: " + this.getClass().getName());
-			throw(dve);
-		}
-		
-		return(nth(ai,index,attr));
-	}
+	// Commented this out for now - shouldn't be used because of the complexity of having
+	// to know the previous value for purposes of reference tracking.
+//	/**
+//	 * This method adds a value to a multi-valued attribute. If you had previously set the
+//	 * same attribute to a different type, you get a class cast exception.
+//	 * @param attrName  The attribute name.
+//	 * @param attr      The attribute value to be stored.
+//	 * @throws DmcValueException 
+//	 */
+//	@SuppressWarnings("unchecked")
+//	public <T extends DmcAttribute> T nth(String attrName, int index, DmcAttribute attr) throws DmcValueException {
+//		DmcAttributeInfo ai = getAttributeInfo(attrName);
+//		
+//		if (ai == null){
+//			DmcValueException dve = new DmcValueException("Invalid attribute: " + attrName + " for class: " + this.getClass().getName());
+//			throw(dve);
+//		}
+//		
+//		return(nth(ai,index,attr,null));
+//	}
 	
 	/**
 	 * This method is called in generated DMOs to handle the case where we're
@@ -1071,7 +1173,7 @@ abstract public class DmcObject implements Serializable {
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
-	protected <T extends DmcAttribute> T nth(DmcAttributeInfo ai, int index, DmcAttribute attr) throws DmcValueException {
+	protected <T extends DmcAttribute> T nth(DmcAttributeInfo ai, int index, DmcAttribute attr, Object previous) throws DmcValueException {
 		synchronized (attributes) {
 			DmcAttribute existing = (DmcAttribute) attributes.get(ai.id);
 			
@@ -1099,6 +1201,22 @@ abstract public class DmcObject implements Serializable {
 								
 								Modifier backrefMod = new Modifier(ModifyTypeEnum.NTH,mod,this,index);
 								((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject()).addBackref(backrefMod);
+								
+								((DmcNamedObjectREF)getLastValue()).setBackrefModifier(backrefMod);
+							}
+						}
+						if (attr instanceof DmcTypeNamedObjectREF){
+							// And now some tricky stuff. Due to the fact that the nth() mechanisms can
+							// result in a previous value being removed and replaced in one operation,
+							// we have to take this into account when tracking back references. Any
+							// previous value for this index is passed in to us from the generated
+							// nth() method so that we can clean up the back reference if required.
+							if (previous != null){
+								DmcNamedObjectREF ref = (DmcNamedObjectREF) previous;
+								if (ref.getObject() != null){
+									if (ref.getBackrefModifier() != null)
+										((DmcObject)ref.getObject()).removeBackref(ref.getBackrefModifier());
+								}
 							}
 						}
 					}
@@ -1398,6 +1516,9 @@ abstract public class DmcObject implements Serializable {
 	 * @param sb The buffer we append to.
 	 */
 	private void appendClassNames(StringBuffer sb){
+		if (getModifier() != null)
+			return;
+		
 		DmcTypeClassDefinitionREFMV classes = (DmcTypeClassDefinitionREFMV) this.get(__objectClass.id);
 		
 		// Dump the construction class and any auxiliary classes

@@ -219,6 +219,10 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 						backrefMod = new Modifier(ModifyTypeEnum.ADD,this,referrer);
 					
 					obj.addBackref(backrefMod);
+					
+//System.out.println("Resolved ref " + ref.getObjectName().getNameString() + " hash = " + System.identityHashCode(ref));
+					// And tell the reference it's back reference modifier
+					ref.setBackrefModifier(backrefMod);
 				}
 			}
 		}
