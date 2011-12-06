@@ -1645,9 +1645,9 @@ abstract public class DmcObject implements Serializable {
 												mod.setAttributeInfo(attr.attrInfo);
 												try {
 													if (ref instanceof DmcExtendedReferenceIF)
-														mod.add(ref);
+														mod.setMVnth(currIndex, null);
 													else
-														mod.add(resolvedObject);
+														mod.setMVnth(currIndex, null);
 												} catch (DmcValueException e) {
 													throw(new IllegalStateException("Creating backref for indexed attribute during object resolution shouldn't throw exception.",e));
 												}

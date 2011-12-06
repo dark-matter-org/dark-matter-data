@@ -12,6 +12,7 @@ import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.DmcTypeModifier;
+import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
 
 public class TestDataCache implements DmcNameResolverIF, DmcCacheIF {
 	
@@ -67,6 +68,12 @@ public class TestDataCache implements DmcNameResolverIF, DmcCacheIF {
 	public void applyModification(DmcNamedObjectIF referringObject, DmcTypeModifier mods) throws DmcValueExceptionSet, DmcValueException {
 		System.out.println("TestDataCache.applyModification() ");
 		DmcObject target = (DmcObject) referringObject;
+		
+		SetRequestDMO request = new SetRequestDMO();
+		request.setTarget(referringObject.getObjectName());
+		request.add(mods.getAttributeInfo(), mods);
+		
+		System.out.println(request.toOIF());
 		
 		System.out.println("Before:\n" + target.toOIF(15) + "\n");
 		
