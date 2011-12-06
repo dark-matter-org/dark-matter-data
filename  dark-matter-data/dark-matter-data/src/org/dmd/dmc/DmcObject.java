@@ -1625,9 +1625,12 @@ abstract public class DmcObject implements Serializable {
 												DmcAttribute<?> mod = attr.getNew();
 												mod.setAttributeInfo(attr.attrInfo);
 												try {
-													mod.add(resolvedObject);
+													if (ref instanceof DmcExtendedReferenceIF)
+														mod.add(ref);
+													else
+														mod.add(resolvedObject);
 												} catch (DmcValueException e) {
-													throw(new IllegalStateException("Creating backref for MV attribute during object resolution shouldn't throw exception."));
+													throw(new IllegalStateException("Creating backref for MV attribute during object resolution shouldn't throw exception.",e));
 												}
 												
 												Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
@@ -1641,9 +1644,12 @@ abstract public class DmcObject implements Serializable {
 												DmcAttribute<?> mod = attr.getNew();
 												mod.setAttributeInfo(attr.attrInfo);
 												try {
-													mod.add(resolvedObject);
+													if (ref instanceof DmcExtendedReferenceIF)
+														mod.add(ref);
+													else
+														mod.add(resolvedObject);
 												} catch (DmcValueException e) {
-													throw(new IllegalStateException("Creating backref for indexed attribute during object resolution shouldn't throw exception."));
+													throw(new IllegalStateException("Creating backref for indexed attribute during object resolution shouldn't throw exception.",e));
 												}
 												
 												Modifier backrefMod = new Modifier(ModifyTypeEnum.NTH,mod,this,currIndex);

@@ -340,13 +340,16 @@ public class TestReferenceTracking {
 		obj3.setName("obj3");
 		cache.add(obj3);
 		
+		SomeRelation	rel3 = new SomeRelation(obj2, 2, 2);
+
 		obj3.setNthIndexedObjRef(1, obj1);
-		obj3.setObjRef("obj2");
+		obj3.setObjRef(obj2);
 		obj3.addObjRefMV(obj1);
+		obj3.setNthSomeRelationMVI(2, rel3);
 		
 		assertEquals("obj1 should indicate that it has 2 references", obj1.referenceCount(), 2);
 		
-		assertEquals("obj2 should indicate that it has 1 references", obj1.referenceCount(), 2);
+		assertEquals("obj2 should indicate that it has 2 references", obj2.referenceCount(), 2);
 		
 		DataOutputStream os = new DataOutputStream(new FileOutputStream(temp.getAbsolutePath()));
 		DmcTraceableOutputStream dos = new DmcTraceableOutputStream(os, true, 35);
@@ -357,6 +360,7 @@ public class TestReferenceTracking {
 		obj3.setNthIndexedObjRef(1, null);
 		obj3.remObjRef();
 		obj3.remObjRefMV();
+		obj3.setNthSomeRelationMVI(2, null);
 		
 		assertEquals("obj1 should indicate that it has no reference", obj1.referenceCount(), 0);
 		
@@ -374,17 +378,23 @@ public class TestReferenceTracking {
 		for(DmwWrapper wrapper: dmws){
 			System.out.println(wrapper.toOIF());
 			wrapper.resolveReferences(cache);
+			
+			// Hang on to this for some more testing below
+			obj3 = (ObjWithRefsDMO) wrapper.getDmcObject();
 		}
 		
 		assertEquals("obj1 should indicate that it has 2 references", obj1.referenceCount(), 2);
 		
-		assertEquals("obj2 should indicate that it has 1 references", obj1.referenceCount(), 2);
+		assertEquals("obj2 should indicate that it has 2 references", obj2.referenceCount(), 2);
 		
 		assertEquals("obj1.isReferenced() should be true", obj1.isReferenced(), true);
 		
 		System.out.println(obj1.getBackRefs());
-//
-//		obj3.setNthIndexedObjRef(1, null);
+
+		obj3.setNthSomeRelationMVI(2, null);
+		
+		assertEquals("obj2 should indicate that it has 1 reference", obj2.referenceCount(), 1);
+		
 //		
 //		assertEquals("obj1 should indicate that it has no reference", obj1.referenceCount(), 0);
 //		
