@@ -65,9 +65,10 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * BACKREFS[1] - in order to behave nicely with Java garbage collection, the named
  * object reference mechanisms of Dark Matter will maintain knowledge of which resolved
  * reference attributes are pointing at a particular DMO instance. If the DMO is deleted,
- * it can automatically null the reference to itself in the reference attributes. This is
+ * it can automatically remove the reference to itself in the reference attributes. This is
  * a work around for the fact that the GWT JRE Emulation mechanisms don't support the
- * java.lang.ref.WeakReference mechanisms.
+ * java.lang.ref.WeakReference mechanisms. Back reference tracking must be enabled
+ * via the DmcOmni.instance.backRefTracking() method.
  * </li>
  * <li>
  * MODIFIER[2] - the Modifier is used to record changes that are made to an object so that 
@@ -89,13 +90,6 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * referring to it is in MODREC mode. If we didn't keep track of this, we would wind up
  * tracking references twice.
  * </li>
- * <li>
- * HASREFS[5] - the HASREFS flag is a Boolean to indicate that a recently deserialized
- * object has object reference attributes associated with it. This information can be
- * used to flag objects on which you may want to call resolveReferences(). This can be
- * useful for set and modify requests (arriving from a client or north bound interface),
- * or when you are loading a set of objects from a persistent store.
- * </li>
  * </ul>
  */
 @SuppressWarnings("serial")
@@ -107,7 +101,6 @@ abstract public class DmcObject implements Serializable {
 	static final int	MODIFIER		= 2;
 	static final int	LASTVAL			= 3;
 	static final int	MODREC			= 4;
-	static final int	HASREFS			= 5;
 	
 	// The associated sizes of the info vector when storing various information. 
 	// All of this information is static to cut down on needless operations.
@@ -116,7 +109,6 @@ abstract public class DmcObject implements Serializable {
 	static final int	MODIFIER_SIZE	= 3;
 	static final int	LASTVAL_SIZE	= 4;
 	static final int	MODREC_SIZE		= 5;
-	static final int	HASREFS_SIZE	= 6;
 	
 	// The objectClass attribute is common to all objects and indicates the construction class
 	// and any auxiliary classes associated with the object
@@ -299,13 +291,15 @@ abstract public class DmcObject implements Serializable {
 	 * @param mod
 	 */
 	public void addBackref(Modifier mod){
-		if (getBackref() == null){
-			setInfo(BACKREFS,BACKREFS_SIZE,new DmcTypeModifierMV());
-		}
-		try {
-			getBackref().add(mod);
-		} catch (DmcValueException e) {
-			throw(new IllegalStateException("Backref modifier shouldn't throw exceptions.",e));
+		synchronized(info){		
+			if (getBackref() == null){
+				setInfo(BACKREFS,BACKREFS_SIZE,new DmcTypeModifierMV());
+			}
+			try {
+				getBackref().add(mod);
+			} catch (DmcValueException e) {
+				throw(new IllegalStateException("Backref modifier shouldn't throw exceptions.",e));
+			}
 		}
 	}
 	
@@ -314,11 +308,13 @@ abstract public class DmcObject implements Serializable {
 	 * only valid if you've turned on back reference tracking via DmcOmni.
 	 */
 	public boolean isReferenced(){
-		if (getBackref() == null)
+		synchronized(info){		
+			if (getBackref() == null)
+				return(false);
+			if (getBackref().getMVSize() > 0)
+				return(true);
 			return(false);
-		if (getBackref().getMVSize() > 0)
-			return(true);
-		return(false);
+		}
 	}
 	
 	/**
@@ -326,16 +322,20 @@ abstract public class DmcObject implements Serializable {
 	 * only valid if you've turned on back reference tracking via DmcOmni.
 	 */
 	public int referenceCount(){
-		if (getBackref() == null)
-			return(0);
-		
-		return(getBackref().getMVSize());
+		synchronized(info){		
+			if (getBackref() == null)
+				return(0);
+			
+			return(getBackref().getMVSize());
+		}
 	}
 	
 	protected void removeBackref(Modifier mod){
-		if (getBackref() == null)
-			throw(new IllegalStateException("Tried to remove backreference from an object with no backrefs."));
-		getBackref().del(mod);
+		synchronized(info){		
+			if (getBackref() == null)
+				throw(new IllegalStateException("Tried to remove backreference from an object with no backrefs."));
+			getBackref().del(mod);
+		}
 	}
 	
 	protected DmcTypeModifierMV getBackref(){
@@ -400,34 +400,6 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * This method can called from things like deserializers e.g. DmwDeserializer that
-	 * know if an object has reference attributes. Code that uses objects marked as
-	 * having references can then call resolveReferences() immediately, or at a later time,
-	 * for instance when a cache has been fully populated.
-	 * <p />
-	 * Once resolution has been performed, you can call setHasRefs(false) to free the
-	 * info vector storage space associated with this flag. 
-	 * @param f Flag to indicate that the object may have unresolved references.
-	 */
-	public void setHasUnresolvedRefs(Boolean f){
-		if (f == false)
-			shrinkInfo(HASREFS);
-		else
-			setInfo(HASREFS,HASREFS_SIZE,f);
-	}
-	
-	/**
-	 * @return True if something has marked this object as having unresolved references
-	 * and false otherwise.
-	 */
-	public Boolean hasUnresolvedRefs(){
-		Boolean hr = (Boolean) getInfo(HASREFS,HASREFS_SIZE);
-		if (hr == null)
-			return(false);
-		return(hr);
-	}
-
-	/**
 	 * This method manages the info vector and grows it to the appropriate size to manage
 	 * the additional information required.
 	 * @param index        The index of the information we're storing.
@@ -445,8 +417,6 @@ abstract public class DmcObject implements Serializable {
 //			DebugInfo.debug("NEW INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
 			
 			switch(index){
-			case HASREFS:
-				info.add(null);
 			case MODREC:
 				info.add(null);
 			case LASTVAL:
@@ -525,17 +495,6 @@ abstract public class DmcObject implements Serializable {
 				}
 				// If the container was null, we'll wind up nulling the info vector
 			}
-		}
-		else if (index == HASREFS){
-			// HASREFS should only be set on the object when it has first been populated
-			// via parsing or deserialization, the only other piece of information that
-			// me be present would be the container if the object is wrapped.
-			if (info.get(CONTAINER) != null){
-				// We just have the container, shrink to 1
-				newinfo = new Vector<Object>(1,1);
-				newinfo.add(info.get(CONTAINER));
-			}
-			// If the container was null, we'll wind up nulling the info vector
 		}
 		info = newinfo;
 		newinfo = null;
@@ -1269,26 +1228,28 @@ abstract public class DmcObject implements Serializable {
 	 * return a value if you've turned on backref tracking via the DmcOmni.
 	 */
 	public String getBackRefs(){
-		DmcTypeModifierMV mods = getBackref();
-		if (mods == null)
-			return("No backrefs to " + ((DmcNamedObjectIF)this).getObjectName());
-		else{
-			StringBuffer sb = new StringBuffer();
-			sb.append("References to: " + ((DmcNamedObjectIF)this).getObjectName() + "\n");
-			
-			Iterator<Modifier> modit = mods.getMV();
-			if (modit != null){
-				while(modit.hasNext()){
-					Modifier mod = modit.next();
-					DmcNamedObjectIF referrer = (DmcNamedObjectIF) mod.getReferringObject();
-					DmcAttribute<?> attr = mod.getAttribute();
-					if (attr.attrInfo.valueType == ValueTypeEnum.SINGLE)
-						sb.append("  " + referrer.getObjectName() + " via SV " + attr.getName() + "\n");
-					else
-						sb.append("  " + referrer.getObjectName() + " via MV " + attr.getName() + "\n");
+		synchronized(info){		
+			DmcTypeModifierMV mods = getBackref();
+			if (mods == null)
+				return("No backrefs to " + ((DmcNamedObjectIF)this).getObjectName());
+			else{
+				StringBuffer sb = new StringBuffer();
+				sb.append("References to: " + ((DmcNamedObjectIF)this).getObjectName() + "\n");
+				
+				Iterator<Modifier> modit = mods.getMV();
+				if (modit != null){
+					while(modit.hasNext()){
+						Modifier mod = modit.next();
+						DmcNamedObjectIF referrer = (DmcNamedObjectIF) mod.getReferringObject();
+						DmcAttribute<?> attr = mod.getAttribute();
+						if (attr.attrInfo.valueType == ValueTypeEnum.SINGLE)
+							sb.append("  " + referrer.getObjectName() + " via SV " + attr.getName() + "\n");
+						else
+							sb.append("  " + referrer.getObjectName() + " via MV " + attr.getName() + "\n");
+					}
 				}
+				return(sb.toString());
 			}
-			return(sb.toString());
 		}
 	}
 	
@@ -2043,6 +2004,10 @@ abstract public class DmcObject implements Serializable {
     		DmcAttribute<?> attr = null;
     		try{
     			attr = dis.getAttributeInstance(attrID);
+    			
+    			if (attr instanceof DmcTypeNamedObjectREF<?,?>){
+    				
+    			}
     		}
     		catch(Exception ex){
     			throw(new IllegalStateException("While decoding: " + getConstructionClassName(), ex));
