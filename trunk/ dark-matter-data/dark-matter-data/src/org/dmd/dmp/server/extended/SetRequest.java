@@ -49,6 +49,27 @@ public class SetRequest extends SetRequestDMW {
 	}
 	
 	/**
+	 * This convenience constructor can be used when handling the removal of references
+	 * to a deleted object.
+	 * @param referringObject A named object.
+	 * @param refRemovalMod   The modification that will remove the reference to the deleted object.
+	 */
+	public SetRequest(DmwWrapper referringObject, DmcTypeModifierMV refRemovalMod){
+		if (referringObject instanceof DmcNamedObjectIF)
+			setTarget(((DmcNamedObjectIF)referringObject).getObjectName());
+		else
+			throw(new IllegalStateException("The object passed to SetRequest() is not a named object."));
+		
+		setTargetObjectClass(referringObject.getConstructionClass());
+		
+		if (refRemovalMod == null)
+			throw(new IllegalStateException("The modification passed to SetRequest() is null."));
+		else
+			setModify(refRemovalMod);
+			
+	}
+	
+	/**
 	 * A convenience function to set the modify attribute directly on the
 	 * underlying SetRequestDMO object.
 	 * @param mods

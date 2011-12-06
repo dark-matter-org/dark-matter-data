@@ -327,6 +327,7 @@ public class TestReferenceTracking {
 		DmcOmni.instance().logger(new TestLogger());
 		DmcOmni.instance().lazyResolution(true);
 		DmcOmni.instance().backRefTracking(true);
+		DmcOmni.instance().setCacheIF(cache);
 				
 		ObjWithRefsDMO obj1 = new ObjWithRefsDMO();
 		obj1.setName("obj1");
@@ -343,8 +344,8 @@ public class TestReferenceTracking {
 		SomeRelation	rel3 = new SomeRelation(obj2, 2, 2);
 
 		obj3.setNthIndexedObjRef(1, obj1);
-		obj3.setObjRef(obj2);
 		obj3.addObjRefMV(obj1);
+		obj3.setObjRef(obj2);
 		obj3.setNthSomeRelationMVI(2, rel3);
 		
 		assertEquals("obj1 should indicate that it has 2 references", obj1.referenceCount(), 2);
@@ -378,6 +379,7 @@ public class TestReferenceTracking {
 		for(DmwWrapper wrapper: dmws){
 			System.out.println(wrapper.toOIF());
 			wrapper.resolveReferences(cache);
+//			wrapper.getDmcObject().resolveReferencesWithBackrefs(cache, false);
 			
 			// Hang on to this for some more testing below
 			obj3 = (ObjWithRefsDMO) wrapper.getDmcObject();
@@ -389,12 +391,17 @@ public class TestReferenceTracking {
 		
 		assertEquals("obj1.isReferenced() should be true", obj1.isReferenced(), true);
 		
-		System.out.println(obj1.getBackRefs());
-
-		obj3.setNthSomeRelationMVI(2, null);
+		obj3.remObjRef();
 		
 		assertEquals("obj2 should indicate that it has 1 reference", obj2.referenceCount(), 1);
 		
+		System.out.println(obj1.getBackRefs());
+
+//		obj3.setNthSomeRelationMVI(2, null);
+//		
+//		assertEquals("obj2 should indicate that it has 1 reference", obj2.referenceCount(), 1);
+		
+		obj2.youAreDeleted();
 //		
 //		assertEquals("obj1 should indicate that it has no reference", obj1.referenceCount(), 0);
 //		
