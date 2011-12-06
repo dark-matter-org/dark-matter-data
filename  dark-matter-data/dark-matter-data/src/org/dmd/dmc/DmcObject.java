@@ -191,7 +191,9 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * If a class of object doesn't support back reference tracking, it will overload this
 	 * method to return false. Otherwise, back reference tracking can be turned on for all 
-	 * objects.
+	 * objects. This distinction is important for things like Dark Matter Protocol messages
+	 * where we would want to ensure that object references could be resolved, but we wouldn't
+	 * want to update back references in those objects to which the messages referred.
 	 * @return
 	 */
 	public boolean supportsBackrefTracking(){
@@ -291,7 +293,7 @@ abstract public class DmcObject implements Serializable {
 	 * @param mod
 	 */
 	public void addBackref(Modifier mod){
-		synchronized(info){		
+		synchronized (attributes){		
 			if (getBackref() == null){
 				setInfo(BACKREFS,BACKREFS_SIZE,new DmcTypeModifierMV());
 			}
@@ -308,7 +310,7 @@ abstract public class DmcObject implements Serializable {
 	 * only valid if you've turned on back reference tracking via DmcOmni.
 	 */
 	public boolean isReferenced(){
-		synchronized(info){		
+		synchronized (attributes){		
 			if (getBackref() == null)
 				return(false);
 			if (getBackref().getMVSize() > 0)
@@ -322,7 +324,7 @@ abstract public class DmcObject implements Serializable {
 	 * only valid if you've turned on back reference tracking via DmcOmni.
 	 */
 	public int referenceCount(){
-		synchronized(info){		
+		synchronized (attributes){		
 			if (getBackref() == null)
 				return(0);
 			
@@ -331,7 +333,7 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	protected void removeBackref(Modifier mod){
-		synchronized(info){		
+		synchronized (attributes){		
 			if (getBackref() == null)
 				throw(new IllegalStateException("Tried to remove backreference from an object with no backrefs."));
 			getBackref().del(mod);
@@ -1228,7 +1230,7 @@ abstract public class DmcObject implements Serializable {
 	 * return a value if you've turned on backref tracking via the DmcOmni.
 	 */
 	public String getBackRefs(){
-		synchronized(info){		
+		synchronized(attributes){		
 			DmcTypeModifierMV mods = getBackref();
 			if (mods == null)
 				return("No backrefs to " + ((DmcNamedObjectIF)this).getObjectName());
@@ -1244,8 +1246,12 @@ abstract public class DmcObject implements Serializable {
 						DmcAttribute<?> attr = mod.getAttribute();
 						if (attr.attrInfo.valueType == ValueTypeEnum.SINGLE)
 							sb.append("  " + referrer.getObjectName() + " via SV " + attr.getName() + "\n");
-						else
-							sb.append("  " + referrer.getObjectName() + " via MV " + attr.getName() + "\n");
+						else{
+							if (attr.attrInfo.indexSize == 0)
+								sb.append("  " + referrer.getObjectName() + " via MV " + attr.getName() + "\n");
+							else
+								sb.append("  " + referrer.getObjectName() + " via INDEX " + mod.getIndex() + " " + attr.getName() + "\n");
+						}
 					}
 				}
 				return(sb.toString());
@@ -1544,7 +1550,8 @@ abstract public class DmcObject implements Serializable {
 						if (ref.isResolved())
 							continue;
 						
-						DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+						DmcNamedObjectIF  	obj 			= rx.findNamedObject(ref.getObjectName());
+						DmcObject 			resolvedObject 	= null;
 						
 						if (obj == null){
 							DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
@@ -1553,16 +1560,36 @@ abstract public class DmcObject implements Serializable {
 							errors.add(ex);
 						}
 						else{
-							if (obj instanceof DmcContainerIF)
+							if (obj instanceof DmcContainerIF){
 								ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-							else
+								resolvedObject = ((DmcContainerIF)obj).getDmcObject();
+							}
+							else{
 								ref.setObject(obj);
+								resolvedObject = (DmcObject)obj;
+							}
 						}
+						
+						// NOTE: we wouldn't do the backref tracking in the case of DMP
+						// messages (which are marked as supportsBackrefTracking false).
+						if (supportsBackrefTracking()){
+							if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+								Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
+								resolvedObject.addBackref(backrefMod);
+								
+								// Let the reference know the backref modifier - this allows us to 
+								// easily remove the backref if the reference is deleted
+								ref.setBackrefModifier(backrefMod);
+							}
+						}
+
 					}
 					else{
 						Iterator<DmcNamedObjectREF> refs = reference.getMV();
 						if (refs != null){
+							int currIndex = -1;
 							while(refs.hasNext()){
+								currIndex++;
 								DmcNamedObjectREF ref = refs.next();
 								
 								// Note: ref may be null if this is an indexed attribute and
@@ -1570,7 +1597,8 @@ abstract public class DmcObject implements Serializable {
 								if ( (ref == null) || ref.isResolved())
 									continue;
 								
-								DmcNamedObjectIF  obj = rx.findNamedObject(ref.getObjectName());
+								DmcNamedObjectIF  	obj 			= rx.findNamedObject(ref.getObjectName());
+								DmcObject 			resolvedObject 	= null;
 								
 								if (obj == null){
 									DmcValueException ex = new DmcValueException("Could not resolve reference to: " + ref.getObjectName() + " via attribute: " + attr.getName());
@@ -1579,10 +1607,52 @@ abstract public class DmcObject implements Serializable {
 									errors.add(ex);
 								}
 								else{
-									if (obj instanceof DmcContainerIF)
+									if (obj instanceof DmcContainerIF){
 										ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-									else
+										resolvedObject = ((DmcContainerIF)obj).getDmcObject();
+									}
+									else{
 										ref.setObject(obj);
+										resolvedObject = (DmcObject)obj;
+									}
+									
+									// NOTE: we wouldn't do the backref tracking in the case of DMP
+									// messages (which are marked as supportsBackrefTracking false).
+									if (supportsBackrefTracking()){
+										if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+											if (attr.attrInfo.indexSize == 0){
+												// We're modifying a reference attribute, so track that puppy
+												DmcAttribute<?> mod = attr.getNew();
+												mod.setAttributeInfo(attr.attrInfo);
+												try {
+													mod.add(resolvedObject);
+												} catch (DmcValueException e) {
+													throw(new IllegalStateException("Creating backref for MV attribute during object resolution shouldn't throw exception."));
+												}
+												
+												Modifier backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,this);
+												resolvedObject.addBackref(backrefMod);
+												
+												// Let the reference know the backref modifier - this allows us to 
+												// easily remove the backref if the reference is deleted
+												ref.setBackrefModifier(backrefMod);
+											}
+											else{
+												DmcAttribute<?> mod = attr.getNew();
+												mod.setAttributeInfo(attr.attrInfo);
+												try {
+													mod.add(resolvedObject);
+												} catch (DmcValueException e) {
+													throw(new IllegalStateException("Creating backref for indexed attribute during object resolution shouldn't throw exception."));
+												}
+												
+												Modifier backrefMod = new Modifier(ModifyTypeEnum.NTH,mod,this,currIndex);
+												resolvedObject.addBackref(backrefMod);
+												
+												ref.setBackrefModifier(backrefMod);
+											}
+										}
+									}
 								}
 							}
 						}
