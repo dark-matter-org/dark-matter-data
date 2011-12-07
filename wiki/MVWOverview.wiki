@@ -10,7 +10,7 @@ My first approach to web application development was based on [http://www.sencha
 
 However, approaches to software design evolve and when I first saw the [http://code.google.com/webtoolkit/articles/mvp-architecture.html Large scale application development and MVP] article by Chris Ramsdale, it gave me some other food for thought.
 
-Likewise, when the [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html GWT MVP Development with Activities and Places] page went up, I was again presented with a veritable banquet of ideas!
+Likewise, when the [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html GWT Development with Activities and Places] page went up, I was again presented with a veritable banquet of ideas!
 
 However, trying to reconcile these ideas into something coherent and systematic was leaving me with conceptual indigestion. 
 
