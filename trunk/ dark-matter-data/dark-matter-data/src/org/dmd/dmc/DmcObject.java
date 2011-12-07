@@ -1242,15 +1242,16 @@ abstract public class DmcObject implements Serializable {
 				if (modit != null){
 					while(modit.hasNext()){
 						Modifier mod = modit.next();
-						DmcNamedObjectIF referrer = (DmcNamedObjectIF) mod.getReferringObject();
+						DmcNamedObjectIF referrer 	= mod.getReferringObject();
+						DmcObject		 obj		= (DmcObject) referrer;
 						DmcAttribute<?> attr = mod.getAttribute();
 						if (attr.attrInfo.valueType == ValueTypeEnum.SINGLE)
-							sb.append("  " + referrer.getObjectName() + " via SV " + attr.getName() + "\n");
+							sb.append("  (" + obj.getConstructionClassName() + ") " + referrer.getObjectName() + " via SV " + attr.getName() + "\n");
 						else{
 							if (attr.attrInfo.indexSize == 0)
-								sb.append("  " + referrer.getObjectName() + " via MV " + attr.getName() + "\n");
+								sb.append("  (" + obj.getConstructionClassName() + ") " +  referrer.getObjectName() + " via MV " + attr.getName() + "\n");
 							else
-								sb.append("  " + referrer.getObjectName() + " via INDEX " + mod.getIndex() + " " + attr.getName() + "\n");
+								sb.append("  (" + obj.getConstructionClassName() + ") " +  referrer.getObjectName() + " via INDEX " + mod.getIndex() + " " + attr.getName() + "\n");
 						}
 					}
 				}
@@ -1259,7 +1260,27 @@ abstract public class DmcObject implements Serializable {
 		}
 	}
 	
-
+	/**
+	 * Returns the objects that are referring to this object. This will only
+	 * return a value if you've turned on backref tracking via the DmcOmni.
+	 */
+	public ArrayList<DmcObject> getReferringObjects(){
+		ArrayList<DmcObject>	rc = new ArrayList<DmcObject>();
+		
+		synchronized(attributes){
+			DmcTypeModifierMV mods = getBackref();
+			if (mods != null){
+				Iterator<Modifier> modit = mods.getMV();
+				if (modit != null){
+					while(modit.hasNext()){
+						Modifier mod = modit.next();
+						rc.add((DmcObject)mod.getReferringObject());
+					}
+				}
+			}
+			return(rc);
+		}
+	}
 	
 	/**
 	 * Returns the object in Object Instance Format (OIF). The attribute values

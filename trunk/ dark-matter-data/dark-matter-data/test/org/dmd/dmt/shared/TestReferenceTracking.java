@@ -37,9 +37,9 @@ import org.junit.Test;
 
 public class TestReferenceTracking {
 	
-	static String OBJ3REF = "References to: obj1\n  obj3 via SV objRef\n"; 
+	static String OBJ3REF = "References to: obj1\n  (ObjWithRefs) obj3 via SV objRef\n"; 
 	
-	static String OBJ3MVREF = "References to: obj1\n  obj3 via MV objRefMV\n"; 
+	static String OBJ3MVREF = "References to: obj1\n  (ObjWithRefs) obj3 via MV objRefMV\n"; 
 	
 	static File	temp;
 
