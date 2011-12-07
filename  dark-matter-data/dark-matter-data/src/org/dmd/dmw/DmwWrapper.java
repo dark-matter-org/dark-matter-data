@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmw;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
@@ -72,6 +73,56 @@ public abstract class DmwWrapper extends DmcContainer {
     public boolean applyModifier(DmcTypeModifierMV mods) throws DmcValueExceptionSet, DmcValueException{
     	return(getDmcObject().applyModifier(mods));
     }
+    
+	/**
+	 * @return true if this object has any other objects referring to it. This mechanism is
+	 * only valid if you've turned on back reference tracking via DmcOmni.
+	 */
+    public boolean isReferenced(){
+    	return(core.isReferenced());
+    }
+    
+	/**
+	 * Returns the references to this object formatted as a String. This will only
+	 * return a value if you've turned on backref tracking via the DmcOmni.
+	 */
+	public String getBackRefs(){
+		return(core.getBackRefs());
+	}
+    
+	/**
+	 * @return the number of references to this object.  This mechanism is
+	 * only valid if you've turned on back reference tracking via DmcOmni.
+	 */
+	public int referenceCount(){
+		return(core.referenceCount());
+	}
+	
+	/**
+	 * This method should be called by whatever mechanism you're using to manage a collection
+	 * of DMOs. It will automatically removed references to this object that are contained in
+	 * object reference attributes if you have set DmcOmni.backRefTracking(true). 
+	 */
+	public void youAreDeleted(){
+		core.youAreDeleted();
+	}
+	
+	/**
+	 * Returns the objects that are referring to this object. This will only
+	 * return a value if you've turned on backref tracking via the DmcOmni.
+	 */
+	public ArrayList<DmwWrapper> getReferringObjects(){
+		ArrayList<DmwWrapper>	rc = new ArrayList<DmwWrapper>();
+		
+		if (isReferenced()){
+			ArrayList<DmcObject> objlist = core.getReferringObjects();
+			for(DmcObject obj: objlist){
+				rc.add((DmwWrapper) obj.getContainer());
+			}
+		}
+		
+		return(rc);
+	}
     
     /**
      * Serializes our underlying DMO.
