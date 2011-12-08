@@ -332,7 +332,13 @@ abstract public class DmcObject implements Serializable {
 		}
 	}
 	
-	protected void removeBackref(Modifier mod){
+	/**
+	 * This method is used to remove back references from an object to the objects
+	 * that refer to it. Back reference tracking is controlled via the DmcOmni. You
+	 * shouldn't be calling this directly - if you do, all bets are off!
+	 * @param mod The modifier representing the removal operation for the back reference.
+	 */
+	public void removeBackref(Modifier mod){
 		synchronized (attributes){		
 			if (getBackref() == null)
 				throw(new IllegalStateException("Tried to remove backreference from an object with no backrefs."));
@@ -739,10 +745,10 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * This method sets the value of a single-valued attribute. If you had previously set the
-	 * same attribute to a different type, you get a class cast exception.
+	 * This method sets the value of a single-valued attribute.
 	 * @param attrName  The attribute info.
 	 * @param attr      The attribute to be stored.
+	 * @param previous  The previous value of the attribute, used in back reference tracking.
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
@@ -1056,26 +1062,27 @@ abstract public class DmcObject implements Serializable {
 			if ((getModifier() == null) && (attr != null)){
 				if (supportsBackrefTracking()){
 					if (attr instanceof DmcTypeNamedObjectREF){
-						// TODO: need to have the upper bound of the IDs for the meta schema available
-						// so that we can check whether we want to track the back references.
-						if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
-							if (attr.attrInfo.valueType == ValueTypeEnum.SINGLE){
-								DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
-								if (ref.getObject() != null){
-									if (ref.getBackrefModifier() != null)
-										((DmcObject)ref.getObject()).removeBackref(ref.getBackrefModifier());
-								}
-							}
-							else{
-								for(int i=0; i< attr.getMVSize(); i++){
-									DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getMVnth(i);
-									if ((ref != null) && (ref.getObject() != null)){
-										if (ref.getBackrefModifier() != null)
-											((DmcObject)ref.getObject()).removeBackref(ref.getBackrefModifier());
-									}
-								}
-							}
-						}
+						((DmcTypeNamedObjectREF<?,?>)attr).removeBackReferences();
+//						// TODO: need to have the upper bound of the IDs for the meta schema available
+//						// so that we can check whether we want to track the back references.
+//						if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+//							if (attr.attrInfo.valueType == ValueTypeEnum.SINGLE){
+//								DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
+//								if (ref.getObject() != null){
+//									if (ref.getBackrefModifier() != null)
+//										((DmcObject)ref.getObject()).removeBackref(ref.getBackrefModifier());
+//								}
+//							}
+//							else{
+//								for(int i=0; i< attr.getMVSize(); i++){
+//									DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getMVnth(i);
+//									if ((ref != null) && (ref.getObject() != null)){
+//										if (ref.getBackrefModifier() != null)
+//											((DmcObject)ref.getObject()).removeBackref(ref.getBackrefModifier());
+//									}
+//								}
+//							}
+//						}
 					}
 				}
 			}
@@ -1914,19 +1921,25 @@ abstract public class DmcObject implements Serializable {
 					else{
 						Object value = mod.getAttribute().getSV();
 						
-						if ((value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){						
-							// If the attribute is an object reference, we have to determine
-							// whether we have the object or just its name - and perform the
-							// set() accordingly.
-							DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
-							if (ref.getObject() == null){
-								if (existing.set(ref.getObjectName()) != null)
-									anyChange = true;
-							}
-							else{
-								if (existing.set(ref.getObject()) != null)
-									anyChange = true;
-							}
+//						if ((value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){		
+//						// If the attribute is an object reference, we have to determine
+//						// whether we have the object or just its name - and perform the
+//						// set() accordingly.
+//						DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
+//						if (ref.getObject() == null){
+//							if (existing.set(ref.getObjectName()) != null)
+//								anyChange = true;
+//						}
+//						else{
+//							if (existing.set(ref.getObject()) != null)
+//								anyChange = true;
+//						}
+//					}
+						if (value instanceof DmcNamedObjectREF){
+							((DmcTypeNamedObjectREF<?, ?>)existing).removeBackReferences();
+							DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>)value;
+							if (existing.set(ref.getObjectName()) != null)
+								anyChange = true;
 						}
 						else{
 							if (existing.set(mod.getAttribute().getSV()) != null)

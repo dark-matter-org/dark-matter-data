@@ -767,9 +767,14 @@ public class GenUtility {
     	sb.append("     */\n");
 		sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
     	sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+//    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+    	sb.append("        " + attrType + " attr  = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
     	sb.append("        if (attr == null)\n");
     	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+    	if (ad.getType().getIsRefType() && (ad.getType().getOriginalClass().getIsNamedBy() != null)){
+        	sb.append("        else\n");
+        	sb.append("            attr.removeBackReferences();\n");
+    	}
     	sb.append("        \n");
     	sb.append("        attr.set(value);\n");
     	sb.append("        set(" + ad.getDMSAGReference() + ",attr);\n");
