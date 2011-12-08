@@ -39,6 +39,10 @@ public class DmcOmni implements DmcNameResolverIF {
 	// Indicates if we're supported lazy resolution of object references
 	boolean								lazyResolution;
 	
+	// Indicates if we're supported automatic resolution of object references
+	// based on the application of modifiers
+	boolean								autoResolution;
+	
 	// While doing lazy resolution, if we are unable to find an object, this
 	// option tells us what to do. If it's true, we will toast the object 
 	// reference, thus "healing" the broken link. If you've provided a logger,
@@ -111,6 +115,7 @@ public class DmcOmni implements DmcNameResolverIF {
 	void init(){
 		trackBackRefs 			= false;
 		lazyResolution			= false;
+		autoResolution			= false;
 		cleanUpDeadRefs			= false;
 		logger					= null;
 		resolvers				= null;
@@ -164,6 +169,21 @@ public class DmcOmni implements DmcNameResolverIF {
 	 */
 	public void lazyResolution(boolean f){
 		lazyResolution = f;
+	}
+	
+	/**
+	 * @return true if auto resolution is turned on.
+	 */
+	public boolean autoResolution(){
+		return(autoResolution);
+	}
+	
+	/**
+	 * Turns auto resolution on/off.
+	 * @param f set to true to turn it on.
+	 */
+	public void autoResolution(boolean f){
+		autoResolution = f;
 	}
 	
 	/**
