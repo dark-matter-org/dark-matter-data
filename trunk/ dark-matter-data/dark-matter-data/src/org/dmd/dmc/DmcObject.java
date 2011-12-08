@@ -1545,7 +1545,7 @@ abstract public class DmcObject implements Serializable {
 	 * @throws DmcValueExceptionSet
 	 */
 	public void resolveReferencesExceptClass(DmcNameResolverIF rx) throws DmcValueExceptionSet {
-		resolveReferencesWithBackrefs(rx, true);
+		resolveReferences(rx, true);
 	}
 	
 	/**
@@ -1701,47 +1701,47 @@ abstract public class DmcObject implements Serializable {
 		}
 	}
 	
-	/**
-	 * We perform object resolution and optionally skip the class attribute.
-	 * @param rx A name resolver.
-	 * @param skipClass Indicates whether we should skip the class attribute or not.
-	 * @throws Exception 
-	 */
-	@SuppressWarnings("unchecked")
-	public void resolveReferencesWithBackrefs(DmcNameResolverIF rx, boolean skipClass) throws DmcValueExceptionSet {
-		synchronized (attributes) {
-			DmcValueExceptionSet	errors = null;
-	
-			for(DmcAttribute attr : attributes.values()){
-				if (skipClass && (attr.ID == __objectClass.id))
-					continue;
-					
-				if (attr instanceof DmcTypeNamedObjectREF){
-					DmcTypeNamedObjectREF ref = (DmcTypeNamedObjectREF) attr;
+//	/**
+//	 * We perform object resolution and optionally skip the class attribute.
+//	 * @param rx A name resolver.
+//	 * @param skipClass Indicates whether we should skip the class attribute or not.
+//	 * @throws Exception 
+//	 */
+//	@SuppressWarnings("unchecked")
+//	public void resolveReferencesWithBackrefs(DmcNameResolverIF rx, boolean skipClass) throws DmcValueExceptionSet {
+//		synchronized (attributes) {
+//			DmcValueExceptionSet	errors = null;
+//	
+//			for(DmcAttribute attr : attributes.values()){
+//				if (skipClass && (attr.ID == __objectClass.id))
+//					continue;
+//					
+//				if (attr instanceof DmcTypeNamedObjectREF){
+//					DmcTypeNamedObjectREF ref = (DmcTypeNamedObjectREF) attr;
+////					try {
+////						ref.resolveReferences(rx);
+//						ref.doLazyResolution(this);
+////					} catch (DmcValueException e) {
+////						if (errors == null)
+////							errors = new DmcValueExceptionSet();
+////						errors.add(e);
+////					}
+//				}
+//				else if (attr instanceof DmcTypeComplexTypeWithRefs){
 //					try {
-//						ref.resolveReferences(rx);
-						ref.doLazyResolution(this);
+//						((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
 //					} catch (DmcValueException e) {
 //						if (errors == null)
 //							errors = new DmcValueExceptionSet();
 //						errors.add(e);
 //					}
-				}
-				else if (attr instanceof DmcTypeComplexTypeWithRefs){
-					try {
-						((DmcTypeComplexTypeWithRefs)attr).resolve(rx, attr.getName());
-					} catch (DmcValueException e) {
-						if (errors == null)
-							errors = new DmcValueExceptionSet();
-						errors.add(e);
-					}
-				}
-			}
-			
-			if (errors != null)
-				throw(errors);
-		}
-	}
+//				}
+//			}
+//			
+//			if (errors != null)
+//				throw(errors);
+//		}
+//	}
 	
 	public DmcObject cloneIt(){
 		synchronized (attributes) {

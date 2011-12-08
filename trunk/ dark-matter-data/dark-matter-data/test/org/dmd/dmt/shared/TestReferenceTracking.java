@@ -414,6 +414,42 @@ public class TestReferenceTracking {
 		System.out.println("\n<<< testResolveNthReferences()\n\n");
 	}
 	
+	@Test
+	public void testReferencesUsingApplyModifier() throws DmcValueException, DmcValueExceptionSet {
+		System.out.println("\n>>> testReferencesUsingApplyModifier()\n\n");
+		
+		TestDataCache cache = new TestDataCache();
+		DmcOmni.instance().reset();
+		DmcOmni.instance().addCompactSchema(DmpDMSAG.instance());
+		DmcOmni.instance().addCompactSchema(DmtDMSAG.instance());
+		DmcOmni.instance().addResolver(cache);
+		DmcOmni.instance().logger(new TestLogger());
+		DmcOmni.instance().lazyResolution(true);
+		DmcOmni.instance().backRefTracking(true);
+				
+		ObjWithRefsDMO obj1 = new ObjWithRefsDMO();
+		obj1.setName("obj1");
+		cache.add(obj1);
+		
+		ObjWithRefsDMO obj2 = new ObjWithRefsDMO();
+		obj2.setName("obj2");
+		cache.add(obj2);
+		
+		ObjWithRefsDMO obj3 = new ObjWithRefsDMO();
+		obj3.setName("obj3");
+		cache.add(obj3);
+		
+		ObjWithRefsDMO modrec = obj3.getModificationRecorder();
+		
+		modrec.setObjRef("obj2");
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		assertEquals("obj1 should indicate that it has 1 reference", obj1.referenceCount(), 1);
+
+		System.out.println("\n<<< testReferencesUsingApplyModifier()\n\n");
+	}
 	
+
 
 }
