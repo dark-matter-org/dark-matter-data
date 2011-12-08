@@ -89,7 +89,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:768)
     public void setSvString(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(DmtDMSAG.__svString);
+        DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
             attr = new DmcTypeStringSV(DmtDMSAG.__svString);
         
@@ -100,7 +100,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
     public void remSvString(){
          rem(DmtDMSAG.__svString);
     }

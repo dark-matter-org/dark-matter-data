@@ -15,7 +15,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestBasicNamedObjectFixedREFMAP provides storage for a map of TestBasicNamedObjectFixedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2603)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2608)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -46,7 +46,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2646)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2651)
     public DmcAttribute<TestBasicNamedObjectFixedREF> cloneIt(){
         synchronized(this){
             DmcTypeTestBasicNamedObjectFixedREFMAP rc = getNew();
@@ -61,7 +61,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2662)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2667)
     public TestBasicNamedObjectFixedREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestBasicNamedObjectFixedREF newval = typeCheck(v);
@@ -81,7 +81,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2683)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2688)
     public TestBasicNamedObjectFixedREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -92,7 +92,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2695)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2700)
     public Iterator<TestBasicNamedObjectFixedREF> getMV(){
         synchronized(this){
             Map<StringName,TestBasicNamedObjectFixedREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2708)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2713)
     public Map<StringName,TestBasicNamedObjectFixedREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestBasicNamedObjectFixedREF> clone = null;
@@ -116,7 +116,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2721)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2726)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -127,7 +127,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2733)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2738)
     public TestBasicNamedObjectFixedREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -138,7 +138,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2745)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2750)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -152,7 +152,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2760)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2765)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

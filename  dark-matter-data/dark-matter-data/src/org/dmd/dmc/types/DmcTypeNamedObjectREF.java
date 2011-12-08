@@ -110,6 +110,39 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 	}
 	
 	/**
+	 * This method will remove back references that are associated with this reference
+	 * attribute. This is used when removing a reference attribute from an object.
+	 */
+	public void removeBackReferences(){
+		// If backref tracking isn't on, don't bother
+		if (DmcOmni.instance().backRefTracking() && (attrInfo.id> 200) ){
+			if (attrInfo.valueType == ValueTypeEnum.SINGLE){
+				HELPER ref = getSV();
+				if (ref != null){
+					if (ref.getObject() != null){
+						if (ref.getBackrefModifier() != null)
+							((DmcObject)ref.getObject()).removeBackref(ref.getBackrefModifier());
+					}
+				}
+			}
+			else{
+				Iterator<HELPER> it = getMV();
+				if (it != null){
+					while(it.hasNext()){
+						HELPER ref = it.next();
+						if (ref != null){
+							if (ref.getObject() != null){
+								if (ref.getBackrefModifier() != null)
+									((DmcObject)ref.getObject()).removeBackref(ref.getBackrefModifier());
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	/**
 	 * This method is called from derived classes if the lazy resolution mechanism has been
 	 * turned on via the DmcOmni.
 	 * <P>
