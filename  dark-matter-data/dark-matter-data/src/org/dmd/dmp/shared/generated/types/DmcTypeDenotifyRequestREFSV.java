@@ -24,8 +24,8 @@ import org.dmd.dmp.shared.generated.dmo.DenotifyRequestDMO;    // DmcType import
  * The DmcTypeDenotifyRequestREFSV provides storage for a single-valued DenotifyRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:221)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:250)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDenotifyRequestREFSV extends DmcTypeDenotifyRequestREF implements Serializable {
@@ -49,14 +49,14 @@ public class DmcTypeDenotifyRequestREFSV extends DmcTypeDenotifyRequestREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1790)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
     public DmcAttribute<DenotifyRequestDMO> cloneIt(){
         DmcTypeDenotifyRequestREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1801)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
     public DenotifyRequestDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeDenotifyRequestREFSV extends DmcTypeDenotifyRequestREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
     public DenotifyRequestDMO set(Object v) throws DmcValueException {
         DenotifyRequestDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

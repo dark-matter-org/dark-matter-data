@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.enums.DmtTestEnum;    // DmcType import
  * The DmcTypeDmtTestEnumSV provides storage for a single-valued DmtTestEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1794)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:353)
  */
 @SuppressWarnings("serial")
@@ -34,14 +34,14 @@ public class DmcTypeDmtTestEnumSV extends DmcTypeDmtTestEnum implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1826)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
     public DmcAttribute<DmtTestEnum> cloneIt(){
         DmcTypeDmtTestEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1837)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
     public DmtTestEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -49,7 +49,7 @@ public class DmcTypeDmtTestEnumSV extends DmcTypeDmtTestEnum implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1849)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
     public DmtTestEnum set(Object v) throws DmcValueException {
         DmtTestEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

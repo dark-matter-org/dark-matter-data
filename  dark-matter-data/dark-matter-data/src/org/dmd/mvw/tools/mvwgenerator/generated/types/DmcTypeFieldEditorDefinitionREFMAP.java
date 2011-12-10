@@ -30,8 +30,8 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeFieldEditorDefinitionREFMAP provides storage for a map of FieldEditorDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2534)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:503)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2627)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeFieldEditorDefinitionREFMAP extends DmcTypeFieldEditorDefinitionREF<FieldEditorDefinitionREF,CamelCaseName> {
@@ -61,7 +61,7 @@ public class DmcTypeFieldEditorDefinitionREFMAP extends DmcTypeFieldEditorDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2577)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2670)
     public DmcAttribute<FieldEditorDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeFieldEditorDefinitionREFMAP rc = getNew();
@@ -76,7 +76,7 @@ public class DmcTypeFieldEditorDefinitionREFMAP extends DmcTypeFieldEditorDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2593)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2686)
     public FieldEditorDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             FieldEditorDefinitionREF newval = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeFieldEditorDefinitionREFMAP extends DmcTypeFieldEditorDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2614)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2707)
     public FieldEditorDefinitionREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
@@ -107,7 +107,7 @@ public class DmcTypeFieldEditorDefinitionREFMAP extends DmcTypeFieldEditorDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2719)
     public Iterator<FieldEditorDefinitionREF> getMV(){
         synchronized(this){
             Map<CamelCaseName,FieldEditorDefinitionREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeFieldEditorDefinitionREFMAP extends DmcTypeFieldEditorDefini
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2639)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2732)
     public Map<CamelCaseName,FieldEditorDefinitionREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,FieldEditorDefinitionREF> clone = null;
@@ -131,7 +131,7 @@ public class DmcTypeFieldEditorDefinitionREFMAP extends DmcTypeFieldEditorDefini
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2652)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2745)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -142,7 +142,7 @@ public class DmcTypeFieldEditorDefinitionREFMAP extends DmcTypeFieldEditorDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2664)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2757)
     public FieldEditorDefinitionREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
@@ -153,7 +153,7 @@ public class DmcTypeFieldEditorDefinitionREFMAP extends DmcTypeFieldEditorDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2769)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -167,7 +167,7 @@ public class DmcTypeFieldEditorDefinitionREFMAP extends DmcTypeFieldEditorDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2691)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2784)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

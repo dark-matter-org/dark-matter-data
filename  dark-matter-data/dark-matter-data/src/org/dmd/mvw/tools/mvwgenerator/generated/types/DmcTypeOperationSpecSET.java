@@ -30,8 +30,8 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeOperationSpec;    /
  * The DmcTypeOperationSpecSET provides storage for a set of OperationSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2334)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:126)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:127)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Serializable {
@@ -60,7 +60,7 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public DmcAttribute<OperationSpec> cloneIt(){
         synchronized(this){
             DmcTypeOperationSpecSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
     public OperationSpec add(Object v) throws DmcValueException {
         synchronized(this){
             OperationSpec rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
     public OperationSpec del(Object v){
         synchronized(this){
             OperationSpec rc = null;
@@ -109,7 +109,7 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2426)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2519)
     public Iterator<OperationSpec> getMV(){
         synchronized(this){
             Set<OperationSpec> clone = null;
@@ -121,7 +121,7 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
     public Set<OperationSpec> getMVCopy(){
         synchronized(this){
             Set<OperationSpec> clone = null;
@@ -134,7 +134,7 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2453)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2546)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeOperationSpecSET extends DmcTypeOperationSpec implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

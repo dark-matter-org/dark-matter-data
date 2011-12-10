@@ -428,7 +428,6 @@ AttributeDefinition
 name            		someRelationSV
 dmdID           		421
 type            		SomeRelation
-valueType				MULTI
 
 AttributeDefinition
 name            		someRelationMV

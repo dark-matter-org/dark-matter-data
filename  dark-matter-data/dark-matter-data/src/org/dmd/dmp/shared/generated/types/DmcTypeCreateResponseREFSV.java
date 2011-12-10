@@ -24,8 +24,8 @@ import org.dmd.dmp.shared.generated.dmo.CreateResponseDMO;    // DmcType import
  * The DmcTypeCreateResponseREFSV provides storage for a single-valued CreateResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1758)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:221)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:250)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCreateResponseREFSV extends DmcTypeCreateResponseREF implements Serializable {
@@ -49,14 +49,14 @@ public class DmcTypeCreateResponseREFSV extends DmcTypeCreateResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1790)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
     public DmcAttribute<CreateResponseDMO> cloneIt(){
         DmcTypeCreateResponseREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1801)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
     public CreateResponseDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeCreateResponseREFSV extends DmcTypeCreateResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
     public CreateResponseDMO set(Object v) throws DmcValueException {
         CreateResponseDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

@@ -660,9 +660,16 @@ public class GenUtility {
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public void set" + functionName + "(" + typeName + "DMO value) {\n");
-	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+//	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+	    	sb.append("        " + attrType + " attr  = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        if (attr == null)\n");
 	    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+	    	
+	    	if (ad.getType().getIsRefType() && (ad.getType().getOriginalClass().getIsNamedBy() != null)){
+	        	sb.append("        else\n");
+	        	sb.append("            attr.removeBackReferences();\n");
+	    	}
+	    	
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
 	    	sb.append("            attr.set(value);\n");
@@ -1174,7 +1181,13 @@ public class GenUtility {
 				sb.append("     */\n");
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value){\n");
-		    	sb.append("        DmcAttribute<?> attr = del(" + ad.getDMSAGReference() + ", value);\n");
+		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+				sb.append("        \n");
+				sb.append("        if ( (attr == null) && (getModifier()!= null))\n");
+				sb.append("            delFromEmptyAttribute(new " + attrType+ "(" + ad.getDMSAGReference() + "), value);\n");
+				sb.append("        else\n");
+				sb.append("            attr = del(" + ad.getDMSAGReference() + ", value);\n");
+				sb.append("        \n");
 				sb.append("        return(attr);\n");
 				sb.append("    }\n\n");
 			}
@@ -1186,7 +1199,13 @@ public class GenUtility {
 				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    public DmcAttribute<?> del" + functionName + "(Object value){\n");
 //		    	sb.append("        DmcAttribute<?> attr = del(" + ad.getDMSAGReference() + ", ((DmcNamedObjectIF)value).getObjectName());\n");
-		    	sb.append("        DmcAttribute<?> attr = del(" + ad.getDMSAGReference() + ", value);\n");
+		    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+				sb.append("        \n");
+				sb.append("        if ( (attr == null) && (getModifier()!= null))\n");
+				sb.append("            delFromEmptyAttribute(new " + attrType+ "(" + ad.getDMSAGReference() + "), value);\n");
+				sb.append("        else\n");
+				sb.append("            attr = del(" + ad.getDMSAGReference() + ", value);\n");
+				sb.append("        \n");
 				sb.append("        return(attr);\n");
 				sb.append("    }\n\n");
 			}

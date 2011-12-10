@@ -30,7 +30,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventScopeEnumSTATI
  * The OperationSpec class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:87)
+ * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:88)
  */
 public class OperationSpec implements Serializable {
 

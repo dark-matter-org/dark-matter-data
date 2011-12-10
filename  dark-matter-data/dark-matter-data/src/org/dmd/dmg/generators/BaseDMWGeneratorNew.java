@@ -1094,13 +1094,17 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
     			else
     				suffix = genSuffix;
     			
+    			String REF = "REF";
+    			if (ad.getType().getIsExtendedRefType())
+    				REF = "";
+    			
     			if (useWrappedObjectRefs){
 			    	sb.append("    /**\n");
 					sb.append("     * @return A " + ad.getType().getName() + suffix + " object.\n");
 					sb.append("     */\n");
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 					sb.append("    public " + ad.getType().getName() + suffix  + " get" + functionName + "(){\n");
-					sb.append("        " + ad.getType().getName() + "REF ref = " + dmocast + ".get" + functionName + "();\n");
+					sb.append("        " + ad.getType().getName() + REF + " ref = " + dmocast + ".get" + functionName + "();\n");
 					sb.append("        if (ref == null)\n");
 					sb.append("            return(null);\n");
 					sb.append("        \n");
@@ -1147,14 +1151,26 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
     	
     	if (ad.getType().getIsRefType()){
     		if (useWrappedObjectRefs){
-				sb.append("    /**\n");
-				sb.append("     * Sets the " + ad.getName() + " to the specified value.\n");
-				sb.append("     * @param value A value compatible with " + typeName + "\n");
-				sb.append("     */\n");
-				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public void set" + functionName + "(" + auxHolderClass + " value) {\n");
-		    	sb.append("        " + dmocast + ".set" + functionName + "(value.getDMO());\n");
-				sb.append("    }\n\n");
+    			if (ad.getType().getIsExtendedRefType()){
+					sb.append("    /**\n");
+					sb.append("     * Sets the " + ad.getName() + " to the specified value.\n");
+					sb.append("     * @param value A value compatible with " + ad.getType().getName() + "\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public void set" + functionName + "(" + ad.getType().getName() + " value) {\n");
+			    	sb.append("        " + dmocast + ".set" + functionName + "(value);\n");
+					sb.append("    }\n\n");
+    			}
+    			else{
+					sb.append("    /**\n");
+					sb.append("     * Sets the " + ad.getName() + " to the specified value.\n");
+					sb.append("     * @param value A value compatible with " + typeName + "\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public void set" + functionName + "(" + auxHolderClass + " value) {\n");
+			    	sb.append("        " + dmocast + ".set" + functionName + "(value.getDMO());\n");
+					sb.append("    }\n\n");
+    			}
     		}
     		else{
 				sb.append("    /**\n");

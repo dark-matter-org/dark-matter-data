@@ -26,8 +26,8 @@ import org.dmd.dmp.shared.generated.dmo.GetResponseDMO;    // DmcType import
  * The DmcTypeGetResponseREFMV provides storage for a multi-valued GetResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2098)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:222)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2153)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:251)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGetResponseREFMV extends DmcTypeGetResponseREF implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeGetResponseREFMV extends DmcTypeGetResponseREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2128)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
     public DmcAttribute<GetResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeGetResponseREFMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeGetResponseREFMV extends DmcTypeGetResponseREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2157)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
     public GetResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             GetResponseDMO rc = typeCheck(v);
@@ -85,25 +85,28 @@ public class DmcTypeGetResponseREFMV extends DmcTypeGetResponseREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2170)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2225)
     public GetResponseDMO del(Object v){
         synchronized(this){
+            GetResponseDMO key = null;
             GetResponseDMO rc = null;
             try {
-                rc = typeCheck(v);
+                key = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            int indexof = value.indexOf(key);
+            if (indexof != -1){
+                rc = value.get(indexof);
                 value.remove(rc);
-            else
-                rc = null;
+            }
+
             return(rc);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2189)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2256)
     public Iterator<GetResponseDMO> getMV(){
         synchronized(this){
             ArrayList<GetResponseDMO> clone = new ArrayList<GetResponseDMO>(value);
@@ -111,7 +114,7 @@ public class DmcTypeGetResponseREFMV extends DmcTypeGetResponseREF implements Se
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2198)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2265)
     public ArrayList<GetResponseDMO> getMVCopy(){
         synchronized(this){
             ArrayList<GetResponseDMO> clone = new ArrayList<GetResponseDMO>(value);
@@ -120,7 +123,7 @@ public class DmcTypeGetResponseREFMV extends DmcTypeGetResponseREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2275)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -134,7 +137,7 @@ public class DmcTypeGetResponseREFMV extends DmcTypeGetResponseREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2223)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
     public GetResponseDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -144,7 +147,7 @@ public class DmcTypeGetResponseREFMV extends DmcTypeGetResponseREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2234)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2301)
     public GetResponseDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -171,7 +174,7 @@ public class DmcTypeGetResponseREFMV extends DmcTypeGetResponseREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2262)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -194,7 +197,7 @@ public class DmcTypeGetResponseREFMV extends DmcTypeGetResponseREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2286)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2353)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

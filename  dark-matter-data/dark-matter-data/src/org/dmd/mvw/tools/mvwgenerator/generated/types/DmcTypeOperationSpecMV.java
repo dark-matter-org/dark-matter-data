@@ -27,8 +27,8 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeOperationSpec;    /
  * The DmcTypeOperationSpecMV provides storage for a multi-valued OperationSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:125)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2153)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:126)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOperationSpecMV extends DmcTypeOperationSpec implements Serializable {
@@ -49,7 +49,7 @@ public class DmcTypeOperationSpecMV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
     public DmcAttribute<OperationSpec> cloneIt(){
         synchronized(this){
             DmcTypeOperationSpecMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeOperationSpecMV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
     public OperationSpec add(Object v) throws DmcValueException {
         synchronized(this){
             OperationSpec rc = typeCheck(v);
@@ -86,25 +86,28 @@ public class DmcTypeOperationSpecMV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2225)
     public OperationSpec del(Object v){
         synchronized(this){
+            OperationSpec key = null;
             OperationSpec rc = null;
             try {
-                rc = typeCheck(v);
+                key = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            int indexof = value.indexOf(key);
+            if (indexof != -1){
+                rc = value.get(indexof);
                 value.remove(rc);
-            else
-                rc = null;
+            }
+
             return(rc);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2256)
     public Iterator<OperationSpec> getMV(){
         synchronized(this){
             ArrayList<OperationSpec> clone = new ArrayList<OperationSpec>(value);
@@ -112,7 +115,7 @@ public class DmcTypeOperationSpecMV extends DmcTypeOperationSpec implements Seri
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2265)
     public ArrayList<OperationSpec> getMVCopy(){
         synchronized(this){
             ArrayList<OperationSpec> clone = new ArrayList<OperationSpec>(value);
@@ -121,7 +124,7 @@ public class DmcTypeOperationSpecMV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2275)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -135,7 +138,7 @@ public class DmcTypeOperationSpecMV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
     public OperationSpec getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -145,7 +148,7 @@ public class DmcTypeOperationSpecMV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2301)
     public OperationSpec setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -172,7 +175,7 @@ public class DmcTypeOperationSpecMV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -195,7 +198,7 @@ public class DmcTypeOperationSpecMV extends DmcTypeOperationSpec implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2260)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2353)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

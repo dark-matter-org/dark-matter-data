@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMvcBackgroundMenuREFMV provides storage for a multi-valued MvcBackgroundMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2072)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:494)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2153)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:523)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvcBackgroundMenuREFMV extends DmcTypeMvcBackgroundMenuREF implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeMvcBackgroundMenuREFMV extends DmcTypeMvcBackgroundMenuREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
     public DmcAttribute<MvcBackgroundMenuREF> cloneIt(){
         synchronized(this){
             DmcTypeMvcBackgroundMenuREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeMvcBackgroundMenuREFMV extends DmcTypeMvcBackgroundMenuREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2131)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
     public MvcBackgroundMenuREF add(Object v) throws DmcValueException {
         synchronized(this){
             MvcBackgroundMenuREF rc = typeCheck(v);
@@ -84,25 +84,28 @@ public class DmcTypeMvcBackgroundMenuREFMV extends DmcTypeMvcBackgroundMenuREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2144)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2225)
     public MvcBackgroundMenuREF del(Object v){
         synchronized(this){
+            MvcBackgroundMenuREF key = null;
             MvcBackgroundMenuREF rc = null;
             try {
-                rc = typeCheck(v);
+                key = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            int indexof = value.indexOf(key);
+            if (indexof != -1){
+                rc = value.get(indexof);
                 value.remove(rc);
-            else
-                rc = null;
+            }
+
             return(rc);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2163)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2256)
     public Iterator<MvcBackgroundMenuREF> getMV(){
         synchronized(this){
             ArrayList<MvcBackgroundMenuREF> clone = new ArrayList<MvcBackgroundMenuREF>(value);
@@ -110,7 +113,7 @@ public class DmcTypeMvcBackgroundMenuREFMV extends DmcTypeMvcBackgroundMenuREF i
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2172)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2265)
     public ArrayList<MvcBackgroundMenuREF> getMVCopy(){
         synchronized(this){
             ArrayList<MvcBackgroundMenuREF> clone = new ArrayList<MvcBackgroundMenuREF>(value);
@@ -119,7 +122,7 @@ public class DmcTypeMvcBackgroundMenuREFMV extends DmcTypeMvcBackgroundMenuREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2182)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2275)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -133,7 +136,7 @@ public class DmcTypeMvcBackgroundMenuREFMV extends DmcTypeMvcBackgroundMenuREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2197)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
     public MvcBackgroundMenuREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -143,7 +146,7 @@ public class DmcTypeMvcBackgroundMenuREFMV extends DmcTypeMvcBackgroundMenuREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2208)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2301)
     public MvcBackgroundMenuREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -170,7 +173,7 @@ public class DmcTypeMvcBackgroundMenuREFMV extends DmcTypeMvcBackgroundMenuREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -193,7 +196,7 @@ public class DmcTypeMvcBackgroundMenuREFMV extends DmcTypeMvcBackgroundMenuREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2260)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2353)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

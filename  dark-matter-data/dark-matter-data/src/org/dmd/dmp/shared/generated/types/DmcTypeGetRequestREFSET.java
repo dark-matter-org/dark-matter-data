@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;    // DmcType import
  * The DmcTypeGetRequestREFSET provides storage for a set of GetRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2360)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:223)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:252)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Serializable {
@@ -59,7 +59,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public DmcAttribute<GetRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeGetRequestREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
     public GetRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             GetRequestDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2433)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
     public GetRequestDMO del(Object v){
         synchronized(this){
             GetRequestDMO rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2452)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2519)
     public Iterator<GetRequestDMO> getMV(){
         synchronized(this){
             Set<GetRequestDMO> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2465)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
     public Set<GetRequestDMO> getMVCopy(){
         synchronized(this){
             Set<GetRequestDMO> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2479)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2546)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2490)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

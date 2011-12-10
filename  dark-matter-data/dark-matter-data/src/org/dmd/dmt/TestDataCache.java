@@ -43,7 +43,7 @@ public class TestDataCache implements DmcNameResolverIF, DmcCacheIF {
 	// DmcNameResolverIF
 	
 	@Override
-	public DmcObject findNamedDMO(DmcObjectName name) {
+	public DmcObject findNamedDMO(DmcObjectName name){
 		DmcNamedObjectIF obj = data.get(name);
 		if (obj == null)
 			return(null);

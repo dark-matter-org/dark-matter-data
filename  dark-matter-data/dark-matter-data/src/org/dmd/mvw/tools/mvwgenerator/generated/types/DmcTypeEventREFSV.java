@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeEventREFSV provides storage for a single-valued EventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:522)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEventREFSV extends DmcTypeEventREF implements Serializable {
@@ -48,14 +48,14 @@ public class DmcTypeEventREFSV extends DmcTypeEventREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
     public DmcAttribute<EventREF> cloneIt(){
         DmcTypeEventREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
     public EventREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeEventREFSV extends DmcTypeEventREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
     public EventREF set(Object v) throws DmcValueException {
         EventREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

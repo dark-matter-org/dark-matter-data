@@ -355,7 +355,7 @@ public class DmcOmni implements DmcNameResolverIF {
 			DmcTypeModifierMV single = new DmcTypeModifierMV();
 			Modifier mod = it.next();
 			try {
-				// Add the Modifier to our temporary 
+				// Add the Modifier to our temporary
 				single.add(mod);
 				
 				if (cache == null)

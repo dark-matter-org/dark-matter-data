@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeFieldEditorDefinitionREFSV provides storage for a single-valued FieldEditorDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1732)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:493)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:522)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFieldEditorDefinitionREFSV extends DmcTypeFieldEditorDefinitionREF implements Serializable {
@@ -48,14 +48,14 @@ public class DmcTypeFieldEditorDefinitionREFSV extends DmcTypeFieldEditorDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1764)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
     public DmcAttribute<FieldEditorDefinitionREF> cloneIt(){
         DmcTypeFieldEditorDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1775)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
     public FieldEditorDefinitionREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeFieldEditorDefinitionREFSV extends DmcTypeFieldEditorDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1787)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
     public FieldEditorDefinitionREF set(Object v) throws DmcValueException {
         FieldEditorDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

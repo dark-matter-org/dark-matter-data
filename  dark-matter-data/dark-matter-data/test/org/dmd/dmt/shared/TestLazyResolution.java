@@ -27,7 +27,7 @@ import org.junit.Test;
 
 public class TestLazyResolution {
 	
-	static String OBJ3REF = "References to: obj1\n  obj3 via SV objRef\n"; 
+	static String OBJ3REF = "References to: obj1\n  (ObjWithRefs) obj3 via SV objRef\n"; 
 	
 	static {
 		DmcOmni.instance().addCompactSchema(DmtDMSAG.instance());
