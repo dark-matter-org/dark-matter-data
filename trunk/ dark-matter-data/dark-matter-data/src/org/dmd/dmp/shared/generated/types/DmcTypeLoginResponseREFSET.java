@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;    // DmcType import
  * The DmcTypeLoginResponseREFSET provides storage for a set of LoginResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2360)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:223)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:252)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLoginResponseREFSET extends DmcTypeLoginResponseREF implements Serializable {
@@ -59,7 +59,7 @@ public class DmcTypeLoginResponseREFSET extends DmcTypeLoginResponseREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2397)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public DmcAttribute<LoginResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeLoginResponseREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeLoginResponseREFSET extends DmcTypeLoginResponseREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2416)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
     public LoginResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             LoginResponseDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeLoginResponseREFSET extends DmcTypeLoginResponseREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2433)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
     public LoginResponseDMO del(Object v){
         synchronized(this){
             LoginResponseDMO rc = null;
@@ -108,7 +108,7 @@ public class DmcTypeLoginResponseREFSET extends DmcTypeLoginResponseREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2452)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2519)
     public Iterator<LoginResponseDMO> getMV(){
         synchronized(this){
             Set<LoginResponseDMO> clone = null;
@@ -120,7 +120,7 @@ public class DmcTypeLoginResponseREFSET extends DmcTypeLoginResponseREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2465)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
     public Set<LoginResponseDMO> getMVCopy(){
         synchronized(this){
             Set<LoginResponseDMO> clone = null;
@@ -133,7 +133,7 @@ public class DmcTypeLoginResponseREFSET extends DmcTypeLoginResponseREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2479)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2546)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,7 +143,7 @@ public class DmcTypeLoginResponseREFSET extends DmcTypeLoginResponseREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2490)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

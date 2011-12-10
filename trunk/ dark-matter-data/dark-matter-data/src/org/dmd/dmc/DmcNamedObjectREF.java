@@ -61,6 +61,19 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 	}
 	
 	/**
+	 * If back reference tracking is enabled and we have an object and a backref, we remove
+	 * the back reference.
+	 */
+	public void removeBackref(){
+		if (DmcOmni.instance().backRefTracking()){
+			if (getObject() != null){
+				if (backrefModifier != null)
+					((DmcObject)getObject()).removeBackref(backrefModifier);
+			}
+		}
+	}
+	
+	/**
 	 * Sets the object, thus making this reference "resolved".
 	 * @param o the object.
 	 */

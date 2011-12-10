@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeActionREFSET provides storage for a set of ActionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2334)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:495)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:524)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializable {
@@ -58,7 +58,7 @@ public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2371)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public DmcAttribute<ActionREF> cloneIt(){
         synchronized(this){
             DmcTypeActionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2390)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
     public ActionREF add(Object v) throws DmcValueException {
         synchronized(this){
             ActionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
     public ActionREF del(Object v){
         synchronized(this){
             ActionREF rc = null;
@@ -107,7 +107,7 @@ public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2426)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2519)
     public Iterator<ActionREF> getMV(){
         synchronized(this){
             Set<ActionREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializabl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
     public Set<ActionREF> getMVCopy(){
         synchronized(this){
             Set<ActionREF> clone = null;
@@ -132,7 +132,7 @@ public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2453)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2546)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,7 +142,7 @@ public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

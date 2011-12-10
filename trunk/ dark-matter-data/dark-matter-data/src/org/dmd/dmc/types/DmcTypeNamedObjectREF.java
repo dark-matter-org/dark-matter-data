@@ -246,10 +246,23 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 			if (DmcOmni.instance().backRefTracking()){
 				if (referrer.supportsBackrefTracking()){
 					Modifier backrefMod = null;
+					
+					DmcAttribute mod = this.getNew();
+					mod.setAttributeInfo(attrInfo);
+					try {
+						if (attrInfo.valueType == ValueTypeEnum.SINGLE)
+							mod.set(ref);
+						else
+							mod.add(ref);
+					} catch (DmcValueException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
 					if (attrInfo.valueType == ValueTypeEnum.SINGLE)
-						backrefMod = new Modifier(ModifyTypeEnum.SET,this,referrer);
+						backrefMod = new Modifier(ModifyTypeEnum.SET,mod,referrer);
 					else
-						backrefMod = new Modifier(ModifyTypeEnum.ADD,this,referrer);
+						backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,referrer);
 					
 					obj.addBackref(backrefMod);
 					

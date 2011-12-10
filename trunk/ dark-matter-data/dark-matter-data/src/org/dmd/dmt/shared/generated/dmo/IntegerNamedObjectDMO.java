@@ -107,7 +107,7 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -120,7 +120,7 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:716)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svString);
         if (attr == null)
@@ -139,7 +139,7 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:768)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
     public void setSvString(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -152,12 +152,12 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
     public void remSvString(){
          rem(DmtDMSAG.__svString);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
     public IntegerName getIntegerName(){
         DmcTypeIntegerNameSV attr = (DmcTypeIntegerNameSV) get(MetaDMSAG.__integerName);
         if (attr == null)
@@ -170,7 +170,7 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
      * Sets integerName to the specified value.
      * @param value IntegerName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:716)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setIntegerName(IntegerName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__integerName);
         if (attr == null)
@@ -189,7 +189,7 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
      * Sets integerName to the specified value.
      * @param value A value compatible with DmcTypeIntegerNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:768)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
     public void setIntegerName(Object value) throws DmcValueException {
         DmcTypeIntegerNameSV attr  = (DmcTypeIntegerNameSV) get(MetaDMSAG.__integerName);
         if (attr == null)
@@ -202,7 +202,7 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
     /**
      * Removes the integerName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
     public void remIntegerName(){
          rem(MetaDMSAG.__integerName);
     }

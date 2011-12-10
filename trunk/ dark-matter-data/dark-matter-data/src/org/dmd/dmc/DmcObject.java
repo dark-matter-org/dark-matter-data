@@ -522,6 +522,18 @@ abstract public class DmcObject implements Serializable {
 			DmcTypeModifierMV mods = getBackref();
 			if (mods != null)
 				DmcOmni.instance().removeReferences(mods);
+			
+			// And in the other direction - we see if we have any references to other
+			// object and remove the backrefs
+			for(DmcAttribute<?> attr : attributes.values()){
+				if (attr.ID == __objectClass.id)
+					continue;
+					
+				if (attr instanceof DmcTypeNamedObjectREF<?, ?>){
+					((DmcTypeNamedObjectREF<?, ?>)attr).removeBackReferences();
+				}
+			}
+			
 		}
 	}
 	
@@ -959,16 +971,16 @@ abstract public class DmcObject implements Serializable {
 				}
 			}
 			
+			Object rc = null;
 			if ( (value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){
-				ref = (DmcNamedObjectREF)value;
-				if (ref.getObject() == null)
-					attr.del(ref.getObjectName());
+				DmcNamedObjectREF key = (DmcNamedObjectREF)value;
+				if (key.getObject() == null)
+					rc = attr.del(key.getObjectName());
 				else
-					attr.del(ref.getObject());
+					rc = attr.del(key.getObject());
 				
 			}
 			else{
-				Object rc = null;
 				if ( (attr.attrInfo.valueType == ValueTypeEnum.HASHSET) || (attr.attrInfo.valueType == ValueTypeEnum.TREESET))
 					rc = attr.del(value);
 				else if (value instanceof DmcExtendedReferenceIF)
@@ -979,10 +991,10 @@ abstract public class DmcObject implements Serializable {
 					rc = attr.del(((DmcNamedObjectIF)value).getObjectName());
 				else
 					rc = attr.del(value);
-				
-				if (rc instanceof DmcNamedObjectREF)
-					ref = (DmcNamedObjectREF) rc;
 			}
+			
+			if (rc instanceof DmcNamedObjectREF)
+				ref = (DmcNamedObjectREF) rc;
 			
 			// BIG NOTE: performing modification of an object and performing backref tracking
 			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
@@ -1839,32 +1851,54 @@ abstract public class DmcObject implements Serializable {
 				switch(mod.getModifyType()){
 				case ADD:
 					if (existing == null){
-						// NOTE: we add a clone of the attribute since, if we don't, we wind
-						// up storing the attribute instance that's in the modifier and adding
-						// stuff to it! 
-						add(mod.getAttributeName(), mod.getAttribute().cloneIt());
+						Iterator<Object> it = (Iterator<Object>) mod.getAttribute().getMV();
+						Object value = it.next();
+						if (value instanceof DmcNamedObjectREF){
+							// we do things a little different for object refs because it relies on the lastValue
+							// to create the backref modifier
+							existing = mod.getAttribute().getNew();
+							
+							DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
+							Object lastValue = existing.add(ref);
+							setLastValue(lastValue);
+							
+							add(existing.attrInfo,existing);
+						}
+						else{
+							// NOTE: we add a clone of the attribute since, if we don't, we wind
+							// up storing the attribute instance that's in the modifier and adding
+							// stuff to it!
+							add(mod.getAttributeName(), mod.getAttribute().cloneIt());
+						}
 						anyChange = true;
 					}
 					else{
+						Iterator<Object> it = (Iterator<Object>) mod.getAttribute().getMV();
+						Object value = it.next();
 						// NOTE: there will only ever be one value in the attribute and we have
 						// to use an Iterator to get the value out.
 	
-						Iterator<Object> it = (Iterator<Object>) mod.getAttribute().getMV();
-						Object value = it.next();
-						
 						if ((value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){
 							// If the attribute is an object reference, we have to determine
 							// whether we have the object or just its name - and perform the
 							// add() accordingly.
 							DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
-							if (ref.getObject() == null){
-								if ( existing.add(ref.getObjectName()) != null)
-									anyChange = true;
+							Object lastValue = existing.add(ref);
+							
+							if (lastValue != null){
+								setLastValue(lastValue);
+								anyChange = true;
+								add(existing.attrInfo,existing);
 							}
-							else{
-								if ( existing.add(ref.getObject()) != null)
-									anyChange = true;
-							}
+							
+//							if (ref.getObject() == null){
+//								if ( existing.add(ref.getObjectName()) != null)
+//									anyChange = true;
+//							}
+//							else{
+//								if ( existing.add(ref.getObject()) != null)
+//									anyChange = true;
+//							}
 						}
 						else{
 							if ( existing.add(value) != null)
@@ -1888,14 +1922,22 @@ abstract public class DmcObject implements Serializable {
 							// whether we have the object or just its name - and perform the
 							// del() accordingly.
 							DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
-							if (ref.getObject() == null){
-								if ( existing.del(ref.getObjectName()) != null)
-									anyChange = true;
-							}
-							else{
-								if ( existing.del(ref.getObject()) != null)
-									anyChange = true;
-							}
+//							Object lastValue = existing.del(ref);
+//							
+//							if (lastValue != null){
+								setLastValue(ref);
+								anyChange = true;
+								del(existing.attrInfo, value);
+//							}
+							
+//							if (ref.getObject() == null){
+//								if ( existing.del(ref.getObjectName()) != null)
+//									anyChange = true;
+//							}
+//							else{
+//								if ( existing.del(ref.getObject()) != null)
+//									anyChange = true;
+//							}
 						}
 						else{
 							if (value instanceof DmcMappedAttributeIF){
@@ -1936,10 +1978,16 @@ abstract public class DmcObject implements Serializable {
 //						}
 //					}
 						if (value instanceof DmcNamedObjectREF){
+							// We had a value in this attribute to start with, so clean
+							// up the back reference before we apply the new value
 							((DmcTypeNamedObjectREF<?, ?>)existing).removeBackReferences();
+							
 							DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>)value;
-							if (existing.set(ref.getObjectName()) != null)
+//							if (existing.set(ref.getObjectName()) != null)
+							if (existing.set(ref) != null){
+								set(existing.attrInfo,existing);
 								anyChange = true;
+							}
 						}
 						else{
 							if (existing.set(mod.getAttribute().getSV()) != null)
@@ -1957,46 +2005,56 @@ abstract public class DmcObject implements Serializable {
 						value = mod.getAttribute().getMVnth(index);
 					
 					if (existing == null){
-//						if (value == null)
-//							throw(new IllegalStateException("Setting an index on attribute: " + mod.getAttributeName() + " to null that's already null: " + index));
-
 						// NOTE: we add a clone of the attribute since, if we don't, we wind
 						// up storing the attribute instance that's in the modifier and adding
 						// stuff to it! 
 						if (value != null){
-							add(mod.getAttributeName(), mod.getAttribute().cloneIt());
+							setLastValue(value);
+							nth(mod.getAttribute().attrInfo,index,mod.getAttribute().cloneIt(),null);
 							anyChange = true;
 						}
 					}
 					else{
+						Object previous = existing.getMVnth(index);
 						
 						if (value == null){
 							// We're removing the value at the current slot
-							Object current = existing.getMVnth(index);
 							
-//							if (current == null)
-//								throw(new IllegalStateException("Setting an index on attribute: " + existing.getName() + " to null that's already null: " + index));
-							
-							// we currently have a value and we're nulling it so there's been a change
-							if (current != null)
+							// We currently have a value and we're nulling it so there's been a change
+							if (previous != null){
+//								// If the value was a reference, we'll remove the back reference if required
+//								if (previous instanceof DmcNamedObjectIF)
+//									((DmcNamedObjectREF<?>)previous).removeBackref();
+								existing.setMVnth(index, value);
+								setLastValue(value);
+								nth(existing.attrInfo, index, existing, previous);
 								anyChange = true;
+							}
 							
-							existing.setMVnth(index, value);
+//							existing.setMVnth(index, value);
 						}
 						else{
+
 							if ((value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){
 								// If the attribute is an object reference, we have to determine
 								// whether we have the object or just its name - and perform the
 								// add() accordingly.
 								DmcNamedObjectREF ref = (DmcNamedObjectREF)value;
-								if (ref.getObject() == null){
-									if ( existing.setMVnth(index, ref.getObjectName()) != null)
-										anyChange = true;
+								
+								if (existing.setMVnth(index, ref) != null){
+									setLastValue(ref);
+									nth(existing.attrInfo, index, existing, previous);
+									anyChange = true;
 								}
-								else{
-									if ( existing.setMVnth(index, ref.getObject()) != null)
-										anyChange = true;
-								}
+								
+//								if (ref.getObject() == null){
+//									if ( existing.setMVnth(index, ref.getObjectName()) != null)
+//										anyChange = true;
+//								}
+//								else{
+//									if ( existing.setMVnth(index, ref.getObject()) != null)
+//										anyChange = true;
+//								}
 							}
 							else{
 								if ( existing.setMVnth(index,value) != null)

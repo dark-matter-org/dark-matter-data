@@ -55,7 +55,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
         return(_OvDmAp);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -68,7 +68,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:716)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svString);
         if (attr == null)
@@ -87,7 +87,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:768)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
     public void setSvString(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -100,7 +100,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
     public void remSvString(){
          rem(DmtDMSAG.__svString);
     }

@@ -14,8 +14,8 @@ import org.dmd.dmt.shared.types.DmtStringName;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1969)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1884)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1988)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
  */
 public class DmcTypeDmtStringNameSTATIC implements DmcNameBuilderIF {
     

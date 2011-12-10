@@ -82,7 +82,7 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:678)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
     public String getOUIFilter(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__OUIFilter);
         if (attr == null)
@@ -95,7 +95,7 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
      * Sets OUIFilter to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:716)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
     public void setOUIFilter(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__OUIFilter);
         if (attr == null)
@@ -114,7 +114,7 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
      * Sets OUIFilter to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:768)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
     public void setOUIFilter(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtDMSAG.__OUIFilter);
         if (attr == null)
@@ -127,7 +127,7 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the OUIFilter attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
     public void remOUIFilter(){
          rem(DmtDMSAG.__OUIFilter);
     }

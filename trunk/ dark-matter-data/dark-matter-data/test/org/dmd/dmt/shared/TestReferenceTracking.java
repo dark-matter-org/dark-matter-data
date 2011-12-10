@@ -39,7 +39,7 @@ public class TestReferenceTracking {
 	
 	static String OBJ3REF = "References to: obj1\n  (ObjWithRefs) obj3 via SV objRef\n"; 
 	
-	static String OBJ3MVREF = "References to: obj1\n  (ObjWithRefs) obj3 via MV objRefMV\n"; 
+	static String OBJ3MVREF = "References to: obj1\n  (ObjWithRefs) obj3 via MV objRefMV\n";
 	
 	static File	temp;
 
@@ -72,7 +72,7 @@ public class TestReferenceTracking {
 	}
 
 	@Test
-	public void testSingleValuedReference() throws DmcValueException {
+	public void testSingleValuedReference() throws DmcValueException, DmcValueExceptionSet {
 		System.out.println("\n>>> testSingleValuedReference()\n\n");
 		
 		TestDataCache cache = new TestDataCache();
@@ -96,8 +96,13 @@ public class TestReferenceTracking {
 		obj3.setName("obj3");
 		cache.add(obj3);
 		
+		///////////////////////////////////////////////////////////////////////
+		// Lazy resolution of SV objref
+		
+		// obj3 objRef -> obj unresolved
 		obj3.setObjRef("obj1");
 	
+		// Lazy resolution of SV objRef
 		ObjWithRefsREF obj = obj3.getObjRef();
 		
 		assertNotNull("Reference to obj1 should be resolved.", obj);
@@ -108,25 +113,126 @@ public class TestReferenceTracking {
 
 		assertEquals("obj1 getBackRefs() must indicate obj3 reference", obj1.getBackRefs(), OBJ3REF);
 		
+		///////////////////////////////////////////////////////////////////////
+		// REM of an SV objref
+
 		obj3.remObjRef();
 		
 		assertEquals("obj1 should have no references", false, obj1.isReferenced());
 		
-		System.out.println("TEST 1: obj1.getBackrefs() = " + obj1.getBackRefs());
+		///////////////////////////////////////////////////////////////////////
+		// Multiple referring objects via SV objref
 		
 		obj2.setObjRef(obj1);
 		
 		obj3.setObjRef(obj1);
 		
 		assertEquals("obj1 should indicate that it has 2 references", obj1.referenceCount(), 2);
-		
-		System.out.println("TEST 1: obj1.getBackrefs() = " + obj1.getBackRefs());
-		
+				
 		obj2.remObjRef();
 
 		assertEquals("obj1 should indicate that it has 1 reference", obj1.referenceCount(), 1);
 		
-		System.out.println("TEST 1: obj1.getBackrefs() = " + obj1.getBackRefs());
+		obj3.remObjRef();
+		
+		assertEquals("obj1 should indicate that it has no reference", obj1.referenceCount(), 0);
+		
+		///////////////////////////////////////////////////////////////////////
+		// Lazy resolution after applying modifier
+		
+		ObjWithRefsDMO modrec;
+		
+		modrec = obj3.getModificationRecorder();
+		
+		modrec.setObjRef("obj1");
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		obj3.getObjRef();
+		
+		assertEquals("obj1 should indicate that it has 1 reference", obj1.referenceCount(), 1);
+		
+		obj3.remObjRef();
+
+		assertEquals("obj1 should indicate that it has no reference", obj1.referenceCount(), 0);
+		
+		///////////////////////////////////////////////////////////////////////
+		// direct set and overwrite of sv objref via modifier
+		
+		modrec = obj3.getModificationRecorder();
+
+		modrec.setObjRef(obj1);
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		assertEquals("obj1 should indicate that it has 1 reference", obj1.referenceCount(), 1);
+		
+		modrec = obj3.getModificationRecorder();
+
+		modrec.setObjRef(obj2);
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		assertEquals("obj1 should indicate that it has no reference", obj1.referenceCount(), 0);
+		
+		assertEquals("obj2 should indicate that it has 1 reference", obj2.referenceCount(), 1);
+		
+		
+		obj3.remObjRef();
+		
+		///////////////////////////////////////////////////////////////////////
+		// Explicit resolution after applying modifier
+		
+		modrec = obj3.getModificationRecorder();
+		
+		modrec.setObjRef("obj1");
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		obj3.resolveReferencesExceptClass(cache);
+		
+		assertEquals("obj1 should indicate that it has 1 reference", obj1.referenceCount(), 1);
+		
+		///////////////////////////////////////////////////////////////////////
+		// Overwriting an SV objref via a modifier
+		
+		modrec = obj3.getModificationRecorder();
+		
+		modrec.setObjRef("obj2");
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		obj3.resolveReferencesExceptClass(cache);
+		
+		assertEquals("obj1 should indicate that it has no reference", obj1.referenceCount(), 0);
+		
+		assertEquals("obj2 should indicate that it has 1 reference", obj2.referenceCount(), 1);
+		
+		obj3.remObjRef();
+		
+		assertEquals("obj2 should indicate that it has no reference", obj2.referenceCount(), 0);
+		
+		///////////////////////////////////////////////////////////////////////
+		// Overwriting an SV directly
+		
+		obj3.setObjRef(obj1);
+		
+		obj3.setObjRef(obj2);
+		
+		assertEquals("obj1 should indicate that it has no reference", obj1.referenceCount(), 0);
+		
+		assertEquals("obj2 should indicate that it has 1 reference", obj2.referenceCount(), 1);
+		
+		///////////////////////////////////////////////////////////////////////
+		// Clean up of backrefs after modifier REM
+		
+		modrec = obj3.getModificationRecorder();
+		
+		modrec.remObjRef();
+		
+		obj3.applyModifier(modrec.getModifier());
+
+		assertEquals("obj2 should indicate that it has no reference", obj2.referenceCount(), 0);
 
 		System.out.println("\n<<< testSingleValuedReference()\n\n");
 	}
@@ -156,59 +262,114 @@ public class TestReferenceTracking {
 		obj3.setName("obj3");
 		cache.add(obj3);
 		
+		///////////////////////////////////////////////////////////////////////
+		// Lazy resolution of an MV objref
+		
 		obj3.addObjRefMV("obj1");
 	
 		Iterator<ObjWithRefsREF> obj = obj3.getObjRefMV();
 		
 		assertNotNull("Reference to obj1 should be resolved.", obj);
 		
-		System.out.println("TEST 2: obj1.getBackrefs() = " + obj1.getBackRefs());
-
-		assertEquals("obj1 getBackRefs() must indicate obj3 reference", obj1.getBackRefs(), OBJ3MVREF);
+		assertEquals("obj1 getBackRefs() must indicate obj3 reference", OBJ3MVREF, obj1.getBackRefs());
+		
+		///////////////////////////////////////////////////////////////////////
+		// Direct removal of an MV objref value
 		
 		obj3.delObjRefMV(obj1);
 		
 		assertEquals("obj1 should have no references", false, obj1.isReferenced());
 		
-		System.out.println("TEST 2: obj1.getBackrefs() = " + obj1.getBackRefs());
+		///////////////////////////////////////////////////////////////////////
+		// Multiple references to an object via MV objrefs
 		
 		obj2.addObjRefMV(obj1);
 		
 		obj3.addObjRefMV(obj1);
 		
-		assertEquals("obj1 should indicate that it has 2 references", obj1.referenceCount(), 2);
-		
-		System.out.println("TEST 2: obj1.getBackrefs() = " + obj1.getBackRefs());
-		
+		assertEquals("obj1 should indicate that it has 2 references", 2, obj1.referenceCount());
+				
 		obj2.delObjRefMV(obj1);
 
-		assertEquals("obj1 should indicate that it has 1 reference", obj1.referenceCount(), 1);
-		
-		System.out.println("TEST 2: obj1.getBackrefs() = " + obj1.getBackRefs());
-		
+		assertEquals("obj1 should indicate that it has 1 reference", 1, obj1.referenceCount());
+				
 		obj3.delObjRefMV(obj1.getName());
 
-		assertEquals("obj1 should indicate that it has 0 references", obj1.referenceCount(), 0);
+		assertEquals("obj1 should indicate that it has 0 references", 0, obj1.referenceCount());
 		
-		System.out.println(obj3.toOIF());
+		///////////////////////////////////////////////////////////////////////
+		// Objref adds via modifier
 		
 		ObjWithRefsDMO modrec = obj3.getModificationRecorder();
-		modrec.setObjRef(obj2);
 		modrec.addObjRefMV(obj1);
+		modrec.addObjRefMV(obj2);
 		
 		System.out.println(modrec.toOIF(15));
 		
 		obj3.applyModifier(modrec.getModifier());
 		
-		assertEquals("obj1 should indicate that it has 1 reference", obj1.referenceCount(), 1);
+		assertEquals("obj1 should indicate that it has 1 reference", 1, obj1.referenceCount());
 		
-		assertEquals("obj2 should indicate that it has 1 reference", obj2.referenceCount(), 1);
+		assertEquals("obj2 should indicate that it has 1 reference", 1, obj2.referenceCount());
+		
+		///////////////////////////////////////////////////////////////////////
+		// Objref del via modifier
+		
+		modrec = obj3.getModificationRecorder();
+		modrec.delObjRefMV(obj1);
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		assertEquals("obj1 should indicate that it has no reference", 0, obj1.referenceCount());
+		
+		assertEquals("obj3 objRefMVSize should be 1", 1, obj3.getObjRefMVSize());
+		
+		obj3.remObjRefMV();
+		
+		///////////////////////////////////////////////////////////////////////
+		// resolution after modifier
+		
+		modrec = obj3.getModificationRecorder();
+		
+		modrec.addObjRefMV("obj1");
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		assertEquals("obj1 should indicate that it has no reference", 0, obj1.referenceCount());
+
+		obj3.resolveReferencesExceptClass(cache);
+		
+		assertEquals("obj1 should indicate that it has 1 reference", 1, obj1.referenceCount());
+
+		
+		modrec = obj3.getModificationRecorder();
+		
+		modrec.addObjRefMV("obj2");
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		obj3.resolveReferencesExceptClass(cache);
+		
+		assertEquals("obj2 should indicate that it has 1 reference", 1, obj2.referenceCount());
+		
+		
+		modrec = obj3.getModificationRecorder();
+		
+		modrec.delObjRefMV("obj1");
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		assertEquals("obj1 should indicate that it has no reference", 0, obj1.referenceCount());
+		
+		
+
+		
 		
 		System.out.println("\n<<< testMultivaluedReference()\n\n");
 	}
 	
 	@Test
-	public void testNthReferences() throws DmcValueException {
+	public void testNthReferences() throws DmcValueException, DmcValueExceptionSet {
 		System.out.println("\n>>> testNthReferences()\n\n");
 		
 		TestDataCache cache = new TestDataCache();
@@ -232,16 +393,83 @@ public class TestReferenceTracking {
 		obj3.setName("obj3");
 		cache.add(obj3);
 		
+		///////////////////////////////////////////////////////////////////////
+		// set nth objref
+
 		obj3.setNthIndexedObjRef(1, obj1);
 		
-		assertEquals("obj1 should indicate that it has 1 reference", obj1.referenceCount(), 1);
+		assertEquals("obj1 should indicate that it has 1 reference", 1, obj1.referenceCount());
+
+		///////////////////////////////////////////////////////////////////////
+		// set nth objref to null
 
 		obj3.setNthIndexedObjRef(1, null);
 		
-		assertEquals("obj1 should indicate that it has no reference", obj1.referenceCount(), 0);
+		assertEquals("obj1 should indicate that it has no reference", 0, obj1.referenceCount());
 		
+		///////////////////////////////////////////////////////////////////////
+		// replace an existing ref with a different one
+
+		obj3.setNthIndexedObjRef(3, obj1);
+		
+		assertEquals("obj1 should indicate that it has 1 reference", 1, obj1.referenceCount());
+		
+		obj3.setNthIndexedObjRef(3, obj2);
+		
+		assertEquals("obj1 should indicate that it has no reference", 0, obj1.referenceCount());
+		assertEquals("obj2 should indicate that it has 1 reference", 1, obj2.referenceCount());
+		
+		///////////////////////////////////////////////////////////////////////
+		// remove nth attribute
+
+		obj3.remIndexedObjRef();
+		
+		assertEquals("obj2 should indicate that it has no reference", 0, obj2.referenceCount());
+		
+		///////////////////////////////////////////////////////////////////////
+		// set nth via modifier
+
 		ObjWithRefsDMO modrec = obj3.getModificationRecorder();
+		
 		modrec.setNthIndexedObjRef(2, obj1);
+		modrec.setNthIndexedObjRef(5, obj2);
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		System.out.println(obj3.toOIF());
+
+		assertEquals("obj1 should indicate that it has 1 reference", 1, obj1.referenceCount());
+		assertEquals("obj2 should indicate that it has 1 reference", 1, obj2.referenceCount());
+		
+		///////////////////////////////////////////////////////////////////////
+		// set nth to null
+		
+		modrec = obj3.getModificationRecorder();
+		
+		modrec.setNthIndexedObjRef(2, null);
+		
+		obj3.applyModifier(modrec.getModifier());
+
+		assertEquals("obj1 should indicate that it has no reference", 0, obj1.referenceCount());
+		
+		///////////////////////////////////////////////////////////////////////
+		// replace nth via  modifier
+		
+		modrec = obj3.getModificationRecorder();
+		
+		modrec.setNthIndexedObjRef(5, obj1);
+		
+		obj3.applyModifier(modrec.getModifier());
+
+		assertEquals("obj1 should indicate that it has 1 reference", 1, obj1.referenceCount());
+		assertEquals("obj2 should indicate that it has no reference", 0, obj2.referenceCount());
+		
+		obj3.remIndexedObjRef();
+
+		assertEquals("obj1 should indicate that it has no reference", 0, obj1.referenceCount());
+		
+		
+		
 		
 		// There are no string or object name interfaces for the set nth stuff at the moment
 //		obj3.setNthIndexedObjRef(2, "obj1");
@@ -275,10 +503,23 @@ public class TestReferenceTracking {
 		cache.add(obj3);
 		
 		SomeRelation	rel1 = new SomeRelation(obj1, 1, 1);
-
-		obj3.addSomeRelationMV(rel1);
 		
-		assertEquals("obj1 should indicate that it has 1 reference", obj1.referenceCount(), 1);
+		///////////////////////////////////////////////////////////////////////
+		// single valued extref
+		
+		obj3.setSomeRelationSV(rel1);
+		
+		assertEquals("obj1 should indicate that it has 1 reference", 1, obj1.referenceCount());
+
+		///////////////////////////////////////////////////////////////////////
+		// single valued extref removed
+		
+		obj3.remSomeRelationSV();
+		
+		assertEquals("obj1 should indicate that it has no reference", 0, obj1.referenceCount());
+		
+		///////////////////////////////////////////////////////////////////////
+		// lazy resolution of mv extref
 		
 		SomeRelation	rel2 = new SomeRelation(new StringName("obj3"), 3, 3);
 		
@@ -287,6 +528,8 @@ public class TestReferenceTracking {
 		obj1.getSomeRelationMV();
 		
 		assertEquals("obj3 should indicate that it has 1 reference", obj3.referenceCount(), 1);
+		
+		
 
 		SomeRelation	rel3 = new SomeRelation(new StringName("obj2"), 2, 2);
 
@@ -310,6 +553,35 @@ public class TestReferenceTracking {
 		obj3.setNthSomeRelationMVI(2, null);
 		
 		assertEquals("obj2 should indicate that it has no reference", obj2.referenceCount(), 0);
+		
+		
+		ObjWithRefsDMO modrec = obj3.getModificationRecorder();
+		
+		SomeRelation	relm1 = new SomeRelation(obj1, 1, 1);
+		SomeRelation	relm2 = new SomeRelation(obj2, 2, 2);
+		SomeRelation	relm3 = new SomeRelation(obj3, 3, 3);
+		
+		///////////////////////////////////////////////////////////////////////
+		// sv extref via modifier
+		
+		modrec.setSomeRelationSV(relm1);
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		assertEquals("obj1 should indicate that it has 1 reference", 1, obj1.referenceCount());
+		
+		///////////////////////////////////////////////////////////////////////
+		// replace sv extref via modifier
+		
+		modrec = obj3.getModificationRecorder();
+		
+		modrec.setSomeRelationSV(relm2);
+		
+		obj3.applyModifier(modrec.getModifier());
+		
+		assertEquals("obj1 should indicate that it has no reference", 0, obj1.referenceCount());
+		assertEquals("obj2 should indicate that it has 1 reference", 1, obj2.referenceCount());
+		
 		
 		System.out.println("\n<<< testExtendedReferences()\n\n");
 		

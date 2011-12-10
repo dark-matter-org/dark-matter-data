@@ -13,7 +13,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeObjWithRefsREFSET provides storage for a set of ObjWithRefsREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2408)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:524)
  */
 @SuppressWarnings("serial")
@@ -43,7 +43,7 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2445)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public DmcAttribute<ObjWithRefsREF> cloneIt(){
         synchronized(this){
             DmcTypeObjWithRefsREFSET rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
     public ObjWithRefsREF add(Object v) throws DmcValueException {
         synchronized(this){
             ObjWithRefsREF rc = typeCheck(v);
@@ -74,7 +74,7 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2481)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
     public ObjWithRefsREF del(Object v){
         synchronized(this){
             ObjWithRefsREF rc = null;
@@ -92,7 +92,7 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2519)
     public Iterator<ObjWithRefsREF> getMV(){
         synchronized(this){
             Set<ObjWithRefsREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2513)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
     public Set<ObjWithRefsREF> getMVCopy(){
         synchronized(this){
             Set<ObjWithRefsREF> clone = null;
@@ -117,7 +117,7 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2527)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2546)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -127,7 +127,7 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

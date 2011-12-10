@@ -78,7 +78,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1275)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1291)
     public int getMvStringSize(){
         return(((TestDerivedSubpackageDMO) core).getMvStringSize());
     }
@@ -86,7 +86,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1283)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1299)
     public boolean getMvStringIsEmpty(){
         if (((TestDerivedSubpackageDMO) core).getMvStringSize() == 0)
             return(true);
@@ -96,7 +96,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1293)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1309)
     public boolean getMvStringHasValue(){
         if (((TestDerivedSubpackageDMO) core).getMvStringSize() == 0)
             return(false);
@@ -106,7 +106,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1615)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1631)
     public StringIterableDMW getMvStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -119,7 +119,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1641)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1657)
     public void addMvString(Object value) throws DmcValueException {
         ((TestDerivedSubpackageDMO) core).addMvString(value);
     }
@@ -128,7 +128,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1651)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1667)
     public void addMvString(String value){
         ((TestDerivedSubpackageDMO) core).addMvString(value);
     }
@@ -137,7 +137,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
      * Returns true if the collection contains the mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1708)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1724)
     public boolean mvStringContains(String value){
         return(((TestDerivedSubpackageDMO) core).mvStringContains(value));
     }
@@ -145,7 +145,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1748)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1764)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getMvStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
@@ -166,7 +166,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1775)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1791)
     public void delMvString(Object value) throws DmcValueException {
         ((TestDerivedSubpackageDMO) core).delMvString(value);
     }
@@ -175,7 +175,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1784)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1800)
     public void delMvString(String value){
         ((TestDerivedSubpackageDMO) core).delMvString(value);
     }
@@ -183,12 +183,12 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1796)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1812)
     public void remMvString(){
         ((TestDerivedSubpackageDMO) core).remMvString();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1129)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1133)
     public StringName getName(){
         return(((TestDerivedSubpackageDMO) core).getName());
     }
@@ -197,7 +197,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1188)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1204)
     public void setName(Object value) throws DmcValueException {
         ((TestDerivedSubpackageDMO) core).setName(value);
     }
@@ -206,7 +206,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1197)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1213)
     public void setName(StringName value){
         ((TestDerivedSubpackageDMO) core).setName(value);
     }
@@ -214,12 +214,12 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1223)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
     public void remName(){
         ((TestDerivedSubpackageDMO) core).remName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1129)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1133)
     public String getSvString(){
         return(((TestDerivedSubpackageDMO) core).getSvString());
     }
@@ -228,7 +228,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1188)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1204)
     public void setSvString(Object value) throws DmcValueException {
         ((TestDerivedSubpackageDMO) core).setSvString(value);
     }
@@ -237,7 +237,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1197)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1213)
     public void setSvString(String value){
         ((TestDerivedSubpackageDMO) core).setSvString(value);
     }
@@ -245,7 +245,7 @@ public class TestDerivedSubpackageDMW extends TestMultiLevelSubpackageDMW implem
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1223)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
     public void remSvString(){
         ((TestDerivedSubpackageDMO) core).remSvString();
     }
