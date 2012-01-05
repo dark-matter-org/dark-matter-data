@@ -85,6 +85,9 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// Key: listenerID
 	TreeMap<Long, ResponseCallback>	eventHandlers;
 	
+	// The time at which the last request (of any type) was sent
+	long		lastRequestTime;
+	
 	// Our event domain for use with the gwteventservice
 	Domain						eventDomain;
 	
@@ -98,6 +101,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		centralEventHandler	= null;
 		requests			= new TreeMap<Integer, ResponseCallback>();
 		eventHandlers		= new TreeMap<Long, ResponseCallback>();
+		lastRequestTime		= -1;
 	}
 	
 	public void setCentralEventHandler(CentralEventHandlerIF eh){
@@ -105,6 +109,13 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			centralEventHandler = eh;
 		else
 			throw(new IllegalStateException("You should only register one central event handler."));
+	}
+	
+	/**
+	 * @return the time at which the last request was sent.
+	 */
+	public long getLastRequestTime(){
+		return(lastRequestTime);
 	}
 	
 
@@ -124,6 +135,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			checkRequestID(request);
 			requests.put(request.getNthRequestID(0), cb);
 			dmpConnection.login((LoginRequestDMO)request, cb);
+			lastRequestTime = System.currentTimeMillis();
 		}
 		else{
 			throw(new IllegalStateException("Attempted to send login request even though we have a session ID."));
@@ -150,6 +162,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			checkRequestID(request);
 			requests.put(request.getNthRequestID(0), cb);
 			dmpConnection.logout(request, cb);
+			lastRequestTime = System.currentTimeMillis();
 		}
 	}
 
@@ -174,6 +187,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			checkRequestID(request);
 			requests.put(request.getNthRequestID(0), cb);
 			dmpConnection.get(request, cb);
+			lastRequestTime = System.currentTimeMillis();
 		}
 	}
 	
@@ -186,6 +200,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			checkRequestID(request);
 			requests.put(request.getNthRequestID(0), cb);
 			dmpConnection.get(request, cb);
+			lastRequestTime = System.currentTimeMillis();
 		}
 	}
 	
@@ -208,6 +223,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			checkRequestID(request);
 			requests.put(request.getNthRequestID(0), cb);
 			dmpConnection.set(request, cb);
+			lastRequestTime = System.currentTimeMillis();
 		}
 	}
 	
@@ -231,6 +247,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			checkRequestID(request);
 			requests.put(request.getNthRequestID(0), cb);
 			dmpConnection.create(request, cb);
+			lastRequestTime = System.currentTimeMillis();
 		}
 	}
 	
@@ -254,6 +271,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			checkRequestID(request);
 			requests.put(request.getNthRequestID(0), cb);
 			dmpConnection.delete(request, cb);
+			lastRequestTime = System.currentTimeMillis();
 		}
 	}
 	
@@ -284,6 +302,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			checkRequestID(request);
 			requests.put(request.getNthRequestID(0), cb);
 			dmpConnection.action(request, cb);
+			lastRequestTime = System.currentTimeMillis();
 		}
 	}
 
