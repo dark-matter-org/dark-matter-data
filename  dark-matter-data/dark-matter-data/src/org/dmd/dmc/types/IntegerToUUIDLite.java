@@ -91,11 +91,21 @@ public class IntegerToUUIDLite implements DmcMappedAttributeIF, Serializable {
 	}
 
 	@Override
+	public boolean equals(Object obj){
+		if (obj instanceof IntegerToUUIDLite)
+			return(valuesAreEqual((IntegerToUUIDLite)obj));
+		return(false);
+	}
+
+	@Override
 	public boolean valuesAreEqual(DmcMappedAttributeIF obj){
 		boolean rc = false;
 		if (obj instanceof IntegerToUUIDLite){
 			IntegerToUUIDLite other = (IntegerToUUIDLite) obj;
-			rc = value.equals(other.value);
+	        if (key != other.getKeyAsInteger().intValue())
+	        	rc = false;
+	        else
+	        	rc = value.equals(other.value);
 		}
 		return(rc);
 	}
