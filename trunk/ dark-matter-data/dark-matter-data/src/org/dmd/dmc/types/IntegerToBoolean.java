@@ -22,8 +22,8 @@ import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 
 /**
- * The IntegerToString class provides the basis for an attribute that maps an Integer to a String value.
- * It is used by the DmcHashedAttribute derivative, DmcTypeIntegerToString.
+ * The IntegerToBoolean class provides the basis for an attribute that maps an Integer to a Boolean value.
+ * It is used by the DmcHashedAttribute derivative, DmcTypeIntegerToBoolean.
  *
  */
 @SuppressWarnings("serial")
@@ -89,13 +89,23 @@ public class IntegerToBoolean implements DmcMappedAttributeIF, Serializable {
 		key = dis.readInt();
 		value = dis.readBoolean();
 	}
+	
+	@Override
+	public boolean equals(Object obj){
+		if (obj instanceof IntegerToBoolean)
+			return(valuesAreEqual((IntegerToBoolean)obj));
+		return(false);
+	}
 
 	@Override
 	public boolean valuesAreEqual(DmcMappedAttributeIF obj){
 		boolean rc = false;
 		if (obj instanceof IntegerToBoolean){
 			IntegerToBoolean other = (IntegerToBoolean) obj;
-			rc = value.equals(other.value);
+	        if (key != other.getKeyAsInteger().intValue())
+	        	rc = false;
+	        else
+	        	rc = value.equals(other.value);
 		}
 		return(rc);
 	}

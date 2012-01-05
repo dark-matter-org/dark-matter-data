@@ -46,6 +46,8 @@ public interface DmcMappedAttributeIF {
 	 * will then call this function to determine if a change really took place; if this method
 	 * returns false, we report the change (by passing back the new value), otherwise
 	 * we return null from the add().
+	 * <p/>
+	 * You should ensure that you compare both the key and the value in your comparison.
 	 * @param obj Another mapped attribute.
 	 * @return true if the value of this attribute matches the value of the object passed in
 	 * and false otherwise.
