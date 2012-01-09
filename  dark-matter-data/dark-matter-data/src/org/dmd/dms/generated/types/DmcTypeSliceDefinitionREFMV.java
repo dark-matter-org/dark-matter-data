@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSliceDefinitionREFMV provides storage for a multi-valued SliceDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:240)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2153)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:244)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSliceDefinitionREFMV extends DmcTypeSliceDefinitionREF implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeSliceDefinitionREFMV extends DmcTypeSliceDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2132)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
     public DmcAttribute<SliceDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeSliceDefinitionREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeSliceDefinitionREFMV extends DmcTypeSliceDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2161)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
     public SliceDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             SliceDefinitionREF rc = typeCheck(v);
@@ -84,25 +84,28 @@ public class DmcTypeSliceDefinitionREFMV extends DmcTypeSliceDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2225)
     public SliceDefinitionREF del(Object v){
         synchronized(this){
+            SliceDefinitionREF key = null;
             SliceDefinitionREF rc = null;
             try {
-                rc = typeCheck(v);
+                key = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            int indexof = value.indexOf(key);
+            if (indexof != -1){
+                rc = value.get(indexof);
                 value.remove(rc);
-            else
-                rc = null;
+            }
+
             return(rc);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2193)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2256)
     public Iterator<SliceDefinitionREF> getMV(){
         synchronized(this){
             ArrayList<SliceDefinitionREF> clone = new ArrayList<SliceDefinitionREF>(value);
@@ -110,7 +113,7 @@ public class DmcTypeSliceDefinitionREFMV extends DmcTypeSliceDefinitionREF imple
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2202)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2265)
     public ArrayList<SliceDefinitionREF> getMVCopy(){
         synchronized(this){
             ArrayList<SliceDefinitionREF> clone = new ArrayList<SliceDefinitionREF>(value);
@@ -119,7 +122,7 @@ public class DmcTypeSliceDefinitionREFMV extends DmcTypeSliceDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2275)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -133,7 +136,7 @@ public class DmcTypeSliceDefinitionREFMV extends DmcTypeSliceDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
     public SliceDefinitionREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -143,7 +146,7 @@ public class DmcTypeSliceDefinitionREFMV extends DmcTypeSliceDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2238)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2301)
     public SliceDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -170,7 +173,7 @@ public class DmcTypeSliceDefinitionREFMV extends DmcTypeSliceDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2266)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -193,7 +196,7 @@ public class DmcTypeSliceDefinitionREFMV extends DmcTypeSliceDefinitionREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2353)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

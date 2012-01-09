@@ -22,12 +22,12 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.CamelCaseName;
 
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ActionREF;
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ActionBindingREF;
 
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionDMO;
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionBindingDMO;
 
 /**
- * This is the generated DmcAttribute derivative for values of type Action
+ * This is the generated DmcAttribute derivative for values of type ActionBinding
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -35,19 +35,19 @@ import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionDMO;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREFHelperType(DmoTypeFormatter.java:577)
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeActionREF extends DmcTypeNamedObjectREF<ActionREF, CamelCaseName> {
+abstract public class DmcTypeActionBindingREF extends DmcTypeNamedObjectREF<ActionBindingREF, CamelCaseName> {
 
-    public DmcTypeActionREF(){
+    public DmcTypeActionBindingREF(){
     
     }
 
-    public DmcTypeActionREF(DmcAttributeInfo ai){
+    public DmcTypeActionBindingREF(DmcAttributeInfo ai){
         super(ai);
     }
 
     @Override
-    protected ActionREF getNewHelper(){
-        return(new ActionREF());
+    protected ActionBindingREF getNewHelper(){
+        return(new ActionBindingREF());
     }
 
     @Override
@@ -57,49 +57,49 @@ abstract public class DmcTypeActionREF extends DmcTypeNamedObjectREF<ActionREF, 
 
     @Override
     protected String getDMOClassName(){
-        return( ActionDMO.class.getName());
+        return( ActionBindingDMO.class.getName());
     }
 
     @Override
     protected boolean isDMO(Object value){
-        if (value instanceof ActionDMO)
+        if (value instanceof ActionBindingDMO)
             return(true);
         return(false);
     }
 
     @Override
-    protected ActionREF typeCheck(Object value) throws DmcValueException {
-        ActionREF rc = null;
+    protected ActionBindingREF typeCheck(Object value) throws DmcValueException {
+        ActionBindingREF rc = null;
 
-        if (value instanceof ActionREF)
-            rc = (ActionREF)value;
-        else if (value instanceof ActionDMO)
-            rc = new ActionREF((ActionDMO)value);
+        if (value instanceof ActionBindingREF)
+            rc = (ActionBindingREF)value;
+        else if (value instanceof ActionBindingDMO)
+            rc = new ActionBindingREF((ActionBindingDMO)value);
         else if (value instanceof CamelCaseName)
-            rc = new ActionREF((CamelCaseName)value);
+            rc = new ActionBindingREF((CamelCaseName)value);
         else if (value instanceof String)
-            rc = new ActionREF((String)value);
+            rc = new ActionBindingREF((String)value);
         else
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with ActionREF, ActionDMO or String expected."));
+            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with ActionBindingREF, ActionBindingDMO or String expected."));
 
         return(rc);
     }
 
     @Override
-    public void serializeValue(DmcOutputStreamIF dos, ActionREF value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, ActionBindingREF value) throws Exception {
         value.serializeIt(dos);
     }
 
     @Override
-    public ActionREF deserializeValue(DmcInputStreamIF dis) throws Exception {
-        ActionREF rc = new ActionREF();
+    public ActionBindingREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+        ActionBindingREF rc = new ActionBindingREF();
         rc.deserializeIt(dis);
         return(rc);
     }
 
     @Override
-    public ActionREF cloneValue(ActionREF value){
-        return(new ActionREF(value));
+    public ActionBindingREF cloneValue(ActionBindingREF value){
+        return(new ActionBindingREF(value));
     }
 
 

@@ -1,14 +1,14 @@
 package org.dmd.mvw.tools.mvwgenerator.extended.menus;
 
 import org.dmd.mvw.tools.mvwgenerator.extended.Component;
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ActionDMW;
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ActionBindingDMW;
 import org.dmd.util.codegen.ImportManager;
 
-public class Action extends ActionDMW {
+public class ActionBinding extends ActionBindingDMW {
 	
 	ImportManager	imports;
 
-	public Action(){
+	public ActionBinding(){
 		
 	}
 	

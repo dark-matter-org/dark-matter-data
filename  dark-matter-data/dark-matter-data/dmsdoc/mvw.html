@@ -21,8 +21,8 @@
     <table>
       <tr>
       <td class="spacer"> </td>
-      <td> <a class="deflink" href="#Action"> Action </a></td>
-      <td> actionName </td>
+      <td> <a class="deflink" href="#ActionBinding"> ActionBinding </a></td>
+      <td> actionBindingName </td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -170,11 +170,11 @@
 
   <table>
 
-    <tr> <td class="className" colspan="4"> <a name="Action"> Action </a> </td></tr>
+    <tr> <td class="className" colspan="4"> <a name="ActionBinding"> ActionBinding </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The Action class allows for the definition of an intermediate component that binds behavioural triggers e.g. menu items, toolbar buttons etc. to action implementors e.g. Controllers, Presenters and Activities. The Action serves the same purpose as the com.google.gwt.user.client.Command interface, but provides some additional useful functionality. The implementation of the Action (see org.dmd.mvw.client.mvwmenus.base.Action) maintains a set of TriggerIF interfaces, which are the various implementations of the menu items, toolbar buttons etc. An implementing component can enable/disable its Actions which, in turn, can enable/disable its triggers.</td>
+      <td colspan="2">The ActionBinding class allows for the definition of an intermediate component that binds behavioural triggers e.g. menu items, toolbar buttons etc. to action implementors e.g. Controllers, Presenters and Activities. The ActionBinding serves the same purpose as the com.google.gwt.user.client.Command interface, but provides some additional useful functionality. The implementation of the ActionBinding (see org.dmd.mvw.client.mvwmenus.base.ActionBinding) maintains a set of TriggerIF interfaces, which are the various implementations of the menu items, toolbar buttons etc. An implementing component can enable/disable its Actions which, in turn, can enable/disable its triggers.</td>
     </tr>
 
     <tr>
@@ -200,7 +200,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Named by</td>
-      <td colspan="2"> <a href="mvw.html#actionName">actionName</a> </td>
+      <td colspan="2"> <a href="mvw.html#actionBindingName">actionBindingName</a> </td>
     </tr>
 
   </table>
@@ -210,9 +210,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="mvw.html#actionName">actionName</a> </td>
+      <td> <a href="mvw.html#actionBindingName">actionBindingName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
-      <td> The name of an Action. </td>
+      <td> The name of an ActionBinding. </td>
     </tr>
 
     <tr>
@@ -687,8 +687,8 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="mvw.html#implementsAction">implementsAction</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="mvw.html#Action">Action</a> </td>
-      <td> Indicates the Actions to be implemented by a Component. </td>
+      <td class="valueType"> P MV </td>      <td> <a href="mvw.html#ActionBinding">ActionBinding</a> </td>
+      <td> Indicates the ActionBindings to be implemented by a Component. </td>
     </tr>
 
     <tr>
@@ -1823,8 +1823,8 @@
       <td class="spacer"> </td>
       <td class="label"> </td>
       <td> <a href="mvw.html#triggersAction">triggersAction</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#Action">Action</a> </td>
-      <td> Indicates the Action to be associated with a menu entry, button or other UI component. </td>
+      <td class="valueType"> P SV </td>      <td> <a href="mvw.html#ActionBinding">ActionBinding</a> </td>
+      <td> Indicates the ActionBinding to be associated with a menu entry, button or other UI component. </td>
     </tr>
 
     <tr>
@@ -1985,7 +1985,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="mvw.html#Action">Action</a> </div>      <div class="derived"> <a href="mvw.html#Component">Component</a> </div>      <div class="derived"> <a href="mvw.html#Event">Event</a> </div>      <div class="derived"> <a href="mvw.html#FieldEditorDefinition">FieldEditorDefinition</a> </div>      <div class="derived"> <a href="mvw.html#FormBindingDefinition">FormBindingDefinition</a> </div>      <div class="derived"> <a href="mvw.html#FormImplementationConfig">FormImplementationConfig</a> </div>      <div class="derived"> <a href="mvw.html#GxtEnumMapping">GxtEnumMapping</a> </div>      <div class="derived"> <a href="mvw.html#MenuElementDefinition">MenuElementDefinition</a> </div>      <div class="derived"> <a href="mvw.html#MenuImplementationConfig">MenuImplementationConfig</a> </div>      <div class="derived"> <a href="mvw.html#Module">Module</a> </div>      <div class="derived"> <a href="mvw.html#Place">Place</a> </div>      <div class="derived"> <a href="mvw.html#RunContextItem">RunContextItem</a> </div>      <div class="derived"> <a href="mvw.html#View">View</a> </div>      <div class="derived"> <a href="mvw.html#WebApplication">WebApplication</a> </div>      </td>
+      <div class="derived"> <a href="mvw.html#ActionBinding">ActionBinding</a> </div>      <div class="derived"> <a href="mvw.html#Component">Component</a> </div>      <div class="derived"> <a href="mvw.html#Event">Event</a> </div>      <div class="derived"> <a href="mvw.html#FieldEditorDefinition">FieldEditorDefinition</a> </div>      <div class="derived"> <a href="mvw.html#FormBindingDefinition">FormBindingDefinition</a> </div>      <div class="derived"> <a href="mvw.html#FormImplementationConfig">FormImplementationConfig</a> </div>      <div class="derived"> <a href="mvw.html#GxtEnumMapping">GxtEnumMapping</a> </div>      <div class="derived"> <a href="mvw.html#MenuElementDefinition">MenuElementDefinition</a> </div>      <div class="derived"> <a href="mvw.html#MenuImplementationConfig">MenuImplementationConfig</a> </div>      <div class="derived"> <a href="mvw.html#Module">Module</a> </div>      <div class="derived"> <a href="mvw.html#Place">Place</a> </div>      <div class="derived"> <a href="mvw.html#RunContextItem">RunContextItem</a> </div>      <div class="derived"> <a href="mvw.html#View">View</a> </div>      <div class="derived"> <a href="mvw.html#WebApplication">WebApplication</a> </div>      </td>
     </tr>
 
     <tr>
@@ -3082,7 +3082,7 @@
       <td>Indicates that an Activity should be derived from AbstractActivity</td>
     </tr>
 
-    <tr> <td class="className" colspan="3"> <a name="actionName"> actionName </a> </td></tr>
+    <tr> <td class="className" colspan="3"> <a name="actionBindingName"> actionBindingName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
       <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#CamelCaseName">CamelCaseName</a> </div> 
@@ -3092,7 +3092,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The name of an Action.</td>
+      <td>The name of an ActionBinding.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="activityName"> activityName </a> </td></tr>
@@ -3625,20 +3625,20 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the Component that implements an Action.</td>
+      <td>Indicates the Component that implements an ActionBinding.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="implementsAction"> implementsAction </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="mvw.html#Action">Action</a> </div> 
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="mvw.html#ActionBinding">ActionBinding</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the Actions to be implemented by a Component.</td>
+      <td>Indicates the ActionBindings to be implemented by a Component.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="importThis"> importThis </a> </td></tr>
@@ -4008,14 +4008,14 @@
     <tr> <td class="className" colspan="3"> <a name="triggersAction"> triggersAction </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#Action">Action</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="mvw.html#ActionBinding">ActionBinding</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the Action to be associated with a menu entry, button or other UI component.</td>
+      <td>Indicates the ActionBinding to be associated with a menu entry, button or other UI component.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="unsetValue"> unsetValue </a> </td></tr>

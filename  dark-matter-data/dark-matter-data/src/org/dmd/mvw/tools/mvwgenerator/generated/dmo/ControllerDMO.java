@@ -16,26 +16,26 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:357)
-import java.io.Serializable;                                                         // Always required
-import java.util.*;                                                                  // Always required
-import org.dmd.dmc.DmcAttribute;                                                     // Any attributes
-import org.dmd.dmc.DmcNamedObjectIF;                                                 // Named object
-import org.dmd.dmc.DmcOmni;                                                          // Lazy resolution
-import org.dmd.dmc.DmcSliceInfo;                                                     // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                                // Any attributes
-import org.dmd.dmc.types.CamelCaseName;                                              // Naming attribute type
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                          // Required for MODREC constructor
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                 // Required type
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                           // Required type
-import org.dmd.dms.generated.types.DmcTypeIntegerSV;                                 // Required type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionDMO;                       // Type specific set/add
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                    // Base class
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                    // Type specific set/add
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ActionREF;                     // Helper class
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeActionREFMV;            // Reference type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePresenterREFMV;         // Reference type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.PresenterREF;                  // Helper class
+import java.io.Serializable;                                                             // Always required
+import java.util.*;                                                                      // Always required
+import org.dmd.dmc.DmcAttribute;                                                         // Any attributes
+import org.dmd.dmc.DmcNamedObjectIF;                                                     // Named object
+import org.dmd.dmc.DmcOmni;                                                              // Lazy resolution
+import org.dmd.dmc.DmcSliceInfo;                                                         // Required for object slicing
+import org.dmd.dmc.DmcValueException;                                                    // Any attributes
+import org.dmd.dmc.types.CamelCaseName;                                                  // Naming attribute type
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                              // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                     // Required type
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                               // Required type
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;                                     // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                    // Required for MODREC constructor
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionBindingDMO;                    // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                        // Base class
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                        // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ActionBindingREF;                  // Helper class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeActionBindingREFMV;         // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypePresenterREFMV;             // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.PresenterREF;                      // Helper class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -455,19 +455,19 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     }
 
     /**
-     * @return An Iterator of ActionDMO objects.
+     * @return An Iterator of ActionBindingDMO objects.
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:868)
-    public Iterator<ActionREF> getImplementsAction(){
-        DmcTypeActionREFMV attr = (DmcTypeActionREFMV) get(MvwDMSAG.__implementsAction);
+    public Iterator<ActionBindingREF> getImplementsAction(){
+        DmcTypeActionBindingREFMV attr = (DmcTypeActionBindingREFMV) get(MvwDMSAG.__implementsAction);
         if (attr == null)
-            return( ((List<ActionREF>) Collections.EMPTY_LIST).iterator() );
+            return( ((List<ActionBindingREF>) Collections.EMPTY_LIST).iterator() );
 
         if (DmcOmni.instance().lazyResolution()){
             if (attr.doLazyResolution(this)){
                 rem(attr.getAttributeInfo());
-                return( ((List<ActionREF>) Collections.EMPTY_LIST).iterator() );
+                return( ((List<ActionBindingREF>) Collections.EMPTY_LIST).iterator() );
             }
         }
 
@@ -475,27 +475,27 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     }
 
     /**
-     * @return An Iterator of ActionREFs without attempting lazy resolution (if it's turned on).
+     * @return An Iterator of ActionBindingREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:888)
-    public Iterator<ActionREF> getImplementsActionREFs(){
-        DmcTypeActionREFMV attr = (DmcTypeActionREFMV) get(MvwDMSAG.__implementsAction);
+    public Iterator<ActionBindingREF> getImplementsActionREFs(){
+        DmcTypeActionBindingREFMV attr = (DmcTypeActionBindingREFMV) get(MvwDMSAG.__implementsAction);
         if (attr == null)
-            return( ((List<ActionREF>) Collections.EMPTY_LIST).iterator() );
+            return( ((List<ActionBindingREF>) Collections.EMPTY_LIST).iterator() );
 
         return(attr.getMV());
     }
 
     /**
      * Adds another implementsAction to the specified value.
-     * @param value Action
+     * @param value ActionBinding
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:902)
-    public DmcAttribute<?> addImplementsAction(ActionDMO value) {
+    public DmcAttribute<?> addImplementsAction(ActionBindingDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__implementsAction);
         if (attr == null)
-            attr = new DmcTypeActionREFMV(MvwDMSAG.__implementsAction);
+            attr = new DmcTypeActionBindingREFMV(MvwDMSAG.__implementsAction);
         
         try{
             setLastValue(attr.add(value));
@@ -509,13 +509,13 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
 
     /**
      * Adds another implementsAction value.
-     * @param value A value compatible with Action
+     * @param value A value compatible with ActionBinding
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1143)
     public DmcAttribute<?> addImplementsAction(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__implementsAction);
         if (attr == null)
-            attr = new DmcTypeActionREFMV(MvwDMSAG.__implementsAction);
+            attr = new DmcTypeActionBindingREFMV(MvwDMSAG.__implementsAction);
         
         setLastValue(attr.add(value));
         add(MvwDMSAG.__implementsAction,attr);
@@ -539,14 +539,14 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
 
     /**
      * Deletes a implementsAction value.
-     * @param value The Action to be deleted from set of attribute values.
+     * @param value The ActionBinding to be deleted from set of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1199)
     public DmcAttribute<?> delImplementsAction(Object value){
         DmcAttribute<?> attr = get(MvwDMSAG.__implementsAction);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeActionREFMV(MvwDMSAG.__implementsAction), value);
+            delFromEmptyAttribute(new DmcTypeActionBindingREFMV(MvwDMSAG.__implementsAction), value);
         else
             attr = del(MvwDMSAG.__implementsAction, value);
         

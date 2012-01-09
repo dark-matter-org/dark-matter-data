@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeActionDefinitionREFMV provides storage for a multi-valued ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2102)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:240)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2153)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:244)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2132)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
     public DmcAttribute<ActionDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeActionDefinitionREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2161)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
     public ActionDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             ActionDefinitionREF rc = typeCheck(v);
@@ -84,25 +84,28 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2174)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2225)
     public ActionDefinitionREF del(Object v){
         synchronized(this){
+            ActionDefinitionREF key = null;
             ActionDefinitionREF rc = null;
             try {
-                rc = typeCheck(v);
+                key = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            int indexof = value.indexOf(key);
+            if (indexof != -1){
+                rc = value.get(indexof);
                 value.remove(rc);
-            else
-                rc = null;
+            }
+
             return(rc);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2193)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2256)
     public Iterator<ActionDefinitionREF> getMV(){
         synchronized(this){
             ArrayList<ActionDefinitionREF> clone = new ArrayList<ActionDefinitionREF>(value);
@@ -110,7 +113,7 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2202)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2265)
     public ArrayList<ActionDefinitionREF> getMVCopy(){
         synchronized(this){
             ArrayList<ActionDefinitionREF> clone = new ArrayList<ActionDefinitionREF>(value);
@@ -119,7 +122,7 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2275)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -133,7 +136,7 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2227)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
     public ActionDefinitionREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -143,7 +146,7 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2238)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2301)
     public ActionDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -170,7 +173,7 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2266)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -193,7 +196,7 @@ public class DmcTypeActionDefinitionREFMV extends DmcTypeActionDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2353)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

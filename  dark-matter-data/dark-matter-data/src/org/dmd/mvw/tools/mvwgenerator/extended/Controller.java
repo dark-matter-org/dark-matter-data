@@ -1,7 +1,7 @@
 package org.dmd.mvw.tools.mvwgenerator.extended;
 
 import org.dmd.dms.util.GenUtility;
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerDMW;
 import org.dmd.util.exceptions.ResultException;
 
@@ -80,18 +80,18 @@ public class Controller extends ControllerDMW {
 			
 			if (getImplementsActionHasValue()){
 				
-				for(Action action: getImplementsActionIterable()){
-					String capped = GenUtility.capTheName(action.getActionName().getNameString());
-					String cappedAction = GenUtility.capTheName(action.getActionName().getNameString()) + "Action";
+				for(ActionBinding action: getImplementsActionIterable()){
+					String capped = GenUtility.capTheName(action.getActionBindingName().getNameString());
+					String cappedAction = GenUtility.capTheName(action.getActionBindingName().getNameString()) + "Action";
 					
-					actionVariables.append("    protected final " + cappedAction + " " + action.getActionName() + ";\n");
+					actionVariables.append("    protected final " + cappedAction + " " + action.getActionBindingName() + ";\n");
 					
 					actionInstantiations.append("\n");
-					actionInstantiations.append("        " + action.getActionName() + " = new " + cappedAction + "(this);\n");
-					actionInstantiations.append("        MenuControllerRCI.addAction(" + action.getActionName() + ");\n");
+					actionInstantiations.append("        " + action.getActionBindingName() + " = new " + cappedAction + "(this);\n");
+					actionInstantiations.append("        MenuControllerRCI.addAction(" + action.getActionBindingName() + ");\n");
 					
 					String i = getDefinedInModule().getGenPackage() + ".generated.mvw.actions." + cappedAction;
-					imports.addImport(i, "The " + action.getActionName() + " action");
+					imports.addImport(i, "The " + action.getActionBindingName() + " action");
 					imports.addImport("org.dmd.mvw.client.mvwmenus.interfaces.TriggerIF", "Required by actions");
 					
 					abstractMethods.append("\n");

@@ -30,8 +30,8 @@ import org.dmd.dmc.types.DmcTypeFilterContainer;    // DmcType import
  * The DmcTypeFilterContainerSET provides storage for a set of FilterContainer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2364)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements Serializable {
@@ -60,7 +60,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2401)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public DmcAttribute<FilterContainer> cloneIt(){
         synchronized(this){
             DmcTypeFilterContainerSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2420)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
     public FilterContainer add(Object v) throws DmcValueException {
         synchronized(this){
             FilterContainer rc = typeCheck(v);
@@ -91,17 +91,23 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
     public FilterContainer del(Object v){
         synchronized(this){
             FilterContainer rc = null;
+            if (value == null)
+                return(rc);
+            
             try {
                 rc = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            if (value.contains(rc)){
                 value.remove(rc);
+                if (value.size() == 0)
+                    value = null;
+            }
             else
                 rc = null;
             return(rc);
@@ -109,7 +115,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
     public Iterator<FilterContainer> getMV(){
         synchronized(this){
             Set<FilterContainer> clone = null;
@@ -121,7 +127,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2469)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
     public Set<FilterContainer> getMVCopy(){
         synchronized(this){
             Set<FilterContainer> clone = null;
@@ -134,7 +140,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,10 +150,13 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2494)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
+            if (value == null)
+                return(rc);
+            
             try {
                 FilterContainer val = typeCheck(v);
                 rc = value.contains(val);

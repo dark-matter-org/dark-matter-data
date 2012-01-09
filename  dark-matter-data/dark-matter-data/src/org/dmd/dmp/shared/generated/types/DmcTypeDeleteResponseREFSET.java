@@ -94,13 +94,19 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     public DeleteResponseDMO del(Object v){
         synchronized(this){
             DeleteResponseDMO rc = null;
+            if (value == null)
+                return(rc);
+            
             try {
                 rc = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            if (value.contains(rc)){
                 value.remove(rc);
+                if (value.size() == 0)
+                    value = null;
+            }
             else
                 rc = null;
             return(rc);
@@ -108,7 +114,7 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2519)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
     public Iterator<DeleteResponseDMO> getMV(){
         synchronized(this){
             Set<DeleteResponseDMO> clone = null;
@@ -120,7 +126,7 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
     public Set<DeleteResponseDMO> getMVCopy(){
         synchronized(this){
             Set<DeleteResponseDMO> clone = null;
@@ -133,7 +139,7 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2546)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,10 +149,13 @@ public class DmcTypeDeleteResponseREFSET extends DmcTypeDeleteResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
+            if (value == null)
+                return(rc);
+            
             try {
                 DeleteResponseDMO val = typeCheck(v);
                 rc = value.contains(val);

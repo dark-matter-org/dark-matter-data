@@ -94,13 +94,19 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     public ResponseFormatEnum del(Object v){
         synchronized(this){
             ResponseFormatEnum rc = null;
+            if (value == null)
+                return(rc);
+            
             try {
                 rc = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            if (value.contains(rc)){
                 value.remove(rc);
+                if (value.size() == 0)
+                    value = null;
+            }
             else
                 rc = null;
             return(rc);
@@ -108,7 +114,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2519)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
     public Iterator<ResponseFormatEnum> getMV(){
         synchronized(this){
             Set<ResponseFormatEnum> clone = null;
@@ -120,7 +126,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
     public Set<ResponseFormatEnum> getMVCopy(){
         synchronized(this){
             Set<ResponseFormatEnum> clone = null;
@@ -133,7 +139,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2546)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,10 +149,13 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
+            if (value == null)
+                return(rc);
+            
             try {
                 ResponseFormatEnum val = typeCheck(v);
                 rc = value.contains(val);

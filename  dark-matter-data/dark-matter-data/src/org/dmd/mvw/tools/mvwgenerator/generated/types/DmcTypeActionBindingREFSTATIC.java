@@ -20,39 +20,39 @@ import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcOutputStreamIF;
 
 /**
- * The DmcTypeActionREFSTATIC provides static access to functions used to manage values of type ActionREF
+ * The DmcTypeActionBindingREFSTATIC provides static access to functions used to manage values of type ActionBindingREF
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:1988)
  *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
  */
-public class DmcTypeActionREFSTATIC {
+public class DmcTypeActionBindingREFSTATIC {
     
-    public static DmcTypeActionREFSTATIC instance;
-    static DmcTypeActionREFSV typeHelper;
+    public static DmcTypeActionBindingREFSTATIC instance;
+    static DmcTypeActionBindingREFSV typeHelper;
     
     static {
-        instance = new DmcTypeActionREFSTATIC();
+        instance = new DmcTypeActionBindingREFSTATIC();
     }
     
-    protected DmcTypeActionREFSTATIC() {
-        typeHelper = new DmcTypeActionREFSV();
+    protected DmcTypeActionBindingREFSTATIC() {
+        typeHelper = new DmcTypeActionBindingREFSV();
     }
     
-    public ActionREF typeCheck(Object value) throws DmcValueException {
+    public ActionBindingREF typeCheck(Object value) throws DmcValueException {
     	   return(typeHelper.typeCheck(value));
     }
     
-    public ActionREF cloneValue(ActionREF value) throws DmcValueException {
+    public ActionBindingREF cloneValue(ActionBindingREF value) throws DmcValueException {
     	   return(typeHelper.cloneValue(value));
     }
     
-    public void serializeValue(DmcOutputStreamIF dos, ActionREF value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, ActionBindingREF value) throws Exception {
     	   typeHelper.serializeValue(dos, value);
     }
     
-    public ActionREF deserializeValue(DmcInputStreamIF dis) throws Exception {
+    public ActionBindingREF deserializeValue(DmcInputStreamIF dis) throws Exception {
     	   return(typeHelper.deserializeValue(dis));
     }
     

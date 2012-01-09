@@ -49,6 +49,11 @@ public class DmcOmni implements DmcNameResolverIF {
 	// the dead reference will be logged.
 	boolean								cleanUpDeadRefs;
 	
+	// Normally, we don't track schema references because we don't always
+	// have the schema objects available. However, for certain tools/utilities,
+	// such as the documentation tools, we want to turn this tracking on.
+	boolean								trackSchemaReferences;
+	
 	// The logger through which various log messages can be sent
 	DmcLoggerIF							logger;
 	
@@ -117,6 +122,7 @@ public class DmcOmni implements DmcNameResolverIF {
 		lazyResolution			= false;
 		autoResolution			= false;
 		cleanUpDeadRefs			= false;
+		trackSchemaReferences	= false;
 		logger					= null;
 		resolvers				= null;
 		idToClass				= new TreeMap<Integer, DmcClassInfo>();
@@ -139,6 +145,34 @@ public class DmcOmni implements DmcNameResolverIF {
 			omni = new DmcOmni();
 		
 		return(omni);
+	}
+	
+	/**
+	 * This method should be used with caution! Generally, we don't attempt to perform
+	 * back reference tracking on schema related references, but, in certain tools/utilities,
+	 * we make use of this functionality. 
+	 * @param f Set to true if we want perform back reference tracking on schema related objects.
+	 */
+	public void setTrackSchemaReferences(boolean f){
+		trackSchemaReferences = f;
+	}
+	
+	/**
+	 * This method is called from the DmcObject to determine whether or not are
+	 * particular attribute should have its reference tracked.
+	 * @param attributeID
+	 * @return true if we want to reference track the attribute.
+	 */
+	public boolean trackThisAttribute(int attributeID){
+		// If trackSchemaReferences is turned on, we will track all attributes
+		if (trackSchemaReferences)
+			return(true);
+		// If trackSchemaReferences is turned off (the default), we will only
+		// attempt back reference tracking if the attribute ID is beyond the
+		// maximum ID of the meta schema.
+		else if (attributeID > MetaDMSAG.instance().getSchemaMaxID())
+			return(true);
+		return(false);
 	}
 	
 	/**

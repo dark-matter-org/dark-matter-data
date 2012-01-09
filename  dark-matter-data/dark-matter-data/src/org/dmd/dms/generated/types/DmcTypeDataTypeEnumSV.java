@@ -24,8 +24,8 @@ import org.dmd.dms.generated.enums.DataTypeEnum;    // DmcType import
  * The DmcTypeDataTypeEnumSV provides storage for a single-valued DataTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:228)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:232)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDataTypeEnumSV extends DmcTypeDataTypeEnum implements Serializable {
@@ -49,14 +49,14 @@ public class DmcTypeDataTypeEnumSV extends DmcTypeDataTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1794)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
     public DmcAttribute<DataTypeEnum> cloneIt(){
         DmcTypeDataTypeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1805)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
     public DataTypeEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeDataTypeEnumSV extends DmcTypeDataTypeEnum implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1817)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
     public DataTypeEnum set(Object v) throws DmcValueException {
         DataTypeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

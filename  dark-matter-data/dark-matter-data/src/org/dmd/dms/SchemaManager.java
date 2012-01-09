@@ -666,7 +666,11 @@ public class SchemaManager implements DmcNameResolverIF {
     	
     }
     
-    /**
+    public void manageSchemaInternal(SchemaDefinition sd, boolean checkIDs) throws ResultException, DmcValueException {
+    	performIDChecks = checkIDs;
+    	manageSchemaInternal(sd);
+    }
+    	/**
      * This function integrates a new set of definitions into the schema manager.
      * @param sd The schema definition to be managed.
      * @throws DmcValueException 

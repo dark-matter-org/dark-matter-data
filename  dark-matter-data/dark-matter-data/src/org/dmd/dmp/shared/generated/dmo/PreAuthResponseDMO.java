@@ -98,8 +98,8 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
-    public String getAppName(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__appName);
+    public String getApplicationName(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__applicationName);
         if (attr == null)
             return(null);
 
@@ -107,18 +107,18 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
     }
 
     /**
-     * Sets appName to the specified value.
+     * Sets applicationName to the specified value.
      * @param value String
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
-    public void setAppName(String value) {
-        DmcAttribute<?> attr = get(DmpDMSAG.__appName);
+    public void setApplicationName(String value) {
+        DmcAttribute<?> attr = get(DmpDMSAG.__applicationName);
         if (attr == null)
-            attr = new DmcTypeStringSV(DmpDMSAG.__appName);
+            attr = new DmcTypeStringSV(DmpDMSAG.__applicationName);
         
         try{
             attr.set(value);
-            set(DmpDMSAG.__appName,attr);
+            set(DmpDMSAG.__applicationName,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -126,30 +126,30 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
     }
 
     /**
-     * Sets appName to the specified value.
+     * Sets applicationName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
-    public void setAppName(Object value) throws DmcValueException {
-        DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpDMSAG.__appName);
+    public void setApplicationName(Object value) throws DmcValueException {
+        DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpDMSAG.__applicationName);
         if (attr == null)
-            attr = new DmcTypeStringSV(DmpDMSAG.__appName);
+            attr = new DmcTypeStringSV(DmpDMSAG.__applicationName);
         
         attr.set(value);
-        set(DmpDMSAG.__appName,attr);
+        set(DmpDMSAG.__applicationName,attr);
     }
 
     /**
-     * Removes the appName attribute value.
+     * Removes the applicationName attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
-    public void remAppName(){
-         rem(DmpDMSAG.__appName);
+    public void remApplicationName(){
+         rem(DmpDMSAG.__applicationName);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
-    public String getAppVersion(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__appVersion);
+    public String getApplicationVersion(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__applicationVersion);
         if (attr == null)
             return(null);
 
@@ -157,18 +157,18 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
     }
 
     /**
-     * Sets appVersion to the specified value.
+     * Sets applicationVersion to the specified value.
      * @param value String
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
-    public void setAppVersion(String value) {
-        DmcAttribute<?> attr = get(DmpDMSAG.__appVersion);
+    public void setApplicationVersion(String value) {
+        DmcAttribute<?> attr = get(DmpDMSAG.__applicationVersion);
         if (attr == null)
-            attr = new DmcTypeStringSV(DmpDMSAG.__appVersion);
+            attr = new DmcTypeStringSV(DmpDMSAG.__applicationVersion);
         
         try{
             attr.set(value);
-            set(DmpDMSAG.__appVersion,attr);
+            set(DmpDMSAG.__applicationVersion,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -176,25 +176,25 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
     }
 
     /**
-     * Sets appVersion to the specified value.
+     * Sets applicationVersion to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
-    public void setAppVersion(Object value) throws DmcValueException {
-        DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpDMSAG.__appVersion);
+    public void setApplicationVersion(Object value) throws DmcValueException {
+        DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpDMSAG.__applicationVersion);
         if (attr == null)
-            attr = new DmcTypeStringSV(DmpDMSAG.__appVersion);
+            attr = new DmcTypeStringSV(DmpDMSAG.__applicationVersion);
         
         attr.set(value);
-        set(DmpDMSAG.__appVersion,attr);
+        set(DmpDMSAG.__applicationVersion,attr);
     }
 
     /**
-     * Removes the appVersion attribute value.
+     * Removes the applicationVersion attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
-    public void remAppVersion(){
-         rem(DmpDMSAG.__appVersion);
+    public void remApplicationVersion(){
+         rem(DmpDMSAG.__applicationVersion);
     }
 
 

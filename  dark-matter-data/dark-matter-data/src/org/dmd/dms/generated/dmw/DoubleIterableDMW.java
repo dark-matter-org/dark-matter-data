@@ -23,8 +23,8 @@ import org.dmd.dmw.DmwMVIterator;
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1547)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:281)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1598)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:285)
  */
 public class DoubleIterableDMW extends DmwMVIterator<Double> {
 

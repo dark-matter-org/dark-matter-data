@@ -5,16 +5,16 @@ import java.io.IOException;
 
 import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.extended.Component;
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 
 
-public class ActionFormatter {
+public class ActionBindingFormatter {
 
-	static public void formatAction(String outdir, Action action, Component component) throws IOException {
+	static public void formatAction(String outdir, ActionBinding action, Component component) throws IOException {
 		
-		String name = GenUtility.capTheName(action.getActionName().getNameString());
+		String name = GenUtility.capTheName(action.getActionBindingName().getNameString());
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, name + "Action.java");
 
         out.write("package " + component.getDefinedInModule().getGenPackage() + ".generated.mvw.actions;\n\n");
@@ -33,7 +33,7 @@ public class ActionFormatter {
     	
     	out.write("    public " + name + "Action(" + action.getImplementedBy().getComponentName() + "BaseImpl ic){\n\n");
     	
-        out.write("        super(\"" + action.getActionName() + "\");\n\n");
+        out.write("        super(\"" + action.getActionBindingName() + "\");\n\n");
         out.write("        component = ic;\n\n");
         
         out.write("    }\n\n");

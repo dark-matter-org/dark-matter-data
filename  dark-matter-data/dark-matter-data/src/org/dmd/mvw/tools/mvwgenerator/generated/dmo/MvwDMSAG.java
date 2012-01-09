@@ -20,7 +20,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     static String schemaName = "mvw";
 
     public final static DmcAttributeInfo __abstractActivity = new DmcAttributeInfo("abstractActivity", 858, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __actionName = new DmcAttributeInfo("actionName", 874, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __actionBindingName = new DmcAttributeInfo("actionBindingName", 874, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __activityName = new DmcAttributeInfo("activityName", 840, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __addToMenu = new DmcAttributeInfo("addToMenu", 870, "Menu", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __addedToRunContext = new DmcAttributeInfo("addedToRunContext", 859, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -62,7 +62,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent", 801, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent", 802, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __implementedBy = new DmcAttributeInfo("implementedBy", 881, "Component", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __implementsAction = new DmcAttributeInfo("implementsAction", 880, "Action", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __implementsAction = new DmcAttributeInfo("implementsAction", 880, "ActionBinding", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __importThis = new DmcAttributeInfo("importThis", 831, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __instantiatesPresenter = new DmcAttributeInfo("instantiatesPresenter", 860, "Presenter", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __instantiatesView = new DmcAttributeInfo("instantiatesView", 862, "View", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -91,7 +91,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __strictlyChecked = new DmcAttributeInfo("strictlyChecked", 889, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __theOne = new DmcAttributeInfo("theOne", 863, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tipsFromI18N = new DmcAttributeInfo("tipsFromI18N", 894, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __triggersAction = new DmcAttributeInfo("triggersAction", 875, "Action", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __triggersAction = new DmcAttributeInfo("triggersAction", 875, "ActionBinding", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __unsetValue = new DmcAttributeInfo("unsetValue", 891, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useBaseClass = new DmcAttributeInfo("useBaseClass", 807, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useClass = new DmcAttributeInfo("useClass", 826, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -108,7 +108,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __viewName = new DmcAttributeInfo("viewName", 812, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __widget = new DmcAttributeInfo("widget", 813, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcClassInfo __MvwDefinition = new DmcClassInfo("MvwDefinition", 801, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__camelCaseName);
-    public final static DmcClassInfo __Action = new DmcClassInfo("Action", 822, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__actionName);
+    public final static DmcClassInfo __ActionBinding = new DmcClassInfo("ActionBinding", 822, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__actionBindingName);
     public final static DmcClassInfo __Component = new DmcClassInfo("Component", 805, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__MvwDefinition,MvwDMSAG.__componentName);
     public final static DmcClassInfo __Activity = new DmcClassInfo("Activity", 810, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component,MvwDMSAG.__activityName);
     public final static DmcClassInfo __Controller = new DmcClassInfo("Controller", 806, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__Component,MvwDMSAG.__controllerName);
@@ -156,7 +156,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SImAp = new HashMap<String, DmcSliceInfo>();
 
         _SmAp.put(__abstractActivity.id,__abstractActivity);
-        _SmAp.put(__actionName.id,__actionName);
+        _SmAp.put(__actionBindingName.id,__actionBindingName);
         _SmAp.put(__activityName.id,__activityName);
         _SmAp.put(__addToMenu.id,__addToMenu);
         _SmAp.put(__addedToRunContext.id,__addedToRunContext);
@@ -243,7 +243,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__viewMethod.id,__viewMethod);
         _SmAp.put(__viewName.id,__viewName);
         _SmAp.put(__widget.id,__widget);
-        _CmAp.put(__Action.id,__Action);
+        _CmAp.put(__ActionBinding.id,__ActionBinding);
         _CmAp.put(__Activity.id,__Activity);
         _CmAp.put(__Component.id,__Component);
         _CmAp.put(__Controller.id,__Controller);
@@ -399,8 +399,8 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __Separator.addMust(__menuOrder);
         __Separator.addMay(__useImpl);
 
-        __Action.addMust(__actionName);
-        __Action.addMay(__implementedBy);
+        __ActionBinding.addMust(__actionBindingName);
+        __ActionBinding.addMay(__implementedBy);
 
         __FormBindingDefinition.addMust(__bindingName);
         __FormBindingDefinition.addMust(__editObject);

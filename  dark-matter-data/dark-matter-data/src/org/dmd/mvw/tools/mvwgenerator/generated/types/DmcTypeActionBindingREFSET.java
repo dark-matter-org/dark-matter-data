@@ -25,44 +25,44 @@ import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 /**
- * The DmcTypeActionREFSET provides storage for a set of ActionREF
+ * The DmcTypeActionBindingREFSET provides storage for a set of ActionBindingREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:524)
  */
 @SuppressWarnings("serial")
-public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializable {
+public class DmcTypeActionBindingREFSET extends DmcTypeActionBindingREF implements Serializable {
     
-    protected Set<ActionREF> value;
+    protected Set<ActionBindingREF> value;
     
-    public DmcTypeActionREFSET(){
+    public DmcTypeActionBindingREFSET(){
         value = null;
     }
     
-    public DmcTypeActionREFSET(DmcAttributeInfo ai){
+    public DmcTypeActionBindingREFSET(DmcAttributeInfo ai){
         super(ai);
         initValue();
     }
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<ActionREF>();
+            value = new HashSet<ActionBindingREF>();
         else
-            value = new TreeSet<ActionREF>();
+            value = new TreeSet<ActionBindingREF>();
     }
     
     @Override
-    public DmcTypeActionREFSET getNew(){
-        return(new DmcTypeActionREFSET(attrInfo));
+    public DmcTypeActionBindingREFSET getNew(){
+        return(new DmcTypeActionBindingREFSET(attrInfo));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
-    public DmcAttribute<ActionREF> cloneIt(){
+    public DmcAttribute<ActionBindingREF> cloneIt(){
         synchronized(this){
-            DmcTypeActionREFSET rc = getNew();
-            for(ActionREF val: value)
+            DmcTypeActionBindingREFSET rc = getNew();
+            for(ActionBindingREF val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -74,9 +74,9 @@ public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializabl
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
-    public ActionREF add(Object v) throws DmcValueException {
+    public ActionBindingREF add(Object v) throws DmcValueException {
         synchronized(this){
-            ActionREF rc = typeCheck(v);
+            ActionBindingREF rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -90,16 +90,22 @@ public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializabl
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
-    public ActionREF del(Object v){
+    public ActionBindingREF del(Object v){
         synchronized(this){
-            ActionREF rc = null;
+            ActionBindingREF rc = null;
+            if (value == null)
+                return(rc);
+            
             try {
                 rc = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            if (value.contains(rc)){
                 value.remove(rc);
+                if (value.size() == 0)
+                    value = null;
+            }
             else
                 rc = null;
             return(rc);
@@ -107,32 +113,32 @@ public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2519)
-    public Iterator<ActionREF> getMV(){
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
+    public Iterator<ActionBindingREF> getMV(){
         synchronized(this){
-            Set<ActionREF> clone = null;
+            Set<ActionBindingREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<ActionREF>(value);
+                clone = new HashSet<ActionBindingREF>(value);
             else
-                clone = new TreeSet<ActionREF>(value);
+                clone = new TreeSet<ActionBindingREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
-    public Set<ActionREF> getMVCopy(){
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
+    public Set<ActionBindingREF> getMVCopy(){
         synchronized(this){
-            Set<ActionREF> clone = null;
+            Set<ActionBindingREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<ActionREF>(value);
+                clone = new HashSet<ActionBindingREF>(value);
             else
-                clone = new TreeSet<ActionREF>(value);
+                clone = new TreeSet<ActionBindingREF>(value);
             return(clone);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2546)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,12 +148,15 @@ public class DmcTypeActionREFSET extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
+            if (value == null)
+                return(rc);
+            
             try {
-                ActionREF val = typeCheck(v);
+                ActionBindingREF val = typeCheck(v);
                 rc = value.contains(val);
             } catch (DmcValueException e) {
             }

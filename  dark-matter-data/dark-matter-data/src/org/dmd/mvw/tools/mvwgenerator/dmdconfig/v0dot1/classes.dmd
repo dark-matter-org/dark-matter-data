@@ -404,20 +404,20 @@ may				useImpl
 description		The Separator is used to define menu separators.
 
 ClassDefinition
-name			Action
+name			ActionBinding
 classType		STRUCTURAL
 subpackage		menus
 dmdID			22
 derivedFrom		MvwDefinition
 useWrapperType	EXTENDED
-isNamedBy		actionName
-must			actionName
+isNamedBy		actionBindingName
+must			actionBindingName
 may				implementedBy
-description		The Action class allows for the definition of an intermediate component that binds
+description		The ActionBinding class allows for the definition of an intermediate component that binds
  behavioural triggers e.g. menu items, toolbar buttons etc. to action implementors e.g. Controllers,
- Presenters and Activities. The Action serves the same purpose as the com.google.gwt.user.client.Command
- interface, but provides some additional useful functionality. The implementation of the Action (see
- org.dmd.mvw.client.mvwmenus.base.Action) maintains a set of TriggerIF interfaces, which are the various
+ Presenters and Activities. The ActionBinding serves the same purpose as the com.google.gwt.user.client.Command
+ interface, but provides some additional useful functionality. The implementation of the ActionBinding (see
+ org.dmd.mvw.client.mvwmenus.base.ActionBinding) maintains a set of TriggerIF interfaces, which are the various
  implementations of the menu items, toolbar buttons etc. An implementing component can enable/disable its
  Actions which, in turn, can enable/disable its triggers.
 

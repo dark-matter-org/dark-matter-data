@@ -307,6 +307,6 @@ classType       STRUCTURAL
 dmdID			24
 useWrapperType	EXTENDED
 derivedFrom     Response
-may				appName
-may				appVersion
+may				applicationName
+may				applicationVersion
 description		The PreAuthResponse is sent as a result of a PreAuthRequest.
