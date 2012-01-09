@@ -104,7 +104,7 @@
       </tr>
     </table>
     </div>    <div class="typeList">
-    <h2>Types (1)</h2>
+    <h2>Types (2)</h2>
     <ul>
       <li> <a class="deflink" href="#DmtStringName"> DmtStringName </a></li>
     </ul>
@@ -251,6 +251,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an originator wants its own event. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
@@ -291,9 +299,25 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A timeout flag that may be set on messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a user. </td>
     </tr>
 
   </table>
@@ -433,8 +457,23 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
+      <td> <a href="dmt.html#anotherSVString">anotherSVString</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> A sv String. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmt.html#attrIDs">attrIDs</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#AttributeID">AttributeID</a> </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmt.html#enabledDisabled">enabledDisabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
     </tr>
 
     <tr>
@@ -450,6 +489,14 @@
       <td class="label"> </td>
       <td> <a href="dmt.html#hsNames">hsNames</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmt.html#hsString">hsString</a> </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> An hs String. </td>
     </tr>
 
     <tr>
@@ -532,6 +579,13 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmt.html#onOff">onOff</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmt.html#plainObjRef">plainObjRef</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
       <td> References to unnamed objects. </td>
@@ -540,9 +594,45 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmt.html#someRelationMV">someRelationMV</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmt.html#someRelationMVI">someRelationMVI</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmt.html#someRelationSV">someRelationSV</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A single valued Boolean. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A sv Date. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmt.html#svTestEnum">svTestEnum</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmt.html#DmtTestEnum">DmtTestEnum</a> </td>
     </tr>
 
     <tr>
@@ -1441,6 +1531,19 @@
       <td>Another DmtStringName attribute.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="anotherSVString"> anotherSVString </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A sv String.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="attrIDs"> attrIDs </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -1466,6 +1569,13 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The naming attribute for DmtNameStrings.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="enabledDisabled"> enabledDisabled </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="hsDate"> hsDate </a> </td></tr>
@@ -1776,6 +1886,13 @@
       <td>Other ObjWithRefs objects.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="onOff"> onOff </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="plainObjRef"> plainObjRef </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -1787,6 +1904,27 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>References to unnamed objects.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="someRelationMV"> someRelationMV </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="someRelationMVI"> someRelationMVI </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="someRelationSV"> someRelationSV </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </div> 
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="svBoolean"> svBoolean </a> </td></tr>
@@ -1904,6 +2042,13 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>A single valued TestBasicNamedObjectFixed.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="svTestEnum"> svTestEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="dmt.html#DmtTestEnum">DmtTestEnum</a> </div> 
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="transString"> transString </a> </td></tr>

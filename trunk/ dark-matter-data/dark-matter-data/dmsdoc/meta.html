@@ -17,7 +17,7 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (12)</h2>
+    <h2> Classes (13)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -60,6 +60,11 @@
       </tr>
       <tr>
       <td class="spacer"> </td>
+      <td> <a class="deflink" href="#ExtendedReferenceTypeDefinition"> ExtendedReferenceTypeDefinition </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
       <td> <a class="deflink" href="#ObjectValidatorDefinition"> ObjectValidatorDefinition </a></td>
       <td> name </td>
       </tr>
@@ -80,7 +85,7 @@
       </tr>
     </table>
     </div>    <div class="typeList">
-    <h2>Types (52)</h2>
+    <h2>Types (53)</h2>
     <ul>
       <li> <a class="deflink" href="#AttributeID"> AttributeID </a></li>
       <li> <a class="deflink" href="#Boolean"> Boolean </a></li>
@@ -638,6 +643,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="meta.html#excludeFromContext">excludeFromContext</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The excludeFromContext attribute is used to indicate that a class of object (and all of its derivatives) should be excluded from the wrapper generation for the specified context. An example usage is in the Dark Matter Protocol where we don't want to generate wrappers for the message objects in a GXT context. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="meta.html#intendedToExtend">intendedToExtend</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> This attribute can be used on AUXILIARY classes to give a hint about their intended usage. For example, if you were extending schema definitions with some or your  own attributes for some purpose, your auxliary class could have intendedToExtend ClassDefinition. </td>
@@ -730,6 +743,13 @@
       <td colspan="2">
       <a href="meta.html#DmsDefinition">DmsDefinition</a>
       </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="meta.html#ExtendedReferenceTypeDefinition">ExtendedReferenceTypeDefinition</a> </div>      </td>
     </tr>
 
     <tr>
@@ -889,6 +909,90 @@
       <td> <a href="meta.html#nullReturnValue">nullReturnValue</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> This attribute is used in TypeDefinitions to indicate the value that should be returned when an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined to return false when they aren't actually set on an object. This just gives a convenient mechanism to provide a default value for non-existent attribute values. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ExtendedReferenceTypeDefinition"> ExtendedReferenceTypeDefinition </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The ExtendedReferenceTypeDefinition provides a mechanism for extending  the automatically generated named object reference attribute types with additional information. This can be seen as adding additional information to the relationship between two objects.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#DmsDefinition">DmsDefinition</a> <br />
+      <a href="meta.html#ComplexTypeDefinition">ComplexTypeDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#extendedReferenceClass">extendedReferenceClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> Indicates the class of object to which an  ExtendedReferenceTypeDefinition refers. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#field">field</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Field">Field</a> </td>
+      <td> The field indicates a type and name for a field in a ComplexType. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#extendedClass">extendedClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The extendedClass indicates the fully qualified name of the class that is derived from the generated ComplexType to provide additional behaviour. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#fieldSeparator">fieldSeparator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fieldSeparator is used to indicate the separation character used when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is assumed to be a space. </td>
     </tr>
 
   </table>
@@ -1070,7 +1174,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#dmwTypeToPackage">dmwTypeToPackage</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#StringToString">StringToString</a> </td>
-      <td> The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage GXT com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used. </td>
+      <td> The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage gxt com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used. </td>
     </tr>
 
     <tr>
@@ -1916,7 +2020,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage GXT com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used.</td>
+      <td>The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage gxt com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="dmwWrapperType"> dmwWrapperType </a> </td></tr>
@@ -2010,6 +2114,19 @@
       <td>Indicates the set of enum values associated with an enumeration type definition.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="excludeFromContext"> excludeFromContext </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The excludeFromContext attribute is used to indicate that a class of object (and all of its derivatives) should be excluded from the wrapper generation for the specified context. An example usage is in the Dark Matter Protocol where we don't want to generate wrappers for the message objects in a GXT context.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="extendedClass"> extendedClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2021,6 +2138,32 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The extendedClass indicates the fully qualified name of the class that is derived from the generated ComplexType to provide additional behaviour.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="extendedReferenceClass"> extendedReferenceClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates the class of object to which an  ExtendedReferenceTypeDefinition refers.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="extendedReferenceTypeDefList"> extendedReferenceTypeDefList </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#ExtendedReferenceTypeDefinition">ExtendedReferenceTypeDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A list of extended reference type definition references.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="extendsInterface"> extendsInterface </a> </td></tr>
@@ -2283,6 +2426,19 @@
       <td>This flag is set to true for type definitions that define eneumerations.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="isExtendedRefType"> isExtendedRefType </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>This flag is used to indicate taht an internally generated type is an extended reference type.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="isFilterType"> isFilterType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2502,6 +2658,19 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This flag is used to indicate if a particular request might result in progress indications being sent. Although primarily intended as a documentation aspect, this flag is used within the TL1 subsystem to allow for the creation of a response handler for node requests that send progress text.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="modify"> modify </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#Modifier">Modifier</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A set of modifications to an object.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="must"> must </a> </td></tr>
