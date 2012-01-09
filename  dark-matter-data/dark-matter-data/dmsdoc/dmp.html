@@ -17,7 +17,7 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (22)</h2>
+    <h2> Classes (24)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -90,6 +90,14 @@
       <tr>
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#NotifyResponse"> NotifyResponse </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#PreAuthRequest"> PreAuthRequest </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#PreAuthResponse"> PreAuthResponse </a></td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -201,6 +209,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an originator wants its own event. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#objectList">objectList</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#DmcObject">DmcObject</a> </td>
       <td> A set of objects returned from the server. </td>
@@ -257,9 +273,25 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A timeout flag that may be set on messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a user. </td>
     </tr>
 
   </table>
@@ -449,6 +481,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an originator wants its own event. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
@@ -497,9 +537,25 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A timeout flag that may be set on messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a user. </td>
     </tr>
 
   </table>
@@ -664,6 +720,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
+      <td> <a href="dmp.html#handlerID">handlerID</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#listenerID">listenerID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> The targets of a GetRequest. This is the contained name of the object. </td>
@@ -672,9 +736,17 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="dmp.html#modify">modify</a> </td>
+      <td> <a href="meta.html#modify">modify</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Modifier">Modifier</a> </td>
       <td> A set of modifications to an object. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#myOwnEvent">myOwnEvent</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> This flag is set by the CommsController on events when they are received. If the originatorID on an event matches the originatorID returned in the LoginResponse, it means that the event occurred because of a request sent by you; so myOwnEvent will be true. If the event was caused by another client, it will be false. </td>
     </tr>
 
     <tr>
@@ -862,6 +934,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an originator wants its own event. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
@@ -910,9 +990,25 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A timeout flag that may be set on messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a user. </td>
     </tr>
 
   </table>
@@ -1102,6 +1198,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an originator wants its own event. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
@@ -1150,9 +1254,25 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A timeout flag that may be set on messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a user. </td>
     </tr>
 
   </table>
@@ -1390,6 +1510,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an originator wants its own event. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
@@ -1454,9 +1582,25 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A timeout flag that may be set on messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a user. </td>
     </tr>
 
   </table>
@@ -1662,6 +1806,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an originator wants its own event. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
@@ -1702,9 +1854,25 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A timeout flag that may be set on messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a user. </td>
     </tr>
 
   </table>
@@ -1715,7 +1883,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The LoginResponse is returned after a Login request is received. If the login is successful, a session ID will be assigned and a request root will be given. All subsequent requests must contain the session ID and all requests will be checked to ensure that they pertain to objects at or below the request root.</td>
+      <td colspan="2">The LoginResponse is returned after a Login request is received. If the login is successful, a session ID will be assigned and a request root will be given. All subsequent requests must contain the session ID and all requests will be checked to ensure that they pertain to objects at or below the request root. <p/> The response may also have an originatorID that is a unique identifier assigned by the  server. In some systems, this identifier will be stamped on all incoming requests and passed through to the events that are generated as a result of those requests. In this way, a client can tell whether the events it receives came from its own requests or from requests made by other clients.</td>
     </tr>
 
     <tr>
@@ -1773,6 +1941,14 @@
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#originatorID">originatorID</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> The thing that originated a request. </td>
     </tr>
 
     <tr>
@@ -1902,6 +2078,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an originator wants its own event. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
@@ -1942,9 +2126,25 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A timeout flag that may be set on messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a user. </td>
     </tr>
 
   </table>
@@ -2063,7 +2263,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The NotifyRequest allwos you to register for events on an arbitrary object or set of objects.</td>
+      <td colspan="2">The NotifyRequest allows you to register for events on an arbitrary object or set of objects.</td>
     </tr>
 
     <tr>
@@ -2126,6 +2326,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an originator wants its own event. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
@@ -2174,9 +2382,25 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A timeout flag that may be set on messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a user. </td>
     </tr>
 
   </table>
@@ -2215,6 +2439,154 @@
 
   <table>
 
+    <tr> <td class="className" colspan="4"> <a name="PreAuthRequest"> PreAuthRequest </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The PreAuthRequest allows for the retrieval of information from the servlet before a user has authenticated. Exactly what type of information can be  retrieved is application specific.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Request">Request</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="PreAuthResponse"> PreAuthResponse </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The PreAuthResponse is sent as a result of a PreAuthRequest.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmp.html#DMPMessage">DMPMessage</a> <br />
+      <a href="dmp.html#Response">Response</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="dmp.html#lastResponse">lastResponse</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Flag that indicates if this is the last response to a request. NOTE: this defaults to true if not specified, since most requests result in a single response. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#requestID">requestID</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A unique identifier that is generated on a client to distinguish the responses that are associated with a given request. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#responseType">responseType</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmp.html#ResponseTypeEnum">ResponseTypeEnum</a> </td>
+      <td> Indicates the category of response, success, failure, warning etc. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="dmp.html#appName">appName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of an application. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#appVersion">appVersion</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The version of an application. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#handlerID">handlerID</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#responseCategory">responseCategory</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmp.html#ResponseCategoryEnum">ResponseCategoryEnum</a> </td>
+      <td> Indicates the category of a response. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#responseText">responseText</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Textual information associated with a response. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#timeMS">timeMS</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
+      <td> A time stamp in milliseconds. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
     <tr> <td class="className" colspan="4"> <a name="Request"> Request </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2240,7 +2612,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="dmp.html#ActionRequest">ActionRequest</a> </div>      <div class="derived"> <a href="dmt.html#ClientCountFilterRequest">ClientCountFilterRequest</a> </div>      <div class="derived"> <a href="dmp.html#CreateRequest">CreateRequest</a> </div>      <div class="derived"> <a href="dmp.html#DeleteRequest">DeleteRequest</a> </div>      <div class="derived"> <a href="dmp.html#DenotifyRequest">DenotifyRequest</a> </div>      <div class="derived"> <a href="dmp.html#GetRequest">GetRequest</a> </div>      <div class="derived"> <a href="dmp.html#LoginRequest">LoginRequest</a> </div>      <div class="derived"> <a href="dmp.html#LogoutRequest">LogoutRequest</a> </div>      <div class="derived"> <a href="dmp.html#NotifyRequest">NotifyRequest</a> </div>      <div class="derived"> <a href="dmp.html#SetRequest">SetRequest</a> </div>      </td>
+      <div class="derived"> <a href="dmp.html#ActionRequest">ActionRequest</a> </div>      <div class="derived"> <a href="dmt.html#ClientCountFilterRequest">ClientCountFilterRequest</a> </div>      <div class="derived"> <a href="dmp.html#CreateRequest">CreateRequest</a> </div>      <div class="derived"> <a href="dmp.html#DeleteRequest">DeleteRequest</a> </div>      <div class="derived"> <a href="dmp.html#DenotifyRequest">DenotifyRequest</a> </div>      <div class="derived"> <a href="dmp.html#GetRequest">GetRequest</a> </div>      <div class="derived"> <a href="dmp.html#LoginRequest">LoginRequest</a> </div>      <div class="derived"> <a href="dmp.html#LogoutRequest">LogoutRequest</a> </div>      <div class="derived"> <a href="dmp.html#NotifyRequest">NotifyRequest</a> </div>      <div class="derived"> <a href="dmp.html#PreAuthRequest">PreAuthRequest</a> </div>      <div class="derived"> <a href="dmp.html#SetRequest">SetRequest</a> </div>      </td>
     </tr>
 
     <tr>
@@ -2267,6 +2639,14 @@
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an originator wants its own event. </td>
     </tr>
 
     <tr>
@@ -2312,9 +2692,25 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A timeout flag that may be set on messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a user. </td>
     </tr>
 
   </table>
@@ -2346,7 +2742,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="dmp.html#ActionResponse">ActionResponse</a> </div>      <div class="derived"> <a href="dmp.html#CreateResponse">CreateResponse</a> </div>      <div class="derived"> <a href="dmp.html#DeleteResponse">DeleteResponse</a> </div>      <div class="derived"> <a href="dmp.html#DenotifyResponse">DenotifyResponse</a> </div>      <div class="derived"> <a href="dmp.html#GetResponse">GetResponse</a> </div>      <div class="derived"> <a href="dmp.html#LoginResponse">LoginResponse</a> </div>      <div class="derived"> <a href="dmp.html#LogoutResponse">LogoutResponse</a> </div>      <div class="derived"> <a href="dmp.html#NotifyResponse">NotifyResponse</a> </div>      <div class="derived"> <a href="dmp.html#SetResponse">SetResponse</a> </div>      </td>
+      <div class="derived"> <a href="dmp.html#ActionResponse">ActionResponse</a> </div>      <div class="derived"> <a href="dmp.html#CreateResponse">CreateResponse</a> </div>      <div class="derived"> <a href="dmp.html#DeleteResponse">DeleteResponse</a> </div>      <div class="derived"> <a href="dmp.html#DenotifyResponse">DenotifyResponse</a> </div>      <div class="derived"> <a href="dmp.html#GetResponse">GetResponse</a> </div>      <div class="derived"> <a href="dmp.html#LoginResponse">LoginResponse</a> </div>      <div class="derived"> <a href="dmp.html#LogoutResponse">LogoutResponse</a> </div>      <div class="derived"> <a href="dmp.html#NotifyResponse">NotifyResponse</a> </div>      <div class="derived"> <a href="dmp.html#PreAuthResponse">PreAuthResponse</a> </div>      <div class="derived"> <a href="dmp.html#SetResponse">SetResponse</a> </div>      </td>
     </tr>
 
     <tr>
@@ -2462,7 +2858,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="dmp.html#modify">modify</a> </td>
+      <td> <a href="meta.html#modify">modify</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Modifier">Modifier</a> </td>
       <td> A set of modifications to an object. </td>
     </tr>
@@ -2489,6 +2885,14 @@
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows for routing of responses back to the appropriate response handler. This is used in the Dark Matter MVC framework. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates if an originator wants its own event. </td>
     </tr>
 
     <tr>
@@ -2542,9 +2946,25 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> A timeout flag that may be set on messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmr.base.html#userName">userName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The name of a user. </td>
     </tr>
 
   </table>
@@ -2720,6 +3140,32 @@
       <td>The action trigger information i.e. an associated parameters for the action.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="appName"> appName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name of an application.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="appVersion"> appVersion </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The version of an application.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="attributeSelector"> attributeSelector </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2837,17 +3283,17 @@
       <td>The targets of a GetRequest. This is the contained name of the object.</td>
     </tr>
 
-    <tr> <td class="className" colspan="3"> <a name="modify"> modify </a> </td></tr>
+    <tr> <td class="className" colspan="3"> <a name="myOwnEvent"> myOwnEvent </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> MV </div> <div class="attrType"> <a href="meta.html#Modifier">Modifier</a> </div> 
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A set of modifications to an object.</td>
+      <td>This flag is set by the CommsController on events when they are received. If the originatorID on an event matches the originatorID returned in the LoginResponse, it means that the event occurred because of a request sent by you; so myOwnEvent will be true. If the event was caused by another client, it will be false.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="newObject"> newObject </a> </td></tr>
@@ -3147,6 +3593,19 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>A time stamp in milliseconds.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="timeoutSeconds"> timeoutSeconds </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A timeout flag that may be set on messages.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="trackingEnabled"> trackingEnabled </a> </td></tr>

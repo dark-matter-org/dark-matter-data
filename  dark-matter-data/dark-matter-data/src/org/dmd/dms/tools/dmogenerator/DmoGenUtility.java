@@ -186,6 +186,10 @@ public class DmoGenUtility {
         		}
         	}
         	
+			if (docdir.length() > 0){
+				docGenerator.dumpSummary();
+			}
+        	
         	System.exit(0);
         }
 
