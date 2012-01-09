@@ -818,16 +818,6 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 				else{
 					// Have to determine the delta
 					if (attrInfo.indexSize == 0){
-						Iterator<VALUE> it = getMV();
-						while(it.hasNext()){
-							VALUE current = it.next();
-							if (!existingValue.contains(current)){
-								// The existing value is missing this value, add it
-								DmcAttribute<?> mod = getNew();
-								mod.add(current);
-								mods.add(new Modifier(ModifyTypeEnum.ADD, mod));
-							}
-						}
 						Iterator<?> eit = existingValue.getMV();
 						while(eit.hasNext()){
 							Object current = eit.next();
@@ -836,6 +826,16 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 								DmcAttribute<?> mod = getNew();
 								mod.add(current);
 								mods.add(new Modifier(ModifyTypeEnum.DEL, mod));
+							}
+						}
+						Iterator<VALUE> it = getMV();
+						while(it.hasNext()){
+							VALUE current = it.next();
+							if (!existingValue.contains(current)){
+								// The existing value is missing this value, add it
+								DmcAttribute<?> mod = getNew();
+								mod.add(current);
+								mods.add(new Modifier(ModifyTypeEnum.ADD, mod));
 							}
 						}
 					}
