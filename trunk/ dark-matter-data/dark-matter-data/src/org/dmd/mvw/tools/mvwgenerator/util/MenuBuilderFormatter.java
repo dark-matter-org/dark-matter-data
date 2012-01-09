@@ -120,7 +120,7 @@ public class MenuBuilderFormatter {
         	out.write("\"" + mi.getMenuOrder() + "\",");
         	out.write("\"" + mi.getAddToMenu().getElementName() + "\",");
         	out.write("false,");
-        	out.write("\"" + mi.getTriggersAction().getActionName() + "\",");
+        	out.write("\"" + mi.getTriggersAction().getActionBindingName() + "\",");
         	out.write(mi.getLabelForCreation() + ",");
         	out.write("null");
         	out.write(");\n");

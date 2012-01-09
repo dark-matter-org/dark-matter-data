@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:515)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:561)
 import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // DmrBaseDMSAG
 import org.dmd.dms.generated.dmo.MetaDMSAG;                        // MetaDMSAG
 import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions
@@ -19,11 +19,20 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
 
     static String schemaName = "dmp";
 
+
+    static int schemaBaseID = 500;
+
+
+    static int schemaIDRange = 50;
+
+
+    static int schemaMaxID = 550;
+
     public final static DmcAttributeInfo __FQNList = new DmcAttributeInfo("FQNList", 507, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __actionName = new DmcAttributeInfo("actionName", 515, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __actionTrigger = new DmcAttributeInfo("actionTrigger", 525, "DmcObject", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __appName = new DmcAttributeInfo("appName", 541, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __appVersion = new DmcAttributeInfo("appVersion", 542, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __applicationName = new DmcAttributeInfo("applicationName", 541, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __applicationVersion = new DmcAttributeInfo("applicationVersion", 542, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __attributeSelector = new DmcAttributeInfo("attributeSelector", 533, "AttributeID", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __blockingFactor = new DmcAttributeInfo("blockingFactor", 519, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __cacheResponse = new DmcAttributeInfo("cacheResponse", 534, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -110,8 +119,8 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__FQNList.id,__FQNList);
         _SmAp.put(__actionName.id,__actionName);
         _SmAp.put(__actionTrigger.id,__actionTrigger);
-        _SmAp.put(__appName.id,__appName);
-        _SmAp.put(__appVersion.id,__appVersion);
+        _SmAp.put(__applicationName.id,__applicationName);
+        _SmAp.put(__applicationVersion.id,__applicationVersion);
         _SmAp.put(__attributeSelector.id,__attributeSelector);
         _SmAp.put(__blockingFactor.id,__blockingFactor);
         _SmAp.put(__cacheResponse.id,__cacheResponse);
@@ -277,8 +286,8 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         __DenotifyResponse.addMay(__filter);
 
 
-        __PreAuthResponse.addMay(__appName);
-        __PreAuthResponse.addMay(__appVersion);
+        __PreAuthResponse.addMay(__applicationName);
+        __PreAuthResponse.addMay(__applicationVersion);
 
 
     }
@@ -333,6 +342,21 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
 
     public String getSchemaName(){
         return(schemaName);
+    }
+
+
+    public int getSchemaBaseID(){
+        return(schemaBaseID);
+    }
+
+
+    public int getSchemaIDRange(){
+        return(schemaIDRange);
+    }
+
+
+    public int getSchemaMaxID(){
+        return(schemaMaxID);
     }
 
 

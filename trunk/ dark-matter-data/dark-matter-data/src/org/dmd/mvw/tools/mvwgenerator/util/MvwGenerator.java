@@ -12,7 +12,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;
 import org.dmd.mvw.tools.mvwgenerator.extended.View;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigLocation;
@@ -123,9 +123,9 @@ public class MvwGenerator {
 					// NOTE: Actions are always generated in the context of the component that 
 					// implements them, regardless of which module they are defined in
 					if (controller.getImplementsActionHasValue()){
-						for(Action action: controller.getImplementsActionIterable()){
+						for(ActionBinding action: controller.getImplementsActionIterable()){
 							createGenDir(actionsdir);
-							ActionFormatter.formatAction(actionsdir, action, controller);
+							ActionBindingFormatter.formatAction(actionsdir, action, controller);
 						}
 					}
 				}

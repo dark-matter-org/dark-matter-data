@@ -781,7 +781,8 @@ abstract public class DmcObject implements Serializable {
 				if (supportsBackrefTracking()){
 					// TODO: need to have the upper bound of the IDs for the meta schema available
 					// so that we can check whether we want to track the back references.
-					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+//					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+					if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attr.ID)){
 						if (attr instanceof DmcTypeNamedObjectREF){
 							// We're modifying a reference attribute, so track that puppy
 							DmcObject obj = ((DmcObject)((DmcNamedObjectREF)attr.getSV()).getObject());
@@ -853,7 +854,8 @@ abstract public class DmcObject implements Serializable {
 				if (supportsBackrefTracking()){
 					// TODO: need to have the upper bound of the IDs for the meta schema available
 					// so that we can check whether we want to track the back references.
-					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+//					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+					if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attr.ID)){
 						if ( (attr instanceof DmcTypeNamedObjectREF) && (getLastValue() != null)){
 							DmcObject obj = ((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject());
 							if (obj != null){
@@ -1005,7 +1007,8 @@ abstract public class DmcObject implements Serializable {
 				if (supportsBackrefTracking()){
 					// TODO: need to have the upper bound of the IDs for the meta schema available
 					// so that we can check whether we want to track the back references.
-					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+//					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+					if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attr.ID)){
 						if (ref.getObject() != null){
 							if (ref.getBackrefModifier() != null)
 								((DmcObject)ref.getObject()).removeBackref(ref.getBackrefModifier());
@@ -1170,7 +1173,8 @@ abstract public class DmcObject implements Serializable {
 				if (supportsBackrefTracking()){
 					// TODO: need to have the upper bound of the IDs for the meta schema available
 					// so that we can check whether we want to track the back references.
-					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+//					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+					if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attr.ID)){
 						if ( (attr instanceof DmcTypeNamedObjectREF) && (getLastValue() != null)){
 							DmcObject obj = ((DmcObject)((DmcNamedObjectREF)getLastValue()).getObject());
 							if (obj != null){
@@ -1545,7 +1549,7 @@ abstract public class DmcObject implements Serializable {
 	// Object reference resolution
 	
 	/**
-	 * This method is generally called by code that uses a DmoObjectfactory to create DMO
+	 * This method is generally called by code that uses a DmoObjectFactory to create DMO
 	 * instances. At this level, there is no concept of schemas, merely named objects. All
 	 * this method does is attempt to resolve references to named objects using the provided
 	 * name resolver.
@@ -1613,7 +1617,8 @@ abstract public class DmcObject implements Serializable {
 						// NOTE: we wouldn't do the backref tracking in the case of DMP
 						// messages (which are marked as supportsBackrefTracking false).
 						if (supportsBackrefTracking()){
-							if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+//							if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+							if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attr.ID)){
 								Modifier backrefMod = new Modifier(ModifyTypeEnum.SET,attr,this);
 								resolvedObject.addBackref(backrefMod);
 								
@@ -1659,7 +1664,8 @@ abstract public class DmcObject implements Serializable {
 									// NOTE: we wouldn't do the backref tracking in the case of DMP
 									// messages (which are marked as supportsBackrefTracking false).
 									if (supportsBackrefTracking()){
-										if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+//										if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
+										if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attr.ID)){
 											if (attr.attrInfo.indexSize == 0){
 												// We're modifying a reference attribute, so track that puppy
 												DmcAttribute<?> mod = attr.getNew();

@@ -37,16 +37,16 @@ import org.dmd.dmc.DmcAttributeValidator;
 import org.dmd.dmc.DmcObjectValidator;
 
 /**
- * The Action class allows for the definition of an intermediate component
- * that binds behavioural triggers e.g. menu items, toolbar buttons etc. to
- * action implementors e.g. Controllers, Presenters and Activities. The
- * Action serves the same purpose as the com.google.gwt.user.client.Command
- * interface, but provides some additional useful functionality. The
- * implementation of the Action (see org.dmd.mvw.client.mvwmenus.base.Action)
- * maintains a set of TriggerIF interfaces, which are the various
- * implementations of the menu items, toolbar buttons etc. An implementing
- * component can enable/disable its Actions which, in turn, can
- * enable/disable its triggers.
+ * The ActionBinding class allows for the definition of an intermediate
+ * component that binds behavioural triggers e.g. menu items, toolbar buttons
+ * etc. to action implementors e.g. Controllers, Presenters and Activities.
+ * The ActionBinding serves the same purpose as the
+ * com.google.gwt.user.client.Command interface, but provides some additional
+ * useful functionality. The implementation of the ActionBinding (see
+ * org.dmd.mvw.client.mvwmenus.base.ActionBinding) maintains a set of
+ * TriggerIF interfaces, which are the various implementations of the menu
+ * items, toolbar buttons etc. An implementing component can enable/disable
+ * its Actions which, in turn, can enable/disable its triggers.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -54,9 +54,9 @@ import org.dmd.dmc.DmcObjectValidator;
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:133)
  */
 @SuppressWarnings("serial")
-public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Serializable  {
+public class ActionBindingDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Serializable  {
 
-    public final static String constructionClassName = "Action";
+    public final static String constructionClassName = "ActionBinding";
 
     static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
 
@@ -71,11 +71,11 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
         _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
-    public ActionDMO() {
-        super("Action");
+    public ActionBindingDMO() {
+        super("ActionBinding");
     }
 
-    protected ActionDMO(String oc) {
+    protected ActionBindingDMO(String oc) {
         super(oc);
     }
 
@@ -88,34 +88,34 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     }
 
     @Override
-    public ActionDMO getNew(){
-        ActionDMO rc = new ActionDMO();
+    public ActionBindingDMO getNew(){
+        ActionBindingDMO rc = new ActionBindingDMO();
         return(rc);
     }
 
     @Override
-    public ActionDMO getSlice(DmcSliceInfo info){
-        ActionDMO rc = new ActionDMO();
+    public ActionBindingDMO getSlice(DmcSliceInfo info){
+        ActionBindingDMO rc = new ActionBindingDMO();
         populateSlice(rc,info);
         return(rc);
     }
 
-    public ActionDMO(DmcTypeModifierMV mods) {
-        super("Action");
+    public ActionBindingDMO(DmcTypeModifierMV mods) {
+        super("ActionBinding");
         modrec(true);
         setModifier(mods);
     }
 
-    public ActionDMO getModificationRecorder(){
-        ActionDMO rc = new ActionDMO();
-        rc.setActionName(getActionName());
+    public ActionBindingDMO getModificationRecorder(){
+        ActionBindingDMO rc = new ActionBindingDMO();
+        rc.setActionBindingName(getActionBindingName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
         return(rc);
     }
 
     // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
     public CamelCaseName getObjectName(){
-        DmcAttribute<?> name = get(MvwDMSAG.__actionName);
+        DmcAttribute<?> name = get(MvwDMSAG.__actionBindingName);
         if (name != null)
             return((CamelCaseName)name.getSV());
     
@@ -123,13 +123,13 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     }
 
     public DmcAttribute<?> getObjectNameAttribute(){
-        DmcAttribute<?> name = get(MvwDMSAG.__actionName);
+        DmcAttribute<?> name = get(MvwDMSAG.__actionBindingName);
         return(name);
     }
 
     public boolean equals(Object obj){
-        if (obj instanceof ActionDMO){
-            return( getObjectName().equals( ((ActionDMO) obj).getObjectName()) );
+        if (obj instanceof ActionBindingDMO){
+            return( getObjectName().equals( ((ActionBindingDMO) obj).getObjectName()) );
         }
         return(false);
     }
@@ -207,8 +207,8 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
-    public CamelCaseName getActionName(){
-        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__actionName);
+    public CamelCaseName getActionBindingName(){
+        DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__actionBindingName);
         if (attr == null)
             return(null);
 
@@ -216,18 +216,18 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     }
 
     /**
-     * Sets actionName to the specified value.
+     * Sets actionBindingName to the specified value.
      * @param value CamelCaseName
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
-    public void setActionName(CamelCaseName value) {
-        DmcAttribute<?> attr = get(MvwDMSAG.__actionName);
+    public void setActionBindingName(CamelCaseName value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__actionBindingName);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__actionName);
+            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__actionBindingName);
         
         try{
             attr.set(value);
-            set(MvwDMSAG.__actionName,attr);
+            set(MvwDMSAG.__actionBindingName,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -235,25 +235,25 @@ public class ActionDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     }
 
     /**
-     * Sets actionName to the specified value.
+     * Sets actionBindingName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
-    public void setActionName(Object value) throws DmcValueException {
-        DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__actionName);
+    public void setActionBindingName(Object value) throws DmcValueException {
+        DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__actionBindingName);
         if (attr == null)
-            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__actionName);
+            attr = new DmcTypeCamelCaseNameSV(MvwDMSAG.__actionBindingName);
         
         attr.set(value);
-        set(MvwDMSAG.__actionName,attr);
+        set(MvwDMSAG.__actionBindingName,attr);
     }
 
     /**
-     * Removes the actionName attribute value.
+     * Removes the actionBindingName attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
-    public void remActionName(){
-         rem(MvwDMSAG.__actionName);
+    public void remActionBindingName(){
+         rem(MvwDMSAG.__actionBindingName);
     }
 
 

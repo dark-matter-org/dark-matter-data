@@ -298,13 +298,13 @@ nullReturnValue		2
 description         A timeout flag that may be set on messages.
 
 AttributeDefinition
-name                appName
+name                applicationName
 dmdID				41
 type                String
 description         The name of an application.
 
 AttributeDefinition
-name                appVersion
+name                applicationVersion
 dmdID				42
 type                String
 description         The version of an application.

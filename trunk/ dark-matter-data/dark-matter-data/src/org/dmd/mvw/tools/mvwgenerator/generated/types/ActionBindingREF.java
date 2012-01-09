@@ -22,14 +22,14 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcNamedObjectNontransportableREF; // base import
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionDMO; // primitive type
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionBindingDMO; // primitive type
 import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV; 
 
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 /**
- * This is the generated DmcAttribute derivative for values of type Action
+ * This is the generated DmcAttribute derivative for values of type ActionBinding
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -37,38 +37,38 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:413)
  */
 @SuppressWarnings("serial")
-public class ActionREF extends DmcNamedObjectNontransportableREF<ActionDMO> {
+public class ActionBindingREF extends DmcNamedObjectNontransportableREF<ActionBindingDMO> {
 
-    public final static DmcAttributeInfo __actionName = new DmcAttributeInfo("actionName",874,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __actionBindingName = new DmcAttributeInfo("actionBindingName",874,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeCamelCaseNameSV myName;    
     
-    public ActionREF(){
+    public ActionBindingREF(){
     }
 
-    public ActionREF(ActionDMO o){
+    public ActionBindingREF(ActionBindingDMO o){
          object = o;
          myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
-    public ActionREF(CamelCaseName n) throws DmcValueException {
+    public ActionBindingREF(CamelCaseName n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV(__actionName);
+         myName = new DmcTypeCamelCaseNameSV(__actionBindingName);
          myName.set(n);
     }
 
-    public ActionREF(String n) throws DmcValueException {
+    public ActionBindingREF(String n) throws DmcValueException {
          object = null;
-         myName = new DmcTypeCamelCaseNameSV(__actionName);
+         myName = new DmcTypeCamelCaseNameSV(__actionBindingName);
          myName.set(n);
     }
 
-    public ActionREF(ActionREF original){
+    public ActionBindingREF(ActionBindingREF original){
         myName = original.myName;
         object = original.object;
     }
 
-    public void setObject(ActionDMO o){
+    public void setObject(ActionBindingDMO o){
          object = o;
          myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
@@ -76,8 +76,8 @@ public class ActionREF extends DmcNamedObjectNontransportableREF<ActionDMO> {
     /**
      * Clones this reference.
      */
-    public ActionREF cloneMe(){
-        ActionREF rc = new ActionREF();
+    public ActionBindingREF cloneMe(){
+        ActionBindingREF rc = new ActionBindingREF();
         rc.myName = myName;
         rc.object = object;
         return(rc);
@@ -86,7 +86,7 @@ public class ActionREF extends DmcNamedObjectNontransportableREF<ActionDMO> {
     @Override
     public void setName(DmcObjectName n) throws DmcValueException {
         if (myName == null);
-            myName = new DmcTypeCamelCaseNameSV(__actionName);
+            myName = new DmcTypeCamelCaseNameSV(__actionBindingName);
         myName.set(n);
     }
 

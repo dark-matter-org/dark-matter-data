@@ -95,13 +95,19 @@ public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializabl
     public EventSpec del(Object v){
         synchronized(this){
             EventSpec rc = null;
+            if (value == null)
+                return(rc);
+            
             try {
                 rc = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            if (value.contains(rc)){
                 value.remove(rc);
+                if (value.size() == 0)
+                    value = null;
+            }
             else
                 rc = null;
             return(rc);
@@ -109,7 +115,7 @@ public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2519)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
     public Iterator<EventSpec> getMV(){
         synchronized(this){
             Set<EventSpec> clone = null;
@@ -121,7 +127,7 @@ public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializabl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
     public Set<EventSpec> getMVCopy(){
         synchronized(this){
             Set<EventSpec> clone = null;
@@ -134,7 +140,7 @@ public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2546)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,10 +150,13 @@ public class DmcTypeEventSpecSET extends DmcTypeEventSpec implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
+            if (value == null)
+                return(rc);
+            
             try {
                 EventSpec val = typeCheck(v);
                 rc = value.contains(val);

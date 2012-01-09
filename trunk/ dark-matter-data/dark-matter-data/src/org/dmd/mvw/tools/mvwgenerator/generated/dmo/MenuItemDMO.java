@@ -16,25 +16,25 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:357)
-import java.io.Serializable;                                                          // Always required
-import java.util.*;                                                                   // Always required
-import org.dmd.dmc.DmcAttribute;                                                      // Any attributes
-import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object
-import org.dmd.dmc.DmcOmni;                                                           // Lazy resolution
-import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                                 // Any attributes
-import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor
-import org.dmd.dms.generated.types.DmcTypeStringSV;                                   // Required type
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionDMO;                        // Type specific set/add
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuDMO;                          // Type specific set/add
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuElementDefinitionDMO;         // Base class
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ActionREF;                      // Helper class
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeActionREFSV;             // Reference type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuREFSV;               // Reference type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuREF;                        // Helper class
+import java.io.Serializable;                                                             // Always required
+import java.util.*;                                                                      // Always required
+import org.dmd.dmc.DmcAttribute;                                                         // Any attributes
+import org.dmd.dmc.DmcNamedObjectIF;                                                     // Named object
+import org.dmd.dmc.DmcOmni;                                                              // Lazy resolution
+import org.dmd.dmc.DmcSliceInfo;                                                         // Required for object slicing
+import org.dmd.dmc.DmcValueException;                                                    // Any attributes
+import org.dmd.dmc.types.CamelCaseName;                                                  // Naming attribute type
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                              // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                               // Required type
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                    // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeStringSV;                                      // Required type
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionBindingDMO;                    // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuDMO;                             // Type specific set/add
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuElementDefinitionDMO;            // Base class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ActionBindingREF;                  // Helper class
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeActionBindingREFSV;         // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuREFSV;                  // Reference type
+import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuREF;                           // Helper class
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -332,8 +332,8 @@ public class MenuItemDMO  extends MenuElementDefinitionDMO  implements DmcNamedO
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:608)
-    public ActionREF getTriggersAction(){
-        DmcTypeActionREFSV attr = (DmcTypeActionREFSV) get(MvwDMSAG.__triggersAction);
+    public ActionBindingREF getTriggersAction(){
+        DmcTypeActionBindingREFSV attr = (DmcTypeActionBindingREFSV) get(MvwDMSAG.__triggersAction);
         if (attr == null)
             return(null);
 
@@ -348,10 +348,10 @@ public class MenuItemDMO  extends MenuElementDefinitionDMO  implements DmcNamedO
     }
 
     /**
-     * Returns the reference to Action without attempting lazy resolution (if turned on).
+     * Returns the reference to ActionBinding without attempting lazy resolution (if turned on).
      */
-    public ActionREF getTriggersActionREF(){
-        DmcTypeActionREFSV attr = (DmcTypeActionREFSV) get(MvwDMSAG.__triggersAction);
+    public ActionBindingREF getTriggersActionREF(){
+        DmcTypeActionBindingREFSV attr = (DmcTypeActionBindingREFSV) get(MvwDMSAG.__triggersAction);
         if (attr == null)
             return(null);
 
@@ -360,13 +360,13 @@ public class MenuItemDMO  extends MenuElementDefinitionDMO  implements DmcNamedO
 
     /**
      * Sets triggersAction to the specified value.
-     * @param value ActionDMO
+     * @param value ActionBindingDMO
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:661)
-    public void setTriggersAction(ActionDMO value) {
-        DmcTypeActionREFSV attr  = (DmcTypeActionREFSV) get(MvwDMSAG.__triggersAction);
+    public void setTriggersAction(ActionBindingDMO value) {
+        DmcTypeActionBindingREFSV attr  = (DmcTypeActionBindingREFSV) get(MvwDMSAG.__triggersAction);
         if (attr == null)
-            attr = new DmcTypeActionREFSV(MvwDMSAG.__triggersAction);
+            attr = new DmcTypeActionBindingREFSV(MvwDMSAG.__triggersAction);
         else
             attr.removeBackReferences();
         
@@ -381,13 +381,13 @@ public class MenuItemDMO  extends MenuElementDefinitionDMO  implements DmcNamedO
 
     /**
      * Sets triggersAction to the specified value.
-     * @param value A value compatible with DmcTypeActionREFSV
+     * @param value A value compatible with DmcTypeActionBindingREFSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
     public void setTriggersAction(Object value) throws DmcValueException {
-        DmcTypeActionREFSV attr  = (DmcTypeActionREFSV) get(MvwDMSAG.__triggersAction);
+        DmcTypeActionBindingREFSV attr  = (DmcTypeActionBindingREFSV) get(MvwDMSAG.__triggersAction);
         if (attr == null)
-            attr = new DmcTypeActionREFSV(MvwDMSAG.__triggersAction);
+            attr = new DmcTypeActionBindingREFSV(MvwDMSAG.__triggersAction);
         else
             attr.removeBackReferences();
         

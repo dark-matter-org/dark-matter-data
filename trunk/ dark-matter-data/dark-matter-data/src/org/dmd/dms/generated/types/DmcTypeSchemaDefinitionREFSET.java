@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSchemaDefinitionREFSET provides storage for a set of SchemaDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2364)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:241)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:245)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF implements Serializable {
@@ -58,7 +58,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2401)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public DmcAttribute<SchemaDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeSchemaDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2420)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
     public SchemaDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             SchemaDefinitionREF rc = typeCheck(v);
@@ -89,17 +89,23 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
     public SchemaDefinitionREF del(Object v){
         synchronized(this){
             SchemaDefinitionREF rc = null;
+            if (value == null)
+                return(rc);
+            
             try {
                 rc = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            if (value.contains(rc)){
                 value.remove(rc);
+                if (value.size() == 0)
+                    value = null;
+            }
             else
                 rc = null;
             return(rc);
@@ -107,7 +113,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
     public Iterator<SchemaDefinitionREF> getMV(){
         synchronized(this){
             Set<SchemaDefinitionREF> clone = null;
@@ -119,7 +125,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2469)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
     public Set<SchemaDefinitionREF> getMVCopy(){
         synchronized(this){
             Set<SchemaDefinitionREF> clone = null;
@@ -132,7 +138,7 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,10 +148,13 @@ public class DmcTypeSchemaDefinitionREFSET extends DmcTypeSchemaDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2494)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
+            if (value == null)
+                return(rc);
+            
             try {
                 SchemaDefinitionREF val = typeCheck(v);
                 rc = value.contains(val);

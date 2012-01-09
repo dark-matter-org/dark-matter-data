@@ -7,7 +7,9 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.apache.commons.io.FileUtils;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -44,6 +46,8 @@ public class DmsHtmlDocGenerator {
 				SchemaDefinition sd = sdit.next();
 				
 				allSchemasByID.put(sd.getSchemaBaseID(), sd);
+				allSchemasByName.put(sd.getName().getNameString(), sd);
+				
 				if (sd.getName().getNameString().length() > longest)
 					longest = sd.getName().getNameString().length();
 				
@@ -56,7 +60,15 @@ public class DmsHtmlDocGenerator {
 	
 	public void dumpSummary(){
 		try {
+			DmcOmni.instance().setTrackSchemaReferences(true);
+
 			SchemaManager manager = new SchemaManager();
+			
+			for(SchemaDefinition sd: allSchemasByID.values()){
+				if (manager.isSchema(sd.getName().getNameString()) == null)
+					manager.manageSchemaInternal(sd,false);
+			}
+						
 		} catch (ResultException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

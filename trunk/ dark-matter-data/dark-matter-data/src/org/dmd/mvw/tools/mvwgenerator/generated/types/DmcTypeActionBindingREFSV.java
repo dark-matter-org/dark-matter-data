@@ -20,43 +20,43 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
- * The DmcTypeActionREFSV provides storage for a single-valued ActionREF
+ * The DmcTypeActionBindingREFSV provides storage for a single-valued ActionBindingREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:522)
  */
 @SuppressWarnings("serial")
-public class DmcTypeActionREFSV extends DmcTypeActionREF implements Serializable {
+public class DmcTypeActionBindingREFSV extends DmcTypeActionBindingREF implements Serializable {
     
-    protected ActionREF value;
+    protected ActionBindingREF value;
     
-    public DmcTypeActionREFSV(){
+    public DmcTypeActionBindingREFSV(){
     
     }
     
-    public DmcTypeActionREFSV(DmcAttributeInfo ai){
+    public DmcTypeActionBindingREFSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeActionREFSV getNew(){
-        return(new DmcTypeActionREFSV(attrInfo));
+    public DmcTypeActionBindingREFSV getNew(){
+        return(new DmcTypeActionBindingREFSV(attrInfo));
     }
     
-    public DmcTypeActionREFSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeActionREFSV(ai));
+    public DmcTypeActionBindingREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeActionBindingREFSV(ai));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
-    public DmcAttribute<ActionREF> cloneIt(){
-        DmcTypeActionREFSV rc = getNew();
+    public DmcAttribute<ActionBindingREF> cloneIt(){
+        DmcTypeActionBindingREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
-    public ActionREF getSVCopy(){
+    public ActionBindingREF getSVCopy(){
         if (value == null)
             return(null);
         return(cloneValue(value));
@@ -64,8 +64,8 @@ public class DmcTypeActionREFSV extends DmcTypeActionREF implements Serializable
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
-    public ActionREF set(Object v) throws DmcValueException {
-        ActionREF rc = typeCheck(v);
+    public ActionBindingREF set(Object v) throws DmcValueException {
+        ActionBindingREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -81,7 +81,7 @@ public class DmcTypeActionREFSV extends DmcTypeActionREF implements Serializable
     }
     
     @Override
-    public ActionREF getSV(){
+    public ActionBindingREF getSV(){
         return(value);
     }
     

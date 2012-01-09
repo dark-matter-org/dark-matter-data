@@ -99,6 +99,20 @@ public class DmoCompactSchemaFormatter {
         out.write("    static String schemaName = \"" + sd.getName().getNameString() + "\";\n");
         out.write("\n");
 
+        out.write("\n");
+        out.write("    static int schemaBaseID = " + sd.getSchemaBaseID() + ";\n");
+        out.write("\n");
+
+        out.write("\n");
+        out.write("    static int schemaIDRange = " + sd.getSchemaIDRange() + ";\n");
+        out.write("\n");
+
+        int max = sd.getSchemaBaseID() + sd.getSchemaIDRange();
+        
+        out.write("\n");
+        out.write("    static int schemaMaxID = " + max + ";\n");
+        out.write("\n");
+
         for(AttributeDefinition ad: attributes.values()){
 			//     public final static DmcAttributeInfo __monitoredBy = new DmcAttributeInfo("monitoredBy",2202,"DashboardPrefs",ValueTypeEnum.MULTI,false);
 			out.write("    public final static DmcAttributeInfo __" + ad.getName().getNameString() + " = new DmcAttributeInfo(");
@@ -203,7 +217,7 @@ public class DmoCompactSchemaFormatter {
 	 * @throws ResultException 
 	 * @throws ResultException 
 	 */
-	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> classes, TreeMap<String,DmcUncheckedObject> attributes, TreeMap<String,DmcUncheckedObject> types, String dmodir) throws IOException, ResultException{
+	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> classes, TreeMap<String,DmcUncheckedObject> attributes, TreeMap<String,DmcUncheckedObject> types, String dmodir, int baseID, int idRange) throws IOException, ResultException{
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sn) + "DMSAG";
 		
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + ".java");
@@ -255,7 +269,21 @@ public class DmoCompactSchemaFormatter {
         out.write("    static String schemaName = \"" + sn + "\";\n");
         out.write("\n");
 
-		if (attributes != null){
+        out.write("\n");
+        out.write("    static int schemaBaseID = " + baseID + ";\n");
+        out.write("\n");
+
+        out.write("\n");
+        out.write("    static int schemaIDRange = " + idRange + ";\n");
+        out.write("\n");
+
+        int max = baseID + idRange;
+        
+        out.write("\n");
+        out.write("    static int schemaMaxID = " + max + ";\n");
+        out.write("\n");
+
+        if (attributes != null){
 	        for(DmcUncheckedObject ad: attributes.values()){
 	        	String n	= ad.getSV("name");
             	String t 	= ad.getSV("type");
@@ -454,6 +482,24 @@ public class DmoCompactSchemaFormatter {
         out.write("\n");
         out.write("    public String getSchemaName(){\n");
         out.write("        return(schemaName);\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("\n");
+        out.write("    public int getSchemaBaseID(){\n");
+        out.write("        return(schemaBaseID);\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("\n");
+        out.write("    public int getSchemaIDRange(){\n");
+        out.write("        return(schemaIDRange);\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("\n");
+        out.write("    public int getSchemaMaxID(){\n");
+        out.write("        return(schemaMaxID);\n");
         out.write("    }\n");
         out.write("\n");
         

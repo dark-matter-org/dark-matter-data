@@ -68,6 +68,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	// Offset to the gdo source directory
 	private final static String DMSDIR = "/src/org/dmd/dms";
 	
+	private	final static int META_BASE_ID = 0;
+	
+	private	final static int META_ID_RANGE = 200;
+	
 	private StringBuffer LGPL;
 	
 	// All definitions of the metaschema
@@ -174,7 +178,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 //            DmoAttributeSchemaFormatter asf = new DmoAttributeSchemaFormatter(System.out);
 //            asf.dumpSchema("meta", "org.dmd.dms", attributeDefs, typeDefs, curr.getCanonicalPath() + DMODIR);
             DmoCompactSchemaFormatter csf = new DmoCompactSchemaFormatter(System.out);
-            csf.dumpSchema("meta", "org.dmd.dms", classDefs, attributeDefs, typeDefs, curr.getCanonicalPath() + DMODIR);
+            csf.dumpSchema("meta", "org.dmd.dms", classDefs, attributeDefs, typeDefs, curr.getCanonicalPath() + DMODIR, META_BASE_ID, META_ID_RANGE);
             
             DmoValidatorCollectionFormatter vcf = new DmoValidatorCollectionFormatter(System.out);
             vcf.dumpSchema("meta", "org.dmd.dms", avDefs, ovDefs, curr.getCanonicalPath() + DMODIR);
@@ -769,8 +773,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
         out.write("            this.setDmwPackage(\"org.dmd.dms\");\n");
         
-        out.write("            this.setSchemaBaseID(0);\n");
-        out.write("            this.setSchemaIDRange(200);\n");
+        out.write("            this.setSchemaBaseID(" + META_BASE_ID + ");\n");
+        out.write("            this.setSchemaIDRange(" + META_ID_RANGE + ");\n");
 
         // Set the construction class of this valid object instance
 //        out.write("            this.addObjectClass(_SchemaDefinition);\n");

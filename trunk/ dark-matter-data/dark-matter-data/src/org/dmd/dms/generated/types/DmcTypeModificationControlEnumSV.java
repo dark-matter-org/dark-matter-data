@@ -24,8 +24,8 @@ import org.dmd.dms.generated.enums.ModificationControlEnum;    // DmcType import
  * The DmcTypeModificationControlEnumSV provides storage for a single-valued ModificationControlEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1762)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:228)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:232)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModificationControlEnumSV extends DmcTypeModificationControlEnum implements Serializable {
@@ -49,14 +49,14 @@ public class DmcTypeModificationControlEnumSV extends DmcTypeModificationControl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1794)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
     public DmcAttribute<ModificationControlEnum> cloneIt(){
         DmcTypeModificationControlEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1805)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
     public ModificationControlEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeModificationControlEnumSV extends DmcTypeModificationControl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1817)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
     public ModificationControlEnum set(Object v) throws DmcValueException {
         ModificationControlEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

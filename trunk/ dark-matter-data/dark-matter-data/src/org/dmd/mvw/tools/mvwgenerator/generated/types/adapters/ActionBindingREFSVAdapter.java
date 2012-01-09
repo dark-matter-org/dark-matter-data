@@ -4,16 +4,16 @@ import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeActionREFSV;
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeActionBindingREFSV;
 
 @SuppressWarnings("serial")
 // org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
 // Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
-public class ActionREFSVAdapter extends DmcTypeActionREFSV implements DmcAdapterIF {
+public class ActionBindingREFSVAdapter extends DmcTypeActionBindingREFSV implements DmcAdapterIF {
 
-    transient DmcTypeActionREFSV existingValue;
+    transient DmcTypeActionBindingREFSV existingValue;
 
-    public ActionREFSVAdapter(DmcAttributeInfo ai){
+    public ActionBindingREFSVAdapter(DmcAttributeInfo ai){
     	   attrInfo = ai;
     }
 
@@ -39,7 +39,7 @@ public class ActionREFSVAdapter extends DmcTypeActionREFSV implements DmcAdapter
 
     @Override
     public void setExisting(DmcAttribute<?> attr) {
-    	existingValue = (DmcTypeActionREFSV) attr;
+    	existingValue = (DmcTypeActionBindingREFSV) attr;
     	if (existingValue != null)
     		value = existingValue.getSVCopy();
     }

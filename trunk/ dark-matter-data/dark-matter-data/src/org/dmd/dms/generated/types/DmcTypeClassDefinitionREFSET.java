@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeClassDefinitionREFSET provides storage for a set of ClassDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2364)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:241)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:245)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF implements Serializable {
@@ -58,7 +58,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2401)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public DmcAttribute<ClassDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeClassDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2420)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
     public ClassDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             ClassDefinitionREF rc = typeCheck(v);
@@ -89,17 +89,23 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
     public ClassDefinitionREF del(Object v){
         synchronized(this){
             ClassDefinitionREF rc = null;
+            if (value == null)
+                return(rc);
+            
             try {
                 rc = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            if (value.contains(rc)){
                 value.remove(rc);
+                if (value.size() == 0)
+                    value = null;
+            }
             else
                 rc = null;
             return(rc);
@@ -107,7 +113,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
     public Iterator<ClassDefinitionREF> getMV(){
         synchronized(this){
             Set<ClassDefinitionREF> clone = null;
@@ -119,7 +125,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2469)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
     public Set<ClassDefinitionREF> getMVCopy(){
         synchronized(this){
             Set<ClassDefinitionREF> clone = null;
@@ -132,7 +138,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -142,10 +148,13 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2494)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
+            if (value == null)
+                return(rc);
+            
             try {
                 ClassDefinitionREF val = typeCheck(v);
                 rc = value.contains(val);

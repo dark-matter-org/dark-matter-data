@@ -22,37 +22,37 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 /**
- * The DmcTypeActionREFMV provides storage for a multi-valued ActionREF
+ * The DmcTypeActionBindingREFMV provides storage for a multi-valued ActionBindingREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2153)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:523)
  */
 @SuppressWarnings("serial")
-public class DmcTypeActionREFMV extends DmcTypeActionREF implements Serializable {
+public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implements Serializable {
     
-    protected ArrayList<ActionREF> value;
+    protected ArrayList<ActionBindingREF> value;
     
-    public DmcTypeActionREFMV(){
+    public DmcTypeActionBindingREFMV(){
     
     }
     
-    public DmcTypeActionREFMV(DmcAttributeInfo ai){
+    public DmcTypeActionBindingREFMV(DmcAttributeInfo ai){
         super(ai);
     }
     
     @Override
-    public DmcTypeActionREFMV getNew(){
-        return(new DmcTypeActionREFMV(attrInfo));
+    public DmcTypeActionBindingREFMV getNew(){
+        return(new DmcTypeActionBindingREFMV(attrInfo));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
-    public DmcAttribute<ActionREF> cloneIt(){
+    public DmcAttribute<ActionBindingREF> cloneIt(){
         synchronized(this){
-            DmcTypeActionREFMV rc = getNew();
+            DmcTypeActionBindingREFMV rc = getNew();
             if (attrInfo.indexSize == 0){
-                for(ActionREF val: value)
+                for(ActionBindingREF val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -73,11 +73,11 @@ public class DmcTypeActionREFMV extends DmcTypeActionREF implements Serializable
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
-    public ActionREF add(Object v) throws DmcValueException {
+    public ActionBindingREF add(Object v) throws DmcValueException {
         synchronized(this){
-            ActionREF rc = typeCheck(v);
+            ActionBindingREF rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<ActionREF>();
+                value = new ArrayList<ActionBindingREF>();
             value.add(rc);
             return(rc);
         }
@@ -85,10 +85,10 @@ public class DmcTypeActionREFMV extends DmcTypeActionREF implements Serializable
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2225)
-    public ActionREF del(Object v){
+    public ActionBindingREF del(Object v){
         synchronized(this){
-            ActionREF key = null;
-            ActionREF rc = null;
+            ActionBindingREF key = null;
+            ActionBindingREF rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -106,17 +106,17 @@ public class DmcTypeActionREFMV extends DmcTypeActionREF implements Serializable
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2256)
-    public Iterator<ActionREF> getMV(){
+    public Iterator<ActionBindingREF> getMV(){
         synchronized(this){
-            ArrayList<ActionREF> clone = new ArrayList<ActionREF>(value);
+            ArrayList<ActionBindingREF> clone = new ArrayList<ActionBindingREF>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2265)
-    public ArrayList<ActionREF> getMVCopy(){
+    public ArrayList<ActionBindingREF> getMVCopy(){
         synchronized(this){
-            ArrayList<ActionREF> clone = new ArrayList<ActionREF>(value);
+            ArrayList<ActionBindingREF> clone = new ArrayList<ActionBindingREF>(value);
             return(clone);
         }
     }
@@ -137,7 +137,7 @@ public class DmcTypeActionREFMV extends DmcTypeActionREF implements Serializable
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
-    public ActionREF getMVnth(int index){
+    public ActionBindingREF getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -147,7 +147,7 @@ public class DmcTypeActionREFMV extends DmcTypeActionREF implements Serializable
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2301)
-    public ActionREF setMVnth(int index, Object v) throws DmcValueException {
+    public ActionBindingREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
@@ -155,13 +155,13 @@ public class DmcTypeActionREFMV extends DmcTypeActionREF implements Serializable
             if ( (index < 0) || (index >= attrInfo.indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
             
-            ActionREF rc = null;
+            ActionBindingREF rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<ActionREF>(attrInfo.indexSize);
+                value = new ArrayList<ActionBindingREF>(attrInfo.indexSize);
                 for(int i=0;i<attrInfo.indexSize;i++)
                     value.add(null);
             }
@@ -201,7 +201,7 @@ public class DmcTypeActionREFMV extends DmcTypeActionREF implements Serializable
         synchronized(this){
             boolean rc = false;
             try {
-                ActionREF val = typeCheck(v);
+                ActionBindingREF val = typeCheck(v);
                 rc = value.contains(val);
             } catch (DmcValueException e) {
             }

@@ -540,16 +540,16 @@ type			String
 description		The label to be displayed on something.
 
 AttributeDefinition
-name			actionName
+name			actionBindingName
 dmdID			74
 type			CamelCaseName
-description		The name of an Action.
+description		The name of an ActionBinding.
 
 AttributeDefinition
 name			triggersAction
 dmdID			75
-type			Action
-description		Indicates the Action to be associated with a menu entry, button or
+type			ActionBinding
+description		Indicates the ActionBinding to be associated with a menu entry, button or
  other UI component.
 
 AttributeDefinition
@@ -581,16 +581,16 @@ description		The name and description of various alternate Menu item implementat
 AttributeDefinition
 name			implementsAction
 dmdID			80
-type			Action
+type			ActionBinding
 valueType		MULTI
-description		Indicates the Actions to be implemented by a Component. 
+description		Indicates the ActionBindings to be implemented by a Component. 
 
 AttributeDefinition
 name			implementedBy
 dmdID			81
 type			Component
 internalUse		true
-description		Indicates the Component that implements an Action.
+description		Indicates the Component that implements an ActionBinding.
 
 AttributeDefinition
 name			defaultSeparator

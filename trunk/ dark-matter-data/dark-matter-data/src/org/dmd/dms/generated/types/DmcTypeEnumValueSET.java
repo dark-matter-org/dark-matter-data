@@ -30,8 +30,8 @@ import org.dmd.dms.types.DmcTypeEnumValue;    // DmcType import
  * The DmcTypeEnumValueSET provides storage for a set of EnumValue
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2364)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializable {
@@ -60,7 +60,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2401)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
     public DmcAttribute<EnumValue> cloneIt(){
         synchronized(this){
             DmcTypeEnumValueSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2420)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
     public EnumValue add(Object v) throws DmcValueException {
         synchronized(this){
             EnumValue rc = typeCheck(v);
@@ -91,17 +91,23 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2437)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
     public EnumValue del(Object v){
         synchronized(this){
             EnumValue rc = null;
+            if (value == null)
+                return(rc);
+            
             try {
                 rc = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            if (value.contains(rc)){
                 value.remove(rc);
+                if (value.size() == 0)
+                    value = null;
+            }
             else
                 rc = null;
             return(rc);
@@ -109,7 +115,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
     public Iterator<EnumValue> getMV(){
         synchronized(this){
             Set<EnumValue> clone = null;
@@ -121,7 +127,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2469)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
     public Set<EnumValue> getMVCopy(){
         synchronized(this){
             Set<EnumValue> clone = null;
@@ -134,7 +140,7 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,10 +150,13 @@ public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2494)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
+            if (value == null)
+                return(rc);
+            
             try {
                 EnumValue val = typeCheck(v);
                 rc = value.contains(val);

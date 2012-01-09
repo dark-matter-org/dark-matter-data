@@ -33,7 +33,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FieldEditorDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormBindingDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.forms.GxtEnumMapping;
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.Action;
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuBar;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuItem;
@@ -116,7 +116,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	TreeMap<CamelCaseName, Separator>			separators;
 	
-	TreeMap<CamelCaseName, Action>				actions;
+	TreeMap<CamelCaseName, ActionBinding>				actions;
 	
 	// FORMS
 	
@@ -177,7 +177,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		subMenus 				= new TreeMap<CamelCaseName, SubMenu>();
 		menuItems 				= new TreeMap<CamelCaseName, MenuItem>();
 		separators				= new TreeMap<CamelCaseName, Separator>();
-		actions					= new TreeMap<CamelCaseName, Action>();
+		actions					= new TreeMap<CamelCaseName, ActionBinding>();
 		
 		fieldEditors			= new TreeMap<CamelCaseName, FieldEditorDefinition>();
 		formBindings			= new TreeMap<CamelCaseName, FormBindingDefinition>();
@@ -514,8 +514,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			separators.put(sep.getCamelCaseName(), sep);
 			menuElements.put(sep.getCamelCaseName(), sep);
 		}
-		else if (def instanceof Action){
-			Action action = (Action) def;
+		else if (def instanceof ActionBinding){
+			ActionBinding action = (ActionBinding) def;
 			actions.put(action.getCamelCaseName(), action);
 		}
 		else if (def instanceof MenuImplementationConfig){
@@ -686,7 +686,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		// Try to create the back association between Actions and their implementors
 		for(Controller controller: controllers.values()){			
 			if (controller.getImplementsActionHasValue()){
-				for(Action action: controller.getImplementsActionIterable()){
+				for(ActionBinding action: controller.getImplementsActionIterable()){
 					if (action.getImplementedBy() == null)
 						action.setImplementedBy(controller);
 					else{
@@ -694,7 +694,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 							errors = new ResultException();
 						
 						Component existing = action.getImplementedBy();
-						errors.addError("Multiple components implement the " + action.getActionName() + " action.");
+						errors.addError("Multiple components implement the " + action.getActionBindingName() + " action.");
 						errors.result.lastResult().moreMessages(existing.getComponentName() + " in file " + existing.getFile() + ":" + existing.getLineNumber());
 						errors.result.lastResult().moreMessages(controller.getComponentName() + " in file " + controller.getFile() + ":" + controller.getLineNumber());
 					}
@@ -721,12 +721,12 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		
 		// And ensure that all actions are implemented
-		for(Action action: actions.values()){
+		for(ActionBinding action: actions.values()){
 			if (action.getImplementedBy() == null){
 				if (errors == null)
 					errors = new ResultException();
 				
-				errors.addError("The " + action.getActionName() + " action is not implemented by any Controller, Presenter or Activity.");
+				errors.addError("The " + action.getActionBindingName() + " action is not implemented by any Controller, Presenter or Activity.");
 			}
 		}
 		
@@ -973,7 +973,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		for(Place place: places.values()){
 			place.initCodeGenInfo();
 		}
-		for(Action action: actions.values()){
+		for(ActionBinding action: actions.values()){
 			action.initCodeGenInfo();
 		}
 	}

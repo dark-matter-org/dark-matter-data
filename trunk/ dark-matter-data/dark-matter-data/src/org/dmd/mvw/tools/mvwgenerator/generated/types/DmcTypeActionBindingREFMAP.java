@@ -27,45 +27,45 @@ import org.dmd.dmc.DmcMappedAttributeIF;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmc.types.CamelCaseName;    // key type import
 /**
- * The DmcTypeActionREFMAP provides storage for a map of ActionREF
+ * The DmcTypeActionBindingREFMAP provides storage for a map of ActionBindingREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2627)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2636)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
-// public class DmcTypeActionREFMAP extends DmcTypeActionREF<ActionREF,CamelCaseName> {
-public class DmcTypeActionREFMAP extends DmcTypeActionREF implements Serializable {
+// public class DmcTypeActionBindingREFMAP extends DmcTypeActionBindingREF<ActionBindingREF,CamelCaseName> {
+public class DmcTypeActionBindingREFMAP extends DmcTypeActionBindingREF implements Serializable {
     
-    protected Map<CamelCaseName,ActionREF> value;
+    protected Map<CamelCaseName,ActionBindingREF> value;
     
-    public DmcTypeActionREFMAP(){
+    public DmcTypeActionBindingREFMAP(){
         value = null;
     }
     
-    public DmcTypeActionREFMAP(DmcAttributeInfo ai){
+    public DmcTypeActionBindingREFMAP(DmcAttributeInfo ai){
         super(ai);
         initValue();
     }
     
     void initValue(){
         if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-            value = new HashMap<CamelCaseName,ActionREF>();
+            value = new HashMap<CamelCaseName,ActionBindingREF>();
         else
-            value = new TreeMap<CamelCaseName,ActionREF>();
+            value = new TreeMap<CamelCaseName,ActionBindingREF>();
     }
     
     @Override
-    public DmcTypeActionREFMAP getNew(){
-        return(new DmcTypeActionREFMAP(attrInfo));
+    public DmcTypeActionBindingREFMAP getNew(){
+        return(new DmcTypeActionBindingREFMAP(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2670)
-    public DmcAttribute<ActionREF> cloneIt(){
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2679)
+    public DmcAttribute<ActionBindingREF> cloneIt(){
         synchronized(this){
-            DmcTypeActionREFMAP rc = getNew();
-            for(ActionREF val: value.values())
+            DmcTypeActionBindingREFMAP rc = getNew();
+            for(ActionBindingREF val: value.values())
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -76,14 +76,14 @@ public class DmcTypeActionREFMAP extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2686)
-    public ActionREF add(Object v) throws DmcValueException {
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2695)
+    public ActionBindingREF add(Object v) throws DmcValueException {
         synchronized(this){
-            ActionREF newval = typeCheck(v);
+            ActionBindingREF newval = typeCheck(v);
             if (value == null)
                 initValue();
             CamelCaseName key = (CamelCaseName)((DmcMappedAttributeIF)newval).getKey();
-            ActionREF oldval = value.put(key,newval);
+            ActionBindingREF oldval = value.put(key,newval);
             
             if (oldval != null){
                 // We had a value with this key, ensure that the value actually changed
@@ -96,8 +96,8 @@ public class DmcTypeActionREFMAP extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2707)
-    public ActionREF del(Object key){
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2716)
+    public ActionBindingREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
                 return(value.remove(key));
@@ -107,31 +107,31 @@ public class DmcTypeActionREFMAP extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2719)
-    public Iterator<ActionREF> getMV(){
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2728)
+    public Iterator<ActionBindingREF> getMV(){
         synchronized(this){
-            Map<CamelCaseName,ActionREF> clone = null;
+            Map<CamelCaseName,ActionBindingREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<CamelCaseName,ActionREF>(value);
+                clone = new HashMap<CamelCaseName,ActionBindingREF>(value);
             else
-                clone = new TreeMap<CamelCaseName,ActionREF>(value);
+                clone = new TreeMap<CamelCaseName,ActionBindingREF>(value);
             return(clone.values().iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2732)
-    public Map<CamelCaseName,ActionREF> getMVCopy(){
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2741)
+    public Map<CamelCaseName,ActionBindingREF> getMVCopy(){
         synchronized(this){
-            Map<CamelCaseName,ActionREF> clone = null;
+            Map<CamelCaseName,ActionBindingREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<CamelCaseName,ActionREF>(value);
+                clone = new HashMap<CamelCaseName,ActionBindingREF>(value);
             else
-                clone = new TreeMap<CamelCaseName,ActionREF>(value);
+                clone = new TreeMap<CamelCaseName,ActionBindingREF>(value);
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2745)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2754)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -142,8 +142,8 @@ public class DmcTypeActionREFMAP extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2757)
-    public ActionREF getByKey(Object key){
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2766)
+    public ActionBindingREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
                 return(value.get(key));
@@ -153,12 +153,12 @@ public class DmcTypeActionREFMAP extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2769)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2778)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
             try {
-                ActionREF val = typeCheck(v);
+                ActionBindingREF val = typeCheck(v);
                 rc = value.containsValue(val);
             } catch (DmcValueException e) {
             }
@@ -167,7 +167,7 @@ public class DmcTypeActionREFMAP extends DmcTypeActionREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2784)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2793)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;
