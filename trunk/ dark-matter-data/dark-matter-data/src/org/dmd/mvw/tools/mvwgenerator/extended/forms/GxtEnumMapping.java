@@ -37,7 +37,7 @@ public class GxtEnumMapping extends GxtEnumMappingDMW {
 			if ( (skip != null) && (skip.contains(value.getName())))
 				continue;
 			
-			sb.append("    final GxtEnumValue ");
+			sb.append("    public final GxtEnumValue ");
 			sb.append(value.getName());
 			sb.append(" = new GxtEnumValue(");
 			sb.append("\"" + value.getName() + "\", ");
