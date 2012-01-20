@@ -21,7 +21,7 @@ import org.dmd.util.parsing.StringArrayList;
  * @version 1.0
  */
 
-public class countMain {
+public class CodeCountMain {
 
     StringBuffer  help;   /* A block comment with code */
 
@@ -31,7 +31,7 @@ public class countMain {
      * Key: String (package name)
      * Value: TreeMap (Key: filename, Value countInfo)
      */
-    TreeMap         packages;
+    TreeMap<String,TreeMap<String,CodeCountInfo>>         packages;
 
     PrintfFormat    nameFormat;
     PrintfFormat    totalFormat;
@@ -43,7 +43,8 @@ public class countMain {
     BooleanVar          helpFlag    = new BooleanVar();
     BooleanVar          recursiveFlag    = new BooleanVar();
     StringBuffer        ofn         = new StringBuffer("");
-    StringBuffer        inDir       = new StringBuffer("./");
+	StringBuffer		workspace	= new StringBuffer();
+    StringBuffer        inDir       = new StringBuffer();
     StringBuffer        outDir      = new StringBuffer("./out");
     StringArrayList     skip        = new StringArrayList();
 
@@ -62,31 +63,35 @@ public class countMain {
         colFormat  = new PrintfFormat("%10s");
         longestName = 0;
 
-        packages    = new TreeMap();
+        packages    = new TreeMap<String,TreeMap<String,CodeCountInfo>>();
         out         = null;
 
         help = new StringBuffer();
         //            ***************************************************************************
-        help.append("count -h -id -of -r -skip\n\n");
-        help.append("The count tool provides a simple code count mechansism. It indicates the\n");
-        help.append("number of source, comment, import and blank lines in a set of Java files.\n");
+        help.append("count -h -workspace -id -of -r -skip\n\n");
+        help.append("The code count tool provides a simple code count mechansism. It indicates the\n");
+        help.append("number of source, comment, import and blank lines in a set of Java files\n");
+        help.append("and how many files are auto generated.\n");
         help.append("\n");
-        help.append("-h   Dumps the help information\n");
+        help.append("-h          Dumps the help information\n");
         help.append("\n");
-        help.append("-id   Indicates the directory at which parsing should start. \n");
+        help.append("-workspace  Indicates the workspace prefix.\n");
         help.append("\n");
-        help.append("-of   The output file name.\n");
+        help.append("-id         Indicates the directory beneath the workspace at which parsing should start. \n");
         help.append("\n");
-        help.append("-r    Indicates that you want to recurse through all subdirectories. \n");
+        help.append("-of         The output file name.\n");
         help.append("\n");
-        help.append("-skip (suffix) Indicates that you want to skip subdirectories that end with the \n");
-        help.append("      specified suffix.\n");
+        help.append("-r          Indicates that you want to recurse through all subdirectories. \n");
+        help.append("\n");
+        help.append("-skip      (suffix) Indicates that you want to skip subdirectories that end with the \n");
+        help.append("           specified suffix.\n");
         help.append("\n");
         help.append("\n");
 
         cl.addOption("-h",helpFlag,"Dumps the help message.");
         cl.addOption("-o",ofn,"Output file name.");
-        cl.addOption("-id",inDir,"The input directory");
+        cl.addOption("-workspace", 	workspace, 	"The workspace prefix");
+        cl.addOption("-indir",inDir,"The input directory");
         cl.addOption("-of",outDir,"The output directory");
         cl.addOption("-r",recursiveFlag,"Recurses through all subdirectories.");
         cl.addOption("-skip",skip,"Skips the specified directory.");
@@ -109,8 +114,18 @@ public class countMain {
             System.exit(0);
         }
 
+        if (workspace.length() == 0){
+        	System.err.println("You must specify the -workspace argument");
+        	System.exit(1);
+        }
+        
+        String startDir = workspace.toString();
+        
+        if (inDir.length() > 0){
+        	startDir = startDir + File.separator + inDir.toString();
+        }
 
-        readDirectory(rs,inDir.toString());
+        readDirectory(rs,startDir);
 
         nameFormat = new PrintfFormat("%-" + longestName + "s");
         totalFormat = new PrintfFormat("%" + longestName + "s");
@@ -145,7 +160,7 @@ public class countMain {
         }
 
         if (!codeDir.exists()){
-            Result result = rs.addResult(Result.FATAL,"Couldn't access code directory: " + dirName);
+            rs.addResult(Result.FATAL,"Couldn't access code directory: " + dirName);
             rc = false;
         }
         else{
@@ -184,7 +199,7 @@ public class countMain {
      */
     boolean parseFile(ResultSet rs, String fullname, String justname){
         boolean     rc          = true;
-        countInfo   info        = new countInfo(justname);
+        CodeCountInfo   info        = new CodeCountInfo(fullname,justname);
         boolean     codeFound   = false;
 
 // println("File: " + fullname);
@@ -245,7 +260,7 @@ public class countMain {
      * We come here if we find a \/* on a line. We now have to determine
      * some other things.
      */
-    boolean processBlock(String curr, LineNumberReader in, countInfo info, ResultSet rs){
+    boolean processBlock(String curr, LineNumberReader in, CodeCountInfo info, ResultSet rs){
         boolean rc = true;
 
         if (curr.lastIndexOf("*/") != -1){
@@ -288,11 +303,11 @@ public class countMain {
     /**
      * Adds a countInfo instance to our master tree.
      */
-    void addCountInfo(countInfo info){
-        TreeMap curr = (TreeMap)packages.get(info.packageName);
+    void addCountInfo(CodeCountInfo info){
+    	TreeMap<String,CodeCountInfo> curr = (TreeMap<String,CodeCountInfo>)packages.get(info.packageName);
 
         if (curr == null){
-            curr = new TreeMap();
+            curr = new TreeMap<String,CodeCountInfo>();
             packages.put(info.packageName,curr);
         }
 
@@ -303,11 +318,11 @@ public class countMain {
      * Dumps the complete set of info.
      */
     void dumpInfo(){
-        Iterator    packit  = packages.keySet().iterator();
-        TreeMap     infotree    = null;
-        Iterator    infoit  = null;
-        String      pname   = null;
-        countInfo   info    = null;
+        Iterator<String>    			packit  	= packages.keySet().iterator();
+        TreeMap<String,CodeCountInfo>   infotree    = null;
+        Iterator<CodeCountInfo>    		infoit  	= null;
+        String      					pname   	= null;
+        CodeCountInfo   				info    	= null;
 
         int         regFiles    = 0;
         int         autoFiles   = 0;
@@ -356,11 +371,11 @@ public class countMain {
             + colFormat.sprintf("Blank")
             + colFormat.sprintf("Total"));
 
-            infotree = (TreeMap)packages.get(pname);
+            infotree = (TreeMap<String,CodeCountInfo>)packages.get(pname);
 
             infoit = infotree.values().iterator();
             while(infoit.hasNext()){
-                info = (countInfo)infoit.next();
+                info = infoit.next();
                 println(info.formatInfo(nameFormat,numFormat));
 
                 if (info.auto){

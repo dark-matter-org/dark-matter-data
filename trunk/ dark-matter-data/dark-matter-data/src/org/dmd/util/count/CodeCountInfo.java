@@ -6,7 +6,7 @@ import org.dmd.util.formatting.PrintfFormat;
  * This class stores information for an individual Java file.
  */
 
-public class countInfo {
+public class CodeCountInfo {
 
     public String   packageName;
 
@@ -27,7 +27,7 @@ public class countInfo {
     /**
      * Constructs a new info container.
      */
-    countInfo(String n){
+    CodeCountInfo(String fullName, String n){
         fileName = new String(n);
 
         codeCount       = 0;
@@ -37,7 +37,9 @@ public class countInfo {
         totalLines      = 0;
         auto            = false;
 
-        if (fileName.endsWith("AG.java"))
+        int generatedPos = fullName.indexOf("generated");
+        
+        if (generatedPos != -1)
             auto = true;
     }
 
