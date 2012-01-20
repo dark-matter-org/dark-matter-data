@@ -49,6 +49,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __indexedPlainObjRef = new DmcAttributeInfo("indexedPlainObjRef", 10416, "TestBasicObjectFixed", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 10);
     public final static DmcAttributeInfo __indexedString = new DmcAttributeInfo("indexedString", 10414, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 5);
     public final static DmcAttributeInfo __intToString = new DmcAttributeInfo("intToString", 10080, "IntegerToString", ValueTypeEnum.HASHMAPPED, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __intToStringMAP = new DmcAttributeInfo("intToStringMAP", 10424, "IntegerToString", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvBoolean = new DmcAttributeInfo("mvBoolean", 10001, "Boolean", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvDate = new DmcAttributeInfo("mvDate", 10011, "Date", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvDmcObject = new DmcAttributeInfo("mvDmcObject", 10021, "DmcObject", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -155,6 +156,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__indexedPlainObjRef.id,__indexedPlainObjRef);
         _SmAp.put(__indexedString.id,__indexedString);
         _SmAp.put(__intToString.id,__intToString);
+        _SmAp.put(__intToStringMAP.id,__intToStringMAP);
         _SmAp.put(__mvBoolean.id,__mvBoolean);
         _SmAp.put(__mvDate.id,__mvDate);
         _SmAp.put(__mvDmcObject.id,__mvDmcObject);
@@ -332,6 +334,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __ObjWithRefs.addMay(__someRelationSV);
         __ObjWithRefs.addMay(__someRelationMV);
         __ObjWithRefs.addMay(__someRelationMVI);
+        __ObjWithRefs.addMay(__intToStringMAP);
 
         __ClientCountFilter.addMay(__OUIFilter);
 

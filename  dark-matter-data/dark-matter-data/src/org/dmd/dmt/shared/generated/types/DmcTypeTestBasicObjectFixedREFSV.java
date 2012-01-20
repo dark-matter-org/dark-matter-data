@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;    // DmcType i
  * The DmcTypeTestBasicObjectFixedREFSV provides storage for a single-valued TestBasicObjectFixed
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1825)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:250)
  */
 @SuppressWarnings("serial")
@@ -34,14 +34,14 @@ public class DmcTypeTestBasicObjectFixedREFSV extends DmcTypeTestBasicObjectFixe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1857)
     public DmcAttribute<TestBasicObjectFixedDMO> cloneIt(){
         DmcTypeTestBasicObjectFixedREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
     public TestBasicObjectFixedDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -49,7 +49,7 @@ public class DmcTypeTestBasicObjectFixedREFSV extends DmcTypeTestBasicObjectFixe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1880)
     public TestBasicObjectFixedDMO set(Object v) throws DmcValueException {
         TestBasicObjectFixedDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

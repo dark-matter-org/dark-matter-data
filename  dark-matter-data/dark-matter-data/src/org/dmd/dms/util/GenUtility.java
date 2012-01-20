@@ -33,10 +33,8 @@ import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.ExtendedReferenceTypeDefinition;
 import org.dmd.dms.MetaSchema;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.util.BooleanVar;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
@@ -1376,6 +1374,20 @@ public class GenUtility {
 			sb.append("    }\n\n");
 		}
 		
+		if (ad.getValueType() == ValueTypeEnum.TREEMAPPED){
+	    	sb.append("    /**\n");
+			sb.append("     * @return The first key of the map.\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public " + ad.getType().getKeyClass() + " get" + functionName + "FirstKey(){\n");
+			sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+			sb.append("        if (attr == null)\n");
+			sb.append("            return(null);\n");
+			sb.append("\n");
+			sb.append("        return(attr.firstKey());\n");
+			sb.append("    }\n\n");
+		}
+		
     	////////////////////////////////////////////////////////////////////////////////
     	// adder
 
@@ -2669,6 +2681,17 @@ public class GenUtility {
         out.write("    }\n");
         out.write("    \n");
         
+        out.write("    public " + keyClass + " firstKey(){\n");
+        out.write("        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){\n");
+        out.write("            if (value == null)\n");
+        out.write("                return(null);\n");
+        out.write("            TreeMap<" + keyClass + "," + typeName + genericArgs + "> map = (TreeMap<" + keyClass + "," + typeName + genericArgs + ">)value;\n");
+        out.write("            return(map.firstKey());\n");
+        out.write("        }\n");
+        out.write("        throw(new IllegalStateException(\"Attribute \" + attrInfo.name + \" is HASHMAPPED and doesn't support firstKey()\"));\n");
+        out.write("    }\n");
+        out.write("    \n");
+        
         out.write("    @Override\n");
         out.write("    public DmcType" + typeName + "MAP getNew(){\n");
         out.write("        return(new DmcType" + typeName + "MAP(attrInfo));\n");
@@ -2989,7 +3012,7 @@ public class GenUtility {
 //  		else
 //  			out.write("abstract public class DmcType" + cn + " extends DmcAttribute<" + cn + ">" + " implements Serializable {\n\n");
   		
-  		String ref = ertd.getExtendedReferenceClass().getName().getNameString();
+//  		String ref = ertd.getExtendedReferenceClass().getName().getNameString();
   		String nametype = ertd.getExtendedReferenceClass().getIsNamedBy().getType().getName().getNameString();
   		
 		out.write("abstract public class DmcType" + cn + " extends DmcTypeNamedObjectREF<" + ertd.getName() + ", " + nametype + "> {\n\n");

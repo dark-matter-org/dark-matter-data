@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeIntegerToBoolean;    // DmcType import
  * The DmcTypeIntegerToBooleanSET provides storage for a set of IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
@@ -60,7 +60,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
     public DmcAttribute<IntegerToBoolean> cloneIt(){
         synchronized(this){
             DmcTypeIntegerToBooleanSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
     public IntegerToBoolean add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerToBoolean rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public IntegerToBoolean del(Object v){
         synchronized(this){
             IntegerToBoolean rc = null;
@@ -115,7 +115,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
     public Iterator<IntegerToBoolean> getMV(){
         synchronized(this){
             Set<IntegerToBoolean> clone = null;
@@ -127,7 +127,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
     public Set<IntegerToBoolean> getMVCopy(){
         synchronized(this){
             Set<IntegerToBoolean> clone = null;
@@ -140,7 +140,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -150,7 +150,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

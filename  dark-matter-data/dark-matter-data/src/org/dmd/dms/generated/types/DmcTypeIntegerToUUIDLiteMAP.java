@@ -31,7 +31,7 @@ import org.dmd.dmc.types.IntegerToUUIDLite;    // primitive import
  * The DmcTypeIntegerToUUIDLiteMAP provides storage for a map of IntegerToUUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2636)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2648)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:275)
  */
 @SuppressWarnings("serial")
@@ -56,13 +56,23 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
             value = new TreeMap<Integer,IntegerToUUIDLite>();
     }
     
+    public Integer firstKey(){
+        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+            if (value == null)
+                return(null);
+            TreeMap<Integer,IntegerToUUIDLite> map = (TreeMap<Integer,IntegerToUUIDLite>)value;
+            return(map.firstKey());
+        }
+        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+    }
+    
     @Override
     public DmcTypeIntegerToUUIDLiteMAP getNew(){
         return(new DmcTypeIntegerToUUIDLiteMAP(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2679)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2702)
     public DmcAttribute<IntegerToUUIDLite> cloneIt(){
         synchronized(this){
             DmcTypeIntegerToUUIDLiteMAP rc = getNew();
@@ -77,7 +87,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2695)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2718)
     public IntegerToUUIDLite add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerToUUIDLite newval = typeCheck(v);
@@ -97,7 +107,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2716)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2739)
     public IntegerToUUIDLite del(Object key){
         synchronized(this){
            if (key instanceof Integer)
@@ -108,7 +118,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2728)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2751)
     public Iterator<IntegerToUUIDLite> getMV(){
         synchronized(this){
             Map<Integer,IntegerToUUIDLite> clone = null;
@@ -120,7 +130,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2741)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2764)
     public Map<Integer,IntegerToUUIDLite> getMVCopy(){
         synchronized(this){
             Map<Integer,IntegerToUUIDLite> clone = null;
@@ -132,7 +142,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2754)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2777)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -143,7 +153,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2766)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2789)
     public IntegerToUUIDLite getByKey(Object key){
         synchronized(this){
             if (key instanceof Integer)
@@ -154,7 +164,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2778)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2801)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -168,7 +178,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2793)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2816)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

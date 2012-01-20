@@ -13,7 +13,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTestDerivedDiffSubpackageREFSET provides storage for a set of TestDerivedDiffSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:524)
  */
 @SuppressWarnings("serial")
@@ -43,7 +43,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
     public DmcAttribute<TestDerivedDiffSubpackageREF> cloneIt(){
         synchronized(this){
             DmcTypeTestDerivedDiffSubpackageREFSET rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
     public TestDerivedDiffSubpackageREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestDerivedDiffSubpackageREF rc = typeCheck(v);
@@ -74,7 +74,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public TestDerivedDiffSubpackageREF del(Object v){
         synchronized(this){
             TestDerivedDiffSubpackageREF rc = null;
@@ -98,7 +98,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
     public Iterator<TestDerivedDiffSubpackageREF> getMV(){
         synchronized(this){
             Set<TestDerivedDiffSubpackageREF> clone = null;
@@ -110,7 +110,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
     public Set<TestDerivedDiffSubpackageREF> getMVCopy(){
         synchronized(this){
             Set<TestDerivedDiffSubpackageREF> clone = null;
@@ -123,7 +123,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -133,7 +133,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;

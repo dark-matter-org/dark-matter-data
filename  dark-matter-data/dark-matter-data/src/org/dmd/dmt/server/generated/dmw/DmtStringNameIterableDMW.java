@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.types.DmtStringName;
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1598)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1610)
  *    Called from: org.dmd.dmg.generators.DmwDMWGenerator.createTypeIterables(DmwDMWGenerator.java:93)
  */
 public class DmtStringNameIterableDMW extends DmwMVIterator<DmtStringName> {

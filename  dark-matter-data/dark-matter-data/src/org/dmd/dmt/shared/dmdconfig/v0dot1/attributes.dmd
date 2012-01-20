@@ -442,4 +442,10 @@ type            		SomeRelation
 valueType				MULTI
 indexSize				8
 
+AttributeDefinition
+name            		intToStringMAP
+dmdID           		424
+type					IntegerToString
+valueType				TREEMAPPED
+
 

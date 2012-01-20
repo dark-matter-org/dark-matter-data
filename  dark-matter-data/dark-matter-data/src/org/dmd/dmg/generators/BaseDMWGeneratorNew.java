@@ -1922,6 +1922,16 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 			sb.append("        return(" + dmocast + ".get" + functionName + "(key));\n");
 			sb.append("    }\n\n");
 		}
+		
+		if (ad.getValueType() == ValueTypeEnum.TREEMAPPED){
+	    	sb.append("    /**\n");
+			sb.append("     * @return the first key of the map.\n");
+			sb.append("     */\n");
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			sb.append("    public " + ad.getType().getKeyClass() + " get" + functionName + "FirstKey(){\n");
+			sb.append("        return(" + dmocast + ".get" + functionName + "FirstKey());\n");
+			sb.append("    }\n\n");
+		}
 
 		if (ad.getType().getIsRefType()){
 			String itClass = ad.getType().getOriginalClass().getDmwIteratorClass();

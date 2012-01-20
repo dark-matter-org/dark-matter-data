@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeActionDefinitionREFSET provides storage for a set of ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:245)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
     public DmcAttribute<ActionDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeActionDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
     public ActionDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             ActionDefinitionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public ActionDefinitionREF del(Object v){
         synchronized(this){
             ActionDefinitionREF rc = null;
@@ -113,7 +113,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
     public Iterator<ActionDefinitionREF> getMV(){
         synchronized(this){
             Set<ActionDefinitionREF> clone = null;
@@ -125,7 +125,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
     public Set<ActionDefinitionREF> getMVCopy(){
         synchronized(this){
             Set<ActionDefinitionREF> clone = null;
@@ -138,7 +138,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
