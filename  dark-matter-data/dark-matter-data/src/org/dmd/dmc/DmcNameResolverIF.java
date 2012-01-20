@@ -28,6 +28,15 @@ public interface DmcNameResolverIF {
     public DmcNamedObjectIF findNamedObject(DmcObjectName name);
     
     /**
+     * Finds a named object based on its name and indicates the attribute via which
+     * the reference is being made. This method is used via the DmcObject and is primarily
+     * intended to handle the situation where we must resolve internal type definitions
+     * as opposed to class definitions. This is due to the fact that we create internal
+     * type definitions for classes that have the same name as the associated classes.
+     */
+    public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID);
+    
+    /**
      * Finds a DMO based on its name.
      * @param name
      * @return A Dark Matter Object.

@@ -258,5 +258,16 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF, DmcNameResolve
 		
 		return(rc);
 	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
+		// Don't actually use the attribute ID here
+		DmcNamedObjectIF rc = schema.findNamedObject(name);
+		
+		if (rc == null)
+			return(cache.findNamedObject(name));
+		
+		return(rc);
+	}
 	
 }

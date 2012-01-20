@@ -9,14 +9,11 @@ import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmp.server.extended.CreateRequest;
-import org.dmd.dmp.server.extended.CreateResponse;
 import org.dmd.dmp.server.extended.DeleteRequest;
-import org.dmd.dmp.server.extended.DeleteResponse;
 import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.SetRequest;
-import org.dmd.dmp.server.extended.SetResponse;
 import org.dmd.dmp.server.servlet.base.DmpServletPlugin;
 import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpRequestProcessorIF;
@@ -177,6 +174,11 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	@Override
 	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
 		return(theCache.get(name));
+	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
+		return(findNamedObject(name));
 	}
 
 	@Override

@@ -419,5 +419,16 @@ public class MvcDefinitionManager implements DmcNameResolverIF {
 		return(allDefs.get(name));
 	}
 
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
+		// We don't actually use the attribute id in this method
+		DmsDefinition def = (DmsDefinition) schema.findNamedObject(name);
+		
+		if (def != null)
+			return (DmcNamedObjectIF) (def.getDmcObject());
+		
+		return(allDefs.get(name));
+	}
+
 	
 }

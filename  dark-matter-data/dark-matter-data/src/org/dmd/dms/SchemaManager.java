@@ -35,7 +35,6 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
-import org.dmd.dms.generated.types.ClassDefinitionREF;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;
 import org.dmd.dms.generated.types.Field;
 import org.dmd.dmw.DmwWrapper;
@@ -86,6 +85,9 @@ public class SchemaManager implements DmcNameResolverIF {
     public HashMap<StringName,TypeDefinition>     	typeDefs;
     public int  longestTypeName;
 
+    // Internally generated types for classes
+    public HashMap<StringName,TypeDefinition>     	internalTypeDefs;
+    
     /**
      * This map contains all attribute definitions keyed on their respective name attributes.
      * Key: StringName
@@ -218,6 +220,7 @@ public class SchemaManager implements DmcNameResolverIF {
         allDefs     				= new HashMap<StringName,DmsDefinition>();
         enumDefs 					= new HashMap<StringName,EnumDefinition>();
         typeDefs    				= new HashMap<StringName,TypeDefinition>();
+        internalTypeDefs    		= new HashMap<StringName,TypeDefinition>();
         attrDefs    				= new HashMap<StringName,AttributeDefinition>();
         attrByID					= new TreeMap<Integer, AttributeDefinition>();
         classesByID					= new TreeMap<Integer, ClassDefinition>();
@@ -977,6 +980,8 @@ public class SchemaManager implements DmcNameResolverIF {
         ctd.getDefinedIn().addInternalTypeDefList(td);
         ctd.getDefinedIn().addTypeDefList(td);
         
+        internalTypeDefs.put(td.getName(), td);
+        
         // And then we add the type
         addType(td);
     }
@@ -1313,6 +1318,7 @@ public class SchemaManager implements DmcNameResolverIF {
 	        // We add the new type to the schema's list of internally generated types
 	        cd.getDefinedIn().addInternalTypeDefList(td);
 	        
+	        internalTypeDefs.put(td.getName(), td);
         }
 
         if (extensions.size() > 0){
@@ -1556,6 +1562,7 @@ public class SchemaManager implements DmcNameResolverIF {
 //        td.addObjectClass(MetaSchemaAG._TypeDefinition);
         td.setDefinedIn(evd.getDefinedIn());
         
+        internalTypeDefs.put(td.getName(), td);
         
         // We add the new type to the schema's list of internally generated types
         evd.getDefinedIn().addInternalTypeDefList(td);
@@ -1745,15 +1752,45 @@ public class SchemaManager implements DmcNameResolverIF {
     	}
 //    	else if (name.getNameString().equals("metaSchema")){
         else if (name.getNameString().equals("meta")){
-DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
+//DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
     		// And another bit of magic - the class definitions of the metaSchema are
     		// loaded before the schema definition for the meta schema
-    		DebugInfo.debug("METASCHEMA");
+//    		DebugInfo.debug("METASCHEMA");
     		return(MetaSchema._metaSchema);
     	}
 
         return((DmcNamedObjectIF)allDefs.get(name));
 	}
+	
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
+		if (attributeID == MetaDMSAG.__internalTypeRef.id){
+//			DebugInfo.debug("internal type ref: " + name.getNameString());
+			DmcNamedObjectIF def = (DmcNamedObjectIF)internalTypeDefs.get(name);
+			return(def);
+		}
+		else if (attributeID == MetaDMSAG.__type.id){
+//			DebugInfo.debug("type " + name.getNameString());
+			DmcNamedObjectIF def = (DmcNamedObjectIF)internalTypeDefs.get(name);
+			if (def != null)
+				return(def);
+		}
+//		else if (attributeID == MetaDMSAG.__internalTypeDefList.id){
+//			DebugInfo.debug("internal type def list " + name.getNameString());
+//			DmcNamedObjectIF def = (DmcNamedObjectIF)internalTypeDefs.get(name);
+//			if (def != null)
+//				return(def);
+//		}
+//		else if (attributeID == MetaDMSAG.__enumDefList.id){
+//			DebugInfo.debug("enum def list " + name.getNameString());
+//			DmcNamedObjectIF def = (DmcNamedObjectIF)enumDefs.get(name);
+//			if (def != null)
+//				return(def);
+//		}
+		return(findNamedObject(name));
+	}
+
     
 	@Override
 	public DmcObject findNamedDMO(DmcObjectName name) {

@@ -1040,4 +1040,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		
 		return(rc);
 	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
+		return(findNamedObject(name));
+	}
 }

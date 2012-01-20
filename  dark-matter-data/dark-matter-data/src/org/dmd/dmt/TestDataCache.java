@@ -62,6 +62,11 @@ public class TestDataCache implements DmcNameResolverIF, DmcCacheIF {
 		return (obj);
 	}
 
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
+		return(findNamedObject(name));
+	}
+
 	// DmcCacheIF
 	
 	@Override

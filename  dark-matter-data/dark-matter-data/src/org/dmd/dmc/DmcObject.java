@@ -1587,6 +1587,7 @@ abstract public class DmcObject implements Serializable {
 					continue;
 					
 				if (attr instanceof DmcTypeNamedObjectREF){
+//System.out.println("DmcObject.resolveReferences() resolving: " + attr.getName());
 					DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
 					
 					if (attr.getMVSize() == 0){
@@ -1594,7 +1595,7 @@ abstract public class DmcObject implements Serializable {
 						if (ref.isResolved())
 							continue;
 						
-						DmcNamedObjectIF  	obj 			= rx.findNamedObject(ref.getObjectName());
+						DmcNamedObjectIF  	obj 			= rx.findNamedObject(ref.getObjectName(),attr.ID);
 						DmcObject 			resolvedObject 	= null;
 						
 						if (obj == null){
@@ -1642,7 +1643,7 @@ abstract public class DmcObject implements Serializable {
 								if ( (ref == null) || ref.isResolved())
 									continue;
 								
-								DmcNamedObjectIF  	obj 			= rx.findNamedObject(ref.getObjectName());
+								DmcNamedObjectIF  	obj 			= rx.findNamedObject(ref.getObjectName(),attr.ID);
 								DmcObject 			resolvedObject 	= null;
 								
 								if (obj == null){
@@ -2191,4 +2192,37 @@ abstract public class DmcObject implements Serializable {
     	}
     }
 
+    ///////////////////////////////////////////////////////////////////////////
+    
+    /**
+     * This method should be used with extreme caution! It will forceably unresolve all
+     * reference attributes on the object and clear any back reference tracking information.
+     */
+    @SuppressWarnings("unchecked")
+	public void clearReferenceInfo(){
+		for(DmcAttribute<?> attr : attributes.values()){
+			if (attr instanceof DmcTypeNamedObjectREF){
+				DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
+				if (attr.getMVSize() == 0){
+					DmcNamedObjectREF ref = (DmcNamedObjectREF) attr.getSV();
+					ref.setObject(null);
+				}
+				else{
+					Iterator<DmcNamedObjectREF> refs = reference.getMV();
+					if (refs != null){
+						int currIndex = -1;
+						while(refs.hasNext()){
+							currIndex++;
+							DmcNamedObjectREF ref = refs.next();
+							if (ref != null){
+								ref.setObject(null);
+							}
+						}
+					}
+				}
+			}
+		}
+		setInfo(BACKREFS,BACKREFS_SIZE,null);
+		shrinkInfo(BACKREFS);
+    }
 }

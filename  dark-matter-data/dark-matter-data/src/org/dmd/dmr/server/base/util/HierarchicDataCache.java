@@ -151,5 +151,10 @@ public class HierarchicDataCache implements DmcNameResolverIF {
 		
 		return(ho.getDmcObject());
 	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
+		return(findNamedObject(name));
+	}
 	
 }
