@@ -221,6 +221,7 @@ may				enabledDisabled
 may				someRelationSV
 may				someRelationMV
 may				someRelationMVI
+may				intToStringMAP
 
 ClassDefinition
 name            ClientCountFilter
