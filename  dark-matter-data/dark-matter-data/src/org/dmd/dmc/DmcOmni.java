@@ -491,11 +491,10 @@ public class DmcOmni implements DmcNameResolverIF {
 		DmcNamedObjectIF rc = null;
 		
 		for(DmcNameResolverIF res: resolvers){
-			DmcObject obj = (DmcObject) res.findNamedObject(name,attributeID);
-			if ( obj != null){
-				rc = (DmcNamedObjectIF) obj;
+			rc = res.findNamedObject(name,attributeID);
+			
+			if ( rc != null)
 				break;
-			}
 		}
 		
 		return(rc);

@@ -1,13 +1,10 @@
 package org.dmd.util.count;
 
-import java.lang.*;
-import java.util.*;
-import java.io.*;
 
-public class count {
+public class CodeCount {
 
     public static void main(String[] args) {
-        countMain c = new countMain();
+        CodeCountMain c = new CodeCountMain();
 
         c.run(args);
 
