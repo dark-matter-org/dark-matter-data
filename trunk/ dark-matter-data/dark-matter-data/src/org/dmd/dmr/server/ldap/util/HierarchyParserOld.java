@@ -257,6 +257,12 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 	public DmcObject findNamedDMO(DmcObjectName name) {
 		return null;
 	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

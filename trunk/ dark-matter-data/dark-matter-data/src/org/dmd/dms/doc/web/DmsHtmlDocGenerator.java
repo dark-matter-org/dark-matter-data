@@ -9,7 +9,6 @@ import java.util.TreeMap;
 import org.apache.commons.io.FileUtils;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -28,6 +27,9 @@ public class DmsHtmlDocGenerator {
 		allSchemasByID 		= new TreeMap<Integer, SchemaDefinition>();
 		allSchemasByName 	= new TreeMap<String, SchemaDefinition>();
 		longest = 0;
+		DmcOmni.instance().setTrackSchemaReferences(true);
+		DmcOmni.instance().backRefTracking(true);
+
 	}
 
 	public void dumpSchemaDoc(String outdir, SchemaManager sm) throws IOException {
@@ -60,14 +62,16 @@ public class DmsHtmlDocGenerator {
 	
 	public void dumpSummary(){
 		try {
-			DmcOmni.instance().setTrackSchemaReferences(true);
-
 			SchemaManager manager = new SchemaManager();
 			
 			for(SchemaDefinition sd: allSchemasByID.values()){
 				if (manager.isSchema(sd.getName().getNameString()) == null)
 					manager.manageSchemaInternal(sd,false);
 			}
+			
+			Summarizer summarizer = new Summarizer(manager);
+			
+			summarizer.dumpTextSummary();
 						
 		} catch (ResultException e) {
 			// TODO Auto-generated catch block

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:515)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:561)
 import org.dmd.dmg.generated.dmo.DmgDMSAG;                // DmgDMSAG
 import org.dmd.dms.generated.dmo.MetaDMSAG;               // MetaDMSAG
 import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions
@@ -18,6 +18,15 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
 
 
     static String schemaName = "mvw";
+
+
+    static int schemaBaseID = 800;
+
+
+    static int schemaIDRange = 100;
+
+
+    static int schemaMaxID = 900;
 
     public final static DmcAttributeInfo __abstractActivity = new DmcAttributeInfo("abstractActivity", 858, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __actionBindingName = new DmcAttributeInfo("actionBindingName", 874, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -473,6 +482,21 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
 
     public String getSchemaName(){
         return(schemaName);
+    }
+
+
+    public int getSchemaBaseID(){
+        return(schemaBaseID);
+    }
+
+
+    public int getSchemaIDRange(){
+        return(schemaIDRange);
+    }
+
+
+    public int getSchemaMaxID(){
+        return(schemaMaxID);
     }
 
 

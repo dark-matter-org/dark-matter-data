@@ -15,7 +15,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestDerivedSubpackageREFMAP provides storage for a map of TestDerivedSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2627)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2636)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -46,7 +46,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2670)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2679)
     public DmcAttribute<TestDerivedSubpackageREF> cloneIt(){
         synchronized(this){
             DmcTypeTestDerivedSubpackageREFMAP rc = getNew();
@@ -61,7 +61,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2695)
     public TestDerivedSubpackageREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestDerivedSubpackageREF newval = typeCheck(v);
@@ -81,7 +81,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2707)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2716)
     public TestDerivedSubpackageREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -92,7 +92,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2719)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2728)
     public Iterator<TestDerivedSubpackageREF> getMV(){
         synchronized(this){
             Map<StringName,TestDerivedSubpackageREF> clone = null;
@@ -104,7 +104,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2732)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2741)
     public Map<StringName,TestDerivedSubpackageREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestDerivedSubpackageREF> clone = null;
@@ -116,7 +116,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2745)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2754)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -127,7 +127,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2757)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2766)
     public TestDerivedSubpackageREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -138,7 +138,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2769)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2778)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -152,7 +152,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2784)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2793)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;

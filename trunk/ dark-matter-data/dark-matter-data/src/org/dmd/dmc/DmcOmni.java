@@ -486,6 +486,21 @@ public class DmcOmni implements DmcNameResolverIF {
 		return(rc);
 	}
 	
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
+		DmcNamedObjectIF rc = null;
+		
+		for(DmcNameResolverIF res: resolvers){
+			DmcObject obj = (DmcObject) res.findNamedObject(name,attributeID);
+			if ( obj != null){
+				rc = (DmcNamedObjectIF) obj;
+				break;
+			}
+		}
+		
+		return(rc);
+	}
+
 	/**
 	 * This method displays the currently loaded attribute schemas in dmdID order.
 	 */

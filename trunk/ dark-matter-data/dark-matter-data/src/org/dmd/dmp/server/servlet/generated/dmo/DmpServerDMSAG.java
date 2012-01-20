@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:515)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:561)
 import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // DmrBaseDMSAG
 import org.dmd.dms.generated.dmo.MetaDMSAG;                        // MetaDMSAG
 import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions
@@ -18,6 +18,15 @@ public class DmpServerDMSAG implements DmcCompactSchemaIF {
 
 
     static String schemaName = "dmp.server";
+
+
+    static int schemaBaseID = 700;
+
+
+    static int schemaIDRange = 50;
+
+
+    static int schemaMaxID = 750;
 
     public final static DmcAttributeInfo __idRI = new DmcAttributeInfo("idRI", 705, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __pluginClass = new DmcAttributeInfo("pluginClass", 703, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -147,6 +156,21 @@ public class DmpServerDMSAG implements DmcCompactSchemaIF {
 
     public String getSchemaName(){
         return(schemaName);
+    }
+
+
+    public int getSchemaBaseID(){
+        return(schemaBaseID);
+    }
+
+
+    public int getSchemaIDRange(){
+        return(schemaIDRange);
+    }
+
+
+    public int getSchemaMaxID(){
+        return(schemaMaxID);
     }
 
 

@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DotName;    // key type import
  * The DmcTypeSessionRIREFMAP provides storage for a map of SessionRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2627)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2636)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -61,7 +61,7 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2670)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2679)
     public DmcAttribute<SessionRIREF> cloneIt(){
         synchronized(this){
             DmcTypeSessionRIREFMAP rc = getNew();
@@ -76,7 +76,7 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2695)
     public SessionRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             SessionRIREF newval = typeCheck(v);
@@ -96,7 +96,7 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2707)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2716)
     public SessionRIREF del(Object key){
         synchronized(this){
            if (key instanceof DotName)
@@ -107,7 +107,7 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2719)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2728)
     public Iterator<SessionRIREF> getMV(){
         synchronized(this){
             Map<DotName,SessionRIREF> clone = null;
@@ -119,7 +119,7 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2732)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2741)
     public Map<DotName,SessionRIREF> getMVCopy(){
         synchronized(this){
             Map<DotName,SessionRIREF> clone = null;
@@ -131,7 +131,7 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2745)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2754)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -142,7 +142,7 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2757)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2766)
     public SessionRIREF getByKey(Object key){
         synchronized(this){
             if (key instanceof DotName)
@@ -153,7 +153,7 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2769)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2778)
     public boolean contains(Object v){
         synchronized(this){
             boolean rc = false;
@@ -167,7 +167,7 @@ public class DmcTypeSessionRIREFMAP extends DmcTypeSessionRIREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2784)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2793)
     public boolean containsKey(Object key){
         synchronized(this){
             boolean rc = false;
