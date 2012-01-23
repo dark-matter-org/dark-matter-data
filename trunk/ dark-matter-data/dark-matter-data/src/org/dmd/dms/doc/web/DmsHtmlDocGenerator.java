@@ -32,16 +32,8 @@ public class DmsHtmlDocGenerator {
 
 	}
 
-	public void dumpSchemaDoc(String outdir, SchemaManager sm) throws IOException {
-		DebugInfo.debug(outdir);
-		
-		URL url = this.getClass().getResource("dmsstyle.css");
-		DebugInfo.debug("url: " + url.getFile());
-		FileUtils.copyURLToFile(url, new File(outdir + File.separator + "dmsstyle.css"));
-
-		
-		initDirs(outdir);
-		
+	public void addReadSchemas(SchemaManager sm) throws IOException {
+				
 		Iterator<SchemaDefinition> sdit = sm.getSchemas();
 		if (sdit != null){
 			while(sdit.hasNext()){
@@ -52,15 +44,50 @@ public class DmsHtmlDocGenerator {
 				
 				if (sd.getName().getNameString().length() > longest)
 					longest = sd.getName().getNameString().length();
-				
-				SchemaPage.dumpSchemaPage(outdir, sm, sd);
 			}
 		}
 		
 		
 	}
+
+//	public void dumpSchemaDoc(String outdir, SchemaManager sm) throws IOException {
+//		DebugInfo.debug(outdir);
+//		
+//		URL url = this.getClass().getResource("dmsstyle.css");
+//		DebugInfo.debug("url: " + url.getFile());
+//		FileUtils.copyURLToFile(url, new File(outdir + File.separator + "dmsstyle.css"));
+//
+//		
+//		initDirs(outdir);
+//		
+//		Iterator<SchemaDefinition> sdit = sm.getSchemas();
+//		if (sdit != null){
+//			while(sdit.hasNext()){
+//				SchemaDefinition sd = sdit.next();
+//				
+//				allSchemasByID.put(sd.getSchemaBaseID(), sd);
+//				allSchemasByName.put(sd.getName().getNameString(), sd);
+//				
+//				if (sd.getName().getNameString().length() > longest)
+//					longest = sd.getName().getNameString().length();
+//				
+//				SchemaPage.dumpSchemaPage(outdir, sm, sd);
+//			}
+//		}
+//		
+//		
+//	}
 	
-	public void dumpSummary(){
+	public void dumpDocumentation(String outdir) throws IOException {
+		DebugInfo.debug(outdir);
+		
+		URL url = this.getClass().getResource("dmsstyle.css");
+		DebugInfo.debug("url: " + url.getFile());
+		FileUtils.copyURLToFile(url, new File(outdir + File.separator + "dmsstyle.css"));
+
+		
+		initDirs(outdir);
+
 		try {
 			SchemaManager manager = new SchemaManager();
 			
@@ -72,6 +99,15 @@ public class DmsHtmlDocGenerator {
 			Summarizer summarizer = new Summarizer(manager);
 			
 			summarizer.dumpTextSummary();
+			
+			PrintfFormat format = new PrintfFormat("%-" + longest + "s");
+			
+			for(SchemaDefinition sd: allSchemasByID.values()){
+				int end = sd.getSchemaBaseID() + sd.getSchemaIDRange();
+				System.out.println(format.sprintf(sd.getName()) + " " + sd.getSchemaBaseID() +  " - " + end);
+				
+				SchemaPage.dumpSchemaPage(outdir, manager, sd);
+			}
 						
 		} catch (ResultException e) {
 			// TODO Auto-generated catch block
@@ -81,13 +117,6 @@ public class DmsHtmlDocGenerator {
 			e.printStackTrace();
 		}
 		
-		PrintfFormat format = new PrintfFormat("%-" + longest + "s");
-		
-		for(SchemaDefinition sd: allSchemasByID.values()){
-			int end = sd.getSchemaBaseID() + sd.getSchemaIDRange();
-			System.out.println(format.sprintf(sd.getName()) + " " + sd.getSchemaBaseID() +  " - " + end);
-		}
-	
 	}
 	
 	void initDirs(String outdir){

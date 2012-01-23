@@ -186,8 +186,17 @@ public class DmoGenUtility {
         		}
         	}
         	
-			if (docdir.length() > 0){
-				docGenerator.dumpSummary();
+			try {
+				if (docdir.length() > 0){
+					if (workspace.length() > 0)
+							docGenerator.dumpDocumentation(workspace.toString() + "/" + docdir.toString());
+					else
+						docGenerator.dumpDocumentation(docdir.toString());
+				}
+			} catch (IOException e) {
+				System.err.println(e.toString());
+				e.printStackTrace();
+				System.exit(1);
 			}
         	
         	System.exit(0);
@@ -293,10 +302,12 @@ public class DmoGenUtility {
 			SchemaDefinition sd = parser.parseSchema(readSchemas, location.getConfigName(), false);
 			
 			if (docdir.length() > 0){
-				if (workspace.length() > 0)
-					docGenerator.dumpSchemaDoc(workspace.toString() + "/" + docdir.toString(), readSchemas);
-				else
-					docGenerator.dumpSchemaDoc(docdir.toString(), readSchemas);
+//				if (workspace.length() > 0)
+//					docGenerator.dumpSchemaDoc(workspace.toString() + "/" + docdir.toString(), readSchemas);
+//				else
+//					docGenerator.dumpSchemaDoc(docdir.toString(), readSchemas);
+				
+				docGenerator.addReadSchemas(readSchemas);
 			}
 			else{
 				// Generate the code

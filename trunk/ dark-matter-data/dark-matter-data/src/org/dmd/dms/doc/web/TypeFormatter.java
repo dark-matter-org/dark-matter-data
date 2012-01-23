@@ -104,7 +104,8 @@ public class TypeFormatter {
 		String type = td.getName().getNameString();
 		
 		if (td.getIsRefType()){
-			type = td.getOriginalClass().getName().getNameString();
+			if (td.getOriginalClass() != null)
+				type = td.getOriginalClass().getName().getNameString();
 		}
 		
 		if (td.getIsEnumType()){

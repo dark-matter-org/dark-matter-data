@@ -680,16 +680,23 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueExceptionSet 
      */
     public void manageSchemaInternal(SchemaDefinition sd) throws ResultException, DmcValueException {
-        ClassDefinition         		cd  = null;
-        EnumDefinition     				evd = null;
-        TypeDefinition          		td  = null;
-        AttributeDefinition     		ad  = null;
-        ActionDefinition        		actd= null;
-        Iterator<ActionDefinition>		itACD  = null;
-        Iterator<AttributeDefinition>	itATD  = null;
-        Iterator<ClassDefinition>		itCD  = null;
-        Iterator<EnumDefinition>		itEVD  = null;
-        Iterator<TypeDefinition>		itTD  = null;
+        ClassDefinition         		cd  	= null;
+        EnumDefinition     				evd 	= null;
+        TypeDefinition          		td  	= null;
+        AttributeDefinition     		ad  	= null;
+        ActionDefinition        		actd	= null;
+        ComplexTypeDefinition        	ctd		= null;
+        ExtendedReferenceTypeDefinition exrtd	= null;
+        SliceDefinition 				slice	= null;
+        
+        Iterator<ActionDefinition>					itACD  	= null;
+        Iterator<AttributeDefinition>				itATD  	= null;
+        Iterator<ClassDefinition>					itCD  	= null;
+        Iterator<EnumDefinition>					itEVD  	= null;
+        Iterator<TypeDefinition>					itTD  	= null;
+        Iterator<ComplexTypeDefinition>				cTD  	= null;
+        Iterator<ExtendedReferenceTypeDefinition>	exrTD  	= null;
+        Iterator<SliceDefinition>					sliceIT	= null;
 
         currentSchema       = sd;
         // schemaDefs.put(sd.getName(),sd);
@@ -703,6 +710,20 @@ public class SchemaManager implements DmcNameResolverIF {
             }
         }
 
+        if ( (cTD = sd.getComplexTypeDefList()) != null){
+            while(cTD.hasNext()){
+                ctd = cTD.next();
+                this.addComplexType(ctd);
+            }
+        }
+
+        if ( (exrTD = sd.getExtendedReferenceTypeDefList()) != null){
+            while(exrTD.hasNext()){
+                exrtd = exrTD.next();
+                this.addExtendedReferenceType(exrtd);
+            }
+        }
+        
         if ( (itEVD = sd.getEnumDefList()) != null){
             while(itEVD.hasNext()){
                 evd = itEVD.next();
@@ -728,6 +749,13 @@ public class SchemaManager implements DmcNameResolverIF {
             while(itCD.hasNext()){
                 cd = itCD.next();
                 this.addClass(cd);
+            }
+        }
+        
+        if ( (sliceIT = sd.getSliceDefList()) != null){
+            while(sliceIT.hasNext()){
+                slice = sliceIT.next();
+                this.addSlice(slice);
             }
         }
         
@@ -982,8 +1010,11 @@ public class SchemaManager implements DmcNameResolverIF {
         
         internalTypeDefs.put(td.getName(), td);
         
-        // And then we add the type
-        addType(td);
+        // And then we add the type if it's not already there - this can happen when
+        // we're managing a generated schema and the type definition has already been added
+        // from the typedefList attribute
+        if (typeDefs.get(td.getName()) == null)
+        	addType(td);
     }
 
     /**
@@ -1017,10 +1048,17 @@ public class SchemaManager implements DmcNameResolverIF {
         ertd.getDefinedIn().addInternalTypeDefList(td);
         ertd.getDefinedIn().addTypeDefList(td);
         
-        // And then we add the type
-        addType(td);
+        DebugInfo.debug("\n\nAdding EXTENDED REF TYPE: " + td.getName().getNameString() + "  " +  System.identityHashCode(this) +"\n\n");
         
-        // We hang on to this so taht we can set some further info after the extendedReferenceClass has been resolved
+        internalTypeDefs.put(td.getName(), td);
+        
+        // And then we add the type if it's not already there - this can happen when
+        // we're managing a generated schema and the type definition has already been added
+        // from the typedefList attribute
+        if (typeDefs.get(td.getName()) == null)
+        	addType(td);
+        
+        // We hang on to this so that we can set some further info after the extendedReferenceClass has been resolved
         ertd.setInternalType(td);
     }
 
@@ -1034,6 +1072,11 @@ public class SchemaManager implements DmcNameResolverIF {
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(sd.getObjectName(),sd,sliceDefs,"slice names"));
         	throw(ex);
+        }
+        if (checkAndAdd(sd.getObjectName(),sd,allDefs) == false){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
+            throw(ex);
         }
         
         
@@ -1437,6 +1480,11 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueException 
      */
     void addType(TypeDefinition td) throws ResultException, DmcValueException {
+    	
+    	if (td.getObjectName().getNameString().equals("SomeRelation")){
+    		DebugInfo.debug("HERE " + System.identityHashCode(this));
+    	}
+    	
         if (checkAndAdd(td.getObjectName(),td,typeDefs) == false){
         	ResultException ex = new ResultException();
             ex.addError(clashMsg(td.getObjectName(),td,typeDefs,"type names"));
@@ -1776,18 +1824,32 @@ public class SchemaManager implements DmcNameResolverIF {
 			if (def != null)
 				return(def);
 		}
-//		else if (attributeID == MetaDMSAG.__internalTypeDefList.id){
-//			DebugInfo.debug("internal type def list " + name.getNameString());
-//			DmcNamedObjectIF def = (DmcNamedObjectIF)internalTypeDefs.get(name);
-//			if (def != null)
-//				return(def);
-//		}
-//		else if (attributeID == MetaDMSAG.__enumDefList.id){
-//			DebugInfo.debug("enum def list " + name.getNameString());
-//			DmcNamedObjectIF def = (DmcNamedObjectIF)enumDefs.get(name);
-//			if (def != null)
-//				return(def);
-//		}
+		else if (attributeID == MetaDMSAG.__internalTypeDefList.id){
+			DebugInfo.debug("internalTypeDefList " + name.getNameString());
+			DmcNamedObjectIF def = (DmcNamedObjectIF)internalTypeDefs.get(name);
+			if (def != null)
+				return(def);
+		}
+		else if (attributeID == MetaDMSAG.__enumDefList.id){
+			DebugInfo.debug("enumDefList " + name.getNameString());
+			DmcNamedObjectIF def = (DmcNamedObjectIF)enumDefs.get(name);
+			if (def != null)
+				return(def);
+		}
+		else if (attributeID == MetaDMSAG.__extendedReferenceTypeDefList.id){
+			DebugInfo.debug("extendedReferenceTypeDefList " + name.getNameString());
+			DmcNamedObjectIF def = (DmcNamedObjectIF)extendedReferenceTypeDefs.get(name);
+			if (def != null)
+				return(def);
+		}
+
+		else if (attributeID == MetaDMSAG.__complexTypeDefList.id){
+			DebugInfo.debug("complexTypeDefList " + name.getNameString());
+			DmcNamedObjectIF def = (DmcNamedObjectIF)complexTypeDefs.get(name);
+			if (def != null)
+				return(def);
+		}
+
 		return(findNamedObject(name));
 	}
 
