@@ -30,11 +30,12 @@ body {
 }
 
 #bodycopy {
-	float: right;
+	/* float: right; */
 	width: 652px;
 }
 
 #sidebar {
+	float: left;
 	margin-right: 640px;
 }
 
@@ -230,5 +231,9 @@ td {
 
 .navItem {
 	
+}
+
+/* Used for schema identifier summary */
+.idSummary {
 }
 

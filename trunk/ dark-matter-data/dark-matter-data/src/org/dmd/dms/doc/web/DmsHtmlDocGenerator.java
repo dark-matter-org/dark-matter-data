@@ -96,7 +96,7 @@ public class DmsHtmlDocGenerator {
 					manager.manageSchemaInternal(sd,false);
 			}
 			
-			Summarizer summarizer = new Summarizer(manager);
+			Summarizer summarizer = new Summarizer(manager,outdir);
 			
 			summarizer.dumpTextSummary();
 			
@@ -106,7 +106,7 @@ public class DmsHtmlDocGenerator {
 				int end = sd.getSchemaBaseID() + sd.getSchemaIDRange();
 				System.out.println(format.sprintf(sd.getName()) + " " + sd.getSchemaBaseID() +  " - " + end);
 				
-				SchemaPage.dumpSchemaPage(outdir, manager, sd);
+				SchemaPage.dumpSchemaPage(outdir, manager, sd, summarizer);
 			}
 						
 		} catch (ResultException e) {

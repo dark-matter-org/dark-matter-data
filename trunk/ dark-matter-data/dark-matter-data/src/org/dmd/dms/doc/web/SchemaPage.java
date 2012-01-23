@@ -23,7 +23,7 @@ public class SchemaPage {
 	static TreeMap<String,EnumDefinition>		enums;
 	static TreeMap<String,SliceDefinition>		slices;
 
-	public static void dumpSchemaPage(String outdir, SchemaManager sm, SchemaDefinition sd) throws IOException {
+	public static void dumpSchemaPage(String outdir, SchemaManager sm, SchemaDefinition sd, Summarizer summarizer) throws IOException {
 		String ofn = outdir + File.separator + sd.getName() + ".html";
 		BufferedWriter out = new BufferedWriter( new FileWriter(ofn) );
 		
@@ -38,6 +38,8 @@ public class SchemaPage {
 		writeAttributes(out);
 		
 		writeTypes(out);
+		
+		out.write(summarizer.getSideBar());
 		
 		writeEnd(out);
 		
