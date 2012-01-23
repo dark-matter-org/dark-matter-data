@@ -29,12 +29,18 @@ body {
 	margin: auto;
 }
 
+#content {
+	float:	right;
+	width:	750px;
+}
+
 #bodycopy {
-	float: right;
+	/* float: right; */
 	width: 652px;
 }
 
 #sidebar {
+	/* float: left; */
 	margin-right: 640px;
 }
 
@@ -225,10 +231,14 @@ td {
 }
 
 .navLink {
-	/* display: block; */
+	display: block;
 }
 
 .navItem {
 	
+}
+
+/* Used for schema identifier summary */
+.idSummary {
 }
 

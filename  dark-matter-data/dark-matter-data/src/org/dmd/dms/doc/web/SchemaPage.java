@@ -29,7 +29,9 @@ public class SchemaPage {
 		
 		initTrees(sd);
 		
-		writeStart(out, "The " + sd.getName() + " Schema");
+		StandardParts.writePageHeader(out, "The " + sd.getName() + " Schema");
+		
+		StandardParts.writeContentStart(out);
 		
 		writeSchemaSummary(out, sm, sd);
 		
@@ -39,9 +41,11 @@ public class SchemaPage {
 		
 		writeTypes(out);
 		
+		StandardParts.writeContentEnd(out);
+		
 		out.write(summarizer.getSideBar());
 		
-		writeEnd(out);
+		StandardParts.writePageFooter(out);
 		
 		out.close();
 	}
@@ -192,21 +196,21 @@ public class SchemaPage {
 		out.write("</div> <!-- attributeDetails -->\n\n");
 	}
 	
-	static void writeStart(BufferedWriter out, String title) throws IOException {
-		out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n");
-		out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
-		out.write("<head>\n");
-		out.write("<meta http-equiv=\"Content-type\" content=\"text/html;charset=UTF-8\"/>\n");
-		out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"dmsstyle.css\" />\n");
-		out.write("<title>" + title + "</title>\n");
-		out.write("</head>\n");
-		out.write("\n");
-		out.write("<body>\n");
-		out.write("\n");
-		out.write("  <div id=\"header\"> <div class=\"headerBar\"> </div> </div>\n");
-		out.write("\n");
-		out.write("  <div id=\"main\">\n\n");
-	}
+//	static void writeStart(BufferedWriter out, String title) throws IOException {
+//		out.write("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n");
+//		out.write("<html xmlns=\"http://www.w3.org/1999/xhtml\">\n");
+//		out.write("<head>\n");
+//		out.write("<meta http-equiv=\"Content-type\" content=\"text/html;charset=UTF-8\"/>\n");
+//		out.write("<link rel=\"stylesheet\" type=\"text/css\" href=\"dmsstyle.css\" />\n");
+//		out.write("<title>" + title + "</title>\n");
+//		out.write("</head>\n");
+//		out.write("\n");
+//		out.write("<body>\n");
+//		out.write("\n");
+//		out.write("  <div id=\"header\"> <div class=\"headerBar\"> </div> </div>\n");
+//		out.write("\n");
+//		out.write("  <div id=\"main\">\n\n");
+//	}
 	
 	static void writeSchemaSummary(BufferedWriter out, SchemaManager sm, SchemaDefinition sd) throws IOException {
 		out.write("  <div class=\"schemaName\"> " + sd.getName() + " </div>\n\n");
@@ -321,15 +325,15 @@ public class SchemaPage {
 		out.write("    </div>");
 	}
 	
-	static void writeEnd(BufferedWriter out) throws IOException {
-		out.write("  </div> <!-- main -->\n");
-		out.write("\n");
-		out.write("  <div id=\"footer\"> </div>\n");
-		out.write("\n");
-		out.write("</body>\n");
-		out.write("\n");
-		out.write("</html>\n");
-	}
+//	static void writeEnd(BufferedWriter out) throws IOException {
+//		out.write("  </div> <!-- main -->\n");
+//		out.write("\n");
+//		out.write("  <div id=\"footer\"> </div>\n");
+//		out.write("\n");
+//		out.write("</body>\n");
+//		out.write("\n");
+//		out.write("</html>\n");
+//	}
 
 
 }

@@ -31,5 +31,12 @@ public class StandardParts {
 		out.write("</html>\n");
 	}
 
+	static void writeContentStart(BufferedWriter out) throws IOException{
+		out.write("    <div id=\"content\">\n\n");
+	}
+
+	static void writeContentEnd(BufferedWriter out) throws IOException{
+		out.write("    </div>\n\n");
+	}
 
 }
