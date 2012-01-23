@@ -3,9 +3,7 @@ package org.dmd.dms.doc.web;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
-import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 
 public class Summarizer {
@@ -27,9 +25,12 @@ public class Summarizer {
 //				}
 //				System.out.println(def.toOIF() + "\n\n");
 				
-				if (def instanceof SchemaDefinition){
-				}
-				else
+//				if (def instanceof SchemaDefinition){
+//					if (def.getName().getNameString().equals("dmt"))
+//						DebugInfo.debug(def.toOIF());
+//					def.resolveReferences(sm);
+//				}
+//				else
 					def.resolveReferences(sm);
 				
 			} catch (DmcValueExceptionSet e) {
@@ -64,4 +65,9 @@ public class Summarizer {
 			}
 		}
 	}
+	
+	static public void dumpSchemaSummaryPage(String outdir){
+		
+	}
+	
 }

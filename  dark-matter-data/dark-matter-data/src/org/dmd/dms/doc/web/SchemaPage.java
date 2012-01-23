@@ -14,7 +14,6 @@ import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.util.exceptions.DebugInfo;
 
 public class SchemaPage {
 	
@@ -68,8 +67,10 @@ public class SchemaPage {
 			enums.put(def.getObjectName().getNameString(), def);
 		}
 		
-		for(SliceDefinition def :sd.getSliceDefList()){
-			slices.put(def.getObjectName().getNameString(), def);
+		if (sd.getSliceDefListSize() > 0){
+			for(SliceDefinition def :sd.getSliceDefList()){
+				slices.put(def.getObjectName().getNameString(), def);
+			}
 		}
 		
 	}
