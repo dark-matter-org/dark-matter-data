@@ -42,6 +42,11 @@ body {
 #sidebar {
 	/* float: left; */
 	margin-right: 640px;
+	/*
+	position: fixed;
+	left: 10px;
+	top:  40px;
+	*/
 }
 
 #footer {
