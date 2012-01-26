@@ -2,8 +2,15 @@ package org.dmd.dms.doc.web;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.TreeMap;
 
+import org.dmd.dmc.types.StringName;
+import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.dmw.DmwWrapper;
+
+import com.google.gwt.user.client.ui.Tree;
 
 public class TypeFormatter {
 	
@@ -18,6 +25,7 @@ public class TypeFormatter {
 		primitivetype(out, td);
 		keyType(out, td);
 		nullReturnValue(out, td);
+		usage(out, td);
 	}
 
 	static void typeName(BufferedWriter out, TypeDefinition td) throws IOException {
@@ -98,6 +106,61 @@ public class TypeFormatter {
 		}
 	}
 
+	static void usage(BufferedWriter out, TypeDefinition td) throws IOException {
+		ArrayList<DmwWrapper> referring = td.getReferringObjects();
+		
+		// There's always one reference because the schema refers to its types
+		if ( (referring != null) && (referring.size() > 1) ){
+			TreeMap<StringName,AttributeDefinition>	attributes = new TreeMap<StringName, AttributeDefinition>();
+			
+			out.write("    <tr>\n");
+			out.write("      <td class=\"spacer\"> </td>\n");
+			out.write("      <td class=\"label\">Used in:</td>\n");
+			out.write("      <td>\n");
+			
+			for(DmwWrapper wrapper: referring){
+				if (wrapper instanceof AttributeDefinition){
+					AttributeDefinition ad = (AttributeDefinition) wrapper;
+					attributes.put(ad.getName(), ad);
+				}
+			}
+			
+//			for(AttributeDefinition ad: attributes.values()){
+//				String ref = "<a href=\"" + ad.getDefinedIn().getName() + ".html#" + ad.getName() + "\">" + ad.getDefinedIn().getName() + "</a>";
+//				out.write(ad.getName().getNameString() + " (" + ref + ") ");
+//			}
+			
+			out.write(formatUsage(attributes));
+			
+			out.write("      </td>\n");
+			out.write("    </tr>\n\n");
+		}
+	}
+
+	static String formatUsage(TreeMap<StringName,AttributeDefinition> ads){
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append("<table>\n");
+		
+		int count = 0;
+		for(AttributeDefinition ad: ads.values()){
+			if ((count % 3) == 0){
+				if (count > 3){
+					sb.append("</tr>\n");
+				}
+				sb.append("  <tr>\n");
+			}
+			String ref = "<a href=\"" + ad.getDefinedIn().getName() + ".html#" + ad.getName() + "\">" + ad.getDefinedIn().getName() + "</a>";
+			sb.append("    <td> " + ad.getName().getNameString() + " (" + ref + ") </td>\n" );
+			
+			count++;
+		}
+		sb.append("</tr>\n");
+		
+		sb.append("</table>\n");
+		
+		return(sb.toString());
+	}
 
 
 	static public String getTypeName(TypeDefinition td){
