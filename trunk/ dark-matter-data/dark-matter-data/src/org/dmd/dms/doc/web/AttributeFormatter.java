@@ -44,7 +44,10 @@ public class AttributeFormatter {
 			vt.append("SV");
 			break;
 		case MULTI:
-			vt.append("MV");
+			if (ad.getIndexSize() == null)
+				vt.append("MV");
+			else
+				vt.append("MV[" + ad.getIndexSize() + "]");
 			break;
 		case TREEMAPPED:
 			vt.append("TM");
@@ -64,7 +67,8 @@ public class AttributeFormatter {
 	}
 
 	static void attributeType(BufferedWriter out, AttributeDefinition ad) throws IOException{
-		String vt 			= "";
+//		String vt 			= "";
+		String vt 			= getValueType(ad);
 		String schema 		= ad.getType().getDefinedIn().getName().getNameString();
 		String type 		= TypeFormatter.getTypeName(ad.getType());
 		String designated	= "";
@@ -73,26 +77,26 @@ public class AttributeFormatter {
 			designated = "(designated naming attribute)";
 		}
 		
-		switch(ad.getValueType()){
-		case SINGLE:
-			vt = "SV";
-			break;
-		case MULTI:
-			vt = "MV";
-			break;
-		case TREEMAPPED:
-			vt = "TM";
-			break;
-		case HASHMAPPED:
-			vt = "HM";
-			break;
-		case TREESET:
-			vt = "TS";
-			break;
-		case HASHSET:
-			vt = "HS";
-			break;
-		}
+//		switch(ad.getValueType()){
+//		case SINGLE:
+//			vt = "SV";
+//			break;
+//		case MULTI:
+//			vt = "MV";
+//			break;
+//		case TREEMAPPED:
+//			vt = "TM";
+//			break;
+//		case HASHMAPPED:
+//			vt = "HM";
+//			break;
+//		case TREESET:
+//			vt = "TS";
+//			break;
+//		case HASHSET:
+//			vt = "HS";
+//			break;
+//		}
 		out.write("    <tr>\n");
 		out.write("      <td class=\"spacer\"> </td>\n");
 		out.write("      <td colspan=\"2\"> <div class=\"valueType\"> " + vt + " </div> ");
