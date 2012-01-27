@@ -1481,8 +1481,9 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 						sb.append("     */\n");
 						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 						sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + ad.getType().getName().getNameString() + " value){\n");
-				    	sb.append("        DmcAttribute<?> attr = " + dmocast + ".setNth" + functionName + "(index, value);\n");
-				    	sb.append("        return(attr);\n");
+//				    	sb.append("        DmcAttribute<?> attr = " + dmocast + ".setNth" + functionName + "(index, value);\n");
+//				    	sb.append("        return(attr);\n");
+				    	sb.append("        return(" + dmocast + ".setNth" + functionName + "(index, value));\n");
 						sb.append("    }\n\n");
 					}
 					else{
@@ -1492,12 +1493,18 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 						sb.append("     */\n");
 						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 						sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + auxHolderClass + " value){\n");
-				    	sb.append("        DmcAttribute<?> attr = null;\n");
+//				    	sb.append("        DmcAttribute<?> attr = null;\n");
+//				    	sb.append("        if (value == null)\n");
+//				    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, null);\n");
+//				    	sb.append("        else\n");
+//				    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, ((" + justdmo + ")value.getDmcObject()));\n");
+//				    	sb.append("        return(attr);\n");
+//				    	sb.append("        DmcAttribute<?> attr = null;\n");
 				    	sb.append("        if (value == null)\n");
-				    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, null);\n");
+				    	sb.append("            return(" + dmocast + ".setNth" + functionName + "(index, null));\n");
 				    	sb.append("        else\n");
-				    	sb.append("            attr = " + dmocast + ".setNth" + functionName + "(index, ((" + justdmo + ")value.getDmcObject()));\n");
-				    	sb.append("        return(attr);\n");
+				    	sb.append("            return(" + dmocast + ".setNth" + functionName + "(index, ((" + justdmo + ")value.getDmcObject())));\n");
+//				    	sb.append("        return(attr);\n");
 						sb.append("    }\n\n");
 					}
 				}
