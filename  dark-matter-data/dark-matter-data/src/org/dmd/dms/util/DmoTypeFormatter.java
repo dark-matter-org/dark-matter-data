@@ -477,7 +477,7 @@ public class DmoTypeFormatter {
         
         out.write("    @Override\n");
       	out.write("    public void setName(DmcObjectName n) throws DmcValueException {\n");
-      	out.write("        if (myName == null);\n");
+      	out.write("        if (myName == null)\n");
       	out.write("            myName = new " + nameType + "(__" + attrName + ");\n");
       	out.write("        myName.set(n);\n");
       	out.write("    }\n\n");
