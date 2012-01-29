@@ -30,8 +30,8 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeMvwDefinitionREFMAP provides storage for a map of MvwDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2636)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2682)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:539)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMvwDefinitionREFMAP extends DmcTypeMvwDefinitionREF<MvwDefinitionREF,CamelCaseName> {
@@ -55,13 +55,23 @@ public class DmcTypeMvwDefinitionREFMAP extends DmcTypeMvwDefinitionREF implemen
             value = new TreeMap<CamelCaseName,MvwDefinitionREF>();
     }
     
+    public CamelCaseName firstKey(){
+        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+            if (value == null)
+                return(null);
+            TreeMap<CamelCaseName,MvwDefinitionREF> map = (TreeMap<CamelCaseName,MvwDefinitionREF>)value;
+            return(map.firstKey());
+        }
+        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+    }
+    
     @Override
     public DmcTypeMvwDefinitionREFMAP getNew(){
         return(new DmcTypeMvwDefinitionREFMAP(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2679)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2736)
     public DmcAttribute<MvwDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeMvwDefinitionREFMAP rc = getNew();
@@ -76,7 +86,7 @@ public class DmcTypeMvwDefinitionREFMAP extends DmcTypeMvwDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2695)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2752)
     public MvwDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             MvwDefinitionREF newval = typeCheck(v);
@@ -96,7 +106,7 @@ public class DmcTypeMvwDefinitionREFMAP extends DmcTypeMvwDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2716)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2773)
     public MvwDefinitionREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
@@ -107,7 +117,7 @@ public class DmcTypeMvwDefinitionREFMAP extends DmcTypeMvwDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2728)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2785)
     public Iterator<MvwDefinitionREF> getMV(){
         synchronized(this){
             Map<CamelCaseName,MvwDefinitionREF> clone = null;
@@ -119,7 +129,7 @@ public class DmcTypeMvwDefinitionREFMAP extends DmcTypeMvwDefinitionREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2741)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2798)
     public Map<CamelCaseName,MvwDefinitionREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,MvwDefinitionREF> clone = null;
@@ -131,7 +141,7 @@ public class DmcTypeMvwDefinitionREFMAP extends DmcTypeMvwDefinitionREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2754)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2811)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -142,38 +152,36 @@ public class DmcTypeMvwDefinitionREFMAP extends DmcTypeMvwDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2766)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2823)
     public MvwDefinitionREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
-                return(value.get(key));
+                return(value.get((CamelCaseName) key));
             else
                 throw(new IllegalStateException("Incompatible type: " + key.getClass().getName() + " passed to del():" + getName()));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2778)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2835)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             try {
                 MvwDefinitionREF val = typeCheck(v);
-                rc = value.containsValue(val);
+                return(value.containsValue(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2793)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2856)
     public boolean containsKey(Object key){
         synchronized(this){
-            boolean rc = false;
            if (key instanceof CamelCaseName)
-                rc = value.containsKey(key);
-            return(rc);
+                return(value.containsKey(key));
+            return(false);
         }
     }
     

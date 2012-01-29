@@ -42,15 +42,10 @@ abstract public class DmcTypeDmgConfigREF extends DmcAttribute<DmgConfigDMO> imp
     }
 
     protected DmgConfigDMO typeCheck(Object value) throws DmcValueException {
-        DmgConfigDMO rc = null;
-
-        if (value instanceof DmgConfigDMO){
-            rc = (DmgConfigDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DmgConfigDMO expected."));
-        }
-        return(rc);
+        if (value instanceof DmgConfigDMO)
+            return((DmgConfigDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DmgConfigDMO expected."));
     }
 
     @Override

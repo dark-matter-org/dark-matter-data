@@ -27,15 +27,10 @@ abstract public class DmcTypeTestBasicObjectFixedREF extends DmcAttribute<TestBa
     }
 
     protected TestBasicObjectFixedDMO typeCheck(Object value) throws DmcValueException {
-        TestBasicObjectFixedDMO rc = null;
-
-        if (value instanceof TestBasicObjectFixedDMO){
-            rc = (TestBasicObjectFixedDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with TestBasicObjectFixedDMO expected."));
-        }
-        return(rc);
+        if (value instanceof TestBasicObjectFixedDMO)
+            return((TestBasicObjectFixedDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with TestBasicObjectFixedDMO expected."));
     }
 
     @Override

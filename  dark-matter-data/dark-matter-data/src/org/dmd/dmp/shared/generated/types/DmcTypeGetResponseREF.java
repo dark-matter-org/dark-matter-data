@@ -42,15 +42,10 @@ abstract public class DmcTypeGetResponseREF extends DmcAttribute<GetResponseDMO>
     }
 
     protected GetResponseDMO typeCheck(Object value) throws DmcValueException {
-        GetResponseDMO rc = null;
-
-        if (value instanceof GetResponseDMO){
-            rc = (GetResponseDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with GetResponseDMO expected."));
-        }
-        return(rc);
+        if (value instanceof GetResponseDMO)
+            return((GetResponseDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with GetResponseDMO expected."));
     }
 
     @Override

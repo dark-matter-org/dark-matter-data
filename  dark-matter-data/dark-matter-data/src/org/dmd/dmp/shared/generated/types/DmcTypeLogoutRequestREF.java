@@ -42,15 +42,10 @@ abstract public class DmcTypeLogoutRequestREF extends DmcAttribute<LogoutRequest
     }
 
     protected LogoutRequestDMO typeCheck(Object value) throws DmcValueException {
-        LogoutRequestDMO rc = null;
-
-        if (value instanceof LogoutRequestDMO){
-            rc = (LogoutRequestDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with LogoutRequestDMO expected."));
-        }
-        return(rc);
+        if (value instanceof LogoutRequestDMO)
+            return((LogoutRequestDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with LogoutRequestDMO expected."));
     }
 
     @Override

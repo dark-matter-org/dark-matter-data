@@ -30,7 +30,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeMenuElementTypeAndC
  * The DmcTypeMenuElementTypeAndCommentSET provides storage for a set of MenuElementTypeAndComment
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:127)
  */
 @SuppressWarnings("serial")
@@ -60,7 +60,7 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<MenuElementTypeAndComment> cloneIt(){
         synchronized(this){
             DmcTypeMenuElementTypeAndCommentSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public MenuElementTypeAndComment add(Object v) throws DmcValueException {
         synchronized(this){
             MenuElementTypeAndComment rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public MenuElementTypeAndComment del(Object v){
         synchronized(this){
             MenuElementTypeAndComment rc = null;
@@ -115,32 +115,28 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<MenuElementTypeAndComment> getMV(){
         synchronized(this){
-            Set<MenuElementTypeAndComment> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<MenuElementTypeAndComment>(value);
+                return( (new HashSet<MenuElementTypeAndComment>(value)).iterator() );
             else
-                clone = new TreeSet<MenuElementTypeAndComment>(value);
-            return(clone.iterator());
+                return( (new TreeSet<MenuElementTypeAndComment>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<MenuElementTypeAndComment> getMVCopy(){
         synchronized(this){
-            Set<MenuElementTypeAndComment> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<MenuElementTypeAndComment>(value);
+                return(new HashSet<MenuElementTypeAndComment>(value));
             else
-                clone = new TreeSet<MenuElementTypeAndComment>(value);
-            return(clone);
+                return(new TreeSet<MenuElementTypeAndComment>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -150,19 +146,18 @@ public class DmcTypeMenuElementTypeAndCommentSET extends DmcTypeMenuElementTypeA
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 MenuElementTypeAndComment val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

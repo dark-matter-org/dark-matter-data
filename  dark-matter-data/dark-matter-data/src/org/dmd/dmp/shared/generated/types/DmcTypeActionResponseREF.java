@@ -42,15 +42,10 @@ abstract public class DmcTypeActionResponseREF extends DmcAttribute<ActionRespon
     }
 
     protected ActionResponseDMO typeCheck(Object value) throws DmcValueException {
-        ActionResponseDMO rc = null;
-
-        if (value instanceof ActionResponseDMO){
-            rc = (ActionResponseDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with ActionResponseDMO expected."));
-        }
-        return(rc);
+        if (value instanceof ActionResponseDMO)
+            return((ActionResponseDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with ActionResponseDMO expected."));
     }
 
     @Override

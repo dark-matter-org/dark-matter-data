@@ -26,8 +26,8 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;    // D
  * The DmcTypeSelectionTypeEnumMV provides storage for a multi-valued SelectionTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2153)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:354)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:361)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
     public DmcAttribute<SelectionTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeSelectionTypeEnumMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2232)
     public SelectionTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             SelectionTypeEnum rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2225)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
     public SelectionTypeEnum del(Object v){
         synchronized(this){
             SelectionTypeEnum key = null;
@@ -106,7 +106,7 @@ public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2256)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2276)
     public Iterator<SelectionTypeEnum> getMV(){
         synchronized(this){
             ArrayList<SelectionTypeEnum> clone = new ArrayList<SelectionTypeEnum>(value);
@@ -114,7 +114,7 @@ public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum impleme
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2265)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2285)
     public ArrayList<SelectionTypeEnum> getMVCopy(){
         synchronized(this){
             ArrayList<SelectionTypeEnum> clone = new ArrayList<SelectionTypeEnum>(value);
@@ -123,7 +123,7 @@ public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2275)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2295)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -137,7 +137,7 @@ public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
     public SelectionTypeEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +147,7 @@ public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2301)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2321)
     public SelectionTypeEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -174,7 +174,7 @@ public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2349)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,16 +197,18 @@ public class DmcTypeSelectionTypeEnumMV extends DmcTypeSelectionTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2353)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
+            if (value == null)
+                return(false);
+
             try {
                 SelectionTypeEnum val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

@@ -27,15 +27,10 @@ abstract public class DmcTypeClientCountFilterREF extends DmcAttribute<ClientCou
     }
 
     protected ClientCountFilterDMO typeCheck(Object value) throws DmcValueException {
-        ClientCountFilterDMO rc = null;
-
-        if (value instanceof ClientCountFilterDMO){
-            rc = (ClientCountFilterDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with ClientCountFilterDMO expected."));
-        }
-        return(rc);
+        if (value instanceof ClientCountFilterDMO)
+            return((ClientCountFilterDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with ClientCountFilterDMO expected."));
     }
 
     @Override

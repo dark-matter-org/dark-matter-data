@@ -42,15 +42,10 @@ abstract public class DmcTypeLoginRequestREF extends DmcAttribute<LoginRequestDM
     }
 
     protected LoginRequestDMO typeCheck(Object value) throws DmcValueException {
-        LoginRequestDMO rc = null;
-
-        if (value instanceof LoginRequestDMO){
-            rc = (LoginRequestDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with LoginRequestDMO expected."));
-        }
-        return(rc);
+        if (value instanceof LoginRequestDMO)
+            return((LoginRequestDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with LoginRequestDMO expected."));
     }
 
     @Override

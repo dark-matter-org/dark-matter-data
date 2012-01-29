@@ -42,15 +42,10 @@ abstract public class DmcTypeDeleteResponseREF extends DmcAttribute<DeleteRespon
     }
 
     protected DeleteResponseDMO typeCheck(Object value) throws DmcValueException {
-        DeleteResponseDMO rc = null;
-
-        if (value instanceof DeleteResponseDMO){
-            rc = (DeleteResponseDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DeleteResponseDMO expected."));
-        }
-        return(rc);
+        if (value instanceof DeleteResponseDMO)
+            return((DeleteResponseDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DeleteResponseDMO expected."));
     }
 
     @Override

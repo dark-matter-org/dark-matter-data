@@ -768,6 +768,13 @@ public class DmoFormatter {
 			sb.append("        }\n");
 			sb.append("        return(false);\n");
 			sb.append("    }\n\n");
+			
+			sb.append("    public int hashCode(){\n");
+			sb.append("        if (getObjectName() == null)\n");
+			sb.append("            return(0);\n");
+			sb.append("        \n");
+			sb.append("        return(getObjectName().hashCode());\n");
+			sb.append("    }\n\n");
 		}
 		
 		for(AttributeDefinition ad : allAttr){

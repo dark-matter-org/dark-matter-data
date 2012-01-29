@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.dmo.GetResponseDMO;    // DmcType import
  * The DmcTypeGetResponseREFSET provides storage for a set of GetResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:252)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGetResponseREFSET extends DmcTypeGetResponseREF implements Serializable {
@@ -59,7 +59,7 @@ public class DmcTypeGetResponseREFSET extends DmcTypeGetResponseREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<GetResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeGetResponseREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeGetResponseREFSET extends DmcTypeGetResponseREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public GetResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             GetResponseDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeGetResponseREFSET extends DmcTypeGetResponseREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public GetResponseDMO del(Object v){
         synchronized(this){
             GetResponseDMO rc = null;
@@ -114,32 +114,28 @@ public class DmcTypeGetResponseREFSET extends DmcTypeGetResponseREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<GetResponseDMO> getMV(){
         synchronized(this){
-            Set<GetResponseDMO> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<GetResponseDMO>(value);
+                return( (new HashSet<GetResponseDMO>(value)).iterator() );
             else
-                clone = new TreeSet<GetResponseDMO>(value);
-            return(clone.iterator());
+                return( (new TreeSet<GetResponseDMO>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<GetResponseDMO> getMVCopy(){
         synchronized(this){
-            Set<GetResponseDMO> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<GetResponseDMO>(value);
+                return(new HashSet<GetResponseDMO>(value));
             else
-                clone = new TreeSet<GetResponseDMO>(value);
-            return(clone);
+                return(new TreeSet<GetResponseDMO>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -149,19 +145,18 @@ public class DmcTypeGetResponseREFSET extends DmcTypeGetResponseREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 GetResponseDMO val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

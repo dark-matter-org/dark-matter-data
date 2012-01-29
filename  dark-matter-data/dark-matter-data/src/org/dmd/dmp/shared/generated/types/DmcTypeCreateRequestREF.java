@@ -42,15 +42,10 @@ abstract public class DmcTypeCreateRequestREF extends DmcAttribute<CreateRequest
     }
 
     protected CreateRequestDMO typeCheck(Object value) throws DmcValueException {
-        CreateRequestDMO rc = null;
-
-        if (value instanceof CreateRequestDMO){
-            rc = (CreateRequestDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with CreateRequestDMO expected."));
-        }
-        return(rc);
+        if (value instanceof CreateRequestDMO)
+            return((CreateRequestDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with CreateRequestDMO expected."));
     }
 
     @Override

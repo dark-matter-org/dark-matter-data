@@ -42,15 +42,10 @@ abstract public class DmcTypeDenotifyResponseREF extends DmcAttribute<DenotifyRe
     }
 
     protected DenotifyResponseDMO typeCheck(Object value) throws DmcValueException {
-        DenotifyResponseDMO rc = null;
-
-        if (value instanceof DenotifyResponseDMO){
-            rc = (DenotifyResponseDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DenotifyResponseDMO expected."));
-        }
-        return(rc);
+        if (value instanceof DenotifyResponseDMO)
+            return((DenotifyResponseDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DenotifyResponseDMO expected."));
     }
 
     @Override

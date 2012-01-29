@@ -15,7 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:357)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:355)
 import java.io.Serializable;                                       // Always required
 import java.util.*;                                                // Always required
 import org.dmd.dmc.DmcAttribute;                                   // Any attributes
@@ -131,7 +131,14 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
         return(false);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
+    public int hashCode(){
+        if (getObjectName() == null)
+            return(0);
+        
+        return(getObjectName().hashCode());
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public DotName getDotName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -144,7 +151,7 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
     public void setDotName(DotName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -163,7 +170,7 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
     public void setDotName(Object value) throws DmcValueException {
         DmcTypeDotNameSV attr  = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -176,12 +183,12 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
     public void remDotName(){
          rem(MetaDMSAG.__dotName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public Integer getIdRI(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmpServerDMSAG.__idRI);
         if (attr == null)
@@ -194,7 +201,7 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
      * Sets idRI to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
     public void setIdRI(Integer value) {
         DmcAttribute<?> attr = get(DmpServerDMSAG.__idRI);
         if (attr == null)
@@ -213,7 +220,7 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
      * Sets idRI to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
     public void setIdRI(Object value) throws DmcValueException {
         DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmpServerDMSAG.__idRI);
         if (attr == null)
@@ -226,12 +233,12 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
     /**
      * Removes the idRI attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
     public void remIdRI(){
          rem(DmpServerDMSAG.__idRI);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public String getUserName(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmrBaseDMSAG.__userName);
         if (attr == null)
@@ -244,7 +251,7 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
      * Sets userName to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
     public void setUserName(String value) {
         DmcAttribute<?> attr = get(DmrBaseDMSAG.__userName);
         if (attr == null)
@@ -263,7 +270,7 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
      * Sets userName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
     public void setUserName(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmrBaseDMSAG.__userName);
         if (attr == null)
@@ -276,12 +283,12 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
     /**
      * Removes the userName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
     public void remUserName(){
          rem(DmrBaseDMSAG.__userName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:685)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public String getPassword(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmrBaseDMSAG.__password);
         if (attr == null)
@@ -294,7 +301,7 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
      * Sets password to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:723)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
     public void setPassword(String value) {
         DmcAttribute<?> attr = get(DmrBaseDMSAG.__password);
         if (attr == null)
@@ -313,7 +320,7 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
      * Sets password to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:775)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
     public void setPassword(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmrBaseDMSAG.__password);
         if (attr == null)
@@ -326,7 +333,7 @@ public class UserRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHiera
     /**
      * Removes the password attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
     public void remPassword(){
          rem(DmrBaseDMSAG.__password);
     }

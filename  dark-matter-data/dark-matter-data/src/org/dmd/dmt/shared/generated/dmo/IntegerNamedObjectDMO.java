@@ -107,6 +107,13 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
         return(false);
     }
 
+    public int hashCode(){
+        if (getObjectName() == null)
+            return(0);
+        
+        return(getObjectName().hashCode());
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__svString);

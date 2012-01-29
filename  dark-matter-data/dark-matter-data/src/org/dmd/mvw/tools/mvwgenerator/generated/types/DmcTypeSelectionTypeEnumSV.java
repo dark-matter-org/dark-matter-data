@@ -24,8 +24,8 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;    // D
  * The DmcTypeSelectionTypeEnumSV provides storage for a single-valued SelectionTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:353)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1833)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:360)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSelectionTypeEnumSV extends DmcTypeSelectionTypeEnum implements Serializable {
@@ -49,14 +49,14 @@ public class DmcTypeSelectionTypeEnumSV extends DmcTypeSelectionTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1865)
     public DmcAttribute<SelectionTypeEnum> cloneIt(){
         DmcTypeSelectionTypeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1876)
     public SelectionTypeEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeSelectionTypeEnumSV extends DmcTypeSelectionTypeEnum impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1888)
     public SelectionTypeEnum set(Object v) throws DmcValueException {
         SelectionTypeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

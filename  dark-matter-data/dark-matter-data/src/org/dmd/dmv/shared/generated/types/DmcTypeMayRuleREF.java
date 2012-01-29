@@ -42,15 +42,10 @@ abstract public class DmcTypeMayRuleREF extends DmcAttribute<MayRuleDMO> impleme
     }
 
     protected MayRuleDMO typeCheck(Object value) throws DmcValueException {
-        MayRuleDMO rc = null;
-
-        if (value instanceof MayRuleDMO){
-            rc = (MayRuleDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with MayRuleDMO expected."));
-        }
-        return(rc);
+        if (value instanceof MayRuleDMO)
+            return((MayRuleDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with MayRuleDMO expected."));
     }
 
     @Override

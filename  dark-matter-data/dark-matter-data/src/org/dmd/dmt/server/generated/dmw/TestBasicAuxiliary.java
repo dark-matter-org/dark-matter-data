@@ -26,7 +26,7 @@ public class TestBasicAuxiliary {
      * This method will check to see if the object has any of our attributes.
      * If not, our aux class is automatically removed from the object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getCommonAUXFunctions(BaseDMWGeneratorNew.java:2214)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getCommonAUXFunctions(BaseDMWGeneratorNew.java:2227)
     static private void removeAuxIfRequired(DmwWrapper corew){
         boolean anyLeft = false;
 
@@ -41,7 +41,7 @@ public class TestBasicAuxiliary {
      * This method will check to see if the object has our aux class.
      * If not, we add our aux class the object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getCommonAUXFunctions(BaseDMWGeneratorNew.java:2232)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getCommonAUXFunctions(BaseDMWGeneratorNew.java:2245)
     static private void addAuxIfRequired(DmwWrapper corew) throws DmcValueException {
         if (!corew.hasAux(_auxClass))
             corew.addAux(_auxClass);
@@ -50,7 +50,7 @@ public class TestBasicAuxiliary {
     /**
      * This method checks if the object has this auxiliary class.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getCommonAUXFunctions(BaseDMWGeneratorNew.java:2242)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getCommonAUXFunctions(BaseDMWGeneratorNew.java:2255)
     static public boolean hasAux(DmwWrapper corew){
         if (corew == null)
             return(false);
@@ -60,7 +60,7 @@ public class TestBasicAuxiliary {
     /**
      * Removes the svString attribute from the object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatAUXSV(BaseDMWGeneratorNew.java:2336)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatAUXSV(BaseDMWGeneratorNew.java:2349)
     static public DmcAttribute<?> remSvString(DmwWrapper corew){
         if (corew == null)
             return(null);
@@ -69,7 +69,7 @@ public class TestBasicAuxiliary {
         return(rc);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatAUXSV(BaseDMWGeneratorNew.java:2367)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatAUXSV(BaseDMWGeneratorNew.java:2380)
     static public String getSvString(DmwWrapper corew){
         DmcTypeStringSV attr = (DmcTypeStringSV) corew.getDmcObject().get(__svString);
         if (attr == null)
@@ -82,7 +82,7 @@ public class TestBasicAuxiliary {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatAUXSV(BaseDMWGeneratorNew.java:2407)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatAUXSV(BaseDMWGeneratorNew.java:2420)
     static public void setSvString(DmwWrapper corew, Object value) throws DmcValueException {
         DmcAttribute<?> attr = corew.getDmcObject().get(__svString);
         if (attr == null){

@@ -42,15 +42,10 @@ abstract public class DmcTypeIntegerRangeRuleREF extends DmcAttribute<IntegerRan
     }
 
     protected IntegerRangeRuleDMO typeCheck(Object value) throws DmcValueException {
-        IntegerRangeRuleDMO rc = null;
-
-        if (value instanceof IntegerRangeRuleDMO){
-            rc = (IntegerRangeRuleDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with IntegerRangeRuleDMO expected."));
-        }
-        return(rc);
+        if (value instanceof IntegerRangeRuleDMO)
+            return((IntegerRangeRuleDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with IntegerRangeRuleDMO expected."));
     }
 
     @Override
