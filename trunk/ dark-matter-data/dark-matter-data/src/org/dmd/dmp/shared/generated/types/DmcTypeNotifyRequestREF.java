@@ -42,15 +42,10 @@ abstract public class DmcTypeNotifyRequestREF extends DmcAttribute<NotifyRequest
     }
 
     protected NotifyRequestDMO typeCheck(Object value) throws DmcValueException {
-        NotifyRequestDMO rc = null;
-
-        if (value instanceof NotifyRequestDMO){
-            rc = (NotifyRequestDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with NotifyRequestDMO expected."));
-        }
-        return(rc);
+        if (value instanceof NotifyRequestDMO)
+            return((NotifyRequestDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with NotifyRequestDMO expected."));
     }
 
     @Override

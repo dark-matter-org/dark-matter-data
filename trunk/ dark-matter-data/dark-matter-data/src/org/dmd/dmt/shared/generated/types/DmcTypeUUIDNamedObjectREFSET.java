@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeUUIDNamedObjectREFSET provides storage for a set of UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:524)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF implements Serializable {
@@ -43,7 +43,7 @@ public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<UUIDNamedObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeUUIDNamedObjectREFSET rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public UUIDNamedObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             UUIDNamedObjectREF rc = typeCheck(v);
@@ -74,7 +74,7 @@ public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public UUIDNamedObjectREF del(Object v){
         synchronized(this){
             UUIDNamedObjectREF rc = null;
@@ -98,32 +98,28 @@ public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<UUIDNamedObjectREF> getMV(){
         synchronized(this){
-            Set<UUIDNamedObjectREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<UUIDNamedObjectREF>(value);
+                return( (new HashSet<UUIDNamedObjectREF>(value)).iterator() );
             else
-                clone = new TreeSet<UUIDNamedObjectREF>(value);
-            return(clone.iterator());
+                return( (new TreeSet<UUIDNamedObjectREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<UUIDNamedObjectREF> getMVCopy(){
         synchronized(this){
-            Set<UUIDNamedObjectREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<UUIDNamedObjectREF>(value);
+                return(new HashSet<UUIDNamedObjectREF>(value));
             else
-                clone = new TreeSet<UUIDNamedObjectREF>(value);
-            return(clone);
+                return(new TreeSet<UUIDNamedObjectREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -133,19 +129,18 @@ public class DmcTypeUUIDNamedObjectREFSET extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 UUIDNamedObjectREF val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

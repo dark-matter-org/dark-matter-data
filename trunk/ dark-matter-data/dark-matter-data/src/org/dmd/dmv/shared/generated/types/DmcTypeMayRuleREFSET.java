@@ -29,8 +29,8 @@ import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;    // DmcType import
  * The DmcTypeMayRuleREFSET provides storage for a set of MayRuleDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:252)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializable {
@@ -59,7 +59,7 @@ public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<MayRuleDMO> cloneIt(){
         synchronized(this){
             DmcTypeMayRuleREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public MayRuleDMO add(Object v) throws DmcValueException {
         synchronized(this){
             MayRuleDMO rc = typeCheck(v);
@@ -90,17 +90,23 @@ public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public MayRuleDMO del(Object v){
         synchronized(this){
             MayRuleDMO rc = null;
+            if (value == null)
+                return(rc);
+            
             try {
                 rc = typeCheck(v);
             } catch (DmcValueException e) {
                 throw(new IllegalStateException("Incompatible type passed to del():" + getName(),e));
             }
-            if (value.contains(rc))
+            if (value.contains(rc)){
                 value.remove(rc);
+                if (value.size() == 0)
+                    value = null;
+            }
             else
                 rc = null;
             return(rc);
@@ -108,32 +114,28 @@ public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2519)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<MayRuleDMO> getMV(){
         synchronized(this){
-            Set<MayRuleDMO> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<MayRuleDMO>(value);
+                return( (new HashSet<MayRuleDMO>(value)).iterator() );
             else
-                clone = new TreeSet<MayRuleDMO>(value);
-            return(clone.iterator());
+                return( (new TreeSet<MayRuleDMO>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<MayRuleDMO> getMVCopy(){
         synchronized(this){
-            Set<MayRuleDMO> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<MayRuleDMO>(value);
+                return(new HashSet<MayRuleDMO>(value));
             else
-                clone = new TreeSet<MayRuleDMO>(value);
-            return(clone);
+                return(new TreeSet<MayRuleDMO>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2546)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -143,16 +145,18 @@ public class DmcTypeMayRuleREFSET extends DmcTypeMayRuleREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
+            if (value == null)
+                return(false);
+            
             try {
                 MayRuleDMO val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

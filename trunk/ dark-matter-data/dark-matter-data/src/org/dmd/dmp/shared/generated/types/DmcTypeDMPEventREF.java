@@ -42,15 +42,10 @@ abstract public class DmcTypeDMPEventREF extends DmcAttribute<DMPEventDMO> imple
     }
 
     protected DMPEventDMO typeCheck(Object value) throws DmcValueException {
-        DMPEventDMO rc = null;
-
-        if (value instanceof DMPEventDMO){
-            rc = (DMPEventDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DMPEventDMO expected."));
-        }
-        return(rc);
+        if (value instanceof DMPEventDMO)
+            return((DMPEventDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with DMPEventDMO expected."));
     }
 
     @Override

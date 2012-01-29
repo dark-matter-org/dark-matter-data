@@ -14,8 +14,8 @@ import org.dmd.dmt.shared.generated.dmo.ClientCountFilterRequestDMO;    // DmcTy
  * The DmcTypeClientCountFilterRequestREFSET provides storage for a set of ClientCountFilterRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:252)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClientCountFilterRequestREFSET extends DmcTypeClientCountFilterRequestREF implements Serializable {
@@ -44,7 +44,7 @@ public class DmcTypeClientCountFilterRequestREFSET extends DmcTypeClientCountFil
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<ClientCountFilterRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeClientCountFilterRequestREFSET rc = getNew();
@@ -59,7 +59,7 @@ public class DmcTypeClientCountFilterRequestREFSET extends DmcTypeClientCountFil
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public ClientCountFilterRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             ClientCountFilterRequestDMO rc = typeCheck(v);
@@ -75,7 +75,7 @@ public class DmcTypeClientCountFilterRequestREFSET extends DmcTypeClientCountFil
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public ClientCountFilterRequestDMO del(Object v){
         synchronized(this){
             ClientCountFilterRequestDMO rc = null;
@@ -99,32 +99,28 @@ public class DmcTypeClientCountFilterRequestREFSET extends DmcTypeClientCountFil
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<ClientCountFilterRequestDMO> getMV(){
         synchronized(this){
-            Set<ClientCountFilterRequestDMO> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<ClientCountFilterRequestDMO>(value);
+                return( (new HashSet<ClientCountFilterRequestDMO>(value)).iterator() );
             else
-                clone = new TreeSet<ClientCountFilterRequestDMO>(value);
-            return(clone.iterator());
+                return( (new TreeSet<ClientCountFilterRequestDMO>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<ClientCountFilterRequestDMO> getMVCopy(){
         synchronized(this){
-            Set<ClientCountFilterRequestDMO> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<ClientCountFilterRequestDMO>(value);
+                return(new HashSet<ClientCountFilterRequestDMO>(value));
             else
-                clone = new TreeSet<ClientCountFilterRequestDMO>(value);
-            return(clone);
+                return(new TreeSet<ClientCountFilterRequestDMO>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -134,19 +130,18 @@ public class DmcTypeClientCountFilterRequestREFSET extends DmcTypeClientCountFil
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 ClientCountFilterRequestDMO val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

@@ -1329,10 +1329,11 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 					sb.append("    /**\n");
 					sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
 					sb.append("     */\n");
-					sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//					sb.append("    @SuppressWarnings(\"unchecked\")\n");
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 					sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
-					sb.append("        DmcAttribute attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
+//					sb.append("        DmcAttribute attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
+					sb.append("        DmcAttribute<?> attr = core.get(" + ad.getDMSAGReference() + ");\n");
 					sb.append("        if (attr == null)\n");
 					sb.append("            return(" + itClass+ ".emptyList);\n");
 					sb.append("        \n");
@@ -1931,11 +1932,16 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 		}
 		
 		if (ad.getValueType() == ValueTypeEnum.TREEMAPPED){
+			String keyClass = ad.getType().getKeyClass();
+			if (ad.getType().getIsRefType()){
+				keyClass = ad.getType().getOriginalClass().getIsNamedBy().getType().getName().getNameString();
+			}
 	    	sb.append("    /**\n");
 			sb.append("     * @return the first key of the map.\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public " + ad.getType().getKeyClass() + " get" + functionName + "FirstKey(){\n");
+//			sb.append("    public " + ad.getType().getKeyClass() + " get" + functionName + "FirstKey(){\n");
+			sb.append("    public " + keyClass + " get" + functionName + "FirstKey(){\n");
 			sb.append("        return(" + dmocast + ".get" + functionName + "FirstKey());\n");
 			sb.append("    }\n\n");
 		}

@@ -13,8 +13,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTestDerivedSubpackageREFSET provides storage for a set of TestDerivedSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:524)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestDerivedSubpackageREFSET extends DmcTypeTestDerivedSubpackageREF implements Serializable {
@@ -43,7 +43,7 @@ public class DmcTypeTestDerivedSubpackageREFSET extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<TestDerivedSubpackageREF> cloneIt(){
         synchronized(this){
             DmcTypeTestDerivedSubpackageREFSET rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeTestDerivedSubpackageREFSET extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public TestDerivedSubpackageREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestDerivedSubpackageREF rc = typeCheck(v);
@@ -74,7 +74,7 @@ public class DmcTypeTestDerivedSubpackageREFSET extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public TestDerivedSubpackageREF del(Object v){
         synchronized(this){
             TestDerivedSubpackageREF rc = null;
@@ -98,32 +98,28 @@ public class DmcTypeTestDerivedSubpackageREFSET extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<TestDerivedSubpackageREF> getMV(){
         synchronized(this){
-            Set<TestDerivedSubpackageREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<TestDerivedSubpackageREF>(value);
+                return( (new HashSet<TestDerivedSubpackageREF>(value)).iterator() );
             else
-                clone = new TreeSet<TestDerivedSubpackageREF>(value);
-            return(clone.iterator());
+                return( (new TreeSet<TestDerivedSubpackageREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<TestDerivedSubpackageREF> getMVCopy(){
         synchronized(this){
-            Set<TestDerivedSubpackageREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<TestDerivedSubpackageREF>(value);
+                return(new HashSet<TestDerivedSubpackageREF>(value));
             else
-                clone = new TreeSet<TestDerivedSubpackageREF>(value);
-            return(clone);
+                return(new TreeSet<TestDerivedSubpackageREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -133,19 +129,18 @@ public class DmcTypeTestDerivedSubpackageREFSET extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 TestDerivedSubpackageREF val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

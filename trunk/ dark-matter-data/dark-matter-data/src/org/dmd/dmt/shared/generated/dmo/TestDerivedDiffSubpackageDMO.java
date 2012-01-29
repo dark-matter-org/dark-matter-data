@@ -108,6 +108,13 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
         return(false);
     }
 
+    public int hashCode(){
+        if (getObjectName() == null)
+            return(0);
+        
+        return(getObjectName().hashCode());
+    }
+
     /**
      * @return An Iterator of String objects.
      */

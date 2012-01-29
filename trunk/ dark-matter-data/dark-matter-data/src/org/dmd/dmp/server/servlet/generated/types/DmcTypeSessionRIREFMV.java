@@ -25,8 +25,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSessionRIREFMV provides storage for a multi-valued SessionRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2153)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:523)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2183)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
     public DmcAttribute<SessionRIREF> cloneIt(){
         synchronized(this){
             DmcTypeSessionRIREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2212)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2232)
     public SessionRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             SessionRIREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2225)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
     public SessionRIREF del(Object v){
         synchronized(this){
             SessionRIREF key = null;
@@ -105,7 +105,7 @@ public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2256)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2276)
     public Iterator<SessionRIREF> getMV(){
         synchronized(this){
             ArrayList<SessionRIREF> clone = new ArrayList<SessionRIREF>(value);
@@ -113,7 +113,7 @@ public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serial
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2265)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2285)
     public ArrayList<SessionRIREF> getMVCopy(){
         synchronized(this){
             ArrayList<SessionRIREF> clone = new ArrayList<SessionRIREF>(value);
@@ -122,7 +122,7 @@ public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2275)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2295)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +136,7 @@ public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2290)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
     public SessionRIREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2301)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2321)
     public SessionRIREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +173,7 @@ public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2349)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,16 +196,18 @@ public class DmcTypeSessionRIREFMV extends DmcTypeSessionRIREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2353)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
+            if (value == null)
+                return(false);
+
             try {
                 SessionRIREF val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

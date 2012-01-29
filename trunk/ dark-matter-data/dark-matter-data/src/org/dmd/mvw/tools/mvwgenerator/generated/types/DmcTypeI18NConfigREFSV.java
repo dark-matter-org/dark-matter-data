@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeI18NConfigREFSV provides storage for a single-valued I18NConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:522)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1833)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:529)
  */
 @SuppressWarnings("serial")
 public class DmcTypeI18NConfigREFSV extends DmcTypeI18NConfigREF implements Serializable {
@@ -48,14 +48,14 @@ public class DmcTypeI18NConfigREFSV extends DmcTypeI18NConfigREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1865)
     public DmcAttribute<I18NConfigREF> cloneIt(){
         DmcTypeI18NConfigREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1876)
     public I18NConfigREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeI18NConfigREFSV extends DmcTypeI18NConfigREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1888)
     public I18NConfigREF set(Object v) throws DmcValueException {
         I18NConfigREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

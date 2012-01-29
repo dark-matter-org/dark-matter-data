@@ -27,15 +27,10 @@ abstract public class DmcTypeNameContainerTestREF extends DmcAttribute<NameConta
     }
 
     protected NameContainerTestDMO typeCheck(Object value) throws DmcValueException {
-        NameContainerTestDMO rc = null;
-
-        if (value instanceof NameContainerTestDMO){
-            rc = (NameContainerTestDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with NameContainerTestDMO expected."));
-        }
-        return(rc);
+        if (value instanceof NameContainerTestDMO)
+            return((NameContainerTestDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with NameContainerTestDMO expected."));
     }
 
     @Override

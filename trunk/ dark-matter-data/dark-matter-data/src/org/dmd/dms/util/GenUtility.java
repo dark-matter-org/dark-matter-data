@@ -1375,11 +1375,18 @@ public class GenUtility {
 		}
 		
 		if (ad.getValueType() == ValueTypeEnum.TREEMAPPED){
+			
+			String keyClass = ad.getType().getKeyClass();
+			if (ad.getType().getIsRefType()){
+				keyClass = ad.getType().getOriginalClass().getIsNamedBy().getType().getName().getNameString();
+			}
+			
 	    	sb.append("    /**\n");
 			sb.append("     * @return The first key of the map.\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public " + ad.getType().getKeyClass() + " get" + functionName + "FirstKey(){\n");
+//			sb.append("    public " + ad.getType().getKeyClass() + " get" + functionName + "FirstKey(){\n");
+			sb.append("    public " + keyClass + " get" + functionName + "FirstKey(){\n");
 			sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        if (attr == null)\n");
 			sb.append("            return(null);\n");
@@ -2817,7 +2824,7 @@ public class GenUtility {
         out.write("    public " + typeName + genericArgs + " getByKey(Object key){\n");
         out.write("        synchronized(this){\n");
         out.write("            if (key instanceof " + keyClass + ")\n");
-        out.write("                return(value.get(key));\n");
+        out.write("                return(value.get((" + keyClass + ") key));\n");
         out.write("            else\n");
         out.write("                throw(new IllegalStateException(\"Incompatible type: \" + key.getClass().getName() + \" passed to del():\" + getName()));\n");
         out.write("        }\n");

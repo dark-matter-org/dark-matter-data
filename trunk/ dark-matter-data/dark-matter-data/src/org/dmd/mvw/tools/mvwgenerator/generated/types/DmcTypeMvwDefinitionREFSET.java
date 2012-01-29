@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMvwDefinitionREFSET provides storage for a set of MvwDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:524)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMvwDefinitionREFSET extends DmcTypeMvwDefinitionREF implements Serializable {
@@ -58,7 +58,7 @@ public class DmcTypeMvwDefinitionREFSET extends DmcTypeMvwDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<MvwDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeMvwDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeMvwDefinitionREFSET extends DmcTypeMvwDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public MvwDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             MvwDefinitionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeMvwDefinitionREFSET extends DmcTypeMvwDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public MvwDefinitionREF del(Object v){
         synchronized(this){
             MvwDefinitionREF rc = null;
@@ -113,32 +113,28 @@ public class DmcTypeMvwDefinitionREFSET extends DmcTypeMvwDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<MvwDefinitionREF> getMV(){
         synchronized(this){
-            Set<MvwDefinitionREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<MvwDefinitionREF>(value);
+                return( (new HashSet<MvwDefinitionREF>(value)).iterator() );
             else
-                clone = new TreeSet<MvwDefinitionREF>(value);
-            return(clone.iterator());
+                return( (new TreeSet<MvwDefinitionREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<MvwDefinitionREF> getMVCopy(){
         synchronized(this){
-            Set<MvwDefinitionREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<MvwDefinitionREF>(value);
+                return(new HashSet<MvwDefinitionREF>(value));
             else
-                clone = new TreeSet<MvwDefinitionREF>(value);
-            return(clone);
+                return(new TreeSet<MvwDefinitionREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -148,19 +144,18 @@ public class DmcTypeMvwDefinitionREFSET extends DmcTypeMvwDefinitionREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 MvwDefinitionREF val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

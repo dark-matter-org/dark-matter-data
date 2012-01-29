@@ -2041,7 +2041,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another intToString value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1398)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1405)
     public DmcAttribute<?> addIntToString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -2056,7 +2056,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Adds another intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1435)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1442)
     public DmcAttribute<?> addIntToString(IntegerToString value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -2076,7 +2076,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a intToString value.
      * @param key The key of the IntegerToString to be deleted from the map of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1496)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1504)
     public DmcAttribute<?> delIntToString(Object key) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         
@@ -2094,7 +2094,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * Deletes a intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1514)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1522)
     public DmcAttribute<?> delIntToString(Integer key) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         
@@ -2111,7 +2111,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     /**
      * Removes the intToString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1568)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1576)
     public void remIntToString(){
          rem(DmtDMSAG.__intToString);
     }

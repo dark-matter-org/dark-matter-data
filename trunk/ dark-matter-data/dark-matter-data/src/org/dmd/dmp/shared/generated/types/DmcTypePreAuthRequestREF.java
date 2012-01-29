@@ -42,15 +42,10 @@ abstract public class DmcTypePreAuthRequestREF extends DmcAttribute<PreAuthReque
     }
 
     protected PreAuthRequestDMO typeCheck(Object value) throws DmcValueException {
-        PreAuthRequestDMO rc = null;
-
-        if (value instanceof PreAuthRequestDMO){
-            rc = (PreAuthRequestDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with PreAuthRequestDMO expected."));
-        }
-        return(rc);
+        if (value instanceof PreAuthRequestDMO)
+            return((PreAuthRequestDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with PreAuthRequestDMO expected."));
     }
 
     @Override

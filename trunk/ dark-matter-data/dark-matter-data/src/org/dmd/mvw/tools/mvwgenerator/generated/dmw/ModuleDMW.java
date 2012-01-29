@@ -115,7 +115,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1631)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1639)
     public StringIterableDMW getDependsOnModuleIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__dependsOnModule);
         if (attr == null)
@@ -128,7 +128,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Adds another dependsOnModule value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1657)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1665)
     public void addDependsOnModule(Object value) throws DmcValueException {
         ((ModuleDMO) core).addDependsOnModule(value);
     }
@@ -137,7 +137,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Adds another dependsOnModule value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1667)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1675)
     public void addDependsOnModule(String value){
         ((ModuleDMO) core).addDependsOnModule(value);
     }
@@ -146,7 +146,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Returns true if the collection contains the dependsOnModule value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1724)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1732)
     public boolean dependsOnModuleContains(String value){
         return(((ModuleDMO) core).dependsOnModuleContains(value));
     }
@@ -154,7 +154,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1764)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1772)
     @SuppressWarnings("unchecked")
     public TreeSet<String> getDependsOnModuleCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__dependsOnModule);
@@ -175,7 +175,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Deletes a dependsOnModule value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1791)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1799)
     public void delDependsOnModule(Object value) throws DmcValueException {
         ((ModuleDMO) core).delDependsOnModule(value);
     }
@@ -184,7 +184,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Deletes a dependsOnModule value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1800)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1808)
     public void delDependsOnModule(String value){
         ((ModuleDMO) core).delDependsOnModule(value);
     }
@@ -192,7 +192,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * Removes the dependsOnModule attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1812)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1820)
     public void remDependsOnModule(){
         ((ModuleDMO) core).remDependsOnModule();
     }
@@ -228,7 +228,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1631)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1639)
     public StringIterableDMW getDependsOnSchemaIterable(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__dependsOnSchema);
         if (attr == null)
@@ -241,7 +241,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Adds another dependsOnSchema value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1657)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1665)
     public void addDependsOnSchema(Object value) throws DmcValueException {
         ((ModuleDMO) core).addDependsOnSchema(value);
     }
@@ -250,7 +250,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Adds another dependsOnSchema value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1667)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1675)
     public void addDependsOnSchema(String value){
         ((ModuleDMO) core).addDependsOnSchema(value);
     }
@@ -259,7 +259,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Returns true if the collection contains the dependsOnSchema value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1724)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1732)
     public boolean dependsOnSchemaContains(String value){
         return(((ModuleDMO) core).dependsOnSchemaContains(value));
     }
@@ -267,7 +267,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1764)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1772)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getDependsOnSchemaCopy(){
         DmcAttribute<?> attr = core.get(MetaDMSAG.__dependsOnSchema);
@@ -288,7 +288,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Deletes a dependsOnSchema value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1791)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1799)
     public void delDependsOnSchema(Object value) throws DmcValueException {
         ((ModuleDMO) core).delDependsOnSchema(value);
     }
@@ -297,7 +297,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
      * Deletes a dependsOnSchema value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1800)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1808)
     public void delDependsOnSchema(String value){
         ((ModuleDMO) core).delDependsOnSchema(value);
     }
@@ -305,7 +305,7 @@ abstract public class ModuleDMW extends MvwDefinition implements DmcNamedObjectI
     /**
      * Removes the dependsOnSchema attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1812)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1820)
     public void remDependsOnSchema(){
         ((ModuleDMO) core).remDependsOnSchema();
     }

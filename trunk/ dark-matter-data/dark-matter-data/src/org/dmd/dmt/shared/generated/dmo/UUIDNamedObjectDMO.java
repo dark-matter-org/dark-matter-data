@@ -115,6 +115,13 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
         return(false);
     }
 
+    public int hashCode(){
+        if (getObjectName() == null)
+            return(0);
+        
+        return(getObjectName().hashCode());
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public Boolean isSvBoolean(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(DmtDMSAG.__svBoolean);

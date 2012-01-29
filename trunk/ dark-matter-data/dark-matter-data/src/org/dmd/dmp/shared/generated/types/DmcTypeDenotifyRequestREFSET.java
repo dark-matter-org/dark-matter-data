@@ -29,8 +29,8 @@ import org.dmd.dmp.shared.generated.dmo.DenotifyRequestDMO;    // DmcType import
  * The DmcTypeDenotifyRequestREFSET provides storage for a set of DenotifyRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2427)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:252)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF implements Serializable {
@@ -59,7 +59,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<DenotifyRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeDenotifyRequestREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2483)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public DenotifyRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             DenotifyRequestDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2500)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public DenotifyRequestDMO del(Object v){
         synchronized(this){
             DenotifyRequestDMO rc = null;
@@ -114,32 +114,28 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<DenotifyRequestDMO> getMV(){
         synchronized(this){
-            Set<DenotifyRequestDMO> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<DenotifyRequestDMO>(value);
+                return( (new HashSet<DenotifyRequestDMO>(value)).iterator() );
             else
-                clone = new TreeSet<DenotifyRequestDMO>(value);
-            return(clone.iterator());
+                return( (new TreeSet<DenotifyRequestDMO>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2538)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<DenotifyRequestDMO> getMVCopy(){
         synchronized(this){
-            Set<DenotifyRequestDMO> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<DenotifyRequestDMO>(value);
+                return(new HashSet<DenotifyRequestDMO>(value));
             else
-                clone = new TreeSet<DenotifyRequestDMO>(value);
-            return(clone);
+                return(new TreeSet<DenotifyRequestDMO>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2552)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -149,19 +145,18 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 DenotifyRequestDMO val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

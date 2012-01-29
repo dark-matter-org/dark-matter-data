@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeWebApplicationREFSV provides storage for a single-valued WebApplicationREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1813)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:522)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1833)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:529)
  */
 @SuppressWarnings("serial")
 public class DmcTypeWebApplicationREFSV extends DmcTypeWebApplicationREF implements Serializable {
@@ -48,14 +48,14 @@ public class DmcTypeWebApplicationREFSV extends DmcTypeWebApplicationREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1845)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1865)
     public DmcAttribute<WebApplicationREF> cloneIt(){
         DmcTypeWebApplicationREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1856)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1876)
     public WebApplicationREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeWebApplicationREFSV extends DmcTypeWebApplicationREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1888)
     public WebApplicationREF set(Object v) throws DmcValueException {
         WebApplicationREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

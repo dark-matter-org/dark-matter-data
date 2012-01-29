@@ -42,15 +42,10 @@ abstract public class DmcTypeSetRequestREF extends DmcAttribute<SetRequestDMO> i
     }
 
     protected SetRequestDMO typeCheck(Object value) throws DmcValueException {
-        SetRequestDMO rc = null;
-
-        if (value instanceof SetRequestDMO){
-            rc = (SetRequestDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with SetRequestDMO expected."));
-        }
-        return(rc);
+        if (value instanceof SetRequestDMO)
+            return((SetRequestDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with SetRequestDMO expected."));
     }
 
     @Override

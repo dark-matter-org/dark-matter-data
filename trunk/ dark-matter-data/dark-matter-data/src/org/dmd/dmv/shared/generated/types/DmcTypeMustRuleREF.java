@@ -42,15 +42,10 @@ abstract public class DmcTypeMustRuleREF extends DmcAttribute<MustRuleDMO> imple
     }
 
     protected MustRuleDMO typeCheck(Object value) throws DmcValueException {
-        MustRuleDMO rc = null;
-
-        if (value instanceof MustRuleDMO){
-            rc = (MustRuleDMO)value;
-        }
-        else{
-            throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with MustRuleDMO expected."));
-        }
-        return(rc);
+        if (value instanceof MustRuleDMO)
+            return((MustRuleDMO)value);
+        
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with MustRuleDMO expected."));
     }
 
     @Override
