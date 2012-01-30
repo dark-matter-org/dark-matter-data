@@ -128,10 +128,11 @@ public class SessionFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF,
     }
 
     public int hashCode(){
-        if (getObjectName() == null)
+        DotName objn = getObjectName();
+        if (objn == null)
             return(0);
         
-        return(getObjectName().hashCode());
+        return(objn.hashCode());
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)

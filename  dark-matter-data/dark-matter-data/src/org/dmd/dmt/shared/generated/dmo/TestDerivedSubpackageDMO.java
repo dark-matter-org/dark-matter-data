@@ -109,10 +109,11 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
     }
 
     public int hashCode(){
-        if (getObjectName() == null)
+        StringName objn = getObjectName();
+        if (objn == null)
             return(0);
         
-        return(getObjectName().hashCode());
+        return(objn.hashCode());
     }
 
     /**
