@@ -128,10 +128,11 @@ public class ModuleDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, S
     }
 
     public int hashCode(){
-        if (getObjectName() == null)
+        CamelCaseName objn = getObjectName();
+        if (objn == null)
             return(0);
         
-        return(getObjectName().hashCode());
+        return(objn.hashCode());
     }
 
     /**

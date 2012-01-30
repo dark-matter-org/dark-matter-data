@@ -126,10 +126,11 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     }
 
     public int hashCode(){
-        if (getObjectName() == null)
+        CamelCaseName objn = getObjectName();
+        if (objn == null)
             return(0);
         
-        return(getObjectName().hashCode());
+        return(objn.hashCode());
     }
 
     /**

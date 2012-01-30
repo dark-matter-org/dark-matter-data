@@ -124,10 +124,11 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     }
 
     public int hashCode(){
-        if (getObjectName() == null)
+        CamelCaseName objn = getObjectName();
+        if (objn == null)
             return(0);
         
-        return(getObjectName().hashCode());
+        return(objn.hashCode());
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
