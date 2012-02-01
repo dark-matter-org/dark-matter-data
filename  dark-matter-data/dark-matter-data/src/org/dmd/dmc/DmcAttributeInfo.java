@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * the information provided to the Google Protocol Buffer mechanisms, except that its
  * information is derived from the AttributeDefinition of Dark Matter Schema (DMS) specifications.
  */
-public class DmcAttributeInfo {
+public class DmcAttributeInfo implements Comparable<DmcAttributeInfo> {
 
 	// The string name of the attribute
 	final public String 		name;
@@ -88,6 +88,29 @@ public class DmcAttributeInfo {
 
 	public String toString(){
 		return(name + " " + id + " " + type + " " + valueType + " " + dataType + " index: " + indexSize);
+	}
+
+	@Override
+	public int compareTo(DmcAttributeInfo dai) {
+		if (id == dai.id)
+			return(0);
+		if (id < dai.id)
+			return(-1);
+		return(1);
+	}
+	
+	@Override
+	public boolean equals(Object obj){
+		if (obj instanceof DmcAttributeInfo){
+			if (id == ((DmcAttributeInfo)obj).id)
+				return(true);
+		}
+		return(false);
+	}
+
+	@Override
+	public int hashCode(){
+		return(id);
 	}
 
 }
