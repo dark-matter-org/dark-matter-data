@@ -9,6 +9,7 @@ import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.conversion.AttributeReadInterceptor;
+import org.dmd.dmc.conversion.ObjectReadInterceptor;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -25,11 +26,15 @@ public class DmwDeserializer {
 	
 	// Interceptors for attributes used in a particular class of object.
 	HashMap<Integer,ClassSpecificInfo>					classRI;
+	
+	// Object level interceptors
+	HashMap<DmcClassInfo, ObjectReadInterceptor>		objRI;
 
 	public DmwDeserializer(SchemaManager s){
-		schema = s;
-		attrRI = new HashMap<DmcAttributeInfo, AttributeReadInterceptor>();
+		schema 	= s;
+		attrRI 	= new HashMap<DmcAttributeInfo, AttributeReadInterceptor>();
 		classRI = new HashMap<Integer, DmwDeserializer.ClassSpecificInfo>();
+		objRI	= new HashMap<DmcClassInfo, ObjectReadInterceptor>();
 	}
 	
 	/**
@@ -67,6 +72,16 @@ public class DmwDeserializer {
 		csi.addInterceptor(ai, ari);
 	}
 	
+	/**
+	 * Adds an object level interceptor for the specified class.
+	 * @param dci The class info.
+	 * @param ori The object interceptor.
+	 */
+	public void addInterceptor(DmcClassInfo dci, ObjectReadInterceptor ori){
+		if (objRI.containsKey(dci))
+			throw(new IllegalStateException("Duplicate interceptor for object class: " + dci));
+		objRI.put(dci, ori);
+	}
 	
 	
 	/**
@@ -172,14 +187,26 @@ public class DmwDeserializer {
 		for(int i=0; i<attrCount; i++){
 			DmcAttribute<?> attr = dis.getAttributeInstance();
 			
-			// READ: the current attribute
-			attr.deserializeIt(dis);
+			AttributeReadInterceptor ari = attrRI.get(attr.getAttributeInfo());
+			
+			// If we don't have a global attribute interceptor, see if there's a class specific one
+			if ( (ari == null) && (csi != null) )
+				ari = csi.getInterceptor(attr);
+			
+			if (ari == null)
+				attr.deserializeIt(dis);
+			else
+				ari.handleAttribute(dis, attr);
 			
 			if (attr.getAttributeInfo().valueType == ValueTypeEnum.SINGLE)
 				dmo.set(attr.getAttributeInfo(), attr);
 			else
 				dmo.add(attr.getAttributeInfo(), attr);
 		}
+		
+		ObjectReadInterceptor ori = objRI.get(dmo.getConstructionClassInfo());
+		if (ori != null)
+			ori.handleObject(dmo);
 		
 		return(rc);
 	}	
@@ -199,10 +226,8 @@ public class DmwDeserializer {
 			attrRI.put(ai,ari);			
 		}
 		
-		boolean shouldIntercept(DmcAttribute<?> attr){
-			if (attrRI.containsKey(attr.getAttributeInfo()))
-				return(true);
-			return(false);
+		AttributeReadInterceptor getInterceptor(DmcAttribute<?> attr){
+			return(attrRI.get(attr.getAttributeInfo()));
 		}
 	}
 }
