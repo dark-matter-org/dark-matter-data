@@ -169,6 +169,8 @@ public class DmwDeserializer {
 		// Instantiate the object
 		rc = cd.newInstance();
 		dmo = rc.getDmcObject();
+		
+//DebugInfo.debug("*** INSTANTIATED: " + cd.getConstructionClassName());
 				
 		// Add the auxiliary classes if they exist
 		if (classCount > 1){
@@ -181,12 +183,15 @@ public class DmwDeserializer {
 		
 		// READ: the number of attributes
 		int 		attrCount = dis.readAttributeCount();
+//DebugInfo.debug("*** attribute count: " + attrCount);
 		
 		ClassSpecificInfo csi = classRI.get(dmo.getConstructionClassInfo().id);
 		
 		for(int i=0; i<attrCount; i++){
 			DmcAttribute<?> attr = dis.getAttributeInstance();
 			
+//DebugInfo.debug("*** ATTRIBUTE: " + attr.getName());
+
 			AttributeReadInterceptor ari = attrRI.get(attr.getAttributeInfo());
 			
 			// If we don't have a global attribute interceptor, see if there's a class specific one
