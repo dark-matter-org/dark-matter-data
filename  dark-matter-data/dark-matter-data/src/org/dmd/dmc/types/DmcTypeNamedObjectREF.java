@@ -115,7 +115,8 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 	 */
 	public void removeBackReferences(){
 		// If backref tracking isn't on, don't bother
-		if (DmcOmni.instance().backRefTracking() && (attrInfo.id> 200) ){
+//		if (DmcOmni.instance().backRefTracking() && (attrInfo.id> 200) ){
+		if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attrInfo.id) ){
 			if (attrInfo.valueType == ValueTypeEnum.SINGLE){
 				HELPER ref = getSV();
 				if (ref != null){

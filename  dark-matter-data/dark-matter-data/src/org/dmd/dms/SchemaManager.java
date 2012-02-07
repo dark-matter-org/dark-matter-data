@@ -1481,9 +1481,9 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     void addType(TypeDefinition td) throws ResultException, DmcValueException {
     	
-    	if (td.getObjectName().getNameString().equals("SomeRelation")){
-    		DebugInfo.debug("HERE " + System.identityHashCode(this));
-    	}
+//    	if (td.getObjectName().getNameString().equals("SomeRelation")){
+//    		DebugInfo.debug("HERE " + System.identityHashCode(this));
+//    	}
     	
         if (checkAndAdd(td.getObjectName(),td,typeDefs) == false){
         	ResultException ex = new ResultException();

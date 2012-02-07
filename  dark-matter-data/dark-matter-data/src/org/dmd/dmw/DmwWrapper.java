@@ -70,6 +70,18 @@ public abstract class DmwWrapper extends DmcContainer {
 		}
     }
     
+    public void startModificationAggregation(){
+    	core.startModificationAggregation();
+    }
+    
+    public void applyCurrentModification() throws DmcValueExceptionSet, DmcValueException {
+    	core.applyCurrentModification();
+    }
+    
+    public DmcTypeModifierMV stopModificationAggregation(){
+    	return(core.stopModificationAggregation());
+    }
+    
     public boolean applyModifier(DmcTypeModifierMV mods) throws DmcValueExceptionSet, DmcValueException{
     	return(getDmcObject().applyModifier(mods));
     }
