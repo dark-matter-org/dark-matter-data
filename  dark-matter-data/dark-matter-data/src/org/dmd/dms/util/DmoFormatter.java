@@ -207,6 +207,7 @@ public class DmoFormatter {
 		        out.write("    public " + cd.getName() + "DMO getModificationRecorder(){\n");
 		        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO();\n");
 		        out.write("        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
+		        out.write("        rc.modrec(true);\n");
 		        out.write("        return(rc);\n");
 		        out.write("    }\n\n");
 	        }
@@ -217,6 +218,7 @@ public class DmoFormatter {
 		        out.write("        " + cd.getName() + "DMO rc = new " + cd.getName() + "DMO();\n");
 		        out.write("        rc.set" + upper + "(get" + upper + "());\n");
 		        out.write("        rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
+		        out.write("        rc.modrec(true);\n");
 		        out.write("        return(rc);\n");
 		        out.write("    }\n\n");
 	        }

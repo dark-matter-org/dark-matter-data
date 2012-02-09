@@ -83,10 +83,11 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
         IntegerNamedObjectDMO rc = new IntegerNamedObjectDMO();
         rc.setIntegerName(getIntegerName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public IntegerName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__integerName);
         if (name != null)

@@ -94,6 +94,7 @@ public class MustRuleDMO  extends ClassRuleDMO  implements Serializable  {
     public MustRuleDMO getModificationRecorder(){
         MustRuleDMO rc = new MustRuleDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

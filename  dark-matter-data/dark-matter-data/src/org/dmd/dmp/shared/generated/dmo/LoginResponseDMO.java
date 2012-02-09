@@ -104,6 +104,7 @@ public class LoginResponseDMO  extends ResponseDMO  implements Serializable  {
     public LoginResponseDMO getModificationRecorder(){
         LoginResponseDMO rc = new LoginResponseDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

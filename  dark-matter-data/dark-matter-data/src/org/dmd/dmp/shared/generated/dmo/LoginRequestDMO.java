@@ -96,6 +96,7 @@ public class LoginRequestDMO  extends RequestDMO  implements Serializable  {
     public LoginRequestDMO getModificationRecorder(){
         LoginRequestDMO rc = new LoginRequestDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

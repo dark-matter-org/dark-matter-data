@@ -101,6 +101,7 @@ public class DenotifyRequestDMO  extends RequestDMO  implements Serializable  {
     public DenotifyRequestDMO getModificationRecorder(){
         DenotifyRequestDMO rc = new DenotifyRequestDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

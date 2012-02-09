@@ -99,10 +99,11 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
         MenuElementDefinitionDMO rc = new MenuElementDefinitionDMO();
         rc.setElementName(getElementName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(MvwDMSAG.__elementName);
         if (name != null)

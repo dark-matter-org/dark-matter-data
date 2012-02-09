@@ -94,6 +94,7 @@ public class IntegerRangeRuleDMO  extends AttributeRuleDMO  implements Serializa
     public IntegerRangeRuleDMO getModificationRecorder(){
         IntegerRangeRuleDMO rc = new IntegerRangeRuleDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

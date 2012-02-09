@@ -98,10 +98,11 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
         UserFolderRIDMO rc = new UserFolderRIDMO();
         rc.setDotName(getDotName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public DotName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__dotName);
         if (name != null)
@@ -110,7 +111,7 @@ public class UserFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF, Dm
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:753)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:755)
     public DotName getHierarchicObjectName(){
         return(getObjectName());
     }

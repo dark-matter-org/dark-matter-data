@@ -97,10 +97,11 @@ public class FormImplementationConfigDMO  extends MvwDefinitionDMO  implements D
         FormImplementationConfigDMO rc = new FormImplementationConfigDMO();
         rc.setConfigName(getConfigName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(MvwDMSAG.__configName);
         if (name != null)

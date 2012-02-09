@@ -91,10 +91,11 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
         UUIDNamedObjectDMO rc = new UUIDNamedObjectDMO();
         rc.setUuidName(getUuidName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public UUIDName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__uuidName);
         if (name != null)

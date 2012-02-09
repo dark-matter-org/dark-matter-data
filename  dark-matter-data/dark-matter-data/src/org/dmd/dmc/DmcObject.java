@@ -54,7 +54,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * during the life cycle of an object, but will only take up additional space as required.
  * Again, there is some overhead, but the benefits of that overhead are very useful.
  * <p>
- * There are currently 6 additional pieces of information stored for a DMC object:
+ * There are currently 5 additional pieces of information stored for a DMC object:
  * <ul>
  * <li>
  * CONTAINER[0] - if the DMO is wrapped by a DMW generated class, this holds the
@@ -90,27 +90,6 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * referring to it is in MODREC mode. If we didn't keep track of this, we would wind up
  * tracking references twice.
  * </li>
- * <li>
- * AGGREGATOR[5] - the AGGREGATOR provides a mechanism to aggregate a set of different
- * modifications into a single modification, usually for the purpose of generating a single
- * event based on a complex series of modifications against an object. Such operations
- * can be required when a series of changes are made to an object in a single thread
- * of execution e.g. complex algorithms that have to iterate over a set of objects and
- * make multiple changes to each object. In order to reduce the number of events, the
- * set of operations can be aggregated and sent as a single event. The operational sequence
- * for this would look like: <br>
- * obj->startModificationAggregation()<br>
- * obj->setModifier()<br>
- * [object changes]<br>
- * obj->applyCurrentModifer()<br>
- * object->setModifier()<br>
- * [object changes]<br>
- * object->applyCurrentModifier()<br>
- * obj->stopModificationAggregation()<br>
- * <p/>
- * The stopModificationAggregation() will return a single {@link DmcTypeModifierMV} that
- * contains all of the changes that have been made.
- * </li>
  * </ul>
  */
 @SuppressWarnings("serial")
@@ -122,7 +101,6 @@ abstract public class DmcObject implements Serializable {
 	static final int	MODIFIER		= 2;
 	static final int	LASTVAL			= 3;
 	static final int	MODREC			= 4;
-	static final int	AGGREGATOR		= 5;
 	
 	// The associated sizes of the info vector when storing various information. 
 	// All of this information is static to cut down on needless operations.
@@ -131,7 +109,6 @@ abstract public class DmcObject implements Serializable {
 	static final int	MODIFIER_SIZE	= 3;
 	static final int	LASTVAL_SIZE	= 4;
 	static final int	MODREC_SIZE		= 5;
-	static final int	AGGREGATOR_SIZE	= 6;
 	
 	// The objectClass attribute is common to all objects and indicates the construction class
 	// and any auxiliary classes associated with the object
@@ -369,13 +346,8 @@ abstract public class DmcObject implements Serializable {
 	public void setModifier(DmcTypeModifierMV m){
 		if (m == null)
 			shrinkInfo(MODIFIER);
-		else{
+		else
 			setInfo(MODIFIER,MODIFIER_SIZE,m);
-			ArrayList<DmcTypeModifierMV>	agg = (ArrayList<DmcTypeModifierMV>) getInfo(AGGREGATOR,AGGREGATOR_SIZE);
-			if (agg != null){
-				agg.add(m);
-			}
-		}
 	}
 	
 	/**
@@ -424,76 +396,6 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * This method will begin aggregating a series of changes made to the object. Each time you
-	 * call setModifier() the DmcTypeModifierMV will be stored. When you are finished with the
-	 * set of modifications, call stopModificationAggregation() and you will receive the entire
-	 * set of modifications in a single DmcTypeModifierMV instance.
-	 * <p/>
-	 * NOTE: this mechanism is meant for use on objects that ARE NOT modification recorders i.e.
-	 * objects that were created via the getModificationRecorder() method. It is only meant to be
-	 * used when manually setting the modifier.
-	 */
-	@SuppressWarnings("unchecked")
-	public void startModificationAggregation(){
-		if (isModrec())
-			throw(new IllegalStateException("This method should only be used when manually setting the modifier on an object."));
-		ArrayList<DmcTypeModifierMV>	agg = (ArrayList<DmcTypeModifierMV>) getInfo(AGGREGATOR,AGGREGATOR_SIZE);
-		if (agg == null){
-			agg = new ArrayList<DmcTypeModifierMV>();
-			setInfo(AGGREGATOR, AGGREGATOR_SIZE, agg);
-		}
-	}
-	
-	/**
-	 * This is a convenience method that applies the current set of modifications to this object.
-	 * You should have previously used setModifier() to set a modifier on the object.
-	 * @return true if any changes were made and false otherwise.
-	 * @throws DmcValueExceptionSet
-	 * @throws DmcValueException
-	 */
-	public boolean applyCurrentModification() throws DmcValueExceptionSet, DmcValueException {
-		if (getModifier() == null)
-			throw(new IllegalStateException("There is no modifier to apply!"));
-		
-		// Pull out the modifier and hang on to it. We then wipe the modifier so that
-		// we can actually apply it to the object. If we don't do this, the object thinks
-		// it's in modrec mode and won't actually apply the changes.
-		DmcTypeModifierMV mods = getModifier();
-		setLastValue(null);
-		setModifier(null);
-		
-		boolean rc = applyModifier(mods);
-		return(rc);
-	}
-	
-	/**
-	 * @return The entire set of modifications that have been applied since startModificationAggregation()
-	 * was called.
-	 */
-	@SuppressWarnings("unchecked")
-	public DmcTypeModifierMV stopModificationAggregation(){
-		DmcTypeModifierMV rc = new DmcTypeModifierMV();
-		
-		ArrayList<DmcTypeModifierMV>	agg = (ArrayList<DmcTypeModifierMV>) getInfo(AGGREGATOR,AGGREGATOR_SIZE);
-		
-		if (agg != null){
-			for(DmcTypeModifierMV mv: agg){
-				for(int i=0; i<mv.getMVSize(); i++){
-					try {
-						rc.add(mv.getMVnth(i));
-					} catch (DmcValueException e) {
-						throw(new IllegalStateException("Adding a Modifier to DmcTypeModifierMV shouldn't thrown an exception", e));
-					}
-				}
-			}
-		}
-		
-		shrinkInfo(AGGREGATOR);
-
-		return(rc);
-	}
-	
-	/**
 	 * This method manages the info vector and grows it to the appropriate size to manage
 	 * the additional information required.
 	 * @param index        The index of the information we're storing.
@@ -511,8 +413,6 @@ abstract public class DmcObject implements Serializable {
 //			DebugInfo.debug("NEW INFO " + ((DmcNamedObjectIF)this).getObjectName() + " " + index + " " + System.identityHashCode(this));
 			
 			switch(index){
-			case AGGREGATOR:
-				info.add(null);
 			case MODREC:
 				info.add(null);
 			case LASTVAL:
@@ -562,11 +462,6 @@ abstract public class DmcObject implements Serializable {
 	void shrinkInfo(int index){
 		Vector<Object> newinfo = null;
 		if (index == MODIFIER){
-			if (info.get(AGGREGATOR) != null){
-				info.set(MODIFIER, null);
-				return;
-			}
-			
 			if (info.get(BACKREFS) == null){
 				if (info.get(CONTAINER) != null){
 					// We just have the container, shrink to 1
@@ -597,31 +492,7 @@ abstract public class DmcObject implements Serializable {
 				// If the container was null, we'll wind up nulling the info vector
 			}
 		}
-		else if (index == AGGREGATOR){
-			// Aggregators are never used with object's that were created as modification recorders,
-			// so we can always shrink by at least 2 spaces.
-			int finalSize = LASTVAL_SIZE;
-			if (getLastValue() == null){
-				finalSize = MODIFIER_SIZE;
-				if (getModifier() == null){
-					finalSize = BACKREFS_SIZE;
-					if (getBackref() == null){
-						finalSize = CONTAINER_SIZE;
-						if (getContainer() == null)
-							finalSize = 0;
-					}
-				}
-			}
-			
-			if (finalSize == 0){
-				newinfo = null;
-			}
-			else{
-				newinfo = new Vector<Object>(finalSize, 1);
-				for(int i=0; i<finalSize; i++)
-					newinfo.add(info.get(i));
-			}
-		}
+
 		info = newinfo;
 		newinfo = null;
 	}
@@ -959,7 +830,8 @@ abstract public class DmcObject implements Serializable {
 			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
 			// a modifier on an object because we would wind up tracking the references twice,
 			// once while creating the modifier and again when the modifier is applied.
-			if (getModifier() == null){
+//			if (getModifier() == null){
+			if (isModrec() == false){
 				if (supportsBackrefTracking()){
 					// TODO: need to have the upper bound of the IDs for the meta schema available
 					// so that we can check whether we want to track the back references.
@@ -984,7 +856,8 @@ abstract public class DmcObject implements Serializable {
 					}
 				}
 			}
-			else{
+			
+			if (getModifier() != null){
 				if (getLastValue() == null){
 					// Last value can be null in the case of SET attributes since we don't 
 					// actually add a value to the SET if it already exists. However, in other
@@ -1110,7 +983,8 @@ abstract public class DmcObject implements Serializable {
 			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
 			// a modifier on an object because we would wind up tracking the references twice,
 			// once while creating the modifier and again when the modifier is applied.
-			if ((ref != null) && (getModifier() == null)){
+//			if ((ref != null) && (getModifier() == null)){
+			if ((ref != null) && (isModrec() == false)){
 //System.out.println("Resolved ref " + ref.getObjectName().getNameString() + " hash = " + System.identityHashCode(ref));
 				if (supportsBackrefTracking()){
 					// TODO: need to have the upper bound of the IDs for the meta schema available
@@ -1181,7 +1055,8 @@ abstract public class DmcObject implements Serializable {
 			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
 			// a modifier on an object because we would wind up tracking the references twice,
 			// once while creating the modifier and again when the modifier is applied.
-			if ((getModifier() == null) && (attr != null)){
+//			if ((getModifier() == null) && (attr != null)){
+			if ((isModrec() == false) && (attr != null)){
 				if (supportsBackrefTracking()){
 					if (attr instanceof DmcTypeNamedObjectREF){
 						((DmcTypeNamedObjectREF<?,?>)attr).removeBackReferences();
@@ -1276,7 +1151,8 @@ abstract public class DmcObject implements Serializable {
 			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
 			// a modifier on an object because we would wind up tracking the references twice,
 			// once while creating the modifier and again when the modifier is applied.
-			if (getModifier() == null){
+//			if (getModifier() == null){
+			if (isModrec() == false){
 				if (supportsBackrefTracking()){
 					// TODO: need to have the upper bound of the IDs for the meta schema available
 					// so that we can check whether we want to track the back references.
@@ -1313,7 +1189,8 @@ abstract public class DmcObject implements Serializable {
 					}
 				}
 			}
-			else{
+			
+			if (getModifier() != null){
 				if (getLastValue() == null){
 					// Last value can be null in the case of indexed multi-valued attributes since this
 					// is how we remove an indexed value.

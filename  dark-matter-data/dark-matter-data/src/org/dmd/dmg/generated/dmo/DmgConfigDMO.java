@@ -98,6 +98,7 @@ public class DmgConfigDMO  extends DmcObject  implements Serializable  {
     public DmgConfigDMO getModificationRecorder(){
         DmgConfigDMO rc = new DmgConfigDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

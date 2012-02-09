@@ -89,10 +89,11 @@ public class TestBasicNamedObjectExtendedDMO  extends DmcObject  implements DmcN
         TestBasicNamedObjectExtendedDMO rc = new TestBasicNamedObjectExtendedDMO();
         rc.setName(getName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         if (name != null)

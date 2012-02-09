@@ -103,6 +103,7 @@ public class ResponseDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     public ResponseDMO getModificationRecorder(){
         ResponseDMO rc = new ResponseDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

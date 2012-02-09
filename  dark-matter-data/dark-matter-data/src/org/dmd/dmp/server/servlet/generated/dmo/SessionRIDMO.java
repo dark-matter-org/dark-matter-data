@@ -103,10 +103,11 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
         SessionRIDMO rc = new SessionRIDMO();
         rc.setDotName(getDotName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public DotName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__dotName);
         if (name != null)
@@ -115,7 +116,7 @@ public class SessionRIDMO  extends DmcObject  implements DmcNamedObjectIF, DmcHi
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:753)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:755)
     public DotName getHierarchicObjectName(){
         return(getObjectName());
     }

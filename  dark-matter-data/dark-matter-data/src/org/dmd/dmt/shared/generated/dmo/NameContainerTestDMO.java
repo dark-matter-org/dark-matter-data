@@ -83,6 +83,7 @@ public class NameContainerTestDMO  extends DmcObject  implements Serializable  {
     public NameContainerTestDMO getModificationRecorder(){
         NameContainerTestDMO rc = new NameContainerTestDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

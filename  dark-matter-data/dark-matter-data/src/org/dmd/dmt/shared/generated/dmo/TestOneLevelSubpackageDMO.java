@@ -85,10 +85,11 @@ public class TestOneLevelSubpackageDMO  extends DmcObject  implements DmcNamedOb
         TestOneLevelSubpackageDMO rc = new TestOneLevelSubpackageDMO();
         rc.setName(getName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public StringName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         if (name != null)
