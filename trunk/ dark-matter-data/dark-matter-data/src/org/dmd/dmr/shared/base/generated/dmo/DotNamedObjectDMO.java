@@ -104,10 +104,11 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         DotNamedObjectDMO rc = new DotNamedObjectDMO();
         rc.setFQN(getFQN());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public FullyQualifiedName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__FQN);
         if (name != null)

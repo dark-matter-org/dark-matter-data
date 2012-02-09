@@ -109,10 +109,11 @@ public class WebApplicationDMO  extends MvwDefinitionDMO  implements DmcNamedObj
         WebApplicationDMO rc = new WebApplicationDMO();
         rc.setAppName(getAppName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(MvwDMSAG.__appName);
         if (name != null)

@@ -103,10 +103,11 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
         FieldEditorDefinitionDMO rc = new FieldEditorDefinitionDMO();
         rc.setEditorName(getEditorName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(MvwDMSAG.__editorName);
         if (name != null)

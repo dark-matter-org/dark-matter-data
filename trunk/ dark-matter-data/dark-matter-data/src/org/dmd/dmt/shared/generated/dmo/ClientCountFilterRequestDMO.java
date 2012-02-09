@@ -83,6 +83,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
     public ClientCountFilterRequestDMO getModificationRecorder(){
         ClientCountFilterRequestDMO rc = new ClientCountFilterRequestDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

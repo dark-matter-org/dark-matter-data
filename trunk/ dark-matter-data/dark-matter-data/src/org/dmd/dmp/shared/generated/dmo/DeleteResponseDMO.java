@@ -97,6 +97,7 @@ public class DeleteResponseDMO  extends ResponseDMO  implements Serializable  {
     public DeleteResponseDMO getModificationRecorder(){
         DeleteResponseDMO rc = new DeleteResponseDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

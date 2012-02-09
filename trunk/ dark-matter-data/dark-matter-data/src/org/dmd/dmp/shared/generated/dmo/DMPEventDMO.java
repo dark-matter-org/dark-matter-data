@@ -111,6 +111,7 @@ public class DMPEventDMO  extends DMPMessageDMO  implements de.novanic.eventserv
     public DMPEventDMO getModificationRecorder(){
         DMPEventDMO rc = new DMPEventDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

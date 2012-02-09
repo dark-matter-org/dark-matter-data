@@ -72,7 +72,7 @@ abstract public class MenuDMO  extends MenuElementDefinitionDMO  implements DmcN
         return(_OvDmAp);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(MvwDMSAG.__elementName);
         if (name != null)

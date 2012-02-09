@@ -100,6 +100,7 @@ public class SetResponseDMO  extends ResponseDMO  implements Serializable  {
     public SetResponseDMO getModificationRecorder(){
         SetResponseDMO rc = new SetResponseDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

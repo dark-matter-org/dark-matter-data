@@ -18,6 +18,7 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmt.TestDataCache;
 import org.dmd.dmt.TestLogger;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
@@ -362,7 +363,22 @@ public class TestReferenceTracking {
 		assertEquals("obj1 should indicate that it has no reference", 0, obj1.referenceCount());
 		
 		
+		// Testing direct modification of an object
+		DmcTypeModifierMV mods = new DmcTypeModifierMV();
+		obj3.setModifier(mods);
+		
+		obj3.addObjRefMV(obj1);
+		
+		assertEquals("obj1 should indicate that it has 1 reference", 1, obj1.referenceCount());
 
+		assertEquals("mods should be size 1", 1, mods.getMVSize());
+		
+		obj3.delObjRefMV(obj1);
+		
+		assertEquals("obj1 should indicate that it has no reference", 0, obj1.referenceCount());
+
+		assertEquals("mods should be size 2", 2, mods.getMVSize());
+		
 		
 		
 		System.out.println("\n<<< testMultivaluedReference()\n\n");

@@ -111,6 +111,7 @@ public class GetRequestDMO  extends RequestDMO  implements Serializable  {
     public GetRequestDMO getModificationRecorder(){
         GetRequestDMO rc = new GetRequestDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

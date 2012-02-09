@@ -79,7 +79,7 @@ abstract public class MvwDefinitionDMO  extends DmcObject  implements DmcNamedOb
         return(_OvDmAp);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:742)
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
     public CamelCaseName getObjectName(){
         DmcAttribute<?> name = get(MetaDMSAG.__camelCaseName);
         if (name != null)

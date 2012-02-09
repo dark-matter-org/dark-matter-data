@@ -79,6 +79,7 @@ public class ClientCountFilterDMO  extends DmcObject  implements Serializable  {
     public ClientCountFilterDMO getModificationRecorder(){
         ClientCountFilterDMO rc = new ClientCountFilterDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

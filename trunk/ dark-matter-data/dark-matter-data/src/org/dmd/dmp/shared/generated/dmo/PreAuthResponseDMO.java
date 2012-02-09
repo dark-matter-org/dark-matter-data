@@ -94,6 +94,7 @@ public class PreAuthResponseDMO  extends ResponseDMO  implements Serializable  {
     public PreAuthResponseDMO getModificationRecorder(){
         PreAuthResponseDMO rc = new PreAuthResponseDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

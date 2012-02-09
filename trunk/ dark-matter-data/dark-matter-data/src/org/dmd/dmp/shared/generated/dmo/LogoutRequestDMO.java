@@ -95,6 +95,7 @@ public class LogoutRequestDMO  extends RequestDMO  implements Serializable  {
     public LogoutRequestDMO getModificationRecorder(){
         LogoutRequestDMO rc = new LogoutRequestDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

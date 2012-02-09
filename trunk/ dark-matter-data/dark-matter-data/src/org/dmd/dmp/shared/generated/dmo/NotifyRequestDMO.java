@@ -100,6 +100,7 @@ public class NotifyRequestDMO  extends RequestDMO  implements Serializable  {
     public NotifyRequestDMO getModificationRecorder(){
         NotifyRequestDMO rc = new NotifyRequestDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

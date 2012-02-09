@@ -93,6 +93,7 @@ public class PreAuthRequestDMO  extends RequestDMO  implements Serializable  {
     public PreAuthRequestDMO getModificationRecorder(){
         PreAuthRequestDMO rc = new PreAuthRequestDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

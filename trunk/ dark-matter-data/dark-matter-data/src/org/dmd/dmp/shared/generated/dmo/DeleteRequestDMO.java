@@ -101,6 +101,7 @@ public class DeleteRequestDMO  extends RequestDMO  implements Serializable  {
     public DeleteRequestDMO getModificationRecorder(){
         DeleteRequestDMO rc = new DeleteRequestDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

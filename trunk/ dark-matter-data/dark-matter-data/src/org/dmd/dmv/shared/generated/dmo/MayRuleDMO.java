@@ -94,6 +94,7 @@ public class MayRuleDMO  extends ClassRuleDMO  implements Serializable  {
     public MayRuleDMO getModificationRecorder(){
         MayRuleDMO rc = new MayRuleDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

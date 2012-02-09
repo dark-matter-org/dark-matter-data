@@ -107,6 +107,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     public TestBasicObjectFixedDMO getModificationRecorder(){
         TestBasicObjectFixedDMO rc = new TestBasicObjectFixedDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 

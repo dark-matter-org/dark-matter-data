@@ -99,6 +99,7 @@ public class DenotifyResponseDMO  extends ResponseDMO  implements Serializable  
     public DenotifyResponseDMO getModificationRecorder(){
         DenotifyResponseDMO rc = new DenotifyResponseDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
+        rc.modrec(true);
         return(rc);
     }
 
