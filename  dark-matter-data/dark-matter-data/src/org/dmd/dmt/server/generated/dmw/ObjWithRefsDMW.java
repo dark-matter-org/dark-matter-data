@@ -13,7 +13,7 @@ import org.dmd.dmc.DmcObjectName;                                               
 import org.dmd.dmc.types.AttributeID;                                            // For multi-valued containsAttributeID
 import org.dmd.dmc.types.IntegerToString;                                        // For multi-valued containsIntegerToString
 import org.dmd.dmc.types.NameContainer;                                          // For multi-valued containsNameContainer
-import org.dmd.dmc.types.StringName;                                             // Primitive type
+import org.dmd.dmc.types.StringName;                                             // For multi-valued containsStringName
 import org.dmd.dms.*;                                                            // Always 2
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Required for MODREC constructor
 import org.dmd.dms.generated.dmw.AttributeIDIterableDMW;                         // For multi-valued AttributeID
@@ -21,6 +21,7 @@ import org.dmd.dms.generated.dmw.DateIterableDMW;                               
 import org.dmd.dms.generated.dmw.IntegerToStringIterableDMW;                     // For multi-valued IntegerToString
 import org.dmd.dms.generated.dmw.NameContainerIterableDMW;                       // For multi-valued NameContainer
 import org.dmd.dms.generated.dmw.StringIterableDMW;                              // For multi-valued String
+import org.dmd.dms.generated.dmw.StringNameIterableDMW;                          // For multi-valued StringName
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor
 import org.dmd.dmt.server.extended.ObjWithRefs;                                  // Is reference type aux
 import org.dmd.dmt.server.generated.dmw.BaseObjDMW;                              // Derived class
@@ -2187,6 +2188,119 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2213)
     public void remIntToStringMAP(){
         ((ObjWithRefsDMO) core).remIntToStringMAP();
+    }
+
+    /**
+     * @return The number of StringName items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1291)
+    public int getHsStringNameSize(){
+        return(((ObjWithRefsDMO) core).getHsStringNameSize());
+    }
+
+    /**
+     * @return true if there are no StringNameDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1299)
+    public boolean getHsStringNameIsEmpty(){
+        if (((ObjWithRefsDMO) core).getHsStringNameSize() == 0)
+            return(true);
+        return(false);
+    }
+
+    /**
+     * @return true if there are any StringNameDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1309)
+    public boolean getHsStringNameHasValue(){
+        if (((ObjWithRefsDMO) core).getHsStringNameSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of StringName objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1639)
+    public StringNameIterableDMW getHsStringNameIterable(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__hsStringName);
+        if (attr == null)
+            return(StringNameIterableDMW.emptyList);
+        
+        return(new StringNameIterableDMW(((ObjWithRefsDMO) core).getHsStringName()));
+    }
+
+    /**
+     * Adds another hsStringName value.
+     * @param value A value compatible with StringName
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1665)
+    public void addHsStringName(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).addHsStringName(value);
+    }
+
+    /**
+     * Adds another hsStringName value.
+     * @param value A value compatible with StringName
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1675)
+    public void addHsStringName(StringName value){
+        ((ObjWithRefsDMO) core).addHsStringName(value);
+    }
+
+    /**
+     * Returns true if the collection contains the hsStringName value.
+     * @param value A value compatible with StringName
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1732)
+    public boolean hsStringNameContains(StringName value){
+        return(((ObjWithRefsDMO) core).hsStringNameContains(value));
+    }
+
+    /**
+     * @return A COPY of the collection of StringName objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1772)
+    @SuppressWarnings("unchecked")
+    public HashSet<StringName> getHsStringNameCopy(){
+        DmcAttribute<?> attr = core.get(DmtDMSAG.__hsStringName);
+        if (attr == null)
+            return(new HashSet<StringName>());
+        
+        HashSet<StringName> rc = new HashSet<StringName>(attr.getMVSize());
+        
+        Iterator<StringName> it = (Iterator<StringName>) attr.getMV();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Deletes a hsStringName value.
+     * @param value The StringName to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1799)
+    public void delHsStringName(Object value) throws DmcValueException {
+        ((ObjWithRefsDMO) core).delHsStringName(value);
+    }
+
+    /**
+     * Deletes a hsStringName value.
+     * @param value The StringName to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1808)
+    public void delHsStringName(StringName value){
+        ((ObjWithRefsDMO) core).delHsStringName(value);
+    }
+
+    /**
+     * Removes the hsStringName attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1820)
+    public void remHsStringName(){
+        ((ObjWithRefsDMO) core).remHsStringName();
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1133)
