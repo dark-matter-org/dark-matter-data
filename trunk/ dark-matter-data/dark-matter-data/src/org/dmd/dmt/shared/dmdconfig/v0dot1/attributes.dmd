@@ -448,4 +448,10 @@ dmdID           		424
 type					IntegerToString
 valueType				TREEMAPPED
 
+AttributeDefinition
+name            		hsStringName
+dmdID           		425
+type					StringName
+valueType				HASHSET
+
 

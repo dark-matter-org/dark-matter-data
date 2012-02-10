@@ -15,6 +15,8 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmc.types.Modifier;
+import org.dmd.dmc.types.NameContainer;
+import org.dmd.dmc.types.StringName;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
@@ -379,6 +381,37 @@ public class TestModifiers {
 		
 		System.out.println(modrec.toOIF());
 
+		
+		
+	}
+	
+	@Test
+	public void testHashSetChangesRecorded(){
+		ObjWithRefs obj1 = new ObjWithRefs();
+		
+		DmcTypeModifierMV mods = new DmcTypeModifierMV();
+		
+		obj1.setModifier(mods);
+		
+		obj1.addHsString("joe");
+		
+		assertEquals("Expecting a single value in the modifier.", 1, mods.getMVSize());
+		
+		obj1.addHsString("joe");
+		
+		assertEquals("Expecting a single value in the modifier.", 1, mods.getMVSize());
+		
+		obj1.addHsString("bill");
+		
+		assertEquals("Expecting 2 values in the modifier.", 2, mods.getMVSize());
+		
+		StringName sn = new StringName("some name");
+		
+		obj1.addHsStringName(sn);
+		
+		assertEquals("Expecting 3 values in the modifier.", 3, mods.getMVSize());
+		
+		System.out.println(">>> testHashSetChangesRecorded \n\n" + obj1.toOIF());
 		
 		
 	}

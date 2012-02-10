@@ -23,6 +23,7 @@ import org.dmd.dms.generated.types.DmcTypeIntegerToStringMAP;                   
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                               // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeNameContainerSET;                         // Required type
 import org.dmd.dms.generated.types.DmcTypeStringMV;                                 // Required type
+import org.dmd.dms.generated.types.DmcTypeStringNameSET;                            // Required type
 import org.dmd.dms.generated.types.DmcTypeStringNameSV;                             // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSET;                                // Required type
 import org.dmd.dms.generated.types.DmcTypeStringSV;                                 // Required type
@@ -2690,6 +2691,133 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
     // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1576)
     public void remIntToStringMAP(){
          rem(DmtDMSAG.__intToStringMAP);
+    }
+
+    /**
+     * @return An Iterator of StringName objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1008)
+    public Iterator<StringName> getHsStringName(){
+        DmcTypeStringNameSET attr = (DmcTypeStringNameSET) get(DmtDMSAG.__hsStringName);
+        if (attr == null)
+            return( ((List<StringName>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth StringName value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1020)
+    public StringName getNthHsStringName(int i){
+        DmcTypeStringNameSET attr = (DmcTypeStringNameSET) get(DmtDMSAG.__hsStringName);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
+     * Adds another hsStringName to the specified value.
+     * @param value StringName
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1034)
+    public DmcAttribute<?> addHsStringName(StringName value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
+        if (attr == null)
+            attr = new DmcTypeStringNameSET(DmtDMSAG.__hsStringName);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(DmtDMSAG.__hsStringName,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Returns true if we contain a valued keyed by the specified StringName.
+     * @param value StringName
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1109)
+    public boolean hsStringNameContains(StringName value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another hsStringName value.
+     * @param value A value compatible with StringName
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1141)
+    public DmcAttribute<?> addHsStringName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
+        if (attr == null)
+            attr = new DmcTypeStringNameSET(DmtDMSAG.__hsStringName);
+        
+        setLastValue(attr.add(value));
+        add(DmtDMSAG.__hsStringName,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in hsStringName
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1158)
+    public int getHsStringNameSize(){
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
+        if (attr == null){
+            if (DmtDMSAG.__hsStringName.indexSize == 0)
+                return(0);
+            else
+                return(DmtDMSAG.__hsStringName.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a hsStringName value.
+     * @param value The StringName to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1216)
+    public DmcAttribute<?> delHsStringName(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringNameSET(DmtDMSAG.__hsStringName), value);
+        else
+            attr = del(DmtDMSAG.__hsStringName, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a hsStringName from the specified value.
+     * @param value StringName
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1232)
+    public DmcAttribute<?> delHsStringName(StringName value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeStringNameSET(DmtDMSAG.__hsStringName), value);
+        else
+            attr = del(DmtDMSAG.__hsStringName, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the hsStringName attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1251)
+    public void remHsStringName(){
+         rem(DmtDMSAG.__hsStringName);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)

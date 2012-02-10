@@ -222,6 +222,7 @@ may				someRelationSV
 may				someRelationMV
 may				someRelationMVI
 may				intToStringMAP
+may				hsStringName
 
 ClassDefinition
 name            ClientCountFilter
