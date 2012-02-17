@@ -89,13 +89,23 @@ public class StringToString implements DmcMappedAttributeIF, Serializable {
 		key = dis.readUTF();
 		value = dis.readUTF();
 	}
+	
+	@Override
+	public boolean equals(Object obj){
+		if (obj instanceof StringToString)
+			return(valuesAreEqual((StringToString)obj));
+		return(false);
+	}
 
 	@Override
 	public boolean valuesAreEqual(DmcMappedAttributeIF obj){
 		boolean rc = false;
 		if (obj instanceof StringToString){
 			StringToString other = (StringToString) obj;
-			rc = value.equals(other.value);
+			if (key.equals(other.key))
+				rc = value.equals(other.value);
+			else
+				rc = false;
 		}
 		return(rc);
 	}
