@@ -27,7 +27,7 @@ import org.dmd.dms.types.DmcTypeEnumValue;    // DmcType import
  * The DmcTypeEnumValueMV provides storage for a multi-valued EnumValue
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2165)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:271)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2195)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
     public DmcAttribute<EnumValue> cloneIt(){
         synchronized(this){
             DmcTypeEnumValueMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2224)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2232)
     public EnumValue add(Object v) throws DmcValueException {
         synchronized(this){
             EnumValue rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2237)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
     public EnumValue del(Object v){
         synchronized(this){
             EnumValue key = null;
@@ -107,7 +107,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2268)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2276)
     public Iterator<EnumValue> getMV(){
         synchronized(this){
             ArrayList<EnumValue> clone = new ArrayList<EnumValue>(value);
@@ -115,7 +115,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2285)
     public ArrayList<EnumValue> getMVCopy(){
         synchronized(this){
             ArrayList<EnumValue> clone = new ArrayList<EnumValue>(value);
@@ -124,7 +124,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2287)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2295)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -138,7 +138,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
     public EnumValue getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2321)
     public EnumValue setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -175,7 +175,7 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2341)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2349)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,16 +198,18 @@ public class DmcTypeEnumValueMV extends DmcTypeEnumValue implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2365)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
+            if (value == null)
+                return(false);
+
             try {
                 EnumValue val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeActionDefinitionREFSV provides storage for a single-valued ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1825)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1833)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:243)
  */
 @SuppressWarnings("serial")
@@ -48,14 +48,14 @@ public class DmcTypeActionDefinitionREFSV extends DmcTypeActionDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1857)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1865)
     public DmcAttribute<ActionDefinitionREF> cloneIt(){
         DmcTypeActionDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1876)
     public ActionDefinitionREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeActionDefinitionREFSV extends DmcTypeActionDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1880)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1888)
     public ActionDefinitionREF set(Object v) throws DmcValueException {
         ActionDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

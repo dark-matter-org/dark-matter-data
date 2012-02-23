@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeFullyQualifiedName;    // DmcType import
  * The DmcTypeFullyQualifiedNameMV provides storage for a multi-valued FullyQualifiedName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2165)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:271)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2195)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
     public DmcAttribute<FullyQualifiedName> cloneIt(){
         synchronized(this){
             DmcTypeFullyQualifiedNameMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2224)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2232)
     public FullyQualifiedName add(Object v) throws DmcValueException {
         synchronized(this){
             FullyQualifiedName rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2237)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
     public FullyQualifiedName del(Object v){
         synchronized(this){
             FullyQualifiedName key = null;
@@ -107,7 +107,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2268)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2276)
     public Iterator<FullyQualifiedName> getMV(){
         synchronized(this){
             ArrayList<FullyQualifiedName> clone = new ArrayList<FullyQualifiedName>(value);
@@ -115,7 +115,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2285)
     public ArrayList<FullyQualifiedName> getMVCopy(){
         synchronized(this){
             ArrayList<FullyQualifiedName> clone = new ArrayList<FullyQualifiedName>(value);
@@ -124,7 +124,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2287)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2295)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -138,7 +138,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
     public FullyQualifiedName getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2321)
     public FullyQualifiedName setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -175,7 +175,7 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2341)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2349)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,16 +198,18 @@ public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2365)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
+            if (value == null)
+                return(false);
+
             try {
                 FullyQualifiedName val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

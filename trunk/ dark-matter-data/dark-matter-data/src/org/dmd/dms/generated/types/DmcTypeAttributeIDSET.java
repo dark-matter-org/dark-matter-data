@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeAttributeID;    // DmcType import
  * The DmcTypeAttributeIDSET provides storage for a set of AttributeID
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
@@ -60,7 +60,7 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<AttributeID> cloneIt(){
         synchronized(this){
             DmcTypeAttributeIDSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public AttributeID add(Object v) throws DmcValueException {
         synchronized(this){
             AttributeID rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public AttributeID del(Object v){
         synchronized(this){
             AttributeID rc = null;
@@ -115,32 +115,28 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<AttributeID> getMV(){
         synchronized(this){
-            Set<AttributeID> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<AttributeID>(value);
+                return( (new HashSet<AttributeID>(value)).iterator() );
             else
-                clone = new TreeSet<AttributeID>(value);
-            return(clone.iterator());
+                return( (new TreeSet<AttributeID>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<AttributeID> getMVCopy(){
         synchronized(this){
-            Set<AttributeID> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<AttributeID>(value);
+                return(new HashSet<AttributeID>(value));
             else
-                clone = new TreeSet<AttributeID>(value);
-            return(clone);
+                return(new TreeSet<AttributeID>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -150,19 +146,18 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 AttributeID val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

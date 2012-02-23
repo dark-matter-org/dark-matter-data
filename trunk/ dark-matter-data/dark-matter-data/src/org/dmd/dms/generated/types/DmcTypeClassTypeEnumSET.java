@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;    // DmcType import
  * The DmcTypeClassTypeEnumSET provides storage for a set of ClassTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:234)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<ClassTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeClassTypeEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public ClassTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ClassTypeEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public ClassTypeEnum del(Object v){
         synchronized(this){
             ClassTypeEnum rc = null;
@@ -114,32 +114,28 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<ClassTypeEnum> getMV(){
         synchronized(this){
-            Set<ClassTypeEnum> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<ClassTypeEnum>(value);
+                return( (new HashSet<ClassTypeEnum>(value)).iterator() );
             else
-                clone = new TreeSet<ClassTypeEnum>(value);
-            return(clone.iterator());
+                return( (new TreeSet<ClassTypeEnum>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<ClassTypeEnum> getMVCopy(){
         synchronized(this){
-            Set<ClassTypeEnum> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<ClassTypeEnum>(value);
+                return(new HashSet<ClassTypeEnum>(value));
             else
-                clone = new TreeSet<ClassTypeEnum>(value);
-            return(clone);
+                return(new TreeSet<ClassTypeEnum>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -149,19 +145,18 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 ClassTypeEnum val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     
