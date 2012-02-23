@@ -130,6 +130,13 @@ nameType		STRUCTURAL
 isNameType		true
 
 TypeDefinition
+name			LongName
+typeClassName	org.dmd.dmc.types.DmcTypeLongName
+primitiveType	org.dmd.dmc.types.LongName
+nameType		STRUCTURAL
+isNameType		true
+
+TypeDefinition
 name				DotName
 typeClassName		org.dmd.dmc.types.DmcTypeDotName
 primitiveType		org.dmd.dmc.types.DotName
@@ -1676,6 +1683,13 @@ type                		Boolean
 internalUse					true
 description					This flag is used to indicate taht an internally generated type
  is an extended reference type.
+
+AttributeDefinition
+name                		longName
+dmdID						134
+type                		LongName
+designatedNameAttribute 	true
+description    				The object name for objects uniquely identified with a long.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
