@@ -68,6 +68,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _StringName;
     public static TypeDefinition      _CamelCaseName;
     public static TypeDefinition      _IntegerName;
+    public static TypeDefinition      _LongName;
     public static TypeDefinition      _DotName;
     public static TypeDefinition      _ClassFilter;
     public static TypeDefinition      _IntegerToString;
@@ -233,6 +234,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _extendedReferenceClass;
     public static AttributeDefinition _extendedReferenceTypeDefList;
     public static AttributeDefinition _isExtendedRefType;
+    public static AttributeDefinition _longName;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -295,6 +297,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _StringName                  = new TypeDefinition("StringName", org.dmd.dmc.types.DmcTypeStringName.class);
             _CamelCaseName               = new TypeDefinition("CamelCaseName", org.dmd.dmc.types.DmcTypeCamelCaseName.class);
             _IntegerName                 = new TypeDefinition("IntegerName", org.dmd.dmc.types.DmcTypeIntegerName.class);
+            _LongName                    = new TypeDefinition("LongName", org.dmd.dmc.types.DmcTypeLongName.class);
             _DotName                     = new TypeDefinition("DotName", org.dmd.dmc.types.DmcTypeDotName.class);
             _ClassFilter                 = new TypeDefinition("ClassFilter", org.dmd.dmc.types.DmcTypeClassFilter.class);
             _IntegerToString             = new TypeDefinition("IntegerToString", org.dmd.dmc.types.DmcTypeIntegerToString.class);
@@ -462,6 +465,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _extendedReferenceClass      = new AttributeDefinition("extendedReferenceClass", _ClassDefinitionREF);
             _extendedReferenceTypeDefList= new AttributeDefinition("extendedReferenceTypeDefList", _ExtendedReferenceTypeDefinitionREF);
             _isExtendedRefType           = new AttributeDefinition("isExtendedRefType", _Boolean);
+            _longName                    = new AttributeDefinition("longName", _LongName);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
@@ -718,6 +722,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _Long                        .setName("Long");
             _Long                        .setTypeClassName("org.dmd.dmc.types.DmcTypeLong");
             _Long                        .setDefinedIn(this);
+
+            _LongName                    .setIsNameType("true");
+            _LongName                    .setName("LongName");
+            _LongName                    .setNameType(NameTypeEnum.STRUCTURAL);
+            _LongName                    .setPrimitiveType("org.dmd.dmc.types.LongName");
+            _LongName                    .setTypeClassName("org.dmd.dmc.types.DmcTypeLongName");
+            _LongName                    .setDefinedIn(this);
 
             _ModificationControlEnumREF  .setDescription("This is an internally generated type to allow references to ModificationControlEnum objects.");
             _ModificationControlEnumREF  .setEnumName("ModificationControlEnum");
@@ -1555,6 +1566,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _lineNumber                  .setType(_Integer);
             _lineNumber                  .setDefinedIn(this);
 
+            _longName                    .setDescription("The object name for objects uniquely identified with a long.");
+            _longName                    .setDesignatedNameAttribute("true");
+            _longName                    .setDmdID("134");
+            _longName                    .setName("longName");
+            _longName                    .setType(_LongName);
+            _longName                    .setDefinedIn(this);
+
             _may                         .setDescription("Indicates the set of attributes that an instance of a class MAY have. When accessed in Java, this is a set of references to AttributeDefinition objects.");
             _may                         .setDmdID("27");
             _may                         .setName("may");
@@ -2121,6 +2139,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_StringName);
             this.addTypeDefList(_CamelCaseName);
             this.addTypeDefList(_IntegerName);
+            this.addTypeDefList(_LongName);
             this.addTypeDefList(_DotName);
             this.addTypeDefList(_ClassFilter);
             this.addTypeDefList(_IntegerToString);
@@ -2285,6 +2304,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_extendedReferenceClass);
             this.addAttributeDefList(_extendedReferenceTypeDefList);
             this.addAttributeDefList(_isExtendedRefType);
+            this.addAttributeDefList(_longName);
             this.addAttributeDefList(_objectClass);
             this.setName("meta");
             this.setDescription("The meta schema defines the elements used to define schemas.");

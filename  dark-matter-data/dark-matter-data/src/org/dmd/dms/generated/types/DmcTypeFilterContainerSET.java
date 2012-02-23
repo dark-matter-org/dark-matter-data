@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeFilterContainer;    // DmcType import
  * The DmcTypeFilterContainerSET provides storage for a set of FilterContainer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
@@ -60,7 +60,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<FilterContainer> cloneIt(){
         synchronized(this){
             DmcTypeFilterContainerSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public FilterContainer add(Object v) throws DmcValueException {
         synchronized(this){
             FilterContainer rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public FilterContainer del(Object v){
         synchronized(this){
             FilterContainer rc = null;
@@ -115,32 +115,28 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<FilterContainer> getMV(){
         synchronized(this){
-            Set<FilterContainer> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<FilterContainer>(value);
+                return( (new HashSet<FilterContainer>(value)).iterator() );
             else
-                clone = new TreeSet<FilterContainer>(value);
-            return(clone.iterator());
+                return( (new TreeSet<FilterContainer>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<FilterContainer> getMVCopy(){
         synchronized(this){
-            Set<FilterContainer> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<FilterContainer>(value);
+                return(new HashSet<FilterContainer>(value));
             else
-                clone = new TreeSet<FilterContainer>(value);
-            return(clone);
+                return(new TreeSet<FilterContainer>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -150,19 +146,18 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 FilterContainer val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

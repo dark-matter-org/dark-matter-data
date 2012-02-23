@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeAttributeValidatorDefinitionREFSET provides storage for a set of AttributeValidatorDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:245)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeAttributeValidatorDefinitionREFSET extends DmcTypeAttributeV
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<AttributeValidatorDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeAttributeValidatorDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeAttributeValidatorDefinitionREFSET extends DmcTypeAttributeV
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public AttributeValidatorDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             AttributeValidatorDefinitionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeAttributeValidatorDefinitionREFSET extends DmcTypeAttributeV
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public AttributeValidatorDefinitionREF del(Object v){
         synchronized(this){
             AttributeValidatorDefinitionREF rc = null;
@@ -113,32 +113,28 @@ public class DmcTypeAttributeValidatorDefinitionREFSET extends DmcTypeAttributeV
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<AttributeValidatorDefinitionREF> getMV(){
         synchronized(this){
-            Set<AttributeValidatorDefinitionREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<AttributeValidatorDefinitionREF>(value);
+                return( (new HashSet<AttributeValidatorDefinitionREF>(value)).iterator() );
             else
-                clone = new TreeSet<AttributeValidatorDefinitionREF>(value);
-            return(clone.iterator());
+                return( (new TreeSet<AttributeValidatorDefinitionREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<AttributeValidatorDefinitionREF> getMVCopy(){
         synchronized(this){
-            Set<AttributeValidatorDefinitionREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<AttributeValidatorDefinitionREF>(value);
+                return(new HashSet<AttributeValidatorDefinitionREF>(value));
             else
-                clone = new TreeSet<AttributeValidatorDefinitionREF>(value);
-            return(clone);
+                return(new TreeSet<AttributeValidatorDefinitionREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -148,19 +144,18 @@ public class DmcTypeAttributeValidatorDefinitionREFSET extends DmcTypeAttributeV
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 AttributeValidatorDefinitionREF val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

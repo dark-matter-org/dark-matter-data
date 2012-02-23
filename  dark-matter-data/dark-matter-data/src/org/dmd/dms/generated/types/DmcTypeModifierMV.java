@@ -28,7 +28,7 @@ import org.dmd.dmc.types.DmcTypeModifier;    // DmcType import
  * The DmcTypeModifierMV provides storage for a multi-valued Modifier
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2165)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:271)
  */
 @SuppressWarnings("serial")
@@ -51,7 +51,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2195)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
     public DmcAttribute<Modifier> cloneIt(){
         synchronized(this){
             DmcTypeModifierMV rc = getNew();
@@ -76,7 +76,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2224)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2232)
     public Modifier add(Object v) throws DmcValueException {
         synchronized(this){
             Modifier rc = typeCheck(v);
@@ -88,7 +88,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2237)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
     public Modifier del(Object v){
         synchronized(this){
             Modifier key = null;
@@ -109,7 +109,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2268)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2276)
     public Iterator<Modifier> getMV(){
         synchronized(this){
             ArrayList<Modifier> clone = new ArrayList<Modifier>(value);
@@ -117,7 +117,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2285)
     public ArrayList<Modifier> getMVCopy(){
         synchronized(this){
             ArrayList<Modifier> clone = new ArrayList<Modifier>(value);
@@ -126,7 +126,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2287)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2295)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -140,7 +140,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
     public Modifier getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -150,7 +150,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2321)
     public Modifier setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -177,7 +177,7 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2341)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2349)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -200,16 +200,18 @@ public class DmcTypeModifierMV extends DmcTypeModifier implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2365)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
+            if (value == null)
+                return(false);
+
             try {
                 Modifier val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

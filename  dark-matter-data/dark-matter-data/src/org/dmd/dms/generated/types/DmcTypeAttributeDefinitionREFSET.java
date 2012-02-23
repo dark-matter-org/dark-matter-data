@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeAttributeDefinitionREFSET provides storage for a set of AttributeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:245)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinition
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<AttributeDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeAttributeDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinition
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public AttributeDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             AttributeDefinitionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinition
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public AttributeDefinitionREF del(Object v){
         synchronized(this){
             AttributeDefinitionREF rc = null;
@@ -113,32 +113,28 @@ public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinition
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<AttributeDefinitionREF> getMV(){
         synchronized(this){
-            Set<AttributeDefinitionREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<AttributeDefinitionREF>(value);
+                return( (new HashSet<AttributeDefinitionREF>(value)).iterator() );
             else
-                clone = new TreeSet<AttributeDefinitionREF>(value);
-            return(clone.iterator());
+                return( (new TreeSet<AttributeDefinitionREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<AttributeDefinitionREF> getMVCopy(){
         synchronized(this){
-            Set<AttributeDefinitionREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<AttributeDefinitionREF>(value);
+                return(new HashSet<AttributeDefinitionREF>(value));
             else
-                clone = new TreeSet<AttributeDefinitionREF>(value);
-            return(clone);
+                return(new TreeSet<AttributeDefinitionREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -148,19 +144,18 @@ public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinition
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 AttributeDefinitionREF val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

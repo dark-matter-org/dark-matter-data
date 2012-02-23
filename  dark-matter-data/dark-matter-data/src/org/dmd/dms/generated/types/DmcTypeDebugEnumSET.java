@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.DebugEnum;    // DmcType import
  * The DmcTypeDebugEnumSET provides storage for a set of DebugEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:234)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<DebugEnum> cloneIt(){
         synchronized(this){
             DmcTypeDebugEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public DebugEnum add(Object v) throws DmcValueException {
         synchronized(this){
             DebugEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public DebugEnum del(Object v){
         synchronized(this){
             DebugEnum rc = null;
@@ -114,32 +114,28 @@ public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<DebugEnum> getMV(){
         synchronized(this){
-            Set<DebugEnum> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<DebugEnum>(value);
+                return( (new HashSet<DebugEnum>(value)).iterator() );
             else
-                clone = new TreeSet<DebugEnum>(value);
-            return(clone.iterator());
+                return( (new TreeSet<DebugEnum>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<DebugEnum> getMVCopy(){
         synchronized(this){
-            Set<DebugEnum> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<DebugEnum>(value);
+                return(new HashSet<DebugEnum>(value));
             else
-                clone = new TreeSet<DebugEnum>(value);
-            return(clone);
+                return(new TreeSet<DebugEnum>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -149,19 +145,18 @@ public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 DebugEnum val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     

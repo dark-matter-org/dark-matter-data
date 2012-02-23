@@ -25,7 +25,7 @@ import org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint;    // DmcType import
  * The DmcTypeTimeDoubleDataPointSV provides storage for a single-valued TimeDoubleDataPoint
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1825)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1833)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:270)
  */
 @SuppressWarnings("serial")
@@ -50,14 +50,14 @@ public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1857)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1865)
     public DmcAttribute<TimeDoubleDataPoint> cloneIt(){
         DmcTypeTimeDoubleDataPointSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1868)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1876)
     public TimeDoubleDataPoint getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1880)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1888)
     public TimeDoubleDataPoint set(Object v) throws DmcValueException {
         TimeDoubleDataPoint rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

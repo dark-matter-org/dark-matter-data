@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeTypeDefinitionREFSET provides storage for a set of TypeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2439)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:245)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeTypeDefinitionREFSET extends DmcTypeTypeDefinitionREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2476)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
     public DmcAttribute<TypeDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeTypeDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeTypeDefinitionREFSET extends DmcTypeTypeDefinitionREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2495)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
     public TypeDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             TypeDefinitionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeTypeDefinitionREFSET extends DmcTypeTypeDefinitionREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
     public TypeDefinitionREF del(Object v){
         synchronized(this){
             TypeDefinitionREF rc = null;
@@ -113,32 +113,28 @@ public class DmcTypeTypeDefinitionREFSET extends DmcTypeTypeDefinitionREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2537)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
     public Iterator<TypeDefinitionREF> getMV(){
         synchronized(this){
-            Set<TypeDefinitionREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<TypeDefinitionREF>(value);
+                return( (new HashSet<TypeDefinitionREF>(value)).iterator() );
             else
-                clone = new TreeSet<TypeDefinitionREF>(value);
-            return(clone.iterator());
+                return( (new TreeSet<TypeDefinitionREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2550)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public Set<TypeDefinitionREF> getMVCopy(){
         synchronized(this){
-            Set<TypeDefinitionREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                clone = new HashSet<TypeDefinitionREF>(value);
+                return(new HashSet<TypeDefinitionREF>(value));
             else
-                clone = new TreeSet<TypeDefinitionREF>(value);
-            return(clone);
+                return(new TreeSet<TypeDefinitionREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -148,19 +144,18 @@ public class DmcTypeTypeDefinitionREFSET extends DmcTypeTypeDefinitionREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public boolean contains(Object v){
         synchronized(this){
-            boolean rc = false;
             if (value == null)
-                return(rc);
+                return(false);
             
             try {
                 TypeDefinitionREF val = typeCheck(v);
-                rc = value.contains(val);
+                return(value.contains(val));
             } catch (DmcValueException e) {
+                return(false);
             }
-            return(rc);
         }
     }
     
