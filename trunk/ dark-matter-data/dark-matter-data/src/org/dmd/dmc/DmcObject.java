@@ -1565,6 +1565,7 @@ abstract public class DmcObject implements Serializable {
 					
 				if (attr instanceof DmcTypeNamedObjectREF){
 //System.out.println("DmcObject.resolveReferences() resolving: " + attr.getName());
+
 					DmcTypeNamedObjectREF reference = (DmcTypeNamedObjectREF) attr;
 					
 					if (attr.getMVSize() == 0){
@@ -1580,6 +1581,7 @@ abstract public class DmcObject implements Serializable {
 							if (errors == null)
 								errors = new DmcValueExceptionSet();
 							errors.add(ex);
+							continue;
 						}
 						else{
 							if (obj instanceof DmcContainerIF){
@@ -1628,6 +1630,7 @@ abstract public class DmcObject implements Serializable {
 									if (errors == null)
 										errors = new DmcValueExceptionSet();
 									errors.add(ex);
+									continue;
 								}
 								else{
 									if (obj instanceof DmcContainerIF){
@@ -1638,6 +1641,10 @@ abstract public class DmcObject implements Serializable {
 										ref.setObject(obj);
 										resolvedObject = (DmcObject)obj;
 									}
+									
+									if (resolvedObject == null)
+										System.out.println("HERE");
+									
 									
 									// NOTE: we wouldn't do the backref tracking in the case of DMP
 									// messages (which are marked as supportsBackrefTracking false).
