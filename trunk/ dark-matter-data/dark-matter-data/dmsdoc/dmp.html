@@ -3640,6 +3640,226 @@
 
 </div> <!-- attributeDetails -->
 
+<div class="enumDetails">
+
+<h2> Enum Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="DMPEventTypeEnum"> DMPEventTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The ObjectEventEnum indicates the type of operation that caused  an object event to be generated.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> CREATED</td>
+      <td>Indicates that an object was created.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> DELETED</td>
+      <td>Indicates that an object was deleted.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> MODIFIED</td>
+      <td>Indicates that an object was modified.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 3</td>
+      <td> LOADED</td>
+      <td>Indicates that an object has been loaded in the cache.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="FileModeEnum"> FileModeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The FileModeEnum is used to indicate the mode in which a file is opened for writing  when the results of an operation are to be captured to a file.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> OPEN</td>
+      <td>Causes a save to file operation to overwrite an existing file or create it if it doesn't exist.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> APPEND</td>
+      <td>Causes a save to file operation to append to an existing file or create it if it doesn't exist.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="ResponseCategoryEnum"> ResponseCategoryEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The ResponseCategoryEnum indicates the category of an error response.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> UNKNOWN</td>
+      <td>An uncategorized response.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> SOFTWARE</td>
+      <td>A response related to software.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> SECURITY</td>
+      <td>A response related to security.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 3</td>
+      <td> REPOSITORY</td>
+      <td>A response related to the repository.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 4</td>
+      <td> COMMS</td>
+      <td>A response related to communication.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 5</td>
+      <td> OPERATIONAL</td>
+      <td>A response related to an operation.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="ResponseFormatEnum"> ResponseFormatEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The ResponseFormatEnum indicates how JSON responses are to be formatted.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> STANDARD</td>
+      <td>Indicates that the responses should be in standard flat format.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> DOM</td>
+      <td>Indicates that the response should be in DOM format i.e. the hierarchic structure of the data should be reflected by indenting children in subarrays beneath an object.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="ResponseTypeEnum"> ResponseTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The ResponseTypeEnum indicates the type of a response.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> UNKNOWN</td>
+      <td>An unknown type of response; shouldn't happen.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> SUCCESS</td>
+      <td>Indicates that the request was successful.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> WARNING</td>
+      <td>Indicates that the request was sucessful but that there were warnings generated and that there is some descriptive text that indicates what happened.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 3</td>
+      <td> ERROR</td>
+      <td>Indicates that the request failed and that there is some descriptive text that indicates what happened.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 4</td>
+      <td> PROGRESSTEXT</td>
+      <td>Indicates that the request is proceeding and that this is a textual update on the progress of the request.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 5</td>
+      <td> PROGRESSPERCENT</td>
+      <td>Indicates that the request is proceeding and that this is the percentage of the processing that's complete.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="ScopeEnum"> ScopeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The ScopeEnum indicates the scope of an operation when applied to a hierarchy of objects.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> NONE</td>
+      <td>Indicates that no value has been set.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> BASE</td>
+      <td>Applies the operation only to the object named in the request.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> NEXT</td>
+      <td>Applies the operation to the children, or next layer, of objects below the target object.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 3</td>
+      <td> ALL</td>
+      <td>Applies the operation to the entire sub-tree of objects beneath the target object.</td>
+    </tr>
+
+  </table>
+
+</div> <!-- enumDetails -->
+
     </div>
 
     <div id="sidebar">

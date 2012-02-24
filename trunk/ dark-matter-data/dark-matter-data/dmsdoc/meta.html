@@ -87,7 +87,7 @@
       </tr>
     </table>
     </div>    <div class="typeList">
-    <h2>Types (53)</h2>
+    <h2>Types (54)</h2>
     <ul>
       <li> <a class="deflink" href="#AttributeID"> AttributeID </a></li>
       <li> <a class="deflink" href="#Boolean"> Boolean </a></li>
@@ -110,6 +110,7 @@
       <li> <a class="deflink" href="#IntegerToUUIDLite"> IntegerToUUIDLite </a></li>
       <li> <a class="deflink" href="#LabelledIntegerDataPoint"> LabelledIntegerDataPoint </a></li>
       <li> <a class="deflink" href="#Long"> Long </a></li>
+      <li> <a class="deflink" href="#LongName"> LongName </a></li>
       <li> <a class="deflink" href="#Modifier"> Modifier </a></li>
       <li> <a class="deflink" href="#NameContainer"> NameContainer </a></li>
       <li> <a class="deflink" href="#String"> String </a></li>
@@ -2610,6 +2611,19 @@
       <td>Indicates the line number of the file from which a definition was loaded.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="longName"> longName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#LongName">LongName</a> </div> (designated naming attribute)
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The object name for objects uniquely identified with a long.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="may"> may </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3532,6 +3546,12 @@
     <tr> <td class="typeName" colspan="3"> <a name="EnumValue"> EnumValue </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td> The EnumValue type is used to store the definition of one enumerated value that comprises part of an overall EnumDefinition. <p/> The value of an EnumValue is comprised of at least three tokens and possibly a label: <br/> [enum integer value] [enum value name] [enum description] &lt: label&gt <br/> For example: 0 ABSTRACT Here is the definition of abstract. : Abstract <p/> Within an EnumDefinition, each EnumValue must have a unique integer identifier and a unique value name. <p/> The enum value name is automatically set to uppercase, even if it is specified in lower or mixed case. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td class="label">Type class</td>
       <td>org.dmd.dms.types.DmcTypeEnumValue</td>
     </tr>
@@ -3865,6 +3885,43 @@
       </td>
     </tr>
 
+    <tr> <td class="typeName" colspan="3"> <a name="LongName"> LongName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Name type</td>
+      <td> Flat </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Name attribute</td>
+      <td> <a href="meta.html#longName"> longName </a> </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type class</td>
+      <td>org.dmd.dmc.types.DmcTypeLongName</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Primitive type</td>
+      <td>org.dmd.dmc.types.LongName</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> longName (<a href="meta.html#longName">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
     <tr> <td class="typeName" colspan="3"> <a name="Modifier"> Modifier </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4153,6 +4210,7 @@
       <td>
 <table>
   <tr>
+    <td> hsStringName (<a href="dmt.html#hsStringName">dmt</a>) </td>
     <td> name (<a href="meta.html#name">meta</a>) </td>
 </tr>
 </table>
@@ -4279,7 +4337,367 @@
 
   </table>
 
-</div> <!-- attributeDetails -->
+</div> <!-- typeDetails -->
+
+<div class="enumDetails">
+
+<h2> Enum Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ClassTypeEnum"> ClassTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The ClassTypeEnum enumeration indicates the types of classes that can be defined; these definitions are borrowed from LDAP directory parlance. See the individual enum value definitions for details.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> UNKNOWN</td>
+      <td>Unknown value.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> ABSTRACT</td>
+      <td>An abstract class is one that provides a base class for a set of related derived classes, but which can't be instantiated by itself.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> STRUCTURAL</td>
+      <td>A structural class is a class that can be instantiated by itself.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 3</td>
+      <td> AUXILIARY</td>
+      <td>An auxiliary class is basically a collection of additional attributes that can be added to an instance of a STRUCTURAL class; an AUXILIARY class can't be instantiated on its own.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 4</td>
+      <td> EXTENSIBLE</td>
+      <td>An extensible class is basically a free-form class that allows ANY attribute to be set on it.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 5</td>
+      <td> INTERFACE</td>
+      <td>An interface class provides an interface for a set of implementing classes.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="DataTypeEnum"> DataTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The DataTypeEnum relates to how attributes/classes are dealt with by various persistence mechanism. No inherent behaviour is defined at this level.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> UNKNOWN</td>
+      <td>Indicates that we can't determine the data type.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> TRANSIENT</td>
+      <td>Indicates that the data is transient i.e. it exists within the application context in which it is used, but is not persisted across application invocations and is not serialized in communications with other systems.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> PERSISTENT</td>
+      <td>Indicates that the data is meant to be persistent. What persistence mechanism is used is application dependent.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 3</td>
+      <td> NONPERSISTENT</td>
+      <td>Indicates that the data is used within your system and  transmitted to remote systems but is not persisted.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="DebugEnum"> DebugEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The DebugEnum indicates the various levels of detailed logging that can be enabled in the DMC framework.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> NONE</td>
+      <td>Unknown value.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> FILTER</td>
+      <td>Allows fine control over printing of debug messages associated with filtering operations.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> SCHEMA</td>
+      <td>Allows fine control over printing of debug messages associated with schema loading operations.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="FilterTypeEnum"> FilterTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The FilterTypeEnum enumeration indicates the types of filter operations that can be carried out on the attributes of an object.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> NONE</td>
+      <td>Indicates that no filter operation was specified.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> AND</td>
+      <td>Indicates that the rest of the filter ops that follow will be ANDed together.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> OR</td>
+      <td>Indicates that the rest of the filter ops that follow will be ORed together.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 3</td>
+      <td> EQ</td>
+      <td>Performs a test for equality.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 4</td>
+      <td> NE</td>
+      <td>Performs a test for inequality.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 5</td>
+      <td> PR</td>
+      <td>Performs a test for the presence of an attribute.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 6</td>
+      <td> NP</td>
+      <td>Performs a test to see if an attribute is not present.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="ModificationControlEnum"> ModificationControlEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The ModificationControlEnum indicates</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> SINGLE</td>
+      <td>Indicates that the attribute is single-valued.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="ModifyTypeEnum"> ModifyTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The ModifyTypeEnum indicates the types of modification operations that can be carried out on the attributes of an object.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> NONE</td>
+      <td>Indicates that no modify operation was specified.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> ADD</td>
+      <td>The ADD operation adds a new value to a multi-valued attribute.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> DEL</td>
+      <td>The DEL operation removes a value from a multi-valued attribute.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 3</td>
+      <td> SET</td>
+      <td>The SET operation sets a new value for a single-valued attribute.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 4</td>
+      <td> REM</td>
+      <td>The REM operation removes the entire attribute from the object.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 5</td>
+      <td> NTH</td>
+      <td>The NTH operation sets the value at the specified index.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="NameTypeEnum"> NameTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>Name types come in two flavours, ABSTRACT and STRUCTURAL; the nameType provides the Dark Matter code generation mechanisms a hint as to how one or more names should be held in an attribute. <P> If defined as ABSTRACT a name type is just a base for a naming scheme from which all of your DmcObjectNameIF implementing classes derive. If you refer to an ABSTRACT object name type in an attribute definition, additional code will be generated to wrap name values stored in that attribute to include their individual type information (basically an attribute within an attribute). This implies additional overhead for each value stored. <P> If, on the other hand, you refer to a STRUCTURAL name type in an attribute definition, the attribute will contain one or more values of an homogenous type. In this case, the type information is at the attribute level and not repeated for each value. <P> When defining naming structures, you must ensure that only the leaves of your name class derivation hierarchy are defined as structural; all other names MUST be defined as abstract.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> ABSTRACT</td>
+      <td>An abstract name class</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> STRUCTURAL</td>
+      <td>A structural name class is an actual name implementation.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="OperationalContextEnum"> OperationalContextEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The OperationalContextEnum indicates various types of operational contexts in which some component can operate.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> DMO</td>
+      <td>Indicates that the component follows basic Dark Matter Object rules which likewise conform to GWT JRE Emulation.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> FULLJAVA</td>
+      <td>indicates that the component operates in a ful Java environment; no restrictions.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="ValueTypeEnum"> ValueTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The ValueTypeEnum indicates the cardinality of an attribute as well as the type of Map to be used if the attribute is keyed. This is an extension to original concept of single-valued versus multi-valued. Hashsets are also supported.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> SINGLE</td>
+      <td>Indicates that the attribute is single-valued.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> MULTI</td>
+      <td>Indicates that the attribute is multi-valued.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> HASHMAPPED</td>
+      <td>Indicates that the attribute values implement the DmcMappedAttributeIF interface and are stored in a HashMap.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 3</td>
+      <td> TREEMAPPED</td>
+      <td>Indicates that the attribute values implement the DmcMappedAttributeIF interface and are stored in a TreeMap.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 4</td>
+      <td> HASHSET</td>
+      <td>Indicates that the attribute values are stored in a HashSet.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 5</td>
+      <td> TREESET</td>
+      <td>Indicates that the attribute values are stored in a TreeSet.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="WrapperTypeEnum"> WrapperTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The WrapperTypeEnum indicates which wrapper class you want instantiated when a class of object is recognized during parsing or when an object is pulled from a repository.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> NONE</td>
+      <td>Unknown value.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> BASE</td>
+      <td>Indicates that you just want to use the generated DMW class.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> EXTENDED</td>
+      <td>Indicates that you want to use your own extended class.</td>
+    </tr>
+
+  </table>
+
+</div> <!-- enumDetails -->
 
     </div>
 

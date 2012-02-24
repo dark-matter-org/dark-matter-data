@@ -41,6 +41,8 @@ public class SchemaPage {
 		
 		writeTypes(out);
 		
+		writeEnums(out);
+		
 		StandardParts.writeContentEnd(out);
 		
 		out.write(summarizer.getSideBar());
@@ -193,7 +195,26 @@ public class SchemaPage {
 		
 		out.write("  </table>\n\n");
 
-		out.write("</div> <!-- attributeDetails -->\n\n");
+		out.write("</div> <!-- typeDetails -->\n\n");
+	}
+	
+	static void writeEnums(BufferedWriter out) throws IOException{
+		if (enums.size() == 0)
+			return;
+		
+		out.write("<div class=\"enumDetails\">\n\n");
+		
+		out.write("<h2> Enum Details </h2>\n\n");
+		
+		out.write("  <table>\n\n");
+		
+		for(EnumDefinition ed: enums.values()){
+			EnumFormatter.dumpDetails(out, ed);
+		}
+		
+		out.write("  </table>\n\n");
+
+		out.write("</div> <!-- enumDetails -->\n\n");
 	}
 	
 //	static void writeStart(BufferedWriter out, String title) throws IOException {
