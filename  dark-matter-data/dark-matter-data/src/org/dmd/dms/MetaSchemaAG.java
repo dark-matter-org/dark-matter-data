@@ -630,6 +630,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _EnumDefinitionREF           .setWrapperClassName("org.dmd.dms.EnumDefinition");
             _EnumDefinitionREF           .setDefinedIn(this);
 
+            _EnumValue                   .setDescription("The EnumValue type is used to store the definition of one enumerated value that comprises part of an overall EnumDefinition. <p/> The value of an EnumValue is comprised of at least three tokens and possibly a label: <br/> [enum integer value] [enum value name] [enum description] &lt: label&gt <br/> For example: 0 ABSTRACT Here is the definition of abstract. : Abstract <p/> Within an EnumDefinition, each EnumValue must have a unique integer identifier and a unique value name. <p/> The enum value name is automatically set to uppercase, even if it is specified in lower or mixed case.");
             _EnumValue                   .setName("EnumValue");
             _EnumValue                   .setPrimitiveType("org.dmd.dms.types.EnumValue");
             _EnumValue                   .setTypeClassName("org.dmd.dms.types.DmcTypeEnumValue");
