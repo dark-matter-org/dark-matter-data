@@ -37,6 +37,7 @@
     <source path='dmt/shared/generated'/>
     <source path='dmt/shared/types'/>
     <source path='mvw/client'/>
+    <source path='map/generated'/>
     <source path='features/extgwt/client'/>
 
 </module>
