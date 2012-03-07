@@ -318,6 +318,16 @@ description         This flag is set by the CommsController on events when they 
  that the event occurred because of a request sent by you; so myOwnEvent will be true. If the event
  was caused by another client, it will be false.
 
+AttributeDefinition
+name                objectsToCome
+dmdID				44
+type                Long
+nullReturnValue		0L
+description         This attribute indicates the number of objects that may be returned in later
+ GetResponses. This allows for the implementation of progress indications for the retrieval of
+ objects that may be broken into multiple reponses. For instance, when the initial GetRequest is
+ received, you could return the number of objectsToCome and then base a progress bar on this
+ number and the number of objects you've currently received.
 
 //AttributeDefinition
 //name                targetObject

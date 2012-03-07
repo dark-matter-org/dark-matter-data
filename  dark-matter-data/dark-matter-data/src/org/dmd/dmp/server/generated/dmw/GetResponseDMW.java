@@ -382,5 +382,36 @@ abstract public class GetResponseDMW extends Response {
         ((GetResponseDMO) core).remListenerID();
     }
 
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1133)
+    public Long getObjectsToCome(){
+        return(((GetResponseDMO) core).getObjectsToCome());
+    }
+
+    /**
+     * Sets objectsToCome to the specified value.
+     * @param value A value compatible with DmcTypeLong
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1204)
+    public void setObjectsToCome(Object value) throws DmcValueException {
+        ((GetResponseDMO) core).setObjectsToCome(value);
+    }
+
+    /**
+     * Sets objectsToCome to the specified value.
+     * @param value Long
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1213)
+    public void setObjectsToCome(Long value){
+        ((GetResponseDMO) core).setObjectsToCome(value);
+    }
+
+    /**
+     * Removes the objectsToCome attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
+    public void remObjectsToCome(){
+        ((GetResponseDMO) core).remObjectsToCome();
+    }
+
 
 }

@@ -126,6 +126,7 @@ may				targets
 may             objectList
 may				cacheResponse
 may				listenerID
+may				objectsToCome
 description 	The GetResponse returns a set of objects. If you had set registerForEvents
  to true in the GetRequest, the listenerID will be the identifier that you will need to
  specify in the DenotifyRequest in order to denotify for events on the objects you

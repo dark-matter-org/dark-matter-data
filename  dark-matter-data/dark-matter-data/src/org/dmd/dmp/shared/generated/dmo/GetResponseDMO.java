@@ -493,6 +493,56 @@ public class GetResponseDMO  extends ResponseDMO  implements Serializable  {
          rem(DmpDMSAG.__listenerID);
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    public Long getObjectsToCome(){
+        DmcTypeLongSV attr = (DmcTypeLongSV) get(DmpDMSAG.__objectsToCome);
+        if (attr == null)
+            return(0L);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets objectsToCome to the specified value.
+     * @param value Long
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    public void setObjectsToCome(Long value) {
+        DmcAttribute<?> attr = get(DmpDMSAG.__objectsToCome);
+        if (attr == null)
+            attr = new DmcTypeLongSV(DmpDMSAG.__objectsToCome);
+        
+        try{
+            attr.set(value);
+            set(DmpDMSAG.__objectsToCome,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets objectsToCome to the specified value.
+     * @param value A value compatible with DmcTypeLongSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    public void setObjectsToCome(Object value) throws DmcValueException {
+        DmcTypeLongSV attr  = (DmcTypeLongSV) get(DmpDMSAG.__objectsToCome);
+        if (attr == null)
+            attr = new DmcTypeLongSV(DmpDMSAG.__objectsToCome);
+        
+        attr.set(value);
+        set(DmpDMSAG.__objectsToCome,attr);
+    }
+
+    /**
+     * Removes the objectsToCome attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    public void remObjectsToCome(){
+         rem(DmpDMSAG.__objectsToCome);
+    }
+
 
 
 
