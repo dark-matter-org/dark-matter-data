@@ -46,6 +46,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __newObject = new DmcAttributeInfo("newObject", 513, "DmcObject", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __notifyOriginator = new DmcAttributeInfo("notifyOriginator", 527, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __objectList = new DmcAttributeInfo("objectList", 512, "DmcObject", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __objectsToCome = new DmcAttributeInfo("objectsToCome", 544, "Long", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __originatorID = new DmcAttributeInfo("originatorID", 526, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __parentName = new DmcAttributeInfo("parentName", 529, "NameContainer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __readableFormat = new DmcAttributeInfo("readableFormat", 517, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -134,6 +135,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__newObject.id,__newObject);
         _SmAp.put(__notifyOriginator.id,__notifyOriginator);
         _SmAp.put(__objectList.id,__objectList);
+        _SmAp.put(__objectsToCome.id,__objectsToCome);
         _SmAp.put(__originatorID.id,__originatorID);
         _SmAp.put(__parentName.id,__parentName);
         _SmAp.put(__readableFormat.id,__readableFormat);
@@ -229,6 +231,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         __GetResponse.addMay(__objectList);
         __GetResponse.addMay(__cacheResponse);
         __GetResponse.addMay(__listenerID);
+        __GetResponse.addMay(__objectsToCome);
 
         __ActionRequest.addMust(MetaDMSAG.__FQN);
         __ActionRequest.addMust(__actionName);

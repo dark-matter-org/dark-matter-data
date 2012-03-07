@@ -1700,6 +1700,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="dmp.html#objectsToCome">objectsToCome</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
+      <td> This attribute indicates the number of objects that may be returned in later GetResponses. This allows for the implementation of progress indications for the retrieval of objects that may be broken into multiple reponses. For instance, when the initial GetRequest is received, you could return the number of objectsToCome and then base a progress bar on this number and the number of objects you've currently received. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="dmp.html#responseCategory">responseCategory</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmp.html#ResponseCategoryEnum">ResponseCategoryEnum</a> </td>
       <td> Indicates the category of a response. </td>
@@ -3335,6 +3343,19 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>A set of objects returned from the server.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="objectsToCome"> objectsToCome </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Long">Long</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>This attribute indicates the number of objects that may be returned in later GetResponses. This allows for the implementation of progress indications for the retrieval of objects that may be broken into multiple reponses. For instance, when the initial GetRequest is received, you could return the number of objectsToCome and then base a progress bar on this number and the number of objects you've currently received.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="originatorID"> originatorID </a> </td></tr>
