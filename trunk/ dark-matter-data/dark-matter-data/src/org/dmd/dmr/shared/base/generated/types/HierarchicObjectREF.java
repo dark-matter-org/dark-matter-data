@@ -70,7 +70,8 @@ public class HierarchicObjectREF extends DmcNamedObjectNontransportableREF<Hiera
 
     public void setObject(HierarchicObjectDMO o){
          object = o;
-         myName = (DmcTypeFullyQualifiedNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeFullyQualifiedNameSV)o.getObjectNameAttribute();
     }
 
     /**

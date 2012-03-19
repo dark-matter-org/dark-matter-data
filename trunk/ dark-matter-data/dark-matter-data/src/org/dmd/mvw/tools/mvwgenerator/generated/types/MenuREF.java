@@ -70,7 +70,8 @@ public class MenuREF extends DmcNamedObjectNontransportableREF<MenuDMO> {
 
     public void setObject(MenuDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

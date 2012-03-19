@@ -44,4 +44,7 @@ public class Module extends ModuleDMW {
 		return(runContextItems.iterator());
 	}
 	
+	public void associatedDefinitions(){
+		
+	}
 }

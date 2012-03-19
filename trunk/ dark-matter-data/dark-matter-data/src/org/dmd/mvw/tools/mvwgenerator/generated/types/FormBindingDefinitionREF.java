@@ -70,7 +70,8 @@ public class FormBindingDefinitionREF extends DmcNamedObjectNontransportableREF<
 
     public void setObject(FormBindingDefinitionDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

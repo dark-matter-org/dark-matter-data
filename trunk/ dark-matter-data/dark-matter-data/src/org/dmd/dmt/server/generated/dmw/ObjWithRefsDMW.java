@@ -555,7 +555,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2137)
-    public void delIntToString(Object value) throws DmcValueException {
+    public void delIntToString(Object value){
         ((ObjWithRefsDMO) core).delIntToString(value);
     }
 
@@ -2148,7 +2148,7 @@ public class ObjWithRefsDMW extends BaseObjDMW implements DmcNamedObjectIF {
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2137)
-    public void delIntToStringMAP(Object value) throws DmcValueException {
+    public void delIntToStringMAP(Object value){
         ((ObjWithRefsDMO) core).delIntToStringMAP(value);
     }
 

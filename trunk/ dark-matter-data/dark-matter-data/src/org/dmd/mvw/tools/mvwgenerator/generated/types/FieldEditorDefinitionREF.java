@@ -70,7 +70,8 @@ public class FieldEditorDefinitionREF extends DmcNamedObjectNontransportableREF<
 
     public void setObject(FieldEditorDefinitionDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

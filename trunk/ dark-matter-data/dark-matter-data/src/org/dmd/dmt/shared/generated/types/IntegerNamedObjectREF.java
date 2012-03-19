@@ -55,7 +55,8 @@ public class IntegerNamedObjectREF extends DmcNamedObjectNontransportableREF<Int
 
     public void setObject(IntegerNamedObjectDMO o){
          object = o;
-         myName = (DmcTypeIntegerNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeIntegerNameSV)o.getObjectNameAttribute();
     }
 
     /**

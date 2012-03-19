@@ -70,7 +70,8 @@ public class ControllerREF extends DmcNamedObjectNontransportableREF<ControllerD
 
     public void setObject(ControllerDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

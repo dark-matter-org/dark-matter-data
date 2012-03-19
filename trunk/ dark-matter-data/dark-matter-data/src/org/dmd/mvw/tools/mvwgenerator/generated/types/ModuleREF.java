@@ -70,7 +70,8 @@ public class ModuleREF extends DmcNamedObjectNontransportableREF<ModuleDMO> {
 
     public void setObject(ModuleDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

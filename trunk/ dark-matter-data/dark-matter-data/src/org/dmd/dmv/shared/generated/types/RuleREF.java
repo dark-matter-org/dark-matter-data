@@ -70,7 +70,8 @@ public class RuleREF extends DmcNamedObjectNontransportableREF<RuleDMO> {
 
     public void setObject(RuleDMO o){
          object = o;
-         myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
     }
 
     /**

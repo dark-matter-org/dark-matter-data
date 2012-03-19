@@ -267,6 +267,7 @@ may				contextImpl
 may				importThis
 may				createOnDemand
 may				theOne
+may				autoCreated
 description		The RunContextItem allows for the generation of an overall RunContext for
  a WebApplication or WebSite.
  

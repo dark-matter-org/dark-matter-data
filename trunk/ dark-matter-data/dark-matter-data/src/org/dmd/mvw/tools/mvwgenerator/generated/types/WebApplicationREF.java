@@ -70,7 +70,8 @@ public class WebApplicationREF extends DmcNamedObjectNontransportableREF<WebAppl
 
     public void setObject(WebApplicationDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

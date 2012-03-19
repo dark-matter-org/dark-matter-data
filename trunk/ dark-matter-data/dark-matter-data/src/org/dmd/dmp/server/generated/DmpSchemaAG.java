@@ -1088,7 +1088,7 @@ public class DmpSchemaAG extends SchemaDefinition {
             _objectsToComeOBJ.setName("objectsToCome");
             _objectsToComeOBJ.setDmdID("544");
             _objectsToComeOBJ.setDescription("This attribute indicates the number of objects that may be returned in later GetResponses. This allows for the implementation of progress indications for the retrieval of objects that may be broken into multiple reponses. For instance, when the initial GetRequest is received, you could return the number of objectsToCome and then base a progress bar on this number and the number of objects you've currently received.");
-            _objectsToComeOBJ.setNullReturnValue("0");
+            _objectsToComeOBJ.setNullReturnValue("0L");
             _objectsToCome.setDefinedIn(this);
             _objectsToComeOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
             _objectsToComeOBJ.setLineNumber("331");

@@ -70,7 +70,8 @@ public class RunContextItemREF extends DmcNamedObjectNontransportableREF<RunCont
 
     public void setObject(RunContextItemDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

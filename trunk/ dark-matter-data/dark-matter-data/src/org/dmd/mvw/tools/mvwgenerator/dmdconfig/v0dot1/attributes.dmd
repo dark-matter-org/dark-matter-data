@@ -711,6 +711,12 @@ description		Indicates that a component sends the specified type of request. Thi
  <p/>
  Or, for get requests: sendRequest GetRequest functionName [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS CACHE EVENTS]
 
+AttributeDefinition
+name			autoCreated
+dmdID			97
+type			Boolean
+description     This attribute is used to flag defintions that are created automatically by
+ the MVW infrastructure.
 
 //AttributeDefinition
 //name			mandatoryStyle

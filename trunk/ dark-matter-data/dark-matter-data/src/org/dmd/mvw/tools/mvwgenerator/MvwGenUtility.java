@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmg.generated.DmgSchemaAG;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmsSchemaParser;
+import org.dmd.mvw.tools.mvwgenerator.doc.web.MvwHtmlDocGenerator;
 import org.dmd.mvw.tools.mvwgenerator.generated.MvwSchemaAG;
 import org.dmd.mvw.tools.mvwgenerator.util.MvwDefinitionManager;
 import org.dmd.mvw.tools.mvwgenerator.util.MvwGenerator;
@@ -62,13 +63,19 @@ public class MvwGenUtility {
 	
 	DmsSchemaParser			schemaParser;
 	
+	// Manager for definitions loaded from a single .mvw and the modules on which it depends
 	MvwDefinitionManager	defManager;
+	
+	// An aggregate of all definitions used for documentation generation
+	MvwDefinitionManager	aggregateManager;
 	
 	// The thing that parses MVC configs
 	MvwParser				parser;
 	
 	// The thing that will generate our DMO code
 	MvwGenerator			codeGenerator;
+	
+	MvwHtmlDocGenerator		docGenerator;
 	
 	// Used when formatting the list of schemas
 	PrintfFormat			format;
@@ -81,6 +88,7 @@ public class MvwGenUtility {
 	BooleanVar				autogen 	= new BooleanVar();
 	StringBuffer			cfg			= new StringBuffer();
 	BooleanVar				debug 		= new BooleanVar();
+	StringBuffer			docdir		= new StringBuffer();
 	
 	
 	public MvwGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
@@ -91,6 +99,7 @@ public class MvwGenUtility {
         cl.addOption("-workspace", 	workspace, 	"The workspace prefix");
         cl.addOption("-autogen", 	autogen, 	"Indicates that you want to generate from all configs automatically.");
         cl.addOption("-debug",   	debug,     	"Dump debug information.");
+        cl.addOption("-docdir",   	docdir,     "The documentation directory.");
 		
 		cl.parseArgs(args);
 		
@@ -134,7 +143,11 @@ public class MvwGenUtility {
 		
 		defManager = new MvwDefinitionManager(baseWithMVWSchema, schemaParser);
 		
+		aggregateManager = new MvwDefinitionManager(baseWithMVWSchema, schemaParser);
+		
 		configFinder = new ConfigFinder(searchdirs.iterator());
+		
+		docGenerator = new MvwHtmlDocGenerator(aggregateManager);
 		
 		if (debug.booleanValue())
 			configFinder.debug(true);
@@ -155,7 +168,7 @@ public class MvwGenUtility {
 		help = new StringBuffer();
 		help.append("mvwgen -h -cfg -workspace -srcdir -autogen\n\n");
 		help.append("The mvwgen tool generates GWT MVP compatible interfaces and base implementation classes from\n");
-        help.append("definitions found in .mvw configuration files. MVC configurations are recursivley discovered\n");
+        help.append("definitions found in .mvw configuration files. MVW configurations are recursivley discovered\n");
         help.append("in your development environment using commandline arguments:\n");
         help.append("\n");
         help.append("-workspace <path> indicates your Eclipse work space path.\n");
@@ -163,6 +176,10 @@ public class MvwGenUtility {
         help.append("-srcdir <project/src> <project/src>... indicates the project source folder(s) to search\n");
         help.append("\n");
         help.append("-autogen indicates that you wish to generate code from all discovered .mvw files\n");
+        help.append("\n");
+        help.append("-docdir indicates that you wish to generate documentation from all discovered .mvw files\n");
+        help.append("        This must be used in conjunction with -autogen.\n");
+        help.append("        You should use the same doc directory as that used for the schema documentation.\n");
         help.append("\n");
         help.append("-h dumps the help information.\n");
         help.append("\n");
@@ -182,23 +199,35 @@ public class MvwGenUtility {
         
         if (autogen.booleanValue()){
         	
-            if (autogen.booleanValue()){
-            	
-            	for(ConfigVersion version: configFinder.getVersions().values()){
-            		ConfigLocation loc = version.getLatestVersion();
-            		
+        	for(ConfigVersion version: configFinder.getVersions().values()){
+        		ConfigLocation loc = version.getLatestVersion();
+        		
 //            		DebugInfo.debug(loc.toString());
-            		
-            		if (!loc.isFromJAR()){
-            			// Wasn't in a jar, so try to generate
+        		
+        		if (!loc.isFromJAR()){
+        			// Wasn't in a jar, so try to generate
 //            			DebugInfo.debug("Config is not from JAR - generating: " + loc.getConfigName());
-            			generateFromConfig(version);
-            		}
-            	}
-            	
-            	System.exit(0);
-            }
+        			generateFromConfig(version);
+        		}
+        		
+        		aggregateManager.mergeDefinitions(defManager);
+        	}
         	
+        	System.out.println("DONE");
+        	
+			try {
+				if (docdir.length() > 0){
+					if (workspace.length() > 0)
+							docGenerator.dumpDocumentation(workspace.toString() + "/" + docdir.toString());
+					else
+						docGenerator.dumpDocumentation(docdir.toString());
+				}
+			} catch (IOException e) {
+				System.err.println(e.toString());
+				e.printStackTrace();
+				System.exit(1);
+			}
+
         	System.exit(0);
         }
         

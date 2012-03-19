@@ -133,6 +133,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _tipsFromI18N;
     public static AttributeDefinition _skipEnumValue;
     public static AttributeDefinition _sendsRequest;
+    public static AttributeDefinition _autoCreated;
 
     public static TypeDefinition _EventWithArgs;
     public static TypeDefinition _MethodWithArgs;
@@ -423,7 +424,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RunContextItemOBJ.setDmdID("811");
             _RunContextItemOBJ.setClassType("STRUCTURAL");
             _RunContextItemOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _RunContextItemOBJ.setLineNumber("272");
+            _RunContextItemOBJ.setLineNumber("273");
             _RunContextItemOBJ.setDescription("The RunContextItem allows for the generation of an overall RunContext for a WebApplication or WebSite.");
             _RunContextItemOBJ.setDerivedFrom("MvwDefinition");
             _RunContextItemOBJ.setIsNamedBy("itemName");
@@ -435,6 +436,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RunContextItemOBJ.addMay("importThis");
             _RunContextItemOBJ.addMay("createOnDemand");
             _RunContextItemOBJ.addMay("theOne");
+            _RunContextItemOBJ.addMay("autoCreated");
             _RunContextItemOBJ.addMust("itemName");
             _RunContextItemOBJ.addMust("useClass");
             _RunContextItemOBJ.addMust("construction");
@@ -448,7 +450,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _WebApplicationOBJ.setDmdID("812");
             _WebApplicationOBJ.setClassType("STRUCTURAL");
             _WebApplicationOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _WebApplicationOBJ.setLineNumber("286");
+            _WebApplicationOBJ.setLineNumber("287");
             _WebApplicationOBJ.setDescription("The WebApplication definition allows for the definition of the superstructure for an application, basically it's the definition of the overall application controller.");
             _WebApplicationOBJ.setDerivedFrom("MvwDefinition");
             _WebApplicationOBJ.setIsNamedBy("appName");
@@ -469,7 +471,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _I18NConfigOBJ.setDmdID("814");
             _I18NConfigOBJ.setClassType("STRUCTURAL");
             _I18NConfigOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _I18NConfigOBJ.setLineNumber("297");
+            _I18NConfigOBJ.setLineNumber("298");
             _I18NConfigOBJ.setDescription("The I18NConfig is a specialized RunContextItem that indicates an interface class used to access internationalized constants or messages.");
             _I18NConfigOBJ.setDerivedFrom("RunContextItem");
             _I18NConfigOBJ.setIsNamedBy("itemName");
@@ -487,7 +489,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuImplementationConfigOBJ.setDmdID("815");
             _MenuImplementationConfigOBJ.setClassType("STRUCTURAL");
             _MenuImplementationConfigOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MenuImplementationConfigOBJ.setLineNumber("320");
+            _MenuImplementationConfigOBJ.setLineNumber("321");
             _MenuImplementationConfigOBJ.setDescription("The MenuImplementationConfig is used to define the various classes that will  be used to implement an actual menu structure based the MVW menu definitions. <p /> The class specified by useClass must be derived from org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory and have a zero arg constructor.");
             _MenuImplementationConfigOBJ.setDerivedFrom("MvwDefinition");
             _MenuImplementationConfigOBJ.setIsNamedBy("configName");
@@ -514,7 +516,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuElementDefinitionOBJ.setDmdID("816");
             _MenuElementDefinitionOBJ.setClassType("STRUCTURAL");
             _MenuElementDefinitionOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MenuElementDefinitionOBJ.setLineNumber("332");
+            _MenuElementDefinitionOBJ.setLineNumber("333");
             _MenuElementDefinitionOBJ.setDescription("The MenuElementDefinition is common base for all definitions associated with the definition of menu elements.");
             _MenuElementDefinitionOBJ.setDerivedFrom("MvwDefinition");
             _MenuElementDefinitionOBJ.setIsNamedBy("elementName");
@@ -533,7 +535,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuOBJ.setDmdID("817");
             _MenuOBJ.setClassType("ABSTRACT");
             _MenuOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MenuOBJ.setLineNumber("344");
+            _MenuOBJ.setLineNumber("345");
             _MenuOBJ.setDescription("The Menu is a common base for all definitions associated with the definition of menus of different types e.g. toolbars, menubars, popups etc.");
             _MenuOBJ.setDerivedFrom("MenuElementDefinition");
             _MenuOBJ.setIsNamedBy("elementName");
@@ -552,7 +554,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuBarOBJ.setDmdID("818");
             _MenuBarOBJ.setClassType("STRUCTURAL");
             _MenuBarOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MenuBarOBJ.setLineNumber("356");
+            _MenuBarOBJ.setLineNumber("357");
             _MenuBarOBJ.setDescription("The MenuImplementationConfig is used to define the various classes that will");
             _MenuBarOBJ.setDerivedFrom("Menu");
             _MenuBarOBJ.setIsNamedBy("elementName");
@@ -572,7 +574,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SubMenuOBJ.setDmdID("819");
             _SubMenuOBJ.setClassType("STRUCTURAL");
             _SubMenuOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _SubMenuOBJ.setLineNumber("372");
+            _SubMenuOBJ.setLineNumber("373");
             _SubMenuOBJ.setDescription("The SubMenu is used to define a submenu that is included as part of a Menu.");
             _SubMenuOBJ.setDerivedFrom("Menu");
             _SubMenuOBJ.setIsNamedBy("elementName");
@@ -596,7 +598,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuItemOBJ.setDmdID("820");
             _MenuItemOBJ.setClassType("STRUCTURAL");
             _MenuItemOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _MenuItemOBJ.setLineNumber("391");
+            _MenuItemOBJ.setLineNumber("392");
             _MenuItemOBJ.setDescription("The MenuItem is used to define triggerable menu items. You must specify either a displayLabel or a displayLabelI18N to indicate the label to be used for the menu item.");
             _MenuItemOBJ.setDerivedFrom("MenuElementDefinition");
             _MenuItemOBJ.setIsNamedBy("elementName");
@@ -621,7 +623,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SeparatorOBJ.setDmdID("821");
             _SeparatorOBJ.setClassType("STRUCTURAL");
             _SeparatorOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _SeparatorOBJ.setLineNumber("405");
+            _SeparatorOBJ.setLineNumber("406");
             _SeparatorOBJ.setDescription("The Separator is used to define menu separators.");
             _SeparatorOBJ.setDerivedFrom("MenuElementDefinition");
             _SeparatorOBJ.setIsNamedBy("elementName");
@@ -643,7 +645,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ActionBindingOBJ.setDmdID("822");
             _ActionBindingOBJ.setClassType("STRUCTURAL");
             _ActionBindingOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _ActionBindingOBJ.setLineNumber("423");
+            _ActionBindingOBJ.setLineNumber("424");
             _ActionBindingOBJ.setDescription("The ActionBinding class allows for the definition of an intermediate component that binds behavioural triggers e.g. menu items, toolbar buttons etc. to action implementors e.g. Controllers, Presenters and Activities. The ActionBinding serves the same purpose as the com.google.gwt.user.client.Command interface, but provides some additional useful functionality. The implementation of the ActionBinding (see org.dmd.mvw.client.mvwmenus.base.ActionBinding) maintains a set of TriggerIF interfaces, which are the various implementations of the menu items, toolbar buttons etc. An implementing component can enable/disable its Actions which, in turn, can enable/disable its triggers.");
             _ActionBindingOBJ.setDerivedFrom("MvwDefinition");
             _ActionBindingOBJ.setIsNamedBy("actionBindingName");
@@ -663,7 +665,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _FormBindingDefinitionOBJ.setDmdID("823");
             _FormBindingDefinitionOBJ.setClassType("STRUCTURAL");
             _FormBindingDefinitionOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _FormBindingDefinitionOBJ.setLineNumber("440");
+            _FormBindingDefinitionOBJ.setLineNumber("441");
             _FormBindingDefinitionOBJ.setDescription("The FormBinding class allows for the definition of bindings between DMO attributes and the editors that will be used to display and edit their values.");
             _FormBindingDefinitionOBJ.setDerivedFrom("MvwDefinition");
             _FormBindingDefinitionOBJ.setIsNamedBy("bindingName");
@@ -687,7 +689,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _FieldEditorDefinitionOBJ.setDmdID("824");
             _FieldEditorDefinitionOBJ.setClassType("STRUCTURAL");
             _FieldEditorDefinitionOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _FieldEditorDefinitionOBJ.setLineNumber("455");
+            _FieldEditorDefinitionOBJ.setLineNumber("456");
             _FieldEditorDefinitionOBJ.setDescription("The FieldEditor class allows for the definition of implementation specific field editors. The specified class must implement the org.dmd.dmc.DmcPresentationIF interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition instance and so that it can interact with the AttributeTracker and the SetRequestGenerator.");
             _FieldEditorDefinitionOBJ.setDerivedFrom("MvwDefinition");
             _FieldEditorDefinitionOBJ.setIsNamedBy("editorName");
@@ -707,7 +709,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _FormImplementationConfigOBJ.setDmdID("825");
             _FormImplementationConfigOBJ.setClassType("STRUCTURAL");
             _FormImplementationConfigOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _FormImplementationConfigOBJ.setLineNumber("467");
+            _FormImplementationConfigOBJ.setLineNumber("468");
             _FormImplementationConfigOBJ.setDescription("The");
             _FormImplementationConfigOBJ.setDerivedFrom("MvwDefinition");
             _FormImplementationConfigOBJ.setIsNamedBy("configName");
@@ -726,7 +728,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _GxtEnumMappingOBJ.setDmdID("826");
             _GxtEnumMappingOBJ.setClassType("STRUCTURAL");
             _GxtEnumMappingOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _GxtEnumMappingOBJ.setLineNumber("489");
+            _GxtEnumMappingOBJ.setLineNumber("490");
             _GxtEnumMappingOBJ.setDescription("The GxtEnumMapping class allows for generation of a set of static data instances that represent the values from the specified enumeration (type). NOTE: this mechanism is only  useful if you are using the Sencha's GXT widget set. <p /> Enum values are comprised of an integer, a name, a description and optionally, a label as follows - int name description : label. If you specify useNameAsLabel, the uppercase name value of the enum is used to display the value of the. If useNameAsLabel is not specified, the label will be used if it has been specified. Otherwise, the description is used.");
             _GxtEnumMappingOBJ.setDerivedFrom("MvwDefinition");
             _GxtEnumMappingOBJ.setIsNamedBy("mappingName");
@@ -1750,6 +1752,17 @@ public class MvwSchemaAG extends SchemaDefinition {
             _sendsRequestOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _sendsRequestOBJ.setLineNumber("713");
             addAttributeDefList(_sendsRequest);
+
+            AttributeDefinitionDMO _autoCreatedOBJ = new AttributeDefinitionDMO();
+            _autoCreated = new AttributeDefinition(_autoCreatedOBJ);
+            _autoCreatedOBJ.setType("Boolean");
+            _autoCreatedOBJ.setName("autoCreated");
+            _autoCreatedOBJ.setDmdID("897");
+            _autoCreatedOBJ.setDescription("This attribute is used to flag defintions that are created automatically by the MVW infrastructure.");
+            _autoCreated.setDefinedIn(this);
+            _autoCreatedOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _autoCreatedOBJ.setLineNumber("720");
+            addAttributeDefList(_autoCreated);
 
     }
 

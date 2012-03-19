@@ -55,7 +55,8 @@ public class ObjWithRefsREF extends DmcNamedObjectNontransportableREF<ObjWithRef
 
     public void setObject(ObjWithRefsDMO o){
          object = o;
-         myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
     }
 
     /**
