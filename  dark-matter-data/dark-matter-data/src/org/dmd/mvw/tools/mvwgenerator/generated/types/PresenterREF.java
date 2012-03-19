@@ -70,7 +70,8 @@ public class PresenterREF extends DmcNamedObjectNontransportableREF<PresenterDMO
 
     public void setObject(PresenterDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

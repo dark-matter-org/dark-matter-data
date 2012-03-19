@@ -70,7 +70,8 @@ public class PlaceREF extends DmcNamedObjectNontransportableREF<PlaceDMO> {
 
     public void setObject(PlaceDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

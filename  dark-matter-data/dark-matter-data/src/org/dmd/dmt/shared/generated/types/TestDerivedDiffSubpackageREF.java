@@ -55,7 +55,8 @@ public class TestDerivedDiffSubpackageREF extends DmcNamedObjectNontransportable
 
     public void setObject(TestDerivedDiffSubpackageDMO o){
          object = o;
-         myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
     }
 
     /**

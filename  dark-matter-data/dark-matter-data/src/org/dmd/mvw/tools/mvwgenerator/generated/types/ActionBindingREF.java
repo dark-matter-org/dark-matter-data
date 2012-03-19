@@ -70,7 +70,8 @@ public class ActionBindingREF extends DmcNamedObjectNontransportableREF<ActionBi
 
     public void setObject(ActionBindingDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

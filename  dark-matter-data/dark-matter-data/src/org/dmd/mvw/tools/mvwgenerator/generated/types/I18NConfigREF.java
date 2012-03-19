@@ -70,7 +70,8 @@ public class I18NConfigREF extends DmcNamedObjectNontransportableREF<I18NConfigD
 
     public void setObject(I18NConfigDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

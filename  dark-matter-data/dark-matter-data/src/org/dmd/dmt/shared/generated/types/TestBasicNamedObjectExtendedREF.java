@@ -55,7 +55,8 @@ public class TestBasicNamedObjectExtendedREF extends DmcNamedObjectNontransporta
 
     public void setObject(TestBasicNamedObjectExtendedDMO o){
          object = o;
-         myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
     }
 
     /**

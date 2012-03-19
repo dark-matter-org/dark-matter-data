@@ -70,7 +70,8 @@ public class PluginConfigREF extends DmcNamedObjectNontransportableREF<PluginCon
 
     public void setObject(PluginConfigDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

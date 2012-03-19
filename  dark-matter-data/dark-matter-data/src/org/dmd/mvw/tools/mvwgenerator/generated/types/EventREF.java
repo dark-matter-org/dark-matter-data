@@ -70,7 +70,8 @@ public class EventREF extends DmcNamedObjectNontransportableREF<EventDMO> {
 
     public void setObject(EventDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

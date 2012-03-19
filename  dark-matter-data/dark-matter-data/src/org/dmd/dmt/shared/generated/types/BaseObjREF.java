@@ -55,7 +55,8 @@ public class BaseObjREF extends DmcNamedObjectNontransportableREF<BaseObjDMO> {
 
     public void setObject(BaseObjDMO o){
          object = o;
-         myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
     }
 
     /**

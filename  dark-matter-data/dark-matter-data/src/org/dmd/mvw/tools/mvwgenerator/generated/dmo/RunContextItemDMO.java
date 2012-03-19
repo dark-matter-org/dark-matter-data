@@ -463,6 +463,56 @@ public class RunContextItemDMO  extends MvwDefinitionDMO  implements DmcNamedObj
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    public Boolean isAutoCreated(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__autoCreated);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets autoCreated to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    public void setAutoCreated(Boolean value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__autoCreated);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__autoCreated);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__autoCreated,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets autoCreated to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    public void setAutoCreated(Object value) throws DmcValueException {
+        DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__autoCreated);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__autoCreated);
+        
+        attr.set(value);
+        set(MvwDMSAG.__autoCreated,attr);
+    }
+
+    /**
+     * Removes the autoCreated attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    public void remAutoCreated(){
+         rem(MvwDMSAG.__autoCreated);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public CamelCaseName getItemName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__itemName);
         if (attr == null)

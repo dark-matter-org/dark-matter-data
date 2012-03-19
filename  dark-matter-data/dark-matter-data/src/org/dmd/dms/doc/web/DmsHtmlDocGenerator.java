@@ -81,13 +81,13 @@ public class DmsHtmlDocGenerator {
 	public void dumpDocumentation(String outdir) throws IOException {
 		DebugInfo.debug(outdir);
 		
+		initDirs(outdir);
+
 		URL url = this.getClass().getResource("dmsstyle.css");
 		DebugInfo.debug("url: " + url.getFile());
 		FileUtils.copyURLToFile(url, new File(outdir + File.separator + "dmsstyle.css"));
 
 		
-		initDirs(outdir);
-
 		try {
 			SchemaManager manager = new SchemaManager();
 			

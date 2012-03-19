@@ -14,6 +14,7 @@ import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.EnumDefinition;
+import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.DmsSchemaParser;
@@ -103,30 +104,28 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	// MENUS
 	
-	MenuImplementationConfig					menuImplementation;
-	RunContextItem								menuFactoryRCI;
+	MenuImplementationConfig						menuImplementation;
+	RunContextItem									menuFactoryRCI;
 	
 	TreeMap<CamelCaseName, MenuElementDefinitionDMW>	menuElements;
 	
-	TreeMap<CamelCaseName, MenuBar>				menuBars;
+	TreeMap<CamelCaseName, MenuBar>					menuBars;
 	
-	TreeMap<CamelCaseName, SubMenu>				subMenus;
+	TreeMap<CamelCaseName, SubMenu>					subMenus;
 	
-	TreeMap<CamelCaseName, MenuItem>			menuItems;
+	TreeMap<CamelCaseName, MenuItem>				menuItems;
 	
-	TreeMap<CamelCaseName, Separator>			separators;
+	TreeMap<CamelCaseName, Separator>				separators;
 	
-	TreeMap<CamelCaseName, ActionBinding>				actions;
+	TreeMap<CamelCaseName, ActionBinding>			actions;
 	
 	// FORMS
 	
-//	TreeMap<CamelCaseName, FormImplementationConfig>	formImplementations;
+	TreeMap<CamelCaseName, FieldEditorDefinition>	fieldEditors;
 	
-	TreeMap<CamelCaseName, FieldEditorDefinition>		fieldEditors;
+	TreeMap<CamelCaseName, FormBindingDefinition>	formBindings;
 	
-	TreeMap<CamelCaseName, FormBindingDefinition>		formBindings;
-	
-	TreeMap<CamelCaseName, GxtEnumMapping>				enumMappings;
+	TreeMap<CamelCaseName, GxtEnumMapping>			enumMappings;
 	
 	
 	// Gets set to true is any of our components send requests
@@ -274,6 +273,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				
 				// We create an internal run context item for the generated PlaceHistoryMapper
 				RunContextItem rci = new RunContextItem();
+				rci.setAutoCreated(true);
 				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 				
 				rci.setItemName("historyMapper");
@@ -304,6 +304,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				// All Controllers run for the life of the application and so, are added to the run context
 				// so that they are created on start up
 				RunContextItem rci = new RunContextItem();
+				rci.setAutoCreated(true);
 				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 				
 				rci.setItemName(controller.getControllerName().getNameString() + "RCI");
@@ -372,6 +373,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			
 			// All Presenters are available for access from the run context. They are created on demand.
 			RunContextItem rci = new RunContextItem();
+			rci.setAutoCreated(true);
 			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 			
 			rci.setItemName(presenter.getPresenterName().getNameString() + "RCI");
@@ -424,6 +426,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			
 			// All Views are available for access from the run context. They are created on demand.
 			RunContextItem rci = new RunContextItem();
+			rci.setAutoCreated(true);
 			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 			
 			rci.setItemName(view.getViewName().getNameString() + "RCI");
@@ -525,6 +528,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				// The menu factory specified by the menu implementation is added 
 				// as a run context item.
 				RunContextItem rci = new RunContextItem();
+				rci.setAutoCreated(true);
 				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 				
 				rci.setItemName("menuFactory");
@@ -756,6 +760,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				// It will be instantiated after all other components are initialized.
 				// All Presenters are available for access from the run context. They are created on demand.
 				RunContextItem rci = new RunContextItem();
+				rci.setAutoCreated(true);
 				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 				
 				rci.setItemName("menuBuilder");
@@ -985,7 +990,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	 * @throws ResultException
 	 */
 	@SuppressWarnings("unchecked")
-	void checkAndAdd(MvwDefinition def, TreeMap map) throws ResultException {
+	void checkAndAdd(MvwDefinition def, @SuppressWarnings("rawtypes") TreeMap map) throws ResultException {
 		MvwDefinition existing = (MvwDefinition) map.get(def.getCamelCaseName());
 		
 		if (existing == null){
@@ -1044,5 +1049,218 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	@Override
 	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
 		return(findNamedObject(name));
+	}
+	
+	public SchemaManager getSchema() {
+		return schema;
+	}
+
+	public SchemaManager getReadSchemas() {
+		return readSchemas;
+	}
+
+	public TreeMap<CamelCaseName, MvwDefinition> getAllDefs() {
+		return allDefs;
+	}
+
+	public TreeMap<CamelCaseName, Module> getModules() {
+		return modules;
+	}
+
+	public TreeMap<CamelCaseName, Event> getEvents() {
+		return events;
+	}
+
+	public TreeMap<CamelCaseName, Controller> getControllers() {
+		return controllers;
+	}
+
+	public TreeMap<CamelCaseName, Presenter> getPresenters() {
+		return presenters;
+	}
+
+	public TreeMap<CamelCaseName, Activity> getActivities() {
+		return activities;
+	}
+
+	public TreeMap<CamelCaseName, Component> getComponents() {
+		return components;
+	}
+
+	public TreeMap<CamelCaseName, Place> getPlaces() {
+		return places;
+	}
+
+	public TreeMap<CamelCaseName, SubPlace> getSubPlaces() {
+		return subPlaces;
+	}
+
+	public TreeMap<CamelCaseName, View> getViews() {
+		return views;
+	}
+
+	public Controller getCentralRpcErrorHandler() {
+		return centralRpcErrorHandler;
+	}
+
+	public Controller getCentralDmpErrorHandler() {
+		return centralDmpErrorHandler;
+	}
+
+	public TreeMap<String, RunContextItemCollection> getContexts() {
+		return contexts;
+	}
+
+	public String getControllerSubpackage() {
+		return controllerSubpackage;
+	}
+
+	public String getPresenterSubpackage() {
+		return presenterSubpackage;
+	}
+
+	public String getViewSubpackage() {
+		return viewSubpackage;
+	}
+
+	public String getActivitySubpackage() {
+		return activitySubpackage;
+	}
+
+	public RunContextItem getMenuFactoryRCI() {
+		return menuFactoryRCI;
+	}
+
+	public TreeMap<CamelCaseName, MenuElementDefinitionDMW> getMenuElements() {
+		return menuElements;
+	}
+
+	public TreeMap<CamelCaseName, ActionBinding> getActions() {
+		return actions;
+	}
+
+	public TreeMap<CamelCaseName, FieldEditorDefinition> getFieldEditors() {
+		return fieldEditors;
+	}
+
+	/**
+	 * This method is used to build a superset of definitions read from many different
+	 * .mvw files.
+	 * @param mdm The 
+	 */
+	public void mergeDefinitions(MvwDefinitionManager mdm){
+		Iterator<SchemaDefinition>	schemas = mdm.readSchemas.getSchemas();
+		while(schemas.hasNext()){
+			SchemaDefinition sd = schemas.next();
+			try {
+				if (readSchemas.isSchema(sd.getName().getNameString()) == null)
+					readSchemas.manageSchemaInternal(sd, false);
+			} catch (ResultException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (DmcValueException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		for(Module def: mdm.modules.values()){
+			if (modules.get(def.getCamelCaseName()) == null)
+				modules.put(def.getCamelCaseName(), def);
+			allDefs.put(def.getCamelCaseName(), def);
+		}
+		
+		for(Event def: mdm.events.values()){
+			if (events.get(def.getCamelCaseName()) == null)
+				events.put(def.getCamelCaseName(), def);
+			allDefs.put(def.getCamelCaseName(), def);
+		}
+		
+		for(Controller def: mdm.controllers.values()){
+			if (controllers.get(def.getCamelCaseName()) == null)
+				controllers.put(def.getCamelCaseName(), def);
+			allDefs.put(def.getCamelCaseName(), def);
+		}
+		
+		for(Presenter def: mdm.presenters.values()){
+			if (presenters.get(def.getCamelCaseName()) == null)
+				presenters.put(def.getCamelCaseName(), def);
+			allDefs.put(def.getCamelCaseName(), def);
+		}
+		
+		for(Activity def: mdm.activities.values()){
+			if (activities.get(def.getCamelCaseName()) == null)
+				activities.put(def.getCamelCaseName(), def);
+			allDefs.put(def.getCamelCaseName(), def);
+		}
+		
+		for(Place def: mdm.places.values()){
+			if (places.get(def.getCamelCaseName()) == null)
+				places.put(def.getCamelCaseName(), def);
+			allDefs.put(def.getCamelCaseName(), def);
+		}
+		
+		for(SubPlace def: mdm.subPlaces.values()){
+			if (subPlaces.get(def.getCamelCaseName()) == null)
+				subPlaces.put(def.getCamelCaseName(), def);
+			allDefs.put(def.getCamelCaseName(), def);
+		}
+		
+		for(View def: mdm.views.values()){
+			if (views.get(def.getCamelCaseName()) == null)
+				views.put(def.getCamelCaseName(), def);
+			allDefs.put(def.getCamelCaseName(), def);
+		}
+		
+		for(RunContextItemCollection collection: mdm.contexts.values()){
+			RunContextItemCollection ourCollection = contexts.get(collection.implName);
+			
+			if (ourCollection == null){
+				System.out.println("UNKNOWN CONTEXT: " + collection.implName);
+				System.exit(1);
+			}
+			
+			for(RunContextItem rci : collection.getItemsByName().values()){
+			
+				if (ourCollection.getItem(rci.getItemName().getNameString()) == null){
+					try {
+						ourCollection.addItem(rci);
+					} catch (ResultException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					if (!rci.isAutoCreated())
+						allDefs.put(rci.getCamelCaseName(), rci);
+				}
+			}
+		}
+	}
+	
+	/**
+	 * After adding a series of definitions via the mergeDefinitions() method,
+	 * this method will wipe the existing reference information on all objects and
+	 * perform object resolution again to ensure that all reference information
+	 * (including backrefs) is up to date for the entire aggregated set of definitions.
+	 */
+	public void prepAggregatedInfo(){
+		
+		for(MvwDefinition def : allDefs.values()){
+			System.out.println(def.getCamelCaseName());
+		}
+
+		for(MvwDefinition def: allDefs.values()){
+			def.getDMO().clearReferenceInfo();
+		}
+		
+		for(MvwDefinition def: allDefs.values()){
+			try {
+				def.getDMO().resolveReferences(this);
+			} catch (DmcValueExceptionSet e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 	}
 }

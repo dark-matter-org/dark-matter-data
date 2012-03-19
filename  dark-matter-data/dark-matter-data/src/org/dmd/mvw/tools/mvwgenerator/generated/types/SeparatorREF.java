@@ -70,7 +70,8 @@ public class SeparatorREF extends DmcNamedObjectNontransportableREF<SeparatorDMO
 
     public void setObject(SeparatorDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

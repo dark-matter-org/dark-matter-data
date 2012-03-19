@@ -2078,7 +2078,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
      * @param key The key of the IntegerToString to be deleted from the map of attribute values.
      */
     // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1504)
-    public DmcAttribute<?> delIntToString(Object key) throws DmcValueException {
+    public DmcAttribute<?> delIntToString(Object key){
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         
         if ( (attr == null) && (getModifier()!= null))

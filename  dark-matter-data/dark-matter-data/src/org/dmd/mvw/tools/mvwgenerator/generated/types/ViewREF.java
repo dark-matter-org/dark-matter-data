@@ -70,7 +70,8 @@ public class ViewREF extends DmcNamedObjectNontransportableREF<ViewDMO> {
 
     public void setObject(ViewDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

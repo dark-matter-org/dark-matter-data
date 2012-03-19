@@ -70,7 +70,8 @@ public class SubPlaceREF extends DmcNamedObjectNontransportableREF<SubPlaceDMO> 
 
     public void setObject(SubPlaceDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

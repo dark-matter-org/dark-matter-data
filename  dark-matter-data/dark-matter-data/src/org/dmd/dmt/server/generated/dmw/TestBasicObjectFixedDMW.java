@@ -1774,7 +1774,7 @@ public class TestBasicObjectFixedDMW extends DmwWrapper {
      * @param value The IntegerToString to be deleted from set of attribute values.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2137)
-    public void delIntToString(Object value) throws DmcValueException {
+    public void delIntToString(Object value){
         ((TestBasicObjectFixedDMO) core).delIntToString(value);
     }
 

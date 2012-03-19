@@ -55,7 +55,8 @@ public class TestOneLevelSubpackageExtendedREF extends DmcNamedObjectNontranspor
 
     public void setObject(TestOneLevelSubpackageExtendedDMO o){
          object = o;
-         myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
     }
 
     /**

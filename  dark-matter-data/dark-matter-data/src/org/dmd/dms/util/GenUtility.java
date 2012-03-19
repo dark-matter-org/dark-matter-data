@@ -1502,7 +1502,7 @@ public class GenUtility {
 			sb.append("     * @param key The key of the " + typeName + " to be deleted from the map of attribute values.\n");
 			sb.append("     */\n");//	    	sb.append("    @SuppressWarnings(\"unchecked\")\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public DmcAttribute<?> del" + functionName + "(Object key) throws DmcValueException {\n");
+			sb.append("    public DmcAttribute<?> del" + functionName + "(Object key){\n");
 	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
 			sb.append("        \n");
 			sb.append("        if ( (attr == null) && (getModifier()!= null))\n");

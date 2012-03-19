@@ -2135,7 +2135,7 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 			sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
 			sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			sb.append("    public void del" + functionName + "(Object value) throws DmcValueException {\n");
+			sb.append("    public void del" + functionName + "(Object value){\n");
 			sb.append("        " + dmocast + ".del" + functionName + "(value);\n");
 			sb.append("    }\n\n");
 

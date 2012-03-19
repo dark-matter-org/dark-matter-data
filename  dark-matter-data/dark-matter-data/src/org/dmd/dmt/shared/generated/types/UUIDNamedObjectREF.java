@@ -55,7 +55,8 @@ public class UUIDNamedObjectREF extends DmcNamedObjectNontransportableREF<UUIDNa
 
     public void setObject(UUIDNamedObjectDMO o){
          object = o;
-         myName = (DmcTypeUUIDNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeUUIDNameSV)o.getObjectNameAttribute();
     }
 
     /**

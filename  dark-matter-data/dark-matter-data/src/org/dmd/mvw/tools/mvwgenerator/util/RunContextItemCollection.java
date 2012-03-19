@@ -36,6 +36,10 @@ public class RunContextItemCollection {
 		return(longestItemName);
 	}
 	
+	public TreeMap<String,RunContextItem> getItemsByName(){
+		return(byName);
+	}
+	
 	public void addItem(RunContextItem rci) throws ResultException{
 		RunContextItem existing = byName.get(rci.getItemName().getNameString());
 		if (existing != null){

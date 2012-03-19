@@ -70,7 +70,8 @@ public class UserRIREF extends DmcNamedObjectNontransportableREF<UserRIDMO> {
 
     public void setObject(UserRIDMO o){
          object = o;
-         myName = (DmcTypeDotNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeDotNameSV)o.getObjectNameAttribute();
     }
 
     /**

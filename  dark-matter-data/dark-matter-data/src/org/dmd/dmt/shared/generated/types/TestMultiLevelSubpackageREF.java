@@ -55,7 +55,8 @@ public class TestMultiLevelSubpackageREF extends DmcNamedObjectNontransportableR
 
     public void setObject(TestMultiLevelSubpackageDMO o){
          object = o;
-         myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
     }
 
     /**

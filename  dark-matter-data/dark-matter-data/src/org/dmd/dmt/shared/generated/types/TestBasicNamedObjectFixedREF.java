@@ -55,7 +55,8 @@ public class TestBasicNamedObjectFixedREF extends DmcNamedObjectNontransportable
 
     public void setObject(TestBasicNamedObjectFixedDMO o){
          object = o;
-         myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeStringNameSV)o.getObjectNameAttribute();
     }
 
     /**

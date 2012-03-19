@@ -70,7 +70,8 @@ public class DotNamedObjectREF extends DmcNamedObjectNontransportableREF<DotName
 
     public void setObject(DotNamedObjectDMO o){
          object = o;
-         myName = (DmcTypeFullyQualifiedNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeFullyQualifiedNameSV)o.getObjectNameAttribute();
     }
 
     /**

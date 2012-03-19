@@ -70,7 +70,8 @@ public class FormImplementationConfigREF extends DmcNamedObjectNontransportableR
 
     public void setObject(FormImplementationConfigDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

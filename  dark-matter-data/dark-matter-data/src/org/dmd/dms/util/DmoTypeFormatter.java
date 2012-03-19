@@ -461,7 +461,8 @@ public class DmoTypeFormatter {
 
       	out.write("    public void setObject(" + td.getName() + "DMO o){\n");
       	out.write("         object = o;\n");
-      	out.write("         myName = (" + nameType + ")o.getObjectNameAttribute();\n");
+      	out.write("         if (object != null)\n");
+      	out.write("             myName = (" + nameType + ")o.getObjectNameAttribute();\n");
       	out.write("    }\n\n");
 
         out.write("    /**\n");

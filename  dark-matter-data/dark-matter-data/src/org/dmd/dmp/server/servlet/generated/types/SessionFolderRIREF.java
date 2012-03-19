@@ -70,7 +70,8 @@ public class SessionFolderRIREF extends DmcNamedObjectNontransportableREF<Sessio
 
     public void setObject(SessionFolderRIDMO o){
          object = o;
-         myName = (DmcTypeDotNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeDotNameSV)o.getObjectNameAttribute();
     }
 
     /**

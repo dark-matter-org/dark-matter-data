@@ -70,7 +70,8 @@ public class GxtEnumMappingREF extends DmcNamedObjectNontransportableREF<GxtEnum
 
     public void setObject(GxtEnumMappingDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

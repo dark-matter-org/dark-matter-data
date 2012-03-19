@@ -70,7 +70,8 @@ public class UserFolderRIREF extends DmcNamedObjectNontransportableREF<UserFolde
 
     public void setObject(UserFolderRIDMO o){
          object = o;
-         myName = (DmcTypeDotNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeDotNameSV)o.getObjectNameAttribute();
     }
 
     /**

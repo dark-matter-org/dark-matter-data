@@ -70,7 +70,8 @@ public class MenuImplementationConfigREF extends DmcNamedObjectNontransportableR
 
     public void setObject(MenuImplementationConfigDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

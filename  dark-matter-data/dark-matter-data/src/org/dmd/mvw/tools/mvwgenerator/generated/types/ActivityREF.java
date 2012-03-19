@@ -70,7 +70,8 @@ public class ActivityREF extends DmcNamedObjectNontransportableREF<ActivityDMO> 
 
     public void setObject(ActivityDMO o){
          object = o;
-         myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeCamelCaseNameSV)o.getObjectNameAttribute();
     }
 
     /**

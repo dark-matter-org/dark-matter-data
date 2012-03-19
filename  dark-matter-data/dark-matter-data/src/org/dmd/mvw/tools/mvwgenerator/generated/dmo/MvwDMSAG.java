@@ -39,6 +39,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __alwaysEnabled = new DmcAttributeInfo("alwaysEnabled", 871, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __appName = new DmcAttributeInfo("appName", 833, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __argVector = new DmcAttributeInfo("argVector", 803, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __autoCreated = new DmcAttributeInfo("autoCreated", 897, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __bindingName = new DmcAttributeInfo("bindingName", 885, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __broadcast = new DmcAttributeInfo("broadcast", 822, "Event", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __broadcastOnly = new DmcAttributeInfo("broadcastOnly", 823, "Event", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -175,6 +176,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__alwaysEnabled.id,__alwaysEnabled);
         _SmAp.put(__appName.id,__appName);
         _SmAp.put(__argVector.id,__argVector);
+        _SmAp.put(__autoCreated.id,__autoCreated);
         _SmAp.put(__bindingName.id,__bindingName);
         _SmAp.put(__broadcast.id,__broadcast);
         _SmAp.put(__broadcastOnly.id,__broadcastOnly);
@@ -362,6 +364,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __RunContextItem.addMay(__importThis);
         __RunContextItem.addMay(__createOnDemand);
         __RunContextItem.addMay(__theOne);
+        __RunContextItem.addMay(__autoCreated);
 
         __WebApplication.addMust(__appName);
         __WebApplication.addMust(__defaultPlace);

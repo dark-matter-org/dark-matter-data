@@ -70,7 +70,8 @@ public class LDAPHierarchicObjectREF extends DmcNamedObjectNontransportableREF<L
 
     public void setObject(LDAPHierarchicObjectDMO o){
          object = o;
-         myName = (DmcTypeFullyQualifiedNameSV)o.getObjectNameAttribute();
+         if (object != null)
+             myName = (DmcTypeFullyQualifiedNameSV)o.getObjectNameAttribute();
     }
 
     /**
