@@ -11,8 +11,55 @@ This sequence of tutorials assumes that you're using version 2.4 of the [https:/
    Expand the `dark-matter-data` project <br>
    Expand the `extjars` folder <br>
    Select the `gwteventservice-1.1.1.jar` and hit `Ok`
-  * In your source tree, beneath `com.example.contacts` edit the `Contacts.gwt.xml` file and add the following beneath the "Other module inherits" section <p/>
-  `<inherits name="de.novanic.eventservice.GWTEventService"/>` <p/>
-  `<inherits name="org.dmd.darkmatterprotocol"/>`
+  * In your source tree, beneath `com.example.contacts` edit the `Contacts.gwt.xml` file (in text mode) and add the following beneath the "Other module inherits" section <p/>
+{{{
+  <inherits name="de.novanic.eventservice.GWTEventService"/>
+
+  <inherits name="org.dmd.darkmatterprotocol"/>
+}}}
   * For now, you can also disable the GWT logging mechanism (which is used by the `darkmatterprotocol` module) by adding the following just above the end of module (`</module`>) statement<p/>
   ` <set-property name="gwt.logging.enabled" value="FALSE"/>`
+  * The next step is to add support for the services implied by the entries we added to the `Contacts.gwt.xml` configuration.<p/>
+  Beneath the `contacts1` project, open the `war` folder <br>
+  Open the `WEB-INF` folder <br>
+  Edit the `web.xml` file (in text mode)<p/>
+  * Add the following servlet definitions:<p/>
+{{{
+  <!-- The GWT Event Service -->
+  <servlet>
+      <servlet-name>eventServiceImpl</servlet-name>
+      <servlet-class>de.novanic.eventservice.service.EventServiceImpl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>eventServiceImpl</servlet-name>
+      <url-pattern>/contacts1/gwteventservice</url-pattern>
+  </servlet-mapping>
+
+  <!-- The Dark Matter Protocol Service - Reference Implementation -->
+  <servlet>
+    <servlet-name>DMPServlet</servlet-name>
+    <servlet-class>org.dmd.dmp.server.servlet.dmpservletri.DMPServiceImpl</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>DMPServlet</servlet-name>
+    <url-pattern>/contacts1/DMP</url-pattern>
+  </servlet-mapping>
+
+}}}
+<p/>
+  * Directly beneath the `war` folder create a new text file called `dmpServletplugins.oif` and add the following content:<p/>
+{{{
+PluginConfig
+pluginName		cache
+pluginClass		org.dmd.dmp.server.servlet.base.plugins.BasicCachePlugin
+
+PluginConfig
+pluginName		security
+pluginClass		org.dmd.dmp.server.servlet.base.plugins.BasicSecurityPlugin
+
+PluginConfig
+pluginName		requestTracker
+pluginClass		org.dmd.dmp.server.servlet.base.plugins.BasicRequestTrackerPlugin
+}}}
