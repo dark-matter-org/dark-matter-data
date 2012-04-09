@@ -1,0 +1,10 @@
+#summary The Contacts Example - Step 1
+
+This sequence of tutorials assumes that you're using version 2.4 of the [https://developers.google.com/web-toolkit/download Google Web Toolkit] and the associated [https://developers.google.com/eclipse/ Eclipse plugin].
+
+  # Import the dark-matter-data project into your workspace. The SVN URL is `https://dark-matter-data.googlecode.com/svn/trunk/`. Note: the eclipse project is below the `dark-matter-data` folder beneath `trunk` and is also called `dark-matter-data`.<p/>
+  # Create a new Web Application Project with name `contacts1` and package `com.example`<p/>
+  # Right click the `contacts1` project and select `Build Path->Configure Build Path...`<p/>
+  # Select the `Projects` tab. Click `add` and select the `dark-matter-data` project.<p/>
+  # In your source tree, beneath `com.example.contacts` edit the `Contacts.gwt.xml` file and add the following beneath the "Other module inherits" section <p/>
+  `<inherits name="org.dmd.darkmatterprotocol"/>`
