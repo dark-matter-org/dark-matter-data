@@ -2,13 +2,17 @@
 
 This sequence of tutorials assumes that you're using version 2.4 of the [https://developers.google.com/web-toolkit/download Google Web Toolkit] and the associated [https://developers.google.com/eclipse/ Eclipse plugin].
 
-  # Import the dark-matter-data project into your workspace. The SVN URL is `https://dark-matter-data.googlecode.com/svn/trunk/`. Note: the eclipse project is below the `dark-matter-data` folder beneath `trunk` and is also called `dark-matter-data`.<p/>
-  # Create a new Web Application Project with name `contacts1` and package `com.example`<p/>
-  # Right click the `contacts1` project and select `Build Path->Configure Build Path...`<p/>
-  # Select the `Projects` tab. Click `Add...` and select the `dark-matter-data` project and hit `Ok`<p/>
-  # Select the `Libraries` tab. Click `Add JARs...`
-Expand the `dark-matter-data` project
-Expand the `extjars` folder<br>
-Select the `gwteventservice-1.1.1.jar` and hit `Ok`<p/>
-   # In your source tree, beneath `com.example.contacts` edit the `Contacts.gwt.xml` file and add the following beneath the "Other module inherits" section <p/>
+  * Import the dark-matter-data project into your workspace.<p/>The SVN URL is `https://dark-matter-data.googlecode.com/svn/trunk/`. <p>Note: the eclipse project is below the `dark-matter-data` folder beneath `trunk` and is also called `dark-matter-data`.<p/>
+  * Create a new Web Application Project with name `contacts1` and package `com.example`<p/>
+  * Right click the `contacts1` project and select `Build Path->Configure Build Path...`<p/>
+  * Select the `Projects` tab. Click `Add...` <br>
+   Select the `dark-matter-data` project and hit `Ok`<p/>
+  * Select the `Libraries` tab. Click `Add JARs...`
+   Expand the `dark-matter-data` project <br>
+   Expand the `extjars` folder <br>
+   Select the `gwteventservice-1.1.1.jar` and hit `Ok`
+  * In your source tree, beneath `com.example.contacts` edit the `Contacts.gwt.xml` file and add the following beneath the "Other module inherits" section <p/>
+  `<inherits name="de.novanic.eventservice.GWTEventService"/>` <p/>
   `<inherits name="org.dmd.darkmatterprotocol"/>`
+  * For now, you can also disable the GWT logging mechanism (which is used by the `darkmatterprotocol` module) by adding the following just above the end of module (`</module`>) statement<p/>
+  ` <set-property name="gwt.logging.enabled" value="FALSE"/>`
