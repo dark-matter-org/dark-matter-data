@@ -36,6 +36,8 @@ There is a delicate balance to strike here: on one hand, I want to reduce the ef
 *MVW can be used without dependence on any of the other Dark Matter Framework elements e.g. schema, protocol etc.*
 </font>
 
+That being said, the schema and protocol mechanisms bring significant benefits to application development.
+
 == Modularity ==
 
 A basic concept of MVW is that all definitions are associated with a named `Module`. Modules can then be aggregated to form complete web applications. Modules can depend on one another, so that including a single `Module` in your `WebApplication` may bring along additional functionality on which that `Module` depends. 
