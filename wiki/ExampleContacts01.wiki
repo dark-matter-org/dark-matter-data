@@ -2,29 +2,58 @@
 
 This sequence of tutorials assumes that you're using version 2.4 of the [https://developers.google.com/web-toolkit/download Google Web Toolkit] and the associated [https://developers.google.com/eclipse/ Eclipse plugin].
 
-  * Import the dark-matter-data project into your workspace.<p/>The SVN URL is `https://dark-matter-data.googlecode.com/svn/trunk/`. <p>Note: the eclipse project is below the `dark-matter-data` folder beneath `trunk` and is also called `dark-matter-data`.<p/>
-  * Create a new Web Application Project with name `contacts1` and package `com.example`<p/>
+  * Import the dark-matter-data project into your workspace.<p/>The SVN URL is `https://dark-matter-data.googlecode.com/svn/trunk/`. <p>Note: the eclipse project is below the `dark-matter-data` folder beneath `trunk` and is also called `dark-matter-data`.<p/>Usually, you would just use the dark-matter JAR, but, since this is a tutorial, it is useful to have access to the full dark-matter code base.<p/>
+  * Use the Google plugin mechanisms to create a new Web Application Project with name `contacts1` and package `com.example`<p/>
   * Right click the `contacts1` project and select `Build Path->Configure Build Path...`<p/>
   * Select the `Projects` tab. Click `Add...` <br>
-   Select the `dark-matter-data` project and hit `Ok`<p/>
+   Select the `dark-matter-data` project and hit `Ok`<p/> This provides access to the dark-matter code base.<p/>
   * Select the `Libraries` tab. Click `Add JARs...`
    Expand the `dark-matter-data` project <br>
    Expand the `extjars` folder <br>
-   Select the `gwteventservice-1.1.1.jar` and hit `Ok`
-  * In your source tree, beneath `com.example.contacts` edit the `Contacts.gwt.xml` file (in text mode) and add the following beneath the "Other module inherits" section <p/>
+   Select the `gwteventservice-1.1.1.jar` and hit `Ok`<p/>The [http://code.google.com/p/gwteventservice/ GWTEventService] is used to allow the dark-matter to provide truly asynchronous messaging and event notification (thanks Sven!).<p/>
+  * In your source tree, beneath `com.example.contacts` edit the `Contacts1.gwt.xml` file (in text mode) and replace its contents with: <p/>
 {{{
-  <inherits name="de.novanic.eventservice.GWTEventService"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='contacts1'>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User'/>
 
+  <!-- Inherit the default GWT style sheet.  You can change       -->
+  <!-- the theme of your GWT application by uncommenting          -->
+  <!-- any one of the following lines.                            -->
+  <inherits name='com.google.gwt.user.theme.clean.Clean'/>
+  <!-- <inherits name='com.google.gwt.user.theme.standard.Standard'/> -->
+  <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+  <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+
+  <!-- Other module inherits                                      -->
+
+  <inherits name="de.novanic.eventservice.GWTEventService"/>
+  
   <inherits name="org.dmd.darkmatterprotocol"/>
+
+  <!-- Specify the app entry point class.                         -->
+  <entry-point class='com.example.contacts.client.Contacts1'/>
+
+  <!-- Specify the paths for translatable code                    -->
+  <source path='client'/>
+  <source path='shared'/>
+  
+  <!-- Turn off loggin for now -->
+  <set-property name="gwt.logging.enabled" value="FALSE"/> 
+  
+</module>
+
 }}}
-  * For now, you can also disable the GWT logging mechanism (which is used by the `darkmatterprotocol` module) by adding the following just above the end of module (`</module`>) statement<p/>
-  ` <set-property name="gwt.logging.enabled" value="FALSE"/>`
-  * The next step is to add support for the services implied by the entries we added to the `Contacts.gwt.xml` configuration.<p/>
+  <p/>The salient points here are the addition of dependencies on the GWT Event Service and dark-matter (in the other module inherits section) and disabling of GWT Logging (which is inherited by the `darkmatterprotocol` module). <p/>
+  * The next step is to add support for the services implied by the entries we added to the `Contacts1.gwt.xml` configuration.<p/>
   Beneath the `contacts1` project, open the `war` folder <br>
   Open the `WEB-INF` folder <br>
   Edit the `web.xml` file (in text mode)<p/>
-  * Add the following servlet definitions:<p/>
+  * Replace the `greetServlet` definition with the following servlet definitions:<p/>
 {{{
+  <!-- Servlets -->
+  
   <!-- The GWT Event Service -->
   <servlet>
       <servlet-name>eventServiceImpl</servlet-name>
@@ -47,8 +76,11 @@ This sequence of tutorials assumes that you're using version 2.4 of the [https:/
     <url-pattern>/contacts1/DMP</url-pattern>
   </servlet-mapping>
 
+  <!-- Default page to serve -->
+
 }}}
 <p/>
+This definitions establish the basis for using the dark-matter protocol mechanisms and a simple, plugin based servlet that implements the 
   * Directly beneath the `war` folder create a new text file called `dmpServletplugins.oif` and add the following content:<p/>
 {{{
 PluginConfig
