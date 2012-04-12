@@ -198,7 +198,7 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 	}
 	
 	public void shutdown(){
-		ArrayList<DmpServletPlugin> reverse = new ArrayList();
+		ArrayList<DmpServletPlugin> reverse = new ArrayList<DmpServletPlugin>();
 		for(DmpServletPlugin sp: startOrder.values()){
 			reverse.add(0, sp);
 		}
