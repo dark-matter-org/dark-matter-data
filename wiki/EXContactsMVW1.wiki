@@ -13,18 +13,18 @@ This tutorial assumes that:
 
 == Import the dark-matter-data project ==
 
-Import the dark-matter-data project into your workspace.
+Import the dark-matter-data project into your workspace. This can be accomplished in a couple of ways:
+  * checkout the dark-matter-data project from Google Code, the SVN URL is `https://dark-matter-data.googlecode.com/svn/trunk/`<p/>Note: the eclipse project is below the `dark-matter-data` folder beneath `trunk` and is also called `dark-matter-data`.<p/>
+  * OR grab the latest dark-matter-data.zip file from the [http://code.google.com/p/dark-matter-data/downloads/list Downloads Page].<p/>Unzip the file and use the File->Import - General - Existing Projects into Workspace to load the project.
 
-The SVN URL is `https://dark-matter-data.googlecode.com/svn/trunk/`. 
-
-Note: the eclipse project is below the `dark-matter-data` folder beneath `trunk` and is also called `dark-matter-data`.
-
-Usually, you would just use the dark-matter JAR, but, since this is a tutorial, it is useful to have access to the full dark-matter code base.
+Usually, you would just use the dark-matter-data JAR, but, since this is a tutorial, it is useful to have access to the full dark-matter code base.
 
 == Import the dark-matter-contacts project ==
 
-The SVN URL is `https://dark-matter-contacts.googlecode.com/svn/trunk`.
+Import the dark-matter-contacts project into your workspace, again, using your preferred method:
+  * checkout dark-matter-contacts from `https://dark-matter-contacts.googlecode.com/svn/trunk` <p/>
+  * OR grab the latest dark-matter-contacts.zip from the [http://code.google.com/p/dark-matter-data/downloads/list Downloads Page].<p/>Unzip the file and use the File->Import - General - Existing Projects into Workspace to load the project.
 
 Note: you may have to set the GWT SDK on the contacts project. Right click the project in the package explorer and select `Google->Web Toolkit Settings`
 
-=== Installing a GWT SDK ===
+= Installing a GWT SDK =
