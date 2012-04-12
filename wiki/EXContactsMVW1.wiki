@@ -2,12 +2,25 @@
 
 = Introduction =
 
-Add your content here.
+This tutorial assumes that:
+
+  * you have [http://http://www.eclipse.org/ Eclipse] installed
+  * you have the [https://developers.google.com/eclipse/ GWT Eclipse plugin]
+  * you are using (or have available) the [http://code.google.com/p/google-web-toolkit/downloads/detail?name=gwt-2.2.0.zip GWT 2.2.0 SDK]
 
 
-= Details =
+== Import the dark-matter-data project ==
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Import the dark-matter-data project into your workspace.
+
+The SVN URL is `https://dark-matter-data.googlecode.com/svn/trunk/`. 
+
+Note: the eclipse project is below the `dark-matter-data` folder beneath `trunk` and is also called `dark-matter-data`.
+
+Usually, you would just use the dark-matter JAR, but, since this is a tutorial, it is useful to have access to the full dark-matter code base.
+
+== Import the dark-matter-contacts project ==
+
+The SVN URL is `https://dark-matter-contacts.googlecode.com/svn/trunk`.
+
+Note: you may have to set the GWT SDK on the contacts project. Right click the project in the package explorer and select `Google->Web Toolkit Settings`
