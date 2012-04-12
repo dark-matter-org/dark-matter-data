@@ -5,7 +5,7 @@
 
 = Large scale application development with GWT revisited =
 
-The Google articles [http://code.google.com/webtoolkit/articles/mvp-architecture.html Large scale application development and MVP] and [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html GWT Development with Activities and Places] have provided the basis that many of of us have used to guide our GWT development efforts.
+The Google articles [http://code.google.com/webtoolkit/articles/mvp-architecture.html Large scale application development and MVP] and [http://code.google.com/webtoolkit/doc/latest/DevGuideMvpActivitiesAndPlaces.html GWT Development with Activities and Places] have provided the basis that many of us have used to guide our GWT development efforts.
 However, trying to reconcile these ideas into something coherent and systematic was leaving me with conceptual indigestion.
 
 The Model View Whatever (MVW) framework and code generation mechanisms are meant to provide a consistent conceptual view of the various aspects presented by these articles. The goal of MVW is to leverage the basic concepts of the dark-matter framework and combine them with MVP to create a clear methodology for the development of complex GWT applications.
