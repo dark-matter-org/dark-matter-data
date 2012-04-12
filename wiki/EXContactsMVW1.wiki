@@ -1,4 +1,6 @@
-#summary Getting started with the Contacts example in MVW..
+#summary Getting started with the Contacts example in MVW.
+
+<wiki:toc />
 
 = Introduction =
 
@@ -6,7 +8,7 @@ This tutorial assumes that:
 
   * you have [http://http://www.eclipse.org/ Eclipse] installed
   * you have the [https://developers.google.com/eclipse/ GWT Eclipse plugin]
-  * you are using (or have available) the [http://code.google.com/p/google-web-toolkit/downloads/detail?name=gwt-2.2.0.zip GWT 2.2.0 SDK]
+  * you are using (or have available) the [http://code.google.com/p/google-web-toolkit/downloads/detail?name=gwt-2.2.0.zip GWT 2.2.0 SDK]. See the [EXContactsMVW1#Installing_a_GWT_SDK Installing a GWT SDK] section if you need a hand with this.
 
 
 == Import the dark-matter-data project ==
@@ -24,3 +26,5 @@ Usually, you would just use the dark-matter JAR, but, since this is a tutorial, 
 The SVN URL is `https://dark-matter-contacts.googlecode.com/svn/trunk`.
 
 Note: you may have to set the GWT SDK on the contacts project. Right click the project in the package explorer and select `Google->Web Toolkit Settings`
+
+=== Installing a GWT SDK ===
