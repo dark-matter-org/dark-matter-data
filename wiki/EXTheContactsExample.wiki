@@ -1,10 +1,10 @@
-#summary The Dark Matter Contacts example step by step.
+#summary The Contacts example as implemented using MVW.
 
 <wiki:toc />
 
-= The Contacts Example with Dark Matter =
+= The Contacts Example with Model View Whatever =
 
-The following pages outline the steps required to recreate the behaviour of the [http://code.google.com/webtoolkit/articles/mvp-architecture-2.html Tutorial Contacts2] example using Dark Matter mechanisms.
+The following pages review the implementation of the Contacts example from the [http://code.google.com/webtoolkit/articles/mvp-architecture-2.html Contacts2 Tutorial] using the Model View Whatever mechanisms.
 
 <table width="820">
 
