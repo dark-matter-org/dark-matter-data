@@ -10,4 +10,5 @@ However, trying to reconcile these ideas into something coherent and systematic 
 
 The Model View Whatever (MVW) framework and code generation mechanisms are meant to provide a consistent conceptual view of the various aspects presented by these articles. The goal of MVW is to leverage the basic concepts of the dark-matter framework and combine them with MVP to create a clear methodology for the development of complex GWT applications.
 
-Just like the original articles, I'll introduce the overall structure of an MVW application by walking through an example application, in this case 
+Just like the original articles, I'll introduce the overall structure of an MVW application by walking through an example application, in this case
+the [EXTheContactsExample The Contacts Example].
