@@ -41,8 +41,19 @@ import org.dmd.util.exceptions.ResultException;
 import de.novanic.eventservice.service.RemoteEventServiceServlet;
 
 /**
- * The DMPServlet is a reference implementation of a servlet that implements
- * the Dark Matter Protocol Service.
+ * The DMPServiceImpl is a reference implementation of a servlet that implements
+ * the Dark Matter Protocol Service (DMPService). It is derived from the RemoteEventServiceServlet
+ * that is provided by the GWTEventService project (http://code.google.com/p/gwteventservice/).
+ * By deriving from this class, we get the ability to provide asynchronous responses
+ * to Dark Matter Protocol (DMP) messages and to provide asynchronous event notification.
+ * <p/>
+ * This class is merely provided as an example of how you could make use of DMP in your
+ * GWT web application; there is nothing stopping you from using Dark Matter Objects (DMOs)
+ * without using the DMP mechanisms. However, there are significant benefits in using
+ * these approaches.
+ * <p/>
+ * This class uses a simple PluginManager to dynamically load a set of plugins that provide
+ * server-side behaviour. See that class for further details.
  */
 @SuppressWarnings("serial")
 public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPService {
