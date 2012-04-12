@@ -10,10 +10,10 @@ The following pages review the implementation of the Contacts example from the [
 
 <tr>
 <td width="150" valign="top">
-*[EXContacts1 Getting started]*
+*[EXContactsMVW1 Getting started]*
 </td>
 <td valign="top">
-We create the basic web project, retrieve the Dark Matter jar, create the basic schema for project and then generate our first Dark Matter Object.
+You check out the dark-matter-data and dark-matter-contacts projects that form the basis of the tutorial.
 </td>
 </tr>
 
