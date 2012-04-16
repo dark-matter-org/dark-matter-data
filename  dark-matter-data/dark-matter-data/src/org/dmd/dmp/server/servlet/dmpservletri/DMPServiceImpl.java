@@ -74,6 +74,11 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 			DebugInfo.debug("Running here: " + here.getAbsolutePath());
 			
 			pluginManager.loadPlugins("dmpServletPlugins.oif");
+			
+			pluginManager.preInit();
+			
+			pluginManager.init();
+			
 			pluginManager.start();
 		} catch (ResultException e) {
 			// TODO Auto-generated catch block

@@ -8,7 +8,21 @@ import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmpServletPlugin class is an abstract base from which all plugins
- * used in the DMP Servlet Reference Implementation must be derived.
+ * used in the DMP Servlet Reference Implementation must be derived. Plugins
+ * have a defined life cycle that includes:
+ * <ul>
+ * <li> pre-initialization: allows for addition of indices to the cache. 
+ * </li>
+ * <li> initialization: at this stage, the cache has been loaded with any 
+ * existing persisted objects and plugins can perform additional object
+ * creations and any other required initialization
+ * </li>
+ * <li> starting: plugins are called on to start before we actually begin servicing 
+ * client requests
+ * </li>
+ * <li> stopping: called when the servlet is being shutdown.
+ * </li>
+ * </ul>
  */
 public class DmpServletPlugin {
 	
@@ -60,6 +74,10 @@ public class DmpServletPlugin {
 	
 	///////////////////////////////////////////////////////////////////////////
 	
+	protected void preInit() throws ResultException, DmcValueException {
+		
+	}
+	
 	/**
 	 * Derived classes should perform any initialization logic required. If a
 	 * plugin has indicated that it depends on another plugin, it is safe to 
@@ -73,7 +91,7 @@ public class DmpServletPlugin {
 	 * After all plugins are initialized, the start method is called on all plugins
 	 * in the same implied order.
 	 */
-	protected void start(){
+	protected void start() throws ResultException, DmcValueException {
 		
 	}
 	

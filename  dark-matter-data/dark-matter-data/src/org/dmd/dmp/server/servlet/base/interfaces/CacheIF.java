@@ -2,6 +2,7 @@ package org.dmd.dmp.server.servlet.base.interfaces;
 
 import java.io.PrintStream;
 
+import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
@@ -14,11 +15,12 @@ import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.extended.SetResponse;
+import org.dmd.dms.ClassDefinition;
 import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.dmd.util.exceptions.ResultException;
 
 /**
- * The CacheIF defines an entity that manages a collection of Dark Matter Objects.
+ * The CacheIF defines an entity that manages a collection of named Dark Matter Objects.
  * The cache provides notification of creates, deletes and modifications associated
  * with the objects it manages. Generally speaking, a cache implementation will
  * be run in a separate thread and change requests will be queued for servicing in
@@ -65,6 +67,21 @@ public interface CacheIF extends DmcNameResolverIF {
 	
 	public void get(GetRequest request, GetResponse response);
 		
+	///////////////////////////////////////////////////////////////////////////
+	// Utility mechanisms
 	
+	/**
+	 * Dumps all cached objects to the specified PrintStream.
+	 */
 	public void dumpObjects(PrintStream ps);
+	
+	/**
+	 * Indexing is a generally useful mechanism that allows for rapid access to
+	 * objects of a particular type. This method should be overloaded to add an
+	 * index for the specified class. This mechanism should work for both concrete
+	 * and abstract classes since it is easy to determine if a DMO is an instance
+	 * of a particular base class using the DmcClassInfo.isInstanceOf() method.
+	 * @param cd The class info of the class from the DMSAG
+	 */
+	public void maintainIndex(DmcClassInfo cd);
 }
