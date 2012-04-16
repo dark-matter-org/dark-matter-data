@@ -184,7 +184,20 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		}
 	}
 	
-	public void start() throws ResultException, DmcValueException{
+	public void preInit() throws ResultException, DmcValueException{
+		
+		requestTrackerPlugin.preInit();
+		
+		cachePlugin.preInit();
+		
+		securityPlugin.preInit();
+		
+		for(DmpServletPlugin sp: startOrder.values()){
+			sp.preInit();
+		}
+	}
+	
+	public void init() throws ResultException, DmcValueException{
 		
 		requestTrackerPlugin.init();
 		
@@ -194,6 +207,19 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		
 		for(DmpServletPlugin sp: startOrder.values()){
 			sp.init();
+		}
+	}
+	
+	public void start() throws ResultException, DmcValueException{
+		
+		requestTrackerPlugin.start();
+		
+		cachePlugin.start();
+		
+		securityPlugin.start();
+		
+		for(DmpServletPlugin sp: startOrder.values()){
+			sp.start();
 		}
 	}
 	

@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcContainer;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
@@ -202,6 +203,15 @@ public abstract class DmwWrapper extends DmcContainer {
 		if (cdr.getObject() == null)
 			return(null);
 		return (ClassDefinition) (cdr.getObject().getContainer());
+	}
+	
+	/**
+	 * @return The class info of the core object if it's available
+	 */
+	public DmcClassInfo getConstructionClassInfo(){
+		if (core == null)
+			return(null);
+		return(core.getConstructionClassInfo());
 	}
 	
 	////////////////////////////////////////////////////////////////////////////////
