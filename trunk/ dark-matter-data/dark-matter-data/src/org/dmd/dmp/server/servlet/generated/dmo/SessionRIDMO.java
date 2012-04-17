@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
+//	Copyright (c) 2012 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -39,7 +39,11 @@ import org.dmd.dmc.DmcAttributeValidator;
 import org.dmd.dmc.DmcObjectValidator;
 
 /**
- * The SessionRI represents an authenticated user session.
+ * The SessionRI represents an authenticated user session and is an important
+ * aspect of any serious application. All interactions are usually associated
+ * with a valid session and, in the case of the reference implementation of
+ * the Dark MAtter Protocol service are also associated with the handling of
+ * asynchronous message handling and events.
  * <P>
  * Generated from the dmp.server schema at version unknown
  * <P>

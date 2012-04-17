@@ -204,7 +204,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
     /**
      * Removes the instantiatesPresenter attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1846)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1885)
     public void remInstantiatesPresenter(){
         ((PresenterDMO) core).remInstantiatesPresenter();
     }
@@ -321,7 +321,7 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
     /**
      * Removes the managesView attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1846)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1885)
     public void remManagesView(){
         ((PresenterDMO) core).remManagesView();
     }

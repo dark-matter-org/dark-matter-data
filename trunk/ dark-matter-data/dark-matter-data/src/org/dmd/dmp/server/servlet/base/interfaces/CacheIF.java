@@ -1,6 +1,22 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2012 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.base.interfaces;
 
 import java.io.PrintStream;
+import java.util.Iterator;
 
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcNameResolverIF;
@@ -15,6 +31,7 @@ import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.extended.SetResponse;
+import org.dmd.dmp.server.servlet.base.DmpCacheRegistration;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.dmd.util.exceptions.ResultException;
@@ -34,6 +51,13 @@ import org.dmd.util.exceptions.ResultException;
  * </ul>
  */
 public interface CacheIF extends DmcNameResolverIF {
+	
+	/**
+	 * If you are going to perform operations against a cache, you will need a 
+	 * unique registration against that cache.
+	 * @return a registration against the cache.
+	 */
+	public DmpCacheRegistration register();
 	
 	/**
 	 * This method is used to add a new object to the cache during the initialization
@@ -84,4 +108,8 @@ public interface CacheIF extends DmcNameResolverIF {
 	 * @param cd The class info of the class from the DMSAG
 	 */
 	public void maintainIndex(DmcClassInfo cd);
+	
+	public int getIndexSize(DmcClassInfo ci);
+	
+	public Iterator<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci);
 }

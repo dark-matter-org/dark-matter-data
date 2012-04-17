@@ -13,7 +13,11 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Require
 import org.dmd.dmw.DmwHierarchicObjectWrapper;                        // Hierarchic object wrapper
 
 /**
- * The SessionRI represents an authenticated user session.
+ * The SessionRI represents an authenticated user session and is an important
+ * aspect of any serious application. All interactions are usually associated
+ * with a valid session and, in the case of the reference implementation of
+ * the Dark MAtter Protocol service are also associated with the handling of
+ * asynchronous message handling and events.
  * <P>
  * Generated from the dmp.server schema at version unknown
  * <P>
