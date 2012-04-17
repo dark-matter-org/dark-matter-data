@@ -153,8 +153,8 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _SessionRIOBJ.setDmdID("705");
             _SessionRIOBJ.setClassType("STRUCTURAL");
             _SessionRIOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
-            _SessionRIOBJ.setLineNumber("59");
-            _SessionRIOBJ.setDescription("The SessionRI represents an authenticated user session.");
+            _SessionRIOBJ.setLineNumber("62");
+            _SessionRIOBJ.setDescription("The SessionRI represents an authenticated user session and is an important aspect of any serious application. All interactions are usually associated with a valid session and, in the case of the reference implementation of the Dark MAtter Protocol service are also associated with the handling of asynchronous message handling and events.");
             _SessionRIOBJ.setIsNamedBy("dotName");
             _SessionRIOBJ.setUseWrapperType("EXTENDED");
             _SessionRIOBJ.setDmtREFImport("org.dmd.dmp.server.servlet.generated.types.SessionRIREF");

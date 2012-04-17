@@ -110,7 +110,7 @@ abstract public class GetRequestDMW extends Request {
     /**
      * @return An Iterator of NameContainer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1665)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1704)
     public NameContainerIterableDMW getTargetsIterable(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__targets);
         if (attr == null)
@@ -123,7 +123,7 @@ abstract public class GetRequestDMW extends Request {
      * Adds another targets value.
      * @param value A value compatible with NameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1691)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1730)
     public void addTargets(Object value) throws DmcValueException {
         ((GetRequestDMO) core).addTargets(value);
     }
@@ -132,7 +132,7 @@ abstract public class GetRequestDMW extends Request {
      * Adds another targets value.
      * @param value A value compatible with NameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1701)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1740)
     public void addTargets(NameContainer value){
         ((GetRequestDMO) core).addTargets(value);
     }
@@ -141,7 +141,7 @@ abstract public class GetRequestDMW extends Request {
      * Adds another DmcObjectName value.
      * @param value A value compatible with DmcObjectName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1734)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1773)
     public void addTargets(DmcObjectName value){
         ((GetRequestDMO) core).addTargets(value);
     }
@@ -150,7 +150,7 @@ abstract public class GetRequestDMW extends Request {
      * Returns true if the collection contains the targets value.
      * @param value A value compatible with NameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1758)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1797)
     public boolean targetsContains(NameContainer value){
         return(((GetRequestDMO) core).targetsContains(value));
     }
@@ -159,7 +159,7 @@ abstract public class GetRequestDMW extends Request {
      * Returns true if the collection contains the DmcObjectName value.
      * @param value A value compatible with DmcObjectName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1769)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1808)
     public boolean targetsContains(DmcObjectName value){
         return(((GetRequestDMO) core).targetsContains(value));
     }
@@ -167,7 +167,7 @@ abstract public class GetRequestDMW extends Request {
     /**
      * @return A COPY of the collection of NameContainer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1798)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1837)
     @SuppressWarnings("unchecked")
     public ArrayList<NameContainer> getTargetsCopy(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__targets);
@@ -188,7 +188,7 @@ abstract public class GetRequestDMW extends Request {
      * Deletes a targets value.
      * @param value The NameContainer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1825)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1864)
     public void delTargets(Object value) throws DmcValueException {
         ((GetRequestDMO) core).delTargets(value);
     }
@@ -197,7 +197,7 @@ abstract public class GetRequestDMW extends Request {
      * Deletes a targets value.
      * @param value The NameContainer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1834)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1873)
     public void delTargets(NameContainer value){
         ((GetRequestDMO) core).delTargets(value);
     }
@@ -205,7 +205,7 @@ abstract public class GetRequestDMW extends Request {
     /**
      * Removes the targets attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1846)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1885)
     public void remTargets(){
         ((GetRequestDMO) core).remTargets();
     }
@@ -366,7 +366,7 @@ abstract public class GetRequestDMW extends Request {
     /**
      * @return An Iterator of AttributeID objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1665)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1704)
     public AttributeIDIterableDMW getAttributeSelectorIterable(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__attributeSelector);
         if (attr == null)
@@ -379,7 +379,7 @@ abstract public class GetRequestDMW extends Request {
      * Adds another attributeSelector value.
      * @param value A value compatible with AttributeID
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1691)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1730)
     public void addAttributeSelector(Object value) throws DmcValueException {
         ((GetRequestDMO) core).addAttributeSelector(value);
     }
@@ -388,7 +388,7 @@ abstract public class GetRequestDMW extends Request {
      * Adds another attributeSelector value.
      * @param value A value compatible with AttributeID
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1701)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1740)
     public void addAttributeSelector(AttributeID value){
         ((GetRequestDMO) core).addAttributeSelector(value);
     }
@@ -397,7 +397,7 @@ abstract public class GetRequestDMW extends Request {
      * Adds another DmcAttributeInfo value.
      * @param value A value compatible with DmcAttributeInfo
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1734)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1773)
     public void addAttributeSelector(DmcAttributeInfo value){
         ((GetRequestDMO) core).addAttributeSelector(value);
     }
@@ -406,7 +406,7 @@ abstract public class GetRequestDMW extends Request {
      * Returns true if the collection contains the attributeSelector value.
      * @param value A value compatible with AttributeID
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1758)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1797)
     public boolean attributeSelectorContains(AttributeID value){
         return(((GetRequestDMO) core).attributeSelectorContains(value));
     }
@@ -415,7 +415,7 @@ abstract public class GetRequestDMW extends Request {
      * Returns true if the collection contains the DmcAttributeInfo value.
      * @param value A value compatible with DmcAttributeInfo
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1769)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1808)
     public boolean attributeSelectorContains(DmcAttributeInfo value){
         return(((GetRequestDMO) core).attributeSelectorContains(value));
     }
@@ -423,7 +423,7 @@ abstract public class GetRequestDMW extends Request {
     /**
      * @return A COPY of the collection of AttributeID objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1798)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1837)
     @SuppressWarnings("unchecked")
     public HashSet<AttributeID> getAttributeSelectorCopy(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__attributeSelector);
@@ -444,7 +444,7 @@ abstract public class GetRequestDMW extends Request {
      * Deletes a attributeSelector value.
      * @param value The AttributeID to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1825)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1864)
     public void delAttributeSelector(Object value) throws DmcValueException {
         ((GetRequestDMO) core).delAttributeSelector(value);
     }
@@ -453,7 +453,7 @@ abstract public class GetRequestDMW extends Request {
      * Deletes a attributeSelector value.
      * @param value The AttributeID to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1834)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1873)
     public void delAttributeSelector(AttributeID value){
         ((GetRequestDMO) core).delAttributeSelector(value);
     }
@@ -461,7 +461,7 @@ abstract public class GetRequestDMW extends Request {
     /**
      * Removes the attributeSelector attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1846)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1885)
     public void remAttributeSelector(){
         ((GetRequestDMO) core).remAttributeSelector();
     }

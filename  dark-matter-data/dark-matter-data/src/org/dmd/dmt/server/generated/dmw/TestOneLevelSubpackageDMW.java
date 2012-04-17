@@ -107,7 +107,7 @@ public class TestOneLevelSubpackageDMW extends DmwNamedObjectWrapper implements 
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1665)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1704)
     public StringIterableDMW getMvStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -120,7 +120,7 @@ public class TestOneLevelSubpackageDMW extends DmwNamedObjectWrapper implements 
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1691)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1730)
     public void addMvString(Object value) throws DmcValueException {
         ((TestOneLevelSubpackageDMO) core).addMvString(value);
     }
@@ -129,7 +129,7 @@ public class TestOneLevelSubpackageDMW extends DmwNamedObjectWrapper implements 
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1701)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1740)
     public void addMvString(String value){
         ((TestOneLevelSubpackageDMO) core).addMvString(value);
     }
@@ -138,7 +138,7 @@ public class TestOneLevelSubpackageDMW extends DmwNamedObjectWrapper implements 
      * Returns true if the collection contains the mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1758)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1797)
     public boolean mvStringContains(String value){
         return(((TestOneLevelSubpackageDMO) core).mvStringContains(value));
     }
@@ -146,7 +146,7 @@ public class TestOneLevelSubpackageDMW extends DmwNamedObjectWrapper implements 
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1798)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1837)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getMvStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__mvString);
@@ -167,7 +167,7 @@ public class TestOneLevelSubpackageDMW extends DmwNamedObjectWrapper implements 
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1825)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1864)
     public void delMvString(Object value) throws DmcValueException {
         ((TestOneLevelSubpackageDMO) core).delMvString(value);
     }
@@ -176,7 +176,7 @@ public class TestOneLevelSubpackageDMW extends DmwNamedObjectWrapper implements 
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1834)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1873)
     public void delMvString(String value){
         ((TestOneLevelSubpackageDMO) core).delMvString(value);
     }
@@ -184,7 +184,7 @@ public class TestOneLevelSubpackageDMW extends DmwNamedObjectWrapper implements 
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1846)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1885)
     public void remMvString(){
         ((TestOneLevelSubpackageDMO) core).remMvString();
     }

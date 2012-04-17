@@ -13,10 +13,27 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dmp.server.servlet.extended;
+package org.dmd.dmp.server.servlet.base;
 
-import org.dmd.dmp.server.servlet.generated.dmw.PluginConfigDMW;
+import org.dmd.dmp.server.DmpPipeIF;
+import org.dmd.dmp.server.extended.DMPEvent;
+import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
 
-public class PluginConfig extends PluginConfigDMW {
+/**
+ * The GetRequestProcessor is designed to 
+ */
+public class GetRequestProcessor implements DmpEventHandlerIF {
+	
+	
+	
+	public GetRequestProcessor(DmpPipeIF pipe, DmpCacheRegistration dcr){
+		
+	}
+
+	@Override
+	public void handleEvent(DMPEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

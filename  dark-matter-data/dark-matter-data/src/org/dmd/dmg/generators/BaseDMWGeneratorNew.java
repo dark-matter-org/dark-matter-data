@@ -1536,14 +1536,26 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 					}
 				}
 				else{
-					sb.append("    /**\n");
-					sb.append("     * Sets the " + ad.getName() + " value at the specified index.\n");
-					sb.append("     * @param value A value compatible with " + typeName + "\n");
-					sb.append("     */\n");
-					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + justdmo + " value){\n");
-			    	sb.append("        return(" + dmocast + ".setNth" + functionName + "(index, value));\n");
-					sb.append("    }\n\n");
+					if (ad.getType().getIsExtendedRefType()){
+						sb.append("    /**\n");
+						sb.append("     * Sets the " + ad.getName() + " value at the specified index.\n");
+						sb.append("     * @param value A value compatible with " + typeName + "\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + typeName + " value){\n");
+				    	sb.append("        return(" + dmocast + ".setNth" + functionName + "(index, value));\n");
+						sb.append("    }\n\n");
+					}
+					else{
+						sb.append("    /**\n");
+						sb.append("     * Sets the " + ad.getName() + " value at the specified index.\n");
+						sb.append("     * @param value A value compatible with " + typeName + "\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public DmcAttribute<?> setNth" + functionName + "(int index, " + justdmo + " value){\n");
+				    	sb.append("        return(" + dmocast + ".setNth" + functionName + "(index, value));\n");
+						sb.append("    }\n\n");
+					}
 				}
 				
 		    	if (ad.getType().getIsRefType()){
@@ -1584,48 +1596,64 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 		    			else
 		    				suffix = genSuffix;
 		    			
-		    			if (ad.getType().getIsExtendedRefType()){
-		    				String refType = ad.getType().getOriginalClass().getName().getNameString();
-		    				
-					    	sb.append("    /**\n");
-							sb.append("     * @return The " + ad.getType().getName() + suffix + " object at the specified index.\n");
-							sb.append("     */\n");
-							sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-							sb.append("    public " + refType  + " getNth" + functionName + "(int index){\n");
-							sb.append("        " + ad.getType().getName() + " ref = " + dmocast + ".getNth" + functionName + "(index);\n");
-							sb.append("        if (ref == null)\n");
-							sb.append("            return(null);\n");
-							sb.append("        \n");
-							sb.append("        if (ref.getObject() == null)\n");
-							sb.append("            return(null);\n");
-							sb.append("        \n");
-							sb.append("        return((" + refType + ")ref.getObject().getContainer());\n");
-							sb.append("    }\n\n");
-		    			}
-		    			else{
-					    	sb.append("    /**\n");
-							sb.append("     * @return The " + ad.getType().getName() + suffix + " object at the specified index.\n");
-							sb.append("     */\n");
-							sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-							sb.append("    public " + ad.getType().getName() + suffix  + " getNth" + functionName + "(int index){\n");
-							sb.append("        " + ad.getType().getName() + "REF ref = " + dmocast + ".getNth" + functionName + "(index);\n");
-							sb.append("        if (ref == null)\n");
-							sb.append("            return(null);\n");
-							sb.append("        \n");
-							sb.append("        if (ref.getObject() == null)\n");
-							sb.append("            return(null);\n");
-							sb.append("        \n");
-							sb.append("        return((" + ad.getType().getName() + suffix + ")ref.getObject().getContainer());\n");
-							sb.append("    }\n\n");
-		    			}
+						if (useWrappedObjectRefs){
+			    			if (ad.getType().getIsExtendedRefType()){
+			    				String refType = ad.getType().getOriginalClass().getName().getNameString() + "DMW";
+			    				
+				    			if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
+				    				refType = ad.getType().getOriginalClass().getName().getNameString();
+			    				
+						    	sb.append("    /**\n");
+								sb.append("     * @return The " + ad.getType().getName() + suffix + " object at the specified index.\n");
+								sb.append("     */\n");
+								sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+								sb.append("    public " + refType  + " getNth" + functionName + "(int index){\n");
+								sb.append("        " + ad.getType().getName() + " ref = " + dmocast + ".getNth" + functionName + "(index);\n");
+								sb.append("        if (ref == null)\n");
+								sb.append("            return(null);\n");
+								sb.append("        \n");
+								sb.append("        if (ref.getObject() == null)\n");
+								sb.append("            return(null);\n");
+								sb.append("        \n");
+								sb.append("        return((" + refType + ")ref.getObject().getContainer());\n");
+								sb.append("    }\n\n");
+			    			}
+			    			else{
+						    	sb.append("    /**\n");
+								sb.append("     * @return The " + ad.getType().getName() + suffix + " object at the specified index.\n");
+								sb.append("     */\n");
+								sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+								sb.append("    public " + ad.getType().getName() + suffix  + " getNth" + functionName + "(int index){\n");
+								sb.append("        " + ad.getType().getName() + "REF ref = " + dmocast + ".getNth" + functionName + "(index);\n");
+								sb.append("        if (ref == null)\n");
+								sb.append("            return(null);\n");
+								sb.append("        \n");
+								sb.append("        if (ref.getObject() == null)\n");
+								sb.append("            return(null);\n");
+								sb.append("        \n");
+								sb.append("        return((" + ad.getType().getName() + suffix + ")ref.getObject().getContainer());\n");
+								sb.append("    }\n\n");
+			    			}
+						}
+						else{
+			    			if (ad.getType().getIsExtendedRefType()){
+						    	sb.append("    /**\n");
+								sb.append("     * @return The reference to the " + ad.getType().getName() + " object at the specified index.\n");
+								sb.append("     */\n");
+								sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+								sb.append("    public " + ad.getType().getName()  + " getNth" + functionName + "(int index){\n");
+								sb.append("        return(" + dmocast + ".getNth" + functionName + "(index));\n");
+								sb.append("    }\n\n");
+			    			}
+						}
 						
 						if (useWrappedObjectRefs){
 							if (ad.getType().getIsExtendedRefType()){
 						    	sb.append("    /**\n");
-								sb.append("     * @return The reference to the " + ad.getType().getName() + suffix + " object at the specified index.\n");
+								sb.append("     * @return The reference to the " + ad.getType().getName() + " object at the specified index.\n");
 								sb.append("     */\n");
 								sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-								sb.append("    public " + ad.getType().getName() + suffix  + " getNth" + functionName + "REF(int index){\n");
+								sb.append("    public " + ad.getType().getName() + " getNth" + functionName + "REF(int index){\n");
 								sb.append("        " + ad.getType().getName() + " ref = " + dmocast + ".getNth" + functionName + "REF(index);\n");
 								sb.append("        return(ref);\n");
 								sb.append("    }\n\n");
@@ -1642,13 +1670,24 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 							}
 						}
 						else{
-					    	sb.append("    /**\n");
-							sb.append("     * @return The reference to the " + ad.getType().getName() + " object at the specified index.\n");
-							sb.append("     */\n");
-							sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-							sb.append("    public " + ad.getType().getName()  + "REF getNth" + functionName + "REF(int index){\n");
-							sb.append("        return(" + dmocast + ".getNth" + functionName + "REF(index));\n");
-							sb.append("    }\n\n");
+							if (ad.getType().getIsExtendedRefType()){
+						    	sb.append("    /**\n");
+								sb.append("     * @return The reference to the " + ad.getType().getName() + " object at the specified index.\n");
+								sb.append("     */\n");
+								sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+								sb.append("    public " + ad.getType().getName()  + " getNth" + functionName + "REF(int index){\n");
+								sb.append("        return(" + dmocast + ".getNth" + functionName + "REF(index));\n");
+								sb.append("    }\n\n");
+							}
+							else{
+						    	sb.append("    /**\n");
+								sb.append("     * @return The reference to the " + ad.getType().getName() + " object at the specified index.\n");
+								sb.append("     */\n");
+								sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+								sb.append("    public " + ad.getType().getName()  + "REF getNth" + functionName + "REF(int index){\n");
+								sb.append("        return(" + dmocast + ".getNth" + functionName + "REF(index));\n");
+								sb.append("    }\n\n");
+							}
 						}
 						
 		    		}

@@ -1,3 +1,18 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2012 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.base;
 
 import org.dmd.dmc.DmcValueException;
@@ -11,7 +26,8 @@ import org.dmd.util.exceptions.ResultException;
  * used in the DMP Servlet Reference Implementation must be derived. Plugins
  * have a defined life cycle that includes:
  * <ul>
- * <li> pre-initialization: allows for addition of indices to the cache. 
+ * <li> pre-initialization: allows for addition of schemas associated with
+ * your functionality and the addition of indices to the cache. 
  * </li>
  * <li> initialization: at this stage, the cache has been loaded with any 
  * existing persisted objects and plugins can perform additional object

@@ -152,7 +152,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1665)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1704)
     public StringIterableDMW getSkipEnumValueIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__skipEnumValue);
         if (attr == null)
@@ -165,7 +165,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Adds another skipEnumValue value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1691)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1730)
     public void addSkipEnumValue(Object value) throws DmcValueException {
         ((GxtEnumMappingDMO) core).addSkipEnumValue(value);
     }
@@ -174,7 +174,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Adds another skipEnumValue value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1701)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1740)
     public void addSkipEnumValue(String value){
         ((GxtEnumMappingDMO) core).addSkipEnumValue(value);
     }
@@ -183,7 +183,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Returns true if the collection contains the skipEnumValue value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1758)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1797)
     public boolean skipEnumValueContains(String value){
         return(((GxtEnumMappingDMO) core).skipEnumValueContains(value));
     }
@@ -191,7 +191,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1798)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1837)
     @SuppressWarnings("unchecked")
     public HashSet<String> getSkipEnumValueCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__skipEnumValue);
@@ -212,7 +212,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Deletes a skipEnumValue value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1825)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1864)
     public void delSkipEnumValue(Object value) throws DmcValueException {
         ((GxtEnumMappingDMO) core).delSkipEnumValue(value);
     }
@@ -221,7 +221,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
      * Deletes a skipEnumValue value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1834)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1873)
     public void delSkipEnumValue(String value){
         ((GxtEnumMappingDMO) core).delSkipEnumValue(value);
     }
@@ -229,7 +229,7 @@ abstract public class GxtEnumMappingDMW extends MvwDefinition implements DmcName
     /**
      * Removes the skipEnumValue attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1846)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1885)
     public void remSkipEnumValue(){
         ((GxtEnumMappingDMO) core).remSkipEnumValue();
     }

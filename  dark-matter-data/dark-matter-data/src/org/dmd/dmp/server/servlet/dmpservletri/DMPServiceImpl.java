@@ -1,3 +1,18 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2012 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.dmpservletri;
 
 import java.io.File;
@@ -5,14 +20,18 @@ import java.io.File;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.client.DMPService;
 import org.dmd.dmp.server.extended.ActionRequest;
+import org.dmd.dmp.server.extended.ActionResponse;
 import org.dmd.dmp.server.extended.CreateRequest;
+import org.dmd.dmp.server.extended.CreateResponse;
 import org.dmd.dmp.server.extended.DeleteRequest;
+import org.dmd.dmp.server.extended.DeleteResponse;
 import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.LoginRequest;
 import org.dmd.dmp.server.extended.LogoutRequest;
 import org.dmd.dmp.server.extended.NotifyRequest;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.servlet.base.PluginManager;
+import org.dmd.dmp.server.servlet.extended.SessionRI;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
@@ -35,6 +54,7 @@ import org.dmd.dmp.shared.generated.dmo.RequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.SetResponseDMO;
+import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
@@ -73,12 +93,21 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 			File here = new File(".");
 			DebugInfo.debug("Running here: " + here.getAbsolutePath());
 			
+			// Load the plugin definition from file
 			pluginManager.loadPlugins("dmpServletPlugins.oif");
 			
+			// Call the pre-init method on all plugins - this allows plugins to
+			// load their required schemas and request that the cache maintain
+			// indices of various objects
 			pluginManager.preInit();
 			
+			// The plugins are initialized. The cache plugin will load the existing
+			// persisted objects and then the other plugins can make use of persisted
+			// data or make required additions to the cache.
 			pluginManager.init();
 			
+			// The plugins are informed that we're starting - after this we'll be able
+			// to service user requests.
 			pluginManager.start();
 		} catch (ResultException e) {
 			// TODO Auto-generated catch block
@@ -92,6 +121,8 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	
 	@Override
 	public void destroy(){
+		// The plugins are informed that we're shutting down. This allows for
+		// graceful shutdown handling.
 		pluginManager.shutdown();
 	}
 
@@ -100,24 +131,53 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	
 	@Override
 	public ActionResponseDMO action(ActionRequestDMO actionRequest) {
-		ActionRequest request = new ActionRequest(actionRequest, getThreadLocalRequest());
-		return null;
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
+		ActionRequest 	request 	= new ActionRequest(actionRequest, getThreadLocalRequest());
+		ActionResponse	response 	= null;
+		
+		try {
+			response = (ActionResponse) pluginManager.getSecurityManager().validateSession(request);
+			
+			if (response == null){
+				SessionRI session = pluginManager.getSecurityManager().getSession(request);
+//				response = session.handleActionRequest(request);
+			}
+		} catch (DmcValueException e) {
+			response = request.getResponse();
+			response.setResponseType(ResponseTypeEnum.ERROR);
+			response.setResponseText(e.toString());
+			
+			e.printStackTrace();
+		}
+		
+		return(response.getDMO());
 	}
 
 	@Override
 	public CreateResponseDMO create(CreateRequestDMO createRequest) {
-		CreateRequest request = new CreateRequest(createRequest, getThreadLocalRequest());
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
+		CreateRequest 	request		= new CreateRequest(createRequest, getThreadLocalRequest());
+		CreateResponse	response 	= null;
+		
 		return null;
 	}
 
 	@Override
 	public DeleteResponseDMO delete(DeleteRequestDMO deleteRequest) {
-		DeleteRequest request = new DeleteRequest(deleteRequest, getThreadLocalRequest());
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
+		DeleteRequest 	request 	= new DeleteRequest(deleteRequest, getThreadLocalRequest());
+		DeleteResponse	response 	= null;
+		
 		return null;
 	}
 
 	@Override
 	public GetResponseDMO get(GetRequestDMO getRequest) {
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
 		GetRequest request = new GetRequest(getRequest, getThreadLocalRequest());
 		
 		DebugInfo.debug("Got get request.\n\n" + request.toOIF());
@@ -139,6 +199,8 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 
 	@Override
 	public LoginResponseDMO login(LoginRequestDMO loginRequest) {
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
 		LoginRequest request = new LoginRequest(loginRequest, getThreadLocalRequest());
 		
 		DebugInfo.debug("Got login request.\n\n" + loginRequest.toOIF());
@@ -148,36 +210,48 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 
 	@Override
 	public LogoutResponseDMO logout(LogoutRequestDMO logoutRequest) {
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
 		LogoutRequest request = new LogoutRequest(logoutRequest, getThreadLocalRequest());
 		return null;
 	}
 
 	@Override
 	public NotifyResponseDMO notify(NotifyRequestDMO notifyRequest) {
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
 		NotifyRequest request = new NotifyRequest(notifyRequest, getThreadLocalRequest());
 		return null;
 	}
 
 	@Override
 	public SetResponseDMO set(SetRequestDMO setRequest) {
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
 		SetRequest request = new SetRequest(setRequest, getThreadLocalRequest());
 		return null;
 	}
 
 	@Override
 	public DenotifyResponseDMO denotify(DenotifyRequestDMO notifyRequest) {
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public ResponseDMO otherRequest(RequestDMO request) {
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public PreAuthResponseDMO preauth(PreAuthRequestDMO request) {
+		// All requests are immediately wrapped for use on the server. This includes
+		// associating the request with the originating HttpServletRequest.
 		// TODO Auto-generated method stub
 		return null;
 	}

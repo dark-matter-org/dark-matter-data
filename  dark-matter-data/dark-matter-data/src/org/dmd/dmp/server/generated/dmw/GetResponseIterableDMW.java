@@ -26,7 +26,7 @@ import org.dmd.dmp.server.extended.GetResponse;  // wrapper type import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1672)
- *    Called from: org.dmd.dmg.generators.DmwDMWGenerator.createTypeIterables(DmwDMWGenerator.java:75)
+ *    Called from: org.dmd.dmg.generators.DmwDMWGenerator.createTypeIterables(DmwDMWGenerator.java:77)
  */
 public class GetResponseIterableDMW extends DmwObjectIterator<GetResponse, GetResponseDMO> {
 

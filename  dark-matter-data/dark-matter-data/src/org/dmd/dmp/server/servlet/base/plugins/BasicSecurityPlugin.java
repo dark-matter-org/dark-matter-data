@@ -1,3 +1,18 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2012 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.base.plugins;
 
 import java.util.HashMap;
@@ -13,6 +28,7 @@ import org.dmd.dmp.server.extended.Response;
 import org.dmd.dmp.server.servlet.base.DmpServletPlugin;
 import org.dmd.dmp.server.servlet.base.interfaces.SecurityManagerIF;
 import org.dmd.dmp.server.servlet.extended.SessionRI;
+import org.dmd.dmp.server.servlet.generated.dmo.DmpServerDMSAG;
 import org.dmd.dmp.server.servlet.generated.dmw.SessionFolderRIDMW;
 import org.dmd.dmp.server.servlet.generated.dmw.UserFolderRIDMW;
 import org.dmd.dmp.server.servlet.generated.dmw.UserRIDMW;
@@ -26,12 +42,24 @@ import org.dmd.util.exceptions.ResultException;
  */
 public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityManagerIF {
 	
+	// Key: the user name
+	// Value: a user instance
 	HashMap<String,UserRIDMW>	users;
 	
+	// The current sessions
+	// Key: The session ID from the HttpServletRequest associated with the user login session
+	// Value: Our session information
 	HashMap<String,SessionRI>	sessions;
 
 	public BasicSecurityPlugin(){
 		super();
+	}
+	
+	@Override
+	public void preInit(){
+		
+		// Maintain an index of the defined users
+		cache.maintainIndex(DmpServerDMSAG.__UserRI);
 	}
 	
 	@Override
@@ -60,7 +88,6 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 		SessionFolderRIDMW	sf = new SessionFolderRIDMW();
 		sf.setDotName(new DotName("sf"));
 		cache.addObject(sf);
-		
 	}
 
 	@Override
@@ -78,7 +105,7 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 				if (!user.getPassword().equals(request.getPassword()))
 					response.setResponseType(ResponseTypeEnum.ERROR);
 				else{
-					SessionRI session = new SessionRI();
+					SessionRI session = new SessionRI(pluginManager.getCache());
 					session.setDotName(new DotName("sf." + request.getServletRequest().getSession().getId()));
 					session.setSessionIDRI(request.getServletRequest().getSession().getId());
 					session.setSessionHostRI(request.getServletRequest().getRemoteHost());
@@ -154,6 +181,11 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 		}
 		
 		return(rc);
+	}
+
+	@Override
+	public SessionRI getSession(Request request) {
+		return(sessions.get(request.getSessionID()));
 	}
 	
 	

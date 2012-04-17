@@ -1,9 +1,25 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2012 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.base.plugins;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -19,6 +35,7 @@ import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.SetRequest;
+import org.dmd.dmp.server.servlet.base.DmpCacheRegistration;
 import org.dmd.dmp.server.servlet.base.DmpServletPlugin;
 import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpRequestProcessorIF;
@@ -28,6 +45,7 @@ import org.dmd.dmw.DmwHierarchicObjectWrapper;
 import org.dmd.dmw.DmwNamedObjectIndexer;
 import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.dmd.dmw.DmwObjectFactory;
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
@@ -57,6 +75,11 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
     public BasicCachePlugin(){
 		super();
 	}
+    
+    @Override
+    public void preInit() throws ResultException {
+
+    }
 	
 	@Override
 	protected void init() throws ResultException {
@@ -106,8 +129,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		}
 		);
 		
-		loadPersistedObjects();
-		
+		loadPersistedObjects();    			
 	}
 	
 	@Override
@@ -293,15 +315,53 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	}
 
 	@Override
-	public void maintainIndex(DmcClassInfo cd) {
+	public void maintainIndex(DmcClassInfo ci) {
+		indexer.maintainIndex(ci);
 	}
 	
+	@Override
+	public int getIndexSize(DmcClassInfo ci) {
+		return(indexer.getIndexSize(ci));
+	}
+
+	@Override
+	public Iterator<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci) {
+		return(indexer.getIndex(ci));
+	}
+
 	///////////////////////////////////////////////////////////////////////////
 
 	@Override
-	public void handleObject(DmcUncheckedObject obj, String infile, int lineNumber) throws ResultException, DmcValueException {
-		// TODO Auto-generated method stub
+	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
+		DmwNamedObjectWrapper wrapper = null;
 		
+		try {
+			wrapper = (DmwNamedObjectWrapper) factory.createWrapper(uco);
+		} catch (ClassNotFoundException e) {
+			ResultException ex = new ResultException("Unknown object class: " + uco.classes.get(0));
+			ex.result.lastResult().fileName(infile);
+			ex.result.lastResult().lineNumber(lineNumber);
+			throw(ex);
+		}
+		catch (ResultException ex){
+			ex.setLocationInfo(infile, lineNumber);
+			throw(ex);
+		}
+		catch(DmcValueException e){
+			ResultException ex = new ResultException();
+			ex.addError(e.getMessage());
+			if (e.getAttributeName() != null)
+				ex.result.lastResult().moreMessages("Attribute: " + e.getAttributeName());
+			ex.setLocationInfo(infile, lineNumber);
+			throw(ex);
+		}
+	
+		addObject(wrapper);
+	}
+
+	@Override
+	public DmpCacheRegistration register() {
+		return( new DmpCacheRegistration(this));
 	}
 
 }

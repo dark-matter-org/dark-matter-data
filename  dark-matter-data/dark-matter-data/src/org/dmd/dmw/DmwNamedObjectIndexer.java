@@ -1,9 +1,13 @@
 package org.dmd.dmw;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcObjectName;
+import org.dmd.dmc.types.StringName;
 
 /**
  * The DmwNamedObjectIndexer will maintain indices for named objects based on object class.
@@ -22,9 +26,44 @@ public class DmwNamedObjectIndexer {
 
     private HashMap<DmcClassInfo, HashMap<DmcObjectName, DmwNamedObjectWrapper>> indices;
 
+    /**
+     * Constructs a new indexer.
+     */
     public DmwNamedObjectIndexer(){
 		indices = new HashMap<DmcClassInfo, HashMap<DmcObjectName,DmwNamedObjectWrapper>>();
 	}
+    
+    /**
+     * @param ci The class for which you want the index size.
+     * @return The size of the index or 0 if no objects of that type exist.
+     */
+    public int getIndexSize(DmcClassInfo ci){
+		synchronized (indices) {
+			HashMap<DmcObjectName, DmwNamedObjectWrapper> index = indices.get(ci);
+			
+			if (index == null)
+				return(0);
+			
+			return(index.size());
+		}
+    }
+    
+    /**
+     * @param ci The class for which you want the index.
+     * @return An iterator over the set of objects in the index. It will be an empty iterator
+     * if there are no objects of the specified type.
+     */
+    @SuppressWarnings("unchecked")
+	public Iterator<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci){
+		synchronized (indices) {
+			HashMap<DmcObjectName, DmwNamedObjectWrapper> index = indices.get(ci);
+			
+			if (index == null)
+				return(((List<DmwNamedObjectWrapper>) Collections.EMPTY_LIST).iterator());
+			
+			return (index.values().iterator());
+		}
+    }
     
     /**
      * Indicates that an index should be maintained for the specified class of object. All
