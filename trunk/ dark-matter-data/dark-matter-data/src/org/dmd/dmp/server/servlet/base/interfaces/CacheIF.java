@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmp.server.extended.CreateRequest;
 import org.dmd.dmp.server.extended.CreateResponse;
+import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.DeleteRequest;
 import org.dmd.dmp.server.extended.DeleteResponse;
 import org.dmd.dmp.server.extended.GetRequest;
@@ -85,6 +86,35 @@ public interface CacheIF extends DmcNameResolverIF {
 	public void set(DmwNamedObjectWrapper obj);
 	
 	public void setAndNotify(DmwNamedObjectWrapper obj);
+	
+	////////////////////////////////////////////////////////////////////////////
+	// Asynchronous operation processing
+	
+	/**
+	 * Queues a SetRequest for processing in the order in which it arrived.
+	 * @param request the request to be processed
+	 */
+	public void queueSetRequest(SetRequest request);
+	
+	/**
+	 * Queues a CreateRequest for processing in the order in which it arrived.
+	 * @param request the request to be processed
+	 */
+	public void queueCreateRequest(CreateRequest request);
+	
+	/**
+	 * Queues a DeleteRequest for processing in the order in which it arrived.
+	 * @param request the request to be processed
+	 */
+	public void queueDeleteRequest(DeleteRequest request);
+	
+	/**
+	 * Queues an event from a remote source for processing by the cache. This is
+	 * required in cases where the web server is acting has a front for one or more
+	 * other data sources.
+	 * @param request the request to be processed
+	 */
+	public void queueEvent(DMPEvent event);
 	
 	////////////////////////////////////////////////////////////////////////////
 	// Object retrieval and event registration

@@ -29,6 +29,8 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.extended.CreateRequest;
+import org.dmd.dmp.server.extended.DMPEvent;
+import org.dmd.dmp.server.extended.DMPMessage;
 import org.dmd.dmp.server.extended.DeleteRequest;
 import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
@@ -48,7 +50,19 @@ import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
 import org.dmd.util.parsing.DmcUncheckedObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;;
 
+/**
+ * The BasicCachePlugin provides the implementation of a cache of objects that are
+ * the focus of your data management application. The design of a cache is often quite
+ * application specific, so the way that this cache works may not be suitable to your
+ * needs; it is merely an example of how such a cache could work.
+ * <p/>
+ * The cache supports the basic CRUDE mechanism (not just CRUD - see the Dark Matter Data
+ * Overview page - http://code.google.com/p/dark-matter-data/wiki/DMDOverview). The 'E'
+ * stands for events.
+ */
 public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runnable, DmcUncheckedOIFHandlerIF {
 	
 	static String PERSISTENCE_FILE = "persistedObjects.oif";
@@ -62,13 +76,16 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	// The indexer maintains indices of objects on the basis of class type.
     private DmwNamedObjectIndexer					indexer = new DmwNamedObjectIndexer();
 
-    private LinkedBlockingQueue<Object>				inputQueue = new LinkedBlockingQueue<Object>();
+    private LinkedBlockingQueue<DMPMessage>			inputQueue;
     
     // Parser for our persisted objects
     private DmcUncheckedOIFParser					parser;
     
     // The factory used to create DMWs from objects read from file
     private DmwObjectFactory						factory;
+    
+    // A place to dump logs
+    private Logger									logger = LoggerFactory.getLogger(getClass());
 
     public BasicCachePlugin(){
 		super();
@@ -83,7 +100,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	protected void init() throws ResultException {
 		schema		= pluginManager.getSchema();
 		theCache	= new TreeMap<DmcObjectName, DmwNamedObjectWrapper>();
-		inputQueue	= new LinkedBlockingQueue<Object>();
+		inputQueue	= new LinkedBlockingQueue<DMPMessage>();
 		
 		parser		= new DmcUncheckedOIFParser(this);
 		factory 	= new DmwObjectFactory(pluginManager.getSchema());
@@ -160,7 +177,32 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		while(true){
+			DMPMessage message = null;
+			try {
+				// Grab the next message to be processed
+				message = inputQueue.take();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			if (message instanceof SetRequest){
+				
+			}
+			else if (message instanceof CreateRequest){
+				
+			}
+			else if (message instanceof DeleteRequest){
+				
+			}
+			else if (message instanceof DMPEvent){
+				// For now we're not handling events from other sources, but, in
+				// the case where our web application is fronting another data
+				// source or application, we may have to update our view of the
+				// data with these events
+			}
+		}
 		
 	}
 
@@ -220,20 +262,20 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		
 	}
 	
-	private void queueCreateRequest(CreateRequest request) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void queueDeleteRequest(DeleteRequest request) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private void queueSetRequest(SetRequest request) {
-		// TODO Auto-generated method stub
-		
-	}
+//	private void queueCreateRequest(CreateRequest request) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	private void queueDeleteRequest(DeleteRequest request) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	private void queueSetRequest(SetRequest request) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 
 	
@@ -361,5 +403,43 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	public DmpCacheRegistration register() {
 		return( new DmpCacheRegistration(this));
 	}
+
+	////////////////////////////////////////////////////////////////////////////
+	// Asynchronous operation processing
+
+	@Override
+	public void queueSetRequest(SetRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void queueCreateRequest(CreateRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void queueDeleteRequest(DeleteRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void queueEvent(DMPEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+    private void addToQueue(DMPMessage msg) {
+        try
+        {
+            inputQueue.put(msg);
+        }
+        catch (Exception e)
+        {
+            logger.error("Caught Exception", e);
+        }
+    }
 
 }
