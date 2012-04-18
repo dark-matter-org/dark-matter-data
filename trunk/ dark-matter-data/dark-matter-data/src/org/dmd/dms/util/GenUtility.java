@@ -2136,6 +2136,10 @@ public class GenUtility {
 		String REF = "";
 		boolean dmoREF = false;
 		
+		if (typeName.equals("SomeRelation")){
+			System.out.println("HERE");
+		}
+		
 		if ( (nameAttr == null) && isRef){
 			DMO = "DMO";
 			REF = "REF";
