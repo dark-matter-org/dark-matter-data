@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeActionBindingREFMV provides storage for a multi-valued ActionBindingREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2177)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2207)
     public DmcAttribute<ActionBindingREF> cloneIt(){
         synchronized(this){
             DmcTypeActionBindingREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2232)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
     public ActionBindingREF add(Object v) throws DmcValueException {
         synchronized(this){
             ActionBindingREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2249)
     public ActionBindingREF del(Object v){
         synchronized(this){
             ActionBindingREF key = null;
@@ -105,7 +105,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2276)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2280)
     public Iterator<ActionBindingREF> getMV(){
         synchronized(this){
             ArrayList<ActionBindingREF> clone = new ArrayList<ActionBindingREF>(value);
@@ -113,7 +113,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2285)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
     public ArrayList<ActionBindingREF> getMVCopy(){
         synchronized(this){
             ArrayList<ActionBindingREF> clone = new ArrayList<ActionBindingREF>(value);
@@ -122,7 +122,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2295)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +136,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2314)
     public ActionBindingREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2321)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2325)
     public ActionBindingREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +173,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2349)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2353)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +196,7 @@ public class DmcTypeActionBindingREFMV extends DmcTypeActionBindingREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2377)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

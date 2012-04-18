@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;    // DmcType import
  * The DmcTypeDMPEventTypeEnumMV provides storage for a multi-valued DMPEventTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2173)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2177)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:361)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2203)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2207)
     public DmcAttribute<DMPEventTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeDMPEventTypeEnumMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2232)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
     public DMPEventTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             DMPEventTypeEnum rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2249)
     public DMPEventTypeEnum del(Object v){
         synchronized(this){
             DMPEventTypeEnum key = null;
@@ -106,7 +106,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2276)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2280)
     public Iterator<DMPEventTypeEnum> getMV(){
         synchronized(this){
             ArrayList<DMPEventTypeEnum> clone = new ArrayList<DMPEventTypeEnum>(value);
@@ -114,7 +114,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2285)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
     public ArrayList<DMPEventTypeEnum> getMVCopy(){
         synchronized(this){
             ArrayList<DMPEventTypeEnum> clone = new ArrayList<DMPEventTypeEnum>(value);
@@ -123,7 +123,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2295)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -137,7 +137,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2314)
     public DMPEventTypeEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +147,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2321)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2325)
     public DMPEventTypeEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -174,7 +174,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2349)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2353)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,7 +197,7 @@ public class DmcTypeDMPEventTypeEnumMV extends DmcTypeDMPEventTypeEnum implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2377)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

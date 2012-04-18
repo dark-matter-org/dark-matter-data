@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeUserRIREFSET provides storage for a set of UserRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2460)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2497)
     public DmcAttribute<UserRIREF> cloneIt(){
         synchronized(this){
             DmcTypeUserRIREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2516)
     public UserRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             UserRIREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2533)
     public UserRIREF del(Object v){
         synchronized(this){
             UserRIREF rc = null;
@@ -113,7 +113,7 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2558)
     public Iterator<UserRIREF> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -123,7 +123,7 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
     public Set<UserRIREF> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -134,7 +134,7 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2593)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeUserRIREFSET extends DmcTypeUserRIREF implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2604)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

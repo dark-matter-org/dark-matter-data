@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeRuleREFMAP provides storage for a map of RuleREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2682)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2686)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -71,7 +71,7 @@ public class DmcTypeRuleREFMAP extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2736)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2740)
     public DmcAttribute<RuleREF> cloneIt(){
         synchronized(this){
             DmcTypeRuleREFMAP rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeRuleREFMAP extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2752)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2756)
     public RuleREF add(Object v) throws DmcValueException {
         synchronized(this){
             RuleREF newval = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeRuleREFMAP extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2773)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2777)
     public RuleREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -117,7 +117,7 @@ public class DmcTypeRuleREFMAP extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2785)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2789)
     public Iterator<RuleREF> getMV(){
         synchronized(this){
             Map<StringName,RuleREF> clone = null;
@@ -129,7 +129,7 @@ public class DmcTypeRuleREFMAP extends DmcTypeRuleREF implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2798)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2802)
     public Map<StringName,RuleREF> getMVCopy(){
         synchronized(this){
             Map<StringName,RuleREF> clone = null;
@@ -141,7 +141,7 @@ public class DmcTypeRuleREFMAP extends DmcTypeRuleREF implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2811)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2815)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,7 +152,7 @@ public class DmcTypeRuleREFMAP extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2823)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2827)
     public RuleREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -163,7 +163,7 @@ public class DmcTypeRuleREFMAP extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2835)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2839)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -176,7 +176,7 @@ public class DmcTypeRuleREFMAP extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2856)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2860)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof StringName)

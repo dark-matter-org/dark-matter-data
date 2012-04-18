@@ -126,7 +126,8 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     	String suffix = "";
     	String REF = "";
     	
-    	if (getType().getIsRefType())
+    	// If it's a reference type but NOT and extended reference type, insert the REF suffix
+    	if (getType().getIsRefType() && (!getType().getIsExtendedRefType()))
     		REF = "REF";
     	
     	switch(getValueType()){
