@@ -18,7 +18,7 @@ package org.dmd.dmp.server.servlet.base.plugins;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.Iterator;
+import java.util.Collection;
 import java.util.TreeMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -36,9 +36,11 @@ import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.SetRequest;
-import org.dmd.dmp.server.servlet.base.DmpCacheRegistration;
 import org.dmd.dmp.server.servlet.base.DmpServletPlugin;
-import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
+import org.dmd.dmp.server.servlet.base.cache.CacheIF;
+import org.dmd.dmp.server.servlet.base.cache.CacheListener;
+import org.dmd.dmp.server.servlet.base.cache.CacheRegistration;
+import org.dmd.dmp.server.servlet.base.cache.ClassIndexListener;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpRequestProcessorIF;
 import org.dmd.dmp.server.servlet.base.interfaces.RequestTrackerIF;
 import org.dmd.dms.SchemaManager;
@@ -51,7 +53,7 @@ import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
 import org.dmd.util.parsing.DmcUncheckedObject;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;;
+import org.slf4j.LoggerFactory;
 
 /**
  * The BasicCachePlugin provides the implementation of a cache of objects that are
@@ -67,7 +69,10 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	
 	static String PERSISTENCE_FILE = "persistedObjects.oif";
 	
-	// Convenience handle to the schema as loaded by the plugin manager
+	// Unique identifiers for CacheListeners
+    private long                             		nextListenerId = 1;
+
+    // Convenience handle to the schema as loaded by the plugin manager
 	SchemaManager									schema;
 	
 	// Our cache of objects
@@ -353,6 +358,8 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		// TODO Auto-generated method stub
 		
 	}
+	
+	///////////////////////////////////////////////////////////////////////////
 
 	@Override
 	public void maintainIndex(DmcClassInfo ci) {
@@ -360,12 +367,17 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	}
 	
 	@Override
+	public boolean hasIndex(DmcClassInfo dci) {
+		return(indexer.hasIndex(dci));
+	}
+
+	@Override
 	public int getIndexSize(DmcClassInfo ci) {
 		return(indexer.getIndexSize(ci));
 	}
 
 	@Override
-	public Iterator<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci) {
+	public Collection<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci) {
 		return(indexer.getIndex(ci));
 	}
 
@@ -400,8 +412,8 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	}
 
 	@Override
-	public DmpCacheRegistration register() {
-		return( new DmpCacheRegistration(this));
+	public CacheRegistration register() {
+		return( new CacheRegistration(this));
 	}
 
 	////////////////////////////////////////////////////////////////////////////
@@ -441,5 +453,40 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
             logger.error("Caught Exception", e);
         }
     }
+
+	///////////////////////////////////////////////////////////////////////////
+	// Listener implementation
+
+    /**
+     *  Returns the next unique listener ID.
+     */
+	@Override
+	public long getNextListenerID() {
+		return(nextListenerId++);
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public Collection<DmwNamedObjectWrapper> addListener(CacheListener listener){
+		synchronized(theCache){
+			if (listener instanceof ClassIndexListener){
+				ClassIndexListener cilistener = (ClassIndexListener) listener;
+				
+				return(indexer.getIndex(cilistener.getClassInfo()));
+			}
+			
+			throw(new IllegalStateException("Unknown cache listener type: " + listener.getClass().getName()));
+		}
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public void removeListener(CacheListener listener) {
+		
+	}
 
 }

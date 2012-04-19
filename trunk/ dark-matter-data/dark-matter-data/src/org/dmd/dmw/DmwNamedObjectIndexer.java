@@ -1,13 +1,14 @@
 package org.dmd.dmw;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcObjectName;
-import org.dmd.dmc.types.StringName;
 
 /**
  * The DmwNamedObjectIndexer will maintain indices for named objects based on object class.
@@ -17,7 +18,7 @@ import org.dmd.dmc.types.StringName;
  * The indexer allows for the creation of indices for both concrete and abstract classes.
  * <p/>
  * If indices have been added for a base class and for classes derived from it, adding an
- * object to the indexer will result in its inclusion multiple indices. So be careful about
+ * object to the indexer will result in its inclusion in multiple indices. So be careful about
  * which indices you add and how you use them.
  * <p/>
  * Update operations against the indexer are thread safe.
@@ -32,6 +33,19 @@ public class DmwNamedObjectIndexer {
     public DmwNamedObjectIndexer(){
 		indices = new HashMap<DmcClassInfo, HashMap<DmcObjectName,DmwNamedObjectWrapper>>();
 	}
+    
+    /**
+     * @param dci The class for which you're checking.
+     * @return true if there's an index for the class and false otherwise.
+     */
+    public boolean hasIndex(DmcClassInfo dci){
+		synchronized (indices) {
+			HashMap<DmcObjectName, DmwNamedObjectWrapper> index = indices.get(dci);
+			if (index == null)
+				return(false);
+			return(true);
+		}
+    }
     
     /**
      * @param ci The class for which you want the index size.
@@ -54,14 +68,16 @@ public class DmwNamedObjectIndexer {
      * if there are no objects of the specified type.
      */
     @SuppressWarnings("unchecked")
-	public Iterator<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci){
+	public Collection<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci){
 		synchronized (indices) {
+			LinkedList<DmwNamedObjectWrapper> values = new LinkedList<DmwNamedObjectWrapper>();
+			
 			HashMap<DmcObjectName, DmwNamedObjectWrapper> index = indices.get(ci);
 			
 			if (index == null)
-				return(((List<DmwNamedObjectWrapper>) Collections.EMPTY_LIST).iterator());
+				return(((List<DmwNamedObjectWrapper>) Collections.EMPTY_LIST));
 			
-			return (index.values().iterator());
+			return (values);
 		}
     }
     

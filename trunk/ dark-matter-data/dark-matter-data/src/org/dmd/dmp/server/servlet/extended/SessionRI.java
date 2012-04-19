@@ -30,8 +30,8 @@ import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.Response;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.extended.SetResponse;
-import org.dmd.dmp.server.servlet.base.DmpCacheRegistration;
-import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
+import org.dmd.dmp.server.servlet.base.cache.CacheIF;
+import org.dmd.dmp.server.servlet.base.cache.CacheRegistration;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpResponseHandlerIF;
 import org.dmd.dmp.server.servlet.generated.dmw.SessionRIDMW;
@@ -63,7 +63,7 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	Domain						domain;
 	
 	// Our unique registration with the cache against which we will operate
-	DmpCacheRegistration		cacheRegistration;
+	CacheRegistration		cacheRegistration;
 	
 	/**
 	 * The empty constructor required for compatibility with the modification recorder mechanisms.

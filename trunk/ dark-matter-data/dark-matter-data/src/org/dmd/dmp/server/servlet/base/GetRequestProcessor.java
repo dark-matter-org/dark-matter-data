@@ -17,6 +17,7 @@ package org.dmd.dmp.server.servlet.base;
 
 import org.dmd.dmp.server.DmpPipeIF;
 import org.dmd.dmp.server.extended.DMPEvent;
+import org.dmd.dmp.server.servlet.base.cache.CacheRegistration;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
 
 /**
@@ -26,7 +27,7 @@ public class GetRequestProcessor implements DmpEventHandlerIF {
 	
 	
 	
-	public GetRequestProcessor(DmpPipeIF pipe, DmpCacheRegistration dcr){
+	public GetRequestProcessor(DmpPipeIF pipe, CacheRegistration dcr){
 		
 	}
 

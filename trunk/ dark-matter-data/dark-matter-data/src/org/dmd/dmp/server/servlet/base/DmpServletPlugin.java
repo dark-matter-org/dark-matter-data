@@ -16,7 +16,7 @@
 package org.dmd.dmp.server.servlet.base;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
+import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.dmpservletri.DMPServiceImpl;
 import org.dmd.dmp.server.servlet.extended.PluginConfig;
 import org.dmd.util.exceptions.ResultException;
