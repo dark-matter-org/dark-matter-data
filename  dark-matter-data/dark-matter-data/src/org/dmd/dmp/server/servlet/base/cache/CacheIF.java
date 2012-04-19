@@ -13,9 +13,10 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dmp.server.servlet.base.interfaces;
+package org.dmd.dmp.server.servlet.base.cache;
 
 import java.io.PrintStream;
+import java.util.Collection;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcClassInfo;
@@ -32,7 +33,6 @@ import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.extended.SetResponse;
-import org.dmd.dmp.server.servlet.base.DmpCacheRegistration;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.dmd.util.exceptions.ResultException;
@@ -58,7 +58,7 @@ public interface CacheIF extends DmcNameResolverIF {
 	 * unique registration against that cache.
 	 * @return a registration against the cache.
 	 */
-	public DmpCacheRegistration register();
+	public CacheRegistration register();
 	
 	/**
 	 * This method is used to add a new object to the cache during the initialization
@@ -117,17 +117,35 @@ public interface CacheIF extends DmcNameResolverIF {
 	public void queueEvent(DMPEvent event);
 	
 	////////////////////////////////////////////////////////////////////////////
+	// Listener support
+	
+	/**
+	 * This method is called when a new CacheListener is instantiated.
+	 * @return the next unique identifier for a newly created CacheListener.
+	 */
+	public long getNextListenerID();
+
+	/**
+	 * Adds the specified listener to the cache. The exact behaviour of the
+	 * listener is cache implementation specific.
+	 * @param listener the cache listener
+	 * @return a set of objects that meet the listener criteria
+	 */
+	public Collection<DmwNamedObjectWrapper> addListener(CacheListener listener);
+	
+	/**
+	 * Removes the specified listener from the cache.
+	 * @param listener the listener to be removed.
+	 */
+	public void removeListener(CacheListener listener);
+	
+	////////////////////////////////////////////////////////////////////////////
 	// Object retrieval and event registration
 	
 	public void get(GetRequest request, GetResponse response);
 		
 	///////////////////////////////////////////////////////////////////////////
-	// Utility mechanisms
-	
-	/**
-	 * Dumps all cached objects to the specified PrintStream.
-	 */
-	public void dumpObjects(PrintStream ps);
+	// Object indexing support
 	
 	/**
 	 * Indexing is a generally useful mechanism that allows for rapid access to
@@ -139,7 +157,31 @@ public interface CacheIF extends DmcNameResolverIF {
 	 */
 	public void maintainIndex(DmcClassInfo cd);
 	
+	/**
+	 * @param dci the class to check for.
+	 * @return true if there's an index for the class and false otherwise.
+	 */
+	public boolean hasIndex(DmcClassInfo dci);
+	
+	/**
+	 * @param ci the class whose index you want to check.
+	 * @return The number of entries in the index.
+	 */
 	public int getIndexSize(DmcClassInfo ci);
 	
-	public Iterator<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci);
+	/**
+	 * @param ci the class for which you want the indexed values.
+	 * @return the value in the index.
+	 */
+	public Collection<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci);
+	
+	///////////////////////////////////////////////////////////////////////////
+	// Utility mechanisms
+	
+	/**
+	 * Dumps all cached objects to the specified PrintStream.
+	 */
+	public void dumpObjects(PrintStream ps);
+	
+
 }

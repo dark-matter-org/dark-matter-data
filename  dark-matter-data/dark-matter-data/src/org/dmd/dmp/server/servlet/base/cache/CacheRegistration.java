@@ -13,25 +13,34 @@
 //	You should have received a copy of the GNU Lesser General Public License along
 //	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
 //	---------------------------------------------------------------------------
-package org.dmd.dmp.server.servlet.base;
+package org.dmd.dmp.server.servlet.base.cache;
 
-import org.dmd.dmp.server.servlet.base.interfaces.CacheIF;
 
 /**
- * The DmpCacheRegistration serves to uniquely identify all entities that operate
- * against the data cache.
+ * The CacheRegistration serves to uniquely identify all entities that operate
+ * against the data cache. It is usually associated with a validated client session.
+ * <p/>
+ * When a client sends a LoginRequest, the LoginResponse will contain the originatorID
+ * associated with this registration. Using this ID, the client is able to determine
+ * whether or not events it's receiving were caused by its actions or those of other
+ * clients, which can be useful in generating warnings etc. For example, if you're
+ * in the middle of editting an object and you receive an event to indicate that it
+ * has been modified by someone else, you can present a warning.
+ * <p/>
+ * You can have a look at the org.dmd.mvw.client.mvwcomms.extended.CommsController
+ * class for a concrete example of how the originatorID is used.
  */
-public class DmpCacheRegistration {
+public class CacheRegistration {
 
 	private static int 		nextRegistrantID = 1;
 	private final CacheIF	cache;
-	private	int				ID;
+	private	long			ID;
 	
 	/**
 	 * Instantiates a new registration against the specified cache.
 	 * @param c the cache.
 	 */
-	public DmpCacheRegistration(CacheIF c){
+	public CacheRegistration(CacheIF c){
 		cache = c;
 		initRegistrantID();
 	}
@@ -39,7 +48,7 @@ public class DmpCacheRegistration {
 	/**
 	 * @return the unique ID for this registration.
 	 */
-	public int getID(){
+	public long getID(){
 		return(ID);
 	}
 	
