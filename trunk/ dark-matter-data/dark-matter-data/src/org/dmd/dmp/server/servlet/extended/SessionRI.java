@@ -30,6 +30,7 @@ import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.Response;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.extended.SetResponse;
+import org.dmd.dmp.server.servlet.base.GetRequestProcessor;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.base.cache.CacheRegistration;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
@@ -39,6 +40,9 @@ import org.dmd.dmp.server.servlet.generated.dmw.SessionRIDMW;
 import de.novanic.eventservice.client.event.domain.Domain;
 import de.novanic.eventservice.client.event.domain.DomainFactory;
 import de.novanic.eventservice.service.RemoteEventServiceServlet;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The SessionRI class represents an authenticated user session. All requests
@@ -63,9 +67,14 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	Domain						domain;
 	
 	// Our unique registration with the cache against which we will operate
-	CacheRegistration		cacheRegistration;
+	CacheRegistration			cacheRegistration;
 	
-	/**
+	// The entity that coordinates our object retrieval
+	GetRequestProcessor			getRequestProcessor;
+	
+    private Logger              logger = LoggerFactory.getLogger(getClass());
+
+    /**
 	 * The empty constructor required for compatibility with the modification recorder mechanisms.
 	 * This is never used to create an actual session for use within the DMP reference implementation.
 	 */
@@ -79,6 +88,7 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	 */
 	public SessionRI(CacheIF c){
 		cacheRegistration = c.register();
+		getRequestProcessor = new GetRequestProcessor(this, cacheRegistration);
 	}
 	
 	/**
@@ -89,6 +99,13 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	public void initializeEventChannel(RemoteEventServiceServlet s){
 		servlet	= s;
 		domain 	= DomainFactory.getDomain(getSessionIDRI());
+	}
+	
+	/**
+	 * @return the unique ID associated with our cache registration.
+	 */
+	public int getOriginatorID(){
+		return(cacheRegistration.getID());
 	}
 
 	/**
@@ -105,45 +122,55 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 		servlet.addEvent(domain, response.getDMO());
 	}
 
-	/**
-	 * Sends the specified event back to the client.
-	 * @param event The event to be sent.
-	 */
-	@Override
-	public void handleEvent(DMPEvent event) {
-		// Fire the event on our session based domain
-		servlet.addEvent(domain, event.getDMO());
-	}
-
 	///////////////////////////////////////////////////////////////////////////
 	// Request handling methods
 	
 	public GetResponse handleGetRequest(GetRequest request){
 		GetResponse rc = null;
+		request.setOriginatorID(cacheRegistration.getID());
+		
+		if (request.isTrackingEnabled())
+			logger.debug(request.toOIF());
 		
 		return(rc);
 	}
 	
 	public SetResponse handleSetRequest(SetRequest request){
 		SetResponse rc = null;
+		request.setOriginatorID(cacheRegistration.getID());
+		
+		if (request.isTrackingEnabled())
+			logger.debug(request.toOIF());
 		
 		return(rc);
 	}
 	
 	public CreateResponse handleCreateRequest(CreateRequest request){
 		CreateResponse rc = null;
+		request.setOriginatorID(cacheRegistration.getID());
+		
+		if (request.isTrackingEnabled())
+			logger.debug(request.toOIF());
 		
 		return(rc);
 	}
 	
 	public DeleteResponse handleDeleteRequest(DeleteRequest request){
 		DeleteResponse rc = null;
+		request.setOriginatorID(cacheRegistration.getID());
+		
+		if (request.isTrackingEnabled())
+			logger.debug(request.toOIF());
 		
 		return(rc);
 	}
 	
 	public ActionResponse handleActionRequest(ActionRequest request){
 		ActionResponse rc = null;
+		request.setOriginatorID(cacheRegistration.getID());
+		
+		if (request.isTrackingEnabled())
+			logger.debug(request.toOIF());
 		
 		return(rc);
 	}
@@ -160,4 +187,19 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	public String getName() {
 		return(getSessionIDRI());
 	}
+	
+	///////////////////////////////////////////////////////////////////////////
+	// DmpEventHandlerIF implementation
+	
+	/**
+	 * Sends the specified event back to the client.
+	 * @param event The event to be sent.
+	 */
+	@Override
+	public void handleEvent(DMPEvent event) {
+		// Fire the event on our session based domain
+		servlet.addEvent(domain, event.getDMO());
+	}
+
+
 }

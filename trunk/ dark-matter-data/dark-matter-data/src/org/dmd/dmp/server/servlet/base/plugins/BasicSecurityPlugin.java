@@ -35,6 +35,8 @@ import org.dmd.dmp.server.servlet.generated.dmw.UserRIDMW;
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The BasicSecurityPlugin provides basic security mechanisms for an example application.
@@ -51,7 +53,9 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 	// Value: Our session information
 	HashMap<String,SessionRI>	sessions;
 
-	public BasicSecurityPlugin(){
+    private Logger              logger = LoggerFactory.getLogger(getClass());
+
+    public BasicSecurityPlugin(){
 		super();
 	}
 	
@@ -100,10 +104,17 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 			if (user == null){
 				// Just indicate that there was an error, don't provide additional info
 				response.setResponseType(ResponseTypeEnum.ERROR);
+				
+				if (request.isTrackingEnabled())
+					logger.warn("Unknown user: " + request.getUserName());
 			}
 			else{
-				if (!user.getPassword().equals(request.getPassword()))
+				if (!user.getPassword().equals(request.getPassword())){
 					response.setResponseType(ResponseTypeEnum.ERROR);
+					
+					if (request.isTrackingEnabled())
+						logger.warn("Incorrect password for user: " + request.getUserName());
+				}
 				else{
 					SessionRI session = new SessionRI(pluginManager.getCache());
 					session.setDotName(new DotName("sf." + request.getServletRequest().getSession().getId()));
@@ -120,6 +131,9 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 					
 					response.setSessionID(session.getSessionIDRI());
 					
+					if (request.isTrackingEnabled())
+						logger.trace("New session created: " + session.getSessionIDRI() + " - for user: " + request.getUserName());
+
 					// TODO: proper addition of the entry to the cache
 					try {
 						cache.addObject(session);

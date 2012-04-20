@@ -34,7 +34,7 @@ public class CacheRegistration {
 
 	private static int 		nextRegistrantID = 1;
 	private final CacheIF	cache;
-	private	long			ID;
+	private	int				ID;
 	
 	/**
 	 * Instantiates a new registration against the specified cache.
@@ -48,7 +48,7 @@ public class CacheRegistration {
 	/**
 	 * @return the unique ID for this registration.
 	 */
-	public long getID(){
+	public int getID(){
 		return(ID);
 	}
 	
