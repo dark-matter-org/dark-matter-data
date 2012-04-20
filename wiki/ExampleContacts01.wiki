@@ -1,6 +1,6 @@
 #summary The Contacts Example - Step 1
 
-This sequence of tutorials assumes that you're using version 2.4 of the [https://developers.google.com/web-toolkit/download Google Web Toolkit] and the associated [https://developers.google.com/eclipse/ Eclipse plugin].
+This sequence of tutorials assumes that you're using version 2.2 of the [https://developers.google.com/web-toolkit/download Google Web Toolkit] and the associated [https://developers.google.com/eclipse/ Eclipse plugin].
 
   * Import the dark-matter-data project into your workspace.<p/>The SVN URL is `https://dark-matter-data.googlecode.com/svn/trunk/`. <p>Note: the eclipse project is below the `dark-matter-data` folder beneath `trunk` and is also called `dark-matter-data`.<p/>Usually, you would just use the dark-matter JAR, but, since this is a tutorial, it is useful to have access to the full dark-matter code base.<p/>
   * Use the Google plugin mechanisms to create a new Web Application Project with name `contacts1` and package `com.example`<p/>
