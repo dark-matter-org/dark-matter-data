@@ -25,10 +25,12 @@ import org.dmd.dmp.server.extended.CreateRequest;
 import org.dmd.dmp.server.extended.CreateResponse;
 import org.dmd.dmp.server.extended.DeleteRequest;
 import org.dmd.dmp.server.extended.DeleteResponse;
+import org.dmd.dmp.server.extended.DenotifyRequest;
 import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.LoginRequest;
 import org.dmd.dmp.server.extended.LogoutRequest;
 import org.dmd.dmp.server.extended.NotifyRequest;
+import org.dmd.dmp.server.extended.PreAuthRequest;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.servlet.base.PluginManager;
 import org.dmd.dmp.server.servlet.extended.SessionRI;
@@ -57,6 +59,8 @@ import org.dmd.dmp.shared.generated.dmo.SetResponseDMO;
 import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.novanic.eventservice.service.RemoteEventServiceServlet;
 
@@ -82,7 +86,9 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	// behaviour. 
 	PluginManager	pluginManager;
 		
-	///////////////////////////////////////////////////////////////////////////////
+    private Logger	logger = LoggerFactory.getLogger(getClass());
+
+    ///////////////////////////////////////////////////////////////////////////////
 	// GenericServlet
 	
 	@Override
@@ -91,7 +97,7 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 			pluginManager = new PluginManager(this);
 			
 			File here = new File(".");
-			DebugInfo.debug("Running here: " + here.getAbsolutePath());
+			logger.debug("Running here: " + here.getAbsolutePath());
 			
 			// Load the plugin definition from file
 			pluginManager.loadPlugins("dmpServletPlugins.oif");
@@ -136,6 +142,9 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		ActionRequest 	request 	= new ActionRequest(actionRequest, getThreadLocalRequest());
 		ActionResponse	response 	= null;
 		
+		if (request.isTrackingEnabled())
+			logger.trace("Received by DMP servlet:\n" + request.toOIF());
+		
 		try {
 			response = (ActionResponse) pluginManager.getSecurityManager().validateSession(request);
 			
@@ -161,6 +170,9 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		CreateRequest 	request		= new CreateRequest(createRequest, getThreadLocalRequest());
 		CreateResponse	response 	= null;
 		
+		if (request.isTrackingEnabled())
+			logger.trace("Received by DMP servlet:\n" + request.toOIF());
+
 		return null;
 	}
 
@@ -171,6 +183,9 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		DeleteRequest 	request 	= new DeleteRequest(deleteRequest, getThreadLocalRequest());
 		DeleteResponse	response 	= null;
 		
+		if (request.isTrackingEnabled())
+			logger.trace("Received by DMP servlet:\n" + request.toOIF());
+
 		return null;
 	}
 
@@ -180,7 +195,8 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		// associating the request with the originating HttpServletRequest.
 		GetRequest request = new GetRequest(getRequest, getThreadLocalRequest());
 		
-		DebugInfo.debug("Got get request.\n\n" + request.toOIF());
+		if (request.isTrackingEnabled())
+			logger.trace("Received by DMP servlet:\n" + request.toOIF());
 		
 		try {
 			if (pluginManager.getSecurityManager().validateSession(request) == null){
@@ -203,7 +219,8 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		// associating the request with the originating HttpServletRequest.
 		LoginRequest request = new LoginRequest(loginRequest, getThreadLocalRequest());
 		
-		DebugInfo.debug("Got login request.\n\n" + loginRequest.toOIF());
+		if (request.isTrackingEnabled())
+			logger.trace("Received by DMP servlet:\n" + request.toOIF());
 		
 		return(pluginManager.getSecurityManager().login(request).getDMO());
 	}
@@ -213,6 +230,10 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		// All requests are immediately wrapped for use on the server. This includes
 		// associating the request with the originating HttpServletRequest.
 		LogoutRequest request = new LogoutRequest(logoutRequest, getThreadLocalRequest());
+		
+		if (request.isTrackingEnabled())
+			logger.trace("Received by DMP servlet:\n" + request.toOIF());
+		
 		return null;
 	}
 
@@ -221,6 +242,10 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		// All requests are immediately wrapped for use on the server. This includes
 		// associating the request with the originating HttpServletRequest.
 		NotifyRequest request = new NotifyRequest(notifyRequest, getThreadLocalRequest());
+		
+		if (request.isTrackingEnabled())
+			logger.trace("Received by DMP servlet:\n" + request.toOIF());
+
 		return null;
 	}
 
@@ -229,6 +254,10 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		// All requests are immediately wrapped for use on the server. This includes
 		// associating the request with the originating HttpServletRequest.
 		SetRequest request = new SetRequest(setRequest, getThreadLocalRequest());
+		
+		if (request.isTrackingEnabled())
+			logger.trace("Received by DMP servlet:\n" + request.toOIF());
+
 		return null;
 	}
 
@@ -236,7 +265,11 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	public DenotifyResponseDMO denotify(DenotifyRequestDMO notifyRequest) {
 		// All requests are immediately wrapped for use on the server. This includes
 		// associating the request with the originating HttpServletRequest.
-		// TODO Auto-generated method stub
+		DenotifyRequest request = new DenotifyRequest(notifyRequest, getThreadLocalRequest());
+
+		if (request.isTrackingEnabled())
+			logger.trace("Received by DMP servlet:\n" + request.toOIF());
+
 		return null;
 	}
 
@@ -244,15 +277,19 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	public ResponseDMO otherRequest(RequestDMO request) {
 		// All requests are immediately wrapped for use on the server. This includes
 		// associating the request with the originating HttpServletRequest.
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
-	public PreAuthResponseDMO preauth(PreAuthRequestDMO request) {
+	public PreAuthResponseDMO preauth(PreAuthRequestDMO preAuthRequest) {
 		// All requests are immediately wrapped for use on the server. This includes
 		// associating the request with the originating HttpServletRequest.
-		// TODO Auto-generated method stub
+		PreAuthRequest request = new PreAuthRequest(preAuthRequest, getThreadLocalRequest());
+		
+		if (request.isTrackingEnabled())
+			logger.trace("Received by DMP servlet:\n" + request.toOIF());
+
 		return null;
 	}
 	

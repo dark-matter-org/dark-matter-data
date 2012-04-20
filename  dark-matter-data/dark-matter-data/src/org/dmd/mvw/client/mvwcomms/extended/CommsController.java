@@ -91,6 +91,13 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// Our event domain for use with the gwteventservice
 	Domain						eventDomain;
 	
+	// All DMP messages have the trackingEnabled attribute that allow for tracking
+	// of the message through the various components of the system. This is a global
+	// flag that can be set so that all messages are tracked - this should be used
+	// with caution, but it's useful for training/example purposes. Individual messages
+	// can, of course, have their tracking turned on.
+	boolean						trackAllMessages;
+	
 	public CommsController(MvwRunContextIF rc) {
 		super(rc);
 		requestID			= 1;
@@ -102,6 +109,15 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		requests			= new TreeMap<Integer, ResponseCallback>();
 		eventHandlers		= new TreeMap<Long, ResponseCallback>();
 		lastRequestTime		= -1;
+		trackAllMessages	= false;
+	}
+	
+	/**
+	 * Sets a flag that will turn global message tracking on/off.
+	 * @param f set ot true if you want all message handling tracking
+	 */
+	public void setGlobalMessageTracking(boolean f){
+		trackAllMessages = f;
 	}
 	
 	public void setCentralEventHandler(CentralEventHandlerIF eh){
@@ -118,12 +134,22 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		return(lastRequestTime);
 	}
 	
+	/**
+	 * Convenience method to set the tracking flag on a request.
+	 * @param request the request.
+	 */
+	void setTracking(RequestDMO request){
+		if (trackAllMessages)
+			request.setTrackingEnabled(true);
+	}
 
 	////////////////////////////////////////////////////////////////////////////////
 	// LOGIN
 	
 	public LoginRequestDMO getLoginRequest(){
 		LoginRequestDMO request = new LoginRequestDMO();
+		setTracking(request);
+		
 		request.addRequestID(requestID++);
 		
 		return(request);
@@ -147,6 +173,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 
 	public LogoutRequestDMO getLogoutRequest(){
 		LogoutRequestDMO request = new LogoutRequestDMO();
+		setTracking(request);
 		request.addRequestID(requestID++);
 		request.setSessionID(sessionID);
 		
@@ -171,6 +198,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 
 	public GetRequestDMO getGetRequest(){
 		GetRequestDMO request = new GetRequestDMO();
+		setTracking(request);
 		request.addRequestID(requestID++);
 		request.setSessionID(sessionID);
 		request.setScope(ScopeEnum.BASE);
@@ -209,6 +237,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 
 	public SetRequestDMO getSetRequest(){
 		SetRequestDMO request = new SetRequestDMO();
+		setTracking(request);
 		request.addRequestID(requestID++);
 		request.setSessionID(sessionID);
 		return(request);
@@ -232,6 +261,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 
 	public CreateRequestDMO getCreateRequest(){
 		CreateRequestDMO request = new CreateRequestDMO();
+		setTracking(request);
 		request.addRequestID(requestID++);
 		request.setSessionID(sessionID);
 
@@ -256,6 +286,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 
 	public DeleteRequestDMO getDeleteRequest(){
 		DeleteRequestDMO request = new DeleteRequestDMO();
+		setTracking(request);
 		request.addRequestID(requestID++);
 		request.setSessionID(sessionID);
 
@@ -285,6 +316,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	 */
 	public ActionRequestDMO getActionRequest(ActionTriggerInfo ati){
 		ActionRequestDMO request = new ActionRequestDMO();
+		setTracking(request);
 		request.addRequestID(requestID++);
 		request.setSessionID(sessionID);
 		request.setActionName(ati.getActionName());
