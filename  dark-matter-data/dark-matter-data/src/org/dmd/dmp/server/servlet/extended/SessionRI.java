@@ -126,11 +126,12 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	// Request handling methods
 	
 	public GetResponse handleGetRequest(GetRequest request){
-		GetResponse rc = null;
-		request.setOriginatorID(cacheRegistration.getID());
+		GetResponse rc = request.getResponse();
+		rc.setLastResponse(false);
 		
-		if (request.isTrackingEnabled())
-			logger.debug(request.toOIF());
+		request.setOriginatorID(cacheRegistration.getID());
+				
+		getRequestProcessor.processRequest(request);
 		
 		return(rc);
 	}
