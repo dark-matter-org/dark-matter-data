@@ -2,8 +2,14 @@ package org.dmd.dmp.server.servlet.base.cache;
 
 import java.lang.ref.WeakReference;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import org.dmd.dmc.DmcClassInfo;
+import org.dmd.dmp.server.extended.DMPEvent;
 
 /**
  * The CacheListenerManager maintains collections of the various types of cache
@@ -14,28 +20,101 @@ import java.util.LinkedList;
 public class CacheListenerManager {
 	
 	// Listeners for all cache events
-	ListenerSet	fullListeners	= new ListenerSet();
+	ListenerSet<CacheFullListener>			fullListeners	= new ListenerSet<CacheFullListener>();
 	
+	// Listeners to particular class indices
+	HashMap<DmcClassInfo,IndexListenerSet>	indexListeners = new HashMap<DmcClassInfo, IndexListenerSet>();
 	
-	
-	public CacheListenerManager(){
-		
+    private Logger                 			logger = LoggerFactory.getLogger(getClass());
+
+    public CacheListenerManager(){
 		
 	}
 
+	/**
+	 * Adds a new cache listener.
+	 * @param listener the listener to be added.
+	 */
+	public void addListener(CacheListener listener){
+		synchronized (this) {
+			if (listener instanceof CacheFullListener)
+				fullListeners.add((CacheFullListener) listener);
+			else if (listener instanceof CacheIndexListener){
+				CacheIndexListener cil = (CacheIndexListener) listener;
+				IndexListenerSet set = indexListeners.get(cil.getClassInfo());
+				if (set == null)
+					set = new IndexListenerSet(cil.getClassInfo());
+				set.add(cil);
+			}
+			
+			logger.trace("Added listener: " + listener.getTraceInfo());
+		}
+	}
+	
+	/**
+	 * Removes a cache listener.
+	 * @param listener the listener to be removed.
+	 */
+	public void removeListener(CacheListener listener){
+		synchronized (this) {
+			if (listener instanceof CacheFullListener){
+				fullListeners.remove((CacheFullListener) listener);
+			}
+			else if (listener instanceof CacheIndexListener){
+				CacheIndexListener cil = (CacheIndexListener) listener;
+				IndexListenerSet set = indexListeners.get(cil.getClassInfo());
+				if (set == null){
+					logger.trace("Tried removing listener but no listeners found for the index: " + listener.getTraceInfo());
+					return;
+				}
+				else
+					set.remove(cil);
+			}
+			
+			logger.trace("Removed listener: " + listener.getTraceInfo());
+		}
+	}
+	
+	/**
+	 * Based on the contents of the event, we build a set of listeners that
+	 * want to be notified.
+	 * @param event the event that might be of interest.
+	 * @return a collection of interested listeners.
+	 */
+	public Collection<CacheListener> getInterestedListeners(DMPEvent event){
+		
+		synchronized (this) {
+			LinkedList<CacheListener> 	listeners = new LinkedList<CacheListener>();
+			ListenerSet<?>				listenerSet = null;
+			
+			listeners.addAll(fullListeners.getListeners());
+			
+			// Index listeners
+			listenerSet = indexListeners.get(event.getSourceObjectClass().getConstructionClassInfo());
+			if (listenerSet != null)
+				listeners.addAll(listenerSet.getListeners());
+			
+			return(listeners);			
+		}
+		
+	}
 	
 	/**
 	 * The ListenerSet maintains a set of weak references to listeners.
 	 */
-	private class ListenerSet {
+	private class ListenerSet<E extends CacheListener> {
 		
-		LinkedList<WeakReference<CacheListener>>	listeners;
+		LinkedList<WeakReference<E>>	listeners;
 		
-        void add(CacheListener listener)
+		protected ListenerSet() {
+			listeners = new LinkedList<WeakReference<E>>();
+		}
+		
+        void add(E listener)
         {
             synchronized (this)
             {
-                listeners.add(new WeakReference<CacheListener>(listener));
+                listeners.add(new WeakReference<E>(listener));
             }
         }
 
@@ -43,16 +122,16 @@ public class CacheListenerManager {
 		/**
 		 * @return the listeners in this set with any garbage collected listeners removed.
 		 */
-        Collection<CacheListener> getListeners() {
+        Collection<E> getListeners() {
             synchronized (this)
             {
-                LinkedList<CacheListener> listenersToNotify = new LinkedList<CacheListener>();
+                LinkedList<E> listenersToNotify = new LinkedList<E>();
                 if (listeners == null) return listenersToNotify;
-                Iterator<WeakReference<CacheListener>> listenerIt = listeners.iterator();
+                Iterator<WeakReference<E>> listenerIt = listeners.iterator();
                 while (listenerIt.hasNext())
                 {
-                    WeakReference<CacheListener> ref = listenerIt.next();
-                    CacheListener listener = ref.get();
+                    WeakReference<E> ref = listenerIt.next();
+                    E listener = ref.get();
                     if (listener == null)
                     {
                         listenerIt.remove();
@@ -68,10 +147,10 @@ public class CacheListenerManager {
          * Removes the specified listener from the set.
          * @param listener the listener to remove.
          */
-        void remove(CacheListener listener){
+        void remove(E listener){
             synchronized (this)
             {
-                Iterator<WeakReference<CacheListener>> refIt = listeners.iterator();
+                Iterator<WeakReference<E>> refIt = listeners.iterator();
                 while (refIt.hasNext())
                 {
                 	CacheListener test = refIt.next().get();
@@ -94,7 +173,15 @@ public class CacheListenerManager {
                 return listeners.isEmpty();
             }
         }
+        
 	}
 	
-//	private class ClassListenerSet extends ListenerSet
+	private class IndexListenerSet extends ListenerSet<CacheIndexListener> {
+		
+		final DmcClassInfo	classInfo;
+		
+		IndexListenerSet(DmcClassInfo dci){
+			classInfo = dci;
+		}
+	}
 }

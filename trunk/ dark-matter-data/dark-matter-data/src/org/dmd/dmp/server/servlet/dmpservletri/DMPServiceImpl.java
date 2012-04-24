@@ -31,7 +31,9 @@ import org.dmd.dmp.server.extended.LoginRequest;
 import org.dmd.dmp.server.extended.LogoutRequest;
 import org.dmd.dmp.server.extended.NotifyRequest;
 import org.dmd.dmp.server.extended.PreAuthRequest;
+import org.dmd.dmp.server.extended.Response;
 import org.dmd.dmp.server.extended.SetRequest;
+import org.dmd.dmp.server.extended.SetResponse;
 import org.dmd.dmp.server.servlet.base.PluginManager;
 import org.dmd.dmp.server.servlet.extended.SessionRI;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
@@ -257,6 +259,13 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		
 		if (request.isTrackingEnabled())
 			logger.trace("Received by DMP servlet:\n" + request.toOIF());
+		
+		if (request.getModifyIsEmpty()){
+			// There aren't any modifications in the request - that's an error
+			SetResponse response = (SetResponse) request.getErrorResponse();
+			response.setResponseText("No modifications were found in the SetRequest");
+			return(response.getDMO());
+		}
 
 		return null;
 	}

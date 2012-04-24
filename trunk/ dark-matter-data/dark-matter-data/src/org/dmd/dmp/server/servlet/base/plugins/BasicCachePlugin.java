@@ -39,8 +39,9 @@ import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.servlet.base.DmpServletPlugin;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.base.cache.CacheListener;
+import org.dmd.dmp.server.servlet.base.cache.CacheListenerManager;
 import org.dmd.dmp.server.servlet.base.cache.CacheRegistration;
-import org.dmd.dmp.server.servlet.base.cache.ClassIndexListener;
+import org.dmd.dmp.server.servlet.base.cache.CacheIndexListener;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpRequestProcessorIF;
 import org.dmd.dmp.server.servlet.base.interfaces.RequestTrackerIF;
 import org.dmd.dms.SchemaManager;
@@ -88,6 +89,8 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
     
     // The factory used to create DMWs from objects read from file
     private DmwObjectFactory						factory;
+    
+    private CacheListenerManager					listenerManager = new CacheListenerManager();
     
     // A place to dump logs
     private Logger									logger = LoggerFactory.getLogger(getClass());
@@ -470,13 +473,13 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	 */
 	@Override
 	public Collection<DmwNamedObjectWrapper> addListener(CacheListener listener){
-		synchronized(theCache){
-			if (listener instanceof ClassIndexListener){
-				ClassIndexListener cilistener = (ClassIndexListener) listener;
-				
-				return(indexer.getIndex(cilistener.getClassInfo()));
-			}
-			
+		listenerManager.addListener(listener);
+		
+		if (listener instanceof CacheIndexListener){
+			CacheIndexListener cil = (CacheIndexListener) listener;
+			return(indexer.getIndex(cil.getClassInfo()));
+		}
+		else{
 			throw(new IllegalStateException("Unknown cache listener type: " + listener.getClass().getName()));
 		}
 	}
@@ -486,7 +489,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	 */
 	@Override
 	public void removeListener(CacheListener listener) {
-		
+		listenerManager.removeListener(listener);
 	}
 
 }
