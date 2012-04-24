@@ -3,12 +3,13 @@ package org.dmd.dmw;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcObjectName;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The DmwNamedObjectIndexer will maintain indices for named objects based on object class.
@@ -26,6 +27,8 @@ import org.dmd.dmc.DmcObjectName;
 public class DmwNamedObjectIndexer {
 
     private HashMap<DmcClassInfo, HashMap<DmcObjectName, DmwNamedObjectWrapper>> indices;
+
+    private Logger	logger = LoggerFactory.getLogger(getClass());
 
     /**
      * Constructs a new indexer.
@@ -96,6 +99,8 @@ public class DmwNamedObjectIndexer {
 			
 			index = new HashMap<DmcObjectName, DmwNamedObjectWrapper>();
 			indices.put(ci, index);
+			
+			logger.trace("Added indexing for class: " + ci.name);
 		}
 		
 	}
@@ -113,8 +118,10 @@ public class DmwNamedObjectIndexer {
 			
 			while(currentClass != null){
 				index = indices.get(currentClass);
-				if (index != null)
+				if (index != null){
 					index.put(obj.getObjectName(),obj);
+					logger.trace("Object: " + obj.getObjectName().getNameString() + " added to index for class: " + currentClass.name);
+				}
 				currentClass = currentClass.derivedFrom;
 			}
 		}
@@ -132,8 +139,10 @@ public class DmwNamedObjectIndexer {
 			
 			while(currentClass != null){
 				index = indices.get(currentClass);
-				if (index != null)
+				if (index != null){
 					index.remove(obj.getObjectName());
+					logger.trace("Object: " + obj.getObjectName().getNameString() + " removed from index for class: " + currentClass.name);
+				}
 				currentClass = currentClass.derivedFrom;
 			}
 		}
