@@ -60,7 +60,7 @@ import org.slf4j.LoggerFactory;
 public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, DmpPipeIF, DmpEventHandlerIF {
 	
 	// Our handle to the servlet which implements the GWT Event Service
-	RemoteEventServiceServlet	servlet;
+	RemoteEventServiceServlet	eventChannel;
 	
 	// The event Domain required to publish events to a particular client session. This
 	// is unique for each session and is named by the session identifier.
@@ -97,7 +97,7 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	 * @param s the handle to the servlet derived from RemoteEventServiceServlet.
 	 */
 	public void initializeEventChannel(RemoteEventServiceServlet s){
-		servlet	= s;
+		eventChannel	= s;
 		domain 	= DomainFactory.getDomain(getSessionIDRI());
 	}
 	
@@ -119,7 +119,7 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	 */
 	@Override
 	public void handleResponse(Request request, Response response) {
-		servlet.addEvent(domain, response.getDMO());
+		eventChannel.addEvent(domain, response.getDMO());
 	}
 
 	///////////////////////////////////////////////////////////////////////////
@@ -131,8 +131,12 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 		
 		request.setOriginatorID(cacheRegistration.getID());
 				
+		logger.trace("Passing request to get processor");
+
 		getRequestProcessor.processRequest(request);
 		
+		logger.trace("Get processor has returned");
+
 		return(rc);
 	}
 	
@@ -181,7 +185,8 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	
 	@Override
 	public void sendMessage(DMPMessage msg) {
-		servlet.addEvent(domain, msg.getDMO());
+		logger.trace("Sending message...");
+		eventChannel.addEvent(domain, msg.getDMO());
 	}
 
 	@Override
@@ -198,8 +203,9 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	 */
 	@Override
 	public void handleEvent(DMPEvent event) {
+		logger.trace("Sending event...");
 		// Fire the event on our session based domain
-		servlet.addEvent(domain, event.getDMO());
+		eventChannel.addEvent(domain, event.getDMO());
 	}
 
 

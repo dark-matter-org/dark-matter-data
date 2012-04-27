@@ -20,6 +20,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 import org.dmd.dmc.DmcClassInfo;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmp.server.DmpPipeIF;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.DMPMessage;
@@ -35,6 +36,7 @@ import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.dmd.dmw.DmwOmni;
+import org.dmd.util.exceptions.DebugInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -119,19 +121,18 @@ public class GetRequestProcessor implements DmpEventHandlerIF {
 	 */
 	private void processClassIndexRequest(GetRequest request){
 		try {
-			ClassDefinition cd = DmwOmni.instance().getSchema().cdef(request.getFilter());
-			if (cd == null){
+			DmcClassInfo dci = DmcOmni.instance().getClassInfo(request.getFilter());
+			
+			if (dci == null){
 				// If we don't recognize the class, we can't proceed
 				Response response = request.getErrorResponse();
 				response.setResponseText("Unknown class: " + request.getFilter());
 				response.setLastResponse(true);
 				sendMessage(response);
-				logger.error("Unknown class in GetRequest\n" + request.toOIF());
+				logger.error("Unknown filter class: " + request.getFilter() + " in GetRequest\n" + request.toOIF());
 				return;
 			}
 			
-			DmcClassInfo dci = cd.getConstructionClassInfo();
-
 			logger.trace("Retrieving objects from class index: " + dci.name);
 
 			synchronized(this){
@@ -166,30 +167,39 @@ public class GetRequestProcessor implements DmpEventHandlerIF {
 					objects = cache.getIndex(dci);
 				}
 				
-				for(DmwNamedObjectWrapper object: objects){
-					response.addObjectList(object);
-					if (response.getObjectListSize() == blockingFactor){
-						response.setLastResponse(false);
-						sendMessage(response);
-						response = request.getResponse();
+				if (objects.size() == 0){
+					response.setLastResponse(true);
+					response.setResponseText("No " + dci.name + " objects have been indexed.");
+				}
+				else{
+					logger.trace(objects.size() + " objects to be sent");
+					for(DmwNamedObjectWrapper object: objects){
+						response.addObjectList(object);
+						if (response.getObjectListSize() == blockingFactor){
+							response.setLastResponse(false);
+							sendMessage(response);
+							response = request.getResponse();
+						}
 					}
 				}
+				response.setLastResponse(true);
 				sendMessage(response);
 			}
 				
+			logger.trace("Outside synch block");
 		}
 		catch(Exception ex){
-			
+			logger.error(DebugInfo.extractTheStack(ex));
 		}
 	}
 	
     private void sendMessage(DMPMessage msg)
     {
-    	synchronized(this){
-	        DmpPipeIF pipe = pipeRef.get();
-	        if (pipe == null) return;
-	        pipe.sendMessage(msg);
-    	}
+    	logger.trace("Sending message...");
+    	
+        DmpPipeIF pipe = pipeRef.get();
+        if (pipe == null) return;
+        pipe.sendMessage(msg);
     }
 
 	///////////////////////////////////////////////////////////////////////////
@@ -197,7 +207,10 @@ public class GetRequestProcessor implements DmpEventHandlerIF {
 
 	@Override
 	public void handleEvent(DMPEvent event) {
-		sendMessage(event);
+    	logger.trace("Sending event...");
+		synchronized (this) {
+			sendMessage(event);
+		}
 	}
 	
 

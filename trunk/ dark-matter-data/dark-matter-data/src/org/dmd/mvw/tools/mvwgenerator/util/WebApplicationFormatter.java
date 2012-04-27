@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class WebApplicationFormatter {
 
@@ -21,6 +22,7 @@ public class WebApplicationFormatter {
 
         out .write("\n");
 
+        out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("abstract public class " + app.getAppName() + "BaseImpl {\n\n");
         
         out .write("    protected " + app.getAppName() + "RunContext rc;\n");

@@ -27,6 +27,7 @@ import org.dmd.dmp.server.extended.DeleteRequest;
 import org.dmd.dmp.server.extended.DeleteResponse;
 import org.dmd.dmp.server.extended.DenotifyRequest;
 import org.dmd.dmp.server.extended.GetRequest;
+import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.LoginRequest;
 import org.dmd.dmp.server.extended.LogoutRequest;
 import org.dmd.dmp.server.extended.NotifyRequest;
@@ -35,6 +36,7 @@ import org.dmd.dmp.server.extended.Response;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.extended.SetResponse;
 import org.dmd.dmp.server.servlet.base.PluginManager;
+import org.dmd.dmp.server.servlet.base.interfaces.SecurityManagerIF;
 import org.dmd.dmp.server.servlet.extended.SessionRI;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
@@ -86,7 +88,10 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	
 	// The plugin manager will load the various plugins that implement the servlet
 	// behaviour. 
-	PluginManager	pluginManager;
+	PluginManager		pluginManager;
+	
+	// Convenience handle to the security manager
+	SecurityManagerIF	securityManager;
 		
     private Logger	logger = LoggerFactory.getLogger(getClass());
 
@@ -117,6 +122,8 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 			// The plugins are informed that we're starting - after this we'll be able
 			// to service user requests.
 			pluginManager.start();
+			
+			securityManager	= pluginManager.getSecurityManager();
 		} catch (ResultException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -195,24 +202,38 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 	public GetResponseDMO get(GetRequestDMO getRequest) {
 		// All requests are immediately wrapped for use on the server. This includes
 		// associating the request with the originating HttpServletRequest.
-		GetRequest request = new GetRequest(getRequest, getThreadLocalRequest());
+		GetRequest	request = new GetRequest(getRequest, getThreadLocalRequest());
+		GetResponse response = null;
 		
+		// If tracking is enabled dump a trace log
 		if (request.isTrackingEnabled())
 			logger.trace("Received by DMP servlet:\n" + request.toOIF());
 		
 		try {
-			if (pluginManager.getSecurityManager().validateSession(request) == null){
+			// Ensure that the session is valid - if it isn't, an error reponse
+			// will be returned.
+			response = (GetResponse) securityManager.validateSession(request);
+			if (response == null){
+				// All activity takes place against the session
+				SessionRI session = securityManager.getSession(request);
+				response = session.handleGetRequest(request);
 				
-			}
-			else{
-				
+//				response = request.getResponse();
+//				response.setLastResponse(true);
 			}
 		} catch (DmcValueException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			response = (GetResponse) request.getErrorResponse();
+			response.setResponseText(e.toString());
+			logger.error(e.toString());
+		} catch (Exception ex){
+			logger.error(DebugInfo.extractTheStack(ex));
+			response = (GetResponse) request.getErrorResponse();
+			response.setResponseText(DebugInfo.extractTheStack(ex));
 		}
 		
-		return null;
+		logger.trace("Sending single response to original get request");
+
+		return(response.getDMO());
 	}
 
 	@Override

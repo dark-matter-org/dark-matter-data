@@ -1,6 +1,8 @@
 package org.dmd.mvw.client.mvwcomms.extended;
 
 import java.util.TreeMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.dmd.dmp.client.ActionResponseCallback;
 import org.dmd.dmp.client.CentralDMPErrorHandlerIF;
@@ -98,6 +100,8 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// can, of course, have their tracking turned on.
 	boolean						trackAllMessages;
 	
+	Logger logger = Logger.getLogger("mvwcomms");
+
 	public CommsController(MvwRunContextIF rc) {
 		super(rc);
 		requestID			= 1;
@@ -437,7 +441,8 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		
 		if (getResponse.getListenerID() != null){
 			if (eventHandlers.get(getResponse.getListenerID()) == null){
-				System.out.println("CommsController.registerEventHandler: registering event handler for listenerID: " + getResponse.getListenerID());
+				logger.log(Level.FINE, "CommsController.registerEventHandler: registering event handler for listenerID: " + getResponse.getListenerID());
+//				System.out.println("CommsController.registerEventHandler: registering event handler for listenerID: " + getResponse.getListenerID());
 				eventHandlers.put(getResponse.getListenerID(), cb);
 			}
 		}
@@ -451,7 +456,10 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	void handleAsynchronousInfo(Object async){
 		if (async instanceof DMPEventDMO){
 			DMPEventDMO event = (DMPEventDMO) async;
-			System.out.println("CommsController.handleAsynchronousInfo got event:\n\n" + event.toOIF() + "\n\n");
+			
+			logger.log(Level.FINE, "CommsController.handleAsynchronousInfo got event:\n\n" + event.toOIF() + "\n\n");
+
+//			System.out.println("CommsController.handleAsynchronousInfo got event:\n\n" + event.toOIF() + "\n\n");
 			
 			if (event.getListenerID() == null){
 				if (centralEventHandler != null)
@@ -462,7 +470,8 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			ResponseCallback cb = eventHandlers.get(event.getListenerID());
 			
 			if (cb == null){
-				System.out.println("CommsController.handleAsynchronousInfo couldn't get callback for event with listenerID: " + event.getListenerID());
+				logger.log(Level.SEVERE, "CommsController.handleAsynchronousInfo couldn't get callback for event with listenerID: " + event.getListenerID());
+//				System.out.println("CommsController.handleAsynchronousInfo couldn't get callback for event with listenerID: " + event.getListenerID());
 			}
 			else{
 				// Set the handleID on the event so that the callback will know how to route the event
@@ -478,12 +487,15 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		}
 		else if (async instanceof ResponseDMO){
 			ResponseDMO response = (ResponseDMO) async;
-			System.out.println("CommsController.handleAsynchronousInfo got response:\n\n" + response.toOIF() + "\n\n");
+			logger.log(Level.FINE, "CommsController.handleAsynchronousInfo got response:\n\n" + response.toOIF() + "\n\n");
+
+//			System.out.println("CommsController.handleAsynchronousInfo got response:\n\n" + response.toOIF() + "\n\n");
 			
 			ResponseCallback cb = requests.get(response.getNthRequestID(0));
 
 			if (cb == null){
-				System.out.println("CommsController.handleAsynchronousInfo couldn't get callback");
+				logger.log(Level.SEVERE, "CommsController.handleAsynchronousInfo couldn't get callback for response: " + response.toOIF());
+//				System.out.println("CommsController.handleAsynchronousInfo couldn't get callback");
 			}
 			else{
 				if (cb.getCallbackID() == GetResponseCallback.ID)
@@ -491,7 +503,8 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 				
 				cb.getHandler().handleResponse(response);
 				if (response.isLastResponse()){
-					System.out.println("CommsController.handleAsynchronousInfo is last response...");
+					logger.log(Level.FINE, "CommsController.handleAsynchronousInfo is last response...");
+//					System.out.println("CommsController.handleAsynchronousInfo is last response...");
 					requests.remove(response.getNthRequestID(0));
 				}
 			}

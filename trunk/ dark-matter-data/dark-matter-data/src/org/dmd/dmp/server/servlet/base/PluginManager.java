@@ -31,6 +31,7 @@ import org.dmd.dmp.server.servlet.extended.PluginConfig;
 import org.dmd.dmp.server.servlet.generated.DmpServerSchemaAG;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dmw.DmwObjectFactory;
+import org.dmd.dmw.DmwOmni;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
@@ -54,7 +55,7 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 
 	// Our overall schema, including the required schemas of the plugins
 	// that have been loaded.
-	SchemaManager							schema;
+//	SchemaManager							schema;
 	
 	// The factory used to instantiate the appropriate wrapped objects from
 	// the plugin config file or other files that we're asked to load
@@ -88,16 +89,20 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 	
 	
 	public PluginManager(DMPServiceImpl s) throws ResultException, DmcValueException {
-		schema 		= new SchemaManager();
+//		schema 		= new SchemaManager();
 		servlet		= s;
 		
 		DmpSchemaAG 		dmp 	= new DmpSchemaAG();
 		DmpServerSchemaAG 	dmps 	= new DmpServerSchemaAG();
 		
-		schema.manageSchema(dmp);
-		schema.manageSchema(dmps);
+		DmwOmni.instance().addSchema(dmp);
+		DmwOmni.instance().addSchema(dmps);
 		
-		factory 		= new DmwObjectFactory(schema);
+//		schema.manageSchema(dmp);
+//		schema.manageSchema(dmps);
+		
+//		factory 		= new DmwObjectFactory(schema);
+		factory 		= new DmwObjectFactory(DmwOmni.instance().getSchema());
 		configParser	= new DmcUncheckedOIFParser(this);
 		
 		pluginConfigs	= new TreeMap<DmcObjectName, PluginConfig>();
@@ -106,9 +111,9 @@ public class PluginManager implements DmcUncheckedOIFHandlerIF {
 		securityManager	= null;
 	}
 	
-	public SchemaManager getSchema(){
-		return(schema);
-	}
+//	public SchemaManager getSchema(){
+//		return(schema);
+//	}
 	
 	public SecurityManagerIF getSecurityManager(){
 		return(securityManager);

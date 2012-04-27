@@ -79,6 +79,10 @@ public class DmwNamedObjectIndexer {
 			
 			if (index == null)
 				return(((List<DmwNamedObjectWrapper>) Collections.EMPTY_LIST));
+			else{
+				for(DmwNamedObjectWrapper value: index.values())
+					values.add(value);
+			}
 			
 			return (values);
 		}
