@@ -1,5 +1,7 @@
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
+
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcInputStreamIF;
@@ -12,7 +14,7 @@ import org.dmd.dmc.DmcValueException;
  * or auxiliary classes.
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeClassFilter extends DmcTypeDmcFilter<ClassFilter> {
+abstract public class DmcTypeClassFilter extends DmcTypeDmcFilter<ClassFilter> implements Serializable {
 	
 	public DmcTypeClassFilter(){
 		

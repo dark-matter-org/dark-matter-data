@@ -49,6 +49,7 @@ import org.dmd.dmw.DmwHierarchicObjectWrapper;
 import org.dmd.dmw.DmwNamedObjectIndexer;
 import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.dmd.dmw.DmwObjectFactory;
+import org.dmd.dmw.DmwOmni;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
@@ -73,8 +74,8 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	// Unique identifiers for CacheListeners
     private long                             		nextListenerId = 1;
 
-    // Convenience handle to the schema as loaded by the plugin manager
-	SchemaManager									schema;
+//    // Convenience handle to the schema as loaded by the plugin manager
+//	SchemaManager									schema;
 	
 	// Our cache of objects
 	TreeMap<DmcObjectName,DmwNamedObjectWrapper>	theCache;
@@ -106,12 +107,13 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	
 	@Override
 	protected void init() throws ResultException {
-		schema		= pluginManager.getSchema();
+//		schema		= pluginManager.getSchema();
 		theCache	= new TreeMap<DmcObjectName, DmwNamedObjectWrapper>();
 		inputQueue	= new LinkedBlockingQueue<DMPMessage>();
 		
 		parser		= new DmcUncheckedOIFParser(this);
-		factory 	= new DmwObjectFactory(pluginManager.getSchema());
+//		factory 	= new DmwObjectFactory(pluginManager.getSchema());
+		factory 	= new DmwObjectFactory(DmwOmni.instance().getSchema());
 		
 		// Bind the handlers for Set, Create and Delete Requests
 		RequestTrackerIF	rt = pluginManager.getRequestTracker();
@@ -158,6 +160,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	@Override
 	public void start() throws ResultException, DmcValueException {
 		
+//		this.run();
 	}
 	
 	void loadPersistedObjects() throws ResultException {
@@ -185,6 +188,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	
 	@Override
 	public void run() {
+		
 		while(true){
 			DMPMessage message = null;
 			try {

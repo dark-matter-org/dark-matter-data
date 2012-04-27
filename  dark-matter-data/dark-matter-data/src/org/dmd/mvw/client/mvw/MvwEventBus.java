@@ -1,5 +1,7 @@
 package org.dmd.mvw.client.mvw;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.event.shared.UmbrellaException;
@@ -12,9 +14,12 @@ import com.google.gwt.event.shared.UmbrellaException;
  * usage, you want to be able to easily see where an exception came from.
  * <p />
  * So, the MvwEventBus will catch the UmbrellaException and rethrow the first exception
- * it contains, which will usually make it obvious where things screwed up!
+ * it contains, which will usually make it obvious where things screwed up, and it will
+ * dump a SEVERE log.
  */
 public class MvwEventBus extends SimpleEventBus {
+	
+	
 	
 	public MvwEventBus(){
 		super();
@@ -42,7 +47,9 @@ public class MvwEventBus extends SimpleEventBus {
 			}
 		}
 		else{
-			System.out.println("EXCEPTION :" + throwable.getMessage() + "\n" + extractTheStack(throwable) + "\n\n");			
+			Logger logger = Logger.getLogger("dark-matter-mvw");
+			logger.log(Level.SEVERE, "EXCEPTION :" + throwable.getMessage() + "\n" + extractTheStack(throwable) + "\n\n");
+//			System.out.println("EXCEPTION :" + throwable.getMessage() + "\n" + extractTheStack(throwable) + "\n\n");			
 		}
 	}
 	

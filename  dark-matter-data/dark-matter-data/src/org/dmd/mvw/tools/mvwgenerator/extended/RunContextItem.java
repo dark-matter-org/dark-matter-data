@@ -73,7 +73,11 @@ public class RunContextItem extends RunContextItemDMW {
 	public String getDefinition(PrintfFormat format){
 		if (isCreateOnDemand())
 			return("");
-		return("    private final " + format.sprintf(getItemType()) + " " + getItemName() + ";\n");
+		StringBuilder sb = new StringBuilder();
+		sb.append("    // Defined in module: " + getDefinedInModule().getCamelCaseName() + "\n");
+		sb.append("    private final " + format.sprintf(getItemType()) + " " + getItemName() + ";\n\n");
+		return(sb.toString());
+//		return("    private final " + format.sprintf(getItemType()) + " " + getItemName() + ";\n");
 	}
 	
 	public String getInstantiation(PrintfFormat format){

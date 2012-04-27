@@ -254,7 +254,7 @@ public class Component extends ComponentDMW {
 			
 			commsMethods.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			commsMethods.append("    @Override\n");
-			commsMethods.append("    public void handleResponse(ResponseDMO response){\n");
+			commsMethods.append("    final public void handleResponse(ResponseDMO response){\n");
 			commsMethods.append("        if (response.getResponseType() == ResponseTypeEnum.ERROR){\n");
 //			if (errorCases.length() == 0){
 //				commsMethods.append("            throw(new IllegalStateException(\"Dark Matter Protocol errors are supposed to be centrally handled!\"));\n");
@@ -278,7 +278,7 @@ public class Component extends ComponentDMW {
 			if (handlesObjectEvents){
 				commsMethods.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				commsMethods.append("    @Override\n");
-				commsMethods.append("    public void handleEvent(DMPEventDMO event){\n");
+				commsMethods.append("    final public void handleEvent(DMPEventDMO event){\n");
 				commsMethods.append("        switch(event.getHandlerID()){\n");
 				commsMethods.append(objEventHandlers.toString());
 				commsMethods.append("        }\n");
@@ -288,7 +288,7 @@ public class Component extends ComponentDMW {
 			
 			commsMethods.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			commsMethods.append("    @Override\n");
-			commsMethods.append("    public void handleRPCFailure(Throwable caught, RequestDMO request){\n");
+			commsMethods.append("    final public void handleRPCFailure(Throwable caught, RequestDMO request){\n");
 			if (rpcErrorCases.length() == 0){
 				commsMethods.append("        throw(new IllegalStateException(\"RPC errors are supposed to be centrally handled!\"));\n");
 			}

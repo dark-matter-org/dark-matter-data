@@ -1,5 +1,6 @@
 package org.dmd.dmc.types;
 
+import java.io.Serializable;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcClassInfo;
@@ -12,7 +13,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.types.ClassDefinitionREF;
 
 @SuppressWarnings("serial")
-public class ClassFilter extends DmcFilter {
+public class ClassFilter extends DmcFilter implements Serializable{
 	
 	public final static String filterName = "ClassFilter";
 
