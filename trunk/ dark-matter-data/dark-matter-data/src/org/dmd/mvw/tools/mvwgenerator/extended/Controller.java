@@ -73,10 +73,12 @@ public class Controller extends ControllerDMW {
 			super.initCodeGenInfo(rpc,dmp);
 			
 			if (isCentralDMPErrorHandler())
-				imports.addImport("org.dmd.mvw.client.mvwcomms.CentralDMPErrorHandlerIF", "Is the central DMP error handler");
+				imports.addImport("org.dmd.dmp.client.CentralDMPErrorHandlerIF", "Is the central DMP error handler");
+//			imports.addImport("org.dmd.mvw.client.mvwcomms.CentralDMPErrorHandlerIF", "Is the central DMP error handler");
 
 			if (isCentralRPCErrorHandler())
-				imports.addImport("org.dmd.mvw.client.mvwcomms.CentralRPCErrorHandlerIF", "Is the central RPC error handler");
+				imports.addImport("org.dmd.dmp.client.CentralRPCErrorHandlerIF", "Is the central RPC error handler");
+//			imports.addImport("org.dmd.mvw.client.mvwcomms.CentralRPCErrorHandlerIF", "Is the central RPC error handler");
 			
 			if (getImplementsActionHasValue()){
 				

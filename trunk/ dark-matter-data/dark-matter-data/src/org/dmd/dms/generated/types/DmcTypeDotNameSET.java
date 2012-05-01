@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeDotName;    // DmcType import
  * The DmcTypeDotNameSET provides storage for a set of DotName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2456)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2460)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
@@ -60,7 +60,7 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2493)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2497)
     public DmcAttribute<DotName> cloneIt(){
         synchronized(this){
             DmcTypeDotNameSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2516)
     public DotName add(Object v) throws DmcValueException {
         synchronized(this){
             DotName rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2529)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2533)
     public DotName del(Object v){
         synchronized(this){
             DotName rc = null;
@@ -115,7 +115,7 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2554)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2558)
     public Iterator<DotName> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -125,7 +125,7 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
     public Set<DotName> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -136,7 +136,7 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2589)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2593)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeDotNameSET extends DmcTypeDotName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2604)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

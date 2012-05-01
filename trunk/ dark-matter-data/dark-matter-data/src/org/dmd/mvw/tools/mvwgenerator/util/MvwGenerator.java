@@ -3,8 +3,10 @@ package org.dmd.mvw.tools.mvwgenerator.util;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import org.dmd.mvw.tools.mvwgenerator.extended.Activity;
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;
 import org.dmd.mvw.tools.mvwgenerator.extended.Controller;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.Place;
@@ -199,6 +201,31 @@ public class MvwGenerator {
 		}
 		
 		if (defManager.getApplication() != null){
+			ArrayList<Component> centralRC = defManager.centralDmpErrorHandlingOK();
+			if (centralRC != null){
+				System.err.println("The following components require a central DMP error handler to be defined:\n");
+				
+				for(Component component: centralRC){
+					System.err.println(component.getObjectName().getNameString() + " in file: " + component.getFile());
+				}
+				
+				System.err.println("\nAt least one controller must have its centralDMPErrorHandler flag set to true.\n\n");
+				
+				System.exit(1);
+			}
+			
+			centralRC = defManager.centralRpcErrorHandlingOK();
+			if (centralRC != null){
+				System.err.println("The following components require a central RPC error handler to be defined:\n");
+				
+				for(Component component: centralRC){
+					System.err.println(component.getObjectName().getNameString() + " in file: " + component.getFile());
+				}
+				
+				System.err.println("\nAt least one controller must have its centralRPCErrorHandler flag set to true.\n\n");
+
+				System.exit(1);
+			}
 			createGenDir(placesdir);
 			PlaceFormatter.formatPlaceHistoryMapper(placesdir, defManager.application, defManager.places);
 			RunContextFormatter.formatAppRunContextInterface(mvwdir, defManager.getApplication(), defManager.getDefaultContext());

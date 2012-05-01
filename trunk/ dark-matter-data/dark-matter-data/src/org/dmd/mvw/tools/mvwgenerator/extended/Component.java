@@ -27,6 +27,10 @@ public class Component extends ComponentDMW {
 	
 	boolean							handlesObjectEvents;
 	
+	boolean							usesCentralDMPErrorHandler;
+	
+	boolean							usesCentralRPCErrorHandler;
+	
 	protected BooleanVar			usesRunContext;
 	
 	int								methodID;
@@ -51,9 +55,9 @@ public class Component extends ComponentDMW {
 	
 	TreeMap<String,CommsHandler>	commsHandlers;
 	
-	boolean							centralRpcErrorHandling;
-	
-	boolean							centralDmpErrorHandling;
+//	boolean							centralRpcErrorHandling;
+//	
+//	boolean							centralDmpErrorHandling;
 	
 	// Actions
 	protected StringBuffer			actionVariables;
@@ -85,6 +89,14 @@ public class Component extends ComponentDMW {
 	
 	public boolean handlesObjectEvents(){
 		return(handlesObjectEvents);
+	}
+	
+	public boolean usesCentralDmpErrorHandling(){
+		return usesCentralDMPErrorHandler;
+	}
+	
+	public boolean usesCentralRpcErrorHandling(){
+		return usesCentralRPCErrorHandler;
 	}
 	
 	public boolean usesRunContext(){
@@ -344,6 +356,12 @@ public class Component extends ComponentDMW {
 		}
 		
 		commsHandlers.put(ch.key, ch);
+		
+		if ( (ch.dmp == ErrorOptionsEnum.CENTRAL) || (ch.dmp == ErrorOptionsEnum.CENTRALANDLOCAL) )
+			usesCentralDMPErrorHandler = true;
+		
+		if ( (ch.rpc == ErrorOptionsEnum.CENTRAL) || (ch.rpc == ErrorOptionsEnum.CENTRALANDLOCAL) )
+			usesCentralRPCErrorHandler = true;
 	}
 	
 	void standardCommsInit(){
@@ -404,19 +422,16 @@ public class Component extends ComponentDMW {
 					localDmp = true;
 			}
 			
-			// Default handling depends on whether or not we have central rpc/dmp error handlers
+			// If neither central or local DMP error handling has been specified, we fall
+			// back to central handling
 			if (!centralDmp && !localDmp){
-				if (centralDmpErrorHandling)
-					centralDmp = true;
-				else
-					localDmp = true;
+				centralDmp = true;
 			}
 			
+			// If neither central or local RPC error handling has been specified, we fall
+			// back to central handling
 			if (!centralRpc && !localRpc){
-				if (centralRpcErrorHandling)
-					centralRpc = true;
-				else
-					localRpc = true;
+				centralRpc = true;
 			}
 			
 			if (centralRpc && localRpc)
@@ -432,6 +447,8 @@ public class Component extends ComponentDMW {
 				dmp = ErrorOptionsEnum.CENTRAL;
 			else if (localDmp)
 				dmp = ErrorOptionsEnum.LOCAL;
+			
+			DebugInfo.debug(requestDef.toString() + "\nDMP: " + dmp + "  RPC: " + rpc + "\n");
 		}
 		
 		void addSendRequestFunction(StringBuffer sb){

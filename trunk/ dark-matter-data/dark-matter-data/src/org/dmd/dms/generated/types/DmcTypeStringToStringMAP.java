@@ -31,7 +31,7 @@ import org.dmd.dmc.types.StringToString;    // primitive import
  * The DmcTypeStringToStringMAP provides storage for a map of StringToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2682)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2686)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:275)
  */
 @SuppressWarnings("serial")
@@ -72,7 +72,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2736)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2740)
     public DmcAttribute<StringToString> cloneIt(){
         synchronized(this){
             DmcTypeStringToStringMAP rc = getNew();
@@ -87,7 +87,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2752)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2756)
     public StringToString add(Object v) throws DmcValueException {
         synchronized(this){
             StringToString newval = typeCheck(v);
@@ -107,7 +107,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2773)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2777)
     public StringToString del(Object key){
         synchronized(this){
            if (key instanceof String)
@@ -118,7 +118,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2785)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2789)
     public Iterator<StringToString> getMV(){
         synchronized(this){
             Map<String,StringToString> clone = null;
@@ -130,7 +130,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2798)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2802)
     public Map<String,StringToString> getMVCopy(){
         synchronized(this){
             Map<String,StringToString> clone = null;
@@ -142,7 +142,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2811)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2815)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -153,7 +153,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2823)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2827)
     public StringToString getByKey(Object key){
         synchronized(this){
             if (key instanceof String)
@@ -164,7 +164,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2835)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2839)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -177,7 +177,7 @@ public class DmcTypeStringToStringMAP extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2856)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2860)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof String)

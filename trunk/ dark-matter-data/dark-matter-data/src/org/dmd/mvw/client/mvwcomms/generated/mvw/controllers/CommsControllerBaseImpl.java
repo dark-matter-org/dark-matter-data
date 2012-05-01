@@ -1,7 +1,7 @@
 package org.dmd.mvw.client.mvwcomms.generated.mvw.controllers;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:122)
+// Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:134)
 import com.google.gwt.event.shared.EventBus;                                                // Used by eventBus
 import de.novanic.eventservice.client.event.RemoteEventService;                             // Used by eventService
 import org.dmd.dmc.DmcOmni;                                                                 // Support for schema loading
@@ -31,13 +31,13 @@ abstract public class CommsControllerBaseImpl {
 
     }
 
-    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:192)
+    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:204)
     // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:334)
     protected void fireLoginCompleteEvent(){
         eventBus.fireEvent(new LoginCompleteEvent());
     }
 
-    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:192)
+    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:204)
     // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:334)
     protected void fireLogoutCompleteEvent(){
         eventBus.fireEvent(new LogoutCompleteEvent());

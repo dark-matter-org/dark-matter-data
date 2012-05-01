@@ -1,5 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.util;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
@@ -44,6 +45,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ModuleDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.MenuElementDefinitionDMW;
 import org.dmd.mvw.tools.mvwgenerator.types.EditField;
 import org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 
@@ -181,6 +183,73 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		fieldEditors			= new TreeMap<CamelCaseName, FieldEditorDefinition>();
 		formBindings			= new TreeMap<CamelCaseName, FormBindingDefinition>();
 		enumMappings			= new TreeMap<CamelCaseName, GxtEnumMapping>();
+	}
+	
+	/**
+	 * We check to see if any component uses any form of central DMP error
+	 * handling and if so, we ensure that we have a central DMP error handler defined.
+	 * @return null if everything is ok or a set of components that need a central DMP handler otherwise.
+	 */
+	public ArrayList<Component> centralDmpErrorHandlingOK(){
+		boolean rc = true;
+		ArrayList<Component>	needCentral = new ArrayList<Component>();
+		
+		for(Component component: components.values()){
+			if (component.usesCentralDmpErrorHandling()){
+				needCentral.add(component);
+			}
+		}
+		
+		if (needCentral.size() == 0){
+			// We have no requests with central handing - that's fine
+			needCentral = null;
+		}
+		else{
+			// We have a central DMP handler, so that's fine
+			if (centralDmpErrorHandler != null)
+				needCentral = null;
+		}
+
+		return(needCentral);
+	}
+	
+	
+	/**
+	 * We check to see if any component uses any form of central RPC error
+	 * handling and if so, we ensure that we have a central RPC error handler defined.
+	 * @return null if everything is ok or a set of components that need a central RPC handler otherwise.
+	 */
+	public ArrayList<Component> centralRpcErrorHandlingOK(){
+		boolean rc = true;
+		ArrayList<Component>	needCentral = new ArrayList<Component>();
+		
+		for(Component component: components.values()){
+			DebugInfo.debug(component.getObjectName().getNameString());
+			if (component.usesCentralRpcErrorHandling()){
+				DebugInfo.debug("    uses central RPC");
+				needCentral.add(component);
+			}
+		}
+		
+		if (needCentral.size() == 0){
+			DebugInfo.debug("   NEED CENTRAL is empty");
+			// We have no requests with central handing - that's fine
+			needCentral = null;
+		}
+		else{
+			// We have a central RPC handler, so that's fine
+			if (centralRpcErrorHandler != null){
+				DebugInfo.debug("   HAVE CENTRAL HANDLER! " + centralRpcErrorHandler.getObjectName().getNameString());
+				needCentral = null;
+			}
+		}
+				
+		if (needCentral == null)
+			DebugInfo.debug("    DON'T NEED CENTRAL");
+		else
+			DebugInfo.debug("    NEED CENTRAL");
+
+		return(needCentral);
 	}
 	
 	public TreeMap<CamelCaseName,MenuBar> getMenuBars(){
