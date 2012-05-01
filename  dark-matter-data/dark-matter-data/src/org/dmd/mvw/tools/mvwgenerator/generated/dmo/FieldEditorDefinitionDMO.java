@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcSliceInfo;                                              //
 import org.dmd.dmc.DmcValueException;                                         // Any attributes
 import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                          // Required type
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type
@@ -39,7 +40,11 @@ import org.dmd.dmc.DmcObjectValidator;
  * org.dmd.dmc.DmcPresentationIF interface so that it can be initialized by
  * the FormBinder that is generated for each FormBindingDefinition instance
  * and so that it can interact with the AttributeTracker and the
- * SetRequestGenerator.
+ * SetRequestGenerator. <p/> When dealing with indexed attributes, the
+ * default behaviour is to create a form binding with an editor instance for
+ * each index slot. However, in some cases, you want to use a single complex
+ * editor that handles the attribute. By setting useSingleEditor to true, the
+ * form binding will contain a single editor for an indexed attribute.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -134,6 +139,56 @@ public class FieldEditorDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
             return(0);
         
         return(objn.hashCode());
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    public Boolean isUseSingleEditor(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__useSingleEditor);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets useSingleEditor to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    public void setUseSingleEditor(Boolean value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__useSingleEditor);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__useSingleEditor);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__useSingleEditor,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets useSingleEditor to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    public void setUseSingleEditor(Object value) throws DmcValueException {
+        DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__useSingleEditor);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__useSingleEditor);
+        
+        attr.set(value);
+        set(MvwDMSAG.__useSingleEditor,attr);
+    }
+
+    /**
+     * Removes the useSingleEditor attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    public void remUseSingleEditor(){
+         rem(MvwDMSAG.__useSingleEditor);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)

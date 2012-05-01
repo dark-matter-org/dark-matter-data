@@ -449,10 +449,16 @@ useWrapperType	EXTENDED
 isNamedBy		editorName
 must			editorName
 must			useClass
+may				useSingleEditor
 description		The FieldEditor class allows for the definition of implementation specific field
  editors. The specified class must implement the org.dmd.dmc.DmcPresentationIF
  interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition
  instance and so that it can interact with the AttributeTracker and the SetRequestGenerator.
+ <p/>
+ When dealing with indexed attributes, the default behaviour is to create a
+ form binding with an editor instance for each index slot. However, in some cases, you
+ want to use a single complex editor that handles the attribute. By setting useSingleEditor
+ to true, the form binding will contain a single editor for an indexed attribute.
 
 ClassDefinition
 name			FormImplementationConfig

@@ -109,6 +109,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __useImpl = new DmcAttributeInfo("useImpl", 869, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useNameAsLabel = new DmcAttributeInfo("useNameAsLabel", 892, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __useSchema = new DmcAttributeInfo("useSchema", 843, "SchemaDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __useSingleEditor = new DmcAttributeInfo("useSingleEditor", 898, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userDataImport = new DmcAttributeInfo("userDataImport", 804, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usesController = new DmcAttributeInfo("usesController", 842, "Controller", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __usesRunContextItem = new DmcAttributeInfo("usesRunContextItem", 835, "RunContextItem", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
@@ -246,6 +247,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__useImpl.id,__useImpl);
         _SmAp.put(__useNameAsLabel.id,__useNameAsLabel);
         _SmAp.put(__useSchema.id,__useSchema);
+        _SmAp.put(__useSingleEditor.id,__useSingleEditor);
         _SmAp.put(__userDataImport.id,__userDataImport);
         _SmAp.put(__usesController.id,__usesController);
         _SmAp.put(__usesRunContextItem.id,__usesRunContextItem);
@@ -423,6 +425,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
 
         __FieldEditorDefinition.addMust(__editorName);
         __FieldEditorDefinition.addMust(__useClass);
+        __FieldEditorDefinition.addMay(__useSingleEditor);
 
         __FormImplementationConfig.addMust(__configName);
 

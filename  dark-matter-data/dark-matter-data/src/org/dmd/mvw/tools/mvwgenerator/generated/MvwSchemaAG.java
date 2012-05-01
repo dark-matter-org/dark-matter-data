@@ -134,6 +134,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _skipEnumValue;
     public static AttributeDefinition _sendsRequest;
     public static AttributeDefinition _autoCreated;
+    public static AttributeDefinition _useSingleEditor;
 
     public static TypeDefinition _EventWithArgs;
     public static TypeDefinition _MethodWithArgs;
@@ -689,13 +690,14 @@ public class MvwSchemaAG extends SchemaDefinition {
             _FieldEditorDefinitionOBJ.setDmdID("824");
             _FieldEditorDefinitionOBJ.setClassType("STRUCTURAL");
             _FieldEditorDefinitionOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _FieldEditorDefinitionOBJ.setLineNumber("456");
-            _FieldEditorDefinitionOBJ.setDescription("The FieldEditor class allows for the definition of implementation specific field editors. The specified class must implement the org.dmd.dmc.DmcPresentationIF interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition instance and so that it can interact with the AttributeTracker and the SetRequestGenerator.");
+            _FieldEditorDefinitionOBJ.setLineNumber("462");
+            _FieldEditorDefinitionOBJ.setDescription("The FieldEditor class allows for the definition of implementation specific field editors. The specified class must implement the org.dmd.dmc.DmcPresentationIF interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition instance and so that it can interact with the AttributeTracker and the SetRequestGenerator. <p/> When dealing with indexed attributes, the default behaviour is to create a form binding with an editor instance for each index slot. However, in some cases, you want to use a single complex editor that handles the attribute. By setting useSingleEditor to true, the form binding will contain a single editor for an indexed attribute.");
             _FieldEditorDefinitionOBJ.setDerivedFrom("MvwDefinition");
             _FieldEditorDefinitionOBJ.setIsNamedBy("editorName");
             _FieldEditorDefinitionOBJ.setUseWrapperType("EXTENDED");
             _FieldEditorDefinitionOBJ.setDmtREFImport("org.dmd.mvw.tools.mvwgenerator.generated.types.FieldEditorDefinitionREF");
             _FieldEditorDefinitionOBJ.setDmwIteratorClass("FieldEditorDefinitionIterableDMW");
+            _FieldEditorDefinitionOBJ.addMay("useSingleEditor");
             _FieldEditorDefinitionOBJ.addMust("editorName");
             _FieldEditorDefinitionOBJ.addMust("useClass");
             _FieldEditorDefinitionOBJ.setSubpackage("forms");
@@ -709,7 +711,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _FormImplementationConfigOBJ.setDmdID("825");
             _FormImplementationConfigOBJ.setClassType("STRUCTURAL");
             _FormImplementationConfigOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _FormImplementationConfigOBJ.setLineNumber("468");
+            _FormImplementationConfigOBJ.setLineNumber("474");
             _FormImplementationConfigOBJ.setDescription("The");
             _FormImplementationConfigOBJ.setDerivedFrom("MvwDefinition");
             _FormImplementationConfigOBJ.setIsNamedBy("configName");
@@ -728,7 +730,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _GxtEnumMappingOBJ.setDmdID("826");
             _GxtEnumMappingOBJ.setClassType("STRUCTURAL");
             _GxtEnumMappingOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
-            _GxtEnumMappingOBJ.setLineNumber("490");
+            _GxtEnumMappingOBJ.setLineNumber("496");
             _GxtEnumMappingOBJ.setDescription("The GxtEnumMapping class allows for generation of a set of static data instances that represent the values from the specified enumeration (type). NOTE: this mechanism is only  useful if you are using the Sencha's GXT widget set. <p /> Enum values are comprised of an integer, a name, a description and optionally, a label as follows - int name description : label. If you specify useNameAsLabel, the uppercase name value of the enum is used to display the value of the. If useNameAsLabel is not specified, the label will be used if it has been specified. Otherwise, the description is used.");
             _GxtEnumMappingOBJ.setDerivedFrom("MvwDefinition");
             _GxtEnumMappingOBJ.setIsNamedBy("mappingName");
@@ -1763,6 +1765,17 @@ public class MvwSchemaAG extends SchemaDefinition {
             _autoCreatedOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _autoCreatedOBJ.setLineNumber("720");
             addAttributeDefList(_autoCreated);
+
+            AttributeDefinitionDMO _useSingleEditorOBJ = new AttributeDefinitionDMO();
+            _useSingleEditor = new AttributeDefinition(_useSingleEditorOBJ);
+            _useSingleEditorOBJ.setType("Boolean");
+            _useSingleEditorOBJ.setName("useSingleEditor");
+            _useSingleEditorOBJ.setDmdID("898");
+            _useSingleEditorOBJ.setDescription("When dealing with indexed attributes, the default behaviour is to create a form binding with an editor instance for each index slot. However, in some cases, you want to use a single complex editor that handles the attribute. By setting useSingleEditor to true, the form binding will contain a single editor for an indexed attribute.");
+            _useSingleEditor.setDefinedIn(this);
+            _useSingleEditorOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useSingleEditorOBJ.setLineNumber("729");
+            addAttributeDefList(_useSingleEditor);
 
     }
 
