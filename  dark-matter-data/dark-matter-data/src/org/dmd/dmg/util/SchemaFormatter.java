@@ -45,6 +45,11 @@ import org.dmd.util.formatting.CodeFormatter;
  */
 public class SchemaFormatter {
 	
+	// Functions in Java cannot exceed a set size. For larger schemas, it is possible
+	// to exceed the function size when there are a lot of definitions, so we break
+	// up the attribute initialization into manageable chunks.
+	final static int 			BREAKOUT_SIZE = 100;
+	
 	String						fileHeader;
 
 	PrintStream					progress;
@@ -209,7 +214,10 @@ public class SchemaFormatter {
         
 //        out.write(instantiations);
         out.write("            initClasses();\n");
-        out.write("            initAttributes();\n");
+        
+        out.write(getSplitFunctionNames("initAttributes",attributeVars));
+        
+//        out.write("            initAttributes();\n");
         out.write("            initTypes();\n");
         out.write("            initActions();\n");
         out.write("            initEnums();\n");
@@ -222,7 +230,9 @@ public class SchemaFormatter {
         
         dumpInitFunction(out,"initClasses", classVars);
         
-        dumpInitFunction(out,"initAttributes", attributeVars);
+        dumpSplitInitFunctions(out, "initAttributes", attributeVars);
+        
+//        dumpInitFunction(out,"initAttributes", attributeVars);
         
         dumpInitFunction(out,"initTypes", typeVars);
         
@@ -244,10 +254,61 @@ public class SchemaFormatter {
         out.close();
 	}
 	
+	/**
+	 * Generates the name of a set of functions that will initialize a set of definitions.
+	 * @param funcName the base name of the function.
+	 * @param vars the definitions
+	 * @return a string with funcName1, funcName2, funcName3 etc.
+	 */
+	String getSplitFunctionNames(String funcName, ArrayList<VarToObject> vars){
+		StringBuffer	sb = new StringBuffer();
+		
+        int breakout = vars.size() / BREAKOUT_SIZE;
+        int remainder = vars.size() % BREAKOUT_SIZE;
+        
+        if (remainder > 0)
+        	breakout++;
+        
+        DebugInfo.debug("*** total: " + vars.size() + "  breakout: " + breakout + "  remainder: " + remainder);
+        
+        for(int i=0,x=1; i<breakout; i++,x++){
+        	sb.append("            " + funcName + x + "();\n");
+        }
+        
+        DebugInfo.debug("Function names\n\n" + sb.toString());
+        
+		return(sb.toString());
+	}
+		
 	void dumpInitFunction(BufferedWriter out, String funcName, ArrayList<VarToObject> vars) throws IOException {
         out.write("    private void " + funcName + "() throws DmcValueException {\n");
         out.write(getInstantiations(vars));
         out.write("    }\n\n");
+	}
+	
+	void dumpSplitInitFunctions(BufferedWriter out, String funcName, ArrayList<VarToObject> vars) throws IOException {
+        int breakout = vars.size() / BREAKOUT_SIZE;
+        int remainder = vars.size() % BREAKOUT_SIZE;
+        
+        if (remainder > 0)
+        	breakout++;
+        
+        for (int i=0,func=1; i<breakout; i++,func++){
+        	out.write("    private void " + funcName + func + "() throws DmcValueException {\n");
+        	int start = i * BREAKOUT_SIZE;
+        	int end = start + BREAKOUT_SIZE;
+        	if (end > vars.size())
+        		end = vars.size();
+        	
+        	for(int j=start; j<end; j++){
+        		out.write(getInstantiation(vars.get(j)));
+        	}
+        	out.write("    }\n\n");
+        }
+
+//        out.write("    private void " + funcName + "() throws DmcValueException {\n");
+//        out.write(getInstantiations(vars));
+//        out.write("    }\n\n");
 	}
 		
 	String getInstantiations(){
@@ -321,6 +382,42 @@ public class SchemaFormatter {
 		return(sb.toString());
 	}
 	
+	/**
+	 * This method generates the code to instantiate the specified definition, set its attributes
+	 * and add it to the class, attribute, enum, type of action list of the schema.
+	 * @param var
+	 * @return
+	 */
+	String getInstantiation(VarToObject var){
+		StringBuffer sb = new StringBuffer();
+		
+		if (var.name.length() == 0){
+			sb.append("\n");
+		}
+		else{
+			getObjectAsCode(var, "            ", sb);
+			
+			if (var.type.equals("ClassDefinition")){
+				sb.append("            addClassDefList(" + var.name + ");\n");
+			}
+			else if (var.type.equals("AttributeDefinition")){
+				sb.append("            addAttributeDefList(" + var.name + ");\n");
+			}
+			else if (var.type.equals("EnumDefinition")){
+				sb.append("            addEnumDefList(" + var.name + ");\n");
+			}
+			else if (var.type.equals("TypeDefinition")){
+				sb.append("            addTypeDefList(" + var.name + ");\n");
+			}
+			else if (var.type.equals("ActionDefinition")){
+				sb.append("            addActionDefList(" + var.name + ");\n");
+			}
+			sb.append("\n");
+		}
+		
+		return(sb.toString());
+	}
+	
 	String getStaticRefs(SchemaDefinition schema){
 		StringBuffer sb = new StringBuffer();
 		
@@ -388,13 +485,13 @@ public class SchemaFormatter {
 		return(sb.toString());
 	}
 		
-	@SuppressWarnings("unchecked")
+//	@SuppressWarnings("unchecked")
 	void getObjectAsCode(VarToObject var, String indent, StringBuffer sb){
 		String obj = var.name + "OBJ";
 		sb.append(indent + var.type + "DMO " + var.name + "OBJ = new " + var.type + "DMO();\n");
 		sb.append(indent + var.name + " = new " + var.type + "(" + var.name + "OBJ);\n");
 
-		for (DmcAttribute attr : var.def.getDmcObject().getAttributes().values()){
+		for (DmcAttribute<?> attr : var.def.getDmcObject().getAttributes().values()){
 			String an = GeneratorUtils.dotNameToCamelCase(attr.getName());
 			
 			if (skip.get(attr.getName()) != null)

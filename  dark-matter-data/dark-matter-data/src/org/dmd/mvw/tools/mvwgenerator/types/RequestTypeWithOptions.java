@@ -17,8 +17,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;
  * set of RequestOptionEnum options. Previous implementations defined a separate attribute
  * for each request type, but that meant that the Dark Matter Protocol could not be extended
  * without defining new attributes. This way, we just specify the class of Request that's
- * being used, so that everything is extensible. The GetRequest is still handled separately
- * because it has different options.
+ * being used, so that everything is extensible.
  * <p/>
  * Important Note: it is expected that all requests and responses end with Request and Response!
  * This is because the code generation makes this assumption.
@@ -39,6 +38,12 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.RequestOptionEnum;
  * sendsRequest CreateRequest functionName className DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS
  * <p/>
  * The CACHE and EVENT options are only allowable with GetRequests
+ * <p/>
+ * One other aspect is that the error handling falls back to being centralized for RPC but local for DMP errors i.e.
+ * if no error handling flags are set, we fall back to CENTRALRPCERRORS DMPERRORS. This is primarily because is anything
+ * goes wrong with RPC, your application is probably cacked and you'll probably want to handle that situation
+ * centrally. However, if something goes wrong and you get back a Dark Matter Protocol error, you'll likely want
+ * to handle that local to the component that sent the message. This just comes back to having sensible defaults.
  */
 @SuppressWarnings("serial")
 public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializable {
@@ -118,6 +123,21 @@ public class RequestTypeWithOptions implements DmcMappedAttributeIF, Serializabl
 				}
 				options.add(val);
 			}
+			
+			if ((options.size()==1) && options.contains(RequestOptionEnum.DMPERRORS)){
+				// Just DMPERRORS is specified, make RPC centralized
+				options.add(RequestOptionEnum.CENTRALRPCERRORS);
+			}
+			else if ((options.size()==1) && options.contains(RequestOptionEnum.RPCERRORS)){
+				// Just DMPERRORS is specified, make RPC centralized
+				options.add(RequestOptionEnum.CENTRALDMPERRORS);
+			}
+		}
+		else{
+			options = new HashSet<RequestOptionEnum>();
+			// We have no error handling flags, fall back to centralized
+			options.add(RequestOptionEnum.DMPERRORS);
+			options.add(RequestOptionEnum.CENTRALRPCERRORS);
 		}
 	}
 	

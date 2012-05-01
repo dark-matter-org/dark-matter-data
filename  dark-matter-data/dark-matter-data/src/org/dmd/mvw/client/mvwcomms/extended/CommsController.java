@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 
 import org.dmd.dmp.client.ActionResponseCallback;
 import org.dmd.dmp.client.CentralDMPErrorHandlerIF;
+import org.dmd.dmp.client.CentralEventHandlerIF;
 import org.dmd.dmp.client.CentralRPCErrorHandlerIF;
 import org.dmd.dmp.client.CommsControllerIF;
 import org.dmd.dmp.client.CreateResponseCallback;
@@ -34,7 +35,6 @@ import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;
 import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 import org.dmd.dms.extended.ActionTriggerInfo;
 import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;
-import org.dmd.mvw.client.mvwcomms.CentralEventHandlerIF;
 import org.dmd.mvw.client.mvwcomms.generated.mvw.controllers.CommsControllerBaseImpl;
 
 import de.novanic.eventservice.client.event.Event;
@@ -297,6 +297,16 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		return(request);
 	}
 	
+	/**
+	 * Sends a delete request and associates the specified response handler. The request is stored in our
+	 * outstanding requests collection based on its unique request ID. The callback associated with the
+	 * request has a handle to the response handler and indicates how RPC and Dark Matter Protocol (DMP)
+	 * errors are to be handled.
+	 * @param request the request to be sent
+	 * @param handler handle to entity that will handle the response
+	 * @param rpc how RPC errors should be handled
+	 * @param dmp hom DMP errors should be handled
+	 */
 	public void sendDeleteRequest(DeleteRequestDMO request, ResponseHandlerIF handler, ErrorOptionsEnum rpc, ErrorOptionsEnum dmp){
 		if (sessionID == null){
 			throw(new IllegalStateException("Attempted to send delete request but we're not logged in."));
@@ -354,12 +364,12 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		case CENTRAL:
 			if (DMPErrorHandler == null)
 				throw(new IllegalStateException("Central RPC error handling requested but no central handler is set."));
-			RPCErrorHandler.handleRPCFailure(caught, cb.getRequest());
+			RPCErrorHandler.handleRPCFailureCentrally(caught, cb.getRequest());
 			break;
 		case CENTRALANDLOCAL:
 			if (DMPErrorHandler == null)
 				throw(new IllegalStateException("Central RPC error handling requested but no central handler is set."));
-			RPCErrorHandler.handleRPCFailure(caught, cb.getRequest());
+			RPCErrorHandler.handleRPCFailureCentrally(caught, cb.getRequest());
 			cb.getHandler().handleRPCFailure(caught, cb.getRequest());
 			break;
 		}		
@@ -376,12 +386,12 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			case CENTRAL:
 				if (DMPErrorHandler == null)
 					throw(new IllegalStateException("Central DMP error handling requested but no central handler is set."));
-				DMPErrorHandler.handleErrorResponse(response);
+				DMPErrorHandler.handleErrorResponseCentrally(response, cb.getRequest());
 				break;
 			case CENTRALANDLOCAL:
 				if (DMPErrorHandler == null)
 					throw(new IllegalStateException("Central DMP error handling requested but no central handler is set."));
-				DMPErrorHandler.handleErrorResponse(response);
+				DMPErrorHandler.handleErrorResponseCentrally(response, cb.getRequest());
 				cb.getHandler().handleResponse(response);
 				break;
 			}
@@ -463,7 +473,8 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			
 			if (event.getListenerID() == null){
 				if (centralEventHandler != null)
-					centralEventHandler.handleEvent(event);
+					centralEventHandler.handleEventCentrally(event);
+				logger.log(Level.SEVERE, "CommsController.handleAsynchronousInfo received event with no listenerID: " + event.toOIF());
 				return;
 			}
 			
