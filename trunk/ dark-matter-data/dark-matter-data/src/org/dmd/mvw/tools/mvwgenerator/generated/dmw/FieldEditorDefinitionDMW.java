@@ -16,7 +16,11 @@ import org.dmd.mvw.tools.mvwgenerator.generated.dmo.FieldEditorDefinitionDMO;   
  * org.dmd.dmc.DmcPresentationIF interface so that it can be initialized by
  * the FormBinder that is generated for each FormBindingDefinition instance
  * and so that it can interact with the AttributeTracker and the
- * SetRequestGenerator.
+ * SetRequestGenerator. <p/> When dealing with indexed attributes, the
+ * default behaviour is to create a form binding with an editor instance for
+ * each index slot. However, in some cases, you want to use a single complex
+ * editor that handles the attribute. By setting useSingleEditor to true, the
+ * form binding will contain a single editor for an indexed attribute.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -81,6 +85,37 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
             return( getObjectName().equals( ((FieldEditorDefinitionDMW) obj).getObjectName()) );
         }
         return(false);
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
+    public Boolean isUseSingleEditor(){
+        return(((FieldEditorDefinitionDMO) core).isUseSingleEditor());
+    }
+
+    /**
+     * Sets useSingleEditor to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1230)
+    public void setUseSingleEditor(Object value) throws DmcValueException {
+        ((FieldEditorDefinitionDMO) core).setUseSingleEditor(value);
+    }
+
+    /**
+     * Sets useSingleEditor to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
+    public void setUseSingleEditor(Boolean value){
+        ((FieldEditorDefinitionDMO) core).setUseSingleEditor(value);
+    }
+
+    /**
+     * Removes the useSingleEditor attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1265)
+    public void remUseSingleEditor(){
+        ((FieldEditorDefinitionDMO) core).remUseSingleEditor();
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)

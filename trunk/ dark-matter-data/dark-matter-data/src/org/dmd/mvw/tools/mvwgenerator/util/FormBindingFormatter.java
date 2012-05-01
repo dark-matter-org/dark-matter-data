@@ -117,22 +117,13 @@ public class FormBindingFormatter {
 	        out.write("\n");
 	        out.write("        if (dmo instanceof DmcNamedObjectIF){\n");
 	        out.write("            DmcNamedObjectIF origObj	= (DmcNamedObjectIF) dmo;\n");
-//	        out.write("            modrec 		= (" + cd.getName() + "DMO) dmo.getNew();\n");
 	        out.write("            try {\n");
 	        out.write("                modrec.set(origObj.getObjectNameAttribute().getAttributeInfo(), origObj.getObjectNameAttribute());\n");
 	        out.write("            } catch (DmcValueException e) {\n");
 	        out.write("                e.printStackTrace();\n");
 	        out.write("            }\n");
-//	        out.write("            modrec.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));\n");
 	        out.write("        }\n\n");
-//	        out.write("        else{\n");
-//	        out.write("            throw(new IllegalStateException(\"Only named objects can be used in form bindings, this is not named:\\n\" + dmo.toOIF()));\n");
-//	        out.write("        }\n\n");
 
-//	        out.write("\n");
-//	        out.write("        " + cd.getName() + "DMO modrec = dmo.getModificationRecorder();\n");
-//	        out.write("\n");
-	        
 	        for(EditField field: binding.getEditFieldIterable()){
 	        	out.write(getAddMods(field));//        	out.write("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
 	        }
@@ -183,7 +174,7 @@ public class FormBindingFormatter {
     	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
     	String capped = GenUtility.capTheName(field.getAttribute());
 		
-		if (field.getAttrDef().getIndexSize() != null){
+		if ( (field.getAttrDef().getIndexSize() != null) && (!field.getEditorDef().isUseSingleEditor()) ){
 			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
 				sb.append("    public " + editor + " get" + capped + i + "(){\n");
 				sb.append("        return(" + field.getAttribute() + i + ");\n");
@@ -204,7 +195,7 @@ public class FormBindingFormatter {
 	static String getAddMods(EditField field){
 		StringBuffer sb = new StringBuffer();
 		
-		if (field.getAttrDef().getIndexSize() != null){
+		if ( (field.getAttrDef().getIndexSize() != null) && (!field.getEditorDef().isUseSingleEditor()) ){
 			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
 				sb.append("        if (" + field.getAttribute() + "Adapter" + i + ".valueChanged())\n");
 				sb.append("            " + field.getAttribute() + "Adapter" + i + ".addMods(modrec.getModifier());\n");
@@ -221,7 +212,7 @@ public class FormBindingFormatter {
 	static String getSetTracker(EditField field){
 		StringBuffer sb = new StringBuffer();
 		
-		if (field.getAttrDef().getIndexSize() != null){
+		if ( (field.getAttrDef().getIndexSize() != null) && (!field.getEditorDef().isUseSingleEditor()) ){
 			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
 				sb.append("        tracker.track(" + field.getAttribute() + i + ");\n");
 			}
@@ -234,7 +225,7 @@ public class FormBindingFormatter {
 	}
 	
 	static String getSetEnabled(EditField field){
-		if (field.getAttrDef().getIndexSize() != null){
+		if ( (field.getAttrDef().getIndexSize() != null) && (!field.getEditorDef().isUseSingleEditor())){
 			StringBuffer sb = new StringBuffer();
 			
 			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
@@ -250,7 +241,7 @@ public class FormBindingFormatter {
 		StringBuffer sb = new StringBuffer();
     	String attr = field.getAttrDef().getDefinedIn().getDMSASGName() + ".__" + field.getAttribute();
 		
-		if (field.getAttrDef().getIndexSize() != null){
+		if ( (field.getAttrDef().getIndexSize() != null) && (!field.getEditorDef().isUseSingleEditor()) ){
 			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
 				sb.append("        " + field.getAttribute() + "Adapter" + i + ".setEmpty();\n");
 				sb.append("        if (dmo == null)\n");
@@ -279,7 +270,7 @@ public class FormBindingFormatter {
     	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
     	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
 		
-		if (field.getAttrDef().getIndexSize() != null){
+		if ( (field.getAttrDef().getIndexSize() != null) && (!field.getEditorDef().isUseSingleEditor()) ){
 			// This is indexed, so we actually create a separate editor for each index
 			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
 		    	sb.append("    " + editor + " " + field.getAttribute() + i + ";\n");
@@ -300,7 +291,9 @@ public class FormBindingFormatter {
     	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
     	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
     	
-		if (field.getAttrDef().getIndexSize() != null){
+    	// If the attribute is indexed, we'll create an instance of the editor for each index,
+    	// EXCEPT if the field editor has been flagged to be used as a single editor
+		if ( (field.getAttrDef().getIndexSize() != null) && (!field.getEditorDef().isUseSingleEditor()) ){
 			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
 				sb.append("        " + field.getAttribute() + i + " = new " + editor + "();\n");
 				sb.append("        " + field.getAttribute() + i + ".setValueIndex(" + i + ");\n");
@@ -350,7 +343,7 @@ public class FormBindingFormatter {
     	int lastpos = field.getEditorDef().getUseClass().lastIndexOf(".");
     	String editor = field.getEditorDef().getUseClass().substring(lastpos+1);
     	
-		if (field.getAttrDef().getIndexSize() != null){
+		if ( (field.getAttrDef().getIndexSize() != null) && (!field.getEditorDef().isUseSingleEditor()) ){
 			for(int i=0; i<field.getAttrDef().getIndexSize(); i++){
 				sb.append("        " + field.getAttribute() + i + ".setDMO(dmo);\n");
 			}

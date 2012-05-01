@@ -718,6 +718,15 @@ type			Boolean
 description     This attribute is used to flag defintions that are created automatically by
  the MVW infrastructure.
 
+AttributeDefinition
+name			useSingleEditor
+dmdID			98
+type			Boolean
+description     When dealing with indexed attributes, the default behaviour is to create a
+ form binding with an editor instance for each index slot. However, in some cases, you
+ want to use a single complex editor that handles the attribute. By setting useSingleEditor
+ to true, the form binding will contain a single editor for an indexed attribute.
+
 //AttributeDefinition
 //name			mandatoryStyle
 //dmdID			89
