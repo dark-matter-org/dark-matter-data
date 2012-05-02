@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2011 dark-matter-data committers
+//	Copyright (c) 2012 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -20,20 +20,12 @@ import org.dmd.mvw.client.gxt.dmw.GxtWrapper;
 import com.extjs.gxt.ui.client.event.SelectionChangedEvent;
 import com.extjs.gxt.ui.client.event.SelectionChangedListener;
 
-/**
- * The GridSelectionChangedListener provides a typed listener for selection changes
- * on GxtGrids
- * @deprecated
- * You should switch to use the GxtWrapperGridSelectionChangedListener in conjunction
- * with the GxtWrapperGrid.
- */
-@Deprecated
-public class GridSelectionChangedListener extends SelectionChangedListener<GxtWrapper> {
+public class GxtWrapperGridSelectionChangedListener extends SelectionChangedListener<GxtWrapper> {
 
 //	MenuController 	mvcMenuController;
-	GxtGrid			grid;
+	GxtWrapperGrid<?>			grid;
 
-	public GridSelectionChangedListener(GxtGrid g){
+	public GxtWrapperGridSelectionChangedListener(GxtWrapperGrid<?> g){
 //		mvcMenuController 	= (MenuController) Registry.get("mvc.menuController");
 		grid = g;
 	}

@@ -10,6 +10,13 @@ import com.extjs.gxt.ui.client.widget.grid.ColumnModel;
 import com.extjs.gxt.ui.client.widget.grid.Grid;
 import com.extjs.gxt.ui.client.widget.grid.GridSelectionModel;
 
+/**
+ * The GxtGrid class provides some basic utility functionality when using
+ * GXT Grid in conjunction with GxtWrapper objects.
+ * @deprecated
+ * Use the GxtWrapperGrid instead since it is parameterized.
+ */
+@Deprecated
 public class GxtGrid extends Grid<GxtWrapper> {
 
 	GridEventListener				eventListener;
