@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2011 dark-matter-data committers
+//	Copyright (c) 2012 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -24,19 +24,13 @@ import com.extjs.gxt.ui.client.event.GridEvent;
 import com.extjs.gxt.ui.client.event.Listener;
 import com.extjs.gxt.ui.client.widget.menu.Menu;
 
-/**
- * The GridEventListener provides a typed listener for events on the GxtGrid.
- * @deprecated
- * Use the GxtWrapperGridEventListener in conjunction with the GxtWrapperGrid instead.
- */
-@Deprecated
-public class GridEventListener implements Listener<ComponentEvent> {
+public class GxtWrapperGridEventListener implements Listener<ComponentEvent> {
 
 //	MenuController 	mvcMenuController;
-	GxtGrid			grid;
+	GxtWrapperGrid<?>		grid;
 	Menu			backgroundMenu;
 	
-	public GridEventListener(GxtGrid g){
+	public GxtWrapperGridEventListener(GxtWrapperGrid<?> g){
 		// Get our handle to the menu controller so that we can support context
 		// sensitive popup menus.
 //		mvcMenuController 	= (MenuController) Registry.get("mvc.menuController");
@@ -44,7 +38,7 @@ public class GridEventListener implements Listener<ComponentEvent> {
 		backgroundMenu		= null;
 	}
 	
-	public GridEventListener(GxtGrid g, String backgroundMenuName){
+	public GxtWrapperGridEventListener(GxtWrapperGrid<?> g, String backgroundMenuName){
 		// Get our handle to the menu controller so that we can support context
 		// sensitive popup menus.
 //		mvcMenuController 	= (MenuController) Registry.get("mvc.menuController");
@@ -52,10 +46,9 @@ public class GridEventListener implements Listener<ComponentEvent> {
 //		backgroundMenu		= mvcMenuController.getBackgroundMenu(backgroundMenuName);
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public void handleEvent(ComponentEvent ce) {
-		GridEvent 	ge 		= (GridEvent) ce;
+		GridEvent<?> 	ge 	= (GridEvent<?>) ce;
 		EventType	type	= ce.getType();
 		
 		System.out.println("org.dmd.features.extgwt.client.widget.grid.GridEventListener " + ce.getClass().getName() + "  " + ce.getEventTypeInt());
