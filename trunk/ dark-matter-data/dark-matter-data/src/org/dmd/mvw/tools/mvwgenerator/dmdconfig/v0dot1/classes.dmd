@@ -83,7 +83,6 @@ may				viewImport
 may				presenterImport
 may				sharedImport
 may				subpackage
-may				theOne
 //
 may				usesRunContextItem
 //
@@ -185,7 +184,7 @@ derivedFrom		Component
 isNamedBy		presenterName
 must			presenterName
 must			managesView
-may				theOne
+may				singleton
 may				instantiatesPresenter
 description		The Presenter is a behavioural component that manages one or more Views and
  thus implements the Presenter interface of any View it manages. Presenters populate and
@@ -266,7 +265,7 @@ may				itemOrder
 may				contextImpl
 may				importThis
 may				createOnDemand
-may				theOne
+may				singleton
 may				autoCreated
 description		The RunContextItem allows for the generation of an overall RunContext for
  a WebApplication or WebSite.

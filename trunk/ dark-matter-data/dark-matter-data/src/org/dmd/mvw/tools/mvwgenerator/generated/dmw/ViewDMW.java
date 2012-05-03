@@ -760,37 +760,6 @@ abstract public class ViewDMW extends MvwDefinition implements DmcNamedObjectIF 
         ((ViewDMO) core).remSubpackage();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
-    public Boolean isTheOne(){
-        return(((ViewDMO) core).isTheOne());
-    }
-
-    /**
-     * Sets theOne to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1230)
-    public void setTheOne(Object value) throws DmcValueException {
-        ((ViewDMO) core).setTheOne(value);
-    }
-
-    /**
-     * Sets theOne to the specified value.
-     * @param value Boolean
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
-    public void setTheOne(Boolean value){
-        ((ViewDMO) core).setTheOne(value);
-    }
-
-    /**
-     * Removes the theOne attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1265)
-    public void remTheOne(){
-        ((ViewDMO) core).remTheOne();
-    }
-
     /**
      * @return The number of RunContextItem items.
      */

@@ -93,34 +93,34 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
-    public Boolean isTheOne(){
-        return(((PresenterDMO) core).isTheOne());
+    public Boolean isSingleton(){
+        return(((PresenterDMO) core).isSingleton());
     }
 
     /**
-     * Sets theOne to the specified value.
+     * Sets singleton to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1230)
-    public void setTheOne(Object value) throws DmcValueException {
-        ((PresenterDMO) core).setTheOne(value);
+    public void setSingleton(Object value) throws DmcValueException {
+        ((PresenterDMO) core).setSingleton(value);
     }
 
     /**
-     * Sets theOne to the specified value.
+     * Sets singleton to the specified value.
      * @param value Boolean
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
-    public void setTheOne(Boolean value){
-        ((PresenterDMO) core).setTheOne(value);
+    public void setSingleton(Boolean value){
+        ((PresenterDMO) core).setSingleton(value);
     }
 
     /**
-     * Removes the theOne attribute value.
+     * Removes the singleton attribute value.
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1265)
-    public void remTheOne(){
-        ((PresenterDMO) core).remTheOne();
+    public void remSingleton(){
+        ((PresenterDMO) core).remSingleton();
     }
 
     /**

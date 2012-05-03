@@ -71,11 +71,18 @@ public class RunContextItem extends RunContextItemDMW {
 	}
 	
 	public String getDefinition(PrintfFormat format){
-		if (isCreateOnDemand())
+		// If the entry is not a singleton and is create on demand, we don't need to hang on
+		// to its handle in the run context
+		if (!isSingleton() && isCreateOnDemand())
 			return("");
 		StringBuilder sb = new StringBuilder();
 		sb.append("    // Defined in module: " + getDefinedInModule().getCamelCaseName() + "\n");
-		sb.append("    private final " + format.sprintf(getItemType()) + " " + getItemName() + ";\n\n");
+		
+		if (isSingleton())
+			sb.append("    private " + format.sprintf(getItemType()) + " " + getItemName() + ";\n\n");
+		else
+			sb.append("    private final " + format.sprintf(getItemType()) + " " + getItemName() + ";\n\n");
+		
 		return(sb.toString());
 //		return("    private final " + format.sprintf(getItemType()) + " " + getItemName() + ";\n");
 	}
@@ -88,7 +95,7 @@ public class RunContextItem extends RunContextItemDMW {
 	
 	public String getImplVariable(){
 		if (isCreateOnDemand()){
-			if (isTheOne())
+			if (isSingleton())
 				return("    private " + getItemType() + " " + getItemName() + ";\n");
 			else
 				return("");
@@ -102,10 +109,18 @@ public class RunContextItem extends RunContextItemDMW {
 			String capped = GenUtility.capTheName(getItemName().getNameString());
 			StringBuilder sb = new StringBuilder();
 			if (view == null){
-				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    public " + getItemType() + " getNew" + getPlainName() + "(){\n");
-				sb.append("        return( ((" + getInterfaceName() + ")runcontext).get" + capped + "());\n");
-				sb.append("    }\n\n");		
+				if (isSingleton()){
+					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public " + getItemType() + " get" + getPlainName() + "(){\n");
+					sb.append("        return( ((" + getInterfaceName() + ")runcontext).get" + capped + "());\n");
+					sb.append("    }\n\n");
+				}
+				else{
+					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public " + getItemType() + " getNew" + getPlainName() + "(){\n");
+					sb.append("        return( ((" + getInterfaceName() + ")runcontext).get" + capped + "());\n");
+					sb.append("    }\n\n");
+				}
 			}
 			else{
 				String pres	= view.getViewName() + "IF." + view.getViewName() + "PresenterIF";
@@ -146,9 +161,9 @@ public class RunContextItem extends RunContextItemDMW {
 				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    @Override\n");
 				sb.append("    public " + getItemType() + " get" + capped + "(){\n");
-				if (isTheOne()){
+				if (isSingleton()){
 					sb.append("        if (" +  getItemName() + " == null)\n");
-					sb.append("            " + getItemName() + " = " + getConstruction() + "();\n");
+					sb.append("            " + getItemName() + " = " + getConstruction() + ";\n");
 					sb.append("        return(" + getItemName() + ");\n");
 				}
 				else{
@@ -169,7 +184,7 @@ public class RunContextItem extends RunContextItemDMW {
 				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				sb.append("    @Override\n");
 				sb.append("    public " + getItemType() + " get" + capped + "(" + pres + " presenter){\n");
-				if (isTheOne()){
+				if (isSingleton()){
 					sb.append("        if (" +  getItemName() + " == null)\n");
 					if (args.length() > 0)
 					sb.append("            " + getItemName() + " = " + getConstruction() + "(" + args + ");\n");

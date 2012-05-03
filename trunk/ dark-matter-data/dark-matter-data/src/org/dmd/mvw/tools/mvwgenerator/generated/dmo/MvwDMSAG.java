@@ -97,9 +97,9 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __selectedDMO = new DmcAttributeInfo("selectedDMO", 806, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __sendsRequest = new DmcAttributeInfo("sendsRequest", 896, "RequestTypeWithOptions", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __sharedImport = new DmcAttributeInfo("sharedImport", 838, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __singleton = new DmcAttributeInfo("singleton", 863, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __skipEnumValue = new DmcAttributeInfo("skipEnumValue", 895, "String", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __strictlyChecked = new DmcAttributeInfo("strictlyChecked", 889, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __theOne = new DmcAttributeInfo("theOne", 863, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tipsFromI18N = new DmcAttributeInfo("tipsFromI18N", 894, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __triggersAction = new DmcAttributeInfo("triggersAction", 875, "ActionBinding", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __unsetValue = new DmcAttributeInfo("unsetValue", 891, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -235,9 +235,9 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__selectedDMO.id,__selectedDMO);
         _SmAp.put(__sendsRequest.id,__sendsRequest);
         _SmAp.put(__sharedImport.id,__sharedImport);
+        _SmAp.put(__singleton.id,__singleton);
         _SmAp.put(__skipEnumValue.id,__skipEnumValue);
         _SmAp.put(__strictlyChecked.id,__strictlyChecked);
-        _SmAp.put(__theOne.id,__theOne);
         _SmAp.put(__tipsFromI18N.id,__tipsFromI18N);
         _SmAp.put(__triggersAction.id,__triggersAction);
         _SmAp.put(__unsetValue.id,__unsetValue);
@@ -307,7 +307,6 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __View.addMay(__presenterImport);
         __View.addMay(__sharedImport);
         __View.addMay(MetaDMSAG.__subpackage);
-        __View.addMay(__theOne);
         __View.addMay(__usesRunContextItem);
         __View.addMay(__widget);
         __View.addMay(MetaDMSAG.__extendsInterface);
@@ -340,7 +339,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
 
         __Presenter.addMust(__presenterName);
         __Presenter.addMust(__managesView);
-        __Presenter.addMay(__theOne);
+        __Presenter.addMay(__singleton);
         __Presenter.addMay(__instantiatesPresenter);
 
         __Place.addMust(__placeName);
@@ -365,7 +364,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __RunContextItem.addMay(__contextImpl);
         __RunContextItem.addMay(__importThis);
         __RunContextItem.addMay(__createOnDemand);
-        __RunContextItem.addMay(__theOne);
+        __RunContextItem.addMay(__singleton);
         __RunContextItem.addMay(__autoCreated);
 
         __WebApplication.addMust(__appName);
