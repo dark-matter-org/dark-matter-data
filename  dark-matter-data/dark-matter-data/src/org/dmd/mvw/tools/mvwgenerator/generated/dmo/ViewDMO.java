@@ -955,56 +955,6 @@ public class ViewDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Ser
          rem(MetaDMSAG.__subpackage);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
-    public Boolean isTheOne(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__theOne);
-        if (attr == null)
-            return(false);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets theOne to the specified value.
-     * @param value Boolean
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
-    public void setTheOne(Boolean value) {
-        DmcAttribute<?> attr = get(MvwDMSAG.__theOne);
-        if (attr == null)
-            attr = new DmcTypeBooleanSV(MvwDMSAG.__theOne);
-        
-        try{
-            attr.set(value);
-            set(MvwDMSAG.__theOne,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets theOne to the specified value.
-     * @param value A value compatible with DmcTypeBooleanSV
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
-    public void setTheOne(Object value) throws DmcValueException {
-        DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__theOne);
-        if (attr == null)
-            attr = new DmcTypeBooleanSV(MvwDMSAG.__theOne);
-        
-        attr.set(value);
-        set(MvwDMSAG.__theOne,attr);
-    }
-
-    /**
-     * Removes the theOne attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
-    public void remTheOne(){
-         rem(MvwDMSAG.__theOne);
-    }
-
     /**
      * @return An Iterator of RunContextItemDMO objects.
      */

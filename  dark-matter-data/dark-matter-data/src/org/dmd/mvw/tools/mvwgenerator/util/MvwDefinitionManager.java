@@ -470,10 +470,13 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			
 			// We make it so that the presenter instance is created as required
 			rci.setCreateOnDemand(true);
-			rci.setTheOne(presenter.isTheOne());
+			rci.setSingleton(presenter.isSingleton());
 			
 			// Tell the presenter its item
 			presenter.setRunContextItem(rci);
+			
+			// Also add to our full set of definitions
+			allDefs.put(rci.getItemName(), rci);
 			
 		}
 		else if (def instanceof Activity){
@@ -525,7 +528,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			
 			// We make it so that the view instance is created as required
 			rci.setCreateOnDemand(true);
-			rci.setTheOne(view.isTheOne());
+//			rci.setTheOne(view.isTheOne());
 			
 			// Tell the presenter its item
 			view.setRunContextItem(rci);

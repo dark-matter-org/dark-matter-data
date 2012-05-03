@@ -3,3 +3,14 @@ moduleName	gxt
 genPackage	org.dmd.mvw.client.gxt
 description	The gxt module provides a variety of useful functionality based on
  Sencha's ExtGWT (GXT) framework.
+
+RunContextItem
+itemName			gxtCache
+itemOrder			20
+useClass     		org.dmd.mvw.client.gxt.cache.GxtCache
+construction 		new GxtCache()
+description			The gxtCache provides centralized caching of Dark Matter Objects (DMOs)
+ wrapped for use with Sencha's GXT widgets. Before adding objects returned via DMP GetResponses
+ you should ensure that the component performing the retrieval has called addWrapperFactory()
+ on the cache to add the appropriate GxtWrapperFactoryIF implementation to wrap the objects as
+ they are added.

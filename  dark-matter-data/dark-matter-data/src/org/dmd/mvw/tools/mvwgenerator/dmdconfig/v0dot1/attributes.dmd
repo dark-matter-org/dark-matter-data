@@ -461,15 +461,13 @@ description		Indicates that a component instantiates a particular View; a method
  view and bind it to the appropriate presenter.
 
 AttributeDefinition
-name			theOne
+name			singleton
 dmdID			63
 type			Boolean
-description		Indicates that a Presenter or View will be the only one created from
- the run context. If this flag is false (the default), calling getXView() or getXPresenter()
+description		Indicates that a Presenter will be the only one created from
+ the run context. If this flag is false (the default), calling getXPresenter()
  will return a new instance of the component. This is also used in conjunction (internally)
  with the createOnDemand attribute on RunContextItems.
- <p />
- Morpheus may not agree with your decision in this regard.
 
 AttributeDefinition
 name			usingStandardSubpackages

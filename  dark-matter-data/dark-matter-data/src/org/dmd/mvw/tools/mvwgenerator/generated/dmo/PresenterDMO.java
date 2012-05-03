@@ -144,8 +144,8 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
-    public Boolean isTheOne(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__theOne);
+    public Boolean isSingleton(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__singleton);
         if (attr == null)
             return(false);
 
@@ -153,18 +153,18 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     }
 
     /**
-     * Sets theOne to the specified value.
+     * Sets singleton to the specified value.
      * @param value Boolean
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
-    public void setTheOne(Boolean value) {
-        DmcAttribute<?> attr = get(MvwDMSAG.__theOne);
+    public void setSingleton(Boolean value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__singleton);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(MvwDMSAG.__theOne);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__singleton);
         
         try{
             attr.set(value);
-            set(MvwDMSAG.__theOne,attr);
+            set(MvwDMSAG.__singleton,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -172,25 +172,25 @@ public class PresenterDMO  extends ComponentDMO  implements DmcNamedObjectIF, Se
     }
 
     /**
-     * Sets theOne to the specified value.
+     * Sets singleton to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
-    public void setTheOne(Object value) throws DmcValueException {
-        DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__theOne);
+    public void setSingleton(Object value) throws DmcValueException {
+        DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__singleton);
         if (attr == null)
-            attr = new DmcTypeBooleanSV(MvwDMSAG.__theOne);
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__singleton);
         
         attr.set(value);
-        set(MvwDMSAG.__theOne,attr);
+        set(MvwDMSAG.__singleton,attr);
     }
 
     /**
-     * Removes the theOne attribute value.
+     * Removes the singleton attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
-    public void remTheOne(){
-         rem(MvwDMSAG.__theOne);
+    public void remSingleton(){
+         rem(MvwDMSAG.__singleton);
     }
 
     /**

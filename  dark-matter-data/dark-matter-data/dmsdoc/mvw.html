@@ -854,7 +854,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The FieldEditor class allows for the definition of implementation specific field editors. The specified class must implement the org.dmd.dmc.DmcPresentationIF interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition instance and so that it can interact with the AttributeTracker and the SetRequestGenerator.</td>
+      <td colspan="2">The FieldEditor class allows for the definition of implementation specific field editors. The specified class must implement the org.dmd.dmc.DmcPresentationIF interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition instance and so that it can interact with the AttributeTracker and the SetRequestGenerator. <p/> When dealing with indexed attributes, the default behaviour is to create a form binding with an editor instance for each index slot. However, in some cases, you want to use a single complex editor that handles the attribute. By setting useSingleEditor to true, the form binding will contain a single editor for an indexed attribute.</td>
     </tr>
 
     <tr>
@@ -925,6 +925,14 @@
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#useSingleEditor">useSingleEditor</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> When dealing with indexed attributes, the default behaviour is to create a form binding with an editor instance for each index slot. However, in some cases, you want to use a single complex editor that handles the attribute. By setting useSingleEditor to true, the form binding will contain a single editor for an indexed attribute. </td>
     </tr>
 
   </table>
@@ -1303,6 +1311,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
+      <td> <a href="mvw.html#autoCreated">autoCreated</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> This attribute is used to flag defintions that are created automatically by the MVW infrastructure. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="mvw.html#contextImpl">contextImpl</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The context implementation in which this RunContextItem definition should be used. All items are part of the Default implementation, but if you need other implementations, just respecify the item with different useClass and/or different construction syntax. </td>
@@ -2381,6 +2397,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
+      <td> <a href="mvw.html#autoCreated">autoCreated</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> This attribute is used to flag defintions that are created automatically by the MVW infrastructure. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="mvw.html#contextImpl">contextImpl</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The context implementation in which this RunContextItem definition should be used. All items are part of the Default implementation, but if you need other implementations, just respecify the item with different useClass and/or different construction syntax. </td>
@@ -2919,14 +2943,6 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="mvw.html#theOne">theOne</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> Indicates that a Presenter or View will be the only one created from the run context. If this flag is false (the default), calling getXView() or getXPresenter() will return a new instance of the component. This is also used in conjunction (internally) with the createOnDemand attribute on RunContextItems. <p /> Morpheus may not agree with your decision in this regard. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="mvw.html#useBaseClass">useBaseClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The useBaseClass attribute is used to specify the class from which a generated component class should be derived. It should be fully qualified name of a class. </td>
@@ -3212,6 +3228,19 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates an argument vector for an event or interface.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="autoCreated"> autoCreated </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>This attribute is used to flag defintions that are created automatically by the MVW infrastructure.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="bindingName"> bindingName </a> </td></tr>
@@ -4109,6 +4138,19 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the schemas that a component uses. Your module must specify dependsOnSchema for the appropriate schemas.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="useSingleEditor"> useSingleEditor </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>When dealing with indexed attributes, the default behaviour is to create a form binding with an editor instance for each index slot. However, in some cases, you want to use a single complex editor that handles the attribute. By setting useSingleEditor to true, the form binding will contain a single editor for an indexed attribute.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="userDataImport"> userDataImport </a> </td></tr>
