@@ -24,6 +24,7 @@ import org.dmd.dmc.DmcSliceInfo;                                              //
 import org.dmd.dmc.DmcValueException;                                         // Any attributes
 import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                          // Required type
 import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor
 import org.dmd.dms.generated.types.DmcTypeStringSET;                          // Required type
@@ -308,6 +309,56 @@ public class EventDMO  extends MvwDefinitionDMO  implements DmcNamedObjectIF, Se
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1251)
     public void remImportThis(){
          rem(MvwDMSAG.__importThis);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    public Boolean isFiredInThisModule(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__firedInThisModule);
+        if (attr == null)
+            return(true);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets firedInThisModule to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    public void setFiredInThisModule(Boolean value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__firedInThisModule);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__firedInThisModule);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__firedInThisModule,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets firedInThisModule to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    public void setFiredInThisModule(Object value) throws DmcValueException {
+        DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__firedInThisModule);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__firedInThisModule);
+        
+        attr.set(value);
+        set(MvwDMSAG.__firedInThisModule,attr);
+    }
+
+    /**
+     * Removes the firedInThisModule attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    public void remFiredInThisModule(){
+         rem(MvwDMSAG.__firedInThisModule);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)

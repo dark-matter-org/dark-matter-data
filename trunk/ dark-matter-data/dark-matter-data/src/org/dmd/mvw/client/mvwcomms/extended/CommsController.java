@@ -20,14 +20,17 @@ import org.dmd.dmp.client.ResponseCallback;
 import org.dmd.dmp.client.ResponseHandlerIF;
 import org.dmd.dmp.client.SetResponseCallback;
 import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.GetResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;
+import org.dmd.dmp.shared.generated.dmo.PrimeEventChannelATI;
 import org.dmd.dmp.shared.generated.dmo.RequestDMO;
 import org.dmd.dmp.shared.generated.dmo.ResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.SetRequestDMO;
@@ -36,6 +39,8 @@ import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 import org.dmd.dms.extended.ActionTriggerInfo;
 import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;
 import org.dmd.mvw.client.mvwcomms.generated.mvw.controllers.CommsControllerBaseImpl;
+
+import com.google.gwt.user.client.Timer;
 
 import de.novanic.eventservice.client.event.Event;
 import de.novanic.eventservice.client.event.domain.Domain;
@@ -50,27 +55,27 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 
 	// Our global request identifier - this is incremented each time 
 	// someone requests a new message
-	int 						requestID;
+	int 								requestID;
 
 	// The session identifier from the server. This is sent in the login response
 	// and will be set automatically on all requests.
-	String						sessionID;
+	String								sessionID;
 	
 	// Some systems will assign a unique identifier that will be used to stamp
 	// all incoming requests and, subsequently, all events that are generated from
 	// those requests. This will allow us to determine if an event resulted from
 	// something we did or a request from a different client.
-	Integer						originatorID;
+	Integer								originatorID;
 	
 	// Handle to the centralized Dark Matter Protocol error handler if one has been set
-	CentralDMPErrorHandlerIF	DMPErrorHandler;
+	CentralDMPErrorHandlerIF			DMPErrorHandler;
 	
 	// Handle to the centralized GWT RPC error handler if one has been set
-	CentralRPCErrorHandlerIF	RPCErrorHandler;
+	CentralRPCErrorHandlerIF			RPCErrorHandler;
 	
 	// Handle to a centralized event handler that handles events that are not 
 	// routed directly back to a known component
-	CentralEventHandlerIF		centralEventHandler;
+	CentralEventHandlerIF				centralEventHandler;
 	
 	// Our currently outstanding requests. For most normal requests, they will be sent
 	// and the last response will be sent back immediately and the request will be removed.
@@ -85,22 +90,32 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// has a unique listenerID. When we receive event notifications, we'll forward those events
 	// back to the component that made the original GetRequest.
 	// Key: listenerID
-	TreeMap<Long, ResponseCallback>	eventHandlers;
+	TreeMap<Long, ResponseCallback>		eventHandlers;
 	
 	// The time at which the last request (of any type) was sent
-	long		lastRequestTime;
+	long								lastRequestTime;
 	
 	// Our event domain for use with the gwteventservice
-	Domain						eventDomain;
+	Domain								eventDomain;
 	
 	// All DMP messages have the trackingEnabled attribute that allow for tracking
 	// of the message through the various components of the system. This is a global
 	// flag that can be set so that all messages are tracked - this should be used
 	// with caution, but it's useful for training/example purposes. Individual messages
 	// can, of course, have their tracking turned on.
-	boolean						trackAllMessages;
+	boolean								trackAllMessages;
 	
-	Logger logger = Logger.getLogger("mvwcomms");
+	// The timer used to delay attempts to prime the event channel
+	Timer								primingTimer;
+	
+	// Indicates if the event channel has been primed
+	boolean								eventChannelReady;
+	
+	// Set true when we've received the response that indicates that we've primed
+	// the event channel
+	boolean								havePrimingResponse;
+	
+	Logger logger = Logger.getLogger("CommsController");
 
 	public CommsController(MvwRunContextIF rc) {
 		super(rc);
@@ -114,6 +129,21 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		eventHandlers		= new TreeMap<Long, ResponseCallback>();
 		lastRequestTime		= -1;
 		trackAllMessages	= false;
+	}
+	
+	/**
+	 * Reset to a known starting state.
+	 */
+	private void reset(){
+		requestID			= 1;
+		sessionID			= null;
+		originatorID		= null;
+		requests			= new TreeMap<Integer, ResponseCallback>();
+		eventHandlers		= new TreeMap<Long, ResponseCallback>();
+		eventDomain			= null;
+		eventChannelReady	= false;
+		havePrimingResponse	= false;
+		logger.fine("Reset complete");
 	}
 	
 	/**
@@ -414,6 +444,9 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			    });
 				
 				fireLoginCompleteEvent();
+				
+				// And now make sure that the event channel is up and working
+				primeTheEventChannel();
 			}
 			else if (cb.getCallbackID() == LogoutResponseCallback.ID){
 				if (eventDomain != null){
@@ -423,11 +456,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 				
 				fireLogoutCompleteEvent();
 				
-				requestID			= 1;
-				sessionID			= null;
-				originatorID		= null;
-				requests			= new TreeMap<Integer, ResponseCallback>();
-				eventHandlers		= new TreeMap<Long, ResponseCallback>();
+				reset();
 			}
 			else if (cb.getCallbackID() == GetResponseCallback.ID)
 				registerEventHandler(cb, (GetResponseDMO) response);
@@ -543,4 +572,81 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		if (request.getNthRequestID(0) == null)
 			throw(new IllegalStateException("This request has no requestID value; you should use the getNewXXXRequest() method to construct requests that are sent via the MVW CommsController\n" + request.toOIF() ));
 	}
+	
+	///////////////////////////////////////////////////////////////////////////
+	// Event channel priming
+	
+	void primeTheEventChannel(){
+		eventChannelReady 	= false;
+		havePrimingResponse	= false;
+		primingTimer = new Timer(){
+
+			@Override
+			public void run() {
+				if (havePrimingResponse){
+					logger.fine("Having event channel priming response - cancelling timer.");
+					primingTimer.cancel();
+				}
+				else{
+					ActionRequestDMO request = getPrimeEventChannelRequest(new PrimeEventChannelATI());
+					sendPrimeEventChannelRequest(request);
+					logger.fine("Event channel priming request sent...");
+				}
+				
+			}
+		};
+		primingTimer.scheduleRepeating(500);
+	}
+
+	@Override
+	protected void handlePrimeEventChannelResponseError(ActionResponseDMO response) {
+		logger.severe(response.toOIF());
+		
+		// We set this to true to cancel the priming process
+		havePrimingResponse = true;
+		
+		// How the application handles this is up to the application
+		fireCommsSessionFailed(response.getResponseText());
+	}
+
+	@Override
+	protected void handlePrimeEventChannelResponse(ActionResponseDMO response) {
+		logger.fine(response.toOIF());
+		
+		if (response.isLastResponse()){
+			logger.fine("Event channel is operational...");
+
+			// The last response is always sent on the event channel, so we're 
+			// good to go
+			havePrimingResponse = true;
+			eventChannelReady	= true;
+			fireCommsSessionReady();
+		}
+		
+	}
+	
+	@Override
+    protected ActionRequestDMO getPrimeEventChannelRequest(ActionTriggerInfo ati){
+        ActionRequestDMO request = this.getActionRequest(ati);
+        request.setHandlerID(0);
+        request.setNotifyOriginator(true);
+        return(request);
+    }
+	
+    @Override
+    protected void sendPrimeEventChannelRequest(ActionRequestDMO request){
+        this.sendActionRequest(request,this,ErrorOptionsEnum.CENTRAL,ErrorOptionsEnum.LOCAL);
+    }
+
+    /**
+     * Something has gone wrong from which the application can't recover, so all bets are off.
+     * This can happen in the case of RPC errors or when a logout fails and the application
+     * just wants to reset things to a known state.
+     */
+	@Override
+	protected void onForceCommsReset() {
+		reset();
+	}
+
+
 }

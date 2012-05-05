@@ -30,11 +30,13 @@ import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.LoginRequest;
 import org.dmd.dmp.server.extended.LogoutRequest;
+import org.dmd.dmp.server.extended.LogoutResponse;
 import org.dmd.dmp.server.extended.NotifyRequest;
 import org.dmd.dmp.server.extended.PreAuthRequest;
 import org.dmd.dmp.server.extended.Response;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.extended.SetResponse;
+import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.server.servlet.base.PluginManager;
 import org.dmd.dmp.server.servlet.base.interfaces.SecurityManagerIF;
 import org.dmd.dmp.server.servlet.extended.SessionRI;
@@ -46,6 +48,7 @@ import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.DenotifyRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.DenotifyResponseDMO;
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.GetResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;
@@ -159,7 +162,8 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 			
 			if (response == null){
 				SessionRI session = pluginManager.getSecurityManager().getSession(request);
-//				response = session.handleActionRequest(request);
+
+				response = session.handleActionRequest(request);
 			}
 		} catch (DmcValueException e) {
 			response = request.getResponse();
@@ -253,11 +257,32 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		// All requests are immediately wrapped for use on the server. This includes
 		// associating the request with the originating HttpServletRequest.
 		LogoutRequest request = new LogoutRequest(logoutRequest, getThreadLocalRequest());
+		LogoutResponse response = null;
 		
 		if (request.isTrackingEnabled())
 			logger.trace("Received by DMP servlet:\n" + request.toOIF());
 		
-		return null;
+		try {
+			// Ensure that the session is valid - if it isn't, an error reponse
+			// will be returned.
+			response = (LogoutResponse) securityManager.validateSession(request);
+			if (response == null){
+				// All activity takes place against the session
+				SessionRI session = securityManager.getSession(request);
+				response = securityManager.logout(request);
+				
+			}
+		} catch (DmcValueException e) {
+			response = (LogoutResponse) request.getErrorResponse();
+			response.setResponseText(e.toString());
+			logger.error(e.toString());
+		} catch (Exception ex){
+			logger.error(DebugInfo.extractTheStack(ex));
+			response = (LogoutResponse) request.getErrorResponse();
+			response.setResponseText(DebugInfo.extractTheStack(ex));
+		}
+
+		return(response.getDMO());
 	}
 
 	@Override

@@ -36,6 +36,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __attributeSelector = new DmcAttributeInfo("attributeSelector", 533, "AttributeID", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __blockingFactor = new DmcAttributeInfo("blockingFactor", 519, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __cacheResponse = new DmcAttributeInfo("cacheResponse", 534, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __eventChannelReady = new DmcAttributeInfo("eventChannelReady", 545, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __eventTypeDMP = new DmcAttributeInfo("eventTypeDMP", 523, "DMPEventTypeEnum", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __filter = new DmcAttributeInfo("filter", 520, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __filterByClass = new DmcAttributeInfo("filterByClass", 521, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -125,6 +126,7 @@ public class DmpDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__attributeSelector.id,__attributeSelector);
         _SmAp.put(__blockingFactor.id,__blockingFactor);
         _SmAp.put(__cacheResponse.id,__cacheResponse);
+        _SmAp.put(__eventChannelReady.id,__eventChannelReady);
         _SmAp.put(__eventTypeDMP.id,__eventTypeDMP);
         _SmAp.put(__filter.id,__filter);
         _SmAp.put(__filterByClass.id,__filterByClass);

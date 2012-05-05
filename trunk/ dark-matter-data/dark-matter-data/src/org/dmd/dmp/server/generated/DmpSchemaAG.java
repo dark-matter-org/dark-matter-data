@@ -105,8 +105,10 @@ public class DmpSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _applicationVersion;
     public static AttributeDefinition _myOwnEvent;
     public static AttributeDefinition _objectsToCome;
+    public static AttributeDefinition _eventChannelReady;
 
 
+    public static ActionDefinition _primeEventChannel;
 
     public static EnumDefinition _ScopeEnum;
     public static EnumDefinition _DMPEventTypeEnum;
@@ -1094,12 +1096,33 @@ public class DmpSchemaAG extends SchemaDefinition {
             _objectsToComeOBJ.setLineNumber("331");
             addAttributeDefList(_objectsToCome);
 
+            AttributeDefinitionDMO _eventChannelReadyOBJ = new AttributeDefinitionDMO();
+            _eventChannelReady = new AttributeDefinition(_eventChannelReadyOBJ);
+            _eventChannelReadyOBJ.setType("Boolean");
+            _eventChannelReadyOBJ.setName("eventChannelReady");
+            _eventChannelReadyOBJ.setDmdID("545");
+            _eventChannelReadyOBJ.setDescription("Used in conjunction with the primeEventChannel action to indicate that the response has come via the event channel.");
+            _eventChannelReady.setDefinedIn(this);
+            _eventChannelReadyOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/attributes2.dmd");
+            _eventChannelReadyOBJ.setLineNumber("338");
+            addAttributeDefList(_eventChannelReady);
+
     }
 
     private void initTypes() throws DmcValueException {
     }
 
     private void initActions() throws DmcValueException {
+            ActionDefinitionDMO _primeEventChannelOBJ = new ActionDefinitionDMO();
+            _primeEventChannel = new ActionDefinition(_primeEventChannelOBJ);
+            _primeEventChannelOBJ.setName("primeEventChannel");
+            _primeEventChannelOBJ.setDescription("The primeEventChannel action is used in web related applications to ensure that the asynchronous event channel associated with a client's session is operational. Whatever communications mechanism you're using would repeatedly send an ActionRequest with this payload until it received an asynchronous response. This mechanism is required because the length of time required to establish the event channel is non-deterministic and varies widely from one browser to another e.g. in Firefox, the gwteventservice comes up in  less than a second, while in Chrome it can take up to 3 seconds. Since much of the DMP communications mechanism depends on asynchronous messages, it is crucial that the event channel is operational before we start  message handled associated with an application. <p/> An example of this mechanism can be seen in the Model View Whatever (MVW) CommManager and the dmpservletri reference implementation.");
+            _primeEventChannel.setDefinedIn(this);
+            _primeEventChannelOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/shared/schema/v0dot1/actions.dmd");
+            _primeEventChannelOBJ.addMayReturn("eventChannelReady");
+            _primeEventChannelOBJ.setLineNumber("17");
+            addActionDefList(_primeEventChannel);
+
     }
 
     private void initEnums() throws DmcValueException {

@@ -32,16 +32,42 @@ controllerName		CommsController
 useSchema			dmp
 usesRunContextItem	dmpConnection
 usesRunContextItem	eventService
+sendsRequest		ActionRequest primeEventChannel
 addedToRunContext	false
 firesEvent			LoginCompleteEvent
 firesEvent			LogoutCompleteEvent
+firesEvent			CommsSessionReady
+firesEvent			CommsSessionFailed
+handlesEvent		ForceCommsReset
 description			Provides overall communication via the Dark Matter Protocol.
 
 Event
 eventName       	LoginCompleteEvent
-description     	Fired when we have sucessfully logged in.
+description     	Fired when we have sucessfully logged in. This indicates that
+ we've successfully logged in, but we are not yet ready for full communications.
+ Your application must wait for the CommsSessionReady event before commencing
+ other DMP operations e.g. GetRequest, SetRequest, CreateRequest, DeleteRequest etc.
 
 Event
 eventName       	LogoutCompleteEvent
 description     	Fired when we have sucessfully logged out.
+
+Event
+eventName			CommsSessionReady
+description			Fired when we've established full asynchronous communications
+ with the server, in this case, the gwteventservice is up and running.
+
+Event
+eventName			CommsSessionFailed
+argVector			(String reason)
+description			Fired if we cannot establish full asynchronous communications
+ or if we have some other situation where communications fails.
+
+Event
+eventName			ForceCommsReset
+firedInThisModule	false
+description			When a logout is successfully executed, the CommsController resets itself
+ in preparation for the next login. However, in circumstances where something goes wrong e.g.
+ RPC errors, failed logout etc. An application can fire this event and forceably reset the
+ communications controller.
 

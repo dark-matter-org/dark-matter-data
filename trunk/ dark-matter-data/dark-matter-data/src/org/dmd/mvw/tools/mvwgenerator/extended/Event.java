@@ -193,7 +193,10 @@ public class Event extends EventDMW {
 	 */
 	public void checkSanity() throws ResultException {
 		if (handledBy != null){
-			if (firedBy == null){
+			// If nothing fires this event and it's supposed to be fired in this module, complain
+			// An event that is meant to be fired outside a module's scope will have its firedInThisModule
+			// flag set to false.
+			if ((firedBy == null) && isFiredInThisModule()){
 				ResultException ex = new ResultException();
 				ex.addError("The " + getEventName() + " is handled by the following components, but is never fired or broadcast:");
 				for(MvwDefinition def: handledBy){
@@ -215,10 +218,17 @@ public class Event extends EventDMW {
 	 * A GwtEvent is only required if the event is destined for the EventBus i.e. if
 	 * anyone is firing or handling the event. If an event is only used locally, we
 	 * don't bother generating the GwtEvent.
+	 * <p/>
+	 * A special case exists for events that are defined in base modules but never
+	 * fired in that module. In that case the firedInThisModule flag is set to false
+	 * and, in that case, we will always generate the event.
 	 * @return true the event is fired or handled by any component.
 	 * @throws ResultException if the event is handled but never fired.
 	 */
 	public boolean needGwtEvent() throws ResultException{
+		if (!isFiredInThisModule())
+			return(true);
+		
 		if ( (handledBy != null) && (firedBy == null)){
 			// Someone wants to handle this event, but it isn't fired by anyone
 			StringBuffer sb = new StringBuffer();
