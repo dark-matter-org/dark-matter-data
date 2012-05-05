@@ -228,6 +228,37 @@ abstract public class EventDMW extends MvwDefinition implements DmcNamedObjectIF
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
+    public Boolean isFiredInThisModule(){
+        return(((EventDMO) core).isFiredInThisModule());
+    }
+
+    /**
+     * Sets firedInThisModule to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1230)
+    public void setFiredInThisModule(Object value) throws DmcValueException {
+        ((EventDMO) core).setFiredInThisModule(value);
+    }
+
+    /**
+     * Sets firedInThisModule to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
+    public void setFiredInThisModule(Boolean value){
+        ((EventDMO) core).setFiredInThisModule(value);
+    }
+
+    /**
+     * Removes the firedInThisModule attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1265)
+    public void remFiredInThisModule(){
+        ((EventDMO) core).remFiredInThisModule();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
     public CamelCaseName getEventName(){
         return(((EventDMO) core).getEventName());
     }

@@ -329,6 +329,13 @@ description         This attribute indicates the number of objects that may be r
  received, you could return the number of objectsToCome and then base a progress bar on this
  number and the number of objects you've currently received.
 
+AttributeDefinition
+name                eventChannelReady
+dmdID				45
+type                Boolean
+description			Used in conjunction with the primeEventChannel action to indicate that the
+ response has come via the event channel.
+
 //AttributeDefinition
 //name                targetObject
 //dmdID				30

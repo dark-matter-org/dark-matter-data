@@ -22,6 +22,7 @@ isNamedBy		eventName
 must			eventName
 may             argVector
 may				importThis
+may				firedInThisModule
 description		The specification of an Event definition will result in the creation of
  a gwtEvent and its associated handler interface.
 

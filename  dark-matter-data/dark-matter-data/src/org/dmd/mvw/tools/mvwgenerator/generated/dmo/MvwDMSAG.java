@@ -69,6 +69,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __editorName = new DmcAttributeInfo("editorName", 888, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __elementName = new DmcAttributeInfo("elementName", 868, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __eventName = new DmcAttributeInfo("eventName", 809, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __firedInThisModule = new DmcAttributeInfo("firedInThisModule", 899, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __firesEvent = new DmcAttributeInfo("firesEvent", 801, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __handlesEvent = new DmcAttributeInfo("handlesEvent", 802, "Event", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __implementedBy = new DmcAttributeInfo("implementedBy", 881, "Component", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -207,6 +208,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__editorName.id,__editorName);
         _SmAp.put(__elementName.id,__elementName);
         _SmAp.put(__eventName.id,__eventName);
+        _SmAp.put(__firedInThisModule.id,__firedInThisModule);
         _SmAp.put(__firesEvent.id,__firesEvent);
         _SmAp.put(__handlesEvent.id,__handlesEvent);
         _SmAp.put(__implementedBy.id,__implementedBy);
@@ -291,6 +293,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __Event.addMust(__eventName);
         __Event.addMay(__argVector);
         __Event.addMay(__importThis);
+        __Event.addMay(__firedInThisModule);
 
         __Module.addMust(__moduleName);
         __Module.addMust(DmgDMSAG.__genPackage);

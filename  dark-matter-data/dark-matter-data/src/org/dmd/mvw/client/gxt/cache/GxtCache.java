@@ -44,6 +44,17 @@ public class GxtCache implements DmcNameResolverIF {
 //		DmcOmni.instance().backRefTracking(true);
 	}
 	
+	/**
+	 * This method will wipe the existing data and any data in the indices. Any previously
+	 * specified wrapper factories, indices or listeners to the indices remain intact.
+	 */
+	public void wipeData(){
+		 for(IndexInfo info: indices.values()){
+			 info.wipeData();
+		 }
+		objMap 			= new HashMap<DmcObjectName, GxtWrapper>();
+	}
+	
 	void init(){
 		objMap 			= new HashMap<DmcObjectName, GxtWrapper>();
 		indices 		= new HashMap<DmcClassInfo, IndexInfo>();
@@ -62,11 +73,11 @@ public class GxtCache implements DmcNameResolverIF {
 	/**
 	 * Resets the cache to be empty - generally called when we logout.
 	 */
-	public void reset(){
-		objMap 	= null;
-		indices	= null;
-		init();
-	}
+//	public void reset(){
+//		objMap 	= null;
+//		indices	= null;
+//		init();
+//	}
 	
 	public GxtWrapper find(DmcObjectName on){
 		return(objMap.get(on));
@@ -321,6 +332,8 @@ public class GxtCache implements DmcNameResolverIF {
 		return(sb.toString());
 	}
 	
+	///////////////////////////////////////////////////////////////////////////
+	
 	class IndexInfo {
 		DmcClassInfo						classInfo;
 		HashMap<DmcObjectName,GxtWrapper> 	objects;
@@ -332,7 +345,13 @@ public class GxtCache implements DmcNameResolverIF {
 			listeners 	= new LinkedList<GxtCacheIndexListenerIF>();
 		}
 		
+		void wipeData(){
+			objects = new HashMap<DmcObjectName, GxtWrapper>();
+		}
+		
 	}
+	
+	///////////////////////////////////////////////////////////////////////////
 	
 	class HierarchyInfo {
 		DmcClassInfo							classInfo;

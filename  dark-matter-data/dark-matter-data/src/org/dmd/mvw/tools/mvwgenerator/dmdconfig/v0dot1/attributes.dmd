@@ -725,6 +725,17 @@ description     When dealing with indexed attributes, the default behaviour is t
  want to use a single complex editor that handles the attribute. By setting useSingleEditor
  to true, the form binding will contain a single editor for an indexed attribute.
 
+AttributeDefinition
+name			firedInThisModule
+dmdID			99
+type			Boolean
+nullReturnValue	true
+description     This attribute is used to flag Events that are not fired in the module in which
+ they are defined. Normally we complain about this situation, it indicates that you've defined
+ extraneous Events that should be removed. However, in the case of Events defined by base modules,
+ this isn't always the case; you may define Eevents that are intended to be fired from modules
+ that depend on the base module's handling of those events.
+
 //AttributeDefinition
 //name			mandatoryStyle
 //dmdID			89

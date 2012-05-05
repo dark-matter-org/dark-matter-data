@@ -15,6 +15,9 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.server.servlet.extended;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import org.dmd.dmp.server.DmpPipeIF;
 import org.dmd.dmp.server.extended.ActionRequest;
 import org.dmd.dmp.server.extended.ActionResponse;
@@ -30,6 +33,7 @@ import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.Response;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.extended.SetResponse;
+import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.server.servlet.base.GetRequestProcessor;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.base.cache.CacheRegistration;
@@ -174,8 +178,31 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 		ActionResponse rc = null;
 		request.setOriginatorID(cacheRegistration.getID());
 		
-		if (request.isTrackingEnabled())
-			logger.debug(request.toOIF());
+		if (request.getActionName().equals(DmpSchemaAG._primeEventChannel.getName().getNameString())){
+			logger.debug("Received asynch priming request...");
+			final ActionRequest primeRequest = request;
+			rc = request.getResponse();
+			rc.setLastResponse(false);
+			
+			Timer timer = new Timer(){};
+			timer.schedule(new TimerTask() {
+				
+				@Override
+				public void run() {
+					logger.debug("Sending asynch priming response...");
+					
+					ActionResponse response = primeRequest.getResponse();
+					response.setLastResponse(true);
+					
+					sendMessage(response);
+				}
+			}, 300);
+		}
+		
+		logger.debug("Sending synchronous priming response...");
+		
+//		if (request.isTrackingEnabled())
+//			logger.debug(request.toOIF());
 		
 		return(rc);
 	}
