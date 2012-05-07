@@ -121,9 +121,12 @@ public class TestAdapters {
 		
 		assertEquals("The modrec should have two change", 2, modrec.getModifier().getMVSize());
 		
-		mod = modrec.getModifier().getMVnth(1);
+		// NOTE: deletions are added to the modrec first, so the deletion will be in slot 0
+		mod = modrec.getModifier().getMVnth(0);
+		assertEquals("Modify operation 1 should be DEL", ModifyTypeEnum.DEL, mod.getModifyType());
 
-		assertEquals("Modify operation should be DEL", mod.getModifyType(), ModifyTypeEnum.DEL);
+		mod = modrec.getModifier().getMVnth(1);
+		assertEquals("Modify operation 2 should be ADD", ModifyTypeEnum.ADD, mod.getModifyType());
 
 		System.out.println(modrec.toOIF());
 		
@@ -255,9 +258,12 @@ public class TestAdapters {
 		
 		assertEquals("The modrec should have two changes", 2, modrec.getModifier().getMVSize());
 		
-		mod = modrec.getModifier().getMVnth(1);
+		// NOTE: deletions are added to the modrec first, so the deletion will be in slot 0
+		mod = modrec.getModifier().getMVnth(0);
+		assertEquals("Modify operation should be DEL", ModifyTypeEnum.DEL, mod.getModifyType());
 
-		assertEquals("Modify operation should be DEL", mod.getModifyType(), ModifyTypeEnum.DEL);
+		mod = modrec.getModifier().getMVnth(1);
+		assertEquals("Modify operation should be ADD", ModifyTypeEnum.ADD, mod.getModifyType());
 
 		System.out.println(modrec.toOIF());
 		

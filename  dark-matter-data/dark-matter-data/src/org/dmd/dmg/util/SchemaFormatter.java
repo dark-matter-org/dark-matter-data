@@ -269,13 +269,13 @@ public class SchemaFormatter {
         if (remainder > 0)
         	breakout++;
         
-        DebugInfo.debug("*** total: " + vars.size() + "  breakout: " + breakout + "  remainder: " + remainder);
+//        DebugInfo.debug("*** total: " + vars.size() + "  breakout: " + breakout + "  remainder: " + remainder);
         
         for(int i=0,x=1; i<breakout; i++,x++){
         	sb.append("            " + funcName + x + "();\n");
         }
         
-        DebugInfo.debug("Function names\n\n" + sb.toString());
+//        DebugInfo.debug("Function names\n\n" + sb.toString());
         
 		return(sb.toString());
 	}
