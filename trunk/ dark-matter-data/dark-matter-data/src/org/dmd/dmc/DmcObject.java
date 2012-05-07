@@ -1985,7 +1985,8 @@ abstract public class DmcObject implements Serializable {
 						}
 						else{
 
-							if ((value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){
+//							if ((value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){
+							if (value instanceof DmcNamedObjectREF){
 								// If the attribute is an object reference, we have to determine
 								// whether we have the object or just its name - and perform the
 								// add() accordingly.
