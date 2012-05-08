@@ -115,6 +115,9 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// the event channel
 	boolean								havePrimingResponse;
 	
+	// Set to true when we're logged in
+	private	boolean						loggedIn;
+	
 	Logger logger = Logger.getLogger("CommsController");
 
 	public CommsController(MvwRunContextIF rc) {
@@ -129,6 +132,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		eventHandlers		= new TreeMap<Long, ResponseCallback>();
 		lastRequestTime		= -1;
 		trackAllMessages	= false;
+		loggedIn			= false;
 	}
 	
 	/**
@@ -143,6 +147,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		eventDomain			= null;
 		eventChannelReady	= false;
 		havePrimingResponse	= false;
+		loggedIn			= false;
 		logger.fine("Reset complete");
 	}
 	
@@ -175,6 +180,13 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	void setTracking(RequestDMO request){
 		if (trackAllMessages)
 			request.setTrackingEnabled(true);
+	}
+	
+	/**
+	 * @return true if we've gone through the login process.
+	 */
+	public boolean isLoggedIn(){
+		return(loggedIn);
 	}
 
 	////////////////////////////////////////////////////////////////////////////////
@@ -443,6 +455,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			        }
 			    });
 				
+				loggedIn = true;
 				fireLoginCompleteEvent();
 				
 				// And now make sure that the event channel is up and working
@@ -454,6 +467,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 					eventDomain = null;
 				}
 				
+				loggedIn = false;
 				fireLogoutCompleteEvent();
 				
 				reset();

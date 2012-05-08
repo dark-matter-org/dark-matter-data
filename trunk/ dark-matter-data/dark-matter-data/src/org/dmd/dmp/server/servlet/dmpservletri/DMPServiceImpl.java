@@ -185,6 +185,22 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		
 		if (request.isTrackingEnabled())
 			logger.trace("Received by DMP servlet:\n" + request.toOIF());
+		
+		try {
+			response = (CreateResponse) pluginManager.getSecurityManager().validateSession(request);
+			
+			if (response == null){
+				SessionRI session = pluginManager.getSecurityManager().getSession(request);
+
+				response = session.handleCreateRequest(request);
+			}
+		} catch (DmcValueException e) {
+			response = request.getResponse();
+			response.setResponseType(ResponseTypeEnum.ERROR);
+			response.setResponseText(e.toString());
+			
+			e.printStackTrace();
+		}		
 
 		return null;
 	}

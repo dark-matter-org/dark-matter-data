@@ -21,6 +21,8 @@ import java.util.LinkedList;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Map.Entry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.Response;
@@ -47,6 +49,8 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
     private HashMap<Integer, Response>                                      		pendingResponses     = new HashMap<Integer, Response>();
     private Timer                                                           		timer                = new Timer();
 
+    private Logger 																	logger 				= LoggerFactory.getLogger(getClass());
+    
     /**
      * The RequestTracker uses RequestInfo to allow it to map responses back to the appropriate 
      * response handler. There is a bit of trickery involved here in order to handle the fact
@@ -175,7 +179,7 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
             }
             catch (Exception e)
             {
-//                logger.error("Caught exception", e);
+                logger.error("Caught exception", e);
                 return null;
             }
             return pendingResponses.remove(req.getLastRequestID());
@@ -201,7 +205,7 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
     {
         if (resp.getRequestIDSize() == 0)
         {
-//            logger.debug("Got Response with no id: " + resp.toOIF());
+            logger.debug("Got Response with no id: " + resp.toOIF());
             return;
         }
         
@@ -214,7 +218,7 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
             ri = resp.isLastResponse() ? outstandingRequests.remove(requestId) : outstandingRequests.get(requestId);
             if (ri == null)
             {
-//                logger.error("No record of request for " + resp.toOIF());
+                logger.error("No record of request for " + resp.toOIF());
                 return;
             }
             responseHandler = ri.responseHandler;

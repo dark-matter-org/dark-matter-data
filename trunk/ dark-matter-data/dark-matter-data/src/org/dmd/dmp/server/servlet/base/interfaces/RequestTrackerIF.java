@@ -73,5 +73,9 @@ public interface RequestTrackerIF {
      */
     public Response processSynchronousRequest(Request req, DmpResponseHandlerIF asyncResponseHandler, int timeoutSeconds);
 
-	
+    /**
+     * This method forwards the specified response back to the appropriate response handler.
+     * @param response the response to be forwarded.
+     */
+	public void processResponse(Response response);
 }

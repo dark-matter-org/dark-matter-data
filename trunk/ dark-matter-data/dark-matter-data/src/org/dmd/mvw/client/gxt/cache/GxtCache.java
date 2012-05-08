@@ -63,6 +63,14 @@ public class GxtCache implements DmcNameResolverIF {
 	}
 	
 	/**
+	 * @param name the name of the object to be retrieved.
+	 * @return the object if it exists in the cache.
+	 */
+	public GxtWrapper getObject(DmcObjectName name){
+		return(objMap.get(name));
+	}
+	
+	/**
 	 * Adds the specified factory that can create GxtWrappers for a particular schema.
 	 * @param factory the factory to be added.
 	 */

@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -29,6 +30,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmp.server.extended.CreateRequest;
+import org.dmd.dmp.server.extended.CreateResponse;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.DMPMessage;
 import org.dmd.dmp.server.extended.DeleteRequest;
@@ -38,13 +40,14 @@ import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.servlet.base.DmpServletPlugin;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
+import org.dmd.dmp.server.servlet.base.cache.CacheIndexListener;
 import org.dmd.dmp.server.servlet.base.cache.CacheListener;
 import org.dmd.dmp.server.servlet.base.cache.CacheListenerManager;
 import org.dmd.dmp.server.servlet.base.cache.CacheRegistration;
-import org.dmd.dmp.server.servlet.base.cache.CacheIndexListener;
+import org.dmd.dmp.server.servlet.base.cache.NameGeneratorIF;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpRequestProcessorIF;
 import org.dmd.dmp.server.servlet.base.interfaces.RequestTrackerIF;
-import org.dmd.dms.SchemaManager;
+import org.dmd.dmp.shared.generated.enums.DMPEventTypeEnum;
 import org.dmd.dmw.DmwHierarchicObjectWrapper;
 import org.dmd.dmw.DmwNamedObjectIndexer;
 import org.dmd.dmw.DmwNamedObjectWrapper;
@@ -91,7 +94,11 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
     // The factory used to create DMWs from objects read from file
     private DmwObjectFactory						factory;
     
+    private RequestTrackerIF						requestTracker;
+    
     private CacheListenerManager					listenerManager = new CacheListenerManager();
+    
+    private HashMap<DmcClassInfo,NameGeneratorIF>	nameGenerators = new HashMap<DmcClassInfo, NameGeneratorIF>();
     
     // A place to dump logs
     private Logger									logger = LoggerFactory.getLogger(getClass());
@@ -116,9 +123,9 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		factory 	= new DmwObjectFactory(DmwOmni.instance().getSchema());
 		
 		// Bind the handlers for Set, Create and Delete Requests
-		RequestTrackerIF	rt = pluginManager.getRequestTracker();
+		requestTracker = pluginManager.getRequestTracker();
 		
-		rt.bindRequestProcessor(SetRequest.class, new DmpRequestProcessorIF() {
+		requestTracker.bindRequestProcessor(SetRequest.class, new DmpRequestProcessorIF() {
 			
 			public void processRequest(Request request) {
 				queueSetRequest((SetRequest) request);
@@ -130,7 +137,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		}
 		);
 		
-		rt.bindRequestProcessor(CreateRequest.class, new DmpRequestProcessorIF() {
+		requestTracker.bindRequestProcessor(CreateRequest.class, new DmpRequestProcessorIF() {
 			
 			public void processRequest(Request request) {
 				queueCreateRequest((CreateRequest) request);
@@ -142,7 +149,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		}
 		);
 		
-		rt.bindRequestProcessor(DeleteRequest.class, new DmpRequestProcessorIF() {
+		requestTracker.bindRequestProcessor(DeleteRequest.class, new DmpRequestProcessorIF() {
 			
 			public void processRequest(Request request) {
 				queueDeleteRequest((DeleteRequest) request);
@@ -203,7 +210,20 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 				
 			}
 			else if (message instanceof CreateRequest){
+				CreateRequest 	request 	= (CreateRequest) message;
+				CreateResponse 	response	= null;
 				
+				DmwNamedObjectWrapper wrapper = (DmwNamedObjectWrapper) request.getNewObjectWrapped();
+				synchronized (nameGenerators) {
+					NameGeneratorIF ng = nameGenerators.get(wrapper.getConstructionClassInfo());
+					if (ng != null)
+						ng.createNameForObject(wrapper);
+				}
+				
+				response = request.getResponse();
+				response.addObjectList(wrapper.getDmcObject());
+				
+				requestTracker.processResponse(response);
 			}
 			else if (message instanceof DeleteRequest){
 				
@@ -213,9 +233,37 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 				// the case where our web application is fronting another data
 				// source or application, we may have to update our view of the
 				// data with these events
+				logger.error("We aren't handling foreign events for processing.\n\n" + ((DMPEvent)message).toOIF());
 			}
 		}
 		
+	}
+	
+	private void addAndNotify(DmwNamedObjectWrapper wrapper, int originatorID, boolean sendEvent, boolean track, boolean notifyOriginator){
+		try {
+			addObject(wrapper);
+		} catch (ResultException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if (sendEvent){
+            DMPEvent event = new DMPEvent(DMPEventTypeEnum.CREATED, wrapper);
+            event.setOriginatorID(originatorID);
+            event.setNotifyOriginator(notifyOriginator);
+            event.setTrackingEnabled(track);
+			forwardEvent(event);
+		}
+	}
+	
+	/**
+	 * 
+	 * @param event
+	 */
+	private void forwardEvent(DMPEvent event){
+		for(CacheListener listener: listenerManager.getInterestedListeners(event)){
+			listener.processCacheEvent(event);
+		}
 	}
 
 	///////////////////////////////////////////////////////////////////////////
@@ -273,22 +321,6 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		}
 		
 	}
-	
-//	private void queueCreateRequest(CreateRequest request) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	private void queueDeleteRequest(DeleteRequest request) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	private void queueSetRequest(SetRequest request) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
 
 	
 	///////////////////////////////////////////////////////////////////////////
@@ -428,20 +460,17 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 
 	@Override
 	public void queueSetRequest(SetRequest request) {
-		// TODO Auto-generated method stub
-		
+		addToQueue(request);
 	}
 
 	@Override
 	public void queueCreateRequest(CreateRequest request) {
-		// TODO Auto-generated method stub
-		
+		addToQueue(request);
 	}
 
 	@Override
 	public void queueDeleteRequest(DeleteRequest request) {
-		// TODO Auto-generated method stub
-		
+		addToQueue(request);
 	}
 
 	@Override
@@ -494,6 +523,16 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	@Override
 	public void removeListener(CacheListener listener) {
 		listenerManager.removeListener(listener);
+	}
+
+	@Override
+	public void addNameGenerator(NameGeneratorIF ng) {
+		if (nameGenerators.get(ng.usedForClass()) == null){
+			nameGenerators.put(ng.usedForClass(), ng);
+			return;
+		}
+		
+		throw(new IllegalStateException("Multiple name generators registered for class: " + ng.usedForClass().name));
 	}
 
 }

@@ -49,6 +49,12 @@ description     	Fired when we have sucessfully logged in. This indicates that
  other DMP operations e.g. GetRequest, SetRequest, CreateRequest, DeleteRequest etc.
 
 Event
+eventName       	LogoutEvent
+firedInThisModule	false
+description     	Fired by some component when an application user wants to logout.
+ This is meant to be a reusable event across application.
+
+Event
 eventName       	LogoutCompleteEvent
 description     	Fired when we have sucessfully logged out.
 

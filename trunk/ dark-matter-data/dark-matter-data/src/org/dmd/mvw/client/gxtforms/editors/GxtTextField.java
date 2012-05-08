@@ -59,8 +59,6 @@ public class GxtTextField extends TextField<String> implements DmcPresentationIF
 								try {
 									attribute.setMVnth(attrIndex, null);
 									READY();
-//									System.out.println("GxtTextField: setMVnth " + attrIndex + " null READY");
-										
 								} catch (DmcValueException e) {
 									throw(new IllegalStateException("Underlying attribute " + attribute.getName() + " should not throw an exception on setMVnth(): null",e));
 								}								
@@ -74,14 +72,14 @@ public class GxtTextField extends TextField<String> implements DmcPresentationIF
 								try {
 									attribute.setMVnth(attrIndex, getValue());
 									READY();
-									System.out.println("GxtTextField: setMVnth " + attrIndex + " " + getValue() + " READY");
+									DEBUG("GxtTextField: setMVnth " + attrIndex + " " + getValue() + " READY");
 								} catch (DmcValueException e) {
 									throw(new IllegalStateException("Underlying attribute " + attribute.getName() + " should not throw an exception on setMVnth(): " + getValue(),e));
 								}
 							}
 							else{
 								NOTREADY();
-								System.out.println("GxtTextField: invalid value: " + attrIndex + " " + getValue() + " NOT READY");
+								DEBUG("GxtTextField: invalid value: " + attrIndex + " " + getValue() + " NOT READY");
 							}
 						}
 					}
@@ -98,16 +96,13 @@ public class GxtTextField extends TextField<String> implements DmcPresentationIF
 							if (isValid()){
 								try {
 									attribute.set(getValue());
-//									System.out.println("GxtTextField: value in attribute: " + attribute.getSV());
 									READY();
-//									System.out.println("GxtTextField: updating value: " + getValue() + " READY");
 								} catch (DmcValueException e) {
 									throw(new IllegalStateException("Underlying attribute " + attribute.getName() + " should not throw an exception on set(): " + getValue(),e));
 								}
 							}
 							else{
 								NOTREADY();
-//								System.out.println("GxtTextField: invalid value: " + getValue() + " NOT READY");
 							}
 						}
 					}
@@ -205,12 +200,10 @@ public class GxtTextField extends TextField<String> implements DmcPresentationIF
 		// isValid() will always be false, and that's not what we want. If we have a validator,
 		// we will call it directly.
 		if (mandatory && (getValue() == null)){
-//			System.out.println(attribute.getName() + " is mandatory but has no value FALSE");
 			return(false);
 		}
 		
 		if (getValidator() == null){
-//			System.out.println(attribute.getName() + " has no validator, anything goes TRUE");
 			return(true);
 		}
 		

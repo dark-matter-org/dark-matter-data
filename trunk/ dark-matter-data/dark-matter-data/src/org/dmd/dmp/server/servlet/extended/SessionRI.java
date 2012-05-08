@@ -145,31 +145,34 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	}
 	
 	public SetResponse handleSetRequest(SetRequest request){
-		SetResponse rc = null;
 		request.setOriginatorID(cacheRegistration.getID());
+
+		SetResponse rc = request.getResponse();
+		rc.setLastResponse(false);
 		
-		if (request.isTrackingEnabled())
-			logger.debug(request.toOIF());
+		cacheRegistration.getCache().queueSetRequest(request);
 		
 		return(rc);
 	}
 	
 	public CreateResponse handleCreateRequest(CreateRequest request){
-		CreateResponse rc = null;
 		request.setOriginatorID(cacheRegistration.getID());
 		
-		if (request.isTrackingEnabled())
-			logger.debug(request.toOIF());
+		CreateResponse rc = request.getResponse();
+		rc.setLastResponse(false);
+		
+		cacheRegistration.getCache().queueCreateRequest(request);
 		
 		return(rc);
 	}
 	
 	public DeleteResponse handleDeleteRequest(DeleteRequest request){
-		DeleteResponse rc = null;
 		request.setOriginatorID(cacheRegistration.getID());
+
+		DeleteResponse rc = request.getResponse();
+		rc.setLastResponse(false);
 		
-		if (request.isTrackingEnabled())
-			logger.debug(request.toOIF());
+		cacheRegistration.getCache().queueDeleteRequest(request);
 		
 		return(rc);
 	}

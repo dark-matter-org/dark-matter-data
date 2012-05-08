@@ -175,6 +175,13 @@ public interface CacheIF extends DmcNameResolverIF {
 	 */
 	public Collection<DmwNamedObjectWrapper> getIndex(DmcClassInfo ci);
 	
+	/**
+	 * Adds the specified name generator to the cache. Generators are used to
+	 * set the unique name of objects that are created via the cache.
+	 * @param ng
+	 */
+	public void addNameGenerator(NameGeneratorIF ng);
+	
 	///////////////////////////////////////////////////////////////////////////
 	// Utility mechanisms
 	
