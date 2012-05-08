@@ -1041,11 +1041,11 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		for(Presenter presenter: presenters.values()){
 			presenter.initCodeGenInfo(rpc,dmp);
 		}
-		for(Event event: events.values()){
-			event.checkSanity();
-		}
 		for(Activity activity: activities.values()){
 			activity.initCodeGenInfo(rpc,dmp);
+		}
+		for(Event event: events.values()){
+			event.checkSanity();
 		}
 		for(Place place: places.values()){
 			place.initCodeGenInfo();

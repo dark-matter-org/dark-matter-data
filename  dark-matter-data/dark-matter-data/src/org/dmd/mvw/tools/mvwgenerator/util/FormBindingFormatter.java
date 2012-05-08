@@ -11,6 +11,15 @@ import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 
+/**
+ * The FormBindingFormatter will format a form binding taht's appropriate for either a
+ * named or an unnamed object. For named objects, there are two mechanisms associated with the binding:
+ * getModRec() and getModifiedObject(). The getModRec() method is intended for use when you're
+ * updating an existing named object - you get the set of modifications made in the form.
+ * If, on the other hand, you are in the process of editting a new object (with its name or without),
+ * you would call on getModifiedObject() to get the complete object with the changes made
+ * in the form; this would then be sent in a CreateRequest.
+ */
 public class FormBindingFormatter {
 
 	static public void formatFormBinding(String outdir, FormBindingDefinition binding) throws IOException {
@@ -20,12 +29,17 @@ public class FormBindingFormatter {
         BufferedWriter 	out 	= FileUpdateManager.instance().getWriter(outdir, name + ".java");
         ImportManager	imports = new ImportManager();
 
-        if (binding.getEditObject().getIsNamedBy() == null){
-            imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "Required when edit object is unnamed");
-            imports.addImport("org.dmd.dmc.DmcValueException", "Required when edit object is unnamed");
-            imports.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "Required when edit object is unnamed");
-            imports.addImport("org.dmd.dms.generated.types.DmcTypeModifierMV", "Required when edit object is unnamed");
-        }
+        imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "Used when testing if an object named");
+        imports.addImport("org.dmd.dmc.DmcValueException", "Required if we have modification errors");
+        imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "Required if we have modification errors");
+        imports.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "Required when edit object has no name");
+        imports.addImport("org.dmd.dms.generated.types.DmcTypeModifierMV", "Required when edit object has no name");
+        
+//        if (binding.getEditObject().getIsNamedBy() == null){
+//            imports.addImport("org.dmd.dmc.DmcValueException", "Required when edit object is unnamed");
+//            imports.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "Required when edit object is unnamed");
+//            imports.addImport("org.dmd.dms.generated.types.DmcTypeModifierMV", "Required when edit object is unnamed");
+//        }
         
         imports.addImport("org.dmd.dmc.presentation.DmcPresentationTrackerIF", "Presentation tracker");
         for(EditField field: binding.getEditFieldIterable()){
@@ -48,6 +62,9 @@ public class FormBindingFormatter {
         
         out.write("    " + cd.getName() + "DMO dmo;\n\n");
         
+        out.write("    // If the object set on the binding doesn't have a name, it is considered a new object\n");
+        out.write("    boolean isNewObject;\n\n");
+        
         out.write("    DmcPresentationTrackerIF	tracker;\n\n");
         
         for(EditField field: binding.getEditFieldIterable()){
@@ -59,6 +76,8 @@ public class FormBindingFormatter {
         out.write("    public " + name + "(){\n");
         out.write("\n");
         
+        out.write("        isNewObject = false;\n\n");
+        
         for(EditField field: binding.getEditFieldIterable()){
         	out.write(getInstantiation(field));
         }
@@ -67,10 +86,25 @@ public class FormBindingFormatter {
         
         
         ///////////////////////////////////////////////////////////////////////
+        if (binding.getEditObject().getIsNamedBy() != null){
+	        out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+	        out.write("    public boolean isNewObject(){\n");
+	        out.write("        return(isNewObject);\n");
+	        out.write("    }\n\n");
+        }
+        
+        ///////////////////////////////////////////////////////////////////////
         out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public void setObject(" + cd.getName() + "DMO obj){\n");
         out.write("        dmo = obj;\n\n");
         
+        if (binding.getEditObject().getIsNamedBy() != null){
+	        out.write("        if (obj instanceof DmcNamedObjectIF){\n");
+	        out.write("            if (((DmcNamedObjectIF)obj).getObjectName() == null)\n");
+	        out.write("                isNewObject = true;\n");
+	        out.write("        }\n");
+        }
+
         for(EditField field: binding.getEditFieldIterable()){
         	out.write(getSetDMO(field));
         }
@@ -146,6 +180,9 @@ public class FormBindingFormatter {
 	        out.write("        if (dmo == null)\n");
 	        out.write("            return(null);\n");
 	        out.write("\n");
+	        out.write("        if (isNewObject)\n");
+	        out.write("            throw(new IllegalStateException(\"You are dealing with a new object, call getModifiedObject(), not getModRec()\"));\n");
+	        out.write("\n");
 	        out.write("        " + cd.getName() + "DMO modrec = dmo.getModificationRecorder();\n");
 	        out.write("\n");
 	        
@@ -155,6 +192,34 @@ public class FormBindingFormatter {
 	        out.write("\n");
 	        out.write("        return(modrec);\n");
 	        out.write("    }\n\n");
+	        
+	        ///////////////////////////////////////////////////////////////////
+	        
+	        out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+	        out.write("    public " + cd.getName() + "DMO getModifiedObject(){\n");
+	        out.write("        if (dmo == null)\n");
+	        out.write("            return(null);\n");
+	        out.write("\n");
+	        out.write("        " + cd.getName() + "DMO modrec = (" + cd.getName() + "DMO) dmo.getNew();\n");
+	        out.write("        modrec.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));\n\n");
+	        for(EditField field: binding.getEditFieldIterable()){
+	        	out.write(getAddMods(field));//        	out.write("        " + field.getAttribute() + "Adapter.addMods(modrec.getModifier());\n");
+	        }
+	        out.write("\n");
+	        out.write("        " + cd.getName() + "DMO rc = (" + cd.getName() + "DMO) dmo.cloneIt();\n");
+	        out.write("\n");
+	        out.write("        try {\n");
+	        out.write("            rc.applyModifier(modrec.getModifier());\n");
+	        out.write("        } catch(DmcValueExceptionSet ex){\n");
+	        out.write("            throw(new IllegalStateException(\"Your form should not permit invalid data\", ex));\n");
+	        out.write("        } catch(DmcValueException ex){\n");
+	        out.write("            throw(new IllegalStateException(\"Your form should not permit invalid data\", ex));\n");
+	        out.write("        }\n");
+	        out.write("        \n");
+	        
+	        out.write("        return(rc);\n");
+	        out.write("    }\n\n");
+	        
         }
         
         
