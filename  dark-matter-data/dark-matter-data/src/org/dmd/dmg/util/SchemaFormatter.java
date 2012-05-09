@@ -420,14 +420,15 @@ public class SchemaFormatter {
 	
 	String getStaticRefs(SchemaDefinition schema){
 		StringBuffer sb = new StringBuffer();
+		String asagName		= GeneratorUtils.dotNameToCamelCase(schema.getName().getNameString()) + "DMSAG";
 		
 		Iterator<ClassDefinition> classes = schema.getClassDefList();
 		if (classes != null){
 			while(classes.hasNext()){
 				ClassDefinition cd = classes.next();
 				sb.append("    public static ClassDefinition _" + cd.getName() + ";\n");
-				allVars.add(new VarToObject("_" + cd.getName(), cd, "ClassDefinition"));
-				classVars.add(new VarToObject("_" + cd.getName(), cd, "ClassDefinition"));
+				allVars.add(new VarToObject("_" + cd.getName(), cd, "ClassDefinition", asagName));
+				classVars.add(new VarToObject("_" + cd.getName(), cd, "ClassDefinition", asagName));
 			}
 			sb.append("\n");
 			allVars.add(new VarToObject("", null,null));
@@ -488,8 +489,13 @@ public class SchemaFormatter {
 //	@SuppressWarnings("unchecked")
 	void getObjectAsCode(VarToObject var, String indent, StringBuffer sb){
 		String obj = var.name + "OBJ";
+		sb.append("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 		sb.append(indent + var.type + "DMO " + var.name + "OBJ = new " + var.type + "DMO();\n");
-		sb.append(indent + var.name + " = new " + var.type + "(" + var.name + "OBJ);\n");
+		
+		if (var.dmsagClassRef == null)
+			sb.append(indent + var.name + " = new " + var.type + "(" + var.name + "OBJ);\n");
+		else
+			sb.append(indent + var.name + " = new " + var.type + "(" + var.name + "OBJ," + var.dmsagClassRef +");\n");
 
 		for (DmcAttribute<?> attr : var.def.getDmcObject().getAttributes().values()){
 			String an = GeneratorUtils.dotNameToCamelCase(attr.getName());
@@ -612,11 +618,28 @@ public class SchemaFormatter {
 		String 			name;
 		DmsDefinition	def;
 		String			type;
+		String			dmsagClassRef;
 		
 		VarToObject(String vn, DmsDefinition d, String vt){
 			name = vn;
 			def = d;
 			type = vt;
+			dmsagClassRef = null;
+		}
+		
+		/**
+		 * Constructs a new Var for a ClassDefinition, this allows us to set the 
+		 * class
+		 * @param vn
+		 * @param d
+		 * @param vt
+		 * @param dmsagClassRef
+		 */
+		VarToObject(String vn, DmsDefinition d, String vt, String schema){
+			name = vn;
+			def = d;
+			type = vt;
+			dmsagClassRef = schema + "._" + vn;
 		}
 	}
 }

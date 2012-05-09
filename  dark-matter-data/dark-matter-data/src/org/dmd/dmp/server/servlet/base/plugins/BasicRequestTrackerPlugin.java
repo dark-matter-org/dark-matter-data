@@ -211,6 +211,8 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
         
         int requestId = resp.getRequestIDSize() == 1 ? resp.getLastRequestID() : resp.removeLastRequestID();
         
+        logger.debug("Handling response for tracking ID: " + requestId);
+        
         DmpResponseHandlerIF responseHandler = null;
         RequestInfo ri = null;
         synchronized (outstandingRequests)
@@ -241,8 +243,8 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
                 for (DmpRequestProcessorIF processor : procList)
                     if (processor.acceptRequest(req)) requestProcessor = processor;
                 
-//                if (requestProcessor == defaultRequestHandler)
-//                	logger.debug("None of the request processors bound for " + req.getClass().getSimpleName() + " accepted the request");
+                if (requestProcessor == defaultRequestHandler)
+                	logger.debug("None of the request processors bound for " + req.getClass().getSimpleName() + " accepted the request");
             }
         }
         
@@ -267,9 +269,14 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
 
     private int trackRequest(Request req, DmpResponseHandlerIF firstResponseHandler, DmpResponseHandlerIF asyncResponseHandler, int timeoutSeconds, DmpRequestProcessorIF requestProcessor)
     {
+    	logger.debug("Tracking " + req.getConstructionClassName());
+    	
         synchronized (outstandingRequests)
         {
             nextRequestId++;
+            
+        	logger.debug("Tracking " + req.getConstructionClassName() + " request with tracking ID " + nextRequestId);
+        	
             req.addRequestID(nextRequestId);
             req.setTimeMS(System.currentTimeMillis());
             outstandingRequests.put(nextRequestId, new RequestInfo(req, firstResponseHandler, asyncResponseHandler, System.currentTimeMillis() + (timeoutSeconds * 1000)));

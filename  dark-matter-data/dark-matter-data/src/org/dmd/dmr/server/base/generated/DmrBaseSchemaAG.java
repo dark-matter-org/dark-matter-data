@@ -57,7 +57,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             me.setName("dmr.base");
             me.setSchemaPackage("org.dmd.dmr.shared.base");
             me.setDmwPackage("org.dmd.dmr.server.base");
-            me.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/dmr.base.dms");
+            me.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/dmr.base.dms");
 
             initClasses();
             initAttributes1();
@@ -69,12 +69,13 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
     }
 
     private void initClasses() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _HierarchicObjectOBJ = new ClassDefinitionDMO();
-            _HierarchicObject = new ClassDefinition(_HierarchicObjectOBJ);
+            _HierarchicObject = new ClassDefinition(_HierarchicObjectOBJ,DmrBaseDMSAG.__HierarchicObject);
             _HierarchicObjectOBJ.setName("HierarchicObject");
             _HierarchicObjectOBJ.setDmdID("401");
             _HierarchicObjectOBJ.setClassType("STRUCTURAL");
-            _HierarchicObjectOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
+            _HierarchicObjectOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
             _HierarchicObjectOBJ.setLineNumber("15");
             _HierarchicObjectOBJ.setDescription("A HierarchicObject is meant to represent any object that can be identified with a Fully Qualified Name (FQN) and exists in a containment relationship with other objects. The exact implementation of a HierarchicObject is application specific.");
             _HierarchicObjectOBJ.setIsNamedBy("FQN");
@@ -88,12 +89,13 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _HierarchicObject.setDefinedIn(this);
             addClassDefList(_HierarchicObject);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _DotNamedObjectOBJ = new ClassDefinitionDMO();
-            _DotNamedObject = new ClassDefinition(_DotNamedObjectOBJ);
+            _DotNamedObject = new ClassDefinition(_DotNamedObjectOBJ,DmrBaseDMSAG.__DotNamedObject);
             _DotNamedObjectOBJ.setName("DotNamedObject");
             _DotNamedObjectOBJ.setDmdID("402");
             _DotNamedObjectOBJ.setClassType("STRUCTURAL");
-            _DotNamedObjectOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
+            _DotNamedObjectOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
             _DotNamedObjectOBJ.setLineNumber("33");
             _DotNamedObjectOBJ.setDescription("A DotNamedObject is a hierarchic object whose fully qualified name is composed of naming attributes separated by periods. For example  grandparent.parent.child. <p> The naming attribute of a DotNamedObject is name. Unlike LDAP objects,  we don't bother making this configurable. When a DotNamedObject is parsed from a file, we check to see if the name attribute has a value; if not, we take the last portion of the FQN as the name. For example, if the FQN is x.y.z, the name of the object would be 'z'.");
             _DotNamedObjectOBJ.setDerivedFrom("HierarchicObject");
@@ -109,6 +111,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
     }
 
     private void initAttributes1() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _userNameOBJ = new AttributeDefinitionDMO();
             _userName = new AttributeDefinition(_userNameOBJ);
             _userNameOBJ.setType("String");
@@ -117,10 +120,11 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _userNameOBJ.setDescription("The name of a user.");
             _userNameOBJ.setDataType("PERSISTENT");
             _userName.setDefinedIn(this);
-            _userNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
+            _userNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _userNameOBJ.setLineNumber("47");
             addAttributeDefList(_userName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _passwordOBJ = new AttributeDefinitionDMO();
             _password = new AttributeDefinition(_passwordOBJ);
             _passwordOBJ.setType("String");
@@ -129,7 +133,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _passwordOBJ.setDescription("A user's password.");
             _passwordOBJ.setDataType("PERSISTENT");
             _password.setDefinedIn(this);
-            _passwordOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
+            _passwordOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _passwordOBJ.setLineNumber("54");
             addAttributeDefList(_password);
 

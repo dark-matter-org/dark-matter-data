@@ -116,7 +116,7 @@ public class BasicSecurityPlugin extends DmpServletPlugin implements SecurityMan
 						logger.warn("Incorrect password for user: " + request.getUserName());
 				}
 				else{
-					SessionRI session = new SessionRI(pluginManager.getCache());
+					SessionRI session = new SessionRI(pluginManager.getCache(),pluginManager.getRequestTracker());
 					session.setDotName(new DotName("sf." + request.getServletRequest().getSession().getId()));
 					session.setSessionIDRI(request.getServletRequest().getSession().getId());
 					session.setSessionHostRI(request.getServletRequest().getRemoteHost());

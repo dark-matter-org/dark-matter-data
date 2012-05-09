@@ -63,7 +63,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             me.setName("dmv");
             me.setSchemaPackage("org.dmd.dmv.shared");
             me.setDmwPackage("org.dmd.dmv.server");
-            me.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/dmv.dms");
+            me.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/dmv.dms");
 
             initClasses();
             initAttributes1();
@@ -75,12 +75,13 @@ public class DmvSchemaAG extends SchemaDefinition {
     }
 
     private void initClasses() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _RuleOBJ = new ClassDefinitionDMO();
-            _Rule = new ClassDefinition(_RuleOBJ);
+            _Rule = new ClassDefinition(_RuleOBJ,DmvDMSAG.__Rule);
             _RuleOBJ.setName("Rule");
             _RuleOBJ.setDmdID("301");
             _RuleOBJ.setClassType("ABSTRACT");
-            _RuleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
+            _RuleOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
             _RuleOBJ.setLineNumber("12");
             _RuleOBJ.setDescription("A Rule is meant to represent an object that defines the validation logic to be applied to Dark Matter Object as a whole or to its attributes.");
             _RuleOBJ.setIsNamedBy("name");
@@ -93,12 +94,13 @@ public class DmvSchemaAG extends SchemaDefinition {
             _Rule.setDefinedIn(this);
             addClassDefList(_Rule);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _AttributeRuleOBJ = new ClassDefinitionDMO();
-            _AttributeRule = new ClassDefinition(_AttributeRuleOBJ);
+            _AttributeRule = new ClassDefinition(_AttributeRuleOBJ,DmvDMSAG.__AttributeRule);
             _AttributeRuleOBJ.setName("AttributeRule");
             _AttributeRuleOBJ.setDmdID("302");
             _AttributeRuleOBJ.setClassType("ABSTRACT");
-            _AttributeRuleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
+            _AttributeRuleOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
             _AttributeRuleOBJ.setLineNumber("22");
             _AttributeRuleOBJ.setDescription("The AttributeRule is the simplest rule that operates on a single attribute.");
             _AttributeRuleOBJ.setDerivedFrom("Rule");
@@ -110,12 +112,13 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AttributeRule.setDefinedIn(this);
             addClassDefList(_AttributeRule);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _ClassRuleOBJ = new ClassDefinitionDMO();
-            _ClassRule = new ClassDefinition(_ClassRuleOBJ);
+            _ClassRule = new ClassDefinition(_ClassRuleOBJ,DmvDMSAG.__ClassRule);
             _ClassRuleOBJ.setName("ClassRule");
             _ClassRuleOBJ.setDmdID("303");
             _ClassRuleOBJ.setClassType("ABSTRACT");
-            _ClassRuleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
+            _ClassRuleOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
             _ClassRuleOBJ.setLineNumber("32");
             _ClassRuleOBJ.setDescription("The ClassRule is a rule that applies to an entire object and its collection of attributes.");
             _ClassRuleOBJ.setDerivedFrom("Rule");
@@ -127,12 +130,13 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ClassRule.setDefinedIn(this);
             addClassDefList(_ClassRule);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _MustRuleOBJ = new ClassDefinitionDMO();
-            _MustRule = new ClassDefinition(_MustRuleOBJ);
+            _MustRule = new ClassDefinition(_MustRuleOBJ,DmvDMSAG.__MustRule);
             _MustRuleOBJ.setName("MustRule");
             _MustRuleOBJ.setDmdID("304");
             _MustRuleOBJ.setClassType("STRUCTURAL");
-            _MustRuleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
+            _MustRuleOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
             _MustRuleOBJ.setLineNumber("41");
             _MustRuleOBJ.setDescription("The MustRule verifies that an object has its must attributes.");
             _MustRuleOBJ.setDerivedFrom("ClassRule");
@@ -144,12 +148,13 @@ public class DmvSchemaAG extends SchemaDefinition {
             _MustRule.setDefinedIn(this);
             addClassDefList(_MustRule);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _MayRuleOBJ = new ClassDefinitionDMO();
-            _MayRule = new ClassDefinition(_MayRuleOBJ);
+            _MayRule = new ClassDefinition(_MayRuleOBJ,DmvDMSAG.__MayRule);
             _MayRuleOBJ.setName("MayRule");
             _MayRuleOBJ.setDmdID("305");
             _MayRuleOBJ.setClassType("STRUCTURAL");
-            _MayRuleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
+            _MayRuleOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
             _MayRuleOBJ.setLineNumber("50");
             _MayRuleOBJ.setDescription("The MustRule verifies that an object has its must attributes.");
             _MayRuleOBJ.setDerivedFrom("ClassRule");
@@ -161,12 +166,13 @@ public class DmvSchemaAG extends SchemaDefinition {
             _MayRule.setDefinedIn(this);
             addClassDefList(_MayRule);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _IntegerRangeRuleOBJ = new ClassDefinitionDMO();
-            _IntegerRangeRule = new ClassDefinition(_IntegerRangeRuleOBJ);
+            _IntegerRangeRule = new ClassDefinition(_IntegerRangeRuleOBJ,DmvDMSAG.__IntegerRangeRule);
             _IntegerRangeRuleOBJ.setName("IntegerRangeRule");
             _IntegerRangeRuleOBJ.setDmdID("306");
             _IntegerRangeRuleOBJ.setClassType("STRUCTURAL");
-            _IntegerRangeRuleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
+            _IntegerRangeRuleOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/classes.dmd");
             _IntegerRangeRuleOBJ.setLineNumber("58");
             _IntegerRangeRuleOBJ.setDerivedFrom("AttributeRule");
             _IntegerRangeRuleOBJ.setUseWrapperType("EXTENDED");
@@ -180,6 +186,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     }
 
     private void initAttributes1() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _ruleTitleOBJ = new AttributeDefinitionDMO();
             _ruleTitle = new AttributeDefinition(_ruleTitleOBJ);
             _ruleTitleOBJ.setType("String");
@@ -187,10 +194,11 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ruleTitleOBJ.setDmdID("300");
             _ruleTitleOBJ.setDescription("The description title of a rule.");
             _ruleTitle.setDefinedIn(this);
-            _ruleTitleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _ruleTitleOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _ruleTitleOBJ.setLineNumber("6");
             addAttributeDefList(_ruleTitle);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _loadedFromOBJ = new AttributeDefinitionDMO();
             _loadedFrom = new AttributeDefinition(_loadedFromOBJ);
             _loadedFromOBJ.setType("String");
@@ -198,10 +206,11 @@ public class DmvSchemaAG extends SchemaDefinition {
             _loadedFromOBJ.setDmdID("301");
             _loadedFromOBJ.setDescription("The place from which a rule was loaded. This may be a file or an indication that the rule was instantiated and loaded internally.");
             _loadedFrom.setDefinedIn(this);
-            _loadedFromOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _loadedFromOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _loadedFromOBJ.setLineNumber("13");
             addAttributeDefList(_loadedFrom);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _applyToClassOBJ = new AttributeDefinitionDMO();
             _applyToClass = new AttributeDefinition(_applyToClassOBJ);
             _applyToClassOBJ.setType("ClassDefinition");
@@ -209,10 +218,11 @@ public class DmvSchemaAG extends SchemaDefinition {
             _applyToClassOBJ.setDmdID("302");
             _applyToClassOBJ.setDescription("A reference to the definition of an class to which a  rule should be applied.");
             _applyToClass.setDefinedIn(this);
-            _applyToClassOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _applyToClassOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _applyToClassOBJ.setLineNumber("20");
             addAttributeDefList(_applyToClass);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _applyToAttributeOBJ = new AttributeDefinitionDMO();
             _applyToAttribute = new AttributeDefinition(_applyToAttributeOBJ);
             _applyToAttributeOBJ.setType("AttributeDefinition");
@@ -220,7 +230,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _applyToAttributeOBJ.setDmdID("303");
             _applyToAttributeOBJ.setDescription("A reference to the definition of an attribute to which a  rule should be applied.");
             _applyToAttribute.setDefinedIn(this);
-            _applyToAttributeOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _applyToAttributeOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _applyToAttributeOBJ.setLineNumber("27");
             addAttributeDefList(_applyToAttribute);
 

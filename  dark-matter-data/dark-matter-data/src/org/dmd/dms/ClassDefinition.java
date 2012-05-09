@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
@@ -163,6 +164,9 @@ public class ClassDefinition extends ClassDefinitionDMW {
     private ArrayList<ClassDefinition> allImplementors;
         
     StringName nameKey;
+    
+    // This is initialized in the SchemaAG for a class so that we can easily access it
+    DmcClassInfo	classInfo;
 
     /**
      * Default constructor.
@@ -170,11 +174,27 @@ public class ClassDefinition extends ClassDefinitionDMW {
     public ClassDefinition(){
     	super(new ClassDefinitionDMO(),MetaSchemaAG._ClassDefinition);
     	init();
+    	classInfo = null;
     }
     
     public ClassDefinition(ClassDefinitionDMO obj){
     	super(obj);
     	init();
+    	classInfo = null;
+    }
+    
+    public ClassDefinition(ClassDefinitionDMO obj, DmcClassInfo dci){
+    	super(obj);
+    	init();
+    	classInfo = dci;
+    }
+    
+    /**
+     * @return the DmcClassInfo that was associated with this definition when it was constructed as
+     * part of the SchemaAG.
+     */
+    public DmcClassInfo getClassInfo(){
+    	return(classInfo);
     }
     
     /**

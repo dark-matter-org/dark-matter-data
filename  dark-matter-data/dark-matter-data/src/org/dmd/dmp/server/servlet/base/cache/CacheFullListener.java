@@ -1,5 +1,6 @@
 package org.dmd.dmp.server.servlet.base.cache;
 
+import org.dmd.dmc.DmcSliceInfo;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
 
 /**
@@ -9,8 +10,11 @@ import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
 public class CacheFullListener extends CacheListener {
 
 	public CacheFullListener(CacheRegistration reg, DmpEventHandlerIF eh) {
-		super(reg, eh);
-		// TODO Auto-generated constructor stub
+		super(reg, eh, null);
+	}
+
+	public CacheFullListener(CacheRegistration reg, DmpEventHandlerIF eh, DmcSliceInfo dsi) {
+		super(reg, eh, dsi);
 	}
 
 	@Override

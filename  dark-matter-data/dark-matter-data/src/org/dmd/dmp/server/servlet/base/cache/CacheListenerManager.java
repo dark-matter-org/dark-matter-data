@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmp.server.extended.DMPEvent;
+import org.dmd.dms.ClassDefinition;
 
 /**
  * The CacheListenerManager maintains collections of the various types of cache
@@ -42,8 +43,10 @@ public class CacheListenerManager {
 			else if (listener instanceof CacheIndexListener){
 				CacheIndexListener cil = (CacheIndexListener) listener;
 				IndexListenerSet set = indexListeners.get(cil.getClassInfo());
-				if (set == null)
+				if (set == null){
 					set = new IndexListenerSet(cil.getClassInfo());
+					indexListeners.put(cil.getClassInfo(), set);
+				}
 				set.add(cil);
 			}
 			
@@ -89,8 +92,10 @@ public class CacheListenerManager {
 			
 			listeners.addAll(fullListeners.getListeners());
 			
+			ClassDefinition cd = (ClassDefinition) event.getSourceObjectClass();
+			
 			// Index listeners
-			listenerSet = indexListeners.get(event.getSourceObjectClass().getConstructionClassInfo());
+			listenerSet = indexListeners.get(cd.getClassInfo());
 			if (listenerSet != null)
 				listeners.addAll(listenerSet.getListeners());
 			

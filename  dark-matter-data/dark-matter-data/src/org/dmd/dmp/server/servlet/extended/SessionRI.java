@@ -39,6 +39,7 @@ import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.base.cache.CacheRegistration;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpResponseHandlerIF;
+import org.dmd.dmp.server.servlet.base.interfaces.RequestTrackerIF;
 import org.dmd.dmp.server.servlet.generated.dmw.SessionRIDMW;
 
 import de.novanic.eventservice.client.event.domain.Domain;
@@ -76,6 +77,10 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	// The entity that coordinates our object retrieval
 	GetRequestProcessor			getRequestProcessor;
 	
+	// Our handle to the request tracker that provides asynchronous handling of 
+	// requests and their associated responses.
+	private	RequestTrackerIF	requestTracker;
+	
     private Logger              logger = LoggerFactory.getLogger(getClass());
 
     /**
@@ -90,9 +95,10 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 	 * Instantiates a new session against the specified cache.
 	 * @param c the cache.
 	 */
-	public SessionRI(CacheIF c){
-		cacheRegistration = c.register();
+	public SessionRI(CacheIF c, RequestTrackerIF rt){
+		cacheRegistration 	= c.register();
 		getRequestProcessor = new GetRequestProcessor(this, cacheRegistration);
+		requestTracker		= rt;
 	}
 	
 	/**
@@ -150,7 +156,7 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 		SetResponse rc = request.getResponse();
 		rc.setLastResponse(false);
 		
-		cacheRegistration.getCache().queueSetRequest(request);
+		requestTracker.processRequest(request, this);
 		
 		return(rc);
 	}
@@ -161,7 +167,9 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 		CreateResponse rc = request.getResponse();
 		rc.setLastResponse(false);
 		
-		cacheRegistration.getCache().queueCreateRequest(request);
+		requestTracker.processRequest(request, this);
+		
+		logger.debug("Sending synchronous response for CreateRequest: " + rc);
 		
 		return(rc);
 	}
@@ -172,7 +180,7 @@ public class SessionRI extends SessionRIDMW implements DmpResponseHandlerIF, Dmp
 		DeleteResponse rc = request.getResponse();
 		rc.setLastResponse(false);
 		
-		cacheRegistration.getCache().queueDeleteRequest(request);
+		requestTracker.processRequest(request, this);
 		
 		return(rc);
 	}
