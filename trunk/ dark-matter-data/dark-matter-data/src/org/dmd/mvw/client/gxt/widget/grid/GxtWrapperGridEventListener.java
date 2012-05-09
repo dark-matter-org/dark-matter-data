@@ -55,7 +55,7 @@ public class GxtWrapperGridEventListener implements Listener<ComponentEvent> {
 		if (type == Events.OnMouseDown){
 			
 			if (ge.getModel() == null){
-				System.out.println("On the background");
+//				System.out.println("On the background");
 				grid.setContextMenu(backgroundMenu);
 			}
 			else{

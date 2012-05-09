@@ -118,6 +118,7 @@ public class Event extends EventDMW {
 	 */
 	public void addImport(ImportManager im){
 		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName(), "Required by " + getEventName());
+		im.addImportsFrom(imports);
 //		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName() + "Handler", "Required by " + getEventName());
 	}
 	

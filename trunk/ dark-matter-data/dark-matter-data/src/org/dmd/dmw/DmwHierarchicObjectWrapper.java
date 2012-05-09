@@ -98,6 +98,17 @@ abstract public class DmwHierarchicObjectWrapper extends DmwNamedObjectWrapper {
 		return(existing.get());
 	}
 	
+	/**
+	 * Removes the specified subcomponent.
+	 * @param subcomp the subcomponent to be removed.
+	 */
+	public void removeSubcomponent(DmwHierarchicObjectWrapper subcomp){
+		if (childRefs == null)
+			throw(new IllegalStateException("Tried to remove a subcomponent from an object with no subcomponents."));
+		
+		childRefs.remove(subcomp.getObjectName());
+	}
+	
 	@SuppressWarnings("unchecked")
 	public <E extends DmwHierarchicObjectWrapper> E getChild(DmcHierarchicObjectName name){
 		synchronized(this){

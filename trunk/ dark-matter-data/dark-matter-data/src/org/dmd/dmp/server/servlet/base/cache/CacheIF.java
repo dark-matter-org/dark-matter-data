@@ -17,29 +17,22 @@ package org.dmd.dmp.server.servlet.base.cache;
 
 import java.io.PrintStream;
 import java.util.Collection;
-import java.util.Iterator;
 
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcNameResolverIF;
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
-import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmp.server.extended.CreateRequest;
-import org.dmd.dmp.server.extended.CreateResponse;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.DeleteRequest;
-import org.dmd.dmp.server.extended.DeleteResponse;
 import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.SetRequest;
-import org.dmd.dmp.server.extended.SetResponse;
-import org.dmd.dms.ClassDefinition;
 import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.dmd.util.exceptions.ResultException;
 
 /**
  * The CacheIF defines an entity that manages a collection of named Dark Matter Objects.
- * The cache provides notification of creates, deletes and modifications associated
+ * The cache provides notification of creations, deletions and modifications associated
  * with the objects it manages. Generally speaking, a cache implementation will
  * be run in a separate thread and change requests will be queued for servicing in
  * the order in which they arrive.
@@ -48,6 +41,12 @@ import org.dmd.util.exceptions.ResultException;
  * <ul>
  * <li> Direct access methods: these methods are used internally by plugins to directly
  * manipulate the contents of the cache.
+ * </li>
+ * <li> Asynchronous operation processing: these methods are used to queue requests 
+ * to be processed against the cache. 
+ * </li>
+ * <li> Listener support: these methods are used to add listeners against the cache and the operations
+ * being performed against it.
  * </li>
  * </ul>
  */
@@ -62,9 +61,9 @@ public interface CacheIF extends DmcNameResolverIF {
 	
 	/**
 	 * This method is used to add a new object to the cache during the initialization
-	 * phase of the plugins. The object is added to either flat name space or the hierarchic
+	 * phase of the plugins. The object is added to either a flat name space or the hierarchic
 	 * namespace, depending on whether the name is hierarchic or not.
-	 * @param obj
+	 * @param obj the object to be added.
 	 */
 	public void addObject(DmwNamedObjectWrapper obj) throws ResultException;
 	
