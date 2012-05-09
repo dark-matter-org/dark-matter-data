@@ -152,13 +152,9 @@ public class GetRequestProcessor implements DmpEventHandlerIF {
 					// to the cache of the appropriate type.
 					CacheListener listener = null;
 					
-					if (request.getSliceInfo() == null){
-						listener = new CacheIndexListener(cacheRegistration, this, dci);
-						logger.trace("Registered cache index listener with ID: " + listener.getListenerID());
-					}
-					else{
-						
-					}
+					listener = new CacheIndexListener(cacheRegistration, this, request.getSliceInfo(), dci);
+					logger.trace("Registered cache index listener with ID: " + listener.getListenerID());
+
 					listeners.put(listener.getListenerID(), listener);
 					response.setListenerID(listener.getListenerID());
 					objects = listener.activateAndRetrieve();

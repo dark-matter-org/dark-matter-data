@@ -170,7 +170,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             me.setName("mvw");
             me.setSchemaPackage("org.dmd.mvw.tools.mvwgenerator");
             me.setDmwPackage("org.dmd.mvw.tools.mvwgenerator");
-            me.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/mvw.dms");
+            me.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/mvw.dms");
 
 
             me.addDependsOn("dmg");
@@ -187,12 +187,13 @@ public class MvwSchemaAG extends SchemaDefinition {
     }
 
     private void initClasses() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _MvwDefinitionOBJ = new ClassDefinitionDMO();
-            _MvwDefinition = new ClassDefinition(_MvwDefinitionOBJ);
+            _MvwDefinition = new ClassDefinition(_MvwDefinitionOBJ,MvwDMSAG.__MvwDefinition);
             _MvwDefinitionOBJ.setName("MvwDefinition");
             _MvwDefinitionOBJ.setDmdID("801");
             _MvwDefinitionOBJ.setClassType("ABSTRACT");
-            _MvwDefinitionOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _MvwDefinitionOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _MvwDefinitionOBJ.setLineNumber("14");
             _MvwDefinitionOBJ.setDescription("The MvwDefinition class provide a common base for all MVW definition classes.");
             _MvwDefinitionOBJ.setIsNamedBy("camelCaseName");
@@ -208,12 +209,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MvwDefinition.setDefinedIn(this);
             addClassDefList(_MvwDefinition);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _EventOBJ = new ClassDefinitionDMO();
-            _Event = new ClassDefinition(_EventOBJ);
+            _Event = new ClassDefinition(_EventOBJ,MvwDMSAG.__Event);
             _EventOBJ.setName("Event");
             _EventOBJ.setDmdID("802");
             _EventOBJ.setClassType("STRUCTURAL");
-            _EventOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _EventOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _EventOBJ.setLineNumber("28");
             _EventOBJ.setDescription("The specification of an Event definition will result in the creation of a gwtEvent and its associated handler interface.");
             _EventOBJ.setDerivedFrom("MvwDefinition");
@@ -229,12 +231,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Event.setDefinedIn(this);
             addClassDefList(_Event);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _ModuleOBJ = new ClassDefinitionDMO();
-            _Module = new ClassDefinition(_ModuleOBJ);
+            _Module = new ClassDefinition(_ModuleOBJ,MvwDMSAG.__Module);
             _ModuleOBJ.setName("Module");
             _ModuleOBJ.setDmdID("803");
             _ModuleOBJ.setClassType("STRUCTURAL");
-            _ModuleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _ModuleOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _ModuleOBJ.setLineNumber("70");
             _ModuleOBJ.setDescription("The Module is used to define a reusable set of MVW functionality which can be referred to in Application definitions or other Module definitions.");
             _ModuleOBJ.setDerivedFrom("MvwDefinition");
@@ -251,12 +254,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Module.setDefinedIn(this);
             addClassDefList(_Module);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _ViewOBJ = new ClassDefinitionDMO();
-            _View = new ClassDefinition(_ViewOBJ);
+            _View = new ClassDefinition(_ViewOBJ,MvwDMSAG.__View);
             _ViewOBJ.setName("View");
             _ViewOBJ.setDmdID("804");
             _ViewOBJ.setClassType("STRUCTURAL");
-            _ViewOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _ViewOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _ViewOBJ.setLineNumber("105");
             _ViewOBJ.setDescription("The View is used to define the aspects of two kinds of interfaces that define the functionality provided by a view of a model; the event interface and the  data interface.");
             _ViewOBJ.setDerivedFrom("MvwDefinition");
@@ -288,12 +292,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _View.setDefinedIn(this);
             addClassDefList(_View);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _ComponentOBJ = new ClassDefinitionDMO();
-            _Component = new ClassDefinition(_ComponentOBJ);
+            _Component = new ClassDefinition(_ComponentOBJ,MvwDMSAG.__Component);
             _ComponentOBJ.setName("Component");
             _ComponentOBJ.setDmdID("805");
             _ComponentOBJ.setClassType("ABSTRACT");
-            _ComponentOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _ComponentOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _ComponentOBJ.setLineNumber("144");
             _ComponentOBJ.setDescription("The Component is an abstract base for classes that define the building blocks of Applications. The primary feature of an Component is that it fires and/or handles events. Beyond that, a component can be whatever you require it to be. A variety of derived component types provide more focussed behavioural units. <p /> Many of the classes generated by MVW must be extended in order to provide the actual behaviour of your application e.g. Controllers, Views, Presenters etc. Activities must also be extended to provide your behaviour, however, Activities are also referred to by generated code and must be in a known location. By default, the classes that extend the generated activity class will reside in the 'extended' package that lies beneath the genPackage specified for your module i.e. if your gen package is com.mine, then the  derived activity classes are expected to be in com.mine.extended. If you want to place these classes in a subpackage beneath extended, use the subpackage attribute to indicate the package name e.g. if subpackage is defined as 'activities', your activity implementation class will be expected to reside in com.mine.extended.activities.");
             _ComponentOBJ.setDerivedFrom("MvwDefinition");
@@ -314,12 +319,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Component.setDefinedIn(this);
             addClassDefList(_Component);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _ControllerOBJ = new ClassDefinitionDMO();
-            _Controller = new ClassDefinition(_ControllerOBJ);
+            _Controller = new ClassDefinition(_ControllerOBJ,MvwDMSAG.__Controller);
             _ControllerOBJ.setName("Controller");
             _ControllerOBJ.setDmdID("806");
             _ControllerOBJ.setClassType("STRUCTURAL");
-            _ControllerOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _ControllerOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _ControllerOBJ.setLineNumber("177");
             _ControllerOBJ.setDescription("The Controller represents a behavioural component that lives throughout the entire lifecycle of an WebApplication or WebSite. Generally, it manages the Presenters and Views that are displayed, but may also provide behind the scenes management of things like communications, security, menu structure etc. Controllers do not implement Presenter interfaces i.e. they do not interact directly with Views; that is the role of Presenters. <p /> Because of their implied lifetime, Controllers are made part of the overall RunContext for an application and are constructed during initialization of the application. There is no need to instantiate Controllers separately. The RunContextItem created for a controller has the same name as the Controller itself with RCI appended. You may specify an itemOrder for the Controller to control when it is instantiated in the RunContext; use this option only if you know what you're doing! The default itemOrder is 50, most base related functionality starts in itemOrder 20 or lower. <p /> Controllers should not communicate with other Controllers directly; this type of communication should be performed using events. So, although it is possible to get the handle to another Controller via the RunContext, it is discouraged. <p />");
             _ControllerOBJ.setDerivedFrom("Component");
@@ -338,12 +344,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Controller.setDefinedIn(this);
             addClassDefList(_Controller);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _PresenterOBJ = new ClassDefinitionDMO();
-            _Presenter = new ClassDefinition(_PresenterOBJ);
+            _Presenter = new ClassDefinition(_PresenterOBJ,MvwDMSAG.__Presenter);
             _PresenterOBJ.setName("Presenter");
             _PresenterOBJ.setDmdID("807");
             _PresenterOBJ.setClassType("STRUCTURAL");
-            _PresenterOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _PresenterOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _PresenterOBJ.setLineNumber("195");
             _PresenterOBJ.setDescription("The Presenter is a behavioural component that manages one or more Views and thus implements the Presenter interface of any View it manages. Presenters populate and potentially update Views with data. This will often involve interacting with the communications interface(s) associated with an application. If a View allows the creation or alteration of data, those behaviours are usually handled directly by the View's Presenter.");
             _PresenterOBJ.setDerivedFrom("Component");
@@ -359,12 +366,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Presenter.setDefinedIn(this);
             addClassDefList(_Presenter);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _PlaceOBJ = new ClassDefinitionDMO();
-            _Place = new ClassDefinition(_PlaceOBJ);
+            _Place = new ClassDefinition(_PlaceOBJ,MvwDMSAG.__Place);
             _PlaceOBJ.setName("Place");
             _PlaceOBJ.setDmdID("808");
             _PlaceOBJ.setClassType("STRUCTURAL");
-            _PlaceOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _PlaceOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _PlaceOBJ.setLineNumber("216");
             _PlaceOBJ.setDerivedFrom("MvwDefinition");
             _PlaceOBJ.setIsNamedBy("placeName");
@@ -378,12 +386,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Place.setDefinedIn(this);
             addClassDefList(_Place);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _SubPlaceOBJ = new ClassDefinitionDMO();
-            _SubPlace = new ClassDefinition(_SubPlaceOBJ);
+            _SubPlace = new ClassDefinition(_SubPlaceOBJ,MvwDMSAG.__SubPlace);
             _SubPlaceOBJ.setName("SubPlace");
             _SubPlaceOBJ.setDmdID("809");
             _SubPlaceOBJ.setClassType("STRUCTURAL");
-            _SubPlaceOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _SubPlaceOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _SubPlaceOBJ.setLineNumber("227");
             _SubPlaceOBJ.setDerivedFrom("Place");
             _SubPlaceOBJ.setIsNamedBy("placeName");
@@ -397,12 +406,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SubPlace.setDefinedIn(this);
             addClassDefList(_SubPlace);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _ActivityOBJ = new ClassDefinitionDMO();
-            _Activity = new ClassDefinition(_ActivityOBJ);
+            _Activity = new ClassDefinition(_ActivityOBJ,MvwDMSAG.__Activity);
             _ActivityOBJ.setName("Activity");
             _ActivityOBJ.setDmdID("810");
             _ActivityOBJ.setClassType("STRUCTURAL");
-            _ActivityOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _ActivityOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _ActivityOBJ.setLineNumber("253");
             _ActivityOBJ.setDescription("If you are making use of Places, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <p /> Activities are meant to be short-lived, disposable entities that run in a particular Place. However, if you are building an application, it may be that you have a single Place and that all behaviour takes place within the guise of a single Activity. <p /> If the Activity manages a view, it will be generated as implementing the View's  presenter interface.");
             _ActivityOBJ.setDerivedFrom("Component");
@@ -420,12 +430,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Activity.setDefinedIn(this);
             addClassDefList(_Activity);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _RunContextItemOBJ = new ClassDefinitionDMO();
-            _RunContextItem = new ClassDefinition(_RunContextItemOBJ);
+            _RunContextItem = new ClassDefinition(_RunContextItemOBJ,MvwDMSAG.__RunContextItem);
             _RunContextItemOBJ.setName("RunContextItem");
             _RunContextItemOBJ.setDmdID("811");
             _RunContextItemOBJ.setClassType("STRUCTURAL");
-            _RunContextItemOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _RunContextItemOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _RunContextItemOBJ.setLineNumber("273");
             _RunContextItemOBJ.setDescription("The RunContextItem allows for the generation of an overall RunContext for a WebApplication or WebSite.");
             _RunContextItemOBJ.setDerivedFrom("MvwDefinition");
@@ -446,12 +457,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RunContextItem.setDefinedIn(this);
             addClassDefList(_RunContextItem);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _WebApplicationOBJ = new ClassDefinitionDMO();
-            _WebApplication = new ClassDefinition(_WebApplicationOBJ);
+            _WebApplication = new ClassDefinition(_WebApplicationOBJ,MvwDMSAG.__WebApplication);
             _WebApplicationOBJ.setName("WebApplication");
             _WebApplicationOBJ.setDmdID("812");
             _WebApplicationOBJ.setClassType("STRUCTURAL");
-            _WebApplicationOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _WebApplicationOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _WebApplicationOBJ.setLineNumber("287");
             _WebApplicationOBJ.setDescription("The WebApplication definition allows for the definition of the superstructure for an application, basically it's the definition of the overall application controller.");
             _WebApplicationOBJ.setDerivedFrom("MvwDefinition");
@@ -467,12 +479,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _WebApplication.setDefinedIn(this);
             addClassDefList(_WebApplication);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _I18NConfigOBJ = new ClassDefinitionDMO();
-            _I18NConfig = new ClassDefinition(_I18NConfigOBJ);
+            _I18NConfig = new ClassDefinition(_I18NConfigOBJ,MvwDMSAG.__I18NConfig);
             _I18NConfigOBJ.setName("I18NConfig");
             _I18NConfigOBJ.setDmdID("814");
             _I18NConfigOBJ.setClassType("STRUCTURAL");
-            _I18NConfigOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _I18NConfigOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _I18NConfigOBJ.setLineNumber("298");
             _I18NConfigOBJ.setDescription("The I18NConfig is a specialized RunContextItem that indicates an interface class used to access internationalized constants or messages.");
             _I18NConfigOBJ.setDerivedFrom("RunContextItem");
@@ -485,12 +498,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _I18NConfig.setDefinedIn(this);
             addClassDefList(_I18NConfig);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _MenuImplementationConfigOBJ = new ClassDefinitionDMO();
-            _MenuImplementationConfig = new ClassDefinition(_MenuImplementationConfigOBJ);
+            _MenuImplementationConfig = new ClassDefinition(_MenuImplementationConfigOBJ,MvwDMSAG.__MenuImplementationConfig);
             _MenuImplementationConfigOBJ.setName("MenuImplementationConfig");
             _MenuImplementationConfigOBJ.setDmdID("815");
             _MenuImplementationConfigOBJ.setClassType("STRUCTURAL");
-            _MenuImplementationConfigOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _MenuImplementationConfigOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _MenuImplementationConfigOBJ.setLineNumber("321");
             _MenuImplementationConfigOBJ.setDescription("The MenuImplementationConfig is used to define the various classes that will  be used to implement an actual menu structure based the MVW menu definitions. <p /> The class specified by useClass must be derived from org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory and have a zero arg constructor.");
             _MenuImplementationConfigOBJ.setDerivedFrom("MvwDefinition");
@@ -512,12 +526,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuImplementationConfig.setDefinedIn(this);
             addClassDefList(_MenuImplementationConfig);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _MenuElementDefinitionOBJ = new ClassDefinitionDMO();
-            _MenuElementDefinition = new ClassDefinition(_MenuElementDefinitionOBJ);
+            _MenuElementDefinition = new ClassDefinition(_MenuElementDefinitionOBJ,MvwDMSAG.__MenuElementDefinition);
             _MenuElementDefinitionOBJ.setName("MenuElementDefinition");
             _MenuElementDefinitionOBJ.setDmdID("816");
             _MenuElementDefinitionOBJ.setClassType("STRUCTURAL");
-            _MenuElementDefinitionOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _MenuElementDefinitionOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _MenuElementDefinitionOBJ.setLineNumber("333");
             _MenuElementDefinitionOBJ.setDescription("The MenuElementDefinition is common base for all definitions associated with the definition of menu elements.");
             _MenuElementDefinitionOBJ.setDerivedFrom("MvwDefinition");
@@ -531,12 +546,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuElementDefinition.setDefinedIn(this);
             addClassDefList(_MenuElementDefinition);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _MenuOBJ = new ClassDefinitionDMO();
-            _Menu = new ClassDefinition(_MenuOBJ);
+            _Menu = new ClassDefinition(_MenuOBJ,MvwDMSAG.__Menu);
             _MenuOBJ.setName("Menu");
             _MenuOBJ.setDmdID("817");
             _MenuOBJ.setClassType("ABSTRACT");
-            _MenuOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _MenuOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _MenuOBJ.setLineNumber("345");
             _MenuOBJ.setDescription("The Menu is a common base for all definitions associated with the definition of menus of different types e.g. toolbars, menubars, popups etc.");
             _MenuOBJ.setDerivedFrom("MenuElementDefinition");
@@ -550,12 +566,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Menu.setDefinedIn(this);
             addClassDefList(_Menu);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _MenuBarOBJ = new ClassDefinitionDMO();
-            _MenuBar = new ClassDefinition(_MenuBarOBJ);
+            _MenuBar = new ClassDefinition(_MenuBarOBJ,MvwDMSAG.__MenuBar);
             _MenuBarOBJ.setName("MenuBar");
             _MenuBarOBJ.setDmdID("818");
             _MenuBarOBJ.setClassType("STRUCTURAL");
-            _MenuBarOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _MenuBarOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _MenuBarOBJ.setLineNumber("357");
             _MenuBarOBJ.setDescription("The MenuImplementationConfig is used to define the various classes that will");
             _MenuBarOBJ.setDerivedFrom("Menu");
@@ -570,12 +587,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuBar.setDefinedIn(this);
             addClassDefList(_MenuBar);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _SubMenuOBJ = new ClassDefinitionDMO();
-            _SubMenu = new ClassDefinition(_SubMenuOBJ);
+            _SubMenu = new ClassDefinition(_SubMenuOBJ,MvwDMSAG.__SubMenu);
             _SubMenuOBJ.setName("SubMenu");
             _SubMenuOBJ.setDmdID("819");
             _SubMenuOBJ.setClassType("STRUCTURAL");
-            _SubMenuOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _SubMenuOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _SubMenuOBJ.setLineNumber("373");
             _SubMenuOBJ.setDescription("The SubMenu is used to define a submenu that is included as part of a Menu.");
             _SubMenuOBJ.setDerivedFrom("Menu");
@@ -594,12 +612,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SubMenu.setDefinedIn(this);
             addClassDefList(_SubMenu);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _MenuItemOBJ = new ClassDefinitionDMO();
-            _MenuItem = new ClassDefinition(_MenuItemOBJ);
+            _MenuItem = new ClassDefinition(_MenuItemOBJ,MvwDMSAG.__MenuItem);
             _MenuItemOBJ.setName("MenuItem");
             _MenuItemOBJ.setDmdID("820");
             _MenuItemOBJ.setClassType("STRUCTURAL");
-            _MenuItemOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _MenuItemOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _MenuItemOBJ.setLineNumber("392");
             _MenuItemOBJ.setDescription("The MenuItem is used to define triggerable menu items. You must specify either a displayLabel or a displayLabelI18N to indicate the label to be used for the menu item.");
             _MenuItemOBJ.setDerivedFrom("MenuElementDefinition");
@@ -619,12 +638,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MenuItem.setDefinedIn(this);
             addClassDefList(_MenuItem);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _SeparatorOBJ = new ClassDefinitionDMO();
-            _Separator = new ClassDefinition(_SeparatorOBJ);
+            _Separator = new ClassDefinition(_SeparatorOBJ,MvwDMSAG.__Separator);
             _SeparatorOBJ.setName("Separator");
             _SeparatorOBJ.setDmdID("821");
             _SeparatorOBJ.setClassType("STRUCTURAL");
-            _SeparatorOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _SeparatorOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _SeparatorOBJ.setLineNumber("406");
             _SeparatorOBJ.setDescription("The Separator is used to define menu separators.");
             _SeparatorOBJ.setDerivedFrom("MenuElementDefinition");
@@ -641,12 +661,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _Separator.setDefinedIn(this);
             addClassDefList(_Separator);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _ActionBindingOBJ = new ClassDefinitionDMO();
-            _ActionBinding = new ClassDefinition(_ActionBindingOBJ);
+            _ActionBinding = new ClassDefinition(_ActionBindingOBJ,MvwDMSAG.__ActionBinding);
             _ActionBindingOBJ.setName("ActionBinding");
             _ActionBindingOBJ.setDmdID("822");
             _ActionBindingOBJ.setClassType("STRUCTURAL");
-            _ActionBindingOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _ActionBindingOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _ActionBindingOBJ.setLineNumber("424");
             _ActionBindingOBJ.setDescription("The ActionBinding class allows for the definition of an intermediate component that binds behavioural triggers e.g. menu items, toolbar buttons etc. to action implementors e.g. Controllers, Presenters and Activities. The ActionBinding serves the same purpose as the com.google.gwt.user.client.Command interface, but provides some additional useful functionality. The implementation of the ActionBinding (see org.dmd.mvw.client.mvwmenus.base.ActionBinding) maintains a set of TriggerIF interfaces, which are the various implementations of the menu items, toolbar buttons etc. An implementing component can enable/disable its Actions which, in turn, can enable/disable its triggers.");
             _ActionBindingOBJ.setDerivedFrom("MvwDefinition");
@@ -661,12 +682,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _ActionBinding.setDefinedIn(this);
             addClassDefList(_ActionBinding);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _FormBindingDefinitionOBJ = new ClassDefinitionDMO();
-            _FormBindingDefinition = new ClassDefinition(_FormBindingDefinitionOBJ);
+            _FormBindingDefinition = new ClassDefinition(_FormBindingDefinitionOBJ,MvwDMSAG.__FormBindingDefinition);
             _FormBindingDefinitionOBJ.setName("FormBindingDefinition");
             _FormBindingDefinitionOBJ.setDmdID("823");
             _FormBindingDefinitionOBJ.setClassType("STRUCTURAL");
-            _FormBindingDefinitionOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _FormBindingDefinitionOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _FormBindingDefinitionOBJ.setLineNumber("441");
             _FormBindingDefinitionOBJ.setDescription("The FormBinding class allows for the definition of bindings between DMO attributes and the editors that will be used to display and edit their values.");
             _FormBindingDefinitionOBJ.setDerivedFrom("MvwDefinition");
@@ -685,12 +707,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _FormBindingDefinition.setDefinedIn(this);
             addClassDefList(_FormBindingDefinition);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _FieldEditorDefinitionOBJ = new ClassDefinitionDMO();
-            _FieldEditorDefinition = new ClassDefinition(_FieldEditorDefinitionOBJ);
+            _FieldEditorDefinition = new ClassDefinition(_FieldEditorDefinitionOBJ,MvwDMSAG.__FieldEditorDefinition);
             _FieldEditorDefinitionOBJ.setName("FieldEditorDefinition");
             _FieldEditorDefinitionOBJ.setDmdID("824");
             _FieldEditorDefinitionOBJ.setClassType("STRUCTURAL");
-            _FieldEditorDefinitionOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _FieldEditorDefinitionOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _FieldEditorDefinitionOBJ.setLineNumber("462");
             _FieldEditorDefinitionOBJ.setDescription("The FieldEditor class allows for the definition of implementation specific field editors. The specified class must implement the org.dmd.dmc.DmcPresentationIF interface so that it can be initialized by the FormBinder that is generated for each FormBindingDefinition instance and so that it can interact with the AttributeTracker and the SetRequestGenerator. <p/> When dealing with indexed attributes, the default behaviour is to create a form binding with an editor instance for each index slot. However, in some cases, you want to use a single complex editor that handles the attribute. By setting useSingleEditor to true, the form binding will contain a single editor for an indexed attribute.");
             _FieldEditorDefinitionOBJ.setDerivedFrom("MvwDefinition");
@@ -706,12 +729,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _FieldEditorDefinition.setDefinedIn(this);
             addClassDefList(_FieldEditorDefinition);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _FormImplementationConfigOBJ = new ClassDefinitionDMO();
-            _FormImplementationConfig = new ClassDefinition(_FormImplementationConfigOBJ);
+            _FormImplementationConfig = new ClassDefinition(_FormImplementationConfigOBJ,MvwDMSAG.__FormImplementationConfig);
             _FormImplementationConfigOBJ.setName("FormImplementationConfig");
             _FormImplementationConfigOBJ.setDmdID("825");
             _FormImplementationConfigOBJ.setClassType("STRUCTURAL");
-            _FormImplementationConfigOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _FormImplementationConfigOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _FormImplementationConfigOBJ.setLineNumber("474");
             _FormImplementationConfigOBJ.setDescription("The");
             _FormImplementationConfigOBJ.setDerivedFrom("MvwDefinition");
@@ -725,12 +749,13 @@ public class MvwSchemaAG extends SchemaDefinition {
             _FormImplementationConfig.setDefinedIn(this);
             addClassDefList(_FormImplementationConfig);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _GxtEnumMappingOBJ = new ClassDefinitionDMO();
-            _GxtEnumMapping = new ClassDefinition(_GxtEnumMappingOBJ);
+            _GxtEnumMapping = new ClassDefinition(_GxtEnumMappingOBJ,MvwDMSAG.__GxtEnumMapping);
             _GxtEnumMappingOBJ.setName("GxtEnumMapping");
             _GxtEnumMappingOBJ.setDmdID("826");
             _GxtEnumMappingOBJ.setClassType("STRUCTURAL");
-            _GxtEnumMappingOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
+            _GxtEnumMappingOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/classes.dmd");
             _GxtEnumMappingOBJ.setLineNumber("496");
             _GxtEnumMappingOBJ.setDescription("The GxtEnumMapping class allows for generation of a set of static data instances that represent the values from the specified enumeration (type). NOTE: this mechanism is only  useful if you are using the Sencha's GXT widget set. <p /> Enum values are comprised of an integer, a name, a description and optionally, a label as follows - int name description : label. If you specify useNameAsLabel, the uppercase name value of the enum is used to display the value of the. If useNameAsLabel is not specified, the label will be used if it has been specified. Otherwise, the description is used.");
             _GxtEnumMappingOBJ.setDerivedFrom("MvwDefinition");
@@ -751,6 +776,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     }
 
     private void initAttributes1() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _definedInModuleOBJ = new AttributeDefinitionDMO();
             _definedInModule = new AttributeDefinition(_definedInModuleOBJ);
             _definedInModuleOBJ.setType("Module");
@@ -758,10 +784,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _definedInModuleOBJ.setDmdID("800");
             _definedInModuleOBJ.setDescription("All MvwDefinitions are defined in an Module file that ends with a .mvw extension.");
             _definedInModule.setDefinedIn(this);
-            _definedInModuleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _definedInModuleOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _definedInModuleOBJ.setLineNumber("7");
             addAttributeDefList(_definedInModule);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _firesEventOBJ = new AttributeDefinitionDMO();
             _firesEvent = new AttributeDefinition(_firesEventOBJ);
             _firesEventOBJ.setType("Event");
@@ -770,10 +797,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _firesEventOBJ.setDescription("Indicates the MvwEvents that are fired by various MVW components.");
             _firesEventOBJ.setValueType("TREEMAPPED");
             _firesEvent.setDefinedIn(this);
-            _firesEventOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _firesEventOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _firesEventOBJ.setLineNumber("14");
             addAttributeDefList(_firesEvent);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _handlesEventOBJ = new AttributeDefinitionDMO();
             _handlesEvent = new AttributeDefinition(_handlesEventOBJ);
             _handlesEventOBJ.setType("Event");
@@ -782,10 +810,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _handlesEventOBJ.setDescription("This attributes holds a list of MvwEvents that are handled by various MVW components.");
             _handlesEventOBJ.setValueType("TREEMAPPED");
             _handlesEvent.setDefinedIn(this);
-            _handlesEventOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _handlesEventOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _handlesEventOBJ.setLineNumber("22");
             addAttributeDefList(_handlesEvent);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _argVectorOBJ = new AttributeDefinitionDMO();
             _argVector = new AttributeDefinition(_argVectorOBJ);
             _argVectorOBJ.setType("String");
@@ -794,10 +823,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _argVectorOBJ.setDescription("Indicates an argument vector for an event or interface.");
             _argVectorOBJ.setNullReturnValue("()");
             _argVector.setDefinedIn(this);
-            _argVectorOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _argVectorOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _argVectorOBJ.setLineNumber("41");
             addAttributeDefList(_argVector);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _userDataImportOBJ = new AttributeDefinitionDMO();
             _userDataImport = new AttributeDefinition(_userDataImportOBJ);
             _userDataImportOBJ.setType("String");
@@ -806,10 +836,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _userDataImportOBJ.setDescription("The additionalImport attribute indicates the fully qualified class names of types that are required to support your userDataType indications. You need not explicitly indicate Java native types such as String, Integer etc. but you will have to specify things like java.util.TreeMap.");
             _userDataImportOBJ.setValueType("TREESET");
             _userDataImport.setDefinedIn(this);
-            _userDataImportOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _userDataImportOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _userDataImportOBJ.setLineNumber("51");
             addAttributeDefList(_userDataImport);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _dependsOnModuleOBJ = new AttributeDefinitionDMO();
             _dependsOnModule = new AttributeDefinition(_dependsOnModuleOBJ);
             _dependsOnModuleOBJ.setType("String");
@@ -818,10 +849,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _dependsOnModuleOBJ.setDescription("This attribute allows a Module to refer to other Modules on which it depends.");
             _dependsOnModuleOBJ.setValueType("TREESET");
             _dependsOnModule.setDefinedIn(this);
-            _dependsOnModuleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _dependsOnModuleOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _dependsOnModuleOBJ.setLineNumber("59");
             addAttributeDefList(_dependsOnModule);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _selectedDMOOBJ = new AttributeDefinitionDMO();
             _selectedDMO = new AttributeDefinition(_selectedDMOOBJ);
             _selectedDMOOBJ.setType("ClassDefinition");
@@ -829,10 +861,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _selectedDMOOBJ.setDmdID("806");
             _selectedDMOOBJ.setDescription("This attribute indicates the class of DMO that is selected by a  SingleDMOSelectedEvent.");
             _selectedDMO.setDefinedIn(this);
-            _selectedDMOOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _selectedDMOOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _selectedDMOOBJ.setLineNumber("66");
             addAttributeDefList(_selectedDMO);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _useBaseClassOBJ = new AttributeDefinitionDMO();
             _useBaseClass = new AttributeDefinition(_useBaseClassOBJ);
             _useBaseClassOBJ.setType("String");
@@ -840,10 +873,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useBaseClassOBJ.setDmdID("807");
             _useBaseClassOBJ.setDescription("The useBaseClass attribute is used to specify the class from which a generated component class should be derived. It should be fully qualified name of a class.");
             _useBaseClass.setDefinedIn(this);
-            _useBaseClassOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useBaseClassOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useBaseClassOBJ.setLineNumber("74");
             addAttributeDefList(_useBaseClass);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _eventNameOBJ = new AttributeDefinitionDMO();
             _eventName = new AttributeDefinition(_eventNameOBJ);
             _eventNameOBJ.setType("CamelCaseName");
@@ -851,10 +885,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _eventNameOBJ.setDmdID("809");
             _eventNameOBJ.setDescription("The name of an event.");
             _eventName.setDefinedIn(this);
-            _eventNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _eventNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _eventNameOBJ.setLineNumber("88");
             addAttributeDefList(_eventName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _moduleNameOBJ = new AttributeDefinitionDMO();
             _moduleName = new AttributeDefinition(_moduleNameOBJ);
             _moduleNameOBJ.setType("CamelCaseName");
@@ -862,10 +897,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _moduleNameOBJ.setDmdID("810");
             _moduleNameOBJ.setDescription("The name of a module.");
             _moduleName.setDefinedIn(this);
-            _moduleNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _moduleNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _moduleNameOBJ.setLineNumber("94");
             addAttributeDefList(_moduleName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _componentNameOBJ = new AttributeDefinitionDMO();
             _componentName = new AttributeDefinition(_componentNameOBJ);
             _componentNameOBJ.setType("CamelCaseName");
@@ -873,10 +909,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _componentNameOBJ.setDmdID("811");
             _componentNameOBJ.setDescription("The name of a component.");
             _componentName.setDefinedIn(this);
-            _componentNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _componentNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _componentNameOBJ.setLineNumber("100");
             addAttributeDefList(_componentName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _viewNameOBJ = new AttributeDefinitionDMO();
             _viewName = new AttributeDefinition(_viewNameOBJ);
             _viewNameOBJ.setType("CamelCaseName");
@@ -884,10 +921,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _viewNameOBJ.setDmdID("812");
             _viewNameOBJ.setDescription("The name of a View.");
             _viewName.setDefinedIn(this);
-            _viewNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _viewNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _viewNameOBJ.setLineNumber("106");
             addAttributeDefList(_viewName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _widgetOBJ = new AttributeDefinitionDMO();
             _widget = new AttributeDefinition(_widgetOBJ);
             _widgetOBJ.setType("Boolean");
@@ -896,10 +934,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _widgetOBJ.setDescription("Indicates if a View interface extends IsWidget. This defaults to true because most of our views will be displayed in a manner where implementing IsWidget is useful.");
             _widgetOBJ.setNullReturnValue("true");
             _widget.setDefinedIn(this);
-            _widgetOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _widgetOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _widgetOBJ.setLineNumber("114");
             addAttributeDefList(_widget);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _localEventOBJ = new AttributeDefinitionDMO();
             _localEvent = new AttributeDefinition(_localEventOBJ);
             _localEventOBJ.setType("EventWithArgs");
@@ -907,10 +946,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _localEventOBJ.setDmdID("814");
             _localEventOBJ.setDescription("Indicates a local event name. An example would be localEvent deleteButtonClicked,  which would result in a method named onDeleteButtonClicked() to be created for the Presenter interface. <P> If there are arguments associated with the event, use the form: deleteButtonClicked (ContactDMO contact)");
             _localEvent.setDefinedIn(this);
-            _localEventOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _localEventOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _localEventOBJ.setLineNumber("123");
             addAttributeDefList(_localEvent);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _displayDMOOBJ = new AttributeDefinitionDMO();
             _displayDMO = new AttributeDefinition(_displayDMOOBJ);
             _displayDMOOBJ.setType("DisplayDataSpec");
@@ -919,10 +959,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _displayDMOOBJ.setDescription("Indicates data to be displayed in a View. The attributes takes the form Class SINGLE|MULTI varname.");
             _displayDMOOBJ.setValueType("MULTI");
             _displayDMO.setDefinedIn(this);
-            _displayDMOOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _displayDMOOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _displayDMOOBJ.setLineNumber("137");
             addAttributeDefList(_displayDMO);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _selectEventOBJ = new AttributeDefinitionDMO();
             _selectEvent = new AttributeDefinition(_selectEventOBJ);
             _selectEventOBJ.setType("EventSpec");
@@ -931,10 +972,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _selectEventOBJ.setDescription("Indicates type of events to be generated when data is selected.");
             _selectEventOBJ.setValueType("MULTI");
             _selectEvent.setDefinedIn(this);
-            _selectEventOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _selectEventOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _selectEventOBJ.setLineNumber("144");
             addAttributeDefList(_selectEvent);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _deleteEventOBJ = new AttributeDefinitionDMO();
             _deleteEvent = new AttributeDefinition(_deleteEventOBJ);
             _deleteEventOBJ.setType("EventSpec");
@@ -943,10 +985,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _deleteEventOBJ.setDescription("Indicates type of events to be generated when data is deleted.");
             _deleteEventOBJ.setValueType("MULTI");
             _deleteEvent.setDefinedIn(this);
-            _deleteEventOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _deleteEventOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _deleteEventOBJ.setLineNumber("151");
             addAttributeDefList(_deleteEvent);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _clickEventOBJ = new AttributeDefinitionDMO();
             _clickEvent = new AttributeDefinition(_clickEventOBJ);
             _clickEventOBJ.setType("OperationSpec");
@@ -955,10 +998,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _clickEventOBJ.setDescription("Indicates type of event to be generated when an object is clicked.");
             _clickEventOBJ.setValueType("MULTI");
             _clickEvent.setDefinedIn(this);
-            _clickEventOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _clickEventOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _clickEventOBJ.setLineNumber("158");
             addAttributeDefList(_clickEvent);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _modifyEventOBJ = new AttributeDefinitionDMO();
             _modifyEvent = new AttributeDefinition(_modifyEventOBJ);
             _modifyEventOBJ.setType("OperationSpec");
@@ -966,10 +1010,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _modifyEventOBJ.setDmdID("820");
             _modifyEventOBJ.setDescription("Indicates type of event to be generated when an object is modified.");
             _modifyEvent.setDefinedIn(this);
-            _modifyEventOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _modifyEventOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _modifyEventOBJ.setLineNumber("164");
             addAttributeDefList(_modifyEvent);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _createEventOBJ = new AttributeDefinitionDMO();
             _createEvent = new AttributeDefinition(_createEventOBJ);
             _createEventOBJ.setType("OperationSpec");
@@ -977,10 +1022,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _createEventOBJ.setDmdID("821");
             _createEventOBJ.setDescription("Indicates type of event to be generated when an object is created.");
             _createEvent.setDefinedIn(this);
-            _createEventOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _createEventOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _createEventOBJ.setLineNumber("170");
             addAttributeDefList(_createEvent);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _broadcastOBJ = new AttributeDefinitionDMO();
             _broadcast = new AttributeDefinition(_broadcastOBJ);
             _broadcastOBJ.setType("Event");
@@ -989,10 +1035,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _broadcastOBJ.setDescription("Indicates an event that a View will first call on its Presenter interface and then broadcast on the event bus.");
             _broadcastOBJ.setValueType("MULTI");
             _broadcast.setDefinedIn(this);
-            _broadcastOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _broadcastOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _broadcastOBJ.setLineNumber("178");
             addAttributeDefList(_broadcast);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _broadcastOnlyOBJ = new AttributeDefinitionDMO();
             _broadcastOnly = new AttributeDefinition(_broadcastOnlyOBJ);
             _broadcastOnlyOBJ.setType("Event");
@@ -1001,10 +1048,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _broadcastOnlyOBJ.setDescription("Indicates an event tha a View will broadcast only on the event bus; it is not  sent to its presenter.");
             _broadcastOnlyOBJ.setValueType("MULTI");
             _broadcastOnly.setDefinedIn(this);
-            _broadcastOnlyOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _broadcastOnlyOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _broadcastOnlyOBJ.setLineNumber("187");
             addAttributeDefList(_broadcastOnly);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _presenterMethodOBJ = new AttributeDefinitionDMO();
             _presenterMethod = new AttributeDefinition(_presenterMethodOBJ);
             _presenterMethodOBJ.setType("MethodWithArgs");
@@ -1013,10 +1061,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _presenterMethodOBJ.setDescription("Indicates a local function name (on the Presenter), optionally followed by an argument vector and, if required fully qualified class names.");
             _presenterMethodOBJ.setValueType("MULTI");
             _presenterMethod.setDefinedIn(this);
-            _presenterMethodOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _presenterMethodOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _presenterMethodOBJ.setLineNumber("195");
             addAttributeDefList(_presenterMethod);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _viewMethodOBJ = new AttributeDefinitionDMO();
             _viewMethod = new AttributeDefinition(_viewMethodOBJ);
             _viewMethodOBJ.setType("MethodWithArgs");
@@ -1025,10 +1074,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _viewMethodOBJ.setDescription("Indicates a local function name (on the View), optionally followed by an argument vector and, if required fully qualified class names.");
             _viewMethodOBJ.setValueType("MULTI");
             _viewMethod.setDefinedIn(this);
-            _viewMethodOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _viewMethodOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _viewMethodOBJ.setLineNumber("203");
             addAttributeDefList(_viewMethod);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _useClassOBJ = new AttributeDefinitionDMO();
             _useClass = new AttributeDefinition(_useClassOBJ);
             _useClassOBJ.setType("String");
@@ -1036,10 +1086,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useClassOBJ.setDmdID("826");
             _useClassOBJ.setDescription("The fully qualified class name of a RunContextItem.");
             _useClass.setDefinedIn(this);
-            _useClassOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useClassOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useClassOBJ.setLineNumber("209");
             addAttributeDefList(_useClass);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _itemNameOBJ = new AttributeDefinitionDMO();
             _itemName = new AttributeDefinition(_itemNameOBJ);
             _itemNameOBJ.setType("CamelCaseName");
@@ -1047,10 +1098,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _itemNameOBJ.setDmdID("827");
             _itemNameOBJ.setDescription("The name of a RunContextItem.");
             _itemName.setDefinedIn(this);
-            _itemNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _itemNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _itemNameOBJ.setLineNumber("215");
             addAttributeDefList(_itemName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _constructionOBJ = new AttributeDefinitionDMO();
             _construction = new AttributeDefinition(_constructionOBJ);
             _constructionOBJ.setType("String");
@@ -1058,10 +1110,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _constructionOBJ.setDmdID("828");
             _constructionOBJ.setDescription("The statement used to construct the RunContextItem instance.");
             _construction.setDefinedIn(this);
-            _constructionOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _constructionOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _constructionOBJ.setLineNumber("221");
             addAttributeDefList(_construction);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _itemOrderOBJ = new AttributeDefinitionDMO();
             _itemOrder = new AttributeDefinition(_itemOrderOBJ);
             _itemOrderOBJ.setType("Integer");
@@ -1070,10 +1123,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _itemOrderOBJ.setDescription("The order in which a RunContextItem should be instantiated.");
             _itemOrderOBJ.setNullReturnValue("50");
             _itemOrder.setDefinedIn(this);
-            _itemOrderOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _itemOrderOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _itemOrderOBJ.setLineNumber("228");
             addAttributeDefList(_itemOrder);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _contextImplOBJ = new AttributeDefinitionDMO();
             _contextImpl = new AttributeDefinition(_contextImplOBJ);
             _contextImplOBJ.setType("String");
@@ -1082,10 +1136,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _contextImplOBJ.setDescription("The context implementation in which this RunContextItem definition should be used. All items are part of the Default implementation, but if you need other implementations, just respecify the item with different useClass and/or different construction syntax.");
             _contextImplOBJ.setNullReturnValue("Default");
             _contextImpl.setDefinedIn(this);
-            _contextImplOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _contextImplOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _contextImplOBJ.setLineNumber("238");
             addAttributeDefList(_contextImpl);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _importThisOBJ = new AttributeDefinitionDMO();
             _importThis = new AttributeDefinition(_importThisOBJ);
             _importThisOBJ.setType("String");
@@ -1094,10 +1149,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _importThisOBJ.setDescription("Allows for the specification of other import statements in various definitions.");
             _importThisOBJ.setValueType("TREESET");
             _importThis.setDefinedIn(this);
-            _importThisOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _importThisOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _importThisOBJ.setLineNumber("245");
             addAttributeDefList(_importThis);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _localOBJ = new AttributeDefinitionDMO();
             _local = new AttributeDefinition(_localOBJ);
             _localOBJ.setType("Event");
@@ -1106,10 +1162,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _localOBJ.setDescription("Indicates that a View fires a local event to its Presenter. This is shorthand for a call to a member function on the Presenter.");
             _localOBJ.setValueType("TREESET");
             _local.setDefinedIn(this);
-            _localOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _localOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _localOBJ.setLineNumber("253");
             addAttributeDefList(_local);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _appNameOBJ = new AttributeDefinitionDMO();
             _appName = new AttributeDefinition(_appNameOBJ);
             _appNameOBJ.setType("CamelCaseName");
@@ -1117,10 +1174,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _appNameOBJ.setDmdID("833");
             _appNameOBJ.setDescription("The name of an application.");
             _appName.setDefinedIn(this);
-            _appNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _appNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _appNameOBJ.setLineNumber("259");
             addAttributeDefList(_appName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _controllerNameOBJ = new AttributeDefinitionDMO();
             _controllerName = new AttributeDefinition(_controllerNameOBJ);
             _controllerNameOBJ.setType("CamelCaseName");
@@ -1128,10 +1186,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _controllerNameOBJ.setDmdID("834");
             _controllerNameOBJ.setDescription("The name of a controller.");
             _controllerName.setDefinedIn(this);
-            _controllerNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _controllerNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _controllerNameOBJ.setLineNumber("265");
             addAttributeDefList(_controllerName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _usesRunContextItemOBJ = new AttributeDefinitionDMO();
             _usesRunContextItem = new AttributeDefinition(_usesRunContextItemOBJ);
             _usesRunContextItemOBJ.setType("RunContextItem");
@@ -1140,10 +1199,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _usesRunContextItemOBJ.setDescription("Indicates a RunContextItem on which something depends. This implies that the  entity must have the overall run context injected at construction time. Run context items are  represented as private final members of the generated base implementation of the entity and are assigned from the run context.");
             _usesRunContextItemOBJ.setValueType("TREESET");
             _usesRunContextItem.setDefinedIn(this);
-            _usesRunContextItemOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _usesRunContextItemOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _usesRunContextItemOBJ.setLineNumber("275");
             addAttributeDefList(_usesRunContextItem);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _presenterImportOBJ = new AttributeDefinitionDMO();
             _presenterImport = new AttributeDefinition(_presenterImportOBJ);
             _presenterImportOBJ.setType("String");
@@ -1152,10 +1212,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _presenterImportOBJ.setDescription("Indicates an import required by the Presenter interface of a View.");
             _presenterImportOBJ.setValueType("TREESET");
             _presenterImport.setDefinedIn(this);
-            _presenterImportOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _presenterImportOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _presenterImportOBJ.setLineNumber("282");
             addAttributeDefList(_presenterImport);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _viewImportOBJ = new AttributeDefinitionDMO();
             _viewImport = new AttributeDefinition(_viewImportOBJ);
             _viewImportOBJ.setType("String");
@@ -1164,10 +1225,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _viewImportOBJ.setDescription("Indicates an import required by the View interface.");
             _viewImportOBJ.setValueType("TREESET");
             _viewImport.setDefinedIn(this);
-            _viewImportOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _viewImportOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _viewImportOBJ.setLineNumber("289");
             addAttributeDefList(_viewImport);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _sharedImportOBJ = new AttributeDefinitionDMO();
             _sharedImport = new AttributeDefinition(_sharedImportOBJ);
             _sharedImportOBJ.setType("String");
@@ -1176,10 +1238,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _sharedImportOBJ.setDescription("Indicates an import required by both the View and Presenter interfaces.");
             _sharedImportOBJ.setValueType("TREESET");
             _sharedImport.setDefinedIn(this);
-            _sharedImportOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _sharedImportOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _sharedImportOBJ.setLineNumber("296");
             addAttributeDefList(_sharedImport);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _presenterNameOBJ = new AttributeDefinitionDMO();
             _presenterName = new AttributeDefinition(_presenterNameOBJ);
             _presenterNameOBJ.setType("CamelCaseName");
@@ -1187,10 +1250,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _presenterNameOBJ.setDmdID("839");
             _presenterNameOBJ.setDescription("The name of a Presenter.");
             _presenterName.setDefinedIn(this);
-            _presenterNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _presenterNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _presenterNameOBJ.setLineNumber("302");
             addAttributeDefList(_presenterName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _activityNameOBJ = new AttributeDefinitionDMO();
             _activityName = new AttributeDefinition(_activityNameOBJ);
             _activityNameOBJ.setType("CamelCaseName");
@@ -1198,10 +1262,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _activityNameOBJ.setDmdID("840");
             _activityNameOBJ.setDescription("The name of an Activity.");
             _activityName.setDefinedIn(this);
-            _activityNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _activityNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _activityNameOBJ.setLineNumber("308");
             addAttributeDefList(_activityName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _managesViewOBJ = new AttributeDefinitionDMO();
             _managesView = new AttributeDefinition(_managesViewOBJ);
             _managesViewOBJ.setType("View");
@@ -1210,10 +1275,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _managesViewOBJ.setDescription("Indicates Views that are managed by a Component.");
             _managesViewOBJ.setValueType("MULTI");
             _managesView.setDefinedIn(this);
-            _managesViewOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _managesViewOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _managesViewOBJ.setLineNumber("315");
             addAttributeDefList(_managesView);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _usesControllerOBJ = new AttributeDefinitionDMO();
             _usesController = new AttributeDefinition(_usesControllerOBJ);
             _usesControllerOBJ.setType("Controller");
@@ -1222,10 +1288,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _usesControllerOBJ.setDescription("Indicates Controllers that are used by an application or a site.");
             _usesControllerOBJ.setValueType("MULTI");
             _usesController.setDefinedIn(this);
-            _usesControllerOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _usesControllerOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _usesControllerOBJ.setLineNumber("322");
             addAttributeDefList(_usesController);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _useSchemaOBJ = new AttributeDefinitionDMO();
             _useSchema = new AttributeDefinition(_useSchemaOBJ);
             _useSchemaOBJ.setType("SchemaDefinition");
@@ -1234,10 +1301,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useSchemaOBJ.setDescription("Indicates the schemas that a component uses. Your module must specify dependsOnSchema for the appropriate schemas.");
             _useSchemaOBJ.setValueType("MULTI");
             _useSchema.setDefinedIn(this);
-            _useSchemaOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useSchemaOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useSchemaOBJ.setLineNumber("330");
             addAttributeDefList(_useSchema);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _centralDMPErrorHandlerOBJ = new AttributeDefinitionDMO();
             _centralDMPErrorHandler = new AttributeDefinition(_centralDMPErrorHandlerOBJ);
             _centralDMPErrorHandlerOBJ.setType("Boolean");
@@ -1245,10 +1313,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _centralDMPErrorHandlerOBJ.setDmdID("851");
             _centralDMPErrorHandlerOBJ.setDescription("Indicates that a controller is the target for centralized handling of Dark Matter Protocol errors.");
             _centralDMPErrorHandler.setDefinedIn(this);
-            _centralDMPErrorHandlerOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _centralDMPErrorHandlerOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _centralDMPErrorHandlerOBJ.setLineNumber("385");
             addAttributeDefList(_centralDMPErrorHandler);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _centralRPCErrorHandlerOBJ = new AttributeDefinitionDMO();
             _centralRPCErrorHandler = new AttributeDefinition(_centralRPCErrorHandlerOBJ);
             _centralRPCErrorHandlerOBJ.setType("Boolean");
@@ -1256,10 +1325,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _centralRPCErrorHandlerOBJ.setDmdID("852");
             _centralRPCErrorHandlerOBJ.setDescription("Indicates that a controller is the target for centralized handling of GWT RPC errors.");
             _centralRPCErrorHandler.setDefinedIn(this);
-            _centralRPCErrorHandlerOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _centralRPCErrorHandlerOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _centralRPCErrorHandlerOBJ.setLineNumber("391");
             addAttributeDefList(_centralRPCErrorHandler);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _placeNameOBJ = new AttributeDefinitionDMO();
             _placeName = new AttributeDefinition(_placeNameOBJ);
             _placeNameOBJ.setType("CamelCaseName");
@@ -1267,10 +1337,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _placeNameOBJ.setDmdID("853");
             _placeNameOBJ.setDescription("The name of a Place.");
             _placeName.setDefinedIn(this);
-            _placeNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _placeNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _placeNameOBJ.setLineNumber("397");
             addAttributeDefList(_placeName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _placePrefixOBJ = new AttributeDefinitionDMO();
             _placePrefix = new AttributeDefinition(_placePrefixOBJ);
             _placePrefixOBJ.setType("String");
@@ -1278,10 +1349,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _placePrefixOBJ.setDmdID("854");
             _placePrefixOBJ.setDescription("The prefix that globally identifies a Place. A Place url is composed of prefix:token.");
             _placePrefix.setDefinedIn(this);
-            _placePrefixOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _placePrefixOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _placePrefixOBJ.setLineNumber("403");
             addAttributeDefList(_placePrefix);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _runsActivityOBJ = new AttributeDefinitionDMO();
             _runsActivity = new AttributeDefinition(_runsActivityOBJ);
             _runsActivityOBJ.setType("Activity");
@@ -1289,10 +1361,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _runsActivityOBJ.setDmdID("855");
             _runsActivityOBJ.setDescription("Indicates the Activity that runs in a Place.");
             _runsActivity.setDefinedIn(this);
-            _runsActivityOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _runsActivityOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _runsActivityOBJ.setLineNumber("409");
             addAttributeDefList(_runsActivity);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _parentPlaceOBJ = new AttributeDefinitionDMO();
             _parentPlace = new AttributeDefinition(_parentPlaceOBJ);
             _parentPlaceOBJ.setType("Place");
@@ -1300,10 +1373,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _parentPlaceOBJ.setDmdID("856");
             _parentPlaceOBJ.setDescription("Indicates the parent of a SubPlace.");
             _parentPlace.setDefinedIn(this);
-            _parentPlaceOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _parentPlaceOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _parentPlaceOBJ.setLineNumber("415");
             addAttributeDefList(_parentPlace);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _defaultPlaceOBJ = new AttributeDefinitionDMO();
             _defaultPlace = new AttributeDefinition(_defaultPlaceOBJ);
             _defaultPlaceOBJ.setType("Place");
@@ -1311,10 +1385,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _defaultPlaceOBJ.setDmdID("857");
             _defaultPlaceOBJ.setDescription("Indicates the DefaultPlace for a WebApplication.");
             _defaultPlace.setDefinedIn(this);
-            _defaultPlaceOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _defaultPlaceOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _defaultPlaceOBJ.setLineNumber("421");
             addAttributeDefList(_defaultPlace);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _abstractActivityOBJ = new AttributeDefinitionDMO();
             _abstractActivity = new AttributeDefinition(_abstractActivityOBJ);
             _abstractActivityOBJ.setType("Boolean");
@@ -1322,10 +1397,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _abstractActivityOBJ.setDmdID("858");
             _abstractActivityOBJ.setDescription("Indicates that an Activity should be derived from AbstractActivity");
             _abstractActivity.setDefinedIn(this);
-            _abstractActivityOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _abstractActivityOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _abstractActivityOBJ.setLineNumber("427");
             addAttributeDefList(_abstractActivity);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _addedToRunContextOBJ = new AttributeDefinitionDMO();
             _addedToRunContext = new AttributeDefinition(_addedToRunContextOBJ);
             _addedToRunContextOBJ.setType("Boolean");
@@ -1334,10 +1410,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _addedToRunContextOBJ.setDescription("Indicates whether a RunContextItem should be generated for a Controller; defaults to true. However, if you need manual control over ordering and creation of the context item, for example in the case of base Controllers like the CommController, this can be set to false.");
             _addedToRunContextOBJ.setNullReturnValue("true");
             _addedToRunContext.setDefinedIn(this);
-            _addedToRunContextOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _addedToRunContextOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _addedToRunContextOBJ.setLineNumber("436");
             addAttributeDefList(_addedToRunContext);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _instantiatesPresenterOBJ = new AttributeDefinitionDMO();
             _instantiatesPresenter = new AttributeDefinition(_instantiatesPresenterOBJ);
             _instantiatesPresenterOBJ.setType("Presenter");
@@ -1346,10 +1423,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _instantiatesPresenterOBJ.setDescription("Indicates that a Component makes use of a particular Presenter; a method will be created on the componet's BaseImpl that allows you to get a presenter of this type. This is used in conjunction with instantiatesView attribute, in that an appropriate  presenter must be passed to the generated get*View() method to get a view instance.");
             _instantiatesPresenterOBJ.setValueType("MULTI");
             _instantiatesPresenter.setDefinedIn(this);
-            _instantiatesPresenterOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _instantiatesPresenterOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _instantiatesPresenterOBJ.setLineNumber("446");
             addAttributeDefList(_instantiatesPresenter);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _createOnDemandOBJ = new AttributeDefinitionDMO();
             _createOnDemand = new AttributeDefinition(_createOnDemandOBJ);
             _createOnDemandOBJ.setType("Boolean");
@@ -1357,10 +1435,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _createOnDemandOBJ.setDmdID("861");
             _createOnDemandOBJ.setDescription("Indicates that a RunContextItem will be created on demand when requested from the RunContext.");
             _createOnDemand.setDefinedIn(this);
-            _createOnDemandOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _createOnDemandOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _createOnDemandOBJ.setLineNumber("453");
             addAttributeDefList(_createOnDemand);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _instantiatesViewOBJ = new AttributeDefinitionDMO();
             _instantiatesView = new AttributeDefinition(_instantiatesViewOBJ);
             _instantiatesViewOBJ.setType("View");
@@ -1369,10 +1448,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _instantiatesViewOBJ.setDescription("Indicates that a component instantiates a particular View; a method will created on the component BaseImpl that allows you to get an instance of this view and bind it to the appropriate presenter.");
             _instantiatesViewOBJ.setValueType("MULTI");
             _instantiatesView.setDefinedIn(this);
-            _instantiatesViewOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _instantiatesViewOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _instantiatesViewOBJ.setLineNumber("462");
             addAttributeDefList(_instantiatesView);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _singletonOBJ = new AttributeDefinitionDMO();
             _singleton = new AttributeDefinition(_singletonOBJ);
             _singletonOBJ.setType("Boolean");
@@ -1380,10 +1460,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _singletonOBJ.setDmdID("863");
             _singletonOBJ.setDescription("Indicates that a Presenter will be the only one created from the run context. If this flag is false (the default), calling getXPresenter() will return a new instance of the component. This is also used in conjunction (internally) with the createOnDemand attribute on RunContextItems.");
             _singleton.setDefinedIn(this);
-            _singletonOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _singletonOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _singletonOBJ.setLineNumber("471");
             addAttributeDefList(_singleton);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _usingStandardSubpackagesOBJ = new AttributeDefinitionDMO();
             _usingStandardSubpackages = new AttributeDefinition(_usingStandardSubpackagesOBJ);
             _usingStandardSubpackagesOBJ.setType("Boolean");
@@ -1391,10 +1472,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _usingStandardSubpackagesOBJ.setDmdID("864");
             _usingStandardSubpackagesOBJ.setDescription("When set on a Module, this indicates that extended classes for Activities, Controllers, Presenters and Views will be expected to be in standard subpackages beneath  your extended package i.e. extended.activities, extended.controllers etc. This way, you don't have to specify the subpackage attribute for each of these components. If the subpackage is specified for any of these components, it takes precidence over the standard");
             _usingStandardSubpackages.setDefinedIn(this);
-            _usingStandardSubpackagesOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _usingStandardSubpackagesOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _usingStandardSubpackagesOBJ.setLineNumber("481");
             addAttributeDefList(_usingStandardSubpackages);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _configNameOBJ = new AttributeDefinitionDMO();
             _configName = new AttributeDefinition(_configNameOBJ);
             _configNameOBJ.setType("CamelCaseName");
@@ -1402,10 +1484,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _configNameOBJ.setDmdID("865");
             _configNameOBJ.setDescription("The name of a menu implementation configuration.");
             _configName.setDefinedIn(this);
-            _configNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _configNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _configNameOBJ.setLineNumber("487");
             addAttributeDefList(_configName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _defaultMenuBarOBJ = new AttributeDefinitionDMO();
             _defaultMenuBar = new AttributeDefinition(_defaultMenuBarOBJ);
             _defaultMenuBarOBJ.setType("MenuElementTypeAndComment");
@@ -1413,10 +1496,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _defaultMenuBarOBJ.setDmdID("866");
             _defaultMenuBarOBJ.setDescription("The name and description of the default menu bar implementation.");
             _defaultMenuBar.setDefinedIn(this);
-            _defaultMenuBarOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _defaultMenuBarOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _defaultMenuBarOBJ.setLineNumber("493");
             addAttributeDefList(_defaultMenuBar);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _alternateMenuBarOBJ = new AttributeDefinitionDMO();
             _alternateMenuBar = new AttributeDefinition(_alternateMenuBarOBJ);
             _alternateMenuBarOBJ.setType("MenuElementTypeAndComment");
@@ -1425,10 +1509,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _alternateMenuBarOBJ.setDescription("The name and description of various alternate menu bar implementations.");
             _alternateMenuBarOBJ.setValueType("MULTI");
             _alternateMenuBar.setDefinedIn(this);
-            _alternateMenuBarOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _alternateMenuBarOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _alternateMenuBarOBJ.setLineNumber("500");
             addAttributeDefList(_alternateMenuBar);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _elementNameOBJ = new AttributeDefinitionDMO();
             _elementName = new AttributeDefinition(_elementNameOBJ);
             _elementNameOBJ.setType("CamelCaseName");
@@ -1436,10 +1521,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _elementNameOBJ.setDmdID("868");
             _elementNameOBJ.setDescription("The name of a menu related element.");
             _elementName.setDefinedIn(this);
-            _elementNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _elementNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _elementNameOBJ.setLineNumber("506");
             addAttributeDefList(_elementName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _useImplOBJ = new AttributeDefinitionDMO();
             _useImpl = new AttributeDefinition(_useImplOBJ);
             _useImplOBJ.setType("String");
@@ -1447,10 +1533,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useImplOBJ.setDmdID("869");
             _useImplOBJ.setDescription("The name of a menu element implementation.");
             _useImpl.setDefinedIn(this);
-            _useImplOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useImplOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useImplOBJ.setLineNumber("512");
             addAttributeDefList(_useImpl);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _addToMenuOBJ = new AttributeDefinitionDMO();
             _addToMenu = new AttributeDefinition(_addToMenuOBJ);
             _addToMenuOBJ.setType("Menu");
@@ -1458,10 +1545,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _addToMenuOBJ.setDmdID("870");
             _addToMenuOBJ.setDescription("Indicates the menu to which an MenuItem should be added.");
             _addToMenu.setDefinedIn(this);
-            _addToMenuOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _addToMenuOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _addToMenuOBJ.setLineNumber("518");
             addAttributeDefList(_addToMenu);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _alwaysEnabledOBJ = new AttributeDefinitionDMO();
             _alwaysEnabled = new AttributeDefinition(_alwaysEnabledOBJ);
             _alwaysEnabledOBJ.setType("Boolean");
@@ -1469,10 +1557,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _alwaysEnabledOBJ.setDmdID("871");
             _alwaysEnabledOBJ.setDescription("Indicates if the item is always enabled. If not, there will be a method generated that is called before the menu is shown to determine if the item is enabled/disabled.");
             _alwaysEnabled.setDefinedIn(this);
-            _alwaysEnabledOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _alwaysEnabledOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _alwaysEnabledOBJ.setLineNumber("526");
             addAttributeDefList(_alwaysEnabled);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _menuOrderOBJ = new AttributeDefinitionDMO();
             _menuOrder = new AttributeDefinition(_menuOrderOBJ);
             _menuOrderOBJ.setType("String");
@@ -1480,10 +1569,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _menuOrderOBJ.setDmdID("872");
             _menuOrderOBJ.setDescription("Indicates the lorder in which a sub menu or menu item should be displayed in the menu.");
             _menuOrder.setDefinedIn(this);
-            _menuOrderOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _menuOrderOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _menuOrderOBJ.setLineNumber("533");
             addAttributeDefList(_menuOrder);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _displayLabelOBJ = new AttributeDefinitionDMO();
             _displayLabel = new AttributeDefinition(_displayLabelOBJ);
             _displayLabelOBJ.setType("String");
@@ -1491,10 +1581,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _displayLabelOBJ.setDmdID("873");
             _displayLabelOBJ.setDescription("The label to be displayed on something.");
             _displayLabel.setDefinedIn(this);
-            _displayLabelOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _displayLabelOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _displayLabelOBJ.setLineNumber("539");
             addAttributeDefList(_displayLabel);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _actionBindingNameOBJ = new AttributeDefinitionDMO();
             _actionBindingName = new AttributeDefinition(_actionBindingNameOBJ);
             _actionBindingNameOBJ.setType("CamelCaseName");
@@ -1502,10 +1593,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _actionBindingNameOBJ.setDmdID("874");
             _actionBindingNameOBJ.setDescription("The name of an ActionBinding.");
             _actionBindingName.setDefinedIn(this);
-            _actionBindingNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _actionBindingNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _actionBindingNameOBJ.setLineNumber("545");
             addAttributeDefList(_actionBindingName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _triggersActionOBJ = new AttributeDefinitionDMO();
             _triggersAction = new AttributeDefinition(_triggersActionOBJ);
             _triggersActionOBJ.setType("ActionBinding");
@@ -1513,10 +1605,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _triggersActionOBJ.setDmdID("875");
             _triggersActionOBJ.setDescription("Indicates the ActionBinding to be associated with a menu entry, button or other UI component.");
             _triggersAction.setDefinedIn(this);
-            _triggersActionOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _triggersActionOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _triggersActionOBJ.setLineNumber("552");
             addAttributeDefList(_triggersAction);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _defaultSubMenuOBJ = new AttributeDefinitionDMO();
             _defaultSubMenu = new AttributeDefinition(_defaultSubMenuOBJ);
             _defaultSubMenuOBJ.setType("MenuElementTypeAndComment");
@@ -1524,10 +1617,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _defaultSubMenuOBJ.setDmdID("876");
             _defaultSubMenuOBJ.setDescription("The name and description of the default submenu implementation.");
             _defaultSubMenu.setDefinedIn(this);
-            _defaultSubMenuOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _defaultSubMenuOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _defaultSubMenuOBJ.setLineNumber("558");
             addAttributeDefList(_defaultSubMenu);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _alternateSubMenuOBJ = new AttributeDefinitionDMO();
             _alternateSubMenu = new AttributeDefinition(_alternateSubMenuOBJ);
             _alternateSubMenuOBJ.setType("MenuElementTypeAndComment");
@@ -1536,10 +1630,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _alternateSubMenuOBJ.setDescription("The name and description of the various submenu implementations.");
             _alternateSubMenuOBJ.setValueType("MULTI");
             _alternateSubMenu.setDefinedIn(this);
-            _alternateSubMenuOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _alternateSubMenuOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _alternateSubMenuOBJ.setLineNumber("565");
             addAttributeDefList(_alternateSubMenu);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _defaultMenuItemOBJ = new AttributeDefinitionDMO();
             _defaultMenuItem = new AttributeDefinition(_defaultMenuItemOBJ);
             _defaultMenuItemOBJ.setType("MenuElementTypeAndComment");
@@ -1547,10 +1642,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _defaultMenuItemOBJ.setDmdID("878");
             _defaultMenuItemOBJ.setDescription("The name and description of the default menu item implementation.");
             _defaultMenuItem.setDefinedIn(this);
-            _defaultMenuItemOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _defaultMenuItemOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _defaultMenuItemOBJ.setLineNumber("571");
             addAttributeDefList(_defaultMenuItem);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _alternateMenuItemOBJ = new AttributeDefinitionDMO();
             _alternateMenuItem = new AttributeDefinition(_alternateMenuItemOBJ);
             _alternateMenuItemOBJ.setType("MenuElementTypeAndComment");
@@ -1559,10 +1655,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _alternateMenuItemOBJ.setDescription("The name and description of various alternate Menu item implementations.");
             _alternateMenuItemOBJ.setValueType("MULTI");
             _alternateMenuItem.setDefinedIn(this);
-            _alternateMenuItemOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _alternateMenuItemOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _alternateMenuItemOBJ.setLineNumber("578");
             addAttributeDefList(_alternateMenuItem);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _implementsActionOBJ = new AttributeDefinitionDMO();
             _implementsAction = new AttributeDefinition(_implementsActionOBJ);
             _implementsActionOBJ.setType("ActionBinding");
@@ -1571,10 +1668,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _implementsActionOBJ.setDescription("Indicates the ActionBindings to be implemented by a Component.");
             _implementsActionOBJ.setValueType("MULTI");
             _implementsAction.setDefinedIn(this);
-            _implementsActionOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _implementsActionOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _implementsActionOBJ.setLineNumber("585");
             addAttributeDefList(_implementsAction);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _implementedByOBJ = new AttributeDefinitionDMO();
             _implementedBy = new AttributeDefinition(_implementedByOBJ);
             _implementedByOBJ.setType("Component");
@@ -1583,10 +1681,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _implementedByOBJ.setDescription("Indicates the Component that implements an ActionBinding.");
             _implementedByOBJ.setInternalUse("true");
             _implementedBy.setDefinedIn(this);
-            _implementedByOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _implementedByOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _implementedByOBJ.setLineNumber("592");
             addAttributeDefList(_implementedBy);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _defaultSeparatorOBJ = new AttributeDefinitionDMO();
             _defaultSeparator = new AttributeDefinition(_defaultSeparatorOBJ);
             _defaultSeparatorOBJ.setType("MenuElementTypeAndComment");
@@ -1594,10 +1693,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _defaultSeparatorOBJ.setDmdID("882");
             _defaultSeparatorOBJ.setDescription("The name and description of the default separator implementation.");
             _defaultSeparator.setDefinedIn(this);
-            _defaultSeparatorOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _defaultSeparatorOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _defaultSeparatorOBJ.setLineNumber("598");
             addAttributeDefList(_defaultSeparator);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _menuImplementationOBJ = new AttributeDefinitionDMO();
             _menuImplementation = new AttributeDefinition(_menuImplementationOBJ);
             _menuImplementationOBJ.setType("MenuImplementationConfig");
@@ -1605,10 +1705,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _menuImplementationOBJ.setDmdID("883");
             _menuImplementationOBJ.setDescription("A reference to a menu implementation.");
             _menuImplementation.setDefinedIn(this);
-            _menuImplementationOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _menuImplementationOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _menuImplementationOBJ.setLineNumber("604");
             addAttributeDefList(_menuImplementation);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _displayLabelI18NOBJ = new AttributeDefinitionDMO();
             _displayLabelI18N = new AttributeDefinition(_displayLabelI18NOBJ);
             _displayLabelI18NOBJ.setType("String");
@@ -1616,10 +1717,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _displayLabelI18NOBJ.setDmdID("884");
             _displayLabelI18NOBJ.setDescription("A reference to run context item with translated labels for your menu item. If you had defined a run context item called constants (whose base interface was generated by the GWT I18N creation mechanisms), you could use one its value by specifying constants.myLabel().");
             _displayLabelI18N.setDefinedIn(this);
-            _displayLabelI18NOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _displayLabelI18NOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _displayLabelI18NOBJ.setLineNumber("612");
             addAttributeDefList(_displayLabelI18N);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _bindingNameOBJ = new AttributeDefinitionDMO();
             _bindingName = new AttributeDefinition(_bindingNameOBJ);
             _bindingNameOBJ.setType("CamelCaseName");
@@ -1627,10 +1729,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _bindingNameOBJ.setDmdID("885");
             _bindingNameOBJ.setDescription("The name of a FormBinding.");
             _bindingName.setDefinedIn(this);
-            _bindingNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _bindingNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _bindingNameOBJ.setLineNumber("618");
             addAttributeDefList(_bindingName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _editObjectOBJ = new AttributeDefinitionDMO();
             _editObject = new AttributeDefinition(_editObjectOBJ);
             _editObjectOBJ.setType("ClassDefinition");
@@ -1638,10 +1741,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _editObjectOBJ.setDmdID("886");
             _editObjectOBJ.setDescription("The class of object to be editted by a Form.");
             _editObject.setDefinedIn(this);
-            _editObjectOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _editObjectOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _editObjectOBJ.setLineNumber("624");
             addAttributeDefList(_editObject);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _editFieldOBJ = new AttributeDefinitionDMO();
             _editField = new AttributeDefinition(_editFieldOBJ);
             _editFieldOBJ.setType("EditField");
@@ -1650,10 +1754,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _editFieldOBJ.setDescription("The specification of an attribute to the field editor to be used and optionally the label and tooltip to be used. The format for this attribute is <br> attribute_name field_editor [MUST|RO] [: label] [: tool tip]");
             _editFieldOBJ.setValueType("MULTI");
             _editField.setDefinedIn(this);
-            _editFieldOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _editFieldOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _editFieldOBJ.setLineNumber("633");
             addAttributeDefList(_editField);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _editorNameOBJ = new AttributeDefinitionDMO();
             _editorName = new AttributeDefinition(_editorNameOBJ);
             _editorNameOBJ.setType("CamelCaseName");
@@ -1661,10 +1766,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _editorNameOBJ.setDmdID("888");
             _editorNameOBJ.setDescription("The name of a FieldEditor.");
             _editorName.setDefinedIn(this);
-            _editorNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _editorNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _editorNameOBJ.setLineNumber("639");
             addAttributeDefList(_editorName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _strictlyCheckedOBJ = new AttributeDefinitionDMO();
             _strictlyChecked = new AttributeDefinition(_strictlyCheckedOBJ);
             _strictlyCheckedOBJ.setType("Boolean");
@@ -1673,10 +1779,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _strictlyCheckedOBJ.setDescription("By default when creating form bindings, the MVW Generator will ensure that the  attributes you refer to in your editFields are part of the class specified by editObject. In cases where you might be using auxiliary classes though, you can turn strict checking off by setting it to false.");
             _strictlyCheckedOBJ.setNullReturnValue("true");
             _strictlyChecked.setDefinedIn(this);
-            _strictlyCheckedOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _strictlyCheckedOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _strictlyCheckedOBJ.setLineNumber("649");
             addAttributeDefList(_strictlyChecked);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _mappingNameOBJ = new AttributeDefinitionDMO();
             _mappingName = new AttributeDefinition(_mappingNameOBJ);
             _mappingNameOBJ.setType("CamelCaseName");
@@ -1684,10 +1791,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _mappingNameOBJ.setDmdID("890");
             _mappingNameOBJ.setDescription("The name of a GxtEnumMapping.");
             _mappingName.setDefinedIn(this);
-            _mappingNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _mappingNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _mappingNameOBJ.setLineNumber("655");
             addAttributeDefList(_mappingName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _unsetValueOBJ = new AttributeDefinitionDMO();
             _unsetValue = new AttributeDefinition(_unsetValueOBJ);
             _unsetValueOBJ.setType("String");
@@ -1695,10 +1803,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _unsetValueOBJ.setDmdID("891");
             _unsetValueOBJ.setDescription("The enum value that indicates when an enum is not set i.e. its attribute would be removed.");
             _unsetValue.setDefinedIn(this);
-            _unsetValueOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _unsetValueOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _unsetValueOBJ.setLineNumber("662");
             addAttributeDefList(_unsetValue);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _useNameAsLabelOBJ = new AttributeDefinitionDMO();
             _useNameAsLabel = new AttributeDefinition(_useNameAsLabelOBJ);
             _useNameAsLabelOBJ.setType("Boolean");
@@ -1706,10 +1815,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useNameAsLabelOBJ.setDmdID("892");
             _useNameAsLabelOBJ.setDescription("Specifies that the mapping should use the enum value eg. VALUE1 as the display label for the value. It would be set to lower case and the first letter captitalized e.g. Value1. The default is to use the description part of the enum definition as the label.");
             _useNameAsLabel.setDefinedIn(this);
-            _useNameAsLabelOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useNameAsLabelOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useNameAsLabelOBJ.setLineNumber("670");
             addAttributeDefList(_useNameAsLabel);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _useI18NConfigOBJ = new AttributeDefinitionDMO();
             _useI18NConfig = new AttributeDefinition(_useI18NConfigOBJ);
             _useI18NConfigOBJ.setType("I18NConfig");
@@ -1717,10 +1827,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useI18NConfigOBJ.setDmdID("893");
             _useI18NConfigOBJ.setDescription("Specifies that a FormBindingDefinition or GxtEnumMapping should attempt to extract the labels for its attributes/enum values from the specified I18NConfig, which should refer to a class that extends com.google.gwt.i18n.client.Messages/Constants. <p /> The convention used is that attribute labels are defined as [attribute_name]Label and enum value labels are defined as <enum_value>Label. When you define an editField, just omit the label portion and the label will be picked up from the I18N configuration; if you specify a label, it overrides the I18N config.");
             _useI18NConfig.setDefinedIn(this);
-            _useI18NConfigOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useI18NConfigOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useI18NConfigOBJ.setLineNumber("683");
             addAttributeDefList(_useI18NConfig);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _tipsFromI18NOBJ = new AttributeDefinitionDMO();
             _tipsFromI18N = new AttributeDefinition(_tipsFromI18NOBJ);
             _tipsFromI18NOBJ.setType("Boolean");
@@ -1728,10 +1839,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _tipsFromI18NOBJ.setDmdID("894");
             _tipsFromI18NOBJ.setDescription("Specifies that tool tips should also be retrieved from an I18N configuration. The convention is that a tool tip for an attribute is named [attribute_name]Tip");
             _tipsFromI18N.setDefinedIn(this);
-            _tipsFromI18NOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _tipsFromI18NOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _tipsFromI18NOBJ.setLineNumber("690");
             addAttributeDefList(_tipsFromI18N);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _skipEnumValueOBJ = new AttributeDefinitionDMO();
             _skipEnumValue = new AttributeDefinition(_skipEnumValueOBJ);
             _skipEnumValueOBJ.setType("String");
@@ -1740,10 +1852,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _skipEnumValueOBJ.setDescription("Specifies an enum value that should be left out of the enum mapping.");
             _skipEnumValueOBJ.setValueType("HASHSET");
             _skipEnumValue.setDefinedIn(this);
-            _skipEnumValueOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _skipEnumValueOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _skipEnumValueOBJ.setLineNumber("697");
             addAttributeDefList(_skipEnumValue);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _sendsRequestOBJ = new AttributeDefinitionDMO();
             _sendsRequest = new AttributeDefinition(_sendsRequestOBJ);
             _sendsRequestOBJ.setType("RequestTypeWithOptions");
@@ -1752,10 +1865,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _sendsRequestOBJ.setDescription("Indicates that a component sends the specified type of request. This works for  standard requests from the Dark Matter Protocol as well as for requests that you have derived from Request. The classes you derive MUST end with the standard Request/Response suffixes e.g. if you had a request to perform some operation you could have OperationRequest and OperationResponse. <p/> The form of this attribute is: sendRequest requestName functionName [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS] <p/> Or, for get requests: sendRequest GetRequest functionName [DMPERRORS RPCERRORS CENTRALDMPERRORS CENTRALRPCERRORS CENTRALERRORS CACHE EVENTS]");
             _sendsRequestOBJ.setValueType("MULTI");
             _sendsRequest.setDefinedIn(this);
-            _sendsRequestOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _sendsRequestOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _sendsRequestOBJ.setLineNumber("711");
             addAttributeDefList(_sendsRequest);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _autoCreatedOBJ = new AttributeDefinitionDMO();
             _autoCreated = new AttributeDefinition(_autoCreatedOBJ);
             _autoCreatedOBJ.setType("Boolean");
@@ -1763,10 +1877,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _autoCreatedOBJ.setDmdID("897");
             _autoCreatedOBJ.setDescription("This attribute is used to flag defintions that are created automatically by the MVW infrastructure.");
             _autoCreated.setDefinedIn(this);
-            _autoCreatedOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _autoCreatedOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _autoCreatedOBJ.setLineNumber("718");
             addAttributeDefList(_autoCreated);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _useSingleEditorOBJ = new AttributeDefinitionDMO();
             _useSingleEditor = new AttributeDefinition(_useSingleEditorOBJ);
             _useSingleEditorOBJ.setType("Boolean");
@@ -1774,10 +1889,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _useSingleEditorOBJ.setDmdID("898");
             _useSingleEditorOBJ.setDescription("When dealing with indexed attributes, the default behaviour is to create a form binding with an editor instance for each index slot. However, in some cases, you want to use a single complex editor that handles the attribute. By setting useSingleEditor to true, the form binding will contain a single editor for an indexed attribute.");
             _useSingleEditor.setDefinedIn(this);
-            _useSingleEditorOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _useSingleEditorOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _useSingleEditorOBJ.setLineNumber("727");
             addAttributeDefList(_useSingleEditor);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _firedInThisModuleOBJ = new AttributeDefinitionDMO();
             _firedInThisModule = new AttributeDefinition(_firedInThisModuleOBJ);
             _firedInThisModuleOBJ.setType("Boolean");
@@ -1786,13 +1902,14 @@ public class MvwSchemaAG extends SchemaDefinition {
             _firedInThisModuleOBJ.setDescription("This attribute is used to flag Events that are not fired in the module in which they are defined. Normally we complain about this situation, it indicates that you've defined extraneous Events that should be removed. However, in the case of Events defined by base modules, this isn't always the case; you may define Eevents that are intended to be fired from modules that depend on the base module's handling of those events.");
             _firedInThisModuleOBJ.setNullReturnValue("true");
             _firedInThisModule.setDefinedIn(this);
-            _firedInThisModuleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
+            _firedInThisModuleOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/attributes.dmd");
             _firedInThisModuleOBJ.setLineNumber("738");
             addAttributeDefList(_firedInThisModule);
 
     }
 
     private void initTypes() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             TypeDefinitionDMO _EventWithArgsOBJ = new TypeDefinitionDMO();
             _EventWithArgs = new TypeDefinition(_EventWithArgsOBJ);
             _EventWithArgsOBJ.setName("EventWithArgs");
@@ -1802,10 +1919,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _EventWithArgsOBJ.setDmwIteratorClass("EventWithArgsIterableDMW");
             _EventWithArgsOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.EventWithArgsIterableDMW");
             _EventWithArgs.setDefinedIn(this);
-            _EventWithArgsOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _EventWithArgsOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _EventWithArgsOBJ.setLineNumber("7");
             addTypeDefList(_EventWithArgs);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             TypeDefinitionDMO _MethodWithArgsOBJ = new TypeDefinitionDMO();
             _MethodWithArgs = new TypeDefinition(_MethodWithArgsOBJ);
             _MethodWithArgsOBJ.setName("MethodWithArgs");
@@ -1815,10 +1933,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _MethodWithArgsOBJ.setDmwIteratorClass("MethodWithArgsIterableDMW");
             _MethodWithArgsOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.MethodWithArgsIterableDMW");
             _MethodWithArgs.setDefinedIn(this);
-            _MethodWithArgsOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _MethodWithArgsOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _MethodWithArgsOBJ.setLineNumber("14");
             addTypeDefList(_MethodWithArgs);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             TypeDefinitionDMO _GetWithOptionsOBJ = new TypeDefinitionDMO();
             _GetWithOptions = new TypeDefinition(_GetWithOptionsOBJ);
             _GetWithOptionsOBJ.setName("GetWithOptions");
@@ -1828,10 +1947,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _GetWithOptionsOBJ.setDmwIteratorClass("GetWithOptionsIterableDMW");
             _GetWithOptionsOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.GetWithOptionsIterableDMW");
             _GetWithOptions.setDefinedIn(this);
-            _GetWithOptionsOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _GetWithOptionsOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _GetWithOptionsOBJ.setLineNumber("21");
             addTypeDefList(_GetWithOptions);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             TypeDefinitionDMO _RequestWithOptionsOBJ = new TypeDefinitionDMO();
             _RequestWithOptions = new TypeDefinition(_RequestWithOptionsOBJ);
             _RequestWithOptionsOBJ.setName("RequestWithOptions");
@@ -1841,10 +1961,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RequestWithOptionsOBJ.setDmwIteratorClass("RequestWithOptionsIterableDMW");
             _RequestWithOptionsOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.RequestWithOptionsIterableDMW");
             _RequestWithOptions.setDefinedIn(this);
-            _RequestWithOptionsOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _RequestWithOptionsOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _RequestWithOptionsOBJ.setLineNumber("28");
             addTypeDefList(_RequestWithOptions);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             TypeDefinitionDMO _RequestTypeWithOptionsOBJ = new TypeDefinitionDMO();
             _RequestTypeWithOptions = new TypeDefinition(_RequestTypeWithOptionsOBJ);
             _RequestTypeWithOptionsOBJ.setName("RequestTypeWithOptions");
@@ -1854,10 +1975,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RequestTypeWithOptionsOBJ.setDmwIteratorClass("RequestTypeWithOptionsIterableDMW");
             _RequestTypeWithOptionsOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.RequestTypeWithOptionsIterableDMW");
             _RequestTypeWithOptions.setDefinedIn(this);
-            _RequestTypeWithOptionsOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _RequestTypeWithOptionsOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _RequestTypeWithOptionsOBJ.setLineNumber("36");
             addTypeDefList(_RequestTypeWithOptions);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             TypeDefinitionDMO _EditFieldOBJ = new TypeDefinitionDMO();
             _EditField = new TypeDefinition(_EditFieldOBJ);
             _EditFieldOBJ.setName("EditField");
@@ -1867,10 +1989,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _EditFieldOBJ.setDmwIteratorClass("EditFieldIterableDMW");
             _EditFieldOBJ.setDmwIteratorImport("org.dmd.mvw.tools.mvwgenerator.generated.dmw.EditFieldIterableDMW");
             _EditField.setDefinedIn(this);
-            _EditFieldOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _EditFieldOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _EditFieldOBJ.setLineNumber("43");
             addTypeDefList(_EditField);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             TypeDefinitionDMO _DisplayDataSpecOBJ = new TypeDefinitionDMO();
             _DisplayDataSpec = new TypeDefinition(_DisplayDataSpecOBJ);
             _DisplayDataSpecOBJ.setIsEnumType("false");
@@ -1885,6 +2008,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _DisplayDataSpecOBJ.setIsRefType("false");
             addTypeDefList(_DisplayDataSpec);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             TypeDefinitionDMO _EventSpecOBJ = new TypeDefinitionDMO();
             _EventSpec = new TypeDefinition(_EventSpecOBJ);
             _EventSpecOBJ.setIsEnumType("false");
@@ -1899,6 +2023,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _EventSpecOBJ.setIsRefType("false");
             addTypeDefList(_EventSpec);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             TypeDefinitionDMO _OperationSpecOBJ = new TypeDefinitionDMO();
             _OperationSpec = new TypeDefinition(_OperationSpecOBJ);
             _OperationSpecOBJ.setIsEnumType("false");
@@ -1913,6 +2038,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _OperationSpecOBJ.setIsRefType("false");
             addTypeDefList(_OperationSpec);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             TypeDefinitionDMO _MenuElementTypeAndCommentOBJ = new TypeDefinitionDMO();
             _MenuElementTypeAndComment = new TypeDefinition(_MenuElementTypeAndCommentOBJ);
             _MenuElementTypeAndCommentOBJ.setIsEnumType("false");
@@ -1933,6 +2059,7 @@ public class MvwSchemaAG extends SchemaDefinition {
     }
 
     private void initEnums() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             EnumDefinitionDMO _SelectionTypeEnumOBJ = new EnumDefinitionDMO();
             _SelectionTypeEnum = new EnumDefinition(_SelectionTypeEnumOBJ);
             _SelectionTypeEnumOBJ.setName("SelectionTypeEnum");
@@ -1940,10 +2067,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _SelectionTypeEnumOBJ.addEnumValue("1 MULTI Multi-selection supported.");
             _SelectionTypeEnumOBJ.setDescription("The SelectionTypeEnum indicates the selection mode of operations associated with object selection or object deletion.");
             _SelectionTypeEnum.setDefinedIn(this);
-            _SelectionTypeEnumOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _SelectionTypeEnumOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _SelectionTypeEnumOBJ.setLineNumber("51");
             addEnumDefList(_SelectionTypeEnum);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             EnumDefinitionDMO _EventScopeEnumOBJ = new EnumDefinitionDMO();
             _EventScopeEnum = new EnumDefinition(_EventScopeEnumOBJ);
             _EventScopeEnumOBJ.setName("EventScopeEnum");
@@ -1952,10 +2080,11 @@ public class MvwSchemaAG extends SchemaDefinition {
             _EventScopeEnumOBJ.addEnumValue("2 BROADCASTONLY Multi-selection supported.");
             _EventScopeEnumOBJ.setDescription("The SelectionTypeEnum indicates the selection mode of operations");
             _EventScopeEnum.setDefinedIn(this);
-            _EventScopeEnumOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _EventScopeEnumOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _EventScopeEnumOBJ.setLineNumber("58");
             addEnumDefList(_EventScopeEnum);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             EnumDefinitionDMO _RequestOptionEnumOBJ = new EnumDefinitionDMO();
             _RequestOptionEnum = new EnumDefinition(_RequestOptionEnumOBJ);
             _RequestOptionEnumOBJ.setName("RequestOptionEnum");
@@ -1969,7 +2098,7 @@ public class MvwSchemaAG extends SchemaDefinition {
             _RequestOptionEnumOBJ.addEnumValue("7 EVENTS Indicates that you want notification of events associated with the get request.");
             _RequestOptionEnumOBJ.setDescription("The RequestOptionEnum indicates a set of modifiers that direct code generation for standard Dark Matter Protocol request handling.");
             _RequestOptionEnum.setDefinedIn(this);
-            _RequestOptionEnumOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
+            _RequestOptionEnumOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/mvw/tools/mvwgenerator/dmdconfig/v0dot1/types.dmd");
             _RequestOptionEnumOBJ.setLineNumber("83");
             addEnumDefList(_RequestOptionEnum);
 

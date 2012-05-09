@@ -202,7 +202,7 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 			e.printStackTrace();
 		}		
 
-		return null;
+		return(response.getDMO());
 	}
 
 	@Override

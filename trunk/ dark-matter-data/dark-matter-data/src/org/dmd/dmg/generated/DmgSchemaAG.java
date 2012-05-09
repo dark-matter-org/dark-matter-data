@@ -51,7 +51,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             me.setName("dmg");
             me.setSchemaPackage("org.dmd.dmg");
             me.setDmwPackage("org.dmd.dmg");
-            me.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/dmg.dms");
+            me.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/dmg.dms");
 
             initClasses();
             initAttributes1();
@@ -63,12 +63,13 @@ public class DmgSchemaAG extends SchemaDefinition {
     }
 
     private void initClasses() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _DmgConfigOBJ = new ClassDefinitionDMO();
-            _DmgConfig = new ClassDefinition(_DmgConfigOBJ);
+            _DmgConfig = new ClassDefinition(_DmgConfigOBJ,DmgDMSAG.__DmgConfig);
             _DmgConfigOBJ.setName("DmgConfig");
             _DmgConfigOBJ.setDmdID("201");
             _DmgConfigOBJ.setClassType("STRUCTURAL");
-            _DmgConfigOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/classes.dmd");
+            _DmgConfigOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/classes.dmd");
             _DmgConfigOBJ.setLineNumber("13");
             _DmgConfigOBJ.setDescription("The DmgConfig class is used to specify a set of schemas and a set of  code generators to be run when you want to generate various types of code.");
             _DmgConfigOBJ.setDmtREFImport("org.dmd.dmg.generated.types.DmgConfigREF");
@@ -86,6 +87,7 @@ public class DmgSchemaAG extends SchemaDefinition {
     }
 
     private void initAttributes1() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _generatorOBJ = new AttributeDefinitionDMO();
             _generator = new AttributeDefinition(_generatorOBJ);
             _generatorOBJ.setType("Generator");
@@ -94,10 +96,11 @@ public class DmgSchemaAG extends SchemaDefinition {
             _generatorOBJ.setDescription("The fully qualified name of a class that that implements the DarkMatterGeneratorIF interface. The DMG Generator utility will call on this object to generate code.");
             _generatorOBJ.setValueType("MULTI");
             _generator.setDefinedIn(this);
-            _generatorOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _generatorOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
             _generatorOBJ.setLineNumber("9");
             addAttributeDefList(_generator);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _schemaToLoadOBJ = new AttributeDefinitionDMO();
             _schemaToLoad = new AttributeDefinition(_schemaToLoadOBJ);
             _schemaToLoadOBJ.setType("String");
@@ -105,10 +108,11 @@ public class DmgSchemaAG extends SchemaDefinition {
             _schemaToLoadOBJ.setDmdID("201");
             _schemaToLoadOBJ.setDescription("The name of schema for which code will be generated.");
             _schemaToLoad.setDefinedIn(this);
-            _schemaToLoadOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _schemaToLoadOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
             _schemaToLoadOBJ.setLineNumber("15");
             addAttributeDefList(_schemaToLoad);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _configSuffixOBJ = new AttributeDefinitionDMO();
             _configSuffix = new AttributeDefinition(_configSuffixOBJ);
             _configSuffixOBJ.setType("String");
@@ -117,10 +121,11 @@ public class DmgSchemaAG extends SchemaDefinition {
             _configSuffixOBJ.setDescription("The suffix of an additional configuration files that are required by any of the specified generators. For example .mvc");
             _configSuffixOBJ.setValueType("MULTI");
             _configSuffix.setDefinedIn(this);
-            _configSuffixOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _configSuffixOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
             _configSuffixOBJ.setLineNumber("23");
             addAttributeDefList(_configSuffix);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _genPackageOBJ = new AttributeDefinitionDMO();
             _genPackage = new AttributeDefinition(_genPackageOBJ);
             _genPackageOBJ.setType("String");
@@ -128,10 +133,11 @@ public class DmgSchemaAG extends SchemaDefinition {
             _genPackageOBJ.setDmdID("203");
             _genPackageOBJ.setDescription("The package name to be prepended to any generated code.");
             _genPackage.setDefinedIn(this);
-            _genPackageOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _genPackageOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
             _genPackageOBJ.setLineNumber("29");
             addAttributeDefList(_genPackage);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _upperConstantNameOBJ = new AttributeDefinitionDMO();
             _upperConstantName = new AttributeDefinition(_upperConstantNameOBJ);
             _upperConstantNameOBJ.setType("String");
@@ -139,10 +145,11 @@ public class DmgSchemaAG extends SchemaDefinition {
             _upperConstantNameOBJ.setDmdID("205");
             _upperConstantNameOBJ.setDescription("The name of something in upper case with underscores e.g. THIS_IS_UPPER_CONSTANT.");
             _upperConstantName.setDefinedIn(this);
-            _upperConstantNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _upperConstantNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
             _upperConstantNameOBJ.setLineNumber("41");
             addAttributeDefList(_upperConstantName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _aliasOBJ = new AttributeDefinitionDMO();
             _alias = new AttributeDefinition(_aliasOBJ);
             _aliasOBJ.setType("String");
@@ -150,13 +157,14 @@ public class DmgSchemaAG extends SchemaDefinition {
             _aliasOBJ.setDmdID("206");
             _aliasOBJ.setDescription("An alternative name for something.");
             _alias.setDefinedIn(this);
-            _aliasOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
+            _aliasOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
             _aliasOBJ.setLineNumber("47");
             addAttributeDefList(_alias);
 
     }
 
     private void initTypes() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             TypeDefinitionDMO _GeneratorOBJ = new TypeDefinitionDMO();
             _Generator = new TypeDefinition(_GeneratorOBJ);
             _GeneratorOBJ.setName("Generator");
@@ -166,7 +174,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _GeneratorOBJ.setDmwIteratorClass("GeneratorIterableDMW");
             _GeneratorOBJ.setDmwIteratorImport("org.dmd.dmg.generated.dmw.GeneratorIterableDMW");
             _Generator.setDefinedIn(this);
-            _GeneratorOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/types.dmd");
+            _GeneratorOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmg/schema/v0dot1/types.dmd");
             _GeneratorOBJ.setLineNumber("7");
             addTypeDefList(_Generator);
 

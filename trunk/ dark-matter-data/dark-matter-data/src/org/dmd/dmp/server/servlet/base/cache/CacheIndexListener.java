@@ -1,6 +1,7 @@
 package org.dmd.dmp.server.servlet.base.cache;
 
 import org.dmd.dmc.DmcClassInfo;
+import org.dmd.dmc.DmcSliceInfo;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
 
 /**
@@ -13,8 +14,8 @@ public class CacheIndexListener extends CacheListener {
 	// The class index to which we're listening
 	private final DmcClassInfo	classInfo;
 
-	public CacheIndexListener(CacheRegistration reg, DmpEventHandlerIF eh, DmcClassInfo dci) {
-		super(reg,eh);
+	public CacheIndexListener(CacheRegistration reg, DmpEventHandlerIF eh, DmcSliceInfo dsi, DmcClassInfo dci) {
+		super(reg,eh,dsi);
 		classInfo = dci;
 	}
 	

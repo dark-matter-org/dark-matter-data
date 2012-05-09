@@ -17,6 +17,7 @@ package org.dmd.dmp.server.servlet.base.cache;
 
 import java.util.Collection;
 
+import org.dmd.dmc.DmcSliceInfo;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
 import org.dmd.dmw.DmwNamedObjectWrapper;
@@ -38,10 +39,14 @@ abstract public class CacheListener {
     // The entity that will handle events from the cache
     private final DmpEventHandlerIF		eventHandler;
     
-    protected CacheListener(CacheRegistration reg, DmpEventHandlerIF eh){
+    // The slice of attributes wer're interested in, or null if we're interested in all attributes
+    private final DmcSliceInfo			sliceInfo;
+    
+    protected CacheListener(CacheRegistration reg, DmpEventHandlerIF eh, DmcSliceInfo dsi){
     	cacheRegistration 	= reg;
     	listenerId 			= cacheRegistration.getCache().getNextListenerID();
     	eventHandler		= eh;
+    	sliceInfo			= dsi;
     }
     
     /**
@@ -103,7 +108,24 @@ abstract public class CacheListener {
         	return;
         }
         
-        eventHandler.handleEvent(event);
+        // We slice the event if required i.e. if slice information is available, we will only
+        // forward the event if any of the attributes in the slice have changed or been created
+        DMPEvent forwardedEvent = null;
+        if (sliceInfo == null)
+        	forwardedEvent = event.clone();
+        else
+        	forwardedEvent = event.getSlice(sliceInfo);
+        
+        if (forwardedEvent == null){
+        	if (event.isTrackingEnabled())
+        		LoggerFactory.getLogger(getClass()).debug("Dropping event due to slicing: " + event.toOIF());
+        	return;
+        }
+        	
+        // All events are tagged with the unique listener associated with this cache listener.
+        forwardedEvent.setListenerID(listenerId);
+        
+        eventHandler.handleEvent(forwardedEvent);
     }
     
     /**

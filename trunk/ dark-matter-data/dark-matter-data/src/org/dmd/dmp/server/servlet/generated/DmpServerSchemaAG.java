@@ -54,7 +54,7 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             me.setName("dmp.server");
             me.setSchemaPackage("org.dmd.dmp.server.servlet");
             me.setDmwPackage("org.dmd.dmp.server.servlet");
-            me.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/dmp.server.dms");
+            me.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/dmp.server.dms");
 
 
             me.addDependsOn("dmr.base");
@@ -71,12 +71,13 @@ public class DmpServerSchemaAG extends SchemaDefinition {
     }
 
     private void initClasses() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _PluginConfigOBJ = new ClassDefinitionDMO();
-            _PluginConfig = new ClassDefinition(_PluginConfigOBJ);
+            _PluginConfig = new ClassDefinition(_PluginConfigOBJ,DmpServerDMSAG.__PluginConfig);
             _PluginConfigOBJ.setName("PluginConfig");
             _PluginConfigOBJ.setDmdID("701");
             _PluginConfigOBJ.setClassType("STRUCTURAL");
-            _PluginConfigOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
+            _PluginConfigOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
             _PluginConfigOBJ.setLineNumber("17");
             _PluginConfigOBJ.setDescription("The PluginConfig is used to specify a plugin to be loaded into the DMP Servlet Reference Implementation servlet.");
             _PluginConfigOBJ.setIsNamedBy("camelCaseName");
@@ -95,12 +96,13 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _PluginConfig.setDefinedIn(this);
             addClassDefList(_PluginConfig);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _UserFolderRIOBJ = new ClassDefinitionDMO();
-            _UserFolderRI = new ClassDefinition(_UserFolderRIOBJ);
+            _UserFolderRI = new ClassDefinition(_UserFolderRIOBJ,DmpServerDMSAG.__UserFolderRI);
             _UserFolderRIOBJ.setName("UserFolderRI");
             _UserFolderRIOBJ.setDmdID("702");
             _UserFolderRIOBJ.setClassType("STRUCTURAL");
-            _UserFolderRIOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
+            _UserFolderRIOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
             _UserFolderRIOBJ.setLineNumber("25");
             _UserFolderRIOBJ.setDescription("The UserFolderRI provides for a grouping of UserRI objects.");
             _UserFolderRIOBJ.setIsNamedBy("dotName");
@@ -111,12 +113,13 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _UserFolderRI.setDefinedIn(this);
             addClassDefList(_UserFolderRI);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _UserRIOBJ = new ClassDefinitionDMO();
-            _UserRI = new ClassDefinition(_UserRIOBJ);
+            _UserRI = new ClassDefinition(_UserRIOBJ,DmpServerDMSAG.__UserRI);
             _UserRIOBJ.setName("UserRI");
             _UserRIOBJ.setDmdID("703");
             _UserRIOBJ.setClassType("STRUCTURAL");
-            _UserRIOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
+            _UserRIOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
             _UserRIOBJ.setLineNumber("38");
             _UserRIOBJ.setDescription("The UserRI class provides a user representation for use with the  Reference Implementation (RI).");
             _UserRIOBJ.setIsNamedBy("dotName");
@@ -131,12 +134,13 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _UserRI.setDefinedIn(this);
             addClassDefList(_UserRI);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _SessionFolderRIOBJ = new ClassDefinitionDMO();
-            _SessionFolderRI = new ClassDefinition(_SessionFolderRIOBJ);
+            _SessionFolderRI = new ClassDefinition(_SessionFolderRIOBJ,DmpServerDMSAG.__SessionFolderRI);
             _SessionFolderRIOBJ.setName("SessionFolderRI");
             _SessionFolderRIOBJ.setDmdID("704");
             _SessionFolderRIOBJ.setClassType("STRUCTURAL");
-            _SessionFolderRIOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
+            _SessionFolderRIOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
             _SessionFolderRIOBJ.setLineNumber("46");
             _SessionFolderRIOBJ.setDescription("The SessionFolderRI provides for a grouping of SessionRI objects.");
             _SessionFolderRIOBJ.setIsNamedBy("dotName");
@@ -147,12 +151,13 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _SessionFolderRI.setDefinedIn(this);
             addClassDefList(_SessionFolderRI);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _SessionRIOBJ = new ClassDefinitionDMO();
-            _SessionRI = new ClassDefinition(_SessionRIOBJ);
+            _SessionRI = new ClassDefinition(_SessionRIOBJ,DmpServerDMSAG.__SessionRI);
             _SessionRIOBJ.setName("SessionRI");
             _SessionRIOBJ.setDmdID("705");
             _SessionRIOBJ.setClassType("STRUCTURAL");
-            _SessionRIOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
+            _SessionRIOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/classes.dmd");
             _SessionRIOBJ.setLineNumber("62");
             _SessionRIOBJ.setDescription("The SessionRI represents an authenticated user session and is an important aspect of any serious application. All interactions are usually associated with a valid session and, in the case of the reference implementation of the Dark MAtter Protocol service are also associated with the handling of asynchronous message handling and events.");
             _SessionRIOBJ.setIsNamedBy("dotName");
@@ -171,6 +176,7 @@ public class DmpServerSchemaAG extends SchemaDefinition {
     }
 
     private void initAttributes1() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _pluginNameOBJ = new AttributeDefinitionDMO();
             _pluginName = new AttributeDefinition(_pluginNameOBJ);
             _pluginNameOBJ.setType("CamelCaseName");
@@ -178,10 +184,11 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _pluginNameOBJ.setDmdID("701");
             _pluginNameOBJ.setDescription("The globally unique name of a Dark Matter ServletPlugin.");
             _pluginName.setDefinedIn(this);
-            _pluginNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
+            _pluginNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
             _pluginNameOBJ.setLineNumber("6");
             addAttributeDefList(_pluginName);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _startOrderOBJ = new AttributeDefinitionDMO();
             _startOrder = new AttributeDefinition(_startOrderOBJ);
             _startOrderOBJ.setType("Integer");
@@ -190,10 +197,11 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _startOrderOBJ.setDescription("The order in which the plugins should be initialized and started. If no order is specified, we default to 5. If a plugin depends on data provided by another  plugin, it should have a later startOrder than the plugin it depends on.");
             _startOrderOBJ.setNullReturnValue("5");
             _startOrder.setDefinedIn(this);
-            _startOrderOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
+            _startOrderOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
             _startOrderOBJ.setLineNumber("15");
             addAttributeDefList(_startOrder);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _pluginClassOBJ = new AttributeDefinitionDMO();
             _pluginClass = new AttributeDefinition(_pluginClassOBJ);
             _pluginClassOBJ.setType("String");
@@ -201,10 +209,11 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _pluginClassOBJ.setDmdID("703");
             _pluginClassOBJ.setDescription("The fully qualified name of the class derived from DmpServletPlugin that implements a plugin's behaviour.");
             _pluginClass.setDefinedIn(this);
-            _pluginClassOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
+            _pluginClassOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
             _pluginClassOBJ.setLineNumber("22");
             addAttributeDefList(_pluginClass);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _useSchemaClassOBJ = new AttributeDefinitionDMO();
             _useSchemaClass = new AttributeDefinition(_useSchemaClassOBJ);
             _useSchemaClassOBJ.setType("String");
@@ -213,10 +222,11 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _useSchemaClassOBJ.setDescription("The fully qualified name of a schema class to be loaded on behalf of a plugin.");
             _useSchemaClassOBJ.setValueType("MULTI");
             _useSchemaClass.setDefinedIn(this);
-            _useSchemaClassOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
+            _useSchemaClassOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
             _useSchemaClassOBJ.setLineNumber("30");
             addAttributeDefList(_useSchemaClass);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _idRIOBJ = new AttributeDefinitionDMO();
             _idRI = new AttributeDefinition(_idRIOBJ);
             _idRIOBJ.setType("Integer");
@@ -224,10 +234,11 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _idRIOBJ.setDmdID("705");
             _idRIOBJ.setDescription("The unique id for the instance of something associated with the Reference Implementation (RI).");
             _idRI.setDefinedIn(this);
-            _idRIOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
+            _idRIOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
             _idRIOBJ.setLineNumber("36");
             addAttributeDefList(_idRI);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _sessionIDRIOBJ = new AttributeDefinitionDMO();
             _sessionIDRI = new AttributeDefinition(_sessionIDRIOBJ);
             _sessionIDRIOBJ.setType("String");
@@ -235,10 +246,11 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _sessionIDRIOBJ.setDmdID("706");
             _sessionIDRIOBJ.setDescription("The Tomcat unique session identifer.");
             _sessionIDRI.setDefinedIn(this);
-            _sessionIDRIOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
+            _sessionIDRIOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
             _sessionIDRIOBJ.setLineNumber("42");
             addAttributeDefList(_sessionIDRI);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _sessionHostRIOBJ = new AttributeDefinitionDMO();
             _sessionHostRI = new AttributeDefinition(_sessionHostRIOBJ);
             _sessionHostRIOBJ.setType("String");
@@ -246,10 +258,11 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _sessionHostRIOBJ.setDmdID("707");
             _sessionHostRIOBJ.setDescription("The name of the host associated with a session.");
             _sessionHostRI.setDefinedIn(this);
-            _sessionHostRIOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
+            _sessionHostRIOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
             _sessionHostRIOBJ.setLineNumber("48");
             addAttributeDefList(_sessionHostRI);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _userRefRIOBJ = new AttributeDefinitionDMO();
             _userRefRI = new AttributeDefinition(_userRefRIOBJ);
             _userRefRIOBJ.setType("UserRI");
@@ -257,10 +270,11 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _userRefRIOBJ.setDmdID("708");
             _userRefRIOBJ.setDescription("The user associated with a session.");
             _userRefRI.setDefinedIn(this);
-            _userRefRIOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
+            _userRefRIOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
             _userRefRIOBJ.setLineNumber("54");
             addAttributeDefList(_userRefRI);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             AttributeDefinitionDMO _runnableOBJ = new AttributeDefinitionDMO();
             _runnable = new AttributeDefinition(_runnableOBJ);
             _runnableOBJ.setType("Boolean");
@@ -268,7 +282,7 @@ public class DmpServerSchemaAG extends SchemaDefinition {
             _runnableOBJ.setDmdID("709");
             _runnableOBJ.setDescription("A flag to indicate if a plugin implements Runnable. If so, once all plugins have been initialized, the runnable plugins will be started.");
             _runnable.setDefinedIn(this);
-            _runnableOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
+            _runnableOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmp/server/servlet/dmdconfig/attributes.dmd");
             _runnableOBJ.setLineNumber("61");
             addAttributeDefList(_runnable);
 
