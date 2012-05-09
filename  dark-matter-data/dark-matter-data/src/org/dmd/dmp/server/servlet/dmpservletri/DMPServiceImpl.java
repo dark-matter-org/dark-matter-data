@@ -33,10 +33,8 @@ import org.dmd.dmp.server.extended.LogoutRequest;
 import org.dmd.dmp.server.extended.LogoutResponse;
 import org.dmd.dmp.server.extended.NotifyRequest;
 import org.dmd.dmp.server.extended.PreAuthRequest;
-import org.dmd.dmp.server.extended.Response;
 import org.dmd.dmp.server.extended.SetRequest;
 import org.dmd.dmp.server.extended.SetResponse;
-import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmp.server.servlet.base.PluginManager;
 import org.dmd.dmp.server.servlet.base.interfaces.SecurityManagerIF;
 import org.dmd.dmp.server.servlet.extended.SessionRI;
@@ -48,7 +46,6 @@ import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.DenotifyRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.DenotifyResponseDMO;
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.GetResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;
@@ -215,7 +212,22 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		if (request.isTrackingEnabled())
 			logger.trace("Received by DMP servlet:\n" + request.toOIF());
 
-		return null;
+		try {
+			response = (DeleteResponse) pluginManager.getSecurityManager().validateSession(request);
+			
+			if (response == null){
+				SessionRI session = pluginManager.getSecurityManager().getSession(request);
+
+				response = session.handleDeleteRequest(request);
+			}
+		} catch (DmcValueException e) {
+			response = (DeleteResponse) request.getErrorResponse();
+			response.setResponseText(e.toString());
+			
+			logger.error(e.toString());
+		}		
+
+		return(response.getDMO());
 	}
 
 	@Override
@@ -284,7 +296,7 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 			response = (LogoutResponse) securityManager.validateSession(request);
 			if (response == null){
 				// All activity takes place against the session
-				SessionRI session = securityManager.getSession(request);
+//				SessionRI session = securityManager.getSession(request);
 				response = securityManager.logout(request);
 				
 			}

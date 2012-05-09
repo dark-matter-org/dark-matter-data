@@ -58,11 +58,11 @@ public class GridEventListener implements Listener<ComponentEvent> {
 		GridEvent 	ge 		= (GridEvent) ce;
 		EventType	type	= ce.getType();
 		
-		System.out.println("org.dmd.features.extgwt.client.widget.grid.GridEventListener " + ce.getClass().getName() + "  " + ce.getEventTypeInt());
+//		System.out.println("org.dmd.features.extgwt.client.widget.grid.GridEventListener " + ce.getClass().getName() + "  " + ce.getEventTypeInt());
 		if (type == Events.OnMouseDown){
 			
 			if (ge.getModel() == null){
-				System.out.println("On the background");
+//				System.out.println("On the background");
 				grid.setContextMenu(backgroundMenu);
 			}
 			else{

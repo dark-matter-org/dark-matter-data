@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.TreeMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -28,13 +29,16 @@ import org.dmd.dmc.DmcHierarchicObjectName;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.NameContainer;
 import org.dmd.dmp.server.extended.CreateRequest;
 import org.dmd.dmp.server.extended.CreateResponse;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.DMPMessage;
 import org.dmd.dmp.server.extended.DeleteRequest;
+import org.dmd.dmp.server.extended.DeleteResponse;
 import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.Request;
@@ -113,7 +117,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
     
     @Override
     public void preInit() throws ResultException {
-
+    	DmcOmni.instance().backRefTracking(true);
     }
 	
 	@Override
@@ -216,57 +220,13 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 			}
 			
 			if (message instanceof SetRequest){
-				
+				processSetRequest((SetRequest) message);
 			}
 			else if (message instanceof CreateRequest){
-				CreateRequest 	request 	= (CreateRequest) message;
-				CreateResponse 	response	= null;
-				
-				logger.debug("Processing create request for: " + request.getNewObject().getConstructionClassName());
-
-				DmwNamedObjectWrapper wrapper = (DmwNamedObjectWrapper) request.getNewObjectWrapped();
-				
-				if (wrapper.getObjectName() == null){
-					// The object doesn't have a name, we'll try to generate one for it
-					synchronized (nameGenerators) {
-						NameGeneratorIF ng = nameGenerators.get(wrapper.getConstructionClassInfo());
-						if (ng == null){
-							// Not good, we don't have a name generator, so we can't proceed
-							response = (CreateResponse) request.getErrorResponse();
-							response.setResponseText("No name generator was available for objects of type: " + wrapper.getConstructionClassName());
-						}
-						else{
-							ng.createNameForObject(wrapper);
-						}
-					}
-				}
-				
-				// We attempt to resolve references in the object, this includes its class
-				// information and references to other objects
-				try {
-					wrapper.resolveReferences(this);
-				} catch (DmcValueExceptionSet e) {
-					response = (CreateResponse) request.getErrorResponse();
-					response.setResponseText(e.toString());
-				}
-				
-				// We add the object to the cache - if anything goes wrong, an error response will be returned
-				response = addAndComplainIfNeeded(request, wrapper);
-				
-				if (response == null){
-					// The response will have been instantiated if we have an error condition e.g. no name generator
-					response = request.getResponse();
-					response.addObjectList(wrapper.getDmcObject());
-				}
-				
-				// Fire back the response
-				requestTracker.processResponse(response);
-				
-				// Notify anyone who's interested
-				sendCreationEvent(wrapper, request.getOriginatorID(), request.isTrackingEnabled(), request.isNotifyOriginator());
+				processCreateRequest((CreateRequest) message);
 			}
 			else if (message instanceof DeleteRequest){
-				
+				processDeleteRequest((DeleteRequest) message);
 			}
 			else if (message instanceof DMPEvent){
 				// For now we're not handling events from other sources, but, in
@@ -279,22 +239,70 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		
 	}
 	
-	private void sendCreationEvent(DmwNamedObjectWrapper wrapper, Integer originatorID, boolean track, boolean notifyOriginator){
-        DMPEvent event = new DMPEvent(DMPEventTypeEnum.CREATED, wrapper);
-        if (originatorID != null)
-        	event.setOriginatorID(originatorID);
-        event.setNotifyOriginator(notifyOriginator);
-        event.setTrackingEnabled(track);
-		forwardEvent(event);
+	///////////////////////////////////////////////////////////////////////////
+	// OBJECT MODIFICATION HANDLING
+	
+	private void processSetRequest(SetRequest request){
+		
+	}
+	
+	///////////////////////////////////////////////////////////////////////////
+	// OBJECT CREATION HANDLING
+	
+	private void processCreateRequest(CreateRequest request){
+		CreateResponse 	response	= null;
+		
+		if (request.isTrackingEnabled())
+			logger.trace("Processing create request for: " + request.getNewObject().getConstructionClassName());
+
+		DmwNamedObjectWrapper wrapper = (DmwNamedObjectWrapper) request.getNewObjectWrapped();
+		
+		if (wrapper.getObjectName() == null){
+			// The object doesn't have a name, we'll try to generate one for it
+			synchronized (nameGenerators) {
+				NameGeneratorIF ng = nameGenerators.get(wrapper.getConstructionClassInfo());
+				if (ng == null){
+					// Not good, we don't have a name generator, so we can't proceed
+					response = (CreateResponse) request.getErrorResponse();
+					response.setResponseText("No name generator was available for objects of type: " + wrapper.getConstructionClassName());
+				}
+				else{
+					ng.createNameForObject(wrapper);
+				}
+			}
+		}
+		
+		// We attempt to resolve references in the object, this includes its class
+		// information and references to other objects
+		try {
+			wrapper.resolveReferences(this);
+		} catch (DmcValueExceptionSet e) {
+			response = (CreateResponse) request.getErrorResponse();
+			response.setResponseText(e.toString());
+		}
+		
+		// We add the object to the cache - if anything goes wrong, an error response will be returned
+		response = addAndComplainIfNeeded(request, wrapper);
+		
+		if (response == null){
+			// The response will have been instantiated if we have an error condition e.g. no name generator
+			response = request.getResponse();
+			response.addObjectList(wrapper.getDmcObject());
+		}
+		
+		// Fire back the response
+		requestTracker.processResponse(response);
+		
+		// Notify anyone who's interested
+		sendEvent(DMPEventTypeEnum.CREATED, wrapper, request.getOriginatorID(), request.isTrackingEnabled(), request.isNotifyOriginator());
 	}
 	
 	/**
-	 * 
-	 * @param wrapper
-	 * @param originatorID
-	 * @param sendEvent
-	 * @param track
-	 * @param notifyOriginator
+	 * This method attempts to add the specified object to the cache. If all goes well,
+	 * null is returned.
+	 * @param request The request that makes this addition necessary.
+	 * @param wrapper The newly created object.
+	 * @return null if it worked and an error response if not.
 	 */
 	private CreateResponse addAndComplainIfNeeded(CreateRequest request, DmwNamedObjectWrapper wrapper){
 		CreateResponse response = null;
@@ -310,9 +318,97 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		return(response);
 	}
 	
+	///////////////////////////////////////////////////////////////////////////
+	// OBJECT DELETION HANDLING
+	
+	private void processDeleteRequest(DeleteRequest request){
+		LinkedList<DMPEvent> events = new LinkedList<DMPEvent>();
+		
+		// TODO: add code to handle tree deletion
+		
+		StringBuffer errors = null;
+		for(NameContainer container: request.getTargetsIterable()){
+			DmwNamedObjectWrapper wrapper = _delete(container.getName());
+			
+			if (wrapper == null){
+				if (errors == null){
+					errors = new StringBuffer();
+					errors.append(container.getName().getNameString());
+				}
+				else
+					errors.append(", " + container.getName().getNameString());
+			}
+			else{
+				events.add(createEvent(DMPEventTypeEnum.DELETED, wrapper, request.getOriginatorID(), request.isTrackingEnabled(), request.isNotifyOriginator()));
+			}
+		}
+		
+		DeleteResponse response = null;
+		
+		if (errors == null){
+			response = request.getResponse();
+		}
+		else{
+			logger.error("Could not delete: " + errors.toString());
+			
+			response = (DeleteResponse) request.getErrorResponse();
+			response.setResponseText("Could not delete: " + errors.toString());
+		}
+		
+		// Fire back the response
+		requestTracker.processResponse(response);
+		
+		// Notify anyone who's interested
+		for(DMPEvent event: events)
+			forwardEvent(event);
+	}
+	
+	private DmwNamedObjectWrapper _delete(DmcObjectName name){
+		synchronized (theCache) {
+			DmwNamedObjectWrapper wrapper = theCache.remove(name);
+			
+			if (wrapper != null){
+				indexer.deleteFromIndices(wrapper);
+				
+				if (name instanceof DmcHierarchicObjectName){
+					DmwHierarchicObjectWrapper hwrapper = (DmwHierarchicObjectWrapper) wrapper;
+					if (hwrapper.getParentComponent() != null)
+						hwrapper.getParentComponent().removeSubcomponent(hwrapper);
+				}
+				
+				wrapper.youAreDeleted();
+			}
+			
+			return(wrapper);
+		}
+	}
+	
+	///////////////////////////////////////////////////////////////////////////
+	
+	private DMPEvent createEvent(DMPEventTypeEnum type, DmwNamedObjectWrapper wrapper, Integer originatorID, boolean track, boolean notifyOriginator){
+        DMPEvent event = new DMPEvent(type, wrapper);
+        if (originatorID != null)
+        	event.setOriginatorID(originatorID);
+        event.setNotifyOriginator(notifyOriginator);
+        event.setTrackingEnabled(track);
+		return(event);
+	}
+	
+	private void sendEvent(DMPEventTypeEnum type, DmwNamedObjectWrapper wrapper, Integer originatorID, boolean track, boolean notifyOriginator){
+        DMPEvent event = new DMPEvent(type, wrapper);
+        if (originatorID != null)
+        	event.setOriginatorID(originatorID);
+        event.setNotifyOriginator(notifyOriginator);
+        event.setTrackingEnabled(track);
+		forwardEvent(event);
+	}
+	
 	/**
-	 * 
-	 * @param event
+	 * We query the cache listener manager for the listeners who are interested
+	 * in the specified event and forward the event to them. Whether or not the event
+	 * is actually sent will depend on the nature of the listener involved and
+	 * whether or not slicing has been requested.
+	 * @param event the event that may be forwarded.
 	 */
 	private void forwardEvent(DMPEvent event){
 		for(CacheListener listener: listenerManager.getInterestedListeners(event)){
@@ -375,38 +471,8 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		}
 		
 	}
-
 	
 	///////////////////////////////////////////////////////////////////////////
-	// DmcNameResolverIF
-	
-	@Override
-	public DmcObject findNamedDMO(DmcObjectName name) {
-		DmcObject rc = null;
-		DmwNamedObjectWrapper wrapper = theCache.get(name);
-		
-		if (wrapper == null)
-			rc = DmwOmni.instance().findNamedDMO(name);
-		else
-			rc = wrapper.getDmcObject();
-		
-		return(rc);
-	}
-
-	@Override
-	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
-		DmcNamedObjectIF rc = theCache.get(name);
-		
-		if (rc == null)
-			rc = DmwOmni.instance().findNamedObject(name);
-		
-		return(rc);
-	}
-
-	@Override
-	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
-		return(findNamedObject(name));
-	}
 
 	@Override
 	public void create(DmwNamedObjectWrapper obj) {
@@ -485,6 +551,7 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	}
 
 	///////////////////////////////////////////////////////////////////////////
+	// DmcUncheckedOIFHandlerIF implementation
 
 	@Override
 	public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
@@ -519,6 +586,39 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		return( new CacheRegistration(this));
 	}
 
+	///////////////////////////////////////////////////////////////////////////
+	// DmcNameResolverIF implementation
+	
+	@Override
+	public DmcObject findNamedDMO(DmcObjectName name) {
+		DmcObject rc = null;
+		DmwNamedObjectWrapper wrapper = theCache.get(name);
+		
+		// If we can't find the object in the cache, fall back to the schema
+		if (wrapper == null)
+			rc = DmwOmni.instance().findNamedDMO(name);
+		else
+			rc = wrapper.getDmcObject();
+		
+		return(rc);
+	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name) {
+		DmcNamedObjectIF rc = theCache.get(name);
+		
+		// If we can't find the object in the cache, fall back to the schema
+		if (rc == null)
+			rc = DmwOmni.instance().findNamedObject(name);
+		
+		return(rc);
+	}
+
+	@Override
+	public DmcNamedObjectIF findNamedObject(DmcObjectName name, int attributeID) {
+		return(findNamedObject(name));
+	}
+	
 	////////////////////////////////////////////////////////////////////////////
 	// Asynchronous operation processing
 
@@ -539,10 +639,14 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 
 	@Override
 	public void queueEvent(DMPEvent event) {
-		// TODO Auto-generated method stub
-		
+		addToQueue(event);
 	}
 
+	/**
+	 * We add the specified message to our input queue. In our run() nethod,
+	 * we pull messages from the queue when they're available and process them.
+	 * @param msg the message to be queued.
+	 */
     private void addToQueue(DMPMessage msg) {
         try
         {
@@ -588,6 +692,9 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	public void removeListener(CacheListener listener) {
 		listenerManager.removeListener(listener);
 	}
+	
+	///////////////////////////////////////////////////////////////////////////
+	// Name generator support
 
 	@Override
 	public void addNameGenerator(NameGeneratorIF ng) {
