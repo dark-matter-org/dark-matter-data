@@ -30,6 +30,7 @@ import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOmni;
+import org.dmd.dmc.DmcSliceInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.NameContainer;
@@ -43,6 +44,7 @@ import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.Request;
 import org.dmd.dmp.server.extended.SetRequest;
+import org.dmd.dmp.server.extended.SetResponse;
 import org.dmd.dmp.server.servlet.base.DmpServletPlugin;
 import org.dmd.dmp.server.servlet.base.cache.CacheIF;
 import org.dmd.dmp.server.servlet.base.cache.CacheIndexListener;
@@ -243,7 +245,42 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	// OBJECT MODIFICATION HANDLING
 	
 	private void processSetRequest(SetRequest request){
+		SetResponse response = null;
+		DMPEvent event = null;
 		
+		if (request.isTrackingEnabled())
+			logger.trace("Processing set request for: " + request.getTarget().getKeyAsString());
+		
+		DmwNamedObjectWrapper wrapper = theCache.get(request.getTarget().getName());
+		
+		if (wrapper == null){
+			response = (SetResponse) request.getErrorResponse();
+			response.setResponseText("Could not find object to modify: " + request.getTarget().getKeyAsString());
+		}
+		else{
+			// TODO: validation
+			
+			try {
+				// If anything changed in the object, applyModifier() returns true
+				// and we create an event to report the changes
+				if (wrapper.applyModifier(request.getModifyAttribute()))
+					event = createModifyEvent(request,wrapper);
+					
+				response = request.getResponse();
+				response.setLastResponse(true);
+			} catch (Exception e) {
+				response = (SetResponse) request.getErrorResponse();
+				response.setResponseText("Modification failed for object: " + request.getTarget().getKeyAsString() + "\n" + e.toString());
+				logger.error("Modification failed for object: " + request.getTarget().getKeyAsString() + "\n" + e.toString());
+			}
+			
+		}
+		
+		// Fire back the response
+		requestTracker.processResponse(response);
+
+		if (event != null)
+			forwardEvent(event);
 	}
 	
 	///////////////////////////////////////////////////////////////////////////
@@ -394,6 +431,16 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 		return(event);
 	}
 	
+	private DMPEvent createModifyEvent(SetRequest request, DmwNamedObjectWrapper wrapper){
+        DMPEvent event = new DMPEvent(request);
+        if (request.getOriginatorID() != null)
+        	event.setOriginatorID(request.getOriginatorID());
+        event.setNotifyOriginator(request.isNotifyOriginator());
+        event.setTrackingEnabled(request.isTrackingEnabled());
+        event.setSourceObjectClass(wrapper.getConstructionClass());
+		return(event);
+	}
+	
 	private void sendEvent(DMPEventTypeEnum type, DmwNamedObjectWrapper wrapper, Integer originatorID, boolean track, boolean notifyOriginator){
         DMPEvent event = new DMPEvent(type, wrapper);
         if (originatorID != null)
@@ -473,6 +520,40 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 	}
 	
 	///////////////////////////////////////////////////////////////////////////
+	
+	@Override
+	public DmwNamedObjectWrapper get(DmcObjectName name) {
+		synchronized (theCache) {
+			return(theCache.get(name));
+		}
+	}
+
+	@Override
+	public Collection<DmwHierarchicObjectWrapper> getNext(DmcHierarchicObjectName name) {
+		synchronized (theCache) {
+			DmwHierarchicObjectWrapper root = (DmwHierarchicObjectWrapper) theCache.get(name);
+			
+			if (root == null)
+				return(null);
+			
+			return(root.getSubComps());
+		}
+	}
+
+	@Override
+	public Collection<DmwHierarchicObjectWrapper> getAll(DmcHierarchicObjectName name) {
+		synchronized (theCache) {
+//			DmwHierarchicObjectWrapper root = (DmwHierarchicObjectWrapper) theCache.get(name);
+//			
+//			if (root == null)
+//				return(null);
+//			
+//			return(null);
+			throw(new IllegalStateException("Not implemented yet"));
+		}
+	}
+
+	///////////////////////////////////////////////////////////////////////////
 
 	@Override
 	public void create(DmwNamedObjectWrapper obj) {
@@ -506,12 +587,6 @@ public class BasicCachePlugin extends DmpServletPlugin implements CacheIF, Runna
 
 	@Override
 	public void deleteAndNotify(DmcObjectName name) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void get(GetRequest request, GetResponse response) {
 		// TODO Auto-generated method stub
 		
 	}

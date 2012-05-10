@@ -98,12 +98,15 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	// Our event domain for use with the gwteventservice
 	Domain								eventDomain;
 	
-	// All DMP messages have the trackingEnabled attribute that allow for tracking
+	// All DMP messages have the trackingEnabled attribute that allows for tracking
 	// of the message through the various components of the system. This is a global
 	// flag that can be set so that all messages are tracked - this should be used
 	// with caution, but it's useful for training/example purposes. Individual messages
 	// can, of course, have their tracking turned on.
 	boolean								trackAllMessages;
+	
+	// A flag to indicate if we want to see message tracing within the CommsController
+	boolean								controllerTracing;
 	
 	// The timer used to delay attempts to prime the event channel
 	Timer								primingTimer;
@@ -132,6 +135,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		eventHandlers		= new TreeMap<Long, ResponseCallback>();
 		lastRequestTime		= -1;
 		trackAllMessages	= false;
+		controllerTracing	= false;
 		loggedIn			= false;
 	}
 	
@@ -152,8 +156,17 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	}
 	
 	/**
+	 * Sets tracing of messages through the CommsController on/off. The GWT logging level must be
+	 * set to FINEST in order for the logs to be seen.
+	 * @param f set to true if you want to see tracing of message handling through the controller.
+	 */
+	public void setControllerTracing(boolean f){
+		controllerTracing = f;
+	}
+	
+	/**
 	 * Sets a flag that will turn global message tracking on/off.
-	 * @param f set ot true if you want all message handling tracking
+	 * @param f set to true if you want all message handling tracking
 	 */
 	public void setGlobalMessageTracking(boolean f){
 		trackAllMessages = f;
@@ -399,6 +412,9 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 
 	@Override
 	public void handleFailure(ResponseCallback cb, Throwable caught) {
+		if (controllerTracing)
+			logger.finest("A GWT RPC error occurred: " + caught.toString());
+		
 		switch(cb.rpcErrorOption()){
 		case LOCAL:
 			cb.getHandler().handleRPCFailure(caught, cb.getRequest());
@@ -420,6 +436,9 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 
 	@Override
 	public void handleResponse(ResponseCallback cb, ResponseDMO response) {
+		if (controllerTracing)
+			logger.finest(response.toOIF());
+
 		if (response.getResponseType() == ResponseTypeEnum.ERROR){
 			switch(cb.dmpErrorOption()){
 			case LOCAL:
@@ -494,8 +513,8 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		
 		if (getResponse.getListenerID() != null){
 			if (eventHandlers.get(getResponse.getListenerID()) == null){
-				logger.log(Level.FINE, "CommsController.registerEventHandler: registering event handler for listenerID: " + getResponse.getListenerID());
-//				System.out.println("CommsController.registerEventHandler: registering event handler for listenerID: " + getResponse.getListenerID());
+				if (controllerTracing)
+					logger.finest("registerEventHandler() - registering event handler for listenerID: " + getResponse.getListenerID());
 				eventHandlers.put(getResponse.getListenerID(), cb);
 			}
 		}
@@ -510,22 +529,21 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		if (async instanceof DMPEventDMO){
 			DMPEventDMO event = (DMPEventDMO) async;
 			
-			logger.log(Level.FINE, "CommsController.handleAsynchronousInfo got event:\n\n" + event.toOIF() + "\n\n");
+			if (controllerTracing)
+				logger.finest("handleAsynchronousInfo() got event:\n\n" + event.toOIF() + "\n\n");
 
-//			System.out.println("CommsController.handleAsynchronousInfo got event:\n\n" + event.toOIF() + "\n\n");
-			
 			if (event.getListenerID() == null){
 				if (centralEventHandler != null)
 					centralEventHandler.handleEventCentrally(event);
-				logger.log(Level.SEVERE, "CommsController.handleAsynchronousInfo received event with no listenerID: " + event.toOIF());
+				
+				logger.severe("handleAsynchronousInfo() - received event with no listenerID: " + event.toOIF());
 				return;
 			}
 			
 			ResponseCallback cb = eventHandlers.get(event.getListenerID());
 			
 			if (cb == null){
-				logger.log(Level.SEVERE, "CommsController.handleAsynchronousInfo couldn't get callback for event with listenerID: " + event.getListenerID());
-//				System.out.println("CommsController.handleAsynchronousInfo couldn't get callback for event with listenerID: " + event.getListenerID());
+				logger.severe("handleAsynchronousInfo() - couldn't get callback for event with listenerID: " + event.getListenerID());
 			}
 			else{
 				// Set the handleID on the event so that the callback will know how to route the event
@@ -541,15 +559,14 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 		}
 		else if (async instanceof ResponseDMO){
 			ResponseDMO response = (ResponseDMO) async;
-			logger.log(Level.FINE, "CommsController.handleAsynchronousInfo got response:\n\n" + response.toOIF() + "\n\n");
-
-//			System.out.println("CommsController.handleAsynchronousInfo got response:\n\n" + response.toOIF() + "\n\n");
 			
+			if (controllerTracing)
+				logger.finest("handleAsynchronousInfo() - got response:\n\n" + response.toOIF() + "\n\n");
+
 			ResponseCallback cb = requests.get(response.getNthRequestID(0));
 
 			if (cb == null){
-				logger.log(Level.SEVERE, "CommsController.handleAsynchronousInfo couldn't get callback for response: " + response.toOIF());
-//				System.out.println("CommsController.handleAsynchronousInfo couldn't get callback");
+				logger.severe("handleAsynchronousInfo() - couldn't get callback for response: " + response.toOIF());
 			}
 			else{
 				if (cb.getCallbackID() == GetResponseCallback.ID)
@@ -557,8 +574,9 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 				
 				cb.getHandler().handleResponse(response);
 				if (response.isLastResponse()){
-					logger.log(Level.FINE, "CommsController.handleAsynchronousInfo is last response...");
-//					System.out.println("CommsController.handleAsynchronousInfo is last response...");
+					if (controllerTracing)
+						logger.finest("handleAsynchronousInfo() is last response...");
+
 					requests.remove(response.getNthRequestID(0));
 				}
 			}
@@ -590,6 +608,19 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 	///////////////////////////////////////////////////////////////////////////
 	// Event channel priming
 	
+	/**
+	 * The length of time that it takes for the gwteventservice to establish itself
+	 * is nondeterministic and we have to be sure that it's up and running before
+	 * we start relying on it to send back asynchronous message responses and events.
+	 * The mechanism we use is to send an ActionRequest to the server every half second
+	 * until we actually receive the response via the gwteventservice. We can distinguish
+	 * these responses because they will be marked as being the last response for one
+	 * of our action requests.
+	 * <p/>
+	 * The server side of this is handled in the SessionRI class. When the action request
+	 * is received, it send the synchronous response immediately and sends the asynchronous
+	 * response 300ms later.
+	 */
 	void primeTheEventChannel(){
 		eventChannelReady 	= false;
 		havePrimingResponse	= false;
@@ -598,13 +629,17 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			@Override
 			public void run() {
 				if (havePrimingResponse){
-					logger.fine("Having event channel priming response - cancelling timer.");
+					if (controllerTracing)
+						logger.finest("Having event channel priming response - cancelling timer.");
+					
 					primingTimer.cancel();
 				}
 				else{
 					ActionRequestDMO request = getPrimeEventChannelRequest(new PrimeEventChannelATI());
 					sendPrimeEventChannelRequest(request);
-					logger.fine("Event channel priming request sent...");
+					
+					if (controllerTracing)
+						logger.finest("Event channel priming request sent...");
 				}
 				
 			}
@@ -614,7 +649,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 
 	@Override
 	protected void handlePrimeEventChannelResponseError(ActionResponseDMO response) {
-		logger.severe(response.toOIF());
+		logger.severe("An error occurred while priming the event channel:\n\n" + response.toOIF());
 		
 		// We set this to true to cancel the priming process
 		havePrimingResponse = true;
@@ -625,10 +660,11 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 
 	@Override
 	protected void handlePrimeEventChannelResponse(ActionResponseDMO response) {
-		logger.fine(response.toOIF());
+		if (controllerTracing)
+			logger.finest("Event channel priming response:\n\n" + response.toOIF());
 		
 		if (response.isLastResponse()){
-			logger.fine("Event channel is operational...");
+			logger.finest("Event channel is operational...");
 
 			// The last response is always sent on the event channel, so we're 
 			// good to go

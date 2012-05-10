@@ -19,14 +19,17 @@ import java.io.PrintStream;
 import java.util.Collection;
 
 import org.dmd.dmc.DmcClassInfo;
+import org.dmd.dmc.DmcHierarchicObjectName;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcObjectName;
+import org.dmd.dmc.DmcSliceInfo;
 import org.dmd.dmp.server.extended.CreateRequest;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.DeleteRequest;
 import org.dmd.dmp.server.extended.GetRequest;
 import org.dmd.dmp.server.extended.GetResponse;
 import org.dmd.dmp.server.extended.SetRequest;
+import org.dmd.dmw.DmwHierarchicObjectWrapper;
 import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.dmd.util.exceptions.ResultException;
 
@@ -139,10 +142,27 @@ public interface CacheIF extends DmcNameResolverIF {
 	public void removeListener(CacheListener listener);
 	
 	////////////////////////////////////////////////////////////////////////////
-	// Object retrieval and event registration
+	// Object retrieval
 	
-	public void get(GetRequest request, GetResponse response);
-		
+	/**
+	 * Returns the specified object if it exists.
+	 * @param the name of the object to be retrieved.
+	 * @return the specified object or null if it doesn't exist.
+	 */
+	public DmwNamedObjectWrapper get(DmcObjectName name);
+	
+	/**
+	 * @param name the name of the parent object.
+	 * @return the children of the specified object
+	 */
+	public Collection<DmwHierarchicObjectWrapper> getNext(DmcHierarchicObjectName name);
+	
+	/**
+	 * @param name the root of the tree to be retrieved
+	 * @return the entire tree of hierarchic objects, include the root object.
+	 */
+	public Collection<DmwHierarchicObjectWrapper> getAll(DmcHierarchicObjectName name);
+	
 	///////////////////////////////////////////////////////////////////////////
 	// Object indexing support
 	

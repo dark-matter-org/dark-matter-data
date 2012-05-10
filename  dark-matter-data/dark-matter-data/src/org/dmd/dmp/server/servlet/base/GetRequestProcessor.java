@@ -20,7 +20,9 @@ import java.util.Collection;
 import java.util.HashMap;
 
 import org.dmd.dmc.DmcClassInfo;
+import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcOmni;
+import org.dmd.dmc.types.NameContainer;
 import org.dmd.dmp.server.DmpPipeIF;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.DMPMessage;
@@ -33,6 +35,7 @@ import org.dmd.dmp.server.servlet.base.cache.CacheIndexListener;
 import org.dmd.dmp.server.servlet.base.cache.CacheListener;
 import org.dmd.dmp.server.servlet.base.cache.CacheRegistration;
 import org.dmd.dmp.server.servlet.base.interfaces.DmpEventHandlerIF;
+import org.dmd.dmp.shared.generated.enums.ScopeEnum;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dmw.DmwNamedObjectWrapper;
 import org.dmd.dmw.DmwOmni;
@@ -91,7 +94,7 @@ public class GetRequestProcessor implements DmpEventHandlerIF {
 	 */
 	public void processRequest(GetRequest request){
 		if (request.getTargetsHasValue()){
-			
+			processTargetedRequest(request);
 		}
 		else if (request.getFilter() != null){
 			processClassIndexRequest(request);
@@ -109,6 +112,50 @@ public class GetRequestProcessor implements DmpEventHandlerIF {
 	}
 	
 	///////////////////////////////////////////////////////////////////////////
+	//
+	
+	/**
+	 * 
+	 */
+	private void processTargetedRequest(GetRequest request){
+		synchronized(this){
+			GetResponse response = null;
+			
+			switch(request.getScope()){
+			case ALL:
+				break;
+			case BASE:
+			case NONE:
+				if (request.getTargetsSize() == 1){
+					DmcObjectName name			    = request.getDMO().getNthTargets(0).getName();
+					DmwNamedObjectWrapper wrapper 	= cache.get(name);
+					
+					if (wrapper == null){
+						response = (GetResponse) request.getErrorResponse();
+						response.setResponseText("Couldn't retrieve object: " + name.getNameString());
+					}
+					else{
+						response = request.getResponse();
+						response.addObjectList(wrapper.getDmcObject());
+						response.setLastResponse(true);
+					}
+				}
+				else{
+//					for(NameContainer container: request.getTargetsIterable()){
+//						cache.
+//					}
+					
+				}
+				break;
+			case NEXT:
+				break;
+			}
+		
+			sendMessage(response);
+		}
+	}
+	
+	///////////////////////////////////////////////////////////////////////////
 	// 
 	
 	/**
@@ -116,8 +163,12 @@ public class GetRequestProcessor implements DmpEventHandlerIF {
 	 * <p/>
 	 * <pre>
 	 * GetRequest
-	 * 
+	 * filter              Contact
+	 * registerForEvents   true
+	 * requestID           3
+	 * scope               BASE
 	 * </pre>
+	 * 
 	 */
 	private void processClassIndexRequest(GetRequest request){
 		try {
@@ -133,7 +184,8 @@ public class GetRequestProcessor implements DmpEventHandlerIF {
 				return;
 			}
 			
-			logger.trace("Retrieving objects from class index: " + dci.name);
+			if (request.isTrackingEnabled())
+				logger.trace("Retrieving objects from class index: " + dci.name);
 
 			synchronized(this){
             	// The set of objects we're sending back
@@ -168,7 +220,9 @@ public class GetRequestProcessor implements DmpEventHandlerIF {
 					response.setResponseText("No " + dci.name + " objects have been indexed.");
 				}
 				else{
-					logger.trace(objects.size() + " objects to be sent");
+					if (request.isTrackingEnabled())
+						logger.trace(objects.size() + " objects to be sent");
+					
 					for(DmwNamedObjectWrapper object: objects){
 						response.addObjectList(object);
 						if (response.getObjectListSize() == blockingFactor){
@@ -182,7 +236,7 @@ public class GetRequestProcessor implements DmpEventHandlerIF {
 				sendMessage(response);
 			}
 				
-			logger.trace("Outside synch block");
+//			logger.trace("Outside synch block");
 		}
 		catch(Exception ex){
 			logger.error(DebugInfo.extractTheStack(ex));
