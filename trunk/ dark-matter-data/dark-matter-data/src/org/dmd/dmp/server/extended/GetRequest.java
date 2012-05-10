@@ -29,7 +29,7 @@ public class GetRequest extends GetRequestDMW {
 	
 	/**
 	 * Returns a properly populated GetResponse. This will also set the DmcSliceInfo
-	 * on the response so that the response can "slice" the attributes taht are sent
+	 * on the response so that the response can "slice" the attributes that are sent
 	 * back as part of the response object. See the GetResponse.addObjectList() method
 	 * for more of the magic that takes place when dealing with slices.
 	 * @return

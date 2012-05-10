@@ -19,6 +19,16 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcSliceInfo;
 import org.dmd.dmp.server.generated.dmw.GetResponseDMW;
 
+/**
+ * The GetResponse is sent in response to a GetRequest; funny isn't it ;-) This
+ * extended version of the GetResponse adds a bit of additional behaviour when it is
+ * created by calling GetRequest.getResponse() - not only are the required values
+ * filled in using the fillStandard() method, but any DmcSliceInfo associated with
+ * the request is set on the response as well.
+ * <p/>
+ * If there was slice information associated with the request, any objects added to
+ * the response will be automatically sliced when you call addObjectList(). Very handy.
+ */
 public class GetResponse extends GetResponseDMW {
 	
 	DmcSliceInfo	sliceInfo;

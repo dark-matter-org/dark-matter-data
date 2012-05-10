@@ -192,8 +192,7 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 				response = session.handleCreateRequest(request);
 			}
 		} catch (DmcValueException e) {
-			response = request.getResponse();
-			response.setResponseType(ResponseTypeEnum.ERROR);
+			response = (CreateResponse) request.getErrorResponse();
 			response.setResponseText(e.toString());
 			
 			e.printStackTrace();
@@ -330,18 +329,34 @@ public class DMPServiceImpl extends RemoteEventServiceServlet implements DMPServ
 		// All requests are immediately wrapped for use on the server. This includes
 		// associating the request with the originating HttpServletRequest.
 		SetRequest request = new SetRequest(setRequest, getThreadLocalRequest());
+		SetResponse response = null;
 		
 		if (request.isTrackingEnabled())
 			logger.trace("Received by DMP servlet:\n" + request.toOIF());
 		
 		if (request.getModifyIsEmpty()){
 			// There aren't any modifications in the request - that's an error
-			SetResponse response = (SetResponse) request.getErrorResponse();
+			response = (SetResponse) request.getErrorResponse();
 			response.setResponseText("No modifications were found in the SetRequest");
-			return(response.getDMO());
 		}
+		else{
 
-		return null;
+			try {
+				response = (SetResponse) pluginManager.getSecurityManager().validateSession(request);
+				
+				if (response == null){
+					SessionRI session = pluginManager.getSecurityManager().getSession(request);
+	
+					response = session.handleSetRequest(request);
+				}
+			} catch (DmcValueException e) {
+				response = (SetResponse) request.getErrorResponse();
+				response.setResponseText(e.toString());
+				
+				logger.error(e.toString());
+			}	
+		}
+		return(response.getDMO());
 	}
 
 	@Override
