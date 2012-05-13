@@ -219,6 +219,11 @@ td {
 	font-weight: bold;
 }
 
+.eventName {
+	font-weight: bold;
+	padding-right: 10px;
+}
+
 .navigation {
 	background-color: #E2E2E2;
 	position: fixed;

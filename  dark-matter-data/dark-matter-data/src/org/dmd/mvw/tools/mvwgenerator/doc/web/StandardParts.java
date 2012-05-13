@@ -3,6 +3,8 @@ package org.dmd.mvw.tools.mvwgenerator.doc.web;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
+import org.dmd.mvw.tools.mvwgenerator.extended.Module;
+
 public class StandardParts {
 
 	static void writePageHeader(BufferedWriter out, String title) throws IOException {
@@ -37,6 +39,10 @@ public class StandardParts {
 
 	static void writeContentEnd(BufferedWriter out) throws IOException{
 		out.write("    </div>\n\n");
+	}
+
+	static String moduleLink(Module module) {
+		return("<a class=\"navLink\" href=\"" + module.getCamelCaseName() + ".html\">" + module.getCamelCaseName() + "</a>");
 	}
 
 }

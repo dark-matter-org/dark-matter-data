@@ -166,7 +166,7 @@ public class MvwGenUtility {
 	
 	void initHelp(){
 		help = new StringBuffer();
-		help.append("mvwgen -h -cfg -workspace -srcdir -autogen\n\n");
+		help.append("mvwgen -h -cfg -workspace -srcdir -docdir <directory> -autogen\n\n");
 		help.append("The mvwgen tool generates GWT MVP compatible interfaces and base implementation classes from\n");
         help.append("definitions found in .mvw configuration files. MVW configurations are recursivley discovered\n");
         help.append("in your development environment using commandline arguments:\n");

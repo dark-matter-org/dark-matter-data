@@ -1,5 +1,6 @@
 package org.dmd.mvw.tools.mvwgenerator.extended;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;
@@ -27,6 +28,15 @@ public class RunContextItem extends RunContextItemDMW {
 	
 	public RunContextItem(RunContextItemDMO dmo, ClassDefinition cd){
 		super(dmo,cd);
+	}
+	
+	/**
+	 * A convenience override to set the camelCaseName when the itemName is set.
+	 */
+	@Override
+	public void setItemName(Object value) throws DmcValueException {
+		super.setItemName(value);
+		setCamelCaseName(value);
 	}
 	
 	public void setView(View v){
