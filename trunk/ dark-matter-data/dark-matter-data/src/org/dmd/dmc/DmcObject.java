@@ -333,7 +333,13 @@ abstract public class DmcObject implements Serializable {
 		}
 	}
 	
-	protected DmcTypeModifierMV getBackref(){
+	/**
+	 * Returns the set of modifiers that indicate the back references to this object from other objects.
+	 * This is only valid if you've turned on back reference tracking via the DmcOmni. DON'T ALTER
+	 * THE RETURNED VALUE - YOU'VE BEEN WARNED.
+	 * @return the set of modifiers that will remove the references.
+	 */
+	public DmcTypeModifierMV getBackref(){
 		return (DmcTypeModifierMV) (getInfo(BACKREFS, BACKREFS_SIZE));
 	}
 	
@@ -1240,10 +1246,10 @@ abstract public class DmcObject implements Serializable {
 		synchronized(attributes){		
 			DmcTypeModifierMV mods = getBackref();
 			if (mods == null)
-				return("No backrefs to " + ((DmcNamedObjectIF)this).getObjectName());
+				return("No backrefs to " + ((DmcNamedObjectIF)this).getObjectName()+ " (" + System.identityHashCode(this) + ")");
 			else{
 				StringBuffer sb = new StringBuffer();
-				sb.append("References to: " + ((DmcNamedObjectIF)this).getObjectName() + "\n");
+				sb.append("References to: " + ((DmcNamedObjectIF)this).getObjectName() + " (" + System.identityHashCode(this)+ ")\n");
 				
 				Iterator<Modifier> modit = mods.getMV();
 				if (modit != null){

@@ -58,25 +58,25 @@ abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
     }
 
     // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:204)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:345)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:384)
     protected void fireCommsSessionFailed(String reason){
         eventBus.fireEvent(new CommsSessionFailed(reason));
     }
 
     // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:204)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:345)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:384)
     protected void fireCommsSessionReady(){
         eventBus.fireEvent(new CommsSessionReady());
     }
 
     // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:204)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:345)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:384)
     protected void fireLoginCompleteEvent(){
         eventBus.fireEvent(new LoginCompleteEvent());
     }
 
     // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:204)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:345)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:384)
     protected void fireLogoutCompleteEvent(){
         eventBus.fireEvent(new LogoutCompleteEvent());
     }
@@ -122,7 +122,7 @@ abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
         }
     }
 
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.initCodeGenInfo(Event.java:96)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.initCodeGenInfo(Event.java:101)
     abstract protected void onForceCommsReset();
 
     abstract protected void handlePrimeEventChannelResponseError(ActionResponseDMO response);

@@ -25,7 +25,7 @@ public class MvwHtmlDocGenerator {
 		
 		DebugInfo.debug("Generating MVW documentation: " + outdir);
 		
-		Summarizer summary = new Summarizer(defManager);
+		Summarizer summary = new Summarizer(defManager,od);
 		
 		initDirs();
 
@@ -39,6 +39,8 @@ public class MvwHtmlDocGenerator {
 		for (Module module: defManager.getModules().values()){
 			ModulePage.dumpModule(outdir, module, summary);
 		}
+		
+		summary.dumpSummaryFiles();
 	}
 	
 	void initDirs(){

@@ -1,8 +1,11 @@
 package org.dmd.mvw.tools.mvwgenerator.extended;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 
+import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.dms.util.GenUtility;
+import org.dmd.dmw.DmwWrapper;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.EventDMW;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -17,8 +20,10 @@ public class Event extends EventDMW {
 	ArrayList<View>				local;
 	
 	ArrayList<MvwDefinition>	firedBy;
+	TreeMap<CamelCaseName,MvwDefinition>	firedBySorted;
 	
 	ArrayList<MvwDefinition>	handledBy;
+	TreeMap<CamelCaseName,MvwDefinition>	handledBySorted;
 	
 	StringBuffer				registerForEvent;
 	
@@ -110,6 +115,40 @@ public class Event extends EventDMW {
 			abstractMethod.append(");\n\n");
 			
 		}
+	}
+	
+	public void showReferences(){
+		if (isReferenced()){
+			System.out.println("Event - " + getCamelCaseName() + " is referenced by");
+			for(DmwWrapper wrapper: getReferringObjects()){
+				MvwDefinition def = (MvwDefinition) wrapper;
+				System.out.println("    " + def.getCamelCaseName().toString());
+			}
+		}
+	}
+	
+	public TreeMap<CamelCaseName,MvwDefinition> getFiredBy(){
+		if (firedBySorted == null){
+			firedBySorted = new TreeMap<CamelCaseName, MvwDefinition>();
+			
+			if (firedBy != null){
+				for(MvwDefinition def: firedBy)
+					firedBySorted.put(def.getCamelCaseName(), def);
+			}
+		}
+		return(firedBySorted);
+	}
+	
+	public TreeMap<CamelCaseName,MvwDefinition> getHandledBy(){
+		if (handledBySorted == null){
+			handledBySorted = new TreeMap<CamelCaseName, MvwDefinition>();
+			
+			if (handledBy != null){
+				for(MvwDefinition def: handledBy)
+					handledBySorted.put(def.getCamelCaseName(), def);
+			}
+		}
+		return(handledBySorted);
 	}
 	
 	/**
