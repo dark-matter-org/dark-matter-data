@@ -5,7 +5,7 @@ import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerDMW;
 import org.dmd.util.exceptions.ResultException;
 
-public class Controller extends ControllerDMW {
+public class Controller extends ControllerDMW implements CodeGenComponentIF {
 	
 	StringBuffer		controllerInterfaces;
 	
@@ -16,6 +16,13 @@ public class Controller extends ControllerDMW {
 		
 	}
 	
+	@Override
+	public void resetCodeGenInfo() {
+		super.resetCodeGenInfo();
+		initialized 			= false;
+		controllerInterfaces	= null;
+	}
+
 	@Override
 	public boolean usesRunContext(){
 		super.usesRunContext();
@@ -60,7 +67,7 @@ public class Controller extends ControllerDMW {
 		return(controllerInterfaces.toString());
 	}
 	
-	public void initCodeGenInfo(boolean rpc, boolean dmp) throws ResultException{
+	public void initCodeGenInfo(boolean rpc, boolean dmp) throws ResultException {
 		if (!initialized){
 			initialized = true;
 			

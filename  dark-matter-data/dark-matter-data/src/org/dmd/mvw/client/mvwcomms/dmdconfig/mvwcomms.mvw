@@ -13,6 +13,11 @@ importThis			com.google.gwt.core.client.GWT
 importThis			org.dmd.dmp.client.DMPService
 construction 		(DMPServiceAsync) GWT.create(DMPService.class)
 itemOrder    		2
+description			The asynchronous service interface definition for the Dark Matter Protocol.
+ This provides our connectivity to the server using GWT RPC mechanisms i.e. one request, one reponse
+ at some later time. However, it is the eventService that provides us with asynchronous events
+ and further responses for requests that require multiple responses.
+ 
 
 RunContextItem
 itemName			eventService
@@ -20,12 +25,15 @@ useClass     		de.novanic.eventservice.client.event.RemoteEventService
 importThis			de.novanic.eventservice.client.event.RemoteEventServiceFactory
 construction 		RemoteEventServiceFactory.getInstance().getRemoteEventService()
 itemOrder    		3
+description			The eventService provides asynchronous event/reponse delivery.
 
 RunContextItem
 itemName			commsController
 useClass     		org.dmd.mvw.client.mvwcomms.extended.CommsController
 construction 		new CommsController(this)
 itemOrder    		4
+description			The commsController provides coordination of client side session management
+ and the delivery of responses/events to the appropriate client side components.
 
 Controller
 controllerName		CommsController

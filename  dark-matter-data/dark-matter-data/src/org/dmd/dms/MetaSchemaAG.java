@@ -1032,7 +1032,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _blockWhenLocked             .setType(_Boolean);
             _blockWhenLocked             .setDefinedIn(this);
 
-            _camelCaseName               .setDescription("The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other charactrs are allowed.");
+            _camelCaseName               .setDescription("The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed.");
             _camelCaseName               .setDesignatedNameAttribute("true");
             _camelCaseName               .setDmdID("116");
             _camelCaseName               .setName("camelCaseName");

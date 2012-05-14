@@ -192,7 +192,6 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	 * @return null if everything is ok or a set of components that need a central DMP handler otherwise.
 	 */
 	public ArrayList<Component> centralDmpErrorHandlingOK(){
-		boolean rc = true;
 		ArrayList<Component>	needCentral = new ArrayList<Component>();
 		
 		for(Component component: components.values()){
@@ -221,7 +220,6 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	 * @return null if everything is ok or a set of components that need a central RPC handler otherwise.
 	 */
 	public ArrayList<Component> centralRpcErrorHandlingOK(){
-		boolean rc = true;
 		ArrayList<Component>	needCentral = new ArrayList<Component>();
 		
 		for(Component component: components.values()){
@@ -347,6 +345,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 				
 				rci.setItemName("historyMapper");
+				rci.setDescription("This is the auto generated run context item that provides a handle to the application specific PlaceHistoryMapper for a web application.");
 				rci.setItemOrder(7);
 				rci.setUseClass(codeGenModule.getGenPackage() + ".generated.mvw.places." + app.getAppName() + "PlaceHistoryMapper");
 				rci.setConstruction("GWT.create(" + app.getAppName() + "PlaceHistoryMapper.class)");
@@ -378,6 +377,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 				
 				rci.setItemName(controller.getControllerName().getNameString() + "RCI");
+				rci.setDescription("The auto generated run context item for the " + controller.getControllerName());
 				
 				if (controller.getSubpackage() == null)
 					rci.setUseClass(currentModule.getGenPackage() + ".extended." + controller.getControllerName());
@@ -447,6 +447,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 			
 			rci.setItemName(presenter.getPresenterName().getNameString() + "RCI");
+			rci.setDescription("The auto generated run context item for the " + presenter.getPresenterName());
 			
 			if (presenter.getSubpackage() == null)
 				rci.setUseClass(currentModule.getGenPackage() + ".extended." + presenter.getPresenterName());
@@ -503,6 +504,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 			
 			rci.setItemName(view.getViewName().getNameString() + "RCI");
+			rci.setDescription("The auto generated run context item for the " + view.getViewName());
 			
 			if (view.getSubpackage() == null)
 				rci.setUseClass(currentModule.getGenPackage() + ".extended." + view.getViewName());
@@ -605,7 +607,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
 				
 				rci.setItemName("menuFactory");
-				
+				rci.setDescription("The auto generated run context item for the generic menuFactory; this was created because a MenuImplementationConfig was provided by the " + menuImplementation.getDefinedInModule().getModuleName() + " module");
+
 				rci.setUseClass("org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory");
 				rci.setItemOrder(16);
 					
@@ -1056,6 +1059,30 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 	}
 	
+	void resetCodeGenInfo(){
+		for(View view: views.values()){
+			view.resetCodeGenInfo();
+		}
+		for(Controller controller: controllers.values()){
+			controller.resetCodeGenInfo();
+		}
+		for(Presenter presenter: presenters.values()){
+			presenter.resetCodeGenInfo();
+		}
+		for(Activity activity: activities.values()){
+			activity.resetCodeGenInfo();
+		}
+		for(Event event: events.values()){
+			event.resetCodeGenInfo();
+		}
+		for(Place place: places.values()){
+			place.resetCodeGenInfo();
+		}
+		for(ActionBinding action: actions.values()){
+			action.resetCodeGenInfo();
+		}
+	}
+	
 	/**
 	 * Checks that we don't already have the definition and adds it to the specified map.
 	 * @param def
@@ -1333,6 +1360,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			def.getDMO().clearReferenceInfo();
 		}
 		
+		resetCodeGenInfo();
+		
 		DmcOmni.instance().backRefTracking(true);
 		
 		for(MvwDefinition def: allDefs.values()){
@@ -1343,6 +1372,15 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 				System.out.println("\nWhile resolving: \n" + def.getDMO().toOIF());
 			}
 		}
-				
+			
+		try {
+			initCodeGenInfo();
+		} catch (DmcValueException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ResultException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

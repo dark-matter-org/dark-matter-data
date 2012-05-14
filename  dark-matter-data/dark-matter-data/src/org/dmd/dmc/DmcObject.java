@@ -1296,6 +1296,29 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
+	 * Returns the objects that are referring to this object via the specified attribute. This will only
+	 * return a value if you've turned on backref tracking via the DmcOmni.
+	 */
+	public ArrayList<DmcObject> getReferringObjectsViaAttribute(DmcAttributeInfo ai){
+		ArrayList<DmcObject>	rc = new ArrayList<DmcObject>();
+		
+		synchronized(attributes){
+			DmcTypeModifierMV mods = getBackref();
+			if (mods != null){
+				Iterator<Modifier> modit = mods.getMV();
+				if (modit != null){
+					while(modit.hasNext()){
+						Modifier mod = modit.next();
+						if (mod.getAttributeID() == ai.id)
+							rc.add((DmcObject)mod.getReferringObject());
+					}
+				}
+			}
+			return(rc);
+		}
+	}
+	
+	/**
 	 * Returns the object in Object Instance Format (OIF). The attribute values
 	 * will be automatically aligned beyond the length of the longest attribute
 	 * name.

@@ -25,13 +25,13 @@ body {
 }
 
 #main, #header, #footer {
-	width: 900px;
+	width: 1000px;
 	margin: auto;
 }
 
 #content {
 	float:	right;
-	width:	750px;
+	width:	860px;
 }
 
 #bodycopy {
@@ -41,12 +41,17 @@ body {
 
 #sidebar {
 	/* float: left; */
-	margin-right: 640px;
+	margin-right: 740px;
 	/*
 	position: fixed;
 	left: 10px;
 	top:  40px;
 	*/
+}
+
+.sidebarTitle {
+	font-weight: bold;
+	padding-bottom: 10px;
 }
 
 #footer {
@@ -222,6 +227,10 @@ td {
 .eventName {
 	font-weight: bold;
 	padding-right: 10px;
+}
+
+.argvector {
+	font-weight: bold;
 }
 
 .navigation {
