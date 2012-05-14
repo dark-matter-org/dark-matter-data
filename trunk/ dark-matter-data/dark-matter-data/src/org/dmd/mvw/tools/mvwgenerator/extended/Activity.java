@@ -9,6 +9,17 @@ public class Activity extends ActivityDMW {
 	
 	// The place where we run
 	Place			myPlace;
+	
+	public Activity(){
+		
+	}
+	
+	@Override
+	public void resetCodeGenInfo() {
+		super.resetCodeGenInfo();
+		initialized = false;
+		interfaces	= null;
+	}
 
 	public void setPlace(Place p){
 		myPlace = p;

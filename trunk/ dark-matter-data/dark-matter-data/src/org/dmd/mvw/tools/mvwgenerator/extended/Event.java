@@ -11,32 +11,36 @@ import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
-public class Event extends EventDMW {
+public class Event extends EventDMW implements CodeGenComponentIF {
 		
-	int							longestType;
-	ArrayList<String>			types;
-	ArrayList<String>			members;
-
-	ArrayList<View>				local;
+	boolean									initialized;
 	
-	ArrayList<MvwDefinition>	firedBy;
+	int										longestType;
+	ArrayList<String>						types;
+	ArrayList<String>						members;
+
+	ArrayList<View>							local;
+	TreeMap<CamelCaseName,MvwDefinition>	localSorted;
+	
+	ArrayList<MvwDefinition>				firedBy;
 	TreeMap<CamelCaseName,MvwDefinition>	firedBySorted;
 	
-	ArrayList<MvwDefinition>	handledBy;
+	ArrayList<MvwDefinition>				handledBy;
 	TreeMap<CamelCaseName,MvwDefinition>	handledBySorted;
 	
-	StringBuffer				registerForEvent;
+	StringBuffer							registerForEvent;
 	
-	StringBuffer				abstractMethod;
+	StringBuffer							abstractMethod;
 	
-	ImportManager				imports;
+	ImportManager							imports;
 
 	public Event(){
 		
 	}
 	
-	void initCodeGenInfo(){
-		if (types == null){
+	void initialize(){
+		if (!initialized){
+			initialized			= true;
 			types 				= new ArrayList<String>();
 			members 			= new ArrayList<String>();
 			registerForEvent 	= new StringBuffer();
@@ -151,6 +155,18 @@ public class Event extends EventDMW {
 		return(handledBySorted);
 	}
 	
+	public TreeMap<CamelCaseName,MvwDefinition> getLocallyFired(){
+		if (localSorted == null){
+			localSorted = new TreeMap<CamelCaseName, MvwDefinition>();
+			
+			if (local != null){
+				for(MvwDefinition def: local)
+					localSorted.put(def.getCamelCaseName(), def);
+			}
+		}
+		return(localSorted);
+	}
+	
 	/**
 	 * Adds the import statement for this event to the import manager
 	 * @param im
@@ -162,19 +178,19 @@ public class Event extends EventDMW {
 	}
 	
 	public void addEventHandlerImports(ImportManager im){
-		initCodeGenInfo();
+		initialize();
 		im.addImportsFrom(imports);
 		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName(), "Required by " + getEventName());
 		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName() + "Handler", "Required by " + getEventName());
 	}
 	
 	public String getAbstractMethod(){
-		initCodeGenInfo();
+		initialize();
 		return(abstractMethod.toString());
 	}
 	
 	public String getRegisterForEvent(){
-		initCodeGenInfo();
+		initialize();
 		return(registerForEvent.toString());
 	}
 	
@@ -195,17 +211,17 @@ public class Event extends EventDMW {
 	}
 	
 	public ArrayList<String> getTypes(){
-		initCodeGenInfo();
+		initialize();
 		return(types);
 	}
 	
 	public ArrayList<String> getMembers(){
-		initCodeGenInfo();
+		initialize();
 		return(members);
 	}
 	
 	public int getLongestType(){
-		initCodeGenInfo();
+		initialize();
 		return(longestType);
 	}
 	
@@ -285,7 +301,7 @@ public class Event extends EventDMW {
 	}
 	
 	public String getViewLocalMethod(){
-		initCodeGenInfo();
+		initialize();
 		
 		String 			capped 	= GenUtility.capTheName(getEventName().getNameString());
 		StringBuffer 	sb 		= new StringBuffer();
@@ -309,7 +325,7 @@ public class Event extends EventDMW {
 	}
 	
 	public String getViewBroadcastMethod(){
-		initCodeGenInfo();
+		initialize();
 		
 		String 			capped 	= GenUtility.capTheName(getEventName().getNameString());
 		StringBuffer 	sb 		= new StringBuffer();
@@ -336,7 +352,7 @@ public class Event extends EventDMW {
 	}
 	
 	public String getViewBroadcastOnlyMethod(){
-		initCodeGenInfo();
+		initialize();
 		
 		String 			capped 	= GenUtility.capTheName(getEventName().getNameString());
 		StringBuffer 	sb 		= new StringBuffer();
@@ -363,7 +379,7 @@ public class Event extends EventDMW {
 	
 	
 	public String getFireMethod(){
-		initCodeGenInfo();
+		initialize();
 		
 		String 			capped 	= GenUtility.capTheName(getEventName().getNameString());
 		StringBuffer 	sb 		= new StringBuffer();
@@ -386,6 +402,25 @@ public class Event extends EventDMW {
 		sb.append("        eventBus.fireEvent(new " + capped + args.toString() + ");\n");
 		sb.append("    }\n\n");
 		return(sb.toString());
+	}
+	
+	///////////////////////////////////////////////////////////////////////////
+
+	@Override
+	public void resetCodeGenInfo() {
+		initialized			= false;
+		longestType			= 0;
+		types				= null;
+		members				= null;
+		local				= null;
+		localSorted			= null;
+		firedBy				= null;
+		firedBySorted		= null;
+		handledBy			= null;
+		handledBySorted		= null;
+		registerForEvent	= null;
+		abstractMethod		= null;
+		imports				= null;
 	}
 	
 	

@@ -5,7 +5,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PlaceDMO;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.PlaceDMW;
 import org.dmd.util.codegen.ImportManager;
 
-public class Place extends PlaceDMW {
+public class Place extends PlaceDMW implements CodeGenComponentIF {
 	
 	boolean			initialized;
 	ImportManager	imports;
@@ -38,6 +38,12 @@ public class Place extends PlaceDMW {
 	
 	public String getPlaceImport(){
 		return(getDefinedInModule().getGenPackage() + ".generated.mvw.places." + getPlaceName());
+	}
+
+	@Override
+	public void resetCodeGenInfo() {
+		initialized	= false;
+		imports		= null;
 	}
 	
 }

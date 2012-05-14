@@ -1,7 +1,7 @@
 package org.dmd.mvw.client.mvwcomms.generated.mvw.controllers;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:134)
+// Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:154)
 import com.google.gwt.event.shared.EventBus;                                                // Used by eventBus
 import de.novanic.eventservice.client.event.RemoteEventService;                             // Used by eventService
 import org.dmd.dmc.DmcOmni;                                                                 // Support for schema loading
@@ -57,36 +57,36 @@ abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
 
     }
 
-    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:204)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:384)
+    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:224)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:400)
     protected void fireCommsSessionFailed(String reason){
         eventBus.fireEvent(new CommsSessionFailed(reason));
     }
 
-    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:204)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:384)
+    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:224)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:400)
     protected void fireCommsSessionReady(){
         eventBus.fireEvent(new CommsSessionReady());
     }
 
-    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:204)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:384)
+    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:224)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:400)
     protected void fireLoginCompleteEvent(){
         eventBus.fireEvent(new LoginCompleteEvent());
     }
 
-    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:204)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:384)
+    // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:224)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:400)
     protected void fireLogoutCompleteEvent(){
         eventBus.fireEvent(new LogoutCompleteEvent());
     }
 
-    // Generated from: org.dmd.mvw.tools.mvwgenerator.extended.Component$CommsHandler.addSendRequestFunction(Component.java:462)
+    // Generated from: org.dmd.mvw.tools.mvwgenerator.extended.Component$CommsHandler.addSendRequestFunction(Component.java:482)
     protected void sendPrimeEventChannelRequest(ActionRequestDMO request){
         commsController.sendActionRequest(request,this,ErrorOptionsEnum.CENTRAL,ErrorOptionsEnum.LOCAL);
     }
 
-    // Generated from: org.dmd.mvw.tools.mvwgenerator.extended.Component$CommsHandler.addSendRequestFunction(Component.java:503)
+    // Generated from: org.dmd.mvw.tools.mvwgenerator.extended.Component$CommsHandler.addSendRequestFunction(Component.java:523)
     protected ActionRequestDMO getPrimeEventChannelRequest(ActionTriggerInfo ati){
         ActionRequestDMO request = commsController.getActionRequest(ati);
         request.setHandlerID(PRIMEEVENTCHANNELACTIONCALLBACK);
@@ -94,7 +94,7 @@ abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
         return(request);
     }
 
-    // Generated from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:267)
+    // Generated from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:287)
     @Override
     final public void handleResponse(ResponseDMO response){
         if (response.getResponseType() == ResponseTypeEnum.ERROR){
@@ -113,7 +113,7 @@ abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
         }
     }
 
-    // Generated from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:301)
+    // Generated from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:321)
     @Override
     final public void handleRPCFailure(Throwable caught, RequestDMO request){
         switch(request.getHandlerID()){
@@ -122,12 +122,12 @@ abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
         }
     }
 
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.initCodeGenInfo(Event.java:101)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.initialize(Event.java:105)
     abstract protected void onForceCommsReset();
 
     abstract protected void handlePrimeEventChannelResponseError(ActionResponseDMO response);
 
-    // Generated from: org.dmd.mvw.tools.mvwgenerator.extended.Component$CommsHandler.addHandlers(Component.java:589)
+    // Generated from: org.dmd.mvw.tools.mvwgenerator.extended.Component$CommsHandler.addHandlers(Component.java:609)
     abstract protected void handlePrimeEventChannelResponse(ActionResponseDMO response);
 
 }

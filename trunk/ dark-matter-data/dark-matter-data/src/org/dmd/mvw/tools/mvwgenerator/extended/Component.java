@@ -15,7 +15,7 @@ import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
-public class Component extends ComponentDMW {
+public class Component extends ComponentDMW implements CodeGenComponentIF {
 
 	protected boolean 				initialized;
 	
@@ -67,6 +67,26 @@ public class Component extends ComponentDMW {
 		
 	}
 	
+	@Override
+	public void resetCodeGenInfo() {
+		imports 				= null;		
+		loadAttributeSchemas 	= null;
+		hasCommsMethods			= false;
+		methodID 				= 0;
+		commsMethods			= null;
+		abstractMethods			= null;
+		fireMethods				= null;
+		errorCases				= null;
+		objEventHandlers		= null;
+		rpcErrorCases			= null;
+		successCases			= null;
+		commsConstants			= null;
+		eventRegistration		= null;
+		commsHandlers			= null;
+		actionVariables			= null;
+		actionInstantiations	= null;
+	}
+
 	public String getBaseClassName(){
 		if (getUseBaseClass() == null)
 			return("");

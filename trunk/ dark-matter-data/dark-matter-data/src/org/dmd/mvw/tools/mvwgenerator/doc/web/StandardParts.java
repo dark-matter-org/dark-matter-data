@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 
 public class StandardParts {
 
@@ -43,6 +44,11 @@ public class StandardParts {
 
 	static String moduleLink(Module module) {
 		return("<a class=\"navLink\" href=\"" + module.getCamelCaseName() + ".html\">" + module.getCamelCaseName() + "</a>");
+	}
+
+	static String definitionLink(MvwDefinition def) {
+		Module module = def.getDefinedInModule();
+		return("<a class=\"navLink\" href=\"" + module.getCamelCaseName() + ".html#" + def.getCamelCaseName()+ "\">" + def.getCamelCaseName() + "</a>");
 	}
 
 }

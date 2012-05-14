@@ -14,6 +14,13 @@ public class Presenter extends PresenterDMW {
 		
 	}
 	
+	@Override
+	public void resetCodeGenInfo() {
+		super.resetCodeGenInfo();
+		initialized 		= false;
+		presenterInterfaces	= null;
+	}
+
 	public void setRunContextItem(RunContextItem i){
 		runContextItem = i;
 	}

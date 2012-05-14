@@ -17,7 +17,7 @@ import org.dmd.util.exceptions.ResultException;
  * The View class extends the basic View definition to provide a variety of consistency checking
  * and the creation of various information required to format the View interface.
  */
-public class View extends ViewDMW {
+public class View extends ViewDMW implements CodeGenComponentIF {
 	
 	boolean 		initialized;
 	
@@ -46,6 +46,21 @@ public class View extends ViewDMW {
 
 	public View(){
 		initialized = false;
+	}
+	
+	@Override
+	public void resetCodeGenInfo() {
+		initialized				= false;
+		displayData				= null;
+		viewImports				= null;
+		presenterInterface		= null;
+		viewInterface			= null;
+		presenterImplImports	= null;
+		viewImplImports			= null;
+		viewImplMethods			= null;
+		
+		// Not initialized by code gen
+//		runContextItem			= null;
 	}
 	
 	protected View(ViewDMO obj, ClassDefinition cd){
@@ -276,4 +291,5 @@ public class View extends ViewDMW {
 		
 		return(sb.toString());
 	}
+
 }

@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
+import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.util.MvwDefinitionManager;
 
 public class Summarizer {
@@ -33,12 +34,17 @@ public class Summarizer {
 	void buildSidebar(){
 		sidebar.append("    <div id=\"sidebar\">\n");
 		
+		sidebar.append("    <div class=\"sidebarTitle\"> Modules </div>\n");
+		
 		for(Module module: defManager.getModules().values()){
 			String name = module.getCamelCaseName().getNameString();
 			sidebar.append("        <a class=\"navLink\" href=\"" + name + ".html\"> " + name + "</a>\n");
-			
 		}
 		
+		sidebar.append("        <p/>\n");
+		sidebar.append("    <div class=\"sidebarTitle\"> Summaries </div>\n");
+		sidebar.append("        <a class=\"navLink\" href=\"EventSummary.html\"> Events</a>\n");
+		sidebar.append("        <a class=\"navLink\" href=\"RCISummary.html\"> Run Context Items</a>\n");
 		sidebar.append("    </div>\n");
 	}
 	
@@ -48,6 +54,7 @@ public class Summarizer {
 	 */
 	public void dumpSummaryFiles() throws IOException {
 		dumpEventSummary();
+		dumpRCISummary();
 	}
 	
 	///////////////////////////////////////////////////////////////////////////
@@ -59,6 +66,8 @@ public class Summarizer {
 		StandardParts.writePageHeader(out, "Event Summary");
 		
 		StandardParts.writeContentStart(out);
+		
+		out.write("<h1> Event Summary </h1>\n\n");
 		
 		out.write("    <table>\n\n");
 		
@@ -79,4 +88,34 @@ public class Summarizer {
 	}
 	
 	///////////////////////////////////////////////////////////////////////////
+	
+	void dumpRCISummary() throws IOException {
+		String ofn = outdir + File.separator + "RCISummary.html";
+		BufferedWriter out = new BufferedWriter( new FileWriter(ofn) );
+		
+		StandardParts.writePageHeader(out, "Run Context Item Summary");
+		
+		StandardParts.writeContentStart(out);
+		
+		out.write("<h1> Run Context Item Summary </h1>\n\n");
+		
+		out.write("    <table>\n\n");
+		
+		for(RunContextItem rci: defManager.getDefaultContext().getItemsByName().values()){
+			RunContextItemFormatter.dumpRCISummary(rci,out);
+		}
+
+		out.write("    </table>\n\n");
+
+		StandardParts.writeContentEnd(out);
+
+		out.write(getSideBar());
+
+		StandardParts.writePageFooter(out);
+
+		out.close();
+
+	}
+	
+
 }
