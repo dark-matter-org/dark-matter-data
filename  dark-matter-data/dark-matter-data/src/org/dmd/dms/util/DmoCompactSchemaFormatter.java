@@ -210,8 +210,12 @@ public class DmoCompactSchemaFormatter {
 	 * to the DMO subdirectory. THIS METHOD IS FOR THE METAGENERATOR.
 	 * @param sn  The schema name.
 	 * @param schemaPackage The schema package prefix.
-	 * @param attribute The meta schema attributes.
+	 * @param classes the class definitions.
+	 * @param attributes the attribute definitions.
+	 * @param types the type definitions.
 	 * @param dmodir The output directory.
+	 * @param baseID the base ID for the schema
+	 * @param idRange the range of IDs permissible
 	 * @throws IOException 
 	 * @throws IOException 
 	 * @throws ResultException 

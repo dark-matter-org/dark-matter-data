@@ -16,7 +16,7 @@ abstract public class MvwMenuFactory {
 	 * in whatever module is implementing the menu functionality. 
 	 * @param menuType The menu type. 
 	 * @param menuName The unique name of the menu.
-	 * @return
+	 * @return an appropriate menu implementation.
 	 */
 	abstract public MvwMenu createMenu(String menuType, String menuName);
 	
@@ -31,7 +31,7 @@ abstract public class MvwMenuFactory {
 	 * @param dynamic    Whether or not the item is dynamic.
 	 * @param label      The display label for the submenu or null if this is just an image button.
 	 * @param image      The image for the submenu, or null if no image is to be displayed.
-	 * @return
+	 * @return an appropriate submenu implementation.
 	 */
 	abstract public MvwMenu createSubMenu(String menuType, String itemName, String menuOrder, String addToMenu, boolean dynamic, String label, ImageResource image);
 
@@ -47,7 +47,7 @@ abstract public class MvwMenuFactory {
 	 * @param actionName The name of the action to be triggered.
 	 * @param label      The display label for the item or null if this is just an image button.
 	 * @param image      The image for the item, or null if no image is to be displayed.
-	 * @return
+	 * @return an appropriate menu item implementation
 	 */
 	abstract public MvwMenuItem createMenuItem(String itemType, String itemName, String menuOrder, String addToMenu, boolean dynamic, String actionName, String label, ImageResource image);
 	
@@ -60,7 +60,7 @@ abstract public class MvwMenuFactory {
 	 * @param menuOrder     The item's place within the menu.
 	 * @param addToMenu     The menu to which it should be added.
 	 * @param dynamic       Whether or not the item is dynamic.
-	 * @return
+	 * @return an appropriate menu separator implementation.
 	 */
 	abstract public MvwSeparator createSeparator(String separatorType, String itemName, String menuOrder, String addToMenu, boolean dynamic);
 	

@@ -292,8 +292,7 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	}
 	
 	/**
-	 * If the codegen module contains an application, this is it.
-	 * @return
+	 * @return the application if the codegen module defines one.
 	 */
 	public WebApplication getApplication(){
 		return(application);

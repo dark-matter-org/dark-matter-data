@@ -50,9 +50,8 @@ public class MenuController extends MenuControllerBaseImpl {
 	}
 	
 	/**
-	 * Returns the menubar, toolbar, background or popup menu if it's found.
-	 * @param n
-	 * @return
+	 * @param name the name of the menu.
+	 * @return the menubar, toolbar, background or popup menu if it's found.
 	 */
 	public MvwMenu getMenu(String name){
 		return(topLevelMenus.get(name));
@@ -63,9 +62,8 @@ public class MenuController extends MenuControllerBaseImpl {
 	}
 	
 	/**
-	 * Returns a popup menu if one was defined for this class of object.
-	 * @param obj
-	 * @return
+	 * @param obj the object for which we're looking for the menu.
+	 * @return a popup menu if one was defined for this class of object.
 	 */
 	public MvwMenu getPopupMenuForObject(DmcObject obj){
 		// TODO: have to handle class derivation aspects e.g. we have a popup for base class and this object is derived
