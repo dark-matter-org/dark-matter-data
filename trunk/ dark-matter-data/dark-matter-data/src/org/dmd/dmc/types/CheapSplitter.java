@@ -8,7 +8,7 @@ public class CheapSplitter {
 	 * Splits the string on the specified separator character. Optionally, you can have
 	 * the separators returned as well.
 	 * @param value The string to be split.
-	 * @param separator The separator character.
+	 * @param sep The separator character.
 	 * @param returnSep A flag to indicate if you want the separators back in the return value.
 	 * @param trimTokens If true, the values between the separators will be trimmed() before being
 	 * added to the result array.

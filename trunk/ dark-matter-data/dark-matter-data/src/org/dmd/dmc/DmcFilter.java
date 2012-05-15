@@ -51,7 +51,7 @@ abstract public class DmcFilter implements Serializable {
 	
     /**
      * Likewise, they must also be individually deserializable.
-     * @param dos The output stream.
+     * @param dis The input stream.
      * @throws Exception
      */
 	abstract public void deserializeIt(DmcInputStreamIF dis) throws Exception;

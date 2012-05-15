@@ -80,9 +80,8 @@ public class MenuController extends MenuControllerMVC {
 	}
 	
 	/**
-	 * Returns the GXT component for the specified menu.
-	 * @param n
-	 * @return
+	 * @param n name of the menu component.
+	 * @return the GXT component for the specified menu
 	 */
 	public Component getMenu(String n){
 		MenuInstance mi = allMenus.get(n);
@@ -134,9 +133,8 @@ System.out.println("MenuController.handleMvcInitEvent() - adding action: " + mii
 	}
 	
 	/**
-	 * Returns the named menu instance if it's available. 
-	 * @param name
-	 * @return
+	 * @param name menu name
+	 * @return the named menu instance if it's available 
 	 */
 	public MenuInstance getMenuInstance(String name){
 		return(topLevelMenus.get(name));
@@ -195,9 +193,8 @@ System.out.println("MenuController.addMenuItem() " + mii.toString());
 	}
 	
 	/**
-	 * Returns a popup menu if one was defined for this class of object.
-	 * @param obj
-	 * @return
+	 * @param obj the for which we want the menu.
+	 * @return a popup menu if one was defined for this class of object
 	 */
 	public Menu getPopupMenuForObject(DmcObject obj){
 		PopupMenuInstance pmi = popups.get(obj.getClass().getName());

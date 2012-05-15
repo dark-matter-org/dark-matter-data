@@ -71,8 +71,7 @@ public class DmpServletPlugin {
 	}
 	
 	/**
-	 * Returns the plugin's unique ID.
-	 * @return
+	 * @return the plugin's unique ID.
 	 */
 	public int getID(){
 		return(ID);

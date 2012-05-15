@@ -62,7 +62,7 @@ public interface DmcObjectNameIF extends DmcMappedAttributeIF {
     /**
      * Likewise, they must also be individually deserializable since they are part of
      * a more complex type, namely the DmcTypeNamedObjectREF.
-     * @param dos The output stream.
+     * @param dis The input stream.
      * @throws Exception
      */
 	public void deserializeIt(DmcInputStreamIF dis) throws Exception;

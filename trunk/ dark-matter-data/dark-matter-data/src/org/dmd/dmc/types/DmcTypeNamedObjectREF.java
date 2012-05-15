@@ -156,7 +156,6 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 	 * If the reference(s) can't be resolved we return a flag that indicates that the attribute
 	 * should remove itself from the object (since there's nothing of value in it).
 	 * @param referrer The object doing the referring.
-	 * @param ref      The ref to be resolved.
 	 * @return true if this attribute needs to be removed from the object.
 	 */
 	public boolean doLazyResolution(DmcObject referrer){

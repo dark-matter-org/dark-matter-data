@@ -131,7 +131,7 @@ public class DmoAttributeSchemaFormatter {
 	 * to the DMO subdirectory. THIS METHOD IS FOR THE METAGENERATOR.
 	 * @param sn  The schema name.
 	 * @param schemaPackage The schema package prefix.
-	 * @param attribute The meta schema attributes.
+	 * @param attributes The meta schema attributes.
 	 * @param dmodir The output directory.
 	 * @throws IOException 
 	 * @throws IOException 

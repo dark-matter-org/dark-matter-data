@@ -193,7 +193,7 @@ abstract public class DmcObject implements Serializable {
 	 * objects. This distinction is important for things like Dark Matter Protocol messages
 	 * where we would want to ensure that object references could be resolved, but we wouldn't
 	 * want to update back references in those objects to which the messages referred.
-	 * @return
+	 * @return true if the object supports backref tracking.
 	 */
 	public boolean supportsBackrefTracking(){
 		return(true);

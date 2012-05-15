@@ -36,6 +36,8 @@ import org.dmd.util.exceptions.ResultException;
  */
 public class HierarchicObject extends HierarchicObjectDMW implements Comparable<HierarchicObject> {
 	
+	final static Vector<HierarchicObject> emptyList = new Vector<HierarchicObject>();
+	
 	private List<HierarchicObject>	subcomps;
 	
 	// The subcomponents of this entry if they exist
@@ -57,12 +59,11 @@ public class HierarchicObject extends HierarchicObjectDMW implements Comparable<
     }
     
     /**
-     * Returns an iterator over a COPY of the subcomps vector.
-     * @return
+     * @return an iterator over a COPY of the subcomps vector.
      */
     public Iterator<HierarchicObject> getSubComps(){
     	if (subcomps == null)
-    		return(Collections.<HierarchicObject> emptyList().iterator());
+    		return(emptyList.iterator());
     	return(new Vector<HierarchicObject>(subcomps).iterator());
     }
     
@@ -256,8 +257,6 @@ public class HierarchicObject extends HierarchicObjectDMW implements Comparable<
      * This method saves the entire hierarchy from this point to the string buffer.
      * @param sb     The buffer to which we append the object.
      * @param padding The padding to be used when formatting the object.
-     * @param persistentOnly If true, only persistent objects will be saved. We stop recursing
-     * down a branch when we hit a TRANSIENT object.
      */
     public void saveToBuffer(StringBuffer sb, int padding) {
     	sb.append(this.toOIF(padding) + "\n");

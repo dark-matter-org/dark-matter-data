@@ -20,7 +20,6 @@ import java.io.IOException;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcInputStreamIF;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -44,8 +43,7 @@ public class DmoDeserializer {
 	}
 	
 	/**
-	 * Returns the schema we're using to interpret the input stream.
-	 * @return
+	 * @return the schema we're using to interpret the input stream.
 	 */
 	public SchemaManager getSchema(){
 		return(schema);

@@ -1,3 +1,18 @@
+//	---------------------------------------------------------------------------
+//	dark-matter-data
+//	Copyright (c) 2011 dark-matter-data committers
+//	---------------------------------------------------------------------------
+//	This program is free software; you can redistribute it and/or modify it
+//	under the terms of the GNU Lesser General Public License as published by the
+//	Free Software Foundation; either version 3 of the License, or (at your
+//	option) any later version.
+//	This program is distributed in the hope that it will be useful, but WITHOUT
+//	ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//	FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for
+//	more details.
+//	You should have received a copy of the GNU Lesser General Public License along
+//	with this program; if not, see <http://www.gnu.org/licenses/lgpl.html>.
+//	---------------------------------------------------------------------------
 package org.dmd.dmp.server.extended;
 
 import java.util.Iterator;
@@ -243,7 +258,7 @@ public class DMPEvent extends DMPEventDMW {
 	 * a new DMPEvent with that information. NOTE: we always return a new event, even if all
 	 * we have is the name of the object.
 	 * @param dsi
-	 * @return
+	 * @return a sliced event with the appropriate attributes.
 	 */
 	public DMPEvent getSlice(DmcSliceInfo dsi){
 		DMPEvent rc = null;

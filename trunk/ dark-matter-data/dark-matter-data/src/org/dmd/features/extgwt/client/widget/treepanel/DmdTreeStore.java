@@ -87,9 +87,8 @@ public class DmdTreeStore extends TreeStore<DmoExtGWTTreeNode<HierarchicObjectDM
 	}
 	
 	/**
-	 * Returns the object with the specified FQN if it exists.
 	 * @param fqn
-	 * @return
+	 * @return the object with the specified FQN if it exists.
 	 */
 	@SuppressWarnings("unchecked")
 	public DmoExtGWTTreeNode get(String fqn){
