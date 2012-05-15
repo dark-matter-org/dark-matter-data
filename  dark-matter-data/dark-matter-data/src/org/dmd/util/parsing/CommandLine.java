@@ -60,7 +60,7 @@ public class CommandLine {
      * This addOption method allows you to add the definition of an option that specifies a list of strings e.g.
      * a list of file names.
      * @param name          the option name i.e. the part that follows the - (dash)
-     * @param flag          the string array that stores the values
+     * @param var           the string array that stores the values
      * @param helpText      text that describes the usage of the option
      */
     public void addOption(String name, StringArrayList var, String helpText) {
@@ -75,7 +75,7 @@ public class CommandLine {
     /**
      * This addOption method allows you to add the definition of an option that specifies a single string.
      * @param name          the option name i.e. the part that follows the - (dash)
-     * @param flag          the string that stores the value
+     * @param var           the string that stores the value
      * @param helpText      text that describes the usage of the option
      */
     public void addOption(String name, StringBuffer var, String helpText) {
@@ -90,7 +90,7 @@ public class CommandLine {
     /**
      * This addOption method allows you to add the definition of an option that specifies a single integer.
      * @param name          the option name i.e. the part that follows the - (dash)
-     * @param flag          the string that stores the value
+     * @param var           the string that stores the value
      * @param helpText      text that describes the usage of the option
      */
     public void addOption(String name, IntegerVar var, String helpText) {
@@ -149,7 +149,7 @@ public class CommandLine {
      * appropriate arguments flags/variables.
      * @param rs Place to return errors
      * @param args The argument vector.
-     * @returns true if the arguments are valid and
+     * @return true if the arguments are valid and
      */
     public boolean parseArgs(ResultSet rs, String[] args){
         OptionDef   od      = null;

@@ -36,9 +36,8 @@ public class JSONParser {
 	}
 	
 	/**
-	 * This method parses the specified string and returns an array of objects.
 	 * @param input
-	 * @return
+	 * @return an array of unchecked objects parse from the input.
 	 * @throws ResultException
 	 */
 	public DmcUncheckedObject parse(String input) throws ResultException {

@@ -21,17 +21,10 @@ import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcAttributeValidator;
-import org.dmd.dmc.DmcObjectValidator;
 import org.dmd.dmg.util.GeneratorUtils;
-import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.AttributeValidatorDefinition;
 import org.dmd.dms.ObjectValidatorDefinition;
 import org.dmd.dms.SchemaDefinition;
-import org.dmd.dms.SliceDefinition;
-import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -129,9 +122,10 @@ public class DmoValidatorCollectionFormatter {
 	 * For all AttributeDefinitions in the schema, this method dumps a [schema]ASAG
 	 * to the DMO subdirectory. THIS METHOD IS FOR THE METAGENERATOR.
 	 * @param sn  The schema name.
-	 * @param schemaPackage The schema package prefix.
-	 * @param attribute The meta schema attributes.
-	 * @param dmodir The output directory.
+	 * @param schemaPackage the schema package prefix.
+	 * @param avdmap the attriute validator definitions.
+	 * @param ovdmap the object validator definitions.
+	 * @param dmodir the output directory.
 	 * @throws IOException 
 	 * @throws IOException 
 	 * @throws ResultException 

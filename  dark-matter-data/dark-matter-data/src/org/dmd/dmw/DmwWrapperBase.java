@@ -152,8 +152,8 @@ public abstract class DmwWrapperBase extends DmcContainer {
 	}
 	
 	/**
-	 * This method can be called to resolve references only to objects defined as part of a schema..
-	 * @param sm The schema manager that understands the schema of the object being resolved.
+	 * This method calls resolveReferences() on the underlying DMO.
+	 * @param resolver an entity that can resolve schema related references and references to other objects.
 	 * @throws ResultException 
 	 * @throws DmcValueExceptionSet 
 	 */

@@ -54,8 +54,8 @@ public interface RequestTrackerIF {
     
     /**
      * This method allows you to submit a request with a specified timeout value.
-     * @param req The request.
-     * @param responseHandler Where to send the response.
+     * @param request The request.
+     * @param handler Where to send the response.
      * @param timeoutSeconds The time out delay.
      */
 	public int  processRequest(Request request, DmpResponseHandlerIF handler, int timeoutSeconds);

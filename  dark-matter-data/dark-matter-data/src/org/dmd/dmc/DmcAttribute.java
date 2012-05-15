@@ -284,10 +284,10 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	}
 	
 	/**
-	 * Returns the value associated with the specified key for HASHMAPPED or TREEMAPPED
-	 * attributes. This method is overloaded in DmcHashedAttribute - it returns null at this level.
+	 * This method is overloaded in DmcHashedAttribute - it returns null at this level.
 	 * @param key
-	 * @return
+	 * @return the value associated with the specified key for HASHMAPPED or TREEMAPPED
+	 * attributes.
 	 */
 	public VALUE getByKey(Object key){
     	throw(new IllegalStateException("The getByKey() method should be overloaded automatically by the DmcType[VALUE]MAP class"));
@@ -342,7 +342,6 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     
     /**
      * Serializes this attribute value.
-     * @param ai The attribute information.
      * @param dos The stream to which we're serialized.
      * @throws IOException
      * @throws DmcValueException 

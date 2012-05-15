@@ -416,7 +416,7 @@ public class DmcOmni implements DmcNameResolverIF {
 	
 	/**
 	 * Tries to find the specified class by its id.
-	 * @param cn The class id.
+	 * @param id The class id.
 	 * @return The class info if it's available.
 	 */
 	public DmcClassInfo getClassInfo(Integer id){
@@ -445,7 +445,7 @@ public class DmcOmni implements DmcNameResolverIF {
 	
 	/**
 	 * Tries to find the specified attribute by its name.
-	 * @param cn The attribute name.
+	 * @param an The attribute name.
 	 * @return The attribute info if it's available.
 	 */
 	public DmcAttributeInfo getAttributeInfo(String an){

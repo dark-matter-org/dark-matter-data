@@ -355,8 +355,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     }
     
     /**
-     * Returns the complete set of attributes for this class and all of its parent classes.
-     * @return
+     * @return the complete set of attributes for this class and all of its parent classes.
      */
     public TreeMap<StringName,AttributeDefinition> getFullAttrMap(){
     	if (fullAttrMap == null){

@@ -64,9 +64,8 @@ public class DmdGridStore extends ListStore<DmoExtGWTWrapperBase<DmcObject>> {
 	}
 	
 	/**
-	 * Returns the named object if it exists.
 	 * @param objName
-	 * @return
+	 * @return the named object if it exists
 	 */
 	public DmoExtGWTWrapperBase<DmcObject> get(String objName){
 		return(objMap.get(objName));

@@ -79,10 +79,9 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
 	}
 	
 	/**
-	 * This method will return the wrapper package for the specified DMW type if it has been specified
+	 * @param context the generation context
+	 * @return the wrapper package for the specified DMW type if it has been specified
 	 * via the dmwTypeToPackage attribute on a schema.
-	 * @param context
-	 * @return
 	 */
 	public String getDmwPackage(String context){
 		if (dmwToPackageMapping == null){

@@ -151,9 +151,8 @@ public class Modifier implements Serializable {
 	
 	/**
 	 * Constructs a new Modifier for setting of the specified index to null.
-	 * @param an The attribute name.
 	 * @param op The operation.
-	 * @param n  The attribute info.
+	 * @param ai  The attribute info.
 	 * @param idx The index being set to null.
 	 */
 	public Modifier(ModifyTypeEnum op, DmcAttributeInfo ai, int idx){
@@ -228,7 +227,7 @@ public class Modifier implements Serializable {
      * <attrname> NTH <index> <value>
      * <attrname> NTH <index>
      * <attrname> REM
-	 * @param value The modification expression.
+	 * @param v The modification expression.
 	 * @throws DmcValueException
 	 */
 	public Modifier(String v) throws DmcValueException {
@@ -307,9 +306,8 @@ public class Modifier implements Serializable {
 	}
 	
 	/**
-	 * If this is a backref Modifier, this will return the object that's referring
+	 * @return if this is a backref Modifier, this will return the object that's referring
 	 * to the object on which this modifier is tracked.
-	 * @return
 	 */
 	public DmcNamedObjectIF getReferringObject(){
 		return(referringObject);

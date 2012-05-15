@@ -103,7 +103,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	/**
 	 * If this type is a name type and has a defined name attribute definition, we try to instantiate
 	 * a value holder which is a derived class of DmcObjectName.
-	 * @return
+	 * @return a name value holder of the appropriate type.
 	 * @throws ClassNotFoundException
 	 * @throws InstantiationException
 	 * @throws IllegalAccessException

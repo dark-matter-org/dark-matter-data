@@ -295,9 +295,8 @@ public class SchemaManager implements DmcNameResolverIF {
     }
     
     /**
-     * This is a convenience function that will wrap a DMO with the correct DMWWrapper.
-     * @param dmo
-     * @return
+     * @param dmo the object to be wrapped.
+     * @return the DMO wrapped with the appropriate wrapper type.
      */
     public DmwWrapper wrapIt(DmcObject dmo){
     	ClassDefinition cd = isClass(dmo.getConstructionClassName());
@@ -366,9 +365,8 @@ public class SchemaManager implements DmcNameResolverIF {
     }
     
     /**
-     * Create an instance of the attribute with the specified identifier.
-     * @param id The dmdID.
-     * @return The appropriate attribute instance.
+     * @param oni The object name.
+     * @return a naming attribute of the appropriate type for the specified name.
      * @throws InstantiationException
      * @throws IllegalAccessException
      * @throws ClassNotFoundException
@@ -2586,24 +2584,21 @@ public class SchemaManager implements DmcNameResolverIF {
     }
 
     /**
-     * Returns the defined slices.
-     * @return
+     * @return the defined slices.
      */
     public Iterator<SliceDefinition> getSlices(){
     	return(sliceDefs.values().iterator());
     }
 
     /**
-     * Returns the defined complex types.
-     * @return
+     * @return the defined complex types.
      */
     public Iterator<ComplexTypeDefinition> getComplexTypes(){
     	return(complexTypeDefs.values().iterator());
     }
 
     /**
-     * Returns the defined complex types.
-     * @return
+     * @return the defined extended references.
      */
     public Iterator<ExtendedReferenceTypeDefinition> getExtendedReferenceTypes(){
     	return(extendedReferenceTypeDefs.values().iterator());

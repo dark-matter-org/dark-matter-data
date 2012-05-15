@@ -160,9 +160,7 @@ public class UUIDLite implements Comparable<Object>, Serializable {
 	 * Compares this UUID to the specified UUID. The natural ordering of UUIDs
 	 * is based upon the value of the bits from most significant to least
 	 * significant.
-	 * 
-	 * @param uuid
-	 *            the UUID to compare to.
+	 * @param obj the UUID to compare to.
 	 * @return a value of -1, 0 or 1 if this UUID is less than, equal to or
 	 *         greater than {@code uuid}.
 	 */

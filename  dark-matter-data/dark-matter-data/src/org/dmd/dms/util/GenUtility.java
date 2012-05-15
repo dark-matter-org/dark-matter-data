@@ -1517,7 +1517,7 @@ public class GenUtility {
 			
 	    	sb.append("    /**\n");
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
-	    	sb.append("     * @param value " + typeName + "\n");
+	    	sb.append("     * @param key the " + ad.getType().getKeyClass() + "key value\n");
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public DmcAttribute<?> del" + functionName + "(" + ad.getType().getKeyClass() + " key) {\n");
@@ -1697,12 +1697,11 @@ public class GenUtility {
 	 * This method should only be called for named object types.
 	 * @param dmwdir		The output directory.
 	 * @param basePackage   The base package for the generated code.
-	 * @param dmwImport     The full import for the DMW class.
-	 * @param dmwClass      Just the DMW class name.
-	 * @param refImport     The full import of the REF class.
-	 * @param refClass      Just the REF class name.
-	 * @param fileHeader    The file header or null.
-	 * @param progress      A stream to which to dump progress messages or null.
+	 * @param className the for which we're generating the iterator.
+	 * @param extended flag indicating if the calss is extended.
+	 * @param extendedPackage the package if the class is extended.
+	 * @param fileHeader the header to be dumped on the file.
+	 * @param progress the progress reporting stream.
 	 * @throws IOException
 	 */
 	static public void dumpIterableREF(String dmwdir, String basePackage, String className, boolean extended, String extendedPackage, String fileHeader, PrintStream progress) throws IOException {

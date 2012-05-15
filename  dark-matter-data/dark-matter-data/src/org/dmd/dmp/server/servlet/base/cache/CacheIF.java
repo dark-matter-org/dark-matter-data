@@ -114,7 +114,7 @@ public interface CacheIF extends DmcNameResolverIF {
 	 * Queues an event from a remote source for processing by the cache. This is
 	 * required in cases where the web server is acting has a front for one or more
 	 * other data sources.
-	 * @param request the request to be processed
+	 * @param event the event to be processed
 	 */
 	public void queueEvent(DMPEvent event);
 	
@@ -146,7 +146,7 @@ public interface CacheIF extends DmcNameResolverIF {
 	
 	/**
 	 * Returns the specified object if it exists.
-	 * @param the name of the object to be retrieved.
+	 * @param name the name of the object to be retrieved.
 	 * @return the specified object or null if it doesn't exist.
 	 */
 	public DmwNamedObjectWrapper get(DmcObjectName name);

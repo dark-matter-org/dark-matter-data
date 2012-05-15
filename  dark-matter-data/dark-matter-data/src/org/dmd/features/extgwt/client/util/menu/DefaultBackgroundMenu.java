@@ -25,7 +25,6 @@ public class DefaultBackgroundMenu extends BackgroundMenuInstance {
 	/**
 	 * Constructs a new background popup menu.
 	 * @param n  the mvc menu name.
-	 * @param fc The fully qualified DMO class name.
 	 */
 	public DefaultBackgroundMenu(String n) {
 		super(n);

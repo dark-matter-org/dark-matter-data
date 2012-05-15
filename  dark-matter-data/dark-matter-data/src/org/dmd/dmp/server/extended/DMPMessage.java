@@ -65,8 +65,7 @@ abstract public class DMPMessage extends DMPMessageDMW {
 	}
 	
 	/**
-	 * Gets the last request ID value.
-	 * @return
+	 * @return the last request ID value.
 	 */
 	public Integer getLastRequestID(){
 		if (getRequestIDHasValue()){
@@ -77,7 +76,7 @@ abstract public class DMPMessage extends DMPMessageDMW {
 	
 	/**
 	 * Removes the last request ID value.
-	 * @return
+	 * @return the value that was removed.
 	 */
 	public Integer removeLastRequestID(){
 		if (getRequestIDHasValue()){
