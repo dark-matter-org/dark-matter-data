@@ -24,7 +24,7 @@ import org.dmd.dmv.shared.generated.dmo.MayRuleDMO;    // DmcType import
  * The DmcTypeMayRuleREFSV provides storage for a single-valued MayRule
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1833)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1832)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeMayRuleREFSV extends DmcTypeMayRuleREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1865)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1864)
     public DmcAttribute<MayRuleDMO> cloneIt(){
         DmcTypeMayRuleREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1876)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1875)
     public MayRuleDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeMayRuleREFSV extends DmcTypeMayRuleREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1888)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1887)
     public MayRuleDMO set(Object v) throws DmcValueException {
         MayRuleDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

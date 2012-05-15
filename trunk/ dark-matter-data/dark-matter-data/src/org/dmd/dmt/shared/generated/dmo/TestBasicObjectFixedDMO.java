@@ -2093,7 +2093,7 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
 
     /**
      * Deletes a intToString value.
-     * @param value IntegerToString
+     * @param key the Integer key value
      */
     // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1522)
     public DmcAttribute<?> delIntToString(Integer key) {

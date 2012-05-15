@@ -30,7 +30,7 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeActionBindingREFMAP provides storage for a map of ActionBindingREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2686)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2685)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -71,7 +71,7 @@ public class DmcTypeActionBindingREFMAP extends DmcTypeActionBindingREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2740)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2739)
     public DmcAttribute<ActionBindingREF> cloneIt(){
         synchronized(this){
             DmcTypeActionBindingREFMAP rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeActionBindingREFMAP extends DmcTypeActionBindingREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2756)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2755)
     public ActionBindingREF add(Object v) throws DmcValueException {
         synchronized(this){
             ActionBindingREF newval = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeActionBindingREFMAP extends DmcTypeActionBindingREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2777)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2776)
     public ActionBindingREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
@@ -117,7 +117,7 @@ public class DmcTypeActionBindingREFMAP extends DmcTypeActionBindingREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2789)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2788)
     public Iterator<ActionBindingREF> getMV(){
         synchronized(this){
             Map<CamelCaseName,ActionBindingREF> clone = null;
@@ -129,7 +129,7 @@ public class DmcTypeActionBindingREFMAP extends DmcTypeActionBindingREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2802)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2801)
     public Map<CamelCaseName,ActionBindingREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,ActionBindingREF> clone = null;
@@ -141,7 +141,7 @@ public class DmcTypeActionBindingREFMAP extends DmcTypeActionBindingREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2815)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2814)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,7 +152,7 @@ public class DmcTypeActionBindingREFMAP extends DmcTypeActionBindingREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2827)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2826)
     public ActionBindingREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
@@ -163,7 +163,7 @@ public class DmcTypeActionBindingREFMAP extends DmcTypeActionBindingREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2839)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2838)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -176,7 +176,7 @@ public class DmcTypeActionBindingREFMAP extends DmcTypeActionBindingREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2860)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)

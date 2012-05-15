@@ -687,7 +687,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
 
     /**
      * Deletes a intToString value.
-     * @param value IntegerToString
+     * @param key the Integer key value
      */
     // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1522)
     public DmcAttribute<?> delIntToString(Integer key) {
@@ -2669,7 +2669,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
 
     /**
      * Deletes a intToStringMAP value.
-     * @param value IntegerToString
+     * @param key the Integer key value
      */
     // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1522)
     public DmcAttribute<?> delIntToStringMAP(Integer key) {

@@ -1517,7 +1517,7 @@ public class GenUtility {
 			
 	    	sb.append("    /**\n");
 			sb.append("     * Deletes a " + ad.getName() + " value.\n");
-	    	sb.append("     * @param key the " + ad.getType().getKeyClass() + "key value\n");
+	    	sb.append("     * @param key the " + ad.getType().getKeyClass() + " key value\n");
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public DmcAttribute<?> del" + functionName + "(" + ad.getType().getKeyClass() + " key) {\n");

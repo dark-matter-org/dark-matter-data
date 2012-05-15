@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeUserFolderRIREFMV provides storage for a multi-valued UserFolderRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2177)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2176)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeUserFolderRIREFMV extends DmcTypeUserFolderRIREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2207)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
     public DmcAttribute<UserFolderRIREF> cloneIt(){
         synchronized(this){
             DmcTypeUserFolderRIREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeUserFolderRIREFMV extends DmcTypeUserFolderRIREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2236)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
     public UserFolderRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             UserFolderRIREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypeUserFolderRIREFMV extends DmcTypeUserFolderRIREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2249)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2248)
     public UserFolderRIREF del(Object v){
         synchronized(this){
             UserFolderRIREF key = null;
@@ -105,7 +105,7 @@ public class DmcTypeUserFolderRIREFMV extends DmcTypeUserFolderRIREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2280)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2279)
     public Iterator<UserFolderRIREF> getMV(){
         synchronized(this){
             ArrayList<UserFolderRIREF> clone = new ArrayList<UserFolderRIREF>(value);
@@ -113,7 +113,7 @@ public class DmcTypeUserFolderRIREFMV extends DmcTypeUserFolderRIREF implements 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
     public ArrayList<UserFolderRIREF> getMVCopy(){
         synchronized(this){
             ArrayList<UserFolderRIREF> clone = new ArrayList<UserFolderRIREF>(value);
@@ -122,7 +122,7 @@ public class DmcTypeUserFolderRIREFMV extends DmcTypeUserFolderRIREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +136,7 @@ public class DmcTypeUserFolderRIREFMV extends DmcTypeUserFolderRIREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2314)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
     public UserFolderRIREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeUserFolderRIREFMV extends DmcTypeUserFolderRIREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2325)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2324)
     public UserFolderRIREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +173,7 @@ public class DmcTypeUserFolderRIREFMV extends DmcTypeUserFolderRIREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2353)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2352)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +196,7 @@ public class DmcTypeUserFolderRIREFMV extends DmcTypeUserFolderRIREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2377)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

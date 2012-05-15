@@ -75,7 +75,7 @@ public class Callback {
     }
     
     /**
-     * @return
+     * @return the method name
      */
     public String getMethodName(){
     	return(methodName);

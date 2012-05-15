@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSubMenuREFSV provides storage for a single-valued SubMenuREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1833)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1832)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -48,14 +48,14 @@ public class DmcTypeSubMenuREFSV extends DmcTypeSubMenuREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1865)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1864)
     public DmcAttribute<SubMenuREF> cloneIt(){
         DmcTypeSubMenuREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1876)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1875)
     public SubMenuREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeSubMenuREFSV extends DmcTypeSubMenuREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1888)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1887)
     public SubMenuREF set(Object v) throws DmcValueException {
         SubMenuREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

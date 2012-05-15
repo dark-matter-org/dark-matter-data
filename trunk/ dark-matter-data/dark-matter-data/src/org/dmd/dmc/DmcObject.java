@@ -357,8 +357,7 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * Returns the current set of modifications (if any were made).
-	 * @return
+	 * @return the current set of modifications (if any were made).
 	 */
 	public DmcTypeModifierMV getModifier(){
 		return (DmcTypeModifierMV) getInfo(MODIFIER, MODIFIER_SIZE);
@@ -558,7 +557,7 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * This method is generally used by object parsers to determine whether or not an attribute
 	 * is allowed by any of the classes in our objectClass attribute.
-	 * @param an The attribute id.
+	 * @param id The attribute id.
 	 * @return The attribute info or null.
 	 */
 	public DmcAttributeInfo getAttributeInfo(Integer id){
@@ -669,7 +668,7 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * Returns the holder of the value for the named attribute. Use this with caution!
 	 * This is generally used only by derived wrapper classes of DmcObject.
-	 * @param _name The name of the attribute.
+	 * @param id the id of the attribute.
 	 * @return DmcAttribute
 	 */
 	public DmcAttribute<?> get(Integer id){
@@ -679,7 +678,7 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * Returns the holder of the value for the named attribute. Use this with caution!
 	 * This is generally used only by derived wrapper classes of DmcObject.
-	 * @param _name The name of the attribute.
+	 * @param ai the attribute info definition.
 	 * @return DmcAttribute
 	 */
 	public DmcAttribute<?> get(DmcAttributeInfo ai){
@@ -748,9 +747,8 @@ abstract public class DmcObject implements Serializable {
 	
 	/**
 	 * This method sets the value of a single-valued attribute.
-	 * @param attrName  The attribute info.
-	 * @param attr      The attribute to be stored.
-	 * @param previous  The previous value of the attribute, used in back reference tracking.
+	 * @param ai  	the attribute info.
+	 * @param attr  the attribute to be stored.
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
@@ -898,7 +896,7 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * This method deletes a value from a multi-valued attribute.
 	 * @param <T>      	The class 
-	 * @param attrname  The attribute name.
+	 * @param attrName  The attribute name.
 	 * @param value     The value to be stored.
 	 * @throws DmcValueException 
 	 * @throws DmcValueException 
@@ -937,8 +935,8 @@ abstract public class DmcObject implements Serializable {
 	/**
 	 * This method deletes a value from a multi-valued attribute.
 	 * @param <T>      	The class 
-	 * @param attrname  The attribute name.
-	 * @param value     The value to be stored.
+	 * @param ai    the attribute info.
+	 * @param value the value to be stored.
 	 * @throws DmcValueException 
 	 * @throws DmcValueException 
 	 */
@@ -1027,7 +1025,7 @@ abstract public class DmcObject implements Serializable {
 		
 	/**
 	 * Removes the specified attribute from the object.
-	 * @param an The attribute name.
+	 * @param attrName The attribute name.
 	 * @throws DmcValueException 
 	 */
 	public <T extends DmcAttribute<?>> T rem(String attrName){
@@ -1041,7 +1039,7 @@ abstract public class DmcObject implements Serializable {
 	
 	/**
 	 * Removes the specified attribute from the object.
-	 * @param an The attribute name.
+	 * @param ai the attribute info.
 	 * @throws DmcValueException 
 	 */
 	@SuppressWarnings("unchecked")
@@ -1805,8 +1803,7 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
-	 * Creates a shallow copy of this object.
-	 * @return
+	 * @return a shallow copy of this object.
 	 */
 	public DmcObject shallowCopy(){
 		synchronized (attributes) {
