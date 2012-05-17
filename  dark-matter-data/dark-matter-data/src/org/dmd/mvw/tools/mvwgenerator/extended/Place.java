@@ -25,7 +25,16 @@ public class Place extends PlaceDMW implements CodeGenComponentIF {
 			
 			imports.addImport("com.google.gwt.place.shared.Prefix", "Required for Prefix annotation");
 			imports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Needed to construct activity");
-			imports.addImport("org.dmd.mvw.client.mvw.MvwPlace", "Our base class");
+			
+			if (getRunsActivity().isCodeSplit()){
+				imports.addImport("com.google.gwt.core.client.GWT", "Access to runAsynch()");
+				imports.addImport("com.google.gwt.core.client.RunAsyncCallback", "Handling runAsync() results");
+				imports.addImport("com.google.gwt.activity.shared.Activity", "So we can return an Activity");
+				imports.addImport("org.dmd.mvw.client.mvw.MvwAsyncPlace", "Our base class");
+				imports.addImport("org.dmd.mvw.client.mvw.MvwAsyncPlaceController", "Handles our asynch callback that the activity is ready");
+			}
+			else
+				imports.addImport("org.dmd.mvw.client.mvw.MvwPlace", "Our base class");
 			imports.addImport("com.google.gwt.place.shared.PlaceTokenizer", "Tokenizer interface");
 			
 			imports.addImport(getRunsActivity().getImplementationClass(), "Runs this activity");

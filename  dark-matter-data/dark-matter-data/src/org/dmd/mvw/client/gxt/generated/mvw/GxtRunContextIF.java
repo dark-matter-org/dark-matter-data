@@ -8,6 +8,6 @@ import org.dmd.mvw.client.gxt.cache.GxtCache;         // Used by gxtCache
 // Generated from: org.dmd.mvw.tools.mvwgenerator.util.RunContextFormatter.formatModuleRunContextInterface(RunContextFormatter.java:40)
 public interface GxtRunContextIF {
 
-    public GxtCache            getGxtCache();
+    public GxtCache                getGxtCache();
 }
 

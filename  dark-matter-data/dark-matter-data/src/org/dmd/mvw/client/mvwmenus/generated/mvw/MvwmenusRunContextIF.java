@@ -8,6 +8,6 @@ import org.dmd.mvw.client.mvwmenus.extended.controllers.MenuController;         
 // Generated from: org.dmd.mvw.tools.mvwgenerator.util.RunContextFormatter.formatModuleRunContextInterface(RunContextFormatter.java:40)
 public interface MvwmenusRunContextIF {
 
-    public MenuController      getMenuControllerRCI();
+    public MenuController          getMenuControllerRCI();
 }
 

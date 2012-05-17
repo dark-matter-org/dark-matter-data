@@ -238,6 +238,7 @@ may				abstractActivity
 may				usesController
 may				managesView
 may				instantiatesPresenter
+may				codeSplit
 description		If you are making use of Places, you'll define an Activity for
  each of them; all activities are derived from com.google.gwt.app.place.Activity. If you
  have common functionality that you wish to use for your Activity classes, implement
@@ -250,7 +251,12 @@ description		If you are making use of Places, you'll define an Activity for
  <p />
  If the Activity manages a view, it will be generated as implementing the View's 
  presenter interface.
- 
+ <p/>
+ Activities provide a natural division point for GWT code splitting, if you've structured your
+ code appropriately. By specifying the codeSplit flag as true, the code for the Activity will be 
+ asynchronously loaded using the GWT code splitting mechanisms.
+// <a href="https://developers.google.com/web-toolkit/doc/latest/DevGuideCodeSplitting">
+// GWT code splitting mechanisms.</a>
 
 ClassDefinition
 name			RunContextItem

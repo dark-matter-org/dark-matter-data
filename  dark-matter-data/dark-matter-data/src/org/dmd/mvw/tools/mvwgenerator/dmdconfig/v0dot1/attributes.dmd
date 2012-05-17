@@ -736,6 +736,18 @@ description     This attribute is used to flag Events that are not fired in the 
  this isn't always the case; you may define Eevents that are intended to be fired from modules
  that depend on the base module's handling of those events.
 
+AttributeDefinition
+name			codeSplit
+dmdID			100
+type			Boolean
+nullReturnValue	false
+description     This attribute is used to flag components that are intended to be loaded using 
+ GWTs code splitting mechanisms. In order to successfully make use of these mechanisms, you
+ have to structure your code in such a way that the component marked as a split point has no
+ direct dependencies on components outside of its own area. For the most part, this is
+ accomplished by dependency injection and ensuring that the component is using interfaces to
+ interact with other components. 
+
 //AttributeDefinition
 //name			mandatoryStyle
 //dmdID			89

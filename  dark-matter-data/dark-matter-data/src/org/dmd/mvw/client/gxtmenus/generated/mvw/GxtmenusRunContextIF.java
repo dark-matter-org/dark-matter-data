@@ -8,6 +8,6 @@ import org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory;         // Used by menuF
 // Generated from: org.dmd.mvw.tools.mvwgenerator.util.RunContextFormatter.formatModuleRunContextInterface(RunContextFormatter.java:40)
 public interface GxtmenusRunContextIF {
 
-    public MvwMenuFactory      getMenuFactory();
+    public MvwMenuFactory          getMenuFactory();
 }
 

@@ -23,10 +23,10 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     static int schemaBaseID = 800;
 
 
-    static int schemaIDRange = 100;
+    static int schemaIDRange = 200;
 
 
-    static int schemaMaxID = 900;
+    static int schemaMaxID = 1000;
 
     public final static DmcAttributeInfo __abstractActivity = new DmcAttributeInfo("abstractActivity", 858, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __actionBindingName = new DmcAttributeInfo("actionBindingName", 874, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -46,6 +46,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __centralDMPErrorHandler = new DmcAttributeInfo("centralDMPErrorHandler", 851, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __centralRPCErrorHandler = new DmcAttributeInfo("centralRPCErrorHandler", 852, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __clickEvent = new DmcAttributeInfo("clickEvent", 819, "OperationSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __codeSplit = new DmcAttributeInfo("codeSplit", 900, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __componentName = new DmcAttributeInfo("componentName", 811, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __configName = new DmcAttributeInfo("configName", 865, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __construction = new DmcAttributeInfo("construction", 828, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -185,6 +186,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__centralDMPErrorHandler.id,__centralDMPErrorHandler);
         _SmAp.put(__centralRPCErrorHandler.id,__centralRPCErrorHandler);
         _SmAp.put(__clickEvent.id,__clickEvent);
+        _SmAp.put(__codeSplit.id,__codeSplit);
         _SmAp.put(__componentName.id,__componentName);
         _SmAp.put(__configName.id,__configName);
         _SmAp.put(__construction.id,__construction);
@@ -359,6 +361,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __Activity.addMay(__usesController);
         __Activity.addMay(__managesView);
         __Activity.addMay(__instantiatesPresenter);
+        __Activity.addMay(__codeSplit);
 
         __RunContextItem.addMust(__itemName);
         __RunContextItem.addMust(__useClass);

@@ -55,7 +55,11 @@ import org.dmd.dmc.DmcObjectValidator;
  * Place. However, if you are building an application, it may be that you
  * have a single Place and that all behaviour takes place within the guise of
  * a single Activity. <p /> If the Activity manages a view, it will be
- * generated as implementing the View's  presenter interface.
+ * generated as implementing the View's  presenter interface. <p/> Activities
+ * provide a natural division point for GWT code splitting, if you've
+ * structured your code appropriately. By specifying the codeSplit flag as
+ * true, the code for the Activity will be  asynchronously loaded using the
+ * GWT code splitting mechanisms.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -571,6 +575,56 @@ public class ActivityDMO  extends ComponentDMO  implements DmcNamedObjectIF, Ser
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1251)
     public void remInstantiatesPresenter(){
          rem(MvwDMSAG.__instantiatesPresenter);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    public Boolean isCodeSplit(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__codeSplit);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets codeSplit to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    public void setCodeSplit(Boolean value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__codeSplit);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__codeSplit);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__codeSplit,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets codeSplit to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    public void setCodeSplit(Object value) throws DmcValueException {
+        DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__codeSplit);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__codeSplit);
+        
+        attr.set(value);
+        set(MvwDMSAG.__codeSplit,attr);
+    }
+
+    /**
+     * Removes the codeSplit attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    public void remCodeSplit(){
+         rem(MvwDMSAG.__codeSplit);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)

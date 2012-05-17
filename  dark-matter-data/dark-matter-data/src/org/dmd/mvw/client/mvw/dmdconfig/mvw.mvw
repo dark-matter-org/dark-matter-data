@@ -14,13 +14,22 @@ construction 	new MvwEventBus()
 itemOrder    	1
 description		The overall application event bus.
 
+//RunContextItem
+//itemName		placeController
+//useClass     	com.google.gwt.place.shared.PlaceController
+//construction 	new PlaceController((com.google.gwt.event.shared.EventBus) eventBus)
+//itemOrder    	2
+//description		The place controller is used to initiate navigation to different
+// places by calling its goTo() method.
+
 RunContextItem
 itemName		placeController
-useClass     	com.google.gwt.place.shared.PlaceController
-construction 	new PlaceController((com.google.gwt.event.shared.EventBus) eventBus)
+useClass     	org.dmd.mvw.client.mvw.MvwAsyncPlaceController
+construction 	new MvwAsyncPlaceController(this, (com.google.gwt.event.shared.EventBus) eventBus)
 itemOrder    	2
 description		The place controller is used to initiate navigation to different
  places by calling its goTo() method.
+
 
 RunContextItem
 itemName		activityMapper
