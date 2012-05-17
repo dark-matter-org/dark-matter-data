@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcContainer;
 import org.dmd.dmc.DmcNameResolverIF;
@@ -117,6 +118,23 @@ public abstract class DmwWrapper extends DmcContainer {
 		
 		if (isReferenced()){
 			ArrayList<DmcObject> objlist = core.getReferringObjects();
+			for(DmcObject obj: objlist){
+				rc.add((DmwWrapper) obj.getContainer());
+			}
+		}
+		
+		return(rc);
+	}
+    
+	/**
+	 * @return the objects that are referring to this object via the specified attribute. This will only
+	 * return a value if you've turned on backref tracking via the DmcOmni.
+	 */
+	public ArrayList<DmwWrapper> getReferringObjectsViaAttribute(DmcAttributeInfo ai){
+		ArrayList<DmwWrapper>	rc = new ArrayList<DmwWrapper>();
+		
+		if (isReferenced()){
+			ArrayList<DmcObject> objlist = core.getReferringObjectsViaAttribute(ai);
 			for(DmcObject obj: objlist){
 				rc.add((DmwWrapper) obj.getContainer());
 			}

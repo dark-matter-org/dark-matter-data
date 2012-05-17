@@ -10,8 +10,8 @@ import org.dmd.mvw.client.mvwcomms.extended.CommsController;            // Used 
 // Generated from: org.dmd.mvw.tools.mvwgenerator.util.RunContextFormatter.formatModuleRunContextInterface(RunContextFormatter.java:40)
 public interface MvwcommsRunContextIF {
 
-    public DMPServiceAsync     getDmpConnection();
-    public RemoteEventService  getEventService();
-    public CommsController     getCommsController();
+    public DMPServiceAsync         getDmpConnection();
+    public RemoteEventService      getEventService();
+    public CommsController         getCommsController();
 }
 

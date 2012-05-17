@@ -1263,51 +1263,52 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			}
 		}
 		
+		if (mdm.application != null){
+			allDefs.put(mdm.application.getCamelCaseName(), mdm.application);
+		}
+		
 		for(Module def: mdm.modules.values()){
-//			if (modules.get(def.getCamelCaseName()) == null)
-				modules.put(def.getCamelCaseName(), def);
+			modules.put(def.getCamelCaseName(), def);
 			allDefs.put(def.getCamelCaseName(), def);
 		}
 		
 		for(Event def: mdm.events.values()){
-//			if (events.get(def.getCamelCaseName()) == null)
-				events.put(def.getCamelCaseName(), def);
+			events.put(def.getCamelCaseName(), def);
 			allDefs.put(def.getCamelCaseName(), def);
 		}
 		
 		for(Controller def: mdm.controllers.values()){
-//			if (controllers.get(def.getCamelCaseName()) == null)
-				controllers.put(def.getCamelCaseName(), def);
+			controllers.put(def.getCamelCaseName(), def);
 			allDefs.put(def.getCamelCaseName(), def);
 		}
 		
 		for(Presenter def: mdm.presenters.values()){
-//			if (presenters.get(def.getCamelCaseName()) == null)
-				presenters.put(def.getCamelCaseName(), def);
+			presenters.put(def.getCamelCaseName(), def);
 			allDefs.put(def.getCamelCaseName(), def);
 		}
 		
 		for(Activity def: mdm.activities.values()){
-//			if (activities.get(def.getCamelCaseName()) == null)
-				activities.put(def.getCamelCaseName(), def);
+			activities.put(def.getCamelCaseName(), def);
 			allDefs.put(def.getCamelCaseName(), def);
 		}
 		
 		for(Place def: mdm.places.values()){
-//			if (places.get(def.getCamelCaseName()) == null)
-				places.put(def.getCamelCaseName(), def);
+			places.put(def.getCamelCaseName(), def);
 			allDefs.put(def.getCamelCaseName(), def);
 		}
 		
 		for(SubPlace def: mdm.subPlaces.values()){
-//			if (subPlaces.get(def.getCamelCaseName()) == null)
-				subPlaces.put(def.getCamelCaseName(), def);
+			subPlaces.put(def.getCamelCaseName(), def);
 			allDefs.put(def.getCamelCaseName(), def);
 		}
 		
 		for(View def: mdm.views.values()){
-//			if (views.get(def.getCamelCaseName()) == null)
-				views.put(def.getCamelCaseName(), def);
+			views.put(def.getCamelCaseName(), def);
+			allDefs.put(def.getCamelCaseName(), def);
+		}
+		
+		for(ActionBinding def: mdm.actions.values()){
+			actions.put(def.getCamelCaseName(), def);
 			allDefs.put(def.getCamelCaseName(), def);
 		}
 		

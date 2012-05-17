@@ -36,7 +36,11 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                  
  * Place. However, if you are building an application, it may be that you
  * have a single Place and that all behaviour takes place within the guise of
  * a single Activity. <p /> If the Activity manages a view, it will be
- * generated as implementing the View's  presenter interface.
+ * generated as implementing the View's  presenter interface. <p/> Activities
+ * provide a natural division point for GWT code splitting, if you've
+ * structured your code appropriately. By specifying the codeSplit flag as
+ * true, the code for the Activity will be  asynchronously loaded using the
+ * GWT code splitting mechanisms.
  * <P>
  * Generated from the mvw schema at version 0.1
  * <P>
@@ -421,6 +425,37 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1885)
     public void remInstantiatesPresenter(){
         ((ActivityDMO) core).remInstantiatesPresenter();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
+    public Boolean isCodeSplit(){
+        return(((ActivityDMO) core).isCodeSplit());
+    }
+
+    /**
+     * Sets codeSplit to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1230)
+    public void setCodeSplit(Object value) throws DmcValueException {
+        ((ActivityDMO) core).setCodeSplit(value);
+    }
+
+    /**
+     * Sets codeSplit to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
+    public void setCodeSplit(Boolean value){
+        ((ActivityDMO) core).setCodeSplit(value);
+    }
+
+    /**
+     * Removes the codeSplit attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1265)
+    public void remCodeSplit(){
+        ((ActivityDMO) core).remCodeSplit();
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)

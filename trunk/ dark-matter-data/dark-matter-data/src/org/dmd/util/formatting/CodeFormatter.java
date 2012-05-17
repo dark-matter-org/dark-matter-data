@@ -18,6 +18,8 @@ package org.dmd.util.formatting;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
+import org.dmd.util.exceptions.DebugInfo;
+
 /**
  * The CodeFormatter class contains a variety of static utility methods that
  * are useful when dumping code.
@@ -43,6 +45,10 @@ public class CodeFormatter {
            // Move back until we find a space
            while(sb.charAt(offset) != ' '){
                offset--;
+               
+               if (offset == -1){
+            	   DebugInfo.debug("comment = " + comment);
+               }
            }
 
            out.write(indent);

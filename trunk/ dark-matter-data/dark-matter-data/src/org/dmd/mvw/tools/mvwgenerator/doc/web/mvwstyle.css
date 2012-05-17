@@ -89,21 +89,10 @@ td {
 	width: 120px;
 }
 
-.className {
+.definitionName {
 	font-weight: bold;
 }
 
-.attributeName {
-	font-weight: bold;
-}
-
-.typeName {
-	font-weight: bold;
-}
-
-.sliceName {
-	font-weight: bold;
-}
 
 .valueType {
     float: left;
