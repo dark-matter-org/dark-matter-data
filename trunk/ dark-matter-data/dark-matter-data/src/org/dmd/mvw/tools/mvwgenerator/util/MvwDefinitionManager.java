@@ -479,12 +479,18 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			else
 				rci.setUseClass(currentModule.getGenPackage() + ".extended." + presenter.getSubpackage() + "." + presenter.getPresenterName());
 				
-			if (presenter.usesRunContext())
-				rci.setConstruction("new " + presenter.getPresenterName() + "(this)");
+			if (presenter.usesRunContext()){
+				if (presenter.isCodeSplit())
+					rci.setConstruction("new " + presenter.getPresenterName() + "(thisContext)");
+				else
+					rci.setConstruction("new " + presenter.getPresenterName() + "(this)");
+			}
 			else
 				rci.setConstruction("new " + presenter.getPresenterName() + "()");
 			
 			rci.setDefinedInModule(presenter.getDefinedInModule());
+			
+			rci.setPresenter(presenter);
 			
 			if (rcic == null){
 				rcic = new RunContextItemCollection(rci.getContextImpl());

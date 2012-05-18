@@ -119,17 +119,25 @@ public class RunContextItem extends RunContextItemDMW {
 			String capped = GenUtility.capTheName(getItemName().getNameString());
 			StringBuilder sb = new StringBuilder();
 			if (view == null){
-				if (isSingleton()){
+				if ((presenter != null) && (presenter.isCodeSplit()) ){
 					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public " + getItemType() + " get" + getPlainName() + "(){\n");
-					sb.append("        return( ((" + getInterfaceName() + ")runcontext).get" + capped + "());\n");
-					sb.append("    }\n\n");
+					sb.append("    public void get" + getPlainName() + "Async(){\n");
+					sb.append("        ((" + getInterfaceName() + ")runcontext).get" + capped + "(this);\n");
+					sb.append("    }\n\n");					
 				}
 				else{
-					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public " + getItemType() + " getNew" + getPlainName() + "(){\n");
-					sb.append("        return( ((" + getInterfaceName() + ")runcontext).get" + capped + "());\n");
-					sb.append("    }\n\n");
+					if (isSingleton()){
+						sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public " + getItemType() + " get" + getPlainName() + "(){\n");
+						sb.append("        return( ((" + getInterfaceName() + ")runcontext).get" + capped + "());\n");
+						sb.append("    }\n\n");
+					}
+					else{
+						sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public " + getItemType() + " getNew" + getPlainName() + "(){\n");
+						sb.append("        return( ((" + getInterfaceName() + ")runcontext).get" + capped + "());\n");
+						sb.append("    }\n\n");
+					}
 				}
 			}
 			else{
@@ -154,8 +162,13 @@ public class RunContextItem extends RunContextItemDMW {
 	
 	public String getInterfaceMethod(PrintfFormat format){
 		String capped = GenUtility.capTheName(getItemName().getNameString());
-		if (view == null)
-			return("    public " + format.sprintf(getItemType()) + " get" + capped + "();\n");
+		if (view == null){
+			if ( (presenter != null) && (presenter.isCodeSplit())){
+				return("    public " + format.sprintf("void") + "get" + capped + "(" + presenter.getAsyncInterface() + " requester);\n");
+			}
+			else
+				return("    public " + format.sprintf(getItemType()) + " get" + capped + "();\n");
+		}
 		else{
 			String pres = view.getViewName() + "IF." + view.getViewName() + "PresenterIF";
 			return("    public " + format.sprintf(getItemType()) + " get" + capped + "(" + pres + " presenter);\n");
@@ -167,22 +180,66 @@ public class RunContextItem extends RunContextItemDMW {
 		StringBuilder 	sb 		= new StringBuilder();
 		
 		if (isCreateOnDemand()){
-			if (view == null){
-				sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-				sb.append("    @Override\n");
-				sb.append("    public " + getItemType() + " get" + capped + "(){\n");
-				if (isSingleton()){
-					sb.append("        if (" +  getItemName() + " == null)\n");
-					sb.append("            " + getItemName() + " = " + getConstruction() + ";\n");
-					sb.append("        return(" + getItemName() + ");\n");
+			if (presenter != null){
+				if (presenter.isCodeSplit()){
+					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    @Override\n");
+					sb.append("    public void get" + capped + "(final " + presenter.getAsyncInterface() + " requester){\n");
+					if (isSingleton()){
+						sb.append("        if (" +  getItemName() + " == null){\n");
+						sb.append("            final MvwRunContextIF thisContext = this;\n");
+						sb.append("            GWT.runAsync(new RunAsyncCallback() {\n");
+						sb.append("\n");
+						sb.append("                @Override\n");
+						sb.append("                public void onSuccess() {\n");
+						sb.append("                    " + getItemName() + " = " + getConstruction() + ";\n");
+						sb.append("                    requester.async" + presenter.getPresenterName() + "Ready(" + getItemName() + ");\n");
+						sb.append("                }\n");
+						sb.append("\n");
+						sb.append("                @Override\n");
+						sb.append("                public void onFailure(Throwable reason) {\n");
+						sb.append("                    centralAsyncErrorHandler.handleAsyncCodeError(\"" + getConstruction() + "\",reason);\n");
+						sb.append("                }\n");
+						sb.append("            });\n");
+						sb.append("        }\n");
+						sb.append("        else\n");
+						sb.append("            requester.async" + presenter.getPresenterName() + "Ready(" + getItemName() + ");\n");
+					}
+					else{
+						sb.append("        GWT.runAsync(new RunAsyncCallback() {\n");
+						sb.append("        	\n");
+						sb.append("        	   @Override\n");
+						sb.append("        	   public void onSuccess() {\n");
+						sb.append("               requester.async" + presenter.getPresenterName() + "Ready(" + getConstruction() + ");\n");
+						sb.append("        	   }\n");
+						sb.append("        	\n");
+						sb.append("        	   @Override\n");
+						sb.append("        	   public void onFailure(Throwable reason) {\n");
+						sb.append("        		   centralAsyncErrorHandler.handleAsyncCodeError(\"" + getConstruction() + "\",reason);\n");
+						sb.append("        	   }\n");
+						sb.append("        });\n");
+					}
+					sb.append("    }\n");
+					sb.append("\n");
 				}
 				else{
-					sb.append("        return(" + getConstruction() + ");\n");
+					sb.append("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    @Override\n");
+					sb.append("    public " + getItemType() + " get" + capped + "(){\n");
+					if (isSingleton()){
+						sb.append("        if (" +  getItemName() + " == null)\n");
+						sb.append("            " + getItemName() + " = " + getConstruction() + ";\n");
+						sb.append("        return(" + getItemName() + ");\n");
+					}
+					else{
+						sb.append("        return(" + getConstruction() + ");\n");
+					}
+					sb.append("    }\n");
+					sb.append("\n");
 				}
-				sb.append("    }\n");
-				sb.append("\n");
 			}
-			else{
+
+			if (view != null){
 				String pres	= view.getViewName() + "IF." + view.getViewName() + "PresenterIF";
 				String args = "";
 				
@@ -198,12 +255,10 @@ public class RunContextItem extends RunContextItemDMW {
 					sb.append("        if (" +  getItemName() + " == null)\n");
 					if (args.length() > 0)
 					sb.append("            " + getItemName() + " = " + getConstruction() + "(" + args + ");\n");
-//					sb.append("        " + getItemName()+ ".setPresenter(presenter);\n");
 					sb.append("        return(" + getItemName() + ");\n");
 				}
 				else{
 					sb.append("        " + getItemType() + " view = " + getConstruction() + "(" + args + ");\n");
-//					sb.append("        view.setPresenter(presenter);\n");
 					sb.append("        return(view);\n");
 				}
 				sb.append("    }\n");
@@ -226,6 +281,9 @@ public class RunContextItem extends RunContextItemDMW {
 		if (view != null){
 			im.addImport(view.getViewImport(),"The " + view.getViewName());
 		}
+		if ( (presenter != null) && (presenter.isCodeSplit()) ){
+			im.addImport(presenter.getAsyncImport(),"Asynchronous creation of " + presenter.getPresenterName());
+		}
 	}
 	
 	public String getInterfaceName(){
@@ -242,6 +300,10 @@ public class RunContextItem extends RunContextItemDMW {
 		
 		if (view != null){
 			im.addImport(view.getViewImport(), "The " + view.getViewName());
+		}
+		
+		if ( (presenter != null) && (presenter.isCodeSplit())){
+			im.addImport(presenter.getAsyncImport(), "Asynchronous creation of " + presenter.getPresenterName());
 		}
 	}
 	
@@ -260,5 +322,25 @@ public class RunContextItem extends RunContextItemDMW {
 		if (view != null){
 			im.addImport(view.getViewImport(), "The " + view.getViewName());
 		}
+		
+		if ( (presenter != null) && (presenter.isCodeSplit()) ){
+			im.addImport(presenter.getAsyncImport(), "Needed to create " + presenter.getPresenterName() + " instances asynchronously");
+			im.addImport("com.google.gwt.core.client.GWT","Access to runAsynch()");
+			im.addImport("com.google.gwt.core.client.RunAsyncCallback","Handling runAsync() results");
+		}
+		
+	}
+	
+	public boolean refersToAsyncCode(){
+		if ( (presenter != null) && (presenter.isCodeSplit()) )
+			return(true);
+		
+		return(false);
+	}
+	
+	public String getAsyncInterface(){
+		if ( (presenter != null) && (presenter.isCodeSplit()) )
+			return(presenter.getAsyncInterface());
+		return(null);
 	}
 }
