@@ -74,8 +74,34 @@ public class Presenter extends PresenterDMW {
 				}
 			}
 		}
-
 	}
+	
+	/**
+	 * @return the fully qualified name of this presenter's extended implementation.
+	 */
+	public String getExtendedClassImport(){
+		if (getSubpackage() == null)
+			return(getDefinedInModule().getGenPackage() + ".extended." + getPresenterName());
+		else
+			return(getDefinedInModule().getGenPackage() + ".extended." + getSubpackage() + "." + getPresenterName());
+		
+	}
+	
+	/**
+	 * @return the import for PresenterAsyncIF associated with this presenter. 
+	 */
+	public String getAsyncImport(){
+		return(getDefinedInModule().getGenPackage() + ".generated.mvw.presenters." + getPresenterName() + "AsyncIF");
+	}
+	
+	/**
+	 * @return the PresenterAsyncIF name for this presenter. 
+	 */
+	public String getAsyncInterface(){
+		return(getPresenterName() + "AsyncIF");
+	}
+	
+	
 	
 	@Override
 	public String genSubPackage(){

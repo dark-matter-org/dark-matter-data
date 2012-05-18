@@ -25,9 +25,12 @@ public class ActivityFormatter {
 
     	boolean onDemand = false;
     	for(RunContextItem rci: activity.getUsesRunContextItemIterable()){
-    		out.write(rci.getImplVariable());
+    		// If it's create on demand, we will have to hang on to the run context
+    		// and we won't have member for the item
     		if (rci.isCreateOnDemand())
     			onDemand = true;
+    		else
+    			out.write(rci.getImplVariable());
     	}
     	
     	if (onDemand){

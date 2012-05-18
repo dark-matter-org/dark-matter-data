@@ -42,6 +42,21 @@ public class Activity extends ActivityDMW {
 					interfaces.append(", EventHandlerIF");
 			}
 		}
+		
+		// If we refer to any asynchronously loaded code, we have to implement the appropriate interfaces
+		if (getUsesRunContextItemHasValue()){
+			for(RunContextItem rci: getUsesRunContextItemIterable()){
+				if (rci.refersToAsyncCode()){
+					if (interfaces.length() == 0){
+						interfaces.append("implements " + rci.getAsyncInterface());
+					}
+					else{
+						interfaces.append(", " + rci.getAsyncInterface());
+					}
+				}
+			}
+		}
+		
 		return(interfaces.toString());
 	}
 	

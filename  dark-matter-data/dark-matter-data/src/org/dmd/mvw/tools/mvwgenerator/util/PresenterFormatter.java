@@ -12,6 +12,8 @@ public class PresenterFormatter {
 
 	static public void formatPresenterBaseImpl(String outdir, Presenter presenter) throws IOException {
 		
+		if (presenter.isCodeSplit())
+			PresenterFormatter.formatPresenterAsyncIF(outdir, presenter);
 		
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, presenter.getPresenterName() + "BaseImpl.java");
 
@@ -86,6 +88,26 @@ public class PresenterFormatter {
         out.write(presenter.getAbstractMethods());
         
         out.write("}\n\n");
+        
+        out.close();
+	}
+	
+	static void formatPresenterAsyncIF(String outdir, Presenter presenter) throws IOException {
+		
+        BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, presenter.getPresenterName() + "AsyncIF.java");
+
+        out.write("package " + presenter.getDefinedInModule().getGenPackage() + ".generated.mvw.presenters;\n\n");
+        
+        out.write("import " + presenter.getExtendedClassImport() + ";\n\n");
+        
+		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        out.write("public interface " + presenter.getPresenterName() + "AsyncIF {\n\n");
+        
+        out.write("    public void async" + presenter.getPresenterName() + "Ready(" + presenter.getPresenterName() + " p);\n");
+        
+        out.write("}\n");
+
+        out.write("\n");
         
         out.close();
 	}
