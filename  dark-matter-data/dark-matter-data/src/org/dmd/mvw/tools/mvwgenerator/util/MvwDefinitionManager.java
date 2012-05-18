@@ -97,6 +97,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	
 	Controller									centralDmpErrorHandler;
 	
+	Controller									centralAsyncErrorHandler;
+	RunContextItem								centralAsyncErrorHandlerRCI;
+	
 	TreeMap<String,RunContextItemCollection>	contexts;
 	RunContextItemCollection					defaultContext;
 		
@@ -223,30 +226,30 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		ArrayList<Component>	needCentral = new ArrayList<Component>();
 		
 		for(Component component: components.values()){
-			DebugInfo.debug(component.getObjectName().getNameString());
+//			DebugInfo.debug(component.getObjectName().getNameString());
 			if (component.usesCentralRpcErrorHandling()){
-				DebugInfo.debug("    uses central RPC");
+//				DebugInfo.debug("    uses central RPC");
 				needCentral.add(component);
 			}
 		}
 		
 		if (needCentral.size() == 0){
-			DebugInfo.debug("   NEED CENTRAL is empty");
+//			DebugInfo.debug("   NEED CENTRAL is empty");
 			// We have no requests with central handing - that's fine
 			needCentral = null;
 		}
 		else{
 			// We have a central RPC handler, so that's fine
 			if (centralRpcErrorHandler != null){
-				DebugInfo.debug("   HAVE CENTRAL HANDLER! " + centralRpcErrorHandler.getObjectName().getNameString());
+//				DebugInfo.debug("   HAVE CENTRAL HANDLER! " + centralRpcErrorHandler.getObjectName().getNameString());
 				needCentral = null;
 			}
 		}
 				
-		if (needCentral == null)
-			DebugInfo.debug("    DON'T NEED CENTRAL");
-		else
-			DebugInfo.debug("    NEED CENTRAL");
+//		if (needCentral == null)
+//			DebugInfo.debug("    DON'T NEED CENTRAL");
+//		else
+//			DebugInfo.debug("    NEED CENTRAL");
 
 		return(needCentral);
 	}
@@ -368,48 +371,49 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 			controllers.put(def.getCamelCaseName(), controller);
 			components.put(def.getCamelCaseName(), controller);
 			
+			RunContextItem controllerRCI = null;
 			if (controller.isAddedToRunContext()){
 				// All Controllers run for the life of the application and so, are added to the run context
 				// so that they are created on start up
-				RunContextItem rci = new RunContextItem();
-				rci.setAutoCreated(true);
-				RunContextItemCollection rcic = contexts.get(rci.getContextImpl());
+				controllerRCI = new RunContextItem();
+				controllerRCI.setAutoCreated(true);
+				RunContextItemCollection rcic = contexts.get(controllerRCI.getContextImpl());
 				
-				rci.setItemName(controller.getControllerName().getNameString() + "RCI");
-				rci.setDescription("The auto generated run context item for the " + controller.getControllerName());
+				controllerRCI.setItemName(controller.getControllerName().getNameString() + "RCI");
+				controllerRCI.setDescription("The auto generated run context item for the " + controller.getControllerName());
 				
 				if (controller.getSubpackage() == null)
-					rci.setUseClass(currentModule.getGenPackage() + ".extended." + controller.getControllerName());
+					controllerRCI.setUseClass(currentModule.getGenPackage() + ".extended." + controller.getControllerName());
 				else
-					rci.setUseClass(currentModule.getGenPackage() + ".extended." + controller.getSubpackage() + "." + controller.getControllerName());
+					controllerRCI.setUseClass(currentModule.getGenPackage() + ".extended." + controller.getSubpackage() + "." + controller.getControllerName());
 					
 				if (controller.usesRunContext())
-					rci.setConstruction("new " + controller.getControllerName() + "(this)");
+					controllerRCI.setConstruction("new " + controller.getControllerName() + "(this)");
 				else
-					rci.setConstruction("new " + controller.getControllerName() + "()");
+					controllerRCI.setConstruction("new " + controller.getControllerName() + "()");
 				
-				rci.setDefinedInModule(controller.getDefinedInModule());
+				controllerRCI.setDefinedInModule(controller.getDefinedInModule());
 				
 				if (controller.getItemOrder() != null)
-					rci.setItemOrder(controller.getItemOrder());
+					controllerRCI.setItemOrder(controller.getItemOrder());
 				
 				if (rcic == null){
-					rcic = new RunContextItemCollection(rci.getContextImpl());
-					contexts.put(rci.getContextImpl(), rcic);
+					rcic = new RunContextItemCollection(controllerRCI.getContextImpl());
+					contexts.put(controllerRCI.getContextImpl(), rcic);
 				}
-				rcic.addItem(rci);
+				rcic.addItem(controllerRCI);
 				
 				// Add the item to its module
-				rci.getDefinedInModule().addRunContextItem(rci);
+				controllerRCI.getDefinedInModule().addRunContextItem(controllerRCI);
 				
 //DebugInfo.debug("\n" + rci.toOIF());
 				
 				// Tell the controller its item
-				controller.setRunContextItem(rci);
+				controller.setRunContextItem(controllerRCI);
 				
 				// Add to all definitions so that references can be resolved
-				rci.setCamelCaseName(rci.getObjectName());
-				checkAndAdd(rci,allDefs);
+				controllerRCI.setCamelCaseName(controllerRCI.getObjectName());
+				checkAndAdd(controllerRCI,allDefs);
 
 			}
 			
@@ -432,6 +436,28 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 					throw(ex);
 				}
 				centralDmpErrorHandler = controller;
+			}
+			if (controller.isCentralAsyncErrorHandler()){
+				if (centralAsyncErrorHandler != null){
+					ResultException ex = new ResultException();
+					ex.addError("Multiple controllers are specified as the central asynchronous code loading error handler.");
+					ex.result.lastResult().moreMessages(centralAsyncErrorHandler.getControllerName() + " in " + centralAsyncErrorHandler.getDefinedInModule().getFile() + " at line " + centralDmpErrorHandler.getDefinedInModule().getLineNumber());
+					ex.result.lastResult().moreMessages(controller.getControllerName() + " in " + controller.getDefinedInModule().getFile() + " at line " + controller.getDefinedInModule().getLineNumber());
+					throw(ex);
+				}
+				centralAsyncErrorHandler = controller;
+				centralAsyncErrorHandlerRCI = controllerRCI;
+//				
+//				// We will fill in the details of the predefined place holder context item - defined in the mvw module
+//				RunContextItemCollection rcic = contexts.get(controllerRCI.getContextImpl());
+//				RunContextItem rci = rcic.getItem("centralAsyncErrorHandler");
+//
+//				// The construction is just the assignment of the controller to this item
+//				rci.setConstruction(controllerRCI.getItemName());
+//
+//				int order = controllerRCI.getItemOrder() + 1;
+//				rci.setItemOrder(order);
+				
 			}
 		}
 		else if (def instanceof Presenter){
@@ -810,6 +836,19 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		
 		if (application != null){
+			if (centralAsyncErrorHandler != null){
+				DebugInfo.debug("CHANGING THE PLACEHOLDER");
+									// We will fill in the details of the predefined place holder context item - defined in the mvw module
+				RunContextItemCollection rcic = contexts.get(centralAsyncErrorHandlerRCI.getContextImpl());
+				RunContextItem rci = rcic.getItem("centralAsyncErrorHandler");
+					
+				// The construction is just the assignment of the controller to this item
+				rci.setConstruction(centralAsyncErrorHandlerRCI.getItemName());
+
+				int order = centralAsyncErrorHandlerRCI.getItemOrder() + 1;
+				rci.setItemOrder(order);
+			}
+								
 			// We're generating the application, so some additional checking is required
 			if (menuBars.size() > 0){
 				// We have menu related functionality, so the application must specify a
@@ -873,7 +912,6 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 							errors.result.addResults(ex.result);
 					}
 				}
-				
 				
 			}
 		}
@@ -1027,8 +1065,9 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 	}
 	
 	void initCodeGenInfo() throws DmcValueException, ResultException {
-		boolean rpc = false;
-		boolean dmp = false;
+		boolean rpc 					= false;
+		boolean dmp 					= false;
+		boolean	needAsyncErrorHandler	= false;
 		
 		if (centralDmpErrorHandler != null)
 			dmp = true;
@@ -1046,6 +1085,8 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		for(Activity activity: activities.values()){
 			activity.initCodeGenInfo(rpc,dmp);
+			if (activity.isCodeSplit())
+				needAsyncErrorHandler = true;
 		}
 		for(Event event: events.values()){
 			event.checkSanity();
@@ -1055,6 +1096,12 @@ public class MvwDefinitionManager implements DmcNameResolverIF {
 		}
 		for(ActionBinding action: actions.values()){
 			action.initCodeGenInfo();
+		}
+		
+		if ((application != null) && needAsyncErrorHandler && (centralAsyncErrorHandler == null)){
+			ResultException ex = new ResultException();
+			ex.addError("One or more elements make use of code splitting, but no Controller is defined as the centralAsyncErrorHandler.");
+			throw(ex);
 		}
 	}
 	

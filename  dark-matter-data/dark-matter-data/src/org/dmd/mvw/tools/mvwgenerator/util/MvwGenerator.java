@@ -229,6 +229,9 @@ public class MvwGenerator {
 			createGenDir(placesdir);
 			PlaceFormatter.formatPlaceHistoryMapper(placesdir, defManager.application, defManager.places);
 			RunContextFormatter.formatAppRunContextInterface(mvwdir, defManager.getApplication(), defManager.getDefaultContext());
+			
+DebugInfo.debug("GENERATING RUN CONTEXT");
+			
 			RunContextFormatter.formatImplementation(mvwdir, defManager.getApplication(), defManager.getDefaultContext());
 			WebApplicationFormatter.formatApplication(mvwdir, defManager.getApplication());
 			

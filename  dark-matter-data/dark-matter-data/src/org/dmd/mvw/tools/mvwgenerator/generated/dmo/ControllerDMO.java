@@ -257,6 +257,56 @@ public class ControllerDMO  extends ComponentDMO  implements DmcNamedObjectIF, S
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    public Boolean isCentralAsyncErrorHandler(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__centralAsyncErrorHandler);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets centralAsyncErrorHandler to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    public void setCentralAsyncErrorHandler(Boolean value) {
+        DmcAttribute<?> attr = get(MvwDMSAG.__centralAsyncErrorHandler);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__centralAsyncErrorHandler);
+        
+        try{
+            attr.set(value);
+            set(MvwDMSAG.__centralAsyncErrorHandler,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets centralAsyncErrorHandler to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    public void setCentralAsyncErrorHandler(Object value) throws DmcValueException {
+        DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__centralAsyncErrorHandler);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MvwDMSAG.__centralAsyncErrorHandler);
+        
+        attr.set(value);
+        set(MvwDMSAG.__centralAsyncErrorHandler,attr);
+    }
+
+    /**
+     * Removes the centralAsyncErrorHandler attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    public void remCentralAsyncErrorHandler(){
+         rem(MvwDMSAG.__centralAsyncErrorHandler);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
     public Boolean isAddedToRunContext(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__addedToRunContext);
         if (attr == null)

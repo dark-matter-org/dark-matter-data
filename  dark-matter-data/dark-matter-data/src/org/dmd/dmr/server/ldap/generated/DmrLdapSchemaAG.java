@@ -61,7 +61,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             me.setName("dmr.ldap");
             me.setSchemaPackage("org.dmd.dmr.shared.ldap");
             me.setDmwPackage("org.dmd.dmr.server.ldap");
-            me.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/dmr.ldap.dms");
+            me.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/dmr.ldap.dms");
 
 
             me.addDependsOn("dmr.base");
@@ -84,7 +84,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPSchemaAUXOBJ.setName("LDAPSchemaAUX");
             _LDAPSchemaAUXOBJ.setDmdID("451");
             _LDAPSchemaAUXOBJ.setClassType("AUXILIARY");
-            _LDAPSchemaAUXOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
+            _LDAPSchemaAUXOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPSchemaAUXOBJ.setLineNumber("9");
             _LDAPSchemaAUXOBJ.setDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition class with information required to map objects onto an LDAP repository.");
             _LDAPSchemaAUXOBJ.addIntendedToExtend("SchemaDefinition");
@@ -105,7 +105,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPClassAUXOBJ.setName("LDAPClassAUX");
             _LDAPClassAUXOBJ.setDmdID("452");
             _LDAPClassAUXOBJ.setClassType("AUXILIARY");
-            _LDAPClassAUXOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
+            _LDAPClassAUXOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPClassAUXOBJ.setLineNumber("19");
             _LDAPClassAUXOBJ.setDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition class with information required to map objects onto an LDAP repository.");
             _LDAPClassAUXOBJ.addIntendedToExtend("ClassDefinition");
@@ -127,7 +127,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPAttributeAUXOBJ.setName("LDAPAttributeAUX");
             _LDAPAttributeAUXOBJ.setDmdID("453");
             _LDAPAttributeAUXOBJ.setClassType("AUXILIARY");
-            _LDAPAttributeAUXOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
+            _LDAPAttributeAUXOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPAttributeAUXOBJ.setLineNumber("28");
             _LDAPAttributeAUXOBJ.setDescription("The LDAPSchemaExtension class is used to extend the basic SchemaDefinition class with information required to map objects onto an LDAP repository.");
             _LDAPAttributeAUXOBJ.addIntendedToExtend("AttributeDefinition");
@@ -149,7 +149,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _LDAPHierarchicObjectOBJ.setDmdID("454");
             _LDAPHierarchicObjectOBJ.setClassType("STRUCTURAL");
             _LDAPHierarchicObjectOBJ.setDataType("PERSISTENT");
-            _LDAPHierarchicObjectOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
+            _LDAPHierarchicObjectOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/classes.dmd");
             _LDAPHierarchicObjectOBJ.setLineNumber("48");
             _LDAPHierarchicObjectOBJ.setDescription("The LDAPHierarchicObject provides some additional structure and conventions to the HierarchicObject to make it usable in conjunction with an LDAP enabled directory server. Classes derived from LDAPHierarchicObject must be defined in a schema that has been extended with the LDAPSchemaExtension auxiliary class and must themselves be extended with the LDAPClassExtension auxiliary class; the class must have a defined naming attribute. Furthermore, naming attributes should be unique for each defined class.");
             _LDAPHierarchicObjectOBJ.setDerivedFrom("HierarchicObject");
@@ -173,7 +173,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _ldapIdPrefixOBJ.setDmdID("450");
             _ldapIdPrefixOBJ.setDescription("The ldapIdPrefix is defined for use against an entire schema. It indicates the prefix that will be added to all class and attribute definitions that are loaded into the directory as schema. Having a prefix prevents possible collisions with existing schema definitions. The prefix should be short, 2 or 3 characters.");
             _ldapIdPrefix.setDefinedIn(this);
-            _ldapIdPrefixOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");
+            _ldapIdPrefixOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");
             _ldapIdPrefixOBJ.setLineNumber("10");
             addAttributeDefList(_ldapIdPrefix);
 
@@ -185,7 +185,7 @@ public class DmrLdapSchemaAG extends SchemaDefinition {
             _reposNameOBJ.setDmdID("451");
             _reposNameOBJ.setDescription("This attribute indicates the name of an attribute or class when it is stored in a repository and added to that repository's schema. Generally speaking, we will always use the standard prefix for all attribute and class names. Like all other name values, this one must be globally unique.");
             _reposName.setDefinedIn(this);
-            _reposNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");
+            _reposNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/ldap/dmdconfig/v0dot1/attributes.dmd");
             _reposNameOBJ.setLineNumber("18");
             addAttributeDefList(_reposName);
 

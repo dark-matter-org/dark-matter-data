@@ -748,6 +748,14 @@ description     This attribute is used to flag components that are intended to b
  accomplished by dependency injection and ensuring that the component is using interfaces to
  interact with other components. 
 
+AttributeDefinition
+name			centralAsyncErrorHandler
+dmdID			101
+type			Boolean
+description		Indicates that a controller is the target for centralized handling of asyncronous
+ code loading errors.
+
+
 //AttributeDefinition
 //name			mandatoryStyle
 //dmdID			89

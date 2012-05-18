@@ -208,7 +208,7 @@ public class Component extends ComponentDMW implements CodeGenComponentIF {
 		actionInstantiations	= new StringBuffer();
 		
 		if (getHandlesEventHasValue()){
-			DebugInfo.debug(getObjectName().getNameString() + " handles " + getHandlesEventSize() + " events");
+//			DebugInfo.debug(getObjectName().getNameString() + " handles " + getHandlesEventSize() + " events");
 			for(Event event: getHandlesEventIterable()){
 				event.addEventHandlerImports(imports);
 				event.handledBy(this);
@@ -468,7 +468,7 @@ public class Component extends ComponentDMW implements CodeGenComponentIF {
 			else if (localDmp)
 				dmp = ErrorOptionsEnum.LOCAL;
 			
-			DebugInfo.debug(requestDef.toString() + "\nDMP: " + dmp + "  RPC: " + rpc + "\n");
+//			DebugInfo.debug(requestDef.toString() + "\nDMP: " + dmp + "  RPC: " + rpc + "\n");
 		}
 		
 		void addSendRequestFunction(StringBuffer sb){

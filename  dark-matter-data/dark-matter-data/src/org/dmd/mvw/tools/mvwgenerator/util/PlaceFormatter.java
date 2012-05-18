@@ -106,13 +106,13 @@ public class PlaceFormatter {
         out.write("        	\n");
         out.write("        	@Override\n");
         out.write("        	public void onSuccess() {\n");
-        out.write("        		activity = new ListContactsActivity(context);\n");
+        out.write("        		activity = new " + place.getRunsActivity().getActivityName()+ "(context);\n");
         out.write("        		apc.asyncPlaceReady(thisPlace);\n");
         out.write("        	}\n");
         out.write("        	\n");
         out.write("        	@Override\n");
         out.write("        	public void onFailure(Throwable reason) {\n");
-        out.write("        		\n");
+        out.write("        		context.getCentralAsyncErrorHandler().handleAsyncCodeError(\"" + place.getRunsActivity().getImplementationClass() + "\",reason);\n");
         out.write("        	}\n");
         out.write("        });\n");
         out.write("        \n");

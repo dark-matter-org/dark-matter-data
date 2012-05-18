@@ -6,6 +6,7 @@ import com.google.gwt.activity.shared.ActivityManager;          // Used by activ
 import com.google.gwt.event.shared.EventBus;                    // Used by eventBus
 import com.google.gwt.place.shared.PlaceHistoryHandler;         // Used by historyHandler
 import org.dmd.mvw.client.mvw.MvwActivityMapper;                // Used by activityMapper
+import org.dmd.mvw.client.mvw.MvwAsyncErrorHandlerIF;           // Used by centralAsyncErrorHandler
 import org.dmd.mvw.client.mvw.MvwAsyncPlaceController;          // Used by placeController
 
 
@@ -17,5 +18,6 @@ public interface MvwRunContextIF {
     public MvwActivityMapper       getActivityMapper();
     public ActivityManager         getActivityManager();
     public PlaceHistoryHandler     getHistoryHandler();
+    public MvwAsyncErrorHandlerIF  getCentralAsyncErrorHandler();
 }
 

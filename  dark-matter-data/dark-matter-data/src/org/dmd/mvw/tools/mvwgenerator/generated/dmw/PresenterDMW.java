@@ -93,6 +93,37 @@ abstract public class PresenterDMW extends Component implements DmcNamedObjectIF
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
+    public Boolean isCodeSplit(){
+        return(((PresenterDMO) core).isCodeSplit());
+    }
+
+    /**
+     * Sets codeSplit to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1230)
+    public void setCodeSplit(Object value) throws DmcValueException {
+        ((PresenterDMO) core).setCodeSplit(value);
+    }
+
+    /**
+     * Sets codeSplit to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
+    public void setCodeSplit(Boolean value){
+        ((PresenterDMO) core).setCodeSplit(value);
+    }
+
+    /**
+     * Removes the codeSplit attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1265)
+    public void remCodeSplit(){
+        ((PresenterDMO) core).remCodeSplit();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
     public Boolean isSingleton(){
         return(((PresenterDMO) core).isSingleton());
     }
