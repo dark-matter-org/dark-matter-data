@@ -57,7 +57,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             me.setName("dmr.base");
             me.setSchemaPackage("org.dmd.dmr.shared.base");
             me.setDmwPackage("org.dmd.dmr.server.base");
-            me.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/dmr.base.dms");
+            me.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/dmr.base.dms");
 
             initClasses();
             initAttributes1();
@@ -75,7 +75,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _HierarchicObjectOBJ.setName("HierarchicObject");
             _HierarchicObjectOBJ.setDmdID("401");
             _HierarchicObjectOBJ.setClassType("STRUCTURAL");
-            _HierarchicObjectOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
+            _HierarchicObjectOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
             _HierarchicObjectOBJ.setLineNumber("15");
             _HierarchicObjectOBJ.setDescription("A HierarchicObject is meant to represent any object that can be identified with a Fully Qualified Name (FQN) and exists in a containment relationship with other objects. The exact implementation of a HierarchicObject is application specific.");
             _HierarchicObjectOBJ.setIsNamedBy("FQN");
@@ -95,7 +95,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _DotNamedObjectOBJ.setName("DotNamedObject");
             _DotNamedObjectOBJ.setDmdID("402");
             _DotNamedObjectOBJ.setClassType("STRUCTURAL");
-            _DotNamedObjectOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
+            _DotNamedObjectOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
             _DotNamedObjectOBJ.setLineNumber("33");
             _DotNamedObjectOBJ.setDescription("A DotNamedObject is a hierarchic object whose fully qualified name is composed of naming attributes separated by periods. For example  grandparent.parent.child. <p> The naming attribute of a DotNamedObject is name. Unlike LDAP objects,  we don't bother making this configurable. When a DotNamedObject is parsed from a file, we check to see if the name attribute has a value; if not, we take the last portion of the FQN as the name. For example, if the FQN is x.y.z, the name of the object would be 'z'.");
             _DotNamedObjectOBJ.setDerivedFrom("HierarchicObject");
@@ -120,7 +120,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _userNameOBJ.setDescription("The name of a user.");
             _userNameOBJ.setDataType("PERSISTENT");
             _userName.setDefinedIn(this);
-            _userNameOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
+            _userNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _userNameOBJ.setLineNumber("47");
             addAttributeDefList(_userName);
 
@@ -133,7 +133,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _passwordOBJ.setDescription("A user's password.");
             _passwordOBJ.setDataType("PERSISTENT");
             _password.setDefinedIn(this);
-            _passwordOBJ.setFile("C:/DevSVN2/map-exploration/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
+            _passwordOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/attributes.dmd");
             _passwordOBJ.setLineNumber("54");
             addAttributeDefList(_password);
 

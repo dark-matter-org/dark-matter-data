@@ -62,6 +62,13 @@ public class Controller extends ControllerDMW implements CodeGenComponentIF {
 				controllerInterfaces.append("implements ");
 			controllerInterfaces.append("CentralRPCErrorHandlerIF");
 		}
+		if (isCentralAsyncErrorHandler()){
+			if (controllerInterfaces.length() > 0)
+				controllerInterfaces.append(", ");
+			else
+				controllerInterfaces.append("implements ");
+			controllerInterfaces.append("MvwAsyncErrorHandlerIF");
+		}
 		if (controllerInterfaces.length() > 0)
 			controllerInterfaces.append(" ");
 		return(controllerInterfaces.toString());
@@ -81,11 +88,12 @@ public class Controller extends ControllerDMW implements CodeGenComponentIF {
 			
 			if (isCentralDMPErrorHandler())
 				imports.addImport("org.dmd.dmp.client.CentralDMPErrorHandlerIF", "Is the central DMP error handler");
-//			imports.addImport("org.dmd.mvw.client.mvwcomms.CentralDMPErrorHandlerIF", "Is the central DMP error handler");
 
 			if (isCentralRPCErrorHandler())
 				imports.addImport("org.dmd.dmp.client.CentralRPCErrorHandlerIF", "Is the central RPC error handler");
-//			imports.addImport("org.dmd.mvw.client.mvwcomms.CentralRPCErrorHandlerIF", "Is the central RPC error handler");
+			
+			if (isCentralAsyncErrorHandler())
+				imports.addImport("org.dmd.mvw.client.mvw.MvwAsyncErrorHandlerIF", "Is the central async code error handler");
 			
 			if (getImplementsActionHasValue()){
 				

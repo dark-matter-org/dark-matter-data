@@ -169,6 +169,37 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
+    public Boolean isCentralAsyncErrorHandler(){
+        return(((ControllerDMO) core).isCentralAsyncErrorHandler());
+    }
+
+    /**
+     * Sets centralAsyncErrorHandler to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1230)
+    public void setCentralAsyncErrorHandler(Object value) throws DmcValueException {
+        ((ControllerDMO) core).setCentralAsyncErrorHandler(value);
+    }
+
+    /**
+     * Sets centralAsyncErrorHandler to the specified value.
+     * @param value Boolean
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
+    public void setCentralAsyncErrorHandler(Boolean value){
+        ((ControllerDMO) core).setCentralAsyncErrorHandler(value);
+    }
+
+    /**
+     * Removes the centralAsyncErrorHandler attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1265)
+    public void remCentralAsyncErrorHandler(){
+        ((ControllerDMO) core).remCentralAsyncErrorHandler();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
     public Boolean isAddedToRunContext(){
         return(((ControllerDMO) core).isAddedToRunContext());
     }

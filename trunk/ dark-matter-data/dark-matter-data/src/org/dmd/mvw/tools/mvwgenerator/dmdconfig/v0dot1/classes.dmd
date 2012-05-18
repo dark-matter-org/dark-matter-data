@@ -152,6 +152,7 @@ isNamedBy		controllerName
 must			controllerName
 may				centralDMPErrorHandler
 may				centralRPCErrorHandler
+may				centralAsyncErrorHandler
 may				addedToRunContext
 may				instantiatesPresenter
 may				itemOrder
@@ -185,6 +186,7 @@ derivedFrom		Component
 isNamedBy		presenterName
 must			presenterName
 must			managesView
+may				codeSplit
 may				singleton
 may				instantiatesPresenter
 description		The Presenter is a behavioural component that manages one or more Views and

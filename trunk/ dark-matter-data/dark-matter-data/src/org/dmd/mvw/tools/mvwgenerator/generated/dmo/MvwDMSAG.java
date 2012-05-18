@@ -43,6 +43,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __bindingName = new DmcAttributeInfo("bindingName", 885, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __broadcast = new DmcAttributeInfo("broadcast", 822, "Event", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __broadcastOnly = new DmcAttributeInfo("broadcastOnly", 823, "Event", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __centralAsyncErrorHandler = new DmcAttributeInfo("centralAsyncErrorHandler", 901, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __centralDMPErrorHandler = new DmcAttributeInfo("centralDMPErrorHandler", 851, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __centralRPCErrorHandler = new DmcAttributeInfo("centralRPCErrorHandler", 852, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __clickEvent = new DmcAttributeInfo("clickEvent", 819, "OperationSpec", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
@@ -183,6 +184,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__bindingName.id,__bindingName);
         _SmAp.put(__broadcast.id,__broadcast);
         _SmAp.put(__broadcastOnly.id,__broadcastOnly);
+        _SmAp.put(__centralAsyncErrorHandler.id,__centralAsyncErrorHandler);
         _SmAp.put(__centralDMPErrorHandler.id,__centralDMPErrorHandler);
         _SmAp.put(__centralRPCErrorHandler.id,__centralRPCErrorHandler);
         _SmAp.put(__clickEvent.id,__clickEvent);
@@ -337,6 +339,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
         __Controller.addMust(__controllerName);
         __Controller.addMay(__centralDMPErrorHandler);
         __Controller.addMay(__centralRPCErrorHandler);
+        __Controller.addMay(__centralAsyncErrorHandler);
         __Controller.addMay(__addedToRunContext);
         __Controller.addMay(__instantiatesPresenter);
         __Controller.addMay(__itemOrder);
@@ -344,6 +347,7 @@ public class MvwDMSAG implements DmcCompactSchemaIF {
 
         __Presenter.addMust(__presenterName);
         __Presenter.addMust(__managesView);
+        __Presenter.addMay(__codeSplit);
         __Presenter.addMay(__singleton);
         __Presenter.addMay(__instantiatesPresenter);
 

@@ -67,3 +67,16 @@ construction 	new PlaceHistoryHandler(historyMapper)
 itemOrder    	8
 description		The history handler monitors place change and history events and
  keeps them in sync.
+
+RunContextItem
+itemName		centralAsyncErrorHandler
+useClass     	org.dmd.mvw.client.mvw.MvwAsyncErrorHandlerIF
+construction 	null
+description		The centralAsyncErrorHandler is a place holder for a controller that
+ implements the MvwAsyncErrorHandlerIF interface. This is a bit tricky. We don't know
+ in advance which controller will implement this and we don't want to have to introduce
+ dependencies into generated code on the run context interface associated with the controller
+ that handles these errors. If code splitting is used, we'll fill in the contruction
+ attribute and the item order (to be greater than that of the Controller), based on the Controller
+ that is flagged as the centralAsyncErrorHandler.
+
