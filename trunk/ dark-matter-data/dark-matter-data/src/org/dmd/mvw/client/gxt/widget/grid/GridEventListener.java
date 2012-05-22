@@ -52,9 +52,9 @@ public class GridEventListener implements Listener<ComponentEvent> {
 //		backgroundMenu		= mvcMenuController.getBackgroundMenu(backgroundMenuName);
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public void handleEvent(ComponentEvent ce) {
+		@SuppressWarnings("rawtypes")
 		GridEvent 	ge 		= (GridEvent) ce;
 		EventType	type	= ce.getType();
 		

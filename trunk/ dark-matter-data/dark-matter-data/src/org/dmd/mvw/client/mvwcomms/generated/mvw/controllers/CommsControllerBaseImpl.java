@@ -2,32 +2,28 @@ package org.dmd.mvw.client.mvwcomms.generated.mvw.controllers;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.getImports(Component.java:154)
-import com.google.gwt.event.shared.EventBus;                                                // Used by eventBus
-import de.novanic.eventservice.client.event.RemoteEventService;                             // Used by eventService
-import org.dmd.dmc.DmcOmni;                                                                 // Support for schema loading
-import org.dmd.dmp.client.DMPServiceAsync;                                                  // Used by dmpConnection
-import org.dmd.dmp.client.ErrorOptionsEnum;                                                 // DMP communications
-import org.dmd.dmp.client.ResponseHandlerIF;                                                // DMP communications
-import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;                                   // Component sends ActionRequests
-import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;                                  // Component receives ActionResponses
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                                           // Attribute schema
-import org.dmd.dmp.shared.generated.dmo.RequestDMO;                                         // DMP communications
-import org.dmd.dmp.shared.generated.dmo.ResponseDMO;                                        // DMP communications
-import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;                                 // DMP communications
-import org.dmd.dms.extended.ActionTriggerInfo;                                              // Sends action requests
-import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;                                // Mvw run context
-import org.dmd.mvw.client.mvwcomms.extended.CommsController;                                // Used by commsController
-import org.dmd.mvw.client.mvwcomms.generated.mvw.MvwcommsRunContextIF;                      // Mvwcomms run context
-import org.dmd.mvw.client.mvwcomms.generated.mvw.events.CommsSessionFailed;                 // Required by CommsSessionFailed
-import org.dmd.mvw.client.mvwcomms.generated.mvw.events.CommsSessionFailedHandler;          // Required by CommsSessionFailed
-import org.dmd.mvw.client.mvwcomms.generated.mvw.events.CommsSessionReady;                  // Required by CommsSessionReady
-import org.dmd.mvw.client.mvwcomms.generated.mvw.events.CommsSessionReadyHandler;           // Required by CommsSessionReady
-import org.dmd.mvw.client.mvwcomms.generated.mvw.events.ForceCommsReset;                    // Required by ForceCommsReset
-import org.dmd.mvw.client.mvwcomms.generated.mvw.events.ForceCommsResetHandler;             // Required by ForceCommsReset
-import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LoginCompleteEvent;                 // Required by LoginCompleteEvent
-import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LoginCompleteEventHandler;          // Required by LoginCompleteEvent
-import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LogoutCompleteEvent;                // Required by LogoutCompleteEvent
-import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LogoutCompleteEventHandler;         // Required by LogoutCompleteEvent
+import com.google.gwt.event.shared.EventBus;                                            // Used by eventBus - RunContextItem.java:316
+import de.novanic.eventservice.client.event.RemoteEventService;                         // Used by eventService - RunContextItem.java:316
+import org.dmd.dmc.DmcOmni;                                                             // Support for schema loading - Component.java:242
+import org.dmd.dmp.client.DMPServiceAsync;                                              // Used by dmpConnection - RunContextItem.java:316
+import org.dmd.dmp.client.ErrorOptionsEnum;                                             // DMP communications - Component.java:390
+import org.dmd.dmp.client.ResponseHandlerIF;                                            // DMP communications - Component.java:389
+import org.dmd.dmp.shared.generated.dmo.ActionRequestDMO;                               // Component sends ActionRequests - Component.java:254
+import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;                              // Component receives ActionResponses - Component.java:255
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                                       // Attribute schema - Component.java:246
+import org.dmd.dmp.shared.generated.dmo.RequestDMO;                                     // DMP communications - Component.java:391
+import org.dmd.dmp.shared.generated.dmo.ResponseDMO;                                    // DMP communications - Component.java:392
+import org.dmd.dmp.shared.generated.enums.ResponseTypeEnum;                             // DMP communications - Component.java:393
+import org.dmd.dms.extended.ActionTriggerInfo;                                          // Sends action requests - Component.java:273
+import org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF;                            // Mvw run context - RunContextItem.java:306
+import org.dmd.mvw.client.mvwcomms.extended.CommsController;                            // Used by commsController - RunContextItem.java:316
+import org.dmd.mvw.client.mvwcomms.generated.mvw.MvwcommsRunContextIF;                  // Mvwcomms run context - RunContextItem.java:306
+import org.dmd.mvw.client.mvwcomms.generated.mvw.events.CommsSessionFailed;             // Required by CommsSessionFailed - Event.java:183
+import org.dmd.mvw.client.mvwcomms.generated.mvw.events.CommsSessionReady;              // Required by CommsSessionReady - Event.java:183
+import org.dmd.mvw.client.mvwcomms.generated.mvw.events.ForceCommsReset;                // Required by ForceCommsReset - Event.java:190
+import org.dmd.mvw.client.mvwcomms.generated.mvw.events.ForceCommsResetHandler;         // Required by ForceCommsReset - Event.java:191
+import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LoginCompleteEvent;             // Required by LoginCompleteEvent - Event.java:183
+import org.dmd.mvw.client.mvwcomms.generated.mvw.events.LogoutCompleteEvent;            // Required by LogoutCompleteEvent - Event.java:183
 
 // Generated from: org.dmd.mvw.tools.mvwgenerator.util.ControllerFormatter.formatControllerBaseImpl(ControllerFormatter.java:24)
 abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
@@ -58,25 +54,25 @@ abstract public class CommsControllerBaseImpl implements ResponseHandlerIF {
     }
 
     // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:224)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:400)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:407)
     protected void fireCommsSessionFailed(String reason){
         eventBus.fireEvent(new CommsSessionFailed(reason));
     }
 
     // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:224)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:400)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:407)
     protected void fireCommsSessionReady(){
         eventBus.fireEvent(new CommsSessionReady());
     }
 
     // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:224)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:400)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:407)
     protected void fireLoginCompleteEvent(){
         eventBus.fireEvent(new LoginCompleteEvent());
     }
 
     // Called from: org.dmd.mvw.tools.mvwgenerator.extended.Component.initCodeGenInfo(Component.java:224)
-    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:400)
+    // org.dmd.mvw.tools.mvwgenerator.extended.Event.getFireMethod(Event.java:407)
     protected void fireLogoutCompleteEvent(){
         eventBus.fireEvent(new LogoutCompleteEvent());
     }

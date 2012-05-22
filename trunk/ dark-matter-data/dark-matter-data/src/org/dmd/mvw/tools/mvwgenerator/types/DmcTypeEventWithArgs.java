@@ -2,7 +2,6 @@ package org.dmd.mvw.tools.mvwgenerator.types;
 
 import java.io.Serializable;
 
-import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcHashedAttribute;
 import org.dmd.dmc.DmcInputStreamIF;

@@ -1,7 +1,6 @@
 package org.dmd.mvw.client.mvwcomms.extended;
 
 import java.util.TreeMap;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.dmd.dmp.client.ActionResponseCallback;
@@ -24,7 +23,6 @@ import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
 import org.dmd.dmp.shared.generated.dmo.DeleteRequestDMO;
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
 import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;
 import org.dmd.dmp.shared.generated.dmo.GetResponseDMO;
 import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;

@@ -154,11 +154,11 @@ public class PlaceFormatter {
 	}
 	
 	private static void getImports(ImportManager imports, WebApplication app, TreeMap<CamelCaseName, Place> places){
-		imports.addImport("com.google.gwt.place.shared.PlaceHistoryMapper", "Base class");
-		imports.addImport("com.google.gwt.place.shared.WithTokenizers", "Required annotation");
+		imports.addImport("com.google.gwt.place.shared.PlaceHistoryMapper", "Base class" + " - " + DebugInfo.getWhereWeAreNowShort());
+		imports.addImport("com.google.gwt.place.shared.WithTokenizers", "Required annotation" + " - " + DebugInfo.getWhereWeAreNowShort());
 		
 		for(Place place: places.values()){
-			imports.addImport(place.getPlaceImport(), "Required place");
+			imports.addImport(place.getPlaceImport(), "Required place" + " - " + DebugInfo.getWhereWeAreNowShort());
 		}
 	}
 }

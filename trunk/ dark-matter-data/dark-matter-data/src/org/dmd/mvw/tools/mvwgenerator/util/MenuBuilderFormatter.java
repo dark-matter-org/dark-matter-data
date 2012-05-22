@@ -25,13 +25,13 @@ public class MenuBuilderFormatter {
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(outdir, name + ".java");
         
         ImportManager	imports = new ImportManager();
-        imports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Base run context");
-        imports.addImport("org.dmd.mvw.client.mvwmenus.generated.mvw.MvwmenusRunContextIF", "Mvwmenus run context");
-        imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory", "Base menu factory");
-        imports.addImport("org.dmd.mvw.client.mvwmenus.extended.controllers.MenuController", "Menu controller to be populated");
+        imports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Base run context" + " - " + DebugInfo.getWhereWeAreNowShort());
+        imports.addImport("org.dmd.mvw.client.mvwmenus.generated.mvw.MvwmenusRunContextIF", "Mvwmenus run context" + " - " + DebugInfo.getWhereWeAreNowShort());
+        imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwMenuFactory", "Base menu factory" + " - " + DebugInfo.getWhereWeAreNowShort());
+        imports.addImport("org.dmd.mvw.client.mvwmenus.extended.controllers.MenuController", "Menu controller to be populated" + " - " + DebugInfo.getWhereWeAreNowShort());
         
         if (manager.getMenuBars().size() > 0)
-        	imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwMenu", "Menus are defined");
+        	imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwMenu", "Menus are defined" + " - " + DebugInfo.getWhereWeAreNowShort());
         
         HashMap<String,RunContextItem>		rcis = new HashMap<String, RunContextItem>();
         
@@ -46,7 +46,7 @@ public class MenuBuilderFormatter {
         }
         
         if (manager.getMenuItems().size() > 0){
-        	imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwMenuItem", "Menu items are defined");
+        	imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwMenuItem", "Menu items are defined" + " - " + DebugInfo.getWhereWeAreNowShort());
         	
         	// Check to see if we need any message constants
         	for(MenuItem mi: manager.getMenuItems().values()){
@@ -58,7 +58,7 @@ public class MenuBuilderFormatter {
         }
         
         if (manager.getSeparators().size() > 0)
-        	imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwSeparators", "Separators are defined");
+        	imports.addImport("org.dmd.mvw.client.mvwmenus.base.MvwSeparators", "Separators are defined" + " - " + DebugInfo.getWhereWeAreNowShort());
 
         
         RunContextItem	menuFactoryRCI = null;

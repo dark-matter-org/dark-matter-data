@@ -132,8 +132,8 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 		allClasses 	= new TreeMap<String, ClassDefinition>();
 		imports 	= new ImportManager();
 		
-		imports.addImport("org.dmd.dmc.DmcObject", "The object we wrap");
-		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapper", "The wrapper we return");
+		imports.addImport("org.dmd.dmc.DmcObject", "The object we wrap" + " - " + DebugInfo.getWhereWeAreNowShort());
+		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapper", "The wrapper we return" + " - " + DebugInfo.getWhereWeAreNowShort());
 
 		Iterator<String> dependsOn = sd.getDependsOn();
 		if (dependsOn != null){
@@ -151,7 +151,7 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 						
 						if (cd.getSubpackage() != null)
 							importloc = dep.getDmwPackage(genContext) + ".extended." + cd.getSubpackage() + ".*";
-						imports.addImport(importloc, "Extended wrappers from the " + dep.getName() + " schema");
+						imports.addImport(importloc, "Extended wrappers from the " + dep.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
 						
 					}
 					else
@@ -161,8 +161,8 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 				}
 				
 				if (needImport){
-					imports.addImport(dep.getDmwPackage(genContext) + ".generated." + genContext + ".*", "Access to the wrappers for the " + dep.getName() + " schema");
-					imports.addImport(dep.getSchemaPackage() + ".generated.dmo.*", "Access to the DMOs for the " + dep.getName() + " schema");
+					imports.addImport(dep.getDmwPackage(genContext) + ".generated." + genContext + ".*", "Access to the wrappers for the " + dep.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
+					imports.addImport(dep.getSchemaPackage() + ".generated.dmo.*", "Access to the DMOs for the " + dep.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
 
 				}
 			}
@@ -180,7 +180,7 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 				
 				if (cd.getSubpackage() != null)
 					importloc = sd.getDmwPackage(genContext) + ".extended." + cd.getSubpackage() + ".*";
-				imports.addImport(importloc, "Extended wrappers from the " + sd.getName() + " schema");
+				imports.addImport(importloc, "Extended wrappers from the " + sd.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
 				
 			}
 			else
@@ -189,8 +189,8 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 			allClasses.put(cd.getName().getNameString(),cd);
 		}
 		if (needImport){
-			imports.addImport(sd.getDmwPackage(genContext) + ".generated." + genContext + ".*", "Access to the wrappers for the " + sd.getName() + " schema");
-			imports.addImport(sd.getSchemaPackage() + ".generated.dmo.*", "Access to the DMOs for the " + sd.getName() + " schema");
+			imports.addImport(sd.getDmwPackage(genContext) + ".generated." + genContext + ".*", "Access to the wrappers for the " + sd.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
+			imports.addImport(sd.getSchemaPackage() + ".generated.dmo.*", "Access to the DMOs for the " + sd.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
 		}
 	}
 
@@ -249,9 +249,9 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 		allClasses 	= new TreeMap<String, ClassDefinition>();
 		imports 	= new ImportManager();
 		
-		imports.addImport("org.dmd.dmc.DmcObject", "The object we wrap");
-		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapper", "The wrapper we return");
-		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapperFactoryIF", "The standard wrapper util interface");
+		imports.addImport("org.dmd.dmc.DmcObject", "The object we wrap" + " - " + DebugInfo.getWhereWeAreNowShort());
+		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapper", "The wrapper we return" + " - " + DebugInfo.getWhereWeAreNowShort());
+		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapperFactoryIF", "The standard wrapper util interface" + " - " + DebugInfo.getWhereWeAreNowShort());
 
 //		Iterator<String> dependsOn = sd.getDependsOn();
 //		if (dependsOn != null){

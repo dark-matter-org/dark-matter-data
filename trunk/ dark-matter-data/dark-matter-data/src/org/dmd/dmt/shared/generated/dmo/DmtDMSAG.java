@@ -5,11 +5,11 @@ import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:565)
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;         // DmpDMSAG
-import org.dmd.dms.generated.dmo.MetaDMSAG;               // MetaDMSAG
-import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions
-import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions
-import org.dmd.dms.generated.enums.ValueTypeEnum;         // Have attribute definitions
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;         // Required attribute from DmpDMSAG - DmoCompactSchemaFormatter.java:546
+import org.dmd.dms.generated.dmo.MetaDMSAG;               // Required attribute from MetaDMSAG - DmoCompactSchemaFormatter.java:546
+import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions - DmoCompactSchemaFormatter.java:538
+import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions - DmoCompactSchemaFormatter.java:539
+import org.dmd.dms.generated.enums.ValueTypeEnum;         // Have attribute definitions - DmoCompactSchemaFormatter.java:560
 
 import org.dmd.dmt.shared.generated.types.*;
 

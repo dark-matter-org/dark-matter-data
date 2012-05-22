@@ -3,6 +3,7 @@ package org.dmd.mvw.tools.mvwgenerator.extended;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerDMW;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 public class Controller extends ControllerDMW implements CodeGenComponentIF {
@@ -87,13 +88,13 @@ public class Controller extends ControllerDMW implements CodeGenComponentIF {
 			super.initCodeGenInfo(rpc,dmp);
 			
 			if (isCentralDMPErrorHandler())
-				imports.addImport("org.dmd.dmp.client.CentralDMPErrorHandlerIF", "Is the central DMP error handler");
+				imports.addImport("org.dmd.dmp.client.CentralDMPErrorHandlerIF", "Is the central DMP error handler" + " - " + DebugInfo.getWhereWeAreNowShort());
 
 			if (isCentralRPCErrorHandler())
-				imports.addImport("org.dmd.dmp.client.CentralRPCErrorHandlerIF", "Is the central RPC error handler");
+				imports.addImport("org.dmd.dmp.client.CentralRPCErrorHandlerIF", "Is the central RPC error handler" + " - " + DebugInfo.getWhereWeAreNowShort());
 			
 			if (isCentralAsyncErrorHandler())
-				imports.addImport("org.dmd.mvw.client.mvw.MvwAsyncErrorHandlerIF", "Is the central async code error handler");
+				imports.addImport("org.dmd.mvw.client.mvw.MvwAsyncErrorHandlerIF", "Is the central async code error handler" + " - " + DebugInfo.getWhereWeAreNowShort());
 			
 			if (getImplementsActionHasValue()){
 				
@@ -108,8 +109,8 @@ public class Controller extends ControllerDMW implements CodeGenComponentIF {
 					actionInstantiations.append("        MenuControllerRCI.addAction(" + action.getActionBindingName() + ");\n");
 					
 					String i = getDefinedInModule().getGenPackage() + ".generated.mvw.actions." + cappedAction;
-					imports.addImport(i, "The " + action.getActionBindingName() + " action");
-					imports.addImport("org.dmd.mvw.client.mvwmenus.interfaces.TriggerIF", "Required by actions");
+					imports.addImport(i, "The " + action.getActionBindingName() + " action" + " - " + DebugInfo.getWhereWeAreNowShort());
+					imports.addImport("org.dmd.mvw.client.mvwmenus.interfaces.TriggerIF", "Required by actions" + " - " + DebugInfo.getWhereWeAreNowShort());
 					
 					abstractMethods.append("\n");
 					abstractMethods.append("    abstract public void execute" + capped + "(TriggerIF trigger, Object widgetEvent);\n");

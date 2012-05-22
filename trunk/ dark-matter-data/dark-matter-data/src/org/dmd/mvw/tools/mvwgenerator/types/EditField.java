@@ -127,7 +127,7 @@ public class EditField implements DmcMappedAttributeIF, Serializable {
 	
 	void parseSecondPart(String value) throws DmcValueException {
 		ArrayList<String> tokens = CheapSplitter.split(value, ':', true, true);
-		boolean missingLabel = false;
+//		boolean missingLabel = false;
 		boolean wantLabel 	= false;
 		boolean wantTip		= false;
 		int colonCount = 0;

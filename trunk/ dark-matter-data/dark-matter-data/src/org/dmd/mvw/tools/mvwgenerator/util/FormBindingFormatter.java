@@ -29,11 +29,11 @@ public class FormBindingFormatter {
         BufferedWriter 	out 	= FileUpdateManager.instance().getWriter(outdir, name + ".java");
         ImportManager	imports = new ImportManager();
 
-        imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "Used when testing if an object named");
-        imports.addImport("org.dmd.dmc.DmcValueException", "Required if we have modification errors");
-        imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "Required if we have modification errors");
-        imports.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "Required when edit object has no name");
-        imports.addImport("org.dmd.dms.generated.types.DmcTypeModifierMV", "Required when edit object has no name");
+        imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "Used when testing if an object named" + " - " + DebugInfo.getWhereWeAreNowShort());
+        imports.addImport("org.dmd.dmc.DmcValueException", "Required if we have modification errors" + " - " + DebugInfo.getWhereWeAreNowShort());
+        imports.addImport("org.dmd.dmc.DmcValueExceptionSet", "Required if we have modification errors" + " - " + DebugInfo.getWhereWeAreNowShort());
+        imports.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "Required when edit object has no name" + " - " + DebugInfo.getWhereWeAreNowShort());
+        imports.addImport("org.dmd.dms.generated.types.DmcTypeModifierMV", "Required when edit object has no name" + " - " + DebugInfo.getWhereWeAreNowShort());
         
 //        if (binding.getEditObject().getIsNamedBy() == null){
 //            imports.addImport("org.dmd.dmc.DmcValueException", "Required when edit object is unnamed");
@@ -41,17 +41,17 @@ public class FormBindingFormatter {
 //            imports.addImport("org.dmd.dms.generated.types.DmcTypeModifierMV", "Required when edit object is unnamed");
 //        }
         
-        imports.addImport("org.dmd.dmc.presentation.DmcPresentationTrackerIF", "Presentation tracker");
+        imports.addImport("org.dmd.dmc.presentation.DmcPresentationTrackerIF", "Presentation tracker" + " - " + DebugInfo.getWhereWeAreNowShort());
         for(EditField field: binding.getEditFieldIterable()){
-        	imports.addImport(field.getAttrDef().getAdapterClassImport(), "Adapter for " + field.getAttribute());
-        	imports.addImport(field.getEditorDef().getUseClass(), "Editor");
+        	imports.addImport(field.getAttrDef().getAdapterClassImport(), "Adapter for " + field.getAttribute() + " - " + DebugInfo.getWhereWeAreNowShort());
+        	imports.addImport(field.getEditorDef().getUseClass(), "Editor" + " - " + DebugInfo.getWhereWeAreNowShort());
         	
-        	imports.addImport(field.getAttrDef().getDefinedIn().getDMSASGImport(),"Required schema");
+        	imports.addImport(field.getAttrDef().getDefinedIn().getDMSASGImport(),"Required schema" + " - " + DebugInfo.getWhereWeAreNowShort());
         }
         
         ClassDefinition cd = (ClassDefinition) binding.getEditObject();
         
-        imports.addImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO", "For the object we're editting");
+        imports.addImport(cd.getDefinedIn().getSchemaPackage() + ".generated.dmo." + cd.getName() + "DMO", "For the object we're editting" + " - " + DebugInfo.getWhereWeAreNowShort());
         
         out.write("package " + genPackage + ".generated.mvw.forms;\n\n");
         

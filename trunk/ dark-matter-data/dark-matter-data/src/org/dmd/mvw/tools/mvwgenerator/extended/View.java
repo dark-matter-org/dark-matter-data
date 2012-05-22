@@ -11,6 +11,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.enums.SelectionTypeEnum;
 import org.dmd.mvw.tools.mvwgenerator.generated.types.DisplayDataSpec;
 import org.dmd.mvw.tools.mvwgenerator.types.MethodWithArgs;
 import org.dmd.util.codegen.ImportManager;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 /**
@@ -111,14 +112,14 @@ public class View extends ViewDMW implements CodeGenComponentIF {
 			viewInterface 			= new StringBuffer();
 			
 			presenterImplImports	= new ImportManager();
-			presenterImplImports.addImport(getPresenterImport(), "Presenter interface");
-			presenterImplImports.addImport(getViewImport(), "View interface");
+			presenterImplImports.addImport(getPresenterImport(), "Presenter interface" + " - " + DebugInfo.getWhereWeAreNowShort());
+			presenterImplImports.addImport(getViewImport(), "View interface" + " - " + DebugInfo.getWhereWeAreNowShort());
 			
 			viewImplImports			= new ImportManager();
 			viewImplMethods			= new StringBuffer();
 			
 			if (getUsesRunContextItemHasValue()){
-				viewImplImports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Using run context items");
+				viewImplImports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Using run context items" + " - " + DebugInfo.getWhereWeAreNowShort());
 				for(RunContextItem rci: getUsesRunContextItemIterable()){
 					rci.addUsageImplImports(viewImplImports);
 				}
@@ -133,14 +134,14 @@ public class View extends ViewDMW implements CodeGenComponentIF {
 					
 					presenterInterface.append("        public void on" + event.getEventName() + event.getArgVector() + ";\n\n");
 					for(String imp: event.getImportThisIterable()){
-						viewImports.addImport(imp, "Required by " + event.getEventName());
-						viewImplImports.addImport(imp, "Required by " + event.getEventName());
+						viewImports.addImport(imp, "Required by " + event.getEventName() + " - " + DebugInfo.getWhereWeAreNowShort());
+						viewImplImports.addImport(imp, "Required by " + event.getEventName() + " - " + DebugInfo.getWhereWeAreNowShort());
 					}
 				}
 			}
 			
 			if (isWidget()){
-				viewImplImports.addImport("com.google.gwt.user.client.ui.IsWidget", "Implements IsWidget");
+				viewImplImports.addImport("com.google.gwt.user.client.ui.IsWidget", "Implements IsWidget" + " - " + DebugInfo.getWhereWeAreNowShort());
 			}
 			
 			if (getBroadcastHasValue()){
@@ -153,7 +154,7 @@ public class View extends ViewDMW implements CodeGenComponentIF {
 
 					presenterInterface.append("        public void on" + event.getEventName() + event.getArgVector() + ";\n\n");
 					for(String imp: event.getImportThisIterable()){
-						viewImports.addImport(imp, "Required by " + event.getEventName());
+						viewImports.addImport(imp, "Required by " + event.getEventName() + " - " + DebugInfo.getWhereWeAreNowShort());
 						event.addImport(viewImplImports);
 					}
 				}
@@ -168,15 +169,15 @@ public class View extends ViewDMW implements CodeGenComponentIF {
 					event.addImport(viewImplImports);
 
 					for(String imp: event.getImportThisIterable()){
-						viewImports.addImport(imp, "Required by " + event.getEventName());
+						viewImports.addImport(imp, "Required by " + event.getEventName() + " - " + DebugInfo.getWhereWeAreNowShort());
 					}
 				}
 			}
 			
 			if (getViewImportHasValue()){
 				for(String imp: getViewImportIterable()){
-					viewImports.addImport(imp, "View import");
-					viewImplImports.addImport(imp, "View import");
+					viewImports.addImport(imp, "View import" + " - " + DebugInfo.getWhereWeAreNowShort());
+					viewImplImports.addImport(imp, "View import" + " - " + DebugInfo.getWhereWeAreNowShort());
 				}
 			}
 			
@@ -193,22 +194,22 @@ public class View extends ViewDMW implements CodeGenComponentIF {
 						
 			if (getPresenterImportHasValue()){
 				for(String imp: getPresenterImportIterable()){
-					viewImports.addImport(imp, "View import");
+					viewImports.addImport(imp, "View import" + " - " + DebugInfo.getWhereWeAreNowShort());
 				}
 			}
 			
 			if (getSharedImportHasValue()){
 				for(String imp: getSharedImportIterable()){
-					viewImports.addImport(imp, "Shared import");
-					viewImplImports.addImport(imp, "Shared import");
+					viewImports.addImport(imp, "Shared import" + " - " + DebugInfo.getWhereWeAreNowShort());
+					viewImplImports.addImport(imp, "Shared import" + " - " + DebugInfo.getWhereWeAreNowShort());
 				}
 			}
 			
-			if (getUsesRunContextItemHasValue()){
-				for(RunContextItem rci: getUsesRunContextItemIterable()){
-					
-				}
-			}
+//			if (getUsesRunContextItemHasValue()){
+//				for(RunContextItem rci: getUsesRunContextItemIterable()){
+//					
+//				}
+//			}
 			
 			if (getViewMethodHasValue()){
 				for(MethodWithArgs method: getViewMethodIterable()){

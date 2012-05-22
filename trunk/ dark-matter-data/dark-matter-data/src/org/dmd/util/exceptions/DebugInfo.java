@@ -105,6 +105,30 @@ public class DebugInfo {
     }
 
     /**
+     * Returns just the class and line number from where we were called.
+     * 
+     * At this level, the stack trace looks like:
+     * 	at com.dmc.util.DebugInfo.getWhereWeWereCalledFrom(DebugInfo.java:35)
+     * 	at com.dmc.dmd.meta.CreateMeta.dumpMetaSchema(CreateMeta.java:510)
+     * 	at com.dmc.dmd.meta.CreateMeta.run(CreateMeta.java:189)
+     * 	at com.dmc.dmd.meta.CreateMetaMain.main(MetaGeneratorMain.java:8)
+	 * 
+	 * We want the contents of the second line in the stack between the last brackets.
+     * @return Where we're calling this function from.
+     */
+    public static String getWhereWeAreNowShort(){
+        String currStack = DebugInfo.getCurrentStack();
+        int    firstBracket = currStack.indexOf(')');
+        int    secondBracket = currStack.indexOf(')',firstBracket+1);
+
+        String line = currStack.substring(firstBracket+6,secondBracket+1).trim();
+        firstBracket = line.indexOf('(');
+        secondBracket = line.indexOf(')',firstBracket+1);
+        
+        return(line.substring(firstBracket+1,secondBracket).trim());
+    }
+
+    /**
      * Gets the name of the current method.
      */
     public static String getCurrentMethod(){
@@ -191,7 +215,7 @@ public class DebugInfo {
         new Throwable().printStackTrace(printWriter);
         String fullInfo = new String(stringWriter.toString());
         String lineNumber = null;
-        if(fullInfo == null) {
+        if(fullInfo.length() == 0) {
           lineNumber = "NA";
         }
 
@@ -217,11 +241,11 @@ public class DebugInfo {
         new Throwable().printStackTrace(printWriter);
         String fullInfo = new String(stringWriter.toString());
         String lineNumber = null;
-        if(fullInfo == null) {
+        if(fullInfo.length() == 0) {
           lineNumber = "NA";
         }
 
-System.out.println("fullInfo = " + fullInfo + "\n");
+//System.out.println("fullInfo = " + fullInfo + "\n");
 
         if(lineNumber == null) {
             int iend = fullInfo.lastIndexOf(')');
@@ -236,8 +260,7 @@ System.out.println("fullInfo = " + fullInfo + "\n");
         return lineNumber;
     }
 
-    @SuppressWarnings("unchecked")
-	public static String getEnumerationString( Class obj, int value )
+	public static String getEnumerationString( @SuppressWarnings("rawtypes") Class obj, int value )
     {
             String taskName = Integer.toString(value);
             try {
