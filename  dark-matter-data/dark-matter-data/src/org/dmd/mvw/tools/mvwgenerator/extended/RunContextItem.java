@@ -164,7 +164,7 @@ public class RunContextItem extends RunContextItemDMW {
 		String capped = GenUtility.capTheName(getItemName().getNameString());
 		if (view == null){
 			if ( (presenter != null) && (presenter.isCodeSplit())){
-				return("    public " + format.sprintf("void") + "get" + capped + "(" + presenter.getAsyncInterface() + " requester);\n");
+				return("    public " + format.sprintf("void") + " get" + capped + "(" + presenter.getAsyncInterface() + " requester);\n");
 			}
 			else
 				return("    public " + format.sprintf(getItemType()) + " get" + capped + "();\n");
@@ -278,12 +278,16 @@ public class RunContextItem extends RunContextItemDMW {
 	
 	public void addInterfaceImports(ImportManager im){
 		
-		im.addImport(getUseClass(), "Used by " + getItemName() + " - " + DebugInfo.getWhereWeAreNowShort());
+//		im.addImport(getUseClass(), "Used by " + getItemName() + " - " + DebugInfo.getWhereWeAreNowShort());
+		
 		if (view != null){
 			im.addImport(view.getViewImport(),"The " + view.getViewName() + " - " + DebugInfo.getWhereWeAreNowShort());
 		}
 		if ( (presenter != null) && (presenter.isCodeSplit()) ){
 			im.addImport(presenter.getAsyncImport(),"Asynchronous creation of " + presenter.getPresenterName() + " - " + DebugInfo.getWhereWeAreNowShort());
+		}
+		else{
+			im.addImport(getUseClass(), "Used by " + getItemName() + " - " + DebugInfo.getWhereWeAreNowShort());			
 		}
 	}
 	

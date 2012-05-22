@@ -17,6 +17,16 @@ import org.dmd.util.exceptions.ResultException;
 /**
  * The View class extends the basic View definition to provide a variety of consistency checking
  * and the creation of various information required to format the View interface.
+ * <p/>
+ * The generated code from this falls into 3 main areas: the ViewIF and its associated ViewPresenterIF and
+ * the ViewBaseImpl.
+ * <p/>
+ * The ViewIF will contain the various viewMethods and will require the viewImports.
+ * <p/>
+ * The ViewPresenterIF will contain the various presenterMethods and presenterImports as well as any local
+ * event dependencies.
+ * <p/>
+ * The ViewBaseImpl will have dependencies on the events that it fires and the usesRunContextItem indications.
  */
 public class View extends ViewDMW implements CodeGenComponentIF {
 	
@@ -168,16 +178,16 @@ public class View extends ViewDMW implements CodeGenComponentIF {
 					viewImplMethods.append(event.getViewBroadcastOnlyMethod());
 					event.addImport(viewImplImports);
 
-					for(String imp: event.getImportThisIterable()){
-						viewImports.addImport(imp, "Required by " + event.getEventName() + " - " + DebugInfo.getWhereWeAreNowShort());
-					}
+//					for(String imp: event.getImportThisIterable()){
+//						viewImports.addImport(imp, "Required by " + event.getEventName() + " - " + DebugInfo.getWhereWeAreNowShort());
+//					}
 				}
 			}
 			
 			if (getViewImportHasValue()){
 				for(String imp: getViewImportIterable()){
 					viewImports.addImport(imp, "View import" + " - " + DebugInfo.getWhereWeAreNowShort());
-					viewImplImports.addImport(imp, "View import" + " - " + DebugInfo.getWhereWeAreNowShort());
+//					viewImplImports.addImport(imp, "View import" + " - " + DebugInfo.getWhereWeAreNowShort());
 				}
 			}
 			
