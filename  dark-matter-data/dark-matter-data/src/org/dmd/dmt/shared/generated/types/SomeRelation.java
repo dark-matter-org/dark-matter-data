@@ -2,17 +2,17 @@ package org.dmd.dmt.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:114)
-import java.io.Serializable;                                        // Serialization support
-import org.dmd.dmc.DmcExtendedReferenceIF;                          // Marker interface for extended references
-import org.dmd.dmc.DmcInputStreamIF;                                // Serialization support
-import org.dmd.dmc.DmcOutputStreamIF;                               // Serialization support
-import org.dmd.dmc.DmcValueException;                               // Value exceptions
-import org.dmd.dmc.types.IntegerVar;                                // Parsing support
-import org.dmd.dmc.types.StringName;                                // Name type
-import org.dmd.dms.generated.types.DmcTypeIntegerSTATIC;            // Standard type
-import org.dmd.dms.generated.types.DmcTypeStringNameSTATIC;         // Static type for name
-import org.dmd.dms.generated.types.DmcTypeStringNameSV;             // Name type
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;             // Object based constructor
+import java.io.Serializable;                                        // Serialization support - ExtendedReferenceTypeFormatter.java:89
+import org.dmd.dmc.DmcExtendedReferenceIF;                          // Marker interface for extended references - ExtendedReferenceTypeFormatter.java:82
+import org.dmd.dmc.DmcInputStreamIF;                                // Serialization support - ExtendedReferenceTypeFormatter.java:90
+import org.dmd.dmc.DmcOutputStreamIF;                               // Serialization support - ExtendedReferenceTypeFormatter.java:91
+import org.dmd.dmc.DmcValueException;                               // Value exceptions - ExtendedReferenceTypeFormatter.java:108
+import org.dmd.dmc.types.IntegerVar;                                // Parsing support - ExtendedReferenceTypeFormatter.java:92
+import org.dmd.dmc.types.StringName;                                // Name type - ExtendedReferenceTypeFormatter.java:76
+import org.dmd.dms.generated.types.DmcTypeIntegerSTATIC;            // Standard type - ExtendedReferenceTypeFormatter.java:610
+import org.dmd.dms.generated.types.DmcTypeStringNameSTATIC;         // Static type for name - ExtendedReferenceTypeFormatter.java:78
+import org.dmd.dms.generated.types.DmcTypeStringNameSV;             // Name type - ExtendedReferenceTypeFormatter.java:75
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;             // Object based constructor - ExtendedReferenceTypeFormatter.java:80
 
 
 @SuppressWarnings("serial")

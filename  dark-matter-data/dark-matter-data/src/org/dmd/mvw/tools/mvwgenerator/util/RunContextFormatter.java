@@ -99,7 +99,9 @@ public class RunContextFormatter {
         out.write(manager.getFormattedImports() + "\n");
         
         out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
-        out.write("public class " + rcName + " implements " + rcic.getAllInterfaces() + " {\n\n");
+        out.write("public class " + rcName + " implements " + rcName + "IF {\n\n");
+        
+//        out.write("public class " + rcName + " implements " + rcic.getAllInterfaces() + " {\n\n");
         
         
         for (RunContextItem rci :rcic.byOrder.values()){
@@ -116,7 +118,7 @@ public class RunContextFormatter {
         out.write("    }\n\n");
         
         for (RunContextItem rci :rcic.byName.values()){
-        	out.write(rci.getImplMethod());
+        	out.write(rci.getImplMethod(app));
         }
         
         

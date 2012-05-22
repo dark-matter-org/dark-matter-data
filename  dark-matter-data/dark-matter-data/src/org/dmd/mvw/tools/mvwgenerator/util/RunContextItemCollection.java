@@ -14,6 +14,7 @@ public class RunContextItemCollection {
 	
 	TreeMap<String,RunContextItem>	byName;
 	
+	// Run context interfaces
 	TreeSet<String>	interfaces;
 	
 	int	longestTypeName;
@@ -51,7 +52,7 @@ public class RunContextItemCollection {
 		}
 		byName.put(rci.getItemName().getNameString(), rci);
 		byOrder.put(rci.getSortKey(), rci);
-		interfaces.add(rci.getInterfaceName());
+		interfaces.add(rci.getRunContextInterfaceName());
 		
 		if (rci.getItemType().length() > longestTypeName)
 			longestTypeName = rci.getItemType().length();

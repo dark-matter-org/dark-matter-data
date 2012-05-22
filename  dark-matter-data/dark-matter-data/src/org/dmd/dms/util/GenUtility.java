@@ -3011,17 +3011,17 @@ public class GenUtility {
     	BufferedWriter out = FileUpdateManager.instance().getWriter(od, "DmcType" + cn + ".java");
     	ImportManager imports = new ImportManager();
     	
-    	imports.addImport("org.dmd.dmc.DmcInputStreamIF", "Serialization support");
-    	imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support");
+    	imports.addImport("org.dmd.dmc.DmcInputStreamIF", "Serialization support" + " - " + DebugInfo.getWhereWeAreNowShort());
+    	imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support" + " - " + DebugInfo.getWhereWeAreNowShort());
     	
-    	imports.addImport("org.dmd.dmc.DmcAttributeInfo", "Standard attribute interface");
-    	imports.addImport("org.dmd.dmc.DmcValueException", "Value exceptions");
-    	imports.addImport("org.dmd.dmc.types.DmcTypeNamedObjectREF", "The class we extend");
+    	imports.addImport("org.dmd.dmc.DmcAttributeInfo", "Standard attribute interface" + " - " + DebugInfo.getWhereWeAreNowShort());
+    	imports.addImport("org.dmd.dmc.DmcValueException", "Value exceptions" + " - " + DebugInfo.getWhereWeAreNowShort());
+    	imports.addImport("org.dmd.dmc.types.DmcTypeNamedObjectREF", "The class we extend" + " - " + DebugInfo.getWhereWeAreNowShort());
     	
-    	imports.addImport(ertd.getExtendedReferenceClass().getDmoImport(), "The class we refer to");
+    	imports.addImport(ertd.getExtendedReferenceClass().getDmoImport(), "The class we refer to" + " - " + DebugInfo.getWhereWeAreNowShort());
     	
-      	imports.addImport(ertd.getExtendedReferenceClass().getIsNamedBy().getType().getPrimitiveType(), "Name type");
-    	imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support");
+      	imports.addImport(ertd.getExtendedReferenceClass().getIsNamedBy().getType().getPrimitiveType(), "Name type" + " - " + DebugInfo.getWhereWeAreNowShort());
+    	imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support" + " - " + DebugInfo.getWhereWeAreNowShort());
 
     	out.write(header);
     	out.write("package " + basePackage + ".generated.types;\n\n");

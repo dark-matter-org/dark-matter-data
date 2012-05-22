@@ -1,6 +1,7 @@
 package org.dmd.mvw.tools.mvwgenerator.extended;
 
 import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ActivityDMW;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 public class Activity extends ActivityDMW {
@@ -107,7 +108,7 @@ public class Activity extends ActivityDMW {
 			super.initCodeGenInfo(rpc,dmp);
 			interfaces = new StringBuffer();
 			
-			imports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Always need context for Activities");
+			imports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Always need context for Activities" + " - " + DebugInfo.getWhereWeAreNowShort());
 
 			if(getManagesViewHasValue()){
 				boolean first = true;
@@ -125,9 +126,9 @@ public class Activity extends ActivityDMW {
 			
 			if (getUseBaseClass() == null){
 				if (isAbstractActivity())
-					imports.addImport("com.google.gwt.activity.shared.AbstractActivity", "Is abstract activity");
+					imports.addImport("com.google.gwt.activity.shared.AbstractActivity", "Is abstract activity" + " - " + DebugInfo.getWhereWeAreNowShort());
 				else
-					imports.addImport("com.google.gwt.activity.shared.Activity", "Is an activity");
+					imports.addImport("com.google.gwt.activity.shared.Activity", "Is an activity" + " - " + DebugInfo.getWhereWeAreNowShort());
 			}
 			
 
