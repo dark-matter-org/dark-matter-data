@@ -169,20 +169,21 @@ public class CacheListenerManager {
         }
 
 
-        /**
-         * @return true if there are no valid listeners in this set.
-         */
-        boolean isEmpty(){
-            synchronized (this)
-            {
-                return listeners.isEmpty();
-            }
-        }
+//        /**
+//         * @return true if there are no valid listeners in this set.
+//         */
+//        boolean isEmpty(){
+//            synchronized (this)
+//            {
+//                return listeners.isEmpty();
+//            }
+//        }
         
 	}
 	
 	private class IndexListenerSet extends ListenerSet<CacheIndexListener> {
 		
+		@SuppressWarnings("unused")
 		final DmcClassInfo	classInfo;
 		
 		IndexListenerSet(DmcClassInfo dci){

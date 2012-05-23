@@ -78,10 +78,9 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * a Slice.
      * @return An Iterator of AttributeDefinition objects.
      */
-    @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1705)
     public AttributeDefinitionIterableDMW getSelectAttribute(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__selectAttribute);
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
             return(AttributeDefinitionIterableDMW.emptyList);
 
@@ -92,20 +91,18 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another selectAttribute value.
      * @param value A value compatible with AttributeDefinition
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1752)
-    public DmcAttribute addSelectAttribute(AttributeDefinition value) throws DmcValueException {
-        DmcAttribute attr = mycore.addSelectAttribute(value.getDmcObject());
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1753)
+    public DmcAttribute<?> addSelectAttribute(AttributeDefinition value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addSelectAttribute(value.getDmcObject());
         return(attr);
     }
 
     /**
      * Returns the number of selectAttribute values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1775)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1776)
     public int getSelectAttributeSize(){
-        DmcAttribute attr = mycore.get(MetaDMSAG.__selectAttribute);
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

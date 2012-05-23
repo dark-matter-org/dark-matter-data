@@ -21,7 +21,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 
-import org.apache.commons.io.FileUtils;
 import org.dmd.features.extgwt.extended.MvcApplication;
 import org.dmd.features.extgwt.extended.MvcController;
 import org.dmd.features.extgwt.util.MvcDefinitionManager;

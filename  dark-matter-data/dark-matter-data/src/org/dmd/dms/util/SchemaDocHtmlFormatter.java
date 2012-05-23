@@ -188,14 +188,13 @@ public class SchemaDocHtmlFormatter {
      * @param sd The schema to be formatted.
      * @param fn The file to which we'll dump.
      */
-    @SuppressWarnings("unchecked")
 	void dumpHtml(SchemaDefinition sd, String fn){
 //        Iterator            it      = null;
         ClassDefinition         cd      = null;
         TypeDefinition          td      = null;
         AttributeDefinition     ad      = null;
         ActionDefinition        acd     = null;
-        Iterator            entries = null;
+        Iterator<StringName>            entries = null;
 
         classes.clear();
         attrs.clear();
@@ -363,7 +362,7 @@ public class SchemaDocHtmlFormatter {
     /**
      * Formats each class definition.
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
 	private void formatClasses(SchemaDefinition currSchema, BufferedWriter out){
         Iterator<StringName>	entries = classes.keySet().iterator();
         ClassDefinition		cd      = null;
@@ -489,9 +488,8 @@ public class SchemaDocHtmlFormatter {
     /**
      * Formats each attribute definition.
      */
-    @SuppressWarnings("unchecked")
 	private void formatAttributes(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator            entries = attrs.keySet().iterator();
+        Iterator<StringName>            entries = attrs.keySet().iterator();
         AttributeDefinition     ad      = null;
 
         try{
@@ -567,10 +565,10 @@ public class SchemaDocHtmlFormatter {
     /**
      * Formats each attribute definition.
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
 	private void formatActions(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator        entries = actions.keySet().iterator();
-        ActionDefinition    ad      = null;
+        Iterator<StringName>	entries = actions.keySet().iterator();
+        ActionDefinition    	ad      = null;
         Iterator        it      = null;
 
         try{
@@ -630,9 +628,8 @@ public class SchemaDocHtmlFormatter {
     /**
      * Formats each type definition.
      */
-    @SuppressWarnings("unchecked")
 	private void formatTypes(SchemaDefinition currSchema, BufferedWriter out){
-        Iterator        entries = types.keySet().iterator();
+        Iterator<StringName>        entries = types.keySet().iterator();
         TypeDefinition      td      = null;
 
         try{
@@ -732,19 +729,18 @@ public class SchemaDocHtmlFormatter {
         return(sb.toString());
     }
 
-    @SuppressWarnings("unchecked")
 	public void generateIndex(String dir){
-        Iterator        it  = null;
+        Iterator<StringName>        it  = null;
         StringBuffer    sb  = new StringBuffer();
         initIndex();
 
         it = schema.allDefs.keySet().iterator();
         while(it.hasNext()){
-            String  key         = ((String)it.next());
-            String  firstChar   = key.substring(0,1).toUpperCase();
-            TreeMap charTree    = (TreeMap)index.get(firstChar);
+            StringName  key         = it.next();
+            String  firstChar   = key.getNameString().substring(0,1).toUpperCase();
+            TreeMap<String,Token> charTree    = index.get(firstChar);
 
-            charTree.put(key.toUpperCase(), new Token(key,0,schema.allDefs.get(key)));
+            charTree.put(key.getNameString().toUpperCase(), new Token(key.getNameString(),0,schema.allDefs.get(key)));
         }
 
         // Generate the index reference header in HTML format - this will be
@@ -756,10 +752,10 @@ public class SchemaDocHtmlFormatter {
         sb.append("<TR> <TD CLASS=\"pagetextUnjust\"> <A HREF=\"instanceHierarchy.shtml\"> Instance Hierarchy </A></TD><TD></TD> </TR>\n");
         sb.append("<TR> <TD CLASS=\"pagetextUnjust\"> Definitions Index </TD> <TD>\n");
 
-        it = index.keySet().iterator();
-        while(it.hasNext()){
-            String key = (String)it.next();
-            TreeMap     tm = (TreeMap) index.get(key);
+        Iterator<String> indexIT = index.keySet().iterator();
+        while(indexIT.hasNext()){
+            String key = indexIT.next();
+            TreeMap<String,Token>     tm = index.get(key);
 //            String      fn = new String(dir + File.separator + "index-" + key + ".shtml");
 
             if (tm.size() > 0){
@@ -799,9 +795,9 @@ public class SchemaDocHtmlFormatter {
 
             out.write("<TABLE>\n");
 
-            it = schema.getSchemas();
-            while(it.hasNext()){
-                SchemaDefinition sd = (SchemaDefinition)it.next();
+            Iterator<SchemaDefinition> schemaIT= schema.getSchemas();
+            while(schemaIT.hasNext()){
+                SchemaDefinition sd = schemaIT.next();
 
                 out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetextUnjust\">\n");
                 out.write(schemaLink(sd));
@@ -822,16 +818,16 @@ public class SchemaDocHtmlFormatter {
         }
 
 
-        it = index.keySet().iterator();
+        indexIT = index.keySet().iterator();
         while(it.hasNext()){
-            String key = (String)it.next();
-            TreeMap     tm = (TreeMap) index.get(key);
+            String key = indexIT.next();
+            TreeMap<String,Token>     tm = index.get(key);
             String      fn = new String(dir + File.separator + "index-" + key + ".shtml");
 
             if (tm.size() > 0){
                 try {
                     BufferedWriter out = new BufferedWriter(new FileWriter(fn));
-                    Iterator defsIt = tm.values().iterator();
+                    Iterator<Token> defsIt = tm.values().iterator();
 
                     System.out.println("Generating index - " + fn);
 
@@ -938,9 +934,8 @@ public class SchemaDocHtmlFormatter {
      * dumped.
      * @param dir The output directory.
      */
-    @SuppressWarnings("unchecked")
 	void dumpClassHierarchy(String dir){
-        Iterator            it      = null;
+        Iterator<ClassDefinition>            it      = null;
         ClassDefinition         cd      = null;
 
         classes.clear();
@@ -1058,8 +1053,7 @@ public class SchemaDocHtmlFormatter {
     /**
      * Formats a nested set of derived classes
      */
-    @SuppressWarnings("unchecked")
-	void formatClassList(Iterator it, int size, BufferedWriter out){
+	void formatClassList(Iterator<ClassDefinition> it, int size, BufferedWriter out){
 //        DmdGenericAttribute ga  = null;
 //        Iterator            sub = null;
         try{

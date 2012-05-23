@@ -30,7 +30,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEventScopeEnumSTATI
  * The OperationSpec class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:88)
+ * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:87)
  */
 public class OperationSpec implements Serializable {
 
@@ -56,6 +56,7 @@ public class OperationSpec implements Serializable {
 
     /**
      * All fields constructor.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:114)
      */
     public OperationSpec(String f1, EventScopeEnum f2) throws DmcValueException {
         varName = DmcTypeStringSTATIC.instance.typeCheck(f1);
@@ -64,6 +65,7 @@ public class OperationSpec implements Serializable {
 
     /**
      * String based constructor.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:147)
      */
     public OperationSpec(String input) throws DmcValueException {
         IntegerVar seppos = new IntegerVar(-1);
@@ -73,6 +75,7 @@ public class OperationSpec implements Serializable {
 
     /**
      * Serialization.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:172)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
         DmcTypeStringSTATIC.instance.serializeValue(dos, varName);
@@ -81,6 +84,7 @@ public class OperationSpec implements Serializable {
 
     /**
      * Deserialization.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:189)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
         varName = DmcTypeStringSTATIC.instance.deserializeValue(dis);

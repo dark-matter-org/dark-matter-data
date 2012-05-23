@@ -15,7 +15,6 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.IntegerToString;
 import org.dmd.dmc.types.Modifier;
-import org.dmd.dmc.types.NameContainer;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmp.server.extended.DMPEvent;
 import org.dmd.dmp.server.extended.SetRequest;

@@ -122,9 +122,8 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
      * @param value A value compatible with DmcTypeStringNameSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__name);
+        DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
             attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         

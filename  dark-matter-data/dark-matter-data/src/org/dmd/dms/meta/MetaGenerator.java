@@ -1596,9 +1596,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         	out.write("     * @param value A value compatible with " + attrType + "\n");
         	out.write("     */\n");
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+//        	out.write("    @SuppressWarnings(\"unchecked\")\n");
         	out.write("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
-        	out.write("        DmcAttribute attr = get(MetaDMSAG.__" + attrname + ");\n");
+        	out.write("        DmcAttribute<?> attr = get(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	out.write("            attr = new " + attrType + "(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        \n");
@@ -1701,10 +1701,11 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
     		if (isObjREF){
 	        	out.write("     * @return An Iterator of " + typeName + " objects.\n");
 	        	out.write("     */\n");
-	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+//	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	        	out.write("    public " + typeName + "IterableDMW get" + functionName + "(){\n");
-	    		out.write("        DmcAttribute attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+//	    		out.write("        DmcAttribute<?> attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
+	    		out.write("        " + attrType + " attr = (" + attrType + ") mycore.get(MetaDMSAG.__" + attrname + ");\n");
 	        	out.write("        if (attr == null)\n");
 	        	out.write("            return(" + typeName + "IterableDMW.emptyList);\n");
 	        	out.write("\n");
@@ -1730,10 +1731,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         	out.write("     * Adds another " + attrname + " value.\n");
         	out.write("     * @param value A value compatible with " + attrType + "\n");
         	out.write("     */\n");
-        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+//        	out.write("    @SuppressWarnings(\"unchecked\")\n");
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-        	out.write("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
-        	out.write("        DmcAttribute attr = get(MetaDMSAG.__" + attrname + ");\n");
+        	out.write("    public DmcAttribute<?> add" + functionName + "(Object value) throws DmcValueException {\n");
+        	out.write("        DmcAttribute<?> attr = get(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	out.write("            attr = new " + attrType + "(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        \n");
@@ -1748,10 +1749,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	        	out.write("     * Adds another " + attrname + " value.\n");
 	        	out.write("     * @param value A value compatible with " + typeName + "\n");
 	        	out.write("     */\n");
-	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+//	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-	        	out.write("    public DmcAttribute add" + functionName + "(" + typeName + " value) throws DmcValueException {\n");
-	    		out.write("        DmcAttribute attr = mycore.add" + functionName + "(value.getDmcObject());\n");
+	        	out.write("    public DmcAttribute<?> add" + functionName + "(" + typeName + " value) throws DmcValueException {\n");
+	    		out.write("        DmcAttribute<?> attr = mycore.add" + functionName + "(value.getDmcObject());\n");
 	        	out.write("        return(attr);\n");
 	        	out.write("    }\n\n");
     		}
@@ -1760,9 +1761,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	        	out.write("     * Adds another " + attrname + " value.\n");
 	        	out.write("     * @param value A value compatible with " + attrType + "\n");
 	        	out.write("     */\n");
-	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+//	        	out.write("    @SuppressWarnings(\"unchecked\")\n");
 				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-	        	out.write("    public DmcAttribute add" + functionName + "(Object value) throws DmcValueException {\n");
+	        	out.write("    public DmcAttribute<?> add" + functionName + "(Object value) throws DmcValueException {\n");
 	    		out.write("        return(mycore.add" + functionName + "(value));\n");
 	        	out.write("    }\n\n");
     		}
@@ -1771,10 +1772,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         	out.write("    /**\n");
         	out.write("     * Returns the number of " + attrname + " values.\n");
         	out.write("     */\n");
-        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+//        	out.write("    @SuppressWarnings(\"unchecked\")\n");
     		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         	out.write("    public int get" + functionName + "Size(){\n");
-    		out.write("        DmcAttribute attr = mycore.get(MetaDMSAG.__" + attrname + ");\n");
+    		out.write("        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__" + attrname + ");\n");
         	out.write("        if (attr == null)\n");
         	out.write("            return(0);\n");
         	out.write("        return(attr.getMVSize());\n");
@@ -2335,7 +2336,7 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
         }
         
         if (hasRefs){
-        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+        	out.write("    @SuppressWarnings({\"unchecked\", \"rawtypes\"})\n");
             out.write("    public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {\n");
         	out.write("        DmcNamedObjectIF  obj = null;\n\n");
             

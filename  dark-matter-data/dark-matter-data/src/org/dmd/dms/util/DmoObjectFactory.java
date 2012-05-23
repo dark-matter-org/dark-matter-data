@@ -20,13 +20,11 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
-//import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedObject;
@@ -62,7 +60,6 @@ public class DmoObjectFactory {
 	 * @throws ClassNotFoundException 
 	 * @throws ClassNotFoundException  
 	 */
-	@SuppressWarnings("unchecked")
 	public DmcObject createObject(DmcUncheckedObject uco) throws ResultException, DmcValueException, ClassNotFoundException {
 		DmcObject			dmo	= null;
 		ClassDefinition		cd	= null;
@@ -124,7 +121,7 @@ public class DmoObjectFactory {
 				
 				try {
 					// Try to get the attribute
-					DmcAttribute attr = dmo.get(ad.getName().getNameString());
+					DmcAttribute<?> attr = dmo.get(ad.getName().getNameString());
 					
 					// If we can't find the attribute container, create it
 					if (attr == null)
@@ -153,7 +150,7 @@ public class DmoObjectFactory {
 				for (String attrVal: values){
 					try {
 						// Try to get the attribute
-						DmcAttribute attr = dmo.get(ad.getName().getNameString());
+						DmcAttribute<?> attr = dmo.get(ad.getName().getNameString());
 						
 						// If we can't find the attribute container, create it
 						if (attr == null)

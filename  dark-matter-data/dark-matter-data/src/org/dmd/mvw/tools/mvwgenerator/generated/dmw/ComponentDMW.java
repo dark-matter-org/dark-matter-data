@@ -151,10 +151,9 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterable of Event objects.
      */
-    @SuppressWarnings("unchecked")
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2028)
     public EventIterableDMW getFiresEventIterable(){
-        DmcAttribute attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
+        DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
             return(EventIterableDMW.emptyList);
         
@@ -270,10 +269,9 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterable of Event objects.
      */
-    @SuppressWarnings("unchecked")
     // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2028)
     public EventIterableDMW getHandlesEventIterable(){
-        DmcAttribute attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
+        DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
             return(EventIterableDMW.emptyList);
         

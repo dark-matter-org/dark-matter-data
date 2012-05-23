@@ -435,12 +435,11 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws ResultException  
      * @throws DmcValueException 
      */
-    @SuppressWarnings("unchecked")
 	public void schemaPreAdd(DmcUncheckedObject sd) throws ResultException, DmcValueException {
     	NamedStringArray attr = sd.get(MetaSchema._schemaExtension.getName().getNameString());
     	
      	if (attr != null){
-    		Class extclass;
+    		Class<?> extclass;
 //    		Iterator<String> extList = attr.getMV();
     		
     		for(String ext: attr){
@@ -500,7 +499,6 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueException 
      * @throws ResultException 
      */
-    @SuppressWarnings("unchecked")
 	private void loadGeneratedSchema(SchemaDefinition sd) throws ResultException, DmcValueException {
     	
 //    	DebugInfo.debug(sd.getClass().getName());
@@ -511,7 +509,7 @@ public class SchemaManager implements DmcNameResolverIF {
 			SchemaDefinition depSchema = isSchema(schemaName);
 			
 			if (depSchema == null){
-				Class schemaClass = null;
+				Class<?> schemaClass = null;
 				
                 try{
                 	schemaClass = Class.forName(schemaClassName);
@@ -1713,7 +1711,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * @returns false if the key already exists and true otherwise
      */
 //    private boolean checkAndAdd(Object key, Object obj, HashMap map){
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
 	private boolean checkAndAdd(StringName key, DmsDefinition obj, HashMap map){
         if (map.containsKey(key))
             return(false);
@@ -1732,7 +1730,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * @returns false if the key already exists and true otherwise
      */
     @SuppressWarnings("unchecked")
-	private boolean checkAndAdd(Object key, Object obj, TreeMap map){
+	private boolean checkAndAdd(Object key, Object obj, @SuppressWarnings("rawtypes") TreeMap map){
         if (map.containsKey(key))
             return(false);
         else
@@ -2179,7 +2177,7 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws ResultException  
      * @throws DmcValueExceptionSet 
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
 	public void resolveReferences(SchemaDefinition sd) throws ResultException {
     	// OK, here's some tricky stuff. Attributes can refer to defined classes
     	// as types e.g. 
@@ -2196,7 +2194,7 @@ public class SchemaManager implements DmcNameResolverIF {
     	if (preadl != null){
     		while(preadl.hasNext()){
     			AttributeDefinition d = preadl.next();
-    			DmcAttribute attr = d.getDmcObject().get("type");
+    			DmcAttribute<?> attr = d.getDmcObject().get("type");
     			
     			if (attr == null){
 					ResultException ex = new ResultException();

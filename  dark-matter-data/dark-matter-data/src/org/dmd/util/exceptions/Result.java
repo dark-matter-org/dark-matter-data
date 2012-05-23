@@ -93,8 +93,7 @@ public class Result {
     /**
      * Additional message lines. This is an array of StringBuffers.
      */
-    @SuppressWarnings("unchecked")
-	private ArrayList       moreMessagesV;
+	private ArrayList<StringBuffer>       moreMessagesV;
 
     /**
      * The current number of additional messages.
@@ -145,10 +144,9 @@ public class Result {
     /**
     * Creates a new RResult container.
     */
-    @SuppressWarnings("unchecked")
 	Result() {
         messageV        = new StringBuffer();
-        moreMessagesV   = new ArrayList();
+        moreMessagesV   = new ArrayList<StringBuffer>();
         moreCountV      = 0;
         severityV       = NONE;
         categoryV       = NONE;
@@ -162,10 +160,9 @@ public class Result {
     /**
     * Creates a new RResult container from an existing one.
     */
-    @SuppressWarnings("unchecked")
 	public Result(Result r) {
         messageV        = new StringBuffer(r.messageV.toString());
-        moreMessagesV   = new ArrayList();
+        moreMessagesV   = new ArrayList<StringBuffer>();
         moreCountV      = 0;
         for(int i=0; i<r.moreMessagesV.size(); i++){
             moreMessagesV.add(new StringBuffer(((StringBuffer)r.moreMessagesV.get(i)).toString()) );
@@ -290,15 +287,13 @@ public class Result {
      * Returns the additional message text as an ArrayList of StringBuffers. The
      * number of additional lines is available via the moreCount() method.
      */
-    @SuppressWarnings("unchecked")
-	public ArrayList moreMessages(){
+	public ArrayList<StringBuffer> moreMessages(){
         return(moreMessagesV);
     }
 
     /**
      * Adds additional message text to the result.
      */
-    @SuppressWarnings("unchecked")
 	public void moreMessages(String s){
         StringBuffer sb = null;
 

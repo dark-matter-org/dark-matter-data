@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeCamelCaseName;    // DmcType import
  * The DmcTypeCamelCaseNameSET provides storage for a set of CamelCaseName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2460)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2459)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
@@ -60,7 +60,7 @@ public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2497)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2496)
     public DmcAttribute<CamelCaseName> cloneIt(){
         synchronized(this){
             DmcTypeCamelCaseNameSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2516)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2515)
     public CamelCaseName add(Object v) throws DmcValueException {
         synchronized(this){
             CamelCaseName rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2533)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
     public CamelCaseName del(Object v){
         synchronized(this){
             CamelCaseName rc = null;
@@ -115,7 +115,7 @@ public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2558)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
     public Iterator<CamelCaseName> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -125,7 +125,7 @@ public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2574)
     public Set<CamelCaseName> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -136,7 +136,7 @@ public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2593)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2592)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2604)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

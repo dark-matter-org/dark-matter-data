@@ -70,9 +70,8 @@ public class ConfigVersion {
 	/**
 	 * @return The latest version of the configuration.
 	 */
-	@SuppressWarnings("unchecked")
 	public ConfigLocation getLatestVersion(){
-		Entry entry = versions.lastEntry();
+		Entry<String, ConfigLocation> entry = versions.lastEntry();
 		return(versions.get(entry.getKey()));
 	}
 }

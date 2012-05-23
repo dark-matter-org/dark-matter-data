@@ -170,12 +170,11 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
      * @param newParent
      * @throws DmcValueException 
      */
-    @SuppressWarnings("unchecked")
 //	public void resetParent(LDAPHierarchicObject newParent) throws ResultException, DmcValueException {
     @Override
     public void resetParent(HierarchicObject newParent) throws ResultException, DmcValueException {
     	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
-        DmcAttribute 	nameAttr  = core.get(naAD.getDmdID());
+        DmcAttribute<?> 	nameAttr  = core.get(naAD.getDmdID());
         
         if (nameAttr == null){
         	ResultException ex = new ResultException();
@@ -287,11 +286,10 @@ public class LDAPHierarchicObject extends LDAPHierarchicObjectDMW {
 	 * Returns the name of this object in the repository.
 	 * @return The repository ID.
 	 */
-	@SuppressWarnings("unchecked")
 	public String getRepositoryID() throws ResultException {
 		if (repositoryID == null){
 	    	AttributeDefinitionDMW naAD = LDAPClassAUX.getNamingAttribute(this.getConstructionClass());
-	        DmcAttribute 	nameAttr  = core.get(naAD.getName().getNameString());
+	        DmcAttribute<?> 	nameAttr  = core.get(naAD.getName().getNameString());
 	        if (nameAttr == null){
 	        	ResultException ex = new ResultException();
 	        	ex.addError("Missing value for naming attribute: " + naAD.getName());

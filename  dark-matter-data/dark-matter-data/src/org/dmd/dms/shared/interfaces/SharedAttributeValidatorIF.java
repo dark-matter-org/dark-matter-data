@@ -10,7 +10,6 @@ import org.dmd.dmc.DmcValueException;
  */
 public interface SharedAttributeValidatorIF {
 
-	@SuppressWarnings("unchecked")
-	public void validate(DmcAttribute attr) throws DmcValueException;
+	public void validate(DmcAttribute<?> attr) throws DmcValueException;
 	
 }

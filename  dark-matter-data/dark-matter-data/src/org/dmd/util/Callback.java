@@ -48,8 +48,7 @@ public class Callback {
     /**
      * The types of the parameters of the callback method.
      */
-    @SuppressWarnings("unchecked")
-	Class  parms[];
+	Class<?>  parms[];
 
     /**
      * The arguments to be passed to the callback method.
@@ -85,9 +84,8 @@ public class Callback {
      * You must call this function once for each type of parameter in the argument vector of the callback method.
      * @param name The fully qualified name of the class e.g. com.dmc.common.rrf.RrfResponse
      */
-    @SuppressWarnings("unchecked")
 	public void addParm(String name) throws ResultException {
-        Class c;
+        Class<?> c;
 
         try{
             c = Class.forName(name);
@@ -104,8 +102,7 @@ public class Callback {
      * You must call this function once for each type of parameter in the argument vector of the callback method.
      * @param c The Class of the next argument.
      */
-    @SuppressWarnings("unchecked")
-	public void addParm(Class c){
+	public void addParm(Class<?> c){
         parms[currParm++] = c;
     }
 

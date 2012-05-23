@@ -24,8 +24,7 @@ import org.dmd.dmg.DarkMatterGeneratorIF;
  */
 public class Generator {
 
-	@SuppressWarnings("unchecked")
-	Class					objClass;
+	Class<?>				objClass;
 	
 	String 					generatorClassName;
 	

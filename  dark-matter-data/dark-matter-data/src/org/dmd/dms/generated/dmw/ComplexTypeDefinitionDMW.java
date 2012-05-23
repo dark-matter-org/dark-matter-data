@@ -97,7 +97,7 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * The field indicates a type and name for a field in a ComplexType.
      * @return An Iterator of Field objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1717)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1718)
     public Iterator<Field> getField(){
         DmcTypeFieldMV attr = (DmcTypeFieldMV) mycore.get(MetaDMSAG.__field);
         if (attr == null)
@@ -110,19 +110,17 @@ public class ComplexTypeDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another field value.
      * @param value A value compatible with DmcTypeFieldMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1764)
-    public DmcAttribute addField(Object value) throws DmcValueException {
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1765)
+    public DmcAttribute<?> addField(Object value) throws DmcValueException {
         return(mycore.addField(value));
     }
 
     /**
      * Returns the number of field values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1775)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1776)
     public int getFieldSize(){
-        DmcAttribute attr = mycore.get(MetaDMSAG.__field);
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__field);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

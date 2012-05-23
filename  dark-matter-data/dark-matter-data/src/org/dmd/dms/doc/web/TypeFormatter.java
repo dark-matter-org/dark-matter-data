@@ -10,8 +10,6 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dmw.DmwWrapper;
 
-import com.google.gwt.user.client.ui.Tree;
-
 public class TypeFormatter {
 	
 	static public void dumpDetails(BufferedWriter out, TypeDefinition td) throws IOException {

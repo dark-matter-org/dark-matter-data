@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dms.ComplexTypeDefinition;
-import org.dmd.dms.ExtendedReferenceTypeDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
@@ -112,6 +111,7 @@ public class ComplexTypeFormatter {
     	
         out.write("    /**\n");
         out.write("     * All fields constructor.\n");
+        out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("     */\n");
         out.write("    public " + ctn + "(");
         int fnum = 1;
@@ -144,6 +144,7 @@ public class ComplexTypeFormatter {
     	
         out.write("    /**\n");
         out.write("     * String based constructor.\n");
+        out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("     */\n");
         out.write("    public " + ctn + "(String input) throws DmcValueException {\n");
         out.write("        IntegerVar seppos = new IntegerVar(-1);\n");
@@ -168,6 +169,7 @@ public class ComplexTypeFormatter {
     	
         out.write("    /**\n");
         out.write("     * Serialization.\n");
+        out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("     */\n");
         out.write("    public void serializeIt(DmcOutputStreamIF dos) throws Exception {\n");
         fields = ctd.getField();
@@ -184,6 +186,7 @@ public class ComplexTypeFormatter {
     	
         out.write("    /**\n");
         out.write("     * Deserialization.\n");
+        out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("     */\n");
         out.write("    public void deserializeIt(DmcInputStreamIF dis) throws Exception {\n");
         fields = ctd.getField();
@@ -230,7 +233,7 @@ public class ComplexTypeFormatter {
         }
         
         if (hasRefs){
-        	out.write("    @SuppressWarnings(\"unchecked\")\n");
+        	out.write("    @SuppressWarnings({\"unchecked\", \"rawtypes\"})\n");
             out.write("    public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {\n");
         	out.write("        DmcNamedObjectIF  obj = null;\n\n");
             

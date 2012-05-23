@@ -22,7 +22,6 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcHierarchicObjectName;
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcObjectName;
 
 /**
  * The HierarachicNode class is used to hold Dark Matter Object's that

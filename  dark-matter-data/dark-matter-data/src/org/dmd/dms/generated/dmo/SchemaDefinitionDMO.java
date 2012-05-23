@@ -167,9 +167,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
@@ -197,9 +196,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeStringNameSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__name);
+        DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
             attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         
@@ -226,9 +224,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeIntegerSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setSchemaBaseID(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__schemaBaseID);
+        DmcAttribute<?> attr = get(MetaDMSAG.__schemaBaseID);
         if (attr == null)
             attr = new DmcTypeIntegerSV(MetaDMSAG.__schemaBaseID);
         
@@ -255,9 +252,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeIntegerSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setSchemaIDRange(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__schemaIDRange);
+        DmcAttribute<?> attr = get(MetaDMSAG.__schemaIDRange);
         if (attr == null)
             attr = new DmcTypeIntegerSV(MetaDMSAG.__schemaIDRange);
         
@@ -283,9 +279,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setSchemaPackage(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__schemaPackage);
+        DmcAttribute<?> attr = get(MetaDMSAG.__schemaPackage);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__schemaPackage);
         
@@ -310,10 +305,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another actionDefList value.
      * @param value A value compatible with DmcTypeActionDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addActionDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__actionDefList);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addActionDefList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__actionDefList);
         if (attr == null)
             attr = new DmcTypeActionDefinitionREFMV(MetaDMSAG.__actionDefList);
         
@@ -339,10 +333,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another attributeDefList value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addAttributeDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__attributeDefList);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addAttributeDefList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__attributeDefList);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREFMV(MetaDMSAG.__attributeDefList);
         
@@ -368,10 +361,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another attributeValidatorDefList value.
      * @param value A value compatible with DmcTypeAttributeValidatorDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addAttributeValidatorDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__attributeValidatorDefList);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addAttributeValidatorDefList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__attributeValidatorDefList);
         if (attr == null)
             attr = new DmcTypeAttributeValidatorDefinitionREFMV(MetaDMSAG.__attributeValidatorDefList);
         
@@ -397,10 +389,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another classDefList value.
      * @param value A value compatible with DmcTypeClassDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addClassDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__classDefList);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addClassDefList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__classDefList);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREFMV(MetaDMSAG.__classDefList);
         
@@ -426,10 +417,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another complexTypeDefList value.
      * @param value A value compatible with DmcTypeComplexTypeDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addComplexTypeDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__complexTypeDefList);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addComplexTypeDefList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__complexTypeDefList);
         if (attr == null)
             attr = new DmcTypeComplexTypeDefinitionREFMV(MetaDMSAG.__complexTypeDefList);
         
@@ -458,9 +448,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeBooleanSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setCreateAttributeFactory(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__createAttributeFactory);
+        DmcAttribute<?> attr = get(MetaDMSAG.__createAttributeFactory);
         if (attr == null)
             attr = new DmcTypeBooleanSV(MetaDMSAG.__createAttributeFactory);
         
@@ -486,10 +475,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another defFiles value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addDefFiles(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__defFiles);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addDefFiles(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__defFiles);
         if (attr == null)
             attr = new DmcTypeStringMV(MetaDMSAG.__defFiles);
         
@@ -515,9 +503,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__definedIn);
+        DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
             attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
         
@@ -542,10 +529,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another dependsOn value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addDependsOn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__dependsOn);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addDependsOn(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__dependsOn);
         if (attr == null)
             attr = new DmcTypeStringMV(MetaDMSAG.__dependsOn);
         
@@ -572,10 +558,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another dependsOnRef value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addDependsOnRef(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__dependsOnRef);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addDependsOnRef(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__dependsOnRef);
         if (attr == null)
             attr = new DmcTypeSchemaDefinitionREFMV(MetaDMSAG.__dependsOnRef);
         
@@ -603,9 +588,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setDmwPackage(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__dmwPackage);
+        DmcAttribute<?> attr = get(MetaDMSAG.__dmwPackage);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__dmwPackage);
         
@@ -637,10 +621,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another dmwTypeToPackage value.
      * @param value A value compatible with DmcTypeStringToStringMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addDmwTypeToPackage(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__dmwTypeToPackage);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addDmwTypeToPackage(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__dmwTypeToPackage);
         if (attr == null)
             attr = new DmcTypeStringToStringMV(MetaDMSAG.__dmwTypeToPackage);
         
@@ -666,10 +649,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another enumDefList value.
      * @param value A value compatible with DmcTypeEnumDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addEnumDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__enumDefList);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addEnumDefList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__enumDefList);
         if (attr == null)
             attr = new DmcTypeEnumDefinitionREFMV(MetaDMSAG.__enumDefList);
         
@@ -695,10 +677,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another extendedReferenceTypeDefList value.
      * @param value A value compatible with DmcTypeExtendedReferenceTypeDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addExtendedReferenceTypeDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__extendedReferenceTypeDefList);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addExtendedReferenceTypeDefList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__extendedReferenceTypeDefList);
         if (attr == null)
             attr = new DmcTypeExtendedReferenceTypeDefinitionREFMV(MetaDMSAG.__extendedReferenceTypeDefList);
         
@@ -724,9 +705,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__file);
+        DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__file);
         
@@ -753,9 +733,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setGeneratedFileHeader(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__generatedFileHeader);
+        DmcAttribute<?> attr = get(MetaDMSAG.__generatedFileHeader);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__generatedFileHeader);
         
@@ -781,10 +760,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another internalTypeDefList value.
      * @param value A value compatible with DmcTypeTypeDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addInternalTypeDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__internalTypeDefList);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addInternalTypeDefList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__internalTypeDefList);
         if (attr == null)
             attr = new DmcTypeTypeDefinitionREFMV(MetaDMSAG.__internalTypeDefList);
         
@@ -810,9 +788,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeIntegerSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__lineNumber);
+        DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
             attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
         
@@ -837,10 +814,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another objectValidatorDefList value.
      * @param value A value compatible with DmcTypeObjectValidatorDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addObjectValidatorDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__objectValidatorDefList);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addObjectValidatorDefList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__objectValidatorDefList);
         if (attr == null)
             attr = new DmcTypeObjectValidatorDefinitionREFMV(MetaDMSAG.__objectValidatorDefList);
         
@@ -868,10 +844,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another schemaExtension value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addSchemaExtension(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__schemaExtension);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addSchemaExtension(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__schemaExtension);
         if (attr == null)
             attr = new DmcTypeStringMV(MetaDMSAG.__schemaExtension);
         
@@ -897,10 +872,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another sliceDefList value.
      * @param value A value compatible with DmcTypeSliceDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addSliceDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__sliceDefList);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addSliceDefList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__sliceDefList);
         if (attr == null)
             attr = new DmcTypeSliceDefinitionREFMV(MetaDMSAG.__sliceDefList);
         
@@ -926,10 +900,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another typeDefList value.
      * @param value A value compatible with DmcTypeTypeDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addTypeDefList(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__typeDefList);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addTypeDefList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__typeDefList);
         if (attr == null)
             attr = new DmcTypeTypeDefinitionREFMV(MetaDMSAG.__typeDefList);
         

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.ExtendedReferenceTypeDefinition;
 import org.dmd.dms.SchemaDefinition;

@@ -89,10 +89,9 @@ public class ResultException extends Exception {
      * the contents of this exception. This is a stop gap mechanism until the day
      * we eliminate direct use of result sets.
      */
-    @SuppressWarnings("unchecked")
 	public void populate(ResultSet rs){
         if (result != null){
-            Iterator it = result.iterator();
+            Iterator<Result> it = result.iterator();
             while(it.hasNext()){
                 Result r = (Result)it.next();
                 rs.addResult(new Result(r));

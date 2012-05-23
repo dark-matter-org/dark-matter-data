@@ -1581,7 +1581,7 @@ abstract public class DmcObject implements Serializable {
 	 * @param skipClass Indicates whether we should skip the class attribute or not.
 	 * @throws Exception 
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void resolveReferences(DmcNameResolverIF rx, boolean skipClass) throws DmcValueExceptionSet {
 		synchronized (attributes) {
 			DmcValueExceptionSet	errors = null;
@@ -2157,7 +2157,7 @@ abstract public class DmcObject implements Serializable {
      * This method should be used with extreme caution! It will forceably unresolve all
      * reference attributes on the object and clear any back reference tracking information.
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
 	public void clearReferenceInfo(){
 		for(DmcAttribute<?> attr : attributes.values()){
 			if (attr instanceof DmcTypeNamedObjectREF){

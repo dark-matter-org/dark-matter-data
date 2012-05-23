@@ -37,8 +37,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	
 	// The DMW class that wraps a DMO object - this is only initialized when
 	// we're dealing with internally generated object reference types.
-	@SuppressWarnings("unchecked")
-	Class wrapperClass;
+	Class<?> wrapperClass;
 	
 	// This is only set for internally generated types and will only be set if the
 	// referenced object class has its javaClass attribute set
@@ -56,8 +55,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
     	super(obj);
     }
     
-	@SuppressWarnings("unchecked")
-	protected TypeDefinition(String mn, Class c) throws DmcValueException {
+	protected TypeDefinition(String mn, Class<?> c) throws DmcValueException {
 		super(mn);
 		attributeClass 		= c;
 		
@@ -74,8 +72,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	 * @param w
 	 * @throws DmcValueException 
 	 */
-	@SuppressWarnings("unchecked")
-	protected TypeDefinition(String mn, Class c, Class w) throws DmcValueException {
+	protected TypeDefinition(String mn, Class<?> c, Class<?> w) throws DmcValueException {
 		super(mn);
 		attributeClass 		= c;
 		wrapperClass 		= w;

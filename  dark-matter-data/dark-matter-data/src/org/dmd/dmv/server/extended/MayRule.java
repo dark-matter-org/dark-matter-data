@@ -28,7 +28,6 @@ import org.dmd.dmv.server.generated.dmw.MayRuleDMW;
 
 public class MayRule extends MayRuleDMW {
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public void applyRule(SchemaManager schema, DmcObject obj) throws DmcValueExceptionSet {
 		String constructionClass = obj.getConstructionClassName();
@@ -57,7 +56,7 @@ public class MayRule extends MayRuleDMW {
 			System.out.println("NO OCL");
 		}
 		
-		for(DmcAttribute attr : obj.getAttributes().values()){
+		for(DmcAttribute<?> attr : obj.getAttributes().values()){
 			if (attr.getName().equals("objectClass") || attr.getName().equals("ocl"))
 				continue;
 			
