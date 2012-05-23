@@ -5,12 +5,10 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 import org.dmd.dmc.DmcClassInfo;
-import org.dmd.dmc.DmcHierarchicObjectName;
 import org.dmd.dmc.DmcNameResolverIF;
 import org.dmd.dmc.DmcNamedObjectIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
-import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;

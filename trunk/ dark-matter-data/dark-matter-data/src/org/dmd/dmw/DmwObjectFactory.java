@@ -61,7 +61,6 @@ public class DmwObjectFactory {
 	 * @throws DmcValueException 
 	 * @throws ClassNotFoundException  
 	 */
-	@SuppressWarnings("unchecked")
 	public DmwWrapper createWrapper(DmcUncheckedObject uco) throws ResultException, DmcValueException, ClassNotFoundException {
 		DmwWrapper 			rc = null;
 		DmcObject			dmo	= null;
@@ -123,7 +122,7 @@ public class DmwObjectFactory {
 				
 				try {
 					// Try to get the attribute
-					DmcAttribute attr = dmo.get(ad.getName().getNameString());
+					DmcAttribute<?> attr = dmo.get(ad.getName().getNameString());
 					
 					// If we can't find the attribute container, create it
 					if (attr == null)
@@ -153,7 +152,7 @@ public class DmwObjectFactory {
 				for(String attrVal: values){
 					try {
 						// Try to get the attribute
-						DmcAttribute attr = dmo.get(ad.getName().getNameString());
+						DmcAttribute<?> attr = dmo.get(ad.getName().getNameString());
 						
 						// If we can't find the attribute container, create it
 						if (attr == null)

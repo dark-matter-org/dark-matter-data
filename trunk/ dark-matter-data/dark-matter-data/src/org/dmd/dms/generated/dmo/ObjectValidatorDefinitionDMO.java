@@ -128,9 +128,8 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * @param value A value compatible with DmcTypeStringNameSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__name);
+        DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
             attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         
@@ -155,9 +154,8 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setValidatorClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__validatorClass);
+        DmcAttribute<?> attr = get(MetaDMSAG.__validatorClass);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__validatorClass);
         
@@ -182,9 +180,8 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__definedIn);
+        DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
             attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
         
@@ -212,9 +209,8 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
@@ -239,9 +235,8 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__file);
+        DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__file);
         
@@ -266,9 +261,8 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * @param value A value compatible with DmcTypeIntegerSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__lineNumber);
+        DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
             attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
         
@@ -294,9 +288,8 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * @param value A value compatible with DmcTypeOperationalContextEnumSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setOpContext(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__opContext);
+        DmcAttribute<?> attr = get(MetaDMSAG.__opContext);
         if (attr == null)
             attr = new DmcTypeOperationalContextEnumSV(MetaDMSAG.__opContext);
         

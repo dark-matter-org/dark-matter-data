@@ -1,6 +1,5 @@
 package org.dmd.dmt.shared;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.dmd.dmc.DmcValueException;

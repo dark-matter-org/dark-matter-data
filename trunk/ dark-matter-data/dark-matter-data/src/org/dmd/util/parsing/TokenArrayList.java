@@ -2,9 +2,6 @@
 //	dark-matter-data
 //	Copyright (c) 2010 dark-matter-data committers
 //	---------------------------------------------------------------------------
-//	dark-matter-data
-//	Copyright (c) 2010 dark-matter-data committers
-//	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
 //	Free Software Foundation; either version 3 of the License, or (at your
@@ -28,8 +25,8 @@ import org.dmd.util.formatting.PrintfFormat;
  * @see org.dmd.util.parsing.Token
  */
 
-@SuppressWarnings({ "serial", "unchecked" })
-public class TokenArrayList extends ArrayList {
+@SuppressWarnings("serial")
+public class TokenArrayList extends ArrayList<Token> {
 
     /**
       * Default constructor.

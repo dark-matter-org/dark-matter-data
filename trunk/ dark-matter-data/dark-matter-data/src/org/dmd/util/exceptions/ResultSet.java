@@ -38,14 +38,12 @@ public class ResultSet {
     /**
      * A set of previously constructed Result objects that we reuse.
      */
-    @SuppressWarnings("unchecked")
-	ArrayList   available;
+	ArrayList<Result>   available;
 
     /**
      * The current set of populated Result objects.
      */
-    @SuppressWarnings("unchecked")
-	ArrayList   current;
+	ArrayList<Result>   current;
 
     /**
      * Indicates the most serious result in the set.
@@ -71,10 +69,9 @@ public class ResultSet {
     /**
     * Creates a new Results container.
     */
-    @SuppressWarnings("unchecked")
 	public ResultSet() {
-        available   = new ArrayList();
-        current     = new ArrayList();
+        available   = new ArrayList<Result>();
+        current     = new ArrayList<Result>();
         errorsV     = 0;
         warningsV   = 0;
         worstV      = Result.NONE;
@@ -84,10 +81,9 @@ public class ResultSet {
     /**
     * Creates a new Results container with the specified Locale.
     */
-    @SuppressWarnings("unchecked")
 	public ResultSet(Locale l) {
-        available   = new ArrayList();
-        current     = new ArrayList();
+        available   = new ArrayList<Result>();
+        current     = new ArrayList<Result>();
         errorsV     = 0;
         warningsV   = 0;
         worstV      = Result.NONE;
@@ -97,7 +93,6 @@ public class ResultSet {
     /**
      * Resets the result to have no results.
      */
-    @SuppressWarnings("unchecked")
 	public void reset(){
         Result curr;
         while(current.size() > 0){
@@ -113,8 +108,7 @@ public class ResultSet {
     /**
      * Returns an iterator over the current set of results.
      */
-    @SuppressWarnings("unchecked")
-	public Iterator iterator(){
+	public Iterator<Result> iterator(){
         return(current.iterator());
     }
 
@@ -150,7 +144,6 @@ public class ResultSet {
      * Returns a Result container that can be populated with further information
      * if required. This increases the number of results in the result set by 1.
      */
-    @SuppressWarnings("unchecked")
 	public Result addResult(int sev, String message){
         Result curr;
 
@@ -177,7 +170,6 @@ public class ResultSet {
     /**
      * Makes a copy of the specified result and adds it to this result set.
      */
-    @SuppressWarnings("unchecked")
 	public Result addResult(Result r){
         Result curr = new Result(r);
 

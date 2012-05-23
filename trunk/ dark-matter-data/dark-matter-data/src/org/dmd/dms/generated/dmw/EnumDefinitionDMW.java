@@ -100,7 +100,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * definition.
      * @return An Iterator of EnumValue objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1717)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1718)
     public Iterator<EnumValue> getEnumValue(){
         DmcTypeEnumValueMV attr = (DmcTypeEnumValueMV) mycore.get(MetaDMSAG.__enumValue);
         if (attr == null)
@@ -113,19 +113,17 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another enumValue value.
      * @param value A value compatible with DmcTypeEnumValueMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1764)
-    public DmcAttribute addEnumValue(Object value) throws DmcValueException {
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1765)
+    public DmcAttribute<?> addEnumValue(Object value) throws DmcValueException {
         return(mycore.addEnumValue(value));
     }
 
     /**
      * Returns the number of enumValue values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1775)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1776)
     public int getEnumValueSize(){
-        DmcAttribute attr = mycore.get(MetaDMSAG.__enumValue);
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__enumValue);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

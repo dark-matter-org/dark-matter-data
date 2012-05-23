@@ -45,11 +45,9 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * This Class is set to contain an instance of the correct DmcObject
      * subclass to store data associated with this class definition.
      */
-    @SuppressWarnings("unchecked")
-	Class       genobjclass;
+	Class<?>       genobjclass;
     
-    @SuppressWarnings("unchecked")
-	Class		dmoClass;
+	Class<?>		dmoClass;
 
     /**
      * Maintains a hash of all attributes supported by this class. It is
@@ -419,20 +417,20 @@ public class ClassDefinition extends ClassDefinitionDMW {
 //        }
 //    }
 
-    /**
-     * updateImplementors
-     *
-     * @param rs ResultSet
-     * @param cd DmdClassDef
-     */
-    private void updateImplementors(ClassDefinition cd) {
-        if (allImplementors == null) {
-            allImplementors = new ArrayList<ClassDefinition>();
-        }
-        if (!allImplementors.contains(cd)) {
-            allImplementors.add(cd);
-        }
-    }
+//    /**
+//     * updateImplementors
+//     *
+//     * @param rs ResultSet
+//     * @param cd DmdClassDef
+//     */
+//    private void updateImplementors(ClassDefinition cd) {
+//        if (allImplementors == null) {
+//            allImplementors = new ArrayList<ClassDefinition>();
+//        }
+//        if (!allImplementors.contains(cd)) {
+//            allImplementors.add(cd);
+//        }
+//    }
 
 //	/**
 //	 * Updates the set of implemented interfaces.

@@ -132,9 +132,8 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
      * @param value A value compatible with DmcTypeClassDefinitionREFSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setExtendedReferenceClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__extendedReferenceClass);
+        DmcAttribute<?> attr = get(MetaDMSAG.__extendedReferenceClass);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__extendedReferenceClass);
         
@@ -159,10 +158,9 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
      * Adds another field value.
      * @param value A value compatible with DmcTypeFieldMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addField(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__field);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addField(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__field);
         if (attr == null)
             attr = new DmcTypeFieldMV(MetaDMSAG.__field);
         
@@ -191,9 +189,8 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
      * @param value A value compatible with DmcTypeStringNameSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__name);
+        DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
             attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         
@@ -218,9 +215,8 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__definedIn);
+        DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
             attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
         
@@ -248,9 +244,8 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
@@ -276,9 +271,8 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setExtendedClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__extendedClass);
+        DmcAttribute<?> attr = get(MetaDMSAG.__extendedClass);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__extendedClass);
         
@@ -305,9 +299,8 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setFieldSeparator(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__fieldSeparator);
+        DmcAttribute<?> attr = get(MetaDMSAG.__fieldSeparator);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__fieldSeparator);
         
@@ -332,9 +325,8 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__file);
+        DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__file);
         
@@ -359,9 +351,8 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
      * @param value A value compatible with DmcTypeIntegerSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__lineNumber);
+        DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
             attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
         

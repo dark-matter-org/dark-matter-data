@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint;    // DmcType import
  * The DmcTypeTimeDoubleDataPointSET provides storage for a set of TimeDoubleDataPoint
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2460)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2459)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
@@ -60,7 +60,7 @@ public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2497)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2496)
     public DmcAttribute<TimeDoubleDataPoint> cloneIt(){
         synchronized(this){
             DmcTypeTimeDoubleDataPointSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2516)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2515)
     public TimeDoubleDataPoint add(Object v) throws DmcValueException {
         synchronized(this){
             TimeDoubleDataPoint rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2533)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
     public TimeDoubleDataPoint del(Object v){
         synchronized(this){
             TimeDoubleDataPoint rc = null;
@@ -115,7 +115,7 @@ public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2558)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
     public Iterator<TimeDoubleDataPoint> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -125,7 +125,7 @@ public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint im
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2575)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2574)
     public Set<TimeDoubleDataPoint> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -136,7 +136,7 @@ public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2593)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2592)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2604)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -103,8 +103,7 @@ public class Modifier implements Serializable {
 	 * @param op The operation.
 	 * @param attr  The attribute.
 	 */
-	@SuppressWarnings("unchecked")
-	public Modifier(ModifyTypeEnum op, DmcAttribute attr){
+	public Modifier(ModifyTypeEnum op, DmcAttribute<?> attr){
 		operation 		= op;
 		haveAttribute	= true;
 		attributeName 	= attr.getName();
@@ -137,8 +136,7 @@ public class Modifier implements Serializable {
 	 * @param attr The attribute.
 	 * @param idx The index being altered.
 	 */
-	@SuppressWarnings("unchecked")
-	public Modifier(ModifyTypeEnum op, DmcAttribute attr, int idx){
+	public Modifier(ModifyTypeEnum op, DmcAttribute<?> attr, int idx){
 		operation 		= op;
 		haveAttribute	= true;
 		attributeName 	= attr.getName();
@@ -176,8 +174,7 @@ public class Modifier implements Serializable {
 	 * @param attr     The attribute.
 	 * @param referrer the object that is now referring to another object.
 	 */
-	@SuppressWarnings("unchecked")
-	public Modifier(ModifyTypeEnum op, DmcAttribute attr, DmcObject referrer){
+	public Modifier(ModifyTypeEnum op, DmcAttribute<?> attr, DmcObject referrer){
 		if (op == ModifyTypeEnum.SET)
 			operation = ModifyTypeEnum.REM;
 		else if (op == ModifyTypeEnum.ADD)
@@ -203,8 +200,7 @@ public class Modifier implements Serializable {
 	 * @param referrer The object that is now referring to another object.
 	 * @param idx      The index through which the reference is made.
 	 */
-	@SuppressWarnings("unchecked")
-	public Modifier(ModifyTypeEnum op, DmcAttribute attr, DmcObject referrer, int idx){
+	public Modifier(ModifyTypeEnum op, DmcAttribute<?> attr, DmcObject referrer, int idx){
 		if (op == ModifyTypeEnum.NTH)
 			operation = ModifyTypeEnum.NTH;
 		else

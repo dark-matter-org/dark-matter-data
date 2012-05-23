@@ -30,16 +30,14 @@ public class Dictionary {
      * Key: String
      * Value: Token
      */
-    @SuppressWarnings("unchecked")
-	private TreeMap byString;
+	private TreeMap<String,Token> byString;
 
     /**
      * This map contains all the tokens keyed on their respective type values.
      * Key: Integer
      * Value: Token
      */
-    @SuppressWarnings("unchecked")
-	private TreeMap byType;
+	private TreeMap<Integer,Token> byType;
 
     /**
      * The largest id so far.
@@ -49,10 +47,9 @@ public class Dictionary {
     /**
       * Default constructor.
       */
-    @SuppressWarnings("unchecked")
 	public Dictionary() {
-        byString = new TreeMap();
-        byType = new TreeMap();
+        byString = new TreeMap<String, Token>();
+        byType = new TreeMap<Integer, Token>();
     }
 
     /**
@@ -115,10 +112,10 @@ public class Dictionary {
     /**
       * Formats the dictionary as a String.
       */
-    @SuppressWarnings("unchecked")
+
 	public String toString(){
         StringBuffer    sb = new StringBuffer();
-        Iterator        i = byString.keySet().iterator();
+        Iterator<String>        i = byString.keySet().iterator();
         Token           t = null;
 
         while(i.hasNext()){
@@ -137,7 +134,7 @@ public class Dictionary {
      * @param map the map that may be updated
      * @returns false if the key already exists and true otherwise
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
 	private boolean checkAndAdd(Object key, Object obj, TreeMap map){
         if (map.containsKey(key))
             return(false);

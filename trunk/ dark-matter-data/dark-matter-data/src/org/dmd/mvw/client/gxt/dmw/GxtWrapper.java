@@ -53,7 +53,7 @@ public class GxtWrapper extends DmcContainer implements Model, ModelData, DmcCon
 	@SuppressWarnings("unchecked")
 	@Override
 	public <X> X get(String property) {
-		DmcAttribute attr = core.get(property);
+		DmcAttribute<?> attr = core.get(property);
 		if (attr == null){
 			// It's not in the DMO, it may be in our additionalValues
 			if (additionalValues == null)
@@ -171,12 +171,11 @@ public class GxtWrapper extends DmcContainer implements Model, ModelData, DmcCon
 	////////////////////////////////////////////////////////////////////////////////
 	// ModelData implementation
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public Map<String, Object> getProperties() {
 	    Map<String, Object> newMap = new FastMap<Object>();
 	    if (core.getAttributes() != null) {
-	    	for(DmcAttribute attr: core.getAttributes().values()){
+	    	for(DmcAttribute<?> attr: core.getAttributes().values()){
 	    		newMap.put(attr.getName(), attr);
 	    	}
 	    }

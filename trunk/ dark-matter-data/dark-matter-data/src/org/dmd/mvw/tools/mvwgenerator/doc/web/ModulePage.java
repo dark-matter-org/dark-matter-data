@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.TreeMap;
 
 import org.dmd.dmc.types.CamelCaseName;
-import org.dmd.dms.ClassDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.Module;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 

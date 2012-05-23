@@ -121,9 +121,8 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * @param value A value compatible with DmcTypeStringNameSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__name);
+        DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
             attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         
@@ -148,9 +147,8 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__definedIn);
+        DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
             attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
         
@@ -175,9 +173,8 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__file);
+        DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__file);
         
@@ -202,9 +199,8 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * @param value A value compatible with DmcTypeIntegerSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__lineNumber);
+        DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
             attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
         

@@ -142,9 +142,8 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeStringNameSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setName(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__name);
+        DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
             attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
         
@@ -172,10 +171,9 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another attachToClass value.
      * @param value A value compatible with DmcTypeClassDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addAttachToClass(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__attachToClass);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addAttachToClass(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__attachToClass);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREFMV(MetaDMSAG.__attachToClass);
         
@@ -205,9 +203,8 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeBooleanSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setBlockWhenLocked(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__blockWhenLocked);
+        DmcAttribute<?> attr = get(MetaDMSAG.__blockWhenLocked);
         if (attr == null)
             attr = new DmcTypeBooleanSV(MetaDMSAG.__blockWhenLocked);
         
@@ -232,9 +229,8 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setDefinedIn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__definedIn);
+        DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
             attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
         
@@ -262,9 +258,8 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setDescription(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__description);
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
@@ -289,9 +284,8 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setFile(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__file);
+        DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__file);
         
@@ -320,9 +314,8 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeBooleanSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setIsGetAction(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__isGetAction);
+        DmcAttribute<?> attr = get(MetaDMSAG.__isGetAction);
         if (attr == null)
             attr = new DmcTypeBooleanSV(MetaDMSAG.__isGetAction);
         
@@ -347,9 +340,8 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeIntegerSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setLineNumber(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__lineNumber);
+        DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
             attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
         
@@ -375,10 +367,9 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another mayParm value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addMayParm(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__mayParm);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addMayParm(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__mayParm);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREFMV(MetaDMSAG.__mayParm);
         
@@ -405,10 +396,9 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another mayReturn value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addMayReturn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__mayReturn);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addMayReturn(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__mayReturn);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREFMV(MetaDMSAG.__mayReturn);
         
@@ -438,9 +428,8 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeBooleanSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setMaySendProgress(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__maySendProgress);
+        DmcAttribute<?> attr = get(MetaDMSAG.__maySendProgress);
         if (attr == null)
             attr = new DmcTypeBooleanSV(MetaDMSAG.__maySendProgress);
         
@@ -466,10 +455,9 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another mustParm value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addMustParm(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__mustParm);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addMustParm(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__mustParm);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREFMV(MetaDMSAG.__mustParm);
         
@@ -496,10 +484,9 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * Adds another mustReturn value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1734)
-    public DmcAttribute addMustReturn(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__mustReturn);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1735)
+    public DmcAttribute<?> addMustReturn(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__mustReturn);
         if (attr == null)
             attr = new DmcTypeAttributeDefinitionREFMV(MetaDMSAG.__mustReturn);
         
@@ -528,9 +515,8 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
      * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
-    @SuppressWarnings("unchecked")
     public void setObsoleteVersion(Object value) throws DmcValueException {
-        DmcAttribute attr = get(MetaDMSAG.__obsoleteVersion);
+        DmcAttribute<?> attr = get(MetaDMSAG.__obsoleteVersion);
         if (attr == null)
             attr = new DmcTypeStringSV(MetaDMSAG.__obsoleteVersion);
         

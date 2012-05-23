@@ -47,7 +47,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * this mechanism gives you the option of lazily resolving (or perhaps retrieving) the
  * objects to which this type of attribute refers. 
  */
-@SuppressWarnings({ "serial", "unchecked" })
+@SuppressWarnings({ "serial", "unchecked", "rawtypes" })
 abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NAMETYPE extends DmcObjectName> extends DmcAttribute<HELPER> implements Serializable {
 		
 	/**
@@ -171,7 +171,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 		}
 		
 		if (attrInfo.valueType == ValueTypeEnum.SINGLE){
-			DmcNamedObjectREF ref = getSV();
+			DmcNamedObjectREF<?> ref = getSV();
 			
 			// We can't resolve the reference, so we need to be removed
 			if (!resolveIt(referrer, ref))
@@ -179,9 +179,9 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 		}
 		else{
 			if (attrInfo.indexSize == 0){
-	    		Iterator<DmcNamedObjectREF> it = (Iterator<DmcNamedObjectREF>) getMV();
+	    		Iterator<DmcNamedObjectREF<?>> it = (Iterator<DmcNamedObjectREF<?>>) getMV();
 	    		while(it.hasNext()){
-	    			DmcNamedObjectREF ref = it.next();
+	    			DmcNamedObjectREF<?> ref = it.next();
 	    			if (!resolveIt(referrer, ref)){
 	    				// Delete the reference from our multi-valued container - we can do
 	    				// this safely because we're iterating over a copy of the collection
@@ -196,7 +196,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 			else{
 				boolean anyResolved = false;
 				for(int index=0; index<getMVSize(); index++){
-					DmcNamedObjectREF ref = getMVnth(index);
+					DmcNamedObjectREF<?> ref = getMVnth(index);
 					if (ref == null)
 						continue;
 	    			if (resolveIt(referrer, ref)){
@@ -247,7 +247,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 				if (referrer.supportsBackrefTracking()){
 					Modifier backrefMod = null;
 					
-					DmcAttribute mod = this.getNew();
+					DmcAttribute<?> mod = this.getNew();
 					mod.setAttributeInfo(attrInfo);
 					try {
 						if (attrInfo.valueType == ValueTypeEnum.SINGLE)
@@ -280,19 +280,19 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
     	boolean rc = false;
     	
     	if (attrInfo.valueType == ValueTypeEnum.SINGLE){
-    		DmcNamedObjectREF ref = getSV();
+    		DmcNamedObjectREF<?> ref = getSV();
     		if (ref.getObject() != null)
     			rc = true;
     	}
     	else{
     		if (attrInfo.indexSize == 0){
-	    		Iterator<DmcNamedObjectREF> it = (Iterator<DmcNamedObjectREF>) getMV();
+	    		Iterator<DmcNamedObjectREF<?>> it = (Iterator<DmcNamedObjectREF<?>>) getMV();
 	    		if (DmcOmni.instance().cleanUpDeadRefs()){
 	    			// IF we're cleaning up dead refs, we need only check the first
 	    			// element to see if we're resolved. That's because it's an all
 	    			// or nothing deal - we resolve everything in one shot and if something
 	    			// isn't resolved, it will have been tossed
-	    			DmcNamedObjectREF ref = it.next();
+	    			DmcNamedObjectREF<?> ref = it.next();
 	    	    	if (ref.getObject() != null)
 	    	    		rc = true;
 	    		}
@@ -311,7 +311,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
     			// For indexed attributes we have to cycle through everything regardless
     			rc = true;
 				for(int index=0; index<getMVSize(); index++){
-					DmcNamedObjectREF ref = getMVnth(index);
+					DmcNamedObjectREF<?> ref = getMVnth(index);
 					if (ref == null)
 						continue;
 					if (ref.getObject() == null){

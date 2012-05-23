@@ -509,7 +509,7 @@ public class SchemaFormatter {
 			if (aux == null){
 				if (attr.getMVSize() > 0){
 					// Multi-value attribute
-					Iterator vals = attr.getMV();
+					Iterator<?> vals = attr.getMV();
 					while(vals.hasNext()){
 						sb.append(indent + obj + ".add" + an + "(\"" + vals.next().toString() + "\");\n");
 					}
@@ -543,7 +543,7 @@ public class SchemaFormatter {
 				
 				if (attr.getSV() == null){
 					// Multi-value attribute
-					Iterator vals = attr.getMV();
+					Iterator<?> vals = attr.getMV();
 					while(vals.hasNext()){
 						sb.append(indent + aux.getDmwAuxClass() + ".add" + an + "(" + var.name + ", \"" + vals.next().toString() + "\");\n");
 //						sb.append(indent + aux.getDmoAuxClass() + ".add" + an + "(" + obj + ", \"" + vals.next().toString() + "\");\n");

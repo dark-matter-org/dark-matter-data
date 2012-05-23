@@ -18,7 +18,6 @@ package org.dmd.dmw;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcContainer;
@@ -159,9 +158,8 @@ public abstract class DmwWrapper extends DmcContainer {
     	return(getDmcObject().getConstructionClassName());
     }
     
-    @SuppressWarnings("unchecked")
 	public ClassDefinitionIterableDMW getObjectClass(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) core.get(DmcObject.__objectClass);
+    	DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) core.get(DmcObject.__objectClass);
         if (attr == null)
             return(ClassDefinitionIterableDMW.emptyList);
 
@@ -266,7 +264,7 @@ public abstract class DmwWrapper extends DmcContainer {
 	 * @throws ResultException
 	 * @throws DmcValueException 
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	DmcNamedObjectIF resolve(SchemaManager sm, DmcNameResolverIF rx, AttributeDefinition ad, DmcNamedObjectREF obj) throws DmcValueException{
 		DmcNamedObjectIF resolved = (DmcNamedObjectIF) sm.findNamedObject(obj.getObjectName());
 			

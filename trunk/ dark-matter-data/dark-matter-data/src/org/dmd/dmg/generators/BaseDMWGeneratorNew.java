@@ -2024,10 +2024,10 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 			    	sb.append("    /**\n");
 					sb.append("     * @return An Iterable of " + typeName + " objects.\n");
 					sb.append("     */\n");
-					sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//					sb.append("    @SuppressWarnings(\"unchecked\")\n");
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 					sb.append("    public " + itClass + " get" + functionName + "Iterable(){\n");
-					sb.append("        DmcAttribute attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
+					sb.append("        DmcAttribute<?> attr = " + dmocast + ".get(" + ad.getDMSAGReference() + ");\n");
 					sb.append("        if (attr == null)\n");
 					sb.append("            return(" + itClass+ ".emptyList);\n");
 					sb.append("        \n");

@@ -65,8 +65,7 @@ public class MenuController extends MenuControllerMVC {
 	// Key: menu name
 	TreeMap<String,BackgroundMenuInstance>	backgroundMenus;
 	
-	@SuppressWarnings("unchecked")
-	AbstractStoreSelectionModel				lastSelectionModel;
+	AbstractStoreSelectionModel<?>				lastSelectionModel;
 	
 	public MenuController(){
 		actions 		= new TreeMap<String, Action>();
@@ -227,16 +226,14 @@ System.out.println("MenuController.addMenuItem() " + mii.toString());
 		return((Menu)bmi.getMenu());
 	}
 	
-	@SuppressWarnings("unchecked")
-	public void setLastSelectionModel(AbstractStoreSelectionModel m){
+	public void setLastSelectionModel(AbstractStoreSelectionModel<?> m){
 		lastSelectionModel = m;
 		for(Action action : actions.values()){
 			action.enableCheck();
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
-	public AbstractStoreSelectionModel getLastSelectionModel(){
+	public AbstractStoreSelectionModel<?> getLastSelectionModel(){
 		return(lastSelectionModel);
 	}
 }

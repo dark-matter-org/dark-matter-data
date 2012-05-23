@@ -28,7 +28,7 @@ import org.dmd.dms.generated.types.DmcTypeStringSTATIC;         // Standard type
  * The MenuElementTypeAndComment class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:88)
+ * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:87)
  */
 public class MenuElementTypeAndComment implements Serializable {
 
@@ -54,6 +54,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * All fields constructor.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:114)
      */
     public MenuElementTypeAndComment(String f1, String f2) throws DmcValueException {
         type = DmcTypeStringSTATIC.instance.typeCheck(f1);
@@ -62,6 +63,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * String based constructor.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:147)
      */
     public MenuElementTypeAndComment(String input) throws DmcValueException {
         IntegerVar seppos = new IntegerVar(-1);
@@ -71,6 +73,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * Serialization.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:172)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
         DmcTypeStringSTATIC.instance.serializeValue(dos, type);
@@ -79,6 +82,7 @@ public class MenuElementTypeAndComment implements Serializable {
 
     /**
      * Deserialization.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:189)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
         type = DmcTypeStringSTATIC.instance.deserializeValue(dis);

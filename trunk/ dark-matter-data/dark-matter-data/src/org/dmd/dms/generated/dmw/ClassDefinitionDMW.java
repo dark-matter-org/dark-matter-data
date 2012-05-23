@@ -174,10 +174,9 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * objects.
      * @return An Iterator of AttributeDefinition objects.
      */
-    @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1705)
     public AttributeDefinitionIterableDMW getMust(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__must);
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__must);
         if (attr == null)
             return(AttributeDefinitionIterableDMW.emptyList);
 
@@ -188,20 +187,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another must value.
      * @param value A value compatible with AttributeDefinition
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1752)
-    public DmcAttribute addMust(AttributeDefinition value) throws DmcValueException {
-        DmcAttribute attr = mycore.addMust(value.getDmcObject());
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1753)
+    public DmcAttribute<?> addMust(AttributeDefinition value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addMust(value.getDmcObject());
         return(attr);
     }
 
     /**
      * Returns the number of must values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1775)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1776)
     public int getMustSize(){
-        DmcAttribute attr = mycore.get(MetaDMSAG.__must);
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__must);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -213,10 +210,9 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * objects.
      * @return An Iterator of AttributeDefinition objects.
      */
-    @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1705)
     public AttributeDefinitionIterableDMW getMay(){
-        DmcAttribute attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__may);
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__may);
         if (attr == null)
             return(AttributeDefinitionIterableDMW.emptyList);
 
@@ -227,20 +223,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another may value.
      * @param value A value compatible with AttributeDefinition
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1752)
-    public DmcAttribute addMay(AttributeDefinition value) throws DmcValueException {
-        DmcAttribute attr = mycore.addMay(value.getDmcObject());
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1753)
+    public DmcAttribute<?> addMay(AttributeDefinition value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addMay(value.getDmcObject());
         return(attr);
     }
 
     /**
      * Returns the number of may values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1775)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1776)
     public int getMaySize(){
-        DmcAttribute attr = mycore.get(MetaDMSAG.__may);
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__may);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -297,10 +291,9 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * have intendedToExtend ClassDefinition.
      * @return An Iterator of ClassDefinition objects.
      */
-    @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1705)
     public ClassDefinitionIterableDMW getIntendedToExtend(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) mycore.get(MetaDMSAG.__intendedToExtend);
+        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) mycore.get(MetaDMSAG.__intendedToExtend);
         if (attr == null)
             return(ClassDefinitionIterableDMW.emptyList);
 
@@ -311,20 +304,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another intendedToExtend value.
      * @param value A value compatible with ClassDefinition
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1752)
-    public DmcAttribute addIntendedToExtend(ClassDefinition value) throws DmcValueException {
-        DmcAttribute attr = mycore.addIntendedToExtend(value.getDmcObject());
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1753)
+    public DmcAttribute<?> addIntendedToExtend(ClassDefinition value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addIntendedToExtend(value.getDmcObject());
         return(attr);
     }
 
     /**
      * Returns the number of intendedToExtend values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1775)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1776)
     public int getIntendedToExtendSize(){
-        DmcAttribute attr = mycore.get(MetaDMSAG.__intendedToExtend);
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__intendedToExtend);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -373,7 +364,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * generation context.
      * @return An Iterator of DmwTypeToWrapperType objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1717)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1718)
     public Iterator<DmwTypeToWrapperType> getDmwWrapperType(){
         DmcTypeDmwTypeToWrapperTypeMV attr = (DmcTypeDmwTypeToWrapperTypeMV) mycore.get(MetaDMSAG.__dmwWrapperType);
         if (attr == null)
@@ -386,19 +377,17 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another dmwWrapperType value.
      * @param value A value compatible with DmcTypeDmwTypeToWrapperTypeMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1764)
-    public DmcAttribute addDmwWrapperType(Object value) throws DmcValueException {
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1765)
+    public DmcAttribute<?> addDmwWrapperType(Object value) throws DmcValueException {
         return(mycore.addDmwWrapperType(value));
     }
 
     /**
      * Returns the number of dmwWrapperType values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1775)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1776)
     public int getDmwWrapperTypeSize(){
-        DmcAttribute attr = mycore.get(MetaDMSAG.__dmwWrapperType);
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__dmwWrapperType);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -409,10 +398,9 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * when objects are created in an instance hierarchy.
      * @return An Iterator of ClassDefinition objects.
      */
-    @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1705)
     public ClassDefinitionIterableDMW getAllowedParents(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) mycore.get(MetaDMSAG.__allowedParents);
+        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) mycore.get(MetaDMSAG.__allowedParents);
         if (attr == null)
             return(ClassDefinitionIterableDMW.emptyList);
 
@@ -423,20 +411,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another allowedParents value.
      * @param value A value compatible with ClassDefinition
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1752)
-    public DmcAttribute addAllowedParents(ClassDefinition value) throws DmcValueException {
-        DmcAttribute attr = mycore.addAllowedParents(value.getDmcObject());
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1753)
+    public DmcAttribute<?> addAllowedParents(ClassDefinition value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addAllowedParents(value.getDmcObject());
         return(attr);
     }
 
     /**
      * Returns the number of allowedParents values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1775)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1776)
     public int getAllowedParentsSize(){
-        DmcAttribute attr = mycore.get(MetaDMSAG.__allowedParents);
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__allowedParents);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -507,7 +493,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * objects in a GXT context.
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1717)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1718)
     public Iterator<String> getExcludeFromContext(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__excludeFromContext);
         if (attr == null)
@@ -520,19 +506,17 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another excludeFromContext value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1764)
-    public DmcAttribute addExcludeFromContext(Object value) throws DmcValueException {
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1765)
+    public DmcAttribute<?> addExcludeFromContext(Object value) throws DmcValueException {
         return(mycore.addExcludeFromContext(value));
     }
 
     /**
      * Returns the number of excludeFromContext values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1775)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1776)
     public int getExcludeFromContextSize(){
-        DmcAttribute attr = mycore.get(MetaDMSAG.__excludeFromContext);
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__excludeFromContext);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -603,10 +587,9 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Indicates the classes that are known to be derived from this class.
      * @return An Iterator of ClassDefinition objects.
      */
-    @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1705)
     public ClassDefinitionIterableDMW getDerivedClasses(){
-        DmcAttribute attr = (DmcTypeClassDefinitionREFMV) mycore.get(MetaDMSAG.__derivedClasses);
+        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) mycore.get(MetaDMSAG.__derivedClasses);
         if (attr == null)
             return(ClassDefinitionIterableDMW.emptyList);
 
@@ -617,20 +600,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another derivedClasses value.
      * @param value A value compatible with ClassDefinition
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1752)
-    public DmcAttribute addDerivedClasses(ClassDefinition value) throws DmcValueException {
-        DmcAttribute attr = mycore.addDerivedClasses(value.getDmcObject());
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1753)
+    public DmcAttribute<?> addDerivedClasses(ClassDefinition value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addDerivedClasses(value.getDmcObject());
         return(attr);
     }
 
     /**
      * Returns the number of derivedClasses values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1775)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1776)
     public int getDerivedClassesSize(){
-        DmcAttribute attr = mycore.get(MetaDMSAG.__derivedClasses);
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__derivedClasses);
         if (attr == null)
             return(0);
         return(attr.getMVSize());
@@ -640,10 +621,9 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Indicates the set of actions that are supported by a class of objects.
      * @return An Iterator of ActionDefinition objects.
      */
-    @SuppressWarnings("unchecked")
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1705)
     public ActionDefinitionIterableDMW getActions(){
-        DmcAttribute attr = (DmcTypeActionDefinitionREFMV) mycore.get(MetaDMSAG.__actions);
+        DmcTypeActionDefinitionREFMV attr = (DmcTypeActionDefinitionREFMV) mycore.get(MetaDMSAG.__actions);
         if (attr == null)
             return(ActionDefinitionIterableDMW.emptyList);
 
@@ -654,20 +634,18 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another actions value.
      * @param value A value compatible with ActionDefinition
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1752)
-    public DmcAttribute addActions(ActionDefinition value) throws DmcValueException {
-        DmcAttribute attr = mycore.addActions(value.getDmcObject());
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1753)
+    public DmcAttribute<?> addActions(ActionDefinition value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addActions(value.getDmcObject());
         return(attr);
     }
 
     /**
      * Returns the number of actions values.
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1775)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1776)
     public int getActionsSize(){
-        DmcAttribute attr = mycore.get(MetaDMSAG.__actions);
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__actions);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

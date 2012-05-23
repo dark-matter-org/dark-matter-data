@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.Iterator;
 
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
-import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.SchemaDefinition;

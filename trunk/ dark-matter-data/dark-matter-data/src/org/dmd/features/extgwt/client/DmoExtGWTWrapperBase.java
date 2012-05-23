@@ -21,6 +21,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcContainerIF;
+import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.DmcTypeModifier;
+import org.dmd.dmc.types.Modifier;
+import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
+import org.dmd.dms.generated.types.DmcTypeModifierMV;
+
 import com.extjs.gxt.ui.client.core.FastMap;
 import com.extjs.gxt.ui.client.core.FastSet;
 import com.extjs.gxt.ui.client.data.ChangeEvent;
@@ -31,20 +42,6 @@ import com.extjs.gxt.ui.client.data.Model;
 import com.extjs.gxt.ui.client.data.ModelData;
 import com.extjs.gxt.ui.client.data.PropertyChangeEvent;
 import com.extjs.gxt.ui.client.util.Util;
-
-import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcAttributeChangeListenerIF;
-import org.dmd.dmc.DmcContainerIF;
-import org.dmd.dmc.DmcListenerManagerIF;
-import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.types.DmcTypeModifier;
-import org.dmd.dmc.types.Modifier;
-import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;
-import org.dmd.dms.generated.dmo.MetaDMSAG;
-import org.dmd.dms.generated.types.DmcTypeModifierMV;
 
 /**
  * The DmoExtGWTWrapperBase provides a common base class for auto generated Dark Matter
@@ -97,7 +94,7 @@ public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Model, Model
 	@SuppressWarnings("unchecked")
 	@Override
 	public <X> X get(String property) {
-		DmcAttribute attr = core.get(property);
+		DmcAttribute<?> attr = core.get(property);
 		if (attr == null)
 			return(null);
 		return (X) (attr.getSV());
@@ -218,12 +215,11 @@ public class DmoExtGWTWrapperBase<DMO extends DmcObject> implements Model, Model
 	////////////////////////////////////////////////////////////////////////////////
 	// ModelData implementation
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public Map<String, Object> getProperties() {
 	    Map<String, Object> newMap = new FastMap<Object>();
 	    if (core.getAttributes() != null) {
-	    	for(DmcAttribute attr: core.getAttributes().values()){
+	    	for(DmcAttribute<?> attr: core.getAttributes().values()){
 	    		newMap.put(attr.getName(), attr);
 	    	}
 //	      newMap.putAll(core.getAttributes());

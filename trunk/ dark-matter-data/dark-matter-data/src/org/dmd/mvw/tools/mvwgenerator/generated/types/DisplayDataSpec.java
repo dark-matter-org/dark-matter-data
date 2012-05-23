@@ -37,7 +37,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeSelectionTypeEnumST
  * The DisplayDataSpec class.
  * This code was auto-generated and shouldn't be alterred manually.
  * 
- * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:88)
+ * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:87)
  */
 public class DisplayDataSpec implements Serializable {
 
@@ -67,6 +67,7 @@ public class DisplayDataSpec implements Serializable {
 
     /**
      * All fields constructor.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:114)
      */
     public DisplayDataSpec(ClassDefinition f1, SelectionTypeEnum f2, String f3) throws DmcValueException {
         dataClass = DmcTypeClassDefinitionREFSTATIC.instance.typeCheck(f1);
@@ -76,6 +77,7 @@ public class DisplayDataSpec implements Serializable {
 
     /**
      * String based constructor.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:147)
      */
     public DisplayDataSpec(String input) throws DmcValueException {
         IntegerVar seppos = new IntegerVar(-1);
@@ -86,6 +88,7 @@ public class DisplayDataSpec implements Serializable {
 
     /**
      * Serialization.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:172)
      */
     public void serializeIt(DmcOutputStreamIF dos) throws Exception {
         DmcTypeClassDefinitionREFSTATIC.instance.serializeValue(dos, dataClass);
@@ -95,6 +98,7 @@ public class DisplayDataSpec implements Serializable {
 
     /**
      * Deserialization.
+     * Generated from: org.dmd.dms.util.ComplexTypeFormatter.dumpComplexType(ComplexTypeFormatter.java:189)
      */
     public void deserializeIt(DmcInputStreamIF dis) throws Exception {
         dataClass = DmcTypeClassDefinitionREFSTATIC.instance.deserializeValue(dis);
@@ -121,7 +125,7 @@ public class DisplayDataSpec implements Serializable {
         return(varName);
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public void resolve(DmcNameResolverIF resolver, String attrName) throws DmcValueException {
         DmcNamedObjectIF  obj = null;
 
