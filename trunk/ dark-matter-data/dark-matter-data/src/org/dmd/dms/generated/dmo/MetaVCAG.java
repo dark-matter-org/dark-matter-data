@@ -3,7 +3,6 @@ package org.dmd.dms.generated.dmo;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
-import org.dmd.dms.generated.types.*;
 
 
 // Generated from: org.dmd.dms.util.DmoValidatorCollectionFormatter.dumpHeader(DmoValidatorCollectionFormatter.java:266)

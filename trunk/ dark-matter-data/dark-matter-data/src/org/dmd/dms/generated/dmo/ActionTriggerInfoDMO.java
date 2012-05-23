@@ -23,7 +23,6 @@ import org.dmd.dmc.types.*;
 import org.dmd.dmc.*;
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dms.generated.types.*;
-import org.dmd.dms.generated.enums.*;
 
 /**
  * The ActionTriggerInfo class simply provides a common base for the bundle
@@ -35,7 +34,7 @@ import org.dmd.dms.generated.enums.*;
  * object for the  ActionTriggerInfo (ATI) for a particular action and have a
  * well defined interface to specify the parameters for the action.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1207)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1208)
  */
 @SuppressWarnings("serial")
 public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
@@ -108,7 +107,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1547)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1549)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -121,7 +120,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1600)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)

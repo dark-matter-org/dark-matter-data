@@ -258,7 +258,7 @@ public class DmoValidatorCollectionFormatter {
         out.write("import java.util.HashMap;\n");
         out.write("import java.util.Iterator;\n");
         out.write("import org.dmd.dmc.*;\n");
-        out.write("import org.dmd.dms.generated.types.*;\n");
+//        out.write("import org.dmd.dms.generated.types.*;\n");
         out.write("\n");
         
         out.write("\n");
