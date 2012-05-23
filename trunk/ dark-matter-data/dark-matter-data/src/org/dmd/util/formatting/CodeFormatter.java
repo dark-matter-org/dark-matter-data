@@ -105,4 +105,34 @@ public class CodeFormatter {
 		int lastDot = fullyQualified.lastIndexOf(".");
 		return(fullyQualified.substring(lastDot+1));
 	}
+	
+	/**
+	 * Splits a fully qualified class name at dot boundaries up to the maxLength.
+	 * @param fullyQualified
+	 * @param maxLength
+	 * @return the folded string with line breaks near the max length
+	 */
+	static public String foldFullyQualified(String fullyQualified, int maxLength){
+		if (fullyQualified.length() < maxLength)
+			return(fullyQualified);
+		
+		StringBuffer sb = new StringBuffer();
+		StringBuffer part = new StringBuffer();
+		String[] parts = fullyQualified.split("\\.");
+		
+		for(int i=0; i<parts.length; i++){
+			if ( (part.length() + parts[i].length() + 1) > maxLength){
+				sb.append(part + "\n");
+				part = new StringBuffer();
+			}
+			
+			if (i > 0)
+				part.append(".");
+			part.append(parts[i]);
+		}
+		
+		sb.append(part + "\n");
+		
+		return(sb.toString());
+	}
 }
