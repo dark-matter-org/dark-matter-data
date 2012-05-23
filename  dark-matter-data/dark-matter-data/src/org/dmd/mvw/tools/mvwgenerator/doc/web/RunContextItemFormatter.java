@@ -10,6 +10,7 @@ import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;
+import org.dmd.util.formatting.CodeFormatter;
 
 public class RunContextItemFormatter {
 
@@ -26,7 +27,7 @@ public class RunContextItemFormatter {
 		
 		out.write("            <td colspan=\"2\" class=\"description\">");
 		
-		out.write("            <div class=\"argvector\">" + rci.getUseClass() + " </div> <p/> \n");
+		out.write("            <div class=\"argvector\">" + CodeFormatter.foldFullyQualified(rci.getUseClass(), 90) + " </div> <p/> \n");
 		
 		out.write("            " + rci.getDescription() + "\n");
 		out.write("            </td>\n");
