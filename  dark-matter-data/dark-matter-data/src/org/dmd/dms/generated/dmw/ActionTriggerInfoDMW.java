@@ -72,7 +72,7 @@ public abstract class ActionTriggerInfoDMW extends DmwWrapper {
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1573)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1575)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -81,7 +81,7 @@ public abstract class ActionTriggerInfoDMW extends DmwWrapper {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1625)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1627)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }

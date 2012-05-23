@@ -1195,7 +1195,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
                     out.write("import org.dmd.dms.generated.types.*;\n");
                     
-                    out.write("import org.dmd.dms.generated.enums.*;\n");
+                    if (hasAnyEnumAttributes(go))
+                    	out.write("import org.dmd.dms.generated.enums.*;\n");
 
                     out.write("\n");
 
@@ -1466,6 +1467,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	 * @param t   type name
 	 * @param mv  valueType
 	 * @param opt optional
+	 * @throws ResultException 
 	 * @throws IOException
 	 */
 //    void writeAttributeInfo(BufferedWriter out, String n, String ID, String t, String mv, String opt) throws IOException {
@@ -1933,7 +1935,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
                 out.write("import java.io.Serializable;\n");
                 out.write("import org.dmd.dmc.DmcAttribute;\n");
-                out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
+//                out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
                 out.write("import org.dmd.dmc.DmcValueException;\n");
                 out.write("import org.dmd.dmc.DmcObjectName;\n");
                 out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
@@ -1941,8 +1943,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 out.write("import org.dmd.dmc.DmcNamedObjectNontransportableREF;\n");
                 out.write("import org.dmd.dmc.types.DmcTypeStringName;\n");
                 out.write("import org.dmd.dms.generated.dmo.*;\n");
-                out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
-                out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
+//                out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
+//                out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
             	if (cn.equals("ClassDefinition")){
                     out.write("import org.dmd.dmc.DmcOmni;\n");
                     out.write("import org.dmd.dmc.DmcClassInfo;\n");
@@ -2482,5 +2484,49 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
     	
     	
     }
+    
+    /**
+     * Determines if the class definition has any enum attributes.
+     * @param classdef the class def to be checked
+     * @return true is there are any enums and false otherwise.
+     * @throws ResultException
+     */
+    boolean hasAnyEnumAttributes(DmcUncheckedObject classdef) throws ResultException {
+    	boolean rc = false;
+        NamedStringArray 	must 	= classdef.get("must");
+        NamedStringArray	may		= classdef.get("may");
+        ArrayList<String>	atlist 	= new ArrayList<String>();
+        
+        if (must != null){
+        	for(String attrName: must)
+        		atlist.add(attrName);
+        }
+        
+        if (may != null){
+        	for(String attrName: may)
+        		atlist.add(attrName);
+        }
+        
+        // Write the attribute access functions
+        for(String attrname: atlist){
+        	DmcUncheckedObject attrdef = attributeDefs.get(attrname);
+        	if (isEnumAttribute(attrdef)){
+        		rc = true;
+        		break;
+        	}
+        }
+        
+        return(rc);
+    }
 
+    /**
+     * @return true if the object is an enum attribute and false otherwise.
+     */
+    boolean isEnumAttribute(DmcUncheckedObject uco) throws ResultException{
+    	String typeName = uco.getSV("type");
+    	if (enumDefs.get(typeName) == null)
+    		return(false);
+    	return(true);
+    }
+    
 }
