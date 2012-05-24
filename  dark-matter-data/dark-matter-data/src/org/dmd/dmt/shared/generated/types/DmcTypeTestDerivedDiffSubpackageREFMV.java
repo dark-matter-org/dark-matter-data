@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestDerivedDiffSubpackageREFMV provides storage for a multi-valued TestDerivedDiffSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2176)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
@@ -32,7 +32,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMV extends DmcTypeTestDerivedDif
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2216)
     public DmcAttribute<TestDerivedDiffSubpackageREF> cloneIt(){
         synchronized(this){
             DmcTypeTestDerivedDiffSubpackageREFMV rc = getNew();
@@ -57,7 +57,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMV extends DmcTypeTestDerivedDif
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
     public TestDerivedDiffSubpackageREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestDerivedDiffSubpackageREF rc = typeCheck(v);
@@ -69,7 +69,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMV extends DmcTypeTestDerivedDif
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2248)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public TestDerivedDiffSubpackageREF del(Object v){
         synchronized(this){
             TestDerivedDiffSubpackageREF key = null;
@@ -90,7 +90,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMV extends DmcTypeTestDerivedDif
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2279)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
     public Iterator<TestDerivedDiffSubpackageREF> getMV(){
         synchronized(this){
             ArrayList<TestDerivedDiffSubpackageREF> clone = new ArrayList<TestDerivedDiffSubpackageREF>(value);
@@ -98,7 +98,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMV extends DmcTypeTestDerivedDif
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
     public ArrayList<TestDerivedDiffSubpackageREF> getMVCopy(){
         synchronized(this){
             ArrayList<TestDerivedDiffSubpackageREF> clone = new ArrayList<TestDerivedDiffSubpackageREF>(value);
@@ -107,7 +107,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMV extends DmcTypeTestDerivedDif
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2308)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -121,7 +121,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMV extends DmcTypeTestDerivedDif
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
     public TestDerivedDiffSubpackageREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -131,7 +131,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMV extends DmcTypeTestDerivedDif
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2324)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2334)
     public TestDerivedDiffSubpackageREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -158,7 +158,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMV extends DmcTypeTestDerivedDif
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2352)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2362)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -181,7 +181,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMV extends DmcTypeTestDerivedDif
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2386)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

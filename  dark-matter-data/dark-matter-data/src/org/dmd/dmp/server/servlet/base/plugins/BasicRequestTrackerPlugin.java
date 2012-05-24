@@ -257,15 +257,15 @@ public class BasicRequestTrackerPlugin extends DmpServletPlugin implements Reque
         return trackRequest(req, firstResponseHandler, asyncResponseHandler, timeoutSeconds, requestProcessor);
     }
 
-    private int trackRequest(Request req, DmpResponseHandlerIF responseHandler, DmpRequestProcessorIF requestProcessor)
-    {
-        return trackRequest(req, responseHandler, 2, requestProcessor);
-    }
+//    private int trackRequest(Request req, DmpResponseHandlerIF responseHandler, DmpRequestProcessorIF requestProcessor)
+//    {
+//        return trackRequest(req, responseHandler, 2, requestProcessor);
+//    }
 
-    private int trackRequest(Request req, DmpResponseHandlerIF responseHandler, int timeoutSeconds, DmpRequestProcessorIF requestProcessor)
-    {
-        return trackRequest(req, responseHandler, responseHandler, timeoutSeconds, requestProcessor);
-    }
+//    private int trackRequest(Request req, DmpResponseHandlerIF responseHandler, int timeoutSeconds, DmpRequestProcessorIF requestProcessor)
+//    {
+//        return trackRequest(req, responseHandler, responseHandler, timeoutSeconds, requestProcessor);
+//    }
 
     private int trackRequest(Request req, DmpResponseHandlerIF firstResponseHandler, DmpResponseHandlerIF asyncResponseHandler, int timeoutSeconds, DmpRequestProcessorIF requestProcessor)
     {

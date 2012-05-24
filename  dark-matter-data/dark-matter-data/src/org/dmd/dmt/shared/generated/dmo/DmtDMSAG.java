@@ -5,11 +5,11 @@ import java.util.Iterator;
 import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:565)
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;         // Required attribute from DmpDMSAG - DmoCompactSchemaFormatter.java:546
-import org.dmd.dms.generated.dmo.MetaDMSAG;               // Required attribute from MetaDMSAG - DmoCompactSchemaFormatter.java:546
-import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions - DmoCompactSchemaFormatter.java:538
-import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions - DmoCompactSchemaFormatter.java:539
-import org.dmd.dms.generated.enums.ValueTypeEnum;         // Have attribute definitions - DmoCompactSchemaFormatter.java:560
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;         // Required attribute from DmpDMSAG - (DmoCompactSchemaFormatter.java:546)
+import org.dmd.dms.generated.dmo.MetaDMSAG;               // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:546)
+import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions - (DmoCompactSchemaFormatter.java:538)
+import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:539)
+import org.dmd.dms.generated.enums.ValueTypeEnum;         // Have attribute definitions - (DmoCompactSchemaFormatter.java:560)
 
 import org.dmd.dmt.shared.generated.types.*;
 
@@ -32,18 +32,20 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __OUIFilter = new DmcAttributeInfo("OUIFilter", 10407, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __anObjName = new DmcAttributeInfo("anObjName", 10400, "NameContainer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __anotherDmtName = new DmcAttributeInfo("anotherDmtName", 10402, "DmtStringName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __anotherSVString = new DmcAttributeInfo("anotherSVString", 10143, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __anotherSVString = new DmcAttributeInfo("anotherSVString", 10148, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __attrIDs = new DmcAttributeInfo("attrIDs", 10406, "AttributeID", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __clientCountFilter = new DmcAttributeInfo("clientCountFilter", 10408, "ClientCountFilter", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __clientCountFilters = new DmcAttributeInfo("clientCountFilters", 10426, "ClientCountFilter", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 8);
     public final static DmcAttributeInfo __dmtStringName = new DmcAttributeInfo("dmtStringName", 10401, "DmtStringName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __enabledDisabled = new DmcAttributeInfo("enabledDisabled", 10420, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __hmString = new DmcAttributeInfo("hmString", 10144, "StringToString", ValueTypeEnum.HASHMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsDate = new DmcAttributeInfo("hsDate", 10012, "Date", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsDouble = new DmcAttributeInfo("hsDouble", 10042, "Double", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsFloat = new DmcAttributeInfo("hsFloat", 10052, "Float", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsInteger = new DmcAttributeInfo("hsInteger", 10062, "Integer", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsLong = new DmcAttributeInfo("hsLong", 10112, "Long", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsNames = new DmcAttributeInfo("hsNames", 10411, "NameContainer", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __hsString = new DmcAttributeInfo("hsString", 10142, "String", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __hsString = new DmcAttributeInfo("hsString", 10146, "String", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsStringName = new DmcAttributeInfo("hsStringName", 10425, "StringName", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __hsTestEnum = new DmcAttributeInfo("hsTestEnum", 10410, "DmtTestEnum", ValueTypeEnum.HASHSET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __indexedObjRef = new DmcAttributeInfo("indexedObjRef", 10415, "ObjWithRefs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 10);
@@ -56,9 +58,10 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __mvDmcObject = new DmcAttributeInfo("mvDmcObject", 10021, "DmcObject", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvDouble = new DmcAttributeInfo("mvDouble", 10041, "Double", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvFloat = new DmcAttributeInfo("mvFloat", 10051, "Float", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __mvIdxString = new DmcAttributeInfo("mvIdxString", 10143, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvInteger = new DmcAttributeInfo("mvInteger", 10061, "Integer", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvLong = new DmcAttributeInfo("mvLong", 10111, "Long", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __mvString = new DmcAttributeInfo("mvString", 10141, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __mvString = new DmcAttributeInfo("mvString", 10142, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvTestBasicNamedObjectFixed = new DmcAttributeInfo("mvTestBasicNamedObjectFixed", 10301, "TestBasicNamedObjectFixed", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mvTestEnum = new DmcAttributeInfo("mvTestEnum", 10409, "DmtTestEnum", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __nonperString = new DmcAttributeInfo("nonperString", 10413, "String", ValueTypeEnum.HASHSET, DataTypeEnum.NONPERSISTENT);
@@ -67,6 +70,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __objRefMV = new DmcAttributeInfo("objRefMV", 10404, "ObjWithRefs", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __onOff = new DmcAttributeInfo("onOff", 10419, "Boolean", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __plainObjRef = new DmcAttributeInfo("plainObjRef", 10417, "TestBasicObjectFixed", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __someRelationIndexed = new DmcAttributeInfo("someRelationIndexed", 10427, "SomeRelation", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 8);
     public final static DmcAttributeInfo __someRelationMV = new DmcAttributeInfo("someRelationMV", 10422, "SomeRelation", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __someRelationMVI = new DmcAttributeInfo("someRelationMVI", 10423, "SomeRelation", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT, 8);
     public final static DmcAttributeInfo __someRelationSV = new DmcAttributeInfo("someRelationSV", 10421, "SomeRelation", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -77,22 +81,30 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __svFloat = new DmcAttributeInfo("svFloat", 10050, "Float", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svInteger = new DmcAttributeInfo("svInteger", 10060, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svLong = new DmcAttributeInfo("svLong", 10110, "Long", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString", 10140, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __svString = new DmcAttributeInfo("svString", 10141, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svTestBasicNamedObjectFixed = new DmcAttributeInfo("svTestBasicNamedObjectFixed", 10300, "TestBasicNamedObjectFixed", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __svTestEnum = new DmcAttributeInfo("svTestEnum", 10418, "DmtTestEnum", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __tmString = new DmcAttributeInfo("tmString", 10145, "StringToString", ValueTypeEnum.TREEMAPPED, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __transString = new DmcAttributeInfo("transString", 10412, "String", ValueTypeEnum.HASHSET, DataTypeEnum.TRANSIENT);
     public final static DmcAttributeInfo __tsDate = new DmcAttributeInfo("tsDate", 10013, "Date", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsDouble = new DmcAttributeInfo("tsDouble", 10043, "Double", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsFloat = new DmcAttributeInfo("tsFloat", 10053, "Float", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsInteger = new DmcAttributeInfo("tsInteger", 10063, "Integer", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsLong = new DmcAttributeInfo("tsLong", 10113, "Long", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __tsString = new DmcAttributeInfo("tsString", 10153, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __tsString = new DmcAttributeInfo("tsString", 10147, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcClassInfo __BaseObj = new DmcClassInfo("BaseObj", 10015, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
     public final static DmcClassInfo __ObjWithRefs = new DmcClassInfo("ObjWithRefs", 10016, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__BaseObj,MetaDMSAG.__name);
     public final static DmcClassInfo __ClientCountFilter = new DmcClassInfo("ClientCountFilter", 10017, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __ClientCountFilterRequest = new DmcClassInfo("ClientCountFilterRequest", 10018, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,DmpDMSAG.__Request,null);
     public final static DmcClassInfo __IntegerNamedObject = new DmcClassInfo("IntegerNamedObject", 10013, ClassTypeEnum.STRUCTURAL, DataTypeEnum.NONPERSISTENT,null,MetaDMSAG.__integerName);
     public final static DmcClassInfo __NameContainerTest = new DmcClassInfo("NameContainerTest", 10014, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveHM = new DmcClassInfo("PrimitiveHM", 10104, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveHS = new DmcClassInfo("PrimitiveHS", 10106, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveMV = new DmcClassInfo("PrimitiveMV", 10102, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveMVIDX = new DmcClassInfo("PrimitiveMVIDX", 10103, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveSV = new DmcClassInfo("PrimitiveSV", 10101, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveTM = new DmcClassInfo("PrimitiveTM", 10105, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __PrimitiveTS = new DmcClassInfo("PrimitiveTS", 10107, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __TestAbstractExtended = new DmcClassInfo("TestAbstractExtended", 10002, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __TestAbstractFixed = new DmcClassInfo("TestAbstractFixed", 10001, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __TestBasicAuxiliary = new DmcClassInfo("TestBasicAuxiliary", 10006, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null,null);
@@ -105,6 +117,8 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __TestDerivedDiffSubpackage = new DmcClassInfo("TestDerivedDiffSubpackage", 10011, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__TestOneLevelSubpackage,MetaDMSAG.__name);
     public final static DmcClassInfo __TestOneLevelSubpackageExtended = new DmcClassInfo("TestOneLevelSubpackageExtended", 10008, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
     public final static DmcClassInfo __UUIDNamedObject = new DmcClassInfo("UUIDNamedObject", 10012, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__uuidName);
+    public final static DmcClassInfo __UsingIndexedAttributes = new DmcClassInfo("UsingIndexedAttributes", 10019, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __UsingObjRefHM = new DmcClassInfo("UsingObjRefHM", 10020, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
 
     public final static DmcSliceInfo __slice1 = new DmcSliceInfo("slice1");
     // svBoolean
@@ -143,8 +157,10 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__anotherSVString.id,__anotherSVString);
         _SmAp.put(__attrIDs.id,__attrIDs);
         _SmAp.put(__clientCountFilter.id,__clientCountFilter);
+        _SmAp.put(__clientCountFilters.id,__clientCountFilters);
         _SmAp.put(__dmtStringName.id,__dmtStringName);
         _SmAp.put(__enabledDisabled.id,__enabledDisabled);
+        _SmAp.put(__hmString.id,__hmString);
         _SmAp.put(__hsDate.id,__hsDate);
         _SmAp.put(__hsDouble.id,__hsDouble);
         _SmAp.put(__hsFloat.id,__hsFloat);
@@ -164,6 +180,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__mvDmcObject.id,__mvDmcObject);
         _SmAp.put(__mvDouble.id,__mvDouble);
         _SmAp.put(__mvFloat.id,__mvFloat);
+        _SmAp.put(__mvIdxString.id,__mvIdxString);
         _SmAp.put(__mvInteger.id,__mvInteger);
         _SmAp.put(__mvLong.id,__mvLong);
         _SmAp.put(__mvString.id,__mvString);
@@ -175,6 +192,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__objRefMV.id,__objRefMV);
         _SmAp.put(__onOff.id,__onOff);
         _SmAp.put(__plainObjRef.id,__plainObjRef);
+        _SmAp.put(__someRelationIndexed.id,__someRelationIndexed);
         _SmAp.put(__someRelationMV.id,__someRelationMV);
         _SmAp.put(__someRelationMVI.id,__someRelationMVI);
         _SmAp.put(__someRelationSV.id,__someRelationSV);
@@ -188,6 +206,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__svString.id,__svString);
         _SmAp.put(__svTestBasicNamedObjectFixed.id,__svTestBasicNamedObjectFixed);
         _SmAp.put(__svTestEnum.id,__svTestEnum);
+        _SmAp.put(__tmString.id,__tmString);
         _SmAp.put(__transString.id,__transString);
         _SmAp.put(__tsDate.id,__tsDate);
         _SmAp.put(__tsDouble.id,__tsDouble);
@@ -201,6 +220,13 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__IntegerNamedObject.id,__IntegerNamedObject);
         _CmAp.put(__NameContainerTest.id,__NameContainerTest);
         _CmAp.put(__ObjWithRefs.id,__ObjWithRefs);
+        _CmAp.put(__PrimitiveHM.id,__PrimitiveHM);
+        _CmAp.put(__PrimitiveHS.id,__PrimitiveHS);
+        _CmAp.put(__PrimitiveMV.id,__PrimitiveMV);
+        _CmAp.put(__PrimitiveMVIDX.id,__PrimitiveMVIDX);
+        _CmAp.put(__PrimitiveSV.id,__PrimitiveSV);
+        _CmAp.put(__PrimitiveTM.id,__PrimitiveTM);
+        _CmAp.put(__PrimitiveTS.id,__PrimitiveTS);
         _CmAp.put(__TestAbstractExtended.id,__TestAbstractExtended);
         _CmAp.put(__TestAbstractFixed.id,__TestAbstractFixed);
         _CmAp.put(__TestBasicAuxiliary.id,__TestBasicAuxiliary);
@@ -213,14 +239,16 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__TestOneLevelSubpackage.id,__TestOneLevelSubpackage);
         _CmAp.put(__TestOneLevelSubpackageExtended.id,__TestOneLevelSubpackageExtended);
         _CmAp.put(__UUIDNamedObject.id,__UUIDNamedObject);
+        _CmAp.put(__UsingIndexedAttributes.id,__UsingIndexedAttributes);
+        _CmAp.put(__UsingObjRefHM.id,__UsingObjRefHM);
         _NmAp.put(DmcTypeDmtStringNameSTATIC.instance.getNameClass(),DmcTypeDmtStringNameSTATIC.instance);
 
         __slice1.addAttributeID(10000);
         __slice1.addAttributeID(10051);
         _SImAp.put("slice1",__slice1);
 
-        __sliceOfNamed.addAttributeID(10140);
         __sliceOfNamed.addAttributeID(10141);
+        __sliceOfNamed.addAttributeID(10142);
         __sliceOfNamed.addAttributeID(10409);
         _SImAp.put("sliceOfNamed",__sliceOfNamed);
 
@@ -338,11 +366,31 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __ObjWithRefs.addMay(__someRelationMVI);
         __ObjWithRefs.addMay(__intToStringMAP);
         __ObjWithRefs.addMay(__hsStringName);
+        __ObjWithRefs.addMay(__clientCountFilters);
 
         __ClientCountFilter.addMay(__OUIFilter);
 
         __ClientCountFilterRequest.addMust(DmpDMSAG.__requestID);
         __ClientCountFilterRequest.addMay(__clientCountFilter);
+
+        __UsingIndexedAttributes.addMay(__someRelationIndexed);
+        __UsingIndexedAttributes.addMay(__indexedString);
+
+        __UsingObjRefHM.addMay(__objRefHM);
+
+        __PrimitiveSV.addMay(__svString);
+
+        __PrimitiveMV.addMay(__mvString);
+
+        __PrimitiveMVIDX.addMay(__mvIdxString);
+
+        __PrimitiveHM.addMay(__hmString);
+
+        __PrimitiveTM.addMay(__tmString);
+
+        __PrimitiveHS.addMay(__hsString);
+
+        __PrimitiveTS.addMay(__tsString);
 
 
     }

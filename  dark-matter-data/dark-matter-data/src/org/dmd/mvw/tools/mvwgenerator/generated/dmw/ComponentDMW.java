@@ -1,35 +1,32 @@
 package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
-// Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.formatImports(BaseDMWGeneratorNew.java:952)
-import java.util.ArrayList;                                                                    // To support getMVCopy()
-import java.util.Iterator;                                                                     // To support getMVCopy()
-import java.util.TreeMap;                                                                      // To support getMVCopy()
-import java.util.TreeSet;                                                                      // To support getMVCopy()
-import org.dmd.dmc.*;                                                                          // If any attributes
-import org.dmd.dmc.types.CamelCaseName;                                                        // Primitive type
-import org.dmd.dms.*;                                                                          // Always 2
-import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;                                          // For multi-valued containsSchemaDefinition
-import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;                                          // Is reference type aux
-import org.dmd.dms.generated.dmw.SchemaDefinitionIterableDMW;                                  // For multi-valued SchemaDefinition
-import org.dmd.dms.generated.types.SchemaDefinitionREF;                                        // To support getMVCopy() for REFs
-import org.dmd.mvw.tools.mvwgenerator.extended.Component;                                      // Required for getModificationRecorder()
-import org.dmd.mvw.tools.mvwgenerator.extended.Event;                                          // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                                  // Derived class
-import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;                                 // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.extended.View;                                           // Is reference type aux
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                              // Abstract class
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.EventDMO;                                  // For multi-valued containsEvent
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                                  // Attribute from mvw schema
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;                         // For multi-valued containsRunContextItem
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                                   // For multi-valued containsView
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.EventIterableDMW;                          // For multi-valued Event
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RequestTypeWithOptionsIterableDMW;         // For multi-valued RequestTypeWithOptions
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemIterableDMW;                 // For multi-valued RunContextItem
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewIterableDMW;                           // For multi-valued View
-import org.dmd.mvw.tools.mvwgenerator.generated.types.EventREF;                                // To support getMVCopy() for REFs
-import org.dmd.mvw.tools.mvwgenerator.generated.types.RunContextItemREF;                       // To support getMVCopy() for REFs
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ViewREF;                                 // To support getMVCopy() for REFs
-import org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions;                            // For multi-valued containsRequestTypeWithOptions
+// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
+// Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
+import java.util.ArrayList;                                                                    // To support getMVCopy() - (BaseDMWGeneratorNewest.java:891)
+import java.util.Iterator;                                                                     // Support MV object get() - (BaseDMWGeneratorNewest.java:2052)
+import java.util.TreeMap;                                                                      // To support getMVCopy() - (BaseDMWGeneratorNewest.java:899)
+import java.util.TreeSet;                                                                      // To support getMVCopy() - (BaseDMWGeneratorNewest.java:905)
+import org.dmd.dmc.*;                                                                          // If any attributes - (BaseDMWGeneratorNewest.java:808)
+import org.dmd.dmc.types.CamelCaseName;                                                        // Is named by - (BaseDMWGeneratorNewest.java:789)
+import org.dmd.dms.*;                                                                          // Always 2 - (BaseDMWGeneratorNewest.java:793)
+import org.dmd.dms.generated.dmo.SchemaDefinitionDMO;                                          // For multi-valued adds of SchemaDefinition - (BaseDMWGeneratorNewest.java:1430)
+import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;                                          // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
+import org.dmd.dms.generated.dmw.SchemaDefinitionIterableDMW;                                  // For multi-valued SchemaDefinition - (BaseDMWGeneratorNewest.java:1382)
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;                                      // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:801)
+import org.dmd.mvw.tools.mvwgenerator.extended.Event;                                          // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                                  // Derived class - (BaseDMWGeneratorNewest.java:943)
+import org.dmd.mvw.tools.mvwgenerator.extended.RunContextItem;                                 // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
+import org.dmd.mvw.tools.mvwgenerator.extended.View;                                           // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ComponentDMO;                              // Abstract class - (BaseDMWGeneratorNewest.java:925)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                                  // Attribute from mvw schema - (BaseDMWGeneratorNewest.java:717)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.RunContextItemDMO;                         // For multi-valued adds of RunContextItem - (BaseDMWGeneratorNewest.java:1430)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                                   // For multi-valued adds of View - (BaseDMWGeneratorNewest.java:1430)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RequestTypeWithOptionsIterableDMW;         // For multi-valued RequestTypeWithOptions - (BaseDMWGeneratorNewest.java:1727)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.RunContextItemIterableDMW;                 // For multi-valued RunContextItem - (BaseDMWGeneratorNewest.java:1382)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewIterableDMW;                           // For multi-valued View - (BaseDMWGeneratorNewest.java:1382)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.EventREF;                                // To support getMVCopy() for REFs Event-TREEMAPPED - (BaseDMWGeneratorNewest.java:840)
+import org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions;                            // Primitive type - (BaseDMWGeneratorNewest.java:864)
+
 
 /**
  * The Component is an abstract base for classes that define the building
@@ -53,7 +50,7 @@ import org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions;             
  * Generated from the mvw schema at version 0.1
  * <P>
  * This code was auto-generated by the dmggenerator utility and shouldn't be alterred manually!
- * Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.dumpWrapper(BaseDMWGeneratorNew.java:365)
+ * Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:366)
  */
 abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObjectIF {
 
@@ -67,12 +64,12 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
         return((ComponentDMO) core);
     }
 
-    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNew.dumpWrapper(BaseDMWGeneratorNew.java:528)
+    // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:527)
     protected ComponentDMW(ComponentDMO obj, ClassDefinition cd) {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.getAccessFunctions(BaseDMWGeneratorNew.java:979)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:992)
     public CamelCaseName getObjectName(){
         return(((ComponentDMO) core).getComponentName());
     }
@@ -95,7 +92,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The number of EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1937)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:1966)
     public int getFiresEventSize(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -107,7 +104,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are no EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1949)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:1978)
     public boolean getFiresEventIsEmpty(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -119,7 +116,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are any EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1961)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:1990)
     public boolean getFiresEventHasValue(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -131,7 +128,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The keyed Event object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1977)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2006)
     public Event getFiresEvent(Object key){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -143,7 +140,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return the first key of the map.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2007)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2036)
     public CamelCaseName getFiresEventFirstKey(){
         return(((ComponentDMO) core).getFiresEventFirstKey());
     }
@@ -151,7 +148,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterable of Event objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2028)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2060)
     public EventIterableDMW getFiresEventIterable(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -169,7 +166,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another firesEvent value.
      * @param value EventDMW
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2062)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2094)
     public DmcAttribute<?> addFiresEvent(Event value) {
         return(((ComponentDMO) core).addFiresEvent(value.getDMO()));
     }
@@ -178,7 +175,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a firesEvent value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2086)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2118)
     public void delFiresEvent(Event value){
         ((ComponentDMO) core).delFiresEvent(value.getDMO());
     }
@@ -186,7 +183,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of Event objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2129)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2162)
     public TreeMap<CamelCaseName,Event> getFiresEventCopy(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -205,7 +202,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the firesEvent attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2278)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2315)
     public void remFiresEvent(){
         ((ComponentDMO) core).remFiresEvent();
     }
@@ -213,7 +210,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The number of EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1937)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:1966)
     public int getHandlesEventSize(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -225,7 +222,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are no EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1949)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:1978)
     public boolean getHandlesEventIsEmpty(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -237,7 +234,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are any EventDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1961)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:1990)
     public boolean getHandlesEventHasValue(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -249,7 +246,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The keyed Event object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:1977)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2006)
     public Event getHandlesEvent(Object key){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -261,7 +258,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return the first key of the map.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2007)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2036)
     public CamelCaseName getHandlesEventFirstKey(){
         return(((ComponentDMO) core).getHandlesEventFirstKey());
     }
@@ -269,7 +266,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterable of Event objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2028)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2060)
     public EventIterableDMW getHandlesEventIterable(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -287,7 +284,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another handlesEvent value.
      * @param value EventDMW
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2062)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2094)
     public DmcAttribute<?> addHandlesEvent(Event value) {
         return(((ComponentDMO) core).addHandlesEvent(value.getDMO()));
     }
@@ -296,7 +293,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a handlesEvent value.
      * @param value The Event to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2086)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2118)
     public void delHandlesEvent(Event value){
         ((ComponentDMO) core).delHandlesEvent(value.getDMO());
     }
@@ -304,7 +301,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of Event objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2129)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2162)
     public TreeMap<CamelCaseName,Event> getHandlesEventCopy(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -323,7 +320,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMAPPED(BaseDMWGeneratorNew.java:2278)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2315)
     public void remHandlesEvent(){
         ((ComponentDMO) core).remHandlesEvent();
     }
@@ -331,7 +328,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The number of SchemaDefinition items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1317)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1344)
     public int getUseSchemaSize(){
         return(((ComponentDMO) core).getUseSchemaSize());
     }
@@ -339,7 +336,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are no SchemaDefinitionDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1325)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1352)
     public boolean getUseSchemaIsEmpty(){
         if (((ComponentDMO) core).getUseSchemaSize() == 0)
             return(true);
@@ -349,7 +346,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are any SchemaDefinitionDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1335)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1362)
     public boolean getUseSchemaHasValue(){
         if (((ComponentDMO) core).getUseSchemaSize() == 0)
             return(false);
@@ -359,7 +356,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterator of SchemaDefinitionDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1359)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1388)
     public SchemaDefinitionIterableDMW getUseSchemaIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__useSchema);
         if (attr == null)
@@ -372,7 +369,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another useSchema value.
      * @param value A value compatible with SchemaDefinition
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1404)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1436)
     public DmcAttribute<?> addUseSchema(SchemaDefinitionDMW value){
         DmcAttribute<?> attr = ((ComponentDMO) core).addUseSchema(((SchemaDefinitionDMO)value.getDmcObject()));
         return(attr);
@@ -382,7 +379,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a useSchema value.
      * @param value The SchemaDefinition to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1430)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1462)
     public void delUseSchema(SchemaDefinitionDMW value){
         ((ComponentDMO) core).delUseSchema(value.getDMO());
     }
@@ -390,7 +387,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of SchemaDefinition objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1477)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1511)
     public ArrayList<SchemaDefinitionDMW> getUseSchemaCopy(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__useSchema);
         if (attr == null)
@@ -409,12 +406,12 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the useSchema attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1885)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1914)
     public void remUseSchema(){
         ((ComponentDMO) core).remUseSchema();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
     public String getUseBaseClass(){
         return(((ComponentDMO) core).getUseBaseClass());
     }
@@ -423,7 +420,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Sets useBaseClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1230)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
     public void setUseBaseClass(Object value) throws DmcValueException {
         ((ComponentDMO) core).setUseBaseClass(value);
     }
@@ -432,7 +429,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Sets useBaseClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
     public void setUseBaseClass(String value){
         ((ComponentDMO) core).setUseBaseClass(value);
     }
@@ -440,7 +437,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the useBaseClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
     public void remUseBaseClass(){
         ((ComponentDMO) core).remUseBaseClass();
     }
@@ -448,7 +445,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The number of RunContextItem items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1317)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1344)
     public int getUsesRunContextItemSize(){
         return(((ComponentDMO) core).getUsesRunContextItemSize());
     }
@@ -456,7 +453,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are no RunContextItemDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1325)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1352)
     public boolean getUsesRunContextItemIsEmpty(){
         if (((ComponentDMO) core).getUsesRunContextItemSize() == 0)
             return(true);
@@ -466,7 +463,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are any RunContextItemDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1335)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1362)
     public boolean getUsesRunContextItemHasValue(){
         if (((ComponentDMO) core).getUsesRunContextItemSize() == 0)
             return(false);
@@ -476,7 +473,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterator of RunContextItemDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1359)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1388)
     public RunContextItemIterableDMW getUsesRunContextItemIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__usesRunContextItem);
         if (attr == null)
@@ -489,7 +486,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another usesRunContextItem value.
      * @param value A value compatible with RunContextItem
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1404)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1436)
     public DmcAttribute<?> addUsesRunContextItem(RunContextItem value){
         DmcAttribute<?> attr = ((ComponentDMO) core).addUsesRunContextItem(((RunContextItemDMO)value.getDmcObject()));
         return(attr);
@@ -499,7 +496,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a usesRunContextItem value.
      * @param value The RunContextItem to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1430)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1462)
     public void delUsesRunContextItem(RunContextItem value){
         ((ComponentDMO) core).delUsesRunContextItem(value.getDMO());
     }
@@ -507,7 +504,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of RunContextItem objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1477)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1511)
     public TreeSet<RunContextItem> getUsesRunContextItemCopy(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__usesRunContextItem);
         if (attr == null)
@@ -526,7 +523,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the usesRunContextItem attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1885)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1914)
     public void remUsesRunContextItem(){
         ((ComponentDMO) core).remUsesRunContextItem();
     }
@@ -534,7 +531,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The number of RequestTypeWithOptions items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1317)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1344)
     public int getSendsRequestSize(){
         return(((ComponentDMO) core).getSendsRequestSize());
     }
@@ -542,7 +539,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are no RequestTypeWithOptionsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1325)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1352)
     public boolean getSendsRequestIsEmpty(){
         if (((ComponentDMO) core).getSendsRequestSize() == 0)
             return(true);
@@ -552,7 +549,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are any RequestTypeWithOptionsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1335)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1362)
     public boolean getSendsRequestHasValue(){
         if (((ComponentDMO) core).getSendsRequestSize() == 0)
             return(false);
@@ -562,7 +559,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterator of RequestTypeWithOptions objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1704)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1731)
     public RequestTypeWithOptionsIterableDMW getSendsRequestIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsRequest);
         if (attr == null)
@@ -575,7 +572,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsRequest value.
      * @param value A value compatible with RequestTypeWithOptions
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1730)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1757)
     public void addSendsRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).addSendsRequest(value);
     }
@@ -584,7 +581,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another sendsRequest value.
      * @param value A value compatible with RequestTypeWithOptions
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1740)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1767)
     public void addSendsRequest(RequestTypeWithOptions value){
         ((ComponentDMO) core).addSendsRequest(value);
     }
@@ -593,7 +590,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Returns true if the collection contains the sendsRequest value.
      * @param value A value compatible with RequestTypeWithOptions
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1797)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1824)
     public boolean sendsRequestContains(RequestTypeWithOptions value){
         return(((ComponentDMO) core).sendsRequestContains(value));
     }
@@ -601,7 +598,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of RequestTypeWithOptions objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1837)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1866)
     @SuppressWarnings("unchecked")
     public ArrayList<RequestTypeWithOptions> getSendsRequestCopy(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__sendsRequest);
@@ -622,7 +619,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsRequest value.
      * @param value The RequestTypeWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1864)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1893)
     public void delSendsRequest(Object value) throws DmcValueException {
         ((ComponentDMO) core).delSendsRequest(value);
     }
@@ -631,7 +628,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a sendsRequest value.
      * @param value The RequestTypeWithOptions to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1873)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1902)
     public void delSendsRequest(RequestTypeWithOptions value){
         ((ComponentDMO) core).delSendsRequest(value);
     }
@@ -639,12 +636,12 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the sendsRequest attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1885)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1914)
     public void remSendsRequest(){
         ((ComponentDMO) core).remSendsRequest();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
     public String getSubpackage(){
         return(((ComponentDMO) core).getSubpackage());
     }
@@ -653,7 +650,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Sets subpackage to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1230)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
     public void setSubpackage(Object value) throws DmcValueException {
         ((ComponentDMO) core).setSubpackage(value);
     }
@@ -662,7 +659,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Sets subpackage to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
     public void setSubpackage(String value){
         ((ComponentDMO) core).setSubpackage(value);
     }
@@ -670,7 +667,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the subpackage attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
     public void remSubpackage(){
         ((ComponentDMO) core).remSubpackage();
     }
@@ -678,7 +675,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return The number of View items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1317)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1344)
     public int getInstantiatesViewSize(){
         return(((ComponentDMO) core).getInstantiatesViewSize());
     }
@@ -686,7 +683,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are no ViewDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1325)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1352)
     public boolean getInstantiatesViewIsEmpty(){
         if (((ComponentDMO) core).getInstantiatesViewSize() == 0)
             return(true);
@@ -696,7 +693,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return true if there are any ViewDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1335)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1362)
     public boolean getInstantiatesViewHasValue(){
         if (((ComponentDMO) core).getInstantiatesViewSize() == 0)
             return(false);
@@ -706,7 +703,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return An Iterator of ViewDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1359)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1388)
     public ViewIterableDMW getInstantiatesViewIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__instantiatesView);
         if (attr == null)
@@ -719,7 +716,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Adds another instantiatesView value.
      * @param value A value compatible with View
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1404)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1436)
     public DmcAttribute<?> addInstantiatesView(View value){
         DmcAttribute<?> attr = ((ComponentDMO) core).addInstantiatesView(((ViewDMO)value.getDmcObject()));
         return(attr);
@@ -729,7 +726,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Deletes a instantiatesView value.
      * @param value The View to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1430)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1462)
     public void delInstantiatesView(View value){
         ((ComponentDMO) core).delInstantiatesView(value.getDMO());
     }
@@ -737,7 +734,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * @return A COPY of the collection of View objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1477)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1511)
     public ArrayList<View> getInstantiatesViewCopy(){
         DmcAttribute<?> attr = ((ComponentDMO) core).get(MvwDMSAG.__instantiatesView);
         if (attr == null)
@@ -756,12 +753,12 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the instantiatesView attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatMV(BaseDMWGeneratorNew.java:1885)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1914)
     public void remInstantiatesView(){
         ((ComponentDMO) core).remInstantiatesView();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1147)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
     public CamelCaseName getComponentName(){
         return(((ComponentDMO) core).getComponentName());
     }
@@ -770,7 +767,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Sets componentName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1230)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
     public void setComponentName(Object value) throws DmcValueException {
         ((ComponentDMO) core).setComponentName(value);
     }
@@ -779,7 +776,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
      * Sets componentName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1239)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
     public void setComponentName(CamelCaseName value){
         ((ComponentDMO) core).setComponentName(value);
     }
@@ -787,7 +784,7 @@ abstract public class ComponentDMW extends MvwDefinition implements DmcNamedObje
     /**
      * Removes the componentName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNew.formatSV(BaseDMWGeneratorNew.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
     public void remComponentName(){
         ((ComponentDMO) core).remComponentName();
     }

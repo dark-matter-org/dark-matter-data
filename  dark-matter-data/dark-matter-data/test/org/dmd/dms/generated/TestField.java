@@ -1,11 +1,12 @@
 package org.dmd.dms.generated;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.Field;

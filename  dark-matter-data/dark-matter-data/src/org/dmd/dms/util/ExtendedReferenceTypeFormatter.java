@@ -71,24 +71,24 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
       	String nameImport = ertd.getExtendedReferenceClass().getIsNamedBy().getType().getName().getNameString() + "SV";
       	String staticNameType = ertd.getExtendedReferenceClass().getIsNamedBy().getType().getName().getNameString() + "STATIC";
 
-      	imports.addImport(nameBaseImport + nameImport, "Name type" + " - " + DebugInfo.getWhereWeAreNowShort());
-      	imports.addImport(ertd.getExtendedReferenceClass().getIsNamedBy().getType().getPrimitiveType(), "Name type" + " - " + DebugInfo.getWhereWeAreNowShort());
+      	imports.addImport(nameBaseImport + nameImport, "Name type");
+      	imports.addImport(ertd.getExtendedReferenceClass().getIsNamedBy().getType().getPrimitiveType(), "Name type");
       	
-      	imports.addImport(nameBaseImport + staticNameType, "Static type for name" + " - " + DebugInfo.getWhereWeAreNowShort());
+      	imports.addImport(nameBaseImport + staticNameType, "Static type for name");
       	
-      	imports.addImport(ertd.getExtendedReferenceClass().getDmoImport(), "Object based constructor" + " - " + DebugInfo.getWhereWeAreNowShort());
+      	imports.addImport(ertd.getExtendedReferenceClass().getDmoImport(), "Object based constructor");
 
-      	imports.addImport("org.dmd.dmc.DmcExtendedReferenceIF", "Marker interface for extended references" + " - " + DebugInfo.getWhereWeAreNowShort());
+      	imports.addImport("org.dmd.dmc.DmcExtendedReferenceIF", "Marker interface for extended references");
 
 //        out.write("import java.io.Serializable;\n");
 //        out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
 //        out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
 //        out.write("import org.dmd.dmc.types.IntegerVar;\n");
         
-        imports.addImport("java.io.Serializable", "Serialization support" + " - " + DebugInfo.getWhereWeAreNowShort());
-        imports.addImport("org.dmd.dmc.DmcInputStreamIF", "Serialization support" + " - " + DebugInfo.getWhereWeAreNowShort());
-        imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support" + " - " + DebugInfo.getWhereWeAreNowShort());
-        imports.addImport("org.dmd.dmc.types.IntegerVar", "Parsing support" + " - " + DebugInfo.getWhereWeAreNowShort());
+        imports.addImport("java.io.Serializable", "Serialization support");
+        imports.addImport("org.dmd.dmc.DmcInputStreamIF", "Serialization support");
+        imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support");
+        imports.addImport("org.dmd.dmc.types.IntegerVar", "Parsing support");
         
         if (hasRefs){
 //          	out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
@@ -96,15 +96,15 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
 //          	out.write("import org.dmd.dmc.DmcNamedObjectREF;\n");
 //          	out.write("import org.dmd.dmc.DmcContainerIF;\n");
           	
-            imports.addImport("org.dmd.dmc.DmcNameResolverIF", "Object reference support" + " - " + DebugInfo.getWhereWeAreNowShort());
-            imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "Object reference support" + " - " + DebugInfo.getWhereWeAreNowShort());
-            imports.addImport("org.dmd.dmc.DmcNamedObjectREF", "Object reference support" + " - " + DebugInfo.getWhereWeAreNowShort());
-            imports.addImport("org.dmd.dmc.DmcContainerIF", "Object reference support" + " - " + DebugInfo.getWhereWeAreNowShort());
+            imports.addImport("org.dmd.dmc.DmcNameResolverIF", "Object reference support");
+            imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "Object reference support");
+            imports.addImport("org.dmd.dmc.DmcNamedObjectREF", "Object reference support");
+            imports.addImport("org.dmd.dmc.DmcContainerIF", "Object reference support");
         }
 
 //        out.write("import org.dmd.dmc.DmcValueException;\n\n");
         
-        imports.addImport("org.dmd.dmc.DmcValueException", "Value exceptions" + " - " + DebugInfo.getWhereWeAreNowShort());
+        imports.addImport("org.dmd.dmc.DmcValueException", "Value exceptions");
         
 //        out.write(getComplexTypeImports(ertd));
         
@@ -569,8 +569,8 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
 //        			uniqueImports.put(type.getOriginalClass().getJavaClass(), "Object reference");
 //        			uniqueImports.put(type.getOriginalClass().getDmtREFImport(), "Object reference");
         			
-          			imports.addImport(type.getOriginalClass().getJavaClass(), "References to " + type.getOriginalClass().getName() + " - " + DebugInfo.getWhereWeAreNowShort());
-          			imports.addImport(type.getOriginalClass().getDmtREFImport(), "References to " + type.getOriginalClass().getName() + " - " + DebugInfo.getWhereWeAreNowShort());
+          			imports.addImport(type.getOriginalClass().getJavaClass(), "References to " + type.getOriginalClass().getName());
+          			imports.addImport(type.getOriginalClass().getDmtREFImport(), "References to " + type.getOriginalClass().getName());
           		        			
         			
 //        			DebugInfo.debug("Need object reference code");
@@ -586,7 +586,7 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         	}
         	else{
         		if (!type.getIsRefType()){
-        			imports.addImport(primitiveType, "Primitive type" + " - " + DebugInfo.getWhereWeAreNowShort());
+        			imports.addImport(primitiveType, "Primitive type");
 //        			uniqueImports.put(primitiveType, "Primitive type");
         		}
         	}
@@ -606,7 +606,7 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         		}
         		
 //        		uniqueImports.put(imp,comment);
-        		imports.addImport(imp, comment + " - " + DebugInfo.getWhereWeAreNowShort());
+        		imports.addImport(imp, comment);
         	}
         	
     	}

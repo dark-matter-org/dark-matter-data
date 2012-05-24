@@ -12,12 +12,23 @@ public class TypeAndAttr {
 
 	public 	TypeDefinition 	td;
 	public	ValueTypeEnum	valueType;
+	public  int				indexSize;
+	public  boolean			indexed;
 	public 	String name;
 	
-	public TypeAndAttr(TypeDefinition t, ValueTypeEnum v){
+	public TypeAndAttr(TypeDefinition t, ValueTypeEnum v, Integer idxSize){
 		td 	= t;
 		valueType	= v;
-		name = td.getName().getNameString() + "-" + valueType;
+		name 	= td.getName().getNameString() + "-" + valueType;
+		indexed = false;
+		if (idxSize == null){
+			indexSize = 0;
+		}
+		else{
+			indexSize = idxSize;
+			if (indexSize > 0)
+				indexed = true;
+		}
 	}
 	
 	public String getImport(){

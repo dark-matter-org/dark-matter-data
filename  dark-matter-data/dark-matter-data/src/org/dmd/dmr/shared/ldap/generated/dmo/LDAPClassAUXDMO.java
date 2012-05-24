@@ -15,19 +15,17 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.ldap.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:355)
-import java.util.*;                                                         // Always required
-import org.dmd.dmc.DmcAttribute;                                            // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                                        // Auxiliary class
-import org.dmd.dmc.DmcNamedObjectIF;                                        // Named object reference
-import org.dmd.dmc.DmcObject;                                               // Auxiliary class
-import org.dmd.dmc.DmcValueException;                                       // Any attributes
-import org.dmd.dmr.shared.ldap.generated.dmo.DmrLdapDMSAG;                  // Attribute from dmr.ldap schema
-import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Attribute from meta schema
-import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Reference type helper class
-import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type
-import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:363)
+import org.dmd.dmc.DmcAttribute;                                            // Any attributes - (GenUtility.java:213)
+import org.dmd.dmc.DmcAttributeInfo;                                        // Auxiliary class - (GenUtility.java:315)
+import org.dmd.dmc.DmcObject;                                               // Auxiliary class - (GenUtility.java:314)
+import org.dmd.dmc.DmcValueException;                                       // Any attributes - (GenUtility.java:214)
+import org.dmd.dmr.shared.ldap.generated.dmo.DmrLdapDMSAG;                  // Attribute from dmr.ldap schema - (GenUtility.java:123)
+import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add - (GenUtility.java:275)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Attribute from meta schema - (GenUtility.java:126)
+import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Reference type helper class - (GenUtility.java:285)
+import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type - (GenUtility.java:273)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:296)
 
 /**
  * The LDAPSchemaExtension class is used to extend the basic SchemaDefinition

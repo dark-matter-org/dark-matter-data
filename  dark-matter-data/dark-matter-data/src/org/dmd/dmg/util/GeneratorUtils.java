@@ -24,7 +24,6 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.util.BooleanVar;
-import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The GeneratorUtils class provides a variety of utility functions that

@@ -71,7 +71,7 @@ public class DmoAttributeFactoryFormatter {
 				if (ad.getType().getIsNameType()){
 					attributes.put(ad.getName().getNameString(), ad);
 					
-					TypeAndAttr ta = new TypeAndAttr(ad.getType(), ad.getValueType());
+					TypeAndAttr ta = new TypeAndAttr(ad.getType(), ad.getValueType(), ad.getIndexSize());
 					typeAndAttr.put(ta.name, ta);
 					
 					DebugInfo.debug(ad.getName().getNameString());

@@ -13,6 +13,7 @@ import org.junit.Test;
 
 public class RequestTypeWithOptionsTest {
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testToowFewTokens(){
 		RequestTypeWithOptions rt = null;
@@ -35,6 +36,7 @@ public class RequestTypeWithOptionsTest {
 		assertEquals("Class name should be Contact", "Contact", rt.getClassName());			
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testIncorrectOption() throws DmcValueException{
 		RequestTypeWithOptions rt = null;
@@ -47,6 +49,7 @@ public class RequestTypeWithOptionsTest {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	@Test
 	public void testIncorrectOption2() throws DmcValueException{
 		RequestTypeWithOptions rt = null;
@@ -75,6 +78,7 @@ public class RequestTypeWithOptionsTest {
 		assertEquals("Should have DMPERRORS option", true, options.contains(RequestOptionEnum.DMPERRORS));
 	}
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testInvalidUnlessGetRequest1() throws DmcValueException{
 		RequestTypeWithOptions rt = null;
@@ -87,6 +91,7 @@ public class RequestTypeWithOptionsTest {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	@Test
 	public void testInvalidUnlessGetRequest2() throws DmcValueException{
 		RequestTypeWithOptions rt = null;

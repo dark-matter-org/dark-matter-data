@@ -27,7 +27,7 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEditField;    // DmcType impo
  * The DmcTypeEditFieldMV provides storage for a multi-valued EditField
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2176)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:101)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeEditFieldMV extends DmcTypeEditField implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2216)
     public DmcAttribute<EditField> cloneIt(){
         synchronized(this){
             DmcTypeEditFieldMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeEditFieldMV extends DmcTypeEditField implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
     public EditField add(Object v) throws DmcValueException {
         synchronized(this){
             EditField rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeEditFieldMV extends DmcTypeEditField implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2248)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public EditField del(Object v){
         synchronized(this){
             EditField key = null;
@@ -107,7 +107,7 @@ public class DmcTypeEditFieldMV extends DmcTypeEditField implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2279)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
     public Iterator<EditField> getMV(){
         synchronized(this){
             ArrayList<EditField> clone = new ArrayList<EditField>(value);
@@ -115,7 +115,7 @@ public class DmcTypeEditFieldMV extends DmcTypeEditField implements Serializable
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
     public ArrayList<EditField> getMVCopy(){
         synchronized(this){
             ArrayList<EditField> clone = new ArrayList<EditField>(value);
@@ -124,7 +124,7 @@ public class DmcTypeEditFieldMV extends DmcTypeEditField implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2308)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -138,7 +138,7 @@ public class DmcTypeEditFieldMV extends DmcTypeEditField implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
     public EditField getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeEditFieldMV extends DmcTypeEditField implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2324)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2334)
     public EditField setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -175,7 +175,7 @@ public class DmcTypeEditFieldMV extends DmcTypeEditField implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2352)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2362)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,7 +198,7 @@ public class DmcTypeEditFieldMV extends DmcTypeEditField implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2386)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

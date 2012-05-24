@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeTestOneLevelSubpackageExtendedREFSV provides storage for a single-valued TestOneLevelSubpackageExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1832)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1842)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -33,14 +33,14 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFSV extends DmcTypeTestOneLe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1864)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1874)
     public DmcAttribute<TestOneLevelSubpackageExtendedREF> cloneIt(){
         DmcTypeTestOneLevelSubpackageExtendedREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1875)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1885)
     public TestOneLevelSubpackageExtendedREF getSVCopy(){
         if (value == null)
             return(null);
@@ -48,7 +48,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFSV extends DmcTypeTestOneLe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1887)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1897)
     public TestOneLevelSubpackageExtendedREF set(Object v) throws DmcValueException {
         TestOneLevelSubpackageExtendedREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

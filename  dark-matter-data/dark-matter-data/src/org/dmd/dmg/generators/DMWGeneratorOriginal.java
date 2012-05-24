@@ -610,7 +610,7 @@ public class DMWGeneratorOriginal implements DarkMatterGeneratorIF {
 				
 				if (shouldAddType){
 					types.put(td.getName(), td);
-					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
 					typeAndAttr.put(ta.name, ta);
 				}
 				
@@ -669,7 +669,7 @@ public class DMWGeneratorOriginal implements DarkMatterGeneratorIF {
 
 				if (shouldAddType){
 					types.put(td.getName(), td);
-					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
 					typeAndAttr.put(ta.name, ta);
 				}
 				

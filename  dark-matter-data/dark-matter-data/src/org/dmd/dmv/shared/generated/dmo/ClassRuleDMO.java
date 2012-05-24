@@ -15,17 +15,16 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:355)
-import java.io.Serializable;                                            // Always required
-import java.util.*;                                                     // Always required
-import org.dmd.dmc.DmcAttribute;                                        // Any attributes
-import org.dmd.dmc.DmcNamedObjectIF;                                    // Named object reference
-import org.dmd.dmc.DmcOmni;                                             // Lazy resolution
-import org.dmd.dmc.DmcValueException;                                   // Any attributes
-import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                    // Type specific set/add
-import org.dmd.dms.generated.types.ClassDefinitionREF;                  // Helper class
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;         // Reference type
-import org.dmd.dmv.shared.generated.dmo.RuleDMO;                        // Base class
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:363)
+import java.io.Serializable;                                            // Always required - (GenUtility.java:197)
+import java.util.*;                                                     // Always required if we have any MV attributes - (GenUtility.java:193)
+import org.dmd.dmc.DmcAttribute;                                        // Any attributes - (GenUtility.java:213)
+import org.dmd.dmc.DmcOmni;                                             // Lazy resolution - (GenUtility.java:288)
+import org.dmd.dmc.DmcValueException;                                   // Any attributes - (GenUtility.java:214)
+import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                    // Type specific set/add - (GenUtility.java:275)
+import org.dmd.dms.generated.types.ClassDefinitionREF;                  // Helper class - (GenUtility.java:303)
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;         // Reference type - (GenUtility.java:273)
+import org.dmd.dmv.shared.generated.dmo.RuleDMO;                        // Base class - (GenUtility.java:323)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -74,7 +73,7 @@ abstract public class ClassRuleDMO  extends RuleDMO  implements Serializable  {
         return(_OvDmAp);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:606)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:614)
     public ClassDefinitionREF getApplyToClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(DmvDMSAG.__applyToClass);
         if (attr == null)
@@ -105,13 +104,13 @@ abstract public class ClassRuleDMO  extends RuleDMO  implements Serializable  {
      * Sets applyToClass to the specified value.
      * @param value ClassDefinitionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
     public void setApplyToClass(ClassDefinitionDMO value) {
-        DmcTypeClassDefinitionREFSV attr  = (DmcTypeClassDefinitionREFSV) get(DmvDMSAG.__applyToClass);
+        DmcAttribute<?> attr = get(DmvDMSAG.__applyToClass);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREFSV(DmvDMSAG.__applyToClass);
         else
-            attr.removeBackReferences();
+            ((DmcTypeClassDefinitionREFSV)attr).removeBackReferences();
         
         try{
             attr.set(value);
@@ -126,7 +125,7 @@ abstract public class ClassRuleDMO  extends RuleDMO  implements Serializable  {
      * Sets applyToClass to the specified value.
      * @param value A value compatible with DmcTypeClassDefinitionREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
     public void setApplyToClass(Object value) throws DmcValueException {
         DmcTypeClassDefinitionREFSV attr  = (DmcTypeClassDefinitionREFSV) get(DmvDMSAG.__applyToClass);
         if (attr == null)
@@ -141,7 +140,7 @@ abstract public class ClassRuleDMO  extends RuleDMO  implements Serializable  {
     /**
      * Removes the applyToClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
     public void remApplyToClass(){
          rem(DmvDMSAG.__applyToClass);
     }

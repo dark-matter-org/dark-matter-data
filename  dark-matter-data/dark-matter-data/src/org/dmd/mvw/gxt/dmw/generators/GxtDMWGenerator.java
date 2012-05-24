@@ -22,12 +22,12 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
-import org.dmd.dms.generated.enums.ClassTypeEnum;
-import org.dmd.dms.generated.enums.WrapperTypeEnum;
-import org.dmd.dmg.generators.BaseDMWGeneratorNew;
+import org.dmd.dmg.generators.BaseDMWGeneratorNewest;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
@@ -36,7 +36,7 @@ import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
-public class GxtDMWGenerator extends BaseDMWGeneratorNew {
+public class GxtDMWGenerator extends BaseDMWGeneratorNewest {
 
 	// The set of all classes for which we want wrappers in this context
 	TreeMap<String,ClassDefinition>	allClasses;
@@ -132,8 +132,8 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 		allClasses 	= new TreeMap<String, ClassDefinition>();
 		imports 	= new ImportManager();
 		
-		imports.addImport("org.dmd.dmc.DmcObject", "The object we wrap" + " - " + DebugInfo.getWhereWeAreNowShort());
-		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapper", "The wrapper we return" + " - " + DebugInfo.getWhereWeAreNowShort());
+		imports.addImport("org.dmd.dmc.DmcObject", "The object we wrap");
+		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapper", "The wrapper we return");
 
 		Iterator<String> dependsOn = sd.getDependsOn();
 		if (dependsOn != null){
@@ -151,7 +151,7 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 						
 						if (cd.getSubpackage() != null)
 							importloc = dep.getDmwPackage(genContext) + ".extended." + cd.getSubpackage() + ".*";
-						imports.addImport(importloc, "Extended wrappers from the " + dep.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
+						imports.addImport(importloc, "Extended wrappers from the " + dep.getName() + " schema");
 						
 					}
 					else
@@ -161,8 +161,8 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 				}
 				
 				if (needImport){
-					imports.addImport(dep.getDmwPackage(genContext) + ".generated." + genContext + ".*", "Access to the wrappers for the " + dep.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
-					imports.addImport(dep.getSchemaPackage() + ".generated.dmo.*", "Access to the DMOs for the " + dep.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
+					imports.addImport(dep.getDmwPackage(genContext) + ".generated." + genContext + ".*", "Access to the wrappers for the " + dep.getName() + " schema");
+					imports.addImport(dep.getSchemaPackage() + ".generated.dmo.*", "Access to the DMOs for the " + dep.getName() + " schema");
 
 				}
 			}
@@ -180,7 +180,7 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 				
 				if (cd.getSubpackage() != null)
 					importloc = sd.getDmwPackage(genContext) + ".extended." + cd.getSubpackage() + ".*";
-				imports.addImport(importloc, "Extended wrappers from the " + sd.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
+				imports.addImport(importloc, "Extended wrappers from the " + sd.getName() + " schema");
 				
 			}
 			else
@@ -189,8 +189,8 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 			allClasses.put(cd.getName().getNameString(),cd);
 		}
 		if (needImport){
-			imports.addImport(sd.getDmwPackage(genContext) + ".generated." + genContext + ".*", "Access to the wrappers for the " + sd.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
-			imports.addImport(sd.getSchemaPackage() + ".generated.dmo.*", "Access to the DMOs for the " + sd.getName() + " schema" + " - " + DebugInfo.getWhereWeAreNowShort());
+			imports.addImport(sd.getDmwPackage(genContext) + ".generated." + genContext + ".*", "Access to the wrappers for the " + sd.getName() + " schema");
+			imports.addImport(sd.getSchemaPackage() + ".generated.dmo.*", "Access to the DMOs for the " + sd.getName() + " schema");
 		}
 	}
 
@@ -249,9 +249,9 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNew {
 		allClasses 	= new TreeMap<String, ClassDefinition>();
 		imports 	= new ImportManager();
 		
-		imports.addImport("org.dmd.dmc.DmcObject", "The object we wrap" + " - " + DebugInfo.getWhereWeAreNowShort());
-		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapper", "The wrapper we return" + " - " + DebugInfo.getWhereWeAreNowShort());
-		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapperFactoryIF", "The standard wrapper util interface" + " - " + DebugInfo.getWhereWeAreNowShort());
+		imports.addImport("org.dmd.dmc.DmcObject", "The object we wrap");
+		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapper", "The wrapper we return");
+		imports.addImport("org.dmd.mvw.client.gxt.dmw.GxtWrapperFactoryIF", "The standard wrapper util interface");
 
 //		Iterator<String> dependsOn = sd.getDependsOn();
 //		if (dependsOn != null){

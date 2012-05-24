@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypePresenterREFSET provides storage for a set of PresenterREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2459)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2469)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypePresenterREFSET extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2496)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2506)
     public DmcAttribute<PresenterREF> cloneIt(){
         synchronized(this){
             DmcTypePresenterREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypePresenterREFSET extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2515)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
     public PresenterREF add(Object v) throws DmcValueException {
         synchronized(this){
             PresenterREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypePresenterREFSET extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2542)
     public PresenterREF del(Object v){
         synchronized(this){
             PresenterREF rc = null;
@@ -113,7 +113,7 @@ public class DmcTypePresenterREFSET extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
     public Iterator<PresenterREF> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -123,7 +123,7 @@ public class DmcTypePresenterREFSET extends DmcTypePresenterREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2574)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2584)
     public Set<PresenterREF> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -134,7 +134,7 @@ public class DmcTypePresenterREFSET extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2592)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypePresenterREFSET extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2613)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

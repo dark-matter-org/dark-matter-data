@@ -348,7 +348,6 @@ abstract public class DmcObject implements Serializable {
 	 * to the object. Set the modifier to null to stop change tracking.
 	 * @param m
 	 */
-	@SuppressWarnings("unchecked")
 	public void setModifier(DmcTypeModifierMV m){
 		if (m == null)
 			shrinkInfo(MODIFIER);

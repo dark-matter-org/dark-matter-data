@@ -73,6 +73,11 @@ public class GenUtility {
 		TreeMap<String,TypeAndAttr>			typeAndAttr 	= new TreeMap<String,TypeAndAttr>();
 		TreeSet<String>						genericImports	= new TreeSet<String>();
 		
+		anyMVAttributes.set(false);
+		anySVAttributes.set(false);
+		if ((cd != null) && cd.getName().getNameString().startsWith("TestBasicAuxiliary"))
+			DebugInfo.debug("HERE");
+		
 //		boolean interested = false;
 //		String	theType = " ";
 //		if (cd.getName().getNameString().equals("RadioConfigProfile")){
@@ -92,7 +97,7 @@ public class GenUtility {
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
 				
-				TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+				TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
 				typeAndAttr.put(ta.name, ta);
 				
 				switch(ad.getValueType()){
@@ -135,7 +140,7 @@ public class GenUtility {
 				TypeDefinition td = ad.getType();
 				types.put(td.getName(), td);
 				
-				TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+				TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
 				typeAndAttr.put(ta.name, ta);
 				
 //				if (interested){
@@ -183,8 +188,10 @@ public class GenUtility {
 		if ( (cd != null) && (cd.getFullAttrMap().size() > 0) )
 			anyAttributes = true;
 		
-		if ( (cd != null)  || (anyMVAttributes.booleanValue()))
-			addImport(uniqueImports, longestImport, "java.util.*", "Always required");
+		if ( (cd != null)  || (anyMVAttributes.booleanValue())){
+			if (cd.getClassType() != ClassTypeEnum.AUXILIARY)
+				addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
+		}
 			
 		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
 			addImport(uniqueImports, longestImport, "java.io.Serializable", "Always required");
@@ -267,7 +274,7 @@ public class GenUtility {
 				
 				addImport(uniqueImports, longestImport, td.getOriginalClass().getDmoImport(), "Type specific set/add");
 				
-				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcNamedObjectIF", "Named object reference");
+//				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcNamedObjectIF", "Named object reference");
 
 				if (td.getOriginalClass().getInternalTypeRef().getHelperClassName() == null){
 //					DebugInfo.debug("\n\n*** PROBABLY MISSING isNamedBy FQN on a hierarchic object: " + td.getName() + " ***\n\n");
@@ -341,10 +348,11 @@ public class GenUtility {
 	}
 	
 	public static void addImport(TreeMap<String,String> map, IntegerVar longest, String i, String c){
+		
 		if (i.length() > longest.intValue())
 			longest.set(i.length());
 		
-		map.put(i,c);
+		map.put(i,c + " - " + DebugInfo.getShortWhereWeWereCalledFrom());
 	}
 	
 	public static String formatImports(TreeMap<String,String> map, int longest){
@@ -652,20 +660,21 @@ public class GenUtility {
 		    	
 			}	    	
 
+			// NOTE: We need the attribute cast to the correct type here because of the removeBackReferences call
 	    	sb.append("    /**\n");
 	    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
 	    	sb.append("     * @param value " + typeName + "DMO\n");
 	    	sb.append("     */\n");
 			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 	    	sb.append("    public void set" + functionName + "(" + typeName + "DMO value) {\n");
-//	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
-	    	sb.append("        " + attrType + " attr  = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+//	    	sb.append("        " + attrType + " attr  = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        if (attr == null)\n");
 	    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
 	    	
 	    	if (ad.getType().getIsRefType() && (ad.getType().getOriginalClass().getIsNamedBy() != null)){
 	        	sb.append("        else\n");
-	        	sb.append("            attr.removeBackReferences();\n");
+	        	sb.append("            ((" + attrType + ")attr).removeBackReferences();\n");
 	    	}
 	    	
 	    	sb.append("        \n");
@@ -725,8 +734,9 @@ public class GenUtility {
 				sb.append("    public void set" + functionName + "(" + typeName + " value) {\n");
 //	    	sb.append("        DmcAttribute<?> attr = get(__" + ad.getName() + ");\n");
 	    	sb.append("        DmcAttribute<?> attr = get(" + ad.getDMSAGReference() + ");\n");
+//	    	sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
 	    	sb.append("        if (attr == null)\n");
-	    	sb.append("            attr = new " + attrType+ "(" + ad.getDMSAGReference() + ");\n");
+	    	sb.append("            attr = new " + attrType + "(" + ad.getDMSAGReference() + ");\n");
 //	    	sb.append("            attr = new " + attrType+ "(__" + ad.getName() + ");\n");
 	    	sb.append("        \n");
 	    	sb.append("        try{\n");
@@ -2135,9 +2145,9 @@ public class GenUtility {
 		String REF = "";
 		boolean dmoREF = false;
 		
-		if (typeName.equals("SomeRelation")){
-			System.out.println("HERE");
-		}
+//		if (typeName.equals("SomeRelation")){
+//			System.out.println("HERE");
+//		}
 		
 		if ( (nameAttr == null) && isRef){
 			DMO = "DMO";
@@ -3011,17 +3021,17 @@ public class GenUtility {
     	BufferedWriter out = FileUpdateManager.instance().getWriter(od, "DmcType" + cn + ".java");
     	ImportManager imports = new ImportManager();
     	
-    	imports.addImport("org.dmd.dmc.DmcInputStreamIF", "Serialization support" + " - " + DebugInfo.getWhereWeAreNowShort());
-    	imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support" + " - " + DebugInfo.getWhereWeAreNowShort());
+    	imports.addImport("org.dmd.dmc.DmcInputStreamIF", "Serialization support");
+    	imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support");
     	
-    	imports.addImport("org.dmd.dmc.DmcAttributeInfo", "Standard attribute interface" + " - " + DebugInfo.getWhereWeAreNowShort());
-    	imports.addImport("org.dmd.dmc.DmcValueException", "Value exceptions" + " - " + DebugInfo.getWhereWeAreNowShort());
-    	imports.addImport("org.dmd.dmc.types.DmcTypeNamedObjectREF", "The class we extend" + " - " + DebugInfo.getWhereWeAreNowShort());
+    	imports.addImport("org.dmd.dmc.DmcAttributeInfo", "Standard attribute interface");
+    	imports.addImport("org.dmd.dmc.DmcValueException", "Value exceptions");
+    	imports.addImport("org.dmd.dmc.types.DmcTypeNamedObjectREF", "The class we extend");
     	
-    	imports.addImport(ertd.getExtendedReferenceClass().getDmoImport(), "The class we refer to" + " - " + DebugInfo.getWhereWeAreNowShort());
+    	imports.addImport(ertd.getExtendedReferenceClass().getDmoImport(), "The class we refer to");
     	
-      	imports.addImport(ertd.getExtendedReferenceClass().getIsNamedBy().getType().getPrimitiveType(), "Name type" + " - " + DebugInfo.getWhereWeAreNowShort());
-    	imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support" + " - " + DebugInfo.getWhereWeAreNowShort());
+      	imports.addImport(ertd.getExtendedReferenceClass().getIsNamedBy().getType().getPrimitiveType(), "Name type");
+    	imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Serialization support");
 
     	out.write(header);
     	out.write("package " + basePackage + ".generated.types;\n\n");

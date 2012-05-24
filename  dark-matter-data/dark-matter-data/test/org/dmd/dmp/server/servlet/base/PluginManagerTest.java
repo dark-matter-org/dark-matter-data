@@ -9,6 +9,7 @@ import org.junit.Test;
 
 public class PluginManagerTest {
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testInstantiation(){
 		PluginManager pm;

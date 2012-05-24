@@ -1,5 +1,7 @@
 package org.dmd.dmt.shared;
 
+import static org.junit.Assert.assertNotNull;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcValueException;
@@ -23,6 +25,9 @@ public class TestNameAttributes {
 		StringName sn = new StringName("Some name");
 		
 		DmcAttribute<DmcObjectNameIF> attr = schema.getNameAttributeInstance(sn);
+		
+		assertNotNull("Name attribute shouldn't be null.", attr);
+
 
 		NameContainerTestDMO	dmo	= new NameContainerTestDMO();
 		dmo.setAnotherDmtName("Here's a name");

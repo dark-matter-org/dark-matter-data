@@ -69,7 +69,7 @@ public class ImportManager {
 			return;
 		}
 		
-		imports.put(cn, new ImportStatement(cn, reason));
+		imports.put(cn, new ImportStatement(cn, reason + " - " + DebugInfo.getShortWhereWeWereCalledFrom()));
 		if (cn.length() > longestImport)
 			longestImport = cn.length();
 	}

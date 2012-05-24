@@ -7,6 +7,7 @@ import org.junit.Test;
 
 public class EnumValueTest {
 
+	@SuppressWarnings("unused")
 	@Test
 	public void testNull(){
 		EnumValue ev = null;
@@ -19,6 +20,7 @@ public class EnumValueTest {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	@Test
 	public void testMissingEnumName(){
 		EnumValue ev = null;
@@ -31,6 +33,7 @@ public class EnumValueTest {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	@Test
 	public void testNotInteger(){
 		EnumValue ev = null;
@@ -43,6 +46,7 @@ public class EnumValueTest {
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	@Test
 	public void testMissingDescription(){
 		EnumValue ev = null;

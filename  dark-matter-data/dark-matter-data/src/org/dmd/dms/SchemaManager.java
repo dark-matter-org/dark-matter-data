@@ -2379,6 +2379,27 @@ public class SchemaManager implements DmcNameResolverIF {
 					}
 					throw(ex);
 				}
+				
+				// TODO move towards generic object validation mechanisms - this check should be a rule
+		        if ( (d.getValueType() == ValueTypeEnum.HASHMAPPED) || (d.getValueType() == ValueTypeEnum.TREEMAPPED)){
+		        	if (d.getType().getKeyClass() == null){
+		        		if (d.getType().getIsRefType()){
+		        			if (d.getType().getOriginalClass().getIsNamedBy() == null){
+								ResultException ex = new ResultException();
+								ex.addError("AttributeDefinition: " + d.getName() + " cannot have valueType HASHMAPPED/TREEMAPPED since the " + d.getType().getName() + " type does not refer to a named object.");
+								ex.setLocationInfo(d.getFile(), d.getLineNumber());
+				        		throw(ex);
+		        			}
+		        		}
+		        		else{
+							ResultException ex = new ResultException();
+							ex.addError("AttributeDefinition: " + d.getName() + " cannot have valueType HASHMAPPED/TREEMAPPED since the " + d.getType().getName() + " type does not have a specified keyClass.");
+							ex.setLocationInfo(d.getFile(), d.getLineNumber());
+			        		throw(ex);
+		        		}
+		        	}
+		        }
+		        
     		}
     	}
     	

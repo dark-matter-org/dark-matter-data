@@ -111,7 +111,7 @@ public class MvcDoc {
 			
 		}
 		
-		String style = outDir + File.separator + "mvcstyle.css";
+//		String style = outDir + File.separator + "mvcstyle.css";
 		
 		URL url = this.getClass().getResource("mvcstyle.css");
 		System.out.println("url: " + url.getFile());

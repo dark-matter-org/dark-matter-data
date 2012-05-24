@@ -15,7 +15,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestBasicNamedObjectExtendedREFMAP provides storage for a map of TestBasicNamedObjectExtendedREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2685)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2695)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -56,7 +56,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2739)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2749)
     public DmcAttribute<TestBasicNamedObjectExtendedREF> cloneIt(){
         synchronized(this){
             DmcTypeTestBasicNamedObjectExtendedREFMAP rc = getNew();
@@ -71,7 +71,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2755)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2765)
     public TestBasicNamedObjectExtendedREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestBasicNamedObjectExtendedREF newval = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2776)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2786)
     public TestBasicNamedObjectExtendedREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -102,7 +102,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2788)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2798)
     public Iterator<TestBasicNamedObjectExtendedREF> getMV(){
         synchronized(this){
             Map<StringName,TestBasicNamedObjectExtendedREF> clone = null;
@@ -114,7 +114,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2801)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2811)
     public Map<StringName,TestBasicNamedObjectExtendedREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestBasicNamedObjectExtendedREF> clone = null;
@@ -126,7 +126,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2814)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2824)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -137,7 +137,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2826)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2836)
     public TestBasicNamedObjectExtendedREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -148,7 +148,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2838)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2848)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -161,7 +161,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2869)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof StringName)
