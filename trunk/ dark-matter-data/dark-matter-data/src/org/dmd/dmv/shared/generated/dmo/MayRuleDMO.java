@@ -15,16 +15,16 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmv.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:355)
-import java.io.Serializable;                                  // Always required
-import java.util.*;                                           // Always required
-import org.dmd.dmc.DmcAttribute;                              // Any attributes
-import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing
-import org.dmd.dmc.DmcValueException;                         // Any attributes
-import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor
-import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor
-import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type
-import org.dmd.dmv.shared.generated.dmo.ClassRuleDMO;         // Base class
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:363)
+import java.io.Serializable;                                  // Always required - (GenUtility.java:197)
+import java.util.*;                                           // Always required if we have any MV attributes - (GenUtility.java:193)
+import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:213)
+import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:202)
+import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:214)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:201)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:200)
+import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:296)
+import org.dmd.dmv.shared.generated.dmo.ClassRuleDMO;         // Base class - (GenUtility.java:323)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -98,7 +98,7 @@ public class MayRuleDMO  extends ClassRuleDMO  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:692)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmvDMSAG.__ruleTitle);
         if (attr == null)
@@ -111,7 +111,7 @@ public class MayRuleDMO  extends ClassRuleDMO  implements Serializable  {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:730)
     public void setRuleTitle(String value) {
         DmcAttribute<?> attr = get(DmvDMSAG.__ruleTitle);
         if (attr == null)
@@ -130,7 +130,7 @@ public class MayRuleDMO  extends ClassRuleDMO  implements Serializable  {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmvDMSAG.__ruleTitle);
         if (attr == null)
@@ -143,7 +143,7 @@ public class MayRuleDMO  extends ClassRuleDMO  implements Serializable  {
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
     public void remRuleTitle(){
          rem(DmvDMSAG.__ruleTitle);
     }

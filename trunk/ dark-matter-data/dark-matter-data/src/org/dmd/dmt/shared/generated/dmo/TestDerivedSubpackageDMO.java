@@ -1,19 +1,19 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:355)
-import java.io.Serializable;                                                 // Always required
-import java.util.*;                                                          // Always required
-import org.dmd.dmc.DmcAttribute;                                             // Any attributes
-import org.dmd.dmc.DmcNamedObjectIF;                                         // Named object
-import org.dmd.dmc.DmcSliceInfo;                                             // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                        // Any attributes
-import org.dmd.dmc.types.StringName;                                         // Naming attribute type
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                  // Required for MODREC constructor
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                        // Required for MODREC constructor
-import org.dmd.dms.generated.types.DmcTypeStringMV;                          // Required type
-import org.dmd.dms.generated.types.DmcTypeStringNameSV;                      // Required type
-import org.dmd.dms.generated.types.DmcTypeStringSV;                          // Required type
-import org.dmd.dmt.shared.generated.dmo.TestMultiLevelSubpackageDMO;         // Base class
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:363)
+import java.io.Serializable;                                                 // Always required - (GenUtility.java:197)
+import java.util.*;                                                          // Always required if we have any MV attributes - (GenUtility.java:193)
+import org.dmd.dmc.DmcAttribute;                                             // Any attributes - (GenUtility.java:213)
+import org.dmd.dmc.DmcNamedObjectIF;                                         // Named object - (GenUtility.java:343)
+import org.dmd.dmc.DmcSliceInfo;                                             // Required for object slicing - (GenUtility.java:202)
+import org.dmd.dmc.DmcValueException;                                        // Any attributes - (GenUtility.java:214)
+import org.dmd.dmc.types.StringName;                                         // Naming attribute type - (GenUtility.java:338)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                  // Required for MODREC constructor - (GenUtility.java:201)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                        // Required for MODREC constructor - (GenUtility.java:200)
+import org.dmd.dms.generated.types.DmcTypeStringMV;                          // Required type - (GenUtility.java:296)
+import org.dmd.dms.generated.types.DmcTypeStringNameSV;                      // Required type - (GenUtility.java:296)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                          // Required type - (GenUtility.java:296)
+import org.dmd.dmt.shared.generated.dmo.TestMultiLevelSubpackageDMO;         // Base class - (GenUtility.java:323)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -121,7 +121,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1008)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
     public Iterator<String> getMvString(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -133,7 +133,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1020)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1030)
     public String getNthMvString(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -146,7 +146,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
      * Adds another mvString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1034)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1044)
     public DmcAttribute<?> addMvString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -166,7 +166,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1109)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1119)
     public boolean mvStringContains(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -178,7 +178,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
      * Adds another mvString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1141)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1151)
     public DmcAttribute<?> addMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         if (attr == null)
@@ -192,7 +192,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
     /**
      * Returns the number of values in mvString
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1158)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1168)
     public int getMvStringSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         if (attr == null){
@@ -208,7 +208,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
      * Deletes a mvString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1216)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1226)
     public DmcAttribute<?> delMvString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         
@@ -224,7 +224,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
      * Deletes a mvString from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1232)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1242)
     public DmcAttribute<?> delMvString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvString);
         
@@ -239,12 +239,12 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
     /**
      * Removes the mvString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1251)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1261)
     public void remMvString(){
          rem(DmtDMSAG.__mvString);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:692)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -257,7 +257,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:730)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -276,7 +276,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
     public void setName(Object value) throws DmcValueException {
         DmcTypeStringNameSV attr  = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -289,12 +289,12 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:692)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -307,7 +307,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:730)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svString);
         if (attr == null)
@@ -326,7 +326,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
     public void setSvString(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -339,7 +339,7 @@ public class TestDerivedSubpackageDMO  extends TestMultiLevelSubpackageDMO  impl
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
     public void remSvString(){
          rem(DmtDMSAG.__svString);
     }

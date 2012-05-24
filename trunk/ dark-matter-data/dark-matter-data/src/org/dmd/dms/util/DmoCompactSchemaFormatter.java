@@ -535,29 +535,29 @@ public class DmoCompactSchemaFormatter {
     	ImportManager manager = new ImportManager();
         DmcAttribute<?> cdef = sd.getDMO().get(MetaDMSAG.__classDefList);
         if (cdef != null){
-        	manager.addImport("org.dmd.dms.generated.enums.ClassTypeEnum", "Have class definitions" + " - " + DebugInfo.getWhereWeAreNowShort());
-        	manager.addImport("org.dmd.dms.generated.enums.DataTypeEnum", "Have class/attribute definitions" + " - " + DebugInfo.getWhereWeAreNowShort());
+        	manager.addImport("org.dmd.dms.generated.enums.ClassTypeEnum", "Have class definitions");
+        	manager.addImport("org.dmd.dms.generated.enums.DataTypeEnum", "Have class/attribute definitions");
 //        	out.write("import org.dmd.dms.generated.enums.ClassTypeEnum;\n");
         }
             	 	
     	for(ClassDefinition cd: sd.getClassDefList()){
     		for(AttributeDefinition ad: cd.getMust()){
     			if (ad.getDefinedIn() != sd)
-    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Required attribute from " + ad.getDefinedIn().getDMSASGName() + " - " + DebugInfo.getWhereWeAreNowShort());
+    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Required attribute from " + ad.getDefinedIn().getDMSASGName());
     		}
     		for(AttributeDefinition ad: cd.getMay()){
     			if (ad.getDefinedIn() != sd)
-    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute from " + ad.getDefinedIn().getDMSASGName() + " - " + DebugInfo.getWhereWeAreNowShort());
+    				manager.addImport(ad.getDefinedIn().getDMSASGImport(), "Optional attribute from " + ad.getDefinedIn().getDMSASGName());
     		}
     		if (cd.getDerivedFrom() != null){
     			if (cd.getDerivedFrom().getDefinedIn() != sd)
-       				manager.addImport(cd.getDerivedFrom().getDefinedIn().getDMSASGImport(), "Base class from " + cd.getDerivedFrom().getDefinedIn().getDMSASGName() + " - " + DebugInfo.getWhereWeAreNowShort());    				
+       				manager.addImport(cd.getDerivedFrom().getDefinedIn().getDMSASGImport(), "Base class from " + cd.getDerivedFrom().getDefinedIn().getDMSASGName());    				
     		}
     	}
     	
         DmcAttribute<?> adef = sd.getDMO().get(MetaDMSAG.__attributeDefList);
         if (adef != null){
-        	manager.addImport("org.dmd.dms.generated.enums.ValueTypeEnum", "Have attribute definitions" + " - " + DebugInfo.getWhereWeAreNowShort());
+        	manager.addImport("org.dmd.dms.generated.enums.ValueTypeEnum", "Have attribute definitions");
 //        	out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
 //        	out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
         }

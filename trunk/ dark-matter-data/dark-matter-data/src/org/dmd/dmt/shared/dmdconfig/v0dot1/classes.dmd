@@ -223,6 +223,7 @@ may				someRelationMV
 may				someRelationMVI
 may				intToStringMAP
 may				hsStringName
+may				clientCountFilters
 
 ClassDefinition
 name            ClientCountFilter
@@ -239,4 +240,59 @@ derivedFrom     Request
 must            requestID
 may             clientCountFilter
 useWrapperType  EXTENDED
+
+ClassDefinition
+name            UsingIndexedAttributes
+classType       STRUCTURAL
+dmdID			19
+may				someRelationIndexed
+may				indexedString
+
+ClassDefinition
+name            UsingObjRefHM
+classType       STRUCTURAL
+dmdID			20
+may				objRefHM
+
+ClassDefinition
+name            PrimitiveSV
+classType       STRUCTURAL
+dmdID			101
+may				svString
+
+ClassDefinition
+name            PrimitiveMV
+classType       STRUCTURAL
+dmdID			102
+may				mvString
+
+ClassDefinition
+name            PrimitiveMVIDX
+classType       STRUCTURAL
+dmdID			103
+may				mvIdxString
+
+ClassDefinition
+name            PrimitiveHM
+classType       STRUCTURAL
+dmdID			104
+may				hmString
+
+ClassDefinition
+name            PrimitiveTM
+classType       STRUCTURAL
+dmdID			105
+may				tmString
+
+ClassDefinition
+name            PrimitiveHS
+classType       STRUCTURAL
+dmdID			106
+may				hsString
+
+ClassDefinition
+name            PrimitiveTS
+classType       STRUCTURAL
+dmdID			107
+may				tsString
 

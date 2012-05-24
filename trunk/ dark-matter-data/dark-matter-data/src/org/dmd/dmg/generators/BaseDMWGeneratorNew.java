@@ -1,4 +1,4 @@
-	//	---------------------------------------------------------------------------
+//	---------------------------------------------------------------------------
 //	dark-matter-data
 //	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
@@ -701,7 +701,7 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 				
 				if (shouldAddType){
 					types.put(td.getName(), td);
-					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
 					typeAndAttr.put(ta.name, ta);
 				}
 				
@@ -762,7 +762,7 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 
 				if (shouldAddType){
 					types.put(td.getName(), td);
-					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
 					typeAndAttr.put(ta.name, ta);
 				}
 				
@@ -831,8 +831,10 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 						addImport(uniqueImports, longestImport, ta.getImport(), "Reference in an auxiliary class");
 					}
 					
-					if (td.getOriginalClass().getIsNamedBy() != null)
-						addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtREFImport(), "To support getMVCopy() for REFs");
+					if (td.getOriginalClass().getIsNamedBy() != null){
+						if ( (ta.valueType == ValueTypeEnum.TREEMAPPED) || (ta.valueType == ValueTypeEnum.HASHMAPPED) || (ta.indexed))
+							addImport(uniqueImports, longestImport, td.getOriginalClass().getDmtREFImport(), "To support getMVCopy() for REFs");
+					}
 				}
 				else{
 					// If this is multi-valued, we don't need the REF because we're returning the Iterable
@@ -941,7 +943,7 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 		if (i.length() > longest.intValue())
 			longest.set(i.length());
 		
-		map.put(i,c);
+		map.put(i,c + " - " + DebugInfo.getShortWhereWeWereCalledFrom());
 	}
 
 	String formatImports(TreeMap<String,String> map, int longest){
@@ -1183,6 +1185,15 @@ abstract public class BaseDMWGeneratorNew implements DarkMatterGeneratorIF {
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 					sb.append("    public void set" + functionName + "(" + auxHolderClass + " value) {\n");
 			    	sb.append("        " + dmocast + ".set" + functionName + "(value.getDMO());\n");
+					sb.append("    }\n\n");
+					
+					sb.append("    /**\n");
+					sb.append("     * Sets the " + ad.getName() + " to the specified value.\n");
+					sb.append("     * @param value A value compatible with " + typeName + "\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
+			    	sb.append("        " + dmocast + ".set" + functionName + "(value);\n");
 					sb.append("    }\n\n");
     			}
     		}

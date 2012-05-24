@@ -30,7 +30,7 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeSubPlaceREFMAP provides storage for a map of SubPlaceREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2685)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2695)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -71,7 +71,7 @@ public class DmcTypeSubPlaceREFMAP extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2739)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2749)
     public DmcAttribute<SubPlaceREF> cloneIt(){
         synchronized(this){
             DmcTypeSubPlaceREFMAP rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeSubPlaceREFMAP extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2755)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2765)
     public SubPlaceREF add(Object v) throws DmcValueException {
         synchronized(this){
             SubPlaceREF newval = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeSubPlaceREFMAP extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2776)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2786)
     public SubPlaceREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
@@ -117,7 +117,7 @@ public class DmcTypeSubPlaceREFMAP extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2788)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2798)
     public Iterator<SubPlaceREF> getMV(){
         synchronized(this){
             Map<CamelCaseName,SubPlaceREF> clone = null;
@@ -129,7 +129,7 @@ public class DmcTypeSubPlaceREFMAP extends DmcTypeSubPlaceREF implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2801)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2811)
     public Map<CamelCaseName,SubPlaceREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,SubPlaceREF> clone = null;
@@ -141,7 +141,7 @@ public class DmcTypeSubPlaceREFMAP extends DmcTypeSubPlaceREF implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2814)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2824)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,7 +152,7 @@ public class DmcTypeSubPlaceREFMAP extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2826)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2836)
     public SubPlaceREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
@@ -163,7 +163,7 @@ public class DmcTypeSubPlaceREFMAP extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2838)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2848)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -176,7 +176,7 @@ public class DmcTypeSubPlaceREFMAP extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2869)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)

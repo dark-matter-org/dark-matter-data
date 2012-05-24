@@ -172,7 +172,7 @@ public class Event extends EventDMW implements CodeGenComponentIF {
 	 * @param im
 	 */
 	public void addImport(ImportManager im){
-		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName(), "Required by " + getEventName() + " - " + DebugInfo.getWhereWeAreNowShort());
+		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName(), "Required by " + getEventName());
 		im.addImportsFrom(imports);
 //		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName() + "Handler", "Required by " + getEventName());
 	}
@@ -180,15 +180,15 @@ public class Event extends EventDMW implements CodeGenComponentIF {
 	public void addFiresEventImports(ImportManager im){
 		initialize();
 		im.addImportsFrom(imports);
-		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName(), "Required by " + getEventName() + " - " + DebugInfo.getWhereWeAreNowShort());
-//		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName() + "Handler", "Required by " + getEventName() + " - " + DebugInfo.getWhereWeAreNowShort());
+		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName(), "Required by " + getEventName());
+//		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName() + "Handler", "Required by " + getEventName());
 	}
 	
 	public void addHandlesEventImports(ImportManager im){
 		initialize();
 		im.addImportsFrom(imports);
-		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName(), "Required by " + getEventName() + " - " + DebugInfo.getWhereWeAreNowShort());
-		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName() + "Handler", "Required by " + getEventName() + " - " + DebugInfo.getWhereWeAreNowShort());
+		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName(), "Required by " + getEventName());
+		im.addImport(getDefinedInModule().getGenPackage() + ".generated.mvw.events." + getEventName() + "Handler", "Required by " + getEventName());
 	}
 	
 	public String getAbstractMethod(){

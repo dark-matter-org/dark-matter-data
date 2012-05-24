@@ -239,11 +239,11 @@ public class Component extends ComponentDMW implements CodeGenComponentIF {
 		}
 		
 		if (getUseSchemaHasValue()){
-			imports.addImport("org.dmd.dmc.DmcOmni", "Support for schema loading" + " - " + DebugInfo.getWhereWeAreNowShort());
+			imports.addImport("org.dmd.dmc.DmcOmni", "Support for schema loading");
 			for(SchemaDefinition sd: getUseSchemaIterable()){
 				String capped = GenUtility.dotNameToCamelCase(sd.getName().getNameString());
 				loadAttributeSchemas.append("        DmcOmni.instance().addCompactSchema(" + capped + "DMSAG.instance());\n");
-				imports.addImport(sd.getSchemaPackage() + ".generated.dmo." + capped + "DMSAG", "Attribute schema" + " - " + DebugInfo.getWhereWeAreNowShort());
+				imports.addImport(sd.getSchemaPackage() + ".generated.dmo." + capped + "DMSAG", "Attribute schema");
 			}
 		}
 		
@@ -251,26 +251,26 @@ public class Component extends ComponentDMW implements CodeGenComponentIF {
 			standardCommsInit();
 			for(RequestTypeWithOptions request: getSendsRequestIterable()){
 				
-				imports.addImport(request.getRequestImport(), "Component sends " + request.getRequestType() + "Requests" + " - " + DebugInfo.getWhereWeAreNowShort());
-				imports.addImport(request.getResponseImport(), "Component receives " + request.getRequestType() + "Responses" + " - " + DebugInfo.getWhereWeAreNowShort());
+				imports.addImport(request.getRequestImport(), "Component sends " + request.getRequestType() + "Requests");
+				imports.addImport(request.getResponseImport(), "Component receives " + request.getRequestType() + "Responses");
 				if (request.isUsingClassInfo()){
-					imports.addImport(request.getClassImport(), "Component uses " + request.getClassName() + " objects" + " - " + DebugInfo.getWhereWeAreNowShort());
+					imports.addImport(request.getClassImport(), "Component uses " + request.getClassName() + " objects");
 					if (request.getRequestType().equals("Set")){
-						imports.addImport("org.dmd.dmc.DmcValueException", "Used when creating " + request.getRequestType() + "Requests" + " - " + DebugInfo.getWhereWeAreNowShort());
-						imports.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "Used when creating " + request.getRequestType() + "Requests" + " - " + DebugInfo.getWhereWeAreNowShort());
+						imports.addImport("org.dmd.dmc.DmcValueException", "Used when creating " + request.getRequestType() + "Requests");
+						imports.addImport("org.dmd.dms.generated.dmo.MetaDMSAG", "Used when creating " + request.getRequestType() + "Requests");
 					}
 				}
 				
 				if (request.getRequestType().equals("Get")){
 					if (request.getOptions().contains(RequestOptionEnum.EVENTS)){
-						imports.addImport("org.dmd.dmp.client.EventHandlerIF", "Handles events resulting from GetRequests" + " - " + DebugInfo.getWhereWeAreNowShort());
-						imports.addImport("org.dmd.dmp.shared.generated.dmo.DMPEventDMO", "Events" + " - " + DebugInfo.getWhereWeAreNowShort());
+						imports.addImport("org.dmd.dmp.client.EventHandlerIF", "Handles events resulting from GetRequests");
+						imports.addImport("org.dmd.dmp.shared.generated.dmo.DMPEventDMO", "Events");
 						handlesObjectEvents = true;
 					}
 				}
 
 				if (request.getRequestType().equals("Action")){
-					imports.addImport("org.dmd.dms.extended.ActionTriggerInfo", "Sends action requests" + " - " + DebugInfo.getWhereWeAreNowShort());
+					imports.addImport("org.dmd.dms.extended.ActionTriggerInfo", "Sends action requests");
 				}
 				
 				addRequest(request);
@@ -333,10 +333,10 @@ public class Component extends ComponentDMW implements CodeGenComponentIF {
 		}
 		
 		if (getUseBaseClass() != null)
-			imports.addImport(getUseBaseClass(), "Specified base class" + " - " + DebugInfo.getWhereWeAreNowShort());
+			imports.addImport(getUseBaseClass(), "Specified base class");
 		
 		if (usesRunContext())
-			imports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Need the run context" + " - " + DebugInfo.getWhereWeAreNowShort());
+			imports.addImport("org.dmd.mvw.client.mvw.generated.mvw.MvwRunContextIF", "Need the run context");
 
 		
 //		if (getImplementsActionHasValue()){
@@ -386,11 +386,11 @@ public class Component extends ComponentDMW implements CodeGenComponentIF {
 	
 	void standardCommsInit(){
 		hasCommsMethods = true;
-		imports.addImport("org.dmd.dmp.client.ResponseHandlerIF", "DMP communications" + " - " + DebugInfo.getWhereWeAreNowShort());
-		imports.addImport("org.dmd.dmp.client.ErrorOptionsEnum", "DMP communications" + " - " + DebugInfo.getWhereWeAreNowShort());
-		imports.addImport("org.dmd.dmp.shared.generated.dmo.RequestDMO", "DMP communications" + " - " + DebugInfo.getWhereWeAreNowShort());
-		imports.addImport("org.dmd.dmp.shared.generated.dmo.ResponseDMO", "DMP communications" + " - " + DebugInfo.getWhereWeAreNowShort());
-		imports.addImport("org.dmd.dmp.shared.generated.enums.ResponseTypeEnum", "DMP communications" + " - " + DebugInfo.getWhereWeAreNowShort());
+		imports.addImport("org.dmd.dmp.client.ResponseHandlerIF", "DMP communications");
+		imports.addImport("org.dmd.dmp.client.ErrorOptionsEnum", "DMP communications");
+		imports.addImport("org.dmd.dmp.shared.generated.dmo.RequestDMO", "DMP communications");
+		imports.addImport("org.dmd.dmp.shared.generated.dmo.ResponseDMO", "DMP communications");
+		imports.addImport("org.dmd.dmp.shared.generated.enums.ResponseTypeEnum", "DMP communications");
 	}
 	
 	public String genSubPackage(){

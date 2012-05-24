@@ -18,7 +18,7 @@ import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
-public class DMWGenerator extends BaseDMWGeneratorNew {
+public class DMWGenerator extends BaseDMWGeneratorNewest {
 
 	public DMWGenerator(){
 		genContext				= "dmw";

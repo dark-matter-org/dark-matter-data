@@ -227,37 +227,57 @@ description	A ts Long.
 
 AttributeDefinition
 name		svString
-dmdID		140
+dmdID		141
 type		String
 description	A sv String.
 
 AttributeDefinition
 name		mvString
-dmdID		141
+dmdID		142
 type		String
 valueType	MULTI
 description	An mv String.
 
 AttributeDefinition
-name		hsString
-dmdID		142
-type		String
-valueType	HASHSET
-description	An hs String.
-
-AttributeDefinition
-name		anotherSVString
+name		mvIdxString
 dmdID		143
 type		String
-description	A sv String.
+valueType	MULTI
+description	An indexed mv String.
+
+AttributeDefinition
+name		hmString
+dmdID		144
+type		StringToString
+valueType	HASHMAPPED
+description	A hashmap of StringToStrings.
+
+AttributeDefinition
+name		tmString
+dmdID		145
+type		StringToString
+valueType	TREEMAPPED
+description	A TreeMap of StringToStrings.
+
+AttributeDefinition
+name		hsString
+dmdID		146
+type		String
+valueType	HASHSET
+description	A HashSet of Strings.
 
 AttributeDefinition
 name		tsString
-dmdID		153
+dmdID		147
 type		String
 valueType	TREESET
-description	A ts String.
+description	A TreeSet of Strings.
 
+AttributeDefinition
+name		anotherSVString
+dmdID		148
+type		String
+description	A sv String.
 
 
 
@@ -454,4 +474,16 @@ dmdID           		425
 type					StringName
 valueType				HASHSET
 
+AttributeDefinition
+name					clientCountFilters
+dmdID					426
+type					ClientCountFilter
+valueType				MULTI
+indexSize				8
 
+AttributeDefinition
+name					someRelationIndexed
+dmdID					427
+type					SomeRelation
+valueType				MULTI
+indexSize				8

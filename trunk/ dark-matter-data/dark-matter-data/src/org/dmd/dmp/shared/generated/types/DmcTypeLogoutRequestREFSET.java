@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;    // DmcType import
  * The DmcTypeLogoutRequestREFSET provides storage for a set of LogoutRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2459)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2469)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2496)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2506)
     public DmcAttribute<LogoutRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeLogoutRequestREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2515)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
     public LogoutRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             LogoutRequestDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2532)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2542)
     public LogoutRequestDMO del(Object v){
         synchronized(this){
             LogoutRequestDMO rc = null;
@@ -114,7 +114,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2557)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
     public Iterator<LogoutRequestDMO> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -124,7 +124,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2574)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2584)
     public Set<LogoutRequestDMO> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -135,7 +135,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2592)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeLogoutRequestREFSET extends DmcTypeLogoutRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2613)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

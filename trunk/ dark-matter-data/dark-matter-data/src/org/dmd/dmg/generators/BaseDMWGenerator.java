@@ -515,7 +515,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 				
 				if (shouldAddType){
 					types.put(td.getName(), td);
-					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
 					typeAndAttr.put(ta.name, ta);
 				}
 				
@@ -576,7 +576,7 @@ abstract public class BaseDMWGenerator implements DarkMatterGeneratorIF {
 
 				if (shouldAddType){
 					types.put(td.getName(), td);
-					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType());
+					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
 					typeAndAttr.put(ta.name, ta);
 				}
 				

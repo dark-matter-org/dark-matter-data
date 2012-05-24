@@ -575,7 +575,7 @@ public class TestReferenceTracking {
 		
 		SomeRelation	relm1 = new SomeRelation(obj1, 1, 1);
 		SomeRelation	relm2 = new SomeRelation(obj2, 2, 2);
-		SomeRelation	relm3 = new SomeRelation(obj3, 3, 3);
+//		SomeRelation	relm3 = new SomeRelation(obj3, 3, 3);
 		
 		///////////////////////////////////////////////////////////////////////
 		// sv extref via modifier

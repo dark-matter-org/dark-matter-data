@@ -1,13 +1,12 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:355)
-import java.util.*;                                         // Always required
-import org.dmd.dmc.DmcAttribute;                            // Any attributes
-import org.dmd.dmc.DmcAttributeInfo;                        // Auxiliary class
-import org.dmd.dmc.DmcObject;                               // Auxiliary class
-import org.dmd.dmc.DmcValueException;                       // Any attributes
-import org.dmd.dms.generated.types.DmcTypeStringSV;         // Required type
-import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;           // Attribute from dmt schema
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:363)
+import org.dmd.dmc.DmcAttribute;                            // Any attributes - (GenUtility.java:213)
+import org.dmd.dmc.DmcAttributeInfo;                        // Auxiliary class - (GenUtility.java:315)
+import org.dmd.dmc.DmcObject;                               // Auxiliary class - (GenUtility.java:314)
+import org.dmd.dmc.DmcValueException;                       // Any attributes - (GenUtility.java:214)
+import org.dmd.dms.generated.types.DmcTypeStringSV;         // Required type - (GenUtility.java:296)
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;           // Attribute from dmt schema - (GenUtility.java:123)
 
 /**
  * The TestBasicAuxiliary class allows us to test basic auxiliary class

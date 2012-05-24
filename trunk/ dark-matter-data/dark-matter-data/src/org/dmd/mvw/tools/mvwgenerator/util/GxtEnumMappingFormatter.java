@@ -18,10 +18,10 @@ public class GxtEnumMappingFormatter {
         BufferedWriter 	out 	= FileUpdateManager.instance().getWriter(outdir, name + ".java");
         ImportManager	imports = new ImportManager();
         
-        imports.addImport("java.util.ArrayList", "Our mapping type" + " - " + DebugInfo.getWhereWeAreNowShort());
-        imports.addImport("java.util.List", "Required by combo box" + " - " + DebugInfo.getWhereWeAreNowShort());
-        imports.addImport("org.dmd.mvw.client.gxtforms.implementation.GxtEnumValue", "Our base enum representation" + " - " + DebugInfo.getWhereWeAreNowShort());
-        imports.addImport("org.dmd.mvw.client.gxtforms.implementation.GxtEnumMappingIF", "Our interface" + " - " + DebugInfo.getWhereWeAreNowShort());
+        imports.addImport("java.util.ArrayList", "Our mapping type");
+        imports.addImport("java.util.List", "Required by combo box");
+        imports.addImport("org.dmd.mvw.client.gxtforms.implementation.GxtEnumValue", "Our base enum representation");
+        imports.addImport("org.dmd.mvw.client.gxtforms.implementation.GxtEnumMappingIF", "Our interface");
 
         out.write("package " + genPackage + ".generated.mvw.forms;\n\n");
         

@@ -19,10 +19,10 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG;
-import org.dmd.dmr.server.ldap.generated.auxw.LDAPAttributeAUX;
-import org.dmd.dmr.server.ldap.generated.auxw.LDAPClassAUX;
-import org.dmd.dmr.server.ldap.generated.auxw.LDAPSchemaAUX;
-import org.dmd.dmr.shared.ldap.generated.auxw.LDAPClassAUXDMO;
+import org.dmd.dmr.server.ldap.generated.dmw.LDAPAttributeAUX;
+import org.dmd.dmr.server.ldap.generated.dmw.LDAPClassAUX;
+import org.dmd.dmr.server.ldap.generated.dmw.LDAPSchemaAUX;
+import org.dmd.dmr.shared.ldap.generated.dmo.LDAPClassAUXDMO;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;

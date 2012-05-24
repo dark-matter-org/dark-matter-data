@@ -2,16 +2,15 @@ package org.dmd.dmt.shared;
 
 import static org.junit.Assert.assertEquals;
 
-import java.io.File;
 import java.io.IOException;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
+import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.types.adapters.StringMVAdapter;
 import org.dmd.dms.generated.types.adapters.StringSETAdapter;
 import org.dmd.dms.generated.types.adapters.StringSVAdapter;
-import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
@@ -33,9 +32,9 @@ public class TestAdapters {
 			DmwOmni.instance().addSchema(dmp);
 			DmwOmni.instance().addSchema(dmt);
 			
-	        File curr = new File(".");
-	        String runDir;
-			runDir = curr.getCanonicalPath();
+//	        File curr = new File(".");
+//	        String runDir;
+//			runDir = curr.getCanonicalPath();
 			
 			initialized = true;
 		}

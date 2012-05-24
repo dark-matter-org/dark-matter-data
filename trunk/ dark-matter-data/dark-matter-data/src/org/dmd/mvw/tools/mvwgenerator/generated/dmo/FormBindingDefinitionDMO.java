@@ -15,28 +15,28 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:355)
-import java.io.Serializable;                                                          // Always required
-import java.util.*;                                                                   // Always required
-import org.dmd.dmc.DmcAttribute;                                                      // Any attributes
-import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object
-import org.dmd.dmc.DmcOmni;                                                           // Lazy resolution
-import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                                 // Any attributes
-import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type
-import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                                  // Type specific set/add
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor
-import org.dmd.dms.generated.types.ClassDefinitionREF;                                // Helper class
-import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                  // Required type
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;                       // Reference type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.I18NConfigDMO;                    // Type specific set/add
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                 // Base class
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEditFieldMV;             // Required type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeI18NConfigREFSV;         // Reference type
-import org.dmd.mvw.tools.mvwgenerator.generated.types.I18NConfigREF;                  // Helper class
-import org.dmd.mvw.tools.mvwgenerator.types.EditField;                                // Primitive type and !auxiliary class
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:363)
+import java.io.Serializable;                                                          // Always required - (GenUtility.java:197)
+import java.util.*;                                                                   // Always required if we have any MV attributes - (GenUtility.java:193)
+import org.dmd.dmc.DmcAttribute;                                                      // Any attributes - (GenUtility.java:213)
+import org.dmd.dmc.DmcNamedObjectIF;                                                  // Named object - (GenUtility.java:343)
+import org.dmd.dmc.DmcOmni;                                                           // Lazy resolution - (GenUtility.java:288)
+import org.dmd.dmc.DmcSliceInfo;                                                      // Required for object slicing - (GenUtility.java:202)
+import org.dmd.dmc.DmcValueException;                                                 // Any attributes - (GenUtility.java:214)
+import org.dmd.dmc.types.CamelCaseName;                                               // Naming attribute type - (GenUtility.java:338)
+import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                                  // Type specific set/add - (GenUtility.java:275)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (GenUtility.java:201)
+import org.dmd.dms.generated.types.ClassDefinitionREF;                                // Helper class - (GenUtility.java:303)
+import org.dmd.dms.generated.types.DmcTypeBooleanSV;                                  // Required type - (GenUtility.java:296)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                            // Required type - (GenUtility.java:296)
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;                       // Reference type - (GenUtility.java:273)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (GenUtility.java:200)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.I18NConfigDMO;                    // Type specific set/add - (GenUtility.java:275)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;                 // Base class - (GenUtility.java:323)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeEditFieldMV;             // Required type - (GenUtility.java:296)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeI18NConfigREFSV;         // Reference type - (GenUtility.java:273)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.I18NConfigREF;                  // Helper class - (GenUtility.java:303)
+import org.dmd.mvw.tools.mvwgenerator.types.EditField;                                // Primitive type and !auxiliary class - (GenUtility.java:244)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -142,7 +142,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:692)
     public Boolean isStrictlyChecked(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__strictlyChecked);
         if (attr == null)
@@ -155,7 +155,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets strictlyChecked to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:730)
     public void setStrictlyChecked(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__strictlyChecked);
         if (attr == null)
@@ -174,7 +174,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets strictlyChecked to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
     public void setStrictlyChecked(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__strictlyChecked);
         if (attr == null)
@@ -187,12 +187,12 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the strictlyChecked attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
     public void remStrictlyChecked(){
          rem(MvwDMSAG.__strictlyChecked);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:606)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:614)
     public I18NConfigREF getUseI18NConfig(){
         DmcTypeI18NConfigREFSV attr = (DmcTypeI18NConfigREFSV) get(MvwDMSAG.__useI18NConfig);
         if (attr == null)
@@ -223,13 +223,13 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useI18NConfig to the specified value.
      * @param value I18NConfigDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
     public void setUseI18NConfig(I18NConfigDMO value) {
-        DmcTypeI18NConfigREFSV attr  = (DmcTypeI18NConfigREFSV) get(MvwDMSAG.__useI18NConfig);
+        DmcAttribute<?> attr = get(MvwDMSAG.__useI18NConfig);
         if (attr == null)
             attr = new DmcTypeI18NConfigREFSV(MvwDMSAG.__useI18NConfig);
         else
-            attr.removeBackReferences();
+            ((DmcTypeI18NConfigREFSV)attr).removeBackReferences();
         
         try{
             attr.set(value);
@@ -244,7 +244,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useI18NConfig to the specified value.
      * @param value A value compatible with DmcTypeI18NConfigREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
     public void setUseI18NConfig(Object value) throws DmcValueException {
         DmcTypeI18NConfigREFSV attr  = (DmcTypeI18NConfigREFSV) get(MvwDMSAG.__useI18NConfig);
         if (attr == null)
@@ -259,12 +259,12 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the useI18NConfig attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
     public void remUseI18NConfig(){
          rem(MvwDMSAG.__useI18NConfig);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:692)
     public Boolean isTipsFromI18N(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MvwDMSAG.__tipsFromI18N);
         if (attr == null)
@@ -277,7 +277,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets tipsFromI18N to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:730)
     public void setTipsFromI18N(Boolean value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__tipsFromI18N);
         if (attr == null)
@@ -296,7 +296,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets tipsFromI18N to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
     public void setTipsFromI18N(Object value) throws DmcValueException {
         DmcTypeBooleanSV attr  = (DmcTypeBooleanSV) get(MvwDMSAG.__tipsFromI18N);
         if (attr == null)
@@ -309,12 +309,12 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the tipsFromI18N attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
     public void remTipsFromI18N(){
          rem(MvwDMSAG.__tipsFromI18N);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:683)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:692)
     public CamelCaseName getBindingName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__bindingName);
         if (attr == null)
@@ -327,7 +327,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets bindingName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:721)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:730)
     public void setBindingName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__bindingName);
         if (attr == null)
@@ -346,7 +346,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets bindingName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
     public void setBindingName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__bindingName);
         if (attr == null)
@@ -359,12 +359,12 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the bindingName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
     public void remBindingName(){
          rem(MvwDMSAG.__bindingName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:606)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:614)
     public ClassDefinitionREF getEditObject(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MvwDMSAG.__editObject);
         if (attr == null)
@@ -395,13 +395,13 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets editObject to the specified value.
      * @param value ClassDefinitionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
     public void setEditObject(ClassDefinitionDMO value) {
-        DmcTypeClassDefinitionREFSV attr  = (DmcTypeClassDefinitionREFSV) get(MvwDMSAG.__editObject);
+        DmcAttribute<?> attr = get(MvwDMSAG.__editObject);
         if (attr == null)
             attr = new DmcTypeClassDefinitionREFSV(MvwDMSAG.__editObject);
         else
-            attr.removeBackReferences();
+            ((DmcTypeClassDefinitionREFSV)attr).removeBackReferences();
         
         try{
             attr.set(value);
@@ -416,7 +416,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets editObject to the specified value.
      * @param value A value compatible with DmcTypeClassDefinitionREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
     public void setEditObject(Object value) throws DmcValueException {
         DmcTypeClassDefinitionREFSV attr  = (DmcTypeClassDefinitionREFSV) get(MvwDMSAG.__editObject);
         if (attr == null)
@@ -431,7 +431,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the editObject attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
     public void remEditObject(){
          rem(MvwDMSAG.__editObject);
     }
@@ -440,7 +440,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * @return An Iterator of EditField objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1008)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
     public Iterator<EditField> getEditField(){
         DmcTypeEditFieldMV attr = (DmcTypeEditFieldMV) get(MvwDMSAG.__editField);
         if (attr == null)
@@ -452,7 +452,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * @return The nth EditField value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1020)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1030)
     public EditField getNthEditField(int i){
         DmcTypeEditFieldMV attr = (DmcTypeEditFieldMV) get(MvwDMSAG.__editField);
         if (attr == null)
@@ -465,7 +465,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Adds another editField to the specified value.
      * @param value EditField
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1034)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1044)
     public DmcAttribute<?> addEditField(EditField value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__editField);
         if (attr == null)
@@ -485,7 +485,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Returns true if we contain a valued keyed by the specified EditField.
      * @param value EditField
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1109)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1119)
     public boolean editFieldContains(EditField value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__editField);
         if (attr == null)
@@ -497,7 +497,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Adds another editField value.
      * @param value A value compatible with EditField
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1141)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1151)
     public DmcAttribute<?> addEditField(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__editField);
         if (attr == null)
@@ -511,7 +511,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Returns the number of values in editField
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1158)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1168)
     public int getEditFieldSize(){
         DmcAttribute<?> attr = get(MvwDMSAG.__editField);
         if (attr == null){
@@ -527,7 +527,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Deletes a editField value.
      * @param value The EditField to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1216)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1226)
     public DmcAttribute<?> delEditField(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__editField);
         
@@ -543,7 +543,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Deletes a editField from the specified value.
      * @param value EditField
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1232)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1242)
     public DmcAttribute<?> delEditField(EditField value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__editField);
         
@@ -558,7 +558,7 @@ public class FormBindingDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the editField attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1251)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1261)
     public void remEditField(){
          rem(MvwDMSAG.__editField);
     }

@@ -1,19 +1,18 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:355)
-import java.io.Serializable;                                                     // Always required
-import java.util.*;                                                              // Always required
-import org.dmd.dmc.DmcAttribute;                                                 // Any attributes
-import org.dmd.dmc.DmcNamedObjectIF;                                             // Named object reference
-import org.dmd.dmc.DmcSliceInfo;                                                 // Required for object slicing
-import org.dmd.dmc.DmcValueException;                                            // Any attributes
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                                // Attribute from dmp schema
-import org.dmd.dmp.shared.generated.dmo.RequestDMO;                              // Base class
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Required for MODREC constructor
-import org.dmd.dms.generated.types.DmcTypeIntegerMV;                             // Required type
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor
-import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;                    // Type specific set/add
-import org.dmd.dmt.shared.generated.types.DmcTypeClientCountFilterREFSV;         // Reference type
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:363)
+import java.io.Serializable;                                                     // Always required - (GenUtility.java:197)
+import java.util.*;                                                              // Always required if we have any MV attributes - (GenUtility.java:193)
+import org.dmd.dmc.DmcAttribute;                                                 // Any attributes - (GenUtility.java:213)
+import org.dmd.dmc.DmcSliceInfo;                                                 // Required for object slicing - (GenUtility.java:202)
+import org.dmd.dmc.DmcValueException;                                            // Any attributes - (GenUtility.java:214)
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                                // Attribute from dmp schema - (GenUtility.java:176)
+import org.dmd.dmp.shared.generated.dmo.RequestDMO;                              // Base class - (GenUtility.java:323)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                      // Required for MODREC constructor - (GenUtility.java:201)
+import org.dmd.dms.generated.types.DmcTypeIntegerMV;                             // Required type - (GenUtility.java:296)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                            // Required for MODREC constructor - (GenUtility.java:200)
+import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;                    // Type specific set/add - (GenUtility.java:275)
+import org.dmd.dmt.shared.generated.types.DmcTypeClientCountFilterREFSV;         // Reference type - (GenUtility.java:273)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -87,7 +86,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:606)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:614)
     public ClientCountFilterDMO getClientCountFilter(){
         DmcTypeClientCountFilterREFSV attr = (DmcTypeClientCountFilterREFSV) get(DmtDMSAG.__clientCountFilter);
         if (attr == null)
@@ -100,9 +99,9 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
      * Sets clientCountFilter to the specified value.
      * @param value ClientCountFilterDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:659)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:668)
     public void setClientCountFilter(ClientCountFilterDMO value) {
-        DmcTypeClientCountFilterREFSV attr  = (DmcTypeClientCountFilterREFSV) get(DmtDMSAG.__clientCountFilter);
+        DmcAttribute<?> attr = get(DmtDMSAG.__clientCountFilter);
         if (attr == null)
             attr = new DmcTypeClientCountFilterREFSV(DmtDMSAG.__clientCountFilter);
         
@@ -119,7 +118,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
      * Sets clientCountFilter to the specified value.
      * @param value A value compatible with DmcTypeClientCountFilterREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:773)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
     public void setClientCountFilter(Object value) throws DmcValueException {
         DmcTypeClientCountFilterREFSV attr  = (DmcTypeClientCountFilterREFSV) get(DmtDMSAG.__clientCountFilter);
         if (attr == null)
@@ -132,7 +131,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
     /**
      * Removes the clientCountFilter attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:793)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
     public void remClientCountFilter(){
          rem(DmtDMSAG.__clientCountFilter);
     }
@@ -141,7 +140,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
      * @return An Iterator of Integer objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1008)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
     public Iterator<Integer> getRequestID(){
         DmcTypeIntegerMV attr = (DmcTypeIntegerMV) get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -153,7 +152,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
     /**
      * @return The nth Integer value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1020)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1030)
     public Integer getNthRequestID(int i){
         DmcTypeIntegerMV attr = (DmcTypeIntegerMV) get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -166,7 +165,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
      * Adds another requestID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1034)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1044)
     public DmcAttribute<?> addRequestID(Integer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -186,7 +185,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
      * Returns true if we contain a valued keyed by the specified Integer.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1109)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1119)
     public boolean requestIDContains(Integer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -198,7 +197,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1141)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1151)
     public DmcAttribute<?> addRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -212,7 +211,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
     /**
      * Returns the number of values in requestID
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1158)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1168)
     public int getRequestIDSize(){
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         if (attr == null){
@@ -228,7 +227,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1216)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1226)
     public DmcAttribute<?> delRequestID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         
@@ -244,7 +243,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
      * Deletes a requestID from the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1232)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1242)
     public DmcAttribute<?> delRequestID(Integer value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__requestID);
         
@@ -259,7 +258,7 @@ public class ClientCountFilterRequestDMO  extends RequestDMO  implements Seriali
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1251)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1261)
     public void remRequestID(){
          rem(DmpDMSAG.__requestID);
     }

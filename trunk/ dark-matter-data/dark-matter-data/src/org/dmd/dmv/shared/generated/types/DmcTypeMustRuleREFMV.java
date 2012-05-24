@@ -26,7 +26,7 @@ import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;    // DmcType import
  * The DmcTypeMustRuleREFMV provides storage for a multi-valued MustRule
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2176)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2216)
     public DmcAttribute<MustRuleDMO> cloneIt(){
         synchronized(this){
             DmcTypeMustRuleREFMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
     public MustRuleDMO add(Object v) throws DmcValueException {
         synchronized(this){
             MustRuleDMO rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2248)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public MustRuleDMO del(Object v){
         synchronized(this){
             MustRuleDMO key = null;
@@ -106,7 +106,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2279)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
     public Iterator<MustRuleDMO> getMV(){
         synchronized(this){
             ArrayList<MustRuleDMO> clone = new ArrayList<MustRuleDMO>(value);
@@ -114,7 +114,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
     public ArrayList<MustRuleDMO> getMVCopy(){
         synchronized(this){
             ArrayList<MustRuleDMO> clone = new ArrayList<MustRuleDMO>(value);
@@ -123,7 +123,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2308)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -137,7 +137,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
     public MustRuleDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +147,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2324)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2334)
     public MustRuleDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -174,7 +174,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2352)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2362)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,7 +197,7 @@ public class DmcTypeMustRuleREFMV extends DmcTypeMustRuleREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2386)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

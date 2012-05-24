@@ -10,7 +10,6 @@ import org.dmd.dmc.types.CamelCaseName;
 import org.dmd.mvw.tools.mvwgenerator.extended.Event;
 import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;
 import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;
-import org.dmd.util.exceptions.DebugInfo;
 
 public class EventFormatter {
 

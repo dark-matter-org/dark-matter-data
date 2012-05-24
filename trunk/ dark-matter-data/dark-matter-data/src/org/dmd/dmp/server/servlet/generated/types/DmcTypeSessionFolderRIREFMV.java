@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSessionFolderRIREFMV provides storage for a multi-valued SessionFolderRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2176)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeSessionFolderRIREFMV extends DmcTypeSessionFolderRIREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2216)
     public DmcAttribute<SessionFolderRIREF> cloneIt(){
         synchronized(this){
             DmcTypeSessionFolderRIREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeSessionFolderRIREFMV extends DmcTypeSessionFolderRIREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
     public SessionFolderRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             SessionFolderRIREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypeSessionFolderRIREFMV extends DmcTypeSessionFolderRIREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2248)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
     public SessionFolderRIREF del(Object v){
         synchronized(this){
             SessionFolderRIREF key = null;
@@ -105,7 +105,7 @@ public class DmcTypeSessionFolderRIREFMV extends DmcTypeSessionFolderRIREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2279)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
     public Iterator<SessionFolderRIREF> getMV(){
         synchronized(this){
             ArrayList<SessionFolderRIREF> clone = new ArrayList<SessionFolderRIREF>(value);
@@ -113,7 +113,7 @@ public class DmcTypeSessionFolderRIREFMV extends DmcTypeSessionFolderRIREF imple
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
     public ArrayList<SessionFolderRIREF> getMVCopy(){
         synchronized(this){
             ArrayList<SessionFolderRIREF> clone = new ArrayList<SessionFolderRIREF>(value);
@@ -122,7 +122,7 @@ public class DmcTypeSessionFolderRIREFMV extends DmcTypeSessionFolderRIREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2308)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +136,7 @@ public class DmcTypeSessionFolderRIREFMV extends DmcTypeSessionFolderRIREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
     public SessionFolderRIREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeSessionFolderRIREFMV extends DmcTypeSessionFolderRIREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2324)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2334)
     public SessionFolderRIREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +173,7 @@ public class DmcTypeSessionFolderRIREFMV extends DmcTypeSessionFolderRIREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2352)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2362)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +196,7 @@ public class DmcTypeSessionFolderRIREFMV extends DmcTypeSessionFolderRIREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2386)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
