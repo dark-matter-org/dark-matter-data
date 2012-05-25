@@ -2,18 +2,18 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.ArrayList;                                                // Support for MULTI attribute - (BaseDMWGeneratorNewest.java:1850)
-import java.util.Iterator;                                                 // Support copy of MV objects - (BaseDMWGeneratorNewest.java:1862)
-import org.dmd.dmc.*;                                                      // If any attributes - (BaseDMWGeneratorNewest.java:808)
-import org.dmd.dms.*;                                                      // Always 2 - (BaseDMWGeneratorNewest.java:793)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:797)
-import org.dmd.dms.generated.dmw.StringIterableDMW;                        // For multi-valued String - (BaseDMWGeneratorNewest.java:1727)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:796)
-import org.dmd.dmt.server.extended.ObjWithRefs;                            // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
-import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                          // Attribute from dmt schema - (BaseDMWGeneratorNewest.java:717)
-import org.dmd.dmt.shared.generated.dmo.UsingIndexedAttributesDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:947)
-import org.dmd.dmt.shared.generated.types.SomeRelation;                    // For setNth of SomeRelation - (BaseDMWGeneratorNewest.java:1538)
-import org.dmd.dmw.DmwWrapper;                                             // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:930)
+import java.util.ArrayList;                                                // Support for MULTI attribute - (BaseDMWGeneratorNewest.java:1974)
+import java.util.Iterator;                                                 // Support copy of MV objects - (BaseDMWGeneratorNewest.java:1986)
+import org.dmd.dmc.*;                                                      // If any attributes - (BaseDMWGeneratorNewest.java:887)
+import org.dmd.dms.*;                                                      // Always 2 - (BaseDMWGeneratorNewest.java:872)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
+import org.dmd.dms.generated.dmw.StringIterableDMW;                        // For multi-valued String - (BaseDMWGeneratorNewest.java:1851)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
+import org.dmd.dmt.server.extended.ObjWithRefs;                            // Is reference type - (BaseDMWGeneratorNewest.java:906)
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                          // Attribute indexedString from the dmt schema - (BaseDMWGeneratorNewest.java:719)
+import org.dmd.dmt.shared.generated.dmo.UsingIndexedAttributesDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
+import org.dmd.dmt.shared.generated.types.SomeRelation;                    // For setNth of SomeRelation - (BaseDMWGeneratorNewest.java:1662)
+import org.dmd.dmw.DmwWrapper;                                             // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1030)
 
 
 /**
@@ -57,78 +57,9 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
     }
 
     /**
-     * @return The number of SomeRelation items.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1344)
-    public int getSomeRelationIndexedSize(){
-        return(((UsingIndexedAttributesDMO) core).getSomeRelationIndexedSize());
-    }
-
-    /**
-     * @return true if there are no SomeRelationDMO items.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1352)
-    public boolean getSomeRelationIndexedIsEmpty(){
-        if (((UsingIndexedAttributesDMO) core).getSomeRelationIndexedSize() == 0)
-            return(true);
-        return(false);
-    }
-
-    /**
-     * @return true if there are any SomeRelationDMO items.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1362)
-    public boolean getSomeRelationIndexedHasValue(){
-        if (((UsingIndexedAttributesDMO) core).getSomeRelationIndexedSize() == 0)
-            return(false);
-        return(true);
-    }
-
-    /**
-     * Sets the someRelationIndexed value at the specified index.
-     * @param value A value compatible with SomeRelation
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1545)
-    public DmcAttribute<?> setNthSomeRelationIndexed(int index, SomeRelation value){
-        return(((UsingIndexedAttributesDMO) core).setNthSomeRelationIndexed(index, value));
-    }
-
-    /**
-     * @return The SomeRelation object at the specified index.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1635)
-    public ObjWithRefs getNthSomeRelationIndexed(int index){
-        SomeRelation ref = ((UsingIndexedAttributesDMO) core).getNthSomeRelationIndexed(index);
-        if (ref == null)
-            return(null);
-        
-        if (ref.getObject() == null)
-            return(null);
-        
-        return((ObjWithRefs)ref.getObject().getContainer());
-    }
-
-    /**
-     * @return The reference to the SomeRelation object at the specified index.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1681)
-    public SomeRelation getNthSomeRelationIndexedREF(int index){
-        SomeRelation ref = ((UsingIndexedAttributesDMO) core).getNthSomeRelationIndexedREF(index);
-        return(ref);
-    }
-
-    /**
-     * Removes the someRelationIndexed attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1914)
-    public void remSomeRelationIndexed(){
-        ((UsingIndexedAttributesDMO) core).remSomeRelationIndexed();
-    }
-
-    /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1344)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1453)
     public int getIndexedStringSize(){
         return(((UsingIndexedAttributesDMO) core).getIndexedStringSize());
     }
@@ -136,7 +67,7 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1352)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1461)
     public boolean getIndexedStringIsEmpty(){
         if (((UsingIndexedAttributesDMO) core).getIndexedStringSize() == 0)
             return(true);
@@ -146,7 +77,7 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1471)
     public boolean getIndexedStringHasValue(){
         if (((UsingIndexedAttributesDMO) core).getIndexedStringSize() == 0)
             return(false);
@@ -156,7 +87,7 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1731)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1855)
     public StringIterableDMW getIndexedStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__indexedString);
         if (attr == null)
@@ -169,7 +100,7 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
      * Adds another indexedString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1757)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1881)
     public void addIndexedString(Object value) throws DmcValueException {
         ((UsingIndexedAttributesDMO) core).addIndexedString(value);
     }
@@ -179,7 +110,7 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
      * @param index The index to set.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1778)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1902)
     public void setNthIndexedString(int index, String value){
         ((UsingIndexedAttributesDMO) core).setNthIndexedString(index, value);
     }
@@ -188,7 +119,7 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
      * Gets the indexedString value at the specified index.
      * @param index The index to retreive.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1787)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1911)
     public String getNthIndexedString(int index){
         return(((UsingIndexedAttributesDMO) core).getNthIndexedString(index));
     }
@@ -197,7 +128,7 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
      * Returns true if the collection contains the indexedString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1824)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1948)
     public boolean indexedStringContains(String value){
         return(((UsingIndexedAttributesDMO) core).indexedStringContains(value));
     }
@@ -205,7 +136,7 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1866)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1990)
     @SuppressWarnings("unchecked")
     public ArrayList<String> getIndexedStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__indexedString);
@@ -226,7 +157,7 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
      * Deletes a indexedString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1893)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2017)
     public void delIndexedString(Object value) throws DmcValueException {
         ((UsingIndexedAttributesDMO) core).delIndexedString(value);
     }
@@ -235,7 +166,7 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
      * Deletes a indexedString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1902)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2026)
     public void delIndexedString(String value){
         ((UsingIndexedAttributesDMO) core).delIndexedString(value);
     }
@@ -243,9 +174,78 @@ public class UsingIndexedAttributesDMW extends DmwWrapper {
     /**
      * Removes the indexedString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1914)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2038)
     public void remIndexedString(){
         ((UsingIndexedAttributesDMO) core).remIndexedString();
+    }
+
+    /**
+     * @return The number of SomeRelation items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1453)
+    public int getSomeRelationIndexedSize(){
+        return(((UsingIndexedAttributesDMO) core).getSomeRelationIndexedSize());
+    }
+
+    /**
+     * @return true if there are no SomeRelationDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1461)
+    public boolean getSomeRelationIndexedIsEmpty(){
+        if (((UsingIndexedAttributesDMO) core).getSomeRelationIndexedSize() == 0)
+            return(true);
+        return(false);
+    }
+
+    /**
+     * @return true if there are any SomeRelationDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1471)
+    public boolean getSomeRelationIndexedHasValue(){
+        if (((UsingIndexedAttributesDMO) core).getSomeRelationIndexedSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * Sets the someRelationIndexed value at the specified index.
+     * @param value A value compatible with SomeRelation
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1669)
+    public DmcAttribute<?> setNthSomeRelationIndexed(int index, SomeRelation value){
+        return(((UsingIndexedAttributesDMO) core).setNthSomeRelationIndexed(index, value));
+    }
+
+    /**
+     * @return The SomeRelation object at the specified index.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1759)
+    public ObjWithRefs getNthSomeRelationIndexed(int index){
+        SomeRelation ref = ((UsingIndexedAttributesDMO) core).getNthSomeRelationIndexed(index);
+        if (ref == null)
+            return(null);
+        
+        if (ref.getObject() == null)
+            return(null);
+        
+        return((ObjWithRefs)ref.getObject().getContainer());
+    }
+
+    /**
+     * @return The reference to the SomeRelation object at the specified index.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1805)
+    public SomeRelation getNthSomeRelationIndexedREF(int index){
+        SomeRelation ref = ((UsingIndexedAttributesDMO) core).getNthSomeRelationIndexedREF(index);
+        return(ref);
+    }
+
+    /**
+     * Removes the someRelationIndexed attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2038)
+    public void remSomeRelationIndexed(){
+        ((UsingIndexedAttributesDMO) core).remSomeRelationIndexed();
     }
 
 

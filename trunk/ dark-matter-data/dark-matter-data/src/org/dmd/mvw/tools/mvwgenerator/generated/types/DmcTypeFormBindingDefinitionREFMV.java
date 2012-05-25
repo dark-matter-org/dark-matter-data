@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeFormBindingDefinitionREFMV provides storage for a multi-valued FormBindingDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2244)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2216)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2274)
     public DmcAttribute<FormBindingDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeFormBindingDefinitionREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2303)
     public FormBindingDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             FormBindingDefinitionREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2316)
     public FormBindingDefinitionREF del(Object v){
         synchronized(this){
             FormBindingDefinitionREF key = null;
@@ -105,7 +105,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
     public Iterator<FormBindingDefinitionREF> getMV(){
         synchronized(this){
             ArrayList<FormBindingDefinitionREF> clone = new ArrayList<FormBindingDefinitionREF>(value);
@@ -113,7 +113,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2356)
     public ArrayList<FormBindingDefinitionREF> getMVCopy(){
         synchronized(this){
             ArrayList<FormBindingDefinitionREF> clone = new ArrayList<FormBindingDefinitionREF>(value);
@@ -122,7 +122,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2308)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2366)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +136,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2381)
     public FormBindingDefinitionREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2334)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
     public FormBindingDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +173,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2420)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +196,7 @@ public class DmcTypeFormBindingDefinitionREFMV extends DmcTypeFormBindingDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2386)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2444)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

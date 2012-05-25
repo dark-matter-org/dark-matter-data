@@ -17,16 +17,16 @@ package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                               // If any attributes - (BaseDMWGeneratorNewest.java:808)
-import org.dmd.dmc.DmcObjectName;                                   // Alternative type for NameContainer values - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dmc.types.NameContainer;                             // Primitive type - (BaseDMWGeneratorNewest.java:864)
-import org.dmd.dmp.server.extended.DenotifyRequest;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:801)
-import org.dmd.dmp.server.extended.Request;                         // Derived class - (BaseDMWGeneratorNewest.java:943)
-import org.dmd.dmp.shared.generated.dmo.DenotifyRequestDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:947)
-import org.dmd.dmp.shared.generated.enums.ScopeEnum;                // Primitive type - (BaseDMWGeneratorNewest.java:864)
-import org.dmd.dms.*;                                               // Always 2 - (BaseDMWGeneratorNewest.java:793)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:797)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;               // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:796)
+import org.dmd.dmc.*;                                               // If any attributes - (BaseDMWGeneratorNewest.java:887)
+import org.dmd.dmc.DmcObjectName;                                   // Alternative type for NameContainer values - (BaseDMWGeneratorNewest.java:957)
+import org.dmd.dmc.types.NameContainer;                             // Primitive type - (BaseDMWGeneratorNewest.java:949)
+import org.dmd.dmp.server.extended.DenotifyRequest;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
+import org.dmd.dmp.server.extended.Request;                         // Derived class - (BaseDMWGeneratorNewest.java:1043)
+import org.dmd.dmp.shared.generated.dmo.DenotifyRequestDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
+import org.dmd.dmp.shared.generated.enums.ScopeEnum;                // Primitive type - (BaseDMWGeneratorNewest.java:949)
+import org.dmd.dms.*;                                               // Always 2 - (BaseDMWGeneratorNewest.java:872)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;               // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
 
 
 /**
@@ -71,69 +71,7 @@ abstract public class DenotifyRequestDMW extends Request {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
-    public Long getListenerID(){
-        return(((DenotifyRequestDMO) core).getListenerID());
-    }
-
-    /**
-     * Sets listenerID to the specified value.
-     * @param value A value compatible with DmcTypeLong
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
-    public void setListenerID(Object value) throws DmcValueException {
-        ((DenotifyRequestDMO) core).setListenerID(value);
-    }
-
-    /**
-     * Sets listenerID to the specified value.
-     * @param value Long
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
-    public void setListenerID(Long value){
-        ((DenotifyRequestDMO) core).setListenerID(value);
-    }
-
-    /**
-     * Removes the listenerID attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public void remListenerID(){
-        ((DenotifyRequestDMO) core).remListenerID();
-    }
-
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
-    public ScopeEnum getScope(){
-        return(((DenotifyRequestDMO) core).getScope());
-    }
-
-    /**
-     * Sets scope to the specified value.
-     * @param value A value compatible with DmcTypeScopeEnum
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
-    public void setScope(Object value) throws DmcValueException {
-        ((DenotifyRequestDMO) core).setScope(value);
-    }
-
-    /**
-     * Sets scope to the specified value.
-     * @param value ScopeEnum
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
-    public void setScope(ScopeEnum value){
-        ((DenotifyRequestDMO) core).setScope(value);
-    }
-
-    /**
-     * Removes the scope attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public void remScope(){
-        ((DenotifyRequestDMO) core).remScope();
-    }
-
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
     public String getFilter(){
         return(((DenotifyRequestDMO) core).getFilter());
     }
@@ -142,7 +80,7 @@ abstract public class DenotifyRequestDMW extends Request {
      * Sets filter to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
     public void setFilter(Object value) throws DmcValueException {
         ((DenotifyRequestDMO) core).setFilter(value);
     }
@@ -151,7 +89,7 @@ abstract public class DenotifyRequestDMW extends Request {
      * Sets filter to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
     public void setFilter(String value){
         ((DenotifyRequestDMO) core).setFilter(value);
     }
@@ -159,12 +97,74 @@ abstract public class DenotifyRequestDMW extends Request {
     /**
      * Removes the filter attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
     public void remFilter(){
         ((DenotifyRequestDMO) core).remFilter();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    public Long getListenerID(){
+        return(((DenotifyRequestDMO) core).getListenerID());
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value A value compatible with DmcTypeLong
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    public void setListenerID(Object value) throws DmcValueException {
+        ((DenotifyRequestDMO) core).setListenerID(value);
+    }
+
+    /**
+     * Sets listenerID to the specified value.
+     * @param value Long
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    public void setListenerID(Long value){
+        ((DenotifyRequestDMO) core).setListenerID(value);
+    }
+
+    /**
+     * Removes the listenerID attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    public void remListenerID(){
+        ((DenotifyRequestDMO) core).remListenerID();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    public ScopeEnum getScope(){
+        return(((DenotifyRequestDMO) core).getScope());
+    }
+
+    /**
+     * Sets scope to the specified value.
+     * @param value A value compatible with DmcTypeScopeEnum
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    public void setScope(Object value) throws DmcValueException {
+        ((DenotifyRequestDMO) core).setScope(value);
+    }
+
+    /**
+     * Sets scope to the specified value.
+     * @param value ScopeEnum
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    public void setScope(ScopeEnum value){
+        ((DenotifyRequestDMO) core).setScope(value);
+    }
+
+    /**
+     * Removes the scope attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    public void remScope(){
+        ((DenotifyRequestDMO) core).remScope();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
     public NameContainer getTarget(){
         return(((DenotifyRequestDMO) core).getTarget());
     }
@@ -173,7 +173,7 @@ abstract public class DenotifyRequestDMW extends Request {
      * Sets target to the specified value.
      * @param value A value compatible with DmcTypeNameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
     public void setTarget(Object value) throws DmcValueException {
         ((DenotifyRequestDMO) core).setTarget(value);
     }
@@ -182,7 +182,7 @@ abstract public class DenotifyRequestDMW extends Request {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
     public void setTarget(NameContainer value){
         ((DenotifyRequestDMO) core).setTarget(value);
     }
@@ -191,7 +191,7 @@ abstract public class DenotifyRequestDMW extends Request {
      * Sets target to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1280)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1389)
     public void setTarget(DmcObjectName value){
         ((DenotifyRequestDMO) core).setTarget(value);
     }
@@ -199,7 +199,7 @@ abstract public class DenotifyRequestDMW extends Request {
     /**
      * Removes the target attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
     public void remTarget(){
         ((DenotifyRequestDMO) core).remTarget();
     }

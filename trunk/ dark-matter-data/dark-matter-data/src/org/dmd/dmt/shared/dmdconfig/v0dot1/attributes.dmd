@@ -243,6 +243,7 @@ name		mvIdxString
 dmdID		143
 type		String
 valueType	MULTI
+indexSize	10
 description	An indexed mv String.
 
 AttributeDefinition
@@ -279,6 +280,164 @@ dmdID		148
 type		String
 description	A sv String.
 
+//////////////////////////////////////////////////////////////////////////////
+//Named object references
+
+AttributeDefinition
+name		svNamedObj
+dmdID		241
+type		ObjWithRefs
+description	An sv ObjWithRefs.
+
+AttributeDefinition
+name		mvNamedObj
+dmdID		242
+type		ObjWithRefs
+valueType	MULTI
+description	An mv ObjWithRefs.
+
+AttributeDefinition
+name		mvIdxNamedObj
+dmdID		243
+type		ObjWithRefs
+valueType	MULTI
+indexSize	10
+description	An indexed mv ObjWithRefs.
+
+AttributeDefinition
+name		hmNamedObj
+dmdID		244
+type		ObjWithRefs
+valueType	HASHMAPPED
+description	A hashmap of ObjWithRefs.
+
+AttributeDefinition
+name		tmNamedObj
+dmdID		245
+type		ObjWithRefs
+valueType	TREEMAPPED
+description	A TreeMap of ObjWithRefs.
+
+AttributeDefinition
+name		hsNamedObj
+dmdID		246
+type		ObjWithRefs
+valueType	HASHSET
+description	A HashSet of ObjWithRefs.
+
+AttributeDefinition
+name		tsNamedObj
+dmdID		247
+type		ObjWithRefs
+valueType	TREESET
+description	A TreeSet of ObjWithRefs.
+
+//////////////////////////////////////////////////////////////////////////////
+// Unnamed object references
+
+AttributeDefinition
+name		svUnnamedObj
+dmdID		341
+type		TestBasicObjectFixed
+description	An sv TestBasicObjectFixed.
+
+AttributeDefinition
+name		mvUnnamedObj
+dmdID		342
+type		TestBasicObjectFixed
+valueType	MULTI
+description	An mv TestBasicObjectFixed.
+
+AttributeDefinition
+name		mvIdxUnnamedObj
+dmdID		343
+type		TestBasicObjectFixed
+valueType	MULTI
+indexSize	10
+description	An indexed mv TestBasicObjectFixed.
+
+// This definition will throw an exception because the unnamed object doesn't have a key
+//AttributeDefinition
+//name		hmUnnamedObj
+//dmdID		344
+//type		TestBasicObjectFixed
+//valueType	HASHMAPPED
+//description	A hashmap of TestBasicObjectFixed.
+
+//AttributeDefinition
+//name		tmUnnamedObj
+//dmdID		345
+//type		TestBasicObjectFixed
+//valueType	TREEMAPPED
+//description	A TreeMap of TestBasicObjectFixed.
+
+AttributeDefinition
+name		hsUnnamedObj
+dmdID		346
+type		TestBasicObjectFixed
+valueType	HASHSET
+description	A HashSet of TestBasicObjectFixed.
+
+AttributeDefinition
+name		tsUnnamedObj
+dmdID		347
+type		TestBasicObjectFixed
+valueType	TREESET
+description	A TreeSet of TestBasicObjectFixed.
+
+//////////////////////////////////////////////////////////////////////////////
+// Extended references
+
+AttributeDefinition
+name		svExtendedRef
+dmdID		441
+type		SomeRelation
+description	An sv SomeRelation.
+
+AttributeDefinition
+name		mvExtendedRef
+dmdID		442
+type		SomeRelation
+valueType	MULTI
+description	An mv SomeRelation.
+
+AttributeDefinition
+name		mvIdxExtendedRef
+dmdID		443
+type		SomeRelation
+valueType	MULTI
+indexSize	10
+description	An indexed mv SomeRelation.
+
+//This definition will throw an exception because the extended reference doesn't have a key
+//AttributeDefinition
+//name		hmExtendedRef
+//dmdID		444
+//type		SomeRelation
+//valueType	HASHMAPPED
+//description	A hashmap of SomeRelation.
+
+//AttributeDefinition
+//name		tmExtendedRef
+//dmdID		445
+//type		SomeRelation
+//valueType	TREEMAPPED
+//description	A TreeMap of SomeRelation.
+
+AttributeDefinition
+name		hsExtendedRef
+dmdID		446
+type		SomeRelation
+valueType	HASHSET
+description	A HashSet of SomeRelation.
+
+AttributeDefinition
+name		tsExtendedRef
+dmdID		447
+type		SomeRelation
+valueType	TREESET
+description	A TreeSet of SomeRelation.
+
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -300,115 +459,115 @@ description	A sv String.
 
 AttributeDefinition
 name		svTestBasicNamedObjectFixed
-dmdID		300
+dmdID		800
 type		TestBasicNamedObjectFixed
 description	A single valued TestBasicNamedObjectFixed.
 
 AttributeDefinition
 name		mvTestBasicNamedObjectFixed
-dmdID		301
+dmdID		801
 type		TestBasicNamedObjectFixed
 valueType	MULTI
 description	A multi-valued TestBasicNamedObjectFixed.
 
 AttributeDefinition
 name					anObjName
-dmdID					400
+dmdID					900
 type					NameContainer
 description				A single-valued NameContainer.
 
 AttributeDefinition
 name					dmtStringName
-dmdID					401
+dmdID					901
 designatedNameAttribute true
 type					DmtStringName
 description				The naming attribute for DmtNameStrings.
 
 AttributeDefinition
 name					anotherDmtName
-dmdID					402
+dmdID					902
 type					DmtStringName
 description				Another DmtStringName attribute.
 
 AttributeDefinition
 name					objRef
-dmdID					403
+dmdID					903
 type					ObjWithRefs
 description				Another ObjWithRefs object.
 
 AttributeDefinition
 name					objRefMV
-dmdID					404
+dmdID					904
 type					ObjWithRefs
 valueType				MULTI
 description				Other ObjWithRefs objects.
 
 AttributeDefinition
 name					objRefHM
-dmdID					405
+dmdID					905
 type					ObjWithRefs
 valueType				HASHMAPPED
 description				Other ObjWithRefs objects.
 
 AttributeDefinition
 name					attrIDs
-dmdID					406
+dmdID					906
 type					AttributeID
 valueType				HASHSET
 
 AttributeDefinition
 name            		OUIFilter
-dmdID           		407
+dmdID           		907
 nullReturnValue			""
 type            		String
 
 AttributeDefinition
 name            		clientCountFilter
-dmdID           		408
+dmdID           		908
 type            		ClientCountFilter
 
 AttributeDefinition
 name            		mvTestEnum
-dmdID           		409
+dmdID           		909
 valueType				MULTI
 type            		DmtTestEnum
 
 AttributeDefinition
 name            		hsTestEnum
-dmdID           		410
+dmdID           		910
 valueType				HASHSET
 type            		DmtTestEnum
 
 AttributeDefinition
 name            		hsNames
-dmdID           		411
+dmdID           		911
 valueType				HASHSET
 type            		NameContainer
 
 AttributeDefinition
 name            		transString
-dmdID           		412
+dmdID           		912
 valueType				HASHSET
 dataType				TRANSIENT
 type            		String
 
 AttributeDefinition
 name            		nonperString
-dmdID           		413
+dmdID           		913
 valueType				HASHSET
 dataType				NONPERSISTENT
 type            		String
 
 AttributeDefinition
 name            		indexedString
-dmdID           		414
+dmdID           		914
 valueType				MULTI
 indexSize				5
 type            		String
 
 AttributeDefinition
 name					indexedObjRef
-dmdID					415
+dmdID					915
 type					ObjWithRefs
 valueType				MULTI
 indexSize				10
@@ -416,7 +575,7 @@ description				Indexed references to ObjWithRefs objects.
 
 AttributeDefinition
 name					indexedPlainObjRef
-dmdID					416
+dmdID					916
 type					TestBasicObjectFixed
 valueType				MULTI
 indexSize				10
@@ -424,66 +583,66 @@ description				Indexed references to unnamed objects.
 
 AttributeDefinition
 name					plainObjRef
-dmdID					417
+dmdID					917
 type					TestBasicObjectFixed
 valueType				MULTI
 description				References to unnamed objects.
 
 AttributeDefinition
 name            		svTestEnum
-dmdID           		418
+dmdID           		918
 type            		DmtTestEnum
 
 AttributeDefinition
 name            		onOff
-dmdID           		419
+dmdID           		919
 type            		Boolean
 
 AttributeDefinition
 name            		enabledDisabled
-dmdID           		420
+dmdID           		920
 type            		Boolean
 
 AttributeDefinition
 name            		someRelationSV
-dmdID           		421
+dmdID           		921
 type            		SomeRelation
 
 AttributeDefinition
 name            		someRelationMV
-dmdID           		422
+dmdID           		922
 type            		SomeRelation
 valueType				MULTI
 
 AttributeDefinition
 name            		someRelationMVI
-dmdID           		423
+dmdID           		923
 type            		SomeRelation
 valueType				MULTI
 indexSize				8
 
 AttributeDefinition
 name            		intToStringMAP
-dmdID           		424
+dmdID           		924
 type					IntegerToString
 valueType				TREEMAPPED
 
 AttributeDefinition
 name            		hsStringName
-dmdID           		425
+dmdID           		925
 type					StringName
 valueType				HASHSET
 
 AttributeDefinition
 name					clientCountFilters
-dmdID					426
+dmdID					926
 type					ClientCountFilter
 valueType				MULTI
 indexSize				8
 
 AttributeDefinition
 name					someRelationIndexed
-dmdID					427
+dmdID					927
 type					SomeRelation
 valueType				MULTI
 indexSize				8

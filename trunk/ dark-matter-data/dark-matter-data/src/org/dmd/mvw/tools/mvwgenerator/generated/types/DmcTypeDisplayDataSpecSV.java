@@ -25,7 +25,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeDisplayDataSpec;   
  * The DmcTypeDisplayDataSpecSV provides storage for a single-valued DisplayDataSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1842)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1900)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:125)
  */
 @SuppressWarnings("serial")
@@ -50,14 +50,14 @@ public class DmcTypeDisplayDataSpecSV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1874)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1932)
     public DmcAttribute<DisplayDataSpec> cloneIt(){
         DmcTypeDisplayDataSpecSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1885)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1943)
     public DisplayDataSpec getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeDisplayDataSpecSV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1897)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
     public DisplayDataSpec set(Object v) throws DmcValueException {
         DisplayDataSpec rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

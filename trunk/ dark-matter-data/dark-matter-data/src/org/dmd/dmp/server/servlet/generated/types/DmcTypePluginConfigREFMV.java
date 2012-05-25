@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypePluginConfigREFMV provides storage for a multi-valued PluginConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2244)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypePluginConfigREFMV extends DmcTypePluginConfigREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2216)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2274)
     public DmcAttribute<PluginConfigREF> cloneIt(){
         synchronized(this){
             DmcTypePluginConfigREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypePluginConfigREFMV extends DmcTypePluginConfigREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2303)
     public PluginConfigREF add(Object v) throws DmcValueException {
         synchronized(this){
             PluginConfigREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypePluginConfigREFMV extends DmcTypePluginConfigREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2316)
     public PluginConfigREF del(Object v){
         synchronized(this){
             PluginConfigREF key = null;
@@ -105,7 +105,7 @@ public class DmcTypePluginConfigREFMV extends DmcTypePluginConfigREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
     public Iterator<PluginConfigREF> getMV(){
         synchronized(this){
             ArrayList<PluginConfigREF> clone = new ArrayList<PluginConfigREF>(value);
@@ -113,7 +113,7 @@ public class DmcTypePluginConfigREFMV extends DmcTypePluginConfigREF implements 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2356)
     public ArrayList<PluginConfigREF> getMVCopy(){
         synchronized(this){
             ArrayList<PluginConfigREF> clone = new ArrayList<PluginConfigREF>(value);
@@ -122,7 +122,7 @@ public class DmcTypePluginConfigREFMV extends DmcTypePluginConfigREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2308)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2366)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +136,7 @@ public class DmcTypePluginConfigREFMV extends DmcTypePluginConfigREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2381)
     public PluginConfigREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypePluginConfigREFMV extends DmcTypePluginConfigREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2334)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
     public PluginConfigREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +173,7 @@ public class DmcTypePluginConfigREFMV extends DmcTypePluginConfigREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2420)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +196,7 @@ public class DmcTypePluginConfigREFMV extends DmcTypePluginConfigREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2386)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2444)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

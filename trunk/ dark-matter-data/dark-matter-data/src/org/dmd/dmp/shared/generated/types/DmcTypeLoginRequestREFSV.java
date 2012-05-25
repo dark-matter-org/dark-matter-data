@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.dmo.LoginRequestDMO;    // DmcType import
  * The DmcTypeLoginRequestREFSV provides storage for a single-valued LoginRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1842)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1900)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeLoginRequestREFSV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1874)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1932)
     public DmcAttribute<LoginRequestDMO> cloneIt(){
         DmcTypeLoginRequestREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1885)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1943)
     public LoginRequestDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeLoginRequestREFSV extends DmcTypeLoginRequestREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1897)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
     public LoginRequestDMO set(Object v) throws DmcValueException {
         LoginRequestDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

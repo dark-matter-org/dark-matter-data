@@ -2,13 +2,13 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                 // If any attributes - (BaseDMWGeneratorNewest.java:808)
-import org.dmd.dms.*;                                                 // Always 2 - (BaseDMWGeneratorNewest.java:793)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:797)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:796)
-import org.dmd.dmt.server.extended.ClientCountFilter;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:801)
-import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:947)
-import org.dmd.dmw.DmwWrapper;                                        // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:930)
+import org.dmd.dmc.*;                                                 // If any attributes - (BaseDMWGeneratorNewest.java:887)
+import org.dmd.dms.*;                                                 // Always 2 - (BaseDMWGeneratorNewest.java:872)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
+import org.dmd.dmt.server.extended.ClientCountFilter;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
+import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
+import org.dmd.dmw.DmwWrapper;                                        // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1030)
 
 
 /**
@@ -52,7 +52,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
     public String getOUIFilter(){
         return(((ClientCountFilterDMO) core).getOUIFilter());
     }
@@ -61,7 +61,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
      * Sets OUIFilter to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
     public void setOUIFilter(Object value) throws DmcValueException {
         ((ClientCountFilterDMO) core).setOUIFilter(value);
     }
@@ -70,7 +70,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
      * Sets OUIFilter to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
     public void setOUIFilter(String value){
         ((ClientCountFilterDMO) core).setOUIFilter(value);
     }
@@ -78,7 +78,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
     /**
      * Removes the OUIFilter attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
     public void remOUIFilter(){
         ((ClientCountFilterDMO) core).remOUIFilter();
     }

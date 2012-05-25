@@ -2,18 +2,18 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.HashMap;                                         // To support getMVCopy() - (BaseDMWGeneratorNewest.java:895)
-import java.util.Iterator;                                        // Support MV object get() - (BaseDMWGeneratorNewest.java:2052)
-import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGeneratorNewest.java:808)
-import org.dmd.dmc.types.StringName;                              // Name type - (BaseDMWGeneratorNewest.java:2158)
-import org.dmd.dms.*;                                             // Always 2 - (BaseDMWGeneratorNewest.java:793)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:797)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:796)
-import org.dmd.dmt.server.extended.ObjWithRefs;                   // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
-import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                 // Attribute from dmt schema - (BaseDMWGeneratorNewest.java:717)
-import org.dmd.dmt.shared.generated.dmo.UsingObjRefHMDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:947)
-import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;         // To support getMVCopy() for REFs ObjWithRefs-HASHMAPPED - (BaseDMWGeneratorNewest.java:840)
-import org.dmd.dmw.DmwWrapper;                                    // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:930)
+import java.util.HashMap;                                         // To support getMVCopy() - (BaseDMWGeneratorNewest.java:985)
+import java.util.Iterator;                                        // Support MV object get() - (BaseDMWGeneratorNewest.java:2176)
+import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGeneratorNewest.java:887)
+import org.dmd.dmc.types.StringName;                              // Name type - (BaseDMWGeneratorNewest.java:2282)
+import org.dmd.dms.*;                                             // Always 2 - (BaseDMWGeneratorNewest.java:872)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
+import org.dmd.dmt.server.extended.ObjWithRefs;                   // Is reference type - (BaseDMWGeneratorNewest.java:906)
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                 // Attribute objRefHM from the dmt schema - (BaseDMWGeneratorNewest.java:719)
+import org.dmd.dmt.shared.generated.dmo.UsingObjRefHMDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
+import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;         // To support getMVCopy() for REFs ObjWithRefs-HASHMAPPED - (BaseDMWGeneratorNewest.java:925)
+import org.dmd.dmw.DmwWrapper;                                    // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1030)
 
 
 /**
@@ -59,7 +59,7 @@ public class UsingObjRefHMDMW extends DmwWrapper {
     /**
      * @return The number of ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:1966)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2090)
     public int getObjRefHMSize(){
         DmcAttribute<?> attr = ((UsingObjRefHMDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -71,7 +71,7 @@ public class UsingObjRefHMDMW extends DmwWrapper {
     /**
      * @return true if there are no ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:1978)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2102)
     public boolean getObjRefHMIsEmpty(){
         DmcAttribute<?> attr = ((UsingObjRefHMDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -83,7 +83,7 @@ public class UsingObjRefHMDMW extends DmwWrapper {
     /**
      * @return true if there are any ObjWithRefsDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:1990)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2114)
     public boolean getObjRefHMHasValue(){
         DmcAttribute<?> attr = ((UsingObjRefHMDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -95,7 +95,7 @@ public class UsingObjRefHMDMW extends DmwWrapper {
     /**
      * @return The keyed ObjWithRefs object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2006)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2130)
     public ObjWithRefs getObjRefHM(Object key){
         DmcAttribute<?> attr = ((UsingObjRefHMDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -107,7 +107,7 @@ public class UsingObjRefHMDMW extends DmwWrapper {
     /**
      * @return An Iterable of ObjWithRefs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2060)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2184)
     public ObjWithRefsIterableDMW getObjRefHMIterable(){
         DmcAttribute<?> attr = ((UsingObjRefHMDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -125,7 +125,7 @@ public class UsingObjRefHMDMW extends DmwWrapper {
      * Adds another objRefHM value.
      * @param value ObjWithRefsDMW
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2094)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2218)
     public DmcAttribute<?> addObjRefHM(ObjWithRefs value) {
         return(((UsingObjRefHMDMO) core).addObjRefHM(value.getDMO()));
     }
@@ -134,7 +134,7 @@ public class UsingObjRefHMDMW extends DmwWrapper {
      * Deletes a objRefHM value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2118)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2242)
     public void delObjRefHM(ObjWithRefs value){
         ((UsingObjRefHMDMO) core).delObjRefHM(value.getDMO());
     }
@@ -142,7 +142,7 @@ public class UsingObjRefHMDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of ObjWithRefs objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2162)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2286)
     public HashMap<StringName,ObjWithRefs> getObjRefHMCopy(){
         DmcAttribute<?> attr = ((UsingObjRefHMDMO) core).get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -161,7 +161,7 @@ public class UsingObjRefHMDMW extends DmwWrapper {
     /**
      * Removes the objRefHM attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2315)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2439)
     public void remObjRefHM(){
         ((UsingObjRefHMDMO) core).remObjRefHM();
     }

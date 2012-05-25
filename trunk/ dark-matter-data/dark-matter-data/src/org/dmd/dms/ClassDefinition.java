@@ -264,14 +264,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     		return(true);
     }
     
-    /**
-     * Returns the attribute definition is this class uses the specified attribute.
-     * @param attrName The attribute name.
-     * @return The attribute definition or null if we don't have the attribute for this class.
-     */
-    public AttributeDefinition hasAttribute(StringName attrName){
-    	AttributeDefinition rc = null;
-
+    private void initAttrMap(){
         if (attrMap == null){
             Iterator<AttributeDefinition> it;
             AttributeDefinition ad;
@@ -291,6 +284,38 @@ public class ClassDefinition extends ClassDefinitionDMW {
                 }
             }
         }
+    	
+    }
+    
+    /**
+     * Returns the attribute definition is this class uses the specified attribute.
+     * @param attrName The attribute name.
+     * @return The attribute definition or null if we don't have the attribute for this class.
+     */
+    public AttributeDefinition hasAttribute(StringName attrName){
+    	AttributeDefinition rc = null;
+
+    	initAttrMap();
+    	
+//        if (attrMap == null){
+//            Iterator<AttributeDefinition> it;
+//            AttributeDefinition ad;
+//
+//            attrMap = new TreeMap<StringName, AttributeDefinition>();
+//            if ( (it = this.getMust()) != null){
+//                while(it.hasNext()){
+//                    ad = (AttributeDefinition)it.next();
+//                    attrMap.put(ad.getName(),ad);
+//                }
+//            }
+//
+//            if ( (it = this.getMay()) != null){
+//                while(it.hasNext()){
+//                    ad = (AttributeDefinition)it.next();
+//                    attrMap.put(ad.getName(),ad);
+//                }
+//            }
+//        }
 
         if ( (rc = (AttributeDefinition)attrMap.get(attrName)) == null){
             // We couldn't find the attribute at this level. If we're
@@ -350,6 +375,14 @@ public class ClassDefinition extends ClassDefinitionDMW {
     public TreeMap<StringName,AttributeDefinition> getAllMay(){
     	getFullAttrMap();
     	return(allMay);
+    }
+    
+    /**
+     * @return all must/may attributes just for this class
+     */
+    public TreeMap<StringName,AttributeDefinition> getAllAttributesAtThisLevel(){
+    	initAttrMap();
+    	return(attrMap);
     }
     
     /**

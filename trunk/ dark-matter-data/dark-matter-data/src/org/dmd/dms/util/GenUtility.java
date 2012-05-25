@@ -272,6 +272,11 @@ public class GenUtility {
 			if (td.getIsRefType() && !td.getIsExtendedRefType()){
 				addImport(uniqueImports, longestImport, ta.getImport(), "Reference type");
 				
+				if (ta.valueType == ValueTypeEnum.TREEMAPPED){
+					if (td.getOriginalClass().getIsNamedBy() != null)
+						addImport(uniqueImports, longestImport, td.getOriginalClass().getIsNamedBy().getType().getPrimitiveType(),"Name attribute type");
+				}
+				
 				addImport(uniqueImports, longestImport, td.getOriginalClass().getDmoImport(), "Type specific set/add");
 				
 //				addImport(uniqueImports, longestImport, "org.dmd.dmc.DmcNamedObjectIF", "Named object reference");
@@ -689,40 +694,93 @@ public class GenUtility {
 
     	}
     	else{
-			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-			if (typeName.equals("DmcAttribute")){
-				if (!genericArgs.equals("<?>"))
-					sb.append("    @SuppressWarnings(\"unchecked\")\n");
-				sb.append("    public DmcAttribute" + genericArgs + " get" + functionName + "(){\n");
-			}
-			else if (ad.getType() == MetaSchema._Boolean){
-				sb.append("    public " + typeName + " is" + functionName + "(){\n");
-			}
-			else{
+    		if (ad.getType().getIsExtendedRefType()){
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		    	sb.append("    /**\n");
+				sb.append("     * @return The " + typeName + ", attempting lazy resolution (if it's turned on).\n");
+				sb.append("     */\n");
 				sb.append("    public " + typeName + " get" + functionName + "(){\n");
-			}
-//			sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
-			sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
-			sb.append("        if (attr == null)\n");
-			
-	    	if (nullReturnValue == null)
-	    		sb.append("            return(null);\n");
-	    	else
-	    		sb.append("            return(" + nullReturnValue + ");\n");
 	
-	    	sb.append("\n");
-	    	
-	    	if (typeName.equals("DmcAttribute")){
-		    	if (!genericArgs.equals("<?>"))
-			    	sb.append("        return((DmcAttribute" + genericArgs + ")attr.getSV());\n");
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+				sb.append("        if (attr == null)\n");
+				
+		    	if (nullReturnValue == null)
+		    		sb.append("            return(null);\n");
+		    	else
+		    		sb.append("            return(" + nullReturnValue + ");\n");
+		
+		    	sb.append("\n");
+		    	
+		    	sb.append("        if (DmcOmni.instance().lazyResolution()){\n");
+		    	sb.append("            if (attr.doLazyResolution(this)){\n");
+		    	sb.append("                rem(attr.getAttributeInfo());\n");
+	    		sb.append("                return(null);\n");
+		    	sb.append("            }\n");
+		    	sb.append("        }\n");
+		    	sb.append("\n");
+		    	
+		    	sb.append("        return(attr.getSV());\n");
+		    	
+		    	sb.append("    }\n\n");
+		    	
+		    	///////////////////////////////////////////////////////////////
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+		    	sb.append("    /**\n");
+				sb.append("     * @return The " + typeName + " without attempting lazy resolution (if it's turned on).\n");
+				sb.append("     */\n");
+				sb.append("    public " + typeName + " get" + functionName + "REF(){\n");
+	
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+				sb.append("        if (attr == null)\n");
+				
+		    	if (nullReturnValue == null)
+		    		sb.append("            return(null);\n");
+		    	else
+		    		sb.append("            return(" + nullReturnValue + ");\n");
+		
+		    	sb.append("\n");
+		    			    	
+		    	sb.append("        return(attr.getSV());\n");
+		    	
+		    	sb.append("    }\n\n");
+    		}
+    		else{
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				if (typeName.equals("DmcAttribute")){
+					if (!genericArgs.equals("<?>"))
+						sb.append("    @SuppressWarnings(\"unchecked\")\n");
+					sb.append("    public DmcAttribute" + genericArgs + " get" + functionName + "(){\n");
+				}
+				else if (ad.getType() == MetaSchema._Boolean){
+					sb.append("    public " + typeName + " is" + functionName + "(){\n");
+				}
+				else{
+					sb.append("    public " + typeName + " get" + functionName + "(){\n");
+				}
+	
+				sb.append("        " + attrType + " attr = (" + attrType + ") get(" + ad.getDMSAGReference() + ");\n");
+				sb.append("        if (attr == null)\n");
+				
+		    	if (nullReturnValue == null)
+		    		sb.append("            return(null);\n");
+		    	else
+		    		sb.append("            return(" + nullReturnValue + ");\n");
+		
+		    	sb.append("\n");
+		    	
+		    	if (typeName.equals("DmcAttribute")){
+			    	if (!genericArgs.equals("<?>"))
+				    	sb.append("        return((DmcAttribute" + genericArgs + ")attr.getSV());\n");
+			    	else
+			    		sb.append("        return(attr.getSV());\n");
+		    	}
 		    	else
 		    		sb.append("        return(attr.getSV());\n");
-	    	}
-	    	else
-	    		sb.append("        return(attr.getSV());\n");
-	    	
-	    	sb.append("    }\n\n");
-	    	
+		    	
+		    	sb.append("    }\n\n");
+		    	
+    		}
+    		
 	    	sb.append("    /**\n");
 	    	sb.append("     * Sets " + ad.getName() + " to the specified value.\n");
 	    	sb.append("     * @param value " + typeName + "\n");

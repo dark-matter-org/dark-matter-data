@@ -2,25 +2,25 @@ package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.ArrayList;                                                        // To support getMVCopy() - (BaseDMWGeneratorNewest.java:891)
-import org.dmd.dmc.*;                                                              // If any attributes - (BaseDMWGeneratorNewest.java:808)
-import org.dmd.dmc.types.CamelCaseName;                                            // Is named by - (BaseDMWGeneratorNewest.java:789)
-import org.dmd.dms.*;                                                              // Always 2 - (BaseDMWGeneratorNewest.java:793)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                        // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:797)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:796)
-import org.dmd.mvw.tools.mvwgenerator.extended.Activity;                           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:801)
-import org.dmd.mvw.tools.mvwgenerator.extended.Component;                          // Derived class - (BaseDMWGeneratorNewest.java:943)
-import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                         // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
-import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;                          // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
-import org.dmd.mvw.tools.mvwgenerator.extended.View;                               // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActivityDMO;                   // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:947)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                 // For multi-valued adds of Controller - (BaseDMWGeneratorNewest.java:1430)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                      // Attribute from mvw schema - (BaseDMWGeneratorNewest.java:717)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                  // For multi-valued adds of Presenter - (BaseDMWGeneratorNewest.java:1430)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                       // For multi-valued adds of View - (BaseDMWGeneratorNewest.java:1430)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW;         // For multi-valued Controller - (BaseDMWGeneratorNewest.java:1382)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.PresenterIterableDMW;          // For multi-valued Presenter - (BaseDMWGeneratorNewest.java:1382)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewIterableDMW;               // For multi-valued View - (BaseDMWGeneratorNewest.java:1382)
+import java.util.ArrayList;                                                        // To support getMVCopy() - (BaseDMWGeneratorNewest.java:980)
+import org.dmd.dmc.*;                                                              // If any attributes - (BaseDMWGeneratorNewest.java:887)
+import org.dmd.dmc.types.CamelCaseName;                                            // Is named by - (BaseDMWGeneratorNewest.java:868)
+import org.dmd.dms.*;                                                              // Always 2 - (BaseDMWGeneratorNewest.java:872)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                        // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
+import org.dmd.mvw.tools.mvwgenerator.extended.Activity;                           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;                          // Derived class - (BaseDMWGeneratorNewest.java:1043)
+import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                         // Is reference type - (BaseDMWGeneratorNewest.java:906)
+import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;                          // Is reference type - (BaseDMWGeneratorNewest.java:906)
+import org.dmd.mvw.tools.mvwgenerator.extended.View;                               // Is reference type - (BaseDMWGeneratorNewest.java:906)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActivityDMO;                   // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                 // For multi-valued adds of Controller - (BaseDMWGeneratorNewest.java:1542)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                      // Attribute instantiatesPresenter from the mvw schema - (BaseDMWGeneratorNewest.java:719)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                  // For multi-valued adds of Presenter - (BaseDMWGeneratorNewest.java:1542)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ViewDMO;                       // For multi-valued adds of View - (BaseDMWGeneratorNewest.java:1542)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW;         // For multi-valued Controller - (BaseDMWGeneratorNewest.java:1491)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.PresenterIterableDMW;          // For multi-valued Presenter - (BaseDMWGeneratorNewest.java:1491)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ViewIterableDMW;               // For multi-valued View - (BaseDMWGeneratorNewest.java:1491)
 
 
 /**
@@ -85,7 +85,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:992)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1092)
     public CamelCaseName getObjectName(){
         return(((ActivityDMO) core).getActivityName());
     }
@@ -105,38 +105,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
-    public String getUseBaseClass(){
-        return(((ActivityDMO) core).getUseBaseClass());
-    }
-
-    /**
-     * Sets useBaseClass to the specified value.
-     * @param value A value compatible with DmcTypeString
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
-    public void setUseBaseClass(Object value) throws DmcValueException {
-        ((ActivityDMO) core).setUseBaseClass(value);
-    }
-
-    /**
-     * Sets useBaseClass to the specified value.
-     * @param value String
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
-    public void setUseBaseClass(String value){
-        ((ActivityDMO) core).setUseBaseClass(value);
-    }
-
-    /**
-     * Removes the useBaseClass attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public void remUseBaseClass(){
-        ((ActivityDMO) core).remUseBaseClass();
-    }
-
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
     public Boolean isAbstractActivity(){
         return(((ActivityDMO) core).isAbstractActivity());
     }
@@ -145,7 +114,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Sets abstractActivity to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
     public void setAbstractActivity(Object value) throws DmcValueException {
         ((ActivityDMO) core).setAbstractActivity(value);
     }
@@ -154,7 +123,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Sets abstractActivity to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
     public void setAbstractActivity(Boolean value){
         ((ActivityDMO) core).setAbstractActivity(value);
     }
@@ -162,187 +131,77 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * Removes the abstractActivity attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
     public void remAbstractActivity(){
         ((ActivityDMO) core).remAbstractActivity();
     }
 
-    /**
-     * @return The number of Controller items.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1344)
-    public int getUsesControllerSize(){
-        return(((ActivityDMO) core).getUsesControllerSize());
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    public CamelCaseName getActivityName(){
+        return(((ActivityDMO) core).getActivityName());
     }
 
     /**
-     * @return true if there are no ControllerDMO items.
+     * Sets activityName to the specified value.
+     * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1352)
-    public boolean getUsesControllerIsEmpty(){
-        if (((ActivityDMO) core).getUsesControllerSize() == 0)
-            return(true);
-        return(false);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    public void setActivityName(Object value) throws DmcValueException {
+        ((ActivityDMO) core).setActivityName(value);
     }
 
     /**
-     * @return true if there are any ControllerDMO items.
+     * Sets activityName to the specified value.
+     * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1362)
-    public boolean getUsesControllerHasValue(){
-        if (((ActivityDMO) core).getUsesControllerSize() == 0)
-            return(false);
-        return(true);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    public void setActivityName(CamelCaseName value){
+        ((ActivityDMO) core).setActivityName(value);
     }
 
     /**
-     * @return An Iterator of ControllerDMO objects.
+     * Removes the activityName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1388)
-    public ControllerIterableDMW getUsesControllerIterable(){
-        DmcAttribute<?> attr = core.get(MvwDMSAG.__usesController);
-        if (attr == null)
-            return(ControllerIterableDMW.emptyList);
-        
-        return(new ControllerIterableDMW(((ActivityDMO) core).getUsesController()));
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    public void remActivityName(){
+        ((ActivityDMO) core).remActivityName();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    public Boolean isCodeSplit(){
+        return(((ActivityDMO) core).isCodeSplit());
     }
 
     /**
-     * Adds another usesController value.
-     * @param value A value compatible with Controller
+     * Sets codeSplit to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1436)
-    public DmcAttribute<?> addUsesController(Controller value){
-        DmcAttribute<?> attr = ((ActivityDMO) core).addUsesController(((ControllerDMO)value.getDmcObject()));
-        return(attr);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    public void setCodeSplit(Object value) throws DmcValueException {
+        ((ActivityDMO) core).setCodeSplit(value);
     }
 
     /**
-     * Deletes a usesController value.
-     * @param value The Controller to be deleted from set of attribute values.
+     * Sets codeSplit to the specified value.
+     * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1462)
-    public void delUsesController(Controller value){
-        ((ActivityDMO) core).delUsesController(value.getDMO());
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    public void setCodeSplit(Boolean value){
+        ((ActivityDMO) core).setCodeSplit(value);
     }
 
     /**
-     * @return A COPY of the collection of Controller objects.
+     * Removes the codeSplit attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1511)
-    public ArrayList<Controller> getUsesControllerCopy(){
-        DmcAttribute<?> attr = ((ActivityDMO) core).get(MvwDMSAG.__usesController);
-        if (attr == null)
-            return(new ArrayList<Controller>());
-        
-        ArrayList<Controller> rc = new ArrayList<Controller>(attr.getMVSize());
-        
-        ControllerIterableDMW it = getUsesControllerIterable();
-        while(it.hasNext()){
-            rc.add(it.next());
-        }
-        
-        return(rc);
-    }
-
-    /**
-     * Removes the usesController attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1914)
-    public void remUsesController(){
-        ((ActivityDMO) core).remUsesController();
-    }
-
-    /**
-     * @return The number of View items.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1344)
-    public int getManagesViewSize(){
-        return(((ActivityDMO) core).getManagesViewSize());
-    }
-
-    /**
-     * @return true if there are no ViewDMO items.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1352)
-    public boolean getManagesViewIsEmpty(){
-        if (((ActivityDMO) core).getManagesViewSize() == 0)
-            return(true);
-        return(false);
-    }
-
-    /**
-     * @return true if there are any ViewDMO items.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1362)
-    public boolean getManagesViewHasValue(){
-        if (((ActivityDMO) core).getManagesViewSize() == 0)
-            return(false);
-        return(true);
-    }
-
-    /**
-     * @return An Iterator of ViewDMO objects.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1388)
-    public ViewIterableDMW getManagesViewIterable(){
-        DmcAttribute<?> attr = core.get(MvwDMSAG.__managesView);
-        if (attr == null)
-            return(ViewIterableDMW.emptyList);
-        
-        return(new ViewIterableDMW(((ActivityDMO) core).getManagesView()));
-    }
-
-    /**
-     * Adds another managesView value.
-     * @param value A value compatible with View
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1436)
-    public DmcAttribute<?> addManagesView(View value){
-        DmcAttribute<?> attr = ((ActivityDMO) core).addManagesView(((ViewDMO)value.getDmcObject()));
-        return(attr);
-    }
-
-    /**
-     * Deletes a managesView value.
-     * @param value The View to be deleted from set of attribute values.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1462)
-    public void delManagesView(View value){
-        ((ActivityDMO) core).delManagesView(value.getDMO());
-    }
-
-    /**
-     * @return A COPY of the collection of View objects.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1511)
-    public ArrayList<View> getManagesViewCopy(){
-        DmcAttribute<?> attr = ((ActivityDMO) core).get(MvwDMSAG.__managesView);
-        if (attr == null)
-            return(new ArrayList<View>());
-        
-        ArrayList<View> rc = new ArrayList<View>(attr.getMVSize());
-        
-        ViewIterableDMW it = getManagesViewIterable();
-        while(it.hasNext()){
-            rc.add(it.next());
-        }
-        
-        return(rc);
-    }
-
-    /**
-     * Removes the managesView attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1914)
-    public void remManagesView(){
-        ((ActivityDMO) core).remManagesView();
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    public void remCodeSplit(){
+        ((ActivityDMO) core).remCodeSplit();
     }
 
     /**
      * @return The number of Presenter items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1344)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1453)
     public int getInstantiatesPresenterSize(){
         return(((ActivityDMO) core).getInstantiatesPresenterSize());
     }
@@ -350,7 +209,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return true if there are no PresenterDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1352)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1461)
     public boolean getInstantiatesPresenterIsEmpty(){
         if (((ActivityDMO) core).getInstantiatesPresenterSize() == 0)
             return(true);
@@ -360,7 +219,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return true if there are any PresenterDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1471)
     public boolean getInstantiatesPresenterHasValue(){
         if (((ActivityDMO) core).getInstantiatesPresenterSize() == 0)
             return(false);
@@ -370,7 +229,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return An Iterator of PresenterDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1388)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1498)
     public PresenterIterableDMW getInstantiatesPresenterIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -383,7 +242,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Adds another instantiatesPresenter value.
      * @param value A value compatible with Presenter
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1436)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1548)
     public DmcAttribute<?> addInstantiatesPresenter(Presenter value){
         DmcAttribute<?> attr = ((ActivityDMO) core).addInstantiatesPresenter(((PresenterDMO)value.getDmcObject()));
         return(attr);
@@ -393,7 +252,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
      * Deletes a instantiatesPresenter value.
      * @param value The Presenter to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1462)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1585)
     public void delInstantiatesPresenter(Presenter value){
         ((ActivityDMO) core).delInstantiatesPresenter(value.getDMO());
     }
@@ -401,7 +260,7 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * @return A COPY of the collection of Presenter objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1511)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1635)
     public ArrayList<Presenter> getInstantiatesPresenterCopy(){
         DmcAttribute<?> attr = ((ActivityDMO) core).get(MvwDMSAG.__instantiatesPresenter);
         if (attr == null)
@@ -420,71 +279,212 @@ abstract public class ActivityDMW extends Component implements DmcNamedObjectIF 
     /**
      * Removes the instantiatesPresenter attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1914)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2038)
     public void remInstantiatesPresenter(){
         ((ActivityDMO) core).remInstantiatesPresenter();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
-    public Boolean isCodeSplit(){
-        return(((ActivityDMO) core).isCodeSplit());
+    /**
+     * @return The number of View items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1453)
+    public int getManagesViewSize(){
+        return(((ActivityDMO) core).getManagesViewSize());
     }
 
     /**
-     * Sets codeSplit to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
+     * @return true if there are no ViewDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
-    public void setCodeSplit(Object value) throws DmcValueException {
-        ((ActivityDMO) core).setCodeSplit(value);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1461)
+    public boolean getManagesViewIsEmpty(){
+        if (((ActivityDMO) core).getManagesViewSize() == 0)
+            return(true);
+        return(false);
     }
 
     /**
-     * Sets codeSplit to the specified value.
-     * @param value Boolean
+     * @return true if there are any ViewDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
-    public void setCodeSplit(Boolean value){
-        ((ActivityDMO) core).setCodeSplit(value);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1471)
+    public boolean getManagesViewHasValue(){
+        if (((ActivityDMO) core).getManagesViewSize() == 0)
+            return(false);
+        return(true);
     }
 
     /**
-     * Removes the codeSplit attribute value.
+     * @return An Iterator of ViewDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public void remCodeSplit(){
-        ((ActivityDMO) core).remCodeSplit();
-    }
-
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
-    public CamelCaseName getActivityName(){
-        return(((ActivityDMO) core).getActivityName());
-    }
-
-    /**
-     * Sets activityName to the specified value.
-     * @param value A value compatible with DmcTypeCamelCaseName
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
-    public void setActivityName(Object value) throws DmcValueException {
-        ((ActivityDMO) core).setActivityName(value);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1498)
+    public ViewIterableDMW getManagesViewIterable(){
+        DmcAttribute<?> attr = core.get(MvwDMSAG.__managesView);
+        if (attr == null)
+            return(ViewIterableDMW.emptyList);
+        
+        return(new ViewIterableDMW(((ActivityDMO) core).getManagesView()));
     }
 
     /**
-     * Sets activityName to the specified value.
-     * @param value CamelCaseName
+     * Adds another managesView value.
+     * @param value A value compatible with View
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
-    public void setActivityName(CamelCaseName value){
-        ((ActivityDMO) core).setActivityName(value);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1548)
+    public DmcAttribute<?> addManagesView(View value){
+        DmcAttribute<?> attr = ((ActivityDMO) core).addManagesView(((ViewDMO)value.getDmcObject()));
+        return(attr);
     }
 
     /**
-     * Removes the activityName attribute value.
+     * Deletes a managesView value.
+     * @param value The View to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public void remActivityName(){
-        ((ActivityDMO) core).remActivityName();
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1585)
+    public void delManagesView(View value){
+        ((ActivityDMO) core).delManagesView(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of View objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1635)
+    public ArrayList<View> getManagesViewCopy(){
+        DmcAttribute<?> attr = ((ActivityDMO) core).get(MvwDMSAG.__managesView);
+        if (attr == null)
+            return(new ArrayList<View>());
+        
+        ArrayList<View> rc = new ArrayList<View>(attr.getMVSize());
+        
+        ViewIterableDMW it = getManagesViewIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Removes the managesView attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2038)
+    public void remManagesView(){
+        ((ActivityDMO) core).remManagesView();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    public String getUseBaseClass(){
+        return(((ActivityDMO) core).getUseBaseClass());
+    }
+
+    /**
+     * Sets useBaseClass to the specified value.
+     * @param value A value compatible with DmcTypeString
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    public void setUseBaseClass(Object value) throws DmcValueException {
+        ((ActivityDMO) core).setUseBaseClass(value);
+    }
+
+    /**
+     * Sets useBaseClass to the specified value.
+     * @param value String
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    public void setUseBaseClass(String value){
+        ((ActivityDMO) core).setUseBaseClass(value);
+    }
+
+    /**
+     * Removes the useBaseClass attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    public void remUseBaseClass(){
+        ((ActivityDMO) core).remUseBaseClass();
+    }
+
+    /**
+     * @return The number of Controller items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1453)
+    public int getUsesControllerSize(){
+        return(((ActivityDMO) core).getUsesControllerSize());
+    }
+
+    /**
+     * @return true if there are no ControllerDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1461)
+    public boolean getUsesControllerIsEmpty(){
+        if (((ActivityDMO) core).getUsesControllerSize() == 0)
+            return(true);
+        return(false);
+    }
+
+    /**
+     * @return true if there are any ControllerDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1471)
+    public boolean getUsesControllerHasValue(){
+        if (((ActivityDMO) core).getUsesControllerSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of ControllerDMO objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1498)
+    public ControllerIterableDMW getUsesControllerIterable(){
+        DmcAttribute<?> attr = core.get(MvwDMSAG.__usesController);
+        if (attr == null)
+            return(ControllerIterableDMW.emptyList);
+        
+        return(new ControllerIterableDMW(((ActivityDMO) core).getUsesController()));
+    }
+
+    /**
+     * Adds another usesController value.
+     * @param value A value compatible with Controller
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1548)
+    public DmcAttribute<?> addUsesController(Controller value){
+        DmcAttribute<?> attr = ((ActivityDMO) core).addUsesController(((ControllerDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a usesController value.
+     * @param value The Controller to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1585)
+    public void delUsesController(Controller value){
+        ((ActivityDMO) core).delUsesController(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of Controller objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1635)
+    public ArrayList<Controller> getUsesControllerCopy(){
+        DmcAttribute<?> attr = ((ActivityDMO) core).get(MvwDMSAG.__usesController);
+        if (attr == null)
+            return(new ArrayList<Controller>());
+        
+        ArrayList<Controller> rc = new ArrayList<Controller>(attr.getMVSize());
+        
+        ControllerIterableDMW it = getUsesControllerIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Removes the usesController attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2038)
+    public void remUsesController(){
+        ((ActivityDMO) core).remUsesController();
     }
 
 
