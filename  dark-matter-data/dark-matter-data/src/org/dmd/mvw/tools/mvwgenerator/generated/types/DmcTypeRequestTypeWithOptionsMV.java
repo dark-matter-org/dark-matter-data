@@ -27,7 +27,7 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestTypeWithOptions;    //
  * The DmcTypeRequestTypeWithOptionsMV provides storage for a multi-valued RequestTypeWithOptions
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2244)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:101)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2216)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2274)
     public DmcAttribute<RequestTypeWithOptions> cloneIt(){
         synchronized(this){
             DmcTypeRequestTypeWithOptionsMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2303)
     public RequestTypeWithOptions add(Object v) throws DmcValueException {
         synchronized(this){
             RequestTypeWithOptions rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2316)
     public RequestTypeWithOptions del(Object v){
         synchronized(this){
             RequestTypeWithOptions key = null;
@@ -107,7 +107,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
     public Iterator<RequestTypeWithOptions> getMV(){
         synchronized(this){
             ArrayList<RequestTypeWithOptions> clone = new ArrayList<RequestTypeWithOptions>(value);
@@ -115,7 +115,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2356)
     public ArrayList<RequestTypeWithOptions> getMVCopy(){
         synchronized(this){
             ArrayList<RequestTypeWithOptions> clone = new ArrayList<RequestTypeWithOptions>(value);
@@ -124,7 +124,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2308)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2366)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -138,7 +138,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2381)
     public RequestTypeWithOptions getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2334)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
     public RequestTypeWithOptions setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -175,7 +175,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2420)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,7 +198,7 @@ public class DmcTypeRequestTypeWithOptionsMV extends DmcTypeRequestTypeWithOptio
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2386)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2444)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

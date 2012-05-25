@@ -1,21 +1,21 @@
 package org.dmd.dmt.shared.generated.types;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.GenUtility.dumpExtendedReferenceTypeDmcType(GenUtility.java:3039)
-import org.dmd.dmc.DmcAttributeInfo;                            // Standard attribute interface - (GenUtility.java:3027)
-import org.dmd.dmc.DmcInputStreamIF;                            // Serialization support - (GenUtility.java:3024)
-import org.dmd.dmc.DmcOutputStreamIF;                           // Serialization support - (GenUtility.java:3025)
-import org.dmd.dmc.DmcValueException;                           // Value exceptions - (GenUtility.java:3028)
-import org.dmd.dmc.types.DmcTypeNamedObjectREF;                 // The class we extend - (GenUtility.java:3029)
-import org.dmd.dmc.types.StringName;                            // Name type - (GenUtility.java:3033)
-import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;         // The class we refer to - (GenUtility.java:3031)
+// Called from: org.dmd.dms.util.GenUtility.dumpExtendedReferenceTypeDmcType(GenUtility.java:3097)
+import org.dmd.dmc.DmcAttributeInfo;                            // Standard attribute interface - (GenUtility.java:3085)
+import org.dmd.dmc.DmcInputStreamIF;                            // Serialization support - (GenUtility.java:3082)
+import org.dmd.dmc.DmcOutputStreamIF;                           // Serialization support - (GenUtility.java:3083)
+import org.dmd.dmc.DmcValueException;                           // Value exceptions - (GenUtility.java:3086)
+import org.dmd.dmc.types.DmcTypeNamedObjectREF;                 // The class we extend - (GenUtility.java:3087)
+import org.dmd.dmc.types.StringName;                            // Name type - (GenUtility.java:3091)
+import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;         // The class we refer to - (GenUtility.java:3089)
 
 
 @SuppressWarnings("serial")
 /**
  * The DmcTypeSomeRelation class.
  * This code was auto-generated and shouldn't be alterred manually.
- * Generated from: org.dmd.dms.util.GenUtility.dumpExtendedReferenceTypeDmcType(GenUtility.java:3062)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpExtendedReferenceTypeDmcType(GenUtility.java:3120)
  *    Called from: Called from: org.dmd.dms.util.ExtendedReferenceTypeFormatter.dumpExtendedReferenceType(ExtendedReferenceTypeFormatter.java:440)
  */
 abstract public class DmcTypeSomeRelation extends DmcTypeNamedObjectREF<SomeRelation, StringName> {

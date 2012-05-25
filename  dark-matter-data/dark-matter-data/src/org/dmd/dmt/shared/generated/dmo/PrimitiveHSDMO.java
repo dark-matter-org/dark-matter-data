@@ -1,15 +1,15 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:363)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
 import java.io.Serializable;                                  // Always required - (GenUtility.java:197)
 import java.util.*;                                           // Always required if we have any MV attributes - (GenUtility.java:193)
 import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcObject;                                 // Structural class - (GenUtility.java:319)
+import org.dmd.dmc.DmcObject;                                 // Structural class - (GenUtility.java:324)
 import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:202)
 import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:214)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:201)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:200)
-import org.dmd.dms.generated.types.DmcTypeStringSET;          // Required type - (GenUtility.java:296)
+import org.dmd.dms.generated.types.DmcTypeStringSET;          // Required type - (GenUtility.java:301)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -87,7 +87,7 @@ public class PrimitiveHSDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1018)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1076)
     public Iterator<String> getHsString(){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(DmtDMSAG.__hsString);
         if (attr == null)
@@ -99,7 +99,7 @@ public class PrimitiveHSDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1030)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1088)
     public String getNthHsString(int i){
         DmcTypeStringSET attr = (DmcTypeStringSET) get(DmtDMSAG.__hsString);
         if (attr == null)
@@ -112,7 +112,7 @@ public class PrimitiveHSDMO  extends DmcObject  implements Serializable  {
      * Adds another hsString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1044)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1102)
     public DmcAttribute<?> addHsString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsString);
         if (attr == null)
@@ -132,7 +132,7 @@ public class PrimitiveHSDMO  extends DmcObject  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1119)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1177)
     public boolean hsStringContains(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsString);
         if (attr == null)
@@ -144,7 +144,7 @@ public class PrimitiveHSDMO  extends DmcObject  implements Serializable  {
      * Adds another hsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1151)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1209)
     public DmcAttribute<?> addHsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsString);
         if (attr == null)
@@ -158,7 +158,7 @@ public class PrimitiveHSDMO  extends DmcObject  implements Serializable  {
     /**
      * Returns the number of values in hsString
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1168)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1226)
     public int getHsStringSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsString);
         if (attr == null){
@@ -174,7 +174,7 @@ public class PrimitiveHSDMO  extends DmcObject  implements Serializable  {
      * Deletes a hsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1226)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1284)
     public DmcAttribute<?> delHsString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsString);
         
@@ -190,7 +190,7 @@ public class PrimitiveHSDMO  extends DmcObject  implements Serializable  {
      * Deletes a hsString from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1242)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1300)
     public DmcAttribute<?> delHsString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsString);
         
@@ -205,7 +205,7 @@ public class PrimitiveHSDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the hsString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1261)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1319)
     public void remHsString(){
          rem(DmtDMSAG.__hsString);
     }

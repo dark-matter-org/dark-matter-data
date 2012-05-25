@@ -10,7 +10,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeBaseObjREFMV provides storage for a multi-valued BaseObjREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2244)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
@@ -32,7 +32,7 @@ public class DmcTypeBaseObjREFMV extends DmcTypeBaseObjREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2216)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2274)
     public DmcAttribute<BaseObjREF> cloneIt(){
         synchronized(this){
             DmcTypeBaseObjREFMV rc = getNew();
@@ -57,7 +57,7 @@ public class DmcTypeBaseObjREFMV extends DmcTypeBaseObjREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2303)
     public BaseObjREF add(Object v) throws DmcValueException {
         synchronized(this){
             BaseObjREF rc = typeCheck(v);
@@ -69,7 +69,7 @@ public class DmcTypeBaseObjREFMV extends DmcTypeBaseObjREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2316)
     public BaseObjREF del(Object v){
         synchronized(this){
             BaseObjREF key = null;
@@ -90,7 +90,7 @@ public class DmcTypeBaseObjREFMV extends DmcTypeBaseObjREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
     public Iterator<BaseObjREF> getMV(){
         synchronized(this){
             ArrayList<BaseObjREF> clone = new ArrayList<BaseObjREF>(value);
@@ -98,7 +98,7 @@ public class DmcTypeBaseObjREFMV extends DmcTypeBaseObjREF implements Serializab
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2356)
     public ArrayList<BaseObjREF> getMVCopy(){
         synchronized(this){
             ArrayList<BaseObjREF> clone = new ArrayList<BaseObjREF>(value);
@@ -107,7 +107,7 @@ public class DmcTypeBaseObjREFMV extends DmcTypeBaseObjREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2308)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2366)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -121,7 +121,7 @@ public class DmcTypeBaseObjREFMV extends DmcTypeBaseObjREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2381)
     public BaseObjREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -131,7 +131,7 @@ public class DmcTypeBaseObjREFMV extends DmcTypeBaseObjREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2334)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
     public BaseObjREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -158,7 +158,7 @@ public class DmcTypeBaseObjREFMV extends DmcTypeBaseObjREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2420)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -181,7 +181,7 @@ public class DmcTypeBaseObjREFMV extends DmcTypeBaseObjREF implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2386)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2444)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

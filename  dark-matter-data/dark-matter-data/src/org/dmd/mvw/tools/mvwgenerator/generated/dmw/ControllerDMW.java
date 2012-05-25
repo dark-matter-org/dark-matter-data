@@ -2,22 +2,22 @@ package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.ArrayList;                                                           // To support getMVCopy() - (BaseDMWGeneratorNewest.java:891)
-import org.dmd.dmc.*;                                                                 // If any attributes - (BaseDMWGeneratorNewest.java:808)
-import org.dmd.dmc.types.CamelCaseName;                                               // Is named by - (BaseDMWGeneratorNewest.java:789)
-import org.dmd.dms.*;                                                                 // Always 2 - (BaseDMWGeneratorNewest.java:793)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:797)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:796)
-import org.dmd.mvw.tools.mvwgenerator.extended.Component;                             // Derived class - (BaseDMWGeneratorNewest.java:943)
-import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                            // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:801)
-import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;                             // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;                   // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionBindingDMO;                 // For multi-valued adds of ActionBinding - (BaseDMWGeneratorNewest.java:1430)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                    // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:947)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                         // Attribute from mvw schema - (BaseDMWGeneratorNewest.java:717)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                     // For multi-valued adds of Presenter - (BaseDMWGeneratorNewest.java:1430)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ActionBindingIterableDMW;         // For multi-valued ActionBinding - (BaseDMWGeneratorNewest.java:1382)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.PresenterIterableDMW;             // For multi-valued Presenter - (BaseDMWGeneratorNewest.java:1382)
+import java.util.ArrayList;                                                           // To support getMVCopy() - (BaseDMWGeneratorNewest.java:980)
+import org.dmd.dmc.*;                                                                 // If any attributes - (BaseDMWGeneratorNewest.java:887)
+import org.dmd.dmc.types.CamelCaseName;                                               // Is named by - (BaseDMWGeneratorNewest.java:868)
+import org.dmd.dms.*;                                                                 // Always 2 - (BaseDMWGeneratorNewest.java:872)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;                             // Derived class - (BaseDMWGeneratorNewest.java:1043)
+import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                            // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
+import org.dmd.mvw.tools.mvwgenerator.extended.Presenter;                             // Is reference type - (BaseDMWGeneratorNewest.java:906)
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;                   // Is reference type - (BaseDMWGeneratorNewest.java:906)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionBindingDMO;                 // For multi-valued adds of ActionBinding - (BaseDMWGeneratorNewest.java:1542)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                    // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                         // Attribute implementsAction from the mvw schema - (BaseDMWGeneratorNewest.java:719)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.PresenterDMO;                     // For multi-valued adds of Presenter - (BaseDMWGeneratorNewest.java:1542)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ActionBindingIterableDMW;         // For multi-valued ActionBinding - (BaseDMWGeneratorNewest.java:1491)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.PresenterIterableDMW;             // For multi-valued Presenter - (BaseDMWGeneratorNewest.java:1491)
 
 
 /**
@@ -85,7 +85,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:992)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1092)
     public CamelCaseName getObjectName(){
         return(((ControllerDMO) core).getControllerName());
     }
@@ -105,100 +105,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
-    public Boolean isCentralDMPErrorHandler(){
-        return(((ControllerDMO) core).isCentralDMPErrorHandler());
-    }
-
-    /**
-     * Sets centralDMPErrorHandler to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
-    public void setCentralDMPErrorHandler(Object value) throws DmcValueException {
-        ((ControllerDMO) core).setCentralDMPErrorHandler(value);
-    }
-
-    /**
-     * Sets centralDMPErrorHandler to the specified value.
-     * @param value Boolean
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
-    public void setCentralDMPErrorHandler(Boolean value){
-        ((ControllerDMO) core).setCentralDMPErrorHandler(value);
-    }
-
-    /**
-     * Removes the centralDMPErrorHandler attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public void remCentralDMPErrorHandler(){
-        ((ControllerDMO) core).remCentralDMPErrorHandler();
-    }
-
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
-    public Boolean isCentralRPCErrorHandler(){
-        return(((ControllerDMO) core).isCentralRPCErrorHandler());
-    }
-
-    /**
-     * Sets centralRPCErrorHandler to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
-    public void setCentralRPCErrorHandler(Object value) throws DmcValueException {
-        ((ControllerDMO) core).setCentralRPCErrorHandler(value);
-    }
-
-    /**
-     * Sets centralRPCErrorHandler to the specified value.
-     * @param value Boolean
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
-    public void setCentralRPCErrorHandler(Boolean value){
-        ((ControllerDMO) core).setCentralRPCErrorHandler(value);
-    }
-
-    /**
-     * Removes the centralRPCErrorHandler attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public void remCentralRPCErrorHandler(){
-        ((ControllerDMO) core).remCentralRPCErrorHandler();
-    }
-
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
-    public Boolean isCentralAsyncErrorHandler(){
-        return(((ControllerDMO) core).isCentralAsyncErrorHandler());
-    }
-
-    /**
-     * Sets centralAsyncErrorHandler to the specified value.
-     * @param value A value compatible with DmcTypeBoolean
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
-    public void setCentralAsyncErrorHandler(Object value) throws DmcValueException {
-        ((ControllerDMO) core).setCentralAsyncErrorHandler(value);
-    }
-
-    /**
-     * Sets centralAsyncErrorHandler to the specified value.
-     * @param value Boolean
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
-    public void setCentralAsyncErrorHandler(Boolean value){
-        ((ControllerDMO) core).setCentralAsyncErrorHandler(value);
-    }
-
-    /**
-     * Removes the centralAsyncErrorHandler attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public void remCentralAsyncErrorHandler(){
-        ((ControllerDMO) core).remCentralAsyncErrorHandler();
-    }
-
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
     public Boolean isAddedToRunContext(){
         return(((ControllerDMO) core).isAddedToRunContext());
     }
@@ -207,7 +114,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
      * Sets addedToRunContext to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
     public void setAddedToRunContext(Object value) throws DmcValueException {
         ((ControllerDMO) core).setAddedToRunContext(value);
     }
@@ -216,7 +123,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
      * Sets addedToRunContext to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
     public void setAddedToRunContext(Boolean value){
         ((ControllerDMO) core).setAddedToRunContext(value);
     }
@@ -224,132 +131,139 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     /**
      * Removes the addedToRunContext attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
     public void remAddedToRunContext(){
         ((ControllerDMO) core).remAddedToRunContext();
     }
 
-    /**
-     * @return The number of Presenter items.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1344)
-    public int getInstantiatesPresenterSize(){
-        return(((ControllerDMO) core).getInstantiatesPresenterSize());
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    public Boolean isCentralAsyncErrorHandler(){
+        return(((ControllerDMO) core).isCentralAsyncErrorHandler());
     }
 
     /**
-     * @return true if there are no PresenterDMO items.
+     * Sets centralAsyncErrorHandler to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1352)
-    public boolean getInstantiatesPresenterIsEmpty(){
-        if (((ControllerDMO) core).getInstantiatesPresenterSize() == 0)
-            return(true);
-        return(false);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    public void setCentralAsyncErrorHandler(Object value) throws DmcValueException {
+        ((ControllerDMO) core).setCentralAsyncErrorHandler(value);
     }
 
     /**
-     * @return true if there are any PresenterDMO items.
+     * Sets centralAsyncErrorHandler to the specified value.
+     * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1362)
-    public boolean getInstantiatesPresenterHasValue(){
-        if (((ControllerDMO) core).getInstantiatesPresenterSize() == 0)
-            return(false);
-        return(true);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    public void setCentralAsyncErrorHandler(Boolean value){
+        ((ControllerDMO) core).setCentralAsyncErrorHandler(value);
     }
 
     /**
-     * @return An Iterator of PresenterDMO objects.
+     * Removes the centralAsyncErrorHandler attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1388)
-    public PresenterIterableDMW getInstantiatesPresenterIterable(){
-        DmcAttribute<?> attr = core.get(MvwDMSAG.__instantiatesPresenter);
-        if (attr == null)
-            return(PresenterIterableDMW.emptyList);
-        
-        return(new PresenterIterableDMW(((ControllerDMO) core).getInstantiatesPresenter()));
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    public void remCentralAsyncErrorHandler(){
+        ((ControllerDMO) core).remCentralAsyncErrorHandler();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    public Boolean isCentralDMPErrorHandler(){
+        return(((ControllerDMO) core).isCentralDMPErrorHandler());
     }
 
     /**
-     * Adds another instantiatesPresenter value.
-     * @param value A value compatible with Presenter
+     * Sets centralDMPErrorHandler to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1436)
-    public DmcAttribute<?> addInstantiatesPresenter(Presenter value){
-        DmcAttribute<?> attr = ((ControllerDMO) core).addInstantiatesPresenter(((PresenterDMO)value.getDmcObject()));
-        return(attr);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    public void setCentralDMPErrorHandler(Object value) throws DmcValueException {
+        ((ControllerDMO) core).setCentralDMPErrorHandler(value);
     }
 
     /**
-     * Deletes a instantiatesPresenter value.
-     * @param value The Presenter to be deleted from set of attribute values.
+     * Sets centralDMPErrorHandler to the specified value.
+     * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1462)
-    public void delInstantiatesPresenter(Presenter value){
-        ((ControllerDMO) core).delInstantiatesPresenter(value.getDMO());
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    public void setCentralDMPErrorHandler(Boolean value){
+        ((ControllerDMO) core).setCentralDMPErrorHandler(value);
     }
 
     /**
-     * @return A COPY of the collection of Presenter objects.
+     * Removes the centralDMPErrorHandler attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1511)
-    public ArrayList<Presenter> getInstantiatesPresenterCopy(){
-        DmcAttribute<?> attr = ((ControllerDMO) core).get(MvwDMSAG.__instantiatesPresenter);
-        if (attr == null)
-            return(new ArrayList<Presenter>());
-        
-        ArrayList<Presenter> rc = new ArrayList<Presenter>(attr.getMVSize());
-        
-        PresenterIterableDMW it = getInstantiatesPresenterIterable();
-        while(it.hasNext()){
-            rc.add(it.next());
-        }
-        
-        return(rc);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    public void remCentralDMPErrorHandler(){
+        ((ControllerDMO) core).remCentralDMPErrorHandler();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    public Boolean isCentralRPCErrorHandler(){
+        return(((ControllerDMO) core).isCentralRPCErrorHandler());
     }
 
     /**
-     * Removes the instantiatesPresenter attribute value.
+     * Sets centralRPCErrorHandler to the specified value.
+     * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1914)
-    public void remInstantiatesPresenter(){
-        ((ControllerDMO) core).remInstantiatesPresenter();
-    }
-
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
-    public Integer getItemOrder(){
-        return(((ControllerDMO) core).getItemOrder());
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    public void setCentralRPCErrorHandler(Object value) throws DmcValueException {
+        ((ControllerDMO) core).setCentralRPCErrorHandler(value);
     }
 
     /**
-     * Sets itemOrder to the specified value.
-     * @param value A value compatible with DmcTypeInteger
+     * Sets centralRPCErrorHandler to the specified value.
+     * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
-    public void setItemOrder(Object value) throws DmcValueException {
-        ((ControllerDMO) core).setItemOrder(value);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    public void setCentralRPCErrorHandler(Boolean value){
+        ((ControllerDMO) core).setCentralRPCErrorHandler(value);
     }
 
     /**
-     * Sets itemOrder to the specified value.
-     * @param value Integer
+     * Removes the centralRPCErrorHandler attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
-    public void setItemOrder(Integer value){
-        ((ControllerDMO) core).setItemOrder(value);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    public void remCentralRPCErrorHandler(){
+        ((ControllerDMO) core).remCentralRPCErrorHandler();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    public CamelCaseName getControllerName(){
+        return(((ControllerDMO) core).getControllerName());
     }
 
     /**
-     * Removes the itemOrder attribute value.
+     * Sets controllerName to the specified value.
+     * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public void remItemOrder(){
-        ((ControllerDMO) core).remItemOrder();
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    public void setControllerName(Object value) throws DmcValueException {
+        ((ControllerDMO) core).setControllerName(value);
+    }
+
+    /**
+     * Sets controllerName to the specified value.
+     * @param value CamelCaseName
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    public void setControllerName(CamelCaseName value){
+        ((ControllerDMO) core).setControllerName(value);
+    }
+
+    /**
+     * Removes the controllerName attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    public void remControllerName(){
+        ((ControllerDMO) core).remControllerName();
     }
 
     /**
      * @return The number of ActionBinding items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1344)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1453)
     public int getImplementsActionSize(){
         return(((ControllerDMO) core).getImplementsActionSize());
     }
@@ -357,7 +271,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     /**
      * @return true if there are no ActionBindingDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1352)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1461)
     public boolean getImplementsActionIsEmpty(){
         if (((ControllerDMO) core).getImplementsActionSize() == 0)
             return(true);
@@ -367,7 +281,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     /**
      * @return true if there are any ActionBindingDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1362)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1471)
     public boolean getImplementsActionHasValue(){
         if (((ControllerDMO) core).getImplementsActionSize() == 0)
             return(false);
@@ -377,7 +291,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     /**
      * @return An Iterator of ActionBindingDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1388)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1498)
     public ActionBindingIterableDMW getImplementsActionIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__implementsAction);
         if (attr == null)
@@ -390,7 +304,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
      * Adds another implementsAction value.
      * @param value A value compatible with ActionBinding
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1436)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1548)
     public DmcAttribute<?> addImplementsAction(ActionBinding value){
         DmcAttribute<?> attr = ((ControllerDMO) core).addImplementsAction(((ActionBindingDMO)value.getDmcObject()));
         return(attr);
@@ -400,7 +314,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
      * Deletes a implementsAction value.
      * @param value The ActionBinding to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1462)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1585)
     public void delImplementsAction(ActionBinding value){
         ((ControllerDMO) core).delImplementsAction(value.getDMO());
     }
@@ -408,7 +322,7 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     /**
      * @return A COPY of the collection of ActionBinding objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1511)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1635)
     public ArrayList<ActionBinding> getImplementsActionCopy(){
         DmcAttribute<?> attr = ((ControllerDMO) core).get(MvwDMSAG.__implementsAction);
         if (attr == null)
@@ -427,40 +341,126 @@ abstract public class ControllerDMW extends Component implements DmcNamedObjectI
     /**
      * Removes the implementsAction attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1914)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2038)
     public void remImplementsAction(){
         ((ControllerDMO) core).remImplementsAction();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
-    public CamelCaseName getControllerName(){
-        return(((ControllerDMO) core).getControllerName());
+    /**
+     * @return The number of Presenter items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1453)
+    public int getInstantiatesPresenterSize(){
+        return(((ControllerDMO) core).getInstantiatesPresenterSize());
     }
 
     /**
-     * Sets controllerName to the specified value.
-     * @param value A value compatible with DmcTypeCamelCaseName
+     * @return true if there are no PresenterDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
-    public void setControllerName(Object value) throws DmcValueException {
-        ((ControllerDMO) core).setControllerName(value);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1461)
+    public boolean getInstantiatesPresenterIsEmpty(){
+        if (((ControllerDMO) core).getInstantiatesPresenterSize() == 0)
+            return(true);
+        return(false);
     }
 
     /**
-     * Sets controllerName to the specified value.
-     * @param value CamelCaseName
+     * @return true if there are any PresenterDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
-    public void setControllerName(CamelCaseName value){
-        ((ControllerDMO) core).setControllerName(value);
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1471)
+    public boolean getInstantiatesPresenterHasValue(){
+        if (((ControllerDMO) core).getInstantiatesPresenterSize() == 0)
+            return(false);
+        return(true);
     }
 
     /**
-     * Removes the controllerName attribute value.
+     * @return An Iterator of PresenterDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public void remControllerName(){
-        ((ControllerDMO) core).remControllerName();
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1498)
+    public PresenterIterableDMW getInstantiatesPresenterIterable(){
+        DmcAttribute<?> attr = core.get(MvwDMSAG.__instantiatesPresenter);
+        if (attr == null)
+            return(PresenterIterableDMW.emptyList);
+        
+        return(new PresenterIterableDMW(((ControllerDMO) core).getInstantiatesPresenter()));
+    }
+
+    /**
+     * Adds another instantiatesPresenter value.
+     * @param value A value compatible with Presenter
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1548)
+    public DmcAttribute<?> addInstantiatesPresenter(Presenter value){
+        DmcAttribute<?> attr = ((ControllerDMO) core).addInstantiatesPresenter(((PresenterDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a instantiatesPresenter value.
+     * @param value The Presenter to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1585)
+    public void delInstantiatesPresenter(Presenter value){
+        ((ControllerDMO) core).delInstantiatesPresenter(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of Presenter objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1635)
+    public ArrayList<Presenter> getInstantiatesPresenterCopy(){
+        DmcAttribute<?> attr = ((ControllerDMO) core).get(MvwDMSAG.__instantiatesPresenter);
+        if (attr == null)
+            return(new ArrayList<Presenter>());
+        
+        ArrayList<Presenter> rc = new ArrayList<Presenter>(attr.getMVSize());
+        
+        PresenterIterableDMW it = getInstantiatesPresenterIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Removes the instantiatesPresenter attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2038)
+    public void remInstantiatesPresenter(){
+        ((ControllerDMO) core).remInstantiatesPresenter();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    public Integer getItemOrder(){
+        return(((ControllerDMO) core).getItemOrder());
+    }
+
+    /**
+     * Sets itemOrder to the specified value.
+     * @param value A value compatible with DmcTypeInteger
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    public void setItemOrder(Object value) throws DmcValueException {
+        ((ControllerDMO) core).setItemOrder(value);
+    }
+
+    /**
+     * Sets itemOrder to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    public void setItemOrder(Integer value){
+        ((ControllerDMO) core).setItemOrder(value);
+    }
+
+    /**
+     * Removes the itemOrder attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    public void remItemOrder(){
+        ((ControllerDMO) core).remItemOrder();
     }
 
 

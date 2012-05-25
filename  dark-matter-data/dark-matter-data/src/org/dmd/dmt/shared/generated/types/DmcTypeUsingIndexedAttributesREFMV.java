@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.dmo.UsingIndexedAttributesDMO;    // DmcType
  * The DmcTypeUsingIndexedAttributesREFMV provides storage for a multi-valued UsingIndexedAttributes
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2244)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -33,7 +33,7 @@ public class DmcTypeUsingIndexedAttributesREFMV extends DmcTypeUsingIndexedAttri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2216)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2274)
     public DmcAttribute<UsingIndexedAttributesDMO> cloneIt(){
         synchronized(this){
             DmcTypeUsingIndexedAttributesREFMV rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeUsingIndexedAttributesREFMV extends DmcTypeUsingIndexedAttri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2303)
     public UsingIndexedAttributesDMO add(Object v) throws DmcValueException {
         synchronized(this){
             UsingIndexedAttributesDMO rc = typeCheck(v);
@@ -70,7 +70,7 @@ public class DmcTypeUsingIndexedAttributesREFMV extends DmcTypeUsingIndexedAttri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2316)
     public UsingIndexedAttributesDMO del(Object v){
         synchronized(this){
             UsingIndexedAttributesDMO key = null;
@@ -91,7 +91,7 @@ public class DmcTypeUsingIndexedAttributesREFMV extends DmcTypeUsingIndexedAttri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
     public Iterator<UsingIndexedAttributesDMO> getMV(){
         synchronized(this){
             ArrayList<UsingIndexedAttributesDMO> clone = new ArrayList<UsingIndexedAttributesDMO>(value);
@@ -99,7 +99,7 @@ public class DmcTypeUsingIndexedAttributesREFMV extends DmcTypeUsingIndexedAttri
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2356)
     public ArrayList<UsingIndexedAttributesDMO> getMVCopy(){
         synchronized(this){
             ArrayList<UsingIndexedAttributesDMO> clone = new ArrayList<UsingIndexedAttributesDMO>(value);
@@ -108,7 +108,7 @@ public class DmcTypeUsingIndexedAttributesREFMV extends DmcTypeUsingIndexedAttri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2308)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2366)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -122,7 +122,7 @@ public class DmcTypeUsingIndexedAttributesREFMV extends DmcTypeUsingIndexedAttri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2381)
     public UsingIndexedAttributesDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -132,7 +132,7 @@ public class DmcTypeUsingIndexedAttributesREFMV extends DmcTypeUsingIndexedAttri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2334)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
     public UsingIndexedAttributesDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -159,7 +159,7 @@ public class DmcTypeUsingIndexedAttributesREFMV extends DmcTypeUsingIndexedAttri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2420)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -182,7 +182,7 @@ public class DmcTypeUsingIndexedAttributesREFMV extends DmcTypeUsingIndexedAttri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2386)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2444)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

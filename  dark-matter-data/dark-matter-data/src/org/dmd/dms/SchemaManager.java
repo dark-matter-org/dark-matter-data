@@ -2384,6 +2384,12 @@ public class SchemaManager implements DmcNameResolverIF {
 		        if ( (d.getValueType() == ValueTypeEnum.HASHMAPPED) || (d.getValueType() == ValueTypeEnum.TREEMAPPED)){
 		        	if (d.getType().getKeyClass() == null){
 		        		if (d.getType().getIsRefType()){
+		        			if (d.getType().getIsExtendedRefType()){
+								ResultException ex = new ResultException();
+								ex.addError("AttributeDefinition: " + d.getName() + " cannot have valueType HASHMAPPED/TREEMAPPED since extended reference types are not keyed.");
+								ex.setLocationInfo(d.getFile(), d.getLineNumber());
+				        		throw(ex);
+		        			}
 		        			if (d.getType().getOriginalClass().getIsNamedBy() == null){
 								ResultException ex = new ResultException();
 								ex.addError("AttributeDefinition: " + d.getName() + " cannot have valueType HASHMAPPED/TREEMAPPED since the " + d.getType().getName() + " type does not refer to a named object.");

@@ -15,19 +15,19 @@
 //	---------------------------------------------------------------------------
 package org.dmd.mvw.tools.mvwgenerator.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:363)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
 import java.io.Serializable;                                                  // Always required - (GenUtility.java:197)
 import java.util.*;                                                           // Always required if we have any MV attributes - (GenUtility.java:193)
 import org.dmd.dmc.DmcAttribute;                                              // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object - (GenUtility.java:343)
+import org.dmd.dmc.DmcNamedObjectIF;                                          // Named object - (GenUtility.java:348)
 import org.dmd.dmc.DmcSliceInfo;                                              // Required for object slicing - (GenUtility.java:202)
 import org.dmd.dmc.DmcValueException;                                         // Any attributes - (GenUtility.java:214)
-import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type - (GenUtility.java:338)
+import org.dmd.dmc.types.CamelCaseName;                                       // Naming attribute type - (GenUtility.java:343)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (GenUtility.java:201)
-import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type - (GenUtility.java:296)
+import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;                    // Required type - (GenUtility.java:301)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (GenUtility.java:200)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type - (GenUtility.java:296)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class - (GenUtility.java:323)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                           // Required type - (GenUtility.java:301)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDefinitionDMO;         // Base class - (GenUtility.java:328)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -132,7 +132,7 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:692)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
     public String getUseImpl(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__useImpl);
         if (attr == null)
@@ -145,7 +145,7 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useImpl to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:730)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
     public void setUseImpl(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__useImpl);
         if (attr == null)
@@ -164,7 +164,7 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets useImpl to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:841)
     public void setUseImpl(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MvwDMSAG.__useImpl);
         if (attr == null)
@@ -177,12 +177,12 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the useImpl attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:861)
     public void remUseImpl(){
          rem(MvwDMSAG.__useImpl);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:692)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
     public CamelCaseName getElementName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__elementName);
         if (attr == null)
@@ -195,7 +195,7 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets elementName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:730)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
     public void setElementName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__elementName);
         if (attr == null)
@@ -214,7 +214,7 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
      * Sets elementName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:783)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:841)
     public void setElementName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__elementName);
         if (attr == null)
@@ -227,7 +227,7 @@ public class MenuElementDefinitionDMO  extends MvwDefinitionDMO  implements DmcN
     /**
      * Removes the elementName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:803)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:861)
     public void remElementName(){
          rem(MvwDMSAG.__elementName);
     }

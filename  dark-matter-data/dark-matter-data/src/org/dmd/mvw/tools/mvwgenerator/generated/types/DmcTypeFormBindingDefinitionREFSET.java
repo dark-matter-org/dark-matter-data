@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeFormBindingDefinitionREFSET provides storage for a set of FormBindingDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2469)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2527)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeFormBindingDefinitionREFSET extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2506)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
     public DmcAttribute<FormBindingDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeFormBindingDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeFormBindingDefinitionREFSET extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2583)
     public FormBindingDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             FormBindingDefinitionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeFormBindingDefinitionREFSET extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2542)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public FormBindingDefinitionREF del(Object v){
         synchronized(this){
             FormBindingDefinitionREF rc = null;
@@ -113,7 +113,7 @@ public class DmcTypeFormBindingDefinitionREFSET extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2625)
     public Iterator<FormBindingDefinitionREF> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -123,7 +123,7 @@ public class DmcTypeFormBindingDefinitionREFSET extends DmcTypeFormBindingDefini
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2584)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2642)
     public Set<FormBindingDefinitionREF> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -134,7 +134,7 @@ public class DmcTypeFormBindingDefinitionREFSET extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2660)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeFormBindingDefinitionREFSET extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2613)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2671)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

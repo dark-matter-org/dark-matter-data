@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeHierarchicObjectREFMV provides storage for a multi-valued HierarchicObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2186)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2244)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2216)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2274)
     public DmcAttribute<HierarchicObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeHierarchicObjectREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2245)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2303)
     public HierarchicObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             HierarchicObjectREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2258)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2316)
     public HierarchicObjectREF del(Object v){
         synchronized(this){
             HierarchicObjectREF key = null;
@@ -105,7 +105,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2289)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
     public Iterator<HierarchicObjectREF> getMV(){
         synchronized(this){
             ArrayList<HierarchicObjectREF> clone = new ArrayList<HierarchicObjectREF>(value);
@@ -113,7 +113,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2356)
     public ArrayList<HierarchicObjectREF> getMVCopy(){
         synchronized(this){
             ArrayList<HierarchicObjectREF> clone = new ArrayList<HierarchicObjectREF>(value);
@@ -122,7 +122,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2308)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2366)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +136,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2381)
     public HierarchicObjectREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2334)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
     public HierarchicObjectREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +173,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2362)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2420)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +196,7 @@ public class DmcTypeHierarchicObjectREFMV extends DmcTypeHierarchicObjectREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2386)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2444)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -12,6 +12,11 @@ classType       ABSTRACT
 dmdID			2
 useWrapperType	EXTENDED
 must            svString
+may				someRelationSV
+may				someRelationMVI
+may				intToStringMAP
+may				hsStringName
+may				clientCountFilters
 description     The TestAbstract class just defines an abstract base class from which
  other test classes can be derived to tes this type of derivation.
 
@@ -254,6 +259,9 @@ classType       STRUCTURAL
 dmdID			20
 may				objRefHM
 
+///////////////////////////////////////////////////////////////////////////////
+// Primitive attribute usage
+
 ClassDefinition
 name            PrimitiveSV
 classType       STRUCTURAL
@@ -295,4 +303,143 @@ name            PrimitiveTS
 classType       STRUCTURAL
 dmdID			107
 may				tsString
+
+///////////////////////////////////////////////////////////////////////////////
+// Named object attribute usage
+
+ClassDefinition
+name            NamedObjSV
+classType       STRUCTURAL
+dmdID			201
+may				svNamedObj
+
+ClassDefinition
+name            NamedObjMV
+classType       STRUCTURAL
+dmdID			202
+may				mvNamedObj
+
+ClassDefinition
+name            NamedObjMVIDX
+classType       STRUCTURAL
+dmdID			203
+may				mvIdxNamedObj
+
+ClassDefinition
+name            NamedObjHM
+classType       STRUCTURAL
+dmdID			204
+may				hmNamedObj
+
+ClassDefinition
+name            NamedObjTM
+classType       STRUCTURAL
+dmdID			205
+may				tmNamedObj
+
+ClassDefinition
+name            NamedObjHS
+classType       STRUCTURAL
+dmdID			206
+may				hsNamedObj
+
+ClassDefinition
+name            NamedObjTS
+classType       STRUCTURAL
+dmdID			207
+may				tsNamedObj
+
+///////////////////////////////////////////////////////////////////////////////
+//Named object attribute usage
+
+ClassDefinition
+name            UnnamedObjSV
+classType       STRUCTURAL
+dmdID			301
+may				svUnnamedObj
+
+ClassDefinition
+name            UnnamedObjMV
+classType       STRUCTURAL
+dmdID			302
+may				mvUnnamedObj
+
+ClassDefinition
+name            UnnamedObjMVIDX
+classType       STRUCTURAL
+dmdID			303
+may				mvIdxUnnamedObj
+
+// Can't map unnamed objects
+//ClassDefinition
+//name            UnnamedObjHM
+//classType       STRUCTURAL
+//dmdID			304
+//may				hmNamedObj
+
+//Can't map unnamed objects
+//ClassDefinition
+//name            UnnamedObjTM
+//classType       STRUCTURAL
+//dmdID			305
+//may				tmNamedObj
+
+ClassDefinition
+name            UnnamedObjHS
+classType       STRUCTURAL
+dmdID			306
+may				hsUnnamedObj
+
+ClassDefinition
+name            UnnamedObjTS
+classType       STRUCTURAL
+dmdID			307
+may				tsUnnamedObj
+
+///////////////////////////////////////////////////////////////////////////////
+// Extended reference attribute usage
+
+ClassDefinition
+name            ExtendedRefSV
+classType       STRUCTURAL
+dmdID			401
+may				svExtendedRef
+
+ClassDefinition
+name            ExtendedRefMV
+classType       STRUCTURAL
+dmdID			402
+may				mvExtendedRef
+
+ClassDefinition
+name            ExtendedRefMVIDX
+classType       STRUCTURAL
+dmdID			403
+may				mvIdxExtendedRef
+
+// Can't map extended refs
+//ClassDefinition
+//name            ExtendedRefHM
+//classType       STRUCTURAL
+//dmdID			404
+//may				hmExtendedRef
+
+//Can't map extended refs
+//ClassDefinition
+//name            ExtendedRefTM
+//classType       STRUCTURAL
+//dmdID			405
+//may				tmExtendedRef
+
+ClassDefinition
+name            ExtendedRefHS
+classType       STRUCTURAL
+dmdID			406
+may				hsExtendedRef
+
+ClassDefinition
+name            ExtendedRefTS
+classType       STRUCTURAL
+dmdID			407
+may				tsExtendedRef
 

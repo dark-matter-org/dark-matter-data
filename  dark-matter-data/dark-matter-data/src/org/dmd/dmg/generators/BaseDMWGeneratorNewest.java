@@ -655,132 +655,211 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 		anyAttributes = false;
 		
 		cd.adjustJavaClass(genContext,genSuffix);
-
-		Iterator<AttributeDefinition> may = cd.getMay();
-		if (may != null){
-			while(may.hasNext()){
-				// NOTE: COMPLICATED! We always add the type of the attribute to our global types
-				// map EXCEPT IF the type is a non-referential, MULTI/SET attribute. Gaa!
-				//
-				// This is because WE DON'T want the primitive type any more, just the TYPEIterableDMW.
-				// If the value is a single valued type, we'll want the primitive type.
-				
-				boolean shouldAddType = true;
-				
-				anyAttributes = true;
-				AttributeDefinition ad = may.next();
-				TypeDefinition td = ad.getType();
-				
-				if (ad.getGenericArgs() != null){
-					if (ad.getGenericArgs().equals("<DmcObjectName>"))
-						needDmwOmni = true;
-				}
-				
-				switch(ad.getValueType()){
-				case SINGLE:
-					anySVAttributes =  true;
-					break;
-				case HASHMAPPED:
-				case TREEMAPPED:
-					anyMVAttributes = true;
-					if (ad.getType().getIsRefType())
-						anyMVRefs = true;
-					
-					iterables.put(td.getName(),td);
-					break;
-				case MULTI:
-				case HASHSET:
-				case TREESET:
-					anyMVAttributes = true;
-					
-					if (ad.getType().getIsRefType())
-						anyMVRefs = true;
-					
-					iterables.put(td.getName(),td);
-					
-					break;
-				}
-				
-				if (shouldAddType){
-					types.put(td.getName(), td);
-					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
-					typeAndAttr.put(ta.name, ta);
-				}
-				
-				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType());
-
-				if (ad.getGenericArgsImport() != null)
-					genericImports.add(ad.getGenericArgsImport());
-
-				if (ad.getValueType() != ValueTypeEnum.SINGLE){
-					if (!ad.getType().getIsExtendedRefType())
-						imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
-				}
-
-				allAttr.add(ad);
+		
+		for(AttributeDefinition ad: cd.getAllAttributesAtThisLevel().values()){
+			// NOTE: COMPLICATED! We always add the type of the attribute to our global types
+			// map EXCEPT IF the type is a non-referential, MULTI/SET attribute. Gaa!
+			//
+			// This is because WE DON'T want the primitive type any more, just the TYPEIterableDMW.
+			// If the value is a single valued type, we'll want the primitive type.
+			
+			boolean shouldAddType = true;
+			
+			anyAttributes = true;
+//			AttributeDefinition ad = may.next();
+			TypeDefinition td = ad.getType();
+			
+			if (ad.getGenericArgs() != null){
+				if (ad.getGenericArgs().equals("<DmcObjectName>"))
+					needDmwOmni = true;
 			}
+			
+			switch(ad.getValueType()){
+			case SINGLE:
+				anySVAttributes =  true;
+				break;
+			case HASHMAPPED:
+			case TREEMAPPED:
+				anyMVAttributes = true;
+				if (ad.getType().getIsRefType())
+					anyMVRefs = true;
+				
+				iterables.put(td.getName(),td);
+				break;
+			case MULTI:
+			case HASHSET:
+			case TREESET:
+				anyMVAttributes = true;
+				
+				if (ad.getType().getIsRefType())
+					anyMVRefs = true;
+				
+				iterables.put(td.getName(),td);
+				
+				break;
+			}
+			
+			if (shouldAddType){
+				types.put(td.getName(), td);
+				TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
+				typeAndAttr.put(ta.name, ta);
+			}
+			
+			appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType());
+
+			if (ad.getGenericArgsImport() != null)
+				genericImports.add(ad.getGenericArgsImport());
+
+			if (ad.getValueType() != ValueTypeEnum.SINGLE){
+				if (!ad.getType().getIsExtendedRefType()){
+					if ((ad.getIndexSize() != null) && (ad.getType().getIsRefType())){
+						// Don't import the schema of indexed, object refs
+					}
+					else
+						imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
+				}
+			}
+
+			allAttr.add(ad);
+			
 		}
 		
-		Iterator<AttributeDefinition> must = cd.getMust();
-		if (must != null){
-			while(must.hasNext()){
-				// NOTE: COMPLICATED! We always add the type of the attribute to our global types
-				// map EXCEPT IF the type is a non-referential, MULTI/SET attribute. Gaa!
-				//
-				// This is because WE DON'T want the primitive type any more, just the TYPEIterableDMW.
-				// If the value is a single valued type, we'll want the primitive type.
-				
-				boolean shouldAddType = true;
-				anyAttributes = true;
-				AttributeDefinition ad = must.next();
-				TypeDefinition td = ad.getType();
-				
-				if (ad.getGenericArgs() != null){
-					if (ad.getGenericArgs().equals("<DmcObjectName>"))
-						needDmwOmni = true;
-				}
-				
-				switch(ad.getValueType()){
-				case SINGLE:
-					anySVAttributes =  true;
-					break;
-				case HASHMAPPED:
-				case TREEMAPPED:
-					anyMVAttributes = true;
-					if (ad.getType().getIsRefType())
-						anyMVRefs = true;
-
-					iterables.put(td.getName(),td);
-					break;
-				case MULTI:
-				case HASHSET:
-				case TREESET:
-					anyMVAttributes = true;
-					if (ad.getType().getIsRefType())
-						anyMVRefs = true;
-
-					iterables.put(td.getName(),td);
-					break;
-				}
-
-				if (shouldAddType){
-					types.put(td.getName(), td);
-					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
-					typeAndAttr.put(ta.name, ta);
-				}
-				
-				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType());
-
-				if (ad.getGenericArgsImport() != null)
-					genericImports.add(ad.getGenericArgsImport());
-
-				if (ad.getValueType() != ValueTypeEnum.SINGLE){
-					imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute from " + ad.getDefinedIn().getName() + " schema");
-				}
-				
-				allAttr.add(ad);
-			}
-		}
+//		Iterator<AttributeDefinition> may = cd.getMay();
+//		if (may != null){
+//			while(may.hasNext()){
+//				// NOTE: COMPLICATED! We always add the type of the attribute to our global types
+//				// map EXCEPT IF the type is a non-referential, MULTI/SET attribute. Gaa!
+//				//
+//				// This is because WE DON'T want the primitive type any more, just the TYPEIterableDMW.
+//				// If the value is a single valued type, we'll want the primitive type.
+//				
+//				boolean shouldAddType = true;
+//				
+//				anyAttributes = true;
+//				AttributeDefinition ad = may.next();
+//				TypeDefinition td = ad.getType();
+//				
+//				if (ad.getGenericArgs() != null){
+//					if (ad.getGenericArgs().equals("<DmcObjectName>"))
+//						needDmwOmni = true;
+//				}
+//				
+//				switch(ad.getValueType()){
+//				case SINGLE:
+//					anySVAttributes =  true;
+//					break;
+//				case HASHMAPPED:
+//				case TREEMAPPED:
+//					anyMVAttributes = true;
+//					if (ad.getType().getIsRefType())
+//						anyMVRefs = true;
+//					
+//					iterables.put(td.getName(),td);
+//					break;
+//				case MULTI:
+//				case HASHSET:
+//				case TREESET:
+//					anyMVAttributes = true;
+//					
+//					if (ad.getType().getIsRefType())
+//						anyMVRefs = true;
+//					
+//					iterables.put(td.getName(),td);
+//					
+//					break;
+//				}
+//				
+//				if (shouldAddType){
+//					types.put(td.getName(), td);
+//					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
+//					typeAndAttr.put(ta.name, ta);
+//				}
+//				
+//				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType());
+//
+//				if (ad.getGenericArgsImport() != null)
+//					genericImports.add(ad.getGenericArgsImport());
+//
+//				if (ad.getValueType() != ValueTypeEnum.SINGLE){
+//					if (!ad.getType().getIsExtendedRefType()){
+//						if ((ad.getIndexSize() != null) && (ad.getType().getIsRefType())){
+//							// Don't import the schema of indexed, object refs
+//						}
+//						else
+//							imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
+//					}
+//				}
+//
+//				allAttr.add(ad);
+//			}
+//		}
+//		
+//		Iterator<AttributeDefinition> must = cd.getMust();
+//		if (must != null){
+//			while(must.hasNext()){
+//				// NOTE: COMPLICATED! We always add the type of the attribute to our global types
+//				// map EXCEPT IF the type is a non-referential, MULTI/SET attribute. Gaa!
+//				//
+//				// This is because WE DON'T want the primitive type any more, just the TYPEIterableDMW.
+//				// If the value is a single valued type, we'll want the primitive type.
+//				
+//				boolean shouldAddType = true;
+//				anyAttributes = true;
+//				AttributeDefinition ad = must.next();
+//				TypeDefinition td = ad.getType();
+//				
+//				if (ad.getGenericArgs() != null){
+//					if (ad.getGenericArgs().equals("<DmcObjectName>"))
+//						needDmwOmni = true;
+//				}
+//				
+//				switch(ad.getValueType()){
+//				case SINGLE:
+//					anySVAttributes =  true;
+//					break;
+//				case HASHMAPPED:
+//				case TREEMAPPED:
+//					anyMVAttributes = true;
+//					if (ad.getType().getIsRefType())
+//						anyMVRefs = true;
+//
+//					iterables.put(td.getName(),td);
+//					break;
+//				case MULTI:
+//				case HASHSET:
+//				case TREESET:
+//					anyMVAttributes = true;
+//					if (ad.getType().getIsRefType())
+//						anyMVRefs = true;
+//
+//					iterables.put(td.getName(),td);
+//					break;
+//				}
+//
+//				if (shouldAddType){
+//					types.put(td.getName(), td);
+//					TypeAndAttr ta = new TypeAndAttr(td,ad.getValueType(),ad.getIndexSize());
+//					typeAndAttr.put(ta.name, ta);
+//				}
+//				
+//				appendAttributeInfo(attributeInfo, ad.getName().getNameString(), ad.getDmdID(), ad.getType().getName().getNameString(), ad.getValueType(), ad.getDataType());
+//
+//				if (ad.getGenericArgsImport() != null)
+//					genericImports.add(ad.getGenericArgsImport());
+//
+//				if (ad.getValueType() != ValueTypeEnum.SINGLE){
+//					if (!ad.getType().getIsExtendedRefType()){
+//						if ((ad.getIndexSize() != null) && (ad.getType().getIsRefType())){
+//							// Don't import the schema of indexed, object refs
+//						}
+//						else
+//							imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
+//					}
+//				}
+//				
+//				allAttr.add(ad);
+//			}
+//		}
 		
 		if (cd.getIsNamedBy() != null){
 			AttributeDefinition isNamedBy = cd.getIsNamedBy();
@@ -820,14 +899,20 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 					// may not be generating this code in the same location as the DMOs
 					td.adjustJavaClass();
 					
-					imports.addImport(td.getAuxHolderImport(), "Is reference type aux");
+					if (td.getIsExtendedRefType() && ta.valueType == ValueTypeEnum.SINGLE){
+						// no need to import the ref type
+					}
+					else
+						imports.addImport(td.getAuxHolderImport(), "Is reference type");
 					
 					// If this is multi-valued, we don't need the REF because we're returning the Iterable
 					if (ta.valueType == ValueTypeEnum.SINGLE){
 						if (td.getOriginalClass().getIsNamedBy() == null)
 							imports.addImport(td.getOriginalClass().getDmoImport(), "Reference to unnamed object");
-						else
-							imports.addImport(td.getOriginalClass().getDmtREFImport(), "Is reference type REF");
+						else{
+							if (!td.getIsExtendedRefType())
+								imports.addImport(td.getOriginalClass().getDmtREFImport(), "Is reference type REF");
+						}
 					}
 					
 					if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
@@ -887,8 +972,13 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 			case SINGLE:
 				break;
 			case MULTI:
-				if (!ta.indexed)
-					imports.addImport("java.util.ArrayList", "To support getMVCopy()");
+				if (!ta.indexed){
+					if (td.getIsRefType() && (td.getOriginalClass().getIsNamedBy() == null)){
+						
+					}
+					else
+						imports.addImport("java.util.ArrayList", "To support getMVCopy()");
+				}
 				break;
 			case HASHMAPPED:
 				if (useWrappedObjectRefs)
@@ -899,10 +989,20 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 					imports.addImport("java.util.TreeMap", "To support getMVCopy()");
 				break;
 			case HASHSET:
-				imports.addImport("java.util.HashSet", "To support getMVCopy()");
+				if (td.getIsRefType()){
+					if (td.getOriginalClass().getIsNamedBy() != null)
+						imports.addImport("java.util.HashSet", "To support getMVCopy()");
+				}
+				else
+					imports.addImport("java.util.HashSet", "To support getMVCopy()");
 				break;
 			case TREESET:
-				imports.addImport("java.util.TreeSet", "To support getMVCopy()");
+				if (td.getIsRefType()){
+					if (td.getOriginalClass().getIsNamedBy() != null)
+						imports.addImport("java.util.TreeSet", "To support getMVCopy()");
+				}
+				else
+					imports.addImport("java.util.TreeSet", "To support getMVCopy()");
 				break;
 			}
 				
@@ -1192,6 +1292,15 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 					sb.append("    public void set" + functionName + "(" + ad.getType().getName() + " value) {\n");
 			    	sb.append("        " + dmocast + ".set" + functionName + "(value);\n");
 					sb.append("    }\n\n");
+					
+					sb.append("    /**\n");
+					sb.append("     * Sets the " + ad.getName() + " to the specified value.\n");
+					sb.append("     * @param value A value compatible with " + ad.getType().getName() + "\n");
+					sb.append("     */\n");
+					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+					sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
+			    	sb.append("        " + dmocast + ".set" + functionName + "(value);\n");
+					sb.append("    }\n\n");
     			}
     			else{
 					sb.append("    /**\n");
@@ -1380,6 +1489,7 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 			if (ad.getIndexSize() == null){
 				if (useWrappedObjectRefs){
 					imports.addImport(ad.getType().getDmwIteratorImport(), "For multi-valued " + ad.getType().getName().getNameString());
+					imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute from the " + ad.getDefinedIn().getName() + " schema");
 
 					sb.append("    /**\n");
 					sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
@@ -1415,6 +1525,8 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 				
 				if (useWrappedObjectRefs){
 					if (ad.getType().getIsExtendedRefType()	){
+						imports.addImport(ad.getType().getPrimitiveType(), "For addition of MV " + ad.getType().getName().getNameString());
+
 						sb.append("    /**\n");
 						sb.append("     * Adds another " + ad.getName() + " value.\n");
 						sb.append("     * @param value A value compatible with " + typeName + "\n");
@@ -1455,14 +1567,26 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 		    	// deleter
 	
 				if (useWrappedObjectRefs){
-					sb.append("    /**\n");
-					sb.append("     * Deletes a " + ad.getName() + " value.\n");
-					sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
-					sb.append("     */\n");
-					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
-					sb.append("        " + dmocast + ".del" + functionName + "(value.getDMO());\n");
-					sb.append("    }\n\n");
+					if (ad.getType().getIsExtendedRefType()){
+						sb.append("    /**\n");
+						sb.append("     * Deletes a " + ad.getName() + " value.\n");
+						sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public void del" + functionName + "(" + typeName + " value){\n");
+						sb.append("        " + dmocast + ".del" + functionName + "(value);\n");
+						sb.append("    }\n\n");
+					}
+					else{
+						sb.append("    /**\n");
+						sb.append("     * Deletes a " + ad.getName() + " value.\n");
+						sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public void del" + functionName + "(" + auxHolderClass + " value){\n");
+						sb.append("        " + dmocast + ".del" + functionName + "(value.getDMO());\n");
+						sb.append("    }\n\n");
+					}
 				}
 				else{
 					sb.append("    /**\n");

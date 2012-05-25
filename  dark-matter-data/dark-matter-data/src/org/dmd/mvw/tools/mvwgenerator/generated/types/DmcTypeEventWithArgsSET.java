@@ -30,7 +30,7 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEventWithArgs;    // DmcType 
  * The DmcTypeEventWithArgsSET provides storage for a set of EventWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2469)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2527)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:102)
  */
 @SuppressWarnings("serial")
@@ -60,7 +60,7 @@ public class DmcTypeEventWithArgsSET extends DmcTypeEventWithArgs implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2506)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2564)
     public DmcAttribute<EventWithArgs> cloneIt(){
         synchronized(this){
             DmcTypeEventWithArgsSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeEventWithArgsSET extends DmcTypeEventWithArgs implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2525)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2583)
     public EventWithArgs add(Object v) throws DmcValueException {
         synchronized(this){
             EventWithArgs rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeEventWithArgsSET extends DmcTypeEventWithArgs implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2542)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
     public EventWithArgs del(Object v){
         synchronized(this){
             EventWithArgs rc = null;
@@ -115,7 +115,7 @@ public class DmcTypeEventWithArgsSET extends DmcTypeEventWithArgs implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2625)
     public Iterator<EventWithArgs> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -125,7 +125,7 @@ public class DmcTypeEventWithArgsSET extends DmcTypeEventWithArgs implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2584)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2642)
     public Set<EventWithArgs> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -136,7 +136,7 @@ public class DmcTypeEventWithArgsSET extends DmcTypeEventWithArgs implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2602)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2660)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeEventWithArgsSET extends DmcTypeEventWithArgs implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2613)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2671)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

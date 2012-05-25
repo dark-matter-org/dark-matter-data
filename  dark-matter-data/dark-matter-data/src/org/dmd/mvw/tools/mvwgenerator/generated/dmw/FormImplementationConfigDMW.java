@@ -2,14 +2,14 @@ package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                                    // If any attributes - (BaseDMWGeneratorNewest.java:808)
-import org.dmd.dmc.types.CamelCaseName;                                                  // Is named by - (BaseDMWGeneratorNewest.java:789)
-import org.dmd.dms.*;                                                                    // Always 2 - (BaseDMWGeneratorNewest.java:793)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:797)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                    // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:796)
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                            // Derived class - (BaseDMWGeneratorNewest.java:943)
-import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormImplementationConfig;           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:801)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.FormImplementationConfigDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:947)
+import org.dmd.dmc.*;                                                                    // If any attributes - (BaseDMWGeneratorNewest.java:887)
+import org.dmd.dmc.types.CamelCaseName;                                                  // Is named by - (BaseDMWGeneratorNewest.java:868)
+import org.dmd.dms.*;                                                                    // Always 2 - (BaseDMWGeneratorNewest.java:872)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                    // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                            // Derived class - (BaseDMWGeneratorNewest.java:1043)
+import org.dmd.mvw.tools.mvwgenerator.extended.forms.FormImplementationConfig;           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.FormImplementationConfigDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
 
 
 /**
@@ -60,7 +60,7 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:992)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1092)
     public CamelCaseName getObjectName(){
         return(((FormImplementationConfigDMO) core).getConfigName());
     }
@@ -80,7 +80,7 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
     public CamelCaseName getConfigName(){
         return(((FormImplementationConfigDMO) core).getConfigName());
     }
@@ -89,7 +89,7 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
      * Sets configName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
     public void setConfigName(Object value) throws DmcValueException {
         ((FormImplementationConfigDMO) core).setConfigName(value);
     }
@@ -98,7 +98,7 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
      * Sets configName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
     public void setConfigName(CamelCaseName value){
         ((FormImplementationConfigDMO) core).setConfigName(value);
     }
@@ -106,7 +106,7 @@ abstract public class FormImplementationConfigDMW extends MvwDefinition implemen
     /**
      * Removes the configName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
     public void remConfigName(){
         ((FormImplementationConfigDMO) core).remConfigName();
     }

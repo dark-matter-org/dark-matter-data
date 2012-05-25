@@ -30,7 +30,7 @@ import org.dmd.dmc.types.FullyQualifiedName;    // key type import
  * The DmcTypeDotNamedObjectREFMAP provides storage for a map of DotNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2695)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2753)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -71,7 +71,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2749)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2807)
     public DmcAttribute<DotNamedObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeDotNamedObjectREFMAP rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2765)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2823)
     public DotNamedObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             DotNamedObjectREF newval = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2786)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2844)
     public DotNamedObjectREF del(Object key){
         synchronized(this){
            if (key instanceof FullyQualifiedName)
@@ -117,7 +117,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2798)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2856)
     public Iterator<DotNamedObjectREF> getMV(){
         synchronized(this){
             Map<FullyQualifiedName,DotNamedObjectREF> clone = null;
@@ -129,7 +129,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2811)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2869)
     public Map<FullyQualifiedName,DotNamedObjectREF> getMVCopy(){
         synchronized(this){
             Map<FullyQualifiedName,DotNamedObjectREF> clone = null;
@@ -141,7 +141,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2824)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2882)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,7 +152,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2836)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2894)
     public DotNamedObjectREF getByKey(Object key){
         synchronized(this){
             if (key instanceof FullyQualifiedName)
@@ -163,7 +163,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2848)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2906)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -176,7 +176,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2869)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2927)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof FullyQualifiedName)

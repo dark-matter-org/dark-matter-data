@@ -2,16 +2,16 @@ package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                         // If any attributes - (BaseDMWGeneratorNewest.java:808)
-import org.dmd.dmc.types.CamelCaseName;                                       // Is named by - (BaseDMWGeneratorNewest.java:789)
-import org.dmd.dms.*;                                                         // Always 2 - (BaseDMWGeneratorNewest.java:793)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:797)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:796)
-import org.dmd.mvw.tools.mvwgenerator.extended.Component;                     // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                 // Derived class - (BaseDMWGeneratorNewest.java:943)
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:801)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionBindingDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:947)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.ComponentREF;           // Is reference type REF - (BaseDMWGeneratorNewest.java:830)
+import org.dmd.dmc.*;                                                         // If any attributes - (BaseDMWGeneratorNewest.java:887)
+import org.dmd.dmc.types.CamelCaseName;                                       // Is named by - (BaseDMWGeneratorNewest.java:868)
+import org.dmd.dms.*;                                                         // Always 2 - (BaseDMWGeneratorNewest.java:872)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
+import org.dmd.mvw.tools.mvwgenerator.extended.Component;                     // Is reference type - (BaseDMWGeneratorNewest.java:906)
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                 // Derived class - (BaseDMWGeneratorNewest.java:1043)
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.ActionBinding;           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ActionBindingDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.ComponentREF;           // Is reference type REF - (BaseDMWGeneratorNewest.java:914)
 
 
 /**
@@ -71,7 +71,7 @@ abstract public class ActionBindingDMW extends MvwDefinition implements DmcNamed
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:992)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1092)
     public CamelCaseName getObjectName(){
         return(((ActionBindingDMO) core).getActionBindingName());
     }
@@ -91,10 +91,41 @@ abstract public class ActionBindingDMW extends MvwDefinition implements DmcNamed
         return(false);
     }
 
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    public CamelCaseName getActionBindingName(){
+        return(((ActionBindingDMO) core).getActionBindingName());
+    }
+
+    /**
+     * Sets actionBindingName to the specified value.
+     * @param value A value compatible with DmcTypeCamelCaseName
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    public void setActionBindingName(Object value) throws DmcValueException {
+        ((ActionBindingDMO) core).setActionBindingName(value);
+    }
+
+    /**
+     * Sets actionBindingName to the specified value.
+     * @param value CamelCaseName
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    public void setActionBindingName(CamelCaseName value){
+        ((ActionBindingDMO) core).setActionBindingName(value);
+    }
+
+    /**
+     * Removes the actionBindingName attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    public void remActionBindingName(){
+        ((ActionBindingDMO) core).remActionBindingName();
+    }
+
     /**
      * @return A Component object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1125)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1225)
     public Component getImplementedBy(){
         ComponentREF ref = ((ActionBindingDMO) core).getImplementedBy();
         if (ref == null)
@@ -110,7 +141,7 @@ abstract public class ActionBindingDMW extends MvwDefinition implements DmcNamed
      * Sets the implementedBy to the specified value.
      * @param value A value compatible with ComponentREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1201)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1310)
     public void setImplementedBy(Component value) {
         ((ActionBindingDMO) core).setImplementedBy(value.getDMO());
     }
@@ -119,7 +150,7 @@ abstract public class ActionBindingDMW extends MvwDefinition implements DmcNamed
      * Sets the implementedBy to the specified value.
      * @param value A value compatible with ComponentREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1210)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1319)
     public void setImplementedBy(Object value) throws DmcValueException {
         ((ActionBindingDMO) core).setImplementedBy(value);
     }
@@ -127,40 +158,9 @@ abstract public class ActionBindingDMW extends MvwDefinition implements DmcNamed
     /**
      * Removes the implementedBy attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
     public void remImplementedBy(){
         ((ActionBindingDMO) core).remImplementedBy();
-    }
-
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1165)
-    public CamelCaseName getActionBindingName(){
-        return(((ActionBindingDMO) core).getActionBindingName());
-    }
-
-    /**
-     * Sets actionBindingName to the specified value.
-     * @param value A value compatible with DmcTypeCamelCaseName
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1257)
-    public void setActionBindingName(Object value) throws DmcValueException {
-        ((ActionBindingDMO) core).setActionBindingName(value);
-    }
-
-    /**
-     * Sets actionBindingName to the specified value.
-     * @param value CamelCaseName
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1266)
-    public void setActionBindingName(CamelCaseName value){
-        ((ActionBindingDMO) core).setActionBindingName(value);
-    }
-
-    /**
-     * Removes the actionBindingName attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public void remActionBindingName(){
-        ((ActionBindingDMO) core).remActionBindingName();
     }
 
 

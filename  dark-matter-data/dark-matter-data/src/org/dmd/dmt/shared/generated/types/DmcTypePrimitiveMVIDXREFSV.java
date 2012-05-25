@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.dmo.PrimitiveMVIDXDMO;    // DmcType import
  * The DmcTypePrimitiveMVIDXREFSV provides storage for a single-valued PrimitiveMVIDX
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1842)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1900)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -34,14 +34,14 @@ public class DmcTypePrimitiveMVIDXREFSV extends DmcTypePrimitiveMVIDXREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1874)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1932)
     public DmcAttribute<PrimitiveMVIDXDMO> cloneIt(){
         DmcTypePrimitiveMVIDXREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1885)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1943)
     public PrimitiveMVIDXDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -49,7 +49,7 @@ public class DmcTypePrimitiveMVIDXREFSV extends DmcTypePrimitiveMVIDXREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1897)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
     public PrimitiveMVIDXDMO set(Object v) throws DmcValueException {
         PrimitiveMVIDXDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

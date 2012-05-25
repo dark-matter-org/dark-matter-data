@@ -30,7 +30,7 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeFormBindingDefinitionREFMAP provides storage for a map of FormBindingDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2695)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2753)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -71,7 +71,7 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2749)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2807)
     public DmcAttribute<FormBindingDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeFormBindingDefinitionREFMAP rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2765)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2823)
     public FormBindingDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             FormBindingDefinitionREF newval = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2786)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2844)
     public FormBindingDefinitionREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
@@ -117,7 +117,7 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2798)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2856)
     public Iterator<FormBindingDefinitionREF> getMV(){
         synchronized(this){
             Map<CamelCaseName,FormBindingDefinitionREF> clone = null;
@@ -129,7 +129,7 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2811)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2869)
     public Map<CamelCaseName,FormBindingDefinitionREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,FormBindingDefinitionREF> clone = null;
@@ -141,7 +141,7 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2824)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2882)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,7 +152,7 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2836)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2894)
     public FormBindingDefinitionREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
@@ -163,7 +163,7 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2848)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2906)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -176,7 +176,7 @@ public class DmcTypeFormBindingDefinitionREFMAP extends DmcTypeFormBindingDefini
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2869)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2927)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)

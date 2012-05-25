@@ -17,13 +17,13 @@ package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                              // If any attributes - (BaseDMWGeneratorNewest.java:808)
-import org.dmd.dms.*;                                              // Always 2 - (BaseDMWGeneratorNewest.java:793)
-import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;           // Is reference type aux - (BaseDMWGeneratorNewest.java:823)
-import org.dmd.dms.generated.types.AttributeDefinitionREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:830)
-import org.dmd.dmv.server.extended.AttributeRule;                  // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:801)
-import org.dmd.dmv.server.extended.Rule;                           // Derived class - (BaseDMWGeneratorNewest.java:943)
-import org.dmd.dmv.shared.generated.dmo.AttributeRuleDMO;          // Abstract class - (BaseDMWGeneratorNewest.java:925)
+import org.dmd.dmc.*;                                              // If any attributes - (BaseDMWGeneratorNewest.java:887)
+import org.dmd.dms.*;                                              // Always 2 - (BaseDMWGeneratorNewest.java:872)
+import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;           // Is reference type - (BaseDMWGeneratorNewest.java:906)
+import org.dmd.dms.generated.types.AttributeDefinitionREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:914)
+import org.dmd.dmv.server.extended.AttributeRule;                  // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
+import org.dmd.dmv.server.extended.Rule;                           // Derived class - (BaseDMWGeneratorNewest.java:1043)
+import org.dmd.dmv.shared.generated.dmo.AttributeRuleDMO;          // Abstract class - (BaseDMWGeneratorNewest.java:1025)
 
 
 /**
@@ -54,7 +54,7 @@ abstract public class AttributeRuleDMW extends Rule {
     /**
      * @return A AttributeDefinitionDMW object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1125)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1225)
     public AttributeDefinitionDMW getApplyToAttribute(){
         AttributeDefinitionREF ref = ((AttributeRuleDMO) core).getApplyToAttribute();
         if (ref == null)
@@ -70,7 +70,7 @@ abstract public class AttributeRuleDMW extends Rule {
      * Sets the applyToAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1201)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1310)
     public void setApplyToAttribute(AttributeDefinitionDMW value) {
         ((AttributeRuleDMO) core).setApplyToAttribute(value.getDMO());
     }
@@ -79,7 +79,7 @@ abstract public class AttributeRuleDMW extends Rule {
      * Sets the applyToAttribute to the specified value.
      * @param value A value compatible with AttributeDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1210)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1319)
     public void setApplyToAttribute(Object value) throws DmcValueException {
         ((AttributeRuleDMO) core).setApplyToAttribute(value);
     }
@@ -87,7 +87,7 @@ abstract public class AttributeRuleDMW extends Rule {
     /**
      * Removes the applyToAttribute attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
     public void remApplyToAttribute(){
         ((AttributeRuleDMO) core).remApplyToAttribute();
     }
