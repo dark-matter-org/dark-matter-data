@@ -1,14 +1,15 @@
 SchemaDefinition
-name			dmt
-schemaBaseID	10000
-schemaIDRange	2000
-schemaPackage 	org.dmd.dmt.shared
-dmwPackage    	org.dmd.dmt.server
-dependsOn		dmp
-defFiles		types.dmd
-defFiles    	attributes.dmd
-defFiles		classes.dmd
-defFiles		slices.dmd
-defFiles		actions.dmd
-defFiles		extendedRefs.dmd
-description		The dmt schema defines a sets of definitions for Dark Matter Testing purposes.
+name				dmt
+schemaBaseID		10000
+schemaIDRange		2000
+schemaPackage 		org.dmd.dmt.shared
+dmwPackage    		org.dmd.dmt.server
+dmwTypeToPackage	gxt org.dmd.dmt.client
+dependsOn			dmp
+defFiles			types.dmd
+defFiles    		attributes.dmd
+defFiles			classes.dmd
+defFiles			slices.dmd
+defFiles			actions.dmd
+defFiles			extendedRefs.dmd
+description			The dmt schema defines a sets of definitions for Dark Matter Testing purposes.

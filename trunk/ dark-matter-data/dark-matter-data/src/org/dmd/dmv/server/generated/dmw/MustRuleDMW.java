@@ -17,13 +17,13 @@ package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                         // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dms.*;                                         // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
-import org.dmd.dmv.server.extended.ClassRule;                 // Derived class - (BaseDMWGeneratorNewest.java:1043)
-import org.dmd.dmv.server.extended.MustRule;                  // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
-import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;          // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
+import org.dmd.dmc.*;                                         // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dms.*;                                         // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
+import org.dmd.dmv.server.extended.ClassRule;                 // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.dmv.server.extended.MustRule;                  // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.dmv.shared.generated.dmo.MustRuleDMO;          // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
 
 
 /**
@@ -73,7 +73,7 @@ abstract public class MustRuleDMW extends ClassRule {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getRuleTitle(){
         return(((MustRuleDMO) core).getRuleTitle());
     }
@@ -82,7 +82,7 @@ abstract public class MustRuleDMW extends ClassRule {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((MustRuleDMO) core).setRuleTitle(value);
     }
@@ -91,7 +91,7 @@ abstract public class MustRuleDMW extends ClassRule {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setRuleTitle(String value){
         ((MustRuleDMO) core).setRuleTitle(value);
     }
@@ -99,7 +99,7 @@ abstract public class MustRuleDMW extends ClassRule {
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remRuleTitle(){
         ((MustRuleDMO) core).remRuleTitle();
     }

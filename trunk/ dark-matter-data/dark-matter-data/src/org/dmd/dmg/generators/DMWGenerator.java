@@ -33,7 +33,7 @@ public class DMWGenerator extends BaseDMWGeneratorNewest {
 	public void generateCode(DmgConfigDMO config, ConfigLocation loc, ConfigFinder f, SchemaManager sm) throws IOException, ResultException {
 		gendir = loc.getConfigParentDirectory() + File.separator + "generated";
 		dmwdir = gendir + File.separator + "dmw";
-		auxwdir = gendir + File.separator + "dmw";
+//		auxwdir = gendir + File.separator + "dmw";
 		
 		createIfRequired(gendir);
 

@@ -2,13 +2,13 @@ package org.dmd.dmp.server.servlet.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                       // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dmc.types.DotName;                                           // Is named by - (BaseDMWGeneratorNewest.java:868)
-import org.dmd.dmp.server.servlet.generated.dmo.SessionFolderRIDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
-import org.dmd.dms.*;                                                       // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
-import org.dmd.dmw.DmwHierarchicObjectWrapper;                              // Hierarchic object wrapper - (BaseDMWGeneratorNewest.java:1034)
+import org.dmd.dmc.*;                                                       // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmc.types.DotName;                                           // Is named by - (BaseDMWGeneratorNewest.java:884)
+import org.dmd.dmp.server.servlet.generated.dmo.SessionFolderRIDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dms.*;                                                       // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
+import org.dmd.dmw.DmwHierarchicObjectWrapper;                              // Hierarchic object wrapper - (BaseDMWGeneratorNewest.java:1055)
 
 
 /**
@@ -59,7 +59,7 @@ public class SessionFolderRIDMW extends DmwHierarchicObjectWrapper implements Dm
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1092)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1113)
     public DotName getObjectName(){
         return(((SessionFolderRIDMO) core).getDotName());
     }
@@ -79,12 +79,12 @@ public class SessionFolderRIDMW extends DmwHierarchicObjectWrapper implements Dm
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1113)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1134)
     public DotName getHierarchicObjectName(){
         return(((SessionFolderRIDMO) core).getDotName());
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public DotName getDotName(){
         return(((SessionFolderRIDMO) core).getDotName());
     }
@@ -93,7 +93,7 @@ public class SessionFolderRIDMW extends DmwHierarchicObjectWrapper implements Dm
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setDotName(Object value) throws DmcValueException {
         ((SessionFolderRIDMO) core).setDotName(value);
     }
@@ -102,7 +102,7 @@ public class SessionFolderRIDMW extends DmwHierarchicObjectWrapper implements Dm
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setDotName(DotName value){
         ((SessionFolderRIDMO) core).setDotName(value);
     }
@@ -110,7 +110,7 @@ public class SessionFolderRIDMW extends DmwHierarchicObjectWrapper implements Dm
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remDotName(){
         ((SessionFolderRIDMO) core).remDotName();
     }

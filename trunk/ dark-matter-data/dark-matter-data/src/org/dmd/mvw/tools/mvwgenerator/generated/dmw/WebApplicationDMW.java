@@ -2,23 +2,23 @@ package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.ArrayList;                                                                // To support getMVCopy() - (BaseDMWGeneratorNewest.java:980)
-import org.dmd.dmc.*;                                                                      // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dmc.types.CamelCaseName;                                                    // Is named by - (BaseDMWGeneratorNewest.java:868)
-import org.dmd.dms.*;                                                                      // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                                // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
-import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                                 // Is reference type - (BaseDMWGeneratorNewest.java:906)
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                              // Derived class - (BaseDMWGeneratorNewest.java:1043)
-import org.dmd.mvw.tools.mvwgenerator.extended.Place;                                      // Is reference type - (BaseDMWGeneratorNewest.java:906)
-import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;                             // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;             // Is reference type - (BaseDMWGeneratorNewest.java:906)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                         // For multi-valued adds of Controller - (BaseDMWGeneratorNewest.java:1542)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                              // Attribute usesController from the mvw schema - (BaseDMWGeneratorNewest.java:719)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.WebApplicationDMO;                     // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW;                 // For multi-valued Controller - (BaseDMWGeneratorNewest.java:1491)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuImplementationConfigREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:914)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.PlaceREF;                            // Is reference type REF - (BaseDMWGeneratorNewest.java:914)
+import java.util.ArrayList;                                                                // To support getMVCopy() - (BaseDMWGeneratorNewest.java:997)
+import org.dmd.dmc.*;                                                                      // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmc.types.CamelCaseName;                                                    // Is named by - (BaseDMWGeneratorNewest.java:884)
+import org.dmd.dms.*;                                                                      // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                                // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
+import org.dmd.mvw.tools.mvwgenerator.extended.Controller;                                 // Is reference type - (BaseDMWGeneratorNewest.java:923)
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                              // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.mvw.tools.mvwgenerator.extended.Place;                                      // Is reference type - (BaseDMWGeneratorNewest.java:923)
+import org.dmd.mvw.tools.mvwgenerator.extended.WebApplication;                             // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.MenuImplementationConfig;             // Is reference type - (BaseDMWGeneratorNewest.java:923)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.ControllerDMO;                         // For multi-valued adds of Controller - (BaseDMWGeneratorNewest.java:1579)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MvwDMSAG;                              // Attribute usesController from the mvw schema - (BaseDMWGeneratorNewest.java:720)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.WebApplicationDMO;                     // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.ControllerIterableDMW;                 // For multi-valued Controller - (BaseDMWGeneratorNewest.java:1521)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuImplementationConfigREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:931)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.PlaceREF;                            // Is reference type REF - (BaseDMWGeneratorNewest.java:931)
 
 
 /**
@@ -71,7 +71,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1092)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1113)
     public CamelCaseName getObjectName(){
         return(((WebApplicationDMO) core).getAppName());
     }
@@ -91,7 +91,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public CamelCaseName getAppName(){
         return(((WebApplicationDMO) core).getAppName());
     }
@@ -100,7 +100,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
      * Sets appName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setAppName(Object value) throws DmcValueException {
         ((WebApplicationDMO) core).setAppName(value);
     }
@@ -109,7 +109,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
      * Sets appName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setAppName(CamelCaseName value){
         ((WebApplicationDMO) core).setAppName(value);
     }
@@ -117,7 +117,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * Removes the appName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remAppName(){
         ((WebApplicationDMO) core).remAppName();
     }
@@ -125,7 +125,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * @return A Place object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1225)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1246)
     public Place getDefaultPlace(){
         PlaceREF ref = ((WebApplicationDMO) core).getDefaultPlace();
         if (ref == null)
@@ -141,7 +141,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
      * Sets the defaultPlace to the specified value.
      * @param value A value compatible with PlaceREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1310)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1331)
     public void setDefaultPlace(Place value) {
         ((WebApplicationDMO) core).setDefaultPlace(value.getDMO());
     }
@@ -150,7 +150,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
      * Sets the defaultPlace to the specified value.
      * @param value A value compatible with PlaceREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1319)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1340)
     public void setDefaultPlace(Object value) throws DmcValueException {
         ((WebApplicationDMO) core).setDefaultPlace(value);
     }
@@ -158,7 +158,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * Removes the defaultPlace attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remDefaultPlace(){
         ((WebApplicationDMO) core).remDefaultPlace();
     }
@@ -166,7 +166,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * @return A MenuImplementationConfig object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1225)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1246)
     public MenuImplementationConfig getMenuImplementation(){
         MenuImplementationConfigREF ref = ((WebApplicationDMO) core).getMenuImplementation();
         if (ref == null)
@@ -182,7 +182,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
      * Sets the menuImplementation to the specified value.
      * @param value A value compatible with MenuImplementationConfigREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1310)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1331)
     public void setMenuImplementation(MenuImplementationConfig value) {
         ((WebApplicationDMO) core).setMenuImplementation(value.getDMO());
     }
@@ -191,7 +191,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
      * Sets the menuImplementation to the specified value.
      * @param value A value compatible with MenuImplementationConfigREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1319)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1340)
     public void setMenuImplementation(Object value) throws DmcValueException {
         ((WebApplicationDMO) core).setMenuImplementation(value);
     }
@@ -199,7 +199,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * Removes the menuImplementation attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remMenuImplementation(){
         ((WebApplicationDMO) core).remMenuImplementation();
     }
@@ -207,7 +207,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * @return The number of Controller items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1483)
     public int getUsesControllerSize(){
         return(((WebApplicationDMO) core).getUsesControllerSize());
     }
@@ -215,7 +215,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * @return true if there are no ControllerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1461)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1491)
     public boolean getUsesControllerIsEmpty(){
         if (((WebApplicationDMO) core).getUsesControllerSize() == 0)
             return(true);
@@ -225,7 +225,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * @return true if there are any ControllerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1471)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1501)
     public boolean getUsesControllerHasValue(){
         if (((WebApplicationDMO) core).getUsesControllerSize() == 0)
             return(false);
@@ -235,7 +235,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * @return An Iterator of ControllerDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1498)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1528)
     public ControllerIterableDMW getUsesControllerIterable(){
         DmcAttribute<?> attr = core.get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -248,7 +248,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
      * Adds another usesController value.
      * @param value A value compatible with Controller
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1548)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1585)
     public DmcAttribute<?> addUsesController(Controller value){
         DmcAttribute<?> attr = ((WebApplicationDMO) core).addUsesController(((ControllerDMO)value.getDmcObject()));
         return(attr);
@@ -258,7 +258,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
      * Deletes a usesController value.
      * @param value The Controller to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1585)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1635)
     public void delUsesController(Controller value){
         ((WebApplicationDMO) core).delUsesController(value.getDMO());
     }
@@ -266,7 +266,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * @return A COPY of the collection of Controller objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1635)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1697)
     public ArrayList<Controller> getUsesControllerCopy(){
         DmcAttribute<?> attr = ((WebApplicationDMO) core).get(MvwDMSAG.__usesController);
         if (attr == null)
@@ -285,7 +285,7 @@ abstract public class WebApplicationDMW extends MvwDefinition implements DmcName
     /**
      * Removes the usesController attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2038)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2100)
     public void remUsesController(){
         ((WebApplicationDMO) core).remUsesController();
     }
