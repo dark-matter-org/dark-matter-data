@@ -17,13 +17,13 @@ package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                          // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dms.*;                                          // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dms.generated.dmw.ClassDefinitionDMW;           // Is reference type - (BaseDMWGeneratorNewest.java:906)
-import org.dmd.dms.generated.types.ClassDefinitionREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:914)
-import org.dmd.dmv.server.extended.ClassRule;                  // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
-import org.dmd.dmv.server.extended.Rule;                       // Derived class - (BaseDMWGeneratorNewest.java:1043)
-import org.dmd.dmv.shared.generated.dmo.ClassRuleDMO;          // Abstract class - (BaseDMWGeneratorNewest.java:1025)
+import org.dmd.dmc.*;                                          // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dms.*;                                          // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmw.ClassDefinitionDMW;           // Is reference type - (BaseDMWGeneratorNewest.java:923)
+import org.dmd.dms.generated.types.ClassDefinitionREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:931)
+import org.dmd.dmv.server.extended.ClassRule;                  // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.dmv.server.extended.Rule;                       // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.dmv.shared.generated.dmo.ClassRuleDMO;          // Abstract class - (BaseDMWGeneratorNewest.java:1046)
 
 
 /**
@@ -55,7 +55,7 @@ abstract public class ClassRuleDMW extends Rule {
     /**
      * @return A ClassDefinitionDMW object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1225)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1246)
     public ClassDefinitionDMW getApplyToClass(){
         ClassDefinitionREF ref = ((ClassRuleDMO) core).getApplyToClass();
         if (ref == null)
@@ -71,7 +71,7 @@ abstract public class ClassRuleDMW extends Rule {
      * Sets the applyToClass to the specified value.
      * @param value A value compatible with ClassDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1310)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1331)
     public void setApplyToClass(ClassDefinitionDMW value) {
         ((ClassRuleDMO) core).setApplyToClass(value.getDMO());
     }
@@ -80,7 +80,7 @@ abstract public class ClassRuleDMW extends Rule {
      * Sets the applyToClass to the specified value.
      * @param value A value compatible with ClassDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1319)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1340)
     public void setApplyToClass(Object value) throws DmcValueException {
         ((ClassRuleDMO) core).setApplyToClass(value);
     }
@@ -88,7 +88,7 @@ abstract public class ClassRuleDMW extends Rule {
     /**
      * Removes the applyToClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remApplyToClass(){
         ((ClassRuleDMO) core).remApplyToClass();
     }

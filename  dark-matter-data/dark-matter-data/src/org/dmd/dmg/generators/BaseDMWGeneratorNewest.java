@@ -52,7 +52,7 @@ import org.dmd.util.parsing.ConfigLocation;
 abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 
 	protected	String 				gendir;
-	protected	String 				auxwdir;
+//	protected	String 				auxwdir;
 	protected	String 				dmwdir;
 	protected	String				fileHeader;
 
@@ -168,8 +168,8 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 				cd.adjustJavaClass(genContext,genSuffix);
 				
 				if (cd.getClassType() == ClassTypeEnum.AUXILIARY){
-					createIfRequired(auxwdir);
-					dumpAUX(cd, auxwdir);
+//					createIfRequired(auxwdir);
+					dumpAUX(cd, dmwdir);
 				}
 				else{	
 					
@@ -571,7 +571,7 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 	 * @param outdir The output directory.
 	 * @throws IOException 
 	 */
-	private void dumpAUX(ClassDefinition cd, String outdir) throws IOException {
+	protected void dumpAUX(ClassDefinition cd, String outdir) throws IOException {
 		// reset the static names, just in case we've been here before
 		attributeInfo = new StringBuffer();
 		
@@ -715,8 +715,24 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 					if ((ad.getIndexSize() != null) && (ad.getType().getIsRefType())){
 						// Don't import the schema of indexed, object refs
 					}
-					else
-						imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
+					else{
+						if (useWrappedObjectRefs)
+							imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
+						else{
+							if ( (ad.getValueType() == ValueTypeEnum.HASHMAPPED) || (ad.getValueType() == ValueTypeEnum.TREEMAPPED))
+								imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
+							else if (ad.getType().getIsRefType()){
+//								if (ad.getType().getOriginalClass().getIsNamedBy() == null){
+//									if ( (ad.getValueType() != ValueTypeEnum.HASHSET) && (ad.getValueType() != ValueTypeEnum.TREESET)){
+//										
+//										imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
+//									}
+//								}
+							}
+							else
+								imports.addImport(ad.getDefinedIn().getDMSASGImport(), "Attribute " + ad.getName() + " from the " + ad.getDefinedIn().getName() + " schema");
+						}
+					}
 				}
 			}
 
@@ -883,8 +899,9 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 		if (needDmwOmni)
 			imports.addImport("org.dmd.dmw.DmwOmni", "Have DmcObjectName attributes");
 		
-		if (anyAttributes)
+		if (anyAttributes){
 			imports.addImport("org.dmd.dmc.*", "If any attributes");
+		}
 		
 		for(String s: genericImports){
 			imports.addImport(s, "Generic args import");
@@ -976,7 +993,7 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 					if (td.getIsRefType() && (td.getOriginalClass().getIsNamedBy() == null)){
 						
 					}
-					else
+					else if (useWrappedObjectRefs)
 						imports.addImport("java.util.ArrayList", "To support getMVCopy()");
 				}
 				break;
@@ -990,16 +1007,20 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 				break;
 			case HASHSET:
 				if (td.getIsRefType()){
-					if (td.getOriginalClass().getIsNamedBy() != null)
-						imports.addImport("java.util.HashSet", "To support getMVCopy()");
+					if (td.getOriginalClass().getIsNamedBy() != null){
+						if (useWrappedObjectRefs)
+							imports.addImport("java.util.HashSet", "To support getMVCopy()");
+					}
 				}
 				else
 					imports.addImport("java.util.HashSet", "To support getMVCopy()");
 				break;
 			case TREESET:
 				if (td.getIsRefType()){
-					if (td.getOriginalClass().getIsNamedBy() != null)
-						imports.addImport("java.util.TreeSet", "To support getMVCopy()");
+					if (td.getOriginalClass().getIsNamedBy() != null){
+						if (useWrappedObjectRefs)
+							imports.addImport("java.util.TreeSet", "To support getMVCopy()");
+					}
 				}
 				else
 					imports.addImport("java.util.TreeSet", "To support getMVCopy()");
@@ -1336,13 +1357,22 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
     			else{
 					sb.append("    /**\n");
 					sb.append("     * Sets the " + ad.getName() + " to the specified value.\n");
-					sb.append("     * @param value A value compatible with " + auxHolderClass + "DMO\n");
+					sb.append("     * @param value A value compatible with " + ad.getType().getName() + "DMO\n");
 					sb.append("     */\n");
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public void set" + functionName + "(" + auxHolderClass + "DMO value) {\n");
+					sb.append("    public void set" + functionName + "(" + ad.getType().getName() + "DMO value) {\n");
 			    	sb.append("        " + dmocast + ".set" + functionName + "(value);\n");
 					sb.append("    }\n\n");
     			}
+    			
+				sb.append("    /**\n");
+				sb.append("     * Sets the " + ad.getName() + " to the specified value.\n");
+				sb.append("     * @param value A value compatible with " + ad.getType().getName() + "\n");
+				sb.append("     */\n");
+				sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				sb.append("    public void set" + functionName + "(Object value) throws DmcValueException {\n");
+		    	sb.append("        " + dmocast + ".set" + functionName + "(value);\n");
+				sb.append("    }\n\n");
     		}
     	}
     	else{
@@ -1506,15 +1536,22 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 					sb.append("    }\n\n");
 				}
 				else{
+					imports.addImport("java.util.Iterator", "Multi-valued attribute access");
 					sb.append("    /**\n");
 					sb.append("     * @return An Iterator of " + typeName + "DMO objects.\n");
 					sb.append("     */\n");
-					sb.append("    @SuppressWarnings(\"unchecked\")\n");
+//					sb.append("    @SuppressWarnings(\"unchecked\")\n");
 					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 					if (ad.getType().getOriginalClass().getIsNamedBy() == null)
 						sb.append("    public Iterator<" + typeName + "DMO> get" + functionName + "(){\n");
-					else
-						sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
+					else{
+						if (ad.getType().getIsExtendedRefType()){
+							imports.addImport(ad.getType().getPrimitiveType(), "Multi-valued attribute access");
+							sb.append("    public Iterator<" + typeName + "> get" + functionName + "(){\n");
+						}
+						else
+							sb.append("    public Iterator<" + typeName + "REF> get" + functionName + "(){\n");
+					}
 					sb.append("        return(" + dmocast + ".get" + functionName + "());\n");
 					sb.append("    }\n\n");
 				}
@@ -1553,14 +1590,27 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 					}
 				}
 				else{
-					sb.append("    /**\n");
-					sb.append("     * Adds another " + ad.getName() + " value.\n");
-					sb.append("     * @param value A value compatible with " + typeName + "\n");
-					sb.append("     */\n");
-					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + "DMO value){\n");
-			    	sb.append("        return(" + dmocast + ".add" + functionName + "(value));\n");
-					sb.append("    }\n\n");
+					if (ad.getType().getIsExtendedRefType()){
+						imports.addImport(ad.getType().getPrimitiveType(), "Extended ref type");
+						sb.append("    /**\n");
+						sb.append("     * Adds another " + ad.getName() + " value.\n");
+						sb.append("     * @param value A value compatible with " + typeName + "\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + " value){\n");
+				    	sb.append("        return(" + dmocast + ".add" + functionName + "(value));\n");
+						sb.append("    }\n\n");
+					}
+					else{
+						sb.append("    /**\n");
+						sb.append("     * Adds another " + ad.getName() + " value.\n");
+						sb.append("     * @param value A value compatible with " + typeName + "DMO\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public DmcAttribute<?> add" + functionName + "(" + typeName + "DMO value){\n");
+				    	sb.append("        return(" + dmocast + ".add" + functionName + "(value));\n");
+						sb.append("    }\n\n");
+					}
 				}
 	
 		    	////////////////////////////////////////////////////////////////////////////////
@@ -1589,14 +1639,26 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 					}
 				}
 				else{
-					sb.append("    /**\n");
-					sb.append("     * Deletes a " + ad.getName() + " value.\n");
-					sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
-					sb.append("     */\n");
-					sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
-					sb.append("    public void del" + functionName + "(" + typeName + "DMO value){\n");
-					sb.append("        " + dmocast + ".del" + functionName + "(value);\n");
-					sb.append("    }\n\n");
+					if (ad.getType().getIsExtendedRefType()){
+						sb.append("    /**\n");
+						sb.append("     * Deletes a " + ad.getName() + " value.\n");
+						sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public void del" + functionName + "(" + typeName + " value){\n");
+						sb.append("        " + dmocast + ".del" + functionName + "(value);\n");
+						sb.append("    }\n\n");
+					}
+					else{
+						sb.append("    /**\n");
+						sb.append("     * Deletes a " + ad.getName() + " value.\n");
+						sb.append("     * @param value The " + typeName + " to be deleted from set of attribute values.\n");
+						sb.append("     */\n");
+						sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+						sb.append("    public void del" + functionName + "(" + typeName + "DMO value){\n");
+						sb.append("        " + dmocast + ".del" + functionName + "(value);\n");
+						sb.append("    }\n\n");
+					}
 				}
 				
 		    	////////////////////////////////////////////////////////////////////////////////
@@ -2152,6 +2214,7 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 		if (ad.getValueType() == ValueTypeEnum.TREEMAPPED){
 			String keyClass = ad.getType().getKeyClass();
 			if (ad.getType().getIsRefType()){
+				imports.addImport(ad.getType().getOriginalClass().getIsNamedBy().getType().getPrimitiveType(), "Name type");
 				keyClass = ad.getType().getOriginalClass().getIsNamedBy().getType().getName().getNameString();
 			}
 	    	sb.append("    /**\n");
@@ -2321,6 +2384,7 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 				sb.append("    }\n\n");
 			}
 			else{
+				imports.addImport("java.util.Iterator", "Multi-valued attribute access");
 		    	sb.append("    /**\n");
 				sb.append("     * @return An Iterator of " + typeName + " objects.\n");
 				sb.append("     */\n");

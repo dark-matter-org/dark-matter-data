@@ -17,12 +17,12 @@ package org.dmd.dmr.server.ldap.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpAUX(BaseDMWGeneratorNewest.java:605)
-import org.dmd.dmc.*;                                       // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dms.*;                                       // Always 2 - (BaseDMWGeneratorNewest.java:872)
+import org.dmd.dmc.*;                                       // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dms.*;                                       // Always 2 - (BaseDMWGeneratorNewest.java:888)
 import org.dmd.dms.generated.enums.DataTypeEnum;            // For AUX base functionality - (BaseDMWGeneratorNewest.java:603)
 import org.dmd.dms.generated.enums.ValueTypeEnum;           // For AUX base functionality - (BaseDMWGeneratorNewest.java:602)
-import org.dmd.dms.generated.types.DmcTypeStringSV;         // Type in an auxiliary class - (BaseDMWGeneratorNewest.java:952)
-import org.dmd.dmw.DmwWrapper;                              // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1030)
+import org.dmd.dms.generated.types.DmcTypeStringSV;         // Type in an auxiliary class - (BaseDMWGeneratorNewest.java:969)
+import org.dmd.dmw.DmwWrapper;                              // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1051)
 
 
 /**
@@ -43,7 +43,7 @@ public class LDAPSchemaAUX {
      * This method will check to see if the object has any of our attributes.
      * If not, our aux class is automatically removed from the object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getCommonAUXFunctions(BaseDMWGeneratorNewest.java:2453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getCommonAUXFunctions(BaseDMWGeneratorNewest.java:2517)
     static private void removeAuxIfRequired(DmwWrapper corew){
         boolean anyLeft = false;
 
@@ -58,7 +58,7 @@ public class LDAPSchemaAUX {
      * This method will check to see if the object has our aux class.
      * If not, we add our aux class the object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getCommonAUXFunctions(BaseDMWGeneratorNewest.java:2471)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getCommonAUXFunctions(BaseDMWGeneratorNewest.java:2535)
     static private void addAuxIfRequired(DmwWrapper corew) throws DmcValueException {
         if (!corew.hasAux(_auxClass))
             corew.addAux(_auxClass);
@@ -67,7 +67,7 @@ public class LDAPSchemaAUX {
     /**
      * This method checks if the object has this auxiliary class.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getCommonAUXFunctions(BaseDMWGeneratorNewest.java:2481)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getCommonAUXFunctions(BaseDMWGeneratorNewest.java:2545)
     static public boolean hasAux(DmwWrapper corew){
         if (corew == null)
             return(false);
@@ -77,7 +77,7 @@ public class LDAPSchemaAUX {
     /**
      * Removes the ldapIdPrefix attribute from the object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatAUXSV(BaseDMWGeneratorNewest.java:2575)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatAUXSV(BaseDMWGeneratorNewest.java:2639)
     static public DmcAttribute<?> remLdapIdPrefix(DmwWrapper corew){
         if (corew == null)
             return(null);
@@ -86,7 +86,7 @@ public class LDAPSchemaAUX {
         return(rc);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatAUXSV(BaseDMWGeneratorNewest.java:2606)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatAUXSV(BaseDMWGeneratorNewest.java:2670)
     static public String getLdapIdPrefix(DmwWrapper corew){
         DmcTypeStringSV attr = (DmcTypeStringSV) corew.getDmcObject().get(__ldapIdPrefix);
         if (attr == null)
@@ -99,7 +99,7 @@ public class LDAPSchemaAUX {
      * Sets ldapIdPrefix to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatAUXSV(BaseDMWGeneratorNewest.java:2646)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatAUXSV(BaseDMWGeneratorNewest.java:2710)
     static public void setLdapIdPrefix(DmwWrapper corew, Object value) throws DmcValueException {
         DmcAttribute<?> attr = corew.getDmcObject().get(__ldapIdPrefix);
         if (attr == null){

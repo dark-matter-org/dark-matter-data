@@ -2,17 +2,17 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.Iterator;                                          // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2393)
-import java.util.TreeMap;                                           // To support getMVCopy() - (BaseDMWGeneratorNewest.java:989)
-import org.dmd.dmc.*;                                               // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dmc.types.StringToString;                            // Primitive type - (BaseDMWGeneratorNewest.java:949)
-import org.dmd.dms.*;                                               // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
-import org.dmd.dms.generated.dmw.StringToStringIterableDMW;         // For multi-valued StringToString - (BaseDMWGeneratorNewest.java:2309)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;               // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
-import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                   // Attribute tmString from the dmt schema - (BaseDMWGeneratorNewest.java:719)
-import org.dmd.dmt.shared.generated.dmo.PrimitiveTMDMO;             // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
-import org.dmd.dmw.DmwWrapper;                                      // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1030)
+import java.util.Iterator;                                          // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2457)
+import java.util.TreeMap;                                           // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1006)
+import org.dmd.dmc.*;                                               // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmc.types.StringToString;                            // Primitive type - (BaseDMWGeneratorNewest.java:966)
+import org.dmd.dms.*;                                               // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.dmw.StringToStringIterableDMW;         // For multi-valued StringToString - (BaseDMWGeneratorNewest.java:2372)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;               // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                   // Attribute tmString from the dmt schema - (BaseDMWGeneratorNewest.java:720)
+import org.dmd.dmt.shared.generated.dmo.PrimitiveTMDMO;             // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dmw.DmwWrapper;                                      // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1051)
 
 
 /**
@@ -58,7 +58,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
     /**
      * @return The number of StringToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2090)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2152)
     public int getTmStringSize(){
         DmcAttribute<?> attr = ((PrimitiveTMDMO) core).get(DmtDMSAG.__tmString);
         if (attr == null)
@@ -70,7 +70,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
     /**
      * @return true if there are no StringToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2102)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2164)
     public boolean getTmStringIsEmpty(){
         DmcAttribute<?> attr = ((PrimitiveTMDMO) core).get(DmtDMSAG.__tmString);
         if (attr == null)
@@ -82,7 +82,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
     /**
      * @return true if there are any StringToStringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2114)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2176)
     public boolean getTmStringHasValue(){
         DmcAttribute<?> attr = ((PrimitiveTMDMO) core).get(DmtDMSAG.__tmString);
         if (attr == null)
@@ -94,7 +94,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
     /**
      * @return The keyed StringToString object if it's available and null otherwise.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2130)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2192)
     public StringToString getTmString(Object key){
         DmcAttribute<?> attr = ((PrimitiveTMDMO) core).get(DmtDMSAG.__tmString);
         if (attr == null)
@@ -106,7 +106,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
     /**
      * @return the first key of the map.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2160)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2223)
     public String getTmStringFirstKey(){
         return(((PrimitiveTMDMO) core).getTmStringFirstKey());
     }
@@ -114,7 +114,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
     /**
      * @return An Iterator of StringToString objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2314)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2377)
     public StringToStringIterableDMW getTmStringIterable(){
         DmcAttribute<?> attr = ((PrimitiveTMDMO) core).get(DmtDMSAG.__tmString);
         if (attr == null)
@@ -127,7 +127,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
      * Adds another tmString value.
      * @param value A value compatible with StringToString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2340)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2404)
     public void addTmString(Object value) throws DmcValueException {
         ((PrimitiveTMDMO) core).addTmString(value);
     }
@@ -136,7 +136,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
      * Adds another tmString value.
      * @param value StringToString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2349)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2413)
     public void addTmString(StringToString value) {
         ((PrimitiveTMDMO) core).addTmString(value);
     }
@@ -145,7 +145,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
      * Deletes a tmString value.
      * @param value The StringToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2361)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2425)
     public void delTmString(Object value){
         ((PrimitiveTMDMO) core).delTmString(value);
     }
@@ -154,7 +154,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
      * Deletes a tmString value.
      * @param value The StringToString to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2370)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2434)
     public void delTmString(String value){
         ((PrimitiveTMDMO) core).delTmString(value);
     }
@@ -162,7 +162,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of StringToString objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2398)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2462)
     @SuppressWarnings("unchecked")
     public TreeMap<String,StringToString> getTmStringCopy(){
         DmcAttribute<?> attr = ((PrimitiveTMDMO) core).get(DmtDMSAG.__tmString);
@@ -183,7 +183,7 @@ public class PrimitiveTMDMW extends DmwWrapper {
     /**
      * Removes the tmString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2439)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMAPPED(BaseDMWGeneratorNewest.java:2503)
     public void remTmString(){
         ((PrimitiveTMDMO) core).remTmString();
     }

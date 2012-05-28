@@ -17,15 +17,15 @@ package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.ArrayList;                                    // To support getMVCopy() - (BaseDMWGeneratorNewest.java:980)
-import java.util.Iterator;                                     // Support copy of MV objects - (BaseDMWGeneratorNewest.java:1986)
-import org.dmd.dmc.*;                                          // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dmp.server.extended.DMPMessage;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
-import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;         // Abstract class - (BaseDMWGeneratorNewest.java:1025)
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;              // Attribute requestID from the dmp schema - (BaseDMWGeneratorNewest.java:719)
-import org.dmd.dms.*;                                          // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dms.generated.dmw.IntegerIterableDMW;           // For multi-valued Integer - (BaseDMWGeneratorNewest.java:1851)
-import org.dmd.dmw.DmwWrapper;                                 // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1030)
+import java.util.ArrayList;                                    // To support getMVCopy() - (BaseDMWGeneratorNewest.java:997)
+import java.util.Iterator;                                     // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2048)
+import org.dmd.dmc.*;                                          // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmp.server.extended.DMPMessage;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.dmp.shared.generated.dmo.DMPMessageDMO;         // Abstract class - (BaseDMWGeneratorNewest.java:1046)
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;              // Attribute requestID from the dmp schema - (BaseDMWGeneratorNewest.java:720)
+import org.dmd.dms.*;                                          // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmw.IntegerIterableDMW;           // For multi-valued Integer - (BaseDMWGeneratorNewest.java:1913)
+import org.dmd.dmw.DmwWrapper;                                 // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1051)
 
 
 /**
@@ -57,7 +57,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return The number of Integer items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1483)
     public int getRequestIDSize(){
         return(((DMPMessageDMO) core).getRequestIDSize());
     }
@@ -65,7 +65,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return true if there are no IntegerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1461)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1491)
     public boolean getRequestIDIsEmpty(){
         if (((DMPMessageDMO) core).getRequestIDSize() == 0)
             return(true);
@@ -75,7 +75,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return true if there are any IntegerDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1471)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1501)
     public boolean getRequestIDHasValue(){
         if (((DMPMessageDMO) core).getRequestIDSize() == 0)
             return(false);
@@ -85,7 +85,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return An Iterator of Integer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1855)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1917)
     public IntegerIterableDMW getRequestIDIterable(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__requestID);
         if (attr == null)
@@ -98,7 +98,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1881)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1943)
     public void addRequestID(Object value) throws DmcValueException {
         ((DMPMessageDMO) core).addRequestID(value);
     }
@@ -107,7 +107,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Adds another requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1891)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1953)
     public void addRequestID(Integer value){
         ((DMPMessageDMO) core).addRequestID(value);
     }
@@ -116,7 +116,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Returns true if the collection contains the requestID value.
      * @param value A value compatible with Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1948)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2010)
     public boolean requestIDContains(Integer value){
         return(((DMPMessageDMO) core).requestIDContains(value));
     }
@@ -124,7 +124,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of Integer objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1990)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2052)
     @SuppressWarnings("unchecked")
     public ArrayList<Integer> getRequestIDCopy(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__requestID);
@@ -145,7 +145,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2017)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2079)
     public void delRequestID(Object value) throws DmcValueException {
         ((DMPMessageDMO) core).delRequestID(value);
     }
@@ -154,7 +154,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Deletes a requestID value.
      * @param value The Integer to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2026)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2088)
     public void delRequestID(Integer value){
         ((DMPMessageDMO) core).delRequestID(value);
     }
@@ -162,12 +162,12 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * Removes the requestID attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2038)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2100)
     public void remRequestID(){
         ((DMPMessageDMO) core).remRequestID();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public Long getTimeMS(){
         return(((DMPMessageDMO) core).getTimeMS());
     }
@@ -176,7 +176,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Sets timeMS to the specified value.
      * @param value A value compatible with DmcTypeLong
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setTimeMS(Object value) throws DmcValueException {
         ((DMPMessageDMO) core).setTimeMS(value);
     }
@@ -185,7 +185,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Sets timeMS to the specified value.
      * @param value Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setTimeMS(Long value){
         ((DMPMessageDMO) core).setTimeMS(value);
     }
@@ -193,12 +193,12 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * Removes the timeMS attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remTimeMS(){
         ((DMPMessageDMO) core).remTimeMS();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public Boolean isTrackingEnabled(){
         return(((DMPMessageDMO) core).isTrackingEnabled());
     }
@@ -207,7 +207,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Sets trackingEnabled to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setTrackingEnabled(Object value) throws DmcValueException {
         ((DMPMessageDMO) core).setTrackingEnabled(value);
     }
@@ -216,7 +216,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
      * Sets trackingEnabled to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setTrackingEnabled(Boolean value){
         ((DMPMessageDMO) core).setTrackingEnabled(value);
     }
@@ -224,7 +224,7 @@ abstract public class DMPMessageDMW extends DmwWrapper {
     /**
      * Removes the trackingEnabled attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remTrackingEnabled(){
         ((DMPMessageDMO) core).remTrackingEnabled();
     }

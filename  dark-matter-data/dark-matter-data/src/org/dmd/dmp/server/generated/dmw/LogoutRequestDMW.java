@@ -17,13 +17,13 @@ package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dmp.server.extended.LogoutRequest;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
-import org.dmd.dmp.server.extended.Request;                       // Derived class - (BaseDMWGeneratorNewest.java:1043)
-import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
-import org.dmd.dms.*;                                             // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
+import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmp.server.extended.LogoutRequest;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.dmp.server.extended.Request;                       // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.dmp.shared.generated.dmo.LogoutRequestDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dms.*;                                             // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
 
 
 /**
@@ -67,7 +67,7 @@ abstract public class LogoutRequestDMW extends Request {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getSessionID(){
         return(((LogoutRequestDMO) core).getSessionID());
     }
@@ -76,7 +76,7 @@ abstract public class LogoutRequestDMW extends Request {
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setSessionID(Object value) throws DmcValueException {
         ((LogoutRequestDMO) core).setSessionID(value);
     }
@@ -85,7 +85,7 @@ abstract public class LogoutRequestDMW extends Request {
      * Sets sessionID to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setSessionID(String value){
         ((LogoutRequestDMO) core).setSessionID(value);
     }
@@ -93,12 +93,12 @@ abstract public class LogoutRequestDMW extends Request {
     /**
      * Removes the sessionID attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remSessionID(){
         ((LogoutRequestDMO) core).remSessionID();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getUserName(){
         return(((LogoutRequestDMO) core).getUserName());
     }
@@ -107,7 +107,7 @@ abstract public class LogoutRequestDMW extends Request {
      * Sets userName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setUserName(Object value) throws DmcValueException {
         ((LogoutRequestDMO) core).setUserName(value);
     }
@@ -116,7 +116,7 @@ abstract public class LogoutRequestDMW extends Request {
      * Sets userName to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setUserName(String value){
         ((LogoutRequestDMO) core).setUserName(value);
     }
@@ -124,7 +124,7 @@ abstract public class LogoutRequestDMW extends Request {
     /**
      * Removes the userName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remUserName(){
         ((LogoutRequestDMO) core).remUserName();
     }

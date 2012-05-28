@@ -17,18 +17,18 @@ package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.ArrayList;                                        // To support getMVCopy() - (BaseDMWGeneratorNewest.java:980)
-import java.util.Iterator;                                         // Support copy of MV objects - (BaseDMWGeneratorNewest.java:1986)
-import org.dmd.dmc.*;                                              // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dmc.DmcObject;                                      // Primitive type - (BaseDMWGeneratorNewest.java:949)
-import org.dmd.dmp.server.extended.ActionResponse;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
-import org.dmd.dmp.server.extended.Response;                       // Derived class - (BaseDMWGeneratorNewest.java:1043)
-import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                  // Attribute objectList from the dmp schema - (BaseDMWGeneratorNewest.java:719)
-import org.dmd.dms.*;                                              // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
-import org.dmd.dms.generated.dmw.DmcObjectIterableDMW;             // For multi-valued DmcObject - (BaseDMWGeneratorNewest.java:1851)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
+import java.util.ArrayList;                                        // To support getMVCopy() - (BaseDMWGeneratorNewest.java:997)
+import java.util.Iterator;                                         // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2048)
+import org.dmd.dmc.*;                                              // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmc.DmcObject;                                      // Primitive type - (BaseDMWGeneratorNewest.java:966)
+import org.dmd.dmp.server.extended.ActionResponse;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.dmp.server.extended.Response;                       // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                  // Attribute objectList from the dmp schema - (BaseDMWGeneratorNewest.java:720)
+import org.dmd.dms.*;                                              // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.dmw.DmcObjectIterableDMW;             // For multi-valued DmcObject - (BaseDMWGeneratorNewest.java:1913)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
 
 
 /**
@@ -73,7 +73,7 @@ abstract public class ActionResponseDMW extends Response {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getActionName(){
         return(((ActionResponseDMO) core).getActionName());
     }
@@ -82,7 +82,7 @@ abstract public class ActionResponseDMW extends Response {
      * Sets actionName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setActionName(Object value) throws DmcValueException {
         ((ActionResponseDMO) core).setActionName(value);
     }
@@ -91,7 +91,7 @@ abstract public class ActionResponseDMW extends Response {
      * Sets actionName to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setActionName(String value){
         ((ActionResponseDMO) core).setActionName(value);
     }
@@ -99,7 +99,7 @@ abstract public class ActionResponseDMW extends Response {
     /**
      * Removes the actionName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remActionName(){
         ((ActionResponseDMO) core).remActionName();
     }
@@ -107,7 +107,7 @@ abstract public class ActionResponseDMW extends Response {
     /**
      * @return The number of DmcObject items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1453)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1483)
     public int getObjectListSize(){
         return(((ActionResponseDMO) core).getObjectListSize());
     }
@@ -115,7 +115,7 @@ abstract public class ActionResponseDMW extends Response {
     /**
      * @return true if there are no DmcObjectDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1461)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1491)
     public boolean getObjectListIsEmpty(){
         if (((ActionResponseDMO) core).getObjectListSize() == 0)
             return(true);
@@ -125,7 +125,7 @@ abstract public class ActionResponseDMW extends Response {
     /**
      * @return true if there are any DmcObjectDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1471)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1501)
     public boolean getObjectListHasValue(){
         if (((ActionResponseDMO) core).getObjectListSize() == 0)
             return(false);
@@ -135,7 +135,7 @@ abstract public class ActionResponseDMW extends Response {
     /**
      * @return An Iterator of DmcObject objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1855)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1917)
     public DmcObjectIterableDMW getObjectListIterable(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__objectList);
         if (attr == null)
@@ -148,7 +148,7 @@ abstract public class ActionResponseDMW extends Response {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1881)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1943)
     public void addObjectList(Object value) throws DmcValueException {
         ((ActionResponseDMO) core).addObjectList(value);
     }
@@ -157,7 +157,7 @@ abstract public class ActionResponseDMW extends Response {
      * Adds another objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1891)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1953)
     public void addObjectList(DmcObject value){
         ((ActionResponseDMO) core).addObjectList(value);
     }
@@ -166,7 +166,7 @@ abstract public class ActionResponseDMW extends Response {
      * Returns true if the collection contains the objectList value.
      * @param value A value compatible with DmcObject
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1948)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2010)
     public boolean objectListContains(DmcObject value){
         return(((ActionResponseDMO) core).objectListContains(value));
     }
@@ -174,7 +174,7 @@ abstract public class ActionResponseDMW extends Response {
     /**
      * @return A COPY of the collection of DmcObject objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1990)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2052)
     @SuppressWarnings("unchecked")
     public ArrayList<DmcObject> getObjectListCopy(){
         DmcAttribute<?> attr = core.get(DmpDMSAG.__objectList);
@@ -195,7 +195,7 @@ abstract public class ActionResponseDMW extends Response {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2017)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2079)
     public void delObjectList(Object value) throws DmcValueException {
         ((ActionResponseDMO) core).delObjectList(value);
     }
@@ -204,7 +204,7 @@ abstract public class ActionResponseDMW extends Response {
      * Deletes a objectList value.
      * @param value The DmcObject to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2026)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2088)
     public void delObjectList(DmcObject value){
         ((ActionResponseDMO) core).delObjectList(value);
     }
@@ -212,12 +212,12 @@ abstract public class ActionResponseDMW extends Response {
     /**
      * Removes the objectList attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2038)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2100)
     public void remObjectList(){
         ((ActionResponseDMO) core).remObjectList();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public Long getTimeMS(){
         return(((ActionResponseDMO) core).getTimeMS());
     }
@@ -226,7 +226,7 @@ abstract public class ActionResponseDMW extends Response {
      * Sets timeMS to the specified value.
      * @param value A value compatible with DmcTypeLong
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setTimeMS(Object value) throws DmcValueException {
         ((ActionResponseDMO) core).setTimeMS(value);
     }
@@ -235,7 +235,7 @@ abstract public class ActionResponseDMW extends Response {
      * Sets timeMS to the specified value.
      * @param value Long
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setTimeMS(Long value){
         ((ActionResponseDMO) core).setTimeMS(value);
     }
@@ -243,7 +243,7 @@ abstract public class ActionResponseDMW extends Response {
     /**
      * Removes the timeMS attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remTimeMS(){
         ((ActionResponseDMO) core).remTimeMS();
     }

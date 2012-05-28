@@ -17,12 +17,12 @@ package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                 // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dmp.server.extended.DMPMessage;                        // Derived class - (BaseDMWGeneratorNewest.java:1043)
-import org.dmd.dmp.server.extended.Request;                           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
-import org.dmd.dmp.shared.generated.dmo.RequestDMO;                   // Abstract class - (BaseDMWGeneratorNewest.java:1025)
-import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;         // Primitive type - (BaseDMWGeneratorNewest.java:949)
-import org.dmd.dms.*;                                                 // Always 2 - (BaseDMWGeneratorNewest.java:872)
+import org.dmd.dmc.*;                                                 // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmp.server.extended.DMPMessage;                        // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.dmp.server.extended.Request;                           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.dmp.shared.generated.dmo.RequestDMO;                   // Abstract class - (BaseDMWGeneratorNewest.java:1046)
+import org.dmd.dmp.shared.generated.enums.ResponseFormatEnum;         // Primitive type - (BaseDMWGeneratorNewest.java:966)
+import org.dmd.dms.*;                                                 // Always 2 - (BaseDMWGeneratorNewest.java:888)
 
 
 /**
@@ -50,7 +50,7 @@ abstract public class RequestDMW extends DMPMessage {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public Integer getHandlerID(){
         return(((RequestDMO) core).getHandlerID());
     }
@@ -59,7 +59,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets handlerID to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setHandlerID(Object value) throws DmcValueException {
         ((RequestDMO) core).setHandlerID(value);
     }
@@ -68,7 +68,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets handlerID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setHandlerID(Integer value){
         ((RequestDMO) core).setHandlerID(value);
     }
@@ -76,12 +76,12 @@ abstract public class RequestDMW extends DMPMessage {
     /**
      * Removes the handlerID attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remHandlerID(){
         ((RequestDMO) core).remHandlerID();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public Boolean isNotifyOriginator(){
         return(((RequestDMO) core).isNotifyOriginator());
     }
@@ -90,7 +90,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets notifyOriginator to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setNotifyOriginator(Object value) throws DmcValueException {
         ((RequestDMO) core).setNotifyOriginator(value);
     }
@@ -99,7 +99,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets notifyOriginator to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setNotifyOriginator(Boolean value){
         ((RequestDMO) core).setNotifyOriginator(value);
     }
@@ -107,12 +107,12 @@ abstract public class RequestDMW extends DMPMessage {
     /**
      * Removes the notifyOriginator attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remNotifyOriginator(){
         ((RequestDMO) core).remNotifyOriginator();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public Integer getOriginatorID(){
         return(((RequestDMO) core).getOriginatorID());
     }
@@ -121,7 +121,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets originatorID to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setOriginatorID(Object value) throws DmcValueException {
         ((RequestDMO) core).setOriginatorID(value);
     }
@@ -130,7 +130,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets originatorID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setOriginatorID(Integer value){
         ((RequestDMO) core).setOriginatorID(value);
     }
@@ -138,12 +138,12 @@ abstract public class RequestDMW extends DMPMessage {
     /**
      * Removes the originatorID attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remOriginatorID(){
         ((RequestDMO) core).remOriginatorID();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public Boolean isReadableFormat(){
         return(((RequestDMO) core).isReadableFormat());
     }
@@ -152,7 +152,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets readableFormat to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setReadableFormat(Object value) throws DmcValueException {
         ((RequestDMO) core).setReadableFormat(value);
     }
@@ -161,7 +161,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets readableFormat to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setReadableFormat(Boolean value){
         ((RequestDMO) core).setReadableFormat(value);
     }
@@ -169,12 +169,12 @@ abstract public class RequestDMW extends DMPMessage {
     /**
      * Removes the readableFormat attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remReadableFormat(){
         ((RequestDMO) core).remReadableFormat();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public ResponseFormatEnum getResponseFormat(){
         return(((RequestDMO) core).getResponseFormat());
     }
@@ -183,7 +183,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets responseFormat to the specified value.
      * @param value A value compatible with DmcTypeResponseFormatEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setResponseFormat(Object value) throws DmcValueException {
         ((RequestDMO) core).setResponseFormat(value);
     }
@@ -192,7 +192,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets responseFormat to the specified value.
      * @param value ResponseFormatEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setResponseFormat(ResponseFormatEnum value){
         ((RequestDMO) core).setResponseFormat(value);
     }
@@ -200,12 +200,12 @@ abstract public class RequestDMW extends DMPMessage {
     /**
      * Removes the responseFormat attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remResponseFormat(){
         ((RequestDMO) core).remResponseFormat();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getSessionID(){
         return(((RequestDMO) core).getSessionID());
     }
@@ -214,7 +214,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setSessionID(Object value) throws DmcValueException {
         ((RequestDMO) core).setSessionID(value);
     }
@@ -223,7 +223,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets sessionID to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setSessionID(String value){
         ((RequestDMO) core).setSessionID(value);
     }
@@ -231,12 +231,12 @@ abstract public class RequestDMW extends DMPMessage {
     /**
      * Removes the sessionID attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remSessionID(){
         ((RequestDMO) core).remSessionID();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public Integer getTimeoutSeconds(){
         return(((RequestDMO) core).getTimeoutSeconds());
     }
@@ -245,7 +245,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets timeoutSeconds to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setTimeoutSeconds(Object value) throws DmcValueException {
         ((RequestDMO) core).setTimeoutSeconds(value);
     }
@@ -254,7 +254,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets timeoutSeconds to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setTimeoutSeconds(Integer value){
         ((RequestDMO) core).setTimeoutSeconds(value);
     }
@@ -262,12 +262,12 @@ abstract public class RequestDMW extends DMPMessage {
     /**
      * Removes the timeoutSeconds attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remTimeoutSeconds(){
         ((RequestDMO) core).remTimeoutSeconds();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getUserName(){
         return(((RequestDMO) core).getUserName());
     }
@@ -276,7 +276,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets userName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setUserName(Object value) throws DmcValueException {
         ((RequestDMO) core).setUserName(value);
     }
@@ -285,7 +285,7 @@ abstract public class RequestDMW extends DMPMessage {
      * Sets userName to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setUserName(String value){
         ((RequestDMO) core).setUserName(value);
     }
@@ -293,7 +293,7 @@ abstract public class RequestDMW extends DMPMessage {
     /**
      * Removes the userName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remUserName(){
         ((RequestDMO) core).remUserName();
     }

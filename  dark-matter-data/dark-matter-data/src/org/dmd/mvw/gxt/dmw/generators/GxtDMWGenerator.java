@@ -71,7 +71,7 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNewest {
 		
 		// These will be created as required
 		dmwdir = gendir + File.separator + "gxt";
-		auxwdir = gendir + File.separator + "auxw";
+//		auxwdir = gendir + File.separator + "auxw";
 		
 		schema = sm;
 		
@@ -332,6 +332,9 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNewest {
 			String wrapper = cd.getName() + genSuffix;
 			String dmocast = cd.getName() + "DMO";
 			
+			if (cd.getClassType() == ClassTypeEnum.AUXILIARY)
+				continue;
+			
 			sb.append("        case " + cd.getName() + "ID:\n");
 			if (cd.getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
 				sb.append("            rc = new " + cd.getName() + "((" + dmocast + ")obj);\n");
@@ -342,5 +345,11 @@ public class GxtDMWGenerator extends BaseDMWGeneratorNewest {
 		
 		return(sb.toString());
 	}
+	
+	@Override
+	protected void dumpAUX(ClassDefinition cd, String outdir) throws IOException {
+	
+	}
+	
 
 }

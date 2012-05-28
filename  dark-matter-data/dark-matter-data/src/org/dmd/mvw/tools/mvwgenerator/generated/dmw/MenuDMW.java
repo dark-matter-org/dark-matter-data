@@ -2,12 +2,12 @@ package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                                 // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dmc.types.CamelCaseName;                                               // Is named by - (BaseDMWGeneratorNewest.java:868)
-import org.dmd.dms.*;                                                                 // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.Menu;                            // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuDMO;                          // Abstract class - (BaseDMWGeneratorNewest.java:1025)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmw.MenuElementDefinitionDMW;         // Derived class - (BaseDMWGeneratorNewest.java:1043)
+import org.dmd.dmc.*;                                                                 // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmc.types.CamelCaseName;                                               // Is named by - (BaseDMWGeneratorNewest.java:884)
+import org.dmd.dms.*;                                                                 // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.Menu;                            // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.MenuDMO;                          // Abstract class - (BaseDMWGeneratorNewest.java:1046)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmw.MenuElementDefinitionDMW;         // Derived class - (BaseDMWGeneratorNewest.java:1064)
 
 
 /**
@@ -36,7 +36,7 @@ abstract public class MenuDMW extends MenuElementDefinitionDMW implements DmcNam
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1092)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1113)
     public CamelCaseName getObjectName(){
         return(((MenuDMO) core).getElementName());
     }
@@ -56,7 +56,7 @@ abstract public class MenuDMW extends MenuElementDefinitionDMW implements DmcNam
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public CamelCaseName getElementName(){
         return(((MenuDMO) core).getElementName());
     }
@@ -65,7 +65,7 @@ abstract public class MenuDMW extends MenuElementDefinitionDMW implements DmcNam
      * Sets elementName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setElementName(Object value) throws DmcValueException {
         ((MenuDMO) core).setElementName(value);
     }
@@ -74,7 +74,7 @@ abstract public class MenuDMW extends MenuElementDefinitionDMW implements DmcNam
      * Sets elementName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setElementName(CamelCaseName value){
         ((MenuDMO) core).setElementName(value);
     }
@@ -82,7 +82,7 @@ abstract public class MenuDMW extends MenuElementDefinitionDMW implements DmcNam
     /**
      * Removes the elementName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remElementName(){
         ((MenuDMO) core).remElementName();
     }

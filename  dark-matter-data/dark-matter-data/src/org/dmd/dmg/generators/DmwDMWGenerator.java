@@ -36,7 +36,7 @@ public class DmwDMWGenerator extends BaseDMWGeneratorNewest {
 		createIfRequired(gendir);
 		
 		dmwdir = gendir + File.separator + "dmw";
-		auxwdir = gendir + File.separator + "dmw";
+//		auxwdir = gendir + File.separator + "dmw";
 		
 		schema = sm;
 		

@@ -2,15 +2,15 @@ package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                   // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dmc.types.CamelCaseName;                                 // Is named by - (BaseDMWGeneratorNewest.java:868)
-import org.dmd.dms.*;                                                   // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.Menu;              // Is reference type - (BaseDMWGeneratorNewest.java:906)
-import org.dmd.mvw.tools.mvwgenerator.extended.menus.SubMenu;           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.SubMenuDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
-import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuREF;          // Is reference type REF - (BaseDMWGeneratorNewest.java:914)
+import org.dmd.dmc.*;                                                   // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmc.types.CamelCaseName;                                 // Is named by - (BaseDMWGeneratorNewest.java:884)
+import org.dmd.dms.*;                                                   // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.Menu;              // Is reference type - (BaseDMWGeneratorNewest.java:923)
+import org.dmd.mvw.tools.mvwgenerator.extended.menus.SubMenu;           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.SubMenuDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.mvw.tools.mvwgenerator.generated.types.MenuREF;          // Is reference type REF - (BaseDMWGeneratorNewest.java:931)
 
 
 /**
@@ -61,7 +61,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1092)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1113)
     public CamelCaseName getObjectName(){
         return(((SubMenuDMO) core).getElementName());
     }
@@ -84,7 +84,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
     /**
      * @return A Menu object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1225)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1246)
     public Menu getAddToMenu(){
         MenuREF ref = ((SubMenuDMO) core).getAddToMenu();
         if (ref == null)
@@ -100,7 +100,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets the addToMenu to the specified value.
      * @param value A value compatible with MenuREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1310)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1331)
     public void setAddToMenu(Menu value) {
         ((SubMenuDMO) core).setAddToMenu(value.getDMO());
     }
@@ -109,7 +109,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets the addToMenu to the specified value.
      * @param value A value compatible with MenuREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1319)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1340)
     public void setAddToMenu(Object value) throws DmcValueException {
         ((SubMenuDMO) core).setAddToMenu(value);
     }
@@ -117,12 +117,12 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
     /**
      * Removes the addToMenu attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remAddToMenu(){
         ((SubMenuDMO) core).remAddToMenu();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getDisplayLabel(){
         return(((SubMenuDMO) core).getDisplayLabel());
     }
@@ -131,7 +131,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets displayLabel to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setDisplayLabel(Object value) throws DmcValueException {
         ((SubMenuDMO) core).setDisplayLabel(value);
     }
@@ -140,7 +140,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets displayLabel to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setDisplayLabel(String value){
         ((SubMenuDMO) core).setDisplayLabel(value);
     }
@@ -148,12 +148,12 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
     /**
      * Removes the displayLabel attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remDisplayLabel(){
         ((SubMenuDMO) core).remDisplayLabel();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getDisplayLabelI18N(){
         return(((SubMenuDMO) core).getDisplayLabelI18N());
     }
@@ -162,7 +162,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets displayLabelI18N to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setDisplayLabelI18N(Object value) throws DmcValueException {
         ((SubMenuDMO) core).setDisplayLabelI18N(value);
     }
@@ -171,7 +171,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets displayLabelI18N to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setDisplayLabelI18N(String value){
         ((SubMenuDMO) core).setDisplayLabelI18N(value);
     }
@@ -179,12 +179,12 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
     /**
      * Removes the displayLabelI18N attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remDisplayLabelI18N(){
         ((SubMenuDMO) core).remDisplayLabelI18N();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public CamelCaseName getElementName(){
         return(((SubMenuDMO) core).getElementName());
     }
@@ -193,7 +193,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets elementName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setElementName(Object value) throws DmcValueException {
         ((SubMenuDMO) core).setElementName(value);
     }
@@ -202,7 +202,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets elementName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setElementName(CamelCaseName value){
         ((SubMenuDMO) core).setElementName(value);
     }
@@ -210,12 +210,12 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
     /**
      * Removes the elementName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remElementName(){
         ((SubMenuDMO) core).remElementName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getMenuOrder(){
         return(((SubMenuDMO) core).getMenuOrder());
     }
@@ -224,7 +224,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets menuOrder to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setMenuOrder(Object value) throws DmcValueException {
         ((SubMenuDMO) core).setMenuOrder(value);
     }
@@ -233,7 +233,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets menuOrder to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setMenuOrder(String value){
         ((SubMenuDMO) core).setMenuOrder(value);
     }
@@ -241,12 +241,12 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
     /**
      * Removes the menuOrder attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remMenuOrder(){
         ((SubMenuDMO) core).remMenuOrder();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getUseImpl(){
         return(((SubMenuDMO) core).getUseImpl());
     }
@@ -255,7 +255,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets useImpl to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setUseImpl(Object value) throws DmcValueException {
         ((SubMenuDMO) core).setUseImpl(value);
     }
@@ -264,7 +264,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
      * Sets useImpl to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setUseImpl(String value){
         ((SubMenuDMO) core).setUseImpl(value);
     }
@@ -272,7 +272,7 @@ abstract public class SubMenuDMW extends Menu implements DmcNamedObjectIF {
     /**
      * Removes the useImpl attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remUseImpl(){
         ((SubMenuDMO) core).remUseImpl();
     }

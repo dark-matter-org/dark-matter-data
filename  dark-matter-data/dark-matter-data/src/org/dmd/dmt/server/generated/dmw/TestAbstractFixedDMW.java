@@ -2,10 +2,10 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                 // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dms.*;                                                 // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dmt.shared.generated.dmo.TestAbstractFixedDMO;         // Abstract class - (BaseDMWGeneratorNewest.java:1025)
-import org.dmd.dmw.DmwWrapper;                                        // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1030)
+import org.dmd.dmc.*;                                                 // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dms.*;                                                 // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dmt.shared.generated.dmo.TestAbstractFixedDMO;         // Abstract class - (BaseDMWGeneratorNewest.java:1046)
+import org.dmd.dmw.DmwWrapper;                                        // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1051)
 
 
 /**
@@ -34,7 +34,7 @@ abstract public class TestAbstractFixedDMW extends DmwWrapper {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getSvString(){
         return(((TestAbstractFixedDMO) core).getSvString());
     }
@@ -43,7 +43,7 @@ abstract public class TestAbstractFixedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setSvString(Object value) throws DmcValueException {
         ((TestAbstractFixedDMO) core).setSvString(value);
     }
@@ -52,7 +52,7 @@ abstract public class TestAbstractFixedDMW extends DmwWrapper {
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setSvString(String value){
         ((TestAbstractFixedDMO) core).setSvString(value);
     }
@@ -60,7 +60,7 @@ abstract public class TestAbstractFixedDMW extends DmwWrapper {
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remSvString(){
         ((TestAbstractFixedDMO) core).remSvString();
     }

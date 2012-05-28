@@ -2,14 +2,14 @@ package org.dmd.mvw.tools.mvwgenerator.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                                 // If any attributes - (BaseDMWGeneratorNewest.java:887)
-import org.dmd.dmc.types.CamelCaseName;                                               // Is named by - (BaseDMWGeneratorNewest.java:868)
-import org.dmd.dms.*;                                                                 // Always 2 - (BaseDMWGeneratorNewest.java:872)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:876)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:875)
-import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                         // Derived class - (BaseDMWGeneratorNewest.java:1043)
-import org.dmd.mvw.tools.mvwgenerator.extended.forms.FieldEditorDefinition;           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:880)
-import org.dmd.mvw.tools.mvwgenerator.generated.dmo.FieldEditorDefinitionDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1047)
+import org.dmd.dmc.*;                                                                 // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmc.types.CamelCaseName;                                               // Is named by - (BaseDMWGeneratorNewest.java:884)
+import org.dmd.dms.*;                                                                 // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
+import org.dmd.mvw.tools.mvwgenerator.extended.MvwDefinition;                         // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.mvw.tools.mvwgenerator.extended.forms.FieldEditorDefinition;           // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.mvw.tools.mvwgenerator.generated.dmo.FieldEditorDefinitionDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
 
 
 /**
@@ -69,7 +69,7 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1092)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1113)
     public CamelCaseName getObjectName(){
         return(((FieldEditorDefinitionDMO) core).getEditorName());
     }
@@ -89,7 +89,7 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public CamelCaseName getEditorName(){
         return(((FieldEditorDefinitionDMO) core).getEditorName());
     }
@@ -98,7 +98,7 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
      * Sets editorName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setEditorName(Object value) throws DmcValueException {
         ((FieldEditorDefinitionDMO) core).setEditorName(value);
     }
@@ -107,7 +107,7 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
      * Sets editorName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setEditorName(CamelCaseName value){
         ((FieldEditorDefinitionDMO) core).setEditorName(value);
     }
@@ -115,12 +115,12 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
     /**
      * Removes the editorName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remEditorName(){
         ((FieldEditorDefinitionDMO) core).remEditorName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getUseClass(){
         return(((FieldEditorDefinitionDMO) core).getUseClass());
     }
@@ -129,7 +129,7 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
      * Sets useClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setUseClass(Object value) throws DmcValueException {
         ((FieldEditorDefinitionDMO) core).setUseClass(value);
     }
@@ -138,7 +138,7 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
      * Sets useClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setUseClass(String value){
         ((FieldEditorDefinitionDMO) core).setUseClass(value);
     }
@@ -146,12 +146,12 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
     /**
      * Removes the useClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remUseClass(){
         ((FieldEditorDefinitionDMO) core).remUseClass();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1265)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public Boolean isUseSingleEditor(){
         return(((FieldEditorDefinitionDMO) core).isUseSingleEditor());
     }
@@ -160,7 +160,7 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
      * Sets useSingleEditor to the specified value.
      * @param value A value compatible with DmcTypeBoolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1366)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setUseSingleEditor(Object value) throws DmcValueException {
         ((FieldEditorDefinitionDMO) core).setUseSingleEditor(value);
     }
@@ -169,7 +169,7 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
      * Sets useSingleEditor to the specified value.
      * @param value Boolean
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1375)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setUseSingleEditor(Boolean value){
         ((FieldEditorDefinitionDMO) core).setUseSingleEditor(value);
     }
@@ -177,7 +177,7 @@ abstract public class FieldEditorDefinitionDMW extends MvwDefinition implements 
     /**
      * Removes the useSingleEditor attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1401)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remUseSingleEditor(){
         ((FieldEditorDefinitionDMO) core).remUseSingleEditor();
     }
