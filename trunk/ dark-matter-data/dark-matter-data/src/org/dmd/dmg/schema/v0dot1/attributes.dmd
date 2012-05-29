@@ -45,3 +45,22 @@ dmdID			6
 type			String
 description		An alternative name for something.
 
+AttributeDefinition
+name                		genContextName
+dmdID						7
+type                		CamelCaseName
+description    				The name of a code generation context.
+
+AttributeDefinition
+name                		genContext
+dmdID						8
+type                		GenerationContext
+description    				The generation context to which a code generation object belongs.
+
+AttributeDefinition
+name                		genClass
+dmdID						9
+type                		String
+description    				The fully qualified Java class name of a code generation component.
+
+

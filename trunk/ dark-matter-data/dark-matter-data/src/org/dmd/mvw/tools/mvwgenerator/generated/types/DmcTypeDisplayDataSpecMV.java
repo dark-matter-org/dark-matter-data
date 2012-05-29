@@ -27,7 +27,7 @@ import org.dmd.mvw.tools.mvwgenerator.generated.types.DmcTypeDisplayDataSpec;   
  * The DmcTypeDisplayDataSpecMV provides storage for a multi-valued DisplayDataSpec
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2244)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:126)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2274)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
     public DmcAttribute<DisplayDataSpec> cloneIt(){
         synchronized(this){
             DmcTypeDisplayDataSpecMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2303)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
     public DisplayDataSpec add(Object v) throws DmcValueException {
         synchronized(this){
             DisplayDataSpec rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2316)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
     public DisplayDataSpec del(Object v){
         synchronized(this){
             DisplayDataSpec key = null;
@@ -107,7 +107,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
     public Iterator<DisplayDataSpec> getMV(){
         synchronized(this){
             ArrayList<DisplayDataSpec> clone = new ArrayList<DisplayDataSpec>(value);
@@ -115,7 +115,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2356)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
     public ArrayList<DisplayDataSpec> getMVCopy(){
         synchronized(this){
             ArrayList<DisplayDataSpec> clone = new ArrayList<DisplayDataSpec>(value);
@@ -124,7 +124,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2366)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -138,7 +138,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2381)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
     public DisplayDataSpec getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
     public DisplayDataSpec setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -175,7 +175,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2420)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,7 +198,7 @@ public class DmcTypeDisplayDataSpecMV extends DmcTypeDisplayDataSpec implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2444)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

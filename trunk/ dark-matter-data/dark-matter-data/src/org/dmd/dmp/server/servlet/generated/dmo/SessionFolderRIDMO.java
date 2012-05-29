@@ -136,7 +136,7 @@ public class SessionFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF,
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
     public DotName getDotName(){
         DmcTypeDotNameSV attr = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -149,7 +149,7 @@ public class SessionFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF,
      * Sets dotName to the specified value.
      * @param value DotName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
     public void setDotName(DotName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -168,7 +168,7 @@ public class SessionFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF,
      * Sets dotName to the specified value.
      * @param value A value compatible with DmcTypeDotNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:841)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
     public void setDotName(Object value) throws DmcValueException {
         DmcTypeDotNameSV attr  = (DmcTypeDotNameSV) get(MetaDMSAG.__dotName);
         if (attr == null)
@@ -181,7 +181,7 @@ public class SessionFolderRIDMO  extends DmcObject  implements DmcNamedObjectIF,
     /**
      * Removes the dotName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:861)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
     public void remDotName(){
          rem(MetaDMSAG.__dotName);
     }

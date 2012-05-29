@@ -89,7 +89,7 @@ public class NamedObjMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth ObjWithRefs value and attempt lazy resolution if it's on.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1005)
     public ObjWithRefsREF getNthMvIdxNamedObj(int i){
         DmcTypeObjWithRefsREFMV attr = (DmcTypeObjWithRefsREFMV) get(DmtDMSAG.__mvIdxNamedObj);
         if (attr == null)
@@ -108,7 +108,7 @@ public class NamedObjMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth ObjWithRefs value without attempting lazy resolution.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1021)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1024)
     public ObjWithRefsREF getNthMvIdxNamedObjREF(int i){
         DmcTypeObjWithRefsREFMV attr = (DmcTypeObjWithRefsREFMV) get(DmtDMSAG.__mvIdxNamedObj);
         if (attr == null)
@@ -121,7 +121,7 @@ public class NamedObjMVIDXDMO  extends DmcObject  implements Serializable  {
      * Sets the mvIdxNamedObj value at the specified index.
      * @param value ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1035)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1038)
     public DmcAttribute<?> setNthMvIdxNamedObj(int index, ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxNamedObj);
         if (attr == null){
@@ -152,7 +152,7 @@ public class NamedObjMVIDXDMO  extends DmcObject  implements Serializable  {
      * Adds another mvIdxNamedObj value.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1209)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1212)
     public DmcAttribute<?> addMvIdxNamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxNamedObj);
         if (attr == null)
@@ -166,7 +166,7 @@ public class NamedObjMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * Returns the number of values in mvIdxNamedObj
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1226)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1229)
     public int getMvIdxNamedObjSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxNamedObj);
         if (attr == null){
@@ -182,7 +182,7 @@ public class NamedObjMVIDXDMO  extends DmcObject  implements Serializable  {
      * Deletes a mvIdxNamedObj value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1265)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1268)
     public DmcAttribute<?> delMvIdxNamedObj(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxNamedObj);
         
@@ -197,7 +197,7 @@ public class NamedObjMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the mvIdxNamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1319)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1322)
     public void remMvIdxNamedObj(){
          rem(DmtDMSAG.__mvIdxNamedObj);
     }

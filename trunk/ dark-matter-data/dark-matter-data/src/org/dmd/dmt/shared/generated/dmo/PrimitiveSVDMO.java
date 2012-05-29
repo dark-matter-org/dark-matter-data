@@ -83,7 +83,7 @@ public class PrimitiveSVDMO  extends DmcObject  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -96,7 +96,7 @@ public class PrimitiveSVDMO  extends DmcObject  implements Serializable  {
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svString);
         if (attr == null)
@@ -115,7 +115,7 @@ public class PrimitiveSVDMO  extends DmcObject  implements Serializable  {
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:841)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
     public void setSvString(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -128,7 +128,7 @@ public class PrimitiveSVDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:861)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
     public void remSvString(){
          rem(DmtDMSAG.__svString);
     }

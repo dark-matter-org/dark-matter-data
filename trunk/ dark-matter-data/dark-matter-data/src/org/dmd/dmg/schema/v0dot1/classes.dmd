@@ -11,3 +11,50 @@ may				description
 may				generatedFileHeader
 description The DmgConfig class is used to specify a set of schemas and a set of 
  code generators to be run when you want to generate various types of code.
+
+ClassDefinition
+name			GenerationContext
+classType      	STRUCTURAL
+dmdID			2
+useWrapperType	EXTENDED
+isNamedBy		genContextName
+must			genContextName
+description		The GenerationContext acts as a gathering point for a set of
+ code generation components.
+
+ClassDefinition
+name           	WrapperGenerator
+classType      	STRUCTURAL
+dmdID			3
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+must			genContext
+must			classType
+must			genClass
+description		The WrapperGenerator allows for the definition of a code generation
+ component that creates DMO wrappers for use in particular usage environments.
+
+ClassDefinition
+name           	MethodGenerator
+classType      	STRUCTURAL
+dmdID			4
+useWrapperType	EXTENDED
+isNamedBy		name
+must			name
+must			genContext
+must			valueType
+must			baseType
+must			genClass
+description		The MethodGenerator allows for the definition of a code generation
+ component that creates access methods for wrapper classes in different usage
+ environments.
+
+ClassDefinition
+name           	ActifactGenerator
+classType      	STRUCTURAL
+useWrapperType	EXTENDED
+dmdID			5
+isNamedBy		name
+must			name
+must			genClass
