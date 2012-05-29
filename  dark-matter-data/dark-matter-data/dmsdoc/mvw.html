@@ -249,7 +249,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">If you are making use of Places, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <p /> Activities are meant to be short-lived, disposable entities that run in a particular Place. However, if you are building an application, it may be that you have a single Place and that all behaviour takes place within the guise of a single Activity. <p /> If the Activity manages a view, it will be generated as implementing the View's  presenter interface. <p/> Activities provide a natural division point for GWT code splitting, if you've structured your code appropriately. By specifying the codeSplit flag as true, the code for the Activity will be  asynchronously loaded using the <a href="https://developers.google.com/web-toolkit/doc/latest/DevGuideCodeSplitting"> GWT code splitting mechanisms.</a></td>
+      <td colspan="2">If you are making use of Places, you'll define an Activity for each of them; all activities are derived from com.google.gwt.app.place.Activity. If you have common functionality that you wish to use for your Activity classes, implement it in a class derived from com.google.gwt.app.place.Activity and specify that class in the useBaseClass attribute of your defined Activity. <p /> Activities are meant to be short-lived, disposable entities that run in a particular Place. However, if you are building an application, it may be that you have a single Place and that all behaviour takes place within the guise of a single Activity. <p /> If the Activity manages a view, it will be generated as implementing the View's  presenter interface. <p/> Activities provide a natural division point for GWT code splitting, if you've structured your code appropriately. By specifying the codeSplit flag as true, the code for the Activity will be  asynchronously loaded using the GWT code splitting mechanisms.</td>
     </tr>
 
     <tr>
@@ -328,7 +328,7 @@
       <td class="label"> </td>
       <td> <a href="mvw.html#codeSplit">codeSplit</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> This attribute is used to flag components that are intended to be loaded using  GWTs code splitting mechanisms. In order to successfully make use of these mechanisms, you have to structure your code in such a way that the component marked as a split point has no direct dependencies on components outside of its own "area". For the most part, this is accomplished by dependency injection and ensuring that the component is using interfaces to interact with other components. </td>
+      <td> This attribute is used to flag components that are intended to be loaded using  GWTs code splitting mechanisms. In order to successfully make use of these mechanisms, you have to structure your code in such a way that the component marked as a split point has no direct dependencies on components outside of its own area. For the most part, this is accomplished by dependency injection and ensuring that the component is using interfaces to interact with other components. </td>
     </tr>
 
     <tr>
@@ -651,6 +651,14 @@
       <td> <a href="mvw.html#addedToRunContext">addedToRunContext</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates whether a RunContextItem should be generated for a Controller; defaults to true. However, if you need manual control over ordering and creation of the context item, for example in the case of base Controllers like the CommController, this can be set to false. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="mvw.html#centralAsyncErrorHandler">centralAsyncErrorHandler</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates that a controller is the target for centralized handling of asyncronous code loading errors. </td>
     </tr>
 
     <tr>
@@ -2237,6 +2245,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
+      <td> <a href="mvw.html#codeSplit">codeSplit</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> This attribute is used to flag components that are intended to be loaded using  GWTs code splitting mechanisms. In order to successfully make use of these mechanisms, you have to structure your code in such a way that the component marked as a split point has no direct dependencies on components outside of its own area. For the most part, this is accomplished by dependency injection and ensuring that the component is using interfaces to interact with other components. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
@@ -3298,6 +3314,19 @@
       <td>Indicates an event tha a View will broadcast only on the event bus; it is not  sent to its presenter.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="centralAsyncErrorHandler"> centralAsyncErrorHandler </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates that a controller is the target for centralized handling of asyncronous code loading errors.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="centralDMPErrorHandler"> centralDMPErrorHandler </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3347,7 +3376,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute is used to flag components that are intended to be loaded using  GWTs code splitting mechanisms. In order to successfully make use of these mechanisms, you have to structure your code in such a way that the component marked as a split point has no direct dependencies on components outside of its own "area". For the most part, this is accomplished by dependency injection and ensuring that the component is using interfaces to interact with other components.</td>
+      <td>This attribute is used to flag components that are intended to be loaded using  GWTs code splitting mechanisms. In order to successfully make use of these mechanisms, you have to structure your code in such a way that the component marked as a split point has no direct dependencies on components outside of its own area. For the most part, this is accomplished by dependency injection and ensuring that the component is using interfaces to interact with other components.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="componentName"> componentName </a> </td></tr>

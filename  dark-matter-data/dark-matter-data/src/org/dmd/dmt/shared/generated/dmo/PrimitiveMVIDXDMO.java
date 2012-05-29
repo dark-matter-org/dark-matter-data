@@ -87,7 +87,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1076)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1079)
     public Iterator<String> getMvIdxString(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(DmtDMSAG.__mvIdxString);
         if (attr == null)
@@ -99,7 +99,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1088)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1091)
     public String getNthMvIdxString(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(DmtDMSAG.__mvIdxString);
         if (attr == null)
@@ -112,7 +112,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * Sets the value at the specified index.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1123)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
     public DmcAttribute<?> setNthMvIdxString(int index, String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         if (attr == null){
@@ -143,7 +143,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1177)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1180)
     public boolean mvIdxStringContains(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         if (attr == null)
@@ -155,7 +155,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * Adds another mvIdxString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1209)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1212)
     public DmcAttribute<?> addMvIdxString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         if (attr == null)
@@ -169,7 +169,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * Returns the number of values in mvIdxString
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1226)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1229)
     public int getMvIdxStringSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         if (attr == null){
@@ -185,7 +185,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * Deletes a mvIdxString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1284)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1287)
     public DmcAttribute<?> delMvIdxString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         
@@ -201,7 +201,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * Deletes a mvIdxString from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1300)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1303)
     public DmcAttribute<?> delMvIdxString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         
@@ -216,7 +216,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the mvIdxString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1319)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1322)
     public void remMvIdxString(){
          rem(DmtDMSAG.__mvIdxString);
     }

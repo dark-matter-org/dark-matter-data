@@ -135,7 +135,7 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
     public String getUseImpl(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__useImpl);
         if (attr == null)
@@ -148,7 +148,7 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
      * Sets useImpl to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
     public void setUseImpl(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__useImpl);
         if (attr == null)
@@ -167,7 +167,7 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
      * Sets useImpl to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:841)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
     public void setUseImpl(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MvwDMSAG.__useImpl);
         if (attr == null)
@@ -180,12 +180,12 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
     /**
      * Removes the useImpl attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:861)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
     public void remUseImpl(){
          rem(MvwDMSAG.__useImpl);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
     public CamelCaseName getElementName(){
         DmcTypeCamelCaseNameSV attr = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__elementName);
         if (attr == null)
@@ -198,7 +198,7 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
      * Sets elementName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
     public void setElementName(CamelCaseName value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__elementName);
         if (attr == null)
@@ -217,7 +217,7 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
      * Sets elementName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:841)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
     public void setElementName(Object value) throws DmcValueException {
         DmcTypeCamelCaseNameSV attr  = (DmcTypeCamelCaseNameSV) get(MvwDMSAG.__elementName);
         if (attr == null)
@@ -230,12 +230,12 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
     /**
      * Removes the elementName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:861)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
     public void remElementName(){
          rem(MvwDMSAG.__elementName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public MenuREF getAddToMenu(){
         DmcTypeMenuREFSV attr = (DmcTypeMenuREFSV) get(MvwDMSAG.__addToMenu);
         if (attr == null)
@@ -266,7 +266,7 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
      * Sets addToMenu to the specified value.
      * @param value MenuDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:673)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:676)
     public void setAddToMenu(MenuDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__addToMenu);
         if (attr == null)
@@ -287,7 +287,7 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
      * Sets addToMenu to the specified value.
      * @param value A value compatible with DmcTypeMenuREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:841)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
     public void setAddToMenu(Object value) throws DmcValueException {
         DmcTypeMenuREFSV attr  = (DmcTypeMenuREFSV) get(MvwDMSAG.__addToMenu);
         if (attr == null)
@@ -302,12 +302,12 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
     /**
      * Removes the addToMenu attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:861)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
     public void remAddToMenu(){
          rem(MvwDMSAG.__addToMenu);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:748)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
     public String getMenuOrder(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MvwDMSAG.__menuOrder);
         if (attr == null)
@@ -320,7 +320,7 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
      * Sets menuOrder to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:788)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
     public void setMenuOrder(String value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__menuOrder);
         if (attr == null)
@@ -339,7 +339,7 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
      * Sets menuOrder to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:841)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
     public void setMenuOrder(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MvwDMSAG.__menuOrder);
         if (attr == null)
@@ -352,7 +352,7 @@ public class SeparatorDMO  extends MenuElementDefinitionDMO  implements DmcNamed
     /**
      * Removes the menuOrder attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:861)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
     public void remMenuOrder(){
          rem(MvwDMSAG.__menuOrder);
     }

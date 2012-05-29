@@ -29,11 +29,18 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
 
     public final static DmcAttributeInfo __alias = new DmcAttributeInfo("alias", 206, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __configSuffix = new DmcAttributeInfo("configSuffix", 202, "String", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __genClass = new DmcAttributeInfo("genClass", 209, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __genContext = new DmcAttributeInfo("genContext", 208, "GenerationContext", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __genContextName = new DmcAttributeInfo("genContextName", 207, "CamelCaseName", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __genPackage = new DmcAttributeInfo("genPackage", 203, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __generator = new DmcAttributeInfo("generator", 200, "Generator", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __schemaToLoad = new DmcAttributeInfo("schemaToLoad", 201, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __upperConstantName = new DmcAttributeInfo("upperConstantName", 205, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo __ActifactGenerator = new DmcClassInfo("ActifactGenerator", 205, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
     public final static DmcClassInfo __DmgConfig = new DmcClassInfo("DmgConfig", 201, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __GenerationContext = new DmcClassInfo("GenerationContext", 202, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,DmgDMSAG.__genContextName);
+    public final static DmcClassInfo __MethodGenerator = new DmcClassInfo("MethodGenerator", 204, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __WrapperGenerator = new DmcClassInfo("WrapperGenerator", 203, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
 
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
@@ -59,11 +66,18 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
 
         _SmAp.put(__alias.id,__alias);
         _SmAp.put(__configSuffix.id,__configSuffix);
+        _SmAp.put(__genClass.id,__genClass);
+        _SmAp.put(__genContext.id,__genContext);
+        _SmAp.put(__genContextName.id,__genContextName);
         _SmAp.put(__genPackage.id,__genPackage);
         _SmAp.put(__generator.id,__generator);
         _SmAp.put(__schemaToLoad.id,__schemaToLoad);
         _SmAp.put(__upperConstantName.id,__upperConstantName);
+        _CmAp.put(__ActifactGenerator.id,__ActifactGenerator);
         _CmAp.put(__DmgConfig.id,__DmgConfig);
+        _CmAp.put(__GenerationContext.id,__GenerationContext);
+        _CmAp.put(__MethodGenerator.id,__MethodGenerator);
+        _CmAp.put(__WrapperGenerator.id,__WrapperGenerator);
 
         __DmgConfig.addMust(__generator);
         __DmgConfig.addMust(__genPackage);
@@ -71,6 +85,22 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
         __DmgConfig.addMay(__configSuffix);
         __DmgConfig.addMay(MetaDMSAG.__description);
         __DmgConfig.addMay(MetaDMSAG.__generatedFileHeader);
+
+        __GenerationContext.addMust(__genContextName);
+
+        __WrapperGenerator.addMust(MetaDMSAG.__name);
+        __WrapperGenerator.addMust(__genContext);
+        __WrapperGenerator.addMust(MetaDMSAG.__classType);
+        __WrapperGenerator.addMust(__genClass);
+
+        __MethodGenerator.addMust(MetaDMSAG.__name);
+        __MethodGenerator.addMust(__genContext);
+        __MethodGenerator.addMust(MetaDMSAG.__valueType);
+        __MethodGenerator.addMust(MetaDMSAG.__baseType);
+        __MethodGenerator.addMust(__genClass);
+
+        __ActifactGenerator.addMust(MetaDMSAG.__name);
+        __ActifactGenerator.addMust(__genClass);
 
 
     }

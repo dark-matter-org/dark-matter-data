@@ -20,7 +20,7 @@ import org.dmd.dms.generated.enums.*;
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:631)
+  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:632)
   */
 abstract public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
@@ -252,7 +252,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             try{
             _metaSchema = this;
             // Create the class definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:676)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:677)
             _ActionTriggerInfo           = new ClassDefinition("ActionTriggerInfo");
             _DmsDefinition               = new ClassDefinition("DmsDefinition");
             _ClassDefinition             = new ClassDefinition("ClassDefinition");
@@ -268,7 +268,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            = new ClassDefinition("SchemaDefinition");
 
             // Create the enum definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:686)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:687)
             _ClassTypeEnum               = new EnumDefinition("ClassTypeEnum");
             _ModifyTypeEnum              = new EnumDefinition("ModifyTypeEnum");
             _OperationalContextEnum      = new EnumDefinition("OperationalContextEnum");
@@ -282,7 +282,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnum             = new EnumDefinition("WrapperTypeEnum");
 
             // Create the type definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:696)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:697)
             _String                      = new TypeDefinition("String", org.dmd.dmc.types.DmcTypeString.class);
             _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
             _ClassInfoRef                = new TypeDefinition("ClassInfoRef", org.dmd.dmc.types.DmcTypeClassInfoRef.class);
@@ -327,20 +327,20 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinitionREF         = new TypeDefinition("SchemaDefinitionREF", org.dmd.dms.generated.types.DmcTypeSchemaDefinitionREF.class, org.dmd.dms.SchemaDefinition.class);
             _SliceDefinitionREF          = new TypeDefinition("SliceDefinitionREF", org.dmd.dms.generated.types.DmcTypeSliceDefinitionREF.class, org.dmd.dms.SliceDefinition.class);
             _TypeDefinitionREF           = new TypeDefinition("TypeDefinitionREF", org.dmd.dms.generated.types.DmcTypeTypeDefinitionREF.class, org.dmd.dms.TypeDefinition.class);
-            _BaseTypeEnumREF             = new TypeDefinition("BaseTypeEnumREF", org.dmd.dms.generated.types.DmcTypeBaseTypeEnum.class);
-            _ClassTypeEnumREF            = new TypeDefinition("ClassTypeEnumREF", org.dmd.dms.generated.types.DmcTypeClassTypeEnum.class);
-            _DataTypeEnumREF             = new TypeDefinition("DataTypeEnumREF", org.dmd.dms.generated.types.DmcTypeDataTypeEnum.class);
-            _DebugEnumREF                = new TypeDefinition("DebugEnumREF", org.dmd.dms.generated.types.DmcTypeDebugEnum.class);
-            _FilterTypeEnumREF           = new TypeDefinition("FilterTypeEnumREF", org.dmd.dms.generated.types.DmcTypeFilterTypeEnum.class);
-            _ModificationControlEnumREF  = new TypeDefinition("ModificationControlEnumREF", org.dmd.dms.generated.types.DmcTypeModificationControlEnum.class);
-            _ModifyTypeEnumREF           = new TypeDefinition("ModifyTypeEnumREF", org.dmd.dms.generated.types.DmcTypeModifyTypeEnum.class);
-            _NameTypeEnumREF             = new TypeDefinition("NameTypeEnumREF", org.dmd.dms.generated.types.DmcTypeNameTypeEnum.class);
-            _OperationalContextEnumREF   = new TypeDefinition("OperationalContextEnumREF", org.dmd.dms.generated.types.DmcTypeOperationalContextEnum.class);
-            _ValueTypeEnumREF            = new TypeDefinition("ValueTypeEnumREF", org.dmd.dms.generated.types.DmcTypeValueTypeEnum.class);
-            _WrapperTypeEnumREF          = new TypeDefinition("WrapperTypeEnumREF", org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum.class);
+            _BaseTypeEnumREF             = new TypeDefinition("BaseTypeEnum", org.dmd.dms.generated.types.DmcTypeBaseTypeEnum.class);
+            _ClassTypeEnumREF            = new TypeDefinition("ClassTypeEnum", org.dmd.dms.generated.types.DmcTypeClassTypeEnum.class);
+            _DataTypeEnumREF             = new TypeDefinition("DataTypeEnum", org.dmd.dms.generated.types.DmcTypeDataTypeEnum.class);
+            _DebugEnumREF                = new TypeDefinition("DebugEnum", org.dmd.dms.generated.types.DmcTypeDebugEnum.class);
+            _FilterTypeEnumREF           = new TypeDefinition("FilterTypeEnum", org.dmd.dms.generated.types.DmcTypeFilterTypeEnum.class);
+            _ModificationControlEnumREF  = new TypeDefinition("ModificationControlEnum", org.dmd.dms.generated.types.DmcTypeModificationControlEnum.class);
+            _ModifyTypeEnumREF           = new TypeDefinition("ModifyTypeEnum", org.dmd.dms.generated.types.DmcTypeModifyTypeEnum.class);
+            _NameTypeEnumREF             = new TypeDefinition("NameTypeEnum", org.dmd.dms.generated.types.DmcTypeNameTypeEnum.class);
+            _OperationalContextEnumREF   = new TypeDefinition("OperationalContextEnum", org.dmd.dms.generated.types.DmcTypeOperationalContextEnum.class);
+            _ValueTypeEnumREF            = new TypeDefinition("ValueTypeEnum", org.dmd.dms.generated.types.DmcTypeValueTypeEnum.class);
+            _WrapperTypeEnumREF          = new TypeDefinition("WrapperTypeEnum", org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum.class);
 
             // Create the attribute definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:713)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:724)
             _name                        = new AttributeDefinition("name", _StringName);
             _dmdID                       = new AttributeDefinition("dmdID", _Integer);
             _schemaExtension             = new AttributeDefinition("schemaExtension", _String);
@@ -475,7 +475,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:738)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:749)
             _ActionDefinitionREF         .setDescription("This is an internally generated type to allow references to ActionDefinition objects.");
             _ActionDefinitionREF         .setInternallyGenerated("true");
             _ActionDefinitionREF         .setIsRefType("true");
@@ -515,7 +515,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _BaseTypeEnumREF             .setEnumName("BaseTypeEnum");
             _BaseTypeEnumREF             .setInternallyGenerated("true");
             _BaseTypeEnumREF             .setIsEnumType("true");
-            _BaseTypeEnumREF             .setName("BaseTypeEnumREF");
+            _BaseTypeEnumREF             .setName("BaseTypeEnum");
+            _BaseTypeEnumREF             .setPrimitiveType("org.dmd.dms.generated.enums.BaseTypeEnum");
             _BaseTypeEnumREF             .setTypeClassName("org.dmd.dms.generated.types.DmcTypeBaseTypeEnum");
             _BaseTypeEnumREF             .setDefinedIn(this);
 
@@ -558,7 +559,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ClassTypeEnumREF            .setEnumName("ClassTypeEnum");
             _ClassTypeEnumREF            .setInternallyGenerated("true");
             _ClassTypeEnumREF            .setIsEnumType("true");
-            _ClassTypeEnumREF            .setName("ClassTypeEnumREF");
+            _ClassTypeEnumREF            .setName("ClassTypeEnum");
+            _ClassTypeEnumREF            .setPrimitiveType("org.dmd.dms.generated.enums.ClassTypeEnum");
             _ClassTypeEnumREF            .setTypeClassName("org.dmd.dms.generated.types.DmcTypeClassTypeEnum");
             _ClassTypeEnumREF            .setDefinedIn(this);
 
@@ -575,7 +577,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _DataTypeEnumREF             .setEnumName("DataTypeEnum");
             _DataTypeEnumREF             .setInternallyGenerated("true");
             _DataTypeEnumREF             .setIsEnumType("true");
-            _DataTypeEnumREF             .setName("DataTypeEnumREF");
+            _DataTypeEnumREF             .setName("DataTypeEnum");
+            _DataTypeEnumREF             .setPrimitiveType("org.dmd.dms.generated.enums.DataTypeEnum");
             _DataTypeEnumREF             .setTypeClassName("org.dmd.dms.generated.types.DmcTypeDataTypeEnum");
             _DataTypeEnumREF             .setDefinedIn(this);
 
@@ -589,7 +592,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _DebugEnumREF                .setEnumName("DebugEnum");
             _DebugEnumREF                .setInternallyGenerated("true");
             _DebugEnumREF                .setIsEnumType("true");
-            _DebugEnumREF                .setName("DebugEnumREF");
+            _DebugEnumREF                .setName("DebugEnum");
+            _DebugEnumREF                .setPrimitiveType("org.dmd.dms.generated.enums.DebugEnum");
             _DebugEnumREF                .setTypeClassName("org.dmd.dms.generated.types.DmcTypeDebugEnum");
             _DebugEnumREF                .setDefinedIn(this);
 
@@ -678,7 +682,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _FilterTypeEnumREF           .setEnumName("FilterTypeEnum");
             _FilterTypeEnumREF           .setInternallyGenerated("true");
             _FilterTypeEnumREF           .setIsEnumType("true");
-            _FilterTypeEnumREF           .setName("FilterTypeEnumREF");
+            _FilterTypeEnumREF           .setName("FilterTypeEnum");
+            _FilterTypeEnumREF           .setPrimitiveType("org.dmd.dms.generated.enums.FilterTypeEnum");
             _FilterTypeEnumREF           .setTypeClassName("org.dmd.dms.generated.types.DmcTypeFilterTypeEnum");
             _FilterTypeEnumREF           .setDefinedIn(this);
 
@@ -749,7 +754,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ModificationControlEnumREF  .setEnumName("ModificationControlEnum");
             _ModificationControlEnumREF  .setInternallyGenerated("true");
             _ModificationControlEnumREF  .setIsEnumType("true");
-            _ModificationControlEnumREF  .setName("ModificationControlEnumREF");
+            _ModificationControlEnumREF  .setName("ModificationControlEnum");
+            _ModificationControlEnumREF  .setPrimitiveType("org.dmd.dms.generated.enums.ModificationControlEnum");
             _ModificationControlEnumREF  .setTypeClassName("org.dmd.dms.generated.types.DmcTypeModificationControlEnum");
             _ModificationControlEnumREF  .setDefinedIn(this);
 
@@ -762,7 +768,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ModifyTypeEnumREF           .setEnumName("ModifyTypeEnum");
             _ModifyTypeEnumREF           .setInternallyGenerated("true");
             _ModifyTypeEnumREF           .setIsEnumType("true");
-            _ModifyTypeEnumREF           .setName("ModifyTypeEnumREF");
+            _ModifyTypeEnumREF           .setName("ModifyTypeEnum");
+            _ModifyTypeEnumREF           .setPrimitiveType("org.dmd.dms.generated.enums.ModifyTypeEnum");
             _ModifyTypeEnumREF           .setTypeClassName("org.dmd.dms.generated.types.DmcTypeModifyTypeEnum");
             _ModifyTypeEnumREF           .setDefinedIn(this);
 
@@ -778,7 +785,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _NameTypeEnumREF             .setEnumName("NameTypeEnum");
             _NameTypeEnumREF             .setInternallyGenerated("true");
             _NameTypeEnumREF             .setIsEnumType("true");
-            _NameTypeEnumREF             .setName("NameTypeEnumREF");
+            _NameTypeEnumREF             .setName("NameTypeEnum");
+            _NameTypeEnumREF             .setPrimitiveType("org.dmd.dms.generated.enums.NameTypeEnum");
             _NameTypeEnumREF             .setTypeClassName("org.dmd.dms.generated.types.DmcTypeNameTypeEnum");
             _NameTypeEnumREF             .setDefinedIn(this);
 
@@ -795,7 +803,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _OperationalContextEnumREF   .setEnumName("OperationalContextEnum");
             _OperationalContextEnumREF   .setInternallyGenerated("true");
             _OperationalContextEnumREF   .setIsEnumType("true");
-            _OperationalContextEnumREF   .setName("OperationalContextEnumREF");
+            _OperationalContextEnumREF   .setName("OperationalContextEnum");
+            _OperationalContextEnumREF   .setPrimitiveType("org.dmd.dms.generated.enums.OperationalContextEnum");
             _OperationalContextEnumREF   .setTypeClassName("org.dmd.dms.generated.types.DmcTypeOperationalContextEnum");
             _OperationalContextEnumREF   .setDefinedIn(this);
 
@@ -869,7 +878,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ValueTypeEnumREF            .setEnumName("ValueTypeEnum");
             _ValueTypeEnumREF            .setInternallyGenerated("true");
             _ValueTypeEnumREF            .setIsEnumType("true");
-            _ValueTypeEnumREF            .setName("ValueTypeEnumREF");
+            _ValueTypeEnumREF            .setName("ValueTypeEnum");
+            _ValueTypeEnumREF            .setPrimitiveType("org.dmd.dms.generated.enums.ValueTypeEnum");
             _ValueTypeEnumREF            .setTypeClassName("org.dmd.dms.generated.types.DmcTypeValueTypeEnum");
             _ValueTypeEnumREF            .setDefinedIn(this);
 
@@ -877,7 +887,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnumREF          .setEnumName("WrapperTypeEnum");
             _WrapperTypeEnumREF          .setInternallyGenerated("true");
             _WrapperTypeEnumREF          .setIsEnumType("true");
-            _WrapperTypeEnumREF          .setName("WrapperTypeEnumREF");
+            _WrapperTypeEnumREF          .setName("WrapperTypeEnum");
+            _WrapperTypeEnumREF          .setPrimitiveType("org.dmd.dms.generated.enums.WrapperTypeEnum");
             _WrapperTypeEnumREF          .setTypeClassName("org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum");
             _WrapperTypeEnumREF          .setDefinedIn(this);
 
@@ -2129,7 +2140,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .setDefinedIn(this);
 
         // Add the definitions to the schema object
-        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:750)
+        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:761)
             this.addClassDefList(_ActionTriggerInfo);
             this.addClassDefList(_DmsDefinition);
             this.addClassDefList(_ClassDefinition);

@@ -86,7 +86,7 @@ public class NamedObjSVDMO  extends DmcObject  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:619)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:622)
     public ObjWithRefsREF getSvNamedObj(){
         DmcTypeObjWithRefsREFSV attr = (DmcTypeObjWithRefsREFSV) get(DmtDMSAG.__svNamedObj);
         if (attr == null)
@@ -117,7 +117,7 @@ public class NamedObjSVDMO  extends DmcObject  implements Serializable  {
      * Sets svNamedObj to the specified value.
      * @param value ObjWithRefsDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:673)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:676)
     public void setSvNamedObj(ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svNamedObj);
         if (attr == null)
@@ -138,7 +138,7 @@ public class NamedObjSVDMO  extends DmcObject  implements Serializable  {
      * Sets svNamedObj to the specified value.
      * @param value A value compatible with DmcTypeObjWithRefsREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:841)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
     public void setSvNamedObj(Object value) throws DmcValueException {
         DmcTypeObjWithRefsREFSV attr  = (DmcTypeObjWithRefsREFSV) get(DmtDMSAG.__svNamedObj);
         if (attr == null)
@@ -153,7 +153,7 @@ public class NamedObjSVDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the svNamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:861)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
     public void remSvNamedObj(){
          rem(DmtDMSAG.__svNamedObj);
     }

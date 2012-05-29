@@ -1591,25 +1591,28 @@ public class SchemaManager implements DmcNameResolverIF {
         
 //        DebugInfo.debug(evd.getName().toString());
         
-        // Things get a little tricky here - although EnumDefinitions are enums, they get
-        // turned into internally generated TypeDefinitions, so we don't add them to the
-        // allDefs map as EnumDefinitions.
-        
-        TypeDefinition td  = new TypeDefinition();
-        td.setInternallyGenerated(true);
-        td.setName(evd.getName());
-        td.setEnumName(evd.getName().getNameString());
-        td.setDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
-        td.setIsEnumType(true);
-        td.setTypeClassName(evd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + evd.getName());
-        td.setPrimitiveType(evd.getDefinedIn().getSchemaPackage() + ".generated.enums." + evd.getName());
-//        td.addObjectClass(MetaSchemaAG._TypeDefinition);
-        td.setDefinedIn(evd.getDefinedIn());
-        
-        internalTypeDefs.put(td.getName(), td);
-        
-        // We add the new type to the schema's list of internally generated types
-        evd.getDefinedIn().addInternalTypeDefList(td);
+        if (evd.getDefinedIn() == MetaSchemaAG._metaSchema){
+        	
+        }
+        else{
+            // Things get a little tricky here - although EnumDefinitions are enums, they get
+            // turned into internally generated TypeDefinitions, so we don't add them to the
+            // allDefs map as EnumDefinitions.
+	        TypeDefinition td  = new TypeDefinition();
+	        td.setInternallyGenerated(true);
+	        td.setName(evd.getName());
+	        td.setEnumName(evd.getName().getNameString());
+	        td.setDescription("This is an internally generated type to allow references to " + evd.getName() + " values.");
+	        td.setIsEnumType(true);
+	        td.setTypeClassName(evd.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + evd.getName());
+	        td.setPrimitiveType(evd.getDefinedIn().getSchemaPackage() + ".generated.enums." + evd.getName());
+	//        td.addObjectClass(MetaSchemaAG._TypeDefinition);
+	        td.setDefinedIn(evd.getDefinedIn());
+	        
+	        internalTypeDefs.put(td.getName(), td);
+	        
+	        // We add the new type to the schema's list of internally generated types
+	        evd.getDefinedIn().addInternalTypeDefList(td);
         
 // Example
 //        _ClassTypeEnumReference      .addObjectClass(_TypeDefinition);
@@ -1626,8 +1629,9 @@ public class SchemaManager implements DmcNameResolverIF {
 //            throw(ex);
 //        }
         
-        // Add the type
-        addType(td);
+	        // Add the type
+	        addType(td);
+        }
 
         if (evd.getObjectName().getNameString().length() > longestEnumName)
             longestActionName = evd.getObjectName().getNameString().length();

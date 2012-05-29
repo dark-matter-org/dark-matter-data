@@ -90,7 +90,7 @@ public class NamedObjTSDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of ObjWithRefsDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:934)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:937)
     public Iterator<ObjWithRefsREF> getTsNamedObj(){
         DmcTypeObjWithRefsREFSET attr = (DmcTypeObjWithRefsREFSET) get(DmtDMSAG.__tsNamedObj);
         if (attr == null)
@@ -110,7 +110,7 @@ public class NamedObjTSDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of ObjWithRefsREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:954)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:957)
     public Iterator<ObjWithRefsREF> getTsNamedObjREFs(){
         DmcTypeObjWithRefsREFSET attr = (DmcTypeObjWithRefsREFSET) get(DmtDMSAG.__tsNamedObj);
         if (attr == null)
@@ -123,7 +123,7 @@ public class NamedObjTSDMO  extends DmcObject  implements Serializable  {
      * Adds another tsNamedObj to the specified value.
      * @param value ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:968)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:971)
     public DmcAttribute<?> addTsNamedObj(ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsNamedObj);
         if (attr == null)
@@ -143,7 +143,7 @@ public class NamedObjTSDMO  extends DmcObject  implements Serializable  {
      * Adds another tsNamedObj value.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1209)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1212)
     public DmcAttribute<?> addTsNamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__tsNamedObj);
         if (attr == null)
@@ -157,7 +157,7 @@ public class NamedObjTSDMO  extends DmcObject  implements Serializable  {
     /**
      * Returns the number of values in tsNamedObj
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1226)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1229)
     public int getTsNamedObjSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__tsNamedObj);
         if (attr == null){
@@ -173,7 +173,7 @@ public class NamedObjTSDMO  extends DmcObject  implements Serializable  {
      * Deletes a tsNamedObj value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1265)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1268)
     public DmcAttribute<?> delTsNamedObj(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__tsNamedObj);
         
@@ -188,7 +188,7 @@ public class NamedObjTSDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the tsNamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1319)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1322)
     public void remTsNamedObj(){
          rem(DmtDMSAG.__tsNamedObj);
     }

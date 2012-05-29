@@ -19,11 +19,31 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (1)</h2>
+    <h2> Classes (5)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
+      <td> <a class="deflink" href="#ActifactGenerator"> ActifactGenerator </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
       <td> <a class="deflink" href="#DmgConfig"> DmgConfig </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#GenerationContext"> GenerationContext </a></td>
+      <td> genContextName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#MethodGenerator"> MethodGenerator </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#WrapperGenerator"> WrapperGenerator </a></td>
+      <td> name </td>
       </tr>
     </table>
     </div>    <div class="typeList">
@@ -36,6 +56,49 @@
 <div class="classDetails">
 
 <h2> Class Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="ActifactGenerator"> ActifactGenerator </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="dmg.html#genClass">genClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fully qualified Java class name of a code generation component. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+  </table>
 
   <table>
 
@@ -106,6 +169,185 @@
 
   </table>
 
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="GenerationContext"> GenerationContext </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The GenerationContext acts as a gathering point for a set of code generation components.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="dmg.html#genContextName">genContextName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="dmg.html#genContextName">genContextName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#CamelCaseName">CamelCaseName</a> </td>
+      <td> The name of a code generation context. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="MethodGenerator"> MethodGenerator </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The MethodGenerator allows for the definition of a code generation component that creates access methods for wrapper classes in different usage environments.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#baseType">baseType</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#BaseTypeEnum">BaseTypeEnum</a> </td>
+      <td> The broad base type of the data. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmg.html#genClass">genClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fully qualified Java class name of a code generation component. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmg.html#genContext">genContext</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmg.html#GenerationContext">GenerationContext</a> </td>
+      <td> The generation context to which a code generation object belongs. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#valueType">valueType</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ValueTypeEnum">ValueTypeEnum</a> </td>
+      <td> This attribute indicates the cardinality and storage mechanism for an attribute. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="WrapperGenerator"> WrapperGenerator </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The WrapperGenerator allows for the definition of a code generation component that creates DMO wrappers for use in particular usage environments.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#classType">classType</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassTypeEnum">ClassTypeEnum</a> </td>
+      <td> This attribute indicates the type of a class definition. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmg.html#genClass">genClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fully qualified Java class name of a code generation component. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmg.html#genContext">genContext</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="dmg.html#GenerationContext">GenerationContext</a> </td>
+      <td> The generation context to which a code generation object belongs. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+  </table>
+
 </div> <!-- classDetails -->
 
 <div class="attributeDetails">
@@ -138,6 +380,45 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The suffix of an additional configuration files that are required by any of the specified generators. For example .mvc</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="genClass"> genClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The fully qualified Java class name of a code generation component.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="genContext"> genContext </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="dmg.html#GenerationContext">GenerationContext</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The generation context to which a code generation object belongs.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="genContextName"> genContextName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#CamelCaseName">CamelCaseName</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name of a code generation context.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="genPackage"> genPackage </a> </td></tr>

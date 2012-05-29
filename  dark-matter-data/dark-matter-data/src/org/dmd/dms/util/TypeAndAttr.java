@@ -42,8 +42,14 @@ public class TypeAndAttr {
 				return td.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + td.getName() + "REF" + getSuffix();
 			}
 		}
-		else
-			return td.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + td.getName() + getSuffix();
+		else{
+			if (td.getName().getNameString().endsWith("REF") && td.getIsEnumType()){
+				// Special case for meta schema enums which have type definitions with names like ValueTypeEnumREF
+				return td.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + td.getEnumName() + getSuffix();
+			}
+			else
+				return td.getDefinedIn().getSchemaPackage() + ".generated.types.DmcType" + td.getName() + getSuffix();
+		}
 	}
 	
 	String getSuffix(){

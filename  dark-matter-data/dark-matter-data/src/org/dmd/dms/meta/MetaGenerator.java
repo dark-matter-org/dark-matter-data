@@ -429,6 +429,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			typeDef.addValue("name", cn + "REF");
 			typeDef.addValue("enumName", cn);
 			typeDef.addValue("typeClassName", "org.dmd.dms.generated.types.DmcType" + cn);
+			typeDef.addValue("primitiveType", "org.dmd.dms.generated.enums." + cn);
 			typeDef.addValue("internallyGenerated", "true");
 			// Need to know if it's an enum type so that we can set values properly later
 			typeDef.addValue("isEnumType", "true");
@@ -697,14 +698,24 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         for(int i=0;i<origOrderTypes.size();i++){
         	String defn = origOrderTypes.get(i);
         	
+        	String predefname = origOrderTypes.get(i);
+        	if (predefname.indexOf("Enum") != -1){
+        		if (predefname.equals("EnumValue") || predefname.equals("EnumDefinitionREF")){
+        			
+        		}
+        		else
+        			predefname = predefname.replace("REF","");
+//        			predefname = origOrderTypes.get(i) + "REF";
+        	}
+
         	DmcUncheckedObject typeObj = typeDefs.get(defn);
         	String typeClassName = typeObj.getSV("typeClassName");
         	String wrapperClassName = typeObj.getSV("wrapperClassName");
             out.write("            _" + pf.sprintf(defn));
             if (wrapperClassName == null)
-            	out.write("= new TypeDefinition(\"" + defn + "\", " + typeClassName + ".class);\n");
+            	out.write("= new TypeDefinition(\"" + predefname + "\", " + typeClassName + ".class);\n");
             else
-            	out.write("= new TypeDefinition(\"" + defn + "\", " + typeClassName + ".class, " + wrapperClassName + ".class);\n");
+            	out.write("= new TypeDefinition(\"" + predefname + "\", " + typeClassName + ".class, " + wrapperClassName + ".class);\n");
         }
         out.write("\n");
         
@@ -901,6 +912,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			            out.write("            _" + pf.sprintf(objName));
 						out.write(".set" + attrNameCapped + "(");
 						
+						
+
 						if (isReference){
 							if (isEnumType)
 								out.write(typeName + "." + obj.getSV(attrName) + ");\n");
@@ -908,7 +921,18 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 								out.write("_" + obj.getSV(attrName) + ");\n");
 						}
 						else{
-							out.write("\"" + obj.getSV(attrName) + "\");\n");
+							String value = obj.getSV(attrName);
+							
+							if (attrName.equals("name")){
+								String val = obj.getSV(attrName);
+								if (val.endsWith("EnumREF")){
+//									DebugInfo.debug("Enum name: " + val);
+									value = val.replaceFirst("REF", "");
+//									DebugInfo.debug("value = " + value);
+								}
+							}
+
+							out.write("\"" + value + "\");\n");
 						}
 					}
 				}
