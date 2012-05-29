@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;    // DmcType import
  * The DmcTypeModifyTypeEnumMV provides storage for a multi-valued ModifyTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2176)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:233)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
     public DmcAttribute<ModifyTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeModifyTypeEnumMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
     public ModifyTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ModifyTypeEnum rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2248)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
     public ModifyTypeEnum del(Object v){
         synchronized(this){
             ModifyTypeEnum key = null;
@@ -106,7 +106,7 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2279)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
     public Iterator<ModifyTypeEnum> getMV(){
         synchronized(this){
             ArrayList<ModifyTypeEnum> clone = new ArrayList<ModifyTypeEnum>(value);
@@ -114,7 +114,7 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum implements Se
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
     public ArrayList<ModifyTypeEnum> getMVCopy(){
         synchronized(this){
             ArrayList<ModifyTypeEnum> clone = new ArrayList<ModifyTypeEnum>(value);
@@ -123,7 +123,7 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -137,7 +137,7 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
     public ModifyTypeEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +147,7 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2324)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
     public ModifyTypeEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -174,7 +174,7 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2352)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,7 +197,7 @@ public class DmcTypeModifyTypeEnumMV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

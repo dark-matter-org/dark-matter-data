@@ -55,7 +55,13 @@ public enum ValueTypeEnum
     /**
      * Indicates that the attribute values are stored in a TreeSet.
      */
-    TREESET(5);
+    TREESET(5),
+
+    /**
+     * Indicates that the attribute is multi-valued and indexed i.e. it has
+     * predefined slots for a fix number of values.
+     */
+    INDEXED(6);
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,ValueTypeEnum> lookup = new HashMap<Integer,ValueTypeEnum>();

@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeDmsDefinitionREFMV provides storage for a multi-valued DmsDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2176)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:244)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeDmsDefinitionREFMV extends DmcTypeDmsDefinitionREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2206)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
     public DmcAttribute<DmsDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeDmsDefinitionREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeDmsDefinitionREFMV extends DmcTypeDmsDefinitionREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2235)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
     public DmsDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             DmsDefinitionREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypeDmsDefinitionREFMV extends DmcTypeDmsDefinitionREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2248)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
     public DmsDefinitionREF del(Object v){
         synchronized(this){
             DmsDefinitionREF key = null;
@@ -105,7 +105,7 @@ public class DmcTypeDmsDefinitionREFMV extends DmcTypeDmsDefinitionREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2279)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
     public Iterator<DmsDefinitionREF> getMV(){
         synchronized(this){
             ArrayList<DmsDefinitionREF> clone = new ArrayList<DmsDefinitionREF>(value);
@@ -113,7 +113,7 @@ public class DmcTypeDmsDefinitionREFMV extends DmcTypeDmsDefinitionREF implement
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
     public ArrayList<DmsDefinitionREF> getMVCopy(){
         synchronized(this){
             ArrayList<DmsDefinitionREF> clone = new ArrayList<DmsDefinitionREF>(value);
@@ -122,7 +122,7 @@ public class DmcTypeDmsDefinitionREFMV extends DmcTypeDmsDefinitionREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2298)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +136,7 @@ public class DmcTypeDmsDefinitionREFMV extends DmcTypeDmsDefinitionREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2313)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
     public DmsDefinitionREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeDmsDefinitionREFMV extends DmcTypeDmsDefinitionREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2324)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
     public DmsDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +173,7 @@ public class DmcTypeDmsDefinitionREFMV extends DmcTypeDmsDefinitionREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2352)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +196,7 @@ public class DmcTypeDmsDefinitionREFMV extends DmcTypeDmsDefinitionREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
