@@ -577,6 +577,9 @@ public class GenUtility {
 	}
 	
 	static public void formatSV(AttributeDefinition ad, StringBuffer sb){
+		if (ad.getName().getNameString().equals("valueType"))
+			DebugInfo.debug("HERE");
+		
     	String typeClassName 	= ad.getType().getTypeClassName();
     	String attrType 		= "DmcType" + ad.getType().getName();
     	// Try to get the nullReturnValue from the attribute first - and try the type second

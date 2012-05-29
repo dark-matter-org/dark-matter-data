@@ -13,8 +13,8 @@ TypeDefinition
 name 			ClassInfoRef
 typeClassName	org.dmd.dmc.types.DmcTypeClassInfoRef
 primitiveType   org.dmd.dmc.types.ClassInfoRef
-description		The ClassInfoRef type allows for representation of class information 
- via the Dark Matter ID associated with a ClassDefinition. If provides transient access
+description		The ClassInfoRef type allows for the representation of class information 
+ via the Dark Matter ID associated with a ClassDefinition. It provides transient access
  to the static DmcClassInfo from the generated DMSAG, regardless of the environment in
  which it exists. 
 
@@ -272,7 +272,7 @@ enumValue		4 EXTENSIBLE 	An extensible class is basically a free-form class that
  ANY attribute to be set on it.
 enumValue		5 INTERFACE		An interface class provides an interface for a set of implementing classes.
 description		The ClassTypeEnum enumeration indicates the types of classes that can
- be defined; these definitions are borrowed from LDAP directory parlance. See
+ be defined; some of these definitions are borrowed from LDAP directory parlance. See
  the individual enum value definitions for details.
 
 EnumDefinition
@@ -323,6 +323,20 @@ enumValue		3 TREEMAPPED Indicates that the attribute values implement the DmcMap
  and are stored in a TreeMap.
 enumValue		4 HASHSET Indicates that the attribute values are stored in a HashSet.
 enumValue		5 TREESET Indicates that the attribute values are stored in a TreeSet.
+enumValue		6 INDEXED Indicates that the attribute is multi-valued and indexed i.e. it has predefined slots for a fix number of values.
+
+EnumDefinition
+name			BaseTypeEnum
+description		The BaseTypeEnum indicates the broad category of data types for which 
+ a MethodGenerator component is intended. The matrix defined by combining the ValueType and
+ BaseTypeEnums indicates all the combinations of method types required for a particular
+ type of data in code generation context.
+nullReturnValue BaseTypeEnum.PRIMITIVE
+enumValue		0 PRIMITIVE 	Indicates a primitive data type such as Integer, String, long or a generated complex type.
+enumValue		1 NAMEDREF		Indicates a named object reference.
+enumValue		2 UNNAMEDREF 	Indicates an unnamed object reference.
+enumValue		3 EXTENDEDREF 	Indicates an extended reference.
+enumValue		4 KEYED			Indicates a type that has a defined key type.
 
 EnumDefinition
 name            NameTypeEnum
@@ -1704,6 +1718,12 @@ type                		LongName
 designatedNameAttribute 	true
 description    				The object name for objects uniquely identified with a long.
 
+AttributeDefinition
+name                		baseType
+dmdID						135
+type                		BaseTypeEnum
+description    				The broad base type of the data.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -2087,6 +2107,7 @@ may           	dependsOnRef
 //must            genPackagePrefix
 description This class is used to define a schema as a discrete, nameable entity.
 //label     		Schema
+
 
 ********************************************************************************
 *

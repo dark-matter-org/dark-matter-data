@@ -655,7 +655,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         // METASCHEMA START
         out.write("    public MetaSchemaAG() throws DmcValueException {\n\n");
 //        out.write("        super(\"metaSchema\");\n\n");
-        DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
+//        DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
         out.write("        super(\"meta\");\n\n");
         out.write("        staticRefName = new String(\"MetaSchema._\");\n\n");
 
@@ -696,7 +696,6 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         for(int i=0;i<origOrderTypes.size();i++){
         	String defn = origOrderTypes.get(i);
-        	
         	
         	DmcUncheckedObject typeObj = typeDefs.get(defn);
         	String typeClassName = typeObj.getSV("typeClassName");
@@ -763,7 +762,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             out.write("            this.addAttributeDefList(_" + origOrderAttrs.get(i) + ");\n");
 
         // Set the schema instances' name and description
-        DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
+//        DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
 //        out.write("            this.setName(\"metaSchema\");\n");
         out.write("            this.setName(\"meta\");\n");
         out.write("            this.setDescription(\"The meta schema defines the elements used to define schemas.\");\n");
@@ -2408,7 +2407,7 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
     	TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
     	
     	for(Field field: fields){
-    		DebugInfo.debug("field type = " + field.type);
+//    		DebugInfo.debug("field type = " + field.type);
     		
         	DmcUncheckedObject typeDef = typeDefs.get(field.type);
         	
@@ -2510,6 +2509,11 @@ DebugInfo.debug("Generating: " + od + File.separator + ctn + ".java");
         // Write the attribute access functions
         for(String attrname: atlist){
         	DmcUncheckedObject attrdef = attributeDefs.get(attrname);
+        	if (attrdef == null){
+        		ResultException ex = new ResultException();
+        		ex.addError("Unknown attribute: " + attrname);
+        		throw(ex);
+        	}
         	if (isEnumAttribute(attrdef)){
         		rc = true;
         		break;
