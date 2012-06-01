@@ -36,14 +36,14 @@ import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 
-public class GxtDMWGenerator extends BaseDMWGeneratorNewest {
+public class GxtDMWGeneratorHide extends BaseDMWGeneratorNewest {
 
 	// The set of all classes for which we want wrappers in this context
 	TreeMap<String,ClassDefinition>	allClasses;
 	
 	ImportManager					imports;
 
-	public GxtDMWGenerator(){
+	public GxtDMWGeneratorHide(){
 //		sformatter = new SchemaFormatter();
 		
 		genContext				= "gxt";
