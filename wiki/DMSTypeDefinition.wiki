@@ -370,7 +370,7 @@ And finally, support for serialization/deserialization, which, if you followed t
      * @return A value read from the input stream.
      * @throws Exception
      */
-    public UUIDLite deserializeValue(DmcInputStreamIF dis) throws Exception {
+    public MyType deserializeValue(DmcInputStreamIF dis) throws Exception {
     	MyType rc = new MyType();
         rc.deserializeIt(dis);
         return(rc);
