@@ -2,7 +2,7 @@ package org.dmd.mvw.tools.mvwgenerator.extended;
 
 import java.util.TreeMap;
 
-import org.dmd.dmp.client.ErrorOptionsEnum;
+//import org.dmd.dmp.client.ErrorOptionsEnum;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.util.GenUtility;

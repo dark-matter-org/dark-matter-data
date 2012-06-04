@@ -1,7 +1,7 @@
-package org.dmd.dmp.client;
+package org.dmd.mvw.tools.mvwgenerator.extended;
 
 /**
- * The ErrorOptionsEnum indicates, for DMP or RPC errors how the error
+ * The ErrorOptionsEnum indicates, for DMP or PC errors how the error
  * handling will be performed.
  * <ul>
  * <li> CENTRAL - send the error to the central error handler only</li>
