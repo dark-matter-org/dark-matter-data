@@ -77,6 +77,7 @@ public class DmoGenUtility {
 	StringBuffer	cfg			= new StringBuffer();
 	BooleanVar		debug 		= new BooleanVar();
 	StringBuffer	docdir		= new StringBuffer();
+	StringArrayList			jars 		= new StringArrayList();
 	
 	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		initHelp();
@@ -88,6 +89,7 @@ public class DmoGenUtility {
         cl.addOption("-cfg",   		cfg,     	"The configuration file to load.");
         cl.addOption("-docdir",   	docdir,     "The documentation directory.");
         cl.addOption("-debug",   	debug,     	"Dump debug information.");
+        cl.addOption("-jars",   	jars,     	"The prefixs of jars to search for .dms config files.");
 		
 		cl.parseArgs(args);
 		
@@ -112,6 +114,13 @@ public class DmoGenUtility {
 		}
 		else
 			finder = new ConfigFinder();
+		
+		// Add additional jars to search for DMS configs
+		if (jars.size() > 0){
+			for(String jar: jars){
+				finder.addJarPrefix(jar);
+			}
+		}		
 		
 		if (debug.booleanValue())
 			finder.debug(true);
