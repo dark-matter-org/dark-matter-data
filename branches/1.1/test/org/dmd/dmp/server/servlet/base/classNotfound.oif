@@ -1,3 +1,0 @@
-PluginConfig
-pluginName		cache
-pluginClass		org.dmd.dmp.server.servlet.base.plugins.BasicMoosePlugin
