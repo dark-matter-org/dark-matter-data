@@ -1,8 +1,0 @@
-//ClassDefinition
-//name 		Validator
-//classType	ABSTRACT
-//description	A Validator is meant to represent an object that performs
-// validation logic against an entire Dark Matter Object or one or more
-// of its attributes.
- 
- 
