@@ -81,6 +81,7 @@ public class DmgGenUtility {
 	BooleanVar		autogen 	= new BooleanVar();
 	StringBuffer	cfg			= new StringBuffer();
 	BooleanVar		debug 		= new BooleanVar();
+	StringArrayList	jars 		= new StringArrayList();
 	
 	public DmgGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		initHelp();
@@ -91,6 +92,7 @@ public class DmgGenUtility {
         cl.addOption("-autogen", 	autogen, 	"Indicates that you want to generate from all configs automatically.");
         cl.addOption("-cfg",   		cfg,     	"The configuration file to load.");
         cl.addOption("-debug",   	debug,     	"Dump debug information.");
+        cl.addOption("-jars",   	jars,     	"The prefixs of jars to search for .dms config files.");
 		
 		cl.parseArgs(args);
 		
@@ -118,6 +120,13 @@ public class DmgGenUtility {
 		
 		schemaFinder = new ConfigFinder(searchdirs.iterator());
 		
+		// Add additional jars to search for DMS configs
+		if (jars.size() > 0){
+			for(String jar: jars){
+				schemaFinder.addJarPrefix(jar);
+			}
+		}		
+
 		if (debug.booleanValue())
 			schemaFinder.debug(true);
 		
