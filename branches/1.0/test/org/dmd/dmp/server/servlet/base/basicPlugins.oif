@@ -1,0 +1,11 @@
+PluginConfig
+pluginName		cache
+pluginClass		org.dmd.dmp.server.servlet.base.plugins.BasicCachePlugin
+
+PluginConfig
+pluginName		security
+pluginClass		org.dmd.dmp.server.servlet.base.plugins.BasicSecurityPlugin
+
+PluginConfig
+pluginName		requestTracker
+pluginClass		org.dmd.dmp.server.servlet.base.plugins.BasicRequestTrackerPlugin
