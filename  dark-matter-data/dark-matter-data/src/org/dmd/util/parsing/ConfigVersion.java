@@ -54,6 +54,15 @@ public class ConfigVersion {
 			versions.put(newVersion.getVersion(),newVersion);
 		}
 		else{
+			if ( (existing.getJarFilename() != null) && (newVersion.getJarFilename() != null)){
+				// Some trickiness here. If we're grabbing stuff from jars, we might have jars
+				// where one jar prefix is a substring of another jar e.g. dark-matter-mvw and
+				// dark-matter-mvwgxt. We'll wind up parsing dark-matter-mvwgxt twice, so we 
+				// what to be able to ignore cases where the jar names are equal
+				if (existing.getJarFilename().equals(newVersion.getJarFilename()))
+					return;
+			}
+			
 			// We have a clashing version
 			ResultException ex = new ResultException("Clashing versions for the " + name + " configuration file.");
 			ex.result.lastResult().moreMessages("Originally from: " + existing.getFileName());
