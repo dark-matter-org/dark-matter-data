@@ -1,5 +1,0 @@
-DmgConfig
-genPackage      org.dmd.dmt.client
-schemaToLoad    dmt
-generator		org.dmd.mvw.gxt.dmw.generators.GxtDMWGenerator
-description     We generate the GXT wrappers for use with the dmt objects.

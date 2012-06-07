@@ -1,5 +1,0 @@
-DmgConfig
-genPackage      org.dmd.dmg
-schemaToLoad    dmg
-generator       org.dmd.dmg.generators.DMWGenerator
-description     We generate the wrappers for use with the DMG objects.
