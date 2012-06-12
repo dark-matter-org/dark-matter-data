@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="true" classpath="extjars/gxt-2.2.4-gwt22.jar;extjars/exampleDMSchema.jar;extjars/slf4j-api-1.5.11.jar;C:\Program Files\Genuitec\Common\plugins\org.junit_4.8.1.v4_8_1_v20100427-1100\junit.jar;extjars/commons-io-2.0.1.jar;C:\Program Files\Genuitec\Common\plugins\org.hamcrest.core_1.1.0.v20090501071000.jar;extjars/gwt-user-2.2.0.jar;extjars/gwteventservice-1.1.1.jar;extjars/gwt-servlet-2.2.0.jar" destdir="doc" doctitle="dark-matter javadocs" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" source="1.6" sourcepath="test;src" splitindex="true" use="true" version="true"/>
+    </target>
+</project>
