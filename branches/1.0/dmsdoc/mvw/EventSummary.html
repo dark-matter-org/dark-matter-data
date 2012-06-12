@@ -18,113 +18,6 @@
 
     <table>
 
-        <tr>
-            <td> <div class="eventName">CommsSessionFailed</div>
-            <a class="navLink" href="mvwcomms.html">mvwcomms</a>
-            </td>
-            <td colspan="2" class="description">            <div class="argvector">(String reason) </div> <p/> 
-            Fired if we cannot establish full asynchronous communications or if we have some other situation where communications fails.
-            </td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-            <td>
-                <table>
-                    <tr>                        <td> Fired by:                        </td>
-                        <td>
-<a class="navLink" href="mvwcomms.html#CommsController">CommsController</a>                         </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td> <div class="eventName">CommsSessionReady</div>
-            <a class="navLink" href="mvwcomms.html">mvwcomms</a>
-            </td>
-            <td colspan="2" class="description">            Fired when we've established full asynchronous communications with the server, in this case, the gwteventservice is up and running.
-            </td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-            <td>
-                <table>
-                    <tr>                        <td> Fired by:                        </td>
-                        <td>
-<a class="navLink" href="mvwcomms.html#CommsController">CommsController</a>                         </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td> <div class="eventName">ForceCommsReset</div>
-            <a class="navLink" href="mvwcomms.html">mvwcomms</a>
-            </td>
-            <td colspan="2" class="description">            When a logout is successfully executed, the CommsController resets itself in preparation for the next login. However, in circumstances where something goes wrong e.g. RPC errors, failed logout etc. An application can fire this event and forceably reset the communications controller.
-            </td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-            <td>
-                <table>
-                    <tr>                        <td> Handled by:                        </td>                        <td><a class="navLink" href="mvwcomms.html#CommsController">CommsController</a>                         </td>                    </tr>                </table>
-            </td>
-        </tr>
-        <tr>
-            <td> <div class="eventName">LoginCompleteEvent</div>
-            <a class="navLink" href="mvwcomms.html">mvwcomms</a>
-            </td>
-            <td colspan="2" class="description">            Fired when we have sucessfully logged in. This indicates that we've successfully logged in, but we are not yet ready for full communications. Your application must wait for the CommsSessionReady event before commencing other DMP operations e.g. GetRequest, SetRequest, CreateRequest, DeleteRequest etc.
-            </td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-            <td>
-                <table>
-                    <tr>                        <td> Fired by:                        </td>
-                        <td>
-<a class="navLink" href="mvwcomms.html#CommsController">CommsController</a>                         </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td> <div class="eventName">LogoutCompleteEvent</div>
-            <a class="navLink" href="mvwcomms.html">mvwcomms</a>
-            </td>
-            <td colspan="2" class="description">            Fired when we have sucessfully logged out.
-            </td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-            <td>
-                <table>
-                    <tr>                        <td> Fired by:                        </td>
-                        <td>
-<a class="navLink" href="mvwcomms.html#CommsController">CommsController</a>                         </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td> <div class="eventName">LogoutEvent</div>
-            <a class="navLink" href="mvwcomms.html">mvwcomms</a>
-            </td>
-            <td colspan="2" class="description">            Fired by some component when an application user wants to logout. This is meant to be a reusable event across application.
-            </td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-            <td>
-                <table>
-                </table>
-            </td>
-        </tr>
     </table>
 
     </div>
@@ -135,9 +28,6 @@
         <a class="navLink" href="gxtforms.html"> gxtforms</a>
         <a class="navLink" href="gxtmenus.html"> gxtmenus</a>
         <a class="navLink" href="mvw.html"> mvw</a>
-        <a class="navLink" href="mvwcomms.html"> mvwcomms</a>
-        <a class="navLink" href="mvwmenus.html"> mvwmenus</a>
-        <a class="navLink" href="selectionmanager.html"> selectionmanager</a>
         <p/>
     <div class="sidebarTitle"> Summaries </div>
         <a class="navLink" href="EventSummary.html"> Events</a>
