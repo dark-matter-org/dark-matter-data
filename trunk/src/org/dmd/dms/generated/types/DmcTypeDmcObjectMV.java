@@ -28,7 +28,7 @@ import org.dmd.dmc.types.DmcTypeDmcObject;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:271)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:284)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcObjectMV extends DmcTypeDmcObject implements Serializable {
