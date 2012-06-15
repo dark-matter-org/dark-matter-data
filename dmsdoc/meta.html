@@ -19,7 +19,7 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (13)</h2>
+    <h2> Classes (14)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -72,6 +72,11 @@
       </tr>
       <tr>
       <td class="spacer"> </td>
+      <td> <a class="deflink" href="#RuleDefinition"> RuleDefinition </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
       <td> <a class="deflink" href="#SchemaDefinition"> SchemaDefinition </a></td>
       <td> name </td>
       </tr>
@@ -87,7 +92,7 @@
       </tr>
     </table>
     </div>    <div class="typeList">
-    <h2>Types (55)</h2>
+    <h2>Types (58)</h2>
     <ul>
       <li> <a class="deflink" href="#AttributeID"> AttributeID </a></li>
       <li> <a class="deflink" href="#Boolean"> Boolean </a></li>
@@ -121,7 +126,7 @@
       <li> <a class="deflink" href="#UUIDName"> UUIDName </a></li>
     </ul>
     </div>    <div class="enumList">
-    <h2>Enums (11)</h2>
+    <h2>Enums (13)</h2>
     <ul>
       <li> <a class="deflink" href="#BaseTypeEnum"> BaseTypeEnum </a></li>
       <li> <a class="deflink" href="#ClassTypeEnum"> ClassTypeEnum </a></li>
@@ -132,6 +137,8 @@
       <li> <a class="deflink" href="#ModifyTypeEnum"> ModifyTypeEnum </a></li>
       <li> <a class="deflink" href="#NameTypeEnum"> NameTypeEnum </a></li>
       <li> <a class="deflink" href="#OperationalContextEnum"> OperationalContextEnum </a></li>
+      <li> <a class="deflink" href="#RuleScopeEnum"> RuleScopeEnum </a></li>
+      <li> <a class="deflink" href="#RuleTypeEnum"> RuleTypeEnum </a></li>
       <li> <a class="deflink" href="#ValueTypeEnum"> ValueTypeEnum </a></li>
       <li> <a class="deflink" href="#WrapperTypeEnum"> WrapperTypeEnum </a></li>
     </ul>
@@ -827,7 +834,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="meta.html#ActionDefinition">ActionDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeValidatorDefinition">AttributeValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div>      <div class="derived"> <a href="meta.html#ComplexTypeDefinition">ComplexTypeDefinition</a> </div>      <div class="derived"> <a href="meta.html#EnumDefinition">EnumDefinition</a> </div>      <div class="derived"> <a href="meta.html#ObjectValidatorDefinition">ObjectValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </div>      <div class="derived"> <a href="meta.html#SliceDefinition">SliceDefinition</a> </div>      <div class="derived"> <a href="meta.html#TypeDefinition">TypeDefinition</a> </div>      </td>
+      <div class="derived"> <a href="meta.html#ActionDefinition">ActionDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeValidatorDefinition">AttributeValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div>      <div class="derived"> <a href="meta.html#ComplexTypeDefinition">ComplexTypeDefinition</a> </div>      <div class="derived"> <a href="meta.html#EnumDefinition">EnumDefinition</a> </div>      <div class="derived"> <a href="meta.html#ObjectValidatorDefinition">ObjectValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#RuleDefinition">RuleDefinition</a> </div>      <div class="derived"> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </div>      <div class="derived"> <a href="meta.html#SliceDefinition">SliceDefinition</a> </div>      <div class="derived"> <a href="meta.html#TypeDefinition">TypeDefinition</a> </div>      </td>
     </tr>
 
     <tr>
@@ -1064,6 +1071,97 @@
       <td> <a href="meta.html#opContext">opContext</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#OperationalContextEnum">OperationalContextEnum</a> </td>
       <td> Indicates the operational context for some component e.g. object or attribute validators. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="RuleDefinition"> RuleDefinition </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The RuleDefinition allows for the definition of rules that can be applied to attributes or classes in different operational contexts. Rules are not just for validation, they can be applied to objects at different times in an object's life cycle e.g. the InitRule can initialize a set of attributes to known values. <p/> RuleDefinitions will result in the generation of ClassDefinitions that define the  DMOs that will carry the parameters associated with the rule and expectation that you will define an implementation class for the rule that derives from an abstract BaseImpl (base implementation) of the rule that provides common rule infrastructure and appropriate abstract methods that must be filled in.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#DmsDefinition">DmsDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#opContext">opContext</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#OperationalContextEnum">OperationalContextEnum</a> </td>
+      <td> Indicates the operational context for some component e.g. object or attribute validators. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#ruleScope">ruleScope</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleScopeEnum">RuleScopeEnum</a> </td>
+      <td> The scope of a rule. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#ruleType">ruleType</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleTypeEnum">RuleTypeEnum</a> </td>
+      <td> The type of a rule. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#may">may</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
+      <td> Indicates the set of attributes that an instance of a class MAY have. When accessed in Java, this is a set of references to AttributeDefinition objects. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#must">must</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
+      <td> Indicates the set of attributes that an instance of a class MUST have. When accessed in Java, this is a set of references to AttributeDefinition objects. </td>
     </tr>
 
   </table>
@@ -2885,6 +2983,45 @@
       <td>The primitiveType indicates the underlying type of a DmcType.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="ruleScope"> ruleScope </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#RuleScopeEnum">RuleScopeEnum</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The scope of a rule.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="ruleTitle"> ruleTitle </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The title of a rule.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="ruleType"> ruleType </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#RuleTypeEnum">RuleTypeEnum</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The type of a rule.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="schemaBaseID"> schemaBaseID </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -3212,24 +3349,9 @@
       <td>
 <table>
   <tr>
-    <td> abstractActivity (<a href="mvw.html#abstractActivity">mvw</a>) </td>
-    <td> addedToRunContext (<a href="mvw.html#addedToRunContext">mvw</a>) </td>
-    <td> alwaysEnabled (<a href="mvw.html#alwaysEnabled">mvw</a>) </td>
-  <tr>
-    <td> autoCreated (<a href="mvw.html#autoCreated">mvw</a>) </td>
     <td> blockWhenLocked (<a href="meta.html#blockWhenLocked">meta</a>) </td>
     <td> cacheResponse (<a href="dmp.html#cacheResponse">dmp</a>) </td>
-</tr>
-  <tr>
-    <td> centralAsyncErrorHandler (<a href="mvw.html#centralAsyncErrorHandler">mvw</a>) </td>
-    <td> centralDMPErrorHandler (<a href="mvw.html#centralDMPErrorHandler">mvw</a>) </td>
-    <td> centralRPCErrorHandler (<a href="mvw.html#centralRPCErrorHandler">mvw</a>) </td>
-</tr>
-  <tr>
-    <td> codeSplit (<a href="mvw.html#codeSplit">mvw</a>) </td>
     <td> createAttributeFactory (<a href="meta.html#createAttributeFactory">meta</a>) </td>
-    <td> createOnDemand (<a href="mvw.html#createOnDemand">mvw</a>) </td>
-</tr>
   <tr>
     <td> designatedFilterAttribute (<a href="meta.html#designatedFilterAttribute">meta</a>) </td>
     <td> designatedNameAttribute (<a href="meta.html#designatedNameAttribute">meta</a>) </td>
@@ -3237,61 +3359,46 @@
 </tr>
   <tr>
     <td> eventChannelReady (<a href="dmp.html#eventChannelReady">dmp</a>) </td>
-    <td> firedInThisModule (<a href="mvw.html#firedInThisModule">mvw</a>) </td>
     <td> internalUse (<a href="meta.html#internalUse">meta</a>) </td>
+    <td> internallyGenerated (<a href="meta.html#internallyGenerated">meta</a>) </td>
 </tr>
   <tr>
-    <td> internallyGenerated (<a href="meta.html#internallyGenerated">meta</a>) </td>
     <td> isDefaultValue (<a href="meta.html#isDefaultValue">meta</a>) </td>
     <td> isEnumType (<a href="meta.html#isEnumType">meta</a>) </td>
+    <td> isExtendedRefType (<a href="meta.html#isExtendedRefType">meta</a>) </td>
 </tr>
   <tr>
-    <td> isExtendedRefType (<a href="meta.html#isExtendedRefType">meta</a>) </td>
     <td> isFilterType (<a href="meta.html#isFilterType">meta</a>) </td>
     <td> isGetAction (<a href="meta.html#isGetAction">meta</a>) </td>
+    <td> isHierarchicName (<a href="meta.html#isHierarchicName">meta</a>) </td>
 </tr>
   <tr>
-    <td> isHierarchicName (<a href="meta.html#isHierarchicName">meta</a>) </td>
     <td> isNameType (<a href="meta.html#isNameType">meta</a>) </td>
     <td> isRefType (<a href="meta.html#isRefType">meta</a>) </td>
+    <td> isSchemaRtype (<a href="meta.html#isSchemaRtype">meta</a>) </td>
 </tr>
   <tr>
-    <td> isSchemaRtype (<a href="meta.html#isSchemaRtype">meta</a>) </td>
     <td> isTransportable (<a href="meta.html#isTransportable">meta</a>) </td>
     <td> lastResponse (<a href="dmp.html#lastResponse">dmp</a>) </td>
+    <td> maySendProgress (<a href="meta.html#maySendProgress">meta</a>) </td>
 </tr>
   <tr>
-    <td> maySendProgress (<a href="meta.html#maySendProgress">meta</a>) </td>
     <td> mvBoolean (<a href="dmt.html#mvBoolean">dmt</a>) </td>
     <td> myOwnEvent (<a href="dmp.html#myOwnEvent">dmp</a>) </td>
+    <td> notifyOriginator (<a href="dmp.html#notifyOriginator">dmp</a>) </td>
 </tr>
   <tr>
-    <td> notifyOriginator (<a href="dmp.html#notifyOriginator">dmp</a>) </td>
     <td> onOff (<a href="dmt.html#onOff">dmt</a>) </td>
     <td> readableFormat (<a href="dmp.html#readableFormat">dmp</a>) </td>
-</tr>
-  <tr>
     <td> registerForEvents (<a href="dmp.html#registerForEvents">dmp</a>) </td>
-    <td> runnable (<a href="dmp.server.html#runnable">dmp.server</a>) </td>
+</tr>
+  <tr>
     <td> secure (<a href="meta.html#secure">meta</a>) </td>
-</tr>
-  <tr>
-    <td> singleton (<a href="mvw.html#singleton">mvw</a>) </td>
-    <td> strictlyChecked (<a href="mvw.html#strictlyChecked">mvw</a>) </td>
     <td> supportsBackrefTracking (<a href="meta.html#supportsBackrefTracking">meta</a>) </td>
-</tr>
-  <tr>
     <td> svBoolean (<a href="dmt.html#svBoolean">dmt</a>) </td>
-    <td> tipsFromI18N (<a href="mvw.html#tipsFromI18N">mvw</a>) </td>
+</tr>
+  <tr>
     <td> trackingEnabled (<a href="dmp.html#trackingEnabled">dmp</a>) </td>
-</tr>
-  <tr>
-    <td> useNameAsLabel (<a href="mvw.html#useNameAsLabel">mvw</a>) </td>
-    <td> useSingleEditor (<a href="mvw.html#useSingleEditor">mvw</a>) </td>
-    <td> usingStandardSubpackages (<a href="mvw.html#usingStandardSubpackages">mvw</a>) </td>
-</tr>
-  <tr>
-    <td> widget (<a href="mvw.html#widget">mvw</a>) </td>
 </tr>
 </table>
       </td>
@@ -3328,36 +3435,8 @@
       <td>
 <table>
   <tr>
-    <td> actionBindingName (<a href="mvw.html#actionBindingName">mvw</a>) </td>
-    <td> activityName (<a href="mvw.html#activityName">mvw</a>) </td>
-    <td> appName (<a href="mvw.html#appName">mvw</a>) </td>
-  <tr>
-    <td> bindingName (<a href="mvw.html#bindingName">mvw</a>) </td>
     <td> camelCaseName (<a href="meta.html#camelCaseName">meta</a>) </td>
-    <td> componentName (<a href="mvw.html#componentName">mvw</a>) </td>
-</tr>
-  <tr>
-    <td> configName (<a href="mvw.html#configName">mvw</a>) </td>
-    <td> controllerName (<a href="mvw.html#controllerName">mvw</a>) </td>
-    <td> editorName (<a href="mvw.html#editorName">mvw</a>) </td>
-</tr>
-  <tr>
-    <td> elementName (<a href="mvw.html#elementName">mvw</a>) </td>
-    <td> eventName (<a href="mvw.html#eventName">mvw</a>) </td>
     <td> genContextName (<a href="dmg.html#genContextName">dmg</a>) </td>
-</tr>
-  <tr>
-    <td> itemName (<a href="mvw.html#itemName">mvw</a>) </td>
-    <td> mappingName (<a href="mvw.html#mappingName">mvw</a>) </td>
-    <td> moduleName (<a href="mvw.html#moduleName">mvw</a>) </td>
-</tr>
-  <tr>
-    <td> placeName (<a href="mvw.html#placeName">mvw</a>) </td>
-    <td> pluginName (<a href="dmp.server.html#pluginName">dmp.server</a>) </td>
-    <td> presenterName (<a href="mvw.html#presenterName">mvw</a>) </td>
-</tr>
-  <tr>
-    <td> viewName (<a href="mvw.html#viewName">mvw</a>) </td>
 </tr>
 </table>
       </td>
@@ -3711,22 +3790,17 @@
   <tr>
     <td> handlerID (<a href="dmp.html#handlerID">dmp</a>) </td>
     <td> hsInteger (<a href="dmt.html#hsInteger">dmt</a>) </td>
-    <td> idRI (<a href="dmp.server.html#idRI">dmp.server</a>) </td>
-</tr>
-  <tr>
     <td> indexSize (<a href="meta.html#indexSize">meta</a>) </td>
-    <td> itemOrder (<a href="mvw.html#itemOrder">mvw</a>) </td>
-    <td> lineNumber (<a href="meta.html#lineNumber">meta</a>) </td>
 </tr>
   <tr>
+    <td> lineNumber (<a href="meta.html#lineNumber">meta</a>) </td>
     <td> mvInteger (<a href="dmt.html#mvInteger">dmt</a>) </td>
     <td> originatorID (<a href="dmp.html#originatorID">dmp</a>) </td>
-    <td> requestID (<a href="dmp.html#requestID">dmp</a>) </td>
 </tr>
   <tr>
+    <td> requestID (<a href="dmp.html#requestID">dmp</a>) </td>
     <td> schemaBaseID (<a href="meta.html#schemaBaseID">meta</a>) </td>
     <td> schemaIDRange (<a href="meta.html#schemaIDRange">meta</a>) </td>
-    <td> startOrder (<a href="dmp.server.html#startOrder">dmp.server</a>) </td>
 </tr>
   <tr>
     <td> svInteger (<a href="dmt.html#svInteger">dmt</a>) </td>
@@ -4048,23 +4122,13 @@
 </tr>
   <tr>
     <td> applicationVersion (<a href="dmp.html#applicationVersion">dmp</a>) </td>
-    <td> argVector (<a href="mvw.html#argVector">mvw</a>) </td>
     <td> configSuffix (<a href="dmg.html#configSuffix">dmg</a>) </td>
-</tr>
-  <tr>
-    <td> construction (<a href="mvw.html#construction">mvw</a>) </td>
-    <td> contextImpl (<a href="mvw.html#contextImpl">mvw</a>) </td>
     <td> defFiles (<a href="meta.html#defFiles">meta</a>) </td>
 </tr>
   <tr>
     <td> dependsOn (<a href="meta.html#dependsOn">meta</a>) </td>
-    <td> dependsOnModule (<a href="mvw.html#dependsOnModule">mvw</a>) </td>
     <td> dependsOnSchema (<a href="meta.html#dependsOnSchema">meta</a>) </td>
-</tr>
-  <tr>
     <td> description (<a href="meta.html#description">meta</a>) </td>
-    <td> displayLabel (<a href="mvw.html#displayLabel">mvw</a>) </td>
-    <td> displayLabelI18N (<a href="mvw.html#displayLabelI18N">mvw</a>) </td>
 </tr>
   <tr>
     <td> dmeClass (<a href="meta.html#dmeClass">meta</a>) </td>
@@ -4122,19 +4186,14 @@
     <td> hsString (<a href="dmt.html#hsString">dmt</a>) </td>
 </tr>
   <tr>
-    <td> importThis (<a href="mvw.html#importThis">mvw</a>) </td>
     <td> indexedString (<a href="dmt.html#indexedString">dmt</a>) </td>
     <td> javaClass (<a href="meta.html#javaClass">meta</a>) </td>
+    <td> javaPackage (<a href="meta.html#javaPackage">meta</a>) </td>
 </tr>
   <tr>
-    <td> javaPackage (<a href="meta.html#javaPackage">meta</a>) </td>
     <td> keyClass (<a href="meta.html#keyClass">meta</a>) </td>
     <td> keyImport (<a href="meta.html#keyImport">meta</a>) </td>
-</tr>
-  <tr>
     <td> ldapIdPrefix (<a href="dmr.ldap.html#ldapIdPrefix">dmr.ldap</a>) </td>
-    <td> loadedFrom (<a href="dmv.html#loadedFrom">dmv</a>) </td>
-    <td> menuOrder (<a href="mvw.html#menuOrder">mvw</a>) </td>
 </tr>
   <tr>
     <td> mvIdxString (<a href="dmt.html#mvIdxString">dmt</a>) </td>
@@ -4147,66 +4206,42 @@
     <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
 </tr>
   <tr>
-    <td> placePrefix (<a href="mvw.html#placePrefix">mvw</a>) </td>
-    <td> pluginClass (<a href="dmp.server.html#pluginClass">dmp.server</a>) </td>
-    <td> presenterImport (<a href="mvw.html#presenterImport">mvw</a>) </td>
-</tr>
-  <tr>
     <td> primitiveType (<a href="meta.html#primitiveType">meta</a>) </td>
     <td> reposName (<a href="dmr.ldap.html#reposName">dmr.ldap</a>) </td>
     <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
 </tr>
   <tr>
     <td> responseText (<a href="dmp.html#responseText">dmp</a>) </td>
-    <td> ruleTitle (<a href="dmv.html#ruleTitle">dmv</a>) </td>
+    <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
     <td> schemaExtension (<a href="meta.html#schemaExtension">meta</a>) </td>
 </tr>
   <tr>
     <td> schemaPackage (<a href="meta.html#schemaPackage">meta</a>) </td>
     <td> schemaToLoad (<a href="dmg.html#schemaToLoad">dmg</a>) </td>
-    <td> sessionHostRI (<a href="dmp.server.html#sessionHostRI">dmp.server</a>) </td>
-</tr>
-  <tr>
     <td> sessionID (<a href="dmp.html#sessionID">dmp</a>) </td>
-    <td> sessionIDRI (<a href="dmp.server.html#sessionIDRI">dmp.server</a>) </td>
+</tr>
+  <tr>
     <td> setType (<a href="meta.html#setType">meta</a>) </td>
-</tr>
-  <tr>
-    <td> sharedImport (<a href="mvw.html#sharedImport">mvw</a>) </td>
-    <td> skipEnumValue (<a href="mvw.html#skipEnumValue">mvw</a>) </td>
     <td> slice (<a href="dmp.html#slice">dmp</a>) </td>
+    <td> subpackage (<a href="meta.html#subpackage">meta</a>) </td>
 </tr>
   <tr>
-    <td> subpackage (<a href="meta.html#subpackage">meta</a>) </td>
     <td> svString (<a href="dmt.html#svString">dmt</a>) </td>
     <td> transString (<a href="dmt.html#transString">dmt</a>) </td>
-</tr>
-  <tr>
     <td> tsString (<a href="dmt.html#tsString">dmt</a>) </td>
+</tr>
+  <tr>
     <td> typeClassName (<a href="meta.html#typeClassName">meta</a>) </td>
-    <td> unsetValue (<a href="mvw.html#unsetValue">mvw</a>) </td>
-</tr>
-  <tr>
     <td> upperConstantName (<a href="dmg.html#upperConstantName">dmg</a>) </td>
-    <td> useBaseClass (<a href="mvw.html#useBaseClass">mvw</a>) </td>
-    <td> useClass (<a href="mvw.html#useClass">mvw</a>) </td>
-</tr>
-  <tr>
-    <td> useImpl (<a href="mvw.html#useImpl">mvw</a>) </td>
-    <td> useSchemaClass (<a href="dmp.server.html#useSchemaClass">dmp.server</a>) </td>
-    <td> userDataImport (<a href="mvw.html#userDataImport">mvw</a>) </td>
-</tr>
-  <tr>
     <td> userFQN (<a href="dmp.html#userFQN">dmp</a>) </td>
+</tr>
+  <tr>
     <td> userName (<a href="dmr.base.html#userName">dmr.base</a>) </td>
     <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
-</tr>
-  <tr>
     <td> validatorClass (<a href="meta.html#validatorClass">meta</a>) </td>
-    <td> valueClass (<a href="meta.html#valueClass">meta</a>) </td>
-    <td> viewImport (<a href="mvw.html#viewImport">mvw</a>) </td>
 </tr>
   <tr>
+    <td> valueClass (<a href="meta.html#valueClass">meta</a>) </td>
     <td> wrapperClassName (<a href="meta.html#wrapperClassName">meta</a>) </td>
 </tr>
 </table>
@@ -4696,6 +4731,55 @@
       <td>indicates that the component operates in a ful Java environment; no restrictions.</td>
     </tr>
 
+    <tr> <td class="className" colspan="4"> <a name="RuleScopeEnum"> RuleScopeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The RuleScopeEnum indicates the scope at which a rule is applied.  When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum will determine some additional attributes that will be added to the DMO class definition. <table> <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> ATTRIBUTE </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr> <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> CLASS     </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr> <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> </table></td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> PERCLASS</td>
+      <td>Indicates the rule is applied within the scope of a class.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> ACROSSCLASSES</td>
+      <td>Indicates the rule is applied across several classes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> GLOBAL</td>
+      <td>Indicates the rule is global in scope.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="RuleTypeEnum"> RuleTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The RuleTypeEnum indicates the level at which a rule is applied.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> ATTRIBUTE</td>
+      <td>Indicates that this is an attribute level rule.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> CLASSES</td>
+      <td>Indicates that this is a class level rule.</td>
+    </tr>
+
     <tr> <td class="className" colspan="4"> <a name="ValueTypeEnum"> ValueTypeEnum </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4789,14 +4873,11 @@
     <div id="sidebar">
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>
-        <a class="navLink" href="dmp.server.html"> dmp.server</a>
         <a class="navLink" href="dmr.base.html"> dmr.base</a>
         <a class="navLink" href="dmr.ldap.html"> dmr.ldap</a>
         <a class="navLink" href="dmt.html"> dmt</a>
-        <a class="navLink" href="dmv.html"> dmv</a>
         <a class="navLink" href="map.html"> map</a>
         <a class="navLink" href="meta.html"> meta</a>
-        <a class="navLink" href="mvw.html"> mvw</a>
     </div>
   </div> <!-- main -->
 

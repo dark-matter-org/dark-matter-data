@@ -29,6 +29,7 @@ import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.DmoCompactSchemaFormatter;
 import org.dmd.dms.util.DmoValidatorCollectionFormatter;
 import org.dmd.dms.util.GenUtility;
+import org.dmd.dms.util.RuleFormatter;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -65,6 +66,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	// Offset to the generated types
 	private final static String TYPEDIR = "/src/org/dmd/dms/generated/types";
 	
+	// Offset to the rule generation directory
+	private final static String RULESDIR = "/src/org/dmd/dms/generated/rules";
+	
 	// Offset to the gdo source directory
 	private final static String DMSDIR = "/src/org/dmd/dms";
 	
@@ -98,6 +102,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	// Object Validator Definitions
 	TreeMap<String,DmcUncheckedObject>	ovDefs;
 	
+	// Rule definitions
+	TreeMap<String,DmcUncheckedObject>	ruleDefs;
+	
     // Some of the definitions have to be defined in a particular order, so
     // we maintain the order in which they appear in the Dmd file.
     ArrayList<String>   			origOrderClasses;
@@ -107,6 +114,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
     ArrayList<String>   			origOrderComplexTypes;
     ArrayList<String>   			origOrderAVDs;
     ArrayList<String>   			origOrderOVDs;
+    ArrayList<String>   			origOrderRules;
 	
 
 	// Handle to the source directory name
@@ -123,6 +131,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		complexTypeDefs 		= new TreeMap<String,DmcUncheckedObject>();
 		avDefs 					= new TreeMap<String,DmcUncheckedObject>();
 		ovDefs 					= new TreeMap<String,DmcUncheckedObject>();
+		ruleDefs 				= new TreeMap<String,DmcUncheckedObject>();
 		
         origOrderClasses    	= new ArrayList<String>();
         origOrderAttrs      	= new ArrayList<String>();
@@ -131,6 +140,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         origOrderComplexTypes	= new ArrayList<String>();
         origOrderAVDs			= new ArrayList<String>();
         origOrderOVDs			= new ArrayList<String>();
+        origOrderRules			= new ArrayList<String>();
 		
 		parser 				= new DmcUncheckedOIFParser(this);
 	}
@@ -182,6 +192,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             
             DmoValidatorCollectionFormatter vcf = new DmoValidatorCollectionFormatter(System.out);
             vcf.dumpSchema("meta", "org.dmd.dms", avDefs, ovDefs, curr.getCanonicalPath() + DMODIR);
+            
+            RuleFormatter rf = new RuleFormatter(System.out);
+            rf.dumpBaseImplementations("org.dmd.dms", ruleDefs, curr.getCanonicalPath() + RULESDIR);
             
             dumpDMWClasses(curr.getCanonicalPath() + DMWDIR);
             
@@ -349,6 +362,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		else if (objClass.equals("ObjectValidatorDefinition")){
 			ovDefs.put(name, obj);
 			origOrderOVDs.add(name);
+		}
+		else if (objClass.equals("RuleDefinition")){
+			ruleDefs.put(name, obj);
+			origOrderRules.add(name);
 		}
 		else{
 			ResultException ex = new ResultException("Unknown definition type: " + objClass);

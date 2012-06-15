@@ -296,6 +296,31 @@ enumValue		0 DMO       Indicates that the component follows basic Dark Matter Ob
 enumValue		1 FULLJAVA  indicates that the component operates in a ful Java environment; no restrictions.
 
 EnumDefinition
+name			RuleTypeEnum
+description		The RuleTypeEnum indicates the level at which a rule is applied.
+nullReturnValue RuleTypeEnum.ATTRIBUTE
+enumValue		0 ATTRIBUTE Indicates that this is an attribute level rule.
+enumValue		1 CLASSES   Indicates that this is a class level rule.
+
+EnumDefinition
+name			RuleScopeEnum
+description		The RuleScopeEnum indicates the scope at which a rule is applied. 
+ When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum
+ will determine some additional attributes that will be added to the DMO class definition.
+ <table>
+ <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr>
+ <tr> <td> ATTRIBUTE </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr>
+ <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
+ <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr>
+ <tr> <td> CLASS     </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr>
+ <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
+ </table>
+nullReturnValue RuleScopeEnum.PERCLASS
+enumValue		0 PERCLASS 		Indicates the rule is applied within the scope of a class.
+enumValue		1 ACROSSCLASSES Indicates the rule is applied across several classes.
+enumValue		2 GLOBAL		Indicates the rule is global in scope.
+
+EnumDefinition
 name			DataTypeEnum
 description		The DataTypeEnum relates to how attributes/classes are dealt with
  by various persistence mechanism. No inherent behaviour is defined at this level.
@@ -432,6 +457,19 @@ validatorClass 	org.dmd.dmc.validators.AttributeSetValidator
 description		Verifies that an object has all of its mandatory attributes and
  that it doesn't contain any unnecessary attributes.
 
+ 
+///////////////////////////////////////////////////////////////////////////////
+// RULES
+//
+ 
+RuleDefinition
+name			AllowedAttributesRule
+opContext		DMO
+ruleType		CLASS
+ruleScope		GLOBAL
+description		The AllowedAttributesRule will determine whether or not the 
+ attributes of a DMO conform to the must/may specification of its class definition.
+ For class of type EXTENSIBLE only the must have attributes are checked.
 
 ********************************************************************************
 //
@@ -1724,6 +1762,24 @@ dmdID						135
 type                		BaseTypeEnum
 description    				The broad base type of the data.
 
+AttributeDefinition
+name                		ruleType
+dmdID						136
+type                		RuleTypeEnum
+description    				The type of a rule.
+
+AttributeDefinition
+name                		ruleScope
+dmdID						137
+type                		RuleScopeEnum
+description    				The scope of a rule.
+
+AttributeDefinition
+name                		ruleTitle
+dmdID						138
+type                		String
+description    				The title of a rule.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -2108,6 +2164,32 @@ may           	dependsOnRef
 description This class is used to define a schema as a discrete, nameable entity.
 //label     		Schema
 
+ClassDefinition
+name           	RuleDefinition
+classType      	STRUCTURAL
+dmdID			15
+javaClass    	org.dmd.dms.RuleDefinition
+dmoImport		org.dmd.dms.generated.dmo.RuleDefinitionDMO
+derivedFrom     DmsDefinition
+isNamedBy       name
+must        	name
+must			opContext
+must			ruleType
+must			ruleScope
+may           	must
+may            	may
+may				description
+description		The RuleDefinition allows for the definition of rules that can
+ be applied to attributes or classes in different operational contexts. Rules
+ are not just for validation, they can be applied to objects at different times
+ in an object's life cycle e.g. the InitRule can initialize a set of attributes
+ to known values.
+ <p/>
+ RuleDefinitions will result in the generation of ClassDefinitions that define the 
+ DMOs that will carry the parameters associated with the rule and expectation
+ that you will define an implementation class for the rule that derives from
+ an abstract BaseImpl (base implementation) of the rule that provides common
+ rule infrastructure and appropriate abstract methods that must be filled in.
 
 ********************************************************************************
 *

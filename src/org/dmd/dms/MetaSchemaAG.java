@@ -20,7 +20,7 @@ import org.dmd.dms.generated.enums.*;
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:632)
+  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:649)
   */
 abstract public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
@@ -38,10 +38,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static ClassDefinition     _AttributeValidatorDefinition;
     public static ClassDefinition     _ActionDefinition;
     public static ClassDefinition     _SchemaDefinition;
+    public static ClassDefinition     _RuleDefinition;
 
     public static EnumDefinition      _ClassTypeEnum;
     public static EnumDefinition      _ModifyTypeEnum;
     public static EnumDefinition      _OperationalContextEnum;
+    public static EnumDefinition      _RuleTypeEnum;
+    public static EnumDefinition      _RuleScopeEnum;
     public static EnumDefinition      _DataTypeEnum;
     public static EnumDefinition      _ValueTypeEnum;
     public static EnumDefinition      _BaseTypeEnum;
@@ -92,6 +95,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _EnumDefinitionREF;
     public static TypeDefinition      _ExtendedReferenceTypeDefinitionREF;
     public static TypeDefinition      _ObjectValidatorDefinitionREF;
+    public static TypeDefinition      _RuleDefinitionREF;
     public static TypeDefinition      _SchemaDefinitionREF;
     public static TypeDefinition      _SliceDefinitionREF;
     public static TypeDefinition      _TypeDefinitionREF;
@@ -104,6 +108,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _ModifyTypeEnumREF;
     public static TypeDefinition      _NameTypeEnumREF;
     public static TypeDefinition      _OperationalContextEnumREF;
+    public static TypeDefinition      _RuleScopeEnumREF;
+    public static TypeDefinition      _RuleTypeEnumREF;
     public static TypeDefinition      _ValueTypeEnumREF;
     public static TypeDefinition      _WrapperTypeEnumREF;
 
@@ -238,6 +244,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _isExtendedRefType;
     public static AttributeDefinition _longName;
     public static AttributeDefinition _baseType;
+    public static AttributeDefinition _ruleType;
+    public static AttributeDefinition _ruleScope;
+    public static AttributeDefinition _ruleTitle;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -252,7 +261,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             try{
             _metaSchema = this;
             // Create the class definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:677)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:694)
             _ActionTriggerInfo           = new ClassDefinition("ActionTriggerInfo");
             _DmsDefinition               = new ClassDefinition("DmsDefinition");
             _ClassDefinition             = new ClassDefinition("ClassDefinition");
@@ -266,12 +275,15 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeValidatorDefinition= new ClassDefinition("AttributeValidatorDefinition");
             _ActionDefinition            = new ClassDefinition("ActionDefinition");
             _SchemaDefinition            = new ClassDefinition("SchemaDefinition");
+            _RuleDefinition              = new ClassDefinition("RuleDefinition");
 
             // Create the enum definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:687)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:704)
             _ClassTypeEnum               = new EnumDefinition("ClassTypeEnum");
             _ModifyTypeEnum              = new EnumDefinition("ModifyTypeEnum");
             _OperationalContextEnum      = new EnumDefinition("OperationalContextEnum");
+            _RuleTypeEnum                = new EnumDefinition("RuleTypeEnum");
+            _RuleScopeEnum               = new EnumDefinition("RuleScopeEnum");
             _DataTypeEnum                = new EnumDefinition("DataTypeEnum");
             _ValueTypeEnum               = new EnumDefinition("ValueTypeEnum");
             _BaseTypeEnum                = new EnumDefinition("BaseTypeEnum");
@@ -282,7 +294,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnum             = new EnumDefinition("WrapperTypeEnum");
 
             // Create the type definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:697)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:714)
             _String                      = new TypeDefinition("String", org.dmd.dmc.types.DmcTypeString.class);
             _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
             _ClassInfoRef                = new TypeDefinition("ClassInfoRef", org.dmd.dmc.types.DmcTypeClassInfoRef.class);
@@ -324,6 +336,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _EnumDefinitionREF           = new TypeDefinition("EnumDefinitionREF", org.dmd.dms.generated.types.DmcTypeEnumDefinitionREF.class, org.dmd.dms.EnumDefinition.class);
             _ExtendedReferenceTypeDefinitionREF= new TypeDefinition("ExtendedReferenceTypeDefinitionREF", org.dmd.dms.generated.types.DmcTypeExtendedReferenceTypeDefinitionREF.class, org.dmd.dms.ExtendedReferenceTypeDefinition.class);
             _ObjectValidatorDefinitionREF= new TypeDefinition("ObjectValidatorDefinitionREF", org.dmd.dms.generated.types.DmcTypeObjectValidatorDefinitionREF.class, org.dmd.dms.ObjectValidatorDefinition.class);
+            _RuleDefinitionREF           = new TypeDefinition("RuleDefinitionREF", org.dmd.dms.generated.types.DmcTypeRuleDefinitionREF.class, org.dmd.dms.RuleDefinition.class);
             _SchemaDefinitionREF         = new TypeDefinition("SchemaDefinitionREF", org.dmd.dms.generated.types.DmcTypeSchemaDefinitionREF.class, org.dmd.dms.SchemaDefinition.class);
             _SliceDefinitionREF          = new TypeDefinition("SliceDefinitionREF", org.dmd.dms.generated.types.DmcTypeSliceDefinitionREF.class, org.dmd.dms.SliceDefinition.class);
             _TypeDefinitionREF           = new TypeDefinition("TypeDefinitionREF", org.dmd.dms.generated.types.DmcTypeTypeDefinitionREF.class, org.dmd.dms.TypeDefinition.class);
@@ -336,11 +349,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ModifyTypeEnumREF           = new TypeDefinition("ModifyTypeEnum", org.dmd.dms.generated.types.DmcTypeModifyTypeEnum.class);
             _NameTypeEnumREF             = new TypeDefinition("NameTypeEnum", org.dmd.dms.generated.types.DmcTypeNameTypeEnum.class);
             _OperationalContextEnumREF   = new TypeDefinition("OperationalContextEnum", org.dmd.dms.generated.types.DmcTypeOperationalContextEnum.class);
+            _RuleScopeEnumREF            = new TypeDefinition("RuleScopeEnum", org.dmd.dms.generated.types.DmcTypeRuleScopeEnum.class);
+            _RuleTypeEnumREF             = new TypeDefinition("RuleTypeEnum", org.dmd.dms.generated.types.DmcTypeRuleTypeEnum.class);
             _ValueTypeEnumREF            = new TypeDefinition("ValueTypeEnum", org.dmd.dms.generated.types.DmcTypeValueTypeEnum.class);
             _WrapperTypeEnumREF          = new TypeDefinition("WrapperTypeEnum", org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum.class);
 
             // Create the attribute definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:724)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:741)
             _name                        = new AttributeDefinition("name", _StringName);
             _dmdID                       = new AttributeDefinition("dmdID", _Integer);
             _schemaExtension             = new AttributeDefinition("schemaExtension", _String);
@@ -472,10 +487,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _isExtendedRefType           = new AttributeDefinition("isExtendedRefType", _Boolean);
             _longName                    = new AttributeDefinition("longName", _LongName);
             _baseType                    = new AttributeDefinition("baseType", _BaseTypeEnumREF);
+            _ruleType                    = new AttributeDefinition("ruleType", _RuleTypeEnumREF);
+            _ruleScope                   = new AttributeDefinition("ruleScope", _RuleScopeEnumREF);
+            _ruleTitle                   = new AttributeDefinition("ruleTitle", _String);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:749)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:766)
             _ActionDefinitionREF         .setDescription("This is an internally generated type to allow references to ActionDefinition objects.");
             _ActionDefinitionREF         .setInternallyGenerated("true");
             _ActionDefinitionREF         .setIsRefType("true");
@@ -808,6 +826,33 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _OperationalContextEnumREF   .setTypeClassName("org.dmd.dms.generated.types.DmcTypeOperationalContextEnum");
             _OperationalContextEnumREF   .setDefinedIn(this);
 
+            _RuleDefinitionREF           .setDescription("This is an internally generated type to allow references to RuleDefinition objects.");
+            _RuleDefinitionREF           .setInternallyGenerated("true");
+            _RuleDefinitionREF           .setIsRefType("true");
+            _RuleDefinitionREF           .setName("RuleDefinitionREF");
+            _RuleDefinitionREF           .setOriginalClass(_RuleDefinition);
+            _RuleDefinitionREF           .setTypeClassName("org.dmd.dms.generated.types.DmcTypeRuleDefinitionREF");
+            _RuleDefinitionREF           .setWrapperClassName("org.dmd.dms.RuleDefinition");
+            _RuleDefinitionREF           .setDefinedIn(this);
+
+            _RuleScopeEnumREF            .setDescription("This is an internally generated type to allow references to RuleScopeEnum objects.");
+            _RuleScopeEnumREF            .setEnumName("RuleScopeEnum");
+            _RuleScopeEnumREF            .setInternallyGenerated("true");
+            _RuleScopeEnumREF            .setIsEnumType("true");
+            _RuleScopeEnumREF            .setName("RuleScopeEnum");
+            _RuleScopeEnumREF            .setPrimitiveType("org.dmd.dms.generated.enums.RuleScopeEnum");
+            _RuleScopeEnumREF            .setTypeClassName("org.dmd.dms.generated.types.DmcTypeRuleScopeEnum");
+            _RuleScopeEnumREF            .setDefinedIn(this);
+
+            _RuleTypeEnumREF             .setDescription("This is an internally generated type to allow references to RuleTypeEnum objects.");
+            _RuleTypeEnumREF             .setEnumName("RuleTypeEnum");
+            _RuleTypeEnumREF             .setInternallyGenerated("true");
+            _RuleTypeEnumREF             .setIsEnumType("true");
+            _RuleTypeEnumREF             .setName("RuleTypeEnum");
+            _RuleTypeEnumREF             .setPrimitiveType("org.dmd.dms.generated.enums.RuleTypeEnum");
+            _RuleTypeEnumREF             .setTypeClassName("org.dmd.dms.generated.types.DmcTypeRuleTypeEnum");
+            _RuleTypeEnumREF             .setDefinedIn(this);
+
             _SchemaDefinitionREF         .setDescription("This is an internally generated type to allow references to SchemaDefinition objects.");
             _SchemaDefinitionREF         .setInternallyGenerated("true");
             _SchemaDefinitionREF         .setIsRefType("true");
@@ -971,6 +1016,21 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _OperationalContextEnum      .setName("OperationalContextEnum");
             _OperationalContextEnum      .setNullReturnValue("OperationalContextEnum.DMO");
             _OperationalContextEnum      .setDefinedIn(this);
+
+            _RuleScopeEnum               .setDescription("The RuleScopeEnum indicates the scope at which a rule is applied.  When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum will determine some additional attributes that will be added to the DMO class definition. <table> <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> ATTRIBUTE </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr> <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> CLASS     </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr> <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> </table>");
+            _RuleScopeEnum               .addEnumValue("0 PERCLASS 		Indicates the rule is applied within the scope of a class.");
+            _RuleScopeEnum               .addEnumValue("1 ACROSSCLASSES Indicates the rule is applied across several classes.");
+            _RuleScopeEnum               .addEnumValue("2 GLOBAL		Indicates the rule is global in scope.");
+            _RuleScopeEnum               .setName("RuleScopeEnum");
+            _RuleScopeEnum               .setNullReturnValue("RuleScopeEnum.PERCLASS");
+            _RuleScopeEnum               .setDefinedIn(this);
+
+            _RuleTypeEnum                .setDescription("The RuleTypeEnum indicates the level at which a rule is applied.");
+            _RuleTypeEnum                .addEnumValue("0 ATTRIBUTE Indicates that this is an attribute level rule.");
+            _RuleTypeEnum                .addEnumValue("1 CLASSES   Indicates that this is a class level rule.");
+            _RuleTypeEnum                .setName("RuleTypeEnum");
+            _RuleTypeEnum                .setNullReturnValue("RuleTypeEnum.ATTRIBUTE");
+            _RuleTypeEnum                .setDefinedIn(this);
 
             _ValueTypeEnum               .setDescription("The ValueTypeEnum indicates the cardinality of an attribute as well as the type of Map to be used if the attribute is keyed. This is an extension to original concept of single-valued versus multi-valued. Hashsets are also supported.");
             _ValueTypeEnum               .addEnumValue("0 SINGLE Indicates that the attribute is single-valued.");
@@ -1742,6 +1802,24 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _primitiveType               .setType(_String);
             _primitiveType               .setDefinedIn(this);
 
+            _ruleScope                   .setDescription("The scope of a rule.");
+            _ruleScope                   .setDmdID("137");
+            _ruleScope                   .setName("ruleScope");
+            _ruleScope                   .setType(_RuleScopeEnumREF);
+            _ruleScope                   .setDefinedIn(this);
+
+            _ruleTitle                   .setDescription("The title of a rule.");
+            _ruleTitle                   .setDmdID("138");
+            _ruleTitle                   .setName("ruleTitle");
+            _ruleTitle                   .setType(_String);
+            _ruleTitle                   .setDefinedIn(this);
+
+            _ruleType                    .setDescription("The type of a rule.");
+            _ruleType                    .setDmdID("136");
+            _ruleType                    .setName("ruleType");
+            _ruleType                    .setType(_RuleTypeEnumREF);
+            _ruleType                    .setDefinedIn(this);
+
             _schemaBaseID                .setDescription("The base identifier value for a schema. This value is added to each dmdID value associated with the AttributeDefinitions defined by the schema. This allows for easy rebasing of identifier values if required.");
             _schemaBaseID                .setDmdID("86");
             _schemaBaseID                .setName("schemaBaseID");
@@ -2057,6 +2135,23 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ObjectValidatorDefinition   .setName("ObjectValidatorDefinition");
             _ObjectValidatorDefinition   .setDefinedIn(this);
 
+            _RuleDefinition              .setClassType(ClassTypeEnum.STRUCTURAL);
+            _RuleDefinition              .setDerivedFrom(_DmsDefinition);
+            _RuleDefinition              .setDescription("The RuleDefinition allows for the definition of rules that can be applied to attributes or classes in different operational contexts. Rules are not just for validation, they can be applied to objects at different times in an object's life cycle e.g. the InitRule can initialize a set of attributes to known values. <p/> RuleDefinitions will result in the generation of ClassDefinitions that define the  DMOs that will carry the parameters associated with the rule and expectation that you will define an implementation class for the rule that derives from an abstract BaseImpl (base implementation) of the rule that provides common rule infrastructure and appropriate abstract methods that must be filled in.");
+            _RuleDefinition              .setDmdID("15");
+            _RuleDefinition              .setDmoImport("org.dmd.dms.generated.dmo.RuleDefinitionDMO");
+            _RuleDefinition              .setIsNamedBy(_name);
+            _RuleDefinition              .setJavaClass("org.dmd.dms.RuleDefinition");
+            _RuleDefinition              .addMay(_must);
+            _RuleDefinition              .addMay(_may);
+            _RuleDefinition              .addMay(_description);
+            _RuleDefinition              .addMust(_name);
+            _RuleDefinition              .addMust(_opContext);
+            _RuleDefinition              .addMust(_ruleType);
+            _RuleDefinition              .addMust(_ruleScope);
+            _RuleDefinition              .setName("RuleDefinition");
+            _RuleDefinition              .setDefinedIn(this);
+
             _SchemaDefinition            .setClassType(ClassTypeEnum.STRUCTURAL);
             _SchemaDefinition            .setDerivedFrom(_DmsDefinition);
             _SchemaDefinition            .setDescription("This class is used to define a schema as a discrete, nameable entity.");
@@ -2140,7 +2235,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .setDefinedIn(this);
 
         // Add the definitions to the schema object
-        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:761)
+        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:778)
             this.addClassDefList(_ActionTriggerInfo);
             this.addClassDefList(_DmsDefinition);
             this.addClassDefList(_ClassDefinition);
@@ -2154,9 +2249,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addClassDefList(_AttributeValidatorDefinition);
             this.addClassDefList(_ActionDefinition);
             this.addClassDefList(_SchemaDefinition);
+            this.addClassDefList(_RuleDefinition);
             this.addEnumDefList(_ClassTypeEnum);
             this.addEnumDefList(_ModifyTypeEnum);
             this.addEnumDefList(_OperationalContextEnum);
+            this.addEnumDefList(_RuleTypeEnum);
+            this.addEnumDefList(_RuleScopeEnum);
             this.addEnumDefList(_DataTypeEnum);
             this.addEnumDefList(_ValueTypeEnum);
             this.addEnumDefList(_BaseTypeEnum);
@@ -2206,6 +2304,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_EnumDefinitionREF);
             this.addTypeDefList(_ExtendedReferenceTypeDefinitionREF);
             this.addTypeDefList(_ObjectValidatorDefinitionREF);
+            this.addTypeDefList(_RuleDefinitionREF);
             this.addTypeDefList(_SchemaDefinitionREF);
             this.addTypeDefList(_SliceDefinitionREF);
             this.addTypeDefList(_TypeDefinitionREF);
@@ -2218,6 +2317,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_ModifyTypeEnumREF);
             this.addTypeDefList(_NameTypeEnumREF);
             this.addTypeDefList(_OperationalContextEnumREF);
+            this.addTypeDefList(_RuleScopeEnumREF);
+            this.addTypeDefList(_RuleTypeEnumREF);
             this.addTypeDefList(_ValueTypeEnumREF);
             this.addTypeDefList(_WrapperTypeEnumREF);
             this.addAttributeDefList(_name);
@@ -2351,6 +2452,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_isExtendedRefType);
             this.addAttributeDefList(_longName);
             this.addAttributeDefList(_baseType);
+            this.addAttributeDefList(_ruleType);
+            this.addAttributeDefList(_ruleScope);
+            this.addAttributeDefList(_ruleTitle);
             this.addAttributeDefList(_objectClass);
             this.setName("meta");
             this.setDescription("The meta schema defines the elements used to define schemas.");
