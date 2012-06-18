@@ -30,6 +30,7 @@ import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -2045,6 +2046,32 @@ abstract public class DmcObject implements Serializable {
 			}
 			
 			return(anyChange);
+		}
+	}
+	
+	///////////////////////////////////////////////////////////////////////////
+	// Extensible object support
+	
+	/**
+	 * If this object has a class type of EXTENSIBLE, we return the set of
+	 * attributes that are not part of the class or its auxiliary classes
+	 * i.e. the additional attributes.
+	 * @return null if this object is not extensible or the additional attributes otherwise.
+	 */
+	public Map<Integer, DmcAttribute<?>> getAdditionalAttributes(){
+		if (getConstructionClassInfo().classType == ClassTypeEnum.EXTENSIBLE){
+			TreeMap<Integer,DmcAttribute<?>> map = new TreeMap<Integer, DmcAttribute<?>>();
+			
+			for(DmcAttribute<?> attr: attributes.values()){
+				if (!allowsAttribute(attr.attrInfo)){
+					map.put(attr.ID, attr);
+				}
+			}
+			
+			return(map);
+		}
+		else{
+			return(null);
 		}
 	}
 	
