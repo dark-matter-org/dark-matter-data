@@ -36,8 +36,12 @@ import org.dmd.dms.generated.enums.*;
  * an implementation class for the rule that derives from an abstract
  * BaseImpl (base implementation) of the rule that provides common rule
  * infrastructure and appropriate abstract methods that must be filled in.
+ * <p/> RuleDefinitions and ClassDefinitions share the same dmdID space and
+ * the IDs must be unique. This is because each RuleDefinition results in the
+ * creation of a  ClassDefinition for the DMO part of the rule that carries
+ * the rule parameters.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1248)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1281)
  */
 @SuppressWarnings("serial")
 public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
@@ -55,6 +59,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(MetaDMSAG.__dmdID.id,MetaDMSAG.__dmdID);
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__opContext.id,MetaDMSAG.__opContext);
         _ImAp.put(MetaDMSAG.__ruleScope.id,MetaDMSAG.__ruleScope);
@@ -67,6 +72,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _ImAp.put(MetaDMSAG.__must.id,MetaDMSAG.__must);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(MetaDMSAG.__dmdID.name,MetaDMSAG.__dmdID);
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__opContext.name,MetaDMSAG.__opContext);
         _SmAp.put(MetaDMSAG.__ruleScope.name,MetaDMSAG.__ruleScope);
@@ -123,12 +129,40 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
+     * The dmdID attribute is used to store a unique Dark Matter Definition ID
+     * for attributes. This is used as part of the serialization mechanisms built
+     * into Dark Matter Objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
+    public Integer getDmdID(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__dmdID);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets dmdID to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1673)
+    public void setDmdID(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__dmdID);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(MetaDMSAG.__dmdID);
+        
+        attr.set(value);
+        set(MetaDMSAG.__dmdID,attr);
+    }
+
+    /**
      * The name attribute is used to store a single string token that represents
      * a unique name for an object. A name should be composed of characters in
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1589)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -141,7 +175,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1640)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1673)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -155,7 +189,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Indicates the operational context for some component e.g. object or
      * attribute validators.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1589)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
     public OperationalContextEnum getOpContext(){
         DmcTypeOperationalContextEnumSV attr = (DmcTypeOperationalContextEnumSV) get(MetaDMSAG.__opContext);
         if (attr == null)
@@ -168,7 +202,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets opContext to the specified value.
      * @param value A value compatible with DmcTypeOperationalContextEnumSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1640)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1673)
     public void setOpContext(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__opContext);
         if (attr == null)
@@ -181,7 +215,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     /**
      * The scope of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1589)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
     public RuleScopeEnum getRuleScope(){
         DmcTypeRuleScopeEnumSV attr = (DmcTypeRuleScopeEnumSV) get(MetaDMSAG.__ruleScope);
         if (attr == null)
@@ -194,7 +228,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets ruleScope to the specified value.
      * @param value A value compatible with DmcTypeRuleScopeEnumSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1640)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1673)
     public void setRuleScope(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleScope);
         if (attr == null)
@@ -207,7 +241,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     /**
      * The type of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1589)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
     public RuleTypeEnum getRuleType(){
         DmcTypeRuleTypeEnumSV attr = (DmcTypeRuleTypeEnumSV) get(MetaDMSAG.__ruleType);
         if (attr == null)
@@ -220,7 +254,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets ruleType to the specified value.
      * @param value A value compatible with DmcTypeRuleTypeEnumSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1640)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1673)
     public void setRuleType(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleType);
         if (attr == null)
@@ -233,7 +267,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1589)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -246,7 +280,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1640)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1673)
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -262,7 +296,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1589)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -275,7 +309,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1640)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1673)
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -288,7 +322,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1589)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -301,7 +335,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1640)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1673)
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
@@ -314,7 +348,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1589)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -327,7 +361,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1640)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1673)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -343,7 +377,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * objects.
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1726)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1759)
     public Iterator<AttributeDefinitionREF> getMay(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(MetaDMSAG.__may);
         if (attr == null)
@@ -356,7 +390,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Adds another may value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1777)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1810)
     public DmcAttribute<?> addMay(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__may);
         if (attr == null)
@@ -373,7 +407,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * objects.
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1726)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1759)
     public Iterator<AttributeDefinitionREF> getMust(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(MetaDMSAG.__must);
         if (attr == null)
@@ -386,7 +420,7 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
      * Adds another must value.
      * @param value A value compatible with DmcTypeAttributeDefinitionREFMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1777)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1810)
     public DmcAttribute<?> addMust(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__must);
         if (attr == null)
