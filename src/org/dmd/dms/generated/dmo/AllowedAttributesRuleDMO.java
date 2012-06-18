@@ -25,19 +25,12 @@ import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dms.generated.types.*;
 
 /**
- * The ActionTriggerInfo class simply provides a common base for the bundle
- * of information required to remotely trigger an action on an object. 
- * Derivatives of this class are generated as part of the DMO generation
- * process and have action specific interfaces to handle the parameters 
- * required by an action. <P> This mechanism is a replacement for the concept
- * that ActionRequests were EXTENSIBLE objects. This way, the user can ask an
- * object for the  ActionTriggerInfo (ATI) for a particular action and have a
- * well defined interface to specify the parameters for the action.
+ * null
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1281)
  */
 @SuppressWarnings("serial")
-public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
+public class AllowedAttributesRuleDMO extends DmcObject implements Serializable {
 
 
 
@@ -52,10 +45,10 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
-        _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
+        _ImAp.put(MetaDMSAG.__schemaExtension.id,MetaDMSAG.__schemaExtension);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
-        _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
+        _SmAp.put(MetaDMSAG.__schemaExtension.name,MetaDMSAG.__schemaExtension);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -64,11 +57,11 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
     }
 
 
-    public ActionTriggerInfoDMO(){
-        super("ActionTriggerInfo");
+    public AllowedAttributesRuleDMO(){
+        super("AllowedAttributesRule");
     }
 
-    public ActionTriggerInfoDMO(String oc){
+    public AllowedAttributesRuleDMO(String oc){
         super(oc);
     }
 
@@ -89,45 +82,46 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
     }
 
     @Override
-    public ActionTriggerInfoDMO getNew(){
-        ActionTriggerInfoDMO rc = new ActionTriggerInfoDMO();
+    public AllowedAttributesRuleDMO getNew(){
+        AllowedAttributesRuleDMO rc = new AllowedAttributesRuleDMO();
         return(rc);
     }
 
     @Override
-    public ActionTriggerInfoDMO getSlice(DmcSliceInfo info){
-        ActionTriggerInfoDMO rc = new ActionTriggerInfoDMO();
+    public AllowedAttributesRuleDMO getSlice(DmcSliceInfo info){
+        AllowedAttributesRuleDMO rc = new AllowedAttributesRuleDMO();
         populateSlice(rc,info);
         return(rc);
     }
 
     /**
-     * The name attribute is used to store a single string token that represents
-     * a unique name for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
-     * names must start with a character.
+     * The fully qualified name of a class that extends the schema management
+     * capabilities of the SchemaManager. the class must have a zero arg
+     * constructor and implement the SchemaExtensionIF.
+     * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
-    public StringName getName(){
-        DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1765)
+    public Iterator<String> getSchemaExtension(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__schemaExtension);
         if (attr == null)
             return(null);
 
-        return(attr.getSV());
+        return(attr.getMV());
     }
 
     /**
-     * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringNameSV
+     * Adds another schemaExtension value.
+     * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1673)
-    public void setName(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__name);
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1810)
+    public DmcAttribute<?> addSchemaExtension(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__schemaExtension);
         if (attr == null)
-            attr = new DmcTypeStringNameSV(MetaDMSAG.__name);
+            attr = new DmcTypeStringMV(MetaDMSAG.__schemaExtension);
         
-        attr.set(value);
-        set(MetaDMSAG.__name,attr);
+        attr.add(value);
+        add(MetaDMSAG.__schemaExtension,attr);
+        return(attr);
     }
 
 

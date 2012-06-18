@@ -194,7 +194,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             vcf.dumpSchema("meta", "org.dmd.dms", avDefs, ovDefs, curr.getCanonicalPath() + DMODIR);
             
             RuleFormatter rf = new RuleFormatter(System.out);
-            rf.dumpBaseImplementations("org.dmd.dms", ruleDefs, curr.getCanonicalPath() + RULESDIR);
+            rf.dumpBaseImplementations("meta","org.dmd.dms", ruleDefs, curr.getCanonicalPath() + RULESDIR);
             
             dumpDMWClasses(curr.getCanonicalPath() + DMWDIR);
             
@@ -366,6 +366,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		else if (objClass.equals("RuleDefinition")){
 			ruleDefs.put(name, obj);
 			origOrderRules.add(name);
+			createClassDefForRuleDef(obj);
 		}
 		else{
 			ResultException ex = new ResultException("Unknown definition type: " + objClass);
@@ -373,6 +374,38 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		}
 		
 		allDefs.put(name, obj);
+		
+	}
+	
+	void createClassDefForRuleDef(DmcUncheckedObject uco) throws ResultException {
+		ArrayList<String> 	objClasses = new ArrayList<String>();
+		objClasses.add("ClassDefinition");
+		DmcUncheckedObject 		classDef = new DmcUncheckedObject(objClasses,0);
+		
+		String name = GenUtility.capTheName(uco.getSV("name"));
+		
+		classDef.addValue("name", name);
+		classDef.addValue("classType", "STRUCTURAL");
+		classDef.addValue("dmdID", uco.getSV("dmdID"));
+		classDef.addValue("dmoImport", "org.dmd.dms.generated.dmo" + name + "DMO");
+		
+		NamedStringArray must = uco.get("must");
+		if (must != null){
+			for(String attr: must){
+				classDef.addValue("must", attr);
+			}
+		}
+		
+		NamedStringArray may = uco.get("may");
+		if (may != null){
+			for(String attr: may){
+				classDef.addValue("may", attr);
+			}
+		}
+		
+		classDefs.put(name, classDef);
+		origOrderClasses.add(name);
+		
 		
 	}
 	
