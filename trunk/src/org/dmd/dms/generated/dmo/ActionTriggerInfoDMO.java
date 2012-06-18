@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2011 dark-matter-data committers
+//	Copyright (c) 2012 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -15,14 +15,15 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.dmo;
 
-import java.io.Serializable;
+// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1311)
+import java.io.Serializable;                       // Serializable marker interface - (MetaGenerator.java:1275)
+import java.util.*;                                // Attribute info support - (MetaGenerator.java:1276)
+import org.dmd.dmc.*;                              // Dark matter core - (MetaGenerator.java:1291)
+import org.dmd.dmc.types.*;                        // Basic type access - (MetaGenerator.java:1287)
+import org.dmd.dms.generated.dmo.MetaVCAG;         // Old validation farmeowrk - obsolete - (MetaGenerator.java:1292)
+import org.dmd.dms.generated.types.*;              // Generated type access - (MetaGenerator.java:1302)
 
-import java.util.*;
-
-import org.dmd.dmc.types.*;
-import org.dmd.dmc.*;
-import org.dmd.dms.generated.dmo.MetaVCAG;
-import org.dmd.dms.generated.types.*;
 
 /**
  * The ActionTriggerInfo class simply provides a common base for the bundle
@@ -34,7 +35,7 @@ import org.dmd.dms.generated.types.*;
  * object for the  ActionTriggerInfo (ATI) for a particular action and have a
  * well defined interface to specify the parameters for the action.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1281)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1320)
  */
 @SuppressWarnings("serial")
 public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
@@ -107,7 +108,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1622)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1695)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -120,7 +121,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1673)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1746)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)

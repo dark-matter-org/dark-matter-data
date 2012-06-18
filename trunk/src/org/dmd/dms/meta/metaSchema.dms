@@ -470,36 +470,61 @@ description		Rules in this category are used to initialize objects to a known
  state after creation.
 
 RuleCategory
-name			ValidateObject
+name			ObjectValidation
 ruleCategoryID	2
-ruleInterface
+ruleInterface	org.dmd.dms.shared.interfaces.ObjectValidationIF
 description		Rules in this category are used to validate a complete object. This
  would include objects read from Object Instance Files, objects in CreateRequests
  (after Initialization rules have been applied).
  
 RuleCategory
-name			ValidateModifier
+name			ModifierValidation
 ruleCategoryID	3
-ruleInterface
-description		
+ruleInterface	org.dmd.dms.shared.interfaces.ModifierValidationIF
+description		Rules in this category are used to valid modifications that are
+ about to be applied to an object.
  
 
 ///////////////////////////////////////////////////////////////////////////////
 //RULES
 //
- 
+
 RuleDefinition
 name			AllowedAttributesRule
 dmdID			20
 opContext		DMO
 ruleType		CLASS
 ruleScope		GLOBAL
-ruleCategory	ValidateObject
+ruleCategory	ObjectValidation
+ruleCategory	ModifierValidation
 must			schemaExtension
 description		The AllowedAttributesRule will determine whether or not the 
  attributes of a DMO conform to the must/may specification of its class definition.
  For class of type EXTENSIBLE only the must have attributes are checked.
- I18n http://stackoverflow.com/questions/3503283/gwt-i18n-on-the-server-side
+
+RuleDefinition
+name			InitRule
+dmdID			21
+opContext		DMO
+ruleType		CLASS
+ruleScope		PERCLASS
+ruleCategory	Initialization
+isExtensible	true
+description		The InitRule allows you to specify attribute values for a 
+ newly created object or an object read from file or received in a CreateRequest
+ (for instance). The InitRule will only set the values of attributes that are
+ missing from the object; existing attributes are not alterred. An example
+ usage might be:
+ <p/>
+ <pre>
+ InitRule
+ ruleTitle    Initialize the X class
+ applyToClass X
+ attributeA   some value
+ attributeB   42
+ attributeC   something
+ attributeC   something else
+ </pre>
 
 ********************************************************************************
 //
@@ -2121,6 +2146,7 @@ dmdID			8
 javaClass      	org.dmd.dms.SliceDefinition
 dmoImport		org.dmd.dms.generated.dmo.SliceDefinitionDMO
 derivedFrom     DmsDefinition
+must			name
 must 			selectAttribute
 may				description
 description		The SliceDefinition class is used to define a named set of attributes
@@ -2135,6 +2161,7 @@ dmdID			9
 javaClass      	org.dmd.dms.ObjectValidatorDefinition
 dmoImport		org.dmd.dms.generated.dmo.ObjectValidatorDefinitionDMO
 derivedFrom     DmsDefinition
+must			name
 must            validatorClass
 may				opContext
 may				description
@@ -2149,6 +2176,7 @@ dmdID			10
 javaClass      	org.dmd.dms.AttributeValidatorDefinition
 dmoImport		org.dmd.dms.generated.dmo.AttributeValidatorDefinitionDMO
 derivedFrom     DmsDefinition
+must			name
 must            validatorClass
 may				opContext
 may				description

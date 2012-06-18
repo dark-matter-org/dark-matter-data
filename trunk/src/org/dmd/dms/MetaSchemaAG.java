@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2011 dark-matter-data committers
+//	Copyright (c) 2012 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -20,12 +20,13 @@ import org.dmd.dms.generated.enums.*;
 
 /**
   * This class creates the basic definitions that allow for the definition of schemas.
-  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:682)
+  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:700)
   */
 abstract public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
 
     public static ClassDefinition     _AllowedAttributesRule;
+    public static ClassDefinition     _InitRule;
     public static ClassDefinition     _ActionTriggerInfo;
     public static ClassDefinition     _DmsDefinition;
     public static ClassDefinition     _ClassDefinition;
@@ -39,6 +40,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static ClassDefinition     _AttributeValidatorDefinition;
     public static ClassDefinition     _ActionDefinition;
     public static ClassDefinition     _SchemaDefinition;
+    public static ClassDefinition     _RuleCategory;
     public static ClassDefinition     _RuleDefinition;
 
     public static EnumDefinition      _ClassTypeEnum;
@@ -96,6 +98,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _EnumDefinitionREF;
     public static TypeDefinition      _ExtendedReferenceTypeDefinitionREF;
     public static TypeDefinition      _ObjectValidatorDefinitionREF;
+    public static TypeDefinition      _RuleCategoryREF;
     public static TypeDefinition      _RuleDefinitionREF;
     public static TypeDefinition      _SchemaDefinitionREF;
     public static TypeDefinition      _SliceDefinitionREF;
@@ -248,6 +251,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _ruleType;
     public static AttributeDefinition _ruleScope;
     public static AttributeDefinition _ruleTitle;
+    public static AttributeDefinition _ruleCategory;
+    public static AttributeDefinition _ruleCategoryID;
+    public static AttributeDefinition _ruleInterface;
+    public static AttributeDefinition _isExtensible;
     public static AttributeDefinition _objectClass;
 
     public MetaSchemaAG() throws DmcValueException {
@@ -262,8 +269,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             try{
             _metaSchema = this;
             // Create the class definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:727)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:745)
             _AllowedAttributesRule       = new ClassDefinition("AllowedAttributesRule");
+            _InitRule                    = new ClassDefinition("InitRule");
             _ActionTriggerInfo           = new ClassDefinition("ActionTriggerInfo");
             _DmsDefinition               = new ClassDefinition("DmsDefinition");
             _ClassDefinition             = new ClassDefinition("ClassDefinition");
@@ -277,10 +285,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeValidatorDefinition= new ClassDefinition("AttributeValidatorDefinition");
             _ActionDefinition            = new ClassDefinition("ActionDefinition");
             _SchemaDefinition            = new ClassDefinition("SchemaDefinition");
+            _RuleCategory                = new ClassDefinition("RuleCategory");
             _RuleDefinition              = new ClassDefinition("RuleDefinition");
 
             // Create the enum definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:737)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:755)
             _ClassTypeEnum               = new EnumDefinition("ClassTypeEnum");
             _ModifyTypeEnum              = new EnumDefinition("ModifyTypeEnum");
             _OperationalContextEnum      = new EnumDefinition("OperationalContextEnum");
@@ -296,7 +305,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnum             = new EnumDefinition("WrapperTypeEnum");
 
             // Create the type definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:747)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:765)
             _String                      = new TypeDefinition("String", org.dmd.dmc.types.DmcTypeString.class);
             _DmcObject                   = new TypeDefinition("DmcObject", org.dmd.dmc.types.DmcTypeDmcObject.class);
             _ClassInfoRef                = new TypeDefinition("ClassInfoRef", org.dmd.dmc.types.DmcTypeClassInfoRef.class);
@@ -338,6 +347,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _EnumDefinitionREF           = new TypeDefinition("EnumDefinitionREF", org.dmd.dms.generated.types.DmcTypeEnumDefinitionREF.class, org.dmd.dms.EnumDefinition.class);
             _ExtendedReferenceTypeDefinitionREF= new TypeDefinition("ExtendedReferenceTypeDefinitionREF", org.dmd.dms.generated.types.DmcTypeExtendedReferenceTypeDefinitionREF.class, org.dmd.dms.ExtendedReferenceTypeDefinition.class);
             _ObjectValidatorDefinitionREF= new TypeDefinition("ObjectValidatorDefinitionREF", org.dmd.dms.generated.types.DmcTypeObjectValidatorDefinitionREF.class, org.dmd.dms.ObjectValidatorDefinition.class);
+            _RuleCategoryREF             = new TypeDefinition("RuleCategoryREF", org.dmd.dms.generated.types.DmcTypeRuleCategoryREF.class, org.dmd.dms.RuleCategory.class);
             _RuleDefinitionREF           = new TypeDefinition("RuleDefinitionREF", org.dmd.dms.generated.types.DmcTypeRuleDefinitionREF.class, org.dmd.dms.RuleDefinition.class);
             _SchemaDefinitionREF         = new TypeDefinition("SchemaDefinitionREF", org.dmd.dms.generated.types.DmcTypeSchemaDefinitionREF.class, org.dmd.dms.SchemaDefinition.class);
             _SliceDefinitionREF          = new TypeDefinition("SliceDefinitionREF", org.dmd.dms.generated.types.DmcTypeSliceDefinitionREF.class, org.dmd.dms.SliceDefinition.class);
@@ -357,7 +367,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _WrapperTypeEnumREF          = new TypeDefinition("WrapperTypeEnum", org.dmd.dms.generated.types.DmcTypeWrapperTypeEnum.class);
 
             // Create the attribute definitions
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:774)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:792)
             _name                        = new AttributeDefinition("name", _StringName);
             _dmdID                       = new AttributeDefinition("dmdID", _Integer);
             _schemaExtension             = new AttributeDefinition("schemaExtension", _String);
@@ -492,10 +502,14 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ruleType                    = new AttributeDefinition("ruleType", _RuleTypeEnumREF);
             _ruleScope                   = new AttributeDefinition("ruleScope", _RuleScopeEnumREF);
             _ruleTitle                   = new AttributeDefinition("ruleTitle", _String);
+            _ruleCategory                = new AttributeDefinition("ruleCategory", _RuleCategoryREF);
+            _ruleCategoryID              = new AttributeDefinition("ruleCategoryID", _Integer);
+            _ruleInterface               = new AttributeDefinition("ruleInterface", _String);
+            _isExtensible                = new AttributeDefinition("isExtensible", _Boolean);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Set attribute values on all objects
-            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:799)
+            // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:817)
             _ActionDefinitionREF         .setDescription("This is an internally generated type to allow references to ActionDefinition objects.");
             _ActionDefinitionREF         .setInternallyGenerated("true");
             _ActionDefinitionREF         .setIsRefType("true");
@@ -827,6 +841,15 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _OperationalContextEnumREF   .setPrimitiveType("org.dmd.dms.generated.enums.OperationalContextEnum");
             _OperationalContextEnumREF   .setTypeClassName("org.dmd.dms.generated.types.DmcTypeOperationalContextEnum");
             _OperationalContextEnumREF   .setDefinedIn(this);
+
+            _RuleCategoryREF             .setDescription("This is an internally generated type to allow references to RuleCategory objects.");
+            _RuleCategoryREF             .setInternallyGenerated("true");
+            _RuleCategoryREF             .setIsRefType("true");
+            _RuleCategoryREF             .setName("RuleCategoryREF");
+            _RuleCategoryREF             .setOriginalClass(_RuleCategory);
+            _RuleCategoryREF             .setTypeClassName("org.dmd.dms.generated.types.DmcTypeRuleCategoryREF");
+            _RuleCategoryREF             .setWrapperClassName("org.dmd.dms.RuleCategory");
+            _RuleCategoryREF             .setDefinedIn(this);
 
             _RuleDefinitionREF           .setDescription("This is an internally generated type to allow references to RuleDefinition objects.");
             _RuleDefinitionREF           .setInternallyGenerated("true");
@@ -1587,6 +1610,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _isExtendedRefType           .setType(_Boolean);
             _isExtendedRefType           .setDefinedIn(this);
 
+            _isExtensible                .setDescription("Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible. The best example is the InitRule where any set of attributes can be specified as value for the rule.");
+            _isExtensible                .setDmdID("142");
+            _isExtensible                .setName("isExtensible");
+            _isExtensible                .setType(_Boolean);
+            _isExtensible                .setDefinedIn(this);
+
             _isFilterType                .setDescription("Indicates that a type is derived from DmcFilter.");
             _isFilterType                .setDmdID("125");
             _isFilterType                .setName("isFilterType");
@@ -1804,6 +1833,24 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _primitiveType               .setType(_String);
             _primitiveType               .setDefinedIn(this);
 
+            _ruleCategory                .setDescription("The category of a rule.");
+            _ruleCategory                .setDmdID("139");
+            _ruleCategory                .setName("ruleCategory");
+            _ruleCategory                .setType(_RuleCategoryREF);
+            _ruleCategory                .setDefinedIn(this);
+
+            _ruleCategoryID              .setDescription("The numeric ID of a rule category.");
+            _ruleCategoryID              .setDmdID("140");
+            _ruleCategoryID              .setName("ruleCategoryID");
+            _ruleCategoryID              .setType(_Integer);
+            _ruleCategoryID              .setDefinedIn(this);
+
+            _ruleInterface               .setDescription("The fully qualified name of the interface to be implemented by rules of a particular category.");
+            _ruleInterface               .setDmdID("141");
+            _ruleInterface               .setName("ruleInterface");
+            _ruleInterface               .setType(_String);
+            _ruleInterface               .setDefinedIn(this);
+
             _ruleScope                   .setDescription("The scope of a rule.");
             _ruleScope                   .setDmdID("137");
             _ruleScope                   .setName("ruleScope");
@@ -1985,6 +2032,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AllowedAttributesRule       .setClassType(ClassTypeEnum.STRUCTURAL);
             _AllowedAttributesRule       .setDmdID("20");
             _AllowedAttributesRule       .setDmoImport("org.dmd.dms.generated.dmoAllowedAttributesRuleDMO");
+            _AllowedAttributesRule       .addMust(_ruleTitle);
             _AllowedAttributesRule       .addMust(_schemaExtension);
             _AllowedAttributesRule       .setName("AllowedAttributesRule");
             _AllowedAttributesRule       .setDefinedIn(this);
@@ -2024,6 +2072,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AttributeValidatorDefinition.setJavaClass("org.dmd.dms.AttributeValidatorDefinition");
             _AttributeValidatorDefinition.addMay(_opContext);
             _AttributeValidatorDefinition.addMay(_description);
+            _AttributeValidatorDefinition.addMust(_name);
             _AttributeValidatorDefinition.addMust(_validatorClass);
             _AttributeValidatorDefinition.setName("AttributeValidatorDefinition");
             _AttributeValidatorDefinition.setDefinedIn(this);
@@ -2131,6 +2180,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ExtendedReferenceTypeDefinition.setName("ExtendedReferenceTypeDefinition");
             _ExtendedReferenceTypeDefinition.setDefinedIn(this);
 
+            _InitRule                    .setClassType(ClassTypeEnum.EXTENSIBLE);
+            _InitRule                    .setDmdID("21");
+            _InitRule                    .setDmoImport("org.dmd.dms.generated.dmoInitRuleDMO");
+            _InitRule                    .addMust(_ruleTitle);
+            _InitRule                    .setName("InitRule");
+            _InitRule                    .setDefinedIn(this);
+
             _ObjectValidatorDefinition   .setClassType(ClassTypeEnum.STRUCTURAL);
             _ObjectValidatorDefinition   .setDerivedFrom(_DmsDefinition);
             _ObjectValidatorDefinition   .setDescription("The ObjectValidatorDefinition allows for the the definition of object level validation logic.");
@@ -2140,25 +2196,42 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ObjectValidatorDefinition   .setJavaClass("org.dmd.dms.ObjectValidatorDefinition");
             _ObjectValidatorDefinition   .addMay(_opContext);
             _ObjectValidatorDefinition   .addMay(_description);
+            _ObjectValidatorDefinition   .addMust(_name);
             _ObjectValidatorDefinition   .addMust(_validatorClass);
             _ObjectValidatorDefinition   .setName("ObjectValidatorDefinition");
             _ObjectValidatorDefinition   .setDefinedIn(this);
 
+            _RuleCategory                .setClassType(ClassTypeEnum.STRUCTURAL);
+            _RuleCategory                .setDerivedFrom(_DmsDefinition);
+            _RuleCategory                .setDescription("The RuleCategory allows for the definition of categories of rules to be applied to various objects and indicates the expected interface to be implemented by a rule instance. A RuleDefinition may belong to multiple categories. The basic RuleManager provides interfaces to trigger the RuleCategories defined as part of the meta schema. If you add other rule categories, you would derive from the RuleManager to add the additional methods required");
+            _RuleCategory                .setDmdID("15");
+            _RuleCategory                .setDmoImport("org.dmd.dms.generated.dmo.RuleCategoryDMO");
+            _RuleCategory                .setIsNamedBy(_name);
+            _RuleCategory                .setJavaClass("org.dmd.dms.RuleCategory");
+            _RuleCategory                .addMust(_name);
+            _RuleCategory                .addMust(_ruleCategoryID);
+            _RuleCategory                .addMust(_ruleInterface);
+            _RuleCategory                .addMust(_description);
+            _RuleCategory                .setName("RuleCategory");
+            _RuleCategory                .setDefinedIn(this);
+
             _RuleDefinition              .setClassType(ClassTypeEnum.STRUCTURAL);
             _RuleDefinition              .setDerivedFrom(_DmsDefinition);
             _RuleDefinition              .setDescription("The RuleDefinition allows for the definition of rules that can be applied to attributes or classes in different operational contexts. Rules are not just for validation, they can be applied to objects at different times in an object's life cycle e.g. the InitRule can initialize a set of attributes to known values. <p/> RuleDefinitions will result in the generation of ClassDefinitions that define the  DMOs that will carry the parameters associated with the rule and expectation that you will define an implementation class for the rule that derives from an abstract BaseImpl (base implementation) of the rule that provides common rule infrastructure and appropriate abstract methods that must be filled in. <p/> RuleDefinitions and ClassDefinitions share the same dmdID space and the IDs must be unique. This is because each RuleDefinition results in the creation of a  ClassDefinition for the DMO part of the rule that carries the rule parameters.");
-            _RuleDefinition              .setDmdID("15");
+            _RuleDefinition              .setDmdID("16");
             _RuleDefinition              .setDmoImport("org.dmd.dms.generated.dmo.RuleDefinitionDMO");
             _RuleDefinition              .setIsNamedBy(_name);
             _RuleDefinition              .setJavaClass("org.dmd.dms.RuleDefinition");
             _RuleDefinition              .addMay(_must);
             _RuleDefinition              .addMay(_may);
-            _RuleDefinition              .addMay(_description);
+            _RuleDefinition              .addMay(_isExtensible);
             _RuleDefinition              .addMust(_name);
             _RuleDefinition              .addMust(_opContext);
             _RuleDefinition              .addMust(_ruleType);
             _RuleDefinition              .addMust(_ruleScope);
+            _RuleDefinition              .addMust(_ruleCategory);
             _RuleDefinition              .addMust(_dmdID);
+            _RuleDefinition              .addMust(_description);
             _RuleDefinition              .setName("RuleDefinition");
             _RuleDefinition              .setDefinedIn(this);
 
@@ -2204,6 +2277,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SliceDefinition             .setIsNamedBy(_name);
             _SliceDefinition             .setJavaClass("org.dmd.dms.SliceDefinition");
             _SliceDefinition             .addMay(_description);
+            _SliceDefinition             .addMust(_name);
             _SliceDefinition             .addMust(_selectAttribute);
             _SliceDefinition             .setName("SliceDefinition");
             _SliceDefinition             .setDefinedIn(this);
@@ -2245,8 +2319,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .setDefinedIn(this);
 
         // Add the definitions to the schema object
-        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:811)
+        // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:829)
             this.addClassDefList(_AllowedAttributesRule);
+            this.addClassDefList(_InitRule);
             this.addClassDefList(_ActionTriggerInfo);
             this.addClassDefList(_DmsDefinition);
             this.addClassDefList(_ClassDefinition);
@@ -2260,6 +2335,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addClassDefList(_AttributeValidatorDefinition);
             this.addClassDefList(_ActionDefinition);
             this.addClassDefList(_SchemaDefinition);
+            this.addClassDefList(_RuleCategory);
             this.addClassDefList(_RuleDefinition);
             this.addEnumDefList(_ClassTypeEnum);
             this.addEnumDefList(_ModifyTypeEnum);
@@ -2315,6 +2391,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_EnumDefinitionREF);
             this.addTypeDefList(_ExtendedReferenceTypeDefinitionREF);
             this.addTypeDefList(_ObjectValidatorDefinitionREF);
+            this.addTypeDefList(_RuleCategoryREF);
             this.addTypeDefList(_RuleDefinitionREF);
             this.addTypeDefList(_SchemaDefinitionREF);
             this.addTypeDefList(_SliceDefinitionREF);
@@ -2466,6 +2543,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_ruleType);
             this.addAttributeDefList(_ruleScope);
             this.addAttributeDefList(_ruleTitle);
+            this.addAttributeDefList(_ruleCategory);
+            this.addAttributeDefList(_ruleCategoryID);
+            this.addAttributeDefList(_ruleInterface);
+            this.addAttributeDefList(_isExtensible);
             this.addAttributeDefList(_objectClass);
             this.setName("meta");
             this.setDescription("The meta schema defines the elements used to define schemas.");

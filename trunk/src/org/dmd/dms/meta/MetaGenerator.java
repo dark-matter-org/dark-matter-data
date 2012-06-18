@@ -31,6 +31,7 @@ import org.dmd.dms.util.DmoValidatorCollectionFormatter;
 import org.dmd.dms.util.GenUtility;
 import org.dmd.dms.util.RuleFormatter;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
@@ -105,6 +106,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	// Rule definitions
 	TreeMap<String,DmcUncheckedObject>	ruleDefs;
 	
+	// Rule category definitions
+	TreeMap<String,DmcUncheckedObject>	ruleCategoryDefs;
+	
     // Some of the definitions have to be defined in a particular order, so
     // we maintain the order in which they appear in the Dmd file.
     ArrayList<String>   			origOrderClasses;
@@ -115,6 +119,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
     ArrayList<String>   			origOrderAVDs;
     ArrayList<String>   			origOrderOVDs;
     ArrayList<String>   			origOrderRules;
+    ArrayList<String>   			origOrderCategories;
 	
 
 	// Handle to the source directory name
@@ -132,6 +137,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		avDefs 					= new TreeMap<String,DmcUncheckedObject>();
 		ovDefs 					= new TreeMap<String,DmcUncheckedObject>();
 		ruleDefs 				= new TreeMap<String,DmcUncheckedObject>();
+		ruleCategoryDefs 		= new TreeMap<String,DmcUncheckedObject>();
 		
         origOrderClasses    	= new ArrayList<String>();
         origOrderAttrs      	= new ArrayList<String>();
@@ -141,6 +147,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         origOrderAVDs			= new ArrayList<String>();
         origOrderOVDs			= new ArrayList<String>();
         origOrderRules			= new ArrayList<String>();
+        origOrderCategories		= new ArrayList<String>();
 		
 		parser 				= new DmcUncheckedOIFParser(this);
 	}
@@ -194,7 +201,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             vcf.dumpSchema("meta", "org.dmd.dms", avDefs, ovDefs, curr.getCanonicalPath() + DMODIR);
             
             RuleFormatter rf = new RuleFormatter(System.out);
-            rf.dumpBaseImplementations("meta","org.dmd.dms", ruleDefs, curr.getCanonicalPath() + RULESDIR);
+            rf.dumpBaseImplementations("meta","org.dmd.dms", ruleDefs, ruleCategoryDefs, curr.getCanonicalPath() + RULESDIR);
             
             dumpDMWClasses(curr.getCanonicalPath() + DMWDIR);
             
@@ -368,6 +375,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			origOrderRules.add(name);
 			createClassDefForRuleDef(obj);
 		}
+		else if (objClass.equals("RuleCategory")){
+			ruleCategoryDefs.put(name, obj);
+			origOrderCategories.add(name);
+		}
 		else{
 			ResultException ex = new ResultException("Unknown definition type: " + objClass);
 			ex.result.lastResult().lineNumber(obj.lineNumber);
@@ -383,11 +394,18 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		DmcUncheckedObject 		classDef = new DmcUncheckedObject(objClasses,0);
 		
 		String name = GenUtility.capTheName(uco.getSV("name"));
+		String isExtensible	= uco.getSV("isExtensible");
+		String ctype = "STRUCTURAL";
+		
+		if (isExtensible != null){
+			ctype = "EXTENSIBLE";
+		}
 		
 		classDef.addValue("name", name);
-		classDef.addValue("classType", "STRUCTURAL");
+		classDef.addValue("classType", ctype);
 		classDef.addValue("dmdID", uco.getSV("dmdID"));
 		classDef.addValue("dmoImport", "org.dmd.dms.generated.dmo" + name + "DMO");
+		classDef.addValue("must", "ruleTitle");
 		
 		NamedStringArray must = uco.get("must");
 		if (must != null){
@@ -1251,25 +1269,46 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
                     out.write(LGPL.toString());
                     out.write("package org.dmd.dms.generated.dmo;\n\n");
+                    
+                    ImportManager	imports = new ImportManager();
 
-                    out.write("import java.io.Serializable;\n\n");
-                    out.write("import java.util.*;\n\n");
+                    imports.addImport("java.io.Serializable", "Serializable marker interface");
+                    imports.addImport("java.util.*", "Attribute info support");
                     
+//                    out.write("import java.io.Serializable;\n\n");
+//                    out.write("import java.util.*;\n\n");
+                    
+                    boolean needBasicTypes = getAllMustAndMay(go, must, may);
+
                     // HACK HACK HACK
-                    if (!cn.equals("DmwWrapper"))
-                    	out.write("import org.dmd.dmc.types.*;\n");
+                    if (!cn.equals("DmwWrapper")){
+                    	// Only include if the type of an attribute has a primitive type specified
+                    	if (needBasicTypes)
+                    		imports.addImport("org.dmd.dmc.types.*", "Basic type access");
+//                    	out.write("import org.dmd.dmc.types.*;\n");
+                    }
                     
-                    out.write("import org.dmd.dmc.*;\n");
-                    out.write("import org.dmd.dms.generated.dmo.MetaVCAG;\n");
+                    imports.addImport("org.dmd.dmc.*", "Dark matter core");
+                    imports.addImport("org.dmd.dms.generated.dmo.MetaVCAG", "Old validation farmeowrk - obsolete");
+                    
+//                    out.write("import org.dmd.dmc.*;\n");
+//                    out.write("import org.dmd.dms.generated.dmo.MetaVCAG;\n");
 
                     if (cn.equals("EnumDefinition")){
-                    	out.write("import org.dmd.dms.types.*;\n");
+                        imports.addImport("org.dmd.dms.types.*", "Enum support");
+//                    	out.write("import org.dmd.dms.types.*;\n");
                     }
 
-                    out.write("import org.dmd.dms.generated.types.*;\n");
+                    imports.addImport("org.dmd.dms.generated.types.*", "Generated type access");
+
+//                    out.write("import org.dmd.dms.generated.types.*;\n");
                     
-                    if (hasAnyEnumAttributes(go))
-                    	out.write("import org.dmd.dms.generated.enums.*;\n");
+                    if (hasAnyEnumAttributes(go)){
+                        imports.addImport("org.dmd.dms.generated.enums.*", "Has enum attributes");
+//                    	out.write("import org.dmd.dms.generated.enums.*;\n");
+                    }
+                    
+                    out.write(imports.getFormattedImports() + "\n");
 
                     out.write("\n");
 
@@ -1311,7 +1350,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
                     
                     // Gather the attributes together
-                    getAllMustAndMay(go, must, may);
+// Moved this up so that we could scan the attributes to see if we needed primitive type import
+//                    getAllMustAndMay(go, must, may);
                     
                     atlist 	= new ArrayList<String>();
                     
@@ -1508,8 +1548,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         }
     }
     
-    public void getAllMustAndMay(DmcUncheckedObject uco, TreeSet<String> must, TreeSet<String> may) throws ResultException{
+    public boolean getAllMustAndMay(DmcUncheckedObject uco, TreeSet<String> must, TreeSet<String> may) throws ResultException{
     	String derivedFrom = uco.getSV("derivedFrom");
+    	boolean needPrimitiveTypeImport = false;
    
     	if (derivedFrom != null){
     		DmcUncheckedObject base = classDefs.get(derivedFrom);
@@ -1520,6 +1561,21 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
     	if (mustAttr != null){
     		for(String name: mustAttr){
     			must.add(name);
+    			
+    			DmcUncheckedObject attrDef = attributeDefs.get(name);
+    			String attrType = attrDef.getSV("type");
+    			DmcUncheckedObject typeDef = typeDefs.get(attrType);
+    			
+    			// If this is an object reference, the type won't be in types - skip it
+    			if (typeDef == null)
+    				continue;
+    			
+    			String primitiveType = typeDef.getSV("primitiveType");
+    			
+    			if (primitiveType != null){
+    				if (primitiveType.startsWith("org.dmd.dmc.types"))
+    					needPrimitiveTypeImport = true;
+    			}
     		}
     	}
     	
@@ -1527,8 +1583,25 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
     	if (mayAttr != null){
     		for(String name: mayAttr){
     			may.add(name);
+    			
+    			DmcUncheckedObject attrDef = attributeDefs.get(name);
+    			String attrType = attrDef.getSV("type");
+    			DmcUncheckedObject typeDef = typeDefs.get(attrType);
+    			
+    			// If this is an object reference, the type won't be in types - skip it
+    			if (typeDef == null)
+    				continue;
+    			
+    			String primitiveType = typeDef.getSV("primitiveType");
+    			
+    			if (primitiveType != null){
+    				if (primitiveType.startsWith("org.dmd.dmc.types"))
+    					needPrimitiveTypeImport = true;
+    			}
     		}
     	}
+    	
+    	return(needPrimitiveTypeImport);
     }
     
     

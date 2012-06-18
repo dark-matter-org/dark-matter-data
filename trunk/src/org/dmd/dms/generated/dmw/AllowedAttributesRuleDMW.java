@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2011 dark-matter-data committers
+//	Copyright (c) 2012 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -29,7 +29,7 @@ import org.dmd.dms.*;
 /**
  * null
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1059)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1077)
  */
 @SuppressWarnings("unused")
 public class AllowedAttributesRuleDMW extends DmwWrapper {
@@ -59,12 +59,29 @@ public class AllowedAttributesRuleDMW extends DmwWrapper {
     }
 
     /**
+     * The title of a rule.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1721)
+    public String getRuleTitle(){
+        return(mycore.getRuleTitle());
+    }
+
+    /**
+     * Sets ruleTitle to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1773)
+    public void setRuleTitle(Object value) throws DmcValueException {
+        mycore.setRuleTitle(value);
+    }
+
+    /**
      * The fully qualified name of a class that extends the schema management
      * capabilities of the SchemaManager. the class must have a zero arg
      * constructor and implement the SchemaExtensionIF.
      * @return An Iterator of String objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1866)
     public Iterator<String> getSchemaExtension(){
         DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__schemaExtension);
         if (attr == null)
@@ -77,7 +94,7 @@ public class AllowedAttributesRuleDMW extends DmwWrapper {
      * Adds another schemaExtension value.
      * @param value A value compatible with DmcTypeStringMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1840)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1913)
     public DmcAttribute<?> addSchemaExtension(Object value) throws DmcValueException {
         return(mycore.addSchemaExtension(value));
     }
@@ -85,7 +102,7 @@ public class AllowedAttributesRuleDMW extends DmwWrapper {
     /**
      * Returns the number of schemaExtension values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1851)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1924)
     public int getSchemaExtensionSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__schemaExtension);
         if (attr == null)
