@@ -14,7 +14,7 @@ import org.dmd.dmt.shared.generated.dmo.PrimitiveHSDMO;    // DmcType import
  * The DmcTypePrimitiveHSREFSET provides storage for a set of PrimitiveHSDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2536)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -44,7 +44,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2573)
     public DmcAttribute<PrimitiveHSDMO> cloneIt(){
         synchronized(this){
             DmcTypePrimitiveHSREFSET rc = getNew();
@@ -59,7 +59,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2592)
     public PrimitiveHSDMO add(Object v) throws DmcValueException {
         synchronized(this){
             PrimitiveHSDMO rc = typeCheck(v);
@@ -75,7 +75,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
     public PrimitiveHSDMO del(Object v){
         synchronized(this){
             PrimitiveHSDMO rc = null;
@@ -99,7 +99,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2634)
     public Iterator<PrimitiveHSDMO> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -109,7 +109,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
     public Set<PrimitiveHSDMO> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -120,7 +120,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -130,7 +130,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2680)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

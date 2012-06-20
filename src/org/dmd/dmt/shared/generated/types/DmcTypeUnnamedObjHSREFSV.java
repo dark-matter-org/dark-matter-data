@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.dmo.UnnamedObjHSDMO;    // DmcType import
  * The DmcTypeUnnamedObjHSREFSV provides storage for a single-valued UnnamedObjHS
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1909)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -34,14 +34,14 @@ public class DmcTypeUnnamedObjHSREFSV extends DmcTypeUnnamedObjHSREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1941)
     public DmcAttribute<UnnamedObjHSDMO> cloneIt(){
         DmcTypeUnnamedObjHSREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1952)
     public UnnamedObjHSDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -49,7 +49,7 @@ public class DmcTypeUnnamedObjHSREFSV extends DmcTypeUnnamedObjHSREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1964)
     public UnnamedObjHSDMO set(Object v) throws DmcValueException {
         UnnamedObjHSDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

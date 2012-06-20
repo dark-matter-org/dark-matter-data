@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeObjWithRefsREFSV provides storage for a single-valued ObjWithRefsREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1909)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
@@ -33,14 +33,14 @@ public class DmcTypeObjWithRefsREFSV extends DmcTypeObjWithRefsREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1941)
     public DmcAttribute<ObjWithRefsREF> cloneIt(){
         DmcTypeObjWithRefsREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1952)
     public ObjWithRefsREF getSVCopy(){
         if (value == null)
             return(null);
@@ -48,7 +48,7 @@ public class DmcTypeObjWithRefsREFSV extends DmcTypeObjWithRefsREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1964)
     public ObjWithRefsREF set(Object v) throws DmcValueException {
         ObjWithRefsREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

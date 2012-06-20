@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.PreAuthResponseDMO;    // DmcType import
  * The DmcTypePreAuthResponseREFMV provides storage for a multi-valued PreAuthResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2253)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypePreAuthResponseREFMV extends DmcTypePreAuthResponseREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2283)
     public DmcAttribute<PreAuthResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypePreAuthResponseREFMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypePreAuthResponseREFMV extends DmcTypePreAuthResponseREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2312)
     public PreAuthResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             PreAuthResponseDMO rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypePreAuthResponseREFMV extends DmcTypePreAuthResponseREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2325)
     public PreAuthResponseDMO del(Object v){
         synchronized(this){
             PreAuthResponseDMO key = null;
@@ -106,7 +106,7 @@ public class DmcTypePreAuthResponseREFMV extends DmcTypePreAuthResponseREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2356)
     public Iterator<PreAuthResponseDMO> getMV(){
         synchronized(this){
             ArrayList<PreAuthResponseDMO> clone = new ArrayList<PreAuthResponseDMO>(value);
@@ -114,7 +114,7 @@ public class DmcTypePreAuthResponseREFMV extends DmcTypePreAuthResponseREF imple
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2365)
     public ArrayList<PreAuthResponseDMO> getMVCopy(){
         synchronized(this){
             ArrayList<PreAuthResponseDMO> clone = new ArrayList<PreAuthResponseDMO>(value);
@@ -123,7 +123,7 @@ public class DmcTypePreAuthResponseREFMV extends DmcTypePreAuthResponseREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2375)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -137,7 +137,7 @@ public class DmcTypePreAuthResponseREFMV extends DmcTypePreAuthResponseREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2390)
     public PreAuthResponseDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +147,7 @@ public class DmcTypePreAuthResponseREFMV extends DmcTypePreAuthResponseREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2401)
     public PreAuthResponseDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -174,7 +174,7 @@ public class DmcTypePreAuthResponseREFMV extends DmcTypePreAuthResponseREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2429)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,7 +197,7 @@ public class DmcTypePreAuthResponseREFMV extends DmcTypePreAuthResponseREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2453)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
