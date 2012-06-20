@@ -75,7 +75,7 @@ public class GenUtility {
 		
 		anyMVAttributes.set(false);
 		anySVAttributes.set(false);
-		if ((cd != null) && cd.getName().getNameString().startsWith("TestBasicAuxiliary"))
+		if ((cd != null) && cd.getName().getNameString().startsWith("ExtendedRefSV"))
 			DebugInfo.debug("HERE");
 		
 //		boolean interested = false;
@@ -188,7 +188,11 @@ public class GenUtility {
 		if ( (cd != null) && (cd.getFullAttrMap().size() > 0) )
 			anyAttributes = true;
 		
-		if ( (cd != null)  || (anyMVAttributes.booleanValue())){
+		if (cd == null){
+			if (anyMVAttributes.booleanValue())
+				addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
+		}
+		else{
 			if (cd.getClassType() != ClassTypeEnum.AUXILIARY)
 				addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
 		}
