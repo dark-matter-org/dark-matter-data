@@ -1,16 +1,16 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
-import java.io.Serializable;                                         // Always required - (GenUtility.java:197)
-import java.util.*;                                                  // Always required if we have any MV attributes - (GenUtility.java:193)
-import org.dmd.dmc.DmcAttribute;                                     // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcObject;                                        // Structural class - (GenUtility.java:324)
-import org.dmd.dmc.DmcSliceInfo;                                     // Required for object slicing - (GenUtility.java:202)
-import org.dmd.dmc.DmcValueException;                                // Any attributes - (GenUtility.java:214)
-import org.dmd.dmc.types.StringToString;                             // Primitive type and !auxiliary class - (GenUtility.java:244)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                          // Required for MODREC constructor - (GenUtility.java:201)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                // Required for MODREC constructor - (GenUtility.java:200)
-import org.dmd.dms.generated.types.DmcTypeStringToStringMAP;         // Required type - (GenUtility.java:301)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:374)
+import java.io.Serializable;                                         // Always required - (GenUtility.java:203)
+import java.util.*;                                                  // Always required if we have any MV attributes - (GenUtility.java:198)
+import org.dmd.dmc.DmcAttribute;                                     // Any attributes - (GenUtility.java:219)
+import org.dmd.dmc.DmcObject;                                        // Structural class - (GenUtility.java:330)
+import org.dmd.dmc.DmcSliceInfo;                                     // Required for object slicing - (GenUtility.java:208)
+import org.dmd.dmc.DmcValueException;                                // Any attributes - (GenUtility.java:220)
+import org.dmd.dmc.types.StringToString;                             // Primitive type and !auxiliary class - (GenUtility.java:250)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                          // Required for MODREC constructor - (GenUtility.java:207)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                // Required for MODREC constructor - (GenUtility.java:206)
+import org.dmd.dms.generated.types.DmcTypeStringToStringMAP;         // Required type - (GenUtility.java:307)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -88,7 +88,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of StringToString objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1406)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1412)
     public Iterator<StringToString> getHmString(){
         DmcTypeStringToStringMAP attr = (DmcTypeStringToStringMAP) get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -101,7 +101,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * @param key The key of the value you want.
      * @return The StringToString associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1438)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1444)
     public StringToString getHmString(Object key){
         DmcTypeStringToStringMAP attr = (DmcTypeStringToStringMAP) get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -114,7 +114,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * Adds another hmString value.
      * @param value A value compatible with StringToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1476)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1482)
     public DmcAttribute<?> addHmString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -129,7 +129,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * Adds another hmString value.
      * @param value StringToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1513)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1519)
     public DmcAttribute<?> addHmString(StringToString value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hmString);
         if (attr == null)
@@ -149,7 +149,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * Deletes a hmString value.
      * @param key The key of the StringToString to be deleted from the map of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1575)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1581)
     public DmcAttribute<?> delHmString(Object key){
         DmcAttribute<?> attr = get(DmtDMSAG.__hmString);
         
@@ -167,7 +167,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
      * Deletes a hmString value.
      * @param key the String key value
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1593)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1599)
     public DmcAttribute<?> delHmString(String key) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hmString);
         
@@ -184,7 +184,7 @@ public class PrimitiveHMDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the hmString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1647)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1653)
     public void remHmString(){
          rem(DmtDMSAG.__hmString);
     }

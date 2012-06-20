@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeWrapperGeneratorREFMAP provides storage for a map of WrapperGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2756)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2762)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -71,7 +71,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2810)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2816)
     public DmcAttribute<WrapperGeneratorREF> cloneIt(){
         synchronized(this){
             DmcTypeWrapperGeneratorREFMAP rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2826)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2832)
     public WrapperGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
             WrapperGeneratorREF newval = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2847)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2853)
     public WrapperGeneratorREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -117,7 +117,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2865)
     public Iterator<WrapperGeneratorREF> getMV(){
         synchronized(this){
             Map<StringName,WrapperGeneratorREF> clone = null;
@@ -129,7 +129,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2872)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2878)
     public Map<StringName,WrapperGeneratorREF> getMVCopy(){
         synchronized(this){
             Map<StringName,WrapperGeneratorREF> clone = null;
@@ -141,7 +141,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2891)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,7 +152,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2897)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2903)
     public WrapperGeneratorREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -163,7 +163,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2909)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2915)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -176,7 +176,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2930)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2936)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof StringName)

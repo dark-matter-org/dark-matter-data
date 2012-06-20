@@ -15,19 +15,19 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmg.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
-import java.io.Serializable;                                    // Always required - (GenUtility.java:197)
-import java.util.*;                                             // Always required if we have any MV attributes - (GenUtility.java:193)
-import org.dmd.dmc.DmcAttribute;                                // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcNamedObjectIF;                            // Named object - (GenUtility.java:348)
-import org.dmd.dmc.DmcObject;                                   // Structural class - (GenUtility.java:324)
-import org.dmd.dmc.DmcSliceInfo;                                // Required for object slicing - (GenUtility.java:202)
-import org.dmd.dmc.DmcValueException;                           // Any attributes - (GenUtility.java:214)
-import org.dmd.dmc.types.StringName;                            // Naming attribute type - (GenUtility.java:343)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                     // Required for MODREC constructor - (GenUtility.java:201)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;           // Required for MODREC constructor - (GenUtility.java:200)
-import org.dmd.dms.generated.types.DmcTypeStringNameSV;         // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeStringSV;             // Required type - (GenUtility.java:301)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:374)
+import java.io.Serializable;                                    // Always required - (GenUtility.java:203)
+import java.util.*;                                             // Always required if we have any MV attributes - (GenUtility.java:198)
+import org.dmd.dmc.DmcAttribute;                                // Any attributes - (GenUtility.java:219)
+import org.dmd.dmc.DmcNamedObjectIF;                            // Named object - (GenUtility.java:354)
+import org.dmd.dmc.DmcObject;                                   // Structural class - (GenUtility.java:330)
+import org.dmd.dmc.DmcSliceInfo;                                // Required for object slicing - (GenUtility.java:208)
+import org.dmd.dmc.DmcValueException;                           // Any attributes - (GenUtility.java:220)
+import org.dmd.dmc.types.StringName;                            // Naming attribute type - (GenUtility.java:349)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                     // Required for MODREC constructor - (GenUtility.java:207)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;           // Required for MODREC constructor - (GenUtility.java:206)
+import org.dmd.dms.generated.types.DmcTypeStringNameSV;         // Required type - (GenUtility.java:307)
+import org.dmd.dms.generated.types.DmcTypeStringSV;             // Required type - (GenUtility.java:307)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -131,7 +131,7 @@ public class ActifactGeneratorDMO  extends DmcObject  implements DmcNamedObjectI
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:757)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -144,7 +144,7 @@ public class ActifactGeneratorDMO  extends DmcObject  implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:797)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -163,7 +163,7 @@ public class ActifactGeneratorDMO  extends DmcObject  implements DmcNamedObjectI
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:850)
     public void setName(Object value) throws DmcValueException {
         DmcTypeStringNameSV attr  = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -176,12 +176,12 @@ public class ActifactGeneratorDMO  extends DmcObject  implements DmcNamedObjectI
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:870)
     public void remName(){
          rem(MetaDMSAG.__name);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:757)
     public String getGenClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmgDMSAG.__genClass);
         if (attr == null)
@@ -194,7 +194,7 @@ public class ActifactGeneratorDMO  extends DmcObject  implements DmcNamedObjectI
      * Sets genClass to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:797)
     public void setGenClass(String value) {
         DmcAttribute<?> attr = get(DmgDMSAG.__genClass);
         if (attr == null)
@@ -213,7 +213,7 @@ public class ActifactGeneratorDMO  extends DmcObject  implements DmcNamedObjectI
      * Sets genClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:850)
     public void setGenClass(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmgDMSAG.__genClass);
         if (attr == null)
@@ -226,7 +226,7 @@ public class ActifactGeneratorDMO  extends DmcObject  implements DmcNamedObjectI
     /**
      * Removes the genClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:870)
     public void remGenClass(){
          rem(DmgDMSAG.__genClass);
     }

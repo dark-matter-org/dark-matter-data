@@ -25,8 +25,8 @@ import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // DmcType im
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2078)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1993)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2084)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
  */
 public class DmcTypeResponseCategoryEnumSTATIC {
     
