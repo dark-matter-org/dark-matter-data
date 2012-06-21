@@ -107,11 +107,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	 */
 	public DmcObjectName getNameValue() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
 		DmcObjectName rc = null;
-		
-		if (getNameType() == null){
-			throw(new IllegalStateException("The " + getName() + " type is not a name type!"));
-		}
-		
+				
 		if (getNameAttributeDef() == null){
 			throw(new IllegalStateException("The " + getName() + " type does not have a designated name attribute definition!"));
 		}

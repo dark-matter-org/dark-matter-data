@@ -1,7 +1,7 @@
 // This Dark Matter Schema (DMS) defines the meta-schema of dark-matter. The meta-schema
-// is defined in terms of itself i.e. the all of the definitions that you see here are 
-// defined in terms of the definition you see here. This meta-schema is read by the MetaGenerator
-// and turned into to basic Dark Matter Objects (DMOs) that are used to define schema.
+// is defined in terms of itself i.e. all of the definitions that you see here are 
+// defined in terms of the definitions you see here. This meta-schema is read by the MetaGenerator
+// and turned into to the basic Dark Matter Objects (DMOs) that are used to define schema.
 
 TypeDefinition
 name 			String
@@ -37,6 +37,22 @@ primitiveType   org.dmd.dmc.types.NameContainer
 altType			DmcObjectName
 altTypeImport	org.dmd.dmc.DmcObjectName
 description		The NameContainer type allows for the storage of object names of different types.
+ This mechanism is required because the naming mechanisms associated with dark-matter allow for
+ different ways of naming objects. When the name of something is transported, it has to be 
+ self describing i.e. the type of the naming attribute must be known so that the appropriate 
+ name type can be instantiated. An example of this comes from the Dark Matter Protocol. 
+ The targets attribute is defined as a NameContainer. An instance of targets might appear
+ as follows:
+ <pre>
+ targets uuidName 809408a7-f00b-448c-beb6-00337e83acc4
+ </pre>
+ As you can see, the attribute name is targets and the value is uuidName 809408a7-f00b-448c-beb6-00337e83acc4.
+ The uuidName attribute is the designatedNameAttribute for the UUIDName type. So, when parsing/deserializing a
+ name container, we always know the underlying type of the name.
+ <p/>
+ This approach makes dark-matter name handling completely extensible.
+ <p/>
+ A similar approach is taken to filter specifications via the FilterContainer.
 
 TypeDefinition
 name 			FilterContainer
@@ -125,37 +141,40 @@ TypeDefinition
 name			StringName
 typeClassName	org.dmd.dmc.types.DmcTypeStringName
 primitiveType	org.dmd.dmc.types.StringName
-nameType		STRUCTURAL
 isNameType		true
+description		The StringName is the simplest naming mechanism available; it's just a String.
 
 TypeDefinition
 name			CamelCaseName
 typeClassName	org.dmd.dmc.types.DmcTypeCamelCaseName
 primitiveType	org.dmd.dmc.types.CamelCaseName
-nameType		STRUCTURAL
 isNameType		true
+description		The CamelCaseName is a string based name that must start with an alpha character
+ which is followed by a mix of alphanumerics. 
 
 TypeDefinition
 name			IntegerName
 typeClassName	org.dmd.dmc.types.DmcTypeIntegerName
 primitiveType	org.dmd.dmc.types.IntegerName
-nameType		STRUCTURAL
 isNameType		true
+description		An IntegerName provides the means to uniquely identify an object using an integer value.
 
 TypeDefinition
 name			LongName
 typeClassName	org.dmd.dmc.types.DmcTypeLongName
 primitiveType	org.dmd.dmc.types.LongName
-nameType		STRUCTURAL
 isNameType		true
+description		A LongName provides the means to uniquely identify an object using a long value.
 
 TypeDefinition
 name				DotName
 typeClassName		org.dmd.dmc.types.DmcTypeDotName
 primitiveType		org.dmd.dmc.types.DotName
-nameType			STRUCTURAL
 isNameType			true
 isHierarchicName	true
+description			The DotName provides standard mechanisms to deal with hierarchic names composed of
+ strings interspersed with periods (dots) to separate the name elements. For example
+ a dot name might be one.two.three
 
 TypeDefinition
 name			ClassFilter
@@ -183,15 +202,17 @@ TypeDefinition
 name 			UUIDLite
 typeClassName	org.dmd.dmc.types.DmcTypeUUIDLite
 primitiveType	org.dmd.dmc.types.UUIDLite
-description		Provides support UUIDs in GWT environments.
+description		The UUIDLite provides support for UUIDs in GWT environments; a full UUID implementation
+ is not supported by the GWT JRE Emulation mechanisms. It holds two long values that represent a complete
+ java.util.UUID as generated within the server environment. The methods to parse a UUID from a String and
+ present it as a String are taken from the java.util.UUID class.
 
 TypeDefinition
 name 			UUIDName
 typeClassName	org.dmd.dmc.types.DmcTypeUUIDName
 primitiveType	org.dmd.dmc.types.UUIDName
-description		Provides support naming objects on the basis of a UUIDLite.
-nameType		STRUCTURAL
 isNameType		true
+description		The UUIDName allows for the naming of objects based on the GWT compatible UUIDLite type.
 
 TypeDefinition
 name 			IntegerToBoolean
@@ -211,7 +232,6 @@ TypeDefinition
 name			FullyQualifiedName
 typeClassName	org.dmd.dmc.types.DmcTypeFullyQualifiedName
 primitiveType	org.dmd.dmc.types.FullyQualifiedName
-nameType		STRUCTURAL
 isNameType		true
 
 TypeDefinition
@@ -300,7 +320,7 @@ name			RuleTypeEnum
 description		The RuleTypeEnum indicates the level at which a rule is applied.
 nullReturnValue RuleTypeEnum.ATTRIBUTE
 enumValue		0 ATTRIBUTE Indicates that this is an attribute level rule.
-enumValue		1 CLASSES   Indicates that this is a class level rule.
+enumValue		1 CLASS     Indicates that this is a class level rule.
 
 EnumDefinition
 name			RuleScopeEnum
@@ -364,52 +384,10 @@ enumValue		3 EXTENDEDREF 	Indicates an extended reference.
 enumValue		4 KEYED			Indicates a type that has a defined key type.
 
 EnumDefinition
-name            NameTypeEnum
-description		Name types come in two flavours, ABSTRACT and STRUCTURAL; the nameType
- provides the Dark Matter code generation mechanisms a hint as to how one or more names
- should be held in an attribute.
- <P>
- If defined as ABSTRACT a name type is just a base for a naming scheme from
- which all of your DmcObjectNameIF implementing classes derive. If you refer to an ABSTRACT
- object name type in an attribute definition, additional code will be generated to wrap
- name values stored in that attribute to include their individual type information (basically
- an attribute within an attribute). This implies additional overhead for each value stored.
- <P>
- If, on the other hand, you refer to a STRUCTURAL name type in an attribute definition,
- the attribute will contain one or more values of an homogenous type. In this case,
- the type information is at the attribute level and not repeated for each value.
- <P>
- When defining naming structures, you must ensure that only the leaves of your name class
- derivation hierarchy are defined as structural; all other names MUST be defined as abstract.
-enumValue		0 ABSTRACT An abstract name class 
-enumValue		1 STRUCTURAL A structural name class is an actual name implementation.
-
-EnumDefinition
 name			ModificationControlEnum
 description		The ModificationControlEnum indicates 
 nullReturnValue ValueTypeEnum.SINGLE
 enumValue		0 SINGLE Indicates that the attribute is single-valued.
-
-// This has to be rethought and may somply be replaced on an as needed basis
-// for other schemas, such as the DMR repository schema
-//EnumDefinition
-//name			DataTypeEnum
-//description		The DataTypeEnum indicates the types of persistence/data access
-// mechanism to be used for attributes.
-//nullReturnValue DataTypeEnum.NONE
-//enumValue		0 NONE Indicates that the data has no associated persistenece characteristics.
-//enumValue		1 PERSISTENT Indicates that the data is persistent. Data that is set to be persistent
-// may have its schema added to the repository associated with an application.
-//enumValue		2 CACHED Indicates that the data is cached but not persistent. Data of this type
-// is usually retrieved from a remote system or device but isn't persisted by
-// an application.
-//enumValue		3 ONDEMAND Indicates that the data is retrieved from a remote system or device
-// whenever it is demanded. Data that changes quickly (for example performance
-// counters) is usually tagged as ONDEMAND.
-//enumValue		4 TRANSIENT Indicates that the data is transient i.e. it exists within the server
-// but isn't persisted and isn't retrieved from any remote source.
-//enumValue		5 TRANSIENTREPLICATED Indicates that the data is transient, but is also replicated between
-// the primary server and the standby server.
 
 EnumDefinition
 name			FilterTypeEnum
@@ -1462,8 +1440,8 @@ name				nameAttributeDef
 dmdID				90
 type				AttributeDefinition
 description			The nameAttributeDef is a reference to the attribute that is locked
- to a TypeDefinition that is flagged as nameType STRUCTURAL. This mechanism is used to create the
- correct type of DmcType[NAMETYPE]SV derivative for a value of type DmcObjectName.
+ to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]*
+ derivative for a value of type DmcObjectName.
 
 AttributeDefinition
 name                dmwIteratorImport
@@ -1550,16 +1528,16 @@ name                designatedNameAttribute
 dmdID				102
 type                Boolean
 description    		The designatedNameAttribute flag is used to identify the attribute
- designated as the standard wrapper for names of a particular STRUCTURAL nameType. 
- One, and only one, attribute definition can be the designatedNameAttribute for a 
- TypeDefinition that is identified as a STRUCTURAL nameType.
+ designated as the standard wrapper for names of a particular type. One, and only one,
+ attribute definition can be the designatedNameAttribute for a TypeDefinition that has
+ isNameType true.
 
-AttributeDefinition
-name                nameType
-dmdID				103
-type                NameTypeEnum
-description    		The type of an object name type. See the NameTypeEnum for a 
- detailed description of what this means.
+//AttributeDefinition
+//name                nameType
+//dmdID				103
+//type                NameTypeEnum
+//description    		The type of an object name type. See the NameTypeEnum for a 
+// detailed description of what this means.
 
 AttributeDefinition
 name                fieldSeparator
@@ -1588,7 +1566,6 @@ name                dotName
 dmdID				107
 type                DotName
 designatedNameAttribute true
-//dataType          	TRANSIENT
 description    The dotName attribute is used to store dot separated names.
 
 AttributeDefinition
@@ -1868,9 +1845,7 @@ AttributeDefinition
 name             	objectClass
 dmdID				1
 type            	ClassDefinition
-//isMultiValued    	true
 valueType			MULTI
-//dataType          	TRANSIENT
 description    Used to indicate the classes that an object instance supports.
 
 //
@@ -2045,7 +2020,6 @@ may				genericArgs
 may				isNameType
 may				isFilterType
 may				isHierarchicName
-may				nameType
 may				keyClass
 may				keyImport
 may				nameAttributeDef

@@ -331,10 +331,9 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * The designatedNameAttribute flag is used to identify the attribute
-     * designated as the standard wrapper for names of a particular STRUCTURAL
-     * nameType.  One, and only one, attribute definition can be the
-     * designatedNameAttribute for a  TypeDefinition that is identified as a
-     * STRUCTURAL nameType.
+     * designated as the standard wrapper for names of a particular type. One,
+     * and only one, attribute definition can be the designatedNameAttribute for
+     * a TypeDefinition that has isNameType true.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1695)
     public Boolean getDesignatedNameAttribute(){

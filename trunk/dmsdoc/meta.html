@@ -19,7 +19,7 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (14)</h2>
+    <h2> Classes (17)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -29,6 +29,10 @@
       <tr>
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#ActionTriggerInfo"> ActionTriggerInfo </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#AllowedAttributesRule"> AllowedAttributesRule </a></td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -67,7 +71,16 @@
       </tr>
       <tr>
       <td class="spacer"> </td>
+      <td> <a class="deflink" href="#InitRule"> InitRule </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
       <td> <a class="deflink" href="#ObjectValidatorDefinition"> ObjectValidatorDefinition </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#RuleCategory"> RuleCategory </a></td>
       <td> name </td>
       </tr>
       <tr>
@@ -126,7 +139,7 @@
       <li> <a class="deflink" href="#UUIDName"> UUIDName </a></li>
     </ul>
     </div>    <div class="enumList">
-    <h2>Enums (13)</h2>
+    <h2>Enums (12)</h2>
     <ul>
       <li> <a class="deflink" href="#BaseTypeEnum"> BaseTypeEnum </a></li>
       <li> <a class="deflink" href="#ClassTypeEnum"> ClassTypeEnum </a></li>
@@ -135,7 +148,6 @@
       <li> <a class="deflink" href="#FilterTypeEnum"> FilterTypeEnum </a></li>
       <li> <a class="deflink" href="#ModificationControlEnum"> ModificationControlEnum </a></li>
       <li> <a class="deflink" href="#ModifyTypeEnum"> ModifyTypeEnum </a></li>
-      <li> <a class="deflink" href="#NameTypeEnum"> NameTypeEnum </a></li>
       <li> <a class="deflink" href="#OperationalContextEnum"> OperationalContextEnum </a></li>
       <li> <a class="deflink" href="#RuleScopeEnum"> RuleScopeEnum </a></li>
       <li> <a class="deflink" href="#RuleTypeEnum"> RuleTypeEnum </a></li>
@@ -302,6 +314,37 @@
 
   <table>
 
+    <tr> <td class="className" colspan="4"> <a name="AllowedAttributesRule"> AllowedAttributesRule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The title of a rule. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#schemaExtension">schemaExtension</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fully qualified name of a class that extends the schema management capabilities of the SchemaManager. the class must have a zero arg constructor and implement the SchemaExtensionIF. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
     <tr> <td class="className" colspan="4"> <a name="AttributeDefinition"> AttributeDefinition </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -386,7 +429,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#designatedNameAttribute">designatedNameAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> The designatedNameAttribute flag is used to identify the attribute designated as the standard wrapper for names of a particular STRUCTURAL nameType.  One, and only one, attribute definition can be the designatedNameAttribute for a  TypeDefinition that is identified as a STRUCTURAL nameType. </td>
+      <td> The designatedNameAttribute flag is used to identify the attribute designated as the standard wrapper for names of a particular type. One, and only one, attribute definition can be the designatedNameAttribute for a TypeDefinition that has isNameType true. </td>
     </tr>
 
     <tr>
@@ -574,6 +617,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="meta.html#dmdID">dmdID</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes. This is used as part of the serialization mechanisms built into Dark Matter Objects. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
@@ -633,14 +684,6 @@
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#dmdID">dmdID</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes. This is used as part of the serialization mechanisms built into Dark Matter Objects. </td>
     </tr>
 
     <tr>
@@ -834,7 +877,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="meta.html#ActionDefinition">ActionDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeValidatorDefinition">AttributeValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div>      <div class="derived"> <a href="meta.html#ComplexTypeDefinition">ComplexTypeDefinition</a> </div>      <div class="derived"> <a href="meta.html#EnumDefinition">EnumDefinition</a> </div>      <div class="derived"> <a href="meta.html#ObjectValidatorDefinition">ObjectValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#RuleDefinition">RuleDefinition</a> </div>      <div class="derived"> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </div>      <div class="derived"> <a href="meta.html#SliceDefinition">SliceDefinition</a> </div>      <div class="derived"> <a href="meta.html#TypeDefinition">TypeDefinition</a> </div>      </td>
+      <div class="derived"> <a href="meta.html#ActionDefinition">ActionDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeValidatorDefinition">AttributeValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div>      <div class="derived"> <a href="meta.html#ComplexTypeDefinition">ComplexTypeDefinition</a> </div>      <div class="derived"> <a href="meta.html#EnumDefinition">EnumDefinition</a> </div>      <div class="derived"> <a href="meta.html#ObjectValidatorDefinition">ObjectValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#RuleCategory">RuleCategory</a> </div>      <div class="derived"> <a href="meta.html#RuleDefinition">RuleDefinition</a> </div>      <div class="derived"> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </div>      <div class="derived"> <a href="meta.html#SliceDefinition">SliceDefinition</a> </div>      <div class="derived"> <a href="meta.html#TypeDefinition">TypeDefinition</a> </div>      </td>
     </tr>
 
     <tr>
@@ -1010,6 +1053,29 @@
 
   <table>
 
+    <tr> <td class="className" colspan="4"> <a name="InitRule"> InitRule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">EXTENSIBLE</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The title of a rule. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
     <tr> <td class="className" colspan="4"> <a name="ObjectValidatorDefinition"> ObjectValidatorDefinition </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -1077,11 +1143,11 @@
 
   <table>
 
-    <tr> <td class="className" colspan="4"> <a name="RuleDefinition"> RuleDefinition </a> </td></tr>
+    <tr> <td class="className" colspan="4"> <a name="RuleCategory"> RuleCategory </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The RuleDefinition allows for the definition of rules that can be applied to attributes or classes in different operational contexts. Rules are not just for validation, they can be applied to objects at different times in an object's life cycle e.g. the InitRule can initialize a set of attributes to known values. <p/> RuleDefinitions will result in the generation of ClassDefinitions that define the  DMOs that will carry the parameters associated with the rule and expectation that you will define an implementation class for the rule that derives from an abstract BaseImpl (base implementation) of the rule that provides common rule infrastructure and appropriate abstract methods that must be filled in.</td>
+      <td colspan="2">The RuleCategory allows for the definition of categories of rules to be applied to various objects and indicates the expected interface to be implemented by a rule instance. A RuleDefinition may belong to multiple categories. The basic RuleManager provides interfaces to trigger the RuleCategories defined as part of the meta schema. If you add other rule categories, you would derive from the RuleManager to add the additional methods required</td>
     </tr>
 
     <tr>
@@ -1111,6 +1177,89 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#ruleCategoryID">ruleCategoryID</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> The numeric ID of a rule category. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#ruleInterface">ruleInterface</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fully qualified name of the interface to be implemented by rules of a particular category. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="RuleDefinition"> RuleDefinition </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The RuleDefinition allows for the definition of rules that can be applied to attributes or classes in different operational contexts. Rules are not just for validation, they can be applied to objects at different times in an object's life cycle e.g. the InitRule can initialize a set of attributes to known values. <p/> RuleDefinitions will result in the generation of ClassDefinitions that define the  DMOs that will carry the parameters associated with the rule and expectation that you will define an implementation class for the rule that derives from an abstract BaseImpl (base implementation) of the rule that provides common rule infrastructure and appropriate abstract methods that must be filled in. <p/> RuleDefinitions and ClassDefinitions share the same dmdID space and the IDs must be unique. This is because each RuleDefinition results in the creation of a  ClassDefinition for the DMO part of the rule that carries the rule parameters.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#DmsDefinition">DmsDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#dmdID">dmdID</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes. This is used as part of the serialization mechanisms built into Dark Matter Objects. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
@@ -1122,6 +1271,14 @@
       <td> <a href="meta.html#opContext">opContext</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#OperationalContextEnum">OperationalContextEnum</a> </td>
       <td> Indicates the operational context for some component e.g. object or attribute validators. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#ruleCategory">ruleCategory</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleCategory">RuleCategory</a> </td>
+      <td> The category of a rule. </td>
     </tr>
 
     <tr>
@@ -1143,9 +1300,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> <a href="meta.html#isExtensible">isExtensible</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible. The best example is the InitRule where any set of attributes can be specified as value for the rule. </td>
     </tr>
 
     <tr>
@@ -1490,15 +1647,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#nameAttributeDef">nameAttributeDef</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> The nameAttributeDef is a reference to the attribute that is locked to a TypeDefinition that is flagged as nameType STRUCTURAL. This mechanism is used to create the correct type of DmcType[NAMETYPE]SV derivative for a value of type DmcObjectName. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#nameType">nameType</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#NameTypeEnum">NameTypeEnum</a> </td>
-      <td> The type of an object name type. See the NameTypeEnum for a  detailed description of what this means. </td>
+      <td> The nameAttributeDef is a reference to the attribute that is locked to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]* derivative for a value of type DmcObjectName. </td>
     </tr>
 
     <tr>
@@ -1901,7 +2050,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The designatedNameAttribute flag is used to identify the attribute designated as the standard wrapper for names of a particular STRUCTURAL nameType.  One, and only one, attribute definition can be the designatedNameAttribute for a  TypeDefinition that is identified as a STRUCTURAL nameType.</td>
+      <td>The designatedNameAttribute flag is used to identify the attribute designated as the standard wrapper for names of a particular type. One, and only one, attribute definition can be the designatedNameAttribute for a TypeDefinition that has isNameType true.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="dmdID"> dmdID </a> </td></tr>
@@ -2554,6 +2703,19 @@
       <td>This flag is used to indicate taht an internally generated type is an extended reference type.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="isExtensible"> isExtensible </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible. The best example is the InitRule where any set of attributes can be specified as value for the rule.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="isFilterType"> isFilterType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2863,20 +3025,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The nameAttributeDef is a reference to the attribute that is locked to a TypeDefinition that is flagged as nameType STRUCTURAL. This mechanism is used to create the correct type of DmcType[NAMETYPE]SV derivative for a value of type DmcObjectName.</td>
-    </tr>
-
-    <tr> <td class="className" colspan="3"> <a name="nameType"> nameType </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#NameTypeEnum">NameTypeEnum</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>The type of an object name type. See the NameTypeEnum for a  detailed description of what this means.</td>
+      <td>The nameAttributeDef is a reference to the attribute that is locked to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]* derivative for a value of type DmcObjectName.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="namingAttribute"> namingAttribute </a> </td></tr>
@@ -2981,6 +3130,45 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The primitiveType indicates the underlying type of a DmcType.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="ruleCategory"> ruleCategory </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#RuleCategory">RuleCategory</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The category of a rule.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="ruleCategoryID"> ruleCategoryID </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The numeric ID of a rule category.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="ruleInterface"> ruleInterface </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The fully qualified name of the interface to be implemented by rules of a particular category.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="ruleScope"> ruleScope </a> </td></tr>
@@ -3368,36 +3556,37 @@
     <td> isExtendedRefType (<a href="meta.html#isExtendedRefType">meta</a>) </td>
 </tr>
   <tr>
+    <td> isExtensible (<a href="meta.html#isExtensible">meta</a>) </td>
     <td> isFilterType (<a href="meta.html#isFilterType">meta</a>) </td>
     <td> isGetAction (<a href="meta.html#isGetAction">meta</a>) </td>
-    <td> isHierarchicName (<a href="meta.html#isHierarchicName">meta</a>) </td>
 </tr>
   <tr>
+    <td> isHierarchicName (<a href="meta.html#isHierarchicName">meta</a>) </td>
     <td> isNameType (<a href="meta.html#isNameType">meta</a>) </td>
     <td> isRefType (<a href="meta.html#isRefType">meta</a>) </td>
-    <td> isSchemaRtype (<a href="meta.html#isSchemaRtype">meta</a>) </td>
 </tr>
   <tr>
+    <td> isSchemaRtype (<a href="meta.html#isSchemaRtype">meta</a>) </td>
     <td> isTransportable (<a href="meta.html#isTransportable">meta</a>) </td>
     <td> lastResponse (<a href="dmp.html#lastResponse">dmp</a>) </td>
-    <td> maySendProgress (<a href="meta.html#maySendProgress">meta</a>) </td>
 </tr>
   <tr>
+    <td> maySendProgress (<a href="meta.html#maySendProgress">meta</a>) </td>
     <td> mvBoolean (<a href="dmt.html#mvBoolean">dmt</a>) </td>
     <td> myOwnEvent (<a href="dmp.html#myOwnEvent">dmp</a>) </td>
-    <td> notifyOriginator (<a href="dmp.html#notifyOriginator">dmp</a>) </td>
 </tr>
   <tr>
+    <td> notifyOriginator (<a href="dmp.html#notifyOriginator">dmp</a>) </td>
     <td> onOff (<a href="dmt.html#onOff">dmt</a>) </td>
     <td> readableFormat (<a href="dmp.html#readableFormat">dmp</a>) </td>
-    <td> registerForEvents (<a href="dmp.html#registerForEvents">dmp</a>) </td>
 </tr>
   <tr>
+    <td> registerForEvents (<a href="dmp.html#registerForEvents">dmp</a>) </td>
     <td> secure (<a href="meta.html#secure">meta</a>) </td>
     <td> supportsBackrefTracking (<a href="meta.html#supportsBackrefTracking">meta</a>) </td>
-    <td> svBoolean (<a href="dmt.html#svBoolean">dmt</a>) </td>
 </tr>
   <tr>
+    <td> svBoolean (<a href="dmt.html#svBoolean">dmt</a>) </td>
     <td> trackingEnabled (<a href="dmp.html#trackingEnabled">dmp</a>) </td>
 </tr>
 </table>
@@ -3799,12 +3988,15 @@
 </tr>
   <tr>
     <td> requestID (<a href="dmp.html#requestID">dmp</a>) </td>
+    <td> ruleCategoryID (<a href="meta.html#ruleCategoryID">meta</a>) </td>
     <td> schemaBaseID (<a href="meta.html#schemaBaseID">meta</a>) </td>
-    <td> schemaIDRange (<a href="meta.html#schemaIDRange">meta</a>) </td>
 </tr>
   <tr>
+    <td> schemaIDRange (<a href="meta.html#schemaIDRange">meta</a>) </td>
     <td> svInteger (<a href="dmt.html#svInteger">dmt</a>) </td>
     <td> timeoutSeconds (<a href="dmp.html#timeoutSeconds">dmp</a>) </td>
+</tr>
+  <tr>
     <td> tsInteger (<a href="dmt.html#tsInteger">dmt</a>) </td>
 </tr>
 </table>
@@ -4029,6 +4221,12 @@
     <tr> <td class="typeName" colspan="3"> <a name="Modifier"> Modifier </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td> The Modifier type is used to represent modification operations on a DmcObject. Any modification to an object can be represented by a Modifier. The string representation of a modification can take the following forms: <ul> <li> &ltattribute name&gt ADD &ltvalue&gt</li> <li> &ltattribute name&gt DEL &ltvalue&gt</li> <li> &ltattribute name&gt SET &ltvalue&gt</li> <li> &ltattribute name&gt NTH &ltindex&gt &ltvalue&gt</li> <li> &ltattribute name&gt NTH &ltindex&gt</li> <li> &ltattribute name&gt REM </li> </ul> </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td class="label">Type class</td>
       <td>org.dmd.dmc.types.DmcTypeModifier</td>
     </tr>
@@ -4055,7 +4253,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> The NameContainer type allows for the storage of object names of different types. </td>
+      <td> The NameContainer type allows for the storage of object names of different types. This mechanism is required because the naming mechanisms associated with dark-matter allow for different ways of naming objects. When the name of something is transported, it has to be  self describing i.e. the type of the naming attribute must be known so that the appropriate  name type can be instantiated. An example of this comes from the Dark Matter Protocol.  The targets attribute is defined as a NameContainer. An instance of targets might appear as follows: <pre> targets uuidName 809408a7-f00b-448c-beb6-00337e83acc4 </pre> As you can see, the attribute name is targets and the value is uuidName 809408a7-f00b-448c-beb6-00337e83acc4. The uuidName attribute is the designatedNameAttribute for the UUIDName type. So, when parsing/deserializing a name container, we always know the underlying type of the name. <p/> This approach makes dark-matter name handling completely extensible. <p/> A similar approach is taken to filter specifications via the FilterContainer. </td>
     </tr>
 
     <tr>
@@ -4212,35 +4410,36 @@
 </tr>
   <tr>
     <td> responseText (<a href="dmp.html#responseText">dmp</a>) </td>
+    <td> ruleInterface (<a href="meta.html#ruleInterface">meta</a>) </td>
     <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
-    <td> schemaExtension (<a href="meta.html#schemaExtension">meta</a>) </td>
 </tr>
   <tr>
+    <td> schemaExtension (<a href="meta.html#schemaExtension">meta</a>) </td>
     <td> schemaPackage (<a href="meta.html#schemaPackage">meta</a>) </td>
     <td> schemaToLoad (<a href="dmg.html#schemaToLoad">dmg</a>) </td>
-    <td> sessionID (<a href="dmp.html#sessionID">dmp</a>) </td>
 </tr>
   <tr>
+    <td> sessionID (<a href="dmp.html#sessionID">dmp</a>) </td>
     <td> setType (<a href="meta.html#setType">meta</a>) </td>
     <td> slice (<a href="dmp.html#slice">dmp</a>) </td>
-    <td> subpackage (<a href="meta.html#subpackage">meta</a>) </td>
 </tr>
   <tr>
+    <td> subpackage (<a href="meta.html#subpackage">meta</a>) </td>
     <td> svString (<a href="dmt.html#svString">dmt</a>) </td>
     <td> transString (<a href="dmt.html#transString">dmt</a>) </td>
-    <td> tsString (<a href="dmt.html#tsString">dmt</a>) </td>
 </tr>
   <tr>
+    <td> tsString (<a href="dmt.html#tsString">dmt</a>) </td>
     <td> typeClassName (<a href="meta.html#typeClassName">meta</a>) </td>
     <td> upperConstantName (<a href="dmg.html#upperConstantName">dmg</a>) </td>
-    <td> userFQN (<a href="dmp.html#userFQN">dmp</a>) </td>
 </tr>
   <tr>
+    <td> userFQN (<a href="dmp.html#userFQN">dmp</a>) </td>
     <td> userName (<a href="dmr.base.html#userName">dmr.base</a>) </td>
     <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
-    <td> validatorClass (<a href="meta.html#validatorClass">meta</a>) </td>
 </tr>
   <tr>
+    <td> validatorClass (<a href="meta.html#validatorClass">meta</a>) </td>
     <td> valueClass (<a href="meta.html#valueClass">meta</a>) </td>
     <td> wrapperClassName (<a href="meta.html#wrapperClassName">meta</a>) </td>
 </tr>
@@ -4689,27 +4888,6 @@
       <td>The NTH operation sets the value at the specified index.</td>
     </tr>
 
-    <tr> <td class="className" colspan="4"> <a name="NameTypeEnum"> NameTypeEnum </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label" colspan="2">Description</td>
-      <td>Name types come in two flavours, ABSTRACT and STRUCTURAL; the nameType provides the Dark Matter code generation mechanisms a hint as to how one or more names should be held in an attribute. <P> If defined as ABSTRACT a name type is just a base for a naming scheme from which all of your DmcObjectNameIF implementing classes derive. If you refer to an ABSTRACT object name type in an attribute definition, additional code will be generated to wrap name values stored in that attribute to include their individual type information (basically an attribute within an attribute). This implies additional overhead for each value stored. <P> If, on the other hand, you refer to a STRUCTURAL name type in an attribute definition, the attribute will contain one or more values of an homogenous type. In this case, the type information is at the attribute level and not repeated for each value. <P> When defining naming structures, you must ensure that only the leaves of your name class derivation hierarchy are defined as structural; all other names MUST be defined as abstract.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 0</td>
-      <td> ABSTRACT</td>
-      <td>An abstract name class</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 1</td>
-      <td> STRUCTURAL</td>
-      <td>A structural name class is an actual name implementation.</td>
-    </tr>
-
     <tr> <td class="className" colspan="4"> <a name="OperationalContextEnum"> OperationalContextEnum </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4776,7 +4954,7 @@
     <tr>
       <td class="spacer"> </td>
       <td> 1</td>
-      <td> CLASSES</td>
+      <td> CLASS</td>
       <td>Indicates that this is a class level rule.</td>
     </tr>
 

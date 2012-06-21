@@ -29,8 +29,8 @@ import org.dmd.dmc.types.StringName;    // base type import
  * These methods are used to support ComplexTypeDefinitions.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2078)
- *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1993)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSTATICType(GenUtility.java:2082)
+ *    Called from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1997)
  */
 public class DmcTypeStringNameSTATIC implements DmcNameBuilderIF {
     

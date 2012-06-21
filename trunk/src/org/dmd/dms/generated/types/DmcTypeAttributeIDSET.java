@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeAttributeID;    // DmcType import
  * The DmcTypeAttributeIDSET provides storage for a set of AttributeID
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:292)
  */
 @SuppressWarnings("serial")
@@ -60,7 +60,7 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public DmcAttribute<AttributeID> cloneIt(){
         synchronized(this){
             DmcTypeAttributeIDSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public AttributeID add(Object v) throws DmcValueException {
         synchronized(this){
             AttributeID rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
     public AttributeID del(Object v){
         synchronized(this){
             AttributeID rc = null;
@@ -115,7 +115,7 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
     public Iterator<AttributeID> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -125,7 +125,7 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
     public Set<AttributeID> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -136,7 +136,7 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeAttributeIDSET extends DmcTypeAttributeID implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

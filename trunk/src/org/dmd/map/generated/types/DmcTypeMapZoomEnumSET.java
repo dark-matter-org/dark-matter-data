@@ -29,7 +29,7 @@ import org.dmd.map.generated.enums.MapZoomEnum;    // DmcType import
  * The DmcTypeMapZoomEnumSET provides storage for a set of MapZoomEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:362)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public DmcAttribute<MapZoomEnum> cloneIt(){
         synchronized(this){
             DmcTypeMapZoomEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public MapZoomEnum add(Object v) throws DmcValueException {
         synchronized(this){
             MapZoomEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
     public MapZoomEnum del(Object v){
         synchronized(this){
             MapZoomEnum rc = null;
@@ -114,7 +114,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
     public Iterator<MapZoomEnum> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -124,7 +124,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
     public Set<MapZoomEnum> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -135,7 +135,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

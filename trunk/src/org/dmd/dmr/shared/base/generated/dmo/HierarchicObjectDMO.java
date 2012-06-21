@@ -15,20 +15,20 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.base.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
-import java.io.Serializable;                                            // Always required - (GenUtility.java:197)
-import java.util.*;                                                     // Always required if we have any MV attributes - (GenUtility.java:193)
-import org.dmd.dmc.DmcAttribute;                                        // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcNamedObjectIF;                                    // Named object - (GenUtility.java:348)
-import org.dmd.dmc.DmcObject;                                           // Structural class - (GenUtility.java:324)
-import org.dmd.dmc.DmcSliceInfo;                                        // Required for object slicing - (GenUtility.java:202)
-import org.dmd.dmc.DmcValueException;                                   // Any attributes - (GenUtility.java:214)
-import org.dmd.dmc.types.FullyQualifiedName;                            // Naming attribute type - (GenUtility.java:343)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Required for MODREC constructor - (GenUtility.java:201)
-import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSV;         // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeIntegerSV;                    // Required type - (GenUtility.java:301)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor - (GenUtility.java:200)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                     // Required type - (GenUtility.java:301)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:372)
+import java.io.Serializable;                                            // Always required - (GenUtility.java:201)
+import java.util.*;                                                     // Always required if we have any MV attributes - (GenUtility.java:197)
+import org.dmd.dmc.DmcAttribute;                                        // Any attributes - (GenUtility.java:217)
+import org.dmd.dmc.DmcNamedObjectIF;                                    // Named object - (GenUtility.java:352)
+import org.dmd.dmc.DmcObject;                                           // Structural class - (GenUtility.java:328)
+import org.dmd.dmc.DmcSliceInfo;                                        // Required for object slicing - (GenUtility.java:206)
+import org.dmd.dmc.DmcValueException;                                   // Any attributes - (GenUtility.java:218)
+import org.dmd.dmc.types.FullyQualifiedName;                            // Naming attribute type - (GenUtility.java:347)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Required for MODREC constructor - (GenUtility.java:205)
+import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSV;         // Required type - (GenUtility.java:305)
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;                    // Required type - (GenUtility.java:305)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor - (GenUtility.java:204)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                     // Required type - (GenUtility.java:305)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -135,7 +135,7 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:755)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -148,7 +148,7 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
     public void setLineNumber(Integer value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -167,7 +167,7 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:848)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -180,12 +180,12 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Removes the lineNumber attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:868)
     public void remLineNumber(){
          rem(MetaDMSAG.__lineNumber);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:755)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -198,7 +198,7 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets file to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
     public void setFile(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
@@ -217,7 +217,7 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:848)
     public void setFile(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -230,12 +230,12 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Removes the file attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:868)
     public void remFile(){
          rem(MetaDMSAG.__file);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:755)
     public FullyQualifiedName getFQN(){
         DmcTypeFullyQualifiedNameSV attr = (DmcTypeFullyQualifiedNameSV) get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -248,7 +248,7 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
     public void setFQN(FullyQualifiedName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -267,7 +267,7 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:848)
     public void setFQN(Object value) throws DmcValueException {
         DmcTypeFullyQualifiedNameSV attr  = (DmcTypeFullyQualifiedNameSV) get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -280,7 +280,7 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:868)
     public void remFQN(){
          rem(MetaDMSAG.__FQN);
     }

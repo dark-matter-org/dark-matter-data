@@ -14,7 +14,7 @@ import org.dmd.dmt.shared.generated.dmo.NamedObjTMDMO;    // DmcType import
  * The DmcTypeNamedObjTMREFSET provides storage for a set of NamedObjTMDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -44,7 +44,7 @@ public class DmcTypeNamedObjTMREFSET extends DmcTypeNamedObjTMREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public DmcAttribute<NamedObjTMDMO> cloneIt(){
         synchronized(this){
             DmcTypeNamedObjTMREFSET rc = getNew();
@@ -59,7 +59,7 @@ public class DmcTypeNamedObjTMREFSET extends DmcTypeNamedObjTMREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public NamedObjTMDMO add(Object v) throws DmcValueException {
         synchronized(this){
             NamedObjTMDMO rc = typeCheck(v);
@@ -75,7 +75,7 @@ public class DmcTypeNamedObjTMREFSET extends DmcTypeNamedObjTMREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
     public NamedObjTMDMO del(Object v){
         synchronized(this){
             NamedObjTMDMO rc = null;
@@ -99,7 +99,7 @@ public class DmcTypeNamedObjTMREFSET extends DmcTypeNamedObjTMREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
     public Iterator<NamedObjTMDMO> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -109,7 +109,7 @@ public class DmcTypeNamedObjTMREFSET extends DmcTypeNamedObjTMREF implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
     public Set<NamedObjTMDMO> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -120,7 +120,7 @@ public class DmcTypeNamedObjTMREFSET extends DmcTypeNamedObjTMREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -130,7 +130,7 @@ public class DmcTypeNamedObjTMREFSET extends DmcTypeNamedObjTMREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
