@@ -22,7 +22,6 @@ import java.util.*;                                // Attribute info support - (
 import org.dmd.dmc.*;                              // Dark matter core - (MetaGenerator.java:1291)
 import org.dmd.dmc.types.*;                        // Basic type access - (MetaGenerator.java:1287)
 import org.dmd.dms.generated.dmo.MetaVCAG;         // Old validation farmeowrk - obsolete - (MetaGenerator.java:1292)
-import org.dmd.dms.generated.enums.*;              // Has enum attributes - (MetaGenerator.java:1307)
 import org.dmd.dms.generated.types.*;              // Generated type access - (MetaGenerator.java:1302)
 
 
@@ -80,7 +79,6 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _ImAp.put(MetaDMSAG.__keyImport.id,MetaDMSAG.__keyImport);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__nameAttributeDef.id,MetaDMSAG.__nameAttributeDef);
-        _ImAp.put(MetaDMSAG.__nameType.id,MetaDMSAG.__nameType);
         _ImAp.put(MetaDMSAG.__nullReturnValue.id,MetaDMSAG.__nullReturnValue);
         _ImAp.put(MetaDMSAG.__originalClass.id,MetaDMSAG.__originalClass);
         _ImAp.put(MetaDMSAG.__primitiveType.id,MetaDMSAG.__primitiveType);
@@ -111,7 +109,6 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _SmAp.put(MetaDMSAG.__keyImport.name,MetaDMSAG.__keyImport);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__nameAttributeDef.name,MetaDMSAG.__nameAttributeDef);
-        _SmAp.put(MetaDMSAG.__nameType.name,MetaDMSAG.__nameType);
         _SmAp.put(MetaDMSAG.__nullReturnValue.name,MetaDMSAG.__nullReturnValue);
         _SmAp.put(MetaDMSAG.__originalClass.name,MetaDMSAG.__originalClass);
         _SmAp.put(MetaDMSAG.__primitiveType.name,MetaDMSAG.__primitiveType);
@@ -793,9 +790,8 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     /**
      * The nameAttributeDef is a reference to the attribute that is locked to a
-     * TypeDefinition that is flagged as nameType STRUCTURAL. This mechanism is
-     * used to create the correct type of DmcType[NAMETYPE]SV derivative for a
-     * value of type DmcObjectName.
+     * TypeDefinition. This mechanism is used to create the correct type of
+     * DmcType[NAMETYPE]* derivative for a value of type DmcObjectName.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1695)
     public AttributeDefinitionREF getNameAttributeDef(){
@@ -818,33 +814,6 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         
         attr.set(value);
         set(MetaDMSAG.__nameAttributeDef,attr);
-    }
-
-    /**
-     * The type of an object name type. See the NameTypeEnum for a  detailed
-     * description of what this means.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1695)
-    public NameTypeEnum getNameType(){
-        DmcTypeNameTypeEnumSV attr = (DmcTypeNameTypeEnumSV) get(MetaDMSAG.__nameType);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets nameType to the specified value.
-     * @param value A value compatible with DmcTypeNameTypeEnumSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1746)
-    public void setNameType(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__nameType);
-        if (attr == null)
-            attr = new DmcTypeNameTypeEnumSV(MetaDMSAG.__nameType);
-        
-        attr.set(value);
-        set(MetaDMSAG.__nameType,attr);
     }
 
     /**

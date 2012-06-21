@@ -26,7 +26,7 @@ import org.dmd.dms.generated.enums.ModificationControlEnum;    // DmcType import
  * The DmcTypeModificationControlEnumMV provides storage for a multi-valued ModificationControlEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2251)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:253)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2281)
     public DmcAttribute<ModificationControlEnum> cloneIt(){
         synchronized(this){
             DmcTypeModificationControlEnumMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
     public ModificationControlEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ModificationControlEnum rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
     public ModificationControlEnum del(Object v){
         synchronized(this){
             ModificationControlEnum key = null;
@@ -106,7 +106,7 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2354)
     public Iterator<ModificationControlEnum> getMV(){
         synchronized(this){
             ArrayList<ModificationControlEnum> clone = new ArrayList<ModificationControlEnum>(value);
@@ -114,7 +114,7 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public ArrayList<ModificationControlEnum> getMVCopy(){
         synchronized(this){
             ArrayList<ModificationControlEnum> clone = new ArrayList<ModificationControlEnum>(value);
@@ -123,7 +123,7 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -137,7 +137,7 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2388)
     public ModificationControlEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +147,7 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2399)
     public ModificationControlEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -174,7 +174,7 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2427)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,7 +197,7 @@ public class DmcTypeModificationControlEnumMV extends DmcTypeModificationControl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2451)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

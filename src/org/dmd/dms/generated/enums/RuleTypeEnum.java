@@ -33,7 +33,7 @@ public enum RuleTypeEnum
     /**
      * Indicates that this is a class level rule.
      */
-    CLASSES(1);
+    CLASS(1);
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,RuleTypeEnum> lookup = new HashMap<Integer,RuleTypeEnum>();

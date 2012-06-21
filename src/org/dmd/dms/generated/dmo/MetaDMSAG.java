@@ -128,7 +128,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __mustReturn = new DmcAttributeInfo("mustReturn",30,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __nameAttributeDef = new DmcAttributeInfo("nameAttributeDef",90,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __nameType = new DmcAttributeInfo("nameType",103,"NameTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __namingAttribute = new DmcAttributeInfo("namingAttribute",64,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __nullReturnValue = new DmcAttributeInfo("nullReturnValue",7,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __objectClass = new DmcAttributeInfo("objectClass",1,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -306,7 +305,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__mustReturn.id,__mustReturn);
         _SmAp.put(__name.id,__name);
         _SmAp.put(__nameAttributeDef.id,__nameAttributeDef);
-        _SmAp.put(__nameType.id,__nameType);
         _SmAp.put(__namingAttribute.id,__namingAttribute);
         _SmAp.put(__nullReturnValue.id,__nullReturnValue);
         _SmAp.put(__objectClass.id,__objectClass);
@@ -573,7 +571,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __TypeDefinition.addMay(__keyImport);
         __TypeDefinition.addMay(__lineNumber);
         __TypeDefinition.addMay(__nameAttributeDef);
-        __TypeDefinition.addMay(__nameType);
         __TypeDefinition.addMay(__nullReturnValue);
         __TypeDefinition.addMay(__originalClass);
         __TypeDefinition.addMay(__primitiveType);
