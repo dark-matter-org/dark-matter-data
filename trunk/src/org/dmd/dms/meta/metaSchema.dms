@@ -1,3 +1,8 @@
+// This Dark Matter Schema (DMS) defines the meta-schema of dark-matter. The meta-schema
+// is defined in terms of itself i.e. the all of the definitions that you see here are 
+// defined in terms of the definition you see here. This meta-schema is read by the MetaGenerator
+// and turned into to basic Dark Matter Objects (DMOs) that are used to define schema.
+
 TypeDefinition
 name 			String
 typeClassName	org.dmd.dmc.types.DmcTypeString
@@ -82,21 +87,6 @@ nullReturnValue false
 description		Provides support for Boolean values. This type makes use of the nullReturnValue
  flag so that, even if there is no value for an attribute of this type, a value of false will
  be returned.
-* Some primitives may be special in that their non-existence may be a meaningful as their
-* existence. If a nullreturnValue is specified (along with getType and getMethod) we generate
-* some special code that will return the nullReturnValue if the attribute doesn't exist. If
-* the item does exist, we return Boolean.booleanValue().
-
-* Removed for now until we need something like this
-* TypeDefinition
-* name	 		GenericObject
-* typeClassName	org.dmd.dms.mediators.GenericObjectMediator
-* description		The GenericObject mediator allows for the use of references to other GenericObjects
-* in GenericObjects.
-
-* Whereas we used to have to define types for each of the distinct types of object references,
-* we now generate Mediators to handle those references automatically. When you create a ClassDefinition,
-* you get the associated mediator for free.
 
 TypeDefinition
 name    		EnumValue
@@ -115,11 +105,21 @@ description  The EnumValue type is used to store the definition of one enumerate
  The enum value name is automatically set to uppercase, even if it is specified
  in lower or mixed case.
 
-
 TypeDefinition
 name    		Modifier
 typeClassName	org.dmd.dmc.types.DmcTypeModifier
 primitiveType   org.dmd.dmc.types.Modifier
+description     The Modifier type is used to represent modification operations on a DmcObject.
+ Any modification to an object can be represented by a Modifier. The string representation
+ of a modification can take the following forms:
+ <ul>
+ <li> &ltattribute name&gt ADD &ltvalue&gt</li>
+ <li> &ltattribute name&gt DEL &ltvalue&gt</li>
+ <li> &ltattribute name&gt SET &ltvalue&gt</li>
+ <li> &ltattribute name&gt NTH &ltindex&gt &ltvalue&gt</li>
+ <li> &ltattribute name&gt NTH &ltindex&gt</li>
+ <li> &ltattribute name&gt REM </li>
+ </ul>
 
 TypeDefinition
 name			StringName
