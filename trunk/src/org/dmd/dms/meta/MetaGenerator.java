@@ -403,6 +403,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		
 		classDef.addValue("name", name + "Instance");
 		classDef.addValue("classType", ctype);
+		classDef.addValue("derivedFrom", "RuleInstance");
 		classDef.addValue("dmdID", uco.getSV("dmdID"));
 		classDef.addValue("dmoImport", "org.dmd.dms.generated.dmo." + name + "InstanceDMO");
 		classDef.addValue("javaClass", "org.dmd.dms.generated.dmo." + name + "InstanceDMO");
