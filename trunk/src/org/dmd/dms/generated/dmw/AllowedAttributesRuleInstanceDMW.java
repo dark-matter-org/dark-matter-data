@@ -29,39 +29,39 @@ import org.dmd.dms.*;
 /**
  * null
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1077)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1136)
  */
 @SuppressWarnings("unused")
-public class InitRuleDMW extends DmwWrapper {
+public class AllowedAttributesRuleInstanceDMW extends DmwWrapper {
 
-    private InitRuleDMO mycore;
+    private AllowedAttributesRuleInstanceDMO mycore;
 
-    protected InitRuleDMW() {
-        super(new InitRuleDMO());
-        mycore = (InitRuleDMO) core;
+    protected AllowedAttributesRuleInstanceDMW() {
+        super(new AllowedAttributesRuleInstanceDMO());
+        mycore = (AllowedAttributesRuleInstanceDMO) core;
         mycore.setContainer(this);
     }
 
-    protected InitRuleDMW(DmcObject obj) {
+    protected AllowedAttributesRuleInstanceDMW(DmcObject obj) {
         super(obj);
-        mycore = (InitRuleDMO) core;
+        mycore = (AllowedAttributesRuleInstanceDMO) core;
         mycore.setContainer(this);
     }
 
-    protected InitRuleDMW(DmcObject obj, ClassDefinition cd) {
+    protected AllowedAttributesRuleInstanceDMW(DmcObject obj, ClassDefinition cd) {
         super(obj,cd);
-        mycore = (InitRuleDMO) core;
+        mycore = (AllowedAttributesRuleInstanceDMO) core;
         mycore.setContainer(this);
     }
 
-    public  InitRuleDMO getDMO() {
+    public  AllowedAttributesRuleInstanceDMO getDMO() {
         return(mycore);
     }
 
     /**
      * The title of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1721)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1780)
     public String getRuleTitle(){
         return(mycore.getRuleTitle());
     }
@@ -70,9 +70,29 @@ public class InitRuleDMW extends DmwWrapper {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1773)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1832)
     public void setRuleTitle(Object value) throws DmcValueException {
         mycore.setRuleTitle(value);
+    }
+
+    /**
+     * The description attribute is used to provide descriptive documentation for
+     * schema related definitions. The description is of type XHMTLString which
+     * is basically an XML formatted fragment that conforms to the XHTML 1.0
+     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1780)
+    public String getDescription(){
+        return(mycore.getDescription());
+    }
+
+    /**
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1832)
+    public void setDescription(Object value) throws DmcValueException {
+        mycore.setDescription(value);
     }
 
 

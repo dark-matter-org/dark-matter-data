@@ -16,21 +16,21 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1311)
-import java.io.Serializable;                       // Serializable marker interface - (MetaGenerator.java:1275)
-import java.util.*;                                // Attribute info support - (MetaGenerator.java:1276)
-import org.dmd.dmc.*;                              // Dark matter core - (MetaGenerator.java:1291)
-import org.dmd.dms.generated.dmo.MetaVCAG;         // Old validation farmeowrk - obsolete - (MetaGenerator.java:1292)
-import org.dmd.dms.generated.types.*;              // Generated type access - (MetaGenerator.java:1302)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1370)
+import java.io.Serializable;                       // Serializable marker interface - (MetaGenerator.java:1334)
+import java.util.*;                                // Attribute info support - (MetaGenerator.java:1335)
+import org.dmd.dmc.*;                              // Dark matter core - (MetaGenerator.java:1350)
+import org.dmd.dms.generated.dmo.MetaVCAG;         // Old validation framework - obsolete - (MetaGenerator.java:1351)
+import org.dmd.dms.generated.types.*;              // Generated type access - (MetaGenerator.java:1361)
 
 
 /**
  * null
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1320)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1379)
  */
 @SuppressWarnings("serial")
-public class AllowedAttributesRuleDMO extends DmcObject implements Serializable {
+public class AllowedAttributesRuleInstanceDMO extends DmcObject implements Serializable {
 
 
 
@@ -46,11 +46,11 @@ public class AllowedAttributesRuleDMO extends DmcObject implements Serializable 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(MetaDMSAG.__ruleTitle.id,MetaDMSAG.__ruleTitle);
-        _ImAp.put(MetaDMSAG.__schemaExtension.id,MetaDMSAG.__schemaExtension);
+        _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__ruleTitle.name,MetaDMSAG.__ruleTitle);
-        _SmAp.put(MetaDMSAG.__schemaExtension.name,MetaDMSAG.__schemaExtension);
+        _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
 
         _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
 
@@ -59,11 +59,11 @@ public class AllowedAttributesRuleDMO extends DmcObject implements Serializable 
     }
 
 
-    public AllowedAttributesRuleDMO(){
-        super("AllowedAttributesRule");
+    public AllowedAttributesRuleInstanceDMO(){
+        super("AllowedAttributesRuleInstance");
     }
 
-    public AllowedAttributesRuleDMO(String oc){
+    public AllowedAttributesRuleInstanceDMO(String oc){
         super(oc);
     }
 
@@ -84,14 +84,14 @@ public class AllowedAttributesRuleDMO extends DmcObject implements Serializable 
     }
 
     @Override
-    public AllowedAttributesRuleDMO getNew(){
-        AllowedAttributesRuleDMO rc = new AllowedAttributesRuleDMO();
+    public AllowedAttributesRuleInstanceDMO getNew(){
+        AllowedAttributesRuleInstanceDMO rc = new AllowedAttributesRuleInstanceDMO();
         return(rc);
     }
 
     @Override
-    public AllowedAttributesRuleDMO getSlice(DmcSliceInfo info){
-        AllowedAttributesRuleDMO rc = new AllowedAttributesRuleDMO();
+    public AllowedAttributesRuleInstanceDMO getSlice(DmcSliceInfo info){
+        AllowedAttributesRuleInstanceDMO rc = new AllowedAttributesRuleInstanceDMO();
         populateSlice(rc,info);
         return(rc);
     }
@@ -99,7 +99,7 @@ public class AllowedAttributesRuleDMO extends DmcObject implements Serializable 
     /**
      * The title of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1695)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1754)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -112,7 +112,7 @@ public class AllowedAttributesRuleDMO extends DmcObject implements Serializable 
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1746)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1805)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -123,33 +123,32 @@ public class AllowedAttributesRuleDMO extends DmcObject implements Serializable 
     }
 
     /**
-     * The fully qualified name of a class that extends the schema management
-     * capabilities of the SchemaManager. the class must have a zero arg
-     * constructor and implement the SchemaExtensionIF.
-     * @return An Iterator of String objects.
+     * The description attribute is used to provide descriptive documentation for
+     * schema related definitions. The description is of type XHMTLString which
+     * is basically an XML formatted fragment that conforms to the XHTML 1.0
+     * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1838)
-    public Iterator<String> getSchemaExtension(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__schemaExtension);
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1754)
+    public String getDescription(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
             return(null);
 
-        return(attr.getMV());
+        return(attr.getSV());
     }
 
     /**
-     * Adds another schemaExtension value.
-     * @param value A value compatible with DmcTypeStringMV
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1883)
-    public DmcAttribute<?> addSchemaExtension(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__schemaExtension);
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1805)
+    public void setDescription(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__schemaExtension);
+            attr = new DmcTypeStringSV(MetaDMSAG.__description);
         
-        attr.add(value);
-        add(MetaDMSAG.__schemaExtension,attr);
-        return(attr);
+        attr.set(value);
+        set(MetaDMSAG.__description,attr);
     }
 
 

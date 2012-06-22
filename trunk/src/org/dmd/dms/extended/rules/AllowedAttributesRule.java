@@ -8,13 +8,13 @@ import org.dmd.dmc.DmcAttributeInfoRef;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcRuleException;
 import org.dmd.dmc.DmcRuleExceptionSet;
-import org.dmd.dms.generated.dmo.AllowedAttributesRuleDMO;
+import org.dmd.dms.generated.dmo.AllowedAttributesRuleInstanceDMO;
 import org.dmd.dms.generated.rules.AllowedAttributesRuleBaseImpl;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 
 public class AllowedAttributesRule extends AllowedAttributesRuleBaseImpl {
-
-	public AllowedAttributesRule(AllowedAttributesRuleDMO dmo) {
+	
+	public AllowedAttributesRule(AllowedAttributesRuleInstanceDMO dmo) {
 		super(dmo);
 	}
 

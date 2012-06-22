@@ -308,7 +308,11 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 //        		}
         		
 				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
-				newObj.setFile(infile);
+				int srcloc = infile.indexOf("/src");
+				if (srcloc != -1)
+					newObj.setFile(infile.substring(srcloc));
+				else
+					newObj.setFile(infile);
 				newObj.setLineNumber(lineNumber);
 				
 				try {

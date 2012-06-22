@@ -52,7 +52,7 @@ public class RuleFormatter {
     		interfaces.append("RuleIF");
 
     		
-    		baseImports.addImport(schemaPackage + ".generated.dmo." + name + "DMO", "Rule parameters object");
+    		baseImports.addImport(schemaPackage + ".generated.dmo." + name + "InstanceDMO", "Rule parameters object");
     		
     		for(String cname: categories){
     			DmcUncheckedObject category = ruleCategoryDefs.get(cname);
@@ -83,9 +83,9 @@ public class RuleFormatter {
 			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("abstract public class " + name + "BaseImpl implements " + interfaces + " {\n\n");
 			
-			out.write("    protected " + name + "DMO ruleDMO;\n\n");
+			out.write("    protected " + name + "InstanceDMO ruleDMO;\n\n");
 			
-			out.write("    protected " + name + "BaseImpl(" + name + "DMO dmo){\n");
+			out.write("    protected " + name + "BaseImpl(" + name + "InstanceDMO dmo){\n");
 			out.write("        ruleDMO = dmo;\n");
 			out.write("    }\n\n");
 			
@@ -125,7 +125,7 @@ public class RuleFormatter {
 		for(DmcUncheckedObject rule: ruleDefs.values()){
     		String name = GenUtility.capTheName(rule.getSV("name"));
 
-    		out.write("        " + name + " " + name + "Instance = new " + name + "(new " + name + "DMO());\n\n");
+    		out.write("        " + name + " " + name + "Instance = new " + name + "(new " + name + "InstanceDMO());\n\n");
 		}
 		
 		out.write("    }\n\n");

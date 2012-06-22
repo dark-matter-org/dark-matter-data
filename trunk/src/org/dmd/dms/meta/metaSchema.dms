@@ -475,7 +475,6 @@ ruleType		CLASS
 ruleScope		GLOBAL
 ruleCategory	ObjectValidation
 ruleCategory	ModifierValidation
-must			schemaExtension
 description		The AllowedAttributesRule will determine whether or not the 
  attributes of a DMO conform to the must/may specification of its class definition.
  For class of type EXTENSIBLE only the must have attributes are checked.
@@ -1816,6 +1815,7 @@ AttributeDefinition
 name                		ruleCategory
 dmdID						139
 type                		RuleCategory
+valueType					MULTI
 description    				The category of a rule.
 
 AttributeDefinition
@@ -1837,7 +1837,27 @@ type                		Boolean
 description    				Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE
  or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible.
  The best example is the InitRule where any set of attributes can be specified as value for the rule.
- 
+
+AttributeDefinition
+name                		ruleCategoryList
+dmdID						143
+type                		RuleCategory
+valueType					MULTI
+description    				The RuleCategories defined in a schema.
+
+AttributeDefinition
+name                		ruleDefinitionList
+dmdID						144
+type                		RuleDefinition
+valueType					MULTI
+description    				The RuleDefinitions defined in a schema.
+
+AttributeDefinition
+name                		ruleDefinition
+dmdID						145
+type                		RuleDefinition
+description    				The RuleDefinition that resulted in the creation of an
+ internally generated ClassDefinition.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -1940,6 +1960,8 @@ may           	abbrev
 may         	obsoleteVersion
 may				isTransportable
 // Auto generated/set
+may             internallyGenerated
+may				ruleDefinition
 may           	derivedClasses
 may           	actions
 may				internalTypeRef
@@ -2217,6 +2239,8 @@ may				sliceDefList
 may				objectValidatorDefList
 may				attributeValidatorDefList
 may           	dependsOnRef
+may				ruleCategoryList
+may				ruleDefinitionList
 // obsolete
 //must            genDirPrefix
 //must            genPackagePrefix

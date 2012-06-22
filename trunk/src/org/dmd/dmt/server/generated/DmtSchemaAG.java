@@ -168,7 +168,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             me.setName("dmt");
             me.setSchemaPackage("org.dmd.dmt.shared");
             me.setDmwPackage("org.dmd.dmt.server");
-            me.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/dmt.dms");
+            me.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/dmt.dms");
 
 
             me.addDependsOn("dmp");
@@ -191,7 +191,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestAbstractFixedOBJ.setName("TestAbstractFixed");
             _TestAbstractFixedOBJ.setDmdID("10001");
             _TestAbstractFixedOBJ.setClassType("ABSTRACT");
-            _TestAbstractFixedOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _TestAbstractFixedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestAbstractFixedOBJ.setLineNumber("8");
             _TestAbstractFixedOBJ.setDescription("The TestAbstract class just defines an abstract base class from which other test classes can be derived to tes this type of derivation.");
             _TestAbstractFixedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestAbstractFixedREF");
@@ -207,7 +207,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestAbstractExtendedOBJ.setName("TestAbstractExtended");
             _TestAbstractExtendedOBJ.setDmdID("10002");
             _TestAbstractExtendedOBJ.setClassType("ABSTRACT");
-            _TestAbstractExtendedOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _TestAbstractExtendedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestAbstractExtendedOBJ.setLineNumber("22");
             _TestAbstractExtendedOBJ.setDescription("The TestAbstract class just defines an abstract base class from which other test classes can be derived to tes this type of derivation.");
             _TestAbstractExtendedOBJ.setUseWrapperType("EXTENDED");
@@ -229,7 +229,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicObjectFixedOBJ.setName("TestBasicObjectFixed");
             _TestBasicObjectFixedOBJ.setDmdID("10003");
             _TestBasicObjectFixedOBJ.setClassType("STRUCTURAL");
-            _TestBasicObjectFixedOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _TestBasicObjectFixedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestBasicObjectFixedOBJ.setLineNumber("64");
             _TestBasicObjectFixedOBJ.setDescription("The TestBasicObjectFixed class provides a test bed for all types of basic attribute values.");
             _TestBasicObjectFixedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestBasicObjectFixedREF");
@@ -272,8 +272,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicNamedObjectFixedOBJ.setName("TestBasicNamedObjectFixed");
             _TestBasicNamedObjectFixedOBJ.setDmdID("10004");
             _TestBasicNamedObjectFixedOBJ.setClassType("STRUCTURAL");
-            _TestBasicNamedObjectFixedOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _TestBasicNamedObjectFixedOBJ.setLineNumber("75");
+            _TestBasicNamedObjectFixedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _TestBasicNamedObjectFixedOBJ.setLineNumber("79");
             _TestBasicNamedObjectFixedOBJ.setDescription("The TestBasicNamedObjectFixed class provides a test bed for a named object.");
             _TestBasicNamedObjectFixedOBJ.setIsNamedBy("name");
             _TestBasicNamedObjectFixedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF");
@@ -292,8 +292,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicNamedObjectExtendedOBJ.setName("TestBasicNamedObjectExtended");
             _TestBasicNamedObjectExtendedOBJ.setDmdID("10005");
             _TestBasicNamedObjectExtendedOBJ.setClassType("STRUCTURAL");
-            _TestBasicNamedObjectExtendedOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _TestBasicNamedObjectExtendedOBJ.setLineNumber("87");
+            _TestBasicNamedObjectExtendedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _TestBasicNamedObjectExtendedOBJ.setLineNumber("91");
             _TestBasicNamedObjectExtendedOBJ.setDescription("The TestBasicNamedObjectExtended class provides a test bed for a named object that's extended.");
             _TestBasicNamedObjectExtendedOBJ.setIsNamedBy("name");
             _TestBasicNamedObjectExtendedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestBasicNamedObjectExtendedREF");
@@ -312,8 +312,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicAuxiliaryOBJ.setName("TestBasicAuxiliary");
             _TestBasicAuxiliaryOBJ.setDmdID("10006");
             _TestBasicAuxiliaryOBJ.setClassType("AUXILIARY");
-            _TestBasicAuxiliaryOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _TestBasicAuxiliaryOBJ.setLineNumber("94");
+            _TestBasicAuxiliaryOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _TestBasicAuxiliaryOBJ.setLineNumber("98");
             _TestBasicAuxiliaryOBJ.setDescription("The TestBasicAuxiliary class allows us to test basic auxiliary class functionality.");
             _TestBasicAuxiliaryOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestBasicAuxiliaryREF");
             _TestBasicAuxiliaryOBJ.setDmwIteratorClass("TestBasicAuxiliaryIterableDMW");
@@ -332,8 +332,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestOneLevelSubpackageOBJ.setName("TestOneLevelSubpackage");
             _TestOneLevelSubpackageOBJ.setDmdID("10007");
             _TestOneLevelSubpackageOBJ.setClassType("STRUCTURAL");
-            _TestOneLevelSubpackageOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _TestOneLevelSubpackageOBJ.setLineNumber("105");
+            _TestOneLevelSubpackageOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _TestOneLevelSubpackageOBJ.setLineNumber("109");
             _TestOneLevelSubpackageOBJ.setDescription("The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.");
             _TestOneLevelSubpackageOBJ.setIsNamedBy("name");
             _TestOneLevelSubpackageOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestOneLevelSubpackageREF");
@@ -352,8 +352,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestOneLevelSubpackageExtendedOBJ.setName("TestOneLevelSubpackageExtended");
             _TestOneLevelSubpackageExtendedOBJ.setDmdID("10008");
             _TestOneLevelSubpackageExtendedOBJ.setClassType("STRUCTURAL");
-            _TestOneLevelSubpackageExtendedOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _TestOneLevelSubpackageExtendedOBJ.setLineNumber("117");
+            _TestOneLevelSubpackageExtendedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _TestOneLevelSubpackageExtendedOBJ.setLineNumber("121");
             _TestOneLevelSubpackageExtendedOBJ.setDescription("The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.");
             _TestOneLevelSubpackageExtendedOBJ.setIsNamedBy("name");
             _TestOneLevelSubpackageExtendedOBJ.setUseWrapperType("EXTENDED");
@@ -373,8 +373,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestMultiLevelSubpackageOBJ.setName("TestMultiLevelSubpackage");
             _TestMultiLevelSubpackageOBJ.setDmdID("10009");
             _TestMultiLevelSubpackageOBJ.setClassType("STRUCTURAL");
-            _TestMultiLevelSubpackageOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _TestMultiLevelSubpackageOBJ.setLineNumber("128");
+            _TestMultiLevelSubpackageOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _TestMultiLevelSubpackageOBJ.setLineNumber("132");
             _TestMultiLevelSubpackageOBJ.setDescription("The TestOneLevelSubpackage class provides a test bed for generating DMWs in different subpackages.");
             _TestMultiLevelSubpackageOBJ.setIsNamedBy("name");
             _TestMultiLevelSubpackageOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestMultiLevelSubpackageREF");
@@ -393,8 +393,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestDerivedSubpackageOBJ.setName("TestDerivedSubpackage");
             _TestDerivedSubpackageOBJ.setDmdID("10010");
             _TestDerivedSubpackageOBJ.setClassType("STRUCTURAL");
-            _TestDerivedSubpackageOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _TestDerivedSubpackageOBJ.setLineNumber("140");
+            _TestDerivedSubpackageOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _TestDerivedSubpackageOBJ.setLineNumber("144");
             _TestDerivedSubpackageOBJ.setDescription("The TestDerivedSubpackage tests derivation within the same subpackage.");
             _TestDerivedSubpackageOBJ.setDerivedFrom("TestMultiLevelSubpackage");
             _TestDerivedSubpackageOBJ.setIsNamedBy("name");
@@ -414,8 +414,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestDerivedDiffSubpackageOBJ.setName("TestDerivedDiffSubpackage");
             _TestDerivedDiffSubpackageOBJ.setDmdID("10011");
             _TestDerivedDiffSubpackageOBJ.setClassType("STRUCTURAL");
-            _TestDerivedDiffSubpackageOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _TestDerivedDiffSubpackageOBJ.setLineNumber("153");
+            _TestDerivedDiffSubpackageOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _TestDerivedDiffSubpackageOBJ.setLineNumber("157");
             _TestDerivedDiffSubpackageOBJ.setDescription("The TestDerivedDiffSubpackage test derivation from a different subpackage.");
             _TestDerivedDiffSubpackageOBJ.setDerivedFrom("TestOneLevelSubpackage");
             _TestDerivedDiffSubpackageOBJ.setIsNamedBy("name");
@@ -436,8 +436,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UUIDNamedObjectOBJ.setName("UUIDNamedObject");
             _UUIDNamedObjectOBJ.setDmdID("10012");
             _UUIDNamedObjectOBJ.setClassType("STRUCTURAL");
-            _UUIDNamedObjectOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _UUIDNamedObjectOBJ.setLineNumber("168");
+            _UUIDNamedObjectOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _UUIDNamedObjectOBJ.setLineNumber("172");
             _UUIDNamedObjectOBJ.setIsNamedBy("uuidName");
             _UUIDNamedObjectOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UUIDNamedObjectREF");
             _UUIDNamedObjectOBJ.setDmwIteratorClass("UUIDNamedObjectIterableDMW");
@@ -461,8 +461,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _IntegerNamedObjectOBJ.setDmdID("10013");
             _IntegerNamedObjectOBJ.setClassType("STRUCTURAL");
             _IntegerNamedObjectOBJ.setDataType("NONPERSISTENT");
-            _IntegerNamedObjectOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _IntegerNamedObjectOBJ.setLineNumber("177");
+            _IntegerNamedObjectOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _IntegerNamedObjectOBJ.setLineNumber("181");
             _IntegerNamedObjectOBJ.setIsNamedBy("integerName");
             _IntegerNamedObjectOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.IntegerNamedObjectREF");
             _IntegerNamedObjectOBJ.setDmwIteratorClass("IntegerNamedObjectIterableDMW");
@@ -478,8 +478,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NameContainerTestOBJ.setName("NameContainerTest");
             _NameContainerTestOBJ.setDmdID("10014");
             _NameContainerTestOBJ.setClassType("STRUCTURAL");
-            _NameContainerTestOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _NameContainerTestOBJ.setLineNumber("186");
+            _NameContainerTestOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _NameContainerTestOBJ.setLineNumber("190");
             _NameContainerTestOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NameContainerTestREF");
             _NameContainerTestOBJ.setDmwIteratorClass("NameContainerTestIterableDMW");
             _NameContainerTestOBJ.addMay("anotherDmtName");
@@ -495,8 +495,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _BaseObjOBJ.setName("BaseObj");
             _BaseObjOBJ.setDmdID("10015");
             _BaseObjOBJ.setClassType("ABSTRACT");
-            _BaseObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _BaseObjOBJ.setLineNumber("194");
+            _BaseObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _BaseObjOBJ.setLineNumber("198");
             _BaseObjOBJ.setIsNamedBy("name");
             _BaseObjOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.BaseObjREF");
             _BaseObjOBJ.setDmwIteratorClass("BaseObjIterableDMW");
@@ -512,8 +512,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ObjWithRefsOBJ.setName("ObjWithRefs");
             _ObjWithRefsOBJ.setDmdID("10016");
             _ObjWithRefsOBJ.setClassType("STRUCTURAL");
-            _ObjWithRefsOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ObjWithRefsOBJ.setLineNumber("232");
+            _ObjWithRefsOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _ObjWithRefsOBJ.setLineNumber("236");
             _ObjWithRefsOBJ.setDerivedFrom("BaseObj");
             _ObjWithRefsOBJ.setIsNamedBy("name");
             _ObjWithRefsOBJ.setUseWrapperType("EXTENDED");
@@ -559,8 +559,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterOBJ.setName("ClientCountFilter");
             _ClientCountFilterOBJ.setDmdID("10017");
             _ClientCountFilterOBJ.setClassType("STRUCTURAL");
-            _ClientCountFilterOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterOBJ.setLineNumber("239");
+            _ClientCountFilterOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _ClientCountFilterOBJ.setLineNumber("243");
             _ClientCountFilterOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterREF");
             _ClientCountFilterOBJ.setDmwIteratorClass("ClientCountFilterIterableDMW");
@@ -575,8 +575,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ClientCountFilterRequestOBJ.setName("ClientCountFilterRequest");
             _ClientCountFilterRequestOBJ.setDmdID("10018");
             _ClientCountFilterRequestOBJ.setClassType("STRUCTURAL");
-            _ClientCountFilterRequestOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ClientCountFilterRequestOBJ.setLineNumber("248");
+            _ClientCountFilterRequestOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _ClientCountFilterRequestOBJ.setLineNumber("252");
             _ClientCountFilterRequestOBJ.setDerivedFrom("Request");
             _ClientCountFilterRequestOBJ.setUseWrapperType("EXTENDED");
             _ClientCountFilterRequestOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ClientCountFilterRequestREF");
@@ -593,8 +593,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UsingIndexedAttributesOBJ.setName("UsingIndexedAttributes");
             _UsingIndexedAttributesOBJ.setDmdID("10019");
             _UsingIndexedAttributesOBJ.setClassType("STRUCTURAL");
-            _UsingIndexedAttributesOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _UsingIndexedAttributesOBJ.setLineNumber("255");
+            _UsingIndexedAttributesOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _UsingIndexedAttributesOBJ.setLineNumber("259");
             _UsingIndexedAttributesOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UsingIndexedAttributesREF");
             _UsingIndexedAttributesOBJ.setDmwIteratorClass("UsingIndexedAttributesIterableDMW");
             _UsingIndexedAttributesOBJ.addMay("someRelationIndexed");
@@ -609,8 +609,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UsingObjRefHMOBJ.setName("UsingObjRefHM");
             _UsingObjRefHMOBJ.setDmdID("10020");
             _UsingObjRefHMOBJ.setClassType("STRUCTURAL");
-            _UsingObjRefHMOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _UsingObjRefHMOBJ.setLineNumber("261");
+            _UsingObjRefHMOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _UsingObjRefHMOBJ.setLineNumber("265");
             _UsingObjRefHMOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UsingObjRefHMREF");
             _UsingObjRefHMOBJ.setDmwIteratorClass("UsingObjRefHMIterableDMW");
             _UsingObjRefHMOBJ.addMay("objRefHM");
@@ -624,8 +624,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveSVOBJ.setName("PrimitiveSV");
             _PrimitiveSVOBJ.setDmdID("10101");
             _PrimitiveSVOBJ.setClassType("STRUCTURAL");
-            _PrimitiveSVOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _PrimitiveSVOBJ.setLineNumber("270");
+            _PrimitiveSVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _PrimitiveSVOBJ.setLineNumber("274");
             _PrimitiveSVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveSVREF");
             _PrimitiveSVOBJ.setDmwIteratorClass("PrimitiveSVIterableDMW");
             _PrimitiveSVOBJ.addMay("svString");
@@ -639,8 +639,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveMVOBJ.setName("PrimitiveMV");
             _PrimitiveMVOBJ.setDmdID("10102");
             _PrimitiveMVOBJ.setClassType("STRUCTURAL");
-            _PrimitiveMVOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _PrimitiveMVOBJ.setLineNumber("276");
+            _PrimitiveMVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _PrimitiveMVOBJ.setLineNumber("280");
             _PrimitiveMVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveMVREF");
             _PrimitiveMVOBJ.setDmwIteratorClass("PrimitiveMVIterableDMW");
             _PrimitiveMVOBJ.addMay("mvString");
@@ -654,8 +654,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveMVIDXOBJ.setName("PrimitiveMVIDX");
             _PrimitiveMVIDXOBJ.setDmdID("10103");
             _PrimitiveMVIDXOBJ.setClassType("STRUCTURAL");
-            _PrimitiveMVIDXOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _PrimitiveMVIDXOBJ.setLineNumber("282");
+            _PrimitiveMVIDXOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _PrimitiveMVIDXOBJ.setLineNumber("286");
             _PrimitiveMVIDXOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveMVIDXREF");
             _PrimitiveMVIDXOBJ.setDmwIteratorClass("PrimitiveMVIDXIterableDMW");
             _PrimitiveMVIDXOBJ.addMay("mvIdxString");
@@ -669,8 +669,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveHMOBJ.setName("PrimitiveHM");
             _PrimitiveHMOBJ.setDmdID("10104");
             _PrimitiveHMOBJ.setClassType("STRUCTURAL");
-            _PrimitiveHMOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _PrimitiveHMOBJ.setLineNumber("288");
+            _PrimitiveHMOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _PrimitiveHMOBJ.setLineNumber("292");
             _PrimitiveHMOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveHMREF");
             _PrimitiveHMOBJ.setDmwIteratorClass("PrimitiveHMIterableDMW");
             _PrimitiveHMOBJ.addMay("hmString");
@@ -684,8 +684,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveTMOBJ.setName("PrimitiveTM");
             _PrimitiveTMOBJ.setDmdID("10105");
             _PrimitiveTMOBJ.setClassType("STRUCTURAL");
-            _PrimitiveTMOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _PrimitiveTMOBJ.setLineNumber("294");
+            _PrimitiveTMOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _PrimitiveTMOBJ.setLineNumber("298");
             _PrimitiveTMOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveTMREF");
             _PrimitiveTMOBJ.setDmwIteratorClass("PrimitiveTMIterableDMW");
             _PrimitiveTMOBJ.addMay("tmString");
@@ -699,8 +699,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveHSOBJ.setName("PrimitiveHS");
             _PrimitiveHSOBJ.setDmdID("10106");
             _PrimitiveHSOBJ.setClassType("STRUCTURAL");
-            _PrimitiveHSOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _PrimitiveHSOBJ.setLineNumber("300");
+            _PrimitiveHSOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _PrimitiveHSOBJ.setLineNumber("304");
             _PrimitiveHSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveHSREF");
             _PrimitiveHSOBJ.setDmwIteratorClass("PrimitiveHSIterableDMW");
             _PrimitiveHSOBJ.addMay("hsString");
@@ -714,8 +714,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _PrimitiveTSOBJ.setName("PrimitiveTS");
             _PrimitiveTSOBJ.setDmdID("10107");
             _PrimitiveTSOBJ.setClassType("STRUCTURAL");
-            _PrimitiveTSOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _PrimitiveTSOBJ.setLineNumber("306");
+            _PrimitiveTSOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _PrimitiveTSOBJ.setLineNumber("310");
             _PrimitiveTSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.PrimitiveTSREF");
             _PrimitiveTSOBJ.setDmwIteratorClass("PrimitiveTSIterableDMW");
             _PrimitiveTSOBJ.addMay("tsString");
@@ -729,8 +729,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjSVOBJ.setName("NamedObjSV");
             _NamedObjSVOBJ.setDmdID("10201");
             _NamedObjSVOBJ.setClassType("STRUCTURAL");
-            _NamedObjSVOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _NamedObjSVOBJ.setLineNumber("315");
+            _NamedObjSVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _NamedObjSVOBJ.setLineNumber("319");
             _NamedObjSVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjSVREF");
             _NamedObjSVOBJ.setDmwIteratorClass("NamedObjSVIterableDMW");
             _NamedObjSVOBJ.addMay("svNamedObj");
@@ -744,8 +744,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjMVOBJ.setName("NamedObjMV");
             _NamedObjMVOBJ.setDmdID("10202");
             _NamedObjMVOBJ.setClassType("STRUCTURAL");
-            _NamedObjMVOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _NamedObjMVOBJ.setLineNumber("321");
+            _NamedObjMVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _NamedObjMVOBJ.setLineNumber("325");
             _NamedObjMVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjMVREF");
             _NamedObjMVOBJ.setDmwIteratorClass("NamedObjMVIterableDMW");
             _NamedObjMVOBJ.addMay("mvNamedObj");
@@ -759,8 +759,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjMVIDXOBJ.setName("NamedObjMVIDX");
             _NamedObjMVIDXOBJ.setDmdID("10203");
             _NamedObjMVIDXOBJ.setClassType("STRUCTURAL");
-            _NamedObjMVIDXOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _NamedObjMVIDXOBJ.setLineNumber("327");
+            _NamedObjMVIDXOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _NamedObjMVIDXOBJ.setLineNumber("331");
             _NamedObjMVIDXOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjMVIDXREF");
             _NamedObjMVIDXOBJ.setDmwIteratorClass("NamedObjMVIDXIterableDMW");
             _NamedObjMVIDXOBJ.addMay("mvIdxNamedObj");
@@ -774,8 +774,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjHMOBJ.setName("NamedObjHM");
             _NamedObjHMOBJ.setDmdID("10204");
             _NamedObjHMOBJ.setClassType("STRUCTURAL");
-            _NamedObjHMOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _NamedObjHMOBJ.setLineNumber("333");
+            _NamedObjHMOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _NamedObjHMOBJ.setLineNumber("337");
             _NamedObjHMOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjHMREF");
             _NamedObjHMOBJ.setDmwIteratorClass("NamedObjHMIterableDMW");
             _NamedObjHMOBJ.addMay("hmNamedObj");
@@ -789,8 +789,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjTMOBJ.setName("NamedObjTM");
             _NamedObjTMOBJ.setDmdID("10205");
             _NamedObjTMOBJ.setClassType("STRUCTURAL");
-            _NamedObjTMOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _NamedObjTMOBJ.setLineNumber("339");
+            _NamedObjTMOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _NamedObjTMOBJ.setLineNumber("343");
             _NamedObjTMOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjTMREF");
             _NamedObjTMOBJ.setDmwIteratorClass("NamedObjTMIterableDMW");
             _NamedObjTMOBJ.addMay("tmNamedObj");
@@ -804,8 +804,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjHSOBJ.setName("NamedObjHS");
             _NamedObjHSOBJ.setDmdID("10206");
             _NamedObjHSOBJ.setClassType("STRUCTURAL");
-            _NamedObjHSOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _NamedObjHSOBJ.setLineNumber("345");
+            _NamedObjHSOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _NamedObjHSOBJ.setLineNumber("349");
             _NamedObjHSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjHSREF");
             _NamedObjHSOBJ.setDmwIteratorClass("NamedObjHSIterableDMW");
             _NamedObjHSOBJ.addMay("hsNamedObj");
@@ -819,8 +819,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _NamedObjTSOBJ.setName("NamedObjTS");
             _NamedObjTSOBJ.setDmdID("10207");
             _NamedObjTSOBJ.setClassType("STRUCTURAL");
-            _NamedObjTSOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _NamedObjTSOBJ.setLineNumber("351");
+            _NamedObjTSOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _NamedObjTSOBJ.setLineNumber("355");
             _NamedObjTSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.NamedObjTSREF");
             _NamedObjTSOBJ.setDmwIteratorClass("NamedObjTSIterableDMW");
             _NamedObjTSOBJ.addMay("tsNamedObj");
@@ -834,8 +834,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UnnamedObjSVOBJ.setName("UnnamedObjSV");
             _UnnamedObjSVOBJ.setDmdID("10301");
             _UnnamedObjSVOBJ.setClassType("STRUCTURAL");
-            _UnnamedObjSVOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _UnnamedObjSVOBJ.setLineNumber("360");
+            _UnnamedObjSVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _UnnamedObjSVOBJ.setLineNumber("364");
             _UnnamedObjSVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UnnamedObjSVREF");
             _UnnamedObjSVOBJ.setDmwIteratorClass("UnnamedObjSVIterableDMW");
             _UnnamedObjSVOBJ.addMay("svUnnamedObj");
@@ -849,8 +849,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UnnamedObjMVOBJ.setName("UnnamedObjMV");
             _UnnamedObjMVOBJ.setDmdID("10302");
             _UnnamedObjMVOBJ.setClassType("STRUCTURAL");
-            _UnnamedObjMVOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _UnnamedObjMVOBJ.setLineNumber("366");
+            _UnnamedObjMVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _UnnamedObjMVOBJ.setLineNumber("370");
             _UnnamedObjMVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UnnamedObjMVREF");
             _UnnamedObjMVOBJ.setDmwIteratorClass("UnnamedObjMVIterableDMW");
             _UnnamedObjMVOBJ.addMay("mvUnnamedObj");
@@ -864,8 +864,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UnnamedObjMVIDXOBJ.setName("UnnamedObjMVIDX");
             _UnnamedObjMVIDXOBJ.setDmdID("10303");
             _UnnamedObjMVIDXOBJ.setClassType("STRUCTURAL");
-            _UnnamedObjMVIDXOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _UnnamedObjMVIDXOBJ.setLineNumber("372");
+            _UnnamedObjMVIDXOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _UnnamedObjMVIDXOBJ.setLineNumber("376");
             _UnnamedObjMVIDXOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UnnamedObjMVIDXREF");
             _UnnamedObjMVIDXOBJ.setDmwIteratorClass("UnnamedObjMVIDXIterableDMW");
             _UnnamedObjMVIDXOBJ.addMay("mvIdxUnnamedObj");
@@ -879,8 +879,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UnnamedObjHSOBJ.setName("UnnamedObjHS");
             _UnnamedObjHSOBJ.setDmdID("10306");
             _UnnamedObjHSOBJ.setClassType("STRUCTURAL");
-            _UnnamedObjHSOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _UnnamedObjHSOBJ.setLineNumber("392");
+            _UnnamedObjHSOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _UnnamedObjHSOBJ.setLineNumber("396");
             _UnnamedObjHSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UnnamedObjHSREF");
             _UnnamedObjHSOBJ.setDmwIteratorClass("UnnamedObjHSIterableDMW");
             _UnnamedObjHSOBJ.addMay("hsUnnamedObj");
@@ -894,8 +894,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _UnnamedObjTSOBJ.setName("UnnamedObjTS");
             _UnnamedObjTSOBJ.setDmdID("10307");
             _UnnamedObjTSOBJ.setClassType("STRUCTURAL");
-            _UnnamedObjTSOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _UnnamedObjTSOBJ.setLineNumber("398");
+            _UnnamedObjTSOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _UnnamedObjTSOBJ.setLineNumber("402");
             _UnnamedObjTSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.UnnamedObjTSREF");
             _UnnamedObjTSOBJ.setDmwIteratorClass("UnnamedObjTSIterableDMW");
             _UnnamedObjTSOBJ.addMay("tsUnnamedObj");
@@ -909,8 +909,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ExtendedRefSVOBJ.setName("ExtendedRefSV");
             _ExtendedRefSVOBJ.setDmdID("10401");
             _ExtendedRefSVOBJ.setClassType("STRUCTURAL");
-            _ExtendedRefSVOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ExtendedRefSVOBJ.setLineNumber("407");
+            _ExtendedRefSVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _ExtendedRefSVOBJ.setLineNumber("411");
             _ExtendedRefSVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ExtendedRefSVREF");
             _ExtendedRefSVOBJ.setDmwIteratorClass("ExtendedRefSVIterableDMW");
             _ExtendedRefSVOBJ.addMay("svExtendedRef");
@@ -924,8 +924,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ExtendedRefMVOBJ.setName("ExtendedRefMV");
             _ExtendedRefMVOBJ.setDmdID("10402");
             _ExtendedRefMVOBJ.setClassType("STRUCTURAL");
-            _ExtendedRefMVOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ExtendedRefMVOBJ.setLineNumber("413");
+            _ExtendedRefMVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _ExtendedRefMVOBJ.setLineNumber("417");
             _ExtendedRefMVOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ExtendedRefMVREF");
             _ExtendedRefMVOBJ.setDmwIteratorClass("ExtendedRefMVIterableDMW");
             _ExtendedRefMVOBJ.addMay("mvExtendedRef");
@@ -939,8 +939,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ExtendedRefMVIDXOBJ.setName("ExtendedRefMVIDX");
             _ExtendedRefMVIDXOBJ.setDmdID("10403");
             _ExtendedRefMVIDXOBJ.setClassType("STRUCTURAL");
-            _ExtendedRefMVIDXOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ExtendedRefMVIDXOBJ.setLineNumber("419");
+            _ExtendedRefMVIDXOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _ExtendedRefMVIDXOBJ.setLineNumber("423");
             _ExtendedRefMVIDXOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ExtendedRefMVIDXREF");
             _ExtendedRefMVIDXOBJ.setDmwIteratorClass("ExtendedRefMVIDXIterableDMW");
             _ExtendedRefMVIDXOBJ.addMay("mvIdxExtendedRef");
@@ -954,8 +954,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ExtendedRefHSOBJ.setName("ExtendedRefHS");
             _ExtendedRefHSOBJ.setDmdID("10406");
             _ExtendedRefHSOBJ.setClassType("STRUCTURAL");
-            _ExtendedRefHSOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ExtendedRefHSOBJ.setLineNumber("439");
+            _ExtendedRefHSOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _ExtendedRefHSOBJ.setLineNumber("443");
             _ExtendedRefHSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ExtendedRefHSREF");
             _ExtendedRefHSOBJ.setDmwIteratorClass("ExtendedRefHSIterableDMW");
             _ExtendedRefHSOBJ.addMay("hsExtendedRef");
@@ -969,8 +969,8 @@ public class DmtSchemaAG extends SchemaDefinition {
             _ExtendedRefTSOBJ.setName("ExtendedRefTS");
             _ExtendedRefTSOBJ.setDmdID("10407");
             _ExtendedRefTSOBJ.setClassType("STRUCTURAL");
-            _ExtendedRefTSOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _ExtendedRefTSOBJ.setLineNumber("445");
+            _ExtendedRefTSOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _ExtendedRefTSOBJ.setLineNumber("449");
             _ExtendedRefTSOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.ExtendedRefTSREF");
             _ExtendedRefTSOBJ.setDmwIteratorClass("ExtendedRefTSIterableDMW");
             _ExtendedRefTSOBJ.addMay("tsExtendedRef");
@@ -989,7 +989,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svBooleanOBJ.setDmdID("10000");
             _svBooleanOBJ.setDescription("A single valued Boolean.");
             _svBoolean.setDefinedIn(this);
-            _svBooleanOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svBooleanOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svBooleanOBJ.setLineNumber("10");
             addAttributeDefList(_svBoolean);
 
@@ -1002,7 +1002,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvBooleanOBJ.setDescription("A multi-valued Boolean.");
             _mvBooleanOBJ.setValueType("MULTI");
             _mvBoolean.setDefinedIn(this);
-            _mvBooleanOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvBooleanOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvBooleanOBJ.setLineNumber("17");
             addAttributeDefList(_mvBoolean);
 
@@ -1014,7 +1014,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svDateOBJ.setDmdID("10010");
             _svDateOBJ.setDescription("A sv Date.");
             _svDate.setDefinedIn(this);
-            _svDateOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svDateOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svDateOBJ.setLineNumber("26");
             addAttributeDefList(_svDate);
 
@@ -1027,7 +1027,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvDateOBJ.setDescription("A mv Date.");
             _mvDateOBJ.setValueType("MULTI");
             _mvDate.setDefinedIn(this);
-            _mvDateOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvDateOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvDateOBJ.setLineNumber("33");
             addAttributeDefList(_mvDate);
 
@@ -1040,7 +1040,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsDateOBJ.setDescription("A hs Date.");
             _hsDateOBJ.setValueType("HASHSET");
             _hsDate.setDefinedIn(this);
-            _hsDateOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsDateOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsDateOBJ.setLineNumber("40");
             addAttributeDefList(_hsDate);
 
@@ -1053,7 +1053,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsDateOBJ.setDescription("A ts Date.");
             _tsDateOBJ.setValueType("TREESET");
             _tsDate.setDefinedIn(this);
-            _tsDateOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _tsDateOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _tsDateOBJ.setLineNumber("47");
             addAttributeDefList(_tsDate);
 
@@ -1065,7 +1065,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svDmcObjectOBJ.setDmdID("10020");
             _svDmcObjectOBJ.setDescription("A single valued DmcObject.");
             _svDmcObject.setDefinedIn(this);
-            _svDmcObjectOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svDmcObjectOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svDmcObjectOBJ.setLineNumber("56");
             addAttributeDefList(_svDmcObject);
 
@@ -1078,7 +1078,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvDmcObjectOBJ.setDescription("A multi-valued DmcObject.");
             _mvDmcObjectOBJ.setValueType("MULTI");
             _mvDmcObject.setDefinedIn(this);
-            _mvDmcObjectOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvDmcObjectOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvDmcObjectOBJ.setLineNumber("63");
             addAttributeDefList(_mvDmcObject);
 
@@ -1090,7 +1090,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svDoubleOBJ.setDmdID("10040");
             _svDoubleOBJ.setDescription("A sv Double.");
             _svDouble.setDefinedIn(this);
-            _svDoubleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svDoubleOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svDoubleOBJ.setLineNumber("102");
             addAttributeDefList(_svDouble);
 
@@ -1103,7 +1103,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvDoubleOBJ.setDescription("An mv Double.");
             _mvDoubleOBJ.setValueType("MULTI");
             _mvDouble.setDefinedIn(this);
-            _mvDoubleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvDoubleOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvDoubleOBJ.setLineNumber("109");
             addAttributeDefList(_mvDouble);
 
@@ -1116,7 +1116,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsDoubleOBJ.setDescription("An hs Double.");
             _hsDoubleOBJ.setValueType("HASHSET");
             _hsDouble.setDefinedIn(this);
-            _hsDoubleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsDoubleOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsDoubleOBJ.setLineNumber("116");
             addAttributeDefList(_hsDouble);
 
@@ -1129,7 +1129,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsDoubleOBJ.setDescription("A ts Double.");
             _tsDoubleOBJ.setValueType("TREESET");
             _tsDouble.setDefinedIn(this);
-            _tsDoubleOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _tsDoubleOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _tsDoubleOBJ.setLineNumber("123");
             addAttributeDefList(_tsDouble);
 
@@ -1141,7 +1141,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svFloatOBJ.setDmdID("10050");
             _svFloatOBJ.setDescription("A sv Float.");
             _svFloat.setDefinedIn(this);
-            _svFloatOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svFloatOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svFloatOBJ.setLineNumber("132");
             addAttributeDefList(_svFloat);
 
@@ -1154,7 +1154,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvFloatOBJ.setDescription("An mv Float.");
             _mvFloatOBJ.setValueType("MULTI");
             _mvFloat.setDefinedIn(this);
-            _mvFloatOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvFloatOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvFloatOBJ.setLineNumber("139");
             addAttributeDefList(_mvFloat);
 
@@ -1167,7 +1167,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsFloatOBJ.setDescription("An hs Float.");
             _hsFloatOBJ.setValueType("HASHSET");
             _hsFloat.setDefinedIn(this);
-            _hsFloatOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsFloatOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsFloatOBJ.setLineNumber("146");
             addAttributeDefList(_hsFloat);
 
@@ -1180,7 +1180,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsFloatOBJ.setDescription("A ts Float.");
             _tsFloatOBJ.setValueType("TREESET");
             _tsFloat.setDefinedIn(this);
-            _tsFloatOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _tsFloatOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _tsFloatOBJ.setLineNumber("153");
             addAttributeDefList(_tsFloat);
 
@@ -1192,7 +1192,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svIntegerOBJ.setDmdID("10060");
             _svIntegerOBJ.setDescription("A sv Integer.");
             _svInteger.setDefinedIn(this);
-            _svIntegerOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svIntegerOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svIntegerOBJ.setLineNumber("162");
             addAttributeDefList(_svInteger);
 
@@ -1205,7 +1205,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvIntegerOBJ.setDescription("An mv Integer.");
             _mvIntegerOBJ.setValueType("MULTI");
             _mvInteger.setDefinedIn(this);
-            _mvIntegerOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvIntegerOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvIntegerOBJ.setLineNumber("169");
             addAttributeDefList(_mvInteger);
 
@@ -1218,7 +1218,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsIntegerOBJ.setDescription("An hs Integer.");
             _hsIntegerOBJ.setValueType("HASHSET");
             _hsInteger.setDefinedIn(this);
-            _hsIntegerOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsIntegerOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsIntegerOBJ.setLineNumber("176");
             addAttributeDefList(_hsInteger);
 
@@ -1231,7 +1231,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsIntegerOBJ.setDescription("A ts Integer.");
             _tsIntegerOBJ.setValueType("TREESET");
             _tsInteger.setDefinedIn(this);
-            _tsIntegerOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _tsIntegerOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _tsIntegerOBJ.setLineNumber("183");
             addAttributeDefList(_tsInteger);
 
@@ -1244,7 +1244,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _intToStringOBJ.setDescription("A hash mapping of an integer to a string.");
             _intToStringOBJ.setValueType("HASHMAPPED");
             _intToString.setDefinedIn(this);
-            _intToStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _intToStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _intToStringOBJ.setLineNumber("193");
             addAttributeDefList(_intToString);
 
@@ -1256,7 +1256,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svLongOBJ.setDmdID("10110");
             _svLongOBJ.setDescription("A sv Long.");
             _svLong.setDefinedIn(this);
-            _svLongOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svLongOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svLongOBJ.setLineNumber("202");
             addAttributeDefList(_svLong);
 
@@ -1269,7 +1269,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvLongOBJ.setDescription("An mv Long.");
             _mvLongOBJ.setValueType("MULTI");
             _mvLong.setDefinedIn(this);
-            _mvLongOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvLongOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvLongOBJ.setLineNumber("209");
             addAttributeDefList(_mvLong);
 
@@ -1282,7 +1282,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsLongOBJ.setDescription("An hs Long.");
             _hsLongOBJ.setValueType("HASHSET");
             _hsLong.setDefinedIn(this);
-            _hsLongOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsLongOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsLongOBJ.setLineNumber("216");
             addAttributeDefList(_hsLong);
 
@@ -1295,7 +1295,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsLongOBJ.setDescription("A ts Long.");
             _tsLongOBJ.setValueType("TREESET");
             _tsLong.setDefinedIn(this);
-            _tsLongOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _tsLongOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _tsLongOBJ.setLineNumber("223");
             addAttributeDefList(_tsLong);
 
@@ -1307,7 +1307,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svStringOBJ.setDmdID("10141");
             _svStringOBJ.setDescription("A sv String.");
             _svString.setDefinedIn(this);
-            _svStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svStringOBJ.setLineNumber("233");
             addAttributeDefList(_svString);
 
@@ -1320,7 +1320,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvStringOBJ.setDescription("An mv String.");
             _mvStringOBJ.setValueType("MULTI");
             _mvString.setDefinedIn(this);
-            _mvStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvStringOBJ.setLineNumber("240");
             addAttributeDefList(_mvString);
 
@@ -1334,7 +1334,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvIdxStringOBJ.setIndexSize("10");
             _mvIdxStringOBJ.setValueType("MULTI");
             _mvIdxString.setDefinedIn(this);
-            _mvIdxStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvIdxStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvIdxStringOBJ.setLineNumber("248");
             addAttributeDefList(_mvIdxString);
 
@@ -1347,7 +1347,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hmStringOBJ.setDescription("A hashmap of StringToStrings.");
             _hmStringOBJ.setValueType("HASHMAPPED");
             _hmString.setDefinedIn(this);
-            _hmStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hmStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hmStringOBJ.setLineNumber("255");
             addAttributeDefList(_hmString);
 
@@ -1360,7 +1360,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tmStringOBJ.setDescription("A TreeMap of StringToStrings.");
             _tmStringOBJ.setValueType("TREEMAPPED");
             _tmString.setDefinedIn(this);
-            _tmStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _tmStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _tmStringOBJ.setLineNumber("262");
             addAttributeDefList(_tmString);
 
@@ -1373,7 +1373,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsStringOBJ.setDescription("A HashSet of Strings.");
             _hsStringOBJ.setValueType("HASHSET");
             _hsString.setDefinedIn(this);
-            _hsStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsStringOBJ.setLineNumber("269");
             addAttributeDefList(_hsString);
 
@@ -1386,7 +1386,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsStringOBJ.setDescription("A TreeSet of Strings.");
             _tsStringOBJ.setValueType("TREESET");
             _tsString.setDefinedIn(this);
-            _tsStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _tsStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _tsStringOBJ.setLineNumber("276");
             addAttributeDefList(_tsString);
 
@@ -1398,7 +1398,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _anotherSVStringOBJ.setDmdID("10148");
             _anotherSVStringOBJ.setDescription("A sv String.");
             _anotherSVString.setDefinedIn(this);
-            _anotherSVStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _anotherSVStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _anotherSVStringOBJ.setLineNumber("282");
             addAttributeDefList(_anotherSVString);
 
@@ -1410,7 +1410,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svNamedObjOBJ.setDmdID("10241");
             _svNamedObjOBJ.setDescription("An sv ObjWithRefs.");
             _svNamedObj.setDefinedIn(this);
-            _svNamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svNamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svNamedObjOBJ.setLineNumber("291");
             addAttributeDefList(_svNamedObj);
 
@@ -1423,7 +1423,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvNamedObjOBJ.setDescription("An mv ObjWithRefs.");
             _mvNamedObjOBJ.setValueType("MULTI");
             _mvNamedObj.setDefinedIn(this);
-            _mvNamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvNamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvNamedObjOBJ.setLineNumber("298");
             addAttributeDefList(_mvNamedObj);
 
@@ -1437,7 +1437,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvIdxNamedObjOBJ.setIndexSize("10");
             _mvIdxNamedObjOBJ.setValueType("MULTI");
             _mvIdxNamedObj.setDefinedIn(this);
-            _mvIdxNamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvIdxNamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvIdxNamedObjOBJ.setLineNumber("306");
             addAttributeDefList(_mvIdxNamedObj);
 
@@ -1450,7 +1450,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hmNamedObjOBJ.setDescription("A hashmap of ObjWithRefs.");
             _hmNamedObjOBJ.setValueType("HASHMAPPED");
             _hmNamedObj.setDefinedIn(this);
-            _hmNamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hmNamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hmNamedObjOBJ.setLineNumber("313");
             addAttributeDefList(_hmNamedObj);
 
@@ -1463,7 +1463,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tmNamedObjOBJ.setDescription("A TreeMap of ObjWithRefs.");
             _tmNamedObjOBJ.setValueType("TREEMAPPED");
             _tmNamedObj.setDefinedIn(this);
-            _tmNamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _tmNamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _tmNamedObjOBJ.setLineNumber("320");
             addAttributeDefList(_tmNamedObj);
 
@@ -1476,7 +1476,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsNamedObjOBJ.setDescription("A HashSet of ObjWithRefs.");
             _hsNamedObjOBJ.setValueType("HASHSET");
             _hsNamedObj.setDefinedIn(this);
-            _hsNamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsNamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsNamedObjOBJ.setLineNumber("327");
             addAttributeDefList(_hsNamedObj);
 
@@ -1489,7 +1489,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsNamedObjOBJ.setDescription("A TreeSet of ObjWithRefs.");
             _tsNamedObjOBJ.setValueType("TREESET");
             _tsNamedObj.setDefinedIn(this);
-            _tsNamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _tsNamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _tsNamedObjOBJ.setLineNumber("334");
             addAttributeDefList(_tsNamedObj);
 
@@ -1501,7 +1501,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svUnnamedObjOBJ.setDmdID("10341");
             _svUnnamedObjOBJ.setDescription("An sv TestBasicObjectFixed.");
             _svUnnamedObj.setDefinedIn(this);
-            _svUnnamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svUnnamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svUnnamedObjOBJ.setLineNumber("343");
             addAttributeDefList(_svUnnamedObj);
 
@@ -1514,7 +1514,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvUnnamedObjOBJ.setDescription("An mv TestBasicObjectFixed.");
             _mvUnnamedObjOBJ.setValueType("MULTI");
             _mvUnnamedObj.setDefinedIn(this);
-            _mvUnnamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvUnnamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvUnnamedObjOBJ.setLineNumber("350");
             addAttributeDefList(_mvUnnamedObj);
 
@@ -1528,7 +1528,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvIdxUnnamedObjOBJ.setIndexSize("10");
             _mvIdxUnnamedObjOBJ.setValueType("MULTI");
             _mvIdxUnnamedObj.setDefinedIn(this);
-            _mvIdxUnnamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvIdxUnnamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvIdxUnnamedObjOBJ.setLineNumber("358");
             addAttributeDefList(_mvIdxUnnamedObj);
 
@@ -1541,7 +1541,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsUnnamedObjOBJ.setDescription("A HashSet of TestBasicObjectFixed.");
             _hsUnnamedObjOBJ.setValueType("HASHSET");
             _hsUnnamedObj.setDefinedIn(this);
-            _hsUnnamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsUnnamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsUnnamedObjOBJ.setLineNumber("380");
             addAttributeDefList(_hsUnnamedObj);
 
@@ -1554,7 +1554,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsUnnamedObjOBJ.setDescription("A TreeSet of TestBasicObjectFixed.");
             _tsUnnamedObjOBJ.setValueType("TREESET");
             _tsUnnamedObj.setDefinedIn(this);
-            _tsUnnamedObjOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _tsUnnamedObjOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _tsUnnamedObjOBJ.setLineNumber("387");
             addAttributeDefList(_tsUnnamedObj);
 
@@ -1566,7 +1566,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svExtendedRefOBJ.setDmdID("10441");
             _svExtendedRefOBJ.setDescription("An sv SomeRelation.");
             _svExtendedRef.setDefinedIn(this);
-            _svExtendedRefOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svExtendedRefOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svExtendedRefOBJ.setLineNumber("396");
             addAttributeDefList(_svExtendedRef);
 
@@ -1579,7 +1579,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvExtendedRefOBJ.setDescription("An mv SomeRelation.");
             _mvExtendedRefOBJ.setValueType("MULTI");
             _mvExtendedRef.setDefinedIn(this);
-            _mvExtendedRefOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvExtendedRefOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvExtendedRefOBJ.setLineNumber("403");
             addAttributeDefList(_mvExtendedRef);
 
@@ -1593,7 +1593,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvIdxExtendedRefOBJ.setIndexSize("10");
             _mvIdxExtendedRefOBJ.setValueType("MULTI");
             _mvIdxExtendedRef.setDefinedIn(this);
-            _mvIdxExtendedRefOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvIdxExtendedRefOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvIdxExtendedRefOBJ.setLineNumber("411");
             addAttributeDefList(_mvIdxExtendedRef);
 
@@ -1606,7 +1606,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsExtendedRefOBJ.setDescription("A HashSet of SomeRelation.");
             _hsExtendedRefOBJ.setValueType("HASHSET");
             _hsExtendedRef.setDefinedIn(this);
-            _hsExtendedRefOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsExtendedRefOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsExtendedRefOBJ.setLineNumber("433");
             addAttributeDefList(_hsExtendedRef);
 
@@ -1619,7 +1619,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _tsExtendedRefOBJ.setDescription("A TreeSet of SomeRelation.");
             _tsExtendedRefOBJ.setValueType("TREESET");
             _tsExtendedRef.setDefinedIn(this);
-            _tsExtendedRefOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _tsExtendedRefOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _tsExtendedRefOBJ.setLineNumber("440");
             addAttributeDefList(_tsExtendedRef);
 
@@ -1631,7 +1631,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svTestBasicNamedObjectFixedOBJ.setDmdID("10800");
             _svTestBasicNamedObjectFixedOBJ.setDescription("A single valued TestBasicNamedObjectFixed.");
             _svTestBasicNamedObjectFixed.setDefinedIn(this);
-            _svTestBasicNamedObjectFixedOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svTestBasicNamedObjectFixedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svTestBasicNamedObjectFixedOBJ.setLineNumber("465");
             addAttributeDefList(_svTestBasicNamedObjectFixed);
 
@@ -1644,7 +1644,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvTestBasicNamedObjectFixedOBJ.setDescription("A multi-valued TestBasicNamedObjectFixed.");
             _mvTestBasicNamedObjectFixedOBJ.setValueType("MULTI");
             _mvTestBasicNamedObjectFixed.setDefinedIn(this);
-            _mvTestBasicNamedObjectFixedOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvTestBasicNamedObjectFixedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvTestBasicNamedObjectFixedOBJ.setLineNumber("472");
             addAttributeDefList(_mvTestBasicNamedObjectFixed);
 
@@ -1656,7 +1656,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _anObjNameOBJ.setDmdID("10900");
             _anObjNameOBJ.setDescription("A single-valued NameContainer.");
             _anObjName.setDefinedIn(this);
-            _anObjNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _anObjNameOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _anObjNameOBJ.setLineNumber("478");
             addAttributeDefList(_anObjName);
 
@@ -1669,7 +1669,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _dmtStringNameOBJ.setDmdID("10901");
             _dmtStringNameOBJ.setDescription("The naming attribute for DmtNameStrings.");
             _dmtStringName.setDefinedIn(this);
-            _dmtStringNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _dmtStringNameOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _dmtStringNameOBJ.setLineNumber("485");
             addAttributeDefList(_dmtStringName);
 
@@ -1681,7 +1681,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _anotherDmtNameOBJ.setDmdID("10902");
             _anotherDmtNameOBJ.setDescription("Another DmtStringName attribute.");
             _anotherDmtName.setDefinedIn(this);
-            _anotherDmtNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _anotherDmtNameOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _anotherDmtNameOBJ.setLineNumber("491");
             addAttributeDefList(_anotherDmtName);
 
@@ -1693,7 +1693,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _objRefOBJ.setDmdID("10903");
             _objRefOBJ.setDescription("Another ObjWithRefs object.");
             _objRef.setDefinedIn(this);
-            _objRefOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _objRefOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _objRefOBJ.setLineNumber("497");
             addAttributeDefList(_objRef);
 
@@ -1706,7 +1706,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _objRefMVOBJ.setDescription("Other ObjWithRefs objects.");
             _objRefMVOBJ.setValueType("MULTI");
             _objRefMV.setDefinedIn(this);
-            _objRefMVOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _objRefMVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _objRefMVOBJ.setLineNumber("504");
             addAttributeDefList(_objRefMV);
 
@@ -1719,7 +1719,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _objRefHMOBJ.setDescription("Other ObjWithRefs objects.");
             _objRefHMOBJ.setValueType("HASHMAPPED");
             _objRefHM.setDefinedIn(this);
-            _objRefHMOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _objRefHMOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _objRefHMOBJ.setLineNumber("511");
             addAttributeDefList(_objRefHM);
 
@@ -1731,7 +1731,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _attrIDsOBJ.setDmdID("10906");
             _attrIDsOBJ.setValueType("HASHSET");
             _attrIDs.setDefinedIn(this);
-            _attrIDsOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _attrIDsOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _attrIDsOBJ.setLineNumber("517");
             addAttributeDefList(_attrIDs);
 
@@ -1743,7 +1743,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _OUIFilterOBJ.setDmdID("10907");
             _OUIFilterOBJ.setNullReturnValue("");
             _OUIFilter.setDefinedIn(this);
-            _OUIFilterOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _OUIFilterOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _OUIFilterOBJ.setLineNumber("523");
             addAttributeDefList(_OUIFilter);
 
@@ -1754,7 +1754,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _clientCountFilterOBJ.setName("clientCountFilter");
             _clientCountFilterOBJ.setDmdID("10908");
             _clientCountFilter.setDefinedIn(this);
-            _clientCountFilterOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _clientCountFilterOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _clientCountFilterOBJ.setLineNumber("528");
             addAttributeDefList(_clientCountFilter);
 
@@ -1766,7 +1766,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _mvTestEnumOBJ.setDmdID("10909");
             _mvTestEnumOBJ.setValueType("MULTI");
             _mvTestEnum.setDefinedIn(this);
-            _mvTestEnumOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _mvTestEnumOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _mvTestEnumOBJ.setLineNumber("534");
             addAttributeDefList(_mvTestEnum);
 
@@ -1778,7 +1778,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsTestEnumOBJ.setDmdID("10910");
             _hsTestEnumOBJ.setValueType("HASHSET");
             _hsTestEnum.setDefinedIn(this);
-            _hsTestEnumOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsTestEnumOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsTestEnumOBJ.setLineNumber("540");
             addAttributeDefList(_hsTestEnum);
 
@@ -1790,7 +1790,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsNamesOBJ.setDmdID("10911");
             _hsNamesOBJ.setValueType("HASHSET");
             _hsNames.setDefinedIn(this);
-            _hsNamesOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsNamesOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsNamesOBJ.setLineNumber("546");
             addAttributeDefList(_hsNames);
 
@@ -1803,7 +1803,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _transStringOBJ.setDataType("TRANSIENT");
             _transStringOBJ.setValueType("HASHSET");
             _transString.setDefinedIn(this);
-            _transStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _transStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _transStringOBJ.setLineNumber("553");
             addAttributeDefList(_transString);
 
@@ -1816,7 +1816,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _nonperStringOBJ.setDataType("NONPERSISTENT");
             _nonperStringOBJ.setValueType("HASHSET");
             _nonperString.setDefinedIn(this);
-            _nonperStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _nonperStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _nonperStringOBJ.setLineNumber("560");
             addAttributeDefList(_nonperString);
 
@@ -1829,7 +1829,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _indexedStringOBJ.setIndexSize("5");
             _indexedStringOBJ.setValueType("MULTI");
             _indexedString.setDefinedIn(this);
-            _indexedStringOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _indexedStringOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _indexedStringOBJ.setLineNumber("567");
             addAttributeDefList(_indexedString);
 
@@ -1843,7 +1843,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _indexedObjRefOBJ.setIndexSize("10");
             _indexedObjRefOBJ.setValueType("MULTI");
             _indexedObjRef.setDefinedIn(this);
-            _indexedObjRefOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _indexedObjRefOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _indexedObjRefOBJ.setLineNumber("575");
             addAttributeDefList(_indexedObjRef);
 
@@ -1857,7 +1857,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _indexedPlainObjRefOBJ.setIndexSize("10");
             _indexedPlainObjRefOBJ.setValueType("MULTI");
             _indexedPlainObjRef.setDefinedIn(this);
-            _indexedPlainObjRefOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _indexedPlainObjRefOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _indexedPlainObjRefOBJ.setLineNumber("583");
             addAttributeDefList(_indexedPlainObjRef);
 
@@ -1870,7 +1870,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _plainObjRefOBJ.setDescription("References to unnamed objects.");
             _plainObjRefOBJ.setValueType("MULTI");
             _plainObjRef.setDefinedIn(this);
-            _plainObjRefOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _plainObjRefOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _plainObjRefOBJ.setLineNumber("590");
             addAttributeDefList(_plainObjRef);
 
@@ -1881,7 +1881,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _svTestEnumOBJ.setName("svTestEnum");
             _svTestEnumOBJ.setDmdID("10918");
             _svTestEnum.setDefinedIn(this);
-            _svTestEnumOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _svTestEnumOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _svTestEnumOBJ.setLineNumber("595");
             addAttributeDefList(_svTestEnum);
 
@@ -1892,7 +1892,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _onOffOBJ.setName("onOff");
             _onOffOBJ.setDmdID("10919");
             _onOff.setDefinedIn(this);
-            _onOffOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _onOffOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _onOffOBJ.setLineNumber("600");
             addAttributeDefList(_onOff);
 
@@ -1903,7 +1903,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _enabledDisabledOBJ.setName("enabledDisabled");
             _enabledDisabledOBJ.setDmdID("10920");
             _enabledDisabled.setDefinedIn(this);
-            _enabledDisabledOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _enabledDisabledOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _enabledDisabledOBJ.setLineNumber("605");
             addAttributeDefList(_enabledDisabled);
 
@@ -1914,7 +1914,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _someRelationSVOBJ.setName("someRelationSV");
             _someRelationSVOBJ.setDmdID("10921");
             _someRelationSV.setDefinedIn(this);
-            _someRelationSVOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _someRelationSVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _someRelationSVOBJ.setLineNumber("610");
             addAttributeDefList(_someRelationSV);
 
@@ -1926,7 +1926,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _someRelationMVOBJ.setDmdID("10922");
             _someRelationMVOBJ.setValueType("MULTI");
             _someRelationMV.setDefinedIn(this);
-            _someRelationMVOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _someRelationMVOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _someRelationMVOBJ.setLineNumber("616");
             addAttributeDefList(_someRelationMV);
 
@@ -1939,7 +1939,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _someRelationMVIOBJ.setIndexSize("8");
             _someRelationMVIOBJ.setValueType("MULTI");
             _someRelationMVI.setDefinedIn(this);
-            _someRelationMVIOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _someRelationMVIOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _someRelationMVIOBJ.setLineNumber("623");
             addAttributeDefList(_someRelationMVI);
 
@@ -1951,7 +1951,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _intToStringMAPOBJ.setDmdID("10924");
             _intToStringMAPOBJ.setValueType("TREEMAPPED");
             _intToStringMAP.setDefinedIn(this);
-            _intToStringMAPOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _intToStringMAPOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _intToStringMAPOBJ.setLineNumber("629");
             addAttributeDefList(_intToStringMAP);
 
@@ -1963,7 +1963,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _hsStringNameOBJ.setDmdID("10925");
             _hsStringNameOBJ.setValueType("HASHSET");
             _hsStringName.setDefinedIn(this);
-            _hsStringNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _hsStringNameOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _hsStringNameOBJ.setLineNumber("635");
             addAttributeDefList(_hsStringName);
 
@@ -1976,7 +1976,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _clientCountFiltersOBJ.setIndexSize("8");
             _clientCountFiltersOBJ.setValueType("MULTI");
             _clientCountFilters.setDefinedIn(this);
-            _clientCountFiltersOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _clientCountFiltersOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _clientCountFiltersOBJ.setLineNumber("642");
             addAttributeDefList(_clientCountFilters);
 
@@ -1989,7 +1989,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _someRelationIndexedOBJ.setIndexSize("8");
             _someRelationIndexedOBJ.setValueType("MULTI");
             _someRelationIndexed.setDefinedIn(this);
-            _someRelationIndexedOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
+            _someRelationIndexedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/attributes.dmd");
             _someRelationIndexedOBJ.setLineNumber("648");
             addAttributeDefList(_someRelationIndexed);
 
@@ -2007,7 +2007,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _DmtStringNameOBJ.setIsNameType("true");
             _DmtStringNameOBJ.setDmwIteratorImport("org.dmd.dmt.server.generated.dmw.DmtStringNameIterableDMW");
             _DmtStringName.setDefinedIn(this);
-            _DmtStringNameOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/types.dmd");
+            _DmtStringNameOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/types.dmd");
             _DmtStringNameOBJ.setLineNumber("7");
             addTypeDefList(_DmtStringName);
 
@@ -2039,7 +2039,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _testActionOBJ.addMayParm("name");
             _testActionOBJ.addMustParm("svBoolean");
             _testAction.setDefinedIn(this);
-            _testActionOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/actions.dmd");
+            _testActionOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/actions.dmd");
             _testActionOBJ.setLineNumber("5");
             addActionDefList(_testAction);
 
@@ -2056,7 +2056,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _DmtTestEnumOBJ.addEnumValue("3 TEST3 Third test");
             _DmtTestEnumOBJ.setDescription("The DmtTestEnum is used for testing operations on enumerated types");
             _DmtTestEnum.setDefinedIn(this);
-            _DmtTestEnumOBJ.setFile("/Users/peter/bvw/dark-matter-data/src/org/dmd/dmt/shared/dmdconfig/v0dot1/types.dmd");
+            _DmtTestEnumOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/types.dmd");
             _DmtTestEnumOBJ.setLineNumber("15");
             addEnumDefList(_DmtTestEnum);
 
