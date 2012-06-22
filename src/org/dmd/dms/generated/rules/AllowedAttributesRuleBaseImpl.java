@@ -11,7 +11,7 @@ import org.dmd.dms.shared.interfaces.RuleIF;                       // All rules 
 // Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:83)
 abstract public class AllowedAttributesRuleBaseImpl implements RuleIF, ObjectValidationIF, ModifierValidationIF {
 
-    AllowedAttributesRuleDMO ruleDMO;
+    protected AllowedAttributesRuleDMO ruleDMO;
 
     protected AllowedAttributesRuleBaseImpl(AllowedAttributesRuleDMO dmo){
         ruleDMO = dmo;

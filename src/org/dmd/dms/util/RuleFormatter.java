@@ -83,7 +83,7 @@ public class RuleFormatter {
 			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("abstract public class " + name + "BaseImpl implements " + interfaces + " {\n\n");
 			
-			out.write("    " + name + "DMO ruleDMO;\n\n");
+			out.write("    protected " + name + "DMO ruleDMO;\n\n");
 			
 			out.write("    protected " + name + "BaseImpl(" + name + "DMO dmo){\n");
 			out.write("        ruleDMO = dmo;\n");
