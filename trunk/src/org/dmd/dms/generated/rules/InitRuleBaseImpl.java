@@ -10,7 +10,7 @@ import org.dmd.dms.shared.interfaces.RuleIF;                   // All rules impl
 // Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:83)
 abstract public class InitRuleBaseImpl implements RuleIF, InitializationIF {
 
-    InitRuleDMO ruleDMO;
+    protected InitRuleDMO ruleDMO;
 
     protected InitRuleBaseImpl(InitRuleDMO dmo){
         ruleDMO = dmo;

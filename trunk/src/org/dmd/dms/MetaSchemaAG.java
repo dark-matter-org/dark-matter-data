@@ -554,6 +554,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _Boolean                     .setTypeClassName("org.dmd.dmc.types.DmcTypeBoolean");
             _Boolean                     .setDefinedIn(this);
 
+            _CamelCaseName               .setDescription("The CamelCaseName is a string based name that must start with an alpha character which is followed by a mix of alphanumerics.");
             _CamelCaseName               .setIsNameType("true");
             _CamelCaseName               .setName("CamelCaseName");
             _CamelCaseName               .setPrimitiveType("org.dmd.dmc.types.CamelCaseName");
@@ -653,6 +654,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _DmwTypeToWrapperType        .setTypeClassName("org.dmd.dms.generated.types.DmcTypeDmwTypeToWrapperType");
             _DmwTypeToWrapperType        .setDefinedIn(this);
 
+            _DotName                     .setDescription("The DotName provides standard mechanisms to deal with hierarchic names composed of strings interspersed with periods (dots) to separate the name elements. For example a dot name might be one.two.three");
             _DotName                     .setIsHierarchicName("true");
             _DotName                     .setIsNameType("true");
             _DotName                     .setName("DotName");
@@ -729,6 +731,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _Integer                     .setTypeClassName("org.dmd.dmc.types.DmcTypeInteger");
             _Integer                     .setDefinedIn(this);
 
+            _IntegerName                 .setDescription("An IntegerName provides the means to uniquely identify an object using an integer value.");
             _IntegerName                 .setIsNameType("true");
             _IntegerName                 .setName("IntegerName");
             _IntegerName                 .setPrimitiveType("org.dmd.dmc.types.IntegerName");
@@ -767,6 +770,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _Long                        .setTypeClassName("org.dmd.dmc.types.DmcTypeLong");
             _Long                        .setDefinedIn(this);
 
+            _LongName                    .setDescription("A LongName provides the means to uniquely identify an object using a long value.");
             _LongName                    .setIsNameType("true");
             _LongName                    .setName("LongName");
             _LongName                    .setPrimitiveType("org.dmd.dmc.types.LongName");
@@ -882,6 +886,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _String                      .setTypeClassName("org.dmd.dmc.types.DmcTypeString");
             _String                      .setDefinedIn(this);
 
+            _StringName                  .setDescription("The StringName is the simplest naming mechanism available; it's just a String.");
             _StringName                  .setIsNameType("true");
             _StringName                  .setName("StringName");
             _StringName                  .setPrimitiveType("org.dmd.dmc.types.StringName");
@@ -910,13 +915,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinitionREF           .setWrapperClassName("org.dmd.dms.TypeDefinition");
             _TypeDefinitionREF           .setDefinedIn(this);
 
-            _UUIDLite                    .setDescription("Provides support UUIDs in GWT environments.");
+            _UUIDLite                    .setDescription("The UUIDLite provides support for UUIDs in GWT environments; a full UUID implementation is not supported by the GWT JRE Emulation mechanisms. It holds two long values that represent a complete java.util.UUID as generated within the server environment. The methods to parse a UUID from a String and present it as a String are taken from the java.util.UUID class.");
             _UUIDLite                    .setName("UUIDLite");
             _UUIDLite                    .setPrimitiveType("org.dmd.dmc.types.UUIDLite");
             _UUIDLite                    .setTypeClassName("org.dmd.dmc.types.DmcTypeUUIDLite");
             _UUIDLite                    .setDefinedIn(this);
 
-            _UUIDName                    .setDescription("Provides support naming objects on the basis of a UUIDLite.");
+            _UUIDName                    .setDescription("The UUIDName allows for the naming of objects based on the GWT compatible UUIDLite type.");
             _UUIDName                    .setIsNameType("true");
             _UUIDName                    .setName("UUIDName");
             _UUIDName                    .setPrimitiveType("org.dmd.dmc.types.UUIDName");
