@@ -2300,6 +2300,17 @@ description		The RuleDefinition allows for the definition of rules that can
  be unique. This is because each RuleDefinition results in the creation of a 
  ClassDefinition for the DMO part of the rule that carries the rule parameters.
 
+ClassDefinition
+name           	RuleInstance
+classType      	ABSTRACT
+dmdID			17
+javaClass    	org.dmd.dms.RuleInstance
+dmoImport		org.dmd.dms.generated.dmo.RuleInstanceDMO
+must			ruleTitle
+may				description
+description		The RuleInstance class serves as a common base for all ClassDefinitions
+ that are generated internally to represent the data associated with RuleDefinitions.
+ 
 ********************************************************************************
 *
 * Schema Definition

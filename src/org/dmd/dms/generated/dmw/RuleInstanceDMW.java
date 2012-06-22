@@ -27,34 +27,36 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * null
+ * The RuleInstance class serves as a common base for all ClassDefinitions
+ * that are generated internally to represent the data associated with
+ * RuleDefinitions.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1137)
  */
 @SuppressWarnings("unused")
-public class InitRuleInstanceDMW extends org.dmd.dms.RuleInstance {
+public abstract class RuleInstanceDMW extends DmwWrapper {
 
-    private InitRuleInstanceDMO mycore;
+    private RuleInstanceDMO mycore;
 
-    protected InitRuleInstanceDMW() {
-        super(new InitRuleInstanceDMO());
-        mycore = (InitRuleInstanceDMO) core;
+    protected RuleInstanceDMW() {
+        super(new RuleInstanceDMO());
+        mycore = (RuleInstanceDMO) core;
         mycore.setContainer(this);
     }
 
-    protected InitRuleInstanceDMW(DmcObject obj) {
+    protected RuleInstanceDMW(DmcObject obj) {
         super(obj);
-        mycore = (InitRuleInstanceDMO) core;
+        mycore = (RuleInstanceDMO) core;
         mycore.setContainer(this);
     }
 
-    protected InitRuleInstanceDMW(DmcObject obj, ClassDefinition cd) {
+    protected RuleInstanceDMW(DmcObject obj, ClassDefinition cd) {
         super(obj,cd);
-        mycore = (InitRuleInstanceDMO) core;
+        mycore = (RuleInstanceDMO) core;
         mycore.setContainer(this);
     }
 
-    public  InitRuleInstanceDMO getDMO() {
+    public  RuleInstanceDMO getDMO() {
         return(mycore);
     }
 

@@ -29,10 +29,10 @@ import org.dmd.dms.*;
 /**
  * null
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1136)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1137)
  */
 @SuppressWarnings("unused")
-public class AllowedAttributesRuleInstanceDMW extends DmwWrapper {
+public class AllowedAttributesRuleInstanceDMW extends org.dmd.dms.RuleInstance {
 
     private AllowedAttributesRuleInstanceDMO mycore;
 
@@ -61,7 +61,7 @@ public class AllowedAttributesRuleInstanceDMW extends DmwWrapper {
     /**
      * The title of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1780)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1781)
     public String getRuleTitle(){
         return(mycore.getRuleTitle());
     }
@@ -70,7 +70,7 @@ public class AllowedAttributesRuleInstanceDMW extends DmwWrapper {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1832)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1833)
     public void setRuleTitle(Object value) throws DmcValueException {
         mycore.setRuleTitle(value);
     }
@@ -81,7 +81,7 @@ public class AllowedAttributesRuleInstanceDMW extends DmwWrapper {
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1780)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1781)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -90,7 +90,7 @@ public class AllowedAttributesRuleInstanceDMW extends DmwWrapper {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1832)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1833)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }

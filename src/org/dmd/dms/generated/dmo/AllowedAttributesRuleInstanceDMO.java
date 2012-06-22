@@ -16,21 +16,21 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1370)
-import java.io.Serializable;                       // Serializable marker interface - (MetaGenerator.java:1334)
-import java.util.*;                                // Attribute info support - (MetaGenerator.java:1335)
-import org.dmd.dmc.*;                              // Dark matter core - (MetaGenerator.java:1350)
-import org.dmd.dms.generated.dmo.MetaVCAG;         // Old validation framework - obsolete - (MetaGenerator.java:1351)
-import org.dmd.dms.generated.types.*;              // Generated type access - (MetaGenerator.java:1361)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1371)
+import java.io.Serializable;                       // Serializable marker interface - (MetaGenerator.java:1335)
+import java.util.*;                                // Attribute info support - (MetaGenerator.java:1336)
+import org.dmd.dmc.*;                              // Dark matter core - (MetaGenerator.java:1351)
+import org.dmd.dms.generated.dmo.MetaVCAG;         // Old validation framework - obsolete - (MetaGenerator.java:1352)
+import org.dmd.dms.generated.types.*;              // Generated type access - (MetaGenerator.java:1362)
 
 
 /**
  * null
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1379)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1380)
  */
 @SuppressWarnings("serial")
-public class AllowedAttributesRuleInstanceDMO extends DmcObject implements Serializable {
+public class AllowedAttributesRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceDMO implements Serializable  {
 
 
 
@@ -99,7 +99,7 @@ public class AllowedAttributesRuleInstanceDMO extends DmcObject implements Seria
     /**
      * The title of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1754)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1755)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -112,7 +112,7 @@ public class AllowedAttributesRuleInstanceDMO extends DmcObject implements Seria
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1805)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1806)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -128,7 +128,7 @@ public class AllowedAttributesRuleInstanceDMO extends DmcObject implements Seria
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1754)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1755)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -141,7 +141,7 @@ public class AllowedAttributesRuleInstanceDMO extends DmcObject implements Seria
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1805)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1806)
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)

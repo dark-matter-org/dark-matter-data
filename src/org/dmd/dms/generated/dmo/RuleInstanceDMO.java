@@ -25,12 +25,14 @@ import org.dmd.dms.generated.types.*;              // Generated type access - (M
 
 
 /**
- * null
+ * The RuleInstance class serves as a common base for all ClassDefinitions
+ * that are generated internally to represent the data associated with
+ * RuleDefinitions.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1380)
  */
 @SuppressWarnings("serial")
-public class InitRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceDMO implements Serializable  {
+public class RuleInstanceDMO extends DmcObject implements Serializable {
 
 
 
@@ -59,11 +61,11 @@ public class InitRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceD
     }
 
 
-    public InitRuleInstanceDMO(){
-        super("InitRuleInstance");
+    public RuleInstanceDMO(){
+        super("RuleInstance");
     }
 
-    public InitRuleInstanceDMO(String oc){
+    public RuleInstanceDMO(String oc){
         super(oc);
     }
 
@@ -84,14 +86,14 @@ public class InitRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceD
     }
 
     @Override
-    public InitRuleInstanceDMO getNew(){
-        InitRuleInstanceDMO rc = new InitRuleInstanceDMO();
+    public RuleInstanceDMO getNew(){
+        RuleInstanceDMO rc = new RuleInstanceDMO();
         return(rc);
     }
 
     @Override
-    public InitRuleInstanceDMO getSlice(DmcSliceInfo info){
-        InitRuleInstanceDMO rc = new InitRuleInstanceDMO();
+    public RuleInstanceDMO getSlice(DmcSliceInfo info){
+        RuleInstanceDMO rc = new RuleInstanceDMO();
         populateSlice(rc,info);
         return(rc);
     }
