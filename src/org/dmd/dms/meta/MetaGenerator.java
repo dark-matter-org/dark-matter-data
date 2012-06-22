@@ -401,11 +401,15 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			ctype = "EXTENSIBLE";
 		}
 		
-		classDef.addValue("name", name);
+		classDef.addValue("name", name + "Instance");
 		classDef.addValue("classType", ctype);
 		classDef.addValue("dmdID", uco.getSV("dmdID"));
-		classDef.addValue("dmoImport", "org.dmd.dms.generated.dmo" + name + "DMO");
+		classDef.addValue("dmoImport", "org.dmd.dms.generated.dmo." + name + "InstanceDMO");
+		classDef.addValue("javaClass", "org.dmd.dms.generated.dmo." + name + "InstanceDMO");
+		classDef.addValue("internallyGenerated", "true");
+		classDef.addValue("ruleDefinition", name);
 		classDef.addValue("must", "ruleTitle");
+		classDef.addValue("may", "description");
 		
 		NamedStringArray must = uco.get("must");
 		if (must != null){
@@ -421,8 +425,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			}
 		}
 		
-		classDefs.put(name, classDef);
-		origOrderClasses.add(name);
+		classDefs.put(name + "Instance", classDef);
+		origOrderClasses.add(name + "Instance");
 		
 		
 	}
@@ -704,21 +708,35 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
         out.write("    public static SchemaDefinition    _metaSchema;\n\n");
         
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         for(int i=0;i<origOrderClasses.size();i++){
             out.write("    public static ClassDefinition     _" + origOrderClasses.get(i) + ";\n");
         }
         out.write("\n");
 
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         for(int i=0;i<origOrderEnums.size();i++)
             out.write("    public static EnumDefinition      _" + origOrderEnums.get(i) + ";\n");
         out.write("\n");
 
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         for(int i=0;i<origOrderTypes.size();i++)
             out.write("    public static TypeDefinition      _" + origOrderTypes.get(i) + ";\n");
         out.write("\n");
 
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         for(int i=0;i<origOrderAttrs.size();i++)
             out.write("    public static AttributeDefinition _" + origOrderAttrs.get(i) + ";\n");
+        out.write("\n");
+        
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        for(int i=0;i<origOrderCategories.size();i++)
+            out.write("    public static RuleCategory        _" + origOrderCategories.get(i) + ";\n");
+        out.write("\n");
+        
+        out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        for(int i=0;i<origOrderRules.size();i++)
+            out.write("    public static RuleDefinition      _" + origOrderRules.get(i) + ";\n");
         out.write("\n");
         
         // METASCHEMA START
@@ -812,6 +830,30 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         }
         out.write("\n");
         
+        out.write("            // Create the rule category definitions\n");
+        out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        for(int i=0;i<origOrderCategories.size();i++){
+        	String defn = origOrderCategories.get(i);
+            out.write("            _" + pf.sprintf(defn));
+            out.write("= new RuleCategory(\"" + defn + "\");\n");
+        }
+        out.write("\n");
+        
+        out.write("            // Create the rule definitions\n");
+        out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+        for(int i=0;i<origOrderRules.size();i++){
+        	String defn = origOrderRules.get(i);
+            out.write("            _" + pf.sprintf(defn));
+            out.write("= new RuleDefinition(\"" + defn + "\");\n");
+        }
+        out.write("\n");
+        
+ 
+        
+        
+        
+        
+        
         // Set the attribute values on all objects
         out.write("            // Set attribute values on all objects\n");
         out.write("            // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
@@ -823,6 +865,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
         setAttributeValues(out, attributeDefs, pf);
         
         setAttributeValues(out, classDefs, pf);
+        
+        setAttributeValues(out, ruleCategoryDefs, pf);
+        
+        setAttributeValues(out, ruleDefs, pf);
         
         
         out.write("        // Add the definitions to the schema object\n");
@@ -839,6 +885,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
         for(int i=0;i<origOrderAttrs.size();i++)
             out.write("            this.addAttributeDefList(_" + origOrderAttrs.get(i) + ");\n");
+
+        for(int i=0;i<origOrderCategories.size();i++)
+            out.write("            this.addRuleCategoryList(_" + origOrderCategories.get(i) + ");\n");
+
+        for(int i=0;i<origOrderRules.size();i++)
+            out.write("            this.addRuleDefinitionList(_" + origOrderRules.get(i) + ");\n");
 
         // Set the schema instances' name and description
 //        DebugInfo.debug("META SCHEMA NAME CHANGE!!!!");
@@ -887,6 +939,13 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		while(it.hasNext()){
 			DmcUncheckedObject obj = it.next();
 			objName = obj.getSV("name");
+			
+//			// trickiness here to handle the fact that the actual rule definition object
+//			// has to be called RuleDEF since Rule is the name of the class definition that
+//			// is created to represent the Rule instance.
+//			if (obj.getConstructionClass().equals("RuleDefinition")){
+//				objName = objName + "DEF";
+//			}
 			
 			Iterator<String> attributeNames = obj.getAttributeNames();
 			while(attributeNames.hasNext()){
@@ -1289,7 +1348,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     }
                     
                     imports.addImport("org.dmd.dmc.*", "Dark matter core");
-                    imports.addImport("org.dmd.dms.generated.dmo.MetaVCAG", "Old validation farmeowrk - obsolete");
+                    imports.addImport("org.dmd.dms.generated.dmo.MetaVCAG", "Old validation framework - obsolete");
                     
 //                    out.write("import org.dmd.dmc.*;\n");
 //                    out.write("import org.dmd.dms.generated.dmo.MetaVCAG;\n");

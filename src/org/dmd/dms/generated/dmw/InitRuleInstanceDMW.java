@@ -25,65 +25,74 @@ import org.dmd.dms.generated.enums.*;
 import org.dmd.dms.generated.types.*;
 import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
-import org.dmd.dms.extended.ActionTriggerInfo;
 
 /**
- * The ActionTriggerInfo class simply provides a common base for the bundle
- * of information required to remotely trigger an action on an object. 
- * Derivatives of this class are generated as part of the DMO generation
- * process and have action specific interfaces to handle the parameters 
- * required by an action. <P> This mechanism is a replacement for the concept
- * that ActionRequests were EXTENSIBLE objects. This way, the user can ask an
- * object for the  ActionTriggerInfo (ATI) for a particular action and have a
- * well defined interface to specify the parameters for the action.
+ * null
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1136)
  */
 @SuppressWarnings("unused")
-public abstract class ActionTriggerInfoDMW extends DmwWrapper {
+public class InitRuleInstanceDMW extends DmwWrapper {
 
-    private ActionTriggerInfoDMO mycore;
+    private InitRuleInstanceDMO mycore;
 
-    protected ActionTriggerInfoDMW() {
-        super(new ActionTriggerInfoDMO());
-        mycore = (ActionTriggerInfoDMO) core;
+    protected InitRuleInstanceDMW() {
+        super(new InitRuleInstanceDMO());
+        mycore = (InitRuleInstanceDMO) core;
         mycore.setContainer(this);
     }
 
-    protected ActionTriggerInfoDMW(DmcObject obj) {
+    protected InitRuleInstanceDMW(DmcObject obj) {
         super(obj);
-        mycore = (ActionTriggerInfoDMO) core;
+        mycore = (InitRuleInstanceDMO) core;
         mycore.setContainer(this);
     }
 
-    protected ActionTriggerInfoDMW(DmcObject obj, ClassDefinition cd) {
+    protected InitRuleInstanceDMW(DmcObject obj, ClassDefinition cd) {
         super(obj,cd);
-        mycore = (ActionTriggerInfoDMO) core;
+        mycore = (InitRuleInstanceDMO) core;
         mycore.setContainer(this);
     }
 
-    public  ActionTriggerInfoDMO getDMO() {
+    public  InitRuleInstanceDMO getDMO() {
         return(mycore);
     }
 
     /**
-     * The name attribute is used to store a single string token that represents
-     * a unique name for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
-     * names must start with a character.
+     * The title of a rule.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1780)
-    public StringName getName(){
-        return(mycore.getName());
+    public String getRuleTitle(){
+        return(mycore.getRuleTitle());
     }
 
     /**
-     * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringNameSV
+     * Sets ruleTitle to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1832)
-    public void setName(Object value) throws DmcValueException {
-        mycore.setName(value);
+    public void setRuleTitle(Object value) throws DmcValueException {
+        mycore.setRuleTitle(value);
+    }
+
+    /**
+     * The description attribute is used to provide descriptive documentation for
+     * schema related definitions. The description is of type XHMTLString which
+     * is basically an XML formatted fragment that conforms to the XHTML 1.0
+     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1780)
+    public String getDescription(){
+        return(mycore.getDescription());
+    }
+
+    /**
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1832)
+    public void setDescription(Object value) throws DmcValueException {
+        mycore.setDescription(value);
     }
 
 
