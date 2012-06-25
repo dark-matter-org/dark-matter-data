@@ -503,6 +503,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
         __RuleCategory.addMust(__description);
         __RuleCategory.addMust(__name);
+        __RuleCategory.addMust(__opContext);
         __RuleCategory.addMust(__ruleCategoryID);
         __RuleCategory.addMust(__ruleInterface);
         __RuleCategory.addMay(__definedIn);
@@ -512,7 +513,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleDefinition.addMust(__description);
         __RuleDefinition.addMust(__dmdID);
         __RuleDefinition.addMust(__name);
-        __RuleDefinition.addMust(__opContext);
         __RuleDefinition.addMust(__ruleCategory);
         __RuleDefinition.addMust(__ruleScope);
         __RuleDefinition.addMust(__ruleType);

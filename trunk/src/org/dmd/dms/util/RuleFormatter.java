@@ -54,10 +54,14 @@ public class RuleFormatter {
     		baseImports.addImport("org.dmd.dms.generated.enums.RuleScopeEnum", "Rule scope");
     		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "Rule type");
     		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
+    		baseImports.addImport("java.util.ArrayList", "To store category IDs");
+    		baseImports.addImport("java.util.Iterator", "To access category IDs");
     		interfaces.append("RuleIF");
 
     		
     		baseImports.addImport(schemaPackage + ".generated.dmo." + name + "InstanceDMO", "Rule parameters object");
+    		
+    		StringBuffer categoryInit = new StringBuffer();
     		
     		for(String cname: categories){
     			DmcUncheckedObject category = ruleCategoryDefs.get(cname);
@@ -66,6 +70,9 @@ public class RuleFormatter {
     				ResultException ex = new ResultException("Unknown rule category: " + cname);
     				throw(ex);
     			}
+    			
+    			String categoryID = category.getSV("ruleCategoryID");
+    			categoryInit.append("            categories.add(" + categoryID + ");\n");
     				
     			String ruleInterface = category.getSV("ruleInterface");
     			baseImports.addImport(ruleInterface, "Required by RuleCategory " + cname);
@@ -88,13 +95,18 @@ public class RuleFormatter {
 			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("abstract public class " + name + "BaseImpl implements " + interfaces + " {\n\n");
 			
-			out.write("    static RuleScopeEnum scope = RuleScopeEnum." + scope + ";\n");
-			out.write("    static RuleTypeEnum  type  = RuleTypeEnum." + type + ";\n");
+			out.write("    static RuleScopeEnum      scope = RuleScopeEnum." + scope + ";\n");
+			out.write("    static RuleTypeEnum       type  = RuleTypeEnum." + type + ";\n\n");
+			
+			out.write("    static ArrayList<Integer> categories;\n\n");
 			
 			out.write("    protected " + name + "InstanceDMO ruleDMO;\n\n");
 			
 			out.write("    protected " + name + "BaseImpl(" + name + "InstanceDMO dmo){\n");
 			out.write("        ruleDMO = dmo;\n");
+			out.write("        if (categories == null){\n");
+			out.write(categoryInit.toString());
+			out.write("        }\n");
 			out.write("    }\n\n");
 			
 			out.write("    @Override\n");
@@ -110,6 +122,11 @@ public class RuleFormatter {
 			out.write("    @Override\n");
 			out.write("    public RuleTypeEnum getRuleType() {\n");
 			out.write("        return(type);\n");
+			out.write("    }\n\n");
+
+			out.write("    @Override\n");
+			out.write("    public Iterator<Integer> getCategories() {\n");
+			out.write("        return(categories.iterator());\n");
 			out.write("    }\n\n");
 
 			

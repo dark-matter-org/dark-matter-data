@@ -27,7 +27,7 @@ import org.dmd.dms.generated.enums.RuleTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2251)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:259)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:258)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleTypeEnumMV extends DmcTypeRuleTypeEnum implements Serializable {

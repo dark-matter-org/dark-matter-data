@@ -1,5 +1,7 @@
 package org.dmd.dmc.rules;
 
+import java.util.Iterator;
+
 import org.dmd.dms.generated.enums.RuleScopeEnum;
 import org.dmd.dms.generated.enums.RuleTypeEnum;
 
@@ -11,16 +13,20 @@ public interface RuleIF {
 	/**
 	 * @return the title of the rule.
 	 */
-	String getRuleTitle();
+	public String getRuleTitle();
 	
 	/**
 	 * @return the rule scope.
 	 */
-	RuleScopeEnum	getRuleScope();
+	public RuleScopeEnum	getRuleScope();
 	
 	/**
 	 * @return the rule type.
 	 */
-	RuleTypeEnum	getRuleType();
+	public RuleTypeEnum	getRuleType();
 	
+	/**
+	 * @return the identifiers of the categories to which this rule belongs.
+	 */
+	public Iterator<Integer>	getCategories();
 }

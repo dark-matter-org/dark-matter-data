@@ -1,5 +1,7 @@
 package org.dmd.dmc.rules;
 
+import java.util.TreeMap;
+
 /**
  * The DmcRuleManager is used to manage a collection rules associated with Dark Matter Object (DMOs).
  * Rules are simply pieces of business logic that can be applied to objects in a consistent manner
@@ -28,5 +30,13 @@ package org.dmd.dmc.rules;
  */
 public class DmcRuleManager {
 
+	TreeMap<Integer,DmcRuleCategory>	categories;
 	
+	public DmcRuleManager(){
+		
+	}
+	
+	public void addRule(RuleIF rule){
+		
+	}
 }

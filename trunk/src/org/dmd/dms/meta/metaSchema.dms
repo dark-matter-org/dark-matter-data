@@ -442,6 +442,7 @@ description		Verifies that an object has all of its mandatory attributes and
 
 RuleCategory
 name			Initialization
+opContext		DMO
 ruleCategoryID	1
 ruleInterface	org.dmd.dms.shared.interfaces.InitializationIF
 description		Rules in this category are used to initialize objects to a known
@@ -449,15 +450,23 @@ description		Rules in this category are used to initialize objects to a known
 
 RuleCategory
 name			ObjectValidation
+opContext		DMO
 ruleCategoryID	2
 ruleInterface	org.dmd.dms.shared.interfaces.ObjectValidationIF
 description		Rules in this category are used to validate a complete object. This
  would include objects read from Object Instance Files, objects in CreateRequests
  (after Initialization rules have been applied).
- 
+
+RuleCategory
+name			AttributeValidation
+opContext		DMO
+ruleCategoryID	3
+ruleInterface	org.dmd.dms.shared.interfaces.AttributeValidationIF
+
 RuleCategory
 name			ModifierValidation
-ruleCategoryID	3
+opContext		DMO
+ruleCategoryID	4
 ruleInterface	org.dmd.dms.shared.interfaces.ModifierValidationIF
 description		Rules in this category are used to valid modifications that are
  about to be applied to an object.
@@ -470,7 +479,6 @@ description		Rules in this category are used to valid modifications that are
 RuleDefinition
 name			AllowedAttributesRule
 dmdID			20
-opContext		DMO
 ruleType		CLASS
 ruleScope		GLOBAL
 ruleCategory	ObjectValidation
@@ -478,11 +486,14 @@ ruleCategory	ModifierValidation
 description		The AllowedAttributesRule will determine whether or not the 
  attributes of a DMO conform to the must/may specification of its class definition.
  For class of type EXTENSIBLE only the must have attributes are checked.
+ <p/>
+ Regardless of the environment in which you are running, you must ensure that the
+ DmcOmni has been loaded with the appropriate schema. If you are using the Dark Matter
+ Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically.
 
 RuleDefinition
 name			InitRule
 dmdID			21
-opContext		DMO
 ruleType		CLASS
 ruleScope		PERCLASS
 ruleCategory	Initialization
@@ -508,8 +519,7 @@ description		The InitRule allows you to specify attribute values for a
 
 AllowedAttributesRuleInstance
 ruleTitle 	Validate allowed attributes on objects.
-description	Ensures that must/may attribute rules are followed, except in the
-case of EXTENSIBLE cla
+description	Ensures that must/may attribute rules are followed.
 
 InitRuleInstance
 ruleTitle 	Initialize AttributeDefinitions
@@ -2269,6 +2279,7 @@ dmoImport		org.dmd.dms.generated.dmo.RuleCategoryDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must        	name
+must			opContext
 must			ruleCategoryID
 must			ruleInterface
 must			description
@@ -2288,7 +2299,6 @@ dmoImport		org.dmd.dms.generated.dmo.RuleDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must        	name
-must			opContext
 must			ruleType
 must			ruleScope
 must			ruleCategory
@@ -2298,10 +2308,9 @@ may           	must
 may            	may
 may				isExtensible
 description		The RuleDefinition allows for the definition of rules that can
- be applied to attributes or classes in different operational contexts. Rules
- are not just for validation, they can be applied to objects at different times
- in an object's life cycle e.g. the InitRule can initialize a set of attributes
- to known values.
+ be applied to attributes or classes. Rules are not just for validation, they
+ can be applied to objects at different times in an object's life cycle e.g. 
+ the InitRule can initialize a set of attributes to known values.
  <p/>
  RuleDefinitions will result in the generation of ClassDefinitions that define the 
  DMOs that will carry the parameters associated with the rule and expectation
