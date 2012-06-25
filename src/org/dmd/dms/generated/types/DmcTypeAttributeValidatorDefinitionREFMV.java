@@ -26,7 +26,7 @@ import org.dmd.dmc.DmcValueException;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2251)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:270)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:269)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAttributeValidatorDefinitionREFMV extends DmcTypeAttributeValidatorDefinitionREF implements Serializable {

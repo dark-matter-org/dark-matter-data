@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:260)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:259)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Serializable {

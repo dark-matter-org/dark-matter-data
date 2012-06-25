@@ -16,18 +16,18 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1384)
-import java.io.Serializable;                       // Serializable marker interface - (MetaGenerator.java:1348)
-import java.util.*;                                // Attribute info support - (MetaGenerator.java:1349)
-import org.dmd.dmc.*;                              // Dark matter core - (MetaGenerator.java:1364)
-import org.dmd.dms.generated.dmo.MetaVCAG;         // Old validation framework - obsolete - (MetaGenerator.java:1365)
-import org.dmd.dms.generated.types.*;              // Generated type access - (MetaGenerator.java:1375)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1383)
+import java.io.Serializable;                       // Serializable marker interface - (MetaGenerator.java:1347)
+import java.util.*;                                // Attribute info support - (MetaGenerator.java:1348)
+import org.dmd.dmc.*;                              // Dark matter core - (MetaGenerator.java:1363)
+import org.dmd.dms.generated.dmo.MetaVCAG;         // Old validation framework - obsolete - (MetaGenerator.java:1364)
+import org.dmd.dms.generated.types.*;              // Generated type access - (MetaGenerator.java:1374)
 
 
 /**
  * null
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1393)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1392)
  */
 @SuppressWarnings("serial")
 public class InitRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceDMO implements Serializable  {
@@ -99,7 +99,7 @@ public class InitRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceD
     /**
      * The title of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1768)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -112,7 +112,7 @@ public class InitRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceD
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1819)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -128,7 +128,7 @@ public class InitRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceD
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1768)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -141,7 +141,7 @@ public class InitRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceD
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1819)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
