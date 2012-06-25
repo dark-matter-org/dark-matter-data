@@ -24,7 +24,7 @@ import org.dmd.dmw.DmwMVIterator;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1693)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:305)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:311)
  */
 public class LongIterableDMW extends DmwMVIterator<Long> {
 

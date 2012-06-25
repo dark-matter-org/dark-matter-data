@@ -134,7 +134,10 @@ public class SchemaManager implements DmcNameResolverIF {
     // Key: StringName
     // Value: RuleCategory
     public HashMap<StringName,RuleCategory>     			ruleCategoryDefs;
-    public int  longestRuleCategoryName;
+    public int  											longestRuleCategoryName;
+    public TreeMap<Integer,RuleCategory>					ruleCategoriesByID;
+
+
 
     // Key: StringName
     // Value: RuleDefinition
@@ -240,6 +243,7 @@ public class SchemaManager implements DmcNameResolverIF {
         extendedReferenceTypeDefs   = new HashMap<StringName,ExtendedReferenceTypeDefinition>();
         sliceDefs   				= new HashMap<StringName,SliceDefinition>();
         ruleCategoryDefs   			= new HashMap<StringName,RuleCategory>();
+        ruleCategoriesByID			= new TreeMap<Integer, RuleCategory>();
         ruleDefs   					= new HashMap<StringName,RuleDefinition>();
         objectValidatorDefs   		= new HashMap<StringName,ObjectValidatorDefinition>();
         attributeValidatorDefs		= new HashMap<StringName,AttributeValidatorDefinition>();
@@ -1123,6 +1127,26 @@ public class SchemaManager implements DmcNameResolverIF {
         	ResultException ex = new ResultException();
         	ex.addError(clashMsg(rc.getObjectName(),rc,allDefs,"definition names"));
             throw(ex);
+        }
+        
+        if (performIDChecks){
+	        // Bump up the rule category ID by the amount of schemaBaseID
+	        int base = rc.getDefinedIn().getSchemaBaseID();
+	        int range = rc.getDefinedIn().getSchemaIDRange();
+	        int current = rc.getRuleCategoryID();
+	        
+	        if (current >= range){
+	        	ResultException ex = new ResultException("Number of rule categories exceeds schema ID range: " + rc.getName());
+	        	throw(ex);        	
+	        }
+	        
+	        rc.setRuleCategoryID(base + current);
+        }
+
+        if (ruleCategoriesByID.get(rc.getRuleCategoryID()) != null){
+        	ResultException ex = new ResultException();
+        	ex.addError(clashMsg(rc.getRuleCategoryID(),rc,ruleCategoriesByID,"ruleCategoryID"));
+        	throw(ex);      	
         }
     }
 

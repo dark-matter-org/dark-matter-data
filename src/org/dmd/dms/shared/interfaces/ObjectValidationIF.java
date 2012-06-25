@@ -16,7 +16,7 @@
 package org.dmd.dms.shared.interfaces;
 
 import org.dmd.dmc.DmcObject;
-import org.dmd.dmc.DmcRuleExceptionSet;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 
 /**
  * The ObjectValidationIF interface must be implemented by rules that are part
