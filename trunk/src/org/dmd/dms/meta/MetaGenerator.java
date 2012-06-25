@@ -109,6 +109,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	// Rule category definitions
 	TreeMap<String,DmcUncheckedObject>	ruleCategoryDefs;
 	
+	// Rule instances
+	ArrayList<DmcUncheckedObject>		ruleInstances;
+	
     // Some of the definitions have to be defined in a particular order, so
     // we maintain the order in which they appear in the Dmd file.
     ArrayList<String>   			origOrderClasses;
@@ -138,6 +141,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		ovDefs 					= new TreeMap<String,DmcUncheckedObject>();
 		ruleDefs 				= new TreeMap<String,DmcUncheckedObject>();
 		ruleCategoryDefs 		= new TreeMap<String,DmcUncheckedObject>();
+		
+		ruleInstances			= new ArrayList<DmcUncheckedObject>();
 		
         origOrderClasses    	= new ArrayList<String>();
         origOrderAttrs      	= new ArrayList<String>();
@@ -316,9 +321,16 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		name = obj.getSV("name");
 		
 		if (name == null){
-			ResultException ex = new ResultException("No name for object: " + objClass);
-			ex.result.lastResult().lineNumber(obj.lineNumber);
-			throw(ex);
+			if (classDefs.get(objClass) != null){
+				DebugInfo.debug("HAVE A RULE INSTANCE");
+				ruleInstances.add(obj);
+				return;
+			}
+			else{
+				ResultException ex = new ResultException("No name for object: " + objClass);
+				ex.result.lastResult().lineNumber(obj.lineNumber);
+				throw(ex);
+			}
 		}
 		
 		if (objClass.equals("TypeDefinition")){

@@ -503,6 +503,19 @@ description		The InitRule allows you to specify attribute values for a
  attributeC   something else
  </pre>
 
+///////////////////////////////////////////////////////////////////////////////
+//
+
+AllowedAttributesRuleInstance
+ruleTitle 	Validate allowed attributes on objects.
+description	Ensures that must/may attribute rules are followed, except in the
+case of EXTENSIBLE cla
+
+InitRuleInstance
+ruleTitle 	Initialize AttributeDefinitions
+valueType	SINGLE
+description	Basic initialization for attributes.
+
 ********************************************************************************
 //
 // Attribute Definitions

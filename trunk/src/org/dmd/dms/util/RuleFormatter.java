@@ -45,10 +45,15 @@ public class RuleFormatter {
     		String name = GenUtility.capTheName(rule.getSV("name"));
     		NamedStringArray categories = rule.get("ruleCategory");
     		
+    		String scope = rule.getSV("ruleScope");
+    		String type = rule.getSV("ruleType");
+    		
     		ImportManager baseImports = new ImportManager();
     		StringBuffer interfaces = new StringBuffer();
     				
-    		baseImports.addImport("org.dmd.dms.shared.interfaces.RuleIF", "All rules implement this");
+    		baseImports.addImport("org.dmd.dms.generated.enums.RuleScopeEnum", "Rule scope");
+    		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "Rule type");
+    		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
     		interfaces.append("RuleIF");
 
     		
@@ -83,6 +88,9 @@ public class RuleFormatter {
 			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("abstract public class " + name + "BaseImpl implements " + interfaces + " {\n\n");
 			
+			out.write("    static RuleScopeEnum scope = RuleScopeEnum." + scope + ";\n");
+			out.write("    static RuleTypeEnum  type  = RuleTypeEnum." + type + ";\n");
+			
 			out.write("    protected " + name + "InstanceDMO ruleDMO;\n\n");
 			
 			out.write("    protected " + name + "BaseImpl(" + name + "InstanceDMO dmo){\n");
@@ -92,7 +100,17 @@ public class RuleFormatter {
 			out.write("    @Override\n");
 			out.write("    public String getRuleTitle() {\n");
 			out.write("        return(ruleDMO.getRuleTitle());\n");
-			out.write("    }\n");
+			out.write("    }\n\n");
+
+			out.write("    @Override\n");
+			out.write("    public RuleScopeEnum getRuleScope() {\n");
+			out.write("        return(scope);\n");
+			out.write("    }\n\n");
+
+			out.write("    @Override\n");
+			out.write("    public RuleTypeEnum getRuleType() {\n");
+			out.write("        return(type);\n");
+			out.write("    }\n\n");
 
 			
 			out.write("}\n\n");
