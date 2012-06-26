@@ -1971,26 +1971,26 @@ public class SchemaManager implements DmcNameResolverIF {
 				return(def);
 		}
 		else if (attributeID == MetaDMSAG.__internalTypeDefList.id){
-			DebugInfo.debug("internalTypeDefList " + name.getNameString());
+//			DebugInfo.debug("internalTypeDefList " + name.getNameString());
 			DmcNamedObjectIF def = (DmcNamedObjectIF)internalTypeDefs.get(name);
 			if (def != null)
 				return(def);
 		}
 		else if (attributeID == MetaDMSAG.__enumDefList.id){
-			DebugInfo.debug("enumDefList " + name.getNameString());
+//			DebugInfo.debug("enumDefList " + name.getNameString());
 			DmcNamedObjectIF def = (DmcNamedObjectIF)enumDefs.get(name);
 			if (def != null)
 				return(def);
 		}
 		else if (attributeID == MetaDMSAG.__extendedReferenceTypeDefList.id){
-			DebugInfo.debug("extendedReferenceTypeDefList " + name.getNameString());
+//			DebugInfo.debug("extendedReferenceTypeDefList " + name.getNameString());
 			DmcNamedObjectIF def = (DmcNamedObjectIF)extendedReferenceTypeDefs.get(name);
 			if (def != null)
 				return(def);
 		}
 
 		else if (attributeID == MetaDMSAG.__complexTypeDefList.id){
-			DebugInfo.debug("complexTypeDefList " + name.getNameString());
+//			DebugInfo.debug("complexTypeDefList " + name.getNameString());
 			DmcNamedObjectIF def = (DmcNamedObjectIF)complexTypeDefs.get(name);
 			if (def != null)
 				return(def);
