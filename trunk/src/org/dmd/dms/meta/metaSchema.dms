@@ -2307,6 +2307,7 @@ must			description
 may           	must
 may            	may
 may				isExtensible
+may				dependency
 description		The RuleDefinition allows for the definition of rules that can
  be applied to attributes or classes. Rules are not just for validation, they
  can be applied to objects at different times in an object's life cycle e.g. 
@@ -2333,6 +2334,54 @@ may				description
 description		The RuleInstance class serves as a common base for all ClassDefinitions
  that are generated internally to represent the data associated with RuleDefinitions.
  
+ClassDefinition
+name			Dependency
+classType      	STRUCTURAL
+dmdID			18
+javaClass    	org.dmd.dms.Dependency
+dmoImport		org.dmd.dms.generated.dmo.DependencyDMO
+derivedFrom     DmsDefinition
+isNamedBy       name
+must        	name
+must			useInterface
+may				dependency
+// move from MVW
+//may				singleton
+description		The Dependency class allows for the definition of a named dependency
+ on something; usually an interface. In the current schema mechanisms, the only place
+ that this mechanism is used is in the specification of RuleDefinitions. Rule instances are
+ created by injected RuleData into a rule implementation. If the rule implementation
+ has dependencies on other objects, those dependencies are specified via references to
+ Dependencies.
+ <p/>
+ A Dependency con be referred to via a RunContext definition which directs the generation
+ of code that can instantiate the required object instances. Satisfying a Dependency relies
+ on their being a DependencyImplementation that indicates how to instantiate the object
+ that implements the interface defined by the dependency.
+
+ClassDefinition
+name			DependencyImplementation
+classType      	STRUCTURAL
+dmdID			19
+javaClass    	org.dmd.dms.DependencyImplementation
+dmoImport		org.dmd.dms.generated.dmo.DependencyImplementationDMO
+derivedFrom     DmsDefinition
+isNamedBy       name
+must        	name
+must			dependency
+must			context
+must			instantiation
+
+ClassDefinition
+name			RunContext
+classType      	STRUCTURAL
+dmdID			18
+javaClass    	org.dmd.dms.Dependency
+dmoImport		org.dmd.dms.generated.dmo.DependencyDMO
+derivedFrom     DmsDefinition
+isNamedBy       name
+must        	name
+
 ********************************************************************************
 *
 * Schema Definition
