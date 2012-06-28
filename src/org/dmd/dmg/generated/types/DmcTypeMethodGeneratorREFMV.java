@@ -25,7 +25,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeMethodGeneratorREFMV provides storage for a multi-valued MethodGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2247)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2251)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2277)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2281)
     public DmcAttribute<MethodGeneratorREF> cloneIt(){
         synchronized(this){
             DmcTypeMethodGeneratorREFMV rc = getNew();
@@ -72,7 +72,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2306)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
     public MethodGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
             MethodGeneratorREF rc = typeCheck(v);
@@ -84,7 +84,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2319)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
     public MethodGeneratorREF del(Object v){
         synchronized(this){
             MethodGeneratorREF key = null;
@@ -105,7 +105,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2350)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2354)
     public Iterator<MethodGeneratorREF> getMV(){
         synchronized(this){
             ArrayList<MethodGeneratorREF> clone = new ArrayList<MethodGeneratorREF>(value);
@@ -113,7 +113,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2359)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public ArrayList<MethodGeneratorREF> getMVCopy(){
         synchronized(this){
             ArrayList<MethodGeneratorREF> clone = new ArrayList<MethodGeneratorREF>(value);
@@ -122,7 +122,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2369)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +136,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2384)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2388)
     public MethodGeneratorREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2395)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2399)
     public MethodGeneratorREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +173,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2423)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2427)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +196,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2447)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2451)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

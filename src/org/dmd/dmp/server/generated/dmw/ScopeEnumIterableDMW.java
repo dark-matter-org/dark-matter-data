@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.enums.ScopeEnum;
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1689)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1693)
  *    Called from: org.dmd.dmg.generators.DmwDMWGenerator.createTypeIterables(DmwDMWGenerator.java:106)
  */
 public class ScopeEnumIterableDMW extends DmwMVIterator<ScopeEnum> {

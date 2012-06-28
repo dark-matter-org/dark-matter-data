@@ -1,15 +1,15 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
-import java.io.Serializable;                                  // Always required - (GenUtility.java:197)
-import java.util.*;                                           // Always required if we have any MV attributes - (GenUtility.java:193)
-import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:213)
-import org.dmd.dmc.DmcObject;                                 // Structural class - (GenUtility.java:324)
-import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:202)
-import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:214)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:201)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:200)
-import org.dmd.dms.generated.types.DmcTypeStringMV;           // Required type - (GenUtility.java:301)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:372)
+import java.io.Serializable;                                  // Always required - (GenUtility.java:201)
+import java.util.*;                                           // Always required if we have any MV attributes - (GenUtility.java:197)
+import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:217)
+import org.dmd.dmc.DmcObject;                                 // Structural class - (GenUtility.java:328)
+import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:206)
+import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:218)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:205)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:204)
+import org.dmd.dms.generated.types.DmcTypeStringMV;           // Required type - (GenUtility.java:305)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -87,7 +87,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of String objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1079)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1083)
     public Iterator<String> getMvIdxString(){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(DmtDMSAG.__mvIdxString);
         if (attr == null)
@@ -99,7 +99,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * @return The nth String value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1091)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1095)
     public String getNthMvIdxString(int i){
         DmcTypeStringMV attr = (DmcTypeStringMV) get(DmtDMSAG.__mvIdxString);
         if (attr == null)
@@ -112,7 +112,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * Sets the value at the specified index.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1126)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1130)
     public DmcAttribute<?> setNthMvIdxString(int index, String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         if (attr == null){
@@ -143,7 +143,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * Returns true if we contain a valued keyed by the specified String.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1180)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1184)
     public boolean mvIdxStringContains(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         if (attr == null)
@@ -155,7 +155,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * Adds another mvIdxString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1212)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1216)
     public DmcAttribute<?> addMvIdxString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         if (attr == null)
@@ -169,7 +169,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * Returns the number of values in mvIdxString
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1229)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1233)
     public int getMvIdxStringSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         if (attr == null){
@@ -185,7 +185,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * Deletes a mvIdxString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1287)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1291)
     public DmcAttribute<?> delMvIdxString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         
@@ -201,7 +201,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
      * Deletes a mvIdxString from the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1303)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1307)
     public DmcAttribute<?> delMvIdxString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__mvIdxString);
         
@@ -216,7 +216,7 @@ public class PrimitiveMVIDXDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the mvIdxString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1322)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1326)
     public void remMvIdxString(){
          rem(DmtDMSAG.__mvIdxString);
     }
