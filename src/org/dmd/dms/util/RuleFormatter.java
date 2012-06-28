@@ -59,7 +59,7 @@ public class RuleFormatter {
     		interfaces.append("RuleIF");
 
     		
-    		baseImports.addImport(schemaPackage + ".generated.dmo." + name + "InstanceDMO", "Rule parameters object");
+    		baseImports.addImport(schemaPackage + ".generated.dmo." + name + "DataDMO", "Rule parameters object");
     		
     		StringBuffer categoryInit = new StringBuffer();
     		
@@ -100,9 +100,9 @@ public class RuleFormatter {
 			
 			out.write("    static ArrayList<Integer> categories;\n\n");
 			
-			out.write("    protected " + name + "InstanceDMO ruleDMO;\n\n");
+			out.write("    protected " + name + "DataDMO ruleDMO;\n\n");
 			
-			out.write("    protected " + name + "BaseImpl(" + name + "InstanceDMO dmo){\n");
+			out.write("    protected " + name + "BaseImpl(" + name + "DataDMO dmo){\n");
 			out.write("        ruleDMO = dmo;\n");
 			out.write("        if (categories == null){\n");
 			out.write(categoryInit.toString());
@@ -160,7 +160,7 @@ public class RuleFormatter {
 		for(DmcUncheckedObject rule: ruleDefs.values()){
     		String name = GenUtility.capTheName(rule.getSV("name"));
 
-    		out.write("        " + name + " " + name + "Instance = new " + name + "(new " + name + "InstanceDMO());\n\n");
+    		out.write("        " + name + " " + name + "Instance = new " + name + "(new " + name + "DataDMO());\n\n");
 		}
 		
 		out.write("    }\n\n");

@@ -413,12 +413,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			ctype = "EXTENSIBLE";
 		}
 		
-		classDef.addValue("name", name + "Instance");
+		classDef.addValue("name", name + "Data");
 		classDef.addValue("classType", ctype);
-		classDef.addValue("derivedFrom", "RuleInstance");
+		classDef.addValue("derivedFrom", "RuleData");
 		classDef.addValue("dmdID", uco.getSV("dmdID"));
-		classDef.addValue("dmoImport", "org.dmd.dms.generated.dmo." + name + "InstanceDMO");
-		classDef.addValue("javaClass", "org.dmd.dms.generated.dmo." + name + "InstanceDMO");
+		classDef.addValue("dmoImport", "org.dmd.dms.generated.dmo." + name + "DataDMO");
+		classDef.addValue("javaClass", "org.dmd.dms.generated.dmo." + name + "DataDMO");
 		classDef.addValue("internallyGenerated", "true");
 		classDef.addValue("ruleDefinition", name);
 		classDef.addValue("must", "ruleTitle");
@@ -438,8 +438,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			}
 		}
 		
-		classDefs.put(name + "Instance", classDef);
-		origOrderClasses.add(name + "Instance");
+		classDefs.put(name + "Data", classDef);
+		origOrderClasses.add(name + "Data");
 		
 		
 	}

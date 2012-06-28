@@ -5,13 +5,13 @@ import java.util.Map;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dms.generated.dmo.InitRuleInstanceDMO;
+import org.dmd.dms.generated.dmo.InitRuleDataDMO;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.rules.InitRuleBaseImpl;
 
 public class InitRule extends InitRuleBaseImpl {
 
-	public InitRule(InitRuleInstanceDMO dmo) {
+	public InitRule(InitRuleDataDMO dmo) {
 		super(dmo);
 	}
 

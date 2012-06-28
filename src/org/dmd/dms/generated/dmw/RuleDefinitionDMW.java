@@ -302,6 +302,27 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setIsExtensible(value);
     }
 
+    /**
+     * A reference to a single Dependency.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    public Dependency getDependency(){
+        DmcTypeDependencyREFSV attr = (DmcTypeDependencyREFSV) mycore.get(MetaDMSAG.__dependency);
+        if (attr == null)
+            return(null);
+        DependencyDMO obj = attr.getSV().getObject();
+        return((Dependency)obj.getContainer());
+    }
+
+    /**
+     * Sets dependency to the specified value.
+     * @param value A value compatible with Dependency
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1835)
+    public void setDependency(Dependency value) throws DmcValueException {
+        mycore.setDependency(value.getDmcObject());
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
