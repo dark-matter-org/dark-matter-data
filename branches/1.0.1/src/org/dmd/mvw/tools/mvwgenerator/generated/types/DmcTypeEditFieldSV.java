@@ -25,7 +25,7 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEditField;    // DmcType impo
  * The DmcTypeEditFieldSV provides storage for a single-valued EditField
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1907)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:100)
  */
 @SuppressWarnings("serial")
@@ -50,14 +50,14 @@ public class DmcTypeEditFieldSV extends DmcTypeEditField implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1939)
     public DmcAttribute<EditField> cloneIt(){
         DmcTypeEditFieldSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1950)
     public EditField getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeEditFieldSV extends DmcTypeEditField implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
     public EditField set(Object v) throws DmcValueException {
         EditField rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
