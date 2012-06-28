@@ -13,9 +13,9 @@ public class MetaRulesFactoryAG {
 
     public MetaRulesFactoryAG(){
 
-        AllowedAttributesRule AllowedAttributesRuleInstance = new AllowedAttributesRule(new AllowedAttributesRuleInstanceDMO());
+        AllowedAttributesRule AllowedAttributesRuleInstance = new AllowedAttributesRule(new AllowedAttributesRuleDataDMO());
 
-        InitRule InitRuleInstance = new InitRule(new InitRuleInstanceDMO());
+        InitRule InitRuleInstance = new InitRule(new InitRuleDataDMO());
 
     }
 

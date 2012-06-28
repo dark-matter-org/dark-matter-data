@@ -30,7 +30,7 @@ import org.dmd.dms.generated.types.*;              // Generated type access - (M
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1392)
  */
 @SuppressWarnings("serial")
-public class InitRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceDMO implements Serializable  {
+public class InitRuleDataDMO extends org.dmd.dms.generated.dmo.RuleDataDMO implements Serializable  {
 
 
 
@@ -59,11 +59,11 @@ public class InitRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceD
     }
 
 
-    public InitRuleInstanceDMO(){
-        super("InitRuleInstance");
+    public InitRuleDataDMO(){
+        super("InitRuleData");
     }
 
-    public InitRuleInstanceDMO(String oc){
+    public InitRuleDataDMO(String oc){
         super(oc);
     }
 
@@ -84,14 +84,14 @@ public class InitRuleInstanceDMO extends org.dmd.dms.generated.dmo.RuleInstanceD
     }
 
     @Override
-    public InitRuleInstanceDMO getNew(){
-        InitRuleInstanceDMO rc = new InitRuleInstanceDMO();
+    public InitRuleDataDMO getNew(){
+        InitRuleDataDMO rc = new InitRuleDataDMO();
         return(rc);
     }
 
     @Override
-    public InitRuleInstanceDMO getSlice(DmcSliceInfo info){
-        InitRuleInstanceDMO rc = new InitRuleInstanceDMO();
+    public InitRuleDataDMO getSlice(DmcSliceInfo info){
+        InitRuleDataDMO rc = new InitRuleDataDMO();
         populateSlice(rc,info);
         return(rc);
     }

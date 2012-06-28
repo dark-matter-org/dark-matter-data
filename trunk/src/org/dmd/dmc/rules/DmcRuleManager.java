@@ -1,5 +1,6 @@
 package org.dmd.dmc.rules;
 
+import java.util.Iterator;
 import java.util.TreeMap;
 
 /**
@@ -28,15 +29,18 @@ import java.util.TreeMap;
  * </li>
  * </ul>
  */
-public class DmcRuleManager {
+abstract public class DmcRuleManager {
 
 	TreeMap<Integer,DmcRuleCategory>	categories;
 	
 	public DmcRuleManager(){
-		
+		categories = new TreeMap<Integer, DmcRuleCategory>();
 	}
 	
 	public void addRule(RuleIF rule){
-		
+		Iterator<Integer> categories = rule.getCategories();
+		while(categories.hasNext()){
+			
+		}
 	}
 }

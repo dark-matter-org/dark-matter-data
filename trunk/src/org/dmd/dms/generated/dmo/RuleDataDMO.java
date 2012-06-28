@@ -25,14 +25,14 @@ import org.dmd.dms.generated.types.*;              // Generated type access - (M
 
 
 /**
- * The RuleInstance class serves as a common base for all ClassDefinitions
- * that are generated internally to represent the data associated with
+ * The RuleData class serves as a common base for all ClassDefinitions that
+ * are generated internally to represent the data associated with
  * RuleDefinitions.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1392)
  */
 @SuppressWarnings("serial")
-public class RuleInstanceDMO extends DmcObject implements Serializable {
+public class RuleDataDMO extends DmcObject implements Serializable {
 
 
 
@@ -61,11 +61,11 @@ public class RuleInstanceDMO extends DmcObject implements Serializable {
     }
 
 
-    public RuleInstanceDMO(){
-        super("RuleInstance");
+    public RuleDataDMO(){
+        super("RuleData");
     }
 
-    public RuleInstanceDMO(String oc){
+    public RuleDataDMO(String oc){
         super(oc);
     }
 
@@ -86,14 +86,14 @@ public class RuleInstanceDMO extends DmcObject implements Serializable {
     }
 
     @Override
-    public RuleInstanceDMO getNew(){
-        RuleInstanceDMO rc = new RuleInstanceDMO();
+    public RuleDataDMO getNew(){
+        RuleDataDMO rc = new RuleDataDMO();
         return(rc);
     }
 
     @Override
-    public RuleInstanceDMO getSlice(DmcSliceInfo info){
-        RuleInstanceDMO rc = new RuleInstanceDMO();
+    public RuleDataDMO getSlice(DmcSliceInfo info){
+        RuleDataDMO rc = new RuleDataDMO();
         populateSlice(rc,info);
         return(rc);
     }

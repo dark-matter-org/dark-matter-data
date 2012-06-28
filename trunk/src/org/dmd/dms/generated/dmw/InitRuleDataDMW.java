@@ -32,29 +32,29 @@ import org.dmd.dms.*;
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1149)
  */
 @SuppressWarnings("unused")
-public class AllowedAttributesRuleInstanceDMW extends org.dmd.dms.RuleInstance {
+public class InitRuleDataDMW extends org.dmd.dms.RuleData {
 
-    private AllowedAttributesRuleInstanceDMO mycore;
+    private InitRuleDataDMO mycore;
 
-    protected AllowedAttributesRuleInstanceDMW() {
-        super(new AllowedAttributesRuleInstanceDMO());
-        mycore = (AllowedAttributesRuleInstanceDMO) core;
+    protected InitRuleDataDMW() {
+        super(new InitRuleDataDMO());
+        mycore = (InitRuleDataDMO) core;
         mycore.setContainer(this);
     }
 
-    protected AllowedAttributesRuleInstanceDMW(DmcObject obj) {
+    protected InitRuleDataDMW(DmcObject obj) {
         super(obj);
-        mycore = (AllowedAttributesRuleInstanceDMO) core;
+        mycore = (InitRuleDataDMO) core;
         mycore.setContainer(this);
     }
 
-    protected AllowedAttributesRuleInstanceDMW(DmcObject obj, ClassDefinition cd) {
+    protected InitRuleDataDMW(DmcObject obj, ClassDefinition cd) {
         super(obj,cd);
-        mycore = (AllowedAttributesRuleInstanceDMO) core;
+        mycore = (InitRuleDataDMO) core;
         mycore.setContainer(this);
     }
 
-    public  AllowedAttributesRuleInstanceDMO getDMO() {
+    public  InitRuleDataDMO getDMO() {
         return(mycore);
     }
 

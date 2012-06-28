@@ -445,6 +445,8 @@ name			Initialization
 opContext		DMO
 ruleCategoryID	1
 ruleInterface	org.dmd.dms.shared.interfaces.InitializationIF
+ruleExecution   initialize(DmcObject obj)
+ruleImport		org.dmd.dmc.DmcObject
 description		Rules in this category are used to initialize objects to a known
  state after creation.
 
@@ -453,6 +455,9 @@ name			ObjectValidation
 opContext		DMO
 ruleCategoryID	2
 ruleInterface	org.dmd.dms.shared.interfaces.ObjectValidationIF
+ruleExecution	validate(DmcObject obj) throws DmcRuleExceptionSet
+ruleImport		org.dmd.dmc.DmcObject
+ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
 description		Rules in this category are used to validate a complete object. This
  would include objects read from Object Instance Files, objects in CreateRequests
  (after Initialization rules have been applied).
@@ -462,13 +467,21 @@ name			AttributeValidation
 opContext		DMO
 ruleCategoryID	3
 ruleInterface	org.dmd.dms.shared.interfaces.AttributeValidationIF
+ruleExecution	validate(DmcAttribute<?> attribute) throws DmcRuleExceptionSet
+ruleImport		org.dmd.dmc.DmcAttribute
+ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
+description		Rules in this category are used to validate individual attributes.
 
 RuleCategory
 name			ModifierValidation
 opContext		DMO
 ruleCategoryID	4
 ruleInterface	org.dmd.dms.shared.interfaces.ModifierValidationIF
-description		Rules in this category are used to valid modifications that are
+ruleExecution	validate(DmcObject obj, DmcTypeModifierMV mods) throws DmcRuleExceptionSet
+ruleImport		org.dmd.dmc.DmcObject
+ruleImport		org.dmd.dms.generated.types.DmcTypeModifierMV
+ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
+description		Rules in this category are used to validate modifications that are
  about to be applied to an object.
  
 
@@ -478,7 +491,7 @@ description		Rules in this category are used to valid modifications that are
 
 RuleDefinition
 name			AllowedAttributesRule
-dmdID			20
+dmdID			30
 ruleType		CLASS
 ruleScope		GLOBAL
 ruleCategory	ObjectValidation
@@ -493,7 +506,7 @@ description		The AllowedAttributesRule will determine whether or not the
 
 RuleDefinition
 name			InitRule
-dmdID			21
+dmdID			31
 ruleType		CLASS
 ruleScope		PERCLASS
 ruleCategory	Initialization
@@ -517,11 +530,11 @@ description		The InitRule allows you to specify attribute values for a
 ///////////////////////////////////////////////////////////////////////////////
 //
 
-AllowedAttributesRuleInstance
+AllowedAttributesRuleData
 ruleTitle 	Validate allowed attributes on objects.
 description	Ensures that must/may attribute rules are followed.
 
-InitRuleInstance
+InitRuleData
 ruleTitle 	Initialize AttributeDefinitions
 valueType	SINGLE
 description	Basic initialization for attributes.
@@ -1882,6 +1895,49 @@ type                		RuleDefinition
 description    				The RuleDefinition that resulted in the creation of an
  internally generated ClassDefinition.
 
+AttributeDefinition
+name                		dependency
+dmdID						146
+type                		Dependency
+description    				A reference to a single Dependency.
+
+AttributeDefinition
+name                		dependencies
+dmdID						147
+type                		Dependency
+valueType					MULTI
+description    				A set of references to Dependencies.
+
+AttributeDefinition
+name                		instantiation
+dmdID						148
+type                		String
+description    				The instantiation attribute specifies how something is to be instantiated.
+
+AttributeDefinition
+name                		runContext
+dmdID						149
+type                		RunContext
+description    				A reference to a RunContext.
+
+AttributeDefinition
+name                		useInterface
+dmdID						150
+type                		String
+description    				The fully qualified name of a Java interface or base class that specifies a dependency.
+
+AttributeDefinition
+name                		ruleExecution
+dmdID						151
+type                		String
+description    				Indicates how a particular category of rule is executed.
+
+AttributeDefinition
+name                		ruleImport
+dmdID						152
+type                		String
+description    				An import required for arguements to a ruleExecution specification.
+
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
@@ -2282,6 +2338,8 @@ must        	name
 must			opContext
 must			ruleCategoryID
 must			ruleInterface
+must			ruleExecution
+may				ruleImport
 must			description
 description		The RuleCategory allows for the definition of categories of rules to be applied
  to various objects and indicates the expected interface to be implemented by a rule instance.
@@ -2324,14 +2382,14 @@ description		The RuleDefinition allows for the definition of rules that can
  ClassDefinition for the DMO part of the rule that carries the rule parameters.
 
 ClassDefinition
-name           	RuleInstance
+name           	RuleData
 classType      	ABSTRACT
 dmdID			17
-javaClass    	org.dmd.dms.RuleInstance
-dmoImport		org.dmd.dms.generated.dmo.RuleInstanceDMO
+javaClass    	org.dmd.dms.RuleData
+dmoImport		org.dmd.dms.generated.dmo.RuleDataDMO
 must			ruleTitle
 may				description
-description		The RuleInstance class serves as a common base for all ClassDefinitions
+description		The RuleData class serves as a common base for all ClassDefinitions
  that are generated internally to represent the data associated with RuleDefinitions.
  
 ClassDefinition
@@ -2344,20 +2402,25 @@ derivedFrom     DmsDefinition
 isNamedBy       name
 must        	name
 must			useInterface
-may				dependency
+may				dependencies
+may				instantiation
 // move from MVW
 //may				singleton
 description		The Dependency class allows for the definition of a named dependency
  on something; usually an interface. In the current schema mechanisms, the only place
  that this mechanism is used is in the specification of RuleDefinitions. Rule instances are
- created by injected RuleData into a rule implementation. If the rule implementation
+ created by injecting RuleData into a rule implementation. If the rule implementation
  has dependencies on other objects, those dependencies are specified via references to
  Dependencies.
  <p/>
- A Dependency con be referred to via a RunContext definition which directs the generation
+ A Dependency can be referred to via a RunContext definition which directs the generation
  of code that can instantiate the required object instances. Satisfying a Dependency relies
- on their being a DependencyImplementation that indicates how to instantiate the object
+ on there being a DependencyImplementation that indicates how to instantiate the object
  that implements the interface defined by the dependency.
+ <p/>
+ If a Dependency specifies an instantiation, this is considered the default mechanism to
+ fulfill the dependency. Other DependencyImplementations may be specified that override
+ the specified instantiation in particular contexts.
 
 ClassDefinition
 name			DependencyImplementation
@@ -2369,18 +2432,26 @@ derivedFrom     DmsDefinition
 isNamedBy       name
 must        	name
 must			dependency
-must			context
+must			runContext
 must			instantiation
+may				description
+description		The DependencyImplementation allows you to fulfill a defined Dependency.
+ When a RunContext is specified, it will indicate a set of dependencies. For each of the
+ specified dependencies, there must be at least one related DependencyImplementation,
+ otherwise, we have no way to fulfill the dependency.
+ 
 
 ClassDefinition
 name			RunContext
 classType      	STRUCTURAL
-dmdID			18
+dmdID			20
 javaClass    	org.dmd.dms.Dependency
 dmoImport		org.dmd.dms.generated.dmo.DependencyDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must        	name
+must			dependencies
+may				description
 
 ********************************************************************************
 *
