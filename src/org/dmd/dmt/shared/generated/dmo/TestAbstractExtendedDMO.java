@@ -1,22 +1,22 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:372)
-import java.io.Serializable;                                                     // Always required - (GenUtility.java:201)
-import java.util.*;                                                              // Always required if we have any MV attributes - (GenUtility.java:197)
-import org.dmd.dmc.DmcAttribute;                                                 // Any attributes - (GenUtility.java:217)
-import org.dmd.dmc.DmcObject;                                                    // Structural class - (GenUtility.java:328)
-import org.dmd.dmc.DmcOmni;                                                      // Lazy resolution - (GenUtility.java:309)
-import org.dmd.dmc.DmcValueException;                                            // Any attributes - (GenUtility.java:218)
-import org.dmd.dmc.types.IntegerToString;                                        // Primitive type and !auxiliary class - (GenUtility.java:248)
-import org.dmd.dmc.types.StringName;                                             // Primitive type and !auxiliary class - (GenUtility.java:248)
-import org.dmd.dms.generated.types.DmcTypeIntegerToStringMAP;                    // Required type - (GenUtility.java:305)
-import org.dmd.dms.generated.types.DmcTypeStringNameSET;                         // Required type - (GenUtility.java:305)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                              // Required type - (GenUtility.java:305)
-import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;                    // Type specific set/add - (GenUtility.java:284)
-import org.dmd.dmt.shared.generated.types.DmcTypeClientCountFilterREFMV;         // Reference type - (GenUtility.java:277)
-import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelationMV;                 // Required type - (GenUtility.java:305)
-import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelationSV;                 // Required type - (GenUtility.java:305)
-import org.dmd.dmt.shared.generated.types.SomeRelation;                          // Extended reference type - (GenUtility.java:303)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:368)
+import java.io.Serializable;                                                     // Always required - (GenUtility.java:197)
+import java.util.*;                                                              // Always required if we have any MV attributes - (GenUtility.java:193)
+import org.dmd.dmc.DmcAttribute;                                                 // Any attributes - (GenUtility.java:213)
+import org.dmd.dmc.DmcObject;                                                    // Structural class - (GenUtility.java:324)
+import org.dmd.dmc.DmcOmni;                                                      // Lazy resolution - (GenUtility.java:305)
+import org.dmd.dmc.DmcValueException;                                            // Any attributes - (GenUtility.java:214)
+import org.dmd.dmc.types.IntegerToString;                                        // Primitive type and !auxiliary class - (GenUtility.java:244)
+import org.dmd.dmc.types.StringName;                                             // Primitive type and !auxiliary class - (GenUtility.java:244)
+import org.dmd.dms.generated.types.DmcTypeIntegerToStringMAP;                    // Required type - (GenUtility.java:301)
+import org.dmd.dms.generated.types.DmcTypeStringNameSET;                         // Required type - (GenUtility.java:301)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                              // Required type - (GenUtility.java:301)
+import org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO;                    // Type specific set/add - (GenUtility.java:280)
+import org.dmd.dmt.shared.generated.types.DmcTypeClientCountFilterREFMV;         // Reference type - (GenUtility.java:273)
+import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelationMV;                 // Required type - (GenUtility.java:301)
+import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelationSV;                 // Required type - (GenUtility.java:301)
+import org.dmd.dmt.shared.generated.types.SomeRelation;                          // Extended reference type - (GenUtility.java:299)
 
 import org.dmd.dms.generated.dmo.MetaVCAG;
 import org.dmd.dmc.DmcAttributeValidator;
@@ -65,7 +65,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
         return(_OvDmAp);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:705)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:701)
     /**
      * @return The SomeRelation, attempting lazy resolution (if it's turned on).
      */
@@ -84,7 +84,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
         return(attr.getSV());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:734)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:730)
     /**
      * @return The SomeRelation without attempting lazy resolution (if it's turned on).
      */
@@ -100,7 +100,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Sets someRelationSV to the specified value.
      * @param value SomeRelation
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
     public void setSomeRelationSV(SomeRelation value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__someRelationSV);
         if (attr == null)
@@ -119,7 +119,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Sets someRelationSV to the specified value.
      * @param value A value compatible with DmcTypeSomeRelationSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:848)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
     public void setSomeRelationSV(Object value) throws DmcValueException {
         DmcTypeSomeRelationSV attr  = (DmcTypeSomeRelationSV) get(DmtDMSAG.__someRelationSV);
         if (attr == null)
@@ -134,7 +134,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Removes the someRelationSV attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:868)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
     public void remSomeRelationSV(){
          rem(DmtDMSAG.__someRelationSV);
     }
@@ -142,7 +142,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * @return The nth SomeRelation value and attempt lazy resolution if it's on.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1009)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1005)
     public SomeRelation getNthSomeRelationMVI(int i){
         DmcTypeSomeRelationMV attr = (DmcTypeSomeRelationMV) get(DmtDMSAG.__someRelationMVI);
         if (attr == null)
@@ -161,7 +161,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * @return The nth SomeRelation value without attempting lazy resolution.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1028)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1024)
     public SomeRelation getNthSomeRelationMVIREF(int i){
         DmcTypeSomeRelationMV attr = (DmcTypeSomeRelationMV) get(DmtDMSAG.__someRelationMVI);
         if (attr == null)
@@ -174,7 +174,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Sets the someRelationMVI value at the specified index.
      * @param value SomeRelation
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1042)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1038)
     public DmcAttribute<?> setNthSomeRelationMVI(int index, SomeRelation value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__someRelationMVI);
         if (attr == null){
@@ -205,7 +205,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Adds another someRelationMVI value.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1216)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1212)
     public DmcAttribute<?> addSomeRelationMVI(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__someRelationMVI);
         if (attr == null)
@@ -219,7 +219,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Returns the number of values in someRelationMVI
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1233)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1229)
     public int getSomeRelationMVISize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__someRelationMVI);
         if (attr == null){
@@ -235,7 +235,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Deletes a someRelationMVI value.
      * @param value The SomeRelation to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1272)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1268)
     public DmcAttribute<?> delSomeRelationMVI(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__someRelationMVI);
         
@@ -250,7 +250,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Removes the someRelationMVI attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1326)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1322)
     public void remSomeRelationMVI(){
          rem(DmtDMSAG.__someRelationMVI);
     }
@@ -259,7 +259,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * @return An Iterator of IntegerToString objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1410)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1406)
     public Iterator<IntegerToString> getIntToStringMAP(){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -272,7 +272,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * @param key The key of the value you want.
      * @return The IntegerToString associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1442)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1438)
     public IntegerToString getIntToStringMAP(Object key){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -284,7 +284,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * @return The first key of the map.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1462)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1458)
     public Integer getIntToStringMAPFirstKey(){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -297,7 +297,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Adds another intToStringMAP value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1480)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1476)
     public DmcAttribute<?> addIntToStringMAP(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -312,7 +312,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Adds another intToStringMAP value.
      * @param value IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1517)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1513)
     public DmcAttribute<?> addIntToStringMAP(IntegerToString value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -332,7 +332,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Deletes a intToStringMAP value.
      * @param key The key of the IntegerToString to be deleted from the map of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1579)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1575)
     public DmcAttribute<?> delIntToStringMAP(Object key){
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         
@@ -350,7 +350,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Deletes a intToStringMAP value.
      * @param key the Integer key value
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1597)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1593)
     public DmcAttribute<?> delIntToStringMAP(Integer key) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         
@@ -367,7 +367,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Removes the intToStringMAP attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1651)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1647)
     public void remIntToStringMAP(){
          rem(DmtDMSAG.__intToStringMAP);
     }
@@ -376,7 +376,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * @return An Iterator of StringName objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1083)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1079)
     public Iterator<StringName> getHsStringName(){
         DmcTypeStringNameSET attr = (DmcTypeStringNameSET) get(DmtDMSAG.__hsStringName);
         if (attr == null)
@@ -388,7 +388,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * @return The nth StringName value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1095)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1091)
     public StringName getNthHsStringName(int i){
         DmcTypeStringNameSET attr = (DmcTypeStringNameSET) get(DmtDMSAG.__hsStringName);
         if (attr == null)
@@ -401,7 +401,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Adds another hsStringName to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1109)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1105)
     public DmcAttribute<?> addHsStringName(StringName value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
         if (attr == null)
@@ -421,7 +421,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Returns true if we contain a valued keyed by the specified StringName.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1184)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1180)
     public boolean hsStringNameContains(StringName value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
         if (attr == null)
@@ -433,7 +433,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Adds another hsStringName value.
      * @param value A value compatible with StringName
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1216)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1212)
     public DmcAttribute<?> addHsStringName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
         if (attr == null)
@@ -447,7 +447,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Returns the number of values in hsStringName
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1233)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1229)
     public int getHsStringNameSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
         if (attr == null){
@@ -463,7 +463,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Deletes a hsStringName value.
      * @param value The StringName to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1291)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1287)
     public DmcAttribute<?> delHsStringName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
         
@@ -479,7 +479,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Deletes a hsStringName from the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1307)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1303)
     public DmcAttribute<?> delHsStringName(StringName value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsStringName);
         
@@ -494,7 +494,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Removes the hsStringName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1326)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1322)
     public void remHsStringName(){
          rem(DmtDMSAG.__hsStringName);
     }
@@ -502,7 +502,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * @return The nth ClientCountFilter value without attempting lazy resolution.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:996)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:992)
     public ClientCountFilterDMO getNthClientCountFilters(int i){
         DmcTypeClientCountFilterREFMV attr = (DmcTypeClientCountFilterREFMV) get(DmtDMSAG.__clientCountFilters);
         if (attr == null)
@@ -515,7 +515,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Sets the clientCountFilters value at the specified index.
      * @param value ClientCountFilter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1042)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1038)
     public DmcAttribute<?> setNthClientCountFilters(int index, ClientCountFilterDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__clientCountFilters);
         if (attr == null){
@@ -545,7 +545,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Adds another clientCountFilters value.
      * @param value A value compatible with ClientCountFilter
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1216)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1212)
     public DmcAttribute<?> addClientCountFilters(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__clientCountFilters);
         if (attr == null)
@@ -559,7 +559,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Returns the number of values in clientCountFilters
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1233)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1229)
     public int getClientCountFiltersSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__clientCountFilters);
         if (attr == null){
@@ -575,7 +575,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Deletes a clientCountFilters value.
      * @param value The ClientCountFilter to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1255)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1251)
     public DmcAttribute<?> delClientCountFilters(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__clientCountFilters);
         
@@ -590,12 +590,12 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Removes the clientCountFilters attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1326)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1322)
     public void remClientCountFilters(){
          rem(DmtDMSAG.__clientCountFilters);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:755)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:751)
     public String getSvString(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -608,7 +608,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Sets svString to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:791)
     public void setSvString(String value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svString);
         if (attr == null)
@@ -627,7 +627,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Sets svString to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:848)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:844)
     public void setSvString(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmtDMSAG.__svString);
         if (attr == null)
@@ -640,7 +640,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Removes the svString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:868)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:864)
     public void remSvString(){
          rem(DmtDMSAG.__svString);
     }

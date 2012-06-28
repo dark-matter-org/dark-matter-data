@@ -94,9 +94,6 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
     // Our object factory that instantiates wrappers and populates their attributes
     DmwObjectFactory			dmwfactory;
 
-    // Our DMO factory that we use to load rule instances
-    DmoObjectFactory			dmofactory;
-
 //    /**
 //     * Creates a new Object Instance Format parser. As new BasicObjects are created,
 //     * they will be passed to the object handler for processing.
@@ -310,20 +307,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 //        			DebugInfo.debug("Reading action...");
 //        		}
         		
-        		ClassDefinition checkClass = allSchema.isClass(uco.classes.get(0));
-        		if (checkClass != null){
-        			if (checkClass.getRuleDefinition() != null){
-        				DebugInfo.debug("DmsSchemaParser.handleObject() We have a rule: \n\n" + uco.toOIF(15));
-        				return;
-        			}
-        		}
-        		
 				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
-				int srcloc = infile.indexOf("/src");
-				if (srcloc != -1)
-					newObj.setFile(infile.substring(srcloc));
-				else
-					newObj.setFile(infile);
+				newObj.setFile(infile);
 				newObj.setLineNumber(lineNumber);
 				
 				try {

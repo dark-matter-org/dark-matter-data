@@ -7,7 +7,7 @@ isNamedBy		name
 must  			name
 must			ruleTitle
 description		A Rule is meant to represent an object that defines the
- validation logic to be applied to a Dark Matter Object as a whole or to
+ validation logic to be applied to Dark Matter Object as a whole or to
  its attributes.
  
 ClassDefinition

@@ -25,7 +25,7 @@ import org.dmd.dmp.server.extended.LoginRequest;  // wrapper type import
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1747)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1743)
  *    Called from: org.dmd.dmg.generators.DmwDMWGenerator.createTypeIterables(DmwDMWGenerator.java:77)
  */
 public class LoginRequestIterableDMW extends DmwObjectIterator<LoginRequest, LoginRequestDMO> {

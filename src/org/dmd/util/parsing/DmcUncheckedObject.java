@@ -70,13 +70,6 @@ public class DmcUncheckedObject {
 		lineNumber = ln;
 	}
 	
-	public String getConstructionClass(){
-		if(classes.size() == 0)
-			throw(new IllegalStateException("Construction class not set on this object:\n" + this.toOIF()));
-		
-		return(classes.get(0));
-	}
-	
 	public void addToClasses(String c){
 		addValue(_ocl,c);
 		classes.add(c);

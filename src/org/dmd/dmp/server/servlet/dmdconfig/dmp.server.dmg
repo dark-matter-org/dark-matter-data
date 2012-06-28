@@ -1,0 +1,5 @@
+DmgConfig
+genPackage      org.dmd.dmp.server.servlet
+schemaToLoad    dmp.server
+generator       org.dmd.dmg.generators.DMWGenerator
+description     We generate the wrappers for the DMP Server

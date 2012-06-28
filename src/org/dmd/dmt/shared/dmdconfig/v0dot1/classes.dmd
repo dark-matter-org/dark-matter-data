@@ -62,10 +62,6 @@ may				svTestBasicNamedObjectFixed
 description     The TestBasicObjectFixed class provides a test bed for all types of basic
  attribute values.
 
-InitRuleInstance
-ruleTitle Initialize TestBasicObjectFixed
-svString	the single valued string
-
 ClassDefinition
 name            TestBasicNamedObjectFixed
 classType       STRUCTURAL
