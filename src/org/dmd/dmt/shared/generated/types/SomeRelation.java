@@ -9,7 +9,7 @@ import org.dmd.dmc.DmcOutputStreamIF;                               // Serializa
 import org.dmd.dmc.DmcValueException;                               // Value exceptions - (ExtendedReferenceTypeFormatter.java:107)
 import org.dmd.dmc.types.IntegerVar;                                // Parsing support - (ExtendedReferenceTypeFormatter.java:91)
 import org.dmd.dmc.types.StringName;                                // Name type - (ExtendedReferenceTypeFormatter.java:75)
-import org.dmd.dms.generated.types.DmcTypeIntegerSTATIC;            // Standard type - (ExtendedReferenceTypeFormatter.java:609)
+import org.dmd.dms.generated.types.DmcTypeIntegerSTATIC;            // Standard type - (ExtendedReferenceTypeFormatter.java:634)
 import org.dmd.dms.generated.types.DmcTypeStringNameSTATIC;         // Static type for name - (ExtendedReferenceTypeFormatter.java:77)
 import org.dmd.dms.generated.types.DmcTypeStringNameSV;             // Name type - (ExtendedReferenceTypeFormatter.java:74)
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;             // Object based constructor - (ExtendedReferenceTypeFormatter.java:79)
@@ -171,6 +171,23 @@ public class SomeRelation extends ObjWithRefsREF implements Serializable, DmcExt
     	       rc = input.substring(start+1, pos).trim();
 
     	       seppos.set(pos);
+        }
+
+        return(rc);
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        boolean rc = false;
+
+        if (obj instanceof SomeRelation){
+            SomeRelation other = (SomeRelation)obj;
+            rc = myName.equals(other.myName);
+
+            if(rc)
+                rc = _count.equals(other._count);
+            if(rc)
+                rc = _order.equals(other._order);
         }
 
         return(rc);
