@@ -167,6 +167,28 @@ public class TestExtendedReferences {
 		System.out.println("\n<<< testReferenceTracking1()\n\n");
 	}
 	
-
+	@Test
+	public void testEquals() throws DmcValueException {
+		ObjWithRefsDMO objA = new ObjWithRefsDMO();
+		objA.setName("objA");
+		
+		ObjWithRefsDMO objB = new ObjWithRefsDMO();
+		objA.setName("objB");
+		
+		SomeRelation	rel1 = new SomeRelation(objA, 42, 1);
+		
+		SomeRelation	rel2 = new SomeRelation(objA, 42, 1);
+		
+		SomeRelation	rel3 = new SomeRelation(objB, 42, 1);
+		
+		SomeRelation	rel4 = new SomeRelation(objA, 42, 2);
+		
+		assertEquals("rel1 should equal rel2", true, rel1.equals(rel2));
+		
+		assertEquals("rel1 should not equal rel3", false, rel1.equals(rel3));
+		
+		assertEquals("rel1 should not equal rel4", false, rel1.equals(rel4));
+		
+	}
 	
 }

@@ -432,6 +432,31 @@ DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
     	out.write("        return(rc);\n");
     	out.write("    }\n\n");
 
+    	
+    	///////////////////////////////////////////////////////////////////////
+    	// Overload equals to support adapters
+    	
+    	out.write("    @Override\n");
+    	out.write("    public boolean equals(Object obj){\n");
+    	out.write("        boolean rc = false;\n");
+    	out.write("\n");
+    	out.write("        if (obj instanceof " + ctn + "){\n");
+    	out.write("            " + ctn + " other = (" + ctn + ")obj;\n");
+    	out.write("            rc = myName.equals(other.myName);\n");
+    	out.write("\n");
+
+        fields = ertd.getField();
+        while(fields.hasNext()){
+        	Field field = fields.next();
+        	
+        	out.write("            if(rc)\n");
+        	out.write("                rc = _" + field.getName() + ".equals(other._" + field.getName() + ");\n");
+        }
+        
+    	out.write("        }\n");
+    	out.write("\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");        
         		            	
         out.write("}\n");
 
