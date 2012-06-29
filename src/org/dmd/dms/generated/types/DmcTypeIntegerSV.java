@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -24,8 +24,8 @@ import org.dmd.dmc.types.DmcTypeInteger;    // DmcType import
  * The DmcTypeIntegerSV provides storage for a single-valued Integer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1907)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:295)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:270)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerSV extends DmcTypeInteger implements Serializable {
@@ -49,14 +49,14 @@ public class DmcTypeIntegerSV extends DmcTypeInteger implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1939)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
     public DmcAttribute<Integer> cloneIt(){
         DmcTypeIntegerSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1950)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
     public Integer getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeIntegerSV extends DmcTypeInteger implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
     public Integer set(Object v) throws DmcValueException {
         Integer rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

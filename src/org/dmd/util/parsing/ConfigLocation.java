@@ -62,10 +62,6 @@ public class ConfigLocation {
 	// /com/example/schema. NOTE: the file separators are ALWAYS forward slash "/"
 	String jarDirectory;
 	
-	// Just the jar file name. If jarFileName is: file:F:\AASoftDev\workspace\dark-matter-data\extjars\exampleDMSchema.jar
-	// This will be just: exampleDMSchema.jar
-	String justJarName;
-	
 	public String toString(){
 		StringBuffer sb = new StringBuffer();
 		sb.append("ConfigLocation\n");
@@ -79,7 +75,6 @@ public class ConfigLocation {
 		sb.append("       versionDotName: " + versionDotName + "\n");
 		sb.append("          jarFileName: " + jarFileName + "\n");
 		sb.append("         jarDirectory: " + jarDirectory + "\n\n");
-		sb.append("          justJarName: " + justJarName + "\n\n");
 		return(sb.toString());
 	}
 	
@@ -120,7 +115,6 @@ public class ConfigLocation {
 		// Not used in this case
 		jarFileName 	= null;
 		jarDirectory	= null;
-		justJarName		= null;
 	}
 	
 	/**
@@ -176,8 +170,7 @@ public class ConfigLocation {
 		String 	tmp = "/" + jarDirectory + "/" + configName + suffix;
 		fileName = tmp.replace('\\', '/');
 		
-		lastSlash = fileName.lastIndexOf("/");
-		justJarName = fileName.substring(lastSlash+1);
+		
 		
 		
 //		String 	tmp = "/" + jarDirectory + "/" + configName + ".dms";
@@ -241,7 +234,7 @@ public class ConfigLocation {
 	}
 	
 	/**
-	 * If the schema was in a JAR, this is the fully qualified name of the JAR.
+	 * If the schema was in a JAR, this is the name of the JAR.
 	 * @return The JAR file name.
 	 */
 	public String getJarFilename(){
@@ -255,14 +248,6 @@ public class ConfigLocation {
 	 */
 	public String getJarDirectory(){
 		return(jarDirectory);
-	}
-	
-	/**
-	 * If the schema was in a JAR, this is just the name of the JAR.
-	 * @return The JAR file name.
-	 */
-	public String getJustJarFilename(){
-		return(justJarName);
 	}
 	
 

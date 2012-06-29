@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -32,7 +32,7 @@ import org.dmd.dms.*;
  * values. These are used in the generation of static, named DmcSliceInfo
  * instances.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1149)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1009)
  */
 @SuppressWarnings("unused")
 public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -74,31 +74,11 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The name attribute is used to store a single string token that represents
-     * a unique name for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
-     * names must start with a character.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
-    public StringName getName(){
-        return(mycore.getName());
-    }
-
-    /**
-     * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringNameSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1845)
-    public void setName(Object value) throws DmcValueException {
-        mycore.setName(value);
-    }
-
-    /**
      * The selectAttribute indicates an attribute to be used in the definition of
      * a Slice.
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1925)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1730)
     public AttributeDefinitionIterableDMW getSelectAttribute(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
@@ -111,7 +91,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another selectAttribute value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1973)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1778)
     public DmcAttribute<?> addSelectAttribute(AttributeDefinition value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addSelectAttribute(value.getDmcObject());
         return(attr);
@@ -120,7 +100,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Returns the number of selectAttribute values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1996)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1801)
     public int getSelectAttributeSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
@@ -134,7 +114,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -143,7 +123,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1845)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1650)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }

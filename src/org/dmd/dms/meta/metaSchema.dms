@@ -1,8 +1,3 @@
-// This Dark Matter Schema (DMS) defines the meta-schema of dark-matter. The meta-schema
-// is defined in terms of itself i.e. all of the definitions that you see here are 
-// defined in terms of the definitions you see here. This meta-schema is read by the MetaGenerator
-// and turned into to the basic Dark Matter Objects (DMOs) that are used to define schema.
-
 TypeDefinition
 name 			String
 typeClassName	org.dmd.dmc.types.DmcTypeString
@@ -37,22 +32,6 @@ primitiveType   org.dmd.dmc.types.NameContainer
 altType			DmcObjectName
 altTypeImport	org.dmd.dmc.DmcObjectName
 description		The NameContainer type allows for the storage of object names of different types.
- This mechanism is required because the naming mechanisms associated with dark-matter allow for
- different ways of naming objects. When the name of something is transported, it has to be 
- self describing i.e. the type of the naming attribute must be known so that the appropriate 
- name type can be instantiated. An example of this comes from the Dark Matter Protocol. 
- The targets attribute is defined as a NameContainer. An instance of targets might appear
- as follows:
- <pre>
- targets uuidName 809408a7-f00b-448c-beb6-00337e83acc4
- </pre>
- As you can see, the attribute name is targets and the value is uuidName 809408a7-f00b-448c-beb6-00337e83acc4.
- The uuidName attribute is the designatedNameAttribute for the UUIDName type. So, when parsing/deserializing a
- name container, we always know the underlying type of the name.
- <p/>
- This approach makes dark-matter name handling completely extensible.
- <p/>
- A similar approach is taken to filter specifications via the FilterContainer.
 
 TypeDefinition
 name 			FilterContainer
@@ -103,6 +82,21 @@ nullReturnValue false
 description		Provides support for Boolean values. This type makes use of the nullReturnValue
  flag so that, even if there is no value for an attribute of this type, a value of false will
  be returned.
+* Some primitives may be special in that their non-existence may be a meaningful as their
+* existence. If a nullreturnValue is specified (along with getType and getMethod) we generate
+* some special code that will return the nullReturnValue if the attribute doesn't exist. If
+* the item does exist, we return Boolean.booleanValue().
+
+* Removed for now until we need something like this
+* TypeDefinition
+* name	 		GenericObject
+* typeClassName	org.dmd.dms.mediators.GenericObjectMediator
+* description		The GenericObject mediator allows for the use of references to other GenericObjects
+* in GenericObjects.
+
+* Whereas we used to have to define types for each of the distinct types of object references,
+* we now generate Mediators to handle those references automatically. When you create a ClassDefinition,
+* you get the associated mediator for free.
 
 TypeDefinition
 name    		EnumValue
@@ -121,60 +115,47 @@ description  The EnumValue type is used to store the definition of one enumerate
  The enum value name is automatically set to uppercase, even if it is specified
  in lower or mixed case.
 
+
 TypeDefinition
 name    		Modifier
 typeClassName	org.dmd.dmc.types.DmcTypeModifier
 primitiveType   org.dmd.dmc.types.Modifier
-description     The Modifier type is used to represent modification operations on a DmcObject.
- Any modification to an object can be represented by a Modifier. The string representation
- of a modification can take the following forms:
- <ul>
- <li> &ltattribute name&gt ADD &ltvalue&gt</li>
- <li> &ltattribute name&gt DEL &ltvalue&gt</li>
- <li> &ltattribute name&gt SET &ltvalue&gt</li>
- <li> &ltattribute name&gt NTH &ltindex&gt &ltvalue&gt</li>
- <li> &ltattribute name&gt NTH &ltindex&gt</li>
- <li> &ltattribute name&gt REM </li>
- </ul>
 
 TypeDefinition
 name			StringName
 typeClassName	org.dmd.dmc.types.DmcTypeStringName
 primitiveType	org.dmd.dmc.types.StringName
+nameType		STRUCTURAL
 isNameType		true
-description		The StringName is the simplest naming mechanism available; it's just a String.
 
 TypeDefinition
 name			CamelCaseName
 typeClassName	org.dmd.dmc.types.DmcTypeCamelCaseName
 primitiveType	org.dmd.dmc.types.CamelCaseName
+nameType		STRUCTURAL
 isNameType		true
-description		The CamelCaseName is a string based name that must start with an alpha character
- which is followed by a mix of alphanumerics. 
 
 TypeDefinition
 name			IntegerName
 typeClassName	org.dmd.dmc.types.DmcTypeIntegerName
 primitiveType	org.dmd.dmc.types.IntegerName
+nameType		STRUCTURAL
 isNameType		true
-description		An IntegerName provides the means to uniquely identify an object using an integer value.
 
 TypeDefinition
 name			LongName
 typeClassName	org.dmd.dmc.types.DmcTypeLongName
 primitiveType	org.dmd.dmc.types.LongName
+nameType		STRUCTURAL
 isNameType		true
-description		A LongName provides the means to uniquely identify an object using a long value.
 
 TypeDefinition
 name				DotName
 typeClassName		org.dmd.dmc.types.DmcTypeDotName
 primitiveType		org.dmd.dmc.types.DotName
+nameType			STRUCTURAL
 isNameType			true
 isHierarchicName	true
-description			The DotName provides standard mechanisms to deal with hierarchic names composed of
- strings interspersed with periods (dots) to separate the name elements. For example
- a dot name might be one.two.three
 
 TypeDefinition
 name			ClassFilter
@@ -202,17 +183,15 @@ TypeDefinition
 name 			UUIDLite
 typeClassName	org.dmd.dmc.types.DmcTypeUUIDLite
 primitiveType	org.dmd.dmc.types.UUIDLite
-description		The UUIDLite provides support for UUIDs in GWT environments; a full UUID implementation
- is not supported by the GWT JRE Emulation mechanisms. It holds two long values that represent a complete
- java.util.UUID as generated within the server environment. The methods to parse a UUID from a String and
- present it as a String are taken from the java.util.UUID class.
+description		Provides support UUIDs in GWT environments.
 
 TypeDefinition
 name 			UUIDName
 typeClassName	org.dmd.dmc.types.DmcTypeUUIDName
 primitiveType	org.dmd.dmc.types.UUIDName
+description		Provides support naming objects on the basis of a UUIDLite.
+nameType		STRUCTURAL
 isNameType		true
-description		The UUIDName allows for the naming of objects based on the GWT compatible UUIDLite type.
 
 TypeDefinition
 name 			IntegerToBoolean
@@ -232,6 +211,7 @@ TypeDefinition
 name			FullyQualifiedName
 typeClassName	org.dmd.dmc.types.DmcTypeFullyQualifiedName
 primitiveType	org.dmd.dmc.types.FullyQualifiedName
+nameType		STRUCTURAL
 isNameType		true
 
 TypeDefinition
@@ -316,31 +296,6 @@ enumValue		0 DMO       Indicates that the component follows basic Dark Matter Ob
 enumValue		1 FULLJAVA  indicates that the component operates in a ful Java environment; no restrictions.
 
 EnumDefinition
-name			RuleTypeEnum
-description		The RuleTypeEnum indicates the level at which a rule is applied.
-nullReturnValue RuleTypeEnum.ATTRIBUTE
-enumValue		0 ATTRIBUTE Indicates that this is an attribute level rule.
-enumValue		1 CLASS     Indicates that this is a class level rule.
-
-EnumDefinition
-name			RuleScopeEnum
-description		The RuleScopeEnum indicates the scope at which a rule is applied. 
- When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum
- will determine some additional attributes that will be added to the DMO class definition.
- <table>
- <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr>
- <tr> <td> ATTRIBUTE </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr>
- <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
- <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr>
- <tr> <td> CLASS     </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr>
- <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
- </table>
-nullReturnValue RuleScopeEnum.PERCLASS
-enumValue		0 PERCLASS 		Indicates the rule is applied within the scope of a class.
-enumValue		1 ACROSSCLASSES Indicates the rule is applied across several classes.
-enumValue		2 GLOBAL		Indicates the rule is global in scope.
-
-EnumDefinition
 name			DataTypeEnum
 description		The DataTypeEnum relates to how attributes/classes are dealt with
  by various persistence mechanism. No inherent behaviour is defined at this level.
@@ -384,10 +339,52 @@ enumValue		3 EXTENDEDREF 	Indicates an extended reference.
 enumValue		4 KEYED			Indicates a type that has a defined key type.
 
 EnumDefinition
+name            NameTypeEnum
+description		Name types come in two flavours, ABSTRACT and STRUCTURAL; the nameType
+ provides the Dark Matter code generation mechanisms a hint as to how one or more names
+ should be held in an attribute.
+ <P>
+ If defined as ABSTRACT a name type is just a base for a naming scheme from
+ which all of your DmcObjectNameIF implementing classes derive. If you refer to an ABSTRACT
+ object name type in an attribute definition, additional code will be generated to wrap
+ name values stored in that attribute to include their individual type information (basically
+ an attribute within an attribute). This implies additional overhead for each value stored.
+ <P>
+ If, on the other hand, you refer to a STRUCTURAL name type in an attribute definition,
+ the attribute will contain one or more values of an homogenous type. In this case,
+ the type information is at the attribute level and not repeated for each value.
+ <P>
+ When defining naming structures, you must ensure that only the leaves of your name class
+ derivation hierarchy are defined as structural; all other names MUST be defined as abstract.
+enumValue		0 ABSTRACT An abstract name class 
+enumValue		1 STRUCTURAL A structural name class is an actual name implementation.
+
+EnumDefinition
 name			ModificationControlEnum
 description		The ModificationControlEnum indicates 
 nullReturnValue ValueTypeEnum.SINGLE
 enumValue		0 SINGLE Indicates that the attribute is single-valued.
+
+// This has to be rethought and may somply be replaced on an as needed basis
+// for other schemas, such as the DMR repository schema
+//EnumDefinition
+//name			DataTypeEnum
+//description		The DataTypeEnum indicates the types of persistence/data access
+// mechanism to be used for attributes.
+//nullReturnValue DataTypeEnum.NONE
+//enumValue		0 NONE Indicates that the data has no associated persistenece characteristics.
+//enumValue		1 PERSISTENT Indicates that the data is persistent. Data that is set to be persistent
+// may have its schema added to the repository associated with an application.
+//enumValue		2 CACHED Indicates that the data is cached but not persistent. Data of this type
+// is usually retrieved from a remote system or device but isn't persisted by
+// an application.
+//enumValue		3 ONDEMAND Indicates that the data is retrieved from a remote system or device
+// whenever it is demanded. Data that changes quickly (for example performance
+// counters) is usually tagged as ONDEMAND.
+//enumValue		4 TRANSIENT Indicates that the data is transient i.e. it exists within the server
+// but isn't persisted and isn't retrieved from any remote source.
+//enumValue		5 TRANSIENTREPLICATED Indicates that the data is transient, but is also replicated between
+// the primary server and the standby server.
 
 EnumDefinition
 name			FilterTypeEnum
@@ -435,109 +432,6 @@ validatorClass 	org.dmd.dmc.validators.AttributeSetValidator
 description		Verifies that an object has all of its mandatory attributes and
  that it doesn't contain any unnecessary attributes.
 
- 
-///////////////////////////////////////////////////////////////////////////////
-// RULE CATEGORIES
-//
-
-RuleCategory
-name			Initialization
-opContext		DMO
-ruleCategoryID	1
-ruleInterface	org.dmd.dms.shared.interfaces.InitializationIF
-ruleExecution   initialize(DmcObject obj)
-ruleImport		org.dmd.dmc.DmcObject
-description		Rules in this category are used to initialize objects to a known
- state after creation.
-
-RuleCategory
-name			ObjectValidation
-opContext		DMO
-ruleCategoryID	2
-ruleInterface	org.dmd.dms.shared.interfaces.ObjectValidationIF
-ruleExecution	validate(DmcObject obj) throws DmcRuleExceptionSet
-ruleImport		org.dmd.dmc.DmcObject
-ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
-description		Rules in this category are used to validate a complete object. This
- would include objects read from Object Instance Files, objects in CreateRequests
- (after Initialization rules have been applied).
-
-RuleCategory
-name			AttributeValidation
-opContext		DMO
-ruleCategoryID	3
-ruleInterface	org.dmd.dms.shared.interfaces.AttributeValidationIF
-ruleExecution	validate(DmcAttribute<?> attribute) throws DmcRuleExceptionSet
-ruleImport		org.dmd.dmc.DmcAttribute
-ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
-description		Rules in this category are used to validate individual attributes.
-
-RuleCategory
-name			ModifierValidation
-opContext		DMO
-ruleCategoryID	4
-ruleInterface	org.dmd.dms.shared.interfaces.ModifierValidationIF
-ruleExecution	validate(DmcObject obj, DmcTypeModifierMV mods) throws DmcRuleExceptionSet
-ruleImport		org.dmd.dmc.DmcObject
-ruleImport		org.dmd.dms.generated.types.DmcTypeModifierMV
-ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
-description		Rules in this category are used to validate modifications that are
- about to be applied to an object.
- 
-
-///////////////////////////////////////////////////////////////////////////////
-//RULES
-//
-
-RuleDefinition
-name			AllowedAttributesRule
-dmdID			30
-ruleType		CLASS
-ruleScope		GLOBAL
-ruleCategory	ObjectValidation
-ruleCategory	ModifierValidation
-description		The AllowedAttributesRule will determine whether or not the 
- attributes of a DMO conform to the must/may specification of its class definition.
- For class of type EXTENSIBLE only the must have attributes are checked.
- <p/>
- Regardless of the environment in which you are running, you must ensure that the
- DmcOmni has been loaded with the appropriate schema. If you are using the Dark Matter
- Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically.
-
-RuleDefinition
-name			InitRule
-dmdID			31
-ruleType		CLASS
-ruleScope		PERCLASS
-ruleCategory	Initialization
-isExtensible	true
-description		The InitRule allows you to specify attribute values for a 
- newly created object or an object read from file or received in a CreateRequest
- (for instance). The InitRule will only set the values of attributes that are
- missing from the object; existing attributes are not alterred. An example
- usage might be:
- <p/>
- <pre>
- InitRule
- ruleTitle    Initialize the X class
- applyToClass X
- attributeA   some value
- attributeB   42
- attributeC   something
- attributeC   something else
- </pre>
-
-///////////////////////////////////////////////////////////////////////////////
-//
-
-AllowedAttributesRuleData
-ruleTitle 	Validate allowed attributes on objects.
-description	Ensures that must/may attribute rules are followed.
-
-InitRuleData
-ruleTitle 	Initialize AttributeDefinitions
-valueType	SINGLE
-description	Basic initialization for attributes.
 
 ********************************************************************************
 //
@@ -1475,8 +1369,8 @@ name				nameAttributeDef
 dmdID				90
 type				AttributeDefinition
 description			The nameAttributeDef is a reference to the attribute that is locked
- to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]*
- derivative for a value of type DmcObjectName.
+ to a TypeDefinition that is flagged as nameType STRUCTURAL. This mechanism is used to create the
+ correct type of DmcType[NAMETYPE]SV derivative for a value of type DmcObjectName.
 
 AttributeDefinition
 name                dmwIteratorImport
@@ -1563,16 +1457,16 @@ name                designatedNameAttribute
 dmdID				102
 type                Boolean
 description    		The designatedNameAttribute flag is used to identify the attribute
- designated as the standard wrapper for names of a particular type. One, and only one,
- attribute definition can be the designatedNameAttribute for a TypeDefinition that has
- isNameType true.
+ designated as the standard wrapper for names of a particular STRUCTURAL nameType. 
+ One, and only one, attribute definition can be the designatedNameAttribute for a 
+ TypeDefinition that is identified as a STRUCTURAL nameType.
 
-//AttributeDefinition
-//name                nameType
-//dmdID				103
-//type                NameTypeEnum
-//description    		The type of an object name type. See the NameTypeEnum for a 
-// detailed description of what this means.
+AttributeDefinition
+name                nameType
+dmdID				103
+type                NameTypeEnum
+description    		The type of an object name type. See the NameTypeEnum for a 
+ detailed description of what this means.
 
 AttributeDefinition
 name                fieldSeparator
@@ -1601,6 +1495,7 @@ name                dotName
 dmdID				107
 type                DotName
 designatedNameAttribute true
+//dataType          	TRANSIENT
 description    The dotName attribute is used to store dot separated names.
 
 AttributeDefinition
@@ -1829,122 +1724,15 @@ dmdID						135
 type                		BaseTypeEnum
 description    				The broad base type of the data.
 
-AttributeDefinition
-name                		ruleType
-dmdID						136
-type                		RuleTypeEnum
-description    				The type of a rule.
-
-AttributeDefinition
-name                		ruleScope
-dmdID						137
-type                		RuleScopeEnum
-description    				The scope of a rule.
-
-AttributeDefinition
-name                		ruleTitle
-dmdID						138
-type                		String
-description    				The title of a rule.
-
-AttributeDefinition
-name                		ruleCategory
-dmdID						139
-type                		RuleCategory
-valueType					MULTI
-description    				The category of a rule.
-
-AttributeDefinition
-name                		ruleCategoryID
-dmdID						140
-type                		Integer
-description    				The numeric ID of a rule category.
-
-AttributeDefinition
-name                		ruleInterface
-dmdID						141
-type                		String
-description    				The fully qualified name of the interface to be implemented by rules of a particular category.
-
-AttributeDefinition
-name                		isExtensible
-dmdID						142
-type                		Boolean
-description    				Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE
- or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible.
- The best example is the InitRule where any set of attributes can be specified as value for the rule.
-
-AttributeDefinition
-name                		ruleCategoryList
-dmdID						143
-type                		RuleCategory
-valueType					MULTI
-description    				The RuleCategories defined in a schema.
-
-AttributeDefinition
-name                		ruleDefinitionList
-dmdID						144
-type                		RuleDefinition
-valueType					MULTI
-description    				The RuleDefinitions defined in a schema.
-
-AttributeDefinition
-name                		ruleDefinition
-dmdID						145
-type                		RuleDefinition
-description    				The RuleDefinition that resulted in the creation of an
- internally generated ClassDefinition.
-
-AttributeDefinition
-name                		dependency
-dmdID						146
-type                		Dependency
-description    				A reference to a single Dependency.
-
-AttributeDefinition
-name                		dependencies
-dmdID						147
-type                		Dependency
-valueType					MULTI
-description    				A set of references to Dependencies.
-
-AttributeDefinition
-name                		instantiation
-dmdID						148
-type                		String
-description    				The instantiation attribute specifies how something is to be instantiated.
-
-AttributeDefinition
-name                		runContext
-dmdID						149
-type                		RunContext
-description    				A reference to a RunContext.
-
-AttributeDefinition
-name                		useInterface
-dmdID						150
-type                		String
-description    				The fully qualified name of a Java interface or base class that specifies a dependency.
-
-AttributeDefinition
-name                		ruleExecution
-dmdID						151
-type                		String
-description    				Indicates how a particular category of rule is executed.
-
-AttributeDefinition
-name                		ruleImport
-dmdID						152
-type                		String
-description    				An import required for arguements to a ruleExecution specification.
-
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
 AttributeDefinition
 name             	objectClass
 dmdID				1
 type            	ClassDefinition
+//isMultiValued    	true
 valueType			MULTI
+//dataType          	TRANSIENT
 description    Used to indicate the classes that an object instance supports.
 
 //
@@ -2016,7 +1804,7 @@ isNamedBy       name
 must         	name
 may         	description
 must           	classType
-must			dmdID
+may				dmdID
 //
 may          	derivedFrom
 may           	must
@@ -2039,8 +1827,6 @@ may           	abbrev
 may         	obsoleteVersion
 may				isTransportable
 // Auto generated/set
-may             internallyGenerated
-may				ruleDefinition
 may           	derivedClasses
 may           	actions
 may				internalTypeRef
@@ -2121,6 +1907,7 @@ may				genericArgs
 may				isNameType
 may				isFilterType
 may				isHierarchicName
+may				nameType
 may				keyClass
 may				keyImport
 may				nameAttributeDef
@@ -2221,7 +2008,6 @@ dmdID			8
 javaClass      	org.dmd.dms.SliceDefinition
 dmoImport		org.dmd.dms.generated.dmo.SliceDefinitionDMO
 derivedFrom     DmsDefinition
-must			name
 must 			selectAttribute
 may				description
 description		The SliceDefinition class is used to define a named set of attributes
@@ -2236,7 +2022,6 @@ dmdID			9
 javaClass      	org.dmd.dms.ObjectValidatorDefinition
 dmoImport		org.dmd.dms.generated.dmo.ObjectValidatorDefinitionDMO
 derivedFrom     DmsDefinition
-must			name
 must            validatorClass
 may				opContext
 may				description
@@ -2251,7 +2036,6 @@ dmdID			10
 javaClass      	org.dmd.dms.AttributeValidatorDefinition
 dmoImport		org.dmd.dms.generated.dmo.AttributeValidatorDefinitionDMO
 derivedFrom     DmsDefinition
-must			name
 must            validatorClass
 may				opContext
 may				description
@@ -2318,140 +2102,12 @@ may				sliceDefList
 may				objectValidatorDefList
 may				attributeValidatorDefList
 may           	dependsOnRef
-may				ruleCategoryList
-may				ruleDefinitionList
 // obsolete
 //must            genDirPrefix
 //must            genPackagePrefix
 description This class is used to define a schema as a discrete, nameable entity.
 //label     		Schema
 
-ClassDefinition
-name           	RuleCategory
-classType      	STRUCTURAL
-dmdID			15
-javaClass    	org.dmd.dms.RuleCategory
-dmoImport		org.dmd.dms.generated.dmo.RuleCategoryDMO
-derivedFrom     DmsDefinition
-isNamedBy       name
-must        	name
-must			opContext
-must			ruleCategoryID
-must			ruleInterface
-must			ruleExecution
-may				ruleImport
-must			description
-description		The RuleCategory allows for the definition of categories of rules to be applied
- to various objects and indicates the expected interface to be implemented by a rule instance.
- A RuleDefinition may belong to multiple categories. The basic RuleManager provides interfaces
- to trigger the RuleCategories defined as part of the meta schema. If you add other rule categories,
- you would derive from the RuleManager to add the additional methods required
- 
-
-ClassDefinition
-name           	RuleDefinition
-classType      	STRUCTURAL
-dmdID			16
-javaClass    	org.dmd.dms.RuleDefinition
-dmoImport		org.dmd.dms.generated.dmo.RuleDefinitionDMO
-derivedFrom     DmsDefinition
-isNamedBy       name
-must        	name
-must			ruleType
-must			ruleScope
-must			ruleCategory
-must			dmdID
-must			description
-may           	must
-may            	may
-may				isExtensible
-may				dependency
-description		The RuleDefinition allows for the definition of rules that can
- be applied to attributes or classes. Rules are not just for validation, they
- can be applied to objects at different times in an object's life cycle e.g. 
- the InitRule can initialize a set of attributes to known values.
- <p/>
- RuleDefinitions will result in the generation of ClassDefinitions that define the 
- DMOs that will carry the parameters associated with the rule and expectation
- that you will define an implementation class for the rule that derives from
- an abstract BaseImpl (base implementation) of the rule that provides common
- rule infrastructure and appropriate abstract methods that must be filled in.
- <p/>
- RuleDefinitions and ClassDefinitions share the same dmdID space and the IDs must
- be unique. This is because each RuleDefinition results in the creation of a 
- ClassDefinition for the DMO part of the rule that carries the rule parameters.
-
-ClassDefinition
-name           	RuleData
-classType      	ABSTRACT
-dmdID			17
-javaClass    	org.dmd.dms.RuleData
-dmoImport		org.dmd.dms.generated.dmo.RuleDataDMO
-must			ruleTitle
-may				description
-description		The RuleData class serves as a common base for all ClassDefinitions
- that are generated internally to represent the data associated with RuleDefinitions.
- 
-ClassDefinition
-name			Dependency
-classType      	STRUCTURAL
-dmdID			18
-javaClass    	org.dmd.dms.Dependency
-dmoImport		org.dmd.dms.generated.dmo.DependencyDMO
-derivedFrom     DmsDefinition
-isNamedBy       name
-must        	name
-must			useInterface
-may				dependencies
-may				instantiation
-// move from MVW
-//may				singleton
-description		The Dependency class allows for the definition of a named dependency
- on something; usually an interface. In the current schema mechanisms, the only place
- that this mechanism is used is in the specification of RuleDefinitions. Rule instances are
- created by injecting RuleData into a rule implementation. If the rule implementation
- has dependencies on other objects, those dependencies are specified via references to
- Dependencies.
- <p/>
- A Dependency can be referred to via a RunContext definition which directs the generation
- of code that can instantiate the required object instances. Satisfying a Dependency relies
- on there being a DependencyImplementation that indicates how to instantiate the object
- that implements the interface defined by the dependency.
- <p/>
- If a Dependency specifies an instantiation, this is considered the default mechanism to
- fulfill the dependency. Other DependencyImplementations may be specified that override
- the specified instantiation in particular contexts.
-
-ClassDefinition
-name			DependencyImplementation
-classType      	STRUCTURAL
-dmdID			19
-javaClass    	org.dmd.dms.DependencyImplementation
-dmoImport		org.dmd.dms.generated.dmo.DependencyImplementationDMO
-derivedFrom     DmsDefinition
-isNamedBy       name
-must        	name
-must			dependency
-must			runContext
-must			instantiation
-may				description
-description		The DependencyImplementation allows you to fulfill a defined Dependency.
- When a RunContext is specified, it will indicate a set of dependencies. For each of the
- specified dependencies, there must be at least one related DependencyImplementation,
- otherwise, we have no way to fulfill the dependency.
- 
-
-ClassDefinition
-name			RunContext
-classType      	STRUCTURAL
-dmdID			20
-javaClass    	org.dmd.dms.Dependency
-dmoImport		org.dmd.dms.generated.dmo.DependencyDMO
-derivedFrom     DmsDefinition
-isNamedBy       name
-must        	name
-must			dependencies
-may				description
 
 ********************************************************************************
 *
