@@ -52,7 +52,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * <ul>
  * <li> set() - sets the value of a single-valued attribute </li>
  * <li> add() - adds a value to a multi-valued attribute </li>
- * <li> del() - delets a value from a multi-valued attribute </li>
+ * <li> del() - deletes a value from a multi-valued attribute </li>
  * </ul>
  * To completely remove an attribute value from an object, the DmcObject.rem() function is called.
  * <P>
