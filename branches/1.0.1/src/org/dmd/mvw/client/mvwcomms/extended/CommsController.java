@@ -476,7 +476,7 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 				fireLoginCompleteEvent();
 				
 				// And now make sure that the event channel is up and working
-				primeTheEventChannel();
+//				primeTheEventChannel();
 			}
 			else if (cb.getCallbackID() == LogoutResponseCallback.ID){
 				if (eventDomain != null){

@@ -22,7 +22,6 @@ import java.util.Iterator;
 import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
-import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 
 /**
@@ -53,7 +52,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * <ul>
  * <li> set() - sets the value of a single-valued attribute </li>
  * <li> add() - adds a value to a multi-valued attribute </li>
- * <li> del() - delets a value from a multi-valued attribute </li>
+ * <li> del() - deletes a value from a multi-valued attribute </li>
  * </ul>
  * To completely remove an attribute value from an object, the DmcObject.rem() function is called.
  * <P>
@@ -358,7 +357,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     	// WRITE: the attribute id
     	dos.writeAttributeID(attrInfo);
 
-    	if (attrInfo.valueType == ValueTypeEnum.SINGLE){
+    	if (getMVSize() == 0){
         	serializeValue(dos,getSV());
     	}
     	else{
@@ -463,7 +462,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 //			isDmcObject = true;
 //		if ()
 		
-		if (attrInfo.valueType == ValueTypeEnum.SINGLE){
+		if (getMVSize() == 0){
 			if (getSV() instanceof DmcObject){
 				sb.append("\n{\n" + ((DmcObject)getSV()).toOIF() + "}\n");
 			}
@@ -572,7 +571,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 //		if ((attrInfo != null) && (attrInfo.type.equals("DmcObject")))
 //			isDmcObject = true;
 
-		if (attrInfo.valueType == ValueTypeEnum.SINGLE){
+		if (getMVSize() == 0){
 			if (getSV() instanceof DmcObject){
 				sb.append(name + "\n{\n" + ((DmcObject)getSV()).toOIF() + "}\n");
 			}
@@ -708,7 +707,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 	public String modifierFormat() {
 		String rc = null;
 		
-		if (attrInfo.valueType == ValueTypeEnum.SINGLE){
+		if (getMVSize() == 0){
 			if (getSV() instanceof DmcExtendedReferenceIF)
 				rc = "" + getSV();
 			else if (getSV() instanceof DmcNamedObjectIF)
@@ -938,7 +937,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
     	sb.append(indent);
     	addJSONNameWithPadding(this,sb,padding);
     	
-    	if (attrInfo.valueType == ValueTypeEnum.SINGLE){
+    	if (getMVSize() == 0){
     		formatValueAsJSON(sb, padding, indent + "  ");
     	}
     	else{
@@ -959,7 +958,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
 
 		sb.append("\"" + name + "\":");
     	
-    	if (attrInfo.valueType == ValueTypeEnum.SINGLE){
+    	if (getMVSize() == 0){
     		formatValueAsCompactJSON(sb);
     	}
     	else{
@@ -974,7 +973,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
      * to DmcObjects or that are object references.
      */
     protected void formatValueAsJSON(StringBuffer sb, int padding, String indent) {
-    	if (attrInfo.valueType == ValueTypeEnum.SINGLE){
+    	if (getMVSize() == 0){
     		sb.append("\"" + getSV().toString() + "\"");
     	}
     	else {
@@ -992,7 +991,7 @@ abstract public class DmcAttribute<VALUE> implements Cloneable, Serializable, Co
      * to DmcObjects or that are object references.
      */
     protected void formatValueAsCompactJSON(StringBuffer sb) {
-    	if (attrInfo.valueType == ValueTypeEnum.SINGLE){
+    	if (getMVSize() == 0){
     		sb.append("\"" + getSV().toString() + "\"");
     	}
     	else {

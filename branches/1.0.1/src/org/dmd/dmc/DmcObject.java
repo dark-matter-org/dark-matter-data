@@ -592,6 +592,8 @@ abstract public class DmcObject implements Serializable {
 		DmcTypeClassDefinitionREFMV ocl = (DmcTypeClassDefinitionREFMV) get(__objectClass.id);
 		
 		if (ocl != null){
+			// HACK - attrInfo
+			ocl.getAttributeInfo();
 			if (ocl.getMVSize() > 0){
 				return(ocl.getMVnth(0).getObjectName().getNameString());
 			}
@@ -967,7 +969,7 @@ abstract public class DmcObject implements Serializable {
 				
 			}
 			else{
-				if ( (attr.attrInfo.valueType == ValueTypeEnum.HASHSET) || (attr.attrInfo.valueType == ValueTypeEnum.TREESET))
+				if ( (attr.getAttributeInfo().valueType == ValueTypeEnum.HASHSET) || (attr.getAttributeInfo().valueType == ValueTypeEnum.TREESET))
 					rc = attr.del(value);
 				else if (value instanceof DmcExtendedReferenceIF)
 					rc = attr.del(value);
@@ -1255,10 +1257,10 @@ abstract public class DmcObject implements Serializable {
 						DmcNamedObjectIF referrer 	= mod.getReferringObject();
 						DmcObject		 obj		= (DmcObject) referrer;
 						DmcAttribute<?> attr = mod.getAttribute();
-						if (attr.attrInfo.valueType == ValueTypeEnum.SINGLE)
+						if (attr.getAttributeInfo().valueType == ValueTypeEnum.SINGLE)
 							sb.append("  (" + obj.getConstructionClassName() + ") " + referrer.getObjectName() + " via SV " + attr.getName() + "\n");
 						else{
-							if (attr.attrInfo.indexSize == 0)
+							if (attr.getAttributeInfo().indexSize == 0)
 								sb.append("  (" + obj.getConstructionClassName() + ") " +  referrer.getObjectName() + " via MV " + attr.getName() + "\n");
 							else
 								sb.append("  (" + obj.getConstructionClassName() + ") " +  referrer.getObjectName() + " via INDEX " + mod.getIndex() + " " + attr.getName() + "\n");
@@ -1588,6 +1590,11 @@ abstract public class DmcObject implements Serializable {
 			for(DmcAttribute<?> attr : attributes.values()){
 				if (skipClass && (attr.ID == __objectClass.id))
 					continue;
+				
+				// This ensures that we have the attribute info set. This is a temporary
+				// hack. The actual solution is to make attrInfo private and always go through
+				// the getAttributeInfo() method to get it.
+				attr.getAttributeInfo();
 					
 				if (attr instanceof DmcTypeNamedObjectREF){
 //System.out.println("DmcObject.resolveReferences() resolving: " + attr.getName());
@@ -1677,10 +1684,10 @@ abstract public class DmcObject implements Serializable {
 									if (supportsBackrefTracking()){
 //										if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
 										if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attr.ID)){
-											if (attr.attrInfo.indexSize == 0){
+											if (attr.getAttributeInfo().indexSize == 0){
 												// We're modifying a reference attribute, so track that puppy
 												DmcAttribute<?> mod = attr.getNew();
-												mod.setAttributeInfo(attr.attrInfo);
+												mod.setAttributeInfo(attr.getAttributeInfo());
 												try {
 													if (ref instanceof DmcExtendedReferenceIF)
 														mod.add(ref);
@@ -1699,7 +1706,7 @@ abstract public class DmcObject implements Serializable {
 											}
 											else{
 												DmcAttribute<?> mod = attr.getNew();
-												mod.setAttributeInfo(attr.attrInfo);
+												mod.setAttributeInfo(attr.getAttributeInfo());
 												try {
 													if (ref instanceof DmcExtendedReferenceIF)
 														mod.setMVnth(currIndex, null);
@@ -1787,9 +1794,13 @@ abstract public class DmcObject implements Serializable {
 			try {
 				DmcAttribute<?> ocl = get(__objectClass.id);
 				if (ocl != null){
+					// HACK - attrInfo
+					ocl.getAttributeInfo();
 					rc.add(__objectClass, ocl.cloneIt());
 				}
 				for(DmcAttribute<?> attr : attributes.values()){
+					// HACK - attrInfo
+					attr.getAttributeInfo();
 					DmcAttribute<?> copy = attr.cloneIt();
 					rc.add(copy.getAttributeInfo(), copy);
 				}
@@ -1878,7 +1889,7 @@ abstract public class DmcObject implements Serializable {
 							Object lastValue = existing.add(ref);
 							setLastValue(lastValue);
 							
-							add(existing.attrInfo,existing);
+							add(existing.getAttributeInfo(),existing);
 						}
 						else{
 							// NOTE: we add a clone of the attribute since, if we don't, we wind
@@ -1904,7 +1915,7 @@ abstract public class DmcObject implements Serializable {
 							if (lastValue != null){
 								setLastValue(lastValue);
 								anyChange = true;
-								add(existing.attrInfo,existing);
+								add(existing.getAttributeInfo(),existing);
 							}
 						}
 						else{
@@ -1932,7 +1943,7 @@ abstract public class DmcObject implements Serializable {
 							
 							setLastValue(ref);
 							anyChange = true;
-							del(existing.attrInfo, value);
+							del(existing.getAttributeInfo(), value);
 						}
 						else{
 							if (value instanceof DmcMappedAttributeIF){
@@ -1965,7 +1976,7 @@ abstract public class DmcObject implements Serializable {
 							
 							DmcNamedObjectREF<?> ref = (DmcNamedObjectREF<?>)value;
 							if (existing.set(ref) != null){
-								set(existing.attrInfo,existing);
+								set(existing.getAttributeInfo(),existing);
 								anyChange = true;
 							}
 						}
@@ -1990,7 +2001,7 @@ abstract public class DmcObject implements Serializable {
 						// stuff to it! 
 						if (value != null){
 							setLastValue(value);
-							nth(mod.getAttribute().attrInfo,index,mod.getAttribute().cloneIt(),null);
+							nth(mod.getAttribute().getAttributeInfo(),index,mod.getAttribute().cloneIt(),null);
 							anyChange = true;
 						}
 					}
@@ -2004,7 +2015,7 @@ abstract public class DmcObject implements Serializable {
 							if (previous != null){
 								existing.setMVnth(index, value);
 								setLastValue(value);
-								nth(existing.attrInfo, index, existing, previous);
+								nth(existing.getAttributeInfo(), index, existing, previous);
 								anyChange = true;
 							}
 						}
@@ -2019,7 +2030,7 @@ abstract public class DmcObject implements Serializable {
 								
 								if (existing.setMVnth(index, ref) != null){
 									setLastValue(ref);
-									nth(existing.attrInfo, index, existing, previous);
+									nth(existing.getAttributeInfo(), index, existing, previous);
 									anyChange = true;
 								}
 								
@@ -2146,7 +2157,7 @@ abstract public class DmcObject implements Serializable {
     			throw(new IllegalStateException("While decoding: " + getConstructionClassName(), ex));
     		}
     		attr.deserializeIt(dis);
-    		add(attr.attrInfo, attr);
+    		add(attr.getAttributeInfo(), attr);
     	}
     }
 
