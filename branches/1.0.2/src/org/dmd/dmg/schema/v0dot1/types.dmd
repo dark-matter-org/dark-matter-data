@@ -1,0 +1,7 @@
+TypeDefinition
+name    		Generator
+typeClassName	org.dmd.dmg.types.DmcTypeGenerator
+primitiveType   org.dmd.dmg.types.Generator
+description     The Generator type stores the fully qualified name of a class that
+ implements the DarkMatterGeneratorIF. It also proviv=des the mechanism to instantiate
+ the generator.

@@ -1,0 +1,35 @@
+ClassDefinition
+name 			HierarchicObject
+useWrapperType	EXTENDED
+dmdID			1
+classType		STRUCTURAL
+isNamedBy		FQN
+must			FQN
+//may				parentFQN
+may				lineNumber
+may				file
+description		A HierarchicObject is meant to represent any object that can
+ be identified with a Fully Qualified Name (FQN) and exists in a containment
+ relationship with other objects. The exact implementation of a HierarchicObject
+ is application specific.
+
+ClassDefinition
+name 			DotNamedObject
+derivedFrom		HierarchicObject
+useWrapperType	EXTENDED
+classType		STRUCTURAL
+dmdID			2
+isNamedBy		FQN
+must			FQN
+description		A DotNamedObject is a hierarchic object whose fully qualified
+ name is composed of naming attributes separated by periods. For example 
+ grandparent.parent.child.
+ <p>
+ The naming attribute of a DotNamedObject is name. Unlike LDAP objects, 
+ we don't bother making this configurable. When a DotNamedObject is parsed
+ from a file, we check to see if the name attribute has a value; if not,
+ we take the last portion of the FQN as the name. For example, if the FQN
+ is x.y.z, the name of the object would be 'z'.
+
+
+ 
