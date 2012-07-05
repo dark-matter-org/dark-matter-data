@@ -132,19 +132,6 @@ public class SchemaManager implements DmcNameResolverIF {
     public int  longestSliceName;
 
     // Key: StringName
-    // Value: RuleCategory
-    public HashMap<StringName,RuleCategory>     			ruleCategoryDefs;
-    public int  											longestRuleCategoryName;
-    public TreeMap<Integer,RuleCategory>					ruleCategoriesByID;
-
-
-
-    // Key: StringName
-    // Value: RuleDefinition
-    public HashMap<StringName,RuleDefinition>     			ruleDefs;
-    public int  longestRuleName;
-
-    // Key: StringName
     // Value: ObjectValidatorDefinition
     public HashMap<StringName,ObjectValidatorDefinition>	objectValidatorDefs;
     public int  longestObjectValidatorName;
@@ -242,9 +229,6 @@ public class SchemaManager implements DmcNameResolverIF {
         complexTypeDefs   			= new HashMap<StringName,ComplexTypeDefinition>();
         extendedReferenceTypeDefs   = new HashMap<StringName,ExtendedReferenceTypeDefinition>();
         sliceDefs   				= new HashMap<StringName,SliceDefinition>();
-        ruleCategoryDefs   			= new HashMap<StringName,RuleCategory>();
-        ruleCategoriesByID			= new TreeMap<Integer, RuleCategory>();
-        ruleDefs   					= new HashMap<StringName,RuleDefinition>();
         objectValidatorDefs   		= new HashMap<StringName,ObjectValidatorDefinition>();
         attributeValidatorDefs		= new HashMap<StringName,AttributeValidatorDefinition>();
         schemaDefs  				= new TreeMap<StringName,SchemaDefinition>();
@@ -276,8 +260,6 @@ public class SchemaManager implements DmcNameResolverIF {
             // There should be no warnings/errors during the creation of the
             // meta-schema
 
-        DebugInfo.debugWithTrace("LOADING META");
-        
             // Manage the meta schema so that we have a starting point for schema management
             manageSchemaInternal(meta);
             
@@ -694,27 +676,23 @@ public class SchemaManager implements DmcNameResolverIF {
      * @throws DmcValueExceptionSet 
      */
     public void manageSchemaInternal(SchemaDefinition sd) throws ResultException, DmcValueException {
-        ClassDefinition         		cd  		= null;
-        EnumDefinition     				evd 		= null;
-        TypeDefinition          		td  		= null;
-        AttributeDefinition     		ad  		= null;
-        ActionDefinition        		actd		= null;
-        ComplexTypeDefinition        	ctd			= null;
-        ExtendedReferenceTypeDefinition exrtd		= null;
-        SliceDefinition 				slice		= null;
-        RuleCategory 					category	= null;
-        RuleDefinition 					rule		= null;
+        ClassDefinition         		cd  	= null;
+        EnumDefinition     				evd 	= null;
+        TypeDefinition          		td  	= null;
+        AttributeDefinition     		ad  	= null;
+        ActionDefinition        		actd	= null;
+        ComplexTypeDefinition        	ctd		= null;
+        ExtendedReferenceTypeDefinition exrtd	= null;
+        SliceDefinition 				slice	= null;
         
-        Iterator<ActionDefinition>					itACD  		= null;
-        Iterator<AttributeDefinition>				itATD  		= null;
-        Iterator<ClassDefinition>					itCD  		= null;
-        Iterator<EnumDefinition>					itEVD  		= null;
-        Iterator<TypeDefinition>					itTD  		= null;
-        Iterator<ComplexTypeDefinition>				cTD  		= null;
-        Iterator<ExtendedReferenceTypeDefinition>	exrTD  		= null;
-        Iterator<SliceDefinition>					sliceIT		= null;
-        Iterator<RuleCategory>						categoryIT	= null;
-        Iterator<RuleDefinition>					ruleIT		= null;
+        Iterator<ActionDefinition>					itACD  	= null;
+        Iterator<AttributeDefinition>				itATD  	= null;
+        Iterator<ClassDefinition>					itCD  	= null;
+        Iterator<EnumDefinition>					itEVD  	= null;
+        Iterator<TypeDefinition>					itTD  	= null;
+        Iterator<ComplexTypeDefinition>				cTD  	= null;
+        Iterator<ExtendedReferenceTypeDefinition>	exrTD  	= null;
+        Iterator<SliceDefinition>					sliceIT	= null;
 
         currentSchema       = sd;
         // schemaDefs.put(sd.getName(),sd);
@@ -774,20 +752,6 @@ public class SchemaManager implements DmcNameResolverIF {
             while(sliceIT.hasNext()){
                 slice = sliceIT.next();
                 this.addSlice(slice);
-            }
-        }
-        
-        if ( (categoryIT = sd.getRuleCategoryList()) != null){
-            while(categoryIT.hasNext()){
-                category = categoryIT.next();
-                this.addRuleCategory(category);
-            }
-        }
-        
-        if ( (ruleIT = sd.getRuleDefinitionList()) != null){
-            while(ruleIT.hasNext()){
-                rule = ruleIT.next();
-                this.addRuleDefinition(rule);
             }
         }
         
@@ -1110,114 +1074,8 @@ public class SchemaManager implements DmcNameResolverIF {
         	ex.addError(clashMsg(sd.getObjectName(),sd,allDefs,"definition names"));
             throw(ex);
         }
-    }
-
-    /**
-     * Adds the specified rule category definition to the schema if it doesn't already exist.
-     * @throws DmcValueException 
-     * @throws DmcValueExceptionSet 
-     */
-    void addRuleCategory(RuleCategory rc) throws ResultException, DmcValueException {
-        if (checkAndAdd(rc.getObjectName(),rc,ruleCategoryDefs) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(rc.getObjectName(),rc,ruleCategoryDefs,"rule categories"));
-        	throw(ex);
-        }
-        if (checkAndAdd(rc.getObjectName(),rc,allDefs) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(rc.getObjectName(),rc,allDefs,"definition names"));
-            throw(ex);
-        }
         
-        if (performIDChecks){
-	        // Bump up the rule category ID by the amount of schemaBaseID
-	        int base = rc.getDefinedIn().getSchemaBaseID();
-	        int range = rc.getDefinedIn().getSchemaIDRange();
-	        int current = rc.getRuleCategoryID();
-	        
-	        if (current >= range){
-	        	ResultException ex = new ResultException("Number of rule categories exceeds schema ID range: " + rc.getName());
-	        	throw(ex);        	
-	        }
-	        
-	        rc.setRuleCategoryID(base + current);
-        }
-
-        if (ruleCategoriesByID.get(rc.getRuleCategoryID()) != null){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(rc.getRuleCategoryID(),rc,ruleCategoriesByID,"ruleCategoryID"));
-        	throw(ex);      	
-        }
-    }
-
-    /**
-     * Adds the specified rule definition to the schema if it doesn't already exist.
-     * There's some trickiness involved here. The of the RuleDefinition is actually going
-     * to be used as the name of the ClassDefinition that we use to represent the data
-     * payload for the rule, so the name of the RuleDefinition will be changed to have DEF
-     * added to it.
-     * @throws DmcValueException 
-     * @throws DmcValueExceptionSet 
-     */
-    void addRuleDefinition(RuleDefinition rd) throws ResultException, DmcValueException {
-    	
-    	StringName ruleClassName = new StringName(rd.getName().getNameString() + "Instance");
-    	
-        if (checkAndAdd(rd.getObjectName(),rd,ruleDefs) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(rd.getObjectName(),rd,ruleDefs,"rule definitions"));
-        	throw(ex);
-        }
-        if (checkAndAdd(rd.getObjectName(),rd,allDefs) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(rd.getObjectName(),rd,allDefs,"definition names"));
-            throw(ex);
-        }
         
-        if (performIDChecks){
-	        // Bump up the DMD ID by the amount of schemaBaseID
-	        int base = rd.getDefinedIn().getSchemaBaseID();
-	        int range = rd.getDefinedIn().getSchemaIDRange();
-	        int current = rd.getDmdID();
-	        
-	        if (current >= range){
-	        	ResultException ex = new ResultException("Number of rules exceeds schema ID range: " + rd.getName());
-	        	throw(ex);        	
-	        }
-	        
-	        rd.setDmdID(base + current);
-        }
-        
-        ClassDefinition existing = classDefs.get(ruleClassName);
-        if (existing != null){
-        	// We have the class for this rule, just check that it's auto generated
-        	if (existing.getInternallyGenerated()){
-        		return;
-        	}
-        	else{
-        		// We have some kind of clash
-        	}
-        }
-        
-        // We check that the ID of the rule doesn't clash with the class definitions, since we're
-        // going to create a class for this rule with the rule's ID.
-        if (classesByID.get(rd.getDmdID()) != null){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(rd.getDmdID(),rd,classesByID,"dmdID"));
-        	throw(ex);
-        }
-        
-        ///////////////////////////////////////////////////////////////////////
-        
-        ClassDefinition cd = new ClassDefinition();
-        cd.setName(ruleClassName);
-        if (rd.getIsExtensible())
-        	cd.setClassType(ClassTypeEnum.EXTENSIBLE);
-        else
-        	cd.setClassType(ClassTypeEnum.STRUCTURAL);
-        cd.setDmdID(rd.getDmdID());
-        
-
     }
 
     /**
@@ -1671,10 +1529,6 @@ public class SchemaManager implements DmcNameResolverIF {
     		this.addEnum((EnumDefinition) def);
     	else if (def instanceof SliceDefinition)
     		this.addSlice((SliceDefinition) def);
-    	else if (def instanceof RuleCategory)
-    		this.addRuleCategory((RuleCategory) def);
-    	else if (def instanceof RuleDefinition)
-    		this.addRuleDefinition((RuleDefinition) def);
     	// Note: test for extended ref before conplex type because it is derived from complex type
     	else if (def instanceof ExtendedReferenceTypeDefinition)
     		this.addExtendedReferenceType((ExtendedReferenceTypeDefinition) def);
@@ -1971,26 +1825,26 @@ public class SchemaManager implements DmcNameResolverIF {
 				return(def);
 		}
 		else if (attributeID == MetaDMSAG.__internalTypeDefList.id){
-//			DebugInfo.debug("internalTypeDefList " + name.getNameString());
+			DebugInfo.debug("internalTypeDefList " + name.getNameString());
 			DmcNamedObjectIF def = (DmcNamedObjectIF)internalTypeDefs.get(name);
 			if (def != null)
 				return(def);
 		}
 		else if (attributeID == MetaDMSAG.__enumDefList.id){
-//			DebugInfo.debug("enumDefList " + name.getNameString());
+			DebugInfo.debug("enumDefList " + name.getNameString());
 			DmcNamedObjectIF def = (DmcNamedObjectIF)enumDefs.get(name);
 			if (def != null)
 				return(def);
 		}
 		else if (attributeID == MetaDMSAG.__extendedReferenceTypeDefList.id){
-//			DebugInfo.debug("extendedReferenceTypeDefList " + name.getNameString());
+			DebugInfo.debug("extendedReferenceTypeDefList " + name.getNameString());
 			DmcNamedObjectIF def = (DmcNamedObjectIF)extendedReferenceTypeDefs.get(name);
 			if (def != null)
 				return(def);
 		}
 
 		else if (attributeID == MetaDMSAG.__complexTypeDefList.id){
-//			DebugInfo.debug("complexTypeDefList " + name.getNameString());
+			DebugInfo.debug("complexTypeDefList " + name.getNameString());
 			DmcNamedObjectIF def = (DmcNamedObjectIF)complexTypeDefs.get(name);
 			if (def != null)
 				return(def);
@@ -2091,8 +1945,6 @@ public class SchemaManager implements DmcNameResolverIF {
     	DmsDefinition    existing = defMap.get(defID);
     	SchemaDefinition ga1      = existing.getDefinedIn();
     	SchemaDefinition ga2      = newDef.getDefinedIn();
-    	
-    	DebugInfo.debugWithTrace("clashMsg()");
 
         if (existing instanceof SchemaDefinition){
             return(new String("Clashing " + defType + ": " + defID));
@@ -2765,20 +2617,6 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     public Iterator<SliceDefinition> getSlices(){
     	return(sliceDefs.values().iterator());
-    }
-
-    /**
-     * @return the defined rule categories.
-     */
-    public Iterator<RuleCategory> getRuleCategories(){
-    	return(ruleCategoryDefs.values().iterator());
-    }
-
-    /**
-     * @return the defined rules.
-     */
-    public Iterator<RuleDefinition> getRuleDefinitions(){
-    	return(ruleDefs.values().iterator());
     }
 
     /**

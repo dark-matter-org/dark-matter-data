@@ -61,11 +61,6 @@ public class ConfigVersion {
 				// what to be able to ignore cases where the jar names are equal
 				if (existing.getJarFilename().equals(newVersion.getJarFilename()))
 					return;
-				
-				// We may include the same jar from two different paths, so if the jar file names
-				// match, we ignore the new one.
-				if (existing.getJustJarFilename().equals(newVersion.getJustJarFilename()))
-					return;
 			}
 			
 			// We have a clashing version

@@ -1,0 +1,5 @@
+DmgConfig
+genPackage      org.dmd.mvw.tools.mvwgenerator
+schemaToLoad    mvw
+generator       org.dmd.dmg.generators.DMWGenerator
+description     We generate the wrappers for use with the MVW objects.
