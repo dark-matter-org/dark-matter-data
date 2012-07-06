@@ -1876,6 +1876,10 @@ abstract public class DmcObject implements Serializable {
 				Modifier mod = modifiers.next();
 				existing = get(mod.getAttributeName());
 				
+				// HACK: have to rationalize the attrInfo thing
+				if (existing != null)
+					existing.getAttributeInfo();
+				
 				switch(mod.getModifyType()){
 				case ADD:
 					if (existing == null){
