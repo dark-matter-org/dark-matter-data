@@ -298,6 +298,10 @@ public class Modifier implements Serializable {
 	 * @return The attribute holder.
 	 */
 	public DmcAttribute<?> getAttribute(){
+		// HACK: have to rationalize the attrInfo thing
+		if (attribute != null)
+			attribute.getAttributeInfo();
+		
 		return(attribute);
 	}
 	
