@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.FileModeEnum;    // DmcType import
  * The DmcTypeFileModeEnumSET provides storage for a set of FileModeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:362)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public DmcAttribute<FileModeEnum> cloneIt(){
         synchronized(this){
             DmcTypeFileModeEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
     public FileModeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             FileModeEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
     public FileModeEnum del(Object v){
         synchronized(this){
             FileModeEnum rc = null;
@@ -114,7 +114,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
     public Iterator<FileModeEnum> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -124,7 +124,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
     public Set<FileModeEnum> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -135,7 +135,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

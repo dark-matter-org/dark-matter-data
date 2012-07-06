@@ -15,17 +15,12 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:372)
-import java.io.Serializable;                                  // Always required - (GenUtility.java:201)
-import java.util.*;                                           // Always required if we have any MV attributes - (GenUtility.java:197)
-import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:206)
-import org.dmd.dmp.shared.generated.dmo.ResponseDMO;          // Base class - (GenUtility.java:332)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:205)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:204)
-
-import org.dmd.dms.generated.dmo.MetaVCAG;
-import org.dmd.dmc.DmcAttributeValidator;
-import org.dmd.dmc.DmcObjectValidator;
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
+import java.io.Serializable;                                  // Always required - (GenUtility.java:220)
+import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:225)
+import org.dmd.dmp.shared.generated.dmo.ResponseDMO;          // Base class - (GenUtility.java:351)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:224)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:223)
 
 /**
  * The NotifyResponse is sent as the result of a NotifyRequest.
@@ -40,17 +35,8 @@ public class NotifyResponseDMO  extends ResponseDMO  implements Serializable  {
 
     public final static String constructionClassName = "NotifyResponse";
 
-    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
-
-    static Map<String ,DmcObjectValidator> _OvDmAp;
-
 
     static {
-
-        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
-
-        _OvDmAp = new HashMap<String,DmcObjectValidator>();
-        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
     public NotifyResponseDMO() {
@@ -59,14 +45,6 @@ public class NotifyResponseDMO  extends ResponseDMO  implements Serializable  {
 
     protected NotifyResponseDMO(String oc) {
         super(oc);
-    }
-
-    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
-        return(_AvDmAp);
-    }
-
-    protected Map<String,DmcObjectValidator> getObjectValidators(){
-        return(_OvDmAp);
     }
 
     @Override

@@ -16,13 +16,12 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1383)
-import java.io.Serializable;                       // Serializable marker interface - (MetaGenerator.java:1347)
-import java.util.*;                                // Attribute info support - (MetaGenerator.java:1348)
-import org.dmd.dmc.*;                              // Dark matter core - (MetaGenerator.java:1363)
-import org.dmd.dmc.types.*;                        // Basic type access - (MetaGenerator.java:1359)
-import org.dmd.dms.generated.dmo.MetaVCAG;         // Old validation framework - obsolete - (MetaGenerator.java:1364)
-import org.dmd.dms.generated.types.*;              // Generated type access - (MetaGenerator.java:1374)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1387)
+import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1347)
+import java.util.*;                           // Attribute info support - (MetaGenerator.java:1348)
+import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1367)
+import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1359)
+import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1378)
 
 
 /**
@@ -35,7 +34,7 @@ import org.dmd.dms.generated.types.*;              // Generated type access - (M
  * object for the  ActionTriggerInfo (ATI) for a particular action and have a
  * well defined interface to specify the parameters for the action.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1392)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1396)
  */
 @SuppressWarnings("serial")
 public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
@@ -46,10 +45,6 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
-    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
-
-    static Map<String ,DmcObjectValidator> _OvDmAp;
-
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -57,11 +52,6 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
-
-        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
-
-        _OvDmAp = new HashMap<String ,DmcObjectValidator>();
-        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
 
@@ -79,14 +69,6 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
 
     public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
         return(_SmAp);
-    }
-
-    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
-        return(_AvDmAp);
-    }
-
-    protected Map<String,DmcObjectValidator> getObjectValidators(){
-        return(_OvDmAp);
     }
 
     @Override
@@ -108,7 +90,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1736)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -121,7 +103,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1787)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)

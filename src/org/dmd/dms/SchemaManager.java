@@ -1161,7 +1161,7 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     void addRuleDefinition(RuleDefinition rd) throws ResultException, DmcValueException {
     	
-    	StringName ruleClassName = new StringName(rd.getName().getNameString() + "Instance");
+    	StringName ruleClassName = new StringName(rd.getName().getNameString() + "Data");
     	
         if (checkAndAdd(rd.getObjectName(),rd,ruleDefs) == false){
         	ResultException ex = new ResultException();

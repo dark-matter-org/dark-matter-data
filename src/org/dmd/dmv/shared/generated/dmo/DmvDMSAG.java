@@ -3,6 +3,7 @@ package org.dmd.dmv.shared.generated.dmo;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.dmd.dmc.*;
+import org.dmd.dmc.rules.RuleIF;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:565)
 import org.dmd.dms.generated.dmo.MetaDMSAG;               // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:546)
@@ -153,6 +154,12 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public int getSchemaMaxID(){
         return(schemaMaxID);
     }
+
+	@Override
+	public Iterator<RuleIF> getRules() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 
 }

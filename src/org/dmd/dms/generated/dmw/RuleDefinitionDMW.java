@@ -88,7 +88,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -97,7 +97,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1845)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -105,7 +105,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * The type of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
     public RuleTypeEnum getRuleType(){
         return(mycore.getRuleType());
     }
@@ -114,7 +114,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets ruleType to the specified value.
      * @param value A value compatible with DmcTypeRuleTypeEnumSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1845)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
     public void setRuleType(Object value) throws DmcValueException {
         mycore.setRuleType(value);
     }
@@ -122,7 +122,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * The scope of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
     public RuleScopeEnum getRuleScope(){
         return(mycore.getRuleScope());
     }
@@ -131,7 +131,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets ruleScope to the specified value.
      * @param value A value compatible with DmcTypeRuleScopeEnumSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1845)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
     public void setRuleScope(Object value) throws DmcValueException {
         mycore.setRuleScope(value);
     }
@@ -140,7 +140,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * The category of a rule.
      * @return An Iterator of RuleCategory objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1925)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1894)
     public RuleCategoryIterableDMW getRuleCategory(){
         DmcTypeRuleCategoryREFMV attr = (DmcTypeRuleCategoryREFMV) mycore.get(MetaDMSAG.__ruleCategory);
         if (attr == null)
@@ -153,7 +153,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another ruleCategory value.
      * @param value A value compatible with RuleCategory
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1973)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1942)
     public DmcAttribute<?> addRuleCategory(RuleCategory value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addRuleCategory(value.getDmcObject());
         return(attr);
@@ -162,7 +162,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Returns the number of ruleCategory values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1996)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1965)
     public int getRuleCategorySize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleCategory);
         if (attr == null)
@@ -175,7 +175,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * for attributes. This is used as part of the serialization mechanisms built
      * into Dark Matter Objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
     public Integer getDmdID(){
         return(mycore.getDmdID());
     }
@@ -184,7 +184,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets dmdID to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1845)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
     public void setDmdID(Object value) throws DmcValueException {
         mycore.setDmdID(value);
     }
@@ -195,7 +195,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -204,7 +204,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1845)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
@@ -215,7 +215,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * objects.
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1925)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1894)
     public AttributeDefinitionIterableDMW getMust(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__must);
         if (attr == null)
@@ -228,7 +228,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another must value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1973)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1942)
     public DmcAttribute<?> addMust(AttributeDefinition value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addMust(value.getDmcObject());
         return(attr);
@@ -237,7 +237,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Returns the number of must values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1996)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1965)
     public int getMustSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__must);
         if (attr == null)
@@ -251,7 +251,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * objects.
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1925)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1894)
     public AttributeDefinitionIterableDMW getMay(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__may);
         if (attr == null)
@@ -264,7 +264,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another may value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1973)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1942)
     public DmcAttribute<?> addMay(AttributeDefinition value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addMay(value.getDmcObject());
         return(attr);
@@ -273,7 +273,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Returns the number of may values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1996)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1965)
     public int getMaySize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__may);
         if (attr == null)
@@ -288,7 +288,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * must be flexible. The best example is the InitRule where any set of
      * attributes can be specified as value for the rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
     public Boolean getIsExtensible(){
         return(mycore.getIsExtensible());
     }
@@ -297,7 +297,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets isExtensible to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1845)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
     public void setIsExtensible(Object value) throws DmcValueException {
         mycore.setIsExtensible(value);
     }
@@ -305,7 +305,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * A reference to a single Dependency.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
     public Dependency getDependency(){
         DmcTypeDependencyREFSV attr = (DmcTypeDependencyREFSV) mycore.get(MetaDMSAG.__dependency);
         if (attr == null)
@@ -318,7 +318,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets dependency to the specified value.
      * @param value A value compatible with Dependency
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1835)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1804)
     public void setDependency(Dependency value) throws DmcValueException {
         mycore.setDependency(value.getDmcObject());
     }

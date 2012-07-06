@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;    // DmcType import
  * The DmcTypeDMPEventREFSET provides storage for a set of DMPEventDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public DmcAttribute<DMPEventDMO> cloneIt(){
         synchronized(this){
             DmcTypeDMPEventREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
     public DMPEventDMO add(Object v) throws DmcValueException {
         synchronized(this){
             DMPEventDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
     public DMPEventDMO del(Object v){
         synchronized(this){
             DMPEventDMO rc = null;
@@ -114,7 +114,7 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
     public Iterator<DMPEventDMO> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -124,7 +124,7 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
     public Set<DMPEventDMO> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -135,7 +135,7 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeDMPEventREFSET extends DmcTypeDMPEventREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

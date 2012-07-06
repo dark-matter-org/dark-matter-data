@@ -25,6 +25,7 @@ abstract public class AllowedAttributesRuleBaseImpl implements RuleIF, ObjectVal
     protected AllowedAttributesRuleBaseImpl(AllowedAttributesRuleDataDMO dmo){
         ruleDMO = dmo;
         if (categories == null){
+            categories = new ArrayList<Integer>();
             categories.add(2);
             categories.add(4);
         }

@@ -16,19 +16,18 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1383)
-import java.io.Serializable;                       // Serializable marker interface - (MetaGenerator.java:1347)
-import java.util.*;                                // Attribute info support - (MetaGenerator.java:1348)
-import org.dmd.dmc.*;                              // Dark matter core - (MetaGenerator.java:1363)
-import org.dmd.dmc.types.*;                        // Basic type access - (MetaGenerator.java:1359)
-import org.dmd.dms.generated.dmo.MetaVCAG;         // Old validation framework - obsolete - (MetaGenerator.java:1364)
-import org.dmd.dms.generated.types.*;              // Generated type access - (MetaGenerator.java:1374)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1387)
+import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1347)
+import java.util.*;                           // Attribute info support - (MetaGenerator.java:1348)
+import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1367)
+import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1359)
+import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1378)
 
 
 /**
  * The DmsDefinition class provides a common base for all definition classes.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1392)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1396)
  */
 @SuppressWarnings("serial")
 public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Serializable {
@@ -38,10 +37,6 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
     static Map<Integer,DmcAttributeInfo> _ImAp;
 
     static Map<String ,DmcAttributeInfo> _SmAp;
-
-    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
-
-    static Map<String ,DmcObjectValidator> _OvDmAp;
 
 
     static {
@@ -56,11 +51,6 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
-
-        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
-
-        _OvDmAp = new HashMap<String ,DmcObjectValidator>();
-        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
 
@@ -78,14 +68,6 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
 
     public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
         return(_SmAp);
-    }
-
-    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
-        return(_AvDmAp);
-    }
-
-    protected Map<String,DmcObjectValidator> getObjectValidators(){
-        return(_OvDmAp);
     }
 
     @Override
@@ -107,7 +89,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1736)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -120,7 +102,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1787)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -133,7 +115,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1736)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -146,7 +128,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1787)
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -159,7 +141,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1736)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -172,7 +154,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1787)
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
@@ -185,7 +167,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1736)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -198,7 +180,7 @@ public class DmsDefinitionDMO extends DmcObject implements DmcNamedObjectIF, Ser
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1787)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)

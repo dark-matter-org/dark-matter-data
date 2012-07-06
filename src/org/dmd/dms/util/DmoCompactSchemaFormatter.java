@@ -18,6 +18,7 @@ package org.dmd.dms.util;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -35,6 +36,7 @@ import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.DmcUncheckedObject;
 import org.dmd.util.parsing.NamedStringArray;
 
@@ -221,7 +223,7 @@ public class DmoCompactSchemaFormatter {
 	 * @throws ResultException 
 	 * @throws ResultException 
 	 */
-	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> classes, TreeMap<String,DmcUncheckedObject> attributes, TreeMap<String,DmcUncheckedObject> types, String dmodir, int baseID, int idRange) throws IOException, ResultException{
+	public void dumpSchema(String sn, String schemaPackage, TreeMap<String,DmcUncheckedObject> classes, TreeMap<String,DmcUncheckedObject> attributes, TreeMap<String,DmcUncheckedObject> types, ArrayList<DmcUncheckedObject> rules, String dmodir, int baseID, int idRange) throws IOException, ResultException{
 		String schemaName = GeneratorUtils.dotNameToCamelCase(sn) + "DMSAG";
 		
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + ".java");
@@ -300,11 +302,24 @@ public class DmoCompactSchemaFormatter {
         
 		if (classes != null){
 			TreeMap<String,ClassNode> hierarchy = getHierarchyMETA(classes.values().iterator());
-			out.write("");
+			out.write("\n");
 	        for(ClassNode cn: hierarchy.values()){
             	cn.writeClassInfo(out);
 			}
 		}
+		
+		if (rules != null){
+			out.write("\n");
+			for(DmcUncheckedObject ruleData: rules){
+				String dataName 	= ruleData.getConstructionClass();
+				int dataPos 		= dataName.indexOf("Data");
+				String ruleClass 	= dataName.substring(0, dataPos);
+				String ruleName		= ruleData.getSV("ruleName");
+				
+				out.write("    public final static " + ruleClass + " " + ruleName + ";\n");
+			}
+		}
+
         
         writeCommonPart1(out);
         
@@ -341,8 +356,28 @@ public class DmoCompactSchemaFormatter {
         			out.write("        __" + cn + ".addMay(__" + an + ");\n");
 	            }
 			}
-	        
-	        
+		}
+		
+		if (rules != null){
+			out.write("\n");
+			PrintfFormat pf = new PrintfFormat("%-28s");
+			out.write("        try{\n");
+			
+			for(DmcUncheckedObject ruleData: rules){
+				String dataName 	= ruleData.getConstructionClass();
+				int dataPos 		= dataName.indexOf("Data");
+				String ruleClass 	= dataName.substring(0, dataPos);
+				String ruleName		= ruleData.getSV("ruleName");
+				
+				out.write("            " + dataName + "DMO _" + ruleName + "Data = new " + dataName + "DMO();\n");
+				
+				setAttributeValuesMETA(out, ruleData, pf, types, attributes);
+
+				out.write("            " + ruleName + " = new " + ruleClass + "(_" + ruleName + "Data);\n\n");
+			}
+			out.write("        } catch(DmcValueException ex){\n");
+			out.write("            throw(new IllegalStateException(ex));\n");
+			out.write("        }\n");
 		}
 		
 		out.write("\n");        
@@ -402,6 +437,9 @@ public class DmoCompactSchemaFormatter {
         out.write("    static  HashMap<String, DmcSliceInfo> _SImAp;\n");
         out.write("\n");
         
+        out.write("    static  ArrayList<RuleIF>             _RmAp;\n");
+        out.write("\n");
+        
         out.write("    static {\n");
         out.write("        _CmAp = new HashMap<Integer, DmcClassInfo>();\n");
         
@@ -416,6 +454,10 @@ public class DmoCompactSchemaFormatter {
         
         out.write("\n");
         out.write("        _SImAp = new HashMap<String, DmcSliceInfo>();\n");
+        
+        out.write("\n");
+        out.write("        _RmAp = new ArrayList<RuleIF>();\n");
+        
         out.write("\n");
         
 	}
@@ -508,6 +550,12 @@ public class DmoCompactSchemaFormatter {
         out.write("\n");
         
         out.write("\n");
+        out.write("    public Iterator<RuleIF> getRules(){\n");
+        out.write("        return(_RmAp.iterator());\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("\n");
 		
 	}
 	
@@ -515,12 +563,15 @@ public class DmoCompactSchemaFormatter {
         out.write("package " + schemaPackage + ".generated.dmo;\n\n");
 
         out.write("import java.util.HashMap;\n");
+        out.write("import java.util.ArrayList;\n");
         out.write("import java.util.Iterator;\n");
         out.write("import org.dmd.dmc.*;\n");
         out.write("import org.dmd.dms.generated.enums.ClassTypeEnum;\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
         out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
         out.write("import org.dmd.dms.generated.types.*;\n");
+        out.write("import org.dmd.dms.extended.rules.*;\n");
+        out.write("import org.dmd.dmc.rules.RuleIF;\n");
         out.write("\n");
         
 	}
@@ -529,8 +580,10 @@ public class DmoCompactSchemaFormatter {
         out.write("package " + schemaPackage + ".generated.dmo;\n\n");
 
         out.write("import java.util.HashMap;\n");
+        out.write("import java.util.ArrayList;\n");
         out.write("import java.util.Iterator;\n");
         out.write("import org.dmd.dmc.*;\n");
+        out.write("import org.dmd.dmc.rules.RuleIF;\n");
         
     	ImportManager manager = new ImportManager();
         DmcAttribute<?> cdef = sd.getDMO().get(MetaDMSAG.__classDefList);
@@ -787,4 +840,163 @@ public class DmoCompactSchemaFormatter {
     	}
     }
 			
+    
+    
+    ///////////////////////////////////////////////////////////////////////////
+    
+	private void setAttributeValuesMETA(BufferedWriter out, DmcUncheckedObject obj, PrintfFormat pf, TreeMap<String,DmcUncheckedObject>	typeDefs, TreeMap<String,DmcUncheckedObject> attributeDefs) throws IOException, ResultException {
+		String				attrName	= null;
+		String          	objName		= null;
+		DmcUncheckedObject 	attrDef		= null;
+		String          	typeName    = null;
+		DmcUncheckedObject  typeDef     = null;
+		boolean				multiValued	= false;
+		boolean         	isReference = false;
+		boolean         	isEnumType  = false;
+		
+		objName = obj.getSV("ruleName") + "Data";
+		
+		Iterator<String> attributeNames = obj.getAttributeNames();
+		while(attributeNames.hasNext()){
+			NamedStringArray attr = obj.get(attributeNames.next());
+			attrName = attr.getName();
+			if (attrName == null){
+				DebugInfo.debug("Attr name null");
+				continue;
+			}
+			attrDef  = attributeDefs.get(attrName);
+			multiValued = false;
+			isReference	= false;
+			isEnumType  = false;
+			
+			if (attrDef == null){
+				ResultException ex = new ResultException();
+				ex.addError("Unknown attribute: " + attrName);
+				ex.result.lastResult().fileName("metaSchema.dms");
+				ex.result.lastResult().lineNumber(obj.lineNumber);
+				throw(ex);
+			}
+			
+			if (obj.getConstructionClass().equals("InitRuleData")){
+				if (attrName.equals("ruleName") || attrName.equals("ruleTitle") || attrName.equals("description") || attrName.equals("applyToClass")){
+					// Just keep going
+				}
+				else{
+					formatOtherAttribute(out,pf,typeDefs,attrDef);
+					continue;
+				}
+			}
+			
+			
+			// MULTIVALUED 1
+			if (attrDef.getSV("valueType") != null)
+				multiValued = true;
+			
+			typeName = attrDef.getSV("type");
+			typeDef = typeDefs.get(typeName);
+			
+			if (typeDef == null){
+				// If this is null, we need to look for an internally generated Reference type
+				typeDef = typeDefs.get(typeName + "REF");
+				isReference = true;
+				
+				if (typeDef.getSV("isEnumType") != null)
+					isEnumType = true;
+			}
+			
+	    	StringBuffer 	attrNameCapped 	= new StringBuffer();
+	    	attrNameCapped.append(attrName);
+	    	attrNameCapped.setCharAt(0,Character.toUpperCase(attrNameCapped.charAt(0)));
+			
+			if (attrName.equals("type")){
+				// The type attribute has to be handled slightly differently than most attributes
+				// to adjust for the fact that we create those internal Reference types to handle
+				// references to definitions.
+				isReference = false;
+				isEnumType  = false;
+				typeName = obj.getSV("type");
+				typeDef = typeDefs.get(typeName);
+				
+				if (typeDef == null){
+					// If this is null, we need to look for an internally generated Reference type
+					typeDef = typeDefs.get(typeName + "REF");
+					isReference = true;
+					
+					if (typeDef.getSV("isEnumType") != null)
+						isEnumType = true;
+				}
+				
+	            out.write("            _" + pf.sprintf(objName));
+	            
+				out.write(".setType(");
+				
+				if (isReference){
+					out.write("_" + obj.getSV(attrName) + "REF);\n");
+				}
+				else{
+					out.write("_" + obj.getSV(attrName) + ");\n");
+				}
+			}
+			else{
+				if (multiValued){
+					
+					for(String attrVal: attr){
+			            out.write("            _" + pf.sprintf(objName));
+						out.write(".add" + attrNameCapped + "(");
+						
+						if (isReference){
+							if (isEnumType)
+								out.write(typeName + "." + attrVal + ");\n");
+							else
+								out.write("_" + attrVal + ");\n");
+						}
+						else{
+							out.write("\"" + attrVal + "\");\n");
+						}
+					}
+				}
+				else{
+		            out.write("            _" + pf.sprintf(objName));
+					out.write(".set" + attrNameCapped + "(");
+					
+					
+
+					if (isReference){
+						if (isEnumType)
+							out.write(typeName + "." + obj.getSV(attrName) + ");\n");
+						else
+							out.write("_" + obj.getSV(attrName) + ");\n");
+					}
+					else{
+						String value = obj.getSV(attrName);
+						
+						if (attrName.equals("name")){
+							String val = obj.getSV(attrName);
+							if (val.endsWith("EnumREF")){
+//									DebugInfo.debug("Enum name: " + val);
+								value = val.replaceFirst("REF", "");
+//									DebugInfo.debug("value = " + value);
+							}
+						}
+
+						out.write("\"" + value + "\");\n");
+					}
+				}
+			}
+			
+		}
+//            out.write("            _" + pf.sprintf(objName));
+//            out.write(".setDefinedIn(this);\n");
+		
+		out.write("\n");
+		
+	}
+	
+	private void formatOtherAttribute(BufferedWriter out, PrintfFormat pf, TreeMap<String,DmcUncheckedObject>	typeDefs, DmcUncheckedObject attribute) throws IOException, ResultException{
+		String typeName = attribute.getSV("type");
+		DmcUncheckedObject type = typeDefs.get(typeName);
+		DebugInfo.debug(type.toOIF() + "\n");
+	}
+
+
 }

@@ -61,7 +61,7 @@ public class InitRuleDataDMW extends org.dmd.dms.RuleData {
     /**
      * The title of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
     public String getRuleTitle(){
         return(mycore.getRuleTitle());
     }
@@ -70,7 +70,7 @@ public class InitRuleDataDMW extends org.dmd.dms.RuleData {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1845)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
     public void setRuleTitle(Object value) throws DmcValueException {
         mycore.setRuleTitle(value);
     }
@@ -81,7 +81,7 @@ public class InitRuleDataDMW extends org.dmd.dms.RuleData {
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -90,7 +90,7 @@ public class InitRuleDataDMW extends org.dmd.dms.RuleData {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1845)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
