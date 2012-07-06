@@ -241,13 +241,13 @@ abstract public class DmcObject implements Serializable {
 	 */
 	abstract public DmcObject getSlice(DmcSliceInfo info);
 	
-	public void validate() throws DmcValueExceptionSet {
-		Iterator<DmcObjectValidator> ovds = getObjectValidators().values().iterator();
-		while(ovds.hasNext()){
-			DmcObjectValidator ov = ovds.next();
-			ov.validate(this);
-		}
-	}
+//	public void validate() throws DmcValueExceptionSet {
+//		Iterator<DmcObjectValidator> ovds = getObjectValidators().values().iterator();
+//		while(ovds.hasNext()){
+//			DmcObjectValidator ov = ovds.next();
+//			ov.validate(this);
+//		}
+//	}
 	
 	protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
 		throw(new IllegalStateException("getAttributeValidators() must be overriden in the DMO"));

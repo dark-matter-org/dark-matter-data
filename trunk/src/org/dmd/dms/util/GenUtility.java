@@ -105,11 +105,19 @@ public class GenUtility {
 					anySVAttributes.set(true);;
 					break;
 				case MULTI:
+					if (ad.getIndexSize() == null){
+						anyMVAttributes.set(true);
+					}
+					else{
+						if (td.getIsRefType() == false)
+							anyMVAttributes.set(true);
+					}
+					break;
 				case HASHMAPPED:
 				case TREEMAPPED:
 				case HASHSET:
 				case TREESET:
-					anyMVAttributes.set(true);;
+					anyMVAttributes.set(true);
 					break;
 				}
 				
@@ -155,6 +163,15 @@ public class GenUtility {
 					anySVAttributes.set(true);
 					break;
 				case MULTI:
+					// We don't need java.util with indexed multi-values
+					if (ad.getIndexSize() == null){
+						anyMVAttributes.set(true);
+					}
+					else{
+						if (td.getIsRefType() == false)
+							anyMVAttributes.set(true);
+					}
+					break;
 				case HASHMAPPED:
 				case TREEMAPPED:
 				case HASHSET:
@@ -193,8 +210,10 @@ public class GenUtility {
 				addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
 		}
 		else{
-			if (cd.getClassType() != ClassTypeEnum.AUXILIARY)
-				addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
+			if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
+				if (anyMVAttributes.booleanValue())
+					addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
+			}
 		}
 			
 		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))

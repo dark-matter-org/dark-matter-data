@@ -105,6 +105,7 @@ public class RuleFormatter {
 			out.write("    protected " + name + "BaseImpl(" + name + "DataDMO dmo){\n");
 			out.write("        ruleDMO = dmo;\n");
 			out.write("        if (categories == null){\n");
+			out.write("            categories = new ArrayList<Integer>();\n");
 			out.write(categoryInit.toString());
 			out.write("        }\n");
 			out.write("    }\n\n");

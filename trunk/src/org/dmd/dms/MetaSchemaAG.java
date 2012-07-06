@@ -80,6 +80,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _Modifier;
     public static TypeDefinition      _StringName;
     public static TypeDefinition      _CamelCaseName;
+    public static TypeDefinition      _RuleName;
     public static TypeDefinition      _IntegerName;
     public static TypeDefinition      _LongName;
     public static TypeDefinition      _DotName;
@@ -107,6 +108,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _ExtendedReferenceTypeDefinitionREF;
     public static TypeDefinition      _ObjectValidatorDefinitionREF;
     public static TypeDefinition      _RuleCategoryREF;
+    public static TypeDefinition      _RuleDataREF;
     public static TypeDefinition      _RuleDefinitionREF;
     public static TypeDefinition      _RunContextREF;
     public static TypeDefinition      _SchemaDefinitionREF;
@@ -271,6 +273,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _instantiation;
     public static AttributeDefinition _runContext;
     public static AttributeDefinition _useInterface;
+    public static AttributeDefinition _ruleExecution;
+    public static AttributeDefinition _ruleImport;
+    public static AttributeDefinition _ruleName;
+    public static AttributeDefinition _applyToClass;
+    public static AttributeDefinition _applyToClasses;
     public static AttributeDefinition _objectClass;
 
     // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:745)
@@ -352,6 +359,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _Modifier                    = new TypeDefinition("Modifier", org.dmd.dmc.types.DmcTypeModifier.class);
             _StringName                  = new TypeDefinition("StringName", org.dmd.dmc.types.DmcTypeStringName.class);
             _CamelCaseName               = new TypeDefinition("CamelCaseName", org.dmd.dmc.types.DmcTypeCamelCaseName.class);
+            _RuleName                    = new TypeDefinition("RuleName", org.dmd.dmc.types.DmcTypeRuleName.class);
             _IntegerName                 = new TypeDefinition("IntegerName", org.dmd.dmc.types.DmcTypeIntegerName.class);
             _LongName                    = new TypeDefinition("LongName", org.dmd.dmc.types.DmcTypeLongName.class);
             _DotName                     = new TypeDefinition("DotName", org.dmd.dmc.types.DmcTypeDotName.class);
@@ -379,6 +387,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ExtendedReferenceTypeDefinitionREF= new TypeDefinition("ExtendedReferenceTypeDefinitionREF", org.dmd.dms.generated.types.DmcTypeExtendedReferenceTypeDefinitionREF.class, org.dmd.dms.ExtendedReferenceTypeDefinition.class);
             _ObjectValidatorDefinitionREF= new TypeDefinition("ObjectValidatorDefinitionREF", org.dmd.dms.generated.types.DmcTypeObjectValidatorDefinitionREF.class, org.dmd.dms.ObjectValidatorDefinition.class);
             _RuleCategoryREF             = new TypeDefinition("RuleCategoryREF", org.dmd.dms.generated.types.DmcTypeRuleCategoryREF.class, org.dmd.dms.RuleCategory.class);
+            _RuleDataREF                 = new TypeDefinition("RuleDataREF", org.dmd.dms.generated.types.DmcTypeRuleDataREF.class, org.dmd.dms.RuleData.class);
             _RuleDefinitionREF           = new TypeDefinition("RuleDefinitionREF", org.dmd.dms.generated.types.DmcTypeRuleDefinitionREF.class, org.dmd.dms.RuleDefinition.class);
             _RunContextREF               = new TypeDefinition("RunContextREF", org.dmd.dms.generated.types.DmcTypeRunContextREF.class, org.dmd.dms.Dependency.class);
             _SchemaDefinitionREF         = new TypeDefinition("SchemaDefinitionREF", org.dmd.dms.generated.types.DmcTypeSchemaDefinitionREF.class, org.dmd.dms.SchemaDefinition.class);
@@ -544,6 +553,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _instantiation               = new AttributeDefinition("instantiation", _String);
             _runContext                  = new AttributeDefinition("runContext", _RunContextREF);
             _useInterface                = new AttributeDefinition("useInterface", _String);
+            _ruleExecution               = new AttributeDefinition("ruleExecution", _String);
+            _ruleImport                  = new AttributeDefinition("ruleImport", _String);
+            _ruleName                    = new AttributeDefinition("ruleName", _RuleName);
+            _applyToClass                = new AttributeDefinition("applyToClass", _ClassDefinitionREF);
+            _applyToClasses              = new AttributeDefinition("applyToClasses", _ClassDefinitionREF);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Create the rule category definitions
@@ -910,6 +924,15 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _RuleCategoryREF             .setWrapperClassName("org.dmd.dms.RuleCategory");
             _RuleCategoryREF             .setDefinedIn(this);
 
+            _RuleDataREF                 .setDescription("This is an internally generated type to allow references to RuleData objects.");
+            _RuleDataREF                 .setInternallyGenerated("true");
+            _RuleDataREF                 .setIsRefType("true");
+            _RuleDataREF                 .setName("RuleDataREF");
+            _RuleDataREF                 .setOriginalClass(_RuleData);
+            _RuleDataREF                 .setTypeClassName("org.dmd.dms.generated.types.DmcTypeRuleDataREF");
+            _RuleDataREF                 .setWrapperClassName("org.dmd.dms.RuleData");
+            _RuleDataREF                 .setDefinedIn(this);
+
             _RuleDefinitionREF           .setDescription("This is an internally generated type to allow references to RuleDefinition objects.");
             _RuleDefinitionREF           .setInternallyGenerated("true");
             _RuleDefinitionREF           .setIsRefType("true");
@@ -918,6 +941,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _RuleDefinitionREF           .setTypeClassName("org.dmd.dms.generated.types.DmcTypeRuleDefinitionREF");
             _RuleDefinitionREF           .setWrapperClassName("org.dmd.dms.RuleDefinition");
             _RuleDefinitionREF           .setDefinedIn(this);
+
+            _RuleName                    .setDescription("The RuleName is a string based name that must start with an alpha character which is followed by a mix of alphanumerics.");
+            _RuleName                    .setIsNameType("true");
+            _RuleName                    .setName("RuleName");
+            _RuleName                    .setPrimitiveType("org.dmd.dmc.types.RuleName");
+            _RuleName                    .setTypeClassName("org.dmd.dmc.types.DmcTypeRuleName");
+            _RuleName                    .setDefinedIn(this);
 
             _RuleScopeEnumREF            .setDescription("This is an internally generated type to allow references to RuleScopeEnum objects.");
             _RuleScopeEnumREF            .setEnumName("RuleScopeEnum");
@@ -1184,6 +1214,19 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _altTypeImport               .setName("altTypeImport");
             _altTypeImport               .setType(_String);
             _altTypeImport               .setDefinedIn(this);
+
+            _applyToClass                .setDescription("The class to which a rule should be applied.");
+            _applyToClass                .setDmdID("154");
+            _applyToClass                .setName("applyToClass");
+            _applyToClass                .setType(_ClassDefinitionREF);
+            _applyToClass                .setDefinedIn(this);
+
+            _applyToClasses              .setDescription("The classes to which a rule should be applied.");
+            _applyToClasses              .setDmdID("155");
+            _applyToClasses              .setName("applyToClasses");
+            _applyToClasses              .setType(_ClassDefinitionREF);
+            _applyToClasses              .setValueType(ValueTypeEnum.MULTI);
+            _applyToClasses              .setDefinedIn(this);
 
             _attachToClass               .setDescription("Indicates the classes of object to which an action is to be attached. This mechanism allows for the extension of a class's behaviour without having to alter the schema of the class involved. This can be viewed as the auxiliary class equivalent for behaviour.");
             _attachToClass               .setDmdID("65");
@@ -1940,11 +1983,31 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ruleDefinitionList          .setValueType(ValueTypeEnum.MULTI);
             _ruleDefinitionList          .setDefinedIn(this);
 
+            _ruleExecution               .setDescription("Indicates how a particular category of rule is executed.");
+            _ruleExecution               .setDmdID("151");
+            _ruleExecution               .setName("ruleExecution");
+            _ruleExecution               .setType(_String);
+            _ruleExecution               .setDefinedIn(this);
+
+            _ruleImport                  .setDescription("An import required for arguements to a ruleExecution specification.");
+            _ruleImport                  .setDmdID("152");
+            _ruleImport                  .setName("ruleImport");
+            _ruleImport                  .setType(_String);
+            _ruleImport                  .setValueType(ValueTypeEnum.MULTI);
+            _ruleImport                  .setDefinedIn(this);
+
             _ruleInterface               .setDescription("The fully qualified name of the interface to be implemented by rules of a particular category.");
             _ruleInterface               .setDmdID("141");
             _ruleInterface               .setName("ruleInterface");
             _ruleInterface               .setType(_String);
             _ruleInterface               .setDefinedIn(this);
+
+            _ruleName                    .setDescription("The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed.");
+            _ruleName                    .setDesignatedNameAttribute("true");
+            _ruleName                    .setDmdID("153");
+            _ruleName                    .setName("ruleName");
+            _ruleName                    .setType(_RuleName);
+            _ruleName                    .setDefinedIn(this);
 
             _ruleScope                   .setDescription("The scope of a rule.");
             _ruleScope                   .setDmdID("137");
@@ -2355,10 +2418,12 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _RuleCategory                .setDmoImport("org.dmd.dms.generated.dmo.RuleCategoryDMO");
             _RuleCategory                .setIsNamedBy(_name);
             _RuleCategory                .setJavaClass("org.dmd.dms.RuleCategory");
+            _RuleCategory                .addMay(_ruleImport);
             _RuleCategory                .addMust(_name);
             _RuleCategory                .addMust(_opContext);
             _RuleCategory                .addMust(_ruleCategoryID);
             _RuleCategory                .addMust(_ruleInterface);
+            _RuleCategory                .addMust(_ruleExecution);
             _RuleCategory                .addMust(_description);
             _RuleCategory                .setName("RuleCategory");
             _RuleCategory                .setDefinedIn(this);
@@ -2367,9 +2432,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _RuleData                    .setDescription("The RuleData class serves as a common base for all ClassDefinitions that are generated internally to represent the data associated with RuleDefinitions.");
             _RuleData                    .setDmdID("17");
             _RuleData                    .setDmoImport("org.dmd.dms.generated.dmo.RuleDataDMO");
+            _RuleData                    .setIsNamedBy(_ruleName);
             _RuleData                    .setJavaClass("org.dmd.dms.RuleData");
             _RuleData                    .addMay(_description);
             _RuleData                    .addMust(_ruleTitle);
+            _RuleData                    .addMust(_ruleName);
             _RuleData                    .setName("RuleData");
             _RuleData                    .setDefinedIn(this);
 
@@ -2489,9 +2556,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _TypeDefinition              .setName("TypeDefinition");
             _TypeDefinition              .setDefinedIn(this);
 
+            _AttributeValidation         .setDescription("Rules in this category are used to validate individual attributes.");
             _AttributeValidation         .setName("AttributeValidation");
             _AttributeValidation         .setOpContext(OperationalContextEnum.DMO);
             _AttributeValidation         .setRuleCategoryID("3");
+            _AttributeValidation         .setRuleExecution("validate(DmcAttribute<?> attribute) throws DmcRuleExceptionSet");
+            _AttributeValidation         .addRuleImport("org.dmd.dmc.DmcAttribute");
+            _AttributeValidation         .addRuleImport("org.dmd.dmc.rules.DmcRuleExceptionSet");
             _AttributeValidation         .setRuleInterface("org.dmd.dms.shared.interfaces.AttributeValidationIF");
             _AttributeValidation         .setDefinedIn(this);
 
@@ -2499,13 +2570,19 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _Initialization              .setName("Initialization");
             _Initialization              .setOpContext(OperationalContextEnum.DMO);
             _Initialization              .setRuleCategoryID("1");
+            _Initialization              .setRuleExecution("initialize(DmcObject obj)");
+            _Initialization              .addRuleImport("org.dmd.dmc.DmcObject");
             _Initialization              .setRuleInterface("org.dmd.dms.shared.interfaces.InitializationIF");
             _Initialization              .setDefinedIn(this);
 
-            _ModifierValidation          .setDescription("Rules in this category are used to valid modifications that are about to be applied to an object.");
+            _ModifierValidation          .setDescription("Rules in this category are used to validate modifications that are about to be applied to an object.");
             _ModifierValidation          .setName("ModifierValidation");
             _ModifierValidation          .setOpContext(OperationalContextEnum.DMO);
             _ModifierValidation          .setRuleCategoryID("4");
+            _ModifierValidation          .setRuleExecution("validate(DmcObject obj, DmcTypeModifierMV mods) throws DmcRuleExceptionSet");
+            _ModifierValidation          .addRuleImport("org.dmd.dmc.DmcObject");
+            _ModifierValidation          .addRuleImport("org.dmd.dms.generated.types.DmcTypeModifierMV");
+            _ModifierValidation          .addRuleImport("org.dmd.dmc.rules.DmcRuleExceptionSet");
             _ModifierValidation          .setRuleInterface("org.dmd.dms.shared.interfaces.ModifierValidationIF");
             _ModifierValidation          .setDefinedIn(this);
 
@@ -2513,6 +2590,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ObjectValidation            .setName("ObjectValidation");
             _ObjectValidation            .setOpContext(OperationalContextEnum.DMO);
             _ObjectValidation            .setRuleCategoryID("2");
+            _ObjectValidation            .setRuleExecution("validate(DmcObject obj) throws DmcRuleExceptionSet");
+            _ObjectValidation            .addRuleImport("org.dmd.dmc.DmcObject");
+            _ObjectValidation            .addRuleImport("org.dmd.dmc.rules.DmcRuleExceptionSet");
             _ObjectValidation            .setRuleInterface("org.dmd.dms.shared.interfaces.ObjectValidationIF");
             _ObjectValidation            .setDefinedIn(this);
 
@@ -2586,6 +2666,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_Modifier);
             this.addTypeDefList(_StringName);
             this.addTypeDefList(_CamelCaseName);
+            this.addTypeDefList(_RuleName);
             this.addTypeDefList(_IntegerName);
             this.addTypeDefList(_LongName);
             this.addTypeDefList(_DotName);
@@ -2613,6 +2694,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addTypeDefList(_ExtendedReferenceTypeDefinitionREF);
             this.addTypeDefList(_ObjectValidatorDefinitionREF);
             this.addTypeDefList(_RuleCategoryREF);
+            this.addTypeDefList(_RuleDataREF);
             this.addTypeDefList(_RuleDefinitionREF);
             this.addTypeDefList(_RunContextREF);
             this.addTypeDefList(_SchemaDefinitionREF);
@@ -2775,6 +2857,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_instantiation);
             this.addAttributeDefList(_runContext);
             this.addAttributeDefList(_useInterface);
+            this.addAttributeDefList(_ruleExecution);
+            this.addAttributeDefList(_ruleImport);
+            this.addAttributeDefList(_ruleName);
+            this.addAttributeDefList(_applyToClass);
+            this.addAttributeDefList(_applyToClasses);
             this.addAttributeDefList(_objectClass);
             this.addRuleCategoryList(_Initialization);
             this.addRuleCategoryList(_ObjectValidation);

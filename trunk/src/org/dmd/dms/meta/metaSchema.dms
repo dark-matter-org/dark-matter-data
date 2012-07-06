@@ -150,6 +150,14 @@ typeClassName	org.dmd.dmc.types.DmcTypeCamelCaseName
 primitiveType	org.dmd.dmc.types.CamelCaseName
 isNameType		true
 description		The CamelCaseName is a string based name that must start with an alpha character
+ which is followed by a mix of alphanumerics.
+
+TypeDefinition
+name			RuleName
+typeClassName	org.dmd.dmc.types.DmcTypeRuleName
+primitiveType	org.dmd.dmc.types.RuleName
+isNameType		true
+description		The RuleName is a string based name that must start with an alpha character
  which is followed by a mix of alphanumerics. 
 
 TypeDefinition
@@ -531,13 +539,16 @@ description		The InitRule allows you to specify attribute values for a
 //
 
 AllowedAttributesRuleData
+ruleName    metaAllowedAttributes
 ruleTitle 	Validate allowed attributes on objects.
 description	Ensures that must/may attribute rules are followed.
 
-InitRuleData
-ruleTitle 	Initialize AttributeDefinitions
-valueType	SINGLE
-description	Basic initialization for attributes.
+//InitRuleData
+//ruleName		metaInitAttributeDef
+//ruleTitle 		Initialize AttributeDefinitions
+//applyToClass	AttributeDefinition
+//valueType		SINGLE
+//description		Basic initialization for attributes.
 
 ********************************************************************************
 //
@@ -1936,7 +1947,31 @@ AttributeDefinition
 name                		ruleImport
 dmdID						152
 type                		String
+valueType					MULTI
 description    				An import required for arguements to a ruleExecution specification.
+
+AttributeDefinition
+name                		ruleName
+dmdID						153
+type                		RuleName
+designatedNameAttribute 	true
+description    The ruleName attribute is used to store a single camelCase format name for a rule.
+ The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
+ other characters are allowed.
+
+AttributeDefinition
+name                		applyToClass
+dmdID						154
+type                		ClassDefinition
+description					The class to which a rule should be applied.
+
+AttributeDefinition
+name                		applyToClasses
+dmdID						155
+type                		ClassDefinition
+valueType					MULTI
+description    				The classes to which a rule should be applied.
+
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -2387,7 +2422,9 @@ classType      	ABSTRACT
 dmdID			17
 javaClass    	org.dmd.dms.RuleData
 dmoImport		org.dmd.dms.generated.dmo.RuleDataDMO
+isNamedBy		ruleName
 must			ruleTitle
+must			ruleName
 may				description
 description		The RuleData class serves as a common base for all ClassDefinitions
  that are generated internally to represent the data associated with RuleDefinitions.

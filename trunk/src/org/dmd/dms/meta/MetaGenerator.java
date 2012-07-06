@@ -200,7 +200,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 //            DmoAttributeSchemaFormatter asf = new DmoAttributeSchemaFormatter(System.out);
 //            asf.dumpSchema("meta", "org.dmd.dms", attributeDefs, typeDefs, curr.getCanonicalPath() + DMODIR);
             DmoCompactSchemaFormatter csf = new DmoCompactSchemaFormatter(System.out);
-            csf.dumpSchema("meta", "org.dmd.dms", classDefs, attributeDefs, typeDefs, curr.getCanonicalPath() + DMODIR, META_BASE_ID, META_ID_RANGE);
+            csf.dumpSchema("meta", "org.dmd.dms", classDefs, attributeDefs, typeDefs, ruleInstances, curr.getCanonicalPath() + DMODIR, META_BASE_ID, META_ID_RANGE);
             
             DmoValidatorCollectionFormatter vcf = new DmoValidatorCollectionFormatter(System.out);
             vcf.dumpSchema("meta", "org.dmd.dms", avDefs, ovDefs, curr.getCanonicalPath() + DMODIR);
@@ -1359,9 +1359,13 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     		imports.addImport("org.dmd.dmc.types.*", "Basic type access");
 //                    	out.write("import org.dmd.dmc.types.*;\n");
                     }
+                    if (cn.endsWith("RuleData")){
+//                    	if (needBasicTypes)
+                    		imports.addImport("org.dmd.dmc.types.*", "Basic type access");
+                    }
                     
                     imports.addImport("org.dmd.dmc.*", "Dark matter core");
-                    imports.addImport("org.dmd.dms.generated.dmo.MetaVCAG", "Old validation framework - obsolete");
+//                    imports.addImport("org.dmd.dms.generated.dmo.MetaVCAG", "Old validation framework - obsolete");
                     
 //                    out.write("import org.dmd.dmc.*;\n");
 //                    out.write("import org.dmd.dms.generated.dmo.MetaVCAG;\n");
@@ -1442,45 +1446,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     // Dump the DmcAttributeInfo that provides hints for serialization/deserialization
                     out.write("    static Map<Integer,DmcAttributeInfo> _ImAp;\n\n");
                     out.write("    static Map<String ,DmcAttributeInfo> _SmAp;\n\n");
-                    
-                    out.write("    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;\n\n");
-                    out.write("    static Map<String ,DmcObjectValidator> _OvDmAp;\n\n");
-                                        
-//                    if (must != null){
-//                    	for(String n: must){
-//                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
-//                        	String t = attrDef.getSV("type");
-//                        	String ID = attrDef.getSV("dmdID");
-//                        	
-//                        	// MULTIVALUED 3
-//                        	String mv = attrDef.getSV("valueType");
-//                    		
-//                        	writeAttributeInfo(out, n, ID, t, mv, "true");
-//                    	}
-//                    	
-//                        out.write("\n");
-//                    }
-//                    
-//                    if (may != null){
-//                    	for(String n: may){
-//                        	DmcUncheckedObject attrDef = attributeDefs.get(n);
-//                        	
-//                        	if (attrDef == null){
-//                        		System.out.println("Couldn't find attribute definition: " + n);
-//                        		System.exit(1);
-//                        	}
-//                        	
-//                        	String t = attrDef.getSV("type");
-//                        	String ID = attrDef.getSV("dmdID");
-//                        	
-//                        	// MULTIVALUED 4
-//                        	String mv = attrDef.getSV("valueType");
-//                    		
-//                        	writeAttributeInfo(out, n, ID, t, mv, "false");
-//
-//                    	}
-//                    }
-                    
+   
+//                    out.write("    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;\n\n");
+//                    out.write("    static Map<String ,DmcObjectValidator> _OvDmAp;\n\n");
+                                                            
                     out.write("\n");
                     out.write("    static {\n");
                     out.write("        _ImAp = new HashMap<Integer,DmcAttributeInfo>();\n");
@@ -1499,15 +1468,15 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     
                     // Validators
 
-                    out.write("\n");
-                    out.write("        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();\n\n");
+//                    out.write("\n");
+//                    out.write("        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();\n\n");
+//                    
+//                    out.write("        _OvDmAp = new HashMap<String ,DmcObjectValidator>();\n");
+//                    
+//                    out.write("        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);\n");
                     
-                    out.write("        _OvDmAp = new HashMap<String ,DmcObjectValidator>();\n");
                     
-                    out.write("        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);\n");
-                    
-                    
-                                       out.write("    }\n");
+                    out.write("    }\n");
 
                     out.write("\n\n");
                     
@@ -1529,13 +1498,13 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 	out.write("        return(_SmAp);\n");
                 	out.write("    }\n\n");
 
-                	out.write("    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){\n");
-                	out.write("        return(_AvDmAp);\n");
-                	out.write("    }\n\n");
-
-                	out.write("    protected Map<String,DmcObjectValidator> getObjectValidators(){\n");
-                	out.write("        return(_OvDmAp);\n");
-                	out.write("    }\n\n");
+//                	out.write("    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){\n");
+//                	out.write("        return(_AvDmAp);\n");
+//                	out.write("    }\n\n");
+//
+//                	out.write("    protected Map<String,DmcObjectValidator> getObjectValidators(){\n");
+//                	out.write("        return(_OvDmAp);\n");
+//                	out.write("    }\n\n");
 
                     out.write("    @Override\n");
                 	out.write("    public " + cn + "DMO getNew(){\n");

@@ -2,13 +2,15 @@ package org.dmd.dmc;
 
 import java.util.Iterator;
 
+import org.dmd.dmc.rules.RuleIF;
+
 /**
  * The DmcCompactSchemaIF defines an entity that stores a variety of information
  * derived from Dark Matter Schema definitions in a way that is compatible with
  * restricted Java environments such as GWT.
  * <p />
  * This interface is implemented by the [schemaname]DMSAG classes that are generated
- * as part of the DMO generation process. DMASG info is loaded into the DmcOmni
+ * as part of the DMO generation process. DMSAG info is loaded into the DmcOmni
  * singleton and used by a variety of Dark Matter components that require access
  * to schema related information.
  */
@@ -43,4 +45,10 @@ public interface DmcCompactSchemaIF {
 	 * @return an Iterator over the attribute slices associated with the schema.
 	 */
 	public Iterator<DmcSliceInfo>		getSliceInfo();
+	
+	/**
+	 * @return an Iterator over the rules that are applicable in a DMO context.
+	 */
+	public Iterator<RuleIF>				getRules();
+	
 }

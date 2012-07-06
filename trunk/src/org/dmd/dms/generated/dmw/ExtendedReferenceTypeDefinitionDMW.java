@@ -67,7 +67,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -76,7 +76,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1845)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -85,7 +85,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
      * Indicates the class of object to which an  ExtendedReferenceTypeDefinition
      * refers.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1793)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
     public ClassDefinition getExtendedReferenceClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaDMSAG.__extendedReferenceClass);
         if (attr == null)
@@ -98,7 +98,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
      * Sets extendedReferenceClass to the specified value.
      * @param value A value compatible with ClassDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1835)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1804)
     public void setExtendedReferenceClass(ClassDefinition value) throws DmcValueException {
         mycore.setExtendedReferenceClass(value.getDmcObject());
     }

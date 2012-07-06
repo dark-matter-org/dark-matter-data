@@ -24,6 +24,7 @@ abstract public class InitRuleBaseImpl implements RuleIF, InitializationIF {
     protected InitRuleBaseImpl(InitRuleDataDMO dmo){
         ruleDMO = dmo;
         if (categories == null){
+            categories = new ArrayList<Integer>();
             categories.add(1);
         }
     }

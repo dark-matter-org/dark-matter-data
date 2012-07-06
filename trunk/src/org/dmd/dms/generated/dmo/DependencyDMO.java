@@ -16,13 +16,12 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1383)
-import java.io.Serializable;                       // Serializable marker interface - (MetaGenerator.java:1347)
-import java.util.*;                                // Attribute info support - (MetaGenerator.java:1348)
-import org.dmd.dmc.*;                              // Dark matter core - (MetaGenerator.java:1363)
-import org.dmd.dmc.types.*;                        // Basic type access - (MetaGenerator.java:1359)
-import org.dmd.dms.generated.dmo.MetaVCAG;         // Old validation framework - obsolete - (MetaGenerator.java:1364)
-import org.dmd.dms.generated.types.*;              // Generated type access - (MetaGenerator.java:1374)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1387)
+import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1347)
+import java.util.*;                           // Attribute info support - (MetaGenerator.java:1348)
+import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1367)
+import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1359)
+import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1378)
 
 
 /**
@@ -41,7 +40,7 @@ import org.dmd.dms.generated.types.*;              // Generated type access - (M
  * fulfill the dependency. Other DependencyImplementations may be specified
  * that override the specified instantiation in particular contexts.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1392)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1396)
  */
 @SuppressWarnings("serial")
 public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
@@ -51,10 +50,6 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
     static Map<Integer,DmcAttributeInfo> _ImAp;
 
     static Map<String ,DmcAttributeInfo> _SmAp;
-
-    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
-
-    static Map<String ,DmcObjectValidator> _OvDmAp;
 
 
     static {
@@ -75,11 +70,6 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__instantiation.name,MetaDMSAG.__instantiation);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
-
-        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
-
-        _OvDmAp = new HashMap<String ,DmcObjectValidator>();
-        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
 
@@ -97,14 +87,6 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
 
     public Map<String,DmcAttributeInfo> getStringToAttrInfo(){
         return(_SmAp);
-    }
-
-    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
-        return(_AvDmAp);
-    }
-
-    protected Map<String,DmcObjectValidator> getObjectValidators(){
-        return(_OvDmAp);
     }
 
     @Override
@@ -126,7 +108,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1736)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -139,7 +121,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1787)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -153,7 +135,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
      * The fully qualified name of a Java interface or base class that specifies
      * a dependency.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1736)
     public String getUseInterface(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__useInterface);
         if (attr == null)
@@ -166,7 +148,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
      * Sets useInterface to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1787)
     public void setUseInterface(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__useInterface);
         if (attr == null)
@@ -179,7 +161,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1736)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -192,7 +174,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1787)
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -206,7 +188,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
      * A set of references to Dependencies.
      * @return An Iterator of DependencyDMO objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1904)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1873)
     public Iterator<DependencyREF> getDependencies(){
         DmcTypeDependencyREFMV attr = (DmcTypeDependencyREFMV) get(MetaDMSAG.__dependencies);
         if (attr == null)
@@ -219,7 +201,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
      * Adds another dependencies value.
      * @param value A value compatible with DmcTypeDependencyREFMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1955)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1924)
     public DmcAttribute<?> addDependencies(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__dependencies);
         if (attr == null)
@@ -233,7 +215,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1736)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -246,7 +228,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1787)
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
@@ -259,7 +241,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
     /**
      * The instantiation attribute specifies how something is to be instantiated.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1736)
     public String getInstantiation(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__instantiation);
         if (attr == null)
@@ -272,7 +254,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
      * Sets instantiation to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1787)
     public void setInstantiation(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__instantiation);
         if (attr == null)
@@ -285,7 +267,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1767)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1736)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -298,7 +280,7 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1818)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1787)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)

@@ -178,7 +178,7 @@ public class MetaGeneratorChanged implements DmcUncheckedOIFHandlerIF {
 //            DmoAttributeSchemaFormatter asf = new DmoAttributeSchemaFormatter(System.out);
 //            asf.dumpSchema("meta", "org.dmd.dms", attributeDefs, typeDefs, curr.getCanonicalPath() + DMODIR);
             DmoCompactSchemaFormatter csf = new DmoCompactSchemaFormatter(System.out);
-            csf.dumpSchema("meta", "org.dmd.dms", classDefs, attributeDefs, typeDefs, curr.getCanonicalPath() + DMODIR, META_BASE_ID, META_ID_RANGE);
+            csf.dumpSchema("meta", "org.dmd.dms", classDefs, attributeDefs, typeDefs, null, curr.getCanonicalPath() + DMODIR, META_BASE_ID, META_ID_RANGE);
             
             DmoValidatorCollectionFormatter vcf = new DmoValidatorCollectionFormatter(System.out);
             vcf.dumpSchema("meta", "org.dmd.dms", avDefs, ovDefs, curr.getCanonicalPath() + DMODIR);

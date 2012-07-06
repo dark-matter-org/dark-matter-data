@@ -15,13 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.ldap.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:372)
-import org.dmd.dmc.DmcAttribute;                                   // Any attributes - (GenUtility.java:217)
-import org.dmd.dmc.DmcAttributeInfo;                               // Auxiliary class - (GenUtility.java:324)
-import org.dmd.dmc.DmcObject;                                      // Auxiliary class - (GenUtility.java:323)
-import org.dmd.dmc.DmcValueException;                              // Any attributes - (GenUtility.java:218)
-import org.dmd.dmr.shared.ldap.generated.dmo.DmrLdapDMSAG;         // Attribute from dmr.ldap schema - (GenUtility.java:123)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type - (GenUtility.java:305)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
+import org.dmd.dmc.DmcAttribute;                                   // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcAttributeInfo;                               // Auxiliary class - (GenUtility.java:343)
+import org.dmd.dmc.DmcObject;                                      // Auxiliary class - (GenUtility.java:342)
+import org.dmd.dmc.DmcValueException;                              // Any attributes - (GenUtility.java:237)
+import org.dmd.dmr.shared.ldap.generated.dmo.DmrLdapDMSAG;         // Attribute from dmr.ldap schema - (GenUtility.java:131)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type - (GenUtility.java:324)
 
 /**
  * The LDAPSchemaExtension class is used to extend the basic SchemaDefinition

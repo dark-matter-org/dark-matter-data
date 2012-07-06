@@ -15,20 +15,15 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmp.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:372)
-import java.io.Serializable;                                  // Always required - (GenUtility.java:201)
-import java.util.*;                                           // Always required if we have any MV attributes - (GenUtility.java:197)
-import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:217)
-import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:206)
-import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:218)
-import org.dmd.dmp.shared.generated.dmo.ResponseDMO;          // Base class - (GenUtility.java:332)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:205)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:204)
-import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:305)
-
-import org.dmd.dms.generated.dmo.MetaVCAG;
-import org.dmd.dmc.DmcAttributeValidator;
-import org.dmd.dmc.DmcObjectValidator;
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
+import java.io.Serializable;                                  // Always required - (GenUtility.java:220)
+import org.dmd.dmc.DmcAttribute;                              // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcSliceInfo;                              // Required for object slicing - (GenUtility.java:225)
+import org.dmd.dmc.DmcValueException;                         // Any attributes - (GenUtility.java:237)
+import org.dmd.dmp.shared.generated.dmo.ResponseDMO;          // Base class - (GenUtility.java:351)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                   // Required for MODREC constructor - (GenUtility.java:224)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MODREC constructor - (GenUtility.java:223)
+import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:324)
 
 /**
  * The LogoutResponse will indicate that you have successfully terminated
@@ -44,17 +39,8 @@ public class LogoutResponseDMO  extends ResponseDMO  implements Serializable  {
 
     public final static String constructionClassName = "LogoutResponse";
 
-    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
-
-    static Map<String ,DmcObjectValidator> _OvDmAp;
-
 
     static {
-
-        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
-
-        _OvDmAp = new HashMap<String,DmcObjectValidator>();
-        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
     public LogoutResponseDMO() {
@@ -63,14 +49,6 @@ public class LogoutResponseDMO  extends ResponseDMO  implements Serializable  {
 
     protected LogoutResponseDMO(String oc) {
         super(oc);
-    }
-
-    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
-        return(_AvDmAp);
-    }
-
-    protected Map<String,DmcObjectValidator> getObjectValidators(){
-        return(_OvDmAp);
     }
 
     @Override
@@ -99,7 +77,7 @@ public class LogoutResponseDMO  extends ResponseDMO  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:755)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public String getSessionID(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__sessionID);
         if (attr == null)
@@ -112,7 +90,7 @@ public class LogoutResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets sessionID to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setSessionID(String value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__sessionID);
         if (attr == null)
@@ -131,7 +109,7 @@ public class LogoutResponseDMO  extends ResponseDMO  implements Serializable  {
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:848)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setSessionID(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpDMSAG.__sessionID);
         if (attr == null)
@@ -144,7 +122,7 @@ public class LogoutResponseDMO  extends ResponseDMO  implements Serializable  {
     /**
      * Removes the sessionID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:868)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remSessionID(){
          rem(DmpDMSAG.__sessionID);
     }

@@ -325,19 +325,20 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 				else
 					newObj.setFile(infile);
 				newObj.setLineNumber(lineNumber);
-				
-				try {
-					newObj.getDMO().validate();
-				} catch (DmcValueExceptionSet e) {
-					ResultException ex = new ResultException();
-					for(DmcValueException dve: e.getExceptions()){
-						ex.addError(dve.getLocalizedMessage());
-					}
-					ex.setLocationInfo(infile, lineNumber);
-					ex.result.lastResult().moreMessages("Object class: " + newObj.getConstructionClassName());
-					
-					throw(ex);
-				}
+		
+				DebugInfo.debug("DmsSchemaParser.handleObject() - need rules!");
+//				try {
+//					newObj.getDMO().validate();
+//				} catch (DmcValueExceptionSet e) {
+//					ResultException ex = new ResultException();
+//					for(DmcValueException dve: e.getExceptions()){
+//						ex.addError(dve.getLocalizedMessage());
+//					}
+//					ex.setLocationInfo(infile, lineNumber);
+//					ex.result.lastResult().moreMessages("Object class: " + newObj.getConstructionClassName());
+//					
+//					throw(ex);
+//				}
 				
 //				DebugInfo.debug(newObj.toOIF(15));
 				
@@ -348,7 +349,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 				// in a second pass.
 //				newObj.resolveReferences(allSchema);
 				
-				// TODO: Apply business rules to the object
+				// TODO: Apply rules to the object
 				
 			} catch (ResultException e) {
 				e.result.lastResult().fileName(infile);
