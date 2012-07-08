@@ -26,9 +26,12 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.MetaSchema;
+import org.dmd.dms.RuleData;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dmw.DmwObjectFactory;
+import org.dmd.dmw.DmwWrapper;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
@@ -162,6 +165,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         // schema definitions might use auxiliary classes defined in other schemas
         dmwfactory		= new DmwObjectFactory(allSchema);
     	
+        dmofactory		= new DmoObjectFactory(allSchema);
     }
 
     /**
@@ -272,7 +276,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
     public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
         ClassDefinition     cd                  = null;
         boolean             isSchema            = false;
-        DmsDefinition    	newObj              = null;
+        DmsDefinition    	newDef              = null;
+        RuleData    		newRuleData         = null;
         Iterator<String>    dependsOnSchemas    = null;
         Iterator<String>    defFiles            = null;
         SchemaDefinition    currSchema          = null;
@@ -281,7 +286,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         String              currFile            = null;
 
         // Determine if we have a valid class
-        if ((cd = dmsSchema.isClass((String)uco.classes.get(0))) == null){
+//        if ((cd = dmsSchema.isClass((String)uco.classes.get(0))) == null){
+        if ((cd = allSchema.isClass((String)uco.classes.get(0))) == null){
         	ResultException ex = new ResultException();
 
             ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(0));
@@ -314,17 +320,45 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         		if (checkClass != null){
         			if (checkClass.getRuleDefinition() != null){
         				DebugInfo.debug("DmsSchemaParser.handleObject() We have a rule: \n\n" + uco.toOIF(15));
+        				RuleDataDMO ruleDataDMO = (RuleDataDMO) dmofactory.createObject(uco);
+        				
+        				DebugInfo.debugWithTrace(ruleDataDMO.toOIF());
+        				
         				return;
         			}
         		}
         		
-				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
+        		DmwWrapper newObj = dmwfactory.createWrapper(uco);
+        		newDef 		= null;
+        		newRuleData = null;
+        		
+        		// If we're underneath a standard eclipse project, we ignore everything before
+        		// the /src folder name.
 				int srcloc = infile.indexOf("/src");
+				String srcFile = "";
 				if (srcloc != -1)
-					newObj.setFile(infile.substring(srcloc));
+					srcFile = infile.substring(srcloc);
 				else
-					newObj.setFile(infile);
-				newObj.setLineNumber(lineNumber);
+					srcFile = infile;
+				
+        		if (newObj instanceof DmsDefinition){
+        			newDef = (DmsDefinition) newObj;
+        			newDef.setFile(srcFile);
+        			newDef.setLineNumber(lineNumber);
+        		}
+        		else{
+        			newRuleData = (RuleData) newObj;
+        			newRuleData.setFile(srcFile);
+        			newRuleData.setLineNumber(lineNumber);
+        		}
+        	
+//				newDef = (DmsDefinition)dmwfactory.createWrapper(uco);
+//				int srcloc = infile.indexOf("/src");
+//				if (srcloc != -1)
+//					newDef.setFile(infile.substring(srcloc));
+//				else
+//					newDef.setFile(infile);
+//				newDef.setLineNumber(lineNumber);
 		
 				DebugInfo.debug("DmsSchemaParser.handleObject() - need rules!");
 //				try {
@@ -383,7 +417,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                 // object - if not, we complain and return false
                 if (isSchema == true){
                     // This is a new schema, so indicate that we're loading one
-                    schemaLoading = (SchemaDefinition)newObj;
+                    schemaLoading = (SchemaDefinition)newDef;
                     
                     schemaStack.push(schemaLoading);
                     
@@ -399,6 +433,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                         while(dependsOnSchemas.hasNext()){
                             depSchema = dependsOnSchemas.next();
 //DebugInfo.debug("Reading dependsOn: " + depSchema);
+//if (depSchema.equals("dmv"))
+//	DebugInfo.debugWithTrace("Parsing DMV");
 
                         	ConfigVersion	config		= finder.getConfig(depSchema);
                         	ConfigLocation	location	= null;
@@ -494,10 +530,17 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                 	// because it is used for a variety of purposes, including the generation of the
                 	// internal types for enums and object references. The definedIn schema will have
                 	// its internalTypeDefList attribute augmented with these types.
-            		newObj.setDefinedIn(schemaLoading);
-                	allSchema.addDefinition(newObj);
-            		schemaLoading.addDefinition(newObj);
-                		
+            		
+            		if (newDef == null){
+            			newRuleData.setDefinedIn(schemaLoading);
+            			allSchema.addRuleData(newRuleData);
+            			schemaLoading.addRuleDataList(newRuleData);
+            		}
+            		else{
+                		newDef.setDefinedIn(schemaLoading);
+                    	allSchema.addDefinition(newDef);
+                		schemaLoading.addDefinition(newDef);
+            		}                		
                 }
             }
         }

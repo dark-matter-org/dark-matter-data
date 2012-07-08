@@ -116,6 +116,61 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
         mycore.setDescription(value);
     }
 
+    /**
+     * Indicates the schema in which a type, attribute or class is defined.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1771)
+    public SchemaDefinition getDefinedIn(){
+        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
+        if (attr == null)
+            return(null);
+        SchemaDefinitionDMO obj = attr.getSV().getObject();
+        return((SchemaDefinition)obj.getContainer());
+    }
+
+    /**
+     * Sets definedIn to the specified value.
+     * @param value A value compatible with SchemaDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1813)
+    public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
+        mycore.setDefinedIn(value.getDmcObject());
+    }
+
+    /**
+     * Indicates the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1771)
+    public String getFile(){
+        return(mycore.getFile());
+    }
+
+    /**
+     * Sets file to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1823)
+    public void setFile(Object value) throws DmcValueException {
+        mycore.setFile(value);
+    }
+
+    /**
+     * Indicates the line number of the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1771)
+    public Integer getLineNumber(){
+        return(mycore.getLineNumber());
+    }
+
+    /**
+     * Sets lineNumber to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1823)
+    public void setLineNumber(Object value) throws DmcValueException {
+        mycore.setLineNumber(value);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

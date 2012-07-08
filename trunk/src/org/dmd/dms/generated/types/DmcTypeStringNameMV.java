@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeStringName;    // DmcType import
  * The DmcTypeStringNameMV provides storage for a multi-valued StringName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2270)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2280)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:296)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
     public DmcAttribute<StringName> cloneIt(){
         synchronized(this){
             DmcTypeStringNameMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2339)
     public StringName add(Object v) throws DmcValueException {
         synchronized(this){
             StringName rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2352)
     public StringName del(Object v){
         synchronized(this){
             StringName key = null;
@@ -107,7 +107,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2383)
     public Iterator<StringName> getMV(){
         synchronized(this){
             ArrayList<StringName> clone = new ArrayList<StringName>(value);
@@ -115,7 +115,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
     public ArrayList<StringName> getMVCopy(){
         synchronized(this){
             ArrayList<StringName> clone = new ArrayList<StringName>(value);
@@ -124,7 +124,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2402)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -138,7 +138,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2417)
     public StringName getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2428)
     public StringName setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -175,7 +175,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,7 +198,7 @@ public class DmcTypeStringNameMV extends DmcTypeStringName implements Serializab
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2480)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

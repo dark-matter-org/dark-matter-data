@@ -74,11 +74,13 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__integerName);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof IntegerNamedObjectDMO){
             return( getObjectName().equals( ((IntegerNamedObjectDMO) obj).getObjectName()) );
@@ -86,6 +88,7 @@ public class IntegerNamedObjectDMO  extends DmcObject  implements DmcNamedObject
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         IntegerName objn = getObjectName();
         if (objn == null)

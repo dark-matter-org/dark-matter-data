@@ -95,11 +95,13 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__FQN);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof LDAPHierarchicObjectDMO){
             return( getObjectName().equals( ((LDAPHierarchicObjectDMO) obj).getObjectName()) );
@@ -107,6 +109,7 @@ public class LDAPHierarchicObjectDMO  extends HierarchicObjectDMO  implements Dm
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         FullyQualifiedName objn = getObjectName();
         if (objn == null)

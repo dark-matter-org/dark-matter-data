@@ -95,11 +95,13 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__FQN);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof DotNamedObjectDMO){
             return( getObjectName().equals( ((DotNamedObjectDMO) obj).getObjectName()) );
@@ -107,6 +109,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         FullyQualifiedName objn = getObjectName();
         if (objn == null)

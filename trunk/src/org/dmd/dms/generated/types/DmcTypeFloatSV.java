@@ -24,7 +24,7 @@ import org.dmd.dmc.types.DmcTypeFloat;    // DmcType import
  * The DmcTypeFloatSV provides storage for a single-valued Float
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1926)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1936)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:295)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeFloatSV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1968)
     public DmcAttribute<Float> cloneIt(){
         DmcTypeFloatSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1979)
     public Float getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeFloatSV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1981)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1991)
     public Float set(Object v) throws DmcValueException {
         Float rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

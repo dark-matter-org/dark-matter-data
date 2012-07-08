@@ -1973,6 +1973,12 @@ type                		ClassDefinition
 valueType					MULTI
 description    				The classes to which a rule should be applied.
 
+AttributeDefinition
+name                		ruleDataList
+dmdID						156
+type                		RuleData
+valueType					MULTI
+description    				The RuleData defined in a schema.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -2354,6 +2360,7 @@ may				attributeValidatorDefList
 may           	dependsOnRef
 may				ruleCategoryList
 may				ruleDefinitionList
+may				ruleDataList
 // obsolete
 //must            genDirPrefix
 //must            genPackagePrefix
@@ -2425,6 +2432,9 @@ isNamedBy		ruleName
 must			ruleTitle
 must			ruleName
 may				description
+may           	definedIn
+may          	file
+may        		lineNumber
 description		The RuleData class serves as a common base for all ClassDefinitions
  that are generated internally to represent the data associated with RuleDefinitions.
  

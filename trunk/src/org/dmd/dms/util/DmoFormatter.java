@@ -758,12 +758,14 @@ public class DmoFormatter {
 				sb.append("    }\n\n");
 			}
 			
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public DmcAttribute<?> getObjectNameAttribute(){\n");
 //			sb.append("        DmcAttribute<?> name = get(__" + cd.getIsNamedBy().getName() + ");\n");
 			sb.append("        DmcAttribute<?> name = get(" + cd.getIsNamedBy().getDMSAGReference() + ");\n");
 			sb.append("        return(name);\n");
 			sb.append("    }\n\n");
 			
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public boolean equals(Object obj){\n");
 			sb.append("        if (obj instanceof " + cd.getName()+ "DMO){\n");
 			sb.append("            return( getObjectName().equals( ((" + cd.getName() + "DMO) obj).getObjectName()) );\n");
@@ -771,6 +773,7 @@ public class DmoFormatter {
 			sb.append("        return(false);\n");
 			sb.append("    }\n\n");
 			
+			sb.append("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			sb.append("    public int hashCode(){\n");
 			sb.append("        " + tn + " objn = getObjectName();\n");
 			sb.append("        if (objn == null)\n");

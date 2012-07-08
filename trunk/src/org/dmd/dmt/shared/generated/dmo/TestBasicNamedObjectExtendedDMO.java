@@ -81,11 +81,13 @@ public class TestBasicNamedObjectExtendedDMO  extends DmcObject  implements DmcN
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof TestBasicNamedObjectExtendedDMO){
             return( getObjectName().equals( ((TestBasicNamedObjectExtendedDMO) obj).getObjectName()) );
@@ -93,6 +95,7 @@ public class TestBasicNamedObjectExtendedDMO  extends DmcObject  implements DmcN
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         StringName objn = getObjectName();
         if (objn == null)

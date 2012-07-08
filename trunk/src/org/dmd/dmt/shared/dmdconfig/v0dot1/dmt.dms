@@ -6,6 +6,7 @@ schemaPackage 		org.dmd.dmt.shared
 dmwPackage    		org.dmd.dmt.server
 dmwTypeToPackage	gxt org.dmd.dmt.client
 dependsOn			dmp
+dependsOn			dmv
 defFiles			types.dmd
 defFiles    		attributes.dmd
 defFiles			classes.dmd
