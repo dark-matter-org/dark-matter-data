@@ -19,7 +19,7 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (18)</h2>
+    <h2> Classes (21)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -32,7 +32,7 @@
       </tr>
       <tr>
       <td class="spacer"> </td>
-      <td> <a class="deflink" href="#AllowedAttributesRuleInstance"> AllowedAttributesRuleInstance </a></td>
+      <td> <a class="deflink" href="#AllowedAttributesRuleData"> AllowedAttributesRuleData </a></td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -56,6 +56,16 @@
       </tr>
       <tr>
       <td class="spacer"> </td>
+      <td> <a class="deflink" href="#Dependency"> Dependency </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#DependencyImplementation"> DependencyImplementation </a></td>
+      <td> name </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
       <td> <a class="deflink" href="#DmsDefinition"> DmsDefinition </a></td>
       <td> name </td>
       </tr>
@@ -71,7 +81,7 @@
       </tr>
       <tr>
       <td class="spacer"> </td>
-      <td> <a class="deflink" href="#InitRuleInstance"> InitRuleInstance </a></td>
+      <td> <a class="deflink" href="#InitRuleData"> InitRuleData </a></td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -85,12 +95,18 @@
       </tr>
       <tr>
       <td class="spacer"> </td>
+      <td> <a class="deflink" href="#RuleData"> RuleData </a></td>
+      <td> ruleName </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
       <td> <a class="deflink" href="#RuleDefinition"> RuleDefinition </a></td>
       <td> name </td>
       </tr>
       <tr>
       <td class="spacer"> </td>
-      <td> <a class="deflink" href="#RuleInstance"> RuleInstance </a></td>
+      <td> <a class="deflink" href="#RunContext"> RunContext </a></td>
+      <td> name </td>
       </tr>
       <tr>
       <td class="spacer"> </td>
@@ -109,7 +125,7 @@
       </tr>
     </table>
     </div>    <div class="typeList">
-    <h2>Types (58)</h2>
+    <h2>Types (63)</h2>
     <ul>
       <li> <a class="deflink" href="#AttributeID"> AttributeID </a></li>
       <li> <a class="deflink" href="#Boolean"> Boolean </a></li>
@@ -135,6 +151,7 @@
       <li> <a class="deflink" href="#LongName"> LongName </a></li>
       <li> <a class="deflink" href="#Modifier"> Modifier </a></li>
       <li> <a class="deflink" href="#NameContainer"> NameContainer </a></li>
+      <li> <a class="deflink" href="#RuleName"> RuleName </a></li>
       <li> <a class="deflink" href="#String"> String </a></li>
       <li> <a class="deflink" href="#StringName"> StringName </a></li>
       <li> <a class="deflink" href="#StringToString"> StringToString </a></li>
@@ -318,7 +335,7 @@
 
   <table>
 
-    <tr> <td class="className" colspan="4"> <a name="AllowedAttributesRuleInstance"> AllowedAttributesRuleInstance </a> </td></tr>
+    <tr> <td class="className" colspan="4"> <a name="AllowedAttributesRuleData"> AllowedAttributesRuleData </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
       <td class="label">Type</td>
@@ -329,7 +346,7 @@
       <td class="spacer"> </td>
       <td>Derived from</td>
       <td colspan="2">
-      <a href="meta.html#RuleInstance">RuleInstance</a>
+      <a href="meta.html#RuleData">RuleData</a>
       </td>
     </tr>
 
@@ -340,6 +357,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
+      <td> <a href="meta.html#ruleName">ruleName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
+      <td> The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The title of a rule. </td>
@@ -880,6 +905,148 @@
 
   <table>
 
+    <tr> <td class="className" colspan="4"> <a name="Dependency"> Dependency </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The Dependency class allows for the definition of a named dependency on something; usually an interface. In the current schema mechanisms, the only place that this mechanism is used is in the specification of RuleDefinitions. Rule instances are created by injecting RuleData into a rule implementation. If the rule implementation has dependencies on other objects, those dependencies are specified via references to Dependencies. <p/> A Dependency can be referred to via a RunContext definition which directs the generation of code that can instantiate the required object instances. Satisfying a Dependency relies on there being a DependencyImplementation that indicates how to instantiate the object that implements the interface defined by the dependency. <p/> If a Dependency specifies an instantiation, this is considered the default mechanism to fulfill the dependency. Other DependencyImplementations may be specified that override the specified instantiation in particular contexts.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#DmsDefinition">DmsDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#useInterface">useInterface</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The fully qualified name of a Java interface or base class that specifies a dependency. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#dependencies">dependencies</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Dependency">Dependency</a> </td>
+      <td> A set of references to Dependencies. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#instantiation">instantiation</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The instantiation attribute specifies how something is to be instantiated. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="DependencyImplementation"> DependencyImplementation </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The DependencyImplementation allows you to fulfill a defined Dependency. When a RunContext is specified, it will indicate a set of dependencies. For each of the specified dependencies, there must be at least one related DependencyImplementation, otherwise, we have no way to fulfill the dependency.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#DmsDefinition">DmsDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#dependency">dependency</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Dependency">Dependency</a> </td>
+      <td> A reference to a single Dependency. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#instantiation">instantiation</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The instantiation attribute specifies how something is to be instantiated. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#runContext">runContext</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RunContext">RunContext</a> </td>
+      <td> A reference to a RunContext. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
     <tr> <td class="className" colspan="4"> <a name="DmsDefinition"> DmsDefinition </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -897,7 +1064,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="meta.html#ActionDefinition">ActionDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeValidatorDefinition">AttributeValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div>      <div class="derived"> <a href="meta.html#ComplexTypeDefinition">ComplexTypeDefinition</a> </div>      <div class="derived"> <a href="meta.html#EnumDefinition">EnumDefinition</a> </div>      <div class="derived"> <a href="meta.html#ObjectValidatorDefinition">ObjectValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#RuleCategory">RuleCategory</a> </div>      <div class="derived"> <a href="meta.html#RuleDefinition">RuleDefinition</a> </div>      <div class="derived"> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </div>      <div class="derived"> <a href="meta.html#SliceDefinition">SliceDefinition</a> </div>      <div class="derived"> <a href="meta.html#TypeDefinition">TypeDefinition</a> </div>      </td>
+      <div class="derived"> <a href="meta.html#ActionDefinition">ActionDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeValidatorDefinition">AttributeValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div>      <div class="derived"> <a href="meta.html#ComplexTypeDefinition">ComplexTypeDefinition</a> </div>      <div class="derived"> <a href="meta.html#Dependency">Dependency</a> </div>      <div class="derived"> <a href="meta.html#DependencyImplementation">DependencyImplementation</a> </div>      <div class="derived"> <a href="meta.html#EnumDefinition">EnumDefinition</a> </div>      <div class="derived"> <a href="meta.html#ObjectValidatorDefinition">ObjectValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#RuleCategory">RuleCategory</a> </div>      <div class="derived"> <a href="meta.html#RuleDefinition">RuleDefinition</a> </div>      <div class="derived"> <a href="meta.html#RunContext">RunContext</a> </div>      <div class="derived"> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </div>      <div class="derived"> <a href="meta.html#SliceDefinition">SliceDefinition</a> </div>      <div class="derived"> <a href="meta.html#TypeDefinition">TypeDefinition</a> </div>      </td>
     </tr>
 
     <tr>
@@ -1073,7 +1240,7 @@
 
   <table>
 
-    <tr> <td class="className" colspan="4"> <a name="InitRuleInstance"> InitRuleInstance </a> </td></tr>
+    <tr> <td class="className" colspan="4"> <a name="InitRuleData"> InitRuleData </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
       <td class="label">Type</td>
@@ -1084,7 +1251,7 @@
       <td class="spacer"> </td>
       <td>Derived from</td>
       <td colspan="2">
-      <a href="meta.html#RuleInstance">RuleInstance</a>
+      <a href="meta.html#RuleData">RuleData</a>
       </td>
     </tr>
 
@@ -1095,6 +1262,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
+      <td> <a href="meta.html#ruleName">ruleName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
+      <td> The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The title of a rule. </td>
@@ -1245,9 +1420,83 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="meta.html#ruleExecution">ruleExecution</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates how a particular category of rule is executed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="meta.html#ruleInterface">ruleInterface</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The fully qualified name of the interface to be implemented by rules of a particular category. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#ruleImport">ruleImport</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> An import required for arguements to a ruleExecution specification. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="RuleData"> RuleData </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The RuleData class serves as a common base for all ClassDefinitions that are generated internally to represent the data associated with RuleDefinitions.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="meta.html#AllowedAttributesRuleData">AllowedAttributesRuleData</a> </div>      <div class="derived"> <a href="meta.html#InitRuleData">InitRuleData</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#ruleName">ruleName</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#ruleName">ruleName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
+      <td> The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The title of a rule. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
     </tr>
 
   </table>
@@ -1336,6 +1585,14 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
+      <td> <a href="meta.html#dependency">dependency</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Dependency">Dependency</a> </td>
+      <td> A reference to a single Dependency. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="meta.html#isExtensible">isExtensible</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible. The best example is the InitRule where any set of attributes can be specified as value for the rule. </td>
@@ -1361,24 +1618,25 @@
 
   <table>
 
-    <tr> <td class="className" colspan="4"> <a name="RuleInstance"> RuleInstance </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td>Description</td>
-      <td colspan="2">The RuleInstance class serves as a common base for all ClassDefinitions that are generated internally to represent the data associated with RuleDefinitions.</td>
-    </tr>
-
+    <tr> <td class="className" colspan="4"> <a name="RunContext"> RunContext </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
       <td class="label">Type</td>
-      <td colspan="2">ABSTRACT</td>
+      <td colspan="2">STRUCTURAL</td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Derived classes</td>
+      <td>Derived from</td>
       <td colspan="2">
-      <div class="derived"> <a href="meta.html#AllowedAttributesRuleInstance">AllowedAttributesRuleInstance</a> </div>      <div class="derived"> <a href="meta.html#InitRuleInstance">InitRuleInstance</a> </div>      </td>
+      <a href="meta.html#DmsDefinition">DmsDefinition</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
 
   </table>
@@ -1388,9 +1646,17 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The title of a rule. </td>
+      <td> <a href="meta.html#dependencies">dependencies</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#Dependency">Dependency</a> </td>
+      <td> A set of references to Dependencies. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -1952,6 +2218,32 @@
       </td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="applyToClass"> applyToClass </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The class to which a rule should be applied.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="applyToClasses"> applyToClasses </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The classes to which a rule should be applied.</td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="attachToClass"> attachToClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2301,6 +2593,58 @@
       </td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="dependencies"> dependencies </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#Dependency">Dependency</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A set of references to Dependencies.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> Dependency (<a href="meta.html#Dependency">meta</a>) </td>
+    <td> RunContext (<a href="meta.html#RunContext">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="dependency"> dependency </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Dependency">Dependency</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A reference to a single Dependency.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
+    <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="dependsOn"> dependsOn </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2434,7 +2778,7 @@
 <table>
   <tr>
     <td> ActionDefinition (<a href="meta.html#ActionDefinition">meta</a>) </td>
-    <td> AllowedAttributesRuleInstance (<a href="meta.html#AllowedAttributesRuleInstance">meta</a>) </td>
+    <td> AllowedAttributesRuleData (<a href="meta.html#AllowedAttributesRuleData">meta</a>) </td>
     <td> AttributeDefinition (<a href="meta.html#AttributeDefinition">meta</a>) </td>
   <tr>
     <td> AttributeValidatorDefinition (<a href="meta.html#AttributeValidatorDefinition">meta</a>) </td>
@@ -2442,21 +2786,23 @@
     <td> ComplexTypeDefinition (<a href="meta.html#ComplexTypeDefinition">meta</a>) </td>
 </tr>
   <tr>
+    <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
     <td> DmgConfig (<a href="dmg.html#DmgConfig">dmg</a>) </td>
     <td> EnumDefinition (<a href="meta.html#EnumDefinition">meta</a>) </td>
-    <td> InitRuleInstance (<a href="meta.html#InitRuleInstance">meta</a>) </td>
 </tr>
   <tr>
+    <td> InitRuleData (<a href="meta.html#InitRuleData">meta</a>) </td>
     <td> ObjectValidatorDefinition (<a href="meta.html#ObjectValidatorDefinition">meta</a>) </td>
     <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
-    <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
 </tr>
   <tr>
-    <td> RuleInstance (<a href="meta.html#RuleInstance">meta</a>) </td>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
+    <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
+    <td> RunContext (<a href="meta.html#RunContext">meta</a>) </td>
+</tr>
+  <tr>
     <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
     <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
-</tr>
-  <tr>
     <td> TypeDefinition (<a href="meta.html#TypeDefinition">meta</a>) </td>
 </tr>
 </table>
@@ -3482,6 +3828,32 @@
       </td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="instantiation"> instantiation </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The instantiation attribute specifies how something is to be instantiated.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> Dependency (<a href="meta.html#Dependency">meta</a>) </td>
+    <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="integerName"> integerName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4278,20 +4650,25 @@
   <tr>
     <td> ClassDefinition (<a href="meta.html#ClassDefinition">meta</a>) </td>
     <td> ComplexTypeDefinition (<a href="meta.html#ComplexTypeDefinition">meta</a>) </td>
-    <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
+    <td> Dependency (<a href="meta.html#Dependency">meta</a>) </td>
 </tr>
   <tr>
+    <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
+    <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
     <td> EnumDefinition (<a href="meta.html#EnumDefinition">meta</a>) </td>
+</tr>
+  <tr>
     <td> ExtendedReferenceTypeDefinition (<a href="meta.html#ExtendedReferenceTypeDefinition">meta</a>) </td>
     <td> MethodGenerator (<a href="dmg.html#MethodGenerator">dmg</a>) </td>
+    <td> ObjWithRefs (<a href="dmt.html#ObjWithRefs">dmt</a>) </td>
 </tr>
   <tr>
-    <td> ObjWithRefs (<a href="dmt.html#ObjWithRefs">dmt</a>) </td>
     <td> ObjectValidatorDefinition (<a href="meta.html#ObjectValidatorDefinition">meta</a>) </td>
     <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
+    <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
 </tr>
   <tr>
-    <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
+    <td> RunContext (<a href="meta.html#RunContext">meta</a>) </td>
     <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
     <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
 </tr>
@@ -4661,6 +5038,56 @@
       </td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="ruleExecution"> ruleExecution </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates how a particular category of rule is executed.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="ruleImport"> ruleImport </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>An import required for arguements to a ruleExecution specification.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="ruleInterface"> ruleInterface </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4681,6 +5108,31 @@
 <table>
   <tr>
     <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="ruleName"> ruleName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#RuleName">RuleName</a> </div> (designated naming attribute)
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -4730,9 +5182,9 @@
       <td>
 <table>
   <tr>
-    <td> AllowedAttributesRuleInstance (<a href="meta.html#AllowedAttributesRuleInstance">meta</a>) </td>
-    <td> InitRuleInstance (<a href="meta.html#InitRuleInstance">meta</a>) </td>
-    <td> RuleInstance (<a href="meta.html#RuleInstance">meta</a>) </td>
+    <td> AllowedAttributesRuleData (<a href="meta.html#AllowedAttributesRuleData">meta</a>) </td>
+    <td> InitRuleData (<a href="meta.html#InitRuleData">meta</a>) </td>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -4758,6 +5210,31 @@
 <table>
   <tr>
     <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="runContext"> runContext </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#RunContext">RunContext</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A reference to a RunContext.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -5071,6 +5548,31 @@
 <table>
   <tr>
     <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="useInterface"> useInterface </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The fully qualified name of a Java interface or base class that specifies a dependency.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> Dependency (<a href="meta.html#Dependency">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -6081,6 +6583,49 @@
       </td>
     </tr>
 
+    <tr> <td class="typeName" colspan="3"> <a name="RuleName"> RuleName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td> The RuleName is a string based name that must start with an alpha character which is followed by a mix of alphanumerics. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Name type</td>
+      <td> Flat </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Name attribute</td>
+      <td> <a href="meta.html#ruleName"> ruleName </a> </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type class</td>
+      <td>org.dmd.dmc.types.DmcTypeRuleName</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Primitive type</td>
+      <td>org.dmd.dmc.types.RuleName</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> ruleName (<a href="meta.html#ruleName">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
     <tr> <td class="typeName" colspan="3"> <a name="String"> String </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6180,31 +6725,36 @@
 </tr>
   <tr>
     <td> indexedString (<a href="dmt.html#indexedString">dmt</a>) </td>
+    <td> instantiation (<a href="meta.html#instantiation">meta</a>) </td>
     <td> javaClass (<a href="meta.html#javaClass">meta</a>) </td>
-    <td> javaPackage (<a href="meta.html#javaPackage">meta</a>) </td>
 </tr>
   <tr>
+    <td> javaPackage (<a href="meta.html#javaPackage">meta</a>) </td>
     <td> keyClass (<a href="meta.html#keyClass">meta</a>) </td>
     <td> keyImport (<a href="meta.html#keyImport">meta</a>) </td>
-    <td> ldapIdPrefix (<a href="dmr.ldap.html#ldapIdPrefix">dmr.ldap</a>) </td>
 </tr>
   <tr>
+    <td> ldapIdPrefix (<a href="dmr.ldap.html#ldapIdPrefix">dmr.ldap</a>) </td>
     <td> mvIdxString (<a href="dmt.html#mvIdxString">dmt</a>) </td>
     <td> mvString (<a href="dmt.html#mvString">dmt</a>) </td>
-    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
 </tr>
   <tr>
+    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
     <td> nullReturnValue (<a href="meta.html#nullReturnValue">meta</a>) </td>
     <td> obsoleteVersion (<a href="meta.html#obsoleteVersion">meta</a>) </td>
-    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
 </tr>
   <tr>
+    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
     <td> primitiveType (<a href="meta.html#primitiveType">meta</a>) </td>
     <td> reposName (<a href="dmr.ldap.html#reposName">dmr.ldap</a>) </td>
-    <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
 </tr>
   <tr>
+    <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
     <td> responseText (<a href="dmp.html#responseText">dmp</a>) </td>
+    <td> ruleExecution (<a href="meta.html#ruleExecution">meta</a>) </td>
+</tr>
+  <tr>
+    <td> ruleImport (<a href="meta.html#ruleImport">meta</a>) </td>
     <td> ruleInterface (<a href="meta.html#ruleInterface">meta</a>) </td>
     <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
 </tr>
@@ -6229,13 +6779,16 @@
     <td> upperConstantName (<a href="dmg.html#upperConstantName">dmg</a>) </td>
 </tr>
   <tr>
+    <td> useInterface (<a href="meta.html#useInterface">meta</a>) </td>
     <td> userFQN (<a href="dmp.html#userFQN">dmp</a>) </td>
     <td> userName (<a href="dmr.base.html#userName">dmr.base</a>) </td>
-    <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
 </tr>
   <tr>
+    <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
     <td> validatorClass (<a href="meta.html#validatorClass">meta</a>) </td>
     <td> valueClass (<a href="meta.html#valueClass">meta</a>) </td>
+</tr>
+  <tr>
     <td> wrapperClassName (<a href="meta.html#wrapperClassName">meta</a>) </td>
 </tr>
 </table>
@@ -6855,6 +7408,7 @@
         <a class="navLink" href="dmr.base.html"> dmr.base</a>
         <a class="navLink" href="dmr.ldap.html"> dmr.ldap</a>
         <a class="navLink" href="dmt.html"> dmt</a>
+        <a class="navLink" href="dmv.html"> dmv</a>
         <a class="navLink" href="map.html"> map</a>
         <a class="navLink" href="meta.html"> meta</a>
     </div>

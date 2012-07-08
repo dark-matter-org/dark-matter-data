@@ -27,6 +27,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.SliceDefinition;
@@ -134,6 +135,9 @@ public class DmoCompactSchemaFormatter {
         for(ClassNode cn: hierarchy.values()){
         	cn.writeClassInfo(out);
 		}
+        
+        ///////////////////////////////////////////////////////////////////////
+        // Static initializer
 
         out.write("\n");
         for(SliceDefinition slice: sd.getSliceDefList()){
@@ -196,6 +200,12 @@ public class DmoCompactSchemaFormatter {
 				
 			}
 			out.write("\n");
+			
+		}
+		
+		for(RuleDefinition rd : sd.getRuleDefinitionList()){
+			out.write("        @SuppressWarnings(\"unused\")\n");
+			out.write("        " + rd.getName() + " " + rd.getName() + "Instance = new " + rd.getName() + "(new " + rd.getName() + "DataDMO());\n");
 		}
         
         // End of static initializer
@@ -610,10 +620,15 @@ public class DmoCompactSchemaFormatter {
     	
         DmcAttribute<?> adef = sd.getDMO().get(MetaDMSAG.__attributeDefList);
         if (adef != null){
+        	manager.addImport("org.dmd.dms.generated.enums.DataTypeEnum", "Have class/attribute definitions");
         	manager.addImport("org.dmd.dms.generated.enums.ValueTypeEnum", "Have attribute definitions");
 //        	out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
 //        	out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
         }
+
+		for(RuleDefinition rd: sd.getRuleDefinitionList()){
+			manager.addImport(rd.getRuleDefinitionImport(), "To support instantiations of " + rd.getName());
+		}
 
         out.write(manager.getFormattedImports());
     	out.write("\n");
@@ -641,8 +656,8 @@ public class DmoCompactSchemaFormatter {
 		}
 		
 		if (nameBuilders.length() > 0)
-	        out.write("import " + schemaPackage + ".generated.types.*;\n");		
-
+	        out.write("import " + schemaPackage + ".generated.types.*;\n");
+		
         out.write("\n");
         
 	}

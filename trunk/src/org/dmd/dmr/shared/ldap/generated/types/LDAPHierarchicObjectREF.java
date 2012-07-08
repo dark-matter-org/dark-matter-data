@@ -39,7 +39,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 @SuppressWarnings("serial")
 public class LDAPHierarchicObjectREF extends DmcNamedObjectNontransportableREF<LDAPHierarchicObjectDMO> {
 
-    public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",84,"FullyQualifiedName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",-2499916,"FullyQualifiedName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeFullyQualifiedNameSV myName;    
     

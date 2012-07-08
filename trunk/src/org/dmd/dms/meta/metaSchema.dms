@@ -325,10 +325,14 @@ enumValue		1 FULLJAVA  indicates that the component operates in a ful Java envir
 
 EnumDefinition
 name			RuleTypeEnum
-description		The RuleTypeEnum indicates the level at which a rule is applied.
 nullReturnValue RuleTypeEnum.ATTRIBUTE
 enumValue		0 ATTRIBUTE Indicates that this is an attribute level rule.
 enumValue		1 CLASS     Indicates that this is a class level rule.
+description		The RuleTypeEnum indicates the level at which a rule is applied. An ATTRIBUTE
+ rule is applied at the attribute level and must have the applyToAttribute attribute and may
+ have the applyToClass attribute to limit its scope to particular classes. A CLASS
+ level rule will be applied to an entire object and will have the applyToClass attribute
+ unless it is defined as GLOBAL.
 
 EnumDefinition
 name			RuleScopeEnum
@@ -337,15 +341,12 @@ description		The RuleScopeEnum indicates the scope at which a rule is applied.
  will determine some additional attributes that will be added to the DMO class definition.
  <table>
  <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr>
- <tr> <td> ATTRIBUTE </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr>
  <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
  <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr>
- <tr> <td> CLASS     </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr>
  <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
  </table>
 nullReturnValue RuleScopeEnum.PERCLASS
 enumValue		0 PERCLASS 		Indicates the rule is applied within the scope of a class.
-enumValue		1 ACROSSCLASSES Indicates the rule is applied across several classes.
 enumValue		2 GLOBAL		Indicates the rule is global in scope.
 
 EnumDefinition
@@ -512,28 +513,28 @@ description		The AllowedAttributesRule will determine whether or not the
  DmcOmni has been loaded with the appropriate schema. If you are using the Dark Matter
  Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically.
 
-RuleDefinition
-name			InitRule
-dmdID			31
-ruleType		CLASS
-ruleScope		PERCLASS
-ruleCategory	Initialization
-isExtensible	true
-description		The InitRule allows you to specify attribute values for a 
- newly created object or an object read from file or received in a CreateRequest
- (for instance). The InitRule will only set the values of attributes that are
- missing from the object; existing attributes are not alterred. An example
- usage might be:
- <p/>
- <pre>
- InitRule
- ruleTitle    Initialize the X class
- applyToClass X
- attributeA   some value
- attributeB   42
- attributeC   something
- attributeC   something else
- </pre>
+//RuleDefinition
+//name			InitRule
+//dmdID			31
+//ruleType		CLASS
+//ruleScope		PERCLASS
+//ruleCategory	Initialization
+//isExtensible	true
+//description		The InitRule allows you to specify attribute values for a 
+// newly created object or an object read from file or received in a CreateRequest
+// (for instance). The InitRule will only set the values of attributes that are
+// missing from the object; existing attributes are not alterred. An example
+// usage might be:
+// <p/>
+// <pre>
+// InitRule
+// ruleTitle    Initialize the X class
+// applyToClass X
+// attributeA   some value
+// attributeB   42
+// attributeC   something
+// attributeC   something else
+// </pre>
 
 ///////////////////////////////////////////////////////////////////////////////
 //
@@ -2018,8 +2019,6 @@ description		The ActionTriggerInfo class simply provides a common base for the b
  EXTENSIBLE objects. This way, the user can ask an object for the 
  ActionTriggerInfo (ATI) for a particular action and have a well defined
  interface to specify the parameters for the action.
-
-
 
 ClassDefinition
 name			DmsDefinition

@@ -1161,6 +1161,23 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     void addRuleDefinition(RuleDefinition rd) throws ResultException, DmcValueException {
     	
+    	if (rd.getName().getNameString().equals("IntegerRangeRule"))
+    		DebugInfo.debug("ADDING RULE");
+    	
+    	// Again, some trickiness, we have to resolve the rule so that we can access and use the must/may
+    	// attributes that are defined for it and add them to the class definition we create
+        try {
+			rd.resolveReferences(this);
+		} catch (DmcValueExceptionSet e) {			
+			ResultException ex = new ResultException();
+			ex.addError("Unresolved references in RuleDefinition: " + rd.getName());
+			
+			for(DmcValueException dve : e.getExceptions()){
+				ex.moreMessages(dve.getMessage());
+			}
+			throw(ex);
+		}
+    	
     	StringName ruleClassName = new StringName(rd.getName().getNameString() + "Data");
     	
         if (checkAndAdd(rd.getObjectName(),rd,ruleDefs) == false){
@@ -1216,8 +1233,31 @@ public class SchemaManager implements DmcNameResolverIF {
         else
         	cd.setClassType(ClassTypeEnum.STRUCTURAL);
         cd.setDmdID(rd.getDmdID());
+        cd.setDerivedFrom(MetaSchemaAG._RuleData);
+        cd.setDmdID(rd.getDmdID());
+        cd.setInternallyGenerated(true);
+        cd.setRuleDefinition(rd);
+//        cd.setIsNamedBy(MetaSchemaAG._ruleName);
+        cd.addMust(MetaSchemaAG._ruleName);
+        cd.addMust(MetaSchemaAG._ruleTitle);
+        cd.addMay(MetaSchemaAG._description);
         
-
+        cd.setFile(rd.getFile());
+        cd.setLineNumber(rd.getLineNumber());
+        cd.setDefinedIn(rd.getDefinedIn());
+        
+        for(AttributeDefinition ad: rd.getMay()){
+        	cd.addMay(ad);
+        }
+        
+        for(AttributeDefinition ad: rd.getMust()){
+        	cd.addMust(ad);
+        }
+        
+        addClass(cd);
+        
+        // We add the new class to the schema's list of classes
+        rd.getDefinedIn().addClassDefList(cd);
     }
 
     /**

@@ -1682,6 +1682,16 @@ public class GenUtility {
     	return(name.toString());
 	}
 	
+	/**
+	 * Returns the class or interface name after the last dot in an import statement.
+	 * @param value the import statement e.g. org.dmd.dmc.DmcObject
+	 * @return the part after the last dot e.g. DmcObject
+	 */
+	static public String getClassFromImport(String value){
+		int lastDot = value.lastIndexOf(".");
+		return(value.substring(lastDot+1));
+	}
+	
 	static public void dumpIterable(String dmwdir, String basePackage, String typeImport, String typeName, String genericArgs, String fileHeader, PrintStream progress) throws IOException {
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, typeName + "IterableDMW.java");
         

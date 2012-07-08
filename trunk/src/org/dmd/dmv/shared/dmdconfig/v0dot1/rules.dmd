@@ -1,0 +1,35 @@
+
+RuleDefinition
+name			InitRule
+dmdID			1
+ruleType		CLASS
+ruleScope		PERCLASS
+ruleCategory	Initialization
+isExtensible	true
+description		The InitRule allows you to specify attribute values for a 
+ newly created object or an object read from file or received in a CreateRequest
+ (for instance). The InitRule will only set the values of attributes that are
+ missing from the object; existing attributes are not alterred. An example
+ usage might be:
+ <p/>
+ <pre>
+ InitRule
+ ruleTitle    Initialize the X class
+ applyToClass X
+ attributeA   some value
+ attributeB   42
+ attributeC   something
+ attributeC   something else
+ </pre>
+
+RuleDefinition
+name			IntegerRangeRule
+dmdID			2
+ruleType		ATTRIBUTE
+ruleScope		PERCLASS
+ruleCategory	AttributeValidation
+ruleCategory	ModifierValidation
+must			irrMinimum
+must			irrMaximum
+description		The IntegerRangeRule ensures that an Integer attribute has a value that falls
+ within a given range. The irrMinimum must be lesss than the irrMaximum.

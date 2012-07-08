@@ -73,7 +73,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	// Offset to the gdo source directory
 	private final static String DMSDIR = "/src/org/dmd/dms";
 	
-	private	final static int META_BASE_ID = 0;
+	private	final static int META_BASE_ID = -500000;
 	
 	private	final static int META_ID_RANGE = 200;
 	
@@ -202,8 +202,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             DmoCompactSchemaFormatter csf = new DmoCompactSchemaFormatter(System.out);
             csf.dumpSchema("meta", "org.dmd.dms", classDefs, attributeDefs, typeDefs, ruleInstances, curr.getCanonicalPath() + DMODIR, META_BASE_ID, META_ID_RANGE);
             
-            DmoValidatorCollectionFormatter vcf = new DmoValidatorCollectionFormatter(System.out);
-            vcf.dumpSchema("meta", "org.dmd.dms", avDefs, ovDefs, curr.getCanonicalPath() + DMODIR);
+//            DmoValidatorCollectionFormatter vcf = new DmoValidatorCollectionFormatter(System.out);
+//            vcf.dumpSchema("meta", "org.dmd.dms", avDefs, ovDefs, curr.getCanonicalPath() + DMODIR);
             
             RuleFormatter rf = new RuleFormatter(System.out);
             rf.dumpBaseImplementations("meta","org.dmd.dms", ruleDefs, ruleCategoryDefs, curr.getCanonicalPath() + RULESDIR);
@@ -1274,13 +1274,17 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     out.write("\n");
 
                     if (isNamedBy != null){
+                    	String nameType = "StringName";
+                    	if (cn.equals("RuleData"))
+                    			nameType = "RuleName";
+                    	
                         out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
                         out.write("    // DmcNamedObjectIF implementation\n");
                         out.write("    /**\n");
                         out.write("     * @return The name of this object from the " + isNamedBy + " attribute.\n");
                         out.write("     */\n");
 
-                        out.write("    public StringName getObjectName(){\n");
+                        out.write("    public " + nameType + " getObjectName(){\n");
                         out.write("        return(mycore.getObjectName());\n");
                         out.write("    }\n\n");
                         out.write("\n");
@@ -1553,14 +1557,19 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                     out.write("\n");
                     
                     if (isNamedBy != null){
+                    	String nameType = "StringName";
+                    	
+                    	if (cn.equals("RuleData"))
+                    		nameType = "RuleName";
+                    		
                         out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
                         out.write("    // DmcNamedObjectIF implementation\n");
                         out.write("    /**\n");
                         out.write("     * @return The name of this object from the " + isNamedBy + " attribute.\n");
                         out.write("     */\n");
                         out.write("    @Override\n");
-                        out.write("    public StringName getObjectName(){\n");
-                        out.write("        DmcTypeStringName attr = (DmcTypeStringName) get(MetaDMSAG.__" + isNamedBy + ");\n");
+                        out.write("    public " + nameType + " getObjectName(){\n");
+                        out.write("        DmcType" + nameType + " attr = (DmcType" + nameType + ") get(MetaDMSAG.__" + isNamedBy + ");\n");
                         out.write("        if (attr == null)\n");
                         out.write("            return(null);\n");
                         out.write("        return(attr.getSV());\n");
@@ -1571,8 +1580,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                         out.write("     */\n");
 
                         out.write("    @Override\n");
-                        out.write("    public DmcTypeStringName getObjectNameAttribute(){\n");
-                        out.write("        DmcTypeStringName attr = (DmcTypeStringName) get(MetaDMSAG.__" + isNamedBy + ");\n");
+                        out.write("    public DmcType" + nameType + " getObjectNameAttribute(){\n");
+                        out.write("        DmcType" + nameType + " attr = (DmcType" + nameType + ") get(MetaDMSAG.__" + isNamedBy + ");\n");
                         out.write("        if (attr == null)\n");
                         out.write("            return(null);\n");
                         out.write("        return(attr);\n");
@@ -2113,6 +2122,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 
                 // Generate the reference container
                 
+            	String nameType = "StringName";
+            	if (cn.equals("RuleData"))
+            		nameType = "RuleName";
                 
 //                out = new BufferedWriter(new FileWriter(od + File.separator + cn + "REF.java"));
                 out = FileUpdateManager.instance().getWriter(od, cn + "REF.java");
@@ -2128,7 +2140,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
                 out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
                 out.write("import org.dmd.dmc.DmcNamedObjectNontransportableREF;\n");
-                out.write("import org.dmd.dmc.types.DmcTypeStringName;\n");
+                out.write("import org.dmd.dmc.types.DmcType" + nameType + ";\n");
                 out.write("import org.dmd.dms.generated.dmo.*;\n");
 //                out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
 //                out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
@@ -2152,8 +2164,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
             	if (cn.equals("ClassDefinition")){
             		out.write("    transient DmcClassInfo info;\n\n");
             	}
+            	
 
-            	out.write("    DmcTypeStringName myName;\n\n");
+            	out.write("    DmcType" + nameType + " myName;\n\n");
             	
                 out.write("    /**\n");
                 out.write("     * Default constructor.\n");
@@ -2200,7 +2213,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
                 out.write("    @Override\n");
               	out.write("    public void setName(DmcObjectName n) throws DmcValueException {\n");
               	out.write("        if (myName == null);\n");
-              	out.write("            myName = new  DmcTypeStringNameSV(MetaDMSAG.__name);\n");
+              	out.write("            myName = new  DmcType" + nameType + "SV(MetaDMSAG.__name);\n");
               	out.write("        myName.set(n);\n");
               	out.write("    }\n\n");
 
@@ -2220,7 +2233,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
               	out.write("    }\n\n");
 
               	out.write("    public void deserializeIt(DmcInputStreamIF dis) throws Exception {\n");
-              	out.write("        myName = (DmcTypeStringName) dis.getAttributeInstance();\n");
+              	out.write("        myName = (DmcType" + nameType + ") dis.getAttributeInstance();\n");
               	out.write("        myName.deserializeIt(dis);\n");
               	out.write("    }\n\n");
 

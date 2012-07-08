@@ -25,7 +25,7 @@ import org.dmd.dmg.types.DmcTypeGenerator;    // DmcType import
  * The DmcTypeGeneratorSV provides storage for a single-valued Generator
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1926)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1936)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:100)
  */
 @SuppressWarnings("serial")
@@ -50,14 +50,14 @@ public class DmcTypeGeneratorSV extends DmcTypeGenerator implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1968)
     public DmcAttribute<Generator> cloneIt(){
         DmcTypeGeneratorSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1979)
     public Generator getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeGeneratorSV extends DmcTypeGenerator implements Serializable
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1981)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1991)
     public Generator set(Object v) throws DmcValueException {
         Generator rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

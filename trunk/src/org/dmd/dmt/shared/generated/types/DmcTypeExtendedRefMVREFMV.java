@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.dmo.ExtendedRefMVDMO;    // DmcType import
  * The DmcTypeExtendedRefMVREFMV provides storage for a multi-valued ExtendedRefMV
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2270)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2280)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -33,7 +33,7 @@ public class DmcTypeExtendedRefMVREFMV extends DmcTypeExtendedRefMVREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
     public DmcAttribute<ExtendedRefMVDMO> cloneIt(){
         synchronized(this){
             DmcTypeExtendedRefMVREFMV rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeExtendedRefMVREFMV extends DmcTypeExtendedRefMVREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2339)
     public ExtendedRefMVDMO add(Object v) throws DmcValueException {
         synchronized(this){
             ExtendedRefMVDMO rc = typeCheck(v);
@@ -70,7 +70,7 @@ public class DmcTypeExtendedRefMVREFMV extends DmcTypeExtendedRefMVREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2352)
     public ExtendedRefMVDMO del(Object v){
         synchronized(this){
             ExtendedRefMVDMO key = null;
@@ -91,7 +91,7 @@ public class DmcTypeExtendedRefMVREFMV extends DmcTypeExtendedRefMVREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2383)
     public Iterator<ExtendedRefMVDMO> getMV(){
         synchronized(this){
             ArrayList<ExtendedRefMVDMO> clone = new ArrayList<ExtendedRefMVDMO>(value);
@@ -99,7 +99,7 @@ public class DmcTypeExtendedRefMVREFMV extends DmcTypeExtendedRefMVREF implement
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
     public ArrayList<ExtendedRefMVDMO> getMVCopy(){
         synchronized(this){
             ArrayList<ExtendedRefMVDMO> clone = new ArrayList<ExtendedRefMVDMO>(value);
@@ -108,7 +108,7 @@ public class DmcTypeExtendedRefMVREFMV extends DmcTypeExtendedRefMVREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2402)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -122,7 +122,7 @@ public class DmcTypeExtendedRefMVREFMV extends DmcTypeExtendedRefMVREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2417)
     public ExtendedRefMVDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -132,7 +132,7 @@ public class DmcTypeExtendedRefMVREFMV extends DmcTypeExtendedRefMVREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2428)
     public ExtendedRefMVDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -159,7 +159,7 @@ public class DmcTypeExtendedRefMVREFMV extends DmcTypeExtendedRefMVREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -182,7 +182,7 @@ public class DmcTypeExtendedRefMVREFMV extends DmcTypeExtendedRefMVREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2480)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

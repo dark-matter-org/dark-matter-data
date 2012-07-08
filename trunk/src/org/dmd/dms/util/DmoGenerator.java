@@ -25,6 +25,7 @@ import java.net.URL;
 
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.enums.OperationalContextEnum;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.ConfigLocation;
 
@@ -42,6 +43,7 @@ public class DmoGenerator {
 	DmoAttributeFactoryFormatter	factoryFormatter;
 //	DmoAttributeSchemaFormatter		attributeSchemaFormatter;
 	DmoCompactSchemaFormatter		compactSchemaFormatter;
+	RuleFormatter					ruleFormatter;
 	
 	String gendir;
 	String dmodir;
@@ -49,6 +51,7 @@ public class DmoGenerator {
 	String typedir;
 	String adapterdir;
 	String enumdir;
+	String ruledir;
 	
 	// If the schema has a generatedFileHeader attribute, we read the specified file
 	// into this string and pass it to the various formatters.
@@ -65,13 +68,14 @@ public class DmoGenerator {
 	}
 	
 	void initialize(PrintStream o){
-		dmoFormatter 		= new DmoFormatter(o);
-		typeFormatter		= new DmoTypeFormatter(o);
-		enumFormatter		= new DmoEnumFormatter(o);
-		actionFormatter		= new DmoActionFormatter(o);
-		factoryFormatter	= new DmoAttributeFactoryFormatter(o);
+		dmoFormatter 			= new DmoFormatter(o);
+		typeFormatter			= new DmoTypeFormatter(o);
+		enumFormatter			= new DmoEnumFormatter(o);
+		actionFormatter			= new DmoActionFormatter(o);
+		factoryFormatter		= new DmoAttributeFactoryFormatter(o);
 //		attributeSchemaFormatter	= new DmoAttributeSchemaFormatter(o);
 		compactSchemaFormatter	= new DmoCompactSchemaFormatter(o);
+		ruleFormatter			= new RuleFormatter(o);
 		progress = o;
 		fileHeader = null;
 	}
@@ -90,10 +94,11 @@ public class DmoGenerator {
 		typedir 	= gendir + File.separator + "types";
 		adapterdir 	= typedir + File.separator + "adapters";
 		enumdir 	= gendir + File.separator + "enums";
+		ruledir 	= gendir + File.separator + "rulesdmo";
 		
 		fileHeader 	= null;
 		
-		createGenDirs();
+		createGenDirs(sd);
 		
 		// Attempt to read the common file header if it exists
 		readFileHeader(sd,sl);
@@ -117,6 +122,8 @@ public class DmoGenerator {
 		
 //		attributeSchemaFormatter.dumpSchema(sd, dmodir);
 		compactSchemaFormatter.dumpSchema(sm, sd, dmodir);
+		
+		ruleFormatter.dumpBaseImplementations(sm, sd, gendir, OperationalContextEnum.DMO);
 		
 //		if (sd.getCreateAttributeFactory()){
 //			factoryFormatter.dumpFactory(sm, sd, dmodir);
@@ -171,7 +178,7 @@ public class DmoGenerator {
 	 * Creates the output directory structure for our code.
 	 * @param sl The schema location.
 	 */
-	void createGenDirs(){
+	void createGenDirs(SchemaDefinition sd){
 		File gdf = new File(gendir);
 		if (!gdf.exists())
 			gdf.mkdir();
@@ -195,6 +202,12 @@ public class DmoGenerator {
 		File edf = new File(enumdir);
 		if (!edf.exists())
 			edf.mkdir();
+		
+		if (sd.getRuleDefinitionListSize() > 0){
+			File rdf = new File(ruledir);
+			if (!rdf.exists())
+				rdf.mkdir();
+		}
 		
 	}
 }
