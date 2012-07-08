@@ -267,6 +267,8 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     		this.addExtendedReferenceTypeDefList((ExtendedReferenceTypeDefinition) def);
     	else if (def instanceof ComplexTypeDefinition)
     		this.addComplexTypeDefList((ComplexTypeDefinition) def);
+    	else if (def instanceof RuleDefinition)
+    		this.addRuleDefinitionList((RuleDefinition)def);
         else{
         	ResultException ex = new ResultException();
         	ex.addError("The specified object is not a DMD object: \n" + def.toOIF());

@@ -31,11 +31,6 @@ public enum RuleScopeEnum
     PERCLASS(0),
 
     /**
-     * Indicates the rule is applied across several classes.
-     */
-    ACROSSCLASSES(1),
-
-    /**
      * Indicates the rule is global in scope.
      */
     GLOBAL(2);

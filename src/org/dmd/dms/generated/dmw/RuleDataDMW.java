@@ -63,7 +63,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * The title of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1771)
     public String getRuleTitle(){
         return(mycore.getRuleTitle());
     }
@@ -72,7 +72,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1823)
     public void setRuleTitle(Object value) throws DmcValueException {
         mycore.setRuleTitle(value);
     }
@@ -82,7 +82,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * a rule. The name starts with a single letter and can be followed by a mix
      * of letters and numbers. No spaces or  other characters are allowed.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1771)
     public RuleName getRuleName(){
         return(mycore.getRuleName());
     }
@@ -91,7 +91,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1823)
     public void setRuleName(Object value) throws DmcValueException {
         mycore.setRuleName(value);
     }
@@ -102,7 +102,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1762)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1771)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -111,7 +111,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1814)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1823)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
@@ -122,7 +122,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * @return The name of this object from the ruleName attribute.
      */
-    public StringName getObjectName(){
+    public RuleName getObjectName(){
         return(mycore.getObjectName());
     }
 

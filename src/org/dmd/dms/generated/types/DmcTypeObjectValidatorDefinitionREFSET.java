@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeObjectValidatorDefinitionREFSET provides storage for a set of ObjectValidatorDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:270)
  */
 @SuppressWarnings("serial")
@@ -58,7 +58,7 @@ public class DmcTypeObjectValidatorDefinitionREFSET extends DmcTypeObjectValidat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public DmcAttribute<ObjectValidatorDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeObjectValidatorDefinitionREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeObjectValidatorDefinitionREFSET extends DmcTypeObjectValidat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
     public ObjectValidatorDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             ObjectValidatorDefinitionREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeObjectValidatorDefinitionREFSET extends DmcTypeObjectValidat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
     public ObjectValidatorDefinitionREF del(Object v){
         synchronized(this){
             ObjectValidatorDefinitionREF rc = null;
@@ -113,7 +113,7 @@ public class DmcTypeObjectValidatorDefinitionREFSET extends DmcTypeObjectValidat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
     public Iterator<ObjectValidatorDefinitionREF> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -123,7 +123,7 @@ public class DmcTypeObjectValidatorDefinitionREFSET extends DmcTypeObjectValidat
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
     public Set<ObjectValidatorDefinitionREF> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -134,7 +134,7 @@ public class DmcTypeObjectValidatorDefinitionREFSET extends DmcTypeObjectValidat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeObjectValidatorDefinitionREFSET extends DmcTypeObjectValidat
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

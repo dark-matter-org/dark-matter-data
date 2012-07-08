@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeSchemaDefinitionREFSV provides storage for a single-valued SchemaDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1907)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1926)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
  */
 @SuppressWarnings("serial")
@@ -48,14 +48,14 @@ public class DmcTypeSchemaDefinitionREFSV extends DmcTypeSchemaDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1939)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
     public DmcAttribute<SchemaDefinitionREF> cloneIt(){
         DmcTypeSchemaDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1950)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
     public SchemaDefinitionREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeSchemaDefinitionREFSV extends DmcTypeSchemaDefinitionREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1981)
     public SchemaDefinitionREF set(Object v) throws DmcValueException {
         SchemaDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

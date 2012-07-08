@@ -1,43 +1,40 @@
 package org.dmd.dmv.shared.generated.dmo;
 
 import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dmc.rules.RuleIF;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:565)
-import org.dmd.dms.generated.dmo.MetaDMSAG;               // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:546)
-import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions - (DmoCompactSchemaFormatter.java:538)
-import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:539)
-import org.dmd.dms.generated.enums.ValueTypeEnum;         // Have attribute definitions - (DmoCompactSchemaFormatter.java:560)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:633)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:609)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                     // Have class definitions - (DmoCompactSchemaFormatter.java:601)
+import org.dmd.dms.generated.enums.DataTypeEnum;                      // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:602)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                     // Have attribute definitions - (DmoCompactSchemaFormatter.java:624)
+import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                 // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:630)
+import org.dmd.dmv.shared.extended.rulesdmo.IntegerRangeRule;         // To support instantiations of IntegerRangeRule - (DmoCompactSchemaFormatter.java:630)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:95)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:98)
 public class DmvDMSAG implements DmcCompactSchemaIF {
 
 
     static String schemaName = "dmv";
 
 
-    static int schemaBaseID = 300;
+    static int schemaBaseID = -480000;
 
 
     static int schemaIDRange = 50;
 
 
-    static int schemaMaxID = 350;
+    static int schemaMaxID = -479950;
 
-    public final static DmcAttributeInfo __applyToAttribute = new DmcAttributeInfo("applyToAttribute", 303, "AttributeDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __applyToClass = new DmcAttributeInfo("applyToClass", 302, "ClassDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __loadedFrom = new DmcAttributeInfo("loadedFrom", 301, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __ruleTitle = new DmcAttributeInfo("ruleTitle", 300, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcClassInfo __Rule = new DmcClassInfo("Rule", 301, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
-    public final static DmcClassInfo __AttributeRule = new DmcClassInfo("AttributeRule", 302, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__Rule,null);
-    public final static DmcClassInfo __IntegerRangeRule = new DmcClassInfo("IntegerRangeRule", 306, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__AttributeRule,null);
-    public final static DmcClassInfo __ClassRule = new DmcClassInfo("ClassRule", 303, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,__Rule,null);
-    public final static DmcClassInfo __MayRule = new DmcClassInfo("MayRule", 305, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__ClassRule,null);
-    public final static DmcClassInfo __MustRule = new DmcClassInfo("MustRule", 304, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__ClassRule,null);
+    public final static DmcAttributeInfo __irrMaximum = new DmcAttributeInfo("irrMaximum", -479998, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __irrMinimum = new DmcAttributeInfo("irrMinimum", -479999, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo __InitRuleData = new DmcClassInfo("InitRuleData", -959999, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
+    public final static DmcClassInfo __IntegerRangeRuleData = new DmcClassInfo("IntegerRangeRuleData", -959998, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
 
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
@@ -50,6 +47,8 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
     static  HashMap<String, DmcSliceInfo> _SImAp;
 
+    static  ArrayList<RuleIF>             _RmAp;
+
     static {
         _CmAp = new HashMap<Integer, DmcClassInfo>();
 
@@ -61,30 +60,27 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
         _SImAp = new HashMap<String, DmcSliceInfo>();
 
-        _SmAp.put(__applyToAttribute.id,__applyToAttribute);
-        _SmAp.put(__applyToClass.id,__applyToClass);
-        _SmAp.put(__loadedFrom.id,__loadedFrom);
-        _SmAp.put(__ruleTitle.id,__ruleTitle);
-        _CmAp.put(__AttributeRule.id,__AttributeRule);
-        _CmAp.put(__ClassRule.id,__ClassRule);
-        _CmAp.put(__IntegerRangeRule.id,__IntegerRangeRule);
-        _CmAp.put(__MayRule.id,__MayRule);
-        _CmAp.put(__MustRule.id,__MustRule);
-        _CmAp.put(__Rule.id,__Rule);
+        _RmAp = new ArrayList<RuleIF>();
 
-        __Rule.addMust(MetaDMSAG.__name);
-        __Rule.addMust(__ruleTitle);
+        _SmAp.put(__irrMaximum.id,__irrMaximum);
+        _SmAp.put(__irrMinimum.id,__irrMinimum);
+        _CmAp.put(__InitRuleData.id,__InitRuleData);
+        _CmAp.put(__IntegerRangeRuleData.id,__IntegerRangeRuleData);
 
-        __AttributeRule.addMust(__applyToAttribute);
+        __InitRuleData.addMust(MetaDMSAG.__ruleName);
+        __InitRuleData.addMust(MetaDMSAG.__ruleTitle);
+        __InitRuleData.addMay(MetaDMSAG.__description);
 
-        __ClassRule.addMay(__applyToClass);
+        __IntegerRangeRuleData.addMust(MetaDMSAG.__ruleName);
+        __IntegerRangeRuleData.addMust(MetaDMSAG.__ruleTitle);
+        __IntegerRangeRuleData.addMust(__irrMinimum);
+        __IntegerRangeRuleData.addMust(__irrMaximum);
+        __IntegerRangeRuleData.addMay(MetaDMSAG.__description);
 
-        __MustRule.addMust(__ruleTitle);
-
-        __MayRule.addMust(__ruleTitle);
-
-        __IntegerRangeRule.addMust(__ruleTitle);
-
+@SuppressWarnings("unused")
+        InitRule InitRuleInstance = new InitRule(new InitRuleDataDMO());
+@SuppressWarnings("unused")
+        IntegerRangeRule IntegerRangeRuleInstance = new IntegerRangeRule(new IntegerRangeRuleDataDMO());
 
     }
 
@@ -155,11 +151,10 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         return(schemaMaxID);
     }
 
-	@Override
-	public Iterator<RuleIF> getRules() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
+    public Iterator<RuleIF> getRules(){
+        return(_RmAp.iterator());
+    }
 
 
 }

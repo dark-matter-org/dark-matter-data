@@ -27,7 +27,7 @@ import org.dmd.dms.generated.types.DmcTypeDmwTypeToWrapperType;    // DmcType im
  * The DmcTypeDmwTypeToWrapperTypeMV provides storage for a multi-valued DmwTypeToWrapperType
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2251)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2270)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:296)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeDmwTypeToWrapperTypeMV extends DmcTypeDmwTypeToWrapperType i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2281)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
     public DmcAttribute<DmwTypeToWrapperType> cloneIt(){
         synchronized(this){
             DmcTypeDmwTypeToWrapperTypeMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeDmwTypeToWrapperTypeMV extends DmcTypeDmwTypeToWrapperType i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
     public DmwTypeToWrapperType add(Object v) throws DmcValueException {
         synchronized(this){
             DmwTypeToWrapperType rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeDmwTypeToWrapperTypeMV extends DmcTypeDmwTypeToWrapperType i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
     public DmwTypeToWrapperType del(Object v){
         synchronized(this){
             DmwTypeToWrapperType key = null;
@@ -107,7 +107,7 @@ public class DmcTypeDmwTypeToWrapperTypeMV extends DmcTypeDmwTypeToWrapperType i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2354)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public Iterator<DmwTypeToWrapperType> getMV(){
         synchronized(this){
             ArrayList<DmwTypeToWrapperType> clone = new ArrayList<DmwTypeToWrapperType>(value);
@@ -115,7 +115,7 @@ public class DmcTypeDmwTypeToWrapperTypeMV extends DmcTypeDmwTypeToWrapperType i
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public ArrayList<DmwTypeToWrapperType> getMVCopy(){
         synchronized(this){
             ArrayList<DmwTypeToWrapperType> clone = new ArrayList<DmwTypeToWrapperType>(value);
@@ -124,7 +124,7 @@ public class DmcTypeDmwTypeToWrapperTypeMV extends DmcTypeDmwTypeToWrapperType i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -138,7 +138,7 @@ public class DmcTypeDmwTypeToWrapperTypeMV extends DmcTypeDmwTypeToWrapperType i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2388)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
     public DmwTypeToWrapperType getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeDmwTypeToWrapperTypeMV extends DmcTypeDmwTypeToWrapperType i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2399)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
     public DmwTypeToWrapperType setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -175,7 +175,7 @@ public class DmcTypeDmwTypeToWrapperTypeMV extends DmcTypeDmwTypeToWrapperType i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2427)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,7 +198,7 @@ public class DmcTypeDmwTypeToWrapperTypeMV extends DmcTypeDmwTypeToWrapperType i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2451)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -27,7 +27,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
     // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:724)
     public static ClassDefinition     _AllowedAttributesRuleData;
-    public static ClassDefinition     _InitRuleData;
     public static ClassDefinition     _ActionTriggerInfo;
     public static ClassDefinition     _DmsDefinition;
     public static ClassDefinition     _ClassDefinition;
@@ -288,7 +287,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
     // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:750)
     public static RuleDefinition      _AllowedAttributesRule;
-    public static RuleDefinition      _InitRule;
 
     public MetaSchemaAG() throws DmcValueException {
 
@@ -304,7 +302,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             // Create the class definitions
             // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:776)
             _AllowedAttributesRuleData   = new ClassDefinition("AllowedAttributesRuleData");
-            _InitRuleData                = new ClassDefinition("InitRuleData");
             _ActionTriggerInfo           = new ClassDefinition("ActionTriggerInfo");
             _DmsDefinition               = new ClassDefinition("DmsDefinition");
             _ClassDefinition             = new ClassDefinition("ClassDefinition");
@@ -570,7 +567,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             // Create the rule definitions
             // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:856)
             _AllowedAttributesRule       = new RuleDefinition("AllowedAttributesRule");
-            _InitRule                    = new RuleDefinition("InitRule");
 
             // Set attribute values on all objects
             // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:872)
@@ -1133,15 +1129,14 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _OperationalContextEnum      .setNullReturnValue("OperationalContextEnum.DMO");
             _OperationalContextEnum      .setDefinedIn(this);
 
-            _RuleScopeEnum               .setDescription("The RuleScopeEnum indicates the scope at which a rule is applied.  When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum will determine some additional attributes that will be added to the DMO class definition. <table> <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> ATTRIBUTE </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr> <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> CLASS     </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr> <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> </table>");
+            _RuleScopeEnum               .setDescription("The RuleScopeEnum indicates the scope at which a rule is applied.  When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum will determine some additional attributes that will be added to the DMO class definition. <table> <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> </table>");
             _RuleScopeEnum               .addEnumValue("0 PERCLASS 		Indicates the rule is applied within the scope of a class.");
-            _RuleScopeEnum               .addEnumValue("1 ACROSSCLASSES Indicates the rule is applied across several classes.");
             _RuleScopeEnum               .addEnumValue("2 GLOBAL		Indicates the rule is global in scope.");
             _RuleScopeEnum               .setName("RuleScopeEnum");
             _RuleScopeEnum               .setNullReturnValue("RuleScopeEnum.PERCLASS");
             _RuleScopeEnum               .setDefinedIn(this);
 
-            _RuleTypeEnum                .setDescription("The RuleTypeEnum indicates the level at which a rule is applied.");
+            _RuleTypeEnum                .setDescription("The RuleTypeEnum indicates the level at which a rule is applied. An ATTRIBUTE rule is applied at the attribute level and must have the applyToAttribute attribute and may have the applyToClass attribute to limit its scope to particular classes. A CLASS level rule will be applied to an entire object and will have the applyToClass attribute unless it is defined as GLOBAL.");
             _RuleTypeEnum                .addEnumValue("0 ATTRIBUTE Indicates that this is an attribute level rule.");
             _RuleTypeEnum                .addEnumValue("1 CLASS     Indicates that this is a class level rule.");
             _RuleTypeEnum                .setName("RuleTypeEnum");
@@ -2385,18 +2380,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ExtendedReferenceTypeDefinition.setName("ExtendedReferenceTypeDefinition");
             _ExtendedReferenceTypeDefinition.setDefinedIn(this);
 
-            _InitRuleData                .setClassType(ClassTypeEnum.EXTENSIBLE);
-            _InitRuleData                .setDerivedFrom(_RuleData);
-            _InitRuleData                .setDmdID("31");
-            _InitRuleData                .setDmoImport("org.dmd.dms.generated.dmo.InitRuleDataDMO");
-            _InitRuleData                .setInternallyGenerated("true");
-            _InitRuleData                .setJavaClass("org.dmd.dms.generated.dmo.InitRuleDataDMO");
-            _InitRuleData                .addMay(_description);
-            _InitRuleData                .addMust(_ruleTitle);
-            _InitRuleData                .setName("InitRuleData");
-            _InitRuleData                .setRuleDefinition(_InitRule);
-            _InitRuleData                .setDefinedIn(this);
-
             _ObjectValidatorDefinition   .setClassType(ClassTypeEnum.STRUCTURAL);
             _ObjectValidatorDefinition   .setDerivedFrom(_DmsDefinition);
             _ObjectValidatorDefinition   .setDescription("The ObjectValidatorDefinition allows for the the definition of object level validation logic.");
@@ -2605,19 +2588,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _AllowedAttributesRule       .setRuleType(RuleTypeEnum.CLASS);
             _AllowedAttributesRule       .setDefinedIn(this);
 
-            _InitRule                    .setDescription("The InitRule allows you to specify attribute values for a  newly created object or an object read from file or received in a CreateRequest (for instance). The InitRule will only set the values of attributes that are missing from the object; existing attributes are not alterred. An example usage might be: <p/> <pre> InitRule ruleTitle    Initialize the X class applyToClass X attributeA   some value attributeB   42 attributeC   something attributeC   something else </pre>");
-            _InitRule                    .setDmdID("31");
-            _InitRule                    .setIsExtensible("true");
-            _InitRule                    .setName("InitRule");
-            _InitRule                    .addRuleCategory(_Initialization);
-            _InitRule                    .setRuleScope(RuleScopeEnum.PERCLASS);
-            _InitRule                    .setRuleType(RuleTypeEnum.CLASS);
-            _InitRule                    .setDefinedIn(this);
-
         // Add the definitions to the schema object
         // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:888)
             this.addClassDefList(_AllowedAttributesRuleData);
-            this.addClassDefList(_InitRuleData);
             this.addClassDefList(_ActionTriggerInfo);
             this.addClassDefList(_DmsDefinition);
             this.addClassDefList(_ClassDefinition);
@@ -2868,12 +2841,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addRuleCategoryList(_AttributeValidation);
             this.addRuleCategoryList(_ModifierValidation);
             this.addRuleDefinitionList(_AllowedAttributesRule);
-            this.addRuleDefinitionList(_InitRule);
             this.setName("meta");
             this.setDescription("The meta schema defines the elements used to define schemas.");
             this.setSchemaPackage("org.dmd.dms");
             this.setDmwPackage("org.dmd.dms");
-            this.setSchemaBaseID(0);
+            this.setSchemaBaseID(-500000);
             this.setSchemaIDRange(200);
             }
             catch(Exception ex){

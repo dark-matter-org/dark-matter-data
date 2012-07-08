@@ -19,13 +19,13 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     static String schemaName = "meta";
 
 
-    static int schemaBaseID = 0;
+    static int schemaBaseID = -500000;
 
 
     static int schemaIDRange = 200;
 
 
-    static int schemaMaxID = 200;
+    static int schemaMaxID = -499800;
 
     public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",84,"FullyQualifiedName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",9,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -199,7 +199,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __TypeDefinition = new DmcClassInfo("TypeDefinition",4,ClassTypeEnum.STRUCTURAL,DataTypeEnum.PERSISTENT,__DmsDefinition,MetaDMSAG.__name);
     public final static DmcClassInfo __RuleData = new DmcClassInfo("RuleData",17,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,MetaDMSAG.__ruleName);
     public final static DmcClassInfo __AllowedAttributesRuleData = new DmcClassInfo("AllowedAttributesRuleData",30,ClassTypeEnum.STRUCTURAL,DataTypeEnum.PERSISTENT,__RuleData,null);
-    public final static DmcClassInfo __InitRuleData = new DmcClassInfo("InitRuleData",31,ClassTypeEnum.EXTENSIBLE,DataTypeEnum.PERSISTENT,__RuleData,null);
 
     public final static AllowedAttributesRule metaAllowedAttributes;
 
@@ -391,7 +390,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__DmsDefinition.id,__DmsDefinition);
         _CmAp.put(__EnumDefinition.id,__EnumDefinition);
         _CmAp.put(__ExtendedReferenceTypeDefinition.id,__ExtendedReferenceTypeDefinition);
-        _CmAp.put(__InitRuleData.id,__InitRuleData);
         _CmAp.put(__ObjectValidatorDefinition.id,__ObjectValidatorDefinition);
         _CmAp.put(__RuleCategory.id,__RuleCategory);
         _CmAp.put(__RuleData.id,__RuleData);
@@ -543,10 +541,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ExtendedReferenceTypeDefinition.addMay(__fieldSeparator);
         __ExtendedReferenceTypeDefinition.addMay(__file);
         __ExtendedReferenceTypeDefinition.addMay(__lineNumber);
-
-        __InitRuleData.addMust(__ruleName);
-        __InitRuleData.addMust(__ruleTitle);
-        __InitRuleData.addMay(__description);
 
         __ObjectValidatorDefinition.addMust(__name);
         __ObjectValidatorDefinition.addMust(__validatorClass);
