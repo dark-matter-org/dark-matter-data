@@ -844,6 +844,40 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
         return(attr.getMVSize());
     }
 
+    /**
+     * The RuleData defined in a schema.
+     * @return An Iterator of RuleData objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1903)
+    public RuleDataIterableDMW getRuleDataList(){
+        DmcTypeRuleDataREFMV attr = (DmcTypeRuleDataREFMV) mycore.get(MetaDMSAG.__ruleDataList);
+        if (attr == null)
+            return(RuleDataIterableDMW.emptyList);
+
+        return(new RuleDataIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another ruleDataList value.
+     * @param value A value compatible with RuleData
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1951)
+    public DmcAttribute<?> addRuleDataList(RuleData value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addRuleDataList(value.getDmcObject());
+        return(attr);
+    }
+
+    /**
+     * Returns the number of ruleDataList values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1974)
+    public int getRuleDataListSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleDataList);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

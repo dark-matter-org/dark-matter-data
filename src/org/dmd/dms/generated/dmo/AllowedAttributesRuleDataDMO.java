@@ -43,12 +43,18 @@ public class AllowedAttributesRuleDataDMO extends org.dmd.dms.generated.dmo.Rule
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(MetaDMSAG.__ruleName.id,MetaDMSAG.__ruleName);
         _ImAp.put(MetaDMSAG.__ruleTitle.id,MetaDMSAG.__ruleTitle);
+        _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
+        _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
+        _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__ruleName.name,MetaDMSAG.__ruleName);
         _SmAp.put(MetaDMSAG.__ruleTitle.name,MetaDMSAG.__ruleTitle);
+        _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
+        _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
+        _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
     }
 
 
@@ -136,6 +142,32 @@ public class AllowedAttributesRuleDataDMO extends org.dmd.dms.generated.dmo.Rule
     }
 
     /**
+     * Indicates the schema in which a type, attribute or class is defined.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1745)
+    public SchemaDefinitionREF getDefinedIn(){
+        DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets definedIn to the specified value.
+     * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1796)
+    public void setDefinedIn(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
+        if (attr == null)
+            attr = new DmcTypeSchemaDefinitionREFSV(MetaDMSAG.__definedIn);
+        
+        attr.set(value);
+        set(MetaDMSAG.__definedIn,attr);
+    }
+
+    /**
      * The description attribute is used to provide descriptive documentation for
      * schema related definitions. The description is of type XHMTLString which
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
@@ -162,6 +194,58 @@ public class AllowedAttributesRuleDataDMO extends org.dmd.dms.generated.dmo.Rule
         
         attr.set(value);
         set(MetaDMSAG.__description,attr);
+    }
+
+    /**
+     * Indicates the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1745)
+    public String getFile(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets file to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1796)
+    public void setFile(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__file);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__file);
+        
+        attr.set(value);
+        set(MetaDMSAG.__file,attr);
+    }
+
+    /**
+     * Indicates the line number of the file from which a definition was loaded.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1745)
+    public Integer getLineNumber(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets lineNumber to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1796)
+    public void setLineNumber(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(MetaDMSAG.__lineNumber);
+        
+        attr.set(value);
+        set(MetaDMSAG.__lineNumber,attr);
     }
 
 

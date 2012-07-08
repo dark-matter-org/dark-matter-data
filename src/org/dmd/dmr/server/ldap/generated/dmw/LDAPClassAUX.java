@@ -40,7 +40,7 @@ import org.dmd.dmw.DmwWrapper;                                              // U
 public class LDAPClassAUX {
 
     public final static ClassDefinition _auxClass = org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG._LDAPClassAUX;
-    public final static DmcAttributeInfo __namingAttribute = new DmcAttributeInfo("namingAttribute",64,"AttributeDefinitionREF",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __namingAttribute = new DmcAttributeInfo("namingAttribute",-2999936,"AttributeDefinitionREF",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __reposName = new DmcAttributeInfo("reposName",451,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
 
     /**

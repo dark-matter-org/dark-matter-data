@@ -66,6 +66,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__objectValidatorDefList.id,MetaDMSAG.__objectValidatorDefList);
         _ImAp.put(MetaDMSAG.__ruleCategoryList.id,MetaDMSAG.__ruleCategoryList);
+        _ImAp.put(MetaDMSAG.__ruleDataList.id,MetaDMSAG.__ruleDataList);
         _ImAp.put(MetaDMSAG.__ruleDefinitionList.id,MetaDMSAG.__ruleDefinitionList);
         _ImAp.put(MetaDMSAG.__schemaExtension.id,MetaDMSAG.__schemaExtension);
         _ImAp.put(MetaDMSAG.__sliceDefList.id,MetaDMSAG.__sliceDefList);
@@ -97,6 +98,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__objectValidatorDefList.name,MetaDMSAG.__objectValidatorDefList);
         _SmAp.put(MetaDMSAG.__ruleCategoryList.name,MetaDMSAG.__ruleCategoryList);
+        _SmAp.put(MetaDMSAG.__ruleDataList.name,MetaDMSAG.__ruleDataList);
         _SmAp.put(MetaDMSAG.__ruleDefinitionList.name,MetaDMSAG.__ruleDefinitionList);
         _SmAp.put(MetaDMSAG.__schemaExtension.name,MetaDMSAG.__schemaExtension);
         _SmAp.put(MetaDMSAG.__sliceDefList.name,MetaDMSAG.__sliceDefList);
@@ -836,6 +838,34 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         
         attr.add(value);
         add(MetaDMSAG.__ruleCategoryList,attr);
+        return(attr);
+    }
+
+    /**
+     * The RuleData defined in a schema.
+     * @return An Iterator of RuleDataDMO objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1882)
+    public Iterator<RuleDataREF> getRuleDataList(){
+        DmcTypeRuleDataREFMV attr = (DmcTypeRuleDataREFMV) get(MetaDMSAG.__ruleDataList);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another ruleDataList value.
+     * @param value A value compatible with DmcTypeRuleDataREFMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1933)
+    public DmcAttribute<?> addRuleDataList(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__ruleDataList);
+        if (attr == null)
+            attr = new DmcTypeRuleDataREFMV(MetaDMSAG.__ruleDataList);
+        
+        attr.add(value);
+        add(MetaDMSAG.__ruleDataList,attr);
         return(attr);
     }
 

@@ -97,11 +97,13 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof WrapperGeneratorDMO){
             return( getObjectName().equals( ((WrapperGeneratorDMO) obj).getObjectName()) );
@@ -109,6 +111,7 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         StringName objn = getObjectName();
         if (objn == null)

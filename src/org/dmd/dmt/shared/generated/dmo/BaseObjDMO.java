@@ -46,11 +46,13 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof BaseObjDMO){
             return( getObjectName().equals( ((BaseObjDMO) obj).getObjectName()) );
@@ -58,6 +60,7 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         StringName objn = getObjectName();
         if (objn == null)

@@ -76,11 +76,13 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof TestDerivedDiffSubpackageDMO){
             return( getObjectName().equals( ((TestDerivedDiffSubpackageDMO) obj).getObjectName()) );
@@ -88,6 +90,7 @@ public class TestDerivedDiffSubpackageDMO  extends TestOneLevelSubpackageDMO  im
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         StringName objn = getObjectName();
         if (objn == null)

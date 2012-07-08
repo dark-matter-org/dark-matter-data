@@ -12,7 +12,7 @@ import org.dmd.dms.extended.rules.*;
 import org.dmd.dmc.rules.RuleIF;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:271)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:283)
 public class MetaDMSAG implements DmcCompactSchemaIF {
 
 
@@ -147,6 +147,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __ruleCategory = new DmcAttributeInfo("ruleCategory",139,"RuleCategory",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleCategoryID = new DmcAttributeInfo("ruleCategoryID",140,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleCategoryList = new DmcAttributeInfo("ruleCategoryList",143,"RuleCategory",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __ruleDataList = new DmcAttributeInfo("ruleDataList",156,"RuleData",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleDefinition = new DmcAttributeInfo("ruleDefinition",145,"RuleDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleDefinitionList = new DmcAttributeInfo("ruleDefinitionList",144,"RuleDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleExecution = new DmcAttributeInfo("ruleExecution",151,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -347,6 +348,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__ruleCategory.id,__ruleCategory);
         _SmAp.put(__ruleCategoryID.id,__ruleCategoryID);
         _SmAp.put(__ruleCategoryList.id,__ruleCategoryList);
+        _SmAp.put(__ruleDataList.id,__ruleDataList);
         _SmAp.put(__ruleDefinition.id,__ruleDefinition);
         _SmAp.put(__ruleDefinitionList.id,__ruleDefinitionList);
         _SmAp.put(__ruleExecution.id,__ruleExecution);
@@ -418,7 +420,10 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
         __AllowedAttributesRuleData.addMust(__ruleName);
         __AllowedAttributesRuleData.addMust(__ruleTitle);
+        __AllowedAttributesRuleData.addMay(__definedIn);
         __AllowedAttributesRuleData.addMay(__description);
+        __AllowedAttributesRuleData.addMay(__file);
+        __AllowedAttributesRuleData.addMay(__lineNumber);
 
         __AttributeDefinition.addMust(__name);
         __AttributeDefinition.addMust(__type);
@@ -563,7 +568,10 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
         __RuleData.addMust(__ruleName);
         __RuleData.addMust(__ruleTitle);
+        __RuleData.addMay(__definedIn);
         __RuleData.addMay(__description);
+        __RuleData.addMay(__file);
+        __RuleData.addMay(__lineNumber);
 
         __RuleDefinition.addMust(__description);
         __RuleDefinition.addMust(__dmdID);
@@ -611,6 +619,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __SchemaDefinition.addMay(__lineNumber);
         __SchemaDefinition.addMay(__objectValidatorDefList);
         __SchemaDefinition.addMay(__ruleCategoryList);
+        __SchemaDefinition.addMay(__ruleDataList);
         __SchemaDefinition.addMay(__ruleDefinitionList);
         __SchemaDefinition.addMay(__schemaExtension);
         __SchemaDefinition.addMay(__sliceDefList);

@@ -30,6 +30,7 @@ import org.dmd.dmc.DmcObjectNameIF;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.types.RuleName;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
@@ -137,6 +138,7 @@ public class SchemaManager implements DmcNameResolverIF {
     public int  											longestRuleCategoryName;
     public TreeMap<Integer,RuleCategory>					ruleCategoriesByID;
 
+    public TreeMap<RuleName,RuleData>						ruleData;
 
 
     // Key: StringName
@@ -245,6 +247,7 @@ public class SchemaManager implements DmcNameResolverIF {
         ruleCategoryDefs   			= new HashMap<StringName,RuleCategory>();
         ruleCategoriesByID			= new TreeMap<Integer, RuleCategory>();
         ruleDefs   					= new HashMap<StringName,RuleDefinition>();
+        ruleData					= new TreeMap<RuleName, RuleData>();
         objectValidatorDefs   		= new HashMap<StringName,ObjectValidatorDefinition>();
         attributeValidatorDefs		= new HashMap<StringName,AttributeValidatorDefinition>();
         schemaDefs  				= new TreeMap<StringName,SchemaDefinition>();
@@ -1734,7 +1737,22 @@ public class SchemaManager implements DmcNameResolverIF {
 
     }
 
-
+    /**
+     * Attempts to add the specified rule data. The rule data name must be globally unique.
+     * @param rule
+     */
+    public void addRuleData(RuleData rule) throws ResultException {
+    	RuleData existing = ruleData.get(rule.getObjectName());
+    	
+    	if (existing == null){
+    		ruleData.put(rule.getObjectName(), rule);
+    	}
+    	else{
+    		ResultException ex = new ResultException();
+    		ex.addError("The following rules have a name clash:\n\n" + existing.toOIF() + "\n" + rule.toOIF());
+    		throw(ex);
+    	}
+    }
     
     /**
      * This generic method checks that the name of the existing definition type doesn't

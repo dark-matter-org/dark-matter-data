@@ -83,11 +83,13 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__uuidName);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof UUIDNamedObjectDMO){
             return( getObjectName().equals( ((UUIDNamedObjectDMO) obj).getObjectName()) );
@@ -95,6 +97,7 @@ public class UUIDNamedObjectDMO  extends DmcObject  implements DmcNamedObjectIF,
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         UUIDName objn = getObjectName();
         if (objn == null)

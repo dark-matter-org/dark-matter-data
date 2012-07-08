@@ -207,6 +207,8 @@ public class DmoCompactSchemaFormatter {
 			out.write("        @SuppressWarnings(\"unused\")\n");
 			out.write("        " + rd.getName() + " " + rd.getName() + "Instance = new " + rd.getName() + "(new " + rd.getName() + "DataDMO());\n");
 		}
+		
+//		for(RuleData rd : sd.getR)
         
         // End of static initializer
 

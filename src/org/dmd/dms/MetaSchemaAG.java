@@ -277,6 +277,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _ruleName;
     public static AttributeDefinition _applyToClass;
     public static AttributeDefinition _applyToClasses;
+    public static AttributeDefinition _ruleDataList;
     public static AttributeDefinition _objectClass;
 
     // Generated from: org.dmd.dms.meta.MetaGenerator.dumpMetaSchema(MetaGenerator.java:745)
@@ -555,6 +556,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ruleName                    = new AttributeDefinition("ruleName", _RuleName);
             _applyToClass                = new AttributeDefinition("applyToClass", _ClassDefinitionREF);
             _applyToClasses              = new AttributeDefinition("applyToClasses", _ClassDefinitionREF);
+            _ruleDataList                = new AttributeDefinition("ruleDataList", _RuleDataREF);
             _objectClass                 = new AttributeDefinition("objectClass", _ClassDefinitionREF);
 
             // Create the rule category definitions
@@ -1965,6 +1967,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _ruleCategoryList            .setValueType(ValueTypeEnum.MULTI);
             _ruleCategoryList            .setDefinedIn(this);
 
+            _ruleDataList                .setDescription("The RuleData defined in a schema.");
+            _ruleDataList                .setDmdID("156");
+            _ruleDataList                .setName("ruleDataList");
+            _ruleDataList                .setType(_RuleDataREF);
+            _ruleDataList                .setValueType(ValueTypeEnum.MULTI);
+            _ruleDataList                .setDefinedIn(this);
+
             _ruleDefinition              .setDescription("The RuleDefinition that resulted in the creation of an internally generated ClassDefinition.");
             _ruleDefinition              .setDmdID("145");
             _ruleDefinition              .setName("ruleDefinition");
@@ -2418,6 +2427,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _RuleData                    .setIsNamedBy(_ruleName);
             _RuleData                    .setJavaClass("org.dmd.dms.RuleData");
             _RuleData                    .addMay(_description);
+            _RuleData                    .addMay(_definedIn);
+            _RuleData                    .addMay(_file);
+            _RuleData                    .addMay(_lineNumber);
             _RuleData                    .addMust(_ruleTitle);
             _RuleData                    .addMust(_ruleName);
             _RuleData                    .setName("RuleData");
@@ -2483,6 +2495,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             _SchemaDefinition            .addMay(_dependsOnRef);
             _SchemaDefinition            .addMay(_ruleCategoryList);
             _SchemaDefinition            .addMay(_ruleDefinitionList);
+            _SchemaDefinition            .addMay(_ruleDataList);
             _SchemaDefinition            .addMust(_name);
             _SchemaDefinition            .addMust(_description);
             _SchemaDefinition            .addMust(_schemaPackage);
@@ -2835,6 +2848,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             this.addAttributeDefList(_ruleName);
             this.addAttributeDefList(_applyToClass);
             this.addAttributeDefList(_applyToClasses);
+            this.addAttributeDefList(_ruleDataList);
             this.addAttributeDefList(_objectClass);
             this.addRuleCategoryList(_Initialization);
             this.addRuleCategoryList(_ObjectValidation);

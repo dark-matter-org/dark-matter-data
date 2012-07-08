@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeAttributeValidatorDefinitionREFSV provides storage for a single-valued AttributeValidatorDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1926)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1936)
  *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
  */
 @SuppressWarnings("serial")
@@ -48,14 +48,14 @@ public class DmcTypeAttributeValidatorDefinitionREFSV extends DmcTypeAttributeVa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1968)
     public DmcAttribute<AttributeValidatorDefinitionREF> cloneIt(){
         DmcTypeAttributeValidatorDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1979)
     public AttributeValidatorDefinitionREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeAttributeValidatorDefinitionREFSV extends DmcTypeAttributeVa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1981)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1991)
     public AttributeValidatorDefinitionREF set(Object v) throws DmcValueException {
         AttributeValidatorDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

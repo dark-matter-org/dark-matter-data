@@ -6,13 +6,13 @@ import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dmc.rules.RuleIF;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:633)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:609)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                     // Have class definitions - (DmoCompactSchemaFormatter.java:601)
-import org.dmd.dms.generated.enums.DataTypeEnum;                      // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:602)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                     // Have attribute definitions - (DmoCompactSchemaFormatter.java:624)
-import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                 // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:630)
-import org.dmd.dmv.shared.extended.rulesdmo.IntegerRangeRule;         // To support instantiations of IntegerRangeRule - (DmoCompactSchemaFormatter.java:630)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:635)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:611)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                     // Have class definitions - (DmoCompactSchemaFormatter.java:603)
+import org.dmd.dms.generated.enums.DataTypeEnum;                      // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:604)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                     // Have attribute definitions - (DmoCompactSchemaFormatter.java:626)
+import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                 // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:632)
+import org.dmd.dmv.shared.extended.rulesdmo.IntegerRangeRule;         // To support instantiations of IntegerRangeRule - (DmoCompactSchemaFormatter.java:632)
 
 
 
@@ -77,9 +77,9 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         __IntegerRangeRuleData.addMust(__irrMaximum);
         __IntegerRangeRuleData.addMay(MetaDMSAG.__description);
 
-@SuppressWarnings("unused")
+        @SuppressWarnings("unused")
         InitRule InitRuleInstance = new InitRule(new InitRuleDataDMO());
-@SuppressWarnings("unused")
+        @SuppressWarnings("unused")
         IntegerRangeRule IntegerRangeRuleInstance = new IntegerRangeRule(new IntegerRangeRuleDataDMO());
 
     }

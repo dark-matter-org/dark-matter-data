@@ -274,8 +274,7 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
         	ex.addError("The specified object is not a DMD object: \n" + def.toOIF());
         	throw(ex);
         }
-
     }
-    
+        
 }
 

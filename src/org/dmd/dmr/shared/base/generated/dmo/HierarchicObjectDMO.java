@@ -93,11 +93,13 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
         return(null);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__FQN);
         return(name);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof HierarchicObjectDMO){
             return( getObjectName().equals( ((HierarchicObjectDMO) obj).getObjectName()) );
@@ -105,6 +107,7 @@ public class HierarchicObjectDMO  extends DmcObject  implements DmcNamedObjectIF
         return(false);
     }
 
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         FullyQualifiedName objn = getObjectName();
         if (objn == null)

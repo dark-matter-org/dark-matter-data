@@ -6,11 +6,11 @@ import java.util.Iterator;
 import org.dmd.dmc.*;
 import org.dmd.dmc.rules.RuleIF;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:633)
-import org.dmd.dms.generated.dmo.MetaDMSAG;               // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:613)
-import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions - (DmoCompactSchemaFormatter.java:601)
-import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:602)
-import org.dmd.dms.generated.enums.ValueTypeEnum;         // Have attribute definitions - (DmoCompactSchemaFormatter.java:624)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:635)
+import org.dmd.dms.generated.dmo.MetaDMSAG;               // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:615)
+import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions - (DmoCompactSchemaFormatter.java:603)
+import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:604)
+import org.dmd.dms.generated.enums.ValueTypeEnum;         // Have attribute definitions - (DmoCompactSchemaFormatter.java:626)
 
 
 

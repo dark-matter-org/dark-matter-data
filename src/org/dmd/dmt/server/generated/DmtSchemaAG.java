@@ -158,6 +158,7 @@ public class DmtSchemaAG extends SchemaDefinition {
         staticRefName   = "org.dmd.dmt.server.generated.DmtSchemaAG";
 
         dependsOnSchemaClasses.put("dmp","org.dmd.dmp.server.generated.DmpSchemaAG");
+        dependsOnSchemaClasses.put("dmv","org.dmd.dmv.server.generated.DmvSchemaAG");
 
     }
 
@@ -173,6 +174,9 @@ public class DmtSchemaAG extends SchemaDefinition {
 
             me.addDependsOn("dmp");
             dependsOnSchemaClasses.put("dmp","org.dmd.dmp.server.generated.DmpSchemaAG");
+
+            me.addDependsOn("dmv");
+            dependsOnSchemaClasses.put("dmv","org.dmd.dmv.server.generated.DmvSchemaAG");
 
 
             initClasses();
