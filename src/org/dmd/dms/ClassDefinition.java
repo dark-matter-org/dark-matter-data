@@ -264,6 +264,14 @@ public class ClassDefinition extends ClassDefinitionDMW {
     		return(true);
     }
     
+    public boolean isAllowedAttribute(StringName name){
+    	if (fullAttrMap == null)
+    		getFullAttrMap();
+    	if (fullAttrMap.get(name) == null)
+    		return(false);
+    	return(true);
+    }
+    
     private void initAttrMap(){
         if (attrMap == null){
             Iterator<AttributeDefinition> it;

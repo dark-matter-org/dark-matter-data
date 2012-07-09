@@ -26,9 +26,11 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.MetaSchema;
+import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.RuleData;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.dmw.DmwWrapper;
@@ -316,13 +318,35 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 //        			DebugInfo.debug("Reading action...");
 //        		}
         		
+        		// If we're underneath a standard eclipse project, we ignore everything before
+        		// the /src folder name.
+				int srcloc = infile.indexOf("/src");
+				String srcFile = "";
+				if (srcloc != -1)
+					srcFile = infile.substring(srcloc);
+				else
+					srcFile = infile;
+
+				// More interesting hand waving to handle rule instances. For most of the 
+        		// objects that are found in schema definitions everything can be handled
+        		// in the usual way i.e. for ClassDefinitions, AttributeDefinitions,
+        		// RuleDefinitions etc. all of those classes are defined as part of the
+        		// meta schema and we have loaded the MetaSchemaAG. This means that we
+        		// can use the dmwfactory to instantiate these objects. However, for
+        		// instances of RuleDefinition, we're dealing with objects that are read
+        		// from the schema definition files and not using the loaded schemas. In
+        		// that case, we don't have all the information required to instantiate
+        		// objects. 
         		ClassDefinition checkClass = allSchema.isClass(uco.classes.get(0));
         		if (checkClass != null){
         			if (checkClass.getRuleDefinition() != null){
-        				DebugInfo.debug("DmsSchemaParser.handleObject() We have a rule: \n\n" + uco.toOIF(15));
-        				RuleDataDMO ruleDataDMO = (RuleDataDMO) dmofactory.createObject(uco);
+        				DebugInfo.debug("DmsSchemaParser.handleObject() We have a rule: \n\n" + uco.toOIF());
+
+        				uco.addValue(MetaDMSAG.__lineNumber.name, lineNumber + "");
+        				uco.addValue(MetaDMSAG.__file.name, srcFile);
+        				uco.addValue(MetaDMSAG.__definedIn.name, schemaLoading.getName().getNameString());
         				
-        				DebugInfo.debugWithTrace(ruleDataDMO.toOIF());
+        				schemaLoading.addParsedRule(uco);
         				
         				return;
         			}
@@ -332,25 +356,17 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         		newDef 		= null;
         		newRuleData = null;
         		
-        		// If we're underneath a standard eclipse project, we ignore everything before
-        		// the /src folder name.
-				int srcloc = infile.indexOf("/src");
-				String srcFile = "";
-				if (srcloc != -1)
-					srcFile = infile.substring(srcloc);
-				else
-					srcFile = infile;
 				
-        		if (newObj instanceof DmsDefinition){
+//        		if (newObj instanceof DmsDefinition){
         			newDef = (DmsDefinition) newObj;
         			newDef.setFile(srcFile);
         			newDef.setLineNumber(lineNumber);
-        		}
-        		else{
-        			newRuleData = (RuleData) newObj;
-        			newRuleData.setFile(srcFile);
-        			newRuleData.setLineNumber(lineNumber);
-        		}
+//        		}
+//        		else{
+//        			newRuleData = (RuleData) newObj;
+//        			newRuleData.setFile(srcFile);
+//        			newRuleData.setLineNumber(lineNumber);
+//        		}
         	
 //				newDef = (DmsDefinition)dmwfactory.createWrapper(uco);
 //				int srcloc = infile.indexOf("/src");
@@ -531,16 +547,16 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
                 	// internal types for enums and object references. The definedIn schema will have
                 	// its internalTypeDefList attribute augmented with these types.
             		
-            		if (newDef == null){
-            			newRuleData.setDefinedIn(schemaLoading);
-            			allSchema.addRuleData(newRuleData);
-            			schemaLoading.addRuleDataList(newRuleData);
-            		}
-            		else{
+//            		if (newDef == null){
+//            			newRuleData.setDefinedIn(schemaLoading);
+//            			allSchema.addRuleData(newRuleData);
+//            			schemaLoading.addRuleDataList(newRuleData);
+//            		}
+//            		else{
                 		newDef.setDefinedIn(schemaLoading);
                     	allSchema.addDefinition(newDef);
                 		schemaLoading.addDefinition(newDef);
-            		}                		
+//            		}                		
                 }
             }
         }
