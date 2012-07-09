@@ -63,6 +63,7 @@ description     The TestBasicObjectFixed class provides a test bed for all types
  attribute values.
 
 InitRuleData
+ruleName  dmtInitTestBasicObjectFixed
 ruleTitle Initialize TestBasicObjectFixed
 svString	the single valued string
 
