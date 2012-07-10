@@ -20,8 +20,10 @@ import java.util.ArrayList;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
 import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;
+import org.dmd.dms.generated.enums.ValueTypeEnum;
 
 public class AttributeDefinition extends AttributeDefinitionDMW {
 
@@ -148,5 +150,42 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     	}
     	
     	return(getType().getName() + REF + suffix + "Adapter");
+    }
+    
+    /**
+     * @return the import statement for the appropriate type of this attribute e.g. org.dmd.dms.generated.types.DmcTypeStringSV.
+     */
+    public String getTypeImport(){
+    	return(getType().getTypeImport(this));
+    }
+    
+    /**
+     * @return the name of the container type for this attribute e.g. DmcTypeStringSV
+     */
+    public String getContainerType(){
+    	return(getType().getContainerType(this));
+    }
+    
+    public String getValueModificationStatement(String indent, String prepend, NamedStringArray values){
+    	StringBuffer sb = new StringBuffer();
+    	
+    	
+    	if (getValueType() == ValueTypeEnum.SINGLE){
+    		sb.append(indent + getContainerType() + " " + values.getName() + "Value = null;\n");
+    		for(String value: values){
+    			sb.append(indent + values.getName() + "Value = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
+    			sb.append(indent + values.getName() + "Value.set(\"" + value + "\");\n");
+    			sb.append(prepend + ".set(" + getDMSAGReference() + ", " + values.getName() + "Value);\n");
+    		}
+    	}
+    	else{
+    		sb.append(indent + getContainerType() + " " + values.getName() + "Value = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
+    		for(String value: values){
+    			sb.append(indent + values.getName() + "Value.add(\"" + value + "\");\n");
+    		}
+			sb.append(prepend + ".add(" + getDMSAGReference() + ", " + values.getName() + "Value);\n");
+    	}
+    	
+    	return(sb.toString());
     }
 }

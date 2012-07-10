@@ -17,6 +17,7 @@ package org.dmd.util.parsing;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.util.exceptions.*;
 
 /**

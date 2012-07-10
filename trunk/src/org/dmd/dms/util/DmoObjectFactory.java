@@ -21,14 +21,14 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.util.DmcUncheckedObject;
+import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
-import org.dmd.util.parsing.DmcUncheckedObject;
-import org.dmd.util.parsing.NamedStringArray;
 
 /**
  * The DmwObjectFactory takes an DmcUncheckedObject and creates DmwWrapperBase derived

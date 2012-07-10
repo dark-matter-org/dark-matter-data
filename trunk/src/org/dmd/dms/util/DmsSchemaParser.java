@@ -22,16 +22,14 @@ import java.util.Stack;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.MetaSchema;
-import org.dmd.dms.MetaSchemaAG;
-import org.dmd.dms.RuleData;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
-import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.dmw.DmwWrapper;
 import org.dmd.util.exceptions.DebugInfo;
@@ -42,7 +40,6 @@ import org.dmd.util.parsing.ConfigLocation;
 import org.dmd.util.parsing.ConfigVersion;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
-import org.dmd.util.parsing.DmcUncheckedObject;
 
 
 /**
@@ -279,7 +276,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         ClassDefinition     cd                  = null;
         boolean             isSchema            = false;
         DmsDefinition    	newDef              = null;
-        RuleData    		newRuleData         = null;
+//        RuleData    		newRuleData         = null;
         Iterator<String>    dependsOnSchemas    = null;
         Iterator<String>    defFiles            = null;
         SchemaDefinition    currSchema          = null;
@@ -354,7 +351,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         		
         		DmwWrapper newObj = dmwfactory.createWrapper(uco);
         		newDef 		= null;
-        		newRuleData = null;
+//        		newRuleData = null;
         		
 				
 //        		if (newObj instanceof DmsDefinition){

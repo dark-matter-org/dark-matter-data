@@ -21,11 +21,11 @@ import java.util.TreeMap;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.RuleName;
 import org.dmd.dmc.types.StringToString;
+import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.exceptions.ResultException;
-import org.dmd.util.parsing.DmcUncheckedObject;
 
 public class SchemaDefinition extends SchemaDefinitionDMW {
 

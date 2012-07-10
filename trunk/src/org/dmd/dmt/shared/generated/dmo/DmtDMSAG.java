@@ -1,19 +1,25 @@
 package org.dmd.dmt.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:690)
-import java.util.ArrayList;                                      // For storage of schema info - (DmoCompactSchemaFormatter.java:629)
-import java.util.HashMap;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:628)
-import java.util.Iterator;                                       // For access of schema info - (DmoCompactSchemaFormatter.java:630)
-import org.dmd.dmc.*;                                            // Basic DMC stuff - (DmoCompactSchemaFormatter.java:631)
-import org.dmd.dmc.rules.RuleIF;                                 // For rule info - (DmoCompactSchemaFormatter.java:632)
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                // Required attribute from DmpDMSAG - (DmoCompactSchemaFormatter.java:644)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                      // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:644)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                // Have class definitions - (DmoCompactSchemaFormatter.java:636)
-import org.dmd.dms.generated.enums.DataTypeEnum;                 // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:637)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                // Have attribute definitions - (DmoCompactSchemaFormatter.java:659)
-import org.dmd.dmv.shared.extended.rulesdmo.InitRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:685)
-import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;         // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:684)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:723)
+import java.util.ArrayList;                                              // For storage of schema info - (DmoCompactSchemaFormatter.java:661)
+import java.util.HashMap;                                                // For storage of schema info - (DmoCompactSchemaFormatter.java:660)
+import java.util.Iterator;                                               // For access of schema info - (DmoCompactSchemaFormatter.java:662)
+import org.dmd.dmc.*;                                                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:663)
+import org.dmd.dmc.rules.RuleIF;                                         // For rule info - (DmoCompactSchemaFormatter.java:664)
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                        // Required attribute from DmpDMSAG - (DmoCompactSchemaFormatter.java:676)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:676)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                        // Have class definitions - (DmoCompactSchemaFormatter.java:668)
+import org.dmd.dms.generated.enums.DataTypeEnum;                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:669)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                        // Have attribute definitions - (DmoCompactSchemaFormatter.java:691)
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;          // Support for addition of applyToClass values to the extensible InitRuleData class - (ClassDefinition.java:894)
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;                     // Support for addition of svInteger values to the extensible InitRuleData class - (ClassDefinition.java:894)
+import org.dmd.dms.generated.types.DmcTypeStringMV;                      // Support for addition of mvString values to the extensible InitRuleData class - (ClassDefinition.java:894)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                      // Support for addition of svString values to the extensible InitRuleData class - (ClassDefinition.java:894)
+import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                    // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:717)
+import org.dmd.dmv.shared.extended.rulesdmo.IntegerRangeRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:717)
+import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;                 // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:716)
+import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;         // To instantiate IntegerRangeRuleData rule data - (DmoCompactSchemaFormatter.java:716)
 
 import org.dmd.dmt.shared.generated.types.*;
 
@@ -158,6 +164,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __UsingIndexedAttributes = new DmcClassInfo("UsingIndexedAttributes", 10019, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __UsingObjRefHM = new DmcClassInfo("UsingObjRefHM", 10020, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
 
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:146)
     public final static DmcSliceInfo __slice1 = new DmcSliceInfo("slice1");
     // svBoolean
     // mvFloat
@@ -167,6 +174,10 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     // mvString
     // mvTestEnum
 
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:162)
+    public final static InitRule __dmtInitTestBasicObjectFixed;
+    public final static IntegerRangeRule __dmtSvIntegerRange;
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -508,18 +519,47 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __ExtendedRefTS.addMay(__tsExtendedRef);
 
 
-        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:218)
+        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:245)
         try{
             InitRuleDataDMO _dmtInitTestBasicObjectFixedData = new InitRuleDataDMO();
+            DmcTypeClassDefinitionREFSV applyToClassValue = null;
+            applyToClassValue = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__applyToClass);
+            applyToClassValue.set("TestBasicObjectFixed");
+            _dmtInitTestBasicObjectFixedData.set(MetaDMSAG.__applyToClass, applyToClassValue);
             _dmtInitTestBasicObjectFixedData.setDefinedIn("dmt");
             _dmtInitTestBasicObjectFixedData.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _dmtInitTestBasicObjectFixedData.setLineNumber("69");
+            _dmtInitTestBasicObjectFixedData.setLineNumber("73");
+            DmcTypeStringMV mvStringValue = new DmcTypeStringMV(DmtDMSAG.__mvString);
+            mvStringValue.add("first value");
+            mvStringValue.add("second value");
+            _dmtInitTestBasicObjectFixedData.add(DmtDMSAG.__mvString, mvStringValue);
             _dmtInitTestBasicObjectFixedData.setRuleName("dmtInitTestBasicObjectFixed");
             _dmtInitTestBasicObjectFixedData.setRuleTitle("Initialize TestBasicObjectFixed");
+            DmcTypeIntegerSV svIntegerValue = null;
+            svIntegerValue = new DmcTypeIntegerSV(DmtDMSAG.__svInteger);
+            svIntegerValue.set("8");
+            _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svInteger, svIntegerValue);
+            DmcTypeStringSV svStringValue = null;
+            svStringValue = new DmcTypeStringSV(DmtDMSAG.__svString);
+            svStringValue.set("the single valued string");
+            _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svString, svStringValue);
 
-            InitRule dmtInitTestBasicObjectFixed = new InitRule(_dmtInitTestBasicObjectFixedData);
+            __dmtInitTestBasicObjectFixed = new InitRule(_dmtInitTestBasicObjectFixedData);
 
-            _RmAp.add(dmtInitTestBasicObjectFixed);
+            _RmAp.add(__dmtInitTestBasicObjectFixed);
+
+            IntegerRangeRuleDataDMO _dmtSvIntegerRangeData = new IntegerRangeRuleDataDMO();
+            _dmtSvIntegerRangeData       .setDefinedIn("dmt");
+            _dmtSvIntegerRangeData       .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _dmtSvIntegerRangeData       .setIrrMaximum("10");
+            _dmtSvIntegerRangeData       .setIrrMinimum("1");
+            _dmtSvIntegerRangeData       .setLineNumber("79");
+            _dmtSvIntegerRangeData       .setRuleName("dmtSvIntegerRange");
+            _dmtSvIntegerRangeData       .setRuleTitle("Check that svInteger is in range 1-10");
+
+            __dmtSvIntegerRange = new IntegerRangeRule(_dmtSvIntegerRangeData);
+
+            _RmAp.add(__dmtSvIntegerRange);
 
         } catch(DmcValueException ex){
             throw(new IllegalStateException(ex));

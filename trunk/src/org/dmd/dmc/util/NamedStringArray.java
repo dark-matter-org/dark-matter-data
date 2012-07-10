@@ -1,4 +1,4 @@
-package org.dmd.util.parsing;
+package org.dmd.dmc.util;
 
 import java.util.ArrayList;
 

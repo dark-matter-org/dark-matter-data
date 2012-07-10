@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 

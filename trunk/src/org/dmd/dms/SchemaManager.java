@@ -32,6 +32,8 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.RuleName;
 import org.dmd.dmc.types.StringName;
+import org.dmd.dmc.util.DmcUncheckedObject;
+import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -45,8 +47,6 @@ import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.ResultSet;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.Dictionary;
-import org.dmd.util.parsing.DmcUncheckedObject;
-import org.dmd.util.parsing.NamedStringArray;
 import org.dmd.util.parsing.Token;
 
 
