@@ -23,7 +23,7 @@ public class InitRule extends InitRuleBaseImpl {
 				try {
 					// We don't have this attribute
 					if (attribute.getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
-							obj.set(attribute.getAttributeInfo(), attribute.cloneIt());
+						obj.set(attribute.getAttributeInfo(), attribute.cloneIt());
 					}
 					else{
 						

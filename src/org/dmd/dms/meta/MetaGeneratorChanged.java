@@ -25,6 +25,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.util.DmcUncheckedObject;
+import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.DmoCompactSchemaFormatter;
 import org.dmd.dms.util.DmoValidatorCollectionFormatter;
@@ -35,8 +37,6 @@ import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.formatting.PrintfFormat;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
-import org.dmd.util.parsing.DmcUncheckedObject;
-import org.dmd.util.parsing.NamedStringArray;
 
 
 

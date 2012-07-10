@@ -188,6 +188,60 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	}
 	
 	/**
+	 * Determines the import statement for the type derivative of the specified attribute definition.
+	 * @param ad the attribute definition.
+	 * @return a fully qualified import for the required type container.
+	 */
+	public String getTypeImport(AttributeDefinition ad){
+		String rc = null;
+		switch(ad.getValueType()){
+		case SINGLE:
+			rc = getTypeName("SV");
+			break;
+		case MULTI:
+			rc = getTypeName("MV");
+			break;
+		case HASHMAPPED:
+		case TREEMAPPED:
+			rc = getTypeName("MAP");
+			break;
+		case HASHSET:
+		case TREESET:
+			rc = getTypeName("SET");
+			break;
+		}
+		return(rc);
+	}
+	
+	/**
+	 * @param ad the attribute definition.
+	 * @return just the name of the container type for the specified attribute.
+	 */
+	public String getContainerType(AttributeDefinition ad){
+		String tmp = null;
+		switch(ad.getValueType()){
+		case SINGLE:
+			tmp = getTypeName("SV");
+			break;
+		case MULTI:
+			tmp = getTypeName("MV");
+			break;
+		case HASHMAPPED:
+		case TREEMAPPED:
+			tmp = getTypeName("MAP");
+			break;
+		case HASHSET:
+		case TREESET:
+			tmp = getTypeName("SET");
+			break;
+		}
+		
+		int lastDot = tmp.lastIndexOf(".");
+		
+		return(tmp.substring(lastDot+1));
+	}
+	
+	/**
 	 * Complicated stuff to handle generation of wrapper classes in packages other than where
 	 * the DMOs are generated. This should only be used on internally generated type ref classes.
 	 * @throws DmcValueException  

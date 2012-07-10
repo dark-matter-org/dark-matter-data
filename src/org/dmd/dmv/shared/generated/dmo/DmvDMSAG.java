@@ -1,18 +1,18 @@
 package org.dmd.dmv.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:690)
-import java.util.ArrayList;                                           // For storage of schema info - (DmoCompactSchemaFormatter.java:629)
-import java.util.HashMap;                                             // For storage of schema info - (DmoCompactSchemaFormatter.java:628)
-import java.util.Iterator;                                            // For access of schema info - (DmoCompactSchemaFormatter.java:630)
-import org.dmd.dmc.*;                                                 // Basic DMC stuff - (DmoCompactSchemaFormatter.java:631)
-import org.dmd.dmc.rules.RuleIF;                                      // For rule info - (DmoCompactSchemaFormatter.java:632)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:644)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                     // Have class definitions - (DmoCompactSchemaFormatter.java:636)
-import org.dmd.dms.generated.enums.DataTypeEnum;                      // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:637)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                     // Have attribute definitions - (DmoCompactSchemaFormatter.java:659)
-import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                 // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:668)
-import org.dmd.dmv.shared.extended.rulesdmo.IntegerRangeRule;         // To support instantiations of IntegerRangeRule - (DmoCompactSchemaFormatter.java:668)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:723)
+import java.util.ArrayList;                                           // For storage of schema info - (DmoCompactSchemaFormatter.java:661)
+import java.util.HashMap;                                             // For storage of schema info - (DmoCompactSchemaFormatter.java:660)
+import java.util.Iterator;                                            // For access of schema info - (DmoCompactSchemaFormatter.java:662)
+import org.dmd.dmc.*;                                                 // Basic DMC stuff - (DmoCompactSchemaFormatter.java:663)
+import org.dmd.dmc.rules.RuleIF;                                      // For rule info - (DmoCompactSchemaFormatter.java:664)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:676)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                     // Have class definitions - (DmoCompactSchemaFormatter.java:668)
+import org.dmd.dms.generated.enums.DataTypeEnum;                      // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:669)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                     // Have attribute definitions - (DmoCompactSchemaFormatter.java:691)
+import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                 // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:700)
+import org.dmd.dmv.shared.extended.rulesdmo.IntegerRangeRule;         // To support instantiations of IntegerRangeRule - (DmoCompactSchemaFormatter.java:700)
 
 
 
@@ -35,7 +35,6 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __irrMinimum = new DmcAttributeInfo("irrMinimum", -479999, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcClassInfo __InitRuleData = new DmcClassInfo("InitRuleData", -959999, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
     public final static DmcClassInfo __IntegerRangeRuleData = new DmcClassInfo("IntegerRangeRuleData", -959998, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
-
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -77,6 +76,9 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         __IntegerRangeRuleData.addMust(__irrMaximum);
         __IntegerRangeRuleData.addMay(MetaDMSAG.__description);
 
+        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:232)
+        // These instantiations are merely meant to ensure that you've overloaded
+        // the base rule implementations
         @SuppressWarnings("unused")
         InitRule InitRuleInstance = new InitRule(new InitRuleDataDMO());
         @SuppressWarnings("unused")

@@ -8,5 +8,7 @@ generatedFileHeader LGPL.txt
 schemaPackage 		org.dmd.dmv.shared
 dmwPackage			org.dmd.dmv.server
 description 		The dmv schema defines classes associated with the Dark Matter Validation
- (DMV) framework.
+ (DMV) framework based on RuleDefinitions. Although you are completely free to define your
+ own rules, DMV provides a collection of commonly useful rules taht can be used in a DMO
+ run context.
  

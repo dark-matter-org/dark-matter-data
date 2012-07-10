@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.TreeMap;
 
+import org.dmd.dmc.util.DmcUncheckedObject;
+import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.RuleCategory;
 import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
@@ -14,8 +16,6 @@ import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
-import org.dmd.util.parsing.DmcUncheckedObject;
-import org.dmd.util.parsing.NamedStringArray;
 
 /**
  * The RuleFormatter will create the rule base implementation in generated/rules

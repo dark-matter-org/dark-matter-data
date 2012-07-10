@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaDefinition;
@@ -31,7 +32,6 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
-import org.dmd.util.parsing.DmcUncheckedObject;
 
 public class DmoAttributeSchemaFormatter {
 
