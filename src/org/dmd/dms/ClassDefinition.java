@@ -32,9 +32,11 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.generated.types.DmwTypeToWrapperType;
 import org.dmd.dmw.DmwWrapper;
+import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.parsing.DmcUncheckedObject;
 
 public class ClassDefinition extends ClassDefinitionDMW {
 
@@ -855,5 +857,13 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return(shortest);
     }    
     
+    ///////////////////////////////////////////////////////////////////////////
+    
+    public void addImportsForAdditionalAttributes(ImportManager imports, DmcUncheckedObject uco){
+    	Iterator<String> attrNames = uco.getAttributeNames();
+    	if (attrNames != null){
+    		
+    	}
+    }
 
 }
