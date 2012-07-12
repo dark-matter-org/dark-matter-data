@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeFilterContainer;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:345)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:604)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements Serializable {

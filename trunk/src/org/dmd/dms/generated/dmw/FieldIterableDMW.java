@@ -25,7 +25,7 @@ import org.dmd.dms.generated.types.Field;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1730)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:366)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:625)
  */
 public class FieldIterableDMW extends DmwMVIterator<Field> {
 

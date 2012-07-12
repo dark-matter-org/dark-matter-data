@@ -284,7 +284,9 @@ public class SchemaManager implements DmcNameResolverIF {
             // Manage the meta schema so that we have a starting point for schema management
             manageSchemaInternal(meta);
             
-        	// Now that everything's resolved, we have some unfinished business to take care of
+            resolveReferences(meta);
+
+            // Now that everything's resolved, we have some unfinished business to take care of
         	Iterator<AttributeDefinition> adl = meta.getAttributeDefList();
 //        	DebugInfo.debug("\n\n*** Trying to resolve name attributes for schema " + meta.getName().getNameString() + "\n\n");
         	resolveNameTypes(adl);
@@ -564,6 +566,7 @@ public class SchemaManager implements DmcNameResolverIF {
 //    	DebugInfo.debug(sd.getName() + " is being managed...\n");
     	
         manageSchemaInternal(theInstance);
+        
         resolveReferences(theInstance);
         
     	// Now that everything's resolved, we have some unfinished business to take care of
@@ -1795,10 +1798,10 @@ public class SchemaManager implements DmcNameResolverIF {
         
 //        DebugInfo.debug(evd.getName().toString());
         
-        if (evd.getDefinedIn() == MetaSchemaAG._metaSchema){
-        	
-        }
-        else{
+//        if (evd.getDefinedIn() == MetaSchemaAG._metaSchema){
+//        	
+//        }
+//        else{
             // Things get a little tricky here - although EnumDefinitions are enums, they get
             // turned into internally generated TypeDefinitions, so we don't add them to the
             // allDefs map as EnumDefinitions.
@@ -1835,7 +1838,7 @@ public class SchemaManager implements DmcNameResolverIF {
         
 	        // Add the type
 	        addType(td);
-        }
+//        }
 
         if (evd.getObjectName().getNameString().length() > longestEnumName)
             longestActionName = evd.getObjectName().getNameString().length();
