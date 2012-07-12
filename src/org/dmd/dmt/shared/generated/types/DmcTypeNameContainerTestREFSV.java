@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;    // DmcType impo
  * The DmcTypeNameContainerTestREFSV provides storage for a single-valued NameContainerTest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1936)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -34,14 +34,14 @@ public class DmcTypeNameContainerTestREFSV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1968)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
     public DmcAttribute<NameContainerTestDMO> cloneIt(){
         DmcTypeNameContainerTestREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1979)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
     public NameContainerTestDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -49,7 +49,7 @@ public class DmcTypeNameContainerTestREFSV extends DmcTypeNameContainerTestREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1991)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
     public NameContainerTestDMO set(Object v) throws DmcValueException {
         NameContainerTestDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

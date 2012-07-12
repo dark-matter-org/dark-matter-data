@@ -118,7 +118,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
     public FullyQualifiedName getFQN(){
         DmcTypeFullyQualifiedNameSV attr = (DmcTypeFullyQualifiedNameSV) get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -131,7 +131,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:822)
     public void setFQN(FullyQualifiedName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -150,7 +150,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
     public void setFQN(Object value) throws DmcValueException {
         DmcTypeFullyQualifiedNameSV attr  = (DmcTypeFullyQualifiedNameSV) get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -163,7 +163,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
     public void remFQN(){
          rem(MetaDMSAG.__FQN);
     }

@@ -68,7 +68,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
     /**
      * @return An Iterator of ObjWithRefsDMO objects.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1383)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1391)
     @SuppressWarnings("unchecked")
     public Iterator<ObjWithRefsREF> getObjRefHM(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__objRefHM);
@@ -88,7 +88,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
     /**
      * @return An Iterator of ObjWithRefsREFs without attempting lazy resolution (if it's turned on).
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1413)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1421)
     @SuppressWarnings("unchecked")
     public Iterator<ObjWithRefsREF> getObjRefHMREFs(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__objRefHM);
@@ -102,7 +102,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
      * @param key The key of the value you want.
      * @return The ObjWithRefs associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1447)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1455)
     public ObjWithRefsREF getObjRefHM(Object key){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -115,7 +115,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
      * Adds another objRefHM value.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1499)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1507)
     public DmcAttribute<?> addObjRefHM(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -130,7 +130,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
      * Adds another objRefHM value.
      * @param value ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1515)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1523)
     public DmcAttribute<?> addObjRefHM(ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -165,7 +165,7 @@ public class UsingObjRefHMDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the objRefHM attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1670)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1678)
     public void remObjRefHM(){
          rem(DmtDMSAG.__objRefHM);
     }

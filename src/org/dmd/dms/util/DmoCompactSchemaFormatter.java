@@ -429,7 +429,7 @@ public class DmoCompactSchemaFormatter {
 			}
 		}
 		
-		if (rules != null){
+		if ((rules != null) && (rules.size() > 0)){
 			out.write("\n");
 			PrintfFormat pf = new PrintfFormat("%-28s");
 			out.write("        try{\n");

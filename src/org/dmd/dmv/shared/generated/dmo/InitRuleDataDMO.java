@@ -78,7 +78,7 @@ public class InitRuleDataDMO  extends RuleDataDMO  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -91,7 +91,7 @@ public class InitRuleDataDMO  extends RuleDataDMO  implements Serializable  {
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:822)
     public void setDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -110,7 +110,7 @@ public class InitRuleDataDMO  extends RuleDataDMO  implements Serializable  {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
     public void setDescription(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -123,12 +123,12 @@ public class InitRuleDataDMO  extends RuleDataDMO  implements Serializable  {
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
     public RuleName getRuleName(){
         DmcTypeRuleNameSV attr = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -141,7 +141,7 @@ public class InitRuleDataDMO  extends RuleDataDMO  implements Serializable  {
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:822)
     public void setRuleName(RuleName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -160,7 +160,7 @@ public class InitRuleDataDMO  extends RuleDataDMO  implements Serializable  {
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
     public void setRuleName(Object value) throws DmcValueException {
         DmcTypeRuleNameSV attr  = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -173,12 +173,12 @@ public class InitRuleDataDMO  extends RuleDataDMO  implements Serializable  {
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
     public void remRuleName(){
          rem(MetaDMSAG.__ruleName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -191,7 +191,7 @@ public class InitRuleDataDMO  extends RuleDataDMO  implements Serializable  {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:822)
     public void setRuleTitle(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -210,7 +210,7 @@ public class InitRuleDataDMO  extends RuleDataDMO  implements Serializable  {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -223,7 +223,7 @@ public class InitRuleDataDMO  extends RuleDataDMO  implements Serializable  {
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
     public void remRuleTitle(){
          rem(MetaDMSAG.__ruleTitle);
     }
