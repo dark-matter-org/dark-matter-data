@@ -28,8 +28,8 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeRunContextREFSET provides storage for a set of RunContextREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2563)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:270)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:291)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Serializable {
@@ -58,7 +58,7 @@ public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2600)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<RunContextREF> cloneIt(){
         synchronized(this){
             DmcTypeRunContextREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2619)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
     public RunContextREF add(Object v) throws DmcValueException {
         synchronized(this){
             RunContextREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
     public RunContextREF del(Object v){
         synchronized(this){
             RunContextREF rc = null;
@@ -113,7 +113,7 @@ public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2661)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<RunContextREF> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -123,7 +123,7 @@ public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<RunContextREF> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -134,7 +134,7 @@ public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2696)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

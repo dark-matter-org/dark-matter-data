@@ -7,6 +7,12 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;
 import org.dmd.dmv.shared.generated.rulesdmo.InitRuleBaseImpl;
 
+/**
+ * The InitRule is used to initialize the values of a DMO to some standard state. The 
+ * InitRuleDataDMO is an extensible class that takes any set of attributes. The InitRule
+ * will cycle through these "additional attributes" and, if the attribute doesn't already
+ * exist in the object being initialized, a clone of the attribute value is added to the DMO.
+ */
 public class InitRule extends InitRuleBaseImpl {
 
 	public InitRule(InitRuleDataDMO dmo) {

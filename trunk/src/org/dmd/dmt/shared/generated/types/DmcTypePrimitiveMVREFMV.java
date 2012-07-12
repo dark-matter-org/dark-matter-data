@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.dmo.PrimitiveMVDMO;    // DmcType import
  * The DmcTypePrimitiveMVREFMV provides storage for a multi-valued PrimitiveMV
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2280)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -33,7 +33,7 @@ public class DmcTypePrimitiveMVREFMV extends DmcTypePrimitiveMVREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
     public DmcAttribute<PrimitiveMVDMO> cloneIt(){
         synchronized(this){
             DmcTypePrimitiveMVREFMV rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypePrimitiveMVREFMV extends DmcTypePrimitiveMVREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2339)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
     public PrimitiveMVDMO add(Object v) throws DmcValueException {
         synchronized(this){
             PrimitiveMVDMO rc = typeCheck(v);
@@ -70,7 +70,7 @@ public class DmcTypePrimitiveMVREFMV extends DmcTypePrimitiveMVREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2352)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
     public PrimitiveMVDMO del(Object v){
         synchronized(this){
             PrimitiveMVDMO key = null;
@@ -91,7 +91,7 @@ public class DmcTypePrimitiveMVREFMV extends DmcTypePrimitiveMVREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2383)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
     public Iterator<PrimitiveMVDMO> getMV(){
         synchronized(this){
             ArrayList<PrimitiveMVDMO> clone = new ArrayList<PrimitiveMVDMO>(value);
@@ -99,7 +99,7 @@ public class DmcTypePrimitiveMVREFMV extends DmcTypePrimitiveMVREF implements Se
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
     public ArrayList<PrimitiveMVDMO> getMVCopy(){
         synchronized(this){
             ArrayList<PrimitiveMVDMO> clone = new ArrayList<PrimitiveMVDMO>(value);
@@ -108,7 +108,7 @@ public class DmcTypePrimitiveMVREFMV extends DmcTypePrimitiveMVREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2402)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -122,7 +122,7 @@ public class DmcTypePrimitiveMVREFMV extends DmcTypePrimitiveMVREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2417)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
     public PrimitiveMVDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -132,7 +132,7 @@ public class DmcTypePrimitiveMVREFMV extends DmcTypePrimitiveMVREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2428)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public PrimitiveMVDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -159,7 +159,7 @@ public class DmcTypePrimitiveMVREFMV extends DmcTypePrimitiveMVREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -182,7 +182,7 @@ public class DmcTypePrimitiveMVREFMV extends DmcTypePrimitiveMVREF implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2480)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

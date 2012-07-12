@@ -25,8 +25,8 @@ import org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint;    // DmcType import
  * The DmcTypeTimeDoubleDataPointSV provides storage for a single-valued TimeDoubleDataPoint
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1936)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:295)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:336)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint implements Serializable {
@@ -50,14 +50,14 @@ public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1968)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
     public DmcAttribute<TimeDoubleDataPoint> cloneIt(){
         DmcTypeTimeDoubleDataPointSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1979)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
     public TimeDoubleDataPoint getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1991)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
     public TimeDoubleDataPoint set(Object v) throws DmcValueException {
         TimeDoubleDataPoint rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

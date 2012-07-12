@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeRuleCategoryREFSV provides storage for a single-valued RuleCategoryREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1936)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:268)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:284)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleCategoryREFSV extends DmcTypeRuleCategoryREF implements Serializable {
@@ -48,14 +48,14 @@ public class DmcTypeRuleCategoryREFSV extends DmcTypeRuleCategoryREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1968)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
     public DmcAttribute<RuleCategoryREF> cloneIt(){
         DmcTypeRuleCategoryREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1979)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
     public RuleCategoryREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeRuleCategoryREFSV extends DmcTypeRuleCategoryREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1991)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
     public RuleCategoryREF set(Object v) throws DmcValueException {
         RuleCategoryREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

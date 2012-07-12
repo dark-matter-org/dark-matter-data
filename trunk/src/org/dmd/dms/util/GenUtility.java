@@ -621,9 +621,17 @@ public class GenUtility {
     		nullReturnValue = ad.getType().getNullReturnValue();
     	}
     	
+//    	if (ad.getType().getName().getNameString().startsWith("ClassDefinition")){
+//    		DebugInfo.debugWithTrace("HERE");
+//    	}
+    	
     	if (ad.getType().getIsRefType()){
     		attrType = attrType + "REF";
     	}
+    	
+//    	if (typeName.endsWith("REF")){
+//    		typeName = typeName.replaceAll("REF", "");
+//    	}
 
     	if (typeClassName != null){
     		int lastPeriod = typeClassName.lastIndexOf('.');

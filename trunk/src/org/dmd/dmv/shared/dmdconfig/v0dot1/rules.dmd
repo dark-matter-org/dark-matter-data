@@ -1,7 +1,30 @@
 
 RuleDefinition
-name			InitRule
+name			AllowedAttributesRule
 dmdID			1
+ruleType		CLASS
+ruleScope		GLOBAL
+ruleCategory	ObjectValidation
+ruleCategory	ModifierValidation
+description		The AllowedAttributesRule will determine whether or not the 
+ attributes of a DMO conform to the must/may specification of its class definition.
+ For classes of type EXTENSIBLE only the must have attributes are checked.
+ <p/>
+ Regardless of the environment in which you are running, you must ensure that the
+ DmcOmni has been loaded with the appropriate schema. If you are using the Dark Matter
+ Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically.
+ <p/>
+ Since this is a GLOBAL class rule, there will only ever be a single instance of
+ this rule created as part of the dmv schema.
+
+AllowedAttributesRuleData
+ruleName    dmvAllowedAttributes
+ruleTitle 	Validate allowed attributes on objects.
+description	Ensures that must/may attribute rules are followed.
+
+RuleDefinition
+name			InitRule
+dmdID			2
 ruleType		CLASS
 ruleScope		PERCLASS
 ruleCategory	Initialization
@@ -13,18 +36,21 @@ description		The InitRule allows you to specify attribute values for a
  usage might be:
  <p/>
  <pre>
- InitRule
+ InitRuleData
+ ruleName     <schema>InitX
  ruleTitle    Initialize the X class
  applyToClass X
  attributeA   some value
  attributeB   42
  attributeC   something
  attributeC   something else
+ description  This provides a good initial setup for X objects. Other setups
+  may be required in other circumstances.
  </pre>
 
 RuleDefinition
 name			IntegerRangeRule
-dmdID			2
+dmdID			3
 ruleType		ATTRIBUTE
 ruleScope		PERCLASS
 ruleCategory	AttributeValidation
@@ -32,4 +58,27 @@ ruleCategory	ModifierValidation
 must			irrMinimum
 must			irrMaximum
 description		The IntegerRangeRule ensures that an Integer attribute has a value that falls
- within a given range. The irrMinimum must be lesss than the irrMaximum.
+ within a given range. The irrMinimum must be lesss than the irrMaximum. An example usage
+ might be:
+ <p/>
+ <pre>
+ IntegerRangeRuleData
+ ruleName    <schema>RangeCheckY
+ ruleTitle   Attribute Y in range 1-10
+ irrMinimum  1
+ irrMaximum  10
+ description This constraint is required because blah, blah blah.
+ </pre>
+
+RuleDefinition
+name			UCOAllowedAttributesRule
+dmdID			4
+ruleType		CLASS
+ruleScope		GLOBAL
+ruleCategory	UCOValidation
+//must			applyToClass
+description		The UCOAllowedAttributesRule will determine whether or not the 
+ attributes of a DmcUncheckedObject conform to the must/may specification of its
+ class definition. For classes of type EXTENSIBLE only the must have attributes are checked.
+
+

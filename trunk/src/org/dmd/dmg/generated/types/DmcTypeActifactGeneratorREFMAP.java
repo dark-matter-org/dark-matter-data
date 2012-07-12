@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeActifactGeneratorREFMAP provides storage for a map of ActifactGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2789)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2797)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -71,7 +71,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2843)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
     public DmcAttribute<ActifactGeneratorREF> cloneIt(){
         synchronized(this){
             DmcTypeActifactGeneratorREFMAP rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
     public ActifactGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
             ActifactGeneratorREF newval = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2880)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2888)
     public ActifactGeneratorREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -117,7 +117,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2892)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2900)
     public Iterator<ActifactGeneratorREF> getMV(){
         synchronized(this){
             Map<StringName,ActifactGeneratorREF> clone = null;
@@ -129,7 +129,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
     public Map<StringName,ActifactGeneratorREF> getMVCopy(){
         synchronized(this){
             Map<StringName,ActifactGeneratorREF> clone = null;
@@ -141,7 +141,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2918)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,7 +152,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2930)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2938)
     public ActifactGeneratorREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -163,7 +163,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2950)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -176,7 +176,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2963)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2971)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof StringName)

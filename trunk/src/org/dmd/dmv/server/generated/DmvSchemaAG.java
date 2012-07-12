@@ -24,7 +24,9 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
 
 /**
  * The dmv schema defines classes associated with the Dark Matter Validation
- * (DMV) framework.
+ * (DMV) framework based on RuleDefinitions. Although you are completely free
+ * to define your own rules, DMV provides a collection of commonly useful
+ * rules taht can be used in a DMO run context.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -33,8 +35,10 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
  */
 public class DmvSchemaAG extends SchemaDefinition {
 
+    public static ClassDefinition _AllowedAttributesRuleData;
     public static ClassDefinition _InitRuleData;
     public static ClassDefinition _IntegerRangeRuleData;
+    public static ClassDefinition _UCOAllowedAttributesRuleData;
 
     public static AttributeDefinition _irrMinimum;
     public static AttributeDefinition _irrMaximum;
@@ -70,14 +74,34 @@ public class DmvSchemaAG extends SchemaDefinition {
 
     private void initClasses() throws DmcValueException {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            ClassDefinitionDMO _AllowedAttributesRuleDataOBJ = new ClassDefinitionDMO();
+            _AllowedAttributesRuleData = new ClassDefinition(_AllowedAttributesRuleDataOBJ,DmvDMSAG.__AllowedAttributesRuleData);
+            _AllowedAttributesRuleDataOBJ.setName("AllowedAttributesRuleData");
+            _AllowedAttributesRuleDataOBJ.setDmdID("-959999");
+            _AllowedAttributesRuleDataOBJ.setInternallyGenerated("true");
+            _AllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
+            _AllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _AllowedAttributesRuleDataOBJ.setLineNumber("19");
+            _AllowedAttributesRuleDataOBJ.setDerivedFrom("RuleData");
+            _AllowedAttributesRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.AllowedAttributesRuleDataREF");
+            _AllowedAttributesRuleDataOBJ.setRuleDefinition("AllowedAttributesRule");
+            _AllowedAttributesRuleDataOBJ.setDmwIteratorClass("AllowedAttributesRuleDataIterableDMW");
+            _AllowedAttributesRuleDataOBJ.addMay("description");
+            _AllowedAttributesRuleDataOBJ.addMust("ruleName");
+            _AllowedAttributesRuleDataOBJ.addMust("ruleTitle");
+            _AllowedAttributesRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.AllowedAttributesRuleDataIterableDMW");
+            _AllowedAttributesRuleData.setDefinedIn(this);
+            addClassDefList(_AllowedAttributesRuleData);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
             ClassDefinitionDMO _InitRuleDataOBJ = new ClassDefinitionDMO();
             _InitRuleData = new ClassDefinition(_InitRuleDataOBJ,DmvDMSAG.__InitRuleData);
             _InitRuleDataOBJ.setName("InitRuleData");
-            _InitRuleDataOBJ.setDmdID("-959999");
+            _InitRuleDataOBJ.setDmdID("-959998");
             _InitRuleDataOBJ.setInternallyGenerated("true");
             _InitRuleDataOBJ.setClassType("EXTENSIBLE");
             _InitRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _InitRuleDataOBJ.setLineNumber("24");
+            _InitRuleDataOBJ.setLineNumber("50");
             _InitRuleDataOBJ.setDerivedFrom("RuleData");
             _InitRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.InitRuleDataREF");
             _InitRuleDataOBJ.setRuleDefinition("InitRule");
@@ -93,11 +117,11 @@ public class DmvSchemaAG extends SchemaDefinition {
             ClassDefinitionDMO _IntegerRangeRuleDataOBJ = new ClassDefinitionDMO();
             _IntegerRangeRuleData = new ClassDefinition(_IntegerRangeRuleDataOBJ,DmvDMSAG.__IntegerRangeRuleData);
             _IntegerRangeRuleDataOBJ.setName("IntegerRangeRuleData");
-            _IntegerRangeRuleDataOBJ.setDmdID("-959998");
+            _IntegerRangeRuleDataOBJ.setDmdID("-959997");
             _IntegerRangeRuleDataOBJ.setInternallyGenerated("true");
             _IntegerRangeRuleDataOBJ.setClassType("STRUCTURAL");
             _IntegerRangeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _IntegerRangeRuleDataOBJ.setLineNumber("35");
+            _IntegerRangeRuleDataOBJ.setLineNumber("72");
             _IntegerRangeRuleDataOBJ.setDerivedFrom("RuleData");
             _IntegerRangeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.IntegerRangeRuleDataREF");
             _IntegerRangeRuleDataOBJ.setRuleDefinition("IntegerRangeRule");
@@ -110,6 +134,26 @@ public class DmvSchemaAG extends SchemaDefinition {
             _IntegerRangeRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.IntegerRangeRuleDataIterableDMW");
             _IntegerRangeRuleData.setDefinedIn(this);
             addClassDefList(_IntegerRangeRuleData);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            ClassDefinitionDMO _UCOAllowedAttributesRuleDataOBJ = new ClassDefinitionDMO();
+            _UCOAllowedAttributesRuleData = new ClassDefinition(_UCOAllowedAttributesRuleDataOBJ,DmvDMSAG.__UCOAllowedAttributesRuleData);
+            _UCOAllowedAttributesRuleDataOBJ.setName("UCOAllowedAttributesRuleData");
+            _UCOAllowedAttributesRuleDataOBJ.setDmdID("-959996");
+            _UCOAllowedAttributesRuleDataOBJ.setInternallyGenerated("true");
+            _UCOAllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
+            _UCOAllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _UCOAllowedAttributesRuleDataOBJ.setLineNumber("82");
+            _UCOAllowedAttributesRuleDataOBJ.setDerivedFrom("RuleData");
+            _UCOAllowedAttributesRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.UCOAllowedAttributesRuleDataREF");
+            _UCOAllowedAttributesRuleDataOBJ.setRuleDefinition("UCOAllowedAttributesRule");
+            _UCOAllowedAttributesRuleDataOBJ.setDmwIteratorClass("UCOAllowedAttributesRuleDataIterableDMW");
+            _UCOAllowedAttributesRuleDataOBJ.addMay("description");
+            _UCOAllowedAttributesRuleDataOBJ.addMust("ruleName");
+            _UCOAllowedAttributesRuleDataOBJ.addMust("ruleTitle");
+            _UCOAllowedAttributesRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.UCOAllowedAttributesRuleDataIterableDMW");
+            _UCOAllowedAttributesRuleData.setDefinedIn(this);
+            addClassDefList(_UCOAllowedAttributesRuleData);
 
     }
 

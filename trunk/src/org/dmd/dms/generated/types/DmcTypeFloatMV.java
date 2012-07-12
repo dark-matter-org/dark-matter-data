@@ -26,8 +26,8 @@ import org.dmd.dmc.types.DmcTypeFloat;    // DmcType import
  * The DmcTypeFloatMV provides storage for a multi-valued Float
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2280)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:296)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:341)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
     public DmcAttribute<Float> cloneIt(){
         synchronized(this){
             DmcTypeFloatMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2339)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
     public Float add(Object v) throws DmcValueException {
         synchronized(this){
             Float rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2352)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
     public Float del(Object v){
         synchronized(this){
             Float key = null;
@@ -106,7 +106,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2383)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
     public Iterator<Float> getMV(){
         synchronized(this){
             ArrayList<Float> clone = new ArrayList<Float>(value);
@@ -114,7 +114,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
     public ArrayList<Float> getMVCopy(){
         synchronized(this){
             ArrayList<Float> clone = new ArrayList<Float>(value);
@@ -123,7 +123,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2402)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -137,7 +137,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2417)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
     public Float getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +147,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2428)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public Float setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -174,7 +174,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2456)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,7 +197,7 @@ public class DmcTypeFloatMV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2480)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

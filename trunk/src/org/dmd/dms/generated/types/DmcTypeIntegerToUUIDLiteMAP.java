@@ -31,8 +31,8 @@ import org.dmd.dmc.types.IntegerToUUIDLite;    // primitive import
  * The DmcTypeIntegerToUUIDLiteMAP provides storage for a map of IntegerToUUIDLite
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2789)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:300)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2797)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:351)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite<IntegerToUUIDLite> {
@@ -72,7 +72,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2843)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
     public DmcAttribute<IntegerToUUIDLite> cloneIt(){
         synchronized(this){
             DmcTypeIntegerToUUIDLiteMAP rc = getNew();
@@ -87,7 +87,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
     public IntegerToUUIDLite add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerToUUIDLite newval = typeCheck(v);
@@ -107,7 +107,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2880)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2888)
     public IntegerToUUIDLite del(Object key){
         synchronized(this){
            if (key instanceof Integer)
@@ -118,7 +118,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2892)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2900)
     public Iterator<IntegerToUUIDLite> getMV(){
         synchronized(this){
             Map<Integer,IntegerToUUIDLite> clone = null;
@@ -130,7 +130,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
     public Map<Integer,IntegerToUUIDLite> getMVCopy(){
         synchronized(this){
             Map<Integer,IntegerToUUIDLite> clone = null;
@@ -142,7 +142,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2918)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -153,7 +153,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2930)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2938)
     public IntegerToUUIDLite getByKey(Object key){
         synchronized(this){
             if (key instanceof Integer)
@@ -164,7 +164,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2950)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -177,7 +177,7 @@ public class DmcTypeIntegerToUUIDLiteMAP extends DmcTypeIntegerToUUIDLite implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2963)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2971)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof Integer)
