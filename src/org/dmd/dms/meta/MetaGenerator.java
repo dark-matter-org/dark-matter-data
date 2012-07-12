@@ -215,7 +215,9 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 			dumpDMWClasses(curr.getCanonicalPath() + DMWDIR);
 
-			dumpMetaSchema(curr.getCanonicalPath() + DMSDIR);
+//			dumpMetaSchema(curr.getCanonicalPath() + DMSDIR);
+
+			dumpMetaSchemaNew(curr.getCanonicalPath() + DMSDIR);
 
 			FileUpdateManager.instance().generationComplete();
 
@@ -225,6 +227,263 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			System.err.println(ex);
 		}
 	}
+	
+	///////////////////////////////////////////////////////////////////////////
+	
+	void dumpMetaSchemaNew(String od) throws IOException, ResultException {
+		BufferedWriter out = null;
+		ImportManager		imports = new ImportManager();
+		
+		imports.addImport("org.dmd.dmc.DmcValueException", "To handle potential value exceptions.");
+		imports.addImport("org.dmd.dms.generated.dmo.*", "Access to meta schema DMOs");
+
+		// out = new BufferedWriter(new FileWriter(od + "/MetaSchemaAG.java"));
+		out = FileUpdateManager.instance().getWriter(od, "MetaSchemaAG.java");
+
+//		// Strip the nameAttribute from all name types so that we don't cause
+//		// problems
+//		// when loading the meta schema
+//		for (DmcUncheckedObject type : typeDefs.values()) {
+//			type.rem("nameAttributeDef");
+//			type.rem("filterAttributeDef");
+//		}
+
+		out.write(LGPL.toString());
+		out.write("package org.dmd.dms;\n\n");
+
+		out.write(imports.getFormattedImports() + "\n\n");
+		
+		out.write("/**\n");
+		out.write("  * This class creates the basic definitions that allow for the definition of schemas.\n");
+		out.write("  * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("  */\n");
+
+		out.write("abstract public class MetaSchemaAG extends SchemaDefinition {\n");
+
+		dumpStaticDefinitions(out);
+		
+		out.write("    public MetaSchemaAG() throws DmcValueException {\n\n");
+		out.write("        super(\"meta\");\n\n");
+		
+		out.write("        // We only ever want to initialize the schema once, so check\n");
+		out.write("        // to see if we've initialized the first class definition\n");
+
+		out.write("        if (_metaSchema == null){\n");
+
+		out.write("            _metaSchema = this;\n");
+		out.write("            staticRefName = new String(\"MetaSchema._\");\n\n");
+		out.write("            this.setDescription(\"The meta schema defines the elements used to define schemas.\");\n");
+
+		// Set the prefix for the generated output directory and the generated
+		// package prefixes
+		out.write("            this.setSchemaPackage(\"org.dmd.dms\");\n");
+		out.write("            this.setDmwPackage(\"org.dmd.dms\");\n");
+
+		out.write("            this.setSchemaBaseID(" + META_BASE_ID + ");\n");
+		out.write("            this.setSchemaIDRange(" + META_ID_RANGE + ");\n");
+
+		
+		out.write("            initClasses();\n");
+		out.write("            initAttributes();\n");
+		out.write("            initTypes();\n");
+		out.write("            initEnums();\n");
+		out.write("            initRuleCategories();\n");
+		
+		out.write("        }\n");
+		
+		out.write("    }\n");
+		
+		dumpInitClasses(out);
+		dumpInitAttributes(out);
+		dumpInitTypes(out);
+		dumpInitEnums(out);
+		dumpInitRuleCategories(out);
+		
+		out.write("}\n");
+		
+		out.close();
+	}
+	
+	/**
+	 * This dumps the static definition of the various definitions.
+	 * @param out
+	 * @throws IOException  
+	 */
+	void dumpStaticDefinitions(BufferedWriter out) throws IOException {
+		out.write("    public static SchemaDefinition    _metaSchema;\n\n");
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+				+ "\n");
+		for (int i = 0; i < origOrderClasses.size(); i++) {
+			out.write("    public static ClassDefinition     _"
+					+ origOrderClasses.get(i) + ";\n");
+		}
+		out.write("\n");
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+				+ "\n");
+		for (int i = 0; i < origOrderEnums.size(); i++)
+			out.write("    public static EnumDefinition      _" + origOrderEnums.get(i) + ";\n");
+		out.write("\n");
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+				+ "\n");
+		for (int i = 0; i < origOrderTypes.size(); i++){
+			if (origOrderTypes.get(i).endsWith("REF"))
+				continue;
+			out.write("    public static TypeDefinition      _" + origOrderTypes.get(i) + ";\n");
+		}
+		out.write("\n");
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+				+ "\n");
+		for (int i = 0; i < origOrderAttrs.size(); i++)
+			out.write("    public static AttributeDefinition _" + origOrderAttrs.get(i) + ";\n");
+		out.write("\n");
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+				+ "\n");
+		for (int i = 0; i < origOrderCategories.size(); i++)
+			out.write("    public static RuleCategory        _" + origOrderCategories.get(i) + ";\n");
+		out.write("\n");
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		for (int i = 0; i < origOrderRules.size(); i++)
+			out.write("    public static RuleDefinition      _" + origOrderRules.get(i) + ";\n");
+		out.write("\n");
+	}
+	
+	void dumpInitClasses(BufferedWriter out) throws IOException {
+		out.write("\n");
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    private void initClasses() throws DmcValueException {\n\n");
+		
+		for(String cn : origOrderClasses){
+			DmcUncheckedObject classDef = classDefs.get(cn);
+			String name = classDef.getSV("name");
+			String dmoName = "_" + name + "OBJ";
+			
+			out.write("        ClassDefinitionDMO " + dmoName + " = new ClassDefinitionDMO();\n");
+			out.write("        _" + name + " = new ClassDefinition(" + dmoName + ",MetaDMSAG.__" + name + ");\n");
+			dumpAttrValues("        ", dmoName, classDef, out);
+			out.write("        _" + name + ".setDefinedIn(this);\n");
+			out.write("        addClassDefList(_" + name + ");\n");
+			out.write("\n");
+		}
+		
+		out.write("    }\n");
+		
+	}
+	
+	void dumpInitAttributes(BufferedWriter out) throws IOException {
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    private void initAttributes() throws DmcValueException {\n\n");
+		
+		for (DmcUncheckedObject attrDef: attributeDefs.values()) {
+			String name = attrDef.getSV("name");
+			String dmoName = "_" + name + "OBJ";
+			
+			out.write("        AttributeDefinitionDMO " + dmoName + " = new AttributeDefinitionDMO();\n");
+			out.write("        _" + name + " = new AttributeDefinition(" + dmoName + ");\n");
+			dumpAttrValues("        ", dmoName, attrDef, out);
+			out.write("        _" + name + ".setDefinedIn(this);\n");
+			out.write("        addAttributeDefList(_" + name + ");\n");
+			out.write("\n");
+		}
+		
+		out.write("    }\n");
+	}
+	
+	void dumpInitTypes(BufferedWriter out) throws IOException {
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    private void initTypes() throws DmcValueException {\n\n");
+		
+		for (DmcUncheckedObject typeDef: typeDefs.values()) {
+			String internallyGenerated = typeDef.getSV("internallyGenerated");
+			
+			if (internallyGenerated != null)
+				continue;
+			
+			String name = typeDef.getSV("name");
+			String dmoName = "_" + name + "OBJ";
+			
+			out.write("        TypeDefinitionDMO " + dmoName + " = new TypeDefinitionDMO();\n");
+			out.write("        _" + name + " = new TypeDefinition(" + dmoName + ");\n");
+			dumpAttrValues("        ", dmoName, typeDef, out);
+			out.write("        _" + name + ".setDefinedIn(this);\n");
+			out.write("        addTypeDefList(_" + name + ");\n");
+			out.write("\n");
+		}
+		
+		out.write("    }\n");
+	}
+	
+	void dumpInitEnums(BufferedWriter out) throws IOException {
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    private void initEnums() throws DmcValueException {\n\n");
+		
+		for (DmcUncheckedObject enumDef: enumDefs.values()) {
+			String name = enumDef.getSV("name");
+			String dmoName = "_" + name + "OBJ";
+			
+			out.write("        EnumDefinitionDMO " + dmoName + " = new EnumDefinitionDMO();\n");
+			out.write("        _" + name + " = new EnumDefinition(" + dmoName + ");\n");
+			dumpAttrValues("        ", dmoName, enumDef, out);
+			out.write("        _" + name + ".setDefinedIn(this);\n");
+			out.write("        addEnumDefList(_" + name + ");\n");
+			out.write("\n");
+		}
+				
+		out.write("    }\n");
+	}
+	
+	void dumpInitRuleCategories(BufferedWriter out) throws IOException {
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    private void initRuleCategories() throws DmcValueException {\n\n");
+		
+		for (DmcUncheckedObject catDef: ruleCategoryDefs.values()) {
+			String name = catDef.getSV("name");
+			String dmoName = "_" + name + "OBJ";
+			
+			out.write("        RuleCategoryDMO " + dmoName + " = new RuleCategoryDMO();\n");
+			out.write("        _" + name + " = new RuleCategory(" + dmoName + ");\n");
+			dumpAttrValues("        ", dmoName, catDef, out);
+			out.write("        _" + name + ".setDefinedIn(this);\n");
+			out.write("        addRuleCategoryList(_" + name + ");\n");
+			out.write("\n");
+		}
+		
+		out.write("    }\n");
+	}
+	
+	void dumpAttrValues(String prefix, String dmoName, DmcUncheckedObject obj, BufferedWriter out) throws IOException{
+		Iterator<String> names = obj.getAttributeNames();
+		if (names == null)
+			return;
+		
+		while(names.hasNext()){
+			String 				an 			= names.next();
+			String				anCapped	= GenUtility.capTheName(an);
+			DmcUncheckedObject	attrDef 	= attributeDefs.get(an);
+			String				valueType	= attrDef.getSV("valueType");
+			boolean				sv			= true;
+			
+			if ( (valueType != null) && (valueType.equals("MULTI")) )
+				sv = false;
+			
+			if (sv){
+				out.write(prefix + dmoName + ".set" + anCapped + "(\"" + obj.getSV(an) + "\");\n");
+			}
+			else{
+				NamedStringArray values = obj.get(an);
+				for(String value: values){
+					out.write(prefix + dmoName + ".add" + anCapped + "(\"" + value + "\");\n");
+				}
+			}
+		}
+	}
+	
+	///////////////////////////////////////////////////////////////////////////
 
 	void dumpComplexTypes(String typedir) throws ResultException, IOException {
 		for (DmcUncheckedObject typedef : complexTypeDefs.values()) {
@@ -371,10 +630,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	/**
 	 * 
 	 */
-	public void handleObject(DmcUncheckedObject obj, String infile,
-			int lineNumber) throws ResultException {
+	public void handleObject(DmcUncheckedObject obj, String infile, int lineNumber) throws ResultException {
 		String objClass = obj.classes.get(0);
 		String name;
+		
+		obj.addValue("file", "metaSchema.dms");
+		obj.addValue("lineNumber", lineNumber + "");
 
 		name = obj.getSV("name");
 

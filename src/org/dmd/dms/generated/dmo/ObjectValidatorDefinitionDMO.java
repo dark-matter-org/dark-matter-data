@@ -16,20 +16,20 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1537)
-import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1490)
-import java.util.*;                           // Attribute info support - (MetaGenerator.java:1492)
-import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1514)
-import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1504)
-import org.dmd.dms.generated.enums.*;         // Has enum attributes - (MetaGenerator.java:1532)
-import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1526)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1798)
+import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1751)
+import java.util.*;                           // Attribute info support - (MetaGenerator.java:1753)
+import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1775)
+import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1765)
+import org.dmd.dms.generated.enums.*;         // Has enum attributes - (MetaGenerator.java:1793)
+import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1787)
 
 
 /**
  * The ObjectValidatorDefinition allows for the the definition of object
  * level validation logic.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1547)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1808)
  */
 @SuppressWarnings("serial")
 public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
@@ -97,7 +97,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1929)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2190)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -110,7 +110,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1986)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -123,7 +123,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
     /**
      * The fully qualified name of an object or attribute validator class.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1929)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2190)
     public String getValidatorClass(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__validatorClass);
         if (attr == null)
@@ -136,7 +136,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * Sets validatorClass to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1986)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
     public void setValidatorClass(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__validatorClass);
         if (attr == null)
@@ -149,7 +149,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1929)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2190)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -162,7 +162,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1986)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -178,7 +178,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * is basically an XML formatted fragment that conforms to the XHTML 1.0
      * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1929)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2190)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -191,7 +191,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1986)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -204,7 +204,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1929)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2190)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -217,7 +217,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1986)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
@@ -230,7 +230,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1929)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2190)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -243,7 +243,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1986)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -257,7 +257,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * Indicates the operational context for some component e.g. object or
      * attribute validators.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1929)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2190)
     public OperationalContextEnum getOpContext(){
         DmcTypeOperationalContextEnumSV attr = (DmcTypeOperationalContextEnumSV) get(MetaDMSAG.__opContext);
         if (attr == null)
@@ -270,7 +270,7 @@ public class ObjectValidatorDefinitionDMO extends org.dmd.dms.generated.dmo.DmsD
      * Sets opContext to the specified value.
      * @param value A value compatible with DmcTypeOperationalContextEnumSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1986)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
     public void setOpContext(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__opContext);
         if (attr == null)

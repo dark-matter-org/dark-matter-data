@@ -28,7 +28,7 @@ import org.dmd.dmc.types.DmcTypeFullyQualifiedName;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:341)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:600)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFullyQualifiedNameMV extends DmcTypeFullyQualifiedName implements Serializable {

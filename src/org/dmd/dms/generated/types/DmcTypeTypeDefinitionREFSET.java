@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:291)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:550)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTypeDefinitionREFSET extends DmcTypeTypeDefinitionREF implements Serializable {
