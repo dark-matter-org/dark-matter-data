@@ -30,7 +30,6 @@ import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.DmoCompactSchemaFormatter;
 import org.dmd.dms.util.GenUtility;
-import org.dmd.dms.util.RuleFormatter;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -65,7 +64,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	private final static String TYPEDIR = "/src/org/dmd/dms/generated/types";
 
 	// Offset to the rule generation directory
-	private final static String RULESDIR = "/src/org/dmd/dms/generated/rules";
+//	private final static String RULESDIR = "/src/org/dmd/dms/generated/rules";
 
 	// Offset to the gdo source directory
 	private final static String DMSDIR = "/src/org/dmd/dms";
@@ -209,9 +208,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			// vcf.dumpSchema("meta", "org.dmd.dms", avDefs, ovDefs,
 			// curr.getCanonicalPath() + DMODIR);
 
-			RuleFormatter rf = new RuleFormatter(System.out);
-			rf.dumpBaseImplementations("meta", "org.dmd.dms", ruleDefs,
-					ruleCategoryDefs, curr.getCanonicalPath() + RULESDIR);
+//			RuleFormatter rf = new RuleFormatter(System.out);
+//			rf.dumpBaseImplementations("meta", "org.dmd.dms", ruleDefs, ruleCategoryDefs, curr.getCanonicalPath() + RULESDIR);
 
 			dumpDMWClasses(curr.getCanonicalPath() + DMWDIR);
 

@@ -8,7 +8,6 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.types.*;
-import org.dmd.dms.extended.rules.*;
 import org.dmd.dmc.rules.RuleIF;
 
 
