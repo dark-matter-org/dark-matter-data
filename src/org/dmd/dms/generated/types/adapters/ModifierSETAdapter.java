@@ -14,7 +14,7 @@ public class ModifierSETAdapter extends DmcTypeModifierSET implements DmcAdapter
     transient DmcTypeModifierSET existingValue;
 
     public ModifierSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

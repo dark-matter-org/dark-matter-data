@@ -47,7 +47,7 @@ public class DmcTypeInitRuleDataREFSET extends DmcTypeInitRuleDataREF implements
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<InitRuleDataDMO>();
         else
             value = new TreeSet<InitRuleDataDMO>();
@@ -55,7 +55,7 @@ public class DmcTypeInitRuleDataREFSET extends DmcTypeInitRuleDataREF implements
     
     @Override
     public DmcTypeInitRuleDataREFSET getNew(){
-        return(new DmcTypeInitRuleDataREFSET(attrInfo));
+        return(new DmcTypeInitRuleDataREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeInitRuleDataREFSET extends DmcTypeInitRuleDataREF implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<InitRuleDataDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<InitRuleDataDMO>(value)).iterator() );
             else
                 return( (new TreeSet<InitRuleDataDMO>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeInitRuleDataREFSET extends DmcTypeInitRuleDataREF implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<InitRuleDataDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<InitRuleDataDMO>(value));
             else
                 return(new TreeSet<InitRuleDataDMO>(value));

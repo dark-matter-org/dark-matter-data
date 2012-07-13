@@ -40,7 +40,7 @@ public class DmcTypeHierarchicObjectREFSV extends DmcTypeHierarchicObjectREF imp
     }
     
     public DmcTypeHierarchicObjectREFSV getNew(){
-        return(new DmcTypeHierarchicObjectREFSV(attrInfo));
+        return(new DmcTypeHierarchicObjectREFSV(getAttributeInfo()));
     }
     
     public DmcTypeHierarchicObjectREFSV getNew(DmcAttributeInfo ai){

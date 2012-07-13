@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:555)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:556)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ClassTypeEnum>();
         else
             value = new TreeSet<ClassTypeEnum>();
@@ -55,7 +55,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     
     @Override
     public DmcTypeClassTypeEnumSET getNew(){
-        return(new DmcTypeClassTypeEnumSET(attrInfo));
+        return(new DmcTypeClassTypeEnumSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ClassTypeEnum> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ClassTypeEnum>(value)).iterator() );
             else
                 return( (new TreeSet<ClassTypeEnum>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeClassTypeEnumSET extends DmcTypeClassTypeEnum implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ClassTypeEnum> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ClassTypeEnum>(value));
             else
                 return(new TreeSet<ClassTypeEnum>(value));

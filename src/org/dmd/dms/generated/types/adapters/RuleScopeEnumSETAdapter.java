@@ -14,7 +14,7 @@ public class RuleScopeEnumSETAdapter extends DmcTypeRuleScopeEnumSET implements 
     transient DmcTypeRuleScopeEnumSET existingValue;
 
     public RuleScopeEnumSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

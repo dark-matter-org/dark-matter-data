@@ -14,7 +14,7 @@ public class FieldMVAdapter extends DmcTypeFieldMV implements DmcAdapterIF {
     transient DmcTypeFieldMV existingValue;
 
     public FieldMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

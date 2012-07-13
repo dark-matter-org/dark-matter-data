@@ -47,7 +47,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ResponseDMO>();
         else
             value = new TreeSet<ResponseDMO>();
@@ -55,7 +55,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     
     @Override
     public DmcTypeResponseREFSET getNew(){
-        return(new DmcTypeResponseREFSET(attrInfo));
+        return(new DmcTypeResponseREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ResponseDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ResponseDMO>(value)).iterator() );
             else
                 return( (new TreeSet<ResponseDMO>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeResponseREFSET extends DmcTypeResponseREF implements Seriali
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ResponseDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ResponseDMO>(value));
             else
                 return(new TreeSet<ResponseDMO>(value));

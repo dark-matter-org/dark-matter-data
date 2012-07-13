@@ -34,25 +34,25 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,TestOneLevelSubpackageExtendedREF>();
         else
             value = new TreeMap<StringName,TestOneLevelSubpackageExtendedREF>();
     }
     
     public StringName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<StringName,TestOneLevelSubpackageExtendedREF> map = (TreeMap<StringName,TestOneLevelSubpackageExtendedREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeTestOneLevelSubpackageExtendedREFMAP getNew(){
-        return(new DmcTypeTestOneLevelSubpackageExtendedREFMAP(attrInfo));
+        return(new DmcTypeTestOneLevelSubpackageExtendedREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -106,7 +106,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     public Iterator<TestOneLevelSubpackageExtendedREF> getMV(){
         synchronized(this){
             Map<StringName,TestOneLevelSubpackageExtendedREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestOneLevelSubpackageExtendedREF>(value);
             else
                 clone = new TreeMap<StringName,TestOneLevelSubpackageExtendedREF>(value);
@@ -118,7 +118,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFMAP extends DmcTypeTestOneL
     public Map<StringName,TestOneLevelSubpackageExtendedREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestOneLevelSubpackageExtendedREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestOneLevelSubpackageExtendedREF>(value);
             else
                 clone = new TreeMap<StringName,TestOneLevelSubpackageExtendedREF>(value);

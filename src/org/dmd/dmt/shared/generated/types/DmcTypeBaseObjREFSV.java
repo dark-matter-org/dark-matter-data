@@ -25,7 +25,7 @@ public class DmcTypeBaseObjREFSV extends DmcTypeBaseObjREF implements Serializab
     }
     
     public DmcTypeBaseObjREFSV getNew(){
-        return(new DmcTypeBaseObjREFSV(attrInfo));
+        return(new DmcTypeBaseObjREFSV(getAttributeInfo()));
     }
     
     public DmcTypeBaseObjREFSV getNew(DmcAttributeInfo ai){

@@ -14,7 +14,7 @@ public class BaseObjREFSVAdapter extends DmcTypeBaseObjREFSV implements DmcAdapt
     transient DmcTypeBaseObjREFSV existingValue;
 
     public BaseObjREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

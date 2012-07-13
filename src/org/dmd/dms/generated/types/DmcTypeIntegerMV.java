@@ -27,7 +27,7 @@ import org.dmd.dmc.types.DmcTypeInteger;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:627)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:628)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerMV extends DmcTypeInteger implements Serializable {
@@ -44,7 +44,7 @@ public class DmcTypeIntegerMV extends DmcTypeInteger implements Serializable {
     
     @Override
     public DmcTypeIntegerMV getNew(){
-        return(new DmcTypeIntegerMV(attrInfo));
+        return(new DmcTypeIntegerMV(getAttributeInfo()));
     }
     
     @Override
@@ -52,7 +52,7 @@ public class DmcTypeIntegerMV extends DmcTypeInteger implements Serializable {
     public DmcAttribute<Integer> cloneIt(){
         synchronized(this){
             DmcTypeIntegerMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 for(Integer val: value)
                 try {
                     rc.add(val);
@@ -126,13 +126,13 @@ public class DmcTypeIntegerMV extends DmcTypeInteger implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
@@ -150,11 +150,11 @@ public class DmcTypeIntegerMV extends DmcTypeInteger implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public Integer setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             Integer rc = null;
             
@@ -162,8 +162,8 @@ public class DmcTypeIntegerMV extends DmcTypeInteger implements Serializable {
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<Integer>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<Integer>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -179,8 +179,8 @@ public class DmcTypeIntegerMV extends DmcTypeInteger implements Serializable {
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);

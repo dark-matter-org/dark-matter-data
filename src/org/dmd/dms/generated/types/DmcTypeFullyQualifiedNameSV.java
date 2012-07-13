@@ -26,7 +26,7 @@ import org.dmd.dmc.types.DmcTypeFullyQualifiedName;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:622)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:623)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFullyQualifiedNameSV extends DmcTypeFullyQualifiedName implements Serializable {
@@ -42,7 +42,7 @@ public class DmcTypeFullyQualifiedNameSV extends DmcTypeFullyQualifiedName imple
     }
     
     public DmcTypeFullyQualifiedNameSV getNew(){
-        return(new DmcTypeFullyQualifiedNameSV(attrInfo));
+        return(new DmcTypeFullyQualifiedNameSV(getAttributeInfo()));
     }
     
     public DmcTypeFullyQualifiedNameSV getNew(DmcAttributeInfo ai){

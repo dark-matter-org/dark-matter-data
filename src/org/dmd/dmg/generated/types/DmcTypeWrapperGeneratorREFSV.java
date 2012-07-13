@@ -40,7 +40,7 @@ public class DmcTypeWrapperGeneratorREFSV extends DmcTypeWrapperGeneratorREF imp
     }
     
     public DmcTypeWrapperGeneratorREFSV getNew(){
-        return(new DmcTypeWrapperGeneratorREFSV(attrInfo));
+        return(new DmcTypeWrapperGeneratorREFSV(getAttributeInfo()));
     }
     
     public DmcTypeWrapperGeneratorREFSV getNew(DmcAttributeInfo ai){

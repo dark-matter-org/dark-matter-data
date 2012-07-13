@@ -32,7 +32,7 @@ public class DmcTypePrimitiveMVIDXREFSET extends DmcTypePrimitiveMVIDXREF implem
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<PrimitiveMVIDXDMO>();
         else
             value = new TreeSet<PrimitiveMVIDXDMO>();
@@ -40,7 +40,7 @@ public class DmcTypePrimitiveMVIDXREFSET extends DmcTypePrimitiveMVIDXREF implem
     
     @Override
     public DmcTypePrimitiveMVIDXREFSET getNew(){
-        return(new DmcTypePrimitiveMVIDXREFSET(attrInfo));
+        return(new DmcTypePrimitiveMVIDXREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -102,7 +102,7 @@ public class DmcTypePrimitiveMVIDXREFSET extends DmcTypePrimitiveMVIDXREF implem
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<PrimitiveMVIDXDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<PrimitiveMVIDXDMO>(value)).iterator() );
             else
                 return( (new TreeSet<PrimitiveMVIDXDMO>(value)).iterator() );
@@ -112,7 +112,7 @@ public class DmcTypePrimitiveMVIDXREFSET extends DmcTypePrimitiveMVIDXREF implem
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<PrimitiveMVIDXDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<PrimitiveMVIDXDMO>(value));
             else
                 return(new TreeSet<PrimitiveMVIDXDMO>(value));

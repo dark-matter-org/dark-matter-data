@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeFloat;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFloatSET extends DmcTypeFloat implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeFloatSET extends DmcTypeFloat implements Serializable {
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Float>();
         else
             value = new TreeSet<Float>();
@@ -55,7 +55,7 @@ public class DmcTypeFloatSET extends DmcTypeFloat implements Serializable {
     
     @Override
     public DmcTypeFloatSET getNew(){
-        return(new DmcTypeFloatSET(attrInfo));
+        return(new DmcTypeFloatSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeFloatSET extends DmcTypeFloat implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<Float> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<Float>(value)).iterator() );
             else
                 return( (new TreeSet<Float>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeFloatSET extends DmcTypeFloat implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<Float> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<Float>(value));
             else
                 return(new TreeSet<Float>(value));

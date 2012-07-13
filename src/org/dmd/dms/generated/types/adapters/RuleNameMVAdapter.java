@@ -14,7 +14,7 @@ public class RuleNameMVAdapter extends DmcTypeRuleNameMV implements DmcAdapterIF
     transient DmcTypeRuleNameMV existingValue;
 
     public RuleNameMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

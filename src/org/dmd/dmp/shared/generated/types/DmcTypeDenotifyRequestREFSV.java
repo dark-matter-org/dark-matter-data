@@ -41,7 +41,7 @@ public class DmcTypeDenotifyRequestREFSV extends DmcTypeDenotifyRequestREF imple
     }
     
     public DmcTypeDenotifyRequestREFSV getNew(){
-        return(new DmcTypeDenotifyRequestREFSV(attrInfo));
+        return(new DmcTypeDenotifyRequestREFSV(getAttributeInfo()));
     }
     
     public DmcTypeDenotifyRequestREFSV getNew(DmcAttributeInfo ai){

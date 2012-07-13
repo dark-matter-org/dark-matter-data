@@ -2078,7 +2078,7 @@ abstract public class DmcObject implements Serializable {
 			TreeMap<Integer,DmcAttribute<?>> map = new TreeMap<Integer, DmcAttribute<?>>();
 			
 			for(DmcAttribute<?> attr: attributes.values()){
-				if (!allowsAttribute(attr.attrInfo)){
+				if (!allowsAttribute(attr.getAttributeInfo())){
 					map.put(attr.ID, attr);
 				}
 			}

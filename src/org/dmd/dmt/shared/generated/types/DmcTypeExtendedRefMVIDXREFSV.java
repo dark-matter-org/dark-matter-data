@@ -26,7 +26,7 @@ public class DmcTypeExtendedRefMVIDXREFSV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     public DmcTypeExtendedRefMVIDXREFSV getNew(){
-        return(new DmcTypeExtendedRefMVIDXREFSV(attrInfo));
+        return(new DmcTypeExtendedRefMVIDXREFSV(getAttributeInfo()));
     }
     
     public DmcTypeExtendedRefMVIDXREFSV getNew(DmcAttributeInfo ai){

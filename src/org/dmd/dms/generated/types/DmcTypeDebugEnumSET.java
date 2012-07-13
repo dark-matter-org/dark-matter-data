@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.DebugEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:555)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:556)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializabl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DebugEnum>();
         else
             value = new TreeSet<DebugEnum>();
@@ -55,7 +55,7 @@ public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializabl
     
     @Override
     public DmcTypeDebugEnumSET getNew(){
-        return(new DmcTypeDebugEnumSET(attrInfo));
+        return(new DmcTypeDebugEnumSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializabl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<DebugEnum> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DebugEnum>(value)).iterator() );
             else
                 return( (new TreeSet<DebugEnum>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeDebugEnumSET extends DmcTypeDebugEnum implements Serializabl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<DebugEnum> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<DebugEnum>(value));
             else
                 return(new TreeSet<DebugEnum>(value));

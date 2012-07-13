@@ -25,7 +25,7 @@ public class DmcTypeTestDerivedSubpackageREFSV extends DmcTypeTestDerivedSubpack
     }
     
     public DmcTypeTestDerivedSubpackageREFSV getNew(){
-        return(new DmcTypeTestDerivedSubpackageREFSV(attrInfo));
+        return(new DmcTypeTestDerivedSubpackageREFSV(getAttributeInfo()));
     }
     
     public DmcTypeTestDerivedSubpackageREFSV getNew(DmcAttributeInfo ai){

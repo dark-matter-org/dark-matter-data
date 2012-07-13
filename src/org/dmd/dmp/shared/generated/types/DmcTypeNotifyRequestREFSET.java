@@ -47,7 +47,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<NotifyRequestDMO>();
         else
             value = new TreeSet<NotifyRequestDMO>();
@@ -55,7 +55,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     
     @Override
     public DmcTypeNotifyRequestREFSET getNew(){
-        return(new DmcTypeNotifyRequestREFSET(attrInfo));
+        return(new DmcTypeNotifyRequestREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<NotifyRequestDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<NotifyRequestDMO>(value)).iterator() );
             else
                 return( (new TreeSet<NotifyRequestDMO>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<NotifyRequestDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<NotifyRequestDMO>(value));
             else
                 return(new TreeSet<NotifyRequestDMO>(value));

@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeLong;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLongSET extends DmcTypeLong implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeLongSET extends DmcTypeLong implements Serializable {
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Long>();
         else
             value = new TreeSet<Long>();
@@ -55,7 +55,7 @@ public class DmcTypeLongSET extends DmcTypeLong implements Serializable {
     
     @Override
     public DmcTypeLongSET getNew(){
-        return(new DmcTypeLongSET(attrInfo));
+        return(new DmcTypeLongSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeLongSET extends DmcTypeLong implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<Long> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<Long>(value)).iterator() );
             else
                 return( (new TreeSet<Long>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeLongSET extends DmcTypeLong implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<Long> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<Long>(value));
             else
                 return(new TreeSet<Long>(value));

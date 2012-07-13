@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:555)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:556)
  */
 @SuppressWarnings("serial")
 public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<WrapperTypeEnum>();
         else
             value = new TreeSet<WrapperTypeEnum>();
@@ -55,7 +55,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     
     @Override
     public DmcTypeWrapperTypeEnumSET getNew(){
-        return(new DmcTypeWrapperTypeEnumSET(attrInfo));
+        return(new DmcTypeWrapperTypeEnumSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<WrapperTypeEnum> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<WrapperTypeEnum>(value)).iterator() );
             else
                 return( (new TreeSet<WrapperTypeEnum>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<WrapperTypeEnum> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<WrapperTypeEnum>(value));
             else
                 return(new TreeSet<WrapperTypeEnum>(value));

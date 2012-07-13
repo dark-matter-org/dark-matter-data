@@ -14,7 +14,7 @@ public class DmcAttributeMVAdapter extends DmcTypeDmcAttributeMV implements DmcA
     transient DmcTypeDmcAttributeMV existingValue;
 
     public DmcAttributeMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

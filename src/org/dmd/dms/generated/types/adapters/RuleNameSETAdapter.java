@@ -14,7 +14,7 @@ public class RuleNameSETAdapter extends DmcTypeRuleNameSET implements DmcAdapter
     transient DmcTypeRuleNameSET existingValue;
 
     public RuleNameSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

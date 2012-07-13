@@ -47,7 +47,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<MapZoomEnum>();
         else
             value = new TreeSet<MapZoomEnum>();
@@ -55,7 +55,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     
     @Override
     public DmcTypeMapZoomEnumSET getNew(){
-        return(new DmcTypeMapZoomEnumSET(attrInfo));
+        return(new DmcTypeMapZoomEnumSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<MapZoomEnum> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<MapZoomEnum>(value)).iterator() );
             else
                 return( (new TreeSet<MapZoomEnum>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeMapZoomEnumSET extends DmcTypeMapZoomEnum implements Seriali
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<MapZoomEnum> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<MapZoomEnum>(value));
             else
                 return(new TreeSet<MapZoomEnum>(value));

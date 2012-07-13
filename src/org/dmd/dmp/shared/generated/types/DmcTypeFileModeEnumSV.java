@@ -41,7 +41,7 @@ public class DmcTypeFileModeEnumSV extends DmcTypeFileModeEnum implements Serial
     }
     
     public DmcTypeFileModeEnumSV getNew(){
-        return(new DmcTypeFileModeEnumSV(attrInfo));
+        return(new DmcTypeFileModeEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeFileModeEnumSV getNew(DmcAttributeInfo ai){

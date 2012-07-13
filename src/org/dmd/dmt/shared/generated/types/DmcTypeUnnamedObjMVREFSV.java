@@ -26,7 +26,7 @@ public class DmcTypeUnnamedObjMVREFSV extends DmcTypeUnnamedObjMVREF implements 
     }
     
     public DmcTypeUnnamedObjMVREFSV getNew(){
-        return(new DmcTypeUnnamedObjMVREFSV(attrInfo));
+        return(new DmcTypeUnnamedObjMVREFSV(getAttributeInfo()));
     }
     
     public DmcTypeUnnamedObjMVREFSV getNew(DmcAttributeInfo ai){

@@ -14,7 +14,7 @@ public class WrapperGeneratorREFSVAdapter extends DmcTypeWrapperGeneratorREFSV i
     transient DmcTypeWrapperGeneratorREFSV existingValue;
 
     public WrapperGeneratorREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

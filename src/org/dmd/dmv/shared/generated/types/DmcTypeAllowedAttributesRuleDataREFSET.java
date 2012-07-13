@@ -47,7 +47,7 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<AllowedAttributesRuleDataDMO>();
         else
             value = new TreeSet<AllowedAttributesRuleDataDMO>();
@@ -55,7 +55,7 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     
     @Override
     public DmcTypeAllowedAttributesRuleDataREFSET getNew(){
-        return(new DmcTypeAllowedAttributesRuleDataREFSET(attrInfo));
+        return(new DmcTypeAllowedAttributesRuleDataREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<AllowedAttributesRuleDataDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<AllowedAttributesRuleDataDMO>(value)).iterator() );
             else
                 return( (new TreeSet<AllowedAttributesRuleDataDMO>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<AllowedAttributesRuleDataDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<AllowedAttributesRuleDataDMO>(value));
             else
                 return(new TreeSet<AllowedAttributesRuleDataDMO>(value));

@@ -14,7 +14,7 @@ public class OperationalContextEnumMVAdapter extends DmcTypeOperationalContextEn
     transient DmcTypeOperationalContextEnumMV existingValue;
 
     public OperationalContextEnumMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

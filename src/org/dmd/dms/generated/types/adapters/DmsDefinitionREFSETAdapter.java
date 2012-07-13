@@ -14,7 +14,7 @@ public class DmsDefinitionREFSETAdapter extends DmcTypeDmsDefinitionREFSET imple
     transient DmcTypeDmsDefinitionREFSET existingValue;
 
     public DmsDefinitionREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

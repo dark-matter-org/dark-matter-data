@@ -47,7 +47,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DMPEventTypeEnum>();
         else
             value = new TreeSet<DMPEventTypeEnum>();
@@ -55,7 +55,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
     
     @Override
     public DmcTypeDMPEventTypeEnumSET getNew(){
-        return(new DmcTypeDMPEventTypeEnumSET(attrInfo));
+        return(new DmcTypeDMPEventTypeEnumSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<DMPEventTypeEnum> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DMPEventTypeEnum>(value)).iterator() );
             else
                 return( (new TreeSet<DMPEventTypeEnum>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeDMPEventTypeEnumSET extends DmcTypeDMPEventTypeEnum implemen
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<DMPEventTypeEnum> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<DMPEventTypeEnum>(value));
             else
                 return(new TreeSet<DMPEventTypeEnum>(value));

@@ -14,7 +14,7 @@ public class DoubleSETAdapter extends DmcTypeDoubleSET implements DmcAdapterIF {
     transient DmcTypeDoubleSET existingValue;
 
     public DoubleSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

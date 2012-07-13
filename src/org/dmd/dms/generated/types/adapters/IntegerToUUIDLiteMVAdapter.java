@@ -14,7 +14,7 @@ public class IntegerToUUIDLiteMVAdapter extends DmcTypeIntegerToUUIDLiteMV imple
     transient DmcTypeIntegerToUUIDLiteMV existingValue;
 
     public IntegerToUUIDLiteMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

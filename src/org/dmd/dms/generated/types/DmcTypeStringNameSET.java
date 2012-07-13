@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeStringName;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringNameSET extends DmcTypeStringName implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeStringNameSET extends DmcTypeStringName implements Serializa
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<StringName>();
         else
             value = new TreeSet<StringName>();
@@ -56,7 +56,7 @@ public class DmcTypeStringNameSET extends DmcTypeStringName implements Serializa
     
     @Override
     public DmcTypeStringNameSET getNew(){
-        return(new DmcTypeStringNameSET(attrInfo));
+        return(new DmcTypeStringNameSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeStringNameSET extends DmcTypeStringName implements Serializa
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<StringName> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<StringName>(value)).iterator() );
             else
                 return( (new TreeSet<StringName>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeStringNameSET extends DmcTypeStringName implements Serializa
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<StringName> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<StringName>(value));
             else
                 return(new TreeSet<StringName>(value));

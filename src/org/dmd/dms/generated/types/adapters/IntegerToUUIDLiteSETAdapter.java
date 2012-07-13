@@ -14,7 +14,7 @@ public class IntegerToUUIDLiteSETAdapter extends DmcTypeIntegerToUUIDLiteSET imp
     transient DmcTypeIntegerToUUIDLiteSET existingValue;
 
     public IntegerToUUIDLiteSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

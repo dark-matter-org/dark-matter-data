@@ -14,7 +14,7 @@ public class DependencyREFMVAdapter extends DmcTypeDependencyREFMV implements Dm
     transient DmcTypeDependencyREFMV existingValue;
 
     public DependencyREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

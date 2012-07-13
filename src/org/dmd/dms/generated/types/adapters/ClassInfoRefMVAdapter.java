@@ -14,7 +14,7 @@ public class ClassInfoRefMVAdapter extends DmcTypeClassInfoRefMV implements DmcA
     transient DmcTypeClassInfoRefMV existingValue;
 
     public ClassInfoRefMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

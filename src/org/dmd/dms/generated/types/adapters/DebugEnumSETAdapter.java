@@ -14,7 +14,7 @@ public class DebugEnumSETAdapter extends DmcTypeDebugEnumSET implements DmcAdapt
     transient DmcTypeDebugEnumSET existingValue;
 
     public DebugEnumSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

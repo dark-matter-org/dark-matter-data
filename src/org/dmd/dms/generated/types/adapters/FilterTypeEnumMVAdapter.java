@@ -14,7 +14,7 @@ public class FilterTypeEnumMVAdapter extends DmcTypeFilterTypeEnumMV implements 
     transient DmcTypeFilterTypeEnumMV existingValue;
 
     public FilterTypeEnumMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

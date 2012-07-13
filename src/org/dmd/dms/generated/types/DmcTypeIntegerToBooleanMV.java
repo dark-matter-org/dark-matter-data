@@ -28,7 +28,7 @@ import org.dmd.dmc.types.DmcTypeIntegerToBoolean;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:627)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:628)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implements Serializable {
@@ -45,7 +45,7 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     
     @Override
     public DmcTypeIntegerToBooleanMV getNew(){
-        return(new DmcTypeIntegerToBooleanMV(attrInfo));
+        return(new DmcTypeIntegerToBooleanMV(getAttributeInfo()));
     }
     
     @Override
@@ -53,7 +53,7 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     public DmcAttribute<IntegerToBoolean> cloneIt(){
         synchronized(this){
             DmcTypeIntegerToBooleanMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 for(IntegerToBoolean val: value)
                 try {
                     rc.add(val);
@@ -127,13 +127,13 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
@@ -151,11 +151,11 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public IntegerToBoolean setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             IntegerToBoolean rc = null;
             
@@ -163,8 +163,8 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<IntegerToBoolean>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<IntegerToBoolean>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -180,8 +180,8 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);

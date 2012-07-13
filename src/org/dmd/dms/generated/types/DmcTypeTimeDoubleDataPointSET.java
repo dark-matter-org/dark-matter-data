@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint im
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<TimeDoubleDataPoint>();
         else
             value = new TreeSet<TimeDoubleDataPoint>();
@@ -56,7 +56,7 @@ public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint im
     
     @Override
     public DmcTypeTimeDoubleDataPointSET getNew(){
-        return(new DmcTypeTimeDoubleDataPointSET(attrInfo));
+        return(new DmcTypeTimeDoubleDataPointSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint im
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<TimeDoubleDataPoint> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<TimeDoubleDataPoint>(value)).iterator() );
             else
                 return( (new TreeSet<TimeDoubleDataPoint>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeTimeDoubleDataPointSET extends DmcTypeTimeDoubleDataPoint im
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<TimeDoubleDataPoint> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<TimeDoubleDataPoint>(value));
             else
                 return(new TreeSet<TimeDoubleDataPoint>(value));

@@ -25,7 +25,7 @@ public class DmcTypeTestMultiLevelSubpackageREFSV extends DmcTypeTestMultiLevelS
     }
     
     public DmcTypeTestMultiLevelSubpackageREFSV getNew(){
-        return(new DmcTypeTestMultiLevelSubpackageREFSV(attrInfo));
+        return(new DmcTypeTestMultiLevelSubpackageREFSV(getAttributeInfo()));
     }
     
     public DmcTypeTestMultiLevelSubpackageREFSV getNew(DmcAttributeInfo ai){

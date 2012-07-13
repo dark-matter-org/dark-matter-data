@@ -31,7 +31,7 @@ import org.dmd.dms.generated.types.DmcTypeField;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Field>();
         else
             value = new TreeSet<Field>();
@@ -56,7 +56,7 @@ public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
     
     @Override
     public DmcTypeFieldSET getNew(){
-        return(new DmcTypeFieldSET(attrInfo));
+        return(new DmcTypeFieldSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<Field> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<Field>(value)).iterator() );
             else
                 return( (new TreeSet<Field>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeFieldSET extends DmcTypeField implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<Field> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<Field>(value));
             else
                 return(new TreeSet<Field>(value));

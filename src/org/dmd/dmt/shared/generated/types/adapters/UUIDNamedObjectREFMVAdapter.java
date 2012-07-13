@@ -14,7 +14,7 @@ public class UUIDNamedObjectREFMVAdapter extends DmcTypeUUIDNamedObjectREFMV imp
     transient DmcTypeUUIDNamedObjectREFMV existingValue;
 
     public UUIDNamedObjectREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

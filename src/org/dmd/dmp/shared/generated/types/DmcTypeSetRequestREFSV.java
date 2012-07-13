@@ -41,7 +41,7 @@ public class DmcTypeSetRequestREFSV extends DmcTypeSetRequestREF implements Seri
     }
     
     public DmcTypeSetRequestREFSV getNew(){
-        return(new DmcTypeSetRequestREFSV(attrInfo));
+        return(new DmcTypeSetRequestREFSV(getAttributeInfo()));
     }
     
     public DmcTypeSetRequestREFSV getNew(DmcAttributeInfo ai){

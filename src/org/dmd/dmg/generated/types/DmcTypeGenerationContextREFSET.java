@@ -46,7 +46,7 @@ public class DmcTypeGenerationContextREFSET extends DmcTypeGenerationContextREF 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<GenerationContextREF>();
         else
             value = new TreeSet<GenerationContextREF>();
@@ -54,7 +54,7 @@ public class DmcTypeGenerationContextREFSET extends DmcTypeGenerationContextREF 
     
     @Override
     public DmcTypeGenerationContextREFSET getNew(){
-        return(new DmcTypeGenerationContextREFSET(attrInfo));
+        return(new DmcTypeGenerationContextREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeGenerationContextREFSET extends DmcTypeGenerationContextREF 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<GenerationContextREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<GenerationContextREF>(value)).iterator() );
             else
                 return( (new TreeSet<GenerationContextREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeGenerationContextREFSET extends DmcTypeGenerationContextREF 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<GenerationContextREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<GenerationContextREF>(value));
             else
                 return(new TreeSet<GenerationContextREF>(value));

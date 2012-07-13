@@ -25,7 +25,7 @@ public class DmcTypeObjWithRefsREFSV extends DmcTypeObjWithRefsREF implements Se
     }
     
     public DmcTypeObjWithRefsREFSV getNew(){
-        return(new DmcTypeObjWithRefsREFSV(attrInfo));
+        return(new DmcTypeObjWithRefsREFSV(getAttributeInfo()));
     }
     
     public DmcTypeObjWithRefsREFSV getNew(DmcAttributeInfo ai){

@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeDate;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Date>();
         else
             value = new TreeSet<Date>();
@@ -56,7 +56,7 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
     
     @Override
     public DmcTypeDateSET getNew(){
-        return(new DmcTypeDateSET(attrInfo));
+        return(new DmcTypeDateSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<Date> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<Date>(value)).iterator() );
             else
                 return( (new TreeSet<Date>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<Date> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<Date>(value));
             else
                 return(new TreeSet<Date>(value));

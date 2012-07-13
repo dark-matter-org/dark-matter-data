@@ -31,7 +31,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFSET extends DmcTypeTestBasicN
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<TestBasicNamedObjectExtendedREF>();
         else
             value = new TreeSet<TestBasicNamedObjectExtendedREF>();
@@ -39,7 +39,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFSET extends DmcTypeTestBasicN
     
     @Override
     public DmcTypeTestBasicNamedObjectExtendedREFSET getNew(){
-        return(new DmcTypeTestBasicNamedObjectExtendedREFSET(attrInfo));
+        return(new DmcTypeTestBasicNamedObjectExtendedREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -101,7 +101,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFSET extends DmcTypeTestBasicN
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<TestBasicNamedObjectExtendedREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<TestBasicNamedObjectExtendedREF>(value)).iterator() );
             else
                 return( (new TreeSet<TestBasicNamedObjectExtendedREF>(value)).iterator() );
@@ -111,7 +111,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFSET extends DmcTypeTestBasicN
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<TestBasicNamedObjectExtendedREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<TestBasicNamedObjectExtendedREF>(value));
             else
                 return(new TreeSet<TestBasicNamedObjectExtendedREF>(value));

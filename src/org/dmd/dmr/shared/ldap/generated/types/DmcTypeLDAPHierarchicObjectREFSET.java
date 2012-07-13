@@ -46,7 +46,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<LDAPHierarchicObjectREF>();
         else
             value = new TreeSet<LDAPHierarchicObjectREF>();
@@ -54,7 +54,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
     
     @Override
     public DmcTypeLDAPHierarchicObjectREFSET getNew(){
-        return(new DmcTypeLDAPHierarchicObjectREFSET(attrInfo));
+        return(new DmcTypeLDAPHierarchicObjectREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<LDAPHierarchicObjectREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<LDAPHierarchicObjectREF>(value)).iterator() );
             else
                 return( (new TreeSet<LDAPHierarchicObjectREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeLDAPHierarchicObjectREFSET extends DmcTypeLDAPHierarchicObje
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<LDAPHierarchicObjectREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<LDAPHierarchicObjectREF>(value));
             else
                 return(new TreeSet<LDAPHierarchicObjectREF>(value));

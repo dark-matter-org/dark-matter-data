@@ -49,25 +49,25 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,ActifactGeneratorREF>();
         else
             value = new TreeMap<StringName,ActifactGeneratorREF>();
     }
     
     public StringName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<StringName,ActifactGeneratorREF> map = (TreeMap<StringName,ActifactGeneratorREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeActifactGeneratorREFMAP getNew(){
-        return(new DmcTypeActifactGeneratorREFMAP(attrInfo));
+        return(new DmcTypeActifactGeneratorREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -121,7 +121,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
     public Iterator<ActifactGeneratorREF> getMV(){
         synchronized(this){
             Map<StringName,ActifactGeneratorREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,ActifactGeneratorREF>(value);
             else
                 clone = new TreeMap<StringName,ActifactGeneratorREF>(value);
@@ -133,7 +133,7 @@ public class DmcTypeActifactGeneratorREFMAP extends DmcTypeActifactGeneratorREF 
     public Map<StringName,ActifactGeneratorREF> getMVCopy(){
         synchronized(this){
             Map<StringName,ActifactGeneratorREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,ActifactGeneratorREF>(value);
             else
                 clone = new TreeMap<StringName,ActifactGeneratorREF>(value);

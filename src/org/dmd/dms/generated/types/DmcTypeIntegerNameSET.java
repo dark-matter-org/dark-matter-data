@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeIntegerName;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Seriali
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<IntegerName>();
         else
             value = new TreeSet<IntegerName>();
@@ -56,7 +56,7 @@ public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Seriali
     
     @Override
     public DmcTypeIntegerNameSET getNew(){
-        return(new DmcTypeIntegerNameSET(attrInfo));
+        return(new DmcTypeIntegerNameSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Seriali
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<IntegerName> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<IntegerName>(value)).iterator() );
             else
                 return( (new TreeSet<IntegerName>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeIntegerNameSET extends DmcTypeIntegerName implements Seriali
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<IntegerName> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<IntegerName>(value));
             else
                 return(new TreeSet<IntegerName>(value));

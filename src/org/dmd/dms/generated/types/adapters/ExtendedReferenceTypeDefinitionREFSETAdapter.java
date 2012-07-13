@@ -14,7 +14,7 @@ public class ExtendedReferenceTypeDefinitionREFSETAdapter extends DmcTypeExtende
     transient DmcTypeExtendedReferenceTypeDefinitionREFSET existingValue;
 
     public ExtendedReferenceTypeDefinitionREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

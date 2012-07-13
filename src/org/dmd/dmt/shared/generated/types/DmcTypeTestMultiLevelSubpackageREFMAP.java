@@ -34,25 +34,25 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,TestMultiLevelSubpackageREF>();
         else
             value = new TreeMap<StringName,TestMultiLevelSubpackageREF>();
     }
     
     public StringName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<StringName,TestMultiLevelSubpackageREF> map = (TreeMap<StringName,TestMultiLevelSubpackageREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeTestMultiLevelSubpackageREFMAP getNew(){
-        return(new DmcTypeTestMultiLevelSubpackageREFMAP(attrInfo));
+        return(new DmcTypeTestMultiLevelSubpackageREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -106,7 +106,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
     public Iterator<TestMultiLevelSubpackageREF> getMV(){
         synchronized(this){
             Map<StringName,TestMultiLevelSubpackageREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestMultiLevelSubpackageREF>(value);
             else
                 clone = new TreeMap<StringName,TestMultiLevelSubpackageREF>(value);
@@ -118,7 +118,7 @@ public class DmcTypeTestMultiLevelSubpackageREFMAP extends DmcTypeTestMultiLevel
     public Map<StringName,TestMultiLevelSubpackageREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestMultiLevelSubpackageREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestMultiLevelSubpackageREF>(value);
             else
                 clone = new TreeMap<StringName,TestMultiLevelSubpackageREF>(value);

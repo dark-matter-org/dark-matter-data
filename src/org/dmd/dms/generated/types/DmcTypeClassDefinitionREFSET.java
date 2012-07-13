@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:577)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:578)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF implements Serializable {
@@ -46,7 +46,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ClassDefinitionREF>();
         else
             value = new TreeSet<ClassDefinitionREF>();
@@ -54,7 +54,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     
     @Override
     public DmcTypeClassDefinitionREFSET getNew(){
-        return(new DmcTypeClassDefinitionREFSET(attrInfo));
+        return(new DmcTypeClassDefinitionREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ClassDefinitionREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ClassDefinitionREF>(value)).iterator() );
             else
                 return( (new TreeSet<ClassDefinitionREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ClassDefinitionREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ClassDefinitionREF>(value));
             else
                 return(new TreeSet<ClassDefinitionREF>(value));

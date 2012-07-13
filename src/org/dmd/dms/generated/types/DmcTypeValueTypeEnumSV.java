@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:548)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:549)
  */
 @SuppressWarnings("serial")
 public class DmcTypeValueTypeEnumSV extends DmcTypeValueTypeEnum implements Serializable {
@@ -41,7 +41,7 @@ public class DmcTypeValueTypeEnumSV extends DmcTypeValueTypeEnum implements Seri
     }
     
     public DmcTypeValueTypeEnumSV getNew(){
-        return(new DmcTypeValueTypeEnumSV(attrInfo));
+        return(new DmcTypeValueTypeEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeValueTypeEnumSV getNew(DmcAttributeInfo ai){

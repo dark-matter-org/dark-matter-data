@@ -14,7 +14,7 @@ public class UUIDNameSVAdapter extends DmcTypeUUIDNameSV implements DmcAdapterIF
     transient DmcTypeUUIDNameSV existingValue;
 
     public UUIDNameSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

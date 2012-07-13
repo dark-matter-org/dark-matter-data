@@ -26,7 +26,7 @@ public class DmcTypeUsingIndexedAttributesREFSV extends DmcTypeUsingIndexedAttri
     }
     
     public DmcTypeUsingIndexedAttributesREFSV getNew(){
-        return(new DmcTypeUsingIndexedAttributesREFSV(attrInfo));
+        return(new DmcTypeUsingIndexedAttributesREFSV(getAttributeInfo()));
     }
     
     public DmcTypeUsingIndexedAttributesREFSV getNew(DmcAttributeInfo ai){

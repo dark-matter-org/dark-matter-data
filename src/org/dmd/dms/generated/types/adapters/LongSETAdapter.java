@@ -14,7 +14,7 @@ public class LongSETAdapter extends DmcTypeLongSET implements DmcAdapterIF {
     transient DmcTypeLongSET existingValue;
 
     public LongSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

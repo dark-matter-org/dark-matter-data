@@ -46,7 +46,7 @@ public class DmcTypeActifactGeneratorREFSET extends DmcTypeActifactGeneratorREF 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ActifactGeneratorREF>();
         else
             value = new TreeSet<ActifactGeneratorREF>();
@@ -54,7 +54,7 @@ public class DmcTypeActifactGeneratorREFSET extends DmcTypeActifactGeneratorREF 
     
     @Override
     public DmcTypeActifactGeneratorREFSET getNew(){
-        return(new DmcTypeActifactGeneratorREFSET(attrInfo));
+        return(new DmcTypeActifactGeneratorREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeActifactGeneratorREFSET extends DmcTypeActifactGeneratorREF 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ActifactGeneratorREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ActifactGeneratorREF>(value)).iterator() );
             else
                 return( (new TreeSet<ActifactGeneratorREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeActifactGeneratorREFSET extends DmcTypeActifactGeneratorREF 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ActifactGeneratorREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ActifactGeneratorREF>(value));
             else
                 return(new TreeSet<ActifactGeneratorREF>(value));

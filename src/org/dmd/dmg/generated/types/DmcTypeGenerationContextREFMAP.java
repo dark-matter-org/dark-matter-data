@@ -49,25 +49,25 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<CamelCaseName,GenerationContextREF>();
         else
             value = new TreeMap<CamelCaseName,GenerationContextREF>();
     }
     
     public CamelCaseName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<CamelCaseName,GenerationContextREF> map = (TreeMap<CamelCaseName,GenerationContextREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeGenerationContextREFMAP getNew(){
-        return(new DmcTypeGenerationContextREFMAP(attrInfo));
+        return(new DmcTypeGenerationContextREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -121,7 +121,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     public Iterator<GenerationContextREF> getMV(){
         synchronized(this){
             Map<CamelCaseName,GenerationContextREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<CamelCaseName,GenerationContextREF>(value);
             else
                 clone = new TreeMap<CamelCaseName,GenerationContextREF>(value);
@@ -133,7 +133,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     public Map<CamelCaseName,GenerationContextREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,GenerationContextREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<CamelCaseName,GenerationContextREF>(value);
             else
                 clone = new TreeMap<CamelCaseName,GenerationContextREF>(value);

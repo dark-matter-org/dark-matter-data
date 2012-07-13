@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:577)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:578)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements Serializable {
@@ -46,7 +46,7 @@ public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<RuleCategoryREF>();
         else
             value = new TreeSet<RuleCategoryREF>();
@@ -54,7 +54,7 @@ public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements
     
     @Override
     public DmcTypeRuleCategoryREFSET getNew(){
-        return(new DmcTypeRuleCategoryREFSET(attrInfo));
+        return(new DmcTypeRuleCategoryREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<RuleCategoryREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<RuleCategoryREF>(value)).iterator() );
             else
                 return( (new TreeSet<RuleCategoryREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeRuleCategoryREFSET extends DmcTypeRuleCategoryREF implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<RuleCategoryREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<RuleCategoryREF>(value));
             else
                 return(new TreeSet<RuleCategoryREF>(value));

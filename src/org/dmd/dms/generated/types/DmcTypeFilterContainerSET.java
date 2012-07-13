@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeFilterContainer;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<FilterContainer>();
         else
             value = new TreeSet<FilterContainer>();
@@ -56,7 +56,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     
     @Override
     public DmcTypeFilterContainerSET getNew(){
-        return(new DmcTypeFilterContainerSET(attrInfo));
+        return(new DmcTypeFilterContainerSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<FilterContainer> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<FilterContainer>(value)).iterator() );
             else
                 return( (new TreeSet<FilterContainer>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<FilterContainer> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<FilterContainer>(value));
             else
                 return(new TreeSet<FilterContainer>(value));

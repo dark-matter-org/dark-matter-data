@@ -14,7 +14,7 @@ public class ClassTypeEnumSETAdapter extends DmcTypeClassTypeEnumSET implements 
     transient DmcTypeClassTypeEnumSET existingValue;
 
     public ClassTypeEnumSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -26,7 +26,7 @@ public class DmcTypeDmtTestEnumSV extends DmcTypeDmtTestEnum implements Serializ
     }
     
     public DmcTypeDmtTestEnumSV getNew(){
-        return(new DmcTypeDmtTestEnumSV(attrInfo));
+        return(new DmcTypeDmtTestEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeDmtTestEnumSV getNew(DmcAttributeInfo ai){

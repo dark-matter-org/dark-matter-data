@@ -14,7 +14,7 @@ public class StringToStringSVAdapter extends DmcTypeStringToStringSV implements 
     transient DmcTypeStringToStringSV existingValue;
 
     public StringToStringSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

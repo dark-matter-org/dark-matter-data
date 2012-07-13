@@ -26,7 +26,7 @@ public class DmcTypeNamedObjMVIDXREFSV extends DmcTypeNamedObjMVIDXREF implement
     }
     
     public DmcTypeNamedObjMVIDXREFSV getNew(){
-        return(new DmcTypeNamedObjMVIDXREFSV(attrInfo));
+        return(new DmcTypeNamedObjMVIDXREFSV(getAttributeInfo()));
     }
     
     public DmcTypeNamedObjMVIDXREFSV getNew(DmcAttributeInfo ai){

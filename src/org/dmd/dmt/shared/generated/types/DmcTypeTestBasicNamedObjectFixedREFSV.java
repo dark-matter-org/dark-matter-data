@@ -25,7 +25,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFSV extends DmcTypeTestBasicNamed
     }
     
     public DmcTypeTestBasicNamedObjectFixedREFSV getNew(){
-        return(new DmcTypeTestBasicNamedObjectFixedREFSV(attrInfo));
+        return(new DmcTypeTestBasicNamedObjectFixedREFSV(getAttributeInfo()));
     }
     
     public DmcTypeTestBasicNamedObjectFixedREFSV getNew(DmcAttributeInfo ai){

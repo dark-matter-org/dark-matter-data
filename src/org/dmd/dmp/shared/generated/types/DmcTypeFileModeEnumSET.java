@@ -47,7 +47,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<FileModeEnum>();
         else
             value = new TreeSet<FileModeEnum>();
@@ -55,7 +55,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     
     @Override
     public DmcTypeFileModeEnumSET getNew(){
-        return(new DmcTypeFileModeEnumSET(attrInfo));
+        return(new DmcTypeFileModeEnumSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<FileModeEnum> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<FileModeEnum>(value)).iterator() );
             else
                 return( (new TreeSet<FileModeEnum>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<FileModeEnum> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<FileModeEnum>(value));
             else
                 return(new TreeSet<FileModeEnum>(value));

@@ -25,7 +25,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFSV extends DmcTypeTestBasicNa
     }
     
     public DmcTypeTestBasicNamedObjectExtendedREFSV getNew(){
-        return(new DmcTypeTestBasicNamedObjectExtendedREFSV(attrInfo));
+        return(new DmcTypeTestBasicNamedObjectExtendedREFSV(getAttributeInfo()));
     }
     
     public DmcTypeTestBasicNamedObjectExtendedREFSV getNew(DmcAttributeInfo ai){

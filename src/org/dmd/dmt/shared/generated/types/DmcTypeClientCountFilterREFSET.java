@@ -32,7 +32,7 @@ public class DmcTypeClientCountFilterREFSET extends DmcTypeClientCountFilterREF 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ClientCountFilterDMO>();
         else
             value = new TreeSet<ClientCountFilterDMO>();
@@ -40,7 +40,7 @@ public class DmcTypeClientCountFilterREFSET extends DmcTypeClientCountFilterREF 
     
     @Override
     public DmcTypeClientCountFilterREFSET getNew(){
-        return(new DmcTypeClientCountFilterREFSET(attrInfo));
+        return(new DmcTypeClientCountFilterREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -102,7 +102,7 @@ public class DmcTypeClientCountFilterREFSET extends DmcTypeClientCountFilterREF 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ClientCountFilterDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ClientCountFilterDMO>(value)).iterator() );
             else
                 return( (new TreeSet<ClientCountFilterDMO>(value)).iterator() );
@@ -112,7 +112,7 @@ public class DmcTypeClientCountFilterREFSET extends DmcTypeClientCountFilterREF 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ClientCountFilterDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ClientCountFilterDMO>(value));
             else
                 return(new TreeSet<ClientCountFilterDMO>(value));

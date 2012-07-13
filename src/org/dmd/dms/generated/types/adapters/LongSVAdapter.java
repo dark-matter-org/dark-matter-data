@@ -14,7 +14,7 @@ public class LongSVAdapter extends DmcTypeLongSV implements DmcAdapterIF {
     transient DmcTypeLongSV existingValue;
 
     public LongSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

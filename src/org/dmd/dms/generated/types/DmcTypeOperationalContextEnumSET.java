@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.OperationalContextEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:555)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:556)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextEnum implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextE
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<OperationalContextEnum>();
         else
             value = new TreeSet<OperationalContextEnum>();
@@ -55,7 +55,7 @@ public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextE
     
     @Override
     public DmcTypeOperationalContextEnumSET getNew(){
-        return(new DmcTypeOperationalContextEnumSET(attrInfo));
+        return(new DmcTypeOperationalContextEnumSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextE
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<OperationalContextEnum> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<OperationalContextEnum>(value)).iterator() );
             else
                 return( (new TreeSet<OperationalContextEnum>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextE
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<OperationalContextEnum> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<OperationalContextEnum>(value));
             else
                 return(new TreeSet<OperationalContextEnum>(value));

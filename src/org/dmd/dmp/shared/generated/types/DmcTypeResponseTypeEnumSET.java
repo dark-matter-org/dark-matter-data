@@ -47,7 +47,7 @@ public class DmcTypeResponseTypeEnumSET extends DmcTypeResponseTypeEnum implemen
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ResponseTypeEnum>();
         else
             value = new TreeSet<ResponseTypeEnum>();
@@ -55,7 +55,7 @@ public class DmcTypeResponseTypeEnumSET extends DmcTypeResponseTypeEnum implemen
     
     @Override
     public DmcTypeResponseTypeEnumSET getNew(){
-        return(new DmcTypeResponseTypeEnumSET(attrInfo));
+        return(new DmcTypeResponseTypeEnumSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeResponseTypeEnumSET extends DmcTypeResponseTypeEnum implemen
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ResponseTypeEnum> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ResponseTypeEnum>(value)).iterator() );
             else
                 return( (new TreeSet<ResponseTypeEnum>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeResponseTypeEnumSET extends DmcTypeResponseTypeEnum implemen
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ResponseTypeEnum> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ResponseTypeEnum>(value));
             else
                 return(new TreeSet<ResponseTypeEnum>(value));

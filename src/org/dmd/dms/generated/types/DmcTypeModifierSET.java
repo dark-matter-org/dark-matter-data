@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeModifier;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Modifier>();
         else
             value = new TreeSet<Modifier>();
@@ -56,7 +56,7 @@ public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable 
     
     @Override
     public DmcTypeModifierSET getNew(){
-        return(new DmcTypeModifierSET(attrInfo));
+        return(new DmcTypeModifierSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<Modifier> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<Modifier>(value)).iterator() );
             else
                 return( (new TreeSet<Modifier>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<Modifier> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<Modifier>(value));
             else
                 return(new TreeSet<Modifier>(value));

@@ -41,7 +41,7 @@ public class DmcTypeNotifyResponseREFSV extends DmcTypeNotifyResponseREF impleme
     }
     
     public DmcTypeNotifyResponseREFSV getNew(){
-        return(new DmcTypeNotifyResponseREFSV(attrInfo));
+        return(new DmcTypeNotifyResponseREFSV(getAttributeInfo()));
     }
     
     public DmcTypeNotifyResponseREFSV getNew(DmcAttributeInfo ai){

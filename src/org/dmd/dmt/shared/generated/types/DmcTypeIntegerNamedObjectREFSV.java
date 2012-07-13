@@ -25,7 +25,7 @@ public class DmcTypeIntegerNamedObjectREFSV extends DmcTypeIntegerNamedObjectREF
     }
     
     public DmcTypeIntegerNamedObjectREFSV getNew(){
-        return(new DmcTypeIntegerNamedObjectREFSV(attrInfo));
+        return(new DmcTypeIntegerNamedObjectREFSV(getAttributeInfo()));
     }
     
     public DmcTypeIntegerNamedObjectREFSV getNew(DmcAttributeInfo ai){

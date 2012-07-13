@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeIntegerToBoolean;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<IntegerToBoolean>();
         else
             value = new TreeSet<IntegerToBoolean>();
@@ -56,7 +56,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
     
     @Override
     public DmcTypeIntegerToBooleanSET getNew(){
-        return(new DmcTypeIntegerToBooleanSET(attrInfo));
+        return(new DmcTypeIntegerToBooleanSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<IntegerToBoolean> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<IntegerToBoolean>(value)).iterator() );
             else
                 return( (new TreeSet<IntegerToBoolean>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeIntegerToBooleanSET extends DmcTypeIntegerToBoolean implemen
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<IntegerToBoolean> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<IntegerToBoolean>(value));
             else
                 return(new TreeSet<IntegerToBoolean>(value));

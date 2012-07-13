@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeLabelledIntegerDataPoint;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDataPoint implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDa
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<LabelledIntegerDataPoint>();
         else
             value = new TreeSet<LabelledIntegerDataPoint>();
@@ -56,7 +56,7 @@ public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDa
     
     @Override
     public DmcTypeLabelledIntegerDataPointSET getNew(){
-        return(new DmcTypeLabelledIntegerDataPointSET(attrInfo));
+        return(new DmcTypeLabelledIntegerDataPointSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDa
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<LabelledIntegerDataPoint> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<LabelledIntegerDataPoint>(value)).iterator() );
             else
                 return( (new TreeSet<LabelledIntegerDataPoint>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeLabelledIntegerDataPointSET extends DmcTypeLabelledIntegerDa
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<LabelledIntegerDataPoint> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<LabelledIntegerDataPoint>(value));
             else
                 return(new TreeSet<LabelledIntegerDataPoint>(value));

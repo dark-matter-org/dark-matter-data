@@ -14,7 +14,7 @@ public class DotNamedObjectREFSVAdapter extends DmcTypeDotNamedObjectREFSV imple
     transient DmcTypeDotNamedObjectREFSV existingValue;
 
     public DotNamedObjectREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

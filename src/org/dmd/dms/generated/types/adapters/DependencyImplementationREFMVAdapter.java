@@ -14,7 +14,7 @@ public class DependencyImplementationREFMVAdapter extends DmcTypeDependencyImple
     transient DmcTypeDependencyImplementationREFMV existingValue;
 
     public DependencyImplementationREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

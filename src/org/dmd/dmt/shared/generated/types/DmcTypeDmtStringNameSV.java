@@ -27,7 +27,7 @@ public class DmcTypeDmtStringNameSV extends DmcTypeDmtStringName implements Seri
     }
     
     public DmcTypeDmtStringNameSV getNew(){
-        return(new DmcTypeDmtStringNameSV(attrInfo));
+        return(new DmcTypeDmtStringNameSV(getAttributeInfo()));
     }
     
     public DmcTypeDmtStringNameSV getNew(DmcAttributeInfo ai){

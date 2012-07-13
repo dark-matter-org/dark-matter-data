@@ -14,7 +14,7 @@ public class LongNameSETAdapter extends DmcTypeLongNameSET implements DmcAdapter
     transient DmcTypeLongNameSET existingValue;
 
     public LongNameSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

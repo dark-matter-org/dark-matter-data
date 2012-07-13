@@ -14,7 +14,7 @@ public class ClassFilterSETAdapter extends DmcTypeClassFilterSET implements DmcA
     transient DmcTypeClassFilterSET existingValue;
 
     public ClassFilterSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

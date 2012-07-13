@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeInteger;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Integer>();
         else
             value = new TreeSet<Integer>();
@@ -55,7 +55,7 @@ public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
     
     @Override
     public DmcTypeIntegerSET getNew(){
-        return(new DmcTypeIntegerSET(attrInfo));
+        return(new DmcTypeIntegerSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<Integer> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<Integer>(value)).iterator() );
             else
                 return( (new TreeSet<Integer>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<Integer> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<Integer>(value));
             else
                 return(new TreeSet<Integer>(value));

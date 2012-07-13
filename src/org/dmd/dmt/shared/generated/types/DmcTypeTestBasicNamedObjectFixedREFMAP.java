@@ -34,25 +34,25 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,TestBasicNamedObjectFixedREF>();
         else
             value = new TreeMap<StringName,TestBasicNamedObjectFixedREF>();
     }
     
     public StringName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<StringName,TestBasicNamedObjectFixedREF> map = (TreeMap<StringName,TestBasicNamedObjectFixedREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeTestBasicNamedObjectFixedREFMAP getNew(){
-        return(new DmcTypeTestBasicNamedObjectFixedREFMAP(attrInfo));
+        return(new DmcTypeTestBasicNamedObjectFixedREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -106,7 +106,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
     public Iterator<TestBasicNamedObjectFixedREF> getMV(){
         synchronized(this){
             Map<StringName,TestBasicNamedObjectFixedREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestBasicNamedObjectFixedREF>(value);
             else
                 clone = new TreeMap<StringName,TestBasicNamedObjectFixedREF>(value);
@@ -118,7 +118,7 @@ public class DmcTypeTestBasicNamedObjectFixedREFMAP extends DmcTypeTestBasicName
     public Map<StringName,TestBasicNamedObjectFixedREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestBasicNamedObjectFixedREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestBasicNamedObjectFixedREF>(value);
             else
                 clone = new TreeMap<StringName,TestBasicNamedObjectFixedREF>(value);

@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeString;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringSET extends DmcTypeString implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeStringSET extends DmcTypeString implements Serializable {
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<String>();
         else
             value = new TreeSet<String>();
@@ -55,7 +55,7 @@ public class DmcTypeStringSET extends DmcTypeString implements Serializable {
     
     @Override
     public DmcTypeStringSET getNew(){
-        return(new DmcTypeStringSET(attrInfo));
+        return(new DmcTypeStringSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeStringSET extends DmcTypeString implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<String> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<String>(value)).iterator() );
             else
                 return( (new TreeSet<String>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeStringSET extends DmcTypeString implements Serializable {
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<String> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<String>(value));
             else
                 return(new TreeSet<String>(value));

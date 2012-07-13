@@ -14,7 +14,7 @@ public class ModifierSVAdapter extends DmcTypeModifierSV implements DmcAdapterIF
     transient DmcTypeModifierSV existingValue;
 
     public ModifierSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -26,7 +26,7 @@ public class DmcTypeNameContainerTestREFSV extends DmcTypeNameContainerTestREF i
     }
     
     public DmcTypeNameContainerTestREFSV getNew(){
-        return(new DmcTypeNameContainerTestREFSV(attrInfo));
+        return(new DmcTypeNameContainerTestREFSV(getAttributeInfo()));
     }
     
     public DmcTypeNameContainerTestREFSV getNew(DmcAttributeInfo ai){

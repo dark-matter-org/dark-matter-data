@@ -47,7 +47,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ActionResponseDMO>();
         else
             value = new TreeSet<ActionResponseDMO>();
@@ -55,7 +55,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     
     @Override
     public DmcTypeActionResponseREFSET getNew(){
-        return(new DmcTypeActionResponseREFSET(attrInfo));
+        return(new DmcTypeActionResponseREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ActionResponseDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ActionResponseDMO>(value)).iterator() );
             else
                 return( (new TreeSet<ActionResponseDMO>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ActionResponseDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ActionResponseDMO>(value));
             else
                 return(new TreeSet<ActionResponseDMO>(value));

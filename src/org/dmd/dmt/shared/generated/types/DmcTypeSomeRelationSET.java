@@ -33,7 +33,7 @@ public class DmcTypeSomeRelationSET extends DmcTypeSomeRelation implements Seria
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<SomeRelation>();
         else
             value = new TreeSet<SomeRelation>();
@@ -41,7 +41,7 @@ public class DmcTypeSomeRelationSET extends DmcTypeSomeRelation implements Seria
     
     @Override
     public DmcTypeSomeRelationSET getNew(){
-        return(new DmcTypeSomeRelationSET(attrInfo));
+        return(new DmcTypeSomeRelationSET(getAttributeInfo()));
     }
     
     @Override
@@ -103,7 +103,7 @@ public class DmcTypeSomeRelationSET extends DmcTypeSomeRelation implements Seria
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<SomeRelation> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<SomeRelation>(value)).iterator() );
             else
                 return( (new TreeSet<SomeRelation>(value)).iterator() );
@@ -113,7 +113,7 @@ public class DmcTypeSomeRelationSET extends DmcTypeSomeRelation implements Seria
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<SomeRelation> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<SomeRelation>(value));
             else
                 return(new TreeSet<SomeRelation>(value));

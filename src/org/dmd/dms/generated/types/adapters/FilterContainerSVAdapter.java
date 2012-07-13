@@ -14,7 +14,7 @@ public class FilterContainerSVAdapter extends DmcTypeFilterContainerSV implement
     transient DmcTypeFilterContainerSV existingValue;
 
     public FilterContainerSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

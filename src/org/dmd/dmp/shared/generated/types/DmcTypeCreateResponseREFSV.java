@@ -41,7 +41,7 @@ public class DmcTypeCreateResponseREFSV extends DmcTypeCreateResponseREF impleme
     }
     
     public DmcTypeCreateResponseREFSV getNew(){
-        return(new DmcTypeCreateResponseREFSV(attrInfo));
+        return(new DmcTypeCreateResponseREFSV(getAttributeInfo()));
     }
     
     public DmcTypeCreateResponseREFSV getNew(DmcAttributeInfo ai){

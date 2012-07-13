@@ -41,7 +41,7 @@ public class DmcTypeResponseTypeEnumSV extends DmcTypeResponseTypeEnum implement
     }
     
     public DmcTypeResponseTypeEnumSV getNew(){
-        return(new DmcTypeResponseTypeEnumSV(attrInfo));
+        return(new DmcTypeResponseTypeEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeResponseTypeEnumSV getNew(DmcAttributeInfo ai){

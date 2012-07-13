@@ -30,7 +30,7 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
     
     @Override
     public DmcTypeDmtStringNameMV getNew(){
-        return(new DmcTypeDmtStringNameMV(attrInfo));
+        return(new DmcTypeDmtStringNameMV(getAttributeInfo()));
     }
     
     @Override
@@ -38,7 +38,7 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
     public DmcAttribute<DmtStringName> cloneIt(){
         synchronized(this){
             DmcTypeDmtStringNameMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 for(DmtStringName val: value)
                 try {
                     rc.add(val);
@@ -112,13 +112,13 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
@@ -136,11 +136,11 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public DmtStringName setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             DmtStringName rc = null;
             
@@ -148,8 +148,8 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<DmtStringName>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<DmtStringName>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -165,8 +165,8 @@ public class DmcTypeDmtStringNameMV extends DmcTypeDmtStringName implements Seri
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);

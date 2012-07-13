@@ -26,7 +26,7 @@ public class DmcTypePrimitiveHSREFSV extends DmcTypePrimitiveHSREF implements Se
     }
     
     public DmcTypePrimitiveHSREFSV getNew(){
-        return(new DmcTypePrimitiveHSREFSV(attrInfo));
+        return(new DmcTypePrimitiveHSREFSV(getAttributeInfo()));
     }
     
     public DmcTypePrimitiveHSREFSV getNew(DmcAttributeInfo ai){

@@ -34,25 +34,25 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<IntegerName,IntegerNamedObjectREF>();
         else
             value = new TreeMap<IntegerName,IntegerNamedObjectREF>();
     }
     
     public IntegerName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<IntegerName,IntegerNamedObjectREF> map = (TreeMap<IntegerName,IntegerNamedObjectREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeIntegerNamedObjectREFMAP getNew(){
-        return(new DmcTypeIntegerNamedObjectREFMAP(attrInfo));
+        return(new DmcTypeIntegerNamedObjectREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -106,7 +106,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     public Iterator<IntegerNamedObjectREF> getMV(){
         synchronized(this){
             Map<IntegerName,IntegerNamedObjectREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<IntegerName,IntegerNamedObjectREF>(value);
             else
                 clone = new TreeMap<IntegerName,IntegerNamedObjectREF>(value);
@@ -118,7 +118,7 @@ public class DmcTypeIntegerNamedObjectREFMAP extends DmcTypeIntegerNamedObjectRE
     public Map<IntegerName,IntegerNamedObjectREF> getMVCopy(){
         synchronized(this){
             Map<IntegerName,IntegerNamedObjectREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<IntegerName,IntegerNamedObjectREF>(value);
             else
                 clone = new TreeMap<IntegerName,IntegerNamedObjectREF>(value);

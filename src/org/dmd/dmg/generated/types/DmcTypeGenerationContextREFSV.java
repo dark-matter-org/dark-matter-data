@@ -40,7 +40,7 @@ public class DmcTypeGenerationContextREFSV extends DmcTypeGenerationContextREF i
     }
     
     public DmcTypeGenerationContextREFSV getNew(){
-        return(new DmcTypeGenerationContextREFSV(attrInfo));
+        return(new DmcTypeGenerationContextREFSV(getAttributeInfo()));
     }
     
     public DmcTypeGenerationContextREFSV getNew(DmcAttributeInfo ai){

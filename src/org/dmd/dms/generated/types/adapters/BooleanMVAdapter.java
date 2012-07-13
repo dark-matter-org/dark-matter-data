@@ -14,7 +14,7 @@ public class BooleanMVAdapter extends DmcTypeBooleanMV implements DmcAdapterIF {
     transient DmcTypeBooleanMV existingValue;
 
     public BooleanMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

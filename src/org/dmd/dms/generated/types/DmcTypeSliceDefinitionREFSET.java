@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:577)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:578)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF implements Serializable {
@@ -46,7 +46,7 @@ public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF impl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<SliceDefinitionREF>();
         else
             value = new TreeSet<SliceDefinitionREF>();
@@ -54,7 +54,7 @@ public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF impl
     
     @Override
     public DmcTypeSliceDefinitionREFSET getNew(){
-        return(new DmcTypeSliceDefinitionREFSET(attrInfo));
+        return(new DmcTypeSliceDefinitionREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<SliceDefinitionREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<SliceDefinitionREF>(value)).iterator() );
             else
                 return( (new TreeSet<SliceDefinitionREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<SliceDefinitionREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<SliceDefinitionREF>(value));
             else
                 return(new TreeSet<SliceDefinitionREF>(value));

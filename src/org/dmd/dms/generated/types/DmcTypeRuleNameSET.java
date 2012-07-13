@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeRuleName;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleNameSET extends DmcTypeRuleName implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeRuleNameSET extends DmcTypeRuleName implements Serializable 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<RuleName>();
         else
             value = new TreeSet<RuleName>();
@@ -56,7 +56,7 @@ public class DmcTypeRuleNameSET extends DmcTypeRuleName implements Serializable 
     
     @Override
     public DmcTypeRuleNameSET getNew(){
-        return(new DmcTypeRuleNameSET(attrInfo));
+        return(new DmcTypeRuleNameSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeRuleNameSET extends DmcTypeRuleName implements Serializable 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<RuleName> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<RuleName>(value)).iterator() );
             else
                 return( (new TreeSet<RuleName>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeRuleNameSET extends DmcTypeRuleName implements Serializable 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<RuleName> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<RuleName>(value));
             else
                 return(new TreeSet<RuleName>(value));

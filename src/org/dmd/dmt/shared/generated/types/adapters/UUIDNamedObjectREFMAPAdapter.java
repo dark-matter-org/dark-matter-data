@@ -14,7 +14,7 @@ public class UUIDNamedObjectREFMAPAdapter extends DmcTypeUUIDNamedObjectREFMAP i
     transient DmcTypeUUIDNamedObjectREFMAP existingValue;
 
     public UUIDNamedObjectREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class IntegerMVAdapter extends DmcTypeIntegerMV implements DmcAdapterIF {
     transient DmcTypeIntegerMV existingValue;
 
     public IntegerMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

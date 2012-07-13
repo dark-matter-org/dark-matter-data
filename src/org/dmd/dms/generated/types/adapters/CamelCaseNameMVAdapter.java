@@ -14,7 +14,7 @@ public class CamelCaseNameMVAdapter extends DmcTypeCamelCaseNameMV implements Dm
     transient DmcTypeCamelCaseNameMV existingValue;
 
     public CamelCaseNameMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

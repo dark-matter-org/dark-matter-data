@@ -41,7 +41,7 @@ public class DmcTypeScopeEnumSV extends DmcTypeScopeEnum implements Serializable
     }
     
     public DmcTypeScopeEnumSV getNew(){
-        return(new DmcTypeScopeEnumSV(attrInfo));
+        return(new DmcTypeScopeEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeScopeEnumSV getNew(DmcAttributeInfo ai){

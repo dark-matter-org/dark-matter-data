@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:577)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:578)
  */
 @SuppressWarnings("serial")
 public class DmcTypeExtendedReferenceTypeDefinitionREFSET extends DmcTypeExtendedReferenceTypeDefinitionREF implements Serializable {
@@ -46,7 +46,7 @@ public class DmcTypeExtendedReferenceTypeDefinitionREFSET extends DmcTypeExtende
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ExtendedReferenceTypeDefinitionREF>();
         else
             value = new TreeSet<ExtendedReferenceTypeDefinitionREF>();
@@ -54,7 +54,7 @@ public class DmcTypeExtendedReferenceTypeDefinitionREFSET extends DmcTypeExtende
     
     @Override
     public DmcTypeExtendedReferenceTypeDefinitionREFSET getNew(){
-        return(new DmcTypeExtendedReferenceTypeDefinitionREFSET(attrInfo));
+        return(new DmcTypeExtendedReferenceTypeDefinitionREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeExtendedReferenceTypeDefinitionREFSET extends DmcTypeExtende
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ExtendedReferenceTypeDefinitionREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ExtendedReferenceTypeDefinitionREF>(value)).iterator() );
             else
                 return( (new TreeSet<ExtendedReferenceTypeDefinitionREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeExtendedReferenceTypeDefinitionREFSET extends DmcTypeExtende
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ExtendedReferenceTypeDefinitionREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ExtendedReferenceTypeDefinitionREF>(value));
             else
                 return(new TreeSet<ExtendedReferenceTypeDefinitionREF>(value));

@@ -33,7 +33,7 @@ public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Ser
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DmtStringName>();
         else
             value = new TreeSet<DmtStringName>();
@@ -41,7 +41,7 @@ public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Ser
     
     @Override
     public DmcTypeDmtStringNameSET getNew(){
-        return(new DmcTypeDmtStringNameSET(attrInfo));
+        return(new DmcTypeDmtStringNameSET(getAttributeInfo()));
     }
     
     @Override
@@ -103,7 +103,7 @@ public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<DmtStringName> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DmtStringName>(value)).iterator() );
             else
                 return( (new TreeSet<DmtStringName>(value)).iterator() );
@@ -113,7 +113,7 @@ public class DmcTypeDmtStringNameSET extends DmcTypeDmtStringName implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<DmtStringName> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<DmtStringName>(value));
             else
                 return(new TreeSet<DmtStringName>(value));

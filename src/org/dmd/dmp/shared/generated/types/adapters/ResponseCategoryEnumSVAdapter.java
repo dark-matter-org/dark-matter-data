@@ -14,7 +14,7 @@ public class ResponseCategoryEnumSVAdapter extends DmcTypeResponseCategoryEnumSV
     transient DmcTypeResponseCategoryEnumSV existingValue;
 
     public ResponseCategoryEnumSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

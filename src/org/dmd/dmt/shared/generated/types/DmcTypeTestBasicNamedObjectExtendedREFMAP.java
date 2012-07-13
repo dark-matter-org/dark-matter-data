@@ -34,25 +34,25 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,TestBasicNamedObjectExtendedREF>();
         else
             value = new TreeMap<StringName,TestBasicNamedObjectExtendedREF>();
     }
     
     public StringName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<StringName,TestBasicNamedObjectExtendedREF> map = (TreeMap<StringName,TestBasicNamedObjectExtendedREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeTestBasicNamedObjectExtendedREFMAP getNew(){
-        return(new DmcTypeTestBasicNamedObjectExtendedREFMAP(attrInfo));
+        return(new DmcTypeTestBasicNamedObjectExtendedREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -106,7 +106,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     public Iterator<TestBasicNamedObjectExtendedREF> getMV(){
         synchronized(this){
             Map<StringName,TestBasicNamedObjectExtendedREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestBasicNamedObjectExtendedREF>(value);
             else
                 clone = new TreeMap<StringName,TestBasicNamedObjectExtendedREF>(value);
@@ -118,7 +118,7 @@ public class DmcTypeTestBasicNamedObjectExtendedREFMAP extends DmcTypeTestBasicN
     public Map<StringName,TestBasicNamedObjectExtendedREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestBasicNamedObjectExtendedREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestBasicNamedObjectExtendedREF>(value);
             else
                 clone = new TreeMap<StringName,TestBasicNamedObjectExtendedREF>(value);

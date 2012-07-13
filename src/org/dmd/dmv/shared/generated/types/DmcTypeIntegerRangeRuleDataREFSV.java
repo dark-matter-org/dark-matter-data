@@ -41,7 +41,7 @@ public class DmcTypeIntegerRangeRuleDataREFSV extends DmcTypeIntegerRangeRuleDat
     }
     
     public DmcTypeIntegerRangeRuleDataREFSV getNew(){
-        return(new DmcTypeIntegerRangeRuleDataREFSV(attrInfo));
+        return(new DmcTypeIntegerRangeRuleDataREFSV(getAttributeInfo()));
     }
     
     public DmcTypeIntegerRangeRuleDataREFSV getNew(DmcAttributeInfo ai){
