@@ -109,6 +109,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _InitRuleDataOBJ.addMay("description");
             _InitRuleDataOBJ.addMust("ruleName");
             _InitRuleDataOBJ.addMust("ruleTitle");
+            _InitRuleDataOBJ.addMust("applyToClass");
             _InitRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.InitRuleDataIterableDMW");
             _InitRuleData.setDefinedIn(this);
             addClassDefList(_InitRuleData);
@@ -127,8 +128,10 @@ public class DmvSchemaAG extends SchemaDefinition {
             _IntegerRangeRuleDataOBJ.setRuleDefinition("IntegerRangeRule");
             _IntegerRangeRuleDataOBJ.setDmwIteratorClass("IntegerRangeRuleDataIterableDMW");
             _IntegerRangeRuleDataOBJ.addMay("description");
+            _IntegerRangeRuleDataOBJ.addMay("applyToClasses");
             _IntegerRangeRuleDataOBJ.addMust("ruleName");
             _IntegerRangeRuleDataOBJ.addMust("ruleTitle");
+            _IntegerRangeRuleDataOBJ.addMust("applyToAttribute");
             _IntegerRangeRuleDataOBJ.addMust("irrMinimum");
             _IntegerRangeRuleDataOBJ.addMust("irrMaximum");
             _IntegerRangeRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.IntegerRangeRuleDataIterableDMW");
@@ -143,7 +146,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleDataOBJ.setInternallyGenerated("true");
             _UCOAllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
             _UCOAllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _UCOAllowedAttributesRuleDataOBJ.setLineNumber("82");
+            _UCOAllowedAttributesRuleDataOBJ.setLineNumber("83");
             _UCOAllowedAttributesRuleDataOBJ.setDerivedFrom("RuleData");
             _UCOAllowedAttributesRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.UCOAllowedAttributesRuleDataREF");
             _UCOAllowedAttributesRuleDataOBJ.setRuleDefinition("UCOAllowedAttributesRule");

@@ -33,7 +33,7 @@ public enum RuleScopeEnum
     /**
      * Indicates the rule is global in scope.
      */
-    GLOBAL(2);
+    GLOBAL(1);
 
     // Maps our integer value to the enumeration value
     private static final Map<Integer,RuleScopeEnum> lookup = new HashMap<Integer,RuleScopeEnum>();

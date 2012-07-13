@@ -75,7 +75,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _ImAp.put(MetaDMSAG.__internalTypeRef.id,MetaDMSAG.__internalTypeRef);
         _ImAp.put(MetaDMSAG.__internallyGenerated.id,MetaDMSAG.__internallyGenerated);
         _ImAp.put(MetaDMSAG.__isNamedBy.id,MetaDMSAG.__isNamedBy);
-        _ImAp.put(MetaDMSAG.__isTransportable.id,MetaDMSAG.__isTransportable);
         _ImAp.put(MetaDMSAG.__javaClass.id,MetaDMSAG.__javaClass);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__may.id,MetaDMSAG.__may);
@@ -121,7 +120,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
         _SmAp.put(MetaDMSAG.__internalTypeRef.name,MetaDMSAG.__internalTypeRef);
         _SmAp.put(MetaDMSAG.__internallyGenerated.name,MetaDMSAG.__internallyGenerated);
         _SmAp.put(MetaDMSAG.__isNamedBy.name,MetaDMSAG.__isNamedBy);
-        _SmAp.put(MetaDMSAG.__isTransportable.name,MetaDMSAG.__isTransportable);
         _SmAp.put(MetaDMSAG.__javaClass.name,MetaDMSAG.__javaClass);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__may.name,MetaDMSAG.__may);
@@ -386,7 +384,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
-     * Indicates the classes that are known to be derived from this class.
+     * Indicates the classes that are known to be derived from a class.
      * @return An Iterator of ClassDefinitionDMO objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2372)
@@ -442,9 +440,9 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
 
     /**
      * The description attribute is used to provide descriptive documentation for
-     * schema related definitions. The description is of type XHMTLString which
-     * is basically an XML formatted fragment that conforms to the XHTML 1.0
-     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     * schema related definitions. The text provided should conform to XHTML
+     * concepts since it will be dumped in the context of the generated HTML
+     * documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2217)
     public String getDescription(){
@@ -961,7 +959,7 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     /**
      * This attribute can be used on AUXILIARY classes to give a hint about their
      * intended usage. For example, if you were extending schema definitions with
-     * some or your  own attributes for some purpose, your auxliary class could
+     * some or your  own attributes for some purpose, your auxiliary class could
      * have intendedToExtend ClassDefinition.
      * @return An Iterator of ClassDefinitionDMO objects.
      */
@@ -1074,37 +1072,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
     }
 
     /**
-     * This attribute indicates whether or not the object defined by a
-     * ClassDefinition is meant to be transportable across an RPC interface when
-     * object reference attributes refer to it. If set to true, the class will
-     * automatically have its reference type use the
-     * DmcNameObjectTransportableREF as its base. Otherwise, it will use
-     * DmcNameObjectNotransportableREF.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2217)
-    public Boolean getIsTransportable(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__isTransportable);
-        if (attr == null)
-            return(false);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets isTransportable to the specified value.
-     * @param value A value compatible with DmcTypeBooleanSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2274)
-    public void setIsTransportable(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__isTransportable);
-        if (attr == null)
-            attr = new DmcTypeBooleanSV(MetaDMSAG.__isTransportable);
-        
-        attr.set(value);
-        set(MetaDMSAG.__isTransportable,attr);
-    }
-
-    /**
      * This attribute indicates the full name of the class (including package)
      * that should be instantiated when an instance of an object is created via
      * the DmdClassDef.newInstance() function. The class must be a derived class
@@ -1191,8 +1158,6 @@ public class ClassDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionD
 
     /**
      * Indicates the set of attributes that an instance of a class MUST have.
-     * When accessed in Java, this is a set of references to AttributeDefinition
-     * objects.
      * @return An Iterator of AttributeDefinitionDMO objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2372)

@@ -40,7 +40,7 @@ import org.dmd.dmw.DmwWrapper;                                              // U
 public class LDAPClassAUX {
 
     public final static ClassDefinition _auxClass = org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG._LDAPClassAUX;
-    public final static DmcAttributeInfo __namingAttribute = new DmcAttributeInfo("namingAttribute",-2999936,"AttributeDefinitionREF",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __namingAttribute = new DmcAttributeInfo("namingAttribute",-2999936,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __reposName = new DmcAttributeInfo("reposName",451,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
 
     /**
@@ -108,7 +108,7 @@ public class LDAPClassAUX {
 
     /**
      * Sets the namingAttribute to the specified value.
-     * @param value A value compatible with AttributeDefinitionREFREF
+     * @param value A value compatible with AttributeDefinitionREF
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatAUXSV(BaseDMWGeneratorNewest.java:2693)
     static public void setNamingAttribute(DmwWrapper corew, Object value) throws DmcValueException {

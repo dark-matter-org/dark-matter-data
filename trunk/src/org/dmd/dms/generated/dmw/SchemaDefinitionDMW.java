@@ -92,9 +92,9 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The description attribute is used to provide descriptive documentation for
-     * schema related definitions. The description is of type XHMTLString which
-     * is basically an XML formatted fragment that conforms to the XHTML 1.0
-     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     * schema related definitions. The text provided should conform to XHTML
+     * concepts since it will be dumped in the context of the generated HTML
+     * documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2245)
     public String getDescription(){
@@ -111,8 +111,8 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates the package that this schema will be part of when its code is
-     * generated using the dafutil tool.
+     * Indicates the package that a schema will be part of when its code is
+     * generated using DMO generator tool.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2245)
     public String getSchemaPackage(){
@@ -668,74 +668,6 @@ public class SchemaDefinitionDMW extends org.dmd.dms.DmsDefinition {
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2481)
     public int getSliceDefListSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__sliceDefList);
-        if (attr == null)
-            return(0);
-        return(attr.getMVSize());
-    }
-
-    /**
-     * A list of object validator definition references.
-     * @return An Iterator of ObjectValidatorDefinition objects.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2396)
-    public ObjectValidatorDefinitionIterableDMW getObjectValidatorDefList(){
-        DmcTypeObjectValidatorDefinitionREFMV attr = (DmcTypeObjectValidatorDefinitionREFMV) mycore.get(MetaDMSAG.__objectValidatorDefList);
-        if (attr == null)
-            return(ObjectValidatorDefinitionIterableDMW.emptyList);
-
-        return(new ObjectValidatorDefinitionIterableDMW(attr.getMV()));
-    }
-
-    /**
-     * Adds another objectValidatorDefList value.
-     * @param value A value compatible with ObjectValidatorDefinition
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2455)
-    public DmcAttribute<?> addObjectValidatorDefList(ObjectValidatorDefinition value) throws DmcValueException {
-        DmcAttribute<?> attr = mycore.addObjectValidatorDefList(value.getDmcObject());
-        return(attr);
-    }
-
-    /**
-     * Returns the number of objectValidatorDefList values.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2481)
-    public int getObjectValidatorDefListSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__objectValidatorDefList);
-        if (attr == null)
-            return(0);
-        return(attr.getMVSize());
-    }
-
-    /**
-     * A list of attribute validator definition references.
-     * @return An Iterator of AttributeValidatorDefinition objects.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2396)
-    public AttributeValidatorDefinitionIterableDMW getAttributeValidatorDefList(){
-        DmcTypeAttributeValidatorDefinitionREFMV attr = (DmcTypeAttributeValidatorDefinitionREFMV) mycore.get(MetaDMSAG.__attributeValidatorDefList);
-        if (attr == null)
-            return(AttributeValidatorDefinitionIterableDMW.emptyList);
-
-        return(new AttributeValidatorDefinitionIterableDMW(attr.getMV()));
-    }
-
-    /**
-     * Adds another attributeValidatorDefList value.
-     * @param value A value compatible with AttributeValidatorDefinition
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2455)
-    public DmcAttribute<?> addAttributeValidatorDefList(AttributeValidatorDefinition value) throws DmcValueException {
-        DmcAttribute<?> attr = mycore.addAttributeValidatorDefList(value.getDmcObject());
-        return(attr);
-    }
-
-    /**
-     * Returns the number of attributeValidatorDefList values.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2481)
-    public int getAttributeValidatorDefListSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__attributeValidatorDefList);
         if (attr == null)
             return(0);
         return(attr.getMVSize());

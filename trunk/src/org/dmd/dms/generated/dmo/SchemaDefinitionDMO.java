@@ -48,7 +48,6 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp.put(MetaDMSAG.__schemaPackage.id,MetaDMSAG.__schemaPackage);
         _ImAp.put(MetaDMSAG.__actionDefList.id,MetaDMSAG.__actionDefList);
         _ImAp.put(MetaDMSAG.__attributeDefList.id,MetaDMSAG.__attributeDefList);
-        _ImAp.put(MetaDMSAG.__attributeValidatorDefList.id,MetaDMSAG.__attributeValidatorDefList);
         _ImAp.put(MetaDMSAG.__classDefList.id,MetaDMSAG.__classDefList);
         _ImAp.put(MetaDMSAG.__complexTypeDefList.id,MetaDMSAG.__complexTypeDefList);
         _ImAp.put(MetaDMSAG.__createAttributeFactory.id,MetaDMSAG.__createAttributeFactory);
@@ -64,7 +63,6 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp.put(MetaDMSAG.__generatedFileHeader.id,MetaDMSAG.__generatedFileHeader);
         _ImAp.put(MetaDMSAG.__internalTypeDefList.id,MetaDMSAG.__internalTypeDefList);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
-        _ImAp.put(MetaDMSAG.__objectValidatorDefList.id,MetaDMSAG.__objectValidatorDefList);
         _ImAp.put(MetaDMSAG.__ruleCategoryList.id,MetaDMSAG.__ruleCategoryList);
         _ImAp.put(MetaDMSAG.__ruleDataList.id,MetaDMSAG.__ruleDataList);
         _ImAp.put(MetaDMSAG.__ruleDefinitionList.id,MetaDMSAG.__ruleDefinitionList);
@@ -80,7 +78,6 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(MetaDMSAG.__schemaPackage.name,MetaDMSAG.__schemaPackage);
         _SmAp.put(MetaDMSAG.__actionDefList.name,MetaDMSAG.__actionDefList);
         _SmAp.put(MetaDMSAG.__attributeDefList.name,MetaDMSAG.__attributeDefList);
-        _SmAp.put(MetaDMSAG.__attributeValidatorDefList.name,MetaDMSAG.__attributeValidatorDefList);
         _SmAp.put(MetaDMSAG.__classDefList.name,MetaDMSAG.__classDefList);
         _SmAp.put(MetaDMSAG.__complexTypeDefList.name,MetaDMSAG.__complexTypeDefList);
         _SmAp.put(MetaDMSAG.__createAttributeFactory.name,MetaDMSAG.__createAttributeFactory);
@@ -96,7 +93,6 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp.put(MetaDMSAG.__generatedFileHeader.name,MetaDMSAG.__generatedFileHeader);
         _SmAp.put(MetaDMSAG.__internalTypeDefList.name,MetaDMSAG.__internalTypeDefList);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
-        _SmAp.put(MetaDMSAG.__objectValidatorDefList.name,MetaDMSAG.__objectValidatorDefList);
         _SmAp.put(MetaDMSAG.__ruleCategoryList.name,MetaDMSAG.__ruleCategoryList);
         _SmAp.put(MetaDMSAG.__ruleDataList.name,MetaDMSAG.__ruleDataList);
         _SmAp.put(MetaDMSAG.__ruleDefinitionList.name,MetaDMSAG.__ruleDefinitionList);
@@ -137,9 +133,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     /**
      * The description attribute is used to provide descriptive documentation for
-     * schema related definitions. The description is of type XHMTLString which
-     * is basically an XML formatted fragment that conforms to the XHTML 1.0
-     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     * schema related definitions. The text provided should conform to XHTML
+     * concepts since it will be dumped in the context of the generated HTML
+     * documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2217)
     public String getDescription(){
@@ -250,8 +246,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * Indicates the package that this schema will be part of when its code is
-     * generated using the dafutil tool.
+     * Indicates the package that a schema will be part of when its code is
+     * generated using DMO generator tool.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2217)
     public String getSchemaPackage(){
@@ -329,34 +325,6 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         
         attr.add(value);
         add(MetaDMSAG.__attributeDefList,attr);
-        return(attr);
-    }
-
-    /**
-     * A list of attribute validator definition references.
-     * @return An Iterator of AttributeValidatorDefinitionDMO objects.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2372)
-    public Iterator<AttributeValidatorDefinitionREF> getAttributeValidatorDefList(){
-        DmcTypeAttributeValidatorDefinitionREFMV attr = (DmcTypeAttributeValidatorDefinitionREFMV) get(MetaDMSAG.__attributeValidatorDefList);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another attributeValidatorDefList value.
-     * @param value A value compatible with DmcTypeAttributeValidatorDefinitionREFMV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2434)
-    public DmcAttribute<?> addAttributeValidatorDefList(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__attributeValidatorDefList);
-        if (attr == null)
-            attr = new DmcTypeAttributeValidatorDefinitionREFMV(MetaDMSAG.__attributeValidatorDefList);
-        
-        attr.add(value);
-        add(MetaDMSAG.__attributeValidatorDefList,attr);
         return(attr);
     }
 
@@ -783,34 +751,6 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         
         attr.set(value);
         set(MetaDMSAG.__lineNumber,attr);
-    }
-
-    /**
-     * A list of object validator definition references.
-     * @return An Iterator of ObjectValidatorDefinitionDMO objects.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2372)
-    public Iterator<ObjectValidatorDefinitionREF> getObjectValidatorDefList(){
-        DmcTypeObjectValidatorDefinitionREFMV attr = (DmcTypeObjectValidatorDefinitionREFMV) get(MetaDMSAG.__objectValidatorDefList);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another objectValidatorDefList value.
-     * @param value A value compatible with DmcTypeObjectValidatorDefinitionREFMV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2434)
-    public DmcAttribute<?> addObjectValidatorDefList(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__objectValidatorDefList);
-        if (attr == null)
-            attr = new DmcTypeObjectValidatorDefinitionREFMV(MetaDMSAG.__objectValidatorDefList);
-        
-        attr.add(value);
-        add(MetaDMSAG.__objectValidatorDefList,attr);
-        return(attr);
     }
 
     /**
