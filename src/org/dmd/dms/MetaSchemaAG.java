@@ -3162,8 +3162,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         ComplexTypeDefinitionDMO _DmwTypeToWrapperTypeOBJ = new ComplexTypeDefinitionDMO();
         _DmwTypeToWrapperType = new ComplexTypeDefinition(_DmwTypeToWrapperTypeOBJ);
-        _DmwTypeToWrapperTypeOBJ.addField("String         : dmwType    : The Dark Matter Wrapper type");
-        _DmwTypeToWrapperTypeOBJ.addField("WrapperTypeEnum: wrapperType: The type of wrapper to be used in this context");
+        _DmwTypeToWrapperTypeOBJ.addField("String          dmwType     The Dark Matter Wrapper type");
+        _DmwTypeToWrapperTypeOBJ.addField("WrapperTypeEnum wrapperType The type of wrapper to be used in this context");
         _DmwTypeToWrapperTypeOBJ.setFile("metaSchema.dms");
         _DmwTypeToWrapperTypeOBJ.setLineNumber("279");
         _DmwTypeToWrapperTypeOBJ.setName("DmwTypeToWrapperType");
@@ -3173,9 +3173,9 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         ComplexTypeDefinitionDMO _FieldOBJ = new ComplexTypeDefinitionDMO();
         _Field = new ComplexTypeDefinition(_FieldOBJ);
         _FieldOBJ.setDescription("The Field complex type is used to describe the fields of a ComplexTypeDefinition.");
-        _FieldOBJ.addField("TypeDefinition : type       : The type of the field");
-        _FieldOBJ.addField("String         : name       : The name of the field");
-        _FieldOBJ.addField("String         : description: The description of the field");
+        _FieldOBJ.addField("TypeDefinition		type        The type of the field");
+        _FieldOBJ.addField("String         name        The name of the field");
+        _FieldOBJ.addField("String         description The description of the field");
         _FieldOBJ.setFile("metaSchema.dms");
         _FieldOBJ.setLineNumber("274");
         _FieldOBJ.setName("Field");

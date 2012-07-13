@@ -23,7 +23,7 @@ import org.dmd.dmc.DmcValueException;                                       // A
 import org.dmd.dmr.shared.ldap.generated.dmo.DmrLdapDMSAG;                  // Attribute from dmr.ldap schema - (GenUtility.java:131)
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add - (GenUtility.java:303)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Attribute from meta schema - (GenUtility.java:134)
-import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Reference type helper class - (GenUtility.java:313)
+import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Helper class - (GenUtility.java:331)
 import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type - (GenUtility.java:296)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:324)
 
