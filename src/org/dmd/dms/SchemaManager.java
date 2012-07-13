@@ -1076,7 +1076,7 @@ public class SchemaManager implements DmcNameResolverIF {
         ertd.getDefinedIn().addInternalTypeDefList(td);
         ertd.getDefinedIn().addTypeDefList(td);
         
-        DebugInfo.debug("\n\nAdding EXTENDED REF TYPE: " + td.getName().getNameString() + "  " +  System.identityHashCode(this) +"\n\n");
+//        DebugInfo.debug("\n\nAdding EXTENDED REF TYPE: " + td.getName().getNameString() + "  " +  System.identityHashCode(this) +"\n\n");
         
         internalTypeDefs.put(td.getName(), td);
         
@@ -1157,8 +1157,8 @@ public class SchemaManager implements DmcNameResolverIF {
      */
     void addRuleDefinition(RuleDefinition rd) throws ResultException, DmcValueException {
     	
-    	if (rd.getName().getNameString().equals("IntegerRangeRule"))
-    		DebugInfo.debug("ADDING RULE");
+//    	if (rd.getName().getNameString().equals("IntegerRangeRule"))
+//    		DebugInfo.debug("ADDING RULE");
     	
     	// Again, some trickiness, we have to resolve the rule so that we can access and use the must/may
     	// attributes that are defined for it and add them to the class definition we create

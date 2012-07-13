@@ -36,7 +36,6 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
-import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
@@ -1112,9 +1111,9 @@ public class DmoCompactSchemaFormatter {
 			throw(ex);
 		}
 		
-		if (cd.getClassType() == ClassTypeEnum.EXTENSIBLE){
-			DebugInfo.debug("DmoCompactSchemaFormatter.setAttributeValues() " + cd.getName() + " is extensible");
-		}
+//		if (cd.getClassType() == ClassTypeEnum.EXTENSIBLE){
+//			DebugInfo.debug("DmoCompactSchemaFormatter.setAttributeValues() " + cd.getName() + " is extensible");
+//		}
 		
 		Iterator<String> attributeNames = obj.getAttributeNames();
 		while(attributeNames.hasNext()){
@@ -1154,7 +1153,7 @@ public class DmoCompactSchemaFormatter {
 				}
 			}
 			else{
-				DebugInfo.debug("Extra attribute: " + attrName);
+//				DebugInfo.debug("Extra attribute: " + attrName);
 				out.write(attrDef.getValueModificationStatement("            ","            _" + objName, obj.get(attr.getName())));
 			}
 			
