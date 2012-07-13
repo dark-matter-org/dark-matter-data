@@ -2930,9 +2930,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			ResultException {
 		String ctn = ct.getSV("name");
 		String fieldSeparator = ct.getSV("fieldSeparator");
+		boolean	whiteSpaceSeparator = false;
 
-		if (fieldSeparator == null)
+		if (fieldSeparator == null){
+			whiteSpaceSeparator = true;
 			fieldSeparator = " ";
+		}
 
 		// BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + ctn
 		// + ".java"));
@@ -3037,8 +3040,15 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		out.write("     * String based constructor.\n");
 		out.write("     */\n");
 		out.write("    public " + ctn
-				+ "(String input) throws DmcValueException {\n");
+				+ "(String initialInput) throws DmcValueException {\n");
 		out.write("        IntegerVar seppos = new IntegerVar(-1);\n");
+		if (whiteSpaceSeparator){
+			out.write("        String input = initialInput.trim();\n");
+			out.write("        input = input.replaceAll(\"(\\\\s)+\", \" \");\n");
+		}
+		else{
+			out.write("        String input = initialInput.trim();\n");
+		}
 		fnum = 1;
 		for (Field field : fields) {
 			if (fnum == fields.size())
@@ -3228,8 +3238,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 		NamedStringArray fields = ct.get("field");
 		for (String field : fields) {
-			int c1pos = field.indexOf(":");
-			int c2pos = field.indexOf(":", c1pos + 1);
+			field = field.trim();
+			field = field.replaceAll("(\\s)+", " ");
+			int c1pos = field.indexOf(" ");
+			int c2pos = field.indexOf(" ", c1pos + 1);
 			String type = field.substring(0, c1pos).trim();
 			String name = field.substring(c1pos + 1, c2pos).trim();
 			String descr = field.substring(c2pos + 1).trim();

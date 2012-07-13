@@ -1044,7 +1044,7 @@ public class SchemaManager implements DmcNameResolverIF {
                 
         // We add the new type to the schema's list of internally generated types
         ctd.getDefinedIn().addInternalTypeDefList(td);
-        ctd.getDefinedIn().addTypeDefList(td);
+//        ctd.getDefinedIn().addTypeDefList(td);
         
         internalTypeDefs.put(td.getName(), td);
         
@@ -1669,6 +1669,8 @@ public class SchemaManager implements DmcNameResolverIF {
 //    		DebugInfo.debug("HERE " + System.identityHashCode(this));
 //    	}
     	
+    	DebugInfo.debugWithTrace("addType() - " + td.getObjectName());
+    	
         if (checkAndAdd(td.getObjectName(),td,typeDefs) == false){
         	ResultException ex = new ResultException();
             ex.addError(clashMsg(td.getObjectName(),td,typeDefs,"type names"));
@@ -1796,7 +1798,7 @@ public class SchemaManager implements DmcNameResolverIF {
             throw(ex);
         }
         
-//        DebugInfo.debug(evd.getName().toString());
+        DebugInfo.debug(evd.getName().toString());
         
 //        if (evd.getDefinedIn() == MetaSchemaAG._metaSchema){
 //        	

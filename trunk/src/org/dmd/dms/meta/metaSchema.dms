@@ -267,15 +267,15 @@ name			Field
 // WARNING! WARNING! WARNING!
 // For use here, we use the colons to separate the fields, but in reality when used
 // in a schema other than meta, spaces are used!!!!
-field			TypeDefinition : type       : The type of the field
-field			String         : name       : The name of the field
-field			String         : description: The description of the field
+field				TypeDefinition		type        The type of the field
+field			String         name        The name of the field
+field			String         description The description of the field
 description     The Field complex type is used to describe the fields of a ComplexTypeDefinition.
 
 ComplexTypeDefinition
 name			DmwTypeToWrapperType
-field           String         : dmwType    : The Dark Matter Wrapper type
-field           WrapperTypeEnum: wrapperType: The type of wrapper to be used in this context
+field           String          dmwType     The Dark Matter Wrapper type
+field           WrapperTypeEnum wrapperType The type of wrapper to be used in this context
 
 ********************************************************************************
 *

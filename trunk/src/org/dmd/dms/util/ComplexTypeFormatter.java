@@ -28,9 +28,12 @@ public class ComplexTypeFormatter {
     	String 			ctn 			= ctd.getName().getNameString();
     	String 			fieldSeparator 	= ctd.getFieldSeparator();
         Iterator<Field>	fields 			= null;
+        boolean			whiteSpaceSeparator = false;
     	
-    	if (fieldSeparator == null)
+    	if (fieldSeparator == null){
+    		whiteSpaceSeparator = true;
     		fieldSeparator = " ";
+    	}
     	
     	
 //        BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + ctn + ".java"));
@@ -148,6 +151,13 @@ public class ComplexTypeFormatter {
         out.write("     */\n");
         out.write("    public " + ctn + "(String input) throws DmcValueException {\n");
         out.write("        IntegerVar seppos = new IntegerVar(-1);\n");
+		if (whiteSpaceSeparator){
+			out.write("        String input = initialInput.trim();\n");
+			out.write("        input = input.replaceAll(\"(\\\\s)+\", \" \");\n");
+		}
+		else{
+			out.write("        String input = initialInput.trim();\n");
+		}
         fnum = 1;
         fields = ctd.getField();
         while(fields.hasNext()){
