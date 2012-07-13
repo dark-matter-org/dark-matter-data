@@ -75,8 +75,8 @@ public class GenUtility {
 		
 		anyMVAttributes.set(false);
 		anySVAttributes.set(false);
-		if ((cd != null) && cd.getName().getNameString().startsWith("ExtendedRefSV"))
-			DebugInfo.debug("HERE");
+//		if ((cd != null) && cd.getName().getNameString().startsWith("ExtendedRefSV"))
+//			DebugInfo.debug("HERE");
 		
 //		boolean interested = false;
 //		String	theType = " ";
@@ -600,8 +600,8 @@ public class GenUtility {
 	}
 	
 	static public void formatSV(AttributeDefinition ad, StringBuffer sb){
-		if (ad.getName().getNameString().equals("valueType"))
-			DebugInfo.debug("HERE");
+//		if (ad.getName().getNameString().equals("valueType"))
+//			DebugInfo.debug("HERE");
 		
     	String typeClassName 	= ad.getType().getTypeClassName();
     	String attrType 		= "DmcType" + ad.getType().getName();

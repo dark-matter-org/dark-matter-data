@@ -342,7 +342,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         		ClassDefinition checkClass = allSchema.isClass(uco.classes.get(0));
         		if (checkClass != null){
         			if (checkClass.getRuleDefinition() != null){
-        				DebugInfo.debug("DmsSchemaParser.handleObject() We have a rule: \n\n" + uco.toOIF());
+//        				DebugInfo.debug("DmsSchemaParser.handleObject() We have a rule: \n\n" + uco.toOIF());
 
         				uco.addValue(MetaDMSAG.__lineNumber.name, lineNumber + "");
         				uco.addValue(MetaDMSAG.__file.name, srcFile);
@@ -378,8 +378,10 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 //					newDef.setFile(infile);
 //				newDef.setLineNumber(lineNumber);
 		
-				DebugInfo.debug("DmsSchemaParser.handleObject() - need rules!");
+//				DebugInfo.debug("DmsSchemaParser.handleObject() - need rules!");
+				
 				DmvDMSAG.__dmvAllowedAttributes.validate(newDef.getDMO());
+				
 //				try {
 //					newObj.getDMO().validate();
 //				} catch (DmcValueExceptionSet e) {
