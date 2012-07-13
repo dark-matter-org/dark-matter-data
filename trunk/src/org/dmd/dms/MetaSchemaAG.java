@@ -28,7 +28,7 @@ import org.dmd.dms.generated.dmo.*;           // Access to meta schema DMOs - (M
 abstract public class MetaSchemaAG extends SchemaDefinition {
     public static SchemaDefinition    _metaSchema;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:315)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:317)
     public static ClassDefinition     _ActionTriggerInfo;
     public static ClassDefinition     _DmsDefinition;
     public static ClassDefinition     _ClassDefinition;
@@ -49,7 +49,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static ClassDefinition     _DependencyImplementation;
     public static ClassDefinition     _RunContext;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:323)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:324)
     public static EnumDefinition      _ClassTypeEnum;
     public static EnumDefinition      _ModifyTypeEnum;
     public static EnumDefinition      _OperationalContextEnum;
@@ -63,7 +63,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static EnumDefinition      _DebugEnum;
     public static EnumDefinition      _WrapperTypeEnum;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:329)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:330)
     public static TypeDefinition      _String;
     public static TypeDefinition      _DmcObject;
     public static TypeDefinition      _ClassInfoRef;
@@ -95,10 +95,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static TypeDefinition      _FullyQualifiedName;
     public static TypeDefinition      _LabelledIntegerDataPoint;
     public static TypeDefinition      _TimeDoubleDataPoint;
-    public static TypeDefinition      _DmwTypeToWrapperType;
-    public static TypeDefinition      _Field;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:338)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:342)
     public static AttributeDefinition _name;
     public static AttributeDefinition _dmdID;
     public static AttributeDefinition _schemaExtension;
@@ -253,14 +251,18 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _applyToAttribute;
     public static AttributeDefinition _objectClass;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:344)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:348)
+    public static ComplexTypeDefinition _Field;
+    public static ComplexTypeDefinition _DmwTypeToWrapperType;
+
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:354)
     public static RuleCategory        _Initialization;
     public static RuleCategory        _ObjectValidation;
     public static RuleCategory        _AttributeValidation;
     public static RuleCategory        _ModifierValidation;
     public static RuleCategory        _UCOValidation;
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:350)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:360)
 
     public MetaSchemaAG() throws DmcValueException {
 
@@ -282,10 +284,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
             initTypes();
             initEnums();
             initRuleCategories();
+            initComplexTypes();
         }
     }
 
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitClasses(MetaGenerator.java:358)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitClasses(MetaGenerator.java:368)
     private void initClasses() throws DmcValueException {
 
         ClassDefinitionDMO _ActionTriggerInfoOBJ = new ClassDefinitionDMO();
@@ -751,7 +754,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         addClassDefList(_RunContext);
 
     }
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitAttributes(MetaGenerator.java:379)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitAttributes(MetaGenerator.java:389)
     private void initAttributes() throws DmcValueException {
 
         AttributeDefinitionDMO _FQNOBJ = new AttributeDefinitionDMO();
@@ -2534,7 +2537,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         addAttributeDefList(_wrapperClassName);
 
     }
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitTypes(MetaGenerator.java:398)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitTypes(MetaGenerator.java:408)
     private void initTypes() throws DmcValueException {
 
         TypeDefinitionDMO _AttributeIDOBJ = new TypeDefinitionDMO();
@@ -2903,7 +2906,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         addTypeDefList(_UUIDName);
 
     }
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitEnums(MetaGenerator.java:422)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitEnums(MetaGenerator.java:432)
     private void initEnums() throws DmcValueException {
 
         EnumDefinitionDMO _BaseTypeEnumOBJ = new EnumDefinitionDMO();
@@ -3075,7 +3078,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         addEnumDefList(_WrapperTypeEnum);
 
     }
-    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitRuleCategories(MetaGenerator.java:441)
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitRuleCategories(MetaGenerator.java:451)
     private void initRuleCategories() throws DmcValueException {
 
         RuleCategoryDMO _AttributeValidationOBJ = new RuleCategoryDMO();
@@ -3152,6 +3155,32 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _UCOValidationOBJ.setRuleInterface("org.dmd.dms.shared.interfaces.UCOValidationIF");
         _UCOValidation.setDefinedIn(this);
         addRuleCategoryList(_UCOValidation);
+
+    }
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitComplexTypes(MetaGenerator.java:470)
+    private void initComplexTypes() throws DmcValueException {
+
+        ComplexTypeDefinitionDMO _DmwTypeToWrapperTypeOBJ = new ComplexTypeDefinitionDMO();
+        _DmwTypeToWrapperType = new ComplexTypeDefinition(_DmwTypeToWrapperTypeOBJ);
+        _DmwTypeToWrapperTypeOBJ.addField("String         : dmwType    : The Dark Matter Wrapper type");
+        _DmwTypeToWrapperTypeOBJ.addField("WrapperTypeEnum: wrapperType: The type of wrapper to be used in this context");
+        _DmwTypeToWrapperTypeOBJ.setFile("metaSchema.dms");
+        _DmwTypeToWrapperTypeOBJ.setLineNumber("279");
+        _DmwTypeToWrapperTypeOBJ.setName("DmwTypeToWrapperType");
+        _DmwTypeToWrapperType.setDefinedIn(this);
+        addComplexTypeDefList(_DmwTypeToWrapperType);
+
+        ComplexTypeDefinitionDMO _FieldOBJ = new ComplexTypeDefinitionDMO();
+        _Field = new ComplexTypeDefinition(_FieldOBJ);
+        _FieldOBJ.setDescription("The Field complex type is used to describe the fields of a ComplexTypeDefinition.");
+        _FieldOBJ.addField("TypeDefinition : type       : The type of the field");
+        _FieldOBJ.addField("String         : name       : The name of the field");
+        _FieldOBJ.addField("String         : description: The description of the field");
+        _FieldOBJ.setFile("metaSchema.dms");
+        _FieldOBJ.setLineNumber("274");
+        _FieldOBJ.setName("Field");
+        _Field.setDefinedIn(this);
+        addComplexTypeDefList(_Field);
 
     }
 }

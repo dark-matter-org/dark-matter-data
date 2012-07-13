@@ -288,6 +288,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		out.write("            initTypes();\n");
 		out.write("            initEnums();\n");
 		out.write("            initRuleCategories();\n");
+		out.write("            initComplexTypes();\n");
 		
 		out.write("        }\n");
 		
@@ -298,6 +299,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		dumpInitTypes(out);
 		dumpInitEnums(out);
 		dumpInitRuleCategories(out);
+		dumpInitComplexTypes(out);
 		
 		out.write("}\n");
 		
@@ -315,8 +317,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
 				+ "\n");
 		for (int i = 0; i < origOrderClasses.size(); i++) {
-			out.write("    public static ClassDefinition     _"
-					+ origOrderClasses.get(i) + ";\n");
+			out.write("    public static ClassDefinition     _" + origOrderClasses.get(i) + ";\n");
 		}
 		out.write("\n");
 
@@ -329,7 +330,10 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
 				+ "\n");
 		for (int i = 0; i < origOrderTypes.size(); i++){
-			if (origOrderTypes.get(i).endsWith("REF"))
+			DmcUncheckedObject td = typeDefs.get(origOrderTypes.get(i));
+			String internallyGenerated = td.getSV("internallyGenerated");
+			if (internallyGenerated != null)
+//			if (origOrderTypes.get(i).endsWith("REF"))
 				continue;
 			out.write("    public static TypeDefinition      _" + origOrderTypes.get(i) + ";\n");
 		}
@@ -339,6 +343,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				+ "\n");
 		for (int i = 0; i < origOrderAttrs.size(); i++)
 			out.write("    public static AttributeDefinition _" + origOrderAttrs.get(i) + ";\n");
+		out.write("\n");
+
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
+				+ "\n");
+		for (int i = 0; i < origOrderComplexTypes.size(); i++)
+			out.write("    public static ComplexTypeDefinition _" + origOrderComplexTypes.get(i) + ";\n");
 		out.write("\n");
 
 		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow()
@@ -450,6 +460,25 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			dumpAttrValues("        ", dmoName, catDef, out);
 			out.write("        _" + name + ".setDefinedIn(this);\n");
 			out.write("        addRuleCategoryList(_" + name + ");\n");
+			out.write("\n");
+		}
+		
+		out.write("    }\n");
+	}
+	
+	void dumpInitComplexTypes(BufferedWriter out) throws IOException {
+		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+		out.write("    private void initComplexTypes() throws DmcValueException {\n\n");
+		
+		for (DmcUncheckedObject ctypeDef: complexTypeDefs.values()) {
+			String name = ctypeDef.getSV("name");
+			String dmoName = "_" + name + "OBJ";
+			
+			out.write("        ComplexTypeDefinitionDMO " + dmoName + " = new ComplexTypeDefinitionDMO();\n");
+			out.write("        _" + name + " = new ComplexTypeDefinition(" + dmoName + ");\n");
+			dumpAttrValues("        ", dmoName, ctypeDef, out);
+			out.write("        _" + name + ".setDefinedIn(this);\n");
+			out.write("        addComplexTypeDefList(_" + name + ");\n");
 			out.write("\n");
 		}
 		
