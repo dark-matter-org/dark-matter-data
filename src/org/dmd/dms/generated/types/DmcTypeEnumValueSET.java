@@ -31,7 +31,7 @@ import org.dmd.dms.types.DmcTypeEnumValue;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:604)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:633)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEnumValueSET extends DmcTypeEnumValue implements Serializable {

@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.RuleScopeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:521)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:550)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleScopeEnumSV extends DmcTypeRuleScopeEnum implements Serializable {
