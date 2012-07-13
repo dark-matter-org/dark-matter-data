@@ -25,6 +25,7 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
@@ -70,7 +71,7 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 		nameKey		= new StringName();
 	}
 
-	public HierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException {
+	public HierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException, DmcRuleExceptionSet {
 		keyMap 	= new TreeMap<DmcHierarchicObjectName, HierarchicObject>();
 		root	= null;
 		
@@ -93,8 +94,9 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 	 * @param fn The name of the file to be parsed.
 	 * @throws ResultException
 	 * @throws DmcValueException 
+	 * @throws DmcRuleExceptionSet 
 	 */
-	public void readHierarchicFile(TreeMap<DmcHierarchicObjectName,HierarchicObject> byFQN, String fn) throws ResultException, DmcValueException {
+	public void readHierarchicFile(TreeMap<DmcHierarchicObjectName,HierarchicObject> byFQN, String fn) throws ResultException, DmcValueException, DmcRuleExceptionSet {
 		keyMap = byFQN;
 		
 		loadedObjects = new ArrayList<HierarchicObject>();
@@ -112,8 +114,9 @@ public class HierarchyParserOld implements DmcUncheckedOIFHandlerIF,  DmcNameRes
 	 * @return The root of the hierarchy.
 	 * @throws ResultException
 	 * @throws DmcValueException 
+	 * @throws DmcRuleExceptionSet 
 	 */
-	public HierarchicObject readHierarchyBelowRoot(HierarchicObject existingRoot, String fn) throws ResultException, DmcValueException {
+	public HierarchicObject readHierarchyBelowRoot(HierarchicObject existingRoot, String fn) throws ResultException, DmcValueException, DmcRuleExceptionSet {
 		keyMap 	= new TreeMap<DmcHierarchicObjectName, HierarchicObject>();
 		keyMap.put(existingRoot.getFQN(), existingRoot);
 		root	= existingRoot;

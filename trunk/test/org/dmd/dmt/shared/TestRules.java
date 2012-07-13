@@ -6,7 +6,9 @@ import java.io.IOException;
 
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
+import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
 import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
 import org.dmd.util.exceptions.DebugInfo;
@@ -44,17 +46,17 @@ public class TestRules {
 	}
 	
 	@Test
-	public void testAllowedAttributesRule(){
-		TestBasicObjectFixedDMO	dmo = new TestBasicObjectFixedDMO();
+	public void testAllowedAttributesRule() throws DmcRuleExceptionSet{
+		TestBasicNamedObjectFixedDMO dmo = new TestBasicNamedObjectFixedDMO();
 		
-		DmtDMSAG.__dmtInitTestBasicObjectFixed.initialize(dmo);
+		DmvDMSAG.__dmvAllowedAttributes.validate(dmo);
 		
-		DebugInfo.debug(dmo.toOIF());
-		
-		assertEquals("svString should be \"the single valued string\"", "the single valued string", dmo.getSvString());
-		
-		assertEquals("mvString[1] should be \"second value\"", "second value", dmo.getNthMvString(1));
-				
+//		DebugInfo.debug(dmo.toOIF());
+//		
+//		assertEquals("svString should be \"the single valued string\"", "the single valued string", dmo.getSvString());
+//		
+//		assertEquals("mvString[1] should be \"second value\"", "second value", dmo.getNthMvString(1));
+//				
 	}
 	
 	

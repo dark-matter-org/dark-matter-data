@@ -269,7 +269,7 @@ public class SchemaManager implements DmcNameResolverIF {
             // There should be no warnings/errors during the creation of the
             // meta-schema
 
-        DebugInfo.debugWithTrace("LOADING META");
+//        DebugInfo.debugWithTrace("LOADING META");
         
             // Manage the meta schema so that we have a starting point for schema management
             manageSchemaInternal(meta);
@@ -1641,7 +1641,7 @@ public class SchemaManager implements DmcNameResolverIF {
 //    		DebugInfo.debug("HERE " + System.identityHashCode(this));
 //    	}
     	
-    	DebugInfo.debugWithTrace("addType() - " + td.getObjectName());
+//    	DebugInfo.debugWithTrace("addType() - " + td.getObjectName());
     	
         if (checkAndAdd(td.getObjectName(),td,typeDefs) == false){
         	ResultException ex = new ResultException();
@@ -1766,7 +1766,7 @@ public class SchemaManager implements DmcNameResolverIF {
             throw(ex);
         }
         
-        DebugInfo.debug(evd.getName().toString());
+//        DebugInfo.debug(evd.getName().toString());
         
 //        if (evd.getDefinedIn() == MetaSchemaAG._metaSchema){
 //        	

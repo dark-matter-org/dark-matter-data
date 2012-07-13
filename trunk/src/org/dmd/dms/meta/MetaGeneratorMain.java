@@ -16,6 +16,7 @@
 package org.dmd.dms.meta;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 
 public class MetaGeneratorMain {
 
@@ -25,6 +26,9 @@ public class MetaGeneratorMain {
         try {
 			cm.run(args);
 		} catch (DmcValueException e) {
+			e.printStackTrace();
+		} catch (DmcRuleExceptionSet e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
