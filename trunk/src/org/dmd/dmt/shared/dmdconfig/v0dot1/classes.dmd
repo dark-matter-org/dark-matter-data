@@ -72,7 +72,7 @@ mvString		second value
 svInteger		8
 
 IntegerRangeRuleData
-ruleName dmtSvIntegerRange
+ruleName 		dmtSvIntegerRange
 ruleTitle		Check that svInteger is in range 1-10
 irrMinimum		1
 irrMaximum		10

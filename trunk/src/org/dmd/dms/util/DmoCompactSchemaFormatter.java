@@ -646,7 +646,7 @@ public class DmoCompactSchemaFormatter {
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
         out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
         out.write("import org.dmd.dms.generated.types.*;\n");
-        out.write("import org.dmd.dms.extended.rules.*;\n");
+//        out.write("import org.dmd.dms.extended.rules.*;\n");
         out.write("import org.dmd.dmc.rules.RuleIF;\n");
         out.write("\n");
         

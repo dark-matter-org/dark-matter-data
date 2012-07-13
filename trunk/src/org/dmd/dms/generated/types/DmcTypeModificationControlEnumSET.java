@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.ModificationControlEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:557)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:555)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModificationControlEnumSET extends DmcTypeModificationControlEnum implements Serializable {
