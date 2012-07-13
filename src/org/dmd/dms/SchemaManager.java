@@ -36,6 +36,8 @@ import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
+import org.dmd.dms.generated.enums.RuleScopeEnum;
+import org.dmd.dms.generated.enums.RuleTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;
@@ -145,16 +147,6 @@ public class SchemaManager implements DmcNameResolverIF {
     // Value: RuleDefinition
     public HashMap<StringName,RuleDefinition>     			ruleDefs;
     public int  longestRuleName;
-
-    // Key: StringName
-    // Value: ObjectValidatorDefinition
-    public HashMap<StringName,ObjectValidatorDefinition>	objectValidatorDefs;
-    public int  longestObjectValidatorName;
-
-    // Key: StringName
-    // Value: SliceDefinition
-    public HashMap<StringName,AttributeValidatorDefinition>	attributeValidatorDefs;
-    public int  longestAttributeValidatorName;
     
     // The top level hierarchic objects i.e. ones that don't have allowedParents
     TreeMap<StringName,ClassDefinition>						hierarchicObjects;
@@ -248,8 +240,6 @@ public class SchemaManager implements DmcNameResolverIF {
         ruleCategoriesByID			= new TreeMap<Integer, RuleCategory>();
         ruleDefs   					= new HashMap<StringName,RuleDefinition>();
         ruleData					= new TreeMap<RuleName, RuleData>();
-        objectValidatorDefs   		= new HashMap<StringName,ObjectValidatorDefinition>();
-        attributeValidatorDefs		= new HashMap<StringName,AttributeValidatorDefinition>();
         schemaDefs  				= new TreeMap<StringName,SchemaDefinition>();
         classAbbrevs				= new HashMap<StringName,ClassDefinition>();
         attrAbbrevs 				= new HashMap<StringName,AttributeDefinition>();
@@ -1248,6 +1238,16 @@ public class SchemaManager implements DmcNameResolverIF {
         cd.addMust(MetaSchemaAG._ruleTitle);
         cd.addMay(MetaSchemaAG._description);
         
+        if (rd.getRuleType() == RuleTypeEnum.ATTRIBUTE){
+        	cd.addMust(MetaSchemaAG._applyToAttribute);
+        	if (rd.getRuleScope() == RuleScopeEnum.PERCLASS)
+        		cd.addMay(MetaSchemaAG._applyToClasses);
+        }
+        else{
+            if (rd.getRuleScope() == RuleScopeEnum.PERCLASS)
+            	cd.addMust(MetaSchemaAG._applyToClass);
+        }
+        
         cd.setFile(rd.getFile());
         cd.setLineNumber(rd.getLineNumber());
         cd.setDefinedIn(rd.getDefinedIn());
@@ -1264,34 +1264,6 @@ public class SchemaManager implements DmcNameResolverIF {
         
         // We add the new class to the schema's list of classes
         rd.getDefinedIn().addClassDefList(cd);
-    }
-
-    /**
-     * Adds the specified object validator definition to the schema if it doesn't already exist.
-     * @throws DmcValueException 
-     * @throws DmcValueExceptionSet 
-     */
-    void addObjectValidator(ObjectValidatorDefinition ovd) throws ResultException, DmcValueException {
-        if (checkAndAdd(ovd.getObjectName(),ovd,objectValidatorDefs) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(ovd.getObjectName(),ovd,objectValidatorDefs,"object validator names"));
-        	throw(ex);
-        }
-        
-    }
-
-    /**
-     * Adds the specified object validator definition to the schema if it doesn't already exist.
-     * @throws DmcValueException 
-     * @throws DmcValueExceptionSet 
-     */
-    void addAttributeValidator(AttributeValidatorDefinition avd) throws ResultException, DmcValueException {
-        if (checkAndAdd(avd.getObjectName(),avd,attributeValidatorDefs) == false){
-        	ResultException ex = new ResultException();
-        	ex.addError(clashMsg(avd.getObjectName(),avd,attributeValidatorDefs,"attribute validator names"));
-        	throw(ex);
-        }
-        
     }
 
     /**
@@ -1728,10 +1700,6 @@ public class SchemaManager implements DmcNameResolverIF {
     		this.addExtendedReferenceType((ExtendedReferenceTypeDefinition) def);
     	else if (def instanceof ComplexTypeDefinition)
     		this.addComplexType((ComplexTypeDefinition) def);
-    	else if (def instanceof ObjectValidatorDefinition)
-    		this.addObjectValidator((ObjectValidatorDefinition) def);
-    	else if (def instanceof AttributeValidatorDefinition)
-    		this.addAttributeValidator((AttributeValidatorDefinition) def);
     	else if (def instanceof SchemaDefinition)
     		this.addSchema((SchemaDefinition) def);
         else{
@@ -2735,46 +2703,7 @@ public class SchemaManager implements DmcNameResolverIF {
 					throw(ex);
 				}
     		}
-    	}
-    	
-    	Iterator<ObjectValidatorDefinition> ovdl = sd.getObjectValidatorDefList();
-    	if (ovdl != null){
-    		while(ovdl.hasNext()){
-    			ObjectValidatorDefinition ovd = ovdl.next();
-    			try {
-					ovd.resolveReferences(this);
-				} catch (DmcValueExceptionSet e) {
-					ResultException ex = new ResultException();
-					ex.addError("Unresolved references in ObjectValidatorDefinition: " + ovd.getName());
-					ex.setLocationInfo(ovd.getFile(), ovd.getLineNumber());
-					
-					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getMessage());
-					}
-					throw(ex);
-				}
-    		}
-    	}
-    	
-    	Iterator<AttributeValidatorDefinition> avdl = sd.getAttributeValidatorDefList();
-    	if (avdl != null){
-    		while(avdl.hasNext()){
-    			AttributeValidatorDefinition avd = avdl.next();
-    			try {
-					avd.resolveReferences(this);
-				} catch (DmcValueExceptionSet e) {
-					ResultException ex = new ResultException();
-					ex.addError("Unresolved references in AttributeValidatorDefinition: " + avd.getName());
-					ex.setLocationInfo(avd.getFile(), avd.getLineNumber());
-					
-					for(DmcValueException dve : e.getExceptions()){
-						ex.moreMessages(dve.getMessage());
-					}
-					throw(ex);
-				}
-    		}
-    	}
-    	
+    	}    	
     	
     }
 

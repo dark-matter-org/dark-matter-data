@@ -43,6 +43,20 @@ public class TestRules {
 				
 	}
 	
+	@Test
+	public void testAllowedAttributesRule(){
+		TestBasicObjectFixedDMO	dmo = new TestBasicObjectFixedDMO();
+		
+		DmtDMSAG.__dmtInitTestBasicObjectFixed.initialize(dmo);
+		
+		DebugInfo.debug(dmo.toOIF());
+		
+		assertEquals("svString should be \"the single valued string\"", "the single valued string", dmo.getSvString());
+		
+		assertEquals("mvString[1] should be \"second value\"", "second value", dmo.getNthMvString(1));
+				
+	}
+	
 	
 	
 }

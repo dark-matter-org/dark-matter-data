@@ -17,11 +17,17 @@ package org.dmd.dmv.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
+import java.util.ArrayList;                                              // To support getMVCopy() - (BaseDMWGeneratorNewest.java:997)
 import org.dmd.dmc.*;                                                    // If any attributes - (BaseDMWGeneratorNewest.java:903)
 import org.dmd.dmc.types.RuleName;                                       // Primitive type - (BaseDMWGeneratorNewest.java:966)
 import org.dmd.dms.*;                                                    // Always 2 - (BaseDMWGeneratorNewest.java:888)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                     // For multi-valued adds of ClassDefinition - (BaseDMWGeneratorNewest.java:1579)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Attribute applyToClasses from the meta schema - (BaseDMWGeneratorNewest.java:720)
+import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;                 // Is reference type - (BaseDMWGeneratorNewest.java:923)
+import org.dmd.dms.generated.dmw.ClassDefinitionDMW;                     // Is reference type - (BaseDMWGeneratorNewest.java:923)
+import org.dmd.dms.generated.dmw.ClassDefinitionIterableDMW;             // For multi-valued ClassDefinition - (BaseDMWGeneratorNewest.java:1521)
 import org.dmd.dms.generated.dmw.RuleDataDMW;                            // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.dms.generated.types.AttributeDefinitionREF;               // Is reference type REF - (BaseDMWGeneratorNewest.java:931)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
 import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
 
@@ -64,6 +70,133 @@ public class IntegerRangeRuleDataDMW extends RuleDataDMW {
     // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:527)
     protected IntegerRangeRuleDataDMW(IntegerRangeRuleDataDMO obj, ClassDefinition cd) {
         super(obj,cd);
+    }
+
+    /**
+     * @return A AttributeDefinitionDMW object.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1246)
+    public AttributeDefinitionDMW getApplyToAttribute(){
+        AttributeDefinitionREF ref = ((IntegerRangeRuleDataDMO) core).getApplyToAttribute();
+        if (ref == null)
+            return(null);
+        
+        if (ref.getObject() == null)
+            return(null);
+        
+        return((AttributeDefinitionDMW)ref.getObject().getContainer());
+    }
+
+    /**
+     * Sets the applyToAttribute to the specified value.
+     * @param value A value compatible with AttributeDefinitionREF
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1331)
+    public void setApplyToAttribute(AttributeDefinitionDMW value) {
+        ((IntegerRangeRuleDataDMO) core).setApplyToAttribute(value.getDMO());
+    }
+
+    /**
+     * Sets the applyToAttribute to the specified value.
+     * @param value A value compatible with AttributeDefinitionREF
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1340)
+    public void setApplyToAttribute(Object value) throws DmcValueException {
+        ((IntegerRangeRuleDataDMO) core).setApplyToAttribute(value);
+    }
+
+    /**
+     * Removes the applyToAttribute attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    public void remApplyToAttribute(){
+        ((IntegerRangeRuleDataDMO) core).remApplyToAttribute();
+    }
+
+    /**
+     * @return The number of ClassDefinition items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1483)
+    public int getApplyToClassesSize(){
+        return(((IntegerRangeRuleDataDMO) core).getApplyToClassesSize());
+    }
+
+    /**
+     * @return true if there are no ClassDefinitionDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1491)
+    public boolean getApplyToClassesIsEmpty(){
+        if (((IntegerRangeRuleDataDMO) core).getApplyToClassesSize() == 0)
+            return(true);
+        return(false);
+    }
+
+    /**
+     * @return true if there are any ClassDefinitionDMO items.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1501)
+    public boolean getApplyToClassesHasValue(){
+        if (((IntegerRangeRuleDataDMO) core).getApplyToClassesSize() == 0)
+            return(false);
+        return(true);
+    }
+
+    /**
+     * @return An Iterator of ClassDefinitionDMO objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1528)
+    public ClassDefinitionIterableDMW getApplyToClassesIterable(){
+        DmcAttribute<?> attr = core.get(MetaDMSAG.__applyToClasses);
+        if (attr == null)
+            return(ClassDefinitionIterableDMW.emptyList);
+        
+        return(new ClassDefinitionIterableDMW(((IntegerRangeRuleDataDMO) core).getApplyToClasses()));
+    }
+
+    /**
+     * Adds another applyToClasses value.
+     * @param value A value compatible with ClassDefinition
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1585)
+    public DmcAttribute<?> addApplyToClasses(ClassDefinitionDMW value){
+        DmcAttribute<?> attr = ((IntegerRangeRuleDataDMO) core).addApplyToClasses(((ClassDefinitionDMO)value.getDmcObject()));
+        return(attr);
+    }
+
+    /**
+     * Deletes a applyToClasses value.
+     * @param value The ClassDefinition to be deleted from set of attribute values.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1635)
+    public void delApplyToClasses(ClassDefinitionDMW value){
+        ((IntegerRangeRuleDataDMO) core).delApplyToClasses(value.getDMO());
+    }
+
+    /**
+     * @return A COPY of the collection of ClassDefinition objects.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1697)
+    public ArrayList<ClassDefinitionDMW> getApplyToClassesCopy(){
+        DmcAttribute<?> attr = ((IntegerRangeRuleDataDMO) core).get(MetaDMSAG.__applyToClasses);
+        if (attr == null)
+            return(new ArrayList<ClassDefinitionDMW>());
+        
+        ArrayList<ClassDefinitionDMW> rc = new ArrayList<ClassDefinitionDMW>(attr.getMVSize());
+        
+        ClassDefinitionIterableDMW it = getApplyToClassesIterable();
+        while(it.hasNext()){
+            rc.add(it.next());
+        }
+        
+        return(rc);
+    }
+
+    /**
+     * Removes the applyToClasses attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2100)
+    public void remApplyToClasses(){
+        ((IntegerRangeRuleDataDMO) core).remApplyToClasses();
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)

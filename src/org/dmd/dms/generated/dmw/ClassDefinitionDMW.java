@@ -128,9 +128,9 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The description attribute is used to provide descriptive documentation for
-     * schema related definitions. The description is of type XHMTLString which
-     * is basically an XML formatted fragment that conforms to the XHTML 1.0
-     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     * schema related definitions. The text provided should conform to XHTML
+     * concepts since it will be dumped in the context of the generated HTML
+     * documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2245)
     public String getDescription(){
@@ -170,8 +170,6 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * Indicates the set of attributes that an instance of a class MUST have.
-     * When accessed in Java, this is a set of references to AttributeDefinition
-     * objects.
      * @return An Iterator of AttributeDefinition objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2396)
@@ -287,7 +285,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * This attribute can be used on AUXILIARY classes to give a hint about their
      * intended usage. For example, if you were extending schema definitions with
-     * some or your  own attributes for some purpose, your auxliary class could
+     * some or your  own attributes for some purpose, your auxiliary class could
      * have intendedToExtend ClassDefinition.
      * @return An Iterator of ClassDefinition objects.
      */
@@ -562,28 +560,6 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This attribute indicates whether or not the object defined by a
-     * ClassDefinition is meant to be transportable across an RPC interface when
-     * object reference attributes refer to it. If set to true, the class will
-     * automatically have its reference type use the
-     * DmcNameObjectTransportableREF as its base. Otherwise, it will use
-     * DmcNameObjectNotransportableREF.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2245)
-    public Boolean getIsTransportable(){
-        return(mycore.getIsTransportable());
-    }
-
-    /**
-     * Sets isTransportable to the specified value.
-     * @param value A value compatible with DmcTypeBooleanSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2308)
-    public void setIsTransportable(Object value) throws DmcValueException {
-        mycore.setIsTransportable(value);
-    }
-
-    /**
      * This flag indicates if the associated definition was internally generated.
      * This is the case for TypeDefinitions generated for ClassDefinitions and
      * EnumDefinitions that allow for references to these objects.
@@ -625,7 +601,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates the classes that are known to be derived from this class.
+     * Indicates the classes that are known to be derived from a class.
      * @return An Iterator of ClassDefinition objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2396)

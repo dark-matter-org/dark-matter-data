@@ -19,7 +19,7 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (21)</h2>
+    <h2> Classes (17)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -32,16 +32,7 @@
       </tr>
       <tr>
       <td class="spacer"> </td>
-      <td> <a class="deflink" href="#AllowedAttributesRuleData"> AllowedAttributesRuleData </a></td>
-      </tr>
-      <tr>
-      <td class="spacer"> </td>
       <td> <a class="deflink" href="#AttributeDefinition"> AttributeDefinition </a></td>
-      <td> name </td>
-      </tr>
-      <tr>
-      <td class="spacer"> </td>
-      <td> <a class="deflink" href="#AttributeValidatorDefinition"> AttributeValidatorDefinition </a></td>
       <td> name </td>
       </tr>
       <tr>
@@ -81,15 +72,6 @@
       </tr>
       <tr>
       <td class="spacer"> </td>
-      <td> <a class="deflink" href="#InitRuleData"> InitRuleData </a></td>
-      </tr>
-      <tr>
-      <td class="spacer"> </td>
-      <td> <a class="deflink" href="#ObjectValidatorDefinition"> ObjectValidatorDefinition </a></td>
-      <td> name </td>
-      </tr>
-      <tr>
-      <td class="spacer"> </td>
       <td> <a class="deflink" href="#RuleCategory"> RuleCategory </a></td>
       <td> name </td>
       </tr>
@@ -125,7 +107,7 @@
       </tr>
     </table>
     </div>    <div class="typeList">
-    <h2>Types (63)</h2>
+    <h2>Types (31)</h2>
     <ul>
       <li> <a class="deflink" href="#AttributeID"> AttributeID </a></li>
       <li> <a class="deflink" href="#Boolean"> Boolean </a></li>
@@ -160,14 +142,13 @@
       <li> <a class="deflink" href="#UUIDName"> UUIDName </a></li>
     </ul>
     </div>    <div class="enumList">
-    <h2>Enums (12)</h2>
+    <h2>Enums (11)</h2>
     <ul>
       <li> <a class="deflink" href="#BaseTypeEnum"> BaseTypeEnum </a></li>
       <li> <a class="deflink" href="#ClassTypeEnum"> ClassTypeEnum </a></li>
       <li> <a class="deflink" href="#DataTypeEnum"> DataTypeEnum </a></li>
       <li> <a class="deflink" href="#DebugEnum"> DebugEnum </a></li>
       <li> <a class="deflink" href="#FilterTypeEnum"> FilterTypeEnum </a></li>
-      <li> <a class="deflink" href="#ModificationControlEnum"> ModificationControlEnum </a></li>
       <li> <a class="deflink" href="#ModifyTypeEnum"> ModifyTypeEnum </a></li>
       <li> <a class="deflink" href="#OperationalContextEnum"> OperationalContextEnum </a></li>
       <li> <a class="deflink" href="#RuleScopeEnum"> RuleScopeEnum </a></li>
@@ -243,7 +224,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
     <tr>
@@ -251,7 +232,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#isGetAction">isGetAction</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> This flag indicates if an Action is merely a data retrieval (get) Action. Actions that are flagged with this attribute set to true will be executable even when the server is in a read-only mode because they don't actually alter data. One example of this is the getAllowedOperations() action on the SecurityBranch. </td>
+      <td> This flag indicates if an Action is merely a data retrieval (get) Action. Actions that are flagged with this attribute set to true will be executable even when the server is in a read-only mode because they don't actually alter data. </td>
     </tr>
 
     <tr>
@@ -335,53 +316,6 @@
 
   <table>
 
-    <tr> <td class="className" colspan="4"> <a name="AllowedAttributesRuleData"> AllowedAttributesRuleData </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Type</td>
-      <td colspan="2">STRUCTURAL</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Derived from</td>
-      <td colspan="2">
-      <a href="meta.html#RuleData">RuleData</a>
-      </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Must</td>
-      <td> <a href="meta.html#ruleName">ruleName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
-      <td> The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The title of a rule. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">May</td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
-    </tr>
-
-  </table>
-
-  <table>
-
     <tr> <td class="className" colspan="4"> <a name="AttributeDefinition"> AttributeDefinition </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -426,7 +360,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#type">type</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#TypeDefinition">TypeDefinition</a> </td>
-      <td> Indicates the type of an attribute. The value is the name of any previously defined DmdTypeDef definition. When accessed in Java, this is a reference to a DmdTypeDef object. </td>
+      <td> Indicates the type of an attribute. The value is the name of any previously defined TypeDefinition, ClassDefinition, EnumDefinition or ComplexTypeDefinition. </td>
     </tr>
 
     <tr>
@@ -450,7 +384,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
     <tr>
@@ -539,73 +473,6 @@
       <td> <a href="meta.html#valueType">valueType</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ValueTypeEnum">ValueTypeEnum</a> </td>
       <td> This attribute indicates the cardinality and storage mechanism for an attribute. </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr> <td class="className" colspan="4"> <a name="AttributeValidatorDefinition"> AttributeValidatorDefinition </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td>Description</td>
-      <td colspan="2">The AttributeValidatorDefinition allows for the the definition of attribute level validation logic.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Type</td>
-      <td colspan="2">STRUCTURAL</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Derived from</td>
-      <td colspan="2">
-      <a href="meta.html#DmsDefinition">DmsDefinition</a>
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Named by</td>
-      <td colspan="2"> <a href="meta.html#name">name</a> </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Must</td>
-      <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#validatorClass">validatorClass</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The fully qualified name of an object or attribute validator class. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">May</td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#opContext">opContext</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#OperationalContextEnum">OperationalContextEnum</a> </td>
-      <td> Indicates the operational context for some component e.g. object or attribute validators. </td>
     </tr>
 
   </table>
@@ -702,14 +569,6 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="meta.html#derivedClasses">derivedClasses</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
-      <td> Indicates the classes that are known to be derived from this class. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#derivedFrom">derivedFrom</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> Indicates the abstract or structural class from which this class is derived. </td>
@@ -720,7 +579,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
     <tr>
@@ -744,7 +603,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#intendedToExtend">intendedToExtend</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
-      <td> This attribute can be used on AUXILIARY classes to give a hint about their intended usage. For example, if you were extending schema definitions with some or your  own attributes for some purpose, your auxliary class could have intendedToExtend ClassDefinition. </td>
+      <td> This attribute can be used on AUXILIARY classes to give a hint about their intended usage. For example, if you were extending schema definitions with some or your  own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition. </td>
     </tr>
 
     <tr>
@@ -768,7 +627,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#must">must</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the set of attributes that an instance of a class MUST have. When accessed in Java, this is a set of references to AttributeDefinition objects. </td>
+      <td> Indicates the set of attributes that an instance of a class MUST have. </td>
     </tr>
 
     <tr>
@@ -882,7 +741,7 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
     <tr>
@@ -1040,7 +899,7 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
   </table>
@@ -1064,7 +923,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="meta.html#ActionDefinition">ActionDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeValidatorDefinition">AttributeValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div>      <div class="derived"> <a href="meta.html#ComplexTypeDefinition">ComplexTypeDefinition</a> </div>      <div class="derived"> <a href="meta.html#Dependency">Dependency</a> </div>      <div class="derived"> <a href="meta.html#DependencyImplementation">DependencyImplementation</a> </div>      <div class="derived"> <a href="meta.html#EnumDefinition">EnumDefinition</a> </div>      <div class="derived"> <a href="meta.html#ObjectValidatorDefinition">ObjectValidatorDefinition</a> </div>      <div class="derived"> <a href="meta.html#RuleCategory">RuleCategory</a> </div>      <div class="derived"> <a href="meta.html#RuleDefinition">RuleDefinition</a> </div>      <div class="derived"> <a href="meta.html#RunContext">RunContext</a> </div>      <div class="derived"> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </div>      <div class="derived"> <a href="meta.html#SliceDefinition">SliceDefinition</a> </div>      <div class="derived"> <a href="meta.html#TypeDefinition">TypeDefinition</a> </div>      </td>
+      <div class="derived"> <a href="meta.html#ActionDefinition">ActionDefinition</a> </div>      <div class="derived"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div>      <div class="derived"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div>      <div class="derived"> <a href="meta.html#ComplexTypeDefinition">ComplexTypeDefinition</a> </div>      <div class="derived"> <a href="meta.html#Dependency">Dependency</a> </div>      <div class="derived"> <a href="meta.html#DependencyImplementation">DependencyImplementation</a> </div>      <div class="derived"> <a href="meta.html#EnumDefinition">EnumDefinition</a> </div>      <div class="derived"> <a href="meta.html#RuleCategory">RuleCategory</a> </div>      <div class="derived"> <a href="meta.html#RuleDefinition">RuleDefinition</a> </div>      <div class="derived"> <a href="meta.html#RunContext">RunContext</a> </div>      <div class="derived"> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </div>      <div class="derived"> <a href="meta.html#SliceDefinition">SliceDefinition</a> </div>      <div class="derived"> <a href="meta.html#TypeDefinition">TypeDefinition</a> </div>      </td>
     </tr>
 
     <tr>
@@ -1141,7 +1000,7 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
     <tr>
@@ -1217,7 +1076,7 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
     <tr>
@@ -1234,120 +1093,6 @@
       <td> <a href="meta.html#fieldSeparator">fieldSeparator</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The fieldSeparator is used to indicate the separation character used when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is assumed to be a space. </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr> <td class="className" colspan="4"> <a name="InitRuleData"> InitRuleData </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Type</td>
-      <td colspan="2">EXTENSIBLE</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Derived from</td>
-      <td colspan="2">
-      <a href="meta.html#RuleData">RuleData</a>
-      </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Must</td>
-      <td> <a href="meta.html#ruleName">ruleName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
-      <td> The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The title of a rule. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">May</td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr> <td class="className" colspan="4"> <a name="ObjectValidatorDefinition"> ObjectValidatorDefinition </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td>Description</td>
-      <td colspan="2">The ObjectValidatorDefinition allows for the the definition of object level validation logic.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Type</td>
-      <td colspan="2">STRUCTURAL</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Derived from</td>
-      <td colspan="2">
-      <a href="meta.html#DmsDefinition">DmsDefinition</a>
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Named by</td>
-      <td colspan="2"> <a href="meta.html#name">name</a> </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Must</td>
-      <td> <a href="meta.html#name">name</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#validatorClass">validatorClass</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The fully qualified name of an object or attribute validator class. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">May</td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#opContext">opContext</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#OperationalContextEnum">OperationalContextEnum</a> </td>
-      <td> Indicates the operational context for some component e.g. object or attribute validators. </td>
     </tr>
 
   </table>
@@ -1390,7 +1135,7 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
     <tr>
@@ -1462,7 +1207,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="meta.html#AllowedAttributesRuleData">AllowedAttributesRuleData</a> </div>      <div class="derived"> <a href="meta.html#InitRuleData">InitRuleData</a> </div>      </td>
+      <div class="derived"> <a href="dmv.html#AllowedAttributesRuleData">AllowedAttributesRuleData</a> </div>      <div class="derived"> <a href="dmv.html#InitRuleData">InitRuleData</a> </div>      <div class="derived"> <a href="dmv.html#IntegerRangeRuleData">IntegerRangeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#UCOAllowedAttributesRuleData">UCOAllowedAttributesRuleData</a> </div>      </td>
     </tr>
 
     <tr>
@@ -1496,7 +1241,7 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
   </table>
@@ -1539,7 +1284,7 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
     <tr>
@@ -1611,7 +1356,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#must">must</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the set of attributes that an instance of a class MUST have. When accessed in Java, this is a set of references to AttributeDefinition objects. </td>
+      <td> Indicates the set of attributes that an instance of a class MUST have. </td>
     </tr>
 
   </table>
@@ -1664,7 +1409,7 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
   </table>
@@ -1707,7 +1452,7 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
     <tr>
@@ -1739,7 +1484,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#schemaPackage">schemaPackage</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> Indicates the package that this schema will be part of when its code is generated using the dafutil tool. </td>
+      <td> Indicates the package that a schema will be part of when its code is generated using DMO generator tool. </td>
     </tr>
 
     <tr>
@@ -1796,6 +1541,14 @@
       <td> <a href="meta.html#ruleCategoryList">ruleCategoryList</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#RuleCategory">RuleCategory</a> </td>
       <td> The RuleCategories defined in a schema. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#ruleDataList">ruleDataList</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#RuleData">RuleData</a> </td>
+      <td> The RuleData defined in a schema. </td>
     </tr>
 
     <tr>
@@ -1870,7 +1623,7 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
   </table>
@@ -1945,7 +1698,7 @@
       <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString. </td>
+      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
     </tr>
 
     <tr>
@@ -2218,6 +1971,31 @@
       </td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="applyToAttribute"> applyToAttribute </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indiactes the attribute to which an ATTRIBUTE type rule is applied.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="applyToClass"> applyToClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2231,6 +2009,18 @@
       <td>The class to which a rule should be applied.</td>
     </tr>
 
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="applyToClasses"> applyToClasses </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2242,6 +2032,18 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The classes to which a rule should be applied.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+</tr>
+</table>
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="attachToClass"> attachToClass </a> </td></tr>
@@ -2280,31 +2082,6 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>A list of attribute definition references.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-<table>
-  <tr>
-    <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
-</tr>
-</table>
-      </td>
-    </tr>
-
-    <tr> <td class="className" colspan="3"> <a name="attributeValidatorDefList"> attributeValidatorDefList </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#AttributeValidatorDefinition">AttributeValidatorDefinition</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>A list of attribute validator definition references.</td>
     </tr>
 
     <tr>
@@ -2588,6 +2365,7 @@
 <table>
   <tr>
     <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -2718,7 +2496,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the classes that are known to be derived from this class.</td>
+      <td>Indicates the classes that are known to be derived from a class.</td>
     </tr>
 
     <tr>
@@ -2768,7 +2546,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The description attribute is used to provide descriptive documentation for schema related definitions. The description is of type XHMTLString which is basically an XML formatted fragment that conforms to the XHTML 1.0 specification. For more information, see the DmdTypeDef for XHTMLString.</td>
+      <td>The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation.</td>
     </tr>
 
     <tr>
@@ -2778,32 +2556,32 @@
 <table>
   <tr>
     <td> ActionDefinition (<a href="meta.html#ActionDefinition">meta</a>) </td>
-    <td> AllowedAttributesRuleData (<a href="meta.html#AllowedAttributesRuleData">meta</a>) </td>
+    <td> AllowedAttributesRuleData (<a href="dmv.html#AllowedAttributesRuleData">dmv</a>) </td>
     <td> AttributeDefinition (<a href="meta.html#AttributeDefinition">meta</a>) </td>
   <tr>
-    <td> AttributeValidatorDefinition (<a href="meta.html#AttributeValidatorDefinition">meta</a>) </td>
     <td> ClassDefinition (<a href="meta.html#ClassDefinition">meta</a>) </td>
     <td> ComplexTypeDefinition (<a href="meta.html#ComplexTypeDefinition">meta</a>) </td>
+    <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
 </tr>
   <tr>
-    <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
     <td> DmgConfig (<a href="dmg.html#DmgConfig">dmg</a>) </td>
     <td> EnumDefinition (<a href="meta.html#EnumDefinition">meta</a>) </td>
+    <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
 </tr>
   <tr>
-    <td> InitRuleData (<a href="meta.html#InitRuleData">meta</a>) </td>
-    <td> ObjectValidatorDefinition (<a href="meta.html#ObjectValidatorDefinition">meta</a>) </td>
+    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
     <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
   <tr>
-    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
     <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
     <td> RunContext (<a href="meta.html#RunContext">meta</a>) </td>
+    <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
 </tr>
   <tr>
-    <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
     <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
     <td> TypeDefinition (<a href="meta.html#TypeDefinition">meta</a>) </td>
+    <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
 </tr>
 </table>
       </td>
@@ -3645,6 +3423,7 @@
   <tr>
     <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
     <td> HierarchicObject (<a href="dmr.base.html#HierarchicObject">dmr.base</a>) </td>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -3889,7 +3668,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute can be used on AUXILIARY classes to give a hint about their intended usage. For example, if you were extending schema definitions with some or your  own attributes for some purpose, your auxliary class could have intendedToExtend ClassDefinition.</td>
+      <td>This attribute can be used on AUXILIARY classes to give a hint about their intended usage. For example, if you were extending schema definitions with some or your  own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition.</td>
     </tr>
 
     <tr>
@@ -4028,7 +3807,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This flag is set to true for type definitions that define eneumerations.</td>
+      <td>This flag is set to true for type definitions that define enumerations.</td>
     </tr>
 
     <tr>
@@ -4128,7 +3907,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This flag indicates if an Action is merely a data retrieval (get) Action. Actions that are flagged with this attribute set to true will be executable even when the server is in a read-only mode because they don't actually alter data. One example of this is the getAllowedOperations() action on the SecurityBranch.</td>
+      <td>This flag indicates if an Action is merely a data retrieval (get) Action. Actions that are flagged with this attribute set to true will be executable even when the server is in a read-only mode because they don't actually alter data.</td>
     </tr>
 
     <tr>
@@ -4256,31 +4035,6 @@
       <td>This flag is set to true for type definitions that refer to other schema-related definitions.</td>
     </tr>
 
-    <tr> <td class="className" colspan="3"> <a name="isTransportable"> isTransportable </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>This attribute indicates whether or not the object defined by a ClassDefinition is meant to be transportable across an RPC interface when object reference attributes refer to it. If set to true, the class will automatically have its reference type use the DmcNameObjectTransportableREF as its base. Otherwise, it will use DmcNameObjectNotransportableREF.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-<table>
-  <tr>
-    <td> ClassDefinition (<a href="meta.html#ClassDefinition">meta</a>) </td>
-</tr>
-</table>
-      </td>
-    </tr>
-
     <tr> <td class="className" colspan="3"> <a name="javaClass"> javaClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4304,19 +4058,6 @@
 </tr>
 </table>
       </td>
-    </tr>
-
-    <tr> <td class="className" colspan="3"> <a name="javaPackage"> javaPackage </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>The package to be imported when using a particular value type.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="keyClass"> keyClass </a> </td></tr>
@@ -4390,6 +4131,7 @@
   <tr>
     <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
     <td> HierarchicObject (<a href="dmr.base.html#HierarchicObject">dmr.base</a>) </td>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -4554,7 +4296,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the set of attributes that an instance of a class MUST have. When accessed in Java, this is a set of references to AttributeDefinition objects.</td>
+      <td>Indicates the set of attributes that an instance of a class MUST have.</td>
     </tr>
 
     <tr>
@@ -4644,47 +4386,45 @@
     <td> ActionTriggerInfo (<a href="meta.html#ActionTriggerInfo">meta</a>) </td>
   <tr>
     <td> AttributeDefinition (<a href="meta.html#AttributeDefinition">meta</a>) </td>
-    <td> AttributeValidatorDefinition (<a href="meta.html#AttributeValidatorDefinition">meta</a>) </td>
     <td> BaseObj (<a href="dmt.html#BaseObj">dmt</a>) </td>
+    <td> ClassDefinition (<a href="meta.html#ClassDefinition">meta</a>) </td>
 </tr>
   <tr>
-    <td> ClassDefinition (<a href="meta.html#ClassDefinition">meta</a>) </td>
     <td> ComplexTypeDefinition (<a href="meta.html#ComplexTypeDefinition">meta</a>) </td>
     <td> Dependency (<a href="meta.html#Dependency">meta</a>) </td>
+    <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
 </tr>
   <tr>
-    <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
     <td> DmsDefinition (<a href="meta.html#DmsDefinition">meta</a>) </td>
     <td> EnumDefinition (<a href="meta.html#EnumDefinition">meta</a>) </td>
+    <td> ExtendedReferenceTypeDefinition (<a href="meta.html#ExtendedReferenceTypeDefinition">meta</a>) </td>
 </tr>
   <tr>
-    <td> ExtendedReferenceTypeDefinition (<a href="meta.html#ExtendedReferenceTypeDefinition">meta</a>) </td>
     <td> MethodGenerator (<a href="dmg.html#MethodGenerator">dmg</a>) </td>
     <td> ObjWithRefs (<a href="dmt.html#ObjWithRefs">dmt</a>) </td>
-</tr>
-  <tr>
-    <td> ObjectValidatorDefinition (<a href="meta.html#ObjectValidatorDefinition">meta</a>) </td>
     <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
-    <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
 </tr>
   <tr>
+    <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
     <td> RunContext (<a href="meta.html#RunContext">meta</a>) </td>
     <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
-    <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
 </tr>
   <tr>
+    <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
     <td> TestBasicNamedObjectExtended (<a href="dmt.html#TestBasicNamedObjectExtended">dmt</a>) </td>
     <td> TestBasicNamedObjectFixed (<a href="dmt.html#TestBasicNamedObjectFixed">dmt</a>) </td>
-    <td> TestDerivedDiffSubpackage (<a href="dmt.html#TestDerivedDiffSubpackage">dmt</a>) </td>
 </tr>
   <tr>
+    <td> TestDerivedDiffSubpackage (<a href="dmt.html#TestDerivedDiffSubpackage">dmt</a>) </td>
     <td> TestDerivedSubpackage (<a href="dmt.html#TestDerivedSubpackage">dmt</a>) </td>
     <td> TestMultiLevelSubpackage (<a href="dmt.html#TestMultiLevelSubpackage">dmt</a>) </td>
-    <td> TestOneLevelSubpackage (<a href="dmt.html#TestOneLevelSubpackage">dmt</a>) </td>
 </tr>
   <tr>
+    <td> TestOneLevelSubpackage (<a href="dmt.html#TestOneLevelSubpackage">dmt</a>) </td>
     <td> TestOneLevelSubpackageExtended (<a href="dmt.html#TestOneLevelSubpackageExtended">dmt</a>) </td>
     <td> TypeDefinition (<a href="meta.html#TypeDefinition">meta</a>) </td>
+</tr>
+  <tr>
     <td> WrapperGenerator (<a href="dmg.html#WrapperGenerator">dmg</a>) </td>
 </tr>
   <tr>
@@ -4784,31 +4524,6 @@
       <td>Used to indicate the classes that an object instance supports.</td>
     </tr>
 
-    <tr> <td class="className" colspan="3"> <a name="objectValidatorDefList"> objectValidatorDefList </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#ObjectValidatorDefinition">ObjectValidatorDefinition</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>A list of object validator definition references.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-<table>
-  <tr>
-    <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
-</tr>
-</table>
-      </td>
-    </tr>
-
     <tr> <td class="className" colspan="3"> <a name="obsoleteVersion"> obsoleteVersion </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -4855,8 +4570,6 @@
       <td>
 <table>
   <tr>
-    <td> AttributeValidatorDefinition (<a href="meta.html#AttributeValidatorDefinition">meta</a>) </td>
-    <td> ObjectValidatorDefinition (<a href="meta.html#ObjectValidatorDefinition">meta</a>) </td>
     <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
 </tr>
 </table>
@@ -4974,6 +4687,31 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The RuleCategories defined in a schema.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="ruleDataList"> ruleDataList </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#RuleData">RuleData</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The RuleData defined in a schema.</td>
     </tr>
 
     <tr>
@@ -5132,7 +4870,12 @@
       <td>
 <table>
   <tr>
+    <td> AllowedAttributesRuleData (<a href="dmv.html#AllowedAttributesRuleData">dmv</a>) </td>
+    <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
+    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+  <tr>
     <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
+    <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
 </tr>
 </table>
       </td>
@@ -5182,9 +4925,12 @@
       <td>
 <table>
   <tr>
-    <td> AllowedAttributesRuleData (<a href="meta.html#AllowedAttributesRuleData">meta</a>) </td>
-    <td> InitRuleData (<a href="meta.html#InitRuleData">meta</a>) </td>
+    <td> AllowedAttributesRuleData (<a href="dmv.html#AllowedAttributesRuleData">dmv</a>) </td>
+    <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
+    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+  <tr>
     <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
+    <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
 </tr>
 </table>
       </td>
@@ -5325,7 +5071,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the package that this schema will be part of when its code is generated using the dafutil tool.</td>
+      <td>Indicates the package that a schema will be part of when its code is generated using DMO generator tool.</td>
     </tr>
 
     <tr>
@@ -5388,19 +5134,6 @@
 </tr>
 </table>
       </td>
-    </tr>
-
-    <tr> <td class="className" colspan="3"> <a name="setType"> setType </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>Indicates the set interfaces that can be supported by a particular type. The createmeta tool uses this attribute to generate all possible set interfaces for the DmdGenericAttribute.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="sliceDefList"> sliceDefList </a> </td></tr>
@@ -5488,7 +5221,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the type of an attribute. The value is the name of any previously defined DmdTypeDef definition. When accessed in Java, this is a reference to a DmdTypeDef object.</td>
+      <td>Indicates the type of an attribute. The value is the name of any previously defined TypeDefinition, ClassDefinition, EnumDefinition or ComplexTypeDefinition.</td>
     </tr>
 
     <tr>
@@ -5653,45 +5386,6 @@
       </td>
     </tr>
 
-    <tr> <td class="className" colspan="3"> <a name="validatorClass"> validatorClass </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>The fully qualified name of an object or attribute validator class.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-<table>
-  <tr>
-    <td> AttributeValidatorDefinition (<a href="meta.html#AttributeValidatorDefinition">meta</a>) </td>
-    <td> ObjectValidatorDefinition (<a href="meta.html#ObjectValidatorDefinition">meta</a>) </td>
-</tr>
-</table>
-      </td>
-    </tr>
-
-    <tr> <td class="className" colspan="3"> <a name="valueClass"> valueClass </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>The package to be imported when using the values of a particular type definition.</td>
-    </tr>
-
     <tr> <td class="className" colspan="3"> <a name="valueType"> valueType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5840,26 +5534,25 @@
 </tr>
   <tr>
     <td> isSchemaRtype (<a href="meta.html#isSchemaRtype">meta</a>) </td>
-    <td> isTransportable (<a href="meta.html#isTransportable">meta</a>) </td>
     <td> lastResponse (<a href="dmp.html#lastResponse">dmp</a>) </td>
+    <td> maySendProgress (<a href="meta.html#maySendProgress">meta</a>) </td>
 </tr>
   <tr>
-    <td> maySendProgress (<a href="meta.html#maySendProgress">meta</a>) </td>
     <td> mvBoolean (<a href="dmt.html#mvBoolean">dmt</a>) </td>
     <td> myOwnEvent (<a href="dmp.html#myOwnEvent">dmp</a>) </td>
+    <td> notifyOriginator (<a href="dmp.html#notifyOriginator">dmp</a>) </td>
 </tr>
   <tr>
-    <td> notifyOriginator (<a href="dmp.html#notifyOriginator">dmp</a>) </td>
     <td> onOff (<a href="dmt.html#onOff">dmt</a>) </td>
     <td> readableFormat (<a href="dmp.html#readableFormat">dmp</a>) </td>
+    <td> registerForEvents (<a href="dmp.html#registerForEvents">dmp</a>) </td>
 </tr>
   <tr>
-    <td> registerForEvents (<a href="dmp.html#registerForEvents">dmp</a>) </td>
     <td> secure (<a href="meta.html#secure">meta</a>) </td>
     <td> supportsBackrefTracking (<a href="meta.html#supportsBackrefTracking">meta</a>) </td>
+    <td> svBoolean (<a href="dmt.html#svBoolean">dmt</a>) </td>
 </tr>
   <tr>
-    <td> svBoolean (<a href="dmt.html#svBoolean">dmt</a>) </td>
     <td> trackingEnabled (<a href="dmp.html#trackingEnabled">dmp</a>) </td>
 </tr>
 </table>
@@ -6267,21 +5960,23 @@
     <td> indexSize (<a href="meta.html#indexSize">meta</a>) </td>
 </tr>
   <tr>
+    <td> irrMaximum (<a href="dmv.html#irrMaximum">dmv</a>) </td>
+    <td> irrMinimum (<a href="dmv.html#irrMinimum">dmv</a>) </td>
     <td> lineNumber (<a href="meta.html#lineNumber">meta</a>) </td>
+</tr>
+  <tr>
     <td> mvInteger (<a href="dmt.html#mvInteger">dmt</a>) </td>
     <td> originatorID (<a href="dmp.html#originatorID">dmp</a>) </td>
+    <td> requestID (<a href="dmp.html#requestID">dmp</a>) </td>
 </tr>
   <tr>
-    <td> requestID (<a href="dmp.html#requestID">dmp</a>) </td>
     <td> ruleCategoryID (<a href="meta.html#ruleCategoryID">meta</a>) </td>
     <td> schemaBaseID (<a href="meta.html#schemaBaseID">meta</a>) </td>
+    <td> schemaIDRange (<a href="meta.html#schemaIDRange">meta</a>) </td>
 </tr>
   <tr>
-    <td> schemaIDRange (<a href="meta.html#schemaIDRange">meta</a>) </td>
     <td> svInteger (<a href="dmt.html#svInteger">dmt</a>) </td>
     <td> timeoutSeconds (<a href="dmp.html#timeoutSeconds">dmp</a>) </td>
-</tr>
-  <tr>
     <td> tsInteger (<a href="dmt.html#tsInteger">dmt</a>) </td>
 </tr>
 </table>
@@ -6729,66 +6424,58 @@
     <td> javaClass (<a href="meta.html#javaClass">meta</a>) </td>
 </tr>
   <tr>
-    <td> javaPackage (<a href="meta.html#javaPackage">meta</a>) </td>
     <td> keyClass (<a href="meta.html#keyClass">meta</a>) </td>
     <td> keyImport (<a href="meta.html#keyImport">meta</a>) </td>
+    <td> ldapIdPrefix (<a href="dmr.ldap.html#ldapIdPrefix">dmr.ldap</a>) </td>
 </tr>
   <tr>
-    <td> ldapIdPrefix (<a href="dmr.ldap.html#ldapIdPrefix">dmr.ldap</a>) </td>
     <td> mvIdxString (<a href="dmt.html#mvIdxString">dmt</a>) </td>
     <td> mvString (<a href="dmt.html#mvString">dmt</a>) </td>
+    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
 </tr>
   <tr>
-    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
     <td> nullReturnValue (<a href="meta.html#nullReturnValue">meta</a>) </td>
     <td> obsoleteVersion (<a href="meta.html#obsoleteVersion">meta</a>) </td>
+    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
 </tr>
   <tr>
-    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
     <td> primitiveType (<a href="meta.html#primitiveType">meta</a>) </td>
     <td> reposName (<a href="dmr.ldap.html#reposName">dmr.ldap</a>) </td>
+    <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
 </tr>
   <tr>
-    <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
     <td> responseText (<a href="dmp.html#responseText">dmp</a>) </td>
     <td> ruleExecution (<a href="meta.html#ruleExecution">meta</a>) </td>
+    <td> ruleImport (<a href="meta.html#ruleImport">meta</a>) </td>
 </tr>
   <tr>
-    <td> ruleImport (<a href="meta.html#ruleImport">meta</a>) </td>
     <td> ruleInterface (<a href="meta.html#ruleInterface">meta</a>) </td>
     <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
+    <td> schemaExtension (<a href="meta.html#schemaExtension">meta</a>) </td>
 </tr>
   <tr>
-    <td> schemaExtension (<a href="meta.html#schemaExtension">meta</a>) </td>
     <td> schemaPackage (<a href="meta.html#schemaPackage">meta</a>) </td>
     <td> schemaToLoad (<a href="dmg.html#schemaToLoad">dmg</a>) </td>
-</tr>
-  <tr>
     <td> sessionID (<a href="dmp.html#sessionID">dmp</a>) </td>
-    <td> setType (<a href="meta.html#setType">meta</a>) </td>
-    <td> slice (<a href="dmp.html#slice">dmp</a>) </td>
 </tr>
   <tr>
+    <td> slice (<a href="dmp.html#slice">dmp</a>) </td>
     <td> subpackage (<a href="meta.html#subpackage">meta</a>) </td>
     <td> svString (<a href="dmt.html#svString">dmt</a>) </td>
-    <td> transString (<a href="dmt.html#transString">dmt</a>) </td>
 </tr>
   <tr>
+    <td> transString (<a href="dmt.html#transString">dmt</a>) </td>
     <td> tsString (<a href="dmt.html#tsString">dmt</a>) </td>
     <td> typeClassName (<a href="meta.html#typeClassName">meta</a>) </td>
-    <td> upperConstantName (<a href="dmg.html#upperConstantName">dmg</a>) </td>
 </tr>
   <tr>
+    <td> upperConstantName (<a href="dmg.html#upperConstantName">dmg</a>) </td>
     <td> useInterface (<a href="meta.html#useInterface">meta</a>) </td>
     <td> userFQN (<a href="dmp.html#userFQN">dmp</a>) </td>
+</tr>
+  <tr>
     <td> userName (<a href="dmr.base.html#userName">dmr.base</a>) </td>
-</tr>
-  <tr>
     <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
-    <td> validatorClass (<a href="meta.html#validatorClass">meta</a>) </td>
-    <td> valueClass (<a href="meta.html#valueClass">meta</a>) </td>
-</tr>
-  <tr>
     <td> wrapperClassName (<a href="meta.html#wrapperClassName">meta</a>) </td>
 </tr>
 </table>
@@ -7179,20 +6866,6 @@
       <td>Performs a test to see if an attribute is not present.</td>
     </tr>
 
-    <tr> <td class="className" colspan="4"> <a name="ModificationControlEnum"> ModificationControlEnum </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label" colspan="2">Description</td>
-      <td>The ModificationControlEnum indicates</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 0</td>
-      <td> SINGLE</td>
-      <td>Indicates that the attribute is single-valued.</td>
-    </tr>
-
     <tr> <td class="className" colspan="4"> <a name="ModifyTypeEnum"> ModifyTypeEnum </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -7267,7 +6940,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>The RuleScopeEnum indicates the scope at which a rule is applied.  When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum will determine some additional attributes that will be added to the DMO class definition. <table> <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> ATTRIBUTE </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr> <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> CLASS     </td> <td> ACROSSCLASSES </td> <td> applyToClasses </td> </tr> <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> </table></td>
+      <td>The RuleScopeEnum indicates the scope at which a rule is applied.  When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum will determine some additional attributes that will be added to the DMO class definition. <table> <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClasses </td> </tr> <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> </table></td>
     </tr>
 
     <tr>
@@ -7280,13 +6953,6 @@
     <tr>
       <td class="spacer"> </td>
       <td> 1</td>
-      <td> ACROSSCLASSES</td>
-      <td>Indicates the rule is applied across several classes.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 2</td>
       <td> GLOBAL</td>
       <td>Indicates the rule is global in scope.</td>
     </tr>
@@ -7295,7 +6961,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>The RuleTypeEnum indicates the level at which a rule is applied.</td>
+      <td>The RuleTypeEnum indicates the level at which a rule is applied. An ATTRIBUTE rule is applied at the attribute level and must have the applyToAttribute attribute and may have the applyToClass attribute to limit its scope to particular classes. A CLASS level rule will be applied to an entire object and will have the applyToClass attribute unless it is defined as GLOBAL.</td>
     </tr>
 
     <tr>

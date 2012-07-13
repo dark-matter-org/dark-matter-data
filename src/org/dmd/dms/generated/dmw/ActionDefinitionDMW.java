@@ -93,9 +93,9 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The description attribute is used to provide descriptive documentation for
-     * schema related definitions. The description is of type XHMTLString which
-     * is basically an XML formatted fragment that conforms to the XHTML 1.0
-     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     * schema related definitions. The text provided should conform to XHTML
+     * concepts since it will be dumped in the context of the generated HTML
+     * documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2245)
     public String getDescription(){
@@ -313,8 +313,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * This flag indicates if an Action is merely a data retrieval (get) Action.
      * Actions that are flagged with this attribute set to true will be
      * executable even when the server is in a read-only mode because they don't
-     * actually alter data. One example of this is the getAllowedOperations()
-     * action on the SecurityBranch.
+     * actually alter data.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2245)
     public Boolean getIsGetAction(){

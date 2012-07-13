@@ -12,7 +12,6 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Requ
 import org.dmd.dms.generated.enums.ClassTypeEnum;                        // Have class definitions - (DmoCompactSchemaFormatter.java:668)
 import org.dmd.dms.generated.enums.DataTypeEnum;                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:669)
 import org.dmd.dms.generated.enums.ValueTypeEnum;                        // Have attribute definitions - (DmoCompactSchemaFormatter.java:691)
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;          // Support for addition of applyToClass values to the extensible InitRuleData class - (ClassDefinition.java:894)
 import org.dmd.dms.generated.types.DmcTypeIntegerSV;                     // Support for addition of svInteger values to the extensible InitRuleData class - (ClassDefinition.java:894)
 import org.dmd.dms.generated.types.DmcTypeStringMV;                      // Support for addition of mvString values to the extensible InitRuleData class - (ClassDefinition.java:894)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                      // Support for addition of svString values to the extensible InitRuleData class - (ClassDefinition.java:894)
@@ -522,10 +521,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:245)
         try{
             InitRuleDataDMO _dmtInitTestBasicObjectFixedData = new InitRuleDataDMO();
-            DmcTypeClassDefinitionREFSV applyToClassValue = null;
-            applyToClassValue = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__applyToClass);
-            applyToClassValue.set("TestBasicObjectFixed");
-            _dmtInitTestBasicObjectFixedData.set(MetaDMSAG.__applyToClass, applyToClassValue);
+            _dmtInitTestBasicObjectFixedData.setApplyToClass("TestBasicObjectFixed");
             _dmtInitTestBasicObjectFixedData.setDefinedIn("dmt");
             _dmtInitTestBasicObjectFixedData.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _dmtInitTestBasicObjectFixedData.setLineNumber("73");

@@ -146,8 +146,8 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * Indicates the type of an attribute. The value is the name of any
-     * previously defined DmdTypeDef definition. When accessed in Java, this is a
-     * reference to a DmdTypeDef object.
+     * previously defined TypeDefinition, ClassDefinition, EnumDefinition or
+     * ComplexTypeDefinition.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2217)
     public TypeDefinitionREF getType(){
@@ -255,9 +255,9 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * The description attribute is used to provide descriptive documentation for
-     * schema related definitions. The description is of type XHMTLString which
-     * is basically an XML formatted fragment that conforms to the XHTML 1.0
-     * specification. For more information, see the DmdTypeDef for XHTMLString.
+     * schema related definitions. The text provided should conform to XHTML
+     * concepts since it will be dumped in the context of the generated HTML
+     * documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2217)
     public String getDescription(){

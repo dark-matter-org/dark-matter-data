@@ -388,11 +388,11 @@ public class DmoTypeFormatter {
       	String base = "DmcNamedObjectNontransportableREF";
       	String baseImport = "org.dmd.dmc.DmcNamedObjectNontransportableREF";
       	
-      	if (td.getOriginalClass().getIsTransportable()){
-//      	if (td.getIsTransportable()){
-      		base = "DmcNamedObjectTransportableREF";
-      		baseImport = "org.dmd.dmc.DmcNamedObjectTransportableREF";
-      	}
+//      	if (td.getOriginalClass().getIsTransportable()){
+////      	if (td.getIsTransportable()){
+//      		base = "DmcNamedObjectTransportableREF";
+//      		baseImport = "org.dmd.dmc.DmcNamedObjectTransportableREF";
+//      	}
       	
       	String nameBaseImport = td.getOriginalClass().getIsNamedBy().getType().getDefinedIn().getSchemaPackage() + ".generated.types.DmcType";
       	String nameImport = td.getOriginalClass().getIsNamedBy().getType().getName().getNameString() + "SV";
