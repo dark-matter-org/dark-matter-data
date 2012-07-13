@@ -17,6 +17,7 @@ package org.dmd.util.parsing;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.util.exceptions.*;
 
@@ -36,7 +37,7 @@ public interface DmcUncheckedOIFHandlerIF {
      * @throws ResultException, DmcValueException 
      * @throws DmcValueExceptionSet 
      */
-    public void handleObject(DmcUncheckedObject obj, String infile, int lineNumber) throws ResultException, DmcValueException;
+    public void handleObject(DmcUncheckedObject obj, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet;
 
 }
  

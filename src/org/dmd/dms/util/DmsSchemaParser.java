@@ -22,6 +22,7 @@ import java.util.Stack;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
@@ -30,6 +31,7 @@ import org.dmd.dms.MetaSchema;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
+import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.dmw.DmwWrapper;
 import org.dmd.util.exceptions.DebugInfo;
@@ -139,8 +141,9 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * null is returned.
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
+     * @throws DmcRuleExceptionSet 
      */
-    public SchemaDefinition parseSchema(SchemaManager am, String schemaName, boolean terse) throws ResultException, DmcValueException {
+    public SchemaDefinition parseSchema(SchemaManager am, String schemaName, boolean terse) throws ResultException, DmcValueException, DmcRuleExceptionSet {
         SchemaDefinition rc;
         
         allSchema = am;
@@ -177,13 +180,14 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * files with a .dms extension that have been found by the DmsSchemaFinder.
      * @throws ResultException 
      * @throws DmcValueException 
+     * @throws DmcRuleExceptionSet 
      * @throws DmcValueExceptionSet 
      * @returns The requested schema is returned if all goes well, otherwise
      * null is returned.
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
      */
-    SchemaDefinition parseSchemaInternal(String schemaName) throws ResultException, DmcValueException {
+    SchemaDefinition parseSchemaInternal(String schemaName) throws ResultException, DmcValueException, DmcRuleExceptionSet {
 //    	DmsSchemaLocation	location	= finder.getLocation(schemaName);
     	ConfigVersion		config		= finder.getConfig(schemaName);
     	ConfigLocation		location	= null;
@@ -270,9 +274,10 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
      * We handle the various schema related objects.
      * @throws ResultException 
      * @throws DmcValueException 
+     * @throws DmcRuleExceptionSet 
      * @throws DmcValueExceptionSet 
      */
-    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
+    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet {
         ClassDefinition     cd                  = null;
         boolean             isSchema            = false;
         DmsDefinition    	newDef              = null;
@@ -374,6 +379,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 //				newDef.setLineNumber(lineNumber);
 		
 				DebugInfo.debug("DmsSchemaParser.handleObject() - need rules!");
+				DmvDMSAG.__dmvAllowedAttributes.validate(newDef.getDMO());
 //				try {
 //					newObj.getDMO().validate();
 //				} catch (DmcValueExceptionSet e) {

@@ -26,6 +26,7 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dmg.types.Generator;
 import org.dmd.dms.SchemaManager;
@@ -83,7 +84,7 @@ public class DmgGenUtility {
 	BooleanVar		debug 		= new BooleanVar();
 	StringArrayList	jars 		= new StringArrayList();
 	
-	public DmgGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
+	public DmgGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet, DmcRuleExceptionSet {
 		initHelp();
 		cl = new CommandLine();
         cl.addOption("-h",     		helpFlag,	"Dumps the help message.");
@@ -191,7 +192,7 @@ public class DmgGenUtility {
         help.append("\n");
 	}
 	
-	public void run() throws DmcValueExceptionSet {
+	public void run() throws DmcValueExceptionSet, DmcRuleExceptionSet {
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
         
@@ -302,7 +303,7 @@ public class DmgGenUtility {
 
 	}
 	
-	void loadRequiredSchemas() throws ResultException, DmcValueException, DmcValueExceptionSet {
+	void loadRequiredSchemas() throws ResultException, DmcValueException, DmcValueExceptionSet, DmcRuleExceptionSet {
 		readSchemas = new SchemaManager();
 		schemaParser.parseSchema(readSchemas, parser.getTheConfig().getSchemaToLoad(), true);
 	}
@@ -342,7 +343,7 @@ public class DmgGenUtility {
 		}
 	}
 	
-	void generateFromConfig(ConfigVersion currConfig){
+	void generateFromConfig(ConfigVersion currConfig) throws DmcRuleExceptionSet{
     	try {
 			parser.parseConfig(currConfig.getLatestVersion());
 			

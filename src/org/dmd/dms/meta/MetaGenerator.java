@@ -25,6 +25,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.types.EnumValue;
@@ -152,7 +153,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		parser = new DmcUncheckedOIFParser(this);
 	}
 
-	public void run(String[] args) throws DmcValueException {
+	public void run(String[] args) throws DmcValueException, DmcRuleExceptionSet {
 
 		try {
 			FileUpdateManager.instance().generationStarting();
