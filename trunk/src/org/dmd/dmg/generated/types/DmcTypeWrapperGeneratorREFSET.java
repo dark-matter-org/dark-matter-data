@@ -46,7 +46,7 @@ public class DmcTypeWrapperGeneratorREFSET extends DmcTypeWrapperGeneratorREF im
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<WrapperGeneratorREF>();
         else
             value = new TreeSet<WrapperGeneratorREF>();
@@ -54,7 +54,7 @@ public class DmcTypeWrapperGeneratorREFSET extends DmcTypeWrapperGeneratorREF im
     
     @Override
     public DmcTypeWrapperGeneratorREFSET getNew(){
-        return(new DmcTypeWrapperGeneratorREFSET(attrInfo));
+        return(new DmcTypeWrapperGeneratorREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeWrapperGeneratorREFSET extends DmcTypeWrapperGeneratorREF im
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<WrapperGeneratorREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<WrapperGeneratorREF>(value)).iterator() );
             else
                 return( (new TreeSet<WrapperGeneratorREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeWrapperGeneratorREFSET extends DmcTypeWrapperGeneratorREF im
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<WrapperGeneratorREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<WrapperGeneratorREF>(value));
             else
                 return(new TreeSet<WrapperGeneratorREF>(value));

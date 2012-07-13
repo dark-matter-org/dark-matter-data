@@ -31,7 +31,7 @@ import org.dmd.dms.generated.types.DmcTypeDmwTypeToWrapperType;    // DmcType im
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmwTypeToWrapperTypeSET extends DmcTypeDmwTypeToWrapperType implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeDmwTypeToWrapperTypeSET extends DmcTypeDmwTypeToWrapperType 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DmwTypeToWrapperType>();
         else
             value = new TreeSet<DmwTypeToWrapperType>();
@@ -56,7 +56,7 @@ public class DmcTypeDmwTypeToWrapperTypeSET extends DmcTypeDmwTypeToWrapperType 
     
     @Override
     public DmcTypeDmwTypeToWrapperTypeSET getNew(){
-        return(new DmcTypeDmwTypeToWrapperTypeSET(attrInfo));
+        return(new DmcTypeDmwTypeToWrapperTypeSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeDmwTypeToWrapperTypeSET extends DmcTypeDmwTypeToWrapperType 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<DmwTypeToWrapperType> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DmwTypeToWrapperType>(value)).iterator() );
             else
                 return( (new TreeSet<DmwTypeToWrapperType>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeDmwTypeToWrapperTypeSET extends DmcTypeDmwTypeToWrapperType 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<DmwTypeToWrapperType> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<DmwTypeToWrapperType>(value));
             else
                 return(new TreeSet<DmwTypeToWrapperType>(value));

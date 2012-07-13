@@ -14,7 +14,7 @@ public class ActifactGeneratorREFSVAdapter extends DmcTypeActifactGeneratorREFSV
     transient DmcTypeActifactGeneratorREFSV existingValue;
 
     public ActifactGeneratorREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

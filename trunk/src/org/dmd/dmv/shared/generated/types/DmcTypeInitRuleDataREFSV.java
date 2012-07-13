@@ -41,7 +41,7 @@ public class DmcTypeInitRuleDataREFSV extends DmcTypeInitRuleDataREF implements 
     }
     
     public DmcTypeInitRuleDataREFSV getNew(){
-        return(new DmcTypeInitRuleDataREFSV(attrInfo));
+        return(new DmcTypeInitRuleDataREFSV(getAttributeInfo()));
     }
     
     public DmcTypeInitRuleDataREFSV getNew(DmcAttributeInfo ai){

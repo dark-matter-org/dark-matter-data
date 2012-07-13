@@ -14,7 +14,7 @@ public class RuleCategoryREFSVAdapter extends DmcTypeRuleCategoryREFSV implement
     transient DmcTypeRuleCategoryREFSV existingValue;
 
     public RuleCategoryREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

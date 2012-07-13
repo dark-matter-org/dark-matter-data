@@ -14,7 +14,7 @@ public class SliceDefinitionREFSVAdapter extends DmcTypeSliceDefinitionREFSV imp
     transient DmcTypeSliceDefinitionREFSV existingValue;
 
     public SliceDefinitionREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

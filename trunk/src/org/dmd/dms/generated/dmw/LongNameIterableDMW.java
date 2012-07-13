@@ -25,7 +25,7 @@ import org.dmd.dmc.types.LongName;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpIterable(GenUtility.java:1730)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:652)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpTypeIterables(MetaGenerator.java:653)
  */
 public class LongNameIterableDMW extends DmwMVIterator<LongName> {
 

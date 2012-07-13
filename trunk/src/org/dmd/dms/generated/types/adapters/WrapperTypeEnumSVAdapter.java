@@ -14,7 +14,7 @@ public class WrapperTypeEnumSVAdapter extends DmcTypeWrapperTypeEnumSV implement
     transient DmcTypeWrapperTypeEnumSV existingValue;
 
     public WrapperTypeEnumSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

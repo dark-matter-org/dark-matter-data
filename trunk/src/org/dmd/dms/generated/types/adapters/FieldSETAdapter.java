@@ -14,7 +14,7 @@ public class FieldSETAdapter extends DmcTypeFieldSET implements DmcAdapterIF {
     transient DmcTypeFieldSET existingValue;
 
     public FieldSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

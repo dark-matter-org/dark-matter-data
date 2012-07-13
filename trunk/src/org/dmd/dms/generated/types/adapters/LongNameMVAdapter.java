@@ -14,7 +14,7 @@ public class LongNameMVAdapter extends DmcTypeLongNameMV implements DmcAdapterIF
     transient DmcTypeLongNameMV existingValue;
 
     public LongNameMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

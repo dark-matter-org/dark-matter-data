@@ -31,7 +31,7 @@ public class DmcTypeTestDerivedSubpackageREFSET extends DmcTypeTestDerivedSubpac
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<TestDerivedSubpackageREF>();
         else
             value = new TreeSet<TestDerivedSubpackageREF>();
@@ -39,7 +39,7 @@ public class DmcTypeTestDerivedSubpackageREFSET extends DmcTypeTestDerivedSubpac
     
     @Override
     public DmcTypeTestDerivedSubpackageREFSET getNew(){
-        return(new DmcTypeTestDerivedSubpackageREFSET(attrInfo));
+        return(new DmcTypeTestDerivedSubpackageREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -101,7 +101,7 @@ public class DmcTypeTestDerivedSubpackageREFSET extends DmcTypeTestDerivedSubpac
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<TestDerivedSubpackageREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<TestDerivedSubpackageREF>(value)).iterator() );
             else
                 return( (new TreeSet<TestDerivedSubpackageREF>(value)).iterator() );
@@ -111,7 +111,7 @@ public class DmcTypeTestDerivedSubpackageREFSET extends DmcTypeTestDerivedSubpac
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<TestDerivedSubpackageREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<TestDerivedSubpackageREF>(value));
             else
                 return(new TreeSet<TestDerivedSubpackageREF>(value));

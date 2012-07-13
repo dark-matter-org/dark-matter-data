@@ -41,7 +41,7 @@ public class DmcTypeDeleteResponseREFSV extends DmcTypeDeleteResponseREF impleme
     }
     
     public DmcTypeDeleteResponseREFSV getNew(){
-        return(new DmcTypeDeleteResponseREFSV(attrInfo));
+        return(new DmcTypeDeleteResponseREFSV(getAttributeInfo()));
     }
     
     public DmcTypeDeleteResponseREFSV getNew(DmcAttributeInfo ai){

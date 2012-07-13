@@ -14,7 +14,7 @@ public class FilterContainerSETAdapter extends DmcTypeFilterContainerSET impleme
     transient DmcTypeFilterContainerSET existingValue;
 
     public FilterContainerSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

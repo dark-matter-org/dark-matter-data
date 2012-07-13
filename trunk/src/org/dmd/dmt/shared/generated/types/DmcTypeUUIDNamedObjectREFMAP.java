@@ -34,25 +34,25 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<UUIDName,UUIDNamedObjectREF>();
         else
             value = new TreeMap<UUIDName,UUIDNamedObjectREF>();
     }
     
     public UUIDName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<UUIDName,UUIDNamedObjectREF> map = (TreeMap<UUIDName,UUIDNamedObjectREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeUUIDNamedObjectREFMAP getNew(){
-        return(new DmcTypeUUIDNamedObjectREFMAP(attrInfo));
+        return(new DmcTypeUUIDNamedObjectREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -106,7 +106,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     public Iterator<UUIDNamedObjectREF> getMV(){
         synchronized(this){
             Map<UUIDName,UUIDNamedObjectREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<UUIDName,UUIDNamedObjectREF>(value);
             else
                 clone = new TreeMap<UUIDName,UUIDNamedObjectREF>(value);
@@ -118,7 +118,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     public Map<UUIDName,UUIDNamedObjectREF> getMVCopy(){
         synchronized(this){
             Map<UUIDName,UUIDNamedObjectREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<UUIDName,UUIDNamedObjectREF>(value);
             else
                 clone = new TreeMap<UUIDName,UUIDNamedObjectREF>(value);

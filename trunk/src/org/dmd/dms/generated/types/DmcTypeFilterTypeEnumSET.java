@@ -30,7 +30,7 @@ import org.dmd.dms.generated.enums.FilterTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:555)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:556)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterTypeEnumSET extends DmcTypeFilterTypeEnum implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeFilterTypeEnumSET extends DmcTypeFilterTypeEnum implements S
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<FilterTypeEnum>();
         else
             value = new TreeSet<FilterTypeEnum>();
@@ -55,7 +55,7 @@ public class DmcTypeFilterTypeEnumSET extends DmcTypeFilterTypeEnum implements S
     
     @Override
     public DmcTypeFilterTypeEnumSET getNew(){
-        return(new DmcTypeFilterTypeEnumSET(attrInfo));
+        return(new DmcTypeFilterTypeEnumSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeFilterTypeEnumSET extends DmcTypeFilterTypeEnum implements S
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<FilterTypeEnum> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<FilterTypeEnum>(value)).iterator() );
             else
                 return( (new TreeSet<FilterTypeEnum>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeFilterTypeEnumSET extends DmcTypeFilterTypeEnum implements S
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<FilterTypeEnum> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<FilterTypeEnum>(value));
             else
                 return(new TreeSet<FilterTypeEnum>(value));

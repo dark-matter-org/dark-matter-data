@@ -26,7 +26,7 @@ public class DmcTypeUnnamedObjMVIDXREFSV extends DmcTypeUnnamedObjMVIDXREF imple
     }
     
     public DmcTypeUnnamedObjMVIDXREFSV getNew(){
-        return(new DmcTypeUnnamedObjMVIDXREFSV(attrInfo));
+        return(new DmcTypeUnnamedObjMVIDXREFSV(getAttributeInfo()));
     }
     
     public DmcTypeUnnamedObjMVIDXREFSV getNew(DmcAttributeInfo ai){

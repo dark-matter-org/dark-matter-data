@@ -31,7 +31,7 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<IntegerNamedObjectREF>();
         else
             value = new TreeSet<IntegerNamedObjectREF>();
@@ -39,7 +39,7 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     
     @Override
     public DmcTypeIntegerNamedObjectREFSET getNew(){
-        return(new DmcTypeIntegerNamedObjectREFSET(attrInfo));
+        return(new DmcTypeIntegerNamedObjectREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -101,7 +101,7 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<IntegerNamedObjectREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<IntegerNamedObjectREF>(value)).iterator() );
             else
                 return( (new TreeSet<IntegerNamedObjectREF>(value)).iterator() );
@@ -111,7 +111,7 @@ public class DmcTypeIntegerNamedObjectREFSET extends DmcTypeIntegerNamedObjectRE
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<IntegerNamedObjectREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<IntegerNamedObjectREF>(value));
             else
                 return(new TreeSet<IntegerNamedObjectREF>(value));

@@ -26,7 +26,7 @@ public class DmcTypeClientCountFilterREFSV extends DmcTypeClientCountFilterREF i
     }
     
     public DmcTypeClientCountFilterREFSV getNew(){
-        return(new DmcTypeClientCountFilterREFSV(attrInfo));
+        return(new DmcTypeClientCountFilterREFSV(getAttributeInfo()));
     }
     
     public DmcTypeClientCountFilterREFSV getNew(DmcAttributeInfo ai){

@@ -43,7 +43,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     
     @Override
     public DmcTypeMethodGeneratorREFMV getNew(){
-        return(new DmcTypeMethodGeneratorREFMV(attrInfo));
+        return(new DmcTypeMethodGeneratorREFMV(getAttributeInfo()));
     }
     
     @Override
@@ -51,7 +51,7 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     public DmcAttribute<MethodGeneratorREF> cloneIt(){
         synchronized(this){
             DmcTypeMethodGeneratorREFMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 for(MethodGeneratorREF val: value)
                 try {
                     rc.add(val);
@@ -125,13 +125,13 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
@@ -149,11 +149,11 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public MethodGeneratorREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             MethodGeneratorREF rc = null;
             
@@ -161,8 +161,8 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<MethodGeneratorREF>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<MethodGeneratorREF>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -178,8 +178,8 @@ public class DmcTypeMethodGeneratorREFMV extends DmcTypeMethodGeneratorREF imple
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);

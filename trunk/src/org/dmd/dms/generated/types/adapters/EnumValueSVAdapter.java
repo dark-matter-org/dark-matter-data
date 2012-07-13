@@ -14,7 +14,7 @@ public class EnumValueSVAdapter extends DmcTypeEnumValueSV implements DmcAdapter
     transient DmcTypeEnumValueSV existingValue;
 
     public EnumValueSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

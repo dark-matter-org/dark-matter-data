@@ -14,7 +14,7 @@ public class MethodGeneratorREFMAPAdapter extends DmcTypeMethodGeneratorREFMAP i
     transient DmcTypeMethodGeneratorREFMAP existingValue;
 
     public MethodGeneratorREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

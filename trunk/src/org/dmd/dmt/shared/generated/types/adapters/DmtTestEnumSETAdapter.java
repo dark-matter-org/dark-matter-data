@@ -14,7 +14,7 @@ public class DmtTestEnumSETAdapter extends DmcTypeDmtTestEnumSET implements DmcA
     transient DmcTypeDmtTestEnumSET existingValue;
 
     public DmtTestEnumSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

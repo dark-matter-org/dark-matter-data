@@ -47,7 +47,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ResponseFormatEnum>();
         else
             value = new TreeSet<ResponseFormatEnum>();
@@ -55,7 +55,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     
     @Override
     public DmcTypeResponseFormatEnumSET getNew(){
-        return(new DmcTypeResponseFormatEnumSET(attrInfo));
+        return(new DmcTypeResponseFormatEnumSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ResponseFormatEnum> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ResponseFormatEnum>(value)).iterator() );
             else
                 return( (new TreeSet<ResponseFormatEnum>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeResponseFormatEnumSET extends DmcTypeResponseFormatEnum impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ResponseFormatEnum> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ResponseFormatEnum>(value));
             else
                 return(new TreeSet<ResponseFormatEnum>(value));

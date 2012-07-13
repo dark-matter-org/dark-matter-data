@@ -14,7 +14,7 @@ public class GeneratorSVAdapter extends DmcTypeGeneratorSV implements DmcAdapter
     transient DmcTypeGeneratorSV existingValue;
 
     public GeneratorSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

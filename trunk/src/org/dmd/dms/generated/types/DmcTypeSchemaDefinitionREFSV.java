@@ -24,7 +24,7 @@ import org.dmd.dmc.DmcValueException;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:570)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:571)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSchemaDefinitionREFSV extends DmcTypeSchemaDefinitionREF implements Serializable {
@@ -40,7 +40,7 @@ public class DmcTypeSchemaDefinitionREFSV extends DmcTypeSchemaDefinitionREF imp
     }
     
     public DmcTypeSchemaDefinitionREFSV getNew(){
-        return(new DmcTypeSchemaDefinitionREFSV(attrInfo));
+        return(new DmcTypeSchemaDefinitionREFSV(getAttributeInfo()));
     }
     
     public DmcTypeSchemaDefinitionREFSV getNew(DmcAttributeInfo ai){

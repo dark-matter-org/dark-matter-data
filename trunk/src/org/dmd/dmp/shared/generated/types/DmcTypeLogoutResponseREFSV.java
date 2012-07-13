@@ -41,7 +41,7 @@ public class DmcTypeLogoutResponseREFSV extends DmcTypeLogoutResponseREF impleme
     }
     
     public DmcTypeLogoutResponseREFSV getNew(){
-        return(new DmcTypeLogoutResponseREFSV(attrInfo));
+        return(new DmcTypeLogoutResponseREFSV(getAttributeInfo()));
     }
     
     public DmcTypeLogoutResponseREFSV getNew(DmcAttributeInfo ai){

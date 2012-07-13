@@ -14,7 +14,7 @@ public class DotNameMVAdapter extends DmcTypeDotNameMV implements DmcAdapterIF {
     transient DmcTypeDotNameMV existingValue;
 
     public DotNameMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

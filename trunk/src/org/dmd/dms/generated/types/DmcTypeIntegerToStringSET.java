@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeIntegerToString;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<IntegerToString>();
         else
             value = new TreeSet<IntegerToString>();
@@ -56,7 +56,7 @@ public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements
     
     @Override
     public DmcTypeIntegerToStringSET getNew(){
-        return(new DmcTypeIntegerToStringSET(attrInfo));
+        return(new DmcTypeIntegerToStringSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<IntegerToString> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<IntegerToString>(value)).iterator() );
             else
                 return( (new TreeSet<IntegerToString>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<IntegerToString> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<IntegerToString>(value));
             else
                 return(new TreeSet<IntegerToString>(value));

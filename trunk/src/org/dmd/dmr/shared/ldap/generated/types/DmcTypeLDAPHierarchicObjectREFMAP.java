@@ -49,25 +49,25 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<FullyQualifiedName,LDAPHierarchicObjectREF>();
         else
             value = new TreeMap<FullyQualifiedName,LDAPHierarchicObjectREF>();
     }
     
     public FullyQualifiedName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<FullyQualifiedName,LDAPHierarchicObjectREF> map = (TreeMap<FullyQualifiedName,LDAPHierarchicObjectREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeLDAPHierarchicObjectREFMAP getNew(){
-        return(new DmcTypeLDAPHierarchicObjectREFMAP(attrInfo));
+        return(new DmcTypeLDAPHierarchicObjectREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -121,7 +121,7 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     public Iterator<LDAPHierarchicObjectREF> getMV(){
         synchronized(this){
             Map<FullyQualifiedName,LDAPHierarchicObjectREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<FullyQualifiedName,LDAPHierarchicObjectREF>(value);
             else
                 clone = new TreeMap<FullyQualifiedName,LDAPHierarchicObjectREF>(value);
@@ -133,7 +133,7 @@ public class DmcTypeLDAPHierarchicObjectREFMAP extends DmcTypeLDAPHierarchicObje
     public Map<FullyQualifiedName,LDAPHierarchicObjectREF> getMVCopy(){
         synchronized(this){
             Map<FullyQualifiedName,LDAPHierarchicObjectREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<FullyQualifiedName,LDAPHierarchicObjectREF>(value);
             else
                 clone = new TreeMap<FullyQualifiedName,LDAPHierarchicObjectREF>(value);

@@ -41,7 +41,7 @@ public class DmcTypeLoginResponseREFSV extends DmcTypeLoginResponseREF implement
     }
     
     public DmcTypeLoginResponseREFSV getNew(){
-        return(new DmcTypeLoginResponseREFSV(attrInfo));
+        return(new DmcTypeLoginResponseREFSV(getAttributeInfo()));
     }
     
     public DmcTypeLoginResponseREFSV getNew(DmcAttributeInfo ai){

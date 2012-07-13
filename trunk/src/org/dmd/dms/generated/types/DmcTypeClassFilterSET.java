@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeClassFilter;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ClassFilter>();
         else
             value = new TreeSet<ClassFilter>();
@@ -56,7 +56,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     
     @Override
     public DmcTypeClassFilterSET getNew(){
-        return(new DmcTypeClassFilterSET(attrInfo));
+        return(new DmcTypeClassFilterSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ClassFilter> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ClassFilter>(value)).iterator() );
             else
                 return( (new TreeSet<ClassFilter>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeClassFilterSET extends DmcTypeClassFilter implements Seriali
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ClassFilter> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ClassFilter>(value));
             else
                 return(new TreeSet<ClassFilter>(value));

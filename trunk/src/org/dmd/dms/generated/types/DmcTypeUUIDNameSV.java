@@ -26,7 +26,7 @@ import org.dmd.dmc.types.DmcTypeUUIDName;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:622)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:623)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNameSV extends DmcTypeUUIDName implements Serializable {
@@ -42,7 +42,7 @@ public class DmcTypeUUIDNameSV extends DmcTypeUUIDName implements Serializable {
     }
     
     public DmcTypeUUIDNameSV getNew(){
-        return(new DmcTypeUUIDNameSV(attrInfo));
+        return(new DmcTypeUUIDNameSV(getAttributeInfo()));
     }
     
     public DmcTypeUUIDNameSV getNew(DmcAttributeInfo ai){

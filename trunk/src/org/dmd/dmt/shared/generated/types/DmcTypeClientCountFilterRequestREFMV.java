@@ -29,7 +29,7 @@ public class DmcTypeClientCountFilterRequestREFMV extends DmcTypeClientCountFilt
     
     @Override
     public DmcTypeClientCountFilterRequestREFMV getNew(){
-        return(new DmcTypeClientCountFilterRequestREFMV(attrInfo));
+        return(new DmcTypeClientCountFilterRequestREFMV(getAttributeInfo()));
     }
     
     @Override
@@ -37,7 +37,7 @@ public class DmcTypeClientCountFilterRequestREFMV extends DmcTypeClientCountFilt
     public DmcAttribute<ClientCountFilterRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeClientCountFilterRequestREFMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 for(ClientCountFilterRequestDMO val: value)
                 try {
                     rc.add(val);
@@ -111,13 +111,13 @@ public class DmcTypeClientCountFilterRequestREFMV extends DmcTypeClientCountFilt
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
@@ -135,11 +135,11 @@ public class DmcTypeClientCountFilterRequestREFMV extends DmcTypeClientCountFilt
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public ClientCountFilterRequestDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             ClientCountFilterRequestDMO rc = null;
             
@@ -147,8 +147,8 @@ public class DmcTypeClientCountFilterRequestREFMV extends DmcTypeClientCountFilt
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<ClientCountFilterRequestDMO>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<ClientCountFilterRequestDMO>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -164,8 +164,8 @@ public class DmcTypeClientCountFilterRequestREFMV extends DmcTypeClientCountFilt
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);

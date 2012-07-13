@@ -42,7 +42,7 @@ public class DmcTypeGeneratorSV extends DmcTypeGenerator implements Serializable
     }
     
     public DmcTypeGeneratorSV getNew(){
-        return(new DmcTypeGeneratorSV(attrInfo));
+        return(new DmcTypeGeneratorSV(getAttributeInfo()));
     }
     
     public DmcTypeGeneratorSV getNew(DmcAttributeInfo ai){

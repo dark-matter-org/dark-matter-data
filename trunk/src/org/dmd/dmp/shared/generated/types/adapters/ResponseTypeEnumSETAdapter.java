@@ -14,7 +14,7 @@ public class ResponseTypeEnumSETAdapter extends DmcTypeResponseTypeEnumSET imple
     transient DmcTypeResponseTypeEnumSET existingValue;
 
     public ResponseTypeEnumSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

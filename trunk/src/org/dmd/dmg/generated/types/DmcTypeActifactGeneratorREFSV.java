@@ -40,7 +40,7 @@ public class DmcTypeActifactGeneratorREFSV extends DmcTypeActifactGeneratorREF i
     }
     
     public DmcTypeActifactGeneratorREFSV getNew(){
-        return(new DmcTypeActifactGeneratorREFSV(attrInfo));
+        return(new DmcTypeActifactGeneratorREFSV(getAttributeInfo()));
     }
     
     public DmcTypeActifactGeneratorREFSV getNew(DmcAttributeInfo ai){

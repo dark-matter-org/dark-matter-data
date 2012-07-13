@@ -32,7 +32,7 @@ public class DmcTypeUsingIndexedAttributesREFSET extends DmcTypeUsingIndexedAttr
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<UsingIndexedAttributesDMO>();
         else
             value = new TreeSet<UsingIndexedAttributesDMO>();
@@ -40,7 +40,7 @@ public class DmcTypeUsingIndexedAttributesREFSET extends DmcTypeUsingIndexedAttr
     
     @Override
     public DmcTypeUsingIndexedAttributesREFSET getNew(){
-        return(new DmcTypeUsingIndexedAttributesREFSET(attrInfo));
+        return(new DmcTypeUsingIndexedAttributesREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -102,7 +102,7 @@ public class DmcTypeUsingIndexedAttributesREFSET extends DmcTypeUsingIndexedAttr
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<UsingIndexedAttributesDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<UsingIndexedAttributesDMO>(value)).iterator() );
             else
                 return( (new TreeSet<UsingIndexedAttributesDMO>(value)).iterator() );
@@ -112,7 +112,7 @@ public class DmcTypeUsingIndexedAttributesREFSET extends DmcTypeUsingIndexedAttr
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<UsingIndexedAttributesDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<UsingIndexedAttributesDMO>(value));
             else
                 return(new TreeSet<UsingIndexedAttributesDMO>(value));

@@ -25,7 +25,7 @@ public class DmcTypeUUIDNamedObjectREFSV extends DmcTypeUUIDNamedObjectREF imple
     }
     
     public DmcTypeUUIDNamedObjectREFSV getNew(){
-        return(new DmcTypeUUIDNamedObjectREFSV(attrInfo));
+        return(new DmcTypeUUIDNamedObjectREFSV(getAttributeInfo()));
     }
     
     public DmcTypeUUIDNamedObjectREFSV getNew(DmcAttributeInfo ai){

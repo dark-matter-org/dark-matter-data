@@ -41,7 +41,7 @@ public class DmcTypeDmgConfigREFSV extends DmcTypeDmgConfigREF implements Serial
     }
     
     public DmcTypeDmgConfigREFSV getNew(){
-        return(new DmcTypeDmgConfigREFSV(attrInfo));
+        return(new DmcTypeDmgConfigREFSV(getAttributeInfo()));
     }
     
     public DmcTypeDmgConfigREFSV getNew(DmcAttributeInfo ai){

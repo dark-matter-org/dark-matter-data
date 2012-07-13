@@ -27,7 +27,7 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:552)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:553)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Serializable {
@@ -44,7 +44,7 @@ public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Seri
     
     @Override
     public DmcTypeClassTypeEnumMV getNew(){
-        return(new DmcTypeClassTypeEnumMV(attrInfo));
+        return(new DmcTypeClassTypeEnumMV(getAttributeInfo()));
     }
     
     @Override
@@ -52,7 +52,7 @@ public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Seri
     public DmcAttribute<ClassTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeClassTypeEnumMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 for(ClassTypeEnum val: value)
                 try {
                     rc.add(val);
@@ -126,13 +126,13 @@ public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Seri
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
@@ -150,11 +150,11 @@ public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Seri
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public ClassTypeEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             ClassTypeEnum rc = null;
             
@@ -162,8 +162,8 @@ public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Seri
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<ClassTypeEnum>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<ClassTypeEnum>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -179,8 +179,8 @@ public class DmcTypeClassTypeEnumMV extends DmcTypeClassTypeEnum implements Seri
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);

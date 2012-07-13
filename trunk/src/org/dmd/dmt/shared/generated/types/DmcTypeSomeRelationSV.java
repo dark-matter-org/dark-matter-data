@@ -27,7 +27,7 @@ public class DmcTypeSomeRelationSV extends DmcTypeSomeRelation implements Serial
     }
     
     public DmcTypeSomeRelationSV getNew(){
-        return(new DmcTypeSomeRelationSV(attrInfo));
+        return(new DmcTypeSomeRelationSV(getAttributeInfo()));
     }
     
     public DmcTypeSomeRelationSV getNew(DmcAttributeInfo ai){

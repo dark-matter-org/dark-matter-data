@@ -14,7 +14,7 @@ public class ResponseFormatEnumSVAdapter extends DmcTypeResponseFormatEnumSV imp
     transient DmcTypeResponseFormatEnumSV existingValue;
 
     public ResponseFormatEnumSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

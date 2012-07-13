@@ -26,7 +26,7 @@ public class DmcTypePrimitiveTSREFSV extends DmcTypePrimitiveTSREF implements Se
     }
     
     public DmcTypePrimitiveTSREFSV getNew(){
-        return(new DmcTypePrimitiveTSREFSV(attrInfo));
+        return(new DmcTypePrimitiveTSREFSV(getAttributeInfo()));
     }
     
     public DmcTypePrimitiveTSREFSV getNew(DmcAttributeInfo ai){

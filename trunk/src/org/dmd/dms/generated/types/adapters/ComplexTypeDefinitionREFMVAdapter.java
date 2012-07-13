@@ -14,7 +14,7 @@ public class ComplexTypeDefinitionREFMVAdapter extends DmcTypeComplexTypeDefinit
     transient DmcTypeComplexTypeDefinitionREFMV existingValue;
 
     public ComplexTypeDefinitionREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -48,7 +48,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Generator>();
         else
             value = new TreeSet<Generator>();
@@ -56,7 +56,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
     
     @Override
     public DmcTypeGeneratorSET getNew(){
-        return(new DmcTypeGeneratorSET(attrInfo));
+        return(new DmcTypeGeneratorSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<Generator> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<Generator>(value)).iterator() );
             else
                 return( (new TreeSet<Generator>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeGeneratorSET extends DmcTypeGenerator implements Serializabl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<Generator> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<Generator>(value));
             else
                 return(new TreeSet<Generator>(value));

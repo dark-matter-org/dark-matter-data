@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:577)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:578)
  */
 @SuppressWarnings("serial")
 public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefinitionREF implements Serializable {
@@ -46,7 +46,7 @@ public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefini
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ComplexTypeDefinitionREF>();
         else
             value = new TreeSet<ComplexTypeDefinitionREF>();
@@ -54,7 +54,7 @@ public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefini
     
     @Override
     public DmcTypeComplexTypeDefinitionREFSET getNew(){
-        return(new DmcTypeComplexTypeDefinitionREFSET(attrInfo));
+        return(new DmcTypeComplexTypeDefinitionREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefini
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ComplexTypeDefinitionREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ComplexTypeDefinitionREF>(value)).iterator() );
             else
                 return( (new TreeSet<ComplexTypeDefinitionREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeComplexTypeDefinitionREFSET extends DmcTypeComplexTypeDefini
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ComplexTypeDefinitionREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ComplexTypeDefinitionREF>(value));
             else
                 return(new TreeSet<ComplexTypeDefinitionREF>(value));

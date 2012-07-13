@@ -14,7 +14,7 @@ public class DependencyImplementationREFSETAdapter extends DmcTypeDependencyImpl
     transient DmcTypeDependencyImplementationREFSET existingValue;
 
     public DependencyImplementationREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -14,7 +14,7 @@ public class TimeDoubleDataPointSETAdapter extends DmcTypeTimeDoubleDataPointSET
     transient DmcTypeTimeDoubleDataPointSET existingValue;
 
     public TimeDoubleDataPointSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

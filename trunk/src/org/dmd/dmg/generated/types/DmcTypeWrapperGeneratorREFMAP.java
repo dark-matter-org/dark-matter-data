@@ -49,25 +49,25 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,WrapperGeneratorREF>();
         else
             value = new TreeMap<StringName,WrapperGeneratorREF>();
     }
     
     public StringName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<StringName,WrapperGeneratorREF> map = (TreeMap<StringName,WrapperGeneratorREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeWrapperGeneratorREFMAP getNew(){
-        return(new DmcTypeWrapperGeneratorREFMAP(attrInfo));
+        return(new DmcTypeWrapperGeneratorREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -121,7 +121,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
     public Iterator<WrapperGeneratorREF> getMV(){
         synchronized(this){
             Map<StringName,WrapperGeneratorREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,WrapperGeneratorREF>(value);
             else
                 clone = new TreeMap<StringName,WrapperGeneratorREF>(value);
@@ -133,7 +133,7 @@ public class DmcTypeWrapperGeneratorREFMAP extends DmcTypeWrapperGeneratorREF im
     public Map<StringName,WrapperGeneratorREF> getMVCopy(){
         synchronized(this){
             Map<StringName,WrapperGeneratorREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,WrapperGeneratorREF>(value);
             else
                 clone = new TreeMap<StringName,WrapperGeneratorREF>(value);

@@ -46,7 +46,7 @@ public class DmcTypeMethodGeneratorREFSET extends DmcTypeMethodGeneratorREF impl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<MethodGeneratorREF>();
         else
             value = new TreeSet<MethodGeneratorREF>();
@@ -54,7 +54,7 @@ public class DmcTypeMethodGeneratorREFSET extends DmcTypeMethodGeneratorREF impl
     
     @Override
     public DmcTypeMethodGeneratorREFSET getNew(){
-        return(new DmcTypeMethodGeneratorREFSET(attrInfo));
+        return(new DmcTypeMethodGeneratorREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeMethodGeneratorREFSET extends DmcTypeMethodGeneratorREF impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<MethodGeneratorREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<MethodGeneratorREF>(value)).iterator() );
             else
                 return( (new TreeSet<MethodGeneratorREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeMethodGeneratorREFSET extends DmcTypeMethodGeneratorREF impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<MethodGeneratorREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<MethodGeneratorREF>(value));
             else
                 return(new TreeSet<MethodGeneratorREF>(value));

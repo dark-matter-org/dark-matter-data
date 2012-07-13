@@ -14,7 +14,7 @@ public class ComplexTypeDefinitionREFSETAdapter extends DmcTypeComplexTypeDefini
     transient DmcTypeComplexTypeDefinitionREFSET existingValue;
 
     public ComplexTypeDefinitionREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

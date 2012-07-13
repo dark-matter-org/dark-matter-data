@@ -32,7 +32,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<NameContainerTestDMO>();
         else
             value = new TreeSet<NameContainerTestDMO>();
@@ -40,7 +40,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
     
     @Override
     public DmcTypeNameContainerTestREFSET getNew(){
-        return(new DmcTypeNameContainerTestREFSET(attrInfo));
+        return(new DmcTypeNameContainerTestREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -102,7 +102,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<NameContainerTestDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<NameContainerTestDMO>(value)).iterator() );
             else
                 return( (new TreeSet<NameContainerTestDMO>(value)).iterator() );
@@ -112,7 +112,7 @@ public class DmcTypeNameContainerTestREFSET extends DmcTypeNameContainerTestREF 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<NameContainerTestDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<NameContainerTestDMO>(value));
             else
                 return(new TreeSet<NameContainerTestDMO>(value));

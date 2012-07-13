@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeLongName;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<LongName>();
         else
             value = new TreeSet<LongName>();
@@ -56,7 +56,7 @@ public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable 
     
     @Override
     public DmcTypeLongNameSET getNew(){
-        return(new DmcTypeLongNameSET(attrInfo));
+        return(new DmcTypeLongNameSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<LongName> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<LongName>(value)).iterator() );
             else
                 return( (new TreeSet<LongName>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<LongName> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<LongName>(value));
             else
                 return(new TreeSet<LongName>(value));

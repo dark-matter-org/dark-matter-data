@@ -14,7 +14,7 @@ public class AttributeIDSVAdapter extends DmcTypeAttributeIDSV implements DmcAda
     transient DmcTypeAttributeIDSV existingValue;
 
     public AttributeIDSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeCamelCaseName;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Ser
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<CamelCaseName>();
         else
             value = new TreeSet<CamelCaseName>();
@@ -56,7 +56,7 @@ public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Ser
     
     @Override
     public DmcTypeCamelCaseNameSET getNew(){
-        return(new DmcTypeCamelCaseNameSET(attrInfo));
+        return(new DmcTypeCamelCaseNameSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<CamelCaseName> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<CamelCaseName>(value)).iterator() );
             else
                 return( (new TreeSet<CamelCaseName>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeCamelCaseNameSET extends DmcTypeCamelCaseName implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<CamelCaseName> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<CamelCaseName>(value));
             else
                 return(new TreeSet<CamelCaseName>(value));

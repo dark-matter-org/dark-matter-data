@@ -26,7 +26,7 @@ public class DmcTypeNamedObjTMREFSV extends DmcTypeNamedObjTMREF implements Seri
     }
     
     public DmcTypeNamedObjTMREFSV getNew(){
-        return(new DmcTypeNamedObjTMREFSV(attrInfo));
+        return(new DmcTypeNamedObjTMREFSV(getAttributeInfo()));
     }
     
     public DmcTypeNamedObjTMREFSV getNew(DmcAttributeInfo ai){

@@ -14,7 +14,7 @@ public class CamelCaseNameSETAdapter extends DmcTypeCamelCaseNameSET implements 
     transient DmcTypeCamelCaseNameSET existingValue;
 
     public CamelCaseNameSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -41,7 +41,7 @@ public class DmcTypeCreateRequestREFSV extends DmcTypeCreateRequestREF implement
     }
     
     public DmcTypeCreateRequestREFSV getNew(){
-        return(new DmcTypeCreateRequestREFSV(attrInfo));
+        return(new DmcTypeCreateRequestREFSV(getAttributeInfo()));
     }
     
     public DmcTypeCreateRequestREFSV getNew(DmcAttributeInfo ai){

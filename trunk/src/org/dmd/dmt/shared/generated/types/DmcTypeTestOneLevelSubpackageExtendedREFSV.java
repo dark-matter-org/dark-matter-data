@@ -25,7 +25,7 @@ public class DmcTypeTestOneLevelSubpackageExtendedREFSV extends DmcTypeTestOneLe
     }
     
     public DmcTypeTestOneLevelSubpackageExtendedREFSV getNew(){
-        return(new DmcTypeTestOneLevelSubpackageExtendedREFSV(attrInfo));
+        return(new DmcTypeTestOneLevelSubpackageExtendedREFSV(getAttributeInfo()));
     }
     
     public DmcTypeTestOneLevelSubpackageExtendedREFSV getNew(DmcAttributeInfo ai){

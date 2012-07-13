@@ -40,7 +40,7 @@ public class DmcTypeLDAPHierarchicObjectREFSV extends DmcTypeLDAPHierarchicObjec
     }
     
     public DmcTypeLDAPHierarchicObjectREFSV getNew(){
-        return(new DmcTypeLDAPHierarchicObjectREFSV(attrInfo));
+        return(new DmcTypeLDAPHierarchicObjectREFSV(getAttributeInfo()));
     }
     
     public DmcTypeLDAPHierarchicObjectREFSV getNew(DmcAttributeInfo ai){

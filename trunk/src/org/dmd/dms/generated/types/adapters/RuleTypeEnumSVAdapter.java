@@ -14,7 +14,7 @@ public class RuleTypeEnumSVAdapter extends DmcTypeRuleTypeEnumSV implements DmcA
     transient DmcTypeRuleTypeEnumSV existingValue;
 
     public RuleTypeEnumSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

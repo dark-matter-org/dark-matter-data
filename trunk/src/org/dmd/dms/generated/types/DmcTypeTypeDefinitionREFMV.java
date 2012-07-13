@@ -26,7 +26,7 @@ import org.dmd.dmc.DmcValueException;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:574)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:575)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF implements Serializable {
@@ -43,7 +43,7 @@ public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF impleme
     
     @Override
     public DmcTypeTypeDefinitionREFMV getNew(){
-        return(new DmcTypeTypeDefinitionREFMV(attrInfo));
+        return(new DmcTypeTypeDefinitionREFMV(getAttributeInfo()));
     }
     
     @Override
@@ -51,7 +51,7 @@ public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF impleme
     public DmcAttribute<TypeDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeTypeDefinitionREFMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 for(TypeDefinitionREF val: value)
                 try {
                     rc.add(val);
@@ -125,13 +125,13 @@ public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF impleme
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
@@ -149,11 +149,11 @@ public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF impleme
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public TypeDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             TypeDefinitionREF rc = null;
             
@@ -161,8 +161,8 @@ public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF impleme
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<TypeDefinitionREF>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<TypeDefinitionREF>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -178,8 +178,8 @@ public class DmcTypeTypeDefinitionREFMV extends DmcTypeTypeDefinitionREF impleme
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);

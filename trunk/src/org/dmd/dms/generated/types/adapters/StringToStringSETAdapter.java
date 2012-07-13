@@ -14,7 +14,7 @@ public class StringToStringSETAdapter extends DmcTypeStringToStringSET implement
     transient DmcTypeStringToStringSET existingValue;
 
     public StringToStringSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

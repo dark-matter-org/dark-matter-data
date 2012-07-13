@@ -41,7 +41,7 @@ public class DmcTypePreAuthResponseREFSV extends DmcTypePreAuthResponseREF imple
     }
     
     public DmcTypePreAuthResponseREFSV getNew(){
-        return(new DmcTypePreAuthResponseREFSV(attrInfo));
+        return(new DmcTypePreAuthResponseREFSV(getAttributeInfo()));
     }
     
     public DmcTypePreAuthResponseREFSV getNew(DmcAttributeInfo ai){

@@ -26,7 +26,7 @@ import org.dmd.dmc.types.DmcTypeRuleName;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:622)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:623)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleNameSV extends DmcTypeRuleName implements Serializable {
@@ -42,7 +42,7 @@ public class DmcTypeRuleNameSV extends DmcTypeRuleName implements Serializable {
     }
     
     public DmcTypeRuleNameSV getNew(){
-        return(new DmcTypeRuleNameSV(attrInfo));
+        return(new DmcTypeRuleNameSV(getAttributeInfo()));
     }
     
     public DmcTypeRuleNameSV getNew(DmcAttributeInfo ai){

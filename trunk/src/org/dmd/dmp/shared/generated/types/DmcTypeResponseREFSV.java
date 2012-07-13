@@ -41,7 +41,7 @@ public class DmcTypeResponseREFSV extends DmcTypeResponseREF implements Serializ
     }
     
     public DmcTypeResponseREFSV getNew(){
-        return(new DmcTypeResponseREFSV(attrInfo));
+        return(new DmcTypeResponseREFSV(getAttributeInfo()));
     }
     
     public DmcTypeResponseREFSV getNew(DmcAttributeInfo ai){

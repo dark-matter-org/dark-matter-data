@@ -14,7 +14,7 @@ public class RuleDataREFSVAdapter extends DmcTypeRuleDataREFSV implements DmcAda
     transient DmcTypeRuleDataREFSV existingValue;
 
     public RuleDataREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

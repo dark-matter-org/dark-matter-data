@@ -14,7 +14,7 @@ public class NameContainerMVAdapter extends DmcTypeNameContainerMV implements Dm
     transient DmcTypeNameContainerMV existingValue;
 
     public NameContainerMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -44,7 +44,7 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
     
     @Override
     public DmcTypeActionResponseREFMV getNew(){
-        return(new DmcTypeActionResponseREFMV(attrInfo));
+        return(new DmcTypeActionResponseREFMV(getAttributeInfo()));
     }
     
     @Override
@@ -52,7 +52,7 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
     public DmcAttribute<ActionResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeActionResponseREFMV rc = getNew();
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 for(ActionResponseDMO val: value)
                 try {
                     rc.add(val);
@@ -126,13 +126,13 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public int getMVSize(){
         synchronized(this){
-            if (attrInfo.indexSize == 0){
+            if (getAttributeInfo().indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(attrInfo.indexSize);
+                return(getAttributeInfo().indexSize);
         }
     }
     
@@ -150,11 +150,11 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
     public ActionResponseDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= attrInfo.indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
+            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
             ActionResponseDMO rc = null;
             
@@ -162,8 +162,8 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<ActionResponseDMO>(attrInfo.indexSize);
-                for(int i=0;i<attrInfo.indexSize;i++)
+                value = new ArrayList<ActionResponseDMO>(getAttributeInfo().indexSize);
+                for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
             
@@ -179,8 +179,8 @@ public class DmcTypeActionResponseREFMV extends DmcTypeActionResponseREF impleme
         synchronized(this){
             boolean rc = false;
             
-            if (attrInfo.indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
+            if (getAttributeInfo().indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);

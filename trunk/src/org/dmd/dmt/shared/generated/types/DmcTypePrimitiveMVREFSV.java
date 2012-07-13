@@ -26,7 +26,7 @@ public class DmcTypePrimitiveMVREFSV extends DmcTypePrimitiveMVREF implements Se
     }
     
     public DmcTypePrimitiveMVREFSV getNew(){
-        return(new DmcTypePrimitiveMVREFSV(attrInfo));
+        return(new DmcTypePrimitiveMVREFSV(getAttributeInfo()));
     }
     
     public DmcTypePrimitiveMVREFSV getNew(DmcAttributeInfo ai){

@@ -41,7 +41,7 @@ public class DmcTypeActionRequestREFSV extends DmcTypeActionRequestREF implement
     }
     
     public DmcTypeActionRequestREFSV getNew(){
-        return(new DmcTypeActionRequestREFSV(attrInfo));
+        return(new DmcTypeActionRequestREFSV(getAttributeInfo()));
     }
     
     public DmcTypeActionRequestREFSV getNew(DmcAttributeInfo ai){

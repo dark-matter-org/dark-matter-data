@@ -26,7 +26,7 @@ import org.dmd.dms.generated.types.DmcTypeField;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:622)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:623)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFieldSV extends DmcTypeField implements Serializable {
@@ -42,7 +42,7 @@ public class DmcTypeFieldSV extends DmcTypeField implements Serializable {
     }
     
     public DmcTypeFieldSV getNew(){
-        return(new DmcTypeFieldSV(attrInfo));
+        return(new DmcTypeFieldSV(getAttributeInfo()));
     }
     
     public DmcTypeFieldSV getNew(DmcAttributeInfo ai){

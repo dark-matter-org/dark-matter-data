@@ -47,7 +47,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<GetRequestDMO>();
         else
             value = new TreeSet<GetRequestDMO>();
@@ -55,7 +55,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     
     @Override
     public DmcTypeGetRequestREFSET getNew(){
-        return(new DmcTypeGetRequestREFSET(attrInfo));
+        return(new DmcTypeGetRequestREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<GetRequestDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<GetRequestDMO>(value)).iterator() );
             else
                 return( (new TreeSet<GetRequestDMO>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeGetRequestREFSET extends DmcTypeGetRequestREF implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<GetRequestDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<GetRequestDMO>(value));
             else
                 return(new TreeSet<GetRequestDMO>(value));

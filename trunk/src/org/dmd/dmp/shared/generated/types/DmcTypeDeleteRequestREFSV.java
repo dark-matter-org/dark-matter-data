@@ -41,7 +41,7 @@ public class DmcTypeDeleteRequestREFSV extends DmcTypeDeleteRequestREF implement
     }
     
     public DmcTypeDeleteRequestREFSV getNew(){
-        return(new DmcTypeDeleteRequestREFSV(attrInfo));
+        return(new DmcTypeDeleteRequestREFSV(getAttributeInfo()));
     }
     
     public DmcTypeDeleteRequestREFSV getNew(DmcAttributeInfo ai){

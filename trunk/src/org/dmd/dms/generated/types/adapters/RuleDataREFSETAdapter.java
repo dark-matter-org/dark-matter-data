@@ -14,7 +14,7 @@ public class RuleDataREFSETAdapter extends DmcTypeRuleDataREFSET implements DmcA
     transient DmcTypeRuleDataREFSET existingValue;
 
     public RuleDataREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -41,7 +41,7 @@ public class DmcTypeResponseCategoryEnumSV extends DmcTypeResponseCategoryEnum i
     }
     
     public DmcTypeResponseCategoryEnumSV getNew(){
-        return(new DmcTypeResponseCategoryEnumSV(attrInfo));
+        return(new DmcTypeResponseCategoryEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeResponseCategoryEnumSV getNew(DmcAttributeInfo ai){

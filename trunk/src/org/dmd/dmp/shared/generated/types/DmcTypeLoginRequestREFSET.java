@@ -47,7 +47,7 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<LoginRequestDMO>();
         else
             value = new TreeSet<LoginRequestDMO>();
@@ -55,7 +55,7 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
     
     @Override
     public DmcTypeLoginRequestREFSET getNew(){
-        return(new DmcTypeLoginRequestREFSET(attrInfo));
+        return(new DmcTypeLoginRequestREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<LoginRequestDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<LoginRequestDMO>(value)).iterator() );
             else
                 return( (new TreeSet<LoginRequestDMO>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeLoginRequestREFSET extends DmcTypeLoginRequestREF implements
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<LoginRequestDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<LoginRequestDMO>(value));
             else
                 return(new TreeSet<LoginRequestDMO>(value));

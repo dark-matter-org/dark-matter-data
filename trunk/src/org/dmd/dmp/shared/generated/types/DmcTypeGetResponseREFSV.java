@@ -41,7 +41,7 @@ public class DmcTypeGetResponseREFSV extends DmcTypeGetResponseREF implements Se
     }
     
     public DmcTypeGetResponseREFSV getNew(){
-        return(new DmcTypeGetResponseREFSV(attrInfo));
+        return(new DmcTypeGetResponseREFSV(getAttributeInfo()));
     }
     
     public DmcTypeGetResponseREFSV getNew(DmcAttributeInfo ai){

@@ -25,7 +25,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSV extends DmcTypeTestDerivedDif
     }
     
     public DmcTypeTestDerivedDiffSubpackageREFSV getNew(){
-        return(new DmcTypeTestDerivedDiffSubpackageREFSV(attrInfo));
+        return(new DmcTypeTestDerivedDiffSubpackageREFSV(getAttributeInfo()));
     }
     
     public DmcTypeTestDerivedDiffSubpackageREFSV getNew(DmcAttributeInfo ai){

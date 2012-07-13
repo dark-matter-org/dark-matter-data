@@ -26,7 +26,7 @@ import org.dmd.dmc.types.DmcTypeClassFilter;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:622)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:623)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassFilterSV extends DmcTypeClassFilter implements Serializable {
@@ -42,7 +42,7 @@ public class DmcTypeClassFilterSV extends DmcTypeClassFilter implements Serializ
     }
     
     public DmcTypeClassFilterSV getNew(){
-        return(new DmcTypeClassFilterSV(attrInfo));
+        return(new DmcTypeClassFilterSV(getAttributeInfo()));
     }
     
     public DmcTypeClassFilterSV getNew(DmcAttributeInfo ai){

@@ -41,7 +41,7 @@ public class DmcTypeAllowedAttributesRuleDataREFSV extends DmcTypeAllowedAttribu
     }
     
     public DmcTypeAllowedAttributesRuleDataREFSV getNew(){
-        return(new DmcTypeAllowedAttributesRuleDataREFSV(attrInfo));
+        return(new DmcTypeAllowedAttributesRuleDataREFSV(getAttributeInfo()));
     }
     
     public DmcTypeAllowedAttributesRuleDataREFSV getNew(DmcAttributeInfo ai){

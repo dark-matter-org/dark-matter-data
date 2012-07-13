@@ -49,25 +49,25 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<FullyQualifiedName,HierarchicObjectREF>();
         else
             value = new TreeMap<FullyQualifiedName,HierarchicObjectREF>();
     }
     
     public FullyQualifiedName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<FullyQualifiedName,HierarchicObjectREF> map = (TreeMap<FullyQualifiedName,HierarchicObjectREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeHierarchicObjectREFMAP getNew(){
-        return(new DmcTypeHierarchicObjectREFMAP(attrInfo));
+        return(new DmcTypeHierarchicObjectREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -121,7 +121,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     public Iterator<HierarchicObjectREF> getMV(){
         synchronized(this){
             Map<FullyQualifiedName,HierarchicObjectREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<FullyQualifiedName,HierarchicObjectREF>(value);
             else
                 clone = new TreeMap<FullyQualifiedName,HierarchicObjectREF>(value);
@@ -133,7 +133,7 @@ public class DmcTypeHierarchicObjectREFMAP extends DmcTypeHierarchicObjectREF im
     public Map<FullyQualifiedName,HierarchicObjectREF> getMVCopy(){
         synchronized(this){
             Map<FullyQualifiedName,HierarchicObjectREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<FullyQualifiedName,HierarchicObjectREF>(value);
             else
                 clone = new TreeMap<FullyQualifiedName,HierarchicObjectREF>(value);

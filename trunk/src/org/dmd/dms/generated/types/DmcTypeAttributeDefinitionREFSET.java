@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:577)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:578)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinitionREF implements Serializable {
@@ -46,7 +46,7 @@ public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinition
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<AttributeDefinitionREF>();
         else
             value = new TreeSet<AttributeDefinitionREF>();
@@ -54,7 +54,7 @@ public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinition
     
     @Override
     public DmcTypeAttributeDefinitionREFSET getNew(){
-        return(new DmcTypeAttributeDefinitionREFSET(attrInfo));
+        return(new DmcTypeAttributeDefinitionREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinition
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<AttributeDefinitionREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<AttributeDefinitionREF>(value)).iterator() );
             else
                 return( (new TreeSet<AttributeDefinitionREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeAttributeDefinitionREFSET extends DmcTypeAttributeDefinition
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<AttributeDefinitionREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<AttributeDefinitionREF>(value));
             else
                 return(new TreeSet<AttributeDefinitionREF>(value));

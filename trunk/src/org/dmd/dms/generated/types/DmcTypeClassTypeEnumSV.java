@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:548)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:549)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassTypeEnumSV extends DmcTypeClassTypeEnum implements Serializable {
@@ -41,7 +41,7 @@ public class DmcTypeClassTypeEnumSV extends DmcTypeClassTypeEnum implements Seri
     }
     
     public DmcTypeClassTypeEnumSV getNew(){
-        return(new DmcTypeClassTypeEnumSV(attrInfo));
+        return(new DmcTypeClassTypeEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeClassTypeEnumSV getNew(DmcAttributeInfo ai){

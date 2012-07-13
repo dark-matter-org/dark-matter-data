@@ -31,7 +31,7 @@ public class DmcTypeBaseObjREFSET extends DmcTypeBaseObjREF implements Serializa
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<BaseObjREF>();
         else
             value = new TreeSet<BaseObjREF>();
@@ -39,7 +39,7 @@ public class DmcTypeBaseObjREFSET extends DmcTypeBaseObjREF implements Serializa
     
     @Override
     public DmcTypeBaseObjREFSET getNew(){
-        return(new DmcTypeBaseObjREFSET(attrInfo));
+        return(new DmcTypeBaseObjREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -101,7 +101,7 @@ public class DmcTypeBaseObjREFSET extends DmcTypeBaseObjREF implements Serializa
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<BaseObjREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<BaseObjREF>(value)).iterator() );
             else
                 return( (new TreeSet<BaseObjREF>(value)).iterator() );
@@ -111,7 +111,7 @@ public class DmcTypeBaseObjREFSET extends DmcTypeBaseObjREF implements Serializa
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<BaseObjREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<BaseObjREF>(value));
             else
                 return(new TreeSet<BaseObjREF>(value));

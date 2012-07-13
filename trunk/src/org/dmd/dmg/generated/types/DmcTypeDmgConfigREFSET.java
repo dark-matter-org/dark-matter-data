@@ -47,7 +47,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DmgConfigDMO>();
         else
             value = new TreeSet<DmgConfigDMO>();
@@ -55,7 +55,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
     
     @Override
     public DmcTypeDmgConfigREFSET getNew(){
-        return(new DmcTypeDmgConfigREFSET(attrInfo));
+        return(new DmcTypeDmgConfigREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<DmgConfigDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DmgConfigDMO>(value)).iterator() );
             else
                 return( (new TreeSet<DmgConfigDMO>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeDmgConfigREFSET extends DmcTypeDmgConfigREF implements Seria
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<DmgConfigDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<DmgConfigDMO>(value));
             else
                 return(new TreeSet<DmgConfigDMO>(value));

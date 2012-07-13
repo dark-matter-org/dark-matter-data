@@ -40,7 +40,7 @@ public class DmcTypeDotNamedObjectREFSV extends DmcTypeDotNamedObjectREF impleme
     }
     
     public DmcTypeDotNamedObjectREFSV getNew(){
-        return(new DmcTypeDotNamedObjectREFSV(attrInfo));
+        return(new DmcTypeDotNamedObjectREFSV(getAttributeInfo()));
     }
     
     public DmcTypeDotNamedObjectREFSV getNew(DmcAttributeInfo ai){

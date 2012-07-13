@@ -34,25 +34,25 @@ public class DmcTypeTestDerivedDiffSubpackageREFMAP extends DmcTypeTestDerivedDi
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,TestDerivedDiffSubpackageREF>();
         else
             value = new TreeMap<StringName,TestDerivedDiffSubpackageREF>();
     }
     
     public StringName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<StringName,TestDerivedDiffSubpackageREF> map = (TreeMap<StringName,TestDerivedDiffSubpackageREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeTestDerivedDiffSubpackageREFMAP getNew(){
-        return(new DmcTypeTestDerivedDiffSubpackageREFMAP(attrInfo));
+        return(new DmcTypeTestDerivedDiffSubpackageREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -106,7 +106,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMAP extends DmcTypeTestDerivedDi
     public Iterator<TestDerivedDiffSubpackageREF> getMV(){
         synchronized(this){
             Map<StringName,TestDerivedDiffSubpackageREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestDerivedDiffSubpackageREF>(value);
             else
                 clone = new TreeMap<StringName,TestDerivedDiffSubpackageREF>(value);
@@ -118,7 +118,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFMAP extends DmcTypeTestDerivedDi
     public Map<StringName,TestDerivedDiffSubpackageREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestDerivedDiffSubpackageREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestDerivedDiffSubpackageREF>(value);
             else
                 clone = new TreeMap<StringName,TestDerivedDiffSubpackageREF>(value);

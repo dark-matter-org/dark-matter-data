@@ -14,7 +14,7 @@ public class IntegerToStringSVAdapter extends DmcTypeIntegerToStringSV implement
     transient DmcTypeIntegerToStringSV existingValue;
 
     public IntegerToStringSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

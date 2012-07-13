@@ -26,7 +26,7 @@ public class DmcTypeExtendedRefTSREFSV extends DmcTypeExtendedRefTSREF implement
     }
     
     public DmcTypeExtendedRefTSREFSV getNew(){
-        return(new DmcTypeExtendedRefTSREFSV(attrInfo));
+        return(new DmcTypeExtendedRefTSREFSV(getAttributeInfo()));
     }
     
     public DmcTypeExtendedRefTSREFSV getNew(DmcAttributeInfo ai){

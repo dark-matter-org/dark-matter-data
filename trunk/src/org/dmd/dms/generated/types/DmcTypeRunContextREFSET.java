@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:577)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:578)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Serializable {
@@ -46,7 +46,7 @@ public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Ser
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<RunContextREF>();
         else
             value = new TreeSet<RunContextREF>();
@@ -54,7 +54,7 @@ public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Ser
     
     @Override
     public DmcTypeRunContextREFSET getNew(){
-        return(new DmcTypeRunContextREFSET(attrInfo));
+        return(new DmcTypeRunContextREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<RunContextREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<RunContextREF>(value)).iterator() );
             else
                 return( (new TreeSet<RunContextREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeRunContextREFSET extends DmcTypeRunContextREF implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<RunContextREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<RunContextREF>(value));
             else
                 return(new TreeSet<RunContextREF>(value));

@@ -14,7 +14,7 @@ public class IntegerSETAdapter extends DmcTypeIntegerSET implements DmcAdapterIF
     transient DmcTypeIntegerSET existingValue;
 
     public IntegerSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -47,7 +47,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ScopeEnum>();
         else
             value = new TreeSet<ScopeEnum>();
@@ -55,7 +55,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
     
     @Override
     public DmcTypeScopeEnumSET getNew(){
-        return(new DmcTypeScopeEnumSET(attrInfo));
+        return(new DmcTypeScopeEnumSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<ScopeEnum> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ScopeEnum>(value)).iterator() );
             else
                 return( (new TreeSet<ScopeEnum>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeScopeEnumSET extends DmcTypeScopeEnum implements Serializabl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<ScopeEnum> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ScopeEnum>(value));
             else
                 return(new TreeSet<ScopeEnum>(value));

@@ -14,7 +14,7 @@ public class UUIDLiteSVAdapter extends DmcTypeUUIDLiteSV implements DmcAdapterIF
     transient DmcTypeUUIDLiteSV existingValue;
 
     public UUIDLiteSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

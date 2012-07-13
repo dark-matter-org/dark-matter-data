@@ -14,7 +14,7 @@ public class MethodGeneratorREFMVAdapter extends DmcTypeMethodGeneratorREFMV imp
     transient DmcTypeMethodGeneratorREFMV existingValue;
 
     public MethodGeneratorREFMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

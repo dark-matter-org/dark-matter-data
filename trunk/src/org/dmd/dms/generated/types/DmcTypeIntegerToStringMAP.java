@@ -32,7 +32,7 @@ import org.dmd.dmc.types.IntegerToString;    // primitive import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2797)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:637)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:638)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString<IntegerToString> {
@@ -50,25 +50,25 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<Integer,IntegerToString>();
         else
             value = new TreeMap<Integer,IntegerToString>();
     }
     
     public Integer firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<Integer,IntegerToString> map = (TreeMap<Integer,IntegerToString>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeIntegerToStringMAP getNew(){
-        return(new DmcTypeIntegerToStringMAP(attrInfo));
+        return(new DmcTypeIntegerToStringMAP(getAttributeInfo()));
     }
     
     @Override
@@ -122,7 +122,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     public Iterator<IntegerToString> getMV(){
         synchronized(this){
             Map<Integer,IntegerToString> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<Integer,IntegerToString>(value);
             else
                 clone = new TreeMap<Integer,IntegerToString>(value);
@@ -134,7 +134,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     public Map<Integer,IntegerToString> getMVCopy(){
         synchronized(this){
             Map<Integer,IntegerToString> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<Integer,IntegerToString>(value);
             else
                 clone = new TreeMap<Integer,IntegerToString>(value);

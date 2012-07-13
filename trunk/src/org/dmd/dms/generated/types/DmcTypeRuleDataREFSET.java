@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:577)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:578)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleDataREFSET extends DmcTypeRuleDataREF implements Serializable {
@@ -46,7 +46,7 @@ public class DmcTypeRuleDataREFSET extends DmcTypeRuleDataREF implements Seriali
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<RuleDataREF>();
         else
             value = new TreeSet<RuleDataREF>();
@@ -54,7 +54,7 @@ public class DmcTypeRuleDataREFSET extends DmcTypeRuleDataREF implements Seriali
     
     @Override
     public DmcTypeRuleDataREFSET getNew(){
-        return(new DmcTypeRuleDataREFSET(attrInfo));
+        return(new DmcTypeRuleDataREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeRuleDataREFSET extends DmcTypeRuleDataREF implements Seriali
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<RuleDataREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<RuleDataREF>(value)).iterator() );
             else
                 return( (new TreeSet<RuleDataREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeRuleDataREFSET extends DmcTypeRuleDataREF implements Seriali
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<RuleDataREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<RuleDataREF>(value));
             else
                 return(new TreeSet<RuleDataREF>(value));

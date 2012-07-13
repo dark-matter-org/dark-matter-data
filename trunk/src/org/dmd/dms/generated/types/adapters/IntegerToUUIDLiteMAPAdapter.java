@@ -14,7 +14,7 @@ public class IntegerToUUIDLiteMAPAdapter extends DmcTypeIntegerToUUIDLiteMAP imp
     transient DmcTypeIntegerToUUIDLiteMAP existingValue;
 
     public IntegerToUUIDLiteMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

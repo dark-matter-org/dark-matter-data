@@ -47,7 +47,7 @@ public class DmcTypeIntegerRangeRuleDataREFSET extends DmcTypeIntegerRangeRuleDa
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<IntegerRangeRuleDataDMO>();
         else
             value = new TreeSet<IntegerRangeRuleDataDMO>();
@@ -55,7 +55,7 @@ public class DmcTypeIntegerRangeRuleDataREFSET extends DmcTypeIntegerRangeRuleDa
     
     @Override
     public DmcTypeIntegerRangeRuleDataREFSET getNew(){
-        return(new DmcTypeIntegerRangeRuleDataREFSET(attrInfo));
+        return(new DmcTypeIntegerRangeRuleDataREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeIntegerRangeRuleDataREFSET extends DmcTypeIntegerRangeRuleDa
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<IntegerRangeRuleDataDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<IntegerRangeRuleDataDMO>(value)).iterator() );
             else
                 return( (new TreeSet<IntegerRangeRuleDataDMO>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeIntegerRangeRuleDataREFSET extends DmcTypeIntegerRangeRuleDa
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<IntegerRangeRuleDataDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<IntegerRangeRuleDataDMO>(value));
             else
                 return(new TreeSet<IntegerRangeRuleDataDMO>(value));

@@ -31,7 +31,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<TestDerivedDiffSubpackageREF>();
         else
             value = new TreeSet<TestDerivedDiffSubpackageREF>();
@@ -39,7 +39,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
     
     @Override
     public DmcTypeTestDerivedDiffSubpackageREFSET getNew(){
-        return(new DmcTypeTestDerivedDiffSubpackageREFSET(attrInfo));
+        return(new DmcTypeTestDerivedDiffSubpackageREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -101,7 +101,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<TestDerivedDiffSubpackageREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<TestDerivedDiffSubpackageREF>(value)).iterator() );
             else
                 return( (new TreeSet<TestDerivedDiffSubpackageREF>(value)).iterator() );
@@ -111,7 +111,7 @@ public class DmcTypeTestDerivedDiffSubpackageREFSET extends DmcTypeTestDerivedDi
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<TestDerivedDiffSubpackageREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<TestDerivedDiffSubpackageREF>(value));
             else
                 return(new TreeSet<TestDerivedDiffSubpackageREF>(value));

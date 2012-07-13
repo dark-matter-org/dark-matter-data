@@ -30,7 +30,7 @@ import org.dmd.dmc.types.DmcTypeDmcAttribute;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DmcAttribute<?>>();
         else
             value = new TreeSet<DmcAttribute<?>>();
@@ -55,7 +55,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
     
     @Override
     public DmcTypeDmcAttributeSET getNew(){
-        return(new DmcTypeDmcAttributeSET(attrInfo));
+        return(new DmcTypeDmcAttributeSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<DmcAttribute<?>> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DmcAttribute<?>>(value)).iterator() );
             else
                 return( (new TreeSet<DmcAttribute<?>>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeDmcAttributeSET extends DmcTypeDmcAttribute implements Seria
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<DmcAttribute<?>> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<DmcAttribute<?>>(value));
             else
                 return(new TreeSet<DmcAttribute<?>>(value));

@@ -14,7 +14,7 @@ public class BaseObjREFSETAdapter extends DmcTypeBaseObjREFSET implements DmcAda
     transient DmcTypeBaseObjREFSET existingValue;
 
     public BaseObjREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeStringToString;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringToStringSET extends DmcTypeStringToString implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeStringToStringSET extends DmcTypeStringToString implements S
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<StringToString>();
         else
             value = new TreeSet<StringToString>();
@@ -56,7 +56,7 @@ public class DmcTypeStringToStringSET extends DmcTypeStringToString implements S
     
     @Override
     public DmcTypeStringToStringSET getNew(){
-        return(new DmcTypeStringToStringSET(attrInfo));
+        return(new DmcTypeStringToStringSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeStringToStringSET extends DmcTypeStringToString implements S
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<StringToString> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<StringToString>(value)).iterator() );
             else
                 return( (new TreeSet<StringToString>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeStringToStringSET extends DmcTypeStringToString implements S
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<StringToString> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<StringToString>(value));
             else
                 return(new TreeSet<StringToString>(value));

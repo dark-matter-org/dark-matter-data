@@ -32,7 +32,7 @@ public class DmcTypePrimitiveMVREFSET extends DmcTypePrimitiveMVREF implements S
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<PrimitiveMVDMO>();
         else
             value = new TreeSet<PrimitiveMVDMO>();
@@ -40,7 +40,7 @@ public class DmcTypePrimitiveMVREFSET extends DmcTypePrimitiveMVREF implements S
     
     @Override
     public DmcTypePrimitiveMVREFSET getNew(){
-        return(new DmcTypePrimitiveMVREFSET(attrInfo));
+        return(new DmcTypePrimitiveMVREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -102,7 +102,7 @@ public class DmcTypePrimitiveMVREFSET extends DmcTypePrimitiveMVREF implements S
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<PrimitiveMVDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<PrimitiveMVDMO>(value)).iterator() );
             else
                 return( (new TreeSet<PrimitiveMVDMO>(value)).iterator() );
@@ -112,7 +112,7 @@ public class DmcTypePrimitiveMVREFSET extends DmcTypePrimitiveMVREF implements S
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<PrimitiveMVDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<PrimitiveMVDMO>(value));
             else
                 return(new TreeSet<PrimitiveMVDMO>(value));

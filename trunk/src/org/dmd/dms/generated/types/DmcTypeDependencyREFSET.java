@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:577)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:578)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDependencyREFSET extends DmcTypeDependencyREF implements Serializable {
@@ -46,7 +46,7 @@ public class DmcTypeDependencyREFSET extends DmcTypeDependencyREF implements Ser
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DependencyREF>();
         else
             value = new TreeSet<DependencyREF>();
@@ -54,7 +54,7 @@ public class DmcTypeDependencyREFSET extends DmcTypeDependencyREF implements Ser
     
     @Override
     public DmcTypeDependencyREFSET getNew(){
-        return(new DmcTypeDependencyREFSET(attrInfo));
+        return(new DmcTypeDependencyREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeDependencyREFSET extends DmcTypeDependencyREF implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<DependencyREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DependencyREF>(value)).iterator() );
             else
                 return( (new TreeSet<DependencyREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeDependencyREFSET extends DmcTypeDependencyREF implements Ser
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<DependencyREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<DependencyREF>(value));
             else
                 return(new TreeSet<DependencyREF>(value));

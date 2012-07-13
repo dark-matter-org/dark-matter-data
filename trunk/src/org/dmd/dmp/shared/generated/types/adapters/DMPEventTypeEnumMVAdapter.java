@@ -14,7 +14,7 @@ public class DMPEventTypeEnumMVAdapter extends DmcTypeDMPEventTypeEnumMV impleme
     transient DmcTypeDMPEventTypeEnumMV existingValue;
 
     public DMPEventTypeEnumMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

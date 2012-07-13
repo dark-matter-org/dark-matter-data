@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.FilterTypeEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:548)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:549)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterTypeEnumSV extends DmcTypeFilterTypeEnum implements Serializable {
@@ -41,7 +41,7 @@ public class DmcTypeFilterTypeEnumSV extends DmcTypeFilterTypeEnum implements Se
     }
     
     public DmcTypeFilterTypeEnumSV getNew(){
-        return(new DmcTypeFilterTypeEnumSV(attrInfo));
+        return(new DmcTypeFilterTypeEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeFilterTypeEnumSV getNew(DmcAttributeInfo ai){

@@ -14,7 +14,7 @@ public class IntegerToStringMAPAdapter extends DmcTypeIntegerToStringMAP impleme
     transient DmcTypeIntegerToStringMAP existingValue;
 
     public IntegerToStringMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

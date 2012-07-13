@@ -14,7 +14,7 @@ public class RuleCategoryREFSETAdapter extends DmcTypeRuleCategoryREFSET impleme
     transient DmcTypeRuleCategoryREFSET existingValue;
 
     public RuleCategoryREFSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

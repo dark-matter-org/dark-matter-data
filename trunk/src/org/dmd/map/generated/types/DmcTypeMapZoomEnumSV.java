@@ -41,7 +41,7 @@ public class DmcTypeMapZoomEnumSV extends DmcTypeMapZoomEnum implements Serializ
     }
     
     public DmcTypeMapZoomEnumSV getNew(){
-        return(new DmcTypeMapZoomEnumSV(attrInfo));
+        return(new DmcTypeMapZoomEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeMapZoomEnumSV getNew(DmcAttributeInfo ai){

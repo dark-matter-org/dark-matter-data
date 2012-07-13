@@ -47,7 +47,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DenotifyRequestDMO>();
         else
             value = new TreeSet<DenotifyRequestDMO>();
@@ -55,7 +55,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     
     @Override
     public DmcTypeDenotifyRequestREFSET getNew(){
-        return(new DmcTypeDenotifyRequestREFSET(attrInfo));
+        return(new DmcTypeDenotifyRequestREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<DenotifyRequestDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DenotifyRequestDMO>(value)).iterator() );
             else
                 return( (new TreeSet<DenotifyRequestDMO>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypeDenotifyRequestREFSET extends DmcTypeDenotifyRequestREF impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<DenotifyRequestDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<DenotifyRequestDMO>(value));
             else
                 return(new TreeSet<DenotifyRequestDMO>(value));

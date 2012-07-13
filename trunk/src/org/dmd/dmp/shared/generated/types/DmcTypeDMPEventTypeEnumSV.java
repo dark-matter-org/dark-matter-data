@@ -41,7 +41,7 @@ public class DmcTypeDMPEventTypeEnumSV extends DmcTypeDMPEventTypeEnum implement
     }
     
     public DmcTypeDMPEventTypeEnumSV getNew(){
-        return(new DmcTypeDMPEventTypeEnumSV(attrInfo));
+        return(new DmcTypeDMPEventTypeEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeDMPEventTypeEnumSV getNew(DmcAttributeInfo ai){

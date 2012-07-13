@@ -14,7 +14,7 @@ public class TestBasicNamedObjectExtendedREFMAPAdapter extends DmcTypeTestBasicN
     transient DmcTypeTestBasicNamedObjectExtendedREFMAP existingValue;
 
     public TestBasicNamedObjectExtendedREFMAPAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

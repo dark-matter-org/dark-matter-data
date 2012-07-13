@@ -41,7 +41,7 @@ public class DmcTypeResponseFormatEnumSV extends DmcTypeResponseFormatEnum imple
     }
     
     public DmcTypeResponseFormatEnumSV getNew(){
-        return(new DmcTypeResponseFormatEnumSV(attrInfo));
+        return(new DmcTypeResponseFormatEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeResponseFormatEnumSV getNew(DmcAttributeInfo ai){

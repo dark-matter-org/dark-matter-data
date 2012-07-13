@@ -14,7 +14,7 @@ public class BooleanSETAdapter extends DmcTypeBooleanSET implements DmcAdapterIF
     transient DmcTypeBooleanSET existingValue;
 
     public BooleanSETAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

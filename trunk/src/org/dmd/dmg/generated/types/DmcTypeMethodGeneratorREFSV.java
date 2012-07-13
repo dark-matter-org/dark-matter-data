@@ -40,7 +40,7 @@ public class DmcTypeMethodGeneratorREFSV extends DmcTypeMethodGeneratorREF imple
     }
     
     public DmcTypeMethodGeneratorREFSV getNew(){
-        return(new DmcTypeMethodGeneratorREFSV(attrInfo));
+        return(new DmcTypeMethodGeneratorREFSV(getAttributeInfo()));
     }
     
     public DmcTypeMethodGeneratorREFSV getNew(DmcAttributeInfo ai){

@@ -29,7 +29,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:577)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:578)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDependencyImplementationREFSET extends DmcTypeDependencyImplementationREF implements Serializable {
@@ -46,7 +46,7 @@ public class DmcTypeDependencyImplementationREFSET extends DmcTypeDependencyImpl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<DependencyImplementationREF>();
         else
             value = new TreeSet<DependencyImplementationREF>();
@@ -54,7 +54,7 @@ public class DmcTypeDependencyImplementationREFSET extends DmcTypeDependencyImpl
     
     @Override
     public DmcTypeDependencyImplementationREFSET getNew(){
-        return(new DmcTypeDependencyImplementationREFSET(attrInfo));
+        return(new DmcTypeDependencyImplementationREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -116,7 +116,7 @@ public class DmcTypeDependencyImplementationREFSET extends DmcTypeDependencyImpl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<DependencyImplementationREF> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DependencyImplementationREF>(value)).iterator() );
             else
                 return( (new TreeSet<DependencyImplementationREF>(value)).iterator() );
@@ -126,7 +126,7 @@ public class DmcTypeDependencyImplementationREFSET extends DmcTypeDependencyImpl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<DependencyImplementationREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<DependencyImplementationREF>(value));
             else
                 return(new TreeSet<DependencyImplementationREF>(value));

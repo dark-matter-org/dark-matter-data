@@ -14,7 +14,7 @@ public class DoubleMVAdapter extends DmcTypeDoubleMV implements DmcAdapterIF {
     transient DmcTypeDoubleMV existingValue;
 
     public DoubleMVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

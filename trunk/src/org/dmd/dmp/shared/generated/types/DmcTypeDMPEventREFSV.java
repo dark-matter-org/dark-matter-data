@@ -41,7 +41,7 @@ public class DmcTypeDMPEventREFSV extends DmcTypeDMPEventREF implements Serializ
     }
     
     public DmcTypeDMPEventREFSV getNew(){
-        return(new DmcTypeDMPEventREFSV(attrInfo));
+        return(new DmcTypeDMPEventREFSV(getAttributeInfo()));
     }
     
     public DmcTypeDMPEventREFSV getNew(DmcAttributeInfo ai){

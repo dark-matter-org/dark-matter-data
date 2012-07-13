@@ -41,7 +41,7 @@ public class DmcTypeDenotifyResponseREFSV extends DmcTypeDenotifyResponseREF imp
     }
     
     public DmcTypeDenotifyResponseREFSV getNew(){
-        return(new DmcTypeDenotifyResponseREFSV(attrInfo));
+        return(new DmcTypeDenotifyResponseREFSV(getAttributeInfo()));
     }
     
     public DmcTypeDenotifyResponseREFSV getNew(DmcAttributeInfo ai){

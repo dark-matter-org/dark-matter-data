@@ -25,7 +25,7 @@ import org.dmd.dms.generated.enums.OperationalContextEnum;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:548)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:549)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOperationalContextEnumSV extends DmcTypeOperationalContextEnum implements Serializable {
@@ -41,7 +41,7 @@ public class DmcTypeOperationalContextEnumSV extends DmcTypeOperationalContextEn
     }
     
     public DmcTypeOperationalContextEnumSV getNew(){
-        return(new DmcTypeOperationalContextEnumSV(attrInfo));
+        return(new DmcTypeOperationalContextEnumSV(getAttributeInfo()));
     }
     
     public DmcTypeOperationalContextEnumSV getNew(DmcAttributeInfo ai){

@@ -31,7 +31,7 @@ import org.dmd.dmc.types.DmcTypeUUIDName;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:631)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<UUIDName>();
         else
             value = new TreeSet<UUIDName>();
@@ -56,7 +56,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     
     @Override
     public DmcTypeUUIDNameSET getNew(){
-        return(new DmcTypeUUIDNameSET(attrInfo));
+        return(new DmcTypeUUIDNameSET(getAttributeInfo()));
     }
     
     @Override
@@ -118,7 +118,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<UUIDName> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<UUIDName>(value)).iterator() );
             else
                 return( (new TreeSet<UUIDName>(value)).iterator() );
@@ -128,7 +128,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<UUIDName> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<UUIDName>(value));
             else
                 return(new TreeSet<UUIDName>(value));

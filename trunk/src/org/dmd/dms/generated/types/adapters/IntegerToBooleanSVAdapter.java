@@ -14,7 +14,7 @@ public class IntegerToBooleanSVAdapter extends DmcTypeIntegerToBooleanSV impleme
     transient DmcTypeIntegerToBooleanSV existingValue;
 
     public IntegerToBooleanSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    	   super(ai);
     }
 
     @Override

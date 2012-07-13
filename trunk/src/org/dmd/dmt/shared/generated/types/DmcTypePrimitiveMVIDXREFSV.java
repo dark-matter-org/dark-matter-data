@@ -26,7 +26,7 @@ public class DmcTypePrimitiveMVIDXREFSV extends DmcTypePrimitiveMVIDXREF impleme
     }
     
     public DmcTypePrimitiveMVIDXREFSV getNew(){
-        return(new DmcTypePrimitiveMVIDXREFSV(attrInfo));
+        return(new DmcTypePrimitiveMVIDXREFSV(getAttributeInfo()));
     }
     
     public DmcTypePrimitiveMVIDXREFSV getNew(DmcAttributeInfo ai){

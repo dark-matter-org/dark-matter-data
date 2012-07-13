@@ -26,7 +26,7 @@ public class DmcTypeUsingObjRefHMREFSV extends DmcTypeUsingObjRefHMREF implement
     }
     
     public DmcTypeUsingObjRefHMREFSV getNew(){
-        return(new DmcTypeUsingObjRefHMREFSV(attrInfo));
+        return(new DmcTypeUsingObjRefHMREFSV(getAttributeInfo()));
     }
     
     public DmcTypeUsingObjRefHMREFSV getNew(DmcAttributeInfo ai){

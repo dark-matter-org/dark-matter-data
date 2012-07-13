@@ -47,7 +47,7 @@ public class DmcTypePreAuthResponseREFSET extends DmcTypePreAuthResponseREF impl
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<PreAuthResponseDMO>();
         else
             value = new TreeSet<PreAuthResponseDMO>();
@@ -55,7 +55,7 @@ public class DmcTypePreAuthResponseREFSET extends DmcTypePreAuthResponseREF impl
     
     @Override
     public DmcTypePreAuthResponseREFSET getNew(){
-        return(new DmcTypePreAuthResponseREFSET(attrInfo));
+        return(new DmcTypePreAuthResponseREFSET(getAttributeInfo()));
     }
     
     @Override
@@ -117,7 +117,7 @@ public class DmcTypePreAuthResponseREFSET extends DmcTypePreAuthResponseREF impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
     public Iterator<PreAuthResponseDMO> getMV(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<PreAuthResponseDMO>(value)).iterator() );
             else
                 return( (new TreeSet<PreAuthResponseDMO>(value)).iterator() );
@@ -127,7 +127,7 @@ public class DmcTypePreAuthResponseREFSET extends DmcTypePreAuthResponseREF impl
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public Set<PreAuthResponseDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<PreAuthResponseDMO>(value));
             else
                 return(new TreeSet<PreAuthResponseDMO>(value));

@@ -34,25 +34,25 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
     }
     
     void initValue(){
-        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,BaseObjREF>();
         else
             value = new TreeMap<StringName,BaseObjREF>();
     }
     
     public StringName firstKey(){
-        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
+        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<StringName,BaseObjREF> map = (TreeMap<StringName,BaseObjREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeBaseObjREFMAP getNew(){
-        return(new DmcTypeBaseObjREFMAP(attrInfo));
+        return(new DmcTypeBaseObjREFMAP(getAttributeInfo()));
     }
     
     @Override
@@ -106,7 +106,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
     public Iterator<BaseObjREF> getMV(){
         synchronized(this){
             Map<StringName,BaseObjREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,BaseObjREF>(value);
             else
                 clone = new TreeMap<StringName,BaseObjREF>(value);
@@ -118,7 +118,7 @@ public class DmcTypeBaseObjREFMAP extends DmcTypeBaseObjREF implements Serializa
     public Map<StringName,BaseObjREF> getMVCopy(){
         synchronized(this){
             Map<StringName,BaseObjREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,BaseObjREF>(value);
             else
                 clone = new TreeMap<StringName,BaseObjREF>(value);
