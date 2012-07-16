@@ -186,8 +186,9 @@ public class RuleFormatter {
 	 * @param gendir the base directory to which we're dumping the code
 	 * @param context for which context we're dumping the rules
 	 * @throws IOException
+	 * @throws ResultException 
 	 */
-	public void dumpBaseImplementations(SchemaManager sm, SchemaDefinition sd, String gendir, OperationalContextEnum context) throws IOException {
+	public void dumpBaseImplementations(SchemaManager sm, SchemaDefinition sd, String gendir, OperationalContextEnum context) throws IOException, ResultException {
 		String genpackage = sd.getSchemaPackage() + ".generated.rulesdmo";
 		String subfolder = gendir + "/rulesdmo";
 		
@@ -245,6 +246,14 @@ public class RuleFormatter {
 			
 			out.write("    protected " + rd.getName() + "DataDMO ruleDMO;\n\n");
 			
+			out.write("    protected " + rd.getName() + "BaseImpl(){\n");
+			out.write("        ruleDMO = null;\n");
+			out.write("        if (categories == null){\n");
+			out.write("            categories = new ArrayList<Integer>();\n");
+			out.write(categoryInit.toString());
+			out.write("        }\n");
+			out.write("    }\n\n");
+			
 			out.write("    protected " + rd.getName() + "BaseImpl(" + rd.getName() + "DataDMO dmo){\n");
 			out.write("        ruleDMO = dmo;\n");
 			out.write("        if (categories == null){\n");
@@ -277,8 +286,38 @@ public class RuleFormatter {
 			out.write("}\n\n");
 			
 			out.close();
-
 		}
+		
+		dumpAutoTester(sm, sd, gendir, context);
 	}
 
+	void dumpAutoTester(SchemaManager sm, SchemaDefinition sd, String gendir, OperationalContextEnum context) throws ResultException {
+		String genpackage = sd.getSchemaPackage() + ".generated.rulesdmo";
+		ResultException	ex = null;
+		
+		for(RuleDefinition rd : sd.getRuleDefinitionList()){
+			if (context == OperationalContextEnum.DMO){
+				// Skip full java rules if we're generating for the DMO context
+				if (!rd.isDMOCompliant())
+					continue;
+			}
+			else{
+				if (rd.isDMOCompliant())
+					continue;
+			}
+			
+			try {
+				@SuppressWarnings("unused")
+				Class<?>	ruleClass = Class.forName(rd.getRuleDefinitionImport());
+			} catch (ClassNotFoundException e) {
+				if (ex == null)
+					ex = new ResultException();
+				ex.addError("You must create a rule implementation class: " + rd.getRuleDefinitionImport());
+				ex.result.lastResult().moreMessages("It must extend " + genpackage + rd.getName() + "BaseImpl");
+			}
+		}
+		
+		if (ex != null)
+			throw(ex);
+	}
 }

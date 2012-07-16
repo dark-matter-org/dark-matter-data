@@ -48,6 +48,8 @@ description		The InitRule allows you to specify attribute values for a
   may be required in other circumstances.
  </pre>
 
+///////////////////////////////////////////////////////////////////////////////
+ 
 RuleDefinition
 name			IntegerRangeRule
 dmdID			3
@@ -70,15 +72,69 @@ description		The IntegerRangeRule ensures that an Integer attribute has a value 
  description This constraint is required because blah, blah blah.
  </pre>
 
+///////////////////////////////////////////////////////////////////////////////
+
 RuleDefinition
 name			UCOAllowedAttributesRule
 dmdID			4
 ruleType		CLASS
 ruleScope		GLOBAL
 ruleCategory	UCOValidation
-//must			applyToClass
 description		The UCOAllowedAttributesRule will determine whether or not the 
  attributes of a DmcUncheckedObject conform to the must/may specification of its
  class definition. For classes of type EXTENSIBLE only the must have attributes are checked.
 
+///////////////////////////////////////////////////////////////////////////////
 
+RuleDefinition
+name			AttributeTypeRule
+dmdID			5
+ruleType		ATTRIBUTE
+ruleScope		PERCLASS
+ruleCategory	AttributeValidation
+must			allowedType
+description		The AttributeTypeRule allowes you to restrict the type of
+ an attribute of a particular AttributeDefinition reference.
+
+///////////////////////////////////////////////////////////////////////////////
+
+RuleDefinition
+name			RelatedNumbersRule
+dmdID			6
+ruleType		CLASS
+ruleScope		PERCLASS
+ruleCategory	ObjectValidation
+must			lhs
+must			rhs
+must			numericRelation
+description		The RelatedNumbersRule ensures that a particular numeric
+ relationship exists between two single-valued, numeric values on an object.
+ An example usage might be:
+ <pre>
+ RelatedNumbersRuleData
+ ruleName        dmvHeightGirth
+ ruleTitle       Your height must exceed your girth.
+ applyToClass    Person
+ lhs             height
+ rhs             girth
+ numericRelation GT
+ description     If your girth exceeds your height, you're in trouble!
+ </pre>
+
+AttributeTypeRuleData
+ruleName			dmvLhs
+ruleTitle           The lhs attribute can be Integer, Float or Double
+applyToAttribute	lhs
+applyToClasses 		RelatedNumbersRule
+allowedType 		Integer
+allowedType 		Float
+allowedType 		Double
+
+AttributeTypeRuleData
+ruleName			dmvRhs
+ruleTitle			The rhs attribute can be Integer, Float or Double
+applyToAttribute	rhs
+applyToClasses 		RelatedNumbersRule
+allowedType 		Integer
+allowedType 		Float
+allowedType 		Double

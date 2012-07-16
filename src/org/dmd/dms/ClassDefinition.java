@@ -887,16 +887,18 @@ public class ClassDefinition extends ClassDefinitionDMW {
     					
     					if (ad == null){
         					if (ex == null)
-        						ex = getException(uco);
+        						ex = new ResultException();
         					ex.addError("The " + attr + " attribute is not defined, but used in " + uco.getConstructionClass());
+        					setExceptionLocation(ex,uco);
     					}
 
     					imports.addImport(ad.getTypeImport(), "Support for addition of " + name + " values to the extensible " + uco.getConstructionClass() + " class");
     				}
     				else{
     					if (ex == null)
-    						ex = getException(uco);
+    						ex = new ResultException();
     					ex.addError("The " + attr + " attribute is not valid for class " + uco.getConstructionClass());
+    					setExceptionLocation(ex,uco);
     				}
     			}
     		}
@@ -906,8 +908,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
     		throw(ex);
     }
     
-    ResultException getException(DmcUncheckedObject uco){
-    	ResultException ex = new ResultException();
+    void setExceptionLocation(ResultException ex, DmcUncheckedObject uco){
     	try {
 			int ln = Integer.parseInt(uco.getSV(MetaDMSAG.__lineNumber.name));
 			String file = uco.getSV(MetaDMSAG.__file.name);
@@ -916,8 +917,6 @@ public class ClassDefinition extends ClassDefinitionDMW {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
-    	return(ex);
     }
 
 }

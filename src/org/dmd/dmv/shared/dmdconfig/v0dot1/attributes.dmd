@@ -9,3 +9,34 @@ name   			irrMaximum
 dmdID			2
 type        	Integer
 description		The maximum integer value.
+
+AttributeDefinition
+name   			numericRelation
+dmdID			3
+type        	NumericRelationEnum
+description		The relationship between numeric values.
+
+AttributeDefinition
+name   			lhs
+dmdID			4
+type        	AttributeDefinition
+description		The attribute to be used as the left hand side of some relationship. The
+ type of the attribute referred to may differ from one rule to the next depending on
+ the relationship being tested.
+
+AttributeDefinition
+name   			rhs
+dmdID			5
+type        	AttributeDefinition
+description		The attribute to be used as the right hand side of some relationship. The
+ type of the attribute referred to may differ from one rule to the next depending on
+ the relationship being tested.
+
+AttributeDefinition
+name   			allowedType
+dmdID			6
+type        	TypeDefinition
+valueType		MULTI
+description		The allowedType indicates a collection of defined types to which something,
+ usually and attribute, must conform.
+ 

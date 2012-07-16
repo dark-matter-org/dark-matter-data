@@ -119,11 +119,13 @@ public class DmoGenerator {
 		enumFormatter.dumpEnums(sd, enumdir);
 		
 		actionFormatter.dumpActions(sd, dmodir);
-		
+				
 //		attributeSchemaFormatter.dumpSchema(sd, dmodir);
 		compactSchemaFormatter.dumpSchema(sm, sd, dmodir);
 		
 		ruleFormatter.dumpBaseImplementations(sm, sd, gendir, OperationalContextEnum.DMO);
+		
+		
 		
 //		if (sd.getCreateAttributeFactory()){
 //			factoryFormatter.dumpFactory(sm, sd, dmodir);

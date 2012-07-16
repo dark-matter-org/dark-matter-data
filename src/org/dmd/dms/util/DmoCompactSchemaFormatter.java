@@ -24,6 +24,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
@@ -36,6 +37,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
+import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
@@ -153,6 +155,8 @@ public class DmoCompactSchemaFormatter {
 	        }
         }
         
+        DmoObjectFactoryNew	factory = new DmoObjectFactoryNew(sm);
+        
         ///////////////////////////////////////////////////////////////////////
         Iterator<DmcUncheckedObject>	rules = sd.getParsedRules();
         
@@ -161,6 +165,18 @@ public class DmoCompactSchemaFormatter {
 			out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         	while(rules.hasNext()){
 				DmcUncheckedObject ruleData = rules.next();
+				
+				try {
+					RuleDataDMO rdd = (RuleDataDMO) factory.createObject(ruleData);
+					DebugInfo.debugWithTrace(rdd.toOIF());
+				} catch (DmcValueException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				String dataName 	= ruleData.getConstructionClass();
 				int dataPos 		= dataName.indexOf("Data");
 				String ruleClass 	= dataName.substring(0, dataPos);
@@ -889,9 +905,11 @@ public class DmoCompactSchemaFormatter {
     			String ct = uco.getSV("classType");
     			String derivedFrom = uco.getSV("derivedFrom");
     			String isNamedBy = uco.getSV("isNamedBy");
+    			String dmoImport = uco.getSV("dmoImport");
     			
     	    	out.write("    public final static DmcClassInfo __" + name + " = new DmcClassInfo(");
     	    	out.write("\"" + name + "\",");
+    	    	out.write("\"" + dmoImport + "\",");
     	    	out.write(ID + ",");
     	   		out.write("ClassTypeEnum." + ct + ",");
     	   		out.write("DataTypeEnum.PERSISTENT");
@@ -911,6 +929,7 @@ public class DmoCompactSchemaFormatter {
     		else{
     			out.write("    public final static DmcClassInfo __" + cd.getName().getNameString() + " = new DmcClassInfo(");
     			out.write("\"" + cd.getName().getNameString() + "\"");
+    			out.write(",\"" + cd.getDmoImport() + "\"");
     			out.write(", " + cd.getDmdID());
     			out.write(", ClassTypeEnum." + cd.getClassType());
     			out.write(", DataTypeEnum." + cd.getDataType());

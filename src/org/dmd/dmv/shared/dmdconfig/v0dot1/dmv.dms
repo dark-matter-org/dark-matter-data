@@ -2,6 +2,7 @@ SchemaDefinition
 name       			dmv
 schemaBaseID		-480000
 schemaIDRange		50
+defFiles    		types.dmd
 defFiles    		attributes.dmd
 defFiles    		rules.dmd
 generatedFileHeader LGPL.txt

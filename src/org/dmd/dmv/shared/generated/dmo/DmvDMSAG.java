@@ -1,25 +1,28 @@
 package org.dmd.dmv.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:722)
-import java.util.ArrayList;                                                   // For storage of schema info - (DmoCompactSchemaFormatter.java:660)
-import java.util.HashMap;                                                     // For storage of schema info - (DmoCompactSchemaFormatter.java:659)
-import java.util.Iterator;                                                    // For access of schema info - (DmoCompactSchemaFormatter.java:661)
-import org.dmd.dmc.*;                                                         // Basic DMC stuff - (DmoCompactSchemaFormatter.java:662)
-import org.dmd.dmc.rules.RuleIF;                                              // For rule info - (DmoCompactSchemaFormatter.java:663)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:675)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                             // Have class definitions - (DmoCompactSchemaFormatter.java:667)
-import org.dmd.dms.generated.enums.DataTypeEnum;                              // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:668)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                             // Have attribute definitions - (DmoCompactSchemaFormatter.java:690)
-import org.dmd.dmv.shared.extended.rulesdmo.AllowedAttributesRule;            // To support instantiations of AllowedAttributesRule - (DmoCompactSchemaFormatter.java:699)
-import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                         // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:699)
-import org.dmd.dmv.shared.extended.rulesdmo.IntegerRangeRule;                 // To support instantiations of IntegerRangeRule - (DmoCompactSchemaFormatter.java:699)
-import org.dmd.dmv.shared.extended.rulesdmo.UCOAllowedAttributesRule;         // To support instantiations of UCOAllowedAttributesRule - (DmoCompactSchemaFormatter.java:699)
-import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;         // To instantiate AllowedAttributesRuleData rule data - (DmoCompactSchemaFormatter.java:715)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:738)
+import java.util.ArrayList;                                                   // For storage of schema info - (DmoCompactSchemaFormatter.java:676)
+import java.util.HashMap;                                                     // For storage of schema info - (DmoCompactSchemaFormatter.java:675)
+import java.util.Iterator;                                                    // For access of schema info - (DmoCompactSchemaFormatter.java:677)
+import org.dmd.dmc.*;                                                         // Basic DMC stuff - (DmoCompactSchemaFormatter.java:678)
+import org.dmd.dmc.rules.RuleIF;                                              // For rule info - (DmoCompactSchemaFormatter.java:679)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:691)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                             // Have class definitions - (DmoCompactSchemaFormatter.java:683)
+import org.dmd.dms.generated.enums.DataTypeEnum;                              // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:684)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                             // Have attribute definitions - (DmoCompactSchemaFormatter.java:706)
+import org.dmd.dmv.shared.extended.rulesdmo.AllowedAttributesRule;            // To support instantiations of AllowedAttributesRule - (DmoCompactSchemaFormatter.java:715)
+import org.dmd.dmv.shared.extended.rulesdmo.AttributeTypeRule;                // To support instantiations of AttributeTypeRule - (DmoCompactSchemaFormatter.java:715)
+import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                         // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:715)
+import org.dmd.dmv.shared.extended.rulesdmo.IntegerRangeRule;                 // To support instantiations of IntegerRangeRule - (DmoCompactSchemaFormatter.java:715)
+import org.dmd.dmv.shared.extended.rulesdmo.RelatedNumbersRule;               // To support instantiations of RelatedNumbersRule - (DmoCompactSchemaFormatter.java:715)
+import org.dmd.dmv.shared.extended.rulesdmo.UCOAllowedAttributesRule;         // To support instantiations of UCOAllowedAttributesRule - (DmoCompactSchemaFormatter.java:715)
+import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;         // To instantiate AllowedAttributesRuleData rule data - (DmoCompactSchemaFormatter.java:731)
+import org.dmd.dmv.shared.generated.dmo.AttributeTypeRuleDataDMO;             // To instantiate AttributeTypeRuleData rule data - (DmoCompactSchemaFormatter.java:731)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:100)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:102)
 public class DmvDMSAG implements DmcCompactSchemaIF {
 
 
@@ -34,15 +37,23 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
     static int schemaMaxID = -479950;
 
+    public final static DmcAttributeInfo __allowedType = new DmcAttributeInfo("allowedType", -479994, "TypeDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __irrMaximum = new DmcAttributeInfo("irrMaximum", -479998, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __irrMinimum = new DmcAttributeInfo("irrMinimum", -479999, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcClassInfo __AllowedAttributesRuleData = new DmcClassInfo("AllowedAttributesRuleData", -959999, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
-    public final static DmcClassInfo __InitRuleData = new DmcClassInfo("InitRuleData", -959998, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
-    public final static DmcClassInfo __IntegerRangeRuleData = new DmcClassInfo("IntegerRangeRuleData", -959997, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
-    public final static DmcClassInfo __UCOAllowedAttributesRuleData = new DmcClassInfo("UCOAllowedAttributesRuleData", -959996, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
+    public final static DmcAttributeInfo __lhs = new DmcAttributeInfo("lhs", -479996, "AttributeDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __numericRelation = new DmcAttributeInfo("numericRelation", -479997, "NumericRelationEnum", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __rhs = new DmcAttributeInfo("rhs", -479995, "AttributeDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcClassInfo __AllowedAttributesRuleData = new DmcClassInfo("AllowedAttributesRuleData","org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO", -959999, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
+    public final static DmcClassInfo __AttributeTypeRuleData = new DmcClassInfo("AttributeTypeRuleData","org.dmd.dmv.shared.generated.dmo.AttributeTypeRuleDataDMO", -959995, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
+    public final static DmcClassInfo __InitRuleData = new DmcClassInfo("InitRuleData","org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO", -959998, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
+    public final static DmcClassInfo __IntegerRangeRuleData = new DmcClassInfo("IntegerRangeRuleData","org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO", -959997, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
+    public final static DmcClassInfo __RelatedNumbersRuleData = new DmcClassInfo("RelatedNumbersRuleData","org.dmd.dmv.shared.generated.dmo.RelatedNumbersRuleDataDMO", -959994, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
+    public final static DmcClassInfo __UCOAllowedAttributesRuleData = new DmcClassInfo("UCOAllowedAttributesRuleData","org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO", -959996, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:161)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:165)
     public final static AllowedAttributesRule __dmvAllowedAttributes;
+    public final static AttributeTypeRule __dmvLhs;
+    public final static AttributeTypeRule __dmvRhs;
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -69,11 +80,17 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
         _RmAp = new ArrayList<RuleIF>();
 
+        _SmAp.put(__allowedType.id,__allowedType);
         _SmAp.put(__irrMaximum.id,__irrMaximum);
         _SmAp.put(__irrMinimum.id,__irrMinimum);
+        _SmAp.put(__lhs.id,__lhs);
+        _SmAp.put(__numericRelation.id,__numericRelation);
+        _SmAp.put(__rhs.id,__rhs);
         _CmAp.put(__AllowedAttributesRuleData.id,__AllowedAttributesRuleData);
+        _CmAp.put(__AttributeTypeRuleData.id,__AttributeTypeRuleData);
         _CmAp.put(__InitRuleData.id,__InitRuleData);
         _CmAp.put(__IntegerRangeRuleData.id,__IntegerRangeRuleData);
+        _CmAp.put(__RelatedNumbersRuleData.id,__RelatedNumbersRuleData);
         _CmAp.put(__UCOAllowedAttributesRuleData.id,__UCOAllowedAttributesRuleData);
 
         __AllowedAttributesRuleData.addMust(MetaDMSAG.__ruleName);
@@ -97,7 +114,22 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         __UCOAllowedAttributesRuleData.addMust(MetaDMSAG.__ruleTitle);
         __UCOAllowedAttributesRuleData.addMay(MetaDMSAG.__description);
 
-        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:231)
+        __AttributeTypeRuleData.addMust(MetaDMSAG.__ruleName);
+        __AttributeTypeRuleData.addMust(MetaDMSAG.__ruleTitle);
+        __AttributeTypeRuleData.addMust(MetaDMSAG.__applyToAttribute);
+        __AttributeTypeRuleData.addMust(__allowedType);
+        __AttributeTypeRuleData.addMay(MetaDMSAG.__description);
+        __AttributeTypeRuleData.addMay(MetaDMSAG.__applyToClasses);
+
+        __RelatedNumbersRuleData.addMust(MetaDMSAG.__ruleName);
+        __RelatedNumbersRuleData.addMust(MetaDMSAG.__ruleTitle);
+        __RelatedNumbersRuleData.addMust(MetaDMSAG.__applyToClass);
+        __RelatedNumbersRuleData.addMust(__lhs);
+        __RelatedNumbersRuleData.addMust(__rhs);
+        __RelatedNumbersRuleData.addMust(__numericRelation);
+        __RelatedNumbersRuleData.addMay(MetaDMSAG.__description);
+
+        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:247)
         // These instantiations are merely meant to ensure that you've overloaded
         // the base rule implementations
         @SuppressWarnings("unused")
@@ -108,8 +140,12 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         IntegerRangeRule IntegerRangeRuleInstance = new IntegerRangeRule(new IntegerRangeRuleDataDMO());
         @SuppressWarnings("unused")
         UCOAllowedAttributesRule UCOAllowedAttributesRuleInstance = new UCOAllowedAttributesRule(new UCOAllowedAttributesRuleDataDMO());
+        @SuppressWarnings("unused")
+        AttributeTypeRule AttributeTypeRuleInstance = new AttributeTypeRule(new AttributeTypeRuleDataDMO());
+        @SuppressWarnings("unused")
+        RelatedNumbersRule RelatedNumbersRuleInstance = new RelatedNumbersRule(new RelatedNumbersRuleDataDMO());
 
-        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:244)
+        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:260)
         try{
             AllowedAttributesRuleDataDMO _dmvAllowedAttributesData = new AllowedAttributesRuleDataDMO();
             _dmvAllowedAttributesData    .setDefinedIn("dmv");
@@ -122,6 +158,38 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             __dmvAllowedAttributes = new AllowedAttributesRule(_dmvAllowedAttributesData);
 
             _RmAp.add(__dmvAllowedAttributes);
+
+            AttributeTypeRuleDataDMO _dmvLhsData = new AttributeTypeRuleDataDMO();
+            _dmvLhsData                  .addAllowedType("Integer");
+            _dmvLhsData                  .addAllowedType("Float");
+            _dmvLhsData                  .addAllowedType("Double");
+            _dmvLhsData                  .setApplyToAttribute("lhs");
+            _dmvLhsData                  .addApplyToClasses("RelatedNumbersRule");
+            _dmvLhsData                  .setDefinedIn("dmv");
+            _dmvLhsData                  .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvLhsData                  .setLineNumber("132");
+            _dmvLhsData                  .setRuleName("dmvLhs");
+            _dmvLhsData                  .setRuleTitle("The lhs attribute can be Integer, Float or Double");
+
+            __dmvLhs = new AttributeTypeRule(_dmvLhsData);
+
+            _RmAp.add(__dmvLhs);
+
+            AttributeTypeRuleDataDMO _dmvRhsData = new AttributeTypeRuleDataDMO();
+            _dmvRhsData                  .addAllowedType("Integer");
+            _dmvRhsData                  .addAllowedType("Float");
+            _dmvRhsData                  .addAllowedType("Double");
+            _dmvRhsData                  .setApplyToAttribute("rhs");
+            _dmvRhsData                  .addApplyToClasses("RelatedNumbersRule");
+            _dmvRhsData                  .setDefinedIn("dmv");
+            _dmvRhsData                  .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvRhsData                  .setLineNumber("140");
+            _dmvRhsData                  .setRuleName("dmvRhs");
+            _dmvRhsData                  .setRuleTitle("The rhs attribute can be Integer, Float or Double");
+
+            __dmvRhs = new AttributeTypeRule(_dmvRhsData);
+
+            _RmAp.add(__dmvRhs);
 
         } catch(DmcValueException ex){
             throw(new IllegalStateException(ex));
