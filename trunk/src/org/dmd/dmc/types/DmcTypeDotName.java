@@ -58,7 +58,7 @@ abstract public class DmcTypeDotName extends DmcTypeDmcHierarchicObjectName<DotN
 
 	@Override
 	public DotName cloneValue(DotName original) {
-		return(new DotName(original.name));
+		return (DotName) (original.cloneIt());
 	}
 
 	////////////////////////////////////////////////////////////////////////////////

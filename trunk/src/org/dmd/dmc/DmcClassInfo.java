@@ -13,8 +13,11 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
  */
 public class DmcClassInfo implements Comparable<DmcClassInfo>{
 
-	// The string name of the attribute
+	// The string name of the class
 	final public String 		name;
+	
+	// The fully qualified name of the DMO
+	final public String			dmoImport;
 	
 	// The DMD identifier of this attribute. This is used to look up the attribute's 
 	// information when deserializing an attribute. We look up the information so
@@ -34,8 +37,20 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 	
 	final public DmcAttributeInfo	nameAttribute;
 	
+	public DmcClassInfo(String n, String di, int i, ClassTypeEnum ct, DataTypeEnum dt, DmcClassInfo bc, DmcAttributeInfo na){
+		name			= n;
+		dmoImport		= di;
+		id				= i;
+		classType		= ct;
+		dataType		= dt;
+		derivedFrom		= bc;
+		byID			= new TreeMap<Integer,DmcAttributeInfoRef>();
+		nameAttribute	= na;
+	}
+	
 	public DmcClassInfo(String n, int i, ClassTypeEnum ct, DataTypeEnum dt, DmcClassInfo bc, DmcAttributeInfo na){
 		name			= n;
+		dmoImport		= null;
 		id				= i;
 		classType		= ct;
 		dataType		= dt;

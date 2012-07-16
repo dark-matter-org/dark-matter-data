@@ -34,6 +34,8 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 	
 	public final static String className = "DotName";
 	
+	final static String dotCase = "[a-zA-Z][a-zA-Z0-9.]*";
+
 	String name;
 	transient DotName parent;
 	
@@ -41,8 +43,11 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 
 	}
 	
-	public DotName(String n){
-		name = n;
+	public DotName(String n) throws DmcValueException {
+		if (n.matches(dotCase))
+			name = n;
+		else
+			throw(new DmcValueException("The String: " + n + " does not conform to dot name format."));
 	}
 
 	@Override
@@ -51,7 +56,10 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 	}
 	
 	public void setNameString(String n) throws DmcValueException {
-		name = n;
+		if (n.matches(dotCase))
+			name = n;
+		else
+			throw(new DmcValueException("The String: " + n + " does not conform to dot name format."));
 	}
 
 	@Override
@@ -96,7 +104,11 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 		if (parent == null){
 			int lastdot = name.lastIndexOf('.');
 			if (lastdot != -1){
-				parent = new DotName(name.substring(0, lastdot));
+				try {
+					parent = new DotName(name.substring(0, lastdot));
+				} catch (DmcValueException e) {
+					throw(new IllegalStateException("Shouldn't fail to get a parent name from a legal DotName"));
+				}
 			}	
 		}
 		return(parent);
@@ -156,7 +168,13 @@ public class DotName extends DmcHierarchicObjectName implements Serializable {
 
 	@Override
 	public DmcObjectName cloneIt() {
-		return(new DotName(name));
+		DotName rc = null;
+		try {
+			rc = new DotName(name);
+		} catch (DmcValueException e) {
+			throw(new IllegalStateException("Shouldn't fail cloning a legal DotName"));
+		}
+		return(rc);
 	}
 
 	@Override

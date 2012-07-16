@@ -4,17 +4,17 @@ import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.dmv.shared.generated.types.DmcTypeInitRuleDataREFSV;
+import org.dmd.dmv.shared.generated.types.DmcTypeNumericRelationEnumSET;
 
 @SuppressWarnings("serial")
 // org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
-// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
-public class InitRuleDataREFSVAdapter extends DmcTypeInitRuleDataREFSV implements DmcAdapterIF {
+// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSET(AdapterFormatter.java:20)
+public class NumericRelationEnumSETAdapter extends DmcTypeNumericRelationEnumSET implements DmcAdapterIF {
 
-    transient DmcTypeInitRuleDataREFSV existingValue;
+    transient DmcTypeNumericRelationEnumSET existingValue;
 
-    public InitRuleDataREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    public NumericRelationEnumSETAdapter(DmcAttributeInfo ai){
+    	   super(ai);
     }
 
     @Override
@@ -34,24 +34,24 @@ public class InitRuleDataREFSVAdapter extends DmcTypeInitRuleDataREFSV implement
     	if (existingValue == null)
     		value = null;
     	else
-    		value = existingValue.getSVCopy();
+    		value = existingValue.getMVCopy();
     }
 
     @Override
     public void setExisting(DmcAttribute<?> attr) {
-    	existingValue = (DmcTypeInitRuleDataREFSV) attr;
+    	existingValue = (DmcTypeNumericRelationEnumSET) attr;
     	if (existingValue != null)
-    		value = existingValue.getSVCopy();
+    		value = existingValue.getMVCopy();
     }
 
     @Override
     public boolean valueChanged(){
-    	   return(valueChangedSV(existingValue, this));
+    	   return(valueChangedMV(existingValue, this));
     }
 
     @Override
     public void addMods(DmcTypeModifierMV mods){
-    	   addModsSV(mods, existingValue, this);
+    	   addModsMV(mods, existingValue, this);
     }
 
     @Override

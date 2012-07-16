@@ -4,17 +4,17 @@ import org.dmd.dmc.presentation.DmcAdapterIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
-import org.dmd.dmv.shared.generated.types.DmcTypeIntegerRangeRuleDataREFSV;
+import org.dmd.dmv.shared.generated.types.DmcTypeNumericRelationEnumMV;
 
 @SuppressWarnings("serial")
 // org.dmd.dms.util.AdapterFormatter.dumpAdapter(AdapterFormatter.java:50)
-// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterSV(AdapterFormatter.java:12)
-public class IntegerRangeRuleDataREFSVAdapter extends DmcTypeIntegerRangeRuleDataREFSV implements DmcAdapterIF {
+// Called from: org.dmd.dms.util.AdapterFormatter.dumpAdapterMV(AdapterFormatter.java:16)
+public class NumericRelationEnumMVAdapter extends DmcTypeNumericRelationEnumMV implements DmcAdapterIF {
 
-    transient DmcTypeIntegerRangeRuleDataREFSV existingValue;
+    transient DmcTypeNumericRelationEnumMV existingValue;
 
-    public IntegerRangeRuleDataREFSVAdapter(DmcAttributeInfo ai){
-    	   attrInfo = ai;
+    public NumericRelationEnumMVAdapter(DmcAttributeInfo ai){
+    	   super(ai);
     }
 
     @Override
@@ -34,24 +34,24 @@ public class IntegerRangeRuleDataREFSVAdapter extends DmcTypeIntegerRangeRuleDat
     	if (existingValue == null)
     		value = null;
     	else
-    		value = existingValue.getSVCopy();
+    		value = existingValue.getMVCopy();
     }
 
     @Override
     public void setExisting(DmcAttribute<?> attr) {
-    	existingValue = (DmcTypeIntegerRangeRuleDataREFSV) attr;
+    	existingValue = (DmcTypeNumericRelationEnumMV) attr;
     	if (existingValue != null)
-    		value = existingValue.getSVCopy();
+    		value = existingValue.getMVCopy();
     }
 
     @Override
     public boolean valueChanged(){
-    	   return(valueChangedSV(existingValue, this));
+    	   return(valueChangedMV(existingValue, this));
     }
 
     @Override
     public void addMods(DmcTypeModifierMV mods){
-    	   addModsSV(mods, existingValue, this);
+    	   addModsMV(mods, existingValue, this);
     }
 
     @Override

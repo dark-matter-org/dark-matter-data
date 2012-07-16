@@ -47,10 +47,11 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * defined in DmcAttribute. 
  * <P>
  * The DmcAttribute merely provides a mechanism for constructing ID/VALUE pairs
- * for single and multi-valued attributes. There are three primary modification 
+ * for single and multi-valued attributes. There are four primary modification 
  * interfaces on a DmcAttribute:
  * <ul>
  * <li> set() - sets the value of a single-valued attribute </li>
+ * <li> setMVnth() - sets the nth value of an indexed, multi-valued attribute </li>
  * <li> add() - adds a value to a multi-valued attribute </li>
  * <li> del() - deletes a value from a multi-valued attribute </li>
  * </ul>
@@ -60,7 +61,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * <ul>
  * <li> getSV()    - which returns a single value</li>
  * <li> getMV()    - which returns an Iterator over multiple values</li>
- * <li> getByKey() - which returns a keyed value</li>
+ * <li> getMVnth() - which returns the nth value of an indexed, multi-valued attribute</li>
  * </ul>
  * The DmcAttribute and it's derivatives are generally not used directly; their 
  * functionality is hidden behind a generated DMO which provides typed interfaces

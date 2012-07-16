@@ -1,21 +1,21 @@
 package org.dmd.dmr.shared.ldap.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:722)
-import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:660)
-import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:659)
-import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:661)
-import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:662)
-import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:663)
-import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // Base class from DmrBaseDMSAG - (DmoCompactSchemaFormatter.java:683)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:679)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:667)
-import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:668)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:690)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:738)
+import java.util.ArrayList;                                        // For storage of schema info - (DmoCompactSchemaFormatter.java:676)
+import java.util.HashMap;                                          // For storage of schema info - (DmoCompactSchemaFormatter.java:675)
+import java.util.Iterator;                                         // For access of schema info - (DmoCompactSchemaFormatter.java:677)
+import org.dmd.dmc.*;                                              // Basic DMC stuff - (DmoCompactSchemaFormatter.java:678)
+import org.dmd.dmc.rules.RuleIF;                                   // For rule info - (DmoCompactSchemaFormatter.java:679)
+import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;         // Base class from DmrBaseDMSAG - (DmoCompactSchemaFormatter.java:699)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                        // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:695)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                  // Have class definitions - (DmoCompactSchemaFormatter.java:683)
+import org.dmd.dms.generated.enums.DataTypeEnum;                   // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:684)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                  // Have attribute definitions - (DmoCompactSchemaFormatter.java:706)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:100)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:102)
 public class DmrLdapDMSAG implements DmcCompactSchemaIF {
 
 
@@ -32,10 +32,10 @@ public class DmrLdapDMSAG implements DmcCompactSchemaIF {
 
     public final static DmcAttributeInfo __ldapIdPrefix = new DmcAttributeInfo("ldapIdPrefix", 450, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __reposName = new DmcAttributeInfo("reposName", 451, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcClassInfo __LDAPAttributeAUX = new DmcClassInfo("LDAPAttributeAUX", 453, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __LDAPClassAUX = new DmcClassInfo("LDAPClassAUX", 452, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __LDAPHierarchicObject = new DmcClassInfo("LDAPHierarchicObject", 454, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,DmrBaseDMSAG.__HierarchicObject,MetaDMSAG.__FQN);
-    public final static DmcClassInfo __LDAPSchemaAUX = new DmcClassInfo("LDAPSchemaAUX", 451, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __LDAPAttributeAUX = new DmcClassInfo("LDAPAttributeAUX","org.dmd.dmr.shared.ldap.generated.dmo.LDAPAttributeAUXDMO", 453, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __LDAPClassAUX = new DmcClassInfo("LDAPClassAUX","org.dmd.dmr.shared.ldap.generated.dmo.LDAPClassAUXDMO", 452, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __LDAPHierarchicObject = new DmcClassInfo("LDAPHierarchicObject","org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO", 454, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,DmrBaseDMSAG.__HierarchicObject,MetaDMSAG.__FQN);
+    public final static DmcClassInfo __LDAPSchemaAUX = new DmcClassInfo("LDAPSchemaAUX","org.dmd.dmr.shared.ldap.generated.dmo.LDAPSchemaAUXDMO", 451, ClassTypeEnum.AUXILIARY, DataTypeEnum.PERSISTENT,null,null);
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
