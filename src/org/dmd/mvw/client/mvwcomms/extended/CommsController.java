@@ -418,12 +418,12 @@ public class CommsController extends CommsControllerBaseImpl implements CommsCon
 			cb.getHandler().handleRPCFailure(caught, cb.getRequest());
 			break;
 		case CENTRAL:
-			if (DMPErrorHandler == null)
+			if (RPCErrorHandler == null)
 				throw(new IllegalStateException("Central RPC error handling requested but no central handler is set."));
 			RPCErrorHandler.handleRPCFailureCentrally(caught, cb.getRequest());
 			break;
 		case CENTRALANDLOCAL:
-			if (DMPErrorHandler == null)
+			if (RPCErrorHandler == null)
 				throw(new IllegalStateException("Central RPC error handling requested but no central handler is set."));
 			RPCErrorHandler.handleRPCFailureCentrally(caught, cb.getRequest());
 			cb.getHandler().handleRPCFailure(caught, cb.getRequest());
