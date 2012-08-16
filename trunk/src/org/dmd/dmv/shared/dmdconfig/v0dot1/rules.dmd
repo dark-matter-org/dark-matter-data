@@ -60,7 +60,7 @@ ruleCategory	ModifierValidation
 must			irrMinimum
 must			irrMaximum
 description		The IntegerRangeRule ensures that an Integer attribute has a value that falls
- within a given range. The irrMinimum must be lesss than the irrMaximum. An example usage
+ within a given range. The irrMinimum must be less than the irrMaximum. An example usage
  might be:
  <p/>
  <pre>
