@@ -1324,15 +1324,17 @@ abstract public class DmcObject implements Serializable {
 	 * @return The String representation of the object.
 	 */
 	public String toOIF(){
-		int longest = 0;
-		for(DmcAttribute<?> attr : attributes.values()){
-			if (attr.ID == __objectClass.id)
-				continue;
-			if (attr.getName().length() > longest)
-				longest = attr.getName().length();
+		synchronized (attributes) {
+			int longest = 0;
+			for(DmcAttribute<?> attr : attributes.values()){
+				if (attr.ID == __objectClass.id)
+					continue;
+				if (attr.getName().length() > longest)
+					longest = attr.getName().length();
+			}
+	
+			return(toOIF(longest+2));
 		}
-
-		return(toOIF(longest+2));
 	}
 	
 	/**
@@ -1340,29 +1342,31 @@ abstract public class DmcObject implements Serializable {
 	 * @return The String representation of the object.
 	 */
 	public String toOIFNoPadding(){
-		StringBuffer	sb = new StringBuffer();
-		
-		appendClassNames(sb);
-		
-		if (getModifier() == null){
-			// Dump the attribute values
-			for(DmcAttribute<?> attr : attributes.values()){
-				if ( attr.getID() != __objectClass.id )
-					attr.toOIF(sb);
+		synchronized (attributes) {
+			StringBuffer	sb = new StringBuffer();
+			
+			appendClassNames(sb);
+			
+			if (getModifier() == null){
+				// Dump the attribute values
+				for(DmcAttribute<?> attr : attributes.values()){
+					if ( attr.getID() != __objectClass.id )
+						attr.toOIF(sb);
+				}
 			}
-		}
-		else{
-			// If we have a naming attribute and it's available, dump it
-			if ( (getConstructionClassInfo() != null) && (getConstructionClassInfo().nameAttribute != null) ){
-				DmcAttribute<?> attr = get(getConstructionClassInfo().nameAttribute);
-				if (attr != null)
-					attr.toOIF(sb);
+			else{
+				// If we have a naming attribute and it's available, dump it
+				if ( (getConstructionClassInfo() != null) && (getConstructionClassInfo().nameAttribute != null) ){
+					DmcAttribute<?> attr = get(getConstructionClassInfo().nameAttribute);
+					if (attr != null)
+						attr.toOIF(sb);
+				}
+				// Just dump the modifier not the attributes
+				getModifier().toOIF(sb);
 			}
-			// Just dump the modifier not the attributes
-			getModifier().toOIF(sb);
+	
+			return(sb.toString());
 		}
-
-		return(sb.toString());
 	}
 	
 	/**
