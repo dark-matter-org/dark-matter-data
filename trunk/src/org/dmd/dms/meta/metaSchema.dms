@@ -464,9 +464,10 @@ name			ModifierValidation
 opContext		DMO
 ruleCategoryID	4
 ruleInterface	org.dmd.dms.shared.interfaces.ModifierValidationIF
-ruleExecution	validate(DmcObject obj, DmcTypeModifierMV mods) throws DmcRuleExceptionSet
+ruleExecution	validate(DmcObject obj, DmcTypeModifierMV mods, Modifier mod) throws DmcRuleExceptionSet
 ruleImport		org.dmd.dmc.DmcObject
 ruleImport		org.dmd.dms.generated.types.DmcTypeModifierMV
+ruleImport		org.dmd.dmc.types.Modifier
 ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
 description		Rules in this category are used to validate modifications that are
  about to be applied to an object.
@@ -1659,7 +1660,7 @@ AttributeDefinition
 name                		applyToAttribute
 dmdID						157
 type                		AttributeDefinition
-description    				Indiactes the attribute to which an ATTRIBUTE type rule is applied.
+description    				Indicates the attribute to which an ATTRIBUTE type rule is applied.
 
 * NOTE: this definition has to come here to prevent problems when instantiating
 * the meta-schema.
@@ -1702,6 +1703,7 @@ ClassDefinition
 name			DmsDefinition
 classType     	ABSTRACT
 dmdID			1
+useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.DmsDefinition
 dmoImport		org.dmd.dms.generated.dmo.DmsDefinitionDMO
 isNamedBy       name
@@ -1716,6 +1718,7 @@ ClassDefinition
 name           	ClassDefinition
 classType     	STRUCTURAL
 dmdID			2
+useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.ClassDefinition
 dmoImport		org.dmd.dms.generated.dmo.ClassDefinitionDMO
 derivedFrom     DmsDefinition
@@ -1768,6 +1771,7 @@ ClassDefinition
 name         	EnumDefinition
 classType      	STRUCTURAL
 dmdID			3
+useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.EnumDefinition
 dmoImport		org.dmd.dms.generated.dmo.EnumDefinitionDMO
 derivedFrom     DmsDefinition
@@ -1785,6 +1789,7 @@ ClassDefinition
 name         	TypeDefinition
 classType      	STRUCTURAL
 dmdID			4
+useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.TypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.TypeDefinitionDMO
 derivedFrom     DmsDefinition
@@ -1832,6 +1837,7 @@ ClassDefinition
 name			ComplexTypeDefinition
 classType		STRUCTURAL
 dmdID			5
+useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.ComplexTypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.ComplexTypeDefinitionDMO
 derivedFrom     DmsDefinition
@@ -1849,6 +1855,7 @@ ClassDefinition
 name			ExtendedReferenceTypeDefinition
 classType		STRUCTURAL
 dmdID			6
+useWrapperType	EXTENDED
 javaClass     	org.dmd.dms.ExtendedReferenceTypeDefinition
 dmoImport		org.dmd.dms.generated.dmo.ExtendedReferenceTypeDefinitionDMO
 derivedFrom     ComplexTypeDefinition
@@ -1864,6 +1871,7 @@ ClassDefinition
 name         	AttributeDefinition
 classType     	STRUCTURAL
 dmdID			7
+useWrapperType	EXTENDED
 javaClass      	org.dmd.dms.AttributeDefinition
 dmoImport		org.dmd.dms.generated.dmo.AttributeDefinitionDMO
 derivedFrom     DmsDefinition
@@ -1892,6 +1900,7 @@ name			SliceDefinition
 isNamedBy		name
 classType     	STRUCTURAL
 dmdID			8
+useWrapperType	EXTENDED
 javaClass      	org.dmd.dms.SliceDefinition
 dmoImport		org.dmd.dms.generated.dmo.SliceDefinitionDMO
 derivedFrom     DmsDefinition
@@ -1936,6 +1945,7 @@ ClassDefinition
 name        	ActionDefinition
 classType     	STRUCTURAL
 dmdID			11
+useWrapperType	EXTENDED
 //dataType       	TRANSIENT
 javaClass    	org.dmd.dms.ActionDefinition
 dmoImport		org.dmd.dms.generated.dmo.ActionDefinitionDMO
@@ -1962,6 +1972,7 @@ ClassDefinition
 name           	SchemaDefinition
 classType      	STRUCTURAL
 dmdID			12
+useWrapperType	EXTENDED
 //dataType      	TRANSIENT
 javaClass    	org.dmd.dms.SchemaDefinition
 dmoImport		org.dmd.dms.generated.dmo.SchemaDefinitionDMO
@@ -2005,6 +2016,7 @@ ClassDefinition
 name           	RuleCategory
 classType      	STRUCTURAL
 dmdID			15
+useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.RuleCategory
 dmoImport		org.dmd.dms.generated.dmo.RuleCategoryDMO
 derivedFrom     DmsDefinition
@@ -2027,6 +2039,7 @@ ClassDefinition
 name           	RuleDefinition
 classType      	STRUCTURAL
 dmdID			16
+useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.RuleDefinition
 dmoImport		org.dmd.dms.generated.dmo.RuleDefinitionDMO
 derivedFrom     DmsDefinition
@@ -2047,7 +2060,7 @@ description		The RuleDefinition allows for the definition of rules that can
  the InitRule can initialize a set of attributes to known values.
  <p/>
  RuleDefinitions will result in the generation of ClassDefinitions that define the 
- DMOs that will carry the parameters associated with the rule and expectation
+ DMOs that will carry the parameters associated with the rule and the expectation
  that you will define an implementation class for the rule that derives from
  an abstract BaseImpl (base implementation) of the rule that provides common
  rule infrastructure and appropriate abstract methods that must be filled in.
@@ -2060,6 +2073,7 @@ ClassDefinition
 name           	RuleData
 classType      	ABSTRACT
 dmdID			17
+useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.RuleData
 dmoImport		org.dmd.dms.generated.dmo.RuleDataDMO
 isNamedBy		ruleName
@@ -2069,6 +2083,8 @@ may				description
 may           	definedIn
 may          	file
 may        		lineNumber
+may				applyToAttribute
+may				applyToClasses
 description		The RuleData class serves as a common base for all ClassDefinitions
  that are generated internally to represent the data associated with RuleDefinitions.
  
@@ -2076,6 +2092,7 @@ ClassDefinition
 name			Dependency
 classType      	STRUCTURAL
 dmdID			18
+useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.Dependency
 dmoImport		org.dmd.dms.generated.dmo.DependencyDMO
 derivedFrom     DmsDefinition
@@ -2106,6 +2123,7 @@ ClassDefinition
 name			DependencyImplementation
 classType      	STRUCTURAL
 dmdID			19
+useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.DependencyImplementation
 dmoImport		org.dmd.dms.generated.dmo.DependencyImplementationDMO
 derivedFrom     DmsDefinition
@@ -2125,6 +2143,7 @@ ClassDefinition
 name			RunContext
 classType      	STRUCTURAL
 dmdID			20
+useWrapperType	EXTENDED
 javaClass    	org.dmd.dms.Dependency
 dmoImport		org.dmd.dms.generated.dmo.DependencyDMO
 derivedFrom     DmsDefinition

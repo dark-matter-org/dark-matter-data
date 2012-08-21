@@ -39,12 +39,19 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static ClassDefinition _InitRuleData;
     public static ClassDefinition _IntegerRangeRuleData;
     public static ClassDefinition _UCOAllowedAttributesRuleData;
+    public static ClassDefinition _AttributeTypeRuleData;
+    public static ClassDefinition _RelatedNumbersRuleData;
 
     public static AttributeDefinition _irrMinimum;
     public static AttributeDefinition _irrMaximum;
+    public static AttributeDefinition _numericRelation;
+    public static AttributeDefinition _lhs;
+    public static AttributeDefinition _rhs;
+    public static AttributeDefinition _allowedType;
 
 
 
+    public static EnumDefinition _NumericRelationEnum;
 
     static DmvSchemaAG instance;
 
@@ -122,7 +129,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _IntegerRangeRuleDataOBJ.setInternallyGenerated("true");
             _IntegerRangeRuleDataOBJ.setClassType("STRUCTURAL");
             _IntegerRangeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _IntegerRangeRuleDataOBJ.setLineNumber("72");
+            _IntegerRangeRuleDataOBJ.setLineNumber("74");
             _IntegerRangeRuleDataOBJ.setDerivedFrom("RuleData");
             _IntegerRangeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.IntegerRangeRuleDataREF");
             _IntegerRangeRuleDataOBJ.setRuleDefinition("IntegerRangeRule");
@@ -146,7 +153,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleDataOBJ.setInternallyGenerated("true");
             _UCOAllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
             _UCOAllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _UCOAllowedAttributesRuleDataOBJ.setLineNumber("83");
+            _UCOAllowedAttributesRuleDataOBJ.setLineNumber("86");
             _UCOAllowedAttributesRuleDataOBJ.setDerivedFrom("RuleData");
             _UCOAllowedAttributesRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.UCOAllowedAttributesRuleDataREF");
             _UCOAllowedAttributesRuleDataOBJ.setRuleDefinition("UCOAllowedAttributesRule");
@@ -157,6 +164,53 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.UCOAllowedAttributesRuleDataIterableDMW");
             _UCOAllowedAttributesRuleData.setDefinedIn(this);
             addClassDefList(_UCOAllowedAttributesRuleData);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            ClassDefinitionDMO _AttributeTypeRuleDataOBJ = new ClassDefinitionDMO();
+            _AttributeTypeRuleData = new ClassDefinition(_AttributeTypeRuleDataOBJ,DmvDMSAG.__AttributeTypeRuleData);
+            _AttributeTypeRuleDataOBJ.setName("AttributeTypeRuleData");
+            _AttributeTypeRuleDataOBJ.setDmdID("-959995");
+            _AttributeTypeRuleDataOBJ.setInternallyGenerated("true");
+            _AttributeTypeRuleDataOBJ.setClassType("STRUCTURAL");
+            _AttributeTypeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _AttributeTypeRuleDataOBJ.setLineNumber("98");
+            _AttributeTypeRuleDataOBJ.setDerivedFrom("RuleData");
+            _AttributeTypeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.AttributeTypeRuleDataREF");
+            _AttributeTypeRuleDataOBJ.setRuleDefinition("AttributeTypeRule");
+            _AttributeTypeRuleDataOBJ.setDmwIteratorClass("AttributeTypeRuleDataIterableDMW");
+            _AttributeTypeRuleDataOBJ.addMay("description");
+            _AttributeTypeRuleDataOBJ.addMay("applyToClasses");
+            _AttributeTypeRuleDataOBJ.addMust("ruleName");
+            _AttributeTypeRuleDataOBJ.addMust("ruleTitle");
+            _AttributeTypeRuleDataOBJ.addMust("applyToAttribute");
+            _AttributeTypeRuleDataOBJ.addMust("allowedType");
+            _AttributeTypeRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.AttributeTypeRuleDataIterableDMW");
+            _AttributeTypeRuleData.setDefinedIn(this);
+            addClassDefList(_AttributeTypeRuleData);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            ClassDefinitionDMO _RelatedNumbersRuleDataOBJ = new ClassDefinitionDMO();
+            _RelatedNumbersRuleData = new ClassDefinition(_RelatedNumbersRuleDataOBJ,DmvDMSAG.__RelatedNumbersRuleData);
+            _RelatedNumbersRuleDataOBJ.setName("RelatedNumbersRuleData");
+            _RelatedNumbersRuleDataOBJ.setDmdID("-959994");
+            _RelatedNumbersRuleDataOBJ.setInternallyGenerated("true");
+            _RelatedNumbersRuleDataOBJ.setClassType("STRUCTURAL");
+            _RelatedNumbersRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _RelatedNumbersRuleDataOBJ.setLineNumber("123");
+            _RelatedNumbersRuleDataOBJ.setDerivedFrom("RuleData");
+            _RelatedNumbersRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.RelatedNumbersRuleDataREF");
+            _RelatedNumbersRuleDataOBJ.setRuleDefinition("RelatedNumbersRule");
+            _RelatedNumbersRuleDataOBJ.setDmwIteratorClass("RelatedNumbersRuleDataIterableDMW");
+            _RelatedNumbersRuleDataOBJ.addMay("description");
+            _RelatedNumbersRuleDataOBJ.addMust("ruleName");
+            _RelatedNumbersRuleDataOBJ.addMust("ruleTitle");
+            _RelatedNumbersRuleDataOBJ.addMust("applyToClass");
+            _RelatedNumbersRuleDataOBJ.addMust("lhs");
+            _RelatedNumbersRuleDataOBJ.addMust("rhs");
+            _RelatedNumbersRuleDataOBJ.addMust("numericRelation");
+            _RelatedNumbersRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.RelatedNumbersRuleDataIterableDMW");
+            _RelatedNumbersRuleData.setDefinedIn(this);
+            addClassDefList(_RelatedNumbersRuleData);
 
     }
 
@@ -182,8 +236,57 @@ public class DmvSchemaAG extends SchemaDefinition {
             _irrMaximumOBJ.setDescription("The maximum integer value.");
             _irrMaximum.setDefinedIn(this);
             _irrMaximumOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
-            _irrMaximumOBJ.setLineNumber("11");
+            _irrMaximumOBJ.setLineNumber("12");
             addAttributeDefList(_irrMaximum);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            AttributeDefinitionDMO _numericRelationOBJ = new AttributeDefinitionDMO();
+            _numericRelation = new AttributeDefinition(_numericRelationOBJ);
+            _numericRelationOBJ.setType("NumericRelationEnum");
+            _numericRelationOBJ.setName("numericRelation");
+            _numericRelationOBJ.setDmdID("-479997");
+            _numericRelationOBJ.setDescription("The relationship between numeric values.");
+            _numericRelation.setDefinedIn(this);
+            _numericRelationOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _numericRelationOBJ.setLineNumber("18");
+            addAttributeDefList(_numericRelation);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            AttributeDefinitionDMO _lhsOBJ = new AttributeDefinitionDMO();
+            _lhs = new AttributeDefinition(_lhsOBJ);
+            _lhsOBJ.setType("AttributeDefinition");
+            _lhsOBJ.setName("lhs");
+            _lhsOBJ.setDmdID("-479996");
+            _lhsOBJ.setDescription("The attribute to be used as the left hand side of some relationship. The type of the attribute referred to may differ from one rule to the next depending on the relationship being tested.");
+            _lhs.setDefinedIn(this);
+            _lhsOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _lhsOBJ.setLineNumber("26");
+            addAttributeDefList(_lhs);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            AttributeDefinitionDMO _rhsOBJ = new AttributeDefinitionDMO();
+            _rhs = new AttributeDefinition(_rhsOBJ);
+            _rhsOBJ.setType("AttributeDefinition");
+            _rhsOBJ.setName("rhs");
+            _rhsOBJ.setDmdID("-479995");
+            _rhsOBJ.setDescription("The attribute to be used as the right hand side of some relationship. The type of the attribute referred to may differ from one rule to the next depending on the relationship being tested.");
+            _rhs.setDefinedIn(this);
+            _rhsOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _rhsOBJ.setLineNumber("34");
+            addAttributeDefList(_rhs);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            AttributeDefinitionDMO _allowedTypeOBJ = new AttributeDefinitionDMO();
+            _allowedType = new AttributeDefinition(_allowedTypeOBJ);
+            _allowedTypeOBJ.setType("TypeDefinition");
+            _allowedTypeOBJ.setName("allowedType");
+            _allowedTypeOBJ.setDmdID("-479994");
+            _allowedTypeOBJ.setDescription("The allowedType indicates a collection of defined types to which something, usually and attribute, must conform.");
+            _allowedTypeOBJ.setValueType("MULTI");
+            _allowedType.setDefinedIn(this);
+            _allowedTypeOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _allowedTypeOBJ.setLineNumber("42");
+            addAttributeDefList(_allowedType);
 
     }
 
@@ -194,6 +297,22 @@ public class DmvSchemaAG extends SchemaDefinition {
     }
 
     private void initEnums() throws DmcValueException {
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:492)
+            EnumDefinitionDMO _NumericRelationEnumOBJ = new EnumDefinitionDMO();
+            _NumericRelationEnum = new EnumDefinition(_NumericRelationEnumOBJ);
+            _NumericRelationEnumOBJ.setName("NumericRelationEnum");
+            _NumericRelationEnumOBJ.addEnumValue("0 EQUALS Equals : EQ");
+            _NumericRelationEnumOBJ.addEnumValue("1 GT Greater than : GT");
+            _NumericRelationEnumOBJ.addEnumValue("2 LT Less than : LT");
+            _NumericRelationEnumOBJ.addEnumValue("3 NE Not equal : NE");
+            _NumericRelationEnumOBJ.addEnumValue("4 GTE Greater than or equal to : GTE");
+            _NumericRelationEnumOBJ.addEnumValue("5 LTE Less than or equal to : LTE");
+            _NumericRelationEnumOBJ.setDescription("The NumericRelationEnum is used to specify the relationship that should exist between two numeric values.");
+            _NumericRelationEnum.setDefinedIn(this);
+            _NumericRelationEnumOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/types.dmd");
+            _NumericRelationEnumOBJ.setLineNumber("10");
+            addEnumDefList(_NumericRelationEnum);
+
     }
 
 

@@ -1224,6 +1224,10 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 				sb.append("    }\n\n");
     		}
     		else{
+    			if (ad.getType().getName().equals("AttributeDefinition")){
+    				DebugInfo.debugWithTrace("HERE");
+    			}
+    			
     			String suffix = "";
     			if (ad.getType().getOriginalClass().getDmwWrapperType(genContext) == WrapperTypeEnum.EXTENDED)
     				suffix = "";

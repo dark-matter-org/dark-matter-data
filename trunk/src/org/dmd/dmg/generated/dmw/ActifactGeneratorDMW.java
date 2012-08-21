@@ -80,7 +80,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public String getGenClass(){
         return(((ActifactGeneratorDMO) core).getGenClass());
     }
@@ -89,7 +89,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets genClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setGenClass(Object value) throws DmcValueException {
         ((ActifactGeneratorDMO) core).setGenClass(value);
     }
@@ -98,7 +98,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets genClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setGenClass(String value){
         ((ActifactGeneratorDMO) core).setGenClass(value);
     }
@@ -106,12 +106,12 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
     /**
      * Removes the genClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remGenClass(){
         ((ActifactGeneratorDMO) core).remGenClass();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public StringName getName(){
         return(((ActifactGeneratorDMO) core).getName());
     }
@@ -120,7 +120,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setName(Object value) throws DmcValueException {
         ((ActifactGeneratorDMO) core).setName(value);
     }
@@ -129,7 +129,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setName(StringName value){
         ((ActifactGeneratorDMO) core).setName(value);
     }
@@ -137,7 +137,7 @@ public class ActifactGeneratorDMW extends DmwNamedObjectWrapper implements DmcNa
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remName(){
         ((ActifactGeneratorDMO) core).remName();
     }

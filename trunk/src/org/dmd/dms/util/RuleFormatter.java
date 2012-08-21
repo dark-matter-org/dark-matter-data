@@ -217,6 +217,8 @@ public class RuleFormatter {
     		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
     		baseImports.addImport("java.util.ArrayList", "To store category IDs");
     		baseImports.addImport("java.util.Iterator", "To access category IDs");
+    		baseImports.addImport("org.dmd.dms.generated.types.ClassDefinitionREF", "To support getApplyToClasses()");
+    		baseImports.addImport("org.dmd.dms.generated.types.AttributeDefinitionREF", "To support getApplyToAttribute()");
     		interfaces.append("RuleIF");
 			
     		baseImports.addImport(sd.getSchemaPackage() + ".generated.dmo." + rd.getName() + "DataDMO", "Rule parameters object");
@@ -280,6 +282,20 @@ public class RuleFormatter {
 			out.write("    @Override\n");
 			out.write("    public Iterator<Integer> getCategories() {\n");
 			out.write("        return(categories.iterator());\n");
+			out.write("    }\n\n");
+
+			out.write("    @Override\n");
+			out.write("    public Iterator<ClassDefinitionREF> getApplyToClasses() {\n");
+			out.write("        if (ruleDMO == null)\n");
+			out.write("            return(null);\n");
+			out.write("        return(ruleDMO.getApplyToClasses());\n");
+			out.write("    }\n\n");
+
+			out.write("    @Override\n");
+			out.write("    public AttributeDefinitionREF getApplyToAttribute() {\n");
+			out.write("        if (ruleDMO == null)\n");
+			out.write("            return(null);\n");
+			out.write("        return(ruleDMO.getApplyToAttribute());\n");
 			out.write("    }\n\n");
 
 			

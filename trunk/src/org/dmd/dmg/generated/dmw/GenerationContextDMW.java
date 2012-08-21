@@ -81,7 +81,7 @@ public class GenerationContextDMW extends DmwNamedObjectWrapper implements DmcNa
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public CamelCaseName getGenContextName(){
         return(((GenerationContextDMO) core).getGenContextName());
     }
@@ -90,7 +90,7 @@ public class GenerationContextDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets genContextName to the specified value.
      * @param value A value compatible with DmcTypeCamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setGenContextName(Object value) throws DmcValueException {
         ((GenerationContextDMO) core).setGenContextName(value);
     }
@@ -99,7 +99,7 @@ public class GenerationContextDMW extends DmwNamedObjectWrapper implements DmcNa
      * Sets genContextName to the specified value.
      * @param value CamelCaseName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setGenContextName(CamelCaseName value){
         ((GenerationContextDMO) core).setGenContextName(value);
     }
@@ -107,7 +107,7 @@ public class GenerationContextDMW extends DmwNamedObjectWrapper implements DmcNa
     /**
      * Removes the genContextName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remGenContextName(){
         ((GenerationContextDMO) core).remGenContextName();
     }

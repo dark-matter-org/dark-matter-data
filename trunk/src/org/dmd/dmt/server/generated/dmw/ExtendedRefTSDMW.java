@@ -8,10 +8,10 @@ import org.dmd.dms.*;                                                    // Alwa
 import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
 import org.dmd.dmt.server.extended.ObjWithRefs;                          // Is reference type - (BaseDMWGeneratorNewest.java:923)
-import org.dmd.dmt.server.generated.dmw.SomeRelationIterableDMW;         // For multi-valued SomeRelation - (BaseDMWGeneratorNewest.java:1521)
-import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                        // Attribute from the dmt schema - (BaseDMWGeneratorNewest.java:1522)
+import org.dmd.dmt.server.generated.dmw.SomeRelationIterableDMW;         // For multi-valued SomeRelation - (BaseDMWGeneratorNewest.java:1525)
+import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;                        // Attribute from the dmt schema - (BaseDMWGeneratorNewest.java:1526)
 import org.dmd.dmt.shared.generated.dmo.ExtendedRefTSDMO;                // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
-import org.dmd.dmt.shared.generated.types.SomeRelation;                  // For addition of MV SomeRelation - (BaseDMWGeneratorNewest.java:1565)
+import org.dmd.dmt.shared.generated.types.SomeRelation;                  // For addition of MV SomeRelation - (BaseDMWGeneratorNewest.java:1569)
 import org.dmd.dmw.DmwWrapper;                                           // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1051)
 
 
@@ -58,7 +58,7 @@ public class ExtendedRefTSDMW extends DmwWrapper {
     /**
      * @return The number of SomeRelation items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1487)
     public int getTsExtendedRefSize(){
         return(((ExtendedRefTSDMO) core).getTsExtendedRefSize());
     }
@@ -66,7 +66,7 @@ public class ExtendedRefTSDMW extends DmwWrapper {
     /**
      * @return true if there are no SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1491)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1495)
     public boolean getTsExtendedRefIsEmpty(){
         if (((ExtendedRefTSDMO) core).getTsExtendedRefSize() == 0)
             return(true);
@@ -76,7 +76,7 @@ public class ExtendedRefTSDMW extends DmwWrapper {
     /**
      * @return true if there are any SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1501)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1505)
     public boolean getTsExtendedRefHasValue(){
         if (((ExtendedRefTSDMO) core).getTsExtendedRefSize() == 0)
             return(false);
@@ -86,7 +86,7 @@ public class ExtendedRefTSDMW extends DmwWrapper {
     /**
      * @return An Iterator of SomeRelationDMO objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1528)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1532)
     public SomeRelationIterableDMW getTsExtendedRefIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__tsExtendedRef);
         if (attr == null)
@@ -99,7 +99,7 @@ public class ExtendedRefTSDMW extends DmwWrapper {
      * Adds another tsExtendedRef value.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1571)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1575)
     public DmcAttribute<?> addTsExtendedRef(SomeRelation value){
         DmcAttribute<?> attr = ((ExtendedRefTSDMO) core).addTsExtendedRef(value);
         return(attr);
@@ -109,7 +109,7 @@ public class ExtendedRefTSDMW extends DmwWrapper {
      * Deletes a tsExtendedRef value.
      * @param value The SomeRelation to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1625)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1629)
     public void delTsExtendedRef(SomeRelation value){
         ((ExtendedRefTSDMO) core).delTsExtendedRef(value);
     }
@@ -117,7 +117,7 @@ public class ExtendedRefTSDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of SomeRelation objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1697)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1701)
     public TreeSet<ObjWithRefs> getTsExtendedRefCopy(){
         DmcAttribute<?> attr = ((ExtendedRefTSDMO) core).get(DmtDMSAG.__tsExtendedRef);
         if (attr == null)
@@ -136,7 +136,7 @@ public class ExtendedRefTSDMW extends DmwWrapper {
     /**
      * Removes the tsExtendedRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2100)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2104)
     public void remTsExtendedRef(){
         ((ExtendedRefTSDMO) core).remTsExtendedRef();
     }

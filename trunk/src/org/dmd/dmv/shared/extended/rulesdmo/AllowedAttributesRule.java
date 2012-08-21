@@ -8,6 +8,7 @@ import org.dmd.dmc.DmcAttributeInfoRef;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.rules.DmcRuleException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
+import org.dmd.dmc.types.Modifier;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;
 import org.dmd.dmv.shared.generated.rulesdmo.AllowedAttributesRuleBaseImpl;
@@ -56,9 +57,11 @@ public class AllowedAttributesRule extends AllowedAttributesRuleBaseImpl {
 	}
 
 	@Override
-	public void validate(DmcObject obj, DmcTypeModifierMV mods) throws DmcRuleExceptionSet {
+	public void validate(DmcObject obj, DmcTypeModifierMV mods, Modifier mod)
+			throws DmcRuleExceptionSet {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

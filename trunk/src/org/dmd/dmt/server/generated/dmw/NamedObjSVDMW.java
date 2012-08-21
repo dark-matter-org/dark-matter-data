@@ -55,7 +55,7 @@ public class NamedObjSVDMW extends DmwWrapper {
     /**
      * @return A ObjWithRefs object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1246)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1250)
     public ObjWithRefs getSvNamedObj(){
         ObjWithRefsREF ref = ((NamedObjSVDMO) core).getSvNamedObj();
         if (ref == null)
@@ -71,7 +71,7 @@ public class NamedObjSVDMW extends DmwWrapper {
      * Sets the svNamedObj to the specified value.
      * @param value A value compatible with ObjWithRefsREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1331)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1335)
     public void setSvNamedObj(ObjWithRefs value) {
         ((NamedObjSVDMO) core).setSvNamedObj(value.getDMO());
     }
@@ -80,7 +80,7 @@ public class NamedObjSVDMW extends DmwWrapper {
      * Sets the svNamedObj to the specified value.
      * @param value A value compatible with ObjWithRefsREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1340)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1344)
     public void setSvNamedObj(Object value) throws DmcValueException {
         ((NamedObjSVDMO) core).setSvNamedObj(value);
     }
@@ -88,7 +88,7 @@ public class NamedObjSVDMW extends DmwWrapper {
     /**
      * Removes the svNamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remSvNamedObj(){
         ((NamedObjSVDMO) core).remSvNamedObj();
     }
