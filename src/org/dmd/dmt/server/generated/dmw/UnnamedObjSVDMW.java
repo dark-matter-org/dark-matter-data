@@ -68,7 +68,7 @@ public class UnnamedObjSVDMW extends DmwWrapper {
      * Sets the svUnnamedObj to the specified value.
      * @param value A value compatible with TestBasicObjectFixedREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1331)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1335)
     public void setSvUnnamedObj(TestBasicObjectFixedDMW value) {
         ((UnnamedObjSVDMO) core).setSvUnnamedObj(value.getDMO());
     }
@@ -77,7 +77,7 @@ public class UnnamedObjSVDMW extends DmwWrapper {
      * Sets the svUnnamedObj to the specified value.
      * @param value A value compatible with TestBasicObjectFixedREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1340)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1344)
     public void setSvUnnamedObj(Object value) throws DmcValueException {
         ((UnnamedObjSVDMO) core).setSvUnnamedObj(value);
     }
@@ -85,7 +85,7 @@ public class UnnamedObjSVDMW extends DmwWrapper {
     /**
      * Removes the svUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remSvUnnamedObj(){
         ((UnnamedObjSVDMO) core).remSvUnnamedObj();
     }

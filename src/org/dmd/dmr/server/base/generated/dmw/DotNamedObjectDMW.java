@@ -102,7 +102,7 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public FullyQualifiedName getFQN(){
         return(((DotNamedObjectDMO) core).getFQN());
     }
@@ -111,7 +111,7 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setFQN(Object value) throws DmcValueException {
         ((DotNamedObjectDMO) core).setFQN(value);
     }
@@ -120,7 +120,7 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setFQN(FullyQualifiedName value){
         ((DotNamedObjectDMO) core).setFQN(value);
     }
@@ -128,7 +128,7 @@ abstract public class DotNamedObjectDMW extends HierarchicObject implements DmcN
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remFQN(){
         ((DotNamedObjectDMO) core).remFQN();
     }

@@ -67,7 +67,7 @@ abstract public class PreAuthResponseDMW extends Response {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public String getApplicationName(){
         return(((PreAuthResponseDMO) core).getApplicationName());
     }
@@ -76,7 +76,7 @@ abstract public class PreAuthResponseDMW extends Response {
      * Sets applicationName to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setApplicationName(Object value) throws DmcValueException {
         ((PreAuthResponseDMO) core).setApplicationName(value);
     }
@@ -85,7 +85,7 @@ abstract public class PreAuthResponseDMW extends Response {
      * Sets applicationName to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setApplicationName(String value){
         ((PreAuthResponseDMO) core).setApplicationName(value);
     }
@@ -93,12 +93,12 @@ abstract public class PreAuthResponseDMW extends Response {
     /**
      * Removes the applicationName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remApplicationName(){
         ((PreAuthResponseDMO) core).remApplicationName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public String getApplicationVersion(){
         return(((PreAuthResponseDMO) core).getApplicationVersion());
     }
@@ -107,7 +107,7 @@ abstract public class PreAuthResponseDMW extends Response {
      * Sets applicationVersion to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setApplicationVersion(Object value) throws DmcValueException {
         ((PreAuthResponseDMO) core).setApplicationVersion(value);
     }
@@ -116,7 +116,7 @@ abstract public class PreAuthResponseDMW extends Response {
      * Sets applicationVersion to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setApplicationVersion(String value){
         ((PreAuthResponseDMO) core).setApplicationVersion(value);
     }
@@ -124,7 +124,7 @@ abstract public class PreAuthResponseDMW extends Response {
     /**
      * Removes the applicationVersion attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remApplicationVersion(){
         ((PreAuthResponseDMO) core).remApplicationVersion();
     }

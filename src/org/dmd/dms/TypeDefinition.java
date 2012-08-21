@@ -19,6 +19,7 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.dmw.TypeDefinitionDMW;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
@@ -260,7 +261,11 @@ public class TypeDefinition extends TypeDefinitionDMW {
 		}
 		else if (cd.getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
-				if (cd.getSubpackage() == null)
+				if (cd.getDefinedIn().getName().getNameString().equals(MetaDMSAG.instance().getSchemaName())){
+					// For meta schema classes, there is no extended subpackage
+					cd.setJavaClass(genPackage + "." + cd.getName());
+				}
+				else if (cd.getSubpackage() == null)
 					cd.setJavaClass(genPackage + ".extended." + cd.getName());
 				else
 					cd.setJavaClass(genPackage + ".extended." + cd.getSubpackage() + "." + cd.getName());

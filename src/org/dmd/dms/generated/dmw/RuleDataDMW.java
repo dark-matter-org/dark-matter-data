@@ -171,6 +171,61 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
         mycore.setLineNumber(value);
     }
 
+    /**
+     * Indicates the attribute to which an ATTRIBUTE type rule is applied.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2246)
+    public AttributeDefinition getApplyToAttribute(){
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaDMSAG.__applyToAttribute);
+        if (attr == null)
+            return(null);
+        AttributeDefinitionDMO obj = attr.getSV().getObject();
+        return((AttributeDefinition)obj.getContainer());
+    }
+
+    /**
+     * Sets applyToAttribute to the specified value.
+     * @param value A value compatible with AttributeDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2296)
+    public void setApplyToAttribute(AttributeDefinition value) throws DmcValueException {
+        mycore.setApplyToAttribute(value.getDmcObject());
+    }
+
+    /**
+     * The classes to which a rule should be applied.
+     * @return An Iterator of ClassDefinition objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2397)
+    public ClassDefinitionIterableDMW getApplyToClasses(){
+        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) mycore.get(MetaDMSAG.__applyToClasses);
+        if (attr == null)
+            return(ClassDefinitionIterableDMW.emptyList);
+
+        return(new ClassDefinitionIterableDMW(attr.getMV()));
+    }
+
+    /**
+     * Adds another applyToClasses value.
+     * @param value A value compatible with ClassDefinition
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2456)
+    public DmcAttribute<?> addApplyToClasses(ClassDefinition value) throws DmcValueException {
+        DmcAttribute<?> attr = mycore.addApplyToClasses(value.getDmcObject());
+        return(attr);
+    }
+
+    /**
+     * Returns the number of applyToClasses values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2482)
+    public int getApplyToClassesSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__applyToClasses);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

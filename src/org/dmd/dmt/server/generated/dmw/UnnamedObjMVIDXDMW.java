@@ -7,7 +7,7 @@ import org.dmd.dms.*;                                                    // Alwa
 import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
 import org.dmd.dmt.server.generated.dmw.TestBasicObjectFixedDMW;         // Is reference type - (BaseDMWGeneratorNewest.java:923)
-import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;         // For setNth of TestBasicObjectFixed - (BaseDMWGeneratorNewest.java:1724)
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;         // For setNth of TestBasicObjectFixed - (BaseDMWGeneratorNewest.java:1728)
 import org.dmd.dmt.shared.generated.dmo.UnnamedObjMVIDXDMO;              // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
 import org.dmd.dmw.DmwWrapper;                                           // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1051)
 
@@ -55,7 +55,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return The number of TestBasicObjectFixed items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1483)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1487)
     public int getMvIdxUnnamedObjSize(){
         return(((UnnamedObjMVIDXDMO) core).getMvIdxUnnamedObjSize());
     }
@@ -63,7 +63,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are no TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1491)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1495)
     public boolean getMvIdxUnnamedObjIsEmpty(){
         if (((UnnamedObjMVIDXDMO) core).getMvIdxUnnamedObjSize() == 0)
             return(true);
@@ -73,7 +73,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are any TestBasicObjectFixedDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1501)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1505)
     public boolean getMvIdxUnnamedObjHasValue(){
         if (((UnnamedObjMVIDXDMO) core).getMvIdxUnnamedObjSize() == 0)
             return(false);
@@ -84,7 +84,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
      * Sets the mvIdxUnnamedObj value at the specified index.
      * @param value A value compatible with TestBasicObjectFixed
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1741)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1745)
     public DmcAttribute<?> setNthMvIdxUnnamedObj(int index, TestBasicObjectFixedDMW value){
         if (value == null)
             return(((UnnamedObjMVIDXDMO) core).setNthMvIdxUnnamedObj(index, null));
@@ -95,7 +95,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
     /**
      * @return The TestBasicObjectFixedDMW object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1785)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1789)
     public TestBasicObjectFixedDMW getNthMvIdxUnnamedObj(int index){
         TestBasicObjectFixedDMO dmo = ((UnnamedObjMVIDXDMO) core).getNthMvIdxUnnamedObj(index);
         if (dmo == null)
@@ -107,7 +107,7 @@ public class UnnamedObjMVIDXDMW extends DmwWrapper {
     /**
      * Removes the mvIdxUnnamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2100)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2104)
     public void remMvIdxUnnamedObj(){
         ((UnnamedObjMVIDXDMO) core).remMvIdxUnnamedObj();
     }

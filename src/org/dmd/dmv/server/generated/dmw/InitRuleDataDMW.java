@@ -71,7 +71,7 @@ public class InitRuleDataDMW extends RuleDataDMW {
     /**
      * @return A ClassDefinitionDMW object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1246)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1250)
     public ClassDefinitionDMW getApplyToClass(){
         ClassDefinitionREF ref = ((InitRuleDataDMO) core).getApplyToClass();
         if (ref == null)
@@ -87,7 +87,7 @@ public class InitRuleDataDMW extends RuleDataDMW {
      * Sets the applyToClass to the specified value.
      * @param value A value compatible with ClassDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1331)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1335)
     public void setApplyToClass(ClassDefinitionDMW value) {
         ((InitRuleDataDMO) core).setApplyToClass(value.getDMO());
     }
@@ -96,7 +96,7 @@ public class InitRuleDataDMW extends RuleDataDMW {
      * Sets the applyToClass to the specified value.
      * @param value A value compatible with ClassDefinitionREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1340)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1344)
     public void setApplyToClass(Object value) throws DmcValueException {
         ((InitRuleDataDMO) core).setApplyToClass(value);
     }
@@ -104,12 +104,12 @@ public class InitRuleDataDMW extends RuleDataDMW {
     /**
      * Removes the applyToClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remApplyToClass(){
         ((InitRuleDataDMO) core).remApplyToClass();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public String getDescription(){
         return(((InitRuleDataDMO) core).getDescription());
     }
@@ -118,7 +118,7 @@ public class InitRuleDataDMW extends RuleDataDMW {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setDescription(Object value) throws DmcValueException {
         ((InitRuleDataDMO) core).setDescription(value);
     }
@@ -127,7 +127,7 @@ public class InitRuleDataDMW extends RuleDataDMW {
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setDescription(String value){
         ((InitRuleDataDMO) core).setDescription(value);
     }
@@ -135,12 +135,12 @@ public class InitRuleDataDMW extends RuleDataDMW {
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remDescription(){
         ((InitRuleDataDMO) core).remDescription();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public RuleName getRuleName(){
         return(((InitRuleDataDMO) core).getRuleName());
     }
@@ -149,7 +149,7 @@ public class InitRuleDataDMW extends RuleDataDMW {
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setRuleName(Object value) throws DmcValueException {
         ((InitRuleDataDMO) core).setRuleName(value);
     }
@@ -158,7 +158,7 @@ public class InitRuleDataDMW extends RuleDataDMW {
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setRuleName(RuleName value){
         ((InitRuleDataDMO) core).setRuleName(value);
     }
@@ -166,12 +166,12 @@ public class InitRuleDataDMW extends RuleDataDMW {
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remRuleName(){
         ((InitRuleDataDMO) core).remRuleName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public String getRuleTitle(){
         return(((InitRuleDataDMO) core).getRuleTitle());
     }
@@ -180,7 +180,7 @@ public class InitRuleDataDMW extends RuleDataDMW {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setRuleTitle(Object value) throws DmcValueException {
         ((InitRuleDataDMO) core).setRuleTitle(value);
     }
@@ -189,7 +189,7 @@ public class InitRuleDataDMW extends RuleDataDMW {
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setRuleTitle(String value){
         ((InitRuleDataDMO) core).setRuleTitle(value);
     }
@@ -197,7 +197,7 @@ public class InitRuleDataDMW extends RuleDataDMW {
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remRuleTitle(){
         ((InitRuleDataDMO) core).remRuleTitle();
     }

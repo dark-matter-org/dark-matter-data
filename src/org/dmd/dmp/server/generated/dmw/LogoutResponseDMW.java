@@ -68,7 +68,7 @@ abstract public class LogoutResponseDMW extends Response {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public String getSessionID(){
         return(((LogoutResponseDMO) core).getSessionID());
     }
@@ -77,7 +77,7 @@ abstract public class LogoutResponseDMW extends Response {
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setSessionID(Object value) throws DmcValueException {
         ((LogoutResponseDMO) core).setSessionID(value);
     }
@@ -86,7 +86,7 @@ abstract public class LogoutResponseDMW extends Response {
      * Sets sessionID to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setSessionID(String value){
         ((LogoutResponseDMO) core).setSessionID(value);
     }
@@ -94,7 +94,7 @@ abstract public class LogoutResponseDMW extends Response {
     /**
      * Removes the sessionID attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remSessionID(){
         ((LogoutResponseDMO) core).remSessionID();
     }

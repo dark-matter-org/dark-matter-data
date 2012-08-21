@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.*;
 import org.dmd.dmc.rules.RuleIF;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:341)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:357)
 public class MetaDMSAG implements DmcCompactSchemaIF {
 
 
@@ -524,6 +524,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
         __RuleData.addMust(__ruleName);
         __RuleData.addMust(__ruleTitle);
+        __RuleData.addMay(__applyToAttribute);
+        __RuleData.addMay(__applyToClasses);
         __RuleData.addMay(__definedIn);
         __RuleData.addMay(__description);
         __RuleData.addMay(__file);

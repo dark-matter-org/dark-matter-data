@@ -98,7 +98,7 @@ public class HierarchicObjectDMW extends DmwNamedObjectWrapper implements DmcNam
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public FullyQualifiedName getFQN(){
         return(((HierarchicObjectDMO) core).getFQN());
     }
@@ -107,7 +107,7 @@ public class HierarchicObjectDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setFQN(Object value) throws DmcValueException {
         ((HierarchicObjectDMO) core).setFQN(value);
     }
@@ -116,7 +116,7 @@ public class HierarchicObjectDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setFQN(FullyQualifiedName value){
         ((HierarchicObjectDMO) core).setFQN(value);
     }
@@ -124,12 +124,12 @@ public class HierarchicObjectDMW extends DmwNamedObjectWrapper implements DmcNam
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remFQN(){
         ((HierarchicObjectDMO) core).remFQN();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public String getFile(){
         return(((HierarchicObjectDMO) core).getFile());
     }
@@ -138,7 +138,7 @@ public class HierarchicObjectDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setFile(Object value) throws DmcValueException {
         ((HierarchicObjectDMO) core).setFile(value);
     }
@@ -147,7 +147,7 @@ public class HierarchicObjectDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets file to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setFile(String value){
         ((HierarchicObjectDMO) core).setFile(value);
     }
@@ -155,12 +155,12 @@ public class HierarchicObjectDMW extends DmwNamedObjectWrapper implements DmcNam
     /**
      * Removes the file attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remFile(){
         ((HierarchicObjectDMO) core).remFile();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public Integer getLineNumber(){
         return(((HierarchicObjectDMO) core).getLineNumber());
     }
@@ -169,7 +169,7 @@ public class HierarchicObjectDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setLineNumber(Object value) throws DmcValueException {
         ((HierarchicObjectDMO) core).setLineNumber(value);
     }
@@ -178,7 +178,7 @@ public class HierarchicObjectDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets lineNumber to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setLineNumber(Integer value){
         ((HierarchicObjectDMO) core).setLineNumber(value);
     }
@@ -186,7 +186,7 @@ public class HierarchicObjectDMW extends DmwNamedObjectWrapper implements DmcNam
     /**
      * Removes the lineNumber attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remLineNumber(){
         ((HierarchicObjectDMO) core).remLineNumber();
     }

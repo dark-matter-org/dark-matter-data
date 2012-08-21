@@ -52,7 +52,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
     public String getOUIFilter(){
         return(((ClientCountFilterDMO) core).getOUIFilter());
     }
@@ -61,7 +61,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
      * Sets OUIFilter to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
     public void setOUIFilter(Object value) throws DmcValueException {
         ((ClientCountFilterDMO) core).setOUIFilter(value);
     }
@@ -70,7 +70,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
      * Sets OUIFilter to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
     public void setOUIFilter(String value){
         ((ClientCountFilterDMO) core).setOUIFilter(value);
     }
@@ -78,7 +78,7 @@ public class ClientCountFilterDMW extends DmwWrapper {
     /**
      * Removes the OUIFilter attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
     public void remOUIFilter(){
         ((ClientCountFilterDMO) core).remOUIFilter();
     }

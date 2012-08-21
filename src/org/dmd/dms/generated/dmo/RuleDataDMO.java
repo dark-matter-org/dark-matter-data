@@ -45,6 +45,8 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(MetaDMSAG.__ruleName.id,MetaDMSAG.__ruleName);
         _ImAp.put(MetaDMSAG.__ruleTitle.id,MetaDMSAG.__ruleTitle);
+        _ImAp.put(MetaDMSAG.__applyToAttribute.id,MetaDMSAG.__applyToAttribute);
+        _ImAp.put(MetaDMSAG.__applyToClasses.id,MetaDMSAG.__applyToClasses);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
@@ -53,6 +55,8 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__ruleName.name,MetaDMSAG.__ruleName);
         _SmAp.put(MetaDMSAG.__ruleTitle.name,MetaDMSAG.__ruleTitle);
+        _SmAp.put(MetaDMSAG.__applyToAttribute.name,MetaDMSAG.__applyToAttribute);
+        _SmAp.put(MetaDMSAG.__applyToClasses.name,MetaDMSAG.__applyToClasses);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
@@ -141,6 +145,60 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         
         attr.set(value);
         set(MetaDMSAG.__ruleTitle,attr);
+    }
+
+    /**
+     * Indicates the attribute to which an ATTRIBUTE type rule is applied.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2218)
+    public AttributeDefinitionREF getApplyToAttribute(){
+        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(MetaDMSAG.__applyToAttribute);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets applyToAttribute to the specified value.
+     * @param value A value compatible with DmcTypeAttributeDefinitionREFSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2275)
+    public void setApplyToAttribute(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__applyToAttribute);
+        if (attr == null)
+            attr = new DmcTypeAttributeDefinitionREFSV(MetaDMSAG.__applyToAttribute);
+        
+        attr.set(value);
+        set(MetaDMSAG.__applyToAttribute,attr);
+    }
+
+    /**
+     * The classes to which a rule should be applied.
+     * @return An Iterator of ClassDefinitionDMO objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2373)
+    public Iterator<ClassDefinitionREF> getApplyToClasses(){
+        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(MetaDMSAG.__applyToClasses);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another applyToClasses value.
+     * @param value A value compatible with DmcTypeClassDefinitionREFMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2435)
+    public DmcAttribute<?> addApplyToClasses(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__applyToClasses);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREFMV(MetaDMSAG.__applyToClasses);
+        
+        attr.add(value);
+        add(MetaDMSAG.__applyToClasses,attr);
+        return(attr);
     }
 
     /**
