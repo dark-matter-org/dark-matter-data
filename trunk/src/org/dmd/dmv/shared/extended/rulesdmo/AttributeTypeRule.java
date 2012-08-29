@@ -14,7 +14,7 @@ public class AttributeTypeRule extends AttributeTypeRuleBaseImpl {
 	@Override
 	public void validate(DmcAttribute<?> attribute) throws DmcRuleExceptionSet {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }

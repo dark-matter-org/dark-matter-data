@@ -137,6 +137,78 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements Serializ
          rem(MetaDMSAG.__description);
     }
 
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:653)
+    public ClassDefinitionREF getApplyToClass(){
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
+        if (attr == null)
+            return(null);
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return(null);
+            }
+        }
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Returns the reference to ClassDefinition without attempting lazy resolution (if turned on).
+     */
+    public ClassDefinitionREF getApplyToClassREF(){
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets applyToClass to the specified value.
+     * @param value ClassDefinitionDMO
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:707)
+    public void setApplyToClass(ClassDefinitionDMO value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__applyToClass);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__applyToClass);
+        else
+            ((DmcTypeClassDefinitionREFSV)attr).removeBackReferences();
+        
+        try{
+            attr.set(value);
+            set(MetaDMSAG.__applyToClass,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets applyToClass to the specified value.
+     * @param value A value compatible with DmcTypeClassDefinitionREFSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
+    public void setApplyToClass(Object value) throws DmcValueException {
+        DmcTypeClassDefinitionREFSV attr  = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
+        if (attr == null)
+            attr = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__applyToClass);
+        else
+            attr.removeBackReferences();
+        
+        attr.set(value);
+        set(MetaDMSAG.__applyToClass,attr);
+    }
+
+    /**
+     * Removes the applyToClass attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
+    public void remApplyToClass(){
+         rem(MetaDMSAG.__applyToClass);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
     public RuleName getRuleName(){
         DmcTypeRuleNameSV attr = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
@@ -235,78 +307,6 @@ public class RelatedNumbersRuleDataDMO  extends RuleDataDMO  implements Serializ
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
     public void remRuleTitle(){
          rem(MetaDMSAG.__ruleTitle);
-    }
-
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:653)
-    public ClassDefinitionREF getApplyToClass(){
-        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
-        if (attr == null)
-            return(null);
-
-        if (DmcOmni.instance().lazyResolution()){
-            if (attr.doLazyResolution(this)){
-                rem(attr.getAttributeInfo());
-                return(null);
-            }
-        }
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Returns the reference to ClassDefinition without attempting lazy resolution (if turned on).
-     */
-    public ClassDefinitionREF getApplyToClassREF(){
-        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets applyToClass to the specified value.
-     * @param value ClassDefinitionDMO
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:707)
-    public void setApplyToClass(ClassDefinitionDMO value) {
-        DmcAttribute<?> attr = get(MetaDMSAG.__applyToClass);
-        if (attr == null)
-            attr = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__applyToClass);
-        else
-            ((DmcTypeClassDefinitionREFSV)attr).removeBackReferences();
-        
-        try{
-            attr.set(value);
-            set(MetaDMSAG.__applyToClass,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets applyToClass to the specified value.
-     * @param value A value compatible with DmcTypeClassDefinitionREFSV
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
-    public void setApplyToClass(Object value) throws DmcValueException {
-        DmcTypeClassDefinitionREFSV attr  = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
-        if (attr == null)
-            attr = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__applyToClass);
-        else
-            attr.removeBackReferences();
-        
-        attr.set(value);
-        set(MetaDMSAG.__applyToClass,attr);
-    }
-
-    /**
-     * Removes the applyToClass attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
-    public void remApplyToClass(){
-         rem(MetaDMSAG.__applyToClass);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:653)

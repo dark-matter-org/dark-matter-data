@@ -335,20 +335,20 @@ description		The RuleTypeEnum indicates the level at which a rule is applied. An
  level rule will be applied to an entire object and will have the applyToClass attribute
  unless it is defined as GLOBAL.
 
-EnumDefinition
-name			RuleScopeEnum
-nullReturnValue RuleScopeEnum.PERCLASS
-enumValue		0 PERCLASS 		Indicates the rule is applied within the scope of a class.
-enumValue		1 GLOBAL		Indicates the rule is global in scope.
-description		The RuleScopeEnum indicates the scope at which a rule is applied. 
- When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum
- will determine some additional attributes that will be added to the DMO class definition.
- <table>
- <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClasses </td> </tr>
- <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
- <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr>
- <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
- </table>
+//EnumDefinition
+//name			RuleScopeEnum
+//nullReturnValue RuleScopeEnum.PERCLASS
+//enumValue		0 PERCLASS 		Indicates the rule is applied within the scope of a class.
+//enumValue		1 GLOBAL		Indicates the rule is global in scope.
+//description		The RuleScopeEnum indicates the scope at which a rule is applied. 
+// When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum
+// will determine some additional attributes that will be added to the DMO class definition.
+// <table>
+// <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClasses </td> </tr>
+// <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
+// <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr>
+// <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr>
+// </table>
 
 EnumDefinition
 name			DataTypeEnum
@@ -1523,11 +1523,12 @@ dmdID						136
 type                		RuleTypeEnum
 description    				The type of a rule.
 
-AttributeDefinition
-name                		ruleScope
-dmdID						137
-type                		RuleScopeEnum
-description    				The scope of a rule.
+//AttributeDefinition
+//name                		isGlobalRule
+//dmdID						137
+//type                		Boolean
+//description    				Indicates if a RuleDefinition whose ruleType is CLASS is global
+// in scope i.e. that it is applied to all classes.
 
 AttributeDefinition
 name                		ruleTitle
@@ -1642,12 +1643,12 @@ dmdID						154
 type                		ClassDefinition
 description					The class to which a rule should be applied.
 
-AttributeDefinition
-name                		applyToClasses
-dmdID						155
-type                		ClassDefinition
-valueType					MULTI
-description    				The classes to which a rule should be applied.
+//AttributeDefinition
+//name                		applyToClasses
+//dmdID						155
+//type                		ClassDefinition
+//valueType					MULTI
+//description    				The classes to which a rule should be applied.
 
 AttributeDefinition
 name                		ruleDataList
@@ -2046,7 +2047,6 @@ derivedFrom     DmsDefinition
 isNamedBy       name
 must        	name
 must			ruleType
-must			ruleScope
 must			ruleCategory
 must			dmdID
 must			description
@@ -2084,7 +2084,7 @@ may           	definedIn
 may          	file
 may        		lineNumber
 may				applyToAttribute
-may				applyToClasses
+may				applyToClass
 description		The RuleData class serves as a common base for all ClassDefinitions
  that are generated internally to represent the data associated with RuleDefinitions.
  

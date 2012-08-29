@@ -11,7 +11,7 @@ import org.dmd.dms.generated.types.*;
 import org.dmd.dmc.rules.RuleIF;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:357)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:355)
 public class MetaDMSAG implements DmcCompactSchemaIF {
 
 
@@ -35,7 +35,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __altTypeImport = new DmcAttributeInfo("altTypeImport",109,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __applyToAttribute = new DmcAttributeInfo("applyToAttribute",157,"AttributeDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __applyToClass = new DmcAttributeInfo("applyToClass",154,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __applyToClasses = new DmcAttributeInfo("applyToClasses",155,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __attachToClass = new DmcAttributeInfo("attachToClass",65,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",59,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __baseType = new DmcAttributeInfo("baseType",135,"BaseTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -150,7 +149,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __ruleImport = new DmcAttributeInfo("ruleImport",152,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleInterface = new DmcAttributeInfo("ruleInterface",141,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleName = new DmcAttributeInfo("ruleName",153,"RuleName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __ruleScope = new DmcAttributeInfo("ruleScope",137,"RuleScopeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleTitle = new DmcAttributeInfo("ruleTitle",138,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleType = new DmcAttributeInfo("ruleType",136,"RuleTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __runContext = new DmcAttributeInfo("runContext",149,"RunContext",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -226,7 +224,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__altTypeImport.id,__altTypeImport);
         _SmAp.put(__applyToAttribute.id,__applyToAttribute);
         _SmAp.put(__applyToClass.id,__applyToClass);
-        _SmAp.put(__applyToClasses.id,__applyToClasses);
         _SmAp.put(__attachToClass.id,__attachToClass);
         _SmAp.put(__attributeDefList.id,__attributeDefList);
         _SmAp.put(__baseType.id,__baseType);
@@ -341,7 +338,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__ruleImport.id,__ruleImport);
         _SmAp.put(__ruleInterface.id,__ruleInterface);
         _SmAp.put(__ruleName.id,__ruleName);
-        _SmAp.put(__ruleScope.id,__ruleScope);
         _SmAp.put(__ruleTitle.id,__ruleTitle);
         _SmAp.put(__ruleType.id,__ruleType);
         _SmAp.put(__runContext.id,__runContext);
@@ -525,7 +521,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleData.addMust(__ruleName);
         __RuleData.addMust(__ruleTitle);
         __RuleData.addMay(__applyToAttribute);
-        __RuleData.addMay(__applyToClasses);
+        __RuleData.addMay(__applyToClass);
         __RuleData.addMay(__definedIn);
         __RuleData.addMay(__description);
         __RuleData.addMay(__file);
@@ -535,7 +531,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleDefinition.addMust(__dmdID);
         __RuleDefinition.addMust(__name);
         __RuleDefinition.addMust(__ruleCategory);
-        __RuleDefinition.addMust(__ruleScope);
         __RuleDefinition.addMust(__ruleType);
         __RuleDefinition.addMay(__definedIn);
         __RuleDefinition.addMay(__dependency);

@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.rules.DmcRuleException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -31,22 +33,22 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
  */
 public class DmvRuleManager extends DmcRuleManager {
 
-	TreeMap<String,ArrayList<AttributeValidationIF>>	attributeValidators;
+	TreeMap<DmcAttributeInfo,ArrayList<AttributeValidationIF>>	attributeValidators;
 	
-	TreeMap<String,ArrayList<ObjectValidationIF>>		objectValidators;
+	TreeMap<DmcClassInfo,ArrayList<ObjectValidationIF>>			objectValidators;
 	
-	TreeMap<String,ArrayList<ModifierValidationIF>>		modifierValidators;
+	TreeMap<DmcClassInfo,ArrayList<ModifierValidationIF>>		modifierValidators;
 	
-	TreeMap<String,ArrayList<InitializationIF>>			initializers;
+	TreeMap<DmcClassInfo,ArrayList<InitializationIF>>			initializers;
 	
-	TreeMap<String,ArrayList<UCOValidationIF>>			ucoValidators;
+	TreeMap<DmcClassInfo,ArrayList<UCOValidationIF>>			ucoValidators;
 	
 	public DmvRuleManager() {
-		attributeValidators = new TreeMap<String, ArrayList<AttributeValidationIF>>();
-		objectValidators 	= new TreeMap<String, ArrayList<ObjectValidationIF>>();
-		modifierValidators 	= new TreeMap<String, ArrayList<ModifierValidationIF>>();
-		initializers 		= new TreeMap<String, ArrayList<InitializationIF>>();
-		ucoValidators 		= new TreeMap<String, ArrayList<UCOValidationIF>>();
+		attributeValidators = new TreeMap<DmcAttributeInfo, ArrayList<AttributeValidationIF>>();
+		objectValidators 	= new TreeMap<DmcClassInfo, ArrayList<ObjectValidationIF>>();
+		modifierValidators 	= new TreeMap<DmcClassInfo, ArrayList<ModifierValidationIF>>();
+		initializers 		= new TreeMap<DmcClassInfo, ArrayList<InitializationIF>>();
+		ucoValidators 		= new TreeMap<DmcClassInfo, ArrayList<UCOValidationIF>>();
 		
 		loadRules(MetaDMSAG.instance().getRules());
 		

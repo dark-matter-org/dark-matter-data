@@ -16,25 +16,21 @@
 package org.dmd.dmv.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
-import java.io.Serializable;                                                // Always required - (GenUtility.java:220)
-import java.util.*;                                                         // Always required if we have any MV attributes - (GenUtility.java:215)
-import org.dmd.dmc.DmcAttribute;                                            // Any attributes - (GenUtility.java:236)
-import org.dmd.dmc.DmcOmni;                                                 // Lazy resolution - (GenUtility.java:316)
-import org.dmd.dmc.DmcSliceInfo;                                            // Required for object slicing - (GenUtility.java:225)
-import org.dmd.dmc.DmcValueException;                                       // Any attributes - (GenUtility.java:237)
-import org.dmd.dmc.types.RuleName;                                          // Primitive type and !auxiliary class - (GenUtility.java:267)
-import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add - (GenUtility.java:303)
-import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                        // Type specific set/add - (GenUtility.java:303)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Required for MODREC constructor - (GenUtility.java:224)
-import org.dmd.dms.generated.dmo.RuleDataDMO;                               // Base class - (GenUtility.java:351)
-import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Helper class - (GenUtility.java:331)
-import org.dmd.dms.generated.types.ClassDefinitionREF;                      // Helper class - (GenUtility.java:331)
-import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type - (GenUtility.java:296)
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFMV;             // Reference type - (GenUtility.java:296)
-import org.dmd.dms.generated.types.DmcTypeIntegerSV;                        // Required type - (GenUtility.java:324)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:223)
-import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // Required type - (GenUtility.java:324)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:324)
+import java.io.Serializable;                                            // Always required - (GenUtility.java:220)
+import org.dmd.dmc.DmcAttribute;                                        // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcOmni;                                             // Lazy resolution - (GenUtility.java:316)
+import org.dmd.dmc.DmcSliceInfo;                                        // Required for object slicing - (GenUtility.java:225)
+import org.dmd.dmc.DmcValueException;                                   // Any attributes - (GenUtility.java:237)
+import org.dmd.dmc.types.RuleName;                                      // Primitive type and !auxiliary class - (GenUtility.java:267)
+import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                    // Type specific set/add - (GenUtility.java:303)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                             // Required for MODREC constructor - (GenUtility.java:224)
+import org.dmd.dms.generated.dmo.RuleDataDMO;                           // Base class - (GenUtility.java:351)
+import org.dmd.dms.generated.types.ClassDefinitionREF;                  // Helper class - (GenUtility.java:331)
+import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;         // Reference type - (GenUtility.java:296)
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;                    // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Required for MODREC constructor - (GenUtility.java:223)
+import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                   // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                     // Required type - (GenUtility.java:324)
 
 /**
  * null
@@ -137,111 +133,76 @@ public class IntegerRangeRuleDataDMO  extends RuleDataDMO  implements Serializab
          rem(MetaDMSAG.__description);
     }
 
-    /**
-     * @return An Iterator of ClassDefinitionDMO objects.
-     */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:968)
-    public Iterator<ClassDefinitionREF> getApplyToClasses(){
-        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(MetaDMSAG.__applyToClasses);
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:653)
+    public ClassDefinitionREF getApplyToClass(){
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
         if (attr == null)
-            return( ((List<ClassDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+            return(null);
 
         if (DmcOmni.instance().lazyResolution()){
             if (attr.doLazyResolution(this)){
                 rem(attr.getAttributeInfo());
-                return( ((List<ClassDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+                return(null);
             }
         }
 
-        return(attr.getMV());
+        return(attr.getSV());
     }
 
     /**
-     * @return An Iterator of ClassDefinitionREFs without attempting lazy resolution (if it's turned on).
+     * Returns the reference to ClassDefinition without attempting lazy resolution (if turned on).
      */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:988)
-    public Iterator<ClassDefinitionREF> getApplyToClassesREFs(){
-        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) get(MetaDMSAG.__applyToClasses);
+    public ClassDefinitionREF getApplyToClassREF(){
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
         if (attr == null)
-            return( ((List<ClassDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+            return(null);
 
-        return(attr.getMV());
+        return(attr.getSV());
     }
 
     /**
-     * Adds another applyToClasses to the specified value.
-     * @param value ClassDefinition
+     * Sets applyToClass to the specified value.
+     * @param value ClassDefinitionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
-    public DmcAttribute<?> addApplyToClasses(ClassDefinitionDMO value) {
-        DmcAttribute<?> attr = get(MetaDMSAG.__applyToClasses);
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:707)
+    public void setApplyToClass(ClassDefinitionDMO value) {
+        DmcAttribute<?> attr = get(MetaDMSAG.__applyToClass);
         if (attr == null)
-            attr = new DmcTypeClassDefinitionREFMV(MetaDMSAG.__applyToClasses);
+            attr = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__applyToClass);
+        else
+            ((DmcTypeClassDefinitionREFSV)attr).removeBackReferences();
         
         try{
-            setLastValue(attr.add(value));
-            add(MetaDMSAG.__applyToClasses,attr);
+            attr.set(value);
+            set(MetaDMSAG.__applyToClass,attr);
         }
         catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
         }
-        return(attr);
     }
 
     /**
-     * Adds another applyToClasses value.
-     * @param value A value compatible with ClassDefinition
+     * Sets applyToClass to the specified value.
+     * @param value A value compatible with DmcTypeClassDefinitionREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1243)
-    public DmcAttribute<?> addApplyToClasses(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__applyToClasses);
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
+    public void setApplyToClass(Object value) throws DmcValueException {
+        DmcTypeClassDefinitionREFSV attr  = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
         if (attr == null)
-            attr = new DmcTypeClassDefinitionREFMV(MetaDMSAG.__applyToClasses);
-        
-        setLastValue(attr.add(value));
-        add(MetaDMSAG.__applyToClasses,attr);
-        return(attr);
-    }
-
-    /**
-     * Returns the number of values in applyToClasses
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1260)
-    public int getApplyToClassesSize(){
-        DmcAttribute<?> attr = get(MetaDMSAG.__applyToClasses);
-        if (attr == null){
-            if (MetaDMSAG.__applyToClasses.indexSize == 0)
-                return(0);
-            else
-                return(MetaDMSAG.__applyToClasses.indexSize);
-        }
-        return(attr.getMVSize());
-    }
-
-    /**
-     * Deletes a applyToClasses value.
-     * @param value The ClassDefinition to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1299)
-    public DmcAttribute<?> delApplyToClasses(Object value){
-        DmcAttribute<?> attr = get(MetaDMSAG.__applyToClasses);
-        
-        if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeClassDefinitionREFMV(MetaDMSAG.__applyToClasses), value);
+            attr = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__applyToClass);
         else
-            attr = del(MetaDMSAG.__applyToClasses, value);
+            attr.removeBackReferences();
         
-        return(attr);
+        attr.set(value);
+        set(MetaDMSAG.__applyToClass,attr);
     }
 
     /**
-     * Removes the applyToClasses attribute value.
+     * Removes the applyToClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1353)
-    public void remApplyToClasses(){
-         rem(MetaDMSAG.__applyToClasses);
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
+    public void remApplyToClass(){
+         rem(MetaDMSAG.__applyToClass);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
@@ -342,78 +303,6 @@ public class IntegerRangeRuleDataDMO  extends RuleDataDMO  implements Serializab
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
     public void remRuleTitle(){
          rem(MetaDMSAG.__ruleTitle);
-    }
-
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:653)
-    public AttributeDefinitionREF getApplyToAttribute(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(MetaDMSAG.__applyToAttribute);
-        if (attr == null)
-            return(null);
-
-        if (DmcOmni.instance().lazyResolution()){
-            if (attr.doLazyResolution(this)){
-                rem(attr.getAttributeInfo());
-                return(null);
-            }
-        }
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Returns the reference to AttributeDefinition without attempting lazy resolution (if turned on).
-     */
-    public AttributeDefinitionREF getApplyToAttributeREF(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(MetaDMSAG.__applyToAttribute);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets applyToAttribute to the specified value.
-     * @param value AttributeDefinitionDMO
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:707)
-    public void setApplyToAttribute(AttributeDefinitionDMO value) {
-        DmcAttribute<?> attr = get(MetaDMSAG.__applyToAttribute);
-        if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREFSV(MetaDMSAG.__applyToAttribute);
-        else
-            ((DmcTypeAttributeDefinitionREFSV)attr).removeBackReferences();
-        
-        try{
-            attr.set(value);
-            set(MetaDMSAG.__applyToAttribute,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets applyToAttribute to the specified value.
-     * @param value A value compatible with DmcTypeAttributeDefinitionREFSV
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
-    public void setApplyToAttribute(Object value) throws DmcValueException {
-        DmcTypeAttributeDefinitionREFSV attr  = (DmcTypeAttributeDefinitionREFSV) get(MetaDMSAG.__applyToAttribute);
-        if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREFSV(MetaDMSAG.__applyToAttribute);
-        else
-            attr.removeBackReferences();
-        
-        attr.set(value);
-        set(MetaDMSAG.__applyToAttribute,attr);
-    }
-
-    /**
-     * Removes the applyToAttribute attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
-    public void remApplyToAttribute(){
-         rem(MetaDMSAG.__applyToAttribute);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)

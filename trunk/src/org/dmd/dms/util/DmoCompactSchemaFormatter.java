@@ -24,7 +24,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.dmd.dmc.DmcAttribute;
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
@@ -37,7 +36,6 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
-import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
@@ -155,7 +153,7 @@ public class DmoCompactSchemaFormatter {
 	        }
         }
         
-        DmoObjectFactoryNew	factory = new DmoObjectFactoryNew(sm);
+//        DmoObjectFactoryNew	factory = new DmoObjectFactoryNew(sm);
         
         ///////////////////////////////////////////////////////////////////////
         Iterator<DmcUncheckedObject>	rules = sd.getParsedRules();
@@ -166,16 +164,16 @@ public class DmoCompactSchemaFormatter {
         	while(rules.hasNext()){
 				DmcUncheckedObject ruleData = rules.next();
 				
-				try {
-					RuleDataDMO rdd = (RuleDataDMO) factory.createObject(ruleData);
-					DebugInfo.debugWithTrace(rdd.toOIF());
-				} catch (DmcValueException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+//				try {
+//					RuleDataDMO rdd = (RuleDataDMO) factory.createObject(ruleData);
+//					DebugInfo.debugWithTrace(rdd.toOIF());
+//				} catch (DmcValueException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} catch (ClassNotFoundException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
 				
 				String dataName 	= ruleData.getConstructionClass();
 				int dataPos 		= dataName.indexOf("Data");

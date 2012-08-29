@@ -56,7 +56,7 @@ public class RuleFormatter {
     		ImportManager baseImports = new ImportManager();
     		StringBuffer interfaces = new StringBuffer();
     				
-    		baseImports.addImport("org.dmd.dms.generated.enums.RuleScopeEnum", "Rule scope");
+//    		baseImports.addImport("org.dmd.dms.generated.enums.RuleScopeEnum", "Rule scope");
     		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "Rule type");
     		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
     		baseImports.addImport("java.util.ArrayList", "To store category IDs");
@@ -212,13 +212,14 @@ public class RuleFormatter {
     		ImportManager baseImports = new ImportManager();
     		StringBuffer interfaces = new StringBuffer();
 			
-    		baseImports.addImport("org.dmd.dms.generated.enums.RuleScopeEnum", "Rule scope");
+//    		baseImports.addImport("org.dmd.dms.generated.enums.RuleScopeEnum", "Rule scope");
     		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "Rule type");
     		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
     		baseImports.addImport("java.util.ArrayList", "To store category IDs");
     		baseImports.addImport("java.util.Iterator", "To access category IDs");
-    		baseImports.addImport("org.dmd.dms.generated.types.ClassDefinitionREF", "To support getApplyToClasses()");
-    		baseImports.addImport("org.dmd.dms.generated.types.AttributeDefinitionREF", "To support getApplyToAttribute()");
+    		baseImports.addImport("org.dmd.dmc.DmcOmni", "To map class and attribute names to info");
+    		baseImports.addImport("org.dmd.dmc.DmcClassInfo", "To support retrieval of rule class");
+    		baseImports.addImport("org.dmd.dmc.DmcAttributeInfo", "To support retrieval of attribute info");
     		interfaces.append("RuleIF");
 			
     		baseImports.addImport(sd.getSchemaPackage() + ".generated.dmo." + rd.getName() + "DataDMO", "Rule parameters object");
@@ -241,10 +242,12 @@ public class RuleFormatter {
 			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			out.write("abstract public class " + rd.getName() + "BaseImpl implements " + interfaces + " {\n\n");
 			
-			out.write("    static RuleScopeEnum      scope = RuleScopeEnum." + rd.getRuleScope() + ";\n");
 			out.write("    static RuleTypeEnum       type  = RuleTypeEnum." + rd.getRuleType() + ";\n\n");
 			
 			out.write("    static ArrayList<Integer> categories;\n\n");
+			
+			out.write("    private DmcClassInfo      classInfo;\n");
+			out.write("    private DmcAttributeInfo  attrInfo;\n\n");
 			
 			out.write("    protected " + rd.getName() + "DataDMO ruleDMO;\n\n");
 			
@@ -270,8 +273,8 @@ public class RuleFormatter {
 			out.write("    }\n\n");
 
 			out.write("    @Override\n");
-			out.write("    public RuleScopeEnum getRuleScope() {\n");
-			out.write("        return(scope);\n");
+			out.write("    public DmcClassInfo getRuleClass() {\n");
+			out.write("        return(ruleDMO.getConstructionClassInfo());\n");
 			out.write("    }\n\n");
 
 			out.write("    @Override\n");
@@ -285,17 +288,30 @@ public class RuleFormatter {
 			out.write("    }\n\n");
 
 			out.write("    @Override\n");
-			out.write("    public Iterator<ClassDefinitionREF> getApplyToClasses() {\n");
+			out.write("    public DmcClassInfo getApplyToClass() {\n");
+			out.write("        if (classInfo != null)\n");
+			out.write("            return(classInfo);\n");
+			out.write("        \n");
 			out.write("        if (ruleDMO == null)\n");
 			out.write("            return(null);\n");
-			out.write("        return(ruleDMO.getApplyToClasses());\n");
+			out.write("        \n");
+			out.write("        if (ruleDMO.getApplyToClass() != null)\n");
+			out.write("            classInfo = DmcOmni.instance().getClassInfo(ruleDMO.getApplyToClass().getObjectName().getNameString());\n");
+			out.write("        \n");
+			out.write("        return(classInfo);\n");
 			out.write("    }\n\n");
 
 			out.write("    @Override\n");
-			out.write("    public AttributeDefinitionREF getApplyToAttribute() {\n");
+			out.write("    public DmcAttributeInfo getApplyToAttribute() {\n");
+			out.write("        if (attrInfo != null)\n");
+			out.write("            return(attrInfo);\n");
+			out.write("        \n");
 			out.write("        if (ruleDMO == null)\n");
 			out.write("            return(null);\n");
-			out.write("        return(ruleDMO.getApplyToAttribute());\n");
+			out.write("        if (ruleDMO.getApplyToAttribute() != null)\n");
+			out.write("            attrInfo = DmcOmni.instance().getAttributeInfo(ruleDMO.getApplyToAttribute().getObjectName().getNameString());\n");
+			out.write("        \n");
+			out.write("        return(attrInfo);\n");
 			out.write("    }\n\n");
 
 			
