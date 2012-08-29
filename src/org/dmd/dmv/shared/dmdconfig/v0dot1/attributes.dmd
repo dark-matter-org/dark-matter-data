@@ -39,4 +39,35 @@ type        	TypeDefinition
 valueType		MULTI
 description		The allowedType indicates a collection of defined types to which something,
  usually and attribute, must conform.
+
+AttributeDefinition
+name   			basedOnAttribute
+dmdID			7
+type        	AttributeDefinition
+description		The basedOnAttribute allows for the specification of an attribute on which
+ some type of a decision is made.
+
+AttributeDefinition
+name   			basedOnValue
+dmdID			8
+type        	String
+valueType		MULTI
+description		The basedOnValue attribute allows for the specification of values for some
+ aspect of a rule.
+
+AttributeDefinition
+name   			excludeThisAttribute
+dmdID			9
+type        	AttributeDefinition
+valueType		MULTI
+description		The excludeThisAttribute indicates an optional attribute that must be
+ excluded from an object under certain conditions.
  
+AttributeDefinition
+name   			includeThisAttribute
+dmdID			10
+type        	AttributeDefinition
+valueType		MULTI
+description		The includeThisAttribute indicates an optional attribute that must be
+ present under certain conditions.
+

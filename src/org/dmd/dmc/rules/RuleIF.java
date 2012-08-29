@@ -2,10 +2,9 @@ package org.dmd.dmc.rules;
 
 import java.util.Iterator;
 
-import org.dmd.dms.generated.enums.RuleScopeEnum;
+import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dms.generated.enums.RuleTypeEnum;
-import org.dmd.dms.generated.types.AttributeDefinitionREF;
-import org.dmd.dms.generated.types.ClassDefinitionREF;
 
 /**
  * A convenience interface to allow access to information that is common to all rules.
@@ -18,14 +17,14 @@ public interface RuleIF {
 	public String getRuleTitle();
 	
 	/**
-	 * @return the rule scope.
-	 */
-	public RuleScopeEnum	getRuleScope();
-	
-	/**
 	 * @return the rule type.
 	 */
 	public RuleTypeEnum	getRuleType();
+	
+	/**
+	 * @return the class info of the rule data.
+	 */
+	public DmcClassInfo getRuleClass();
 	
 	/**
 	 * @return the identifiers of the categories to which this rule belongs.
@@ -33,14 +32,16 @@ public interface RuleIF {
 	public Iterator<Integer>	getCategories();
 
 	/**
-	 * @return the classes to which this rule should be applied or null if it's a global class rule.
+	 * @return the info for the class to which this rule should be applied or null if it's a global rule. For
+	 * CLASS rules, a global rule is applied to all classes. For an ATTRIBUTE rule, a global rule
+	 * is applied to the attribute regardless of the class in which it exists.
 	 */
-	public Iterator<ClassDefinitionREF> getApplyToClasses();
+	public DmcClassInfo getApplyToClass();
 
 	/**
-	 * @return the attribute to which this rule should be applied or null if it's a global attribute rule.
+	 * @return the info for the attribute to which this rule should be applied or null if it's a global attribute rule.
 	 */
-	public AttributeDefinitionREF getApplyToAttribute();
+	public DmcAttributeInfo getApplyToAttribute();
 	
 	
 }

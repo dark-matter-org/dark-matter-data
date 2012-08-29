@@ -758,7 +758,11 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		}
 		else if (getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
-				if (getSubpackage() != null){
+				if (getDefinedIn().getName().getNameString().equals(MetaDMSAG.instance().getSchemaName())){
+					setJavaClass(genPackage + "." + getName());
+					setDmeImport(genPackage + "." + getName());
+				}
+				else if (getSubpackage() != null){
 					setJavaClass(genPackage + ".extended." + getSubpackage() + "." + getName());
 					setDmeImport(genPackage + ".extended." + getSubpackage() + "." + getName());
 				}
@@ -891,8 +895,8 @@ public class ClassDefinition extends ClassDefinitionDMW {
         					ex.addError("The " + attr + " attribute is not defined, but used in " + uco.getConstructionClass());
         					setExceptionLocation(ex,uco);
     					}
-
-    					imports.addImport(ad.getTypeImport(), "Support for addition of " + name + " values to the extensible " + uco.getConstructionClass() + " class");
+    					else
+    						imports.addImport(ad.getTypeImport(), "Support for addition of " + name + " values to the extensible " + uco.getConstructionClass() + " class");
     				}
     				else{
     					if (ex == null)

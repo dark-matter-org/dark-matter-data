@@ -2,17 +2,17 @@ package org.dmd.dmg.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                            // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmc.*;                                            // If any attributes - (BaseDMWGeneratorNewest.java:905)
 import org.dmd.dmc.types.StringName;                             // Is named by - (BaseDMWGeneratorNewest.java:884)
-import org.dmd.dmg.extended.GenerationContext;                   // Is reference type - (BaseDMWGeneratorNewest.java:923)
-import org.dmd.dmg.extended.WrapperGenerator;                    // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
-import org.dmd.dmg.generated.dmo.WrapperGeneratorDMO;            // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
-import org.dmd.dmg.generated.types.GenerationContextREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:931)
-import org.dmd.dms.*;                                            // Always 2 - (BaseDMWGeneratorNewest.java:888)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                // Primitive type - (BaseDMWGeneratorNewest.java:966)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
-import org.dmd.dmw.DmwNamedObjectWrapper;                        // Named object wrapper - (BaseDMWGeneratorNewest.java:1058)
+import org.dmd.dmg.extended.GenerationContext;                   // Is reference type - (BaseDMWGeneratorNewest.java:925)
+import org.dmd.dmg.extended.WrapperGenerator;                    // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:898)
+import org.dmd.dmg.generated.dmo.WrapperGeneratorDMO;            // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
+import org.dmd.dmg.generated.types.GenerationContextREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
+import org.dmd.dms.ClassDefinition;                              // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                // Primitive type - (BaseDMWGeneratorNewest.java:968)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
+import org.dmd.dmw.DmwNamedObjectWrapper;                        // Named object wrapper - (BaseDMWGeneratorNewest.java:1060)
 
 
 /**
@@ -65,7 +65,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1113)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1115)
     public StringName getObjectName(){
         return(((WrapperGeneratorDMO) core).getName());
     }
@@ -85,7 +85,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
     public ClassTypeEnum getClassType(){
         return(((WrapperGeneratorDMO) core).getClassType());
     }
@@ -94,7 +94,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets classType to the specified value.
      * @param value A value compatible with DmcTypeClassTypeEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
     public void setClassType(Object value) throws DmcValueException {
         ((WrapperGeneratorDMO) core).setClassType(value);
     }
@@ -103,7 +103,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets classType to the specified value.
      * @param value ClassTypeEnum
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
     public void setClassType(ClassTypeEnum value){
         ((WrapperGeneratorDMO) core).setClassType(value);
     }
@@ -111,12 +111,12 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
     /**
      * Removes the classType attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
     public void remClassType(){
         ((WrapperGeneratorDMO) core).remClassType();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
     public String getGenClass(){
         return(((WrapperGeneratorDMO) core).getGenClass());
     }
@@ -125,7 +125,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets genClass to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
     public void setGenClass(Object value) throws DmcValueException {
         ((WrapperGeneratorDMO) core).setGenClass(value);
     }
@@ -134,7 +134,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets genClass to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
     public void setGenClass(String value){
         ((WrapperGeneratorDMO) core).setGenClass(value);
     }
@@ -142,7 +142,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
     /**
      * Removes the genClass attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
     public void remGenClass(){
         ((WrapperGeneratorDMO) core).remGenClass();
     }
@@ -150,7 +150,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
     /**
      * @return A GenerationContext object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1250)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1252)
     public GenerationContext getGenContext(){
         GenerationContextREF ref = ((WrapperGeneratorDMO) core).getGenContext();
         if (ref == null)
@@ -166,7 +166,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets the genContext to the specified value.
      * @param value A value compatible with GenerationContextREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1335)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1337)
     public void setGenContext(GenerationContext value) {
         ((WrapperGeneratorDMO) core).setGenContext(value.getDMO());
     }
@@ -175,7 +175,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets the genContext to the specified value.
      * @param value A value compatible with GenerationContextREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1344)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1346)
     public void setGenContext(Object value) throws DmcValueException {
         ((WrapperGeneratorDMO) core).setGenContext(value);
     }
@@ -183,12 +183,12 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
     /**
      * Removes the genContext attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
     public void remGenContext(){
         ((WrapperGeneratorDMO) core).remGenContext();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1290)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
     public StringName getName(){
         return(((WrapperGeneratorDMO) core).getName());
     }
@@ -197,7 +197,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1400)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
     public void setName(Object value) throws DmcValueException {
         ((WrapperGeneratorDMO) core).setName(value);
     }
@@ -206,7 +206,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1409)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
     public void setName(StringName value){
         ((WrapperGeneratorDMO) core).setName(value);
     }
@@ -214,7 +214,7 @@ public class WrapperGeneratorDMW extends DmwNamedObjectWrapper implements DmcNam
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1435)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
     public void remName(){
         ((WrapperGeneratorDMO) core).remName();
     }

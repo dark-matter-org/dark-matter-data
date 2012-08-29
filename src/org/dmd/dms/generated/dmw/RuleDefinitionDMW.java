@@ -33,13 +33,13 @@ import org.dmd.dms.*;
  * InitRule can initialize a set of attributes to known values. <p/>
  * RuleDefinitions will result in the generation of ClassDefinitions that
  * define the  DMOs that will carry the parameters associated with the rule
- * and expectation that you will define an implementation class for the rule
- * that derives from an abstract BaseImpl (base implementation) of the rule
- * that provides common rule infrastructure and appropriate abstract methods
- * that must be filled in. <p/> RuleDefinitions and ClassDefinitions share
- * the same dmdID space and the IDs must be unique. This is because each
- * RuleDefinition results in the creation of a  ClassDefinition for the DMO
- * part of the rule that carries the rule parameters.
+ * and the expectation that you will define an implementation class for the
+ * rule that derives from an abstract BaseImpl (base implementation) of the
+ * rule that provides common rule infrastructure and appropriate abstract
+ * methods that must be filled in. <p/> RuleDefinitions and ClassDefinitions
+ * share the same dmdID space and the IDs must be unique. This is because
+ * each RuleDefinition results in the creation of a  ClassDefinition for the
+ * DMO part of the rule that carries the rule parameters.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1552)
  */
@@ -117,23 +117,6 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2309)
     public void setRuleType(Object value) throws DmcValueException {
         mycore.setRuleType(value);
-    }
-
-    /**
-     * The scope of a rule.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2246)
-    public RuleScopeEnum getRuleScope(){
-        return(mycore.getRuleScope());
-    }
-
-    /**
-     * Sets ruleScope to the specified value.
-     * @param value A value compatible with DmcTypeRuleScopeEnumSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2309)
-    public void setRuleScope(Object value) throws DmcValueException {
-        mycore.setRuleScope(value);
     }
 
     /**

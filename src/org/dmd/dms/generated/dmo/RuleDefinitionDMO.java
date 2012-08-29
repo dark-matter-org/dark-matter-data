@@ -32,13 +32,13 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * InitRule can initialize a set of attributes to known values. <p/>
  * RuleDefinitions will result in the generation of ClassDefinitions that
  * define the  DMOs that will carry the parameters associated with the rule
- * and expectation that you will define an implementation class for the rule
- * that derives from an abstract BaseImpl (base implementation) of the rule
- * that provides common rule infrastructure and appropriate abstract methods
- * that must be filled in. <p/> RuleDefinitions and ClassDefinitions share
- * the same dmdID space and the IDs must be unique. This is because each
- * RuleDefinition results in the creation of a  ClassDefinition for the DMO
- * part of the rule that carries the rule parameters.
+ * and the expectation that you will define an implementation class for the
+ * rule that derives from an abstract BaseImpl (base implementation) of the
+ * rule that provides common rule infrastructure and appropriate abstract
+ * methods that must be filled in. <p/> RuleDefinitions and ClassDefinitions
+ * share the same dmdID space and the IDs must be unique. This is because
+ * each RuleDefinition results in the creation of a  ClassDefinition for the
+ * DMO part of the rule that carries the rule parameters.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1836)
  */
@@ -58,7 +58,6 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _ImAp.put(MetaDMSAG.__dmdID.id,MetaDMSAG.__dmdID);
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__ruleCategory.id,MetaDMSAG.__ruleCategory);
-        _ImAp.put(MetaDMSAG.__ruleScope.id,MetaDMSAG.__ruleScope);
         _ImAp.put(MetaDMSAG.__ruleType.id,MetaDMSAG.__ruleType);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__dependency.id,MetaDMSAG.__dependency);
@@ -73,7 +72,6 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _SmAp.put(MetaDMSAG.__dmdID.name,MetaDMSAG.__dmdID);
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__ruleCategory.name,MetaDMSAG.__ruleCategory);
-        _SmAp.put(MetaDMSAG.__ruleScope.name,MetaDMSAG.__ruleScope);
         _SmAp.put(MetaDMSAG.__ruleType.name,MetaDMSAG.__ruleType);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__dependency.name,MetaDMSAG.__dependency);
@@ -226,32 +224,6 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         attr.add(value);
         add(MetaDMSAG.__ruleCategory,attr);
         return(attr);
-    }
-
-    /**
-     * The scope of a rule.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2218)
-    public RuleScopeEnum getRuleScope(){
-        DmcTypeRuleScopeEnumSV attr = (DmcTypeRuleScopeEnumSV) get(MetaDMSAG.__ruleScope);
-        if (attr == null)
-            return(RuleScopeEnum.PERCLASS);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets ruleScope to the specified value.
-     * @param value A value compatible with DmcTypeRuleScopeEnumSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2275)
-    public void setRuleScope(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__ruleScope);
-        if (attr == null)
-            attr = new DmcTypeRuleScopeEnumSV(MetaDMSAG.__ruleScope);
-        
-        attr.set(value);
-        set(MetaDMSAG.__ruleScope,attr);
     }
 
     /**

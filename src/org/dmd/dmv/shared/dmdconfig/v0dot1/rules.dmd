@@ -3,7 +3,7 @@ RuleDefinition
 name			AllowedAttributesRule
 dmdID			1
 ruleType		CLASS
-ruleScope		GLOBAL
+//ruleScope		GLOBAL
 ruleCategory	ObjectValidation
 ruleCategory	ModifierValidation
 description		The AllowedAttributesRule will determine whether or not the 
@@ -26,7 +26,7 @@ RuleDefinition
 name			InitRule
 dmdID			2
 ruleType		CLASS
-ruleScope		PERCLASS
+//ruleScope		PERCLASS
 ruleCategory	Initialization
 isExtensible	true
 description		The InitRule allows you to specify attribute values for a 
@@ -54,7 +54,7 @@ RuleDefinition
 name			IntegerRangeRule
 dmdID			3
 ruleType		ATTRIBUTE
-ruleScope		PERCLASS
+//ruleScope		PERCLASS
 ruleCategory	AttributeValidation
 ruleCategory	ModifierValidation
 must			irrMinimum
@@ -65,11 +65,12 @@ description		The IntegerRangeRule ensures that an Integer attribute has a value 
  <p/>
  <pre>
  IntegerRangeRuleData
- ruleName    <schema>RangeCheckY
- ruleTitle   Attribute Y in range 1-10
- irrMinimum  1
- irrMaximum  10
- description This constraint is required because blah, blah blah.
+ ruleName         <schema>RangeCheckY
+ ruleTitle        Attribute Y in range 1-10
+ applyToAttribute Y
+ irrMinimum       1
+ irrMaximum       10
+ description      This constraint is required because blah, blah blah.
  </pre>
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -78,7 +79,7 @@ RuleDefinition
 name			UCOAllowedAttributesRule
 dmdID			4
 ruleType		CLASS
-ruleScope		GLOBAL
+//ruleScope		GLOBAL
 ruleCategory	UCOValidation
 description		The UCOAllowedAttributesRule will determine whether or not the 
  attributes of a DmcUncheckedObject conform to the must/may specification of its
@@ -90,7 +91,7 @@ RuleDefinition
 name			AttributeTypeRule
 dmdID			5
 ruleType		ATTRIBUTE
-ruleScope		PERCLASS
+//ruleScope		PERCLASS
 ruleCategory	AttributeValidation
 must			allowedType
 description		The AttributeTypeRule allowes you to restrict the type of
@@ -102,7 +103,7 @@ RuleDefinition
 name			RelatedNumbersRule
 dmdID			6
 ruleType		CLASS
-ruleScope		PERCLASS
+//ruleScope		PERCLASS
 ruleCategory	ObjectValidation
 must			lhs
 must			rhs
@@ -125,7 +126,7 @@ AttributeTypeRuleData
 ruleName			dmvLhs
 ruleTitle           The lhs attribute can be Integer, Float or Double
 applyToAttribute	lhs
-applyToClasses 		RelatedNumbersRule
+applyToClass 		RelatedNumbersRule
 allowedType 		Integer
 allowedType 		Float
 allowedType 		Double
@@ -134,7 +135,35 @@ AttributeTypeRuleData
 ruleName			dmvRhs
 ruleTitle			The rhs attribute can be Integer, Float or Double
 applyToAttribute	rhs
-applyToClasses 		RelatedNumbersRule
+applyToClass 		RelatedNumbersRule
 allowedType 		Integer
 allowedType 		Float
 allowedType 		Double
+
+///////////////////////////////////////////////////////////////////////////////
+
+RuleDefinition
+name				CheckAttributesBasedOnValueRule
+dmdID				7
+ruleType			CLASS
+//ruleScope			PERCLASS
+ruleCategory		ObjectValidation
+must				basedOnAttribute
+must				basedOnValue
+must				excludeThisAttribute
+description			The CheckAttributesBasedOnValueRule allows you to specify
+ that certain optional attributes must exist (or not exist) based on the value
+ of another attribute in an object.
+ an object based on the setting of a particular enumerated attribute. This allows
+ for finer control of must/may attributes based on enumerated values in an object.
+ An example usage might look like:
+ <pre>
+ CheckAttributesBasedOnValueRuleData
+ ruleName             <schema>ExcludeSunRoof
+ ruleTitle            The sun roof option is not avilable on four cyclinder vehicles.
+ applyToClass         Car
+ basedOnAttribute     engineType
+ basedOnValue         FOURCYLINDER
+ excludeThisAttribute sunRoofOption
+ </pre>
+

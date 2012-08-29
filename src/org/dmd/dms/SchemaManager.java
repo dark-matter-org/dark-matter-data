@@ -36,8 +36,6 @@ import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
-import org.dmd.dms.generated.enums.RuleScopeEnum;
-import org.dmd.dms.generated.enums.RuleTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;
@@ -1238,15 +1236,16 @@ public class SchemaManager implements DmcNameResolverIF {
         cd.addMust(MetaSchemaAG._ruleTitle);
         cd.addMay(MetaSchemaAG._description);
         
-        if (rd.getRuleType() == RuleTypeEnum.ATTRIBUTE){
-        	cd.addMust(MetaSchemaAG._applyToAttribute);
-        	if (rd.getRuleScope() == RuleScopeEnum.PERCLASS)
-        		cd.addMay(MetaSchemaAG._applyToClasses);
-        }
-        else{
-            if (rd.getRuleScope() == RuleScopeEnum.PERCLASS)
-            	cd.addMust(MetaSchemaAG._applyToClass);
-        }
+		cd.addMay(MetaSchemaAG._applyToClass);
+//        if (rd.getRuleType() == RuleTypeEnum.ATTRIBUTE){
+//        	cd.addMust(MetaSchemaAG._applyToAttribute);
+//        	if (rd.getRuleScope() == RuleScopeEnum.PERCLASS)
+//        		cd.addMay(MetaSchemaAG._applyToClasses);
+//        }
+//        else{
+//            if (rd.getRuleScope() == RuleScopeEnum.PERCLASS)
+//            	cd.addMust(MetaSchemaAG._applyToClass);
+//        }
         
         cd.setFile(rd.getFile());
         cd.setLineNumber(rd.getLineNumber());

@@ -193,37 +193,24 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     }
 
     /**
-     * The classes to which a rule should be applied.
-     * @return An Iterator of ClassDefinition objects.
+     * The class to which a rule should be applied.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2397)
-    public ClassDefinitionIterableDMW getApplyToClasses(){
-        DmcTypeClassDefinitionREFMV attr = (DmcTypeClassDefinitionREFMV) mycore.get(MetaDMSAG.__applyToClasses);
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2246)
+    public ClassDefinition getApplyToClass(){
+        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaDMSAG.__applyToClass);
         if (attr == null)
-            return(ClassDefinitionIterableDMW.emptyList);
-
-        return(new ClassDefinitionIterableDMW(attr.getMV()));
+            return(null);
+        ClassDefinitionDMO obj = attr.getSV().getObject();
+        return((ClassDefinition)obj.getContainer());
     }
 
     /**
-     * Adds another applyToClasses value.
+     * Sets applyToClass to the specified value.
      * @param value A value compatible with ClassDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2456)
-    public DmcAttribute<?> addApplyToClasses(ClassDefinition value) throws DmcValueException {
-        DmcAttribute<?> attr = mycore.addApplyToClasses(value.getDmcObject());
-        return(attr);
-    }
-
-    /**
-     * Returns the number of applyToClasses values.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2482)
-    public int getApplyToClassesSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__applyToClasses);
-        if (attr == null)
-            return(0);
-        return(attr.getMVSize());
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2296)
+    public void setApplyToClass(ClassDefinition value) throws DmcValueException {
+        mycore.setApplyToClass(value.getDmcObject());
     }
 
 

@@ -884,8 +884,10 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 			imports.addImport(nameAttributeType, "Is named by");
 		}
 			
-		if (useWrappedObjectRefs)
-			imports.addImport("org.dmd.dms.*", "Always 2");
+		if (useWrappedObjectRefs){
+//			imports.addImport("org.dmd.dms.*", "Always 2");
+			imports.addImport("org.dmd.dms.ClassDefinition", "Passing derived class def up the hierarchy");
+		}
 		
 		if ( (cd.getClassType() != ClassTypeEnum.ABSTRACT) && (cd.getClassType() != ClassTypeEnum.AUXILIARY)){
 			imports.addImport("org.dmd.dms.generated.types.DmcTypeModifierMV", "Required for MODREC constructor");
