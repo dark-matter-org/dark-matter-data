@@ -62,21 +62,6 @@ may				svTestBasicNamedObjectFixed
 description     The TestBasicObjectFixed class provides a test bed for all types of basic
  attribute values.
 
-InitRuleData
-ruleName  		dmtInitTestBasicObjectFixed
-ruleTitle 		Initialize TestBasicObjectFixed
-applyToClass	TestBasicObjectFixed
-svString		the single valued string
-mvString		first value
-mvString		second value
-svInteger		8
-
-IntegerRangeRuleData
-ruleName 		dmtSvIntegerRange
-ruleTitle		Check that svInteger is in range 1-10
-irrMinimum		1
-irrMaximum		10
-
 ClassDefinition
 name            TestBasicNamedObjectFixed
 classType       STRUCTURAL

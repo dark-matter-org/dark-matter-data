@@ -1,0 +1,87 @@
+Module
+moduleName 	    	mvwcomms
+genPackage			org.dmd.mvw.client.mvwcomms
+dependsOnSchema		dmp
+description			The mvwcomms module defines a component that manages the
+ Dark Matter Protocol interaction with the server. All communications aspects
+ are funnelled through the CommsController.
+
+RunContextItem
+itemName			dmpConnection
+useClass     		org.dmd.dmp.client.DMPServiceAsync
+importThis			com.google.gwt.core.client.GWT
+importThis			org.dmd.dmp.client.DMPService
+construction 		(DMPServiceAsync) GWT.create(DMPService.class)
+itemOrder    		2
+description			The asynchronous service interface definition for the Dark Matter Protocol.
+ This provides our connectivity to the server using GWT RPC mechanisms i.e. one request, one reponse
+ at some later time. However, it is the eventService that provides us with asynchronous events
+ and further responses for requests that require multiple responses.
+ 
+
+RunContextItem
+itemName			eventService
+useClass     		de.novanic.eventservice.client.event.RemoteEventService
+importThis			de.novanic.eventservice.client.event.RemoteEventServiceFactory
+construction 		RemoteEventServiceFactory.getInstance().getRemoteEventService()
+itemOrder    		3
+description			The eventService provides asynchronous event/reponse delivery.
+
+RunContextItem
+itemName			commsController
+useClass     		org.dmd.mvw.client.mvwcomms.extended.CommsController
+construction 		new CommsController(this)
+itemOrder    		4
+description			The commsController provides coordination of client side session management
+ and the delivery of responses/events to the appropriate client side components.
+
+Controller
+controllerName		CommsController
+useSchema			dmp
+usesRunContextItem	dmpConnection
+usesRunContextItem	eventService
+sendsRequest		ActionRequest primeEventChannel
+addedToRunContext	false
+firesEvent			LoginCompleteEvent
+firesEvent			LogoutCompleteEvent
+firesEvent			CommsSessionReady
+firesEvent			CommsSessionFailed
+handlesEvent		ForceCommsReset
+description			Provides overall communication via the Dark Matter Protocol.
+
+Event
+eventName       	LoginCompleteEvent
+description     	Fired when we have sucessfully logged in. This indicates that
+ we've successfully logged in, but we are not yet ready for full communications.
+ Your application must wait for the CommsSessionReady event before commencing
+ other DMP operations e.g. GetRequest, SetRequest, CreateRequest, DeleteRequest etc.
+
+Event
+eventName       	LogoutEvent
+firedInThisModule	false
+description     	Fired by some component when an application user wants to logout.
+ This is meant to be a reusable event across application.
+
+Event
+eventName       	LogoutCompleteEvent
+description     	Fired when we have sucessfully logged out.
+
+Event
+eventName			CommsSessionReady
+description			Fired when we've established full asynchronous communications
+ with the server, in this case, the gwteventservice is up and running.
+
+Event
+eventName			CommsSessionFailed
+argVector			(String reason)
+description			Fired if we cannot establish full asynchronous communications
+ or if we have some other situation where communications fails.
+
+Event
+eventName			ForceCommsReset
+firedInThisModule	false
+description			When a logout is successfully executed, the CommsController resets itself
+ in preparation for the next login. However, in circumstances where something goes wrong e.g.
+ RPC errors, failed logout etc. An application can fire this event and forceably reset the
+ communications controller.
+

@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -24,8 +24,8 @@ import org.dmd.dmc.types.DmcTypeLong;    // DmcType import
  * The DmcTypeLongSV provides storage for a single-valued Long
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:624)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:270)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLongSV extends DmcTypeLong implements Serializable {
@@ -41,7 +41,7 @@ public class DmcTypeLongSV extends DmcTypeLong implements Serializable {
     }
     
     public DmcTypeLongSV getNew(){
-        return(new DmcTypeLongSV(getAttributeInfo()));
+        return(new DmcTypeLongSV(attrInfo));
     }
     
     public DmcTypeLongSV getNew(DmcAttributeInfo ai){
@@ -49,14 +49,14 @@ public class DmcTypeLongSV extends DmcTypeLong implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
     public DmcAttribute<Long> cloneIt(){
         DmcTypeLongSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
     public Long getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeLongSV extends DmcTypeLong implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
     public Long set(Object v) throws DmcValueException {
         Long rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

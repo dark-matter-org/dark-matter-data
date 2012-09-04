@@ -14,7 +14,7 @@ public class DmtTestEnumSVAdapter extends DmcTypeDmtTestEnumSV implements DmcAda
     transient DmcTypeDmtTestEnumSV existingValue;
 
     public DmtTestEnumSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

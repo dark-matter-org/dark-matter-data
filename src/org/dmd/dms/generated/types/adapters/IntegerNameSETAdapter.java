@@ -14,7 +14,7 @@ public class IntegerNameSETAdapter extends DmcTypeIntegerNameSET implements DmcA
     transient DmcTypeIntegerNameSET existingValue;
 
     public IntegerNameSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

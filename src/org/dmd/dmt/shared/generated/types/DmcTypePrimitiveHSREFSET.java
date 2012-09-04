@@ -14,7 +14,7 @@ import org.dmd.dmt.shared.generated.dmo.PrimitiveHSDMO;    // DmcType import
  * The DmcTypePrimitiveHSREFSET provides storage for a set of PrimitiveHSDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -32,7 +32,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<PrimitiveHSDMO>();
         else
             value = new TreeSet<PrimitiveHSDMO>();
@@ -40,11 +40,11 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     
     @Override
     public DmcTypePrimitiveHSREFSET getNew(){
-        return(new DmcTypePrimitiveHSREFSET(getAttributeInfo()));
+        return(new DmcTypePrimitiveHSREFSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public DmcAttribute<PrimitiveHSDMO> cloneIt(){
         synchronized(this){
             DmcTypePrimitiveHSREFSET rc = getNew();
@@ -59,7 +59,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public PrimitiveHSDMO add(Object v) throws DmcValueException {
         synchronized(this){
             PrimitiveHSDMO rc = typeCheck(v);
@@ -75,7 +75,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
     public PrimitiveHSDMO del(Object v){
         synchronized(this){
             PrimitiveHSDMO rc = null;
@@ -99,20 +99,20 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
     public Iterator<PrimitiveHSDMO> getMV(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<PrimitiveHSDMO>(value)).iterator() );
             else
                 return( (new TreeSet<PrimitiveHSDMO>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
     public Set<PrimitiveHSDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<PrimitiveHSDMO>(value));
             else
                 return(new TreeSet<PrimitiveHSDMO>(value));
@@ -120,7 +120,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -130,7 +130,7 @@ public class DmcTypePrimitiveHSREFSET extends DmcTypePrimitiveHSREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

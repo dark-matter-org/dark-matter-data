@@ -19,23 +19,32 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (4)</h2>
+    <h2> Classes (6)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
-      <td> <a class="deflink" href="#AllowedAttributesRuleData"> AllowedAttributesRuleData </a></td>
+      <td> <a class="deflink" href="#AttributeRule"> AttributeRule </a></td>
       </tr>
       <tr>
       <td class="spacer"> </td>
-      <td> <a class="deflink" href="#InitRuleData"> InitRuleData </a></td>
+      <td> <a class="deflink" href="#ClassRule"> ClassRule </a></td>
       </tr>
       <tr>
       <td class="spacer"> </td>
-      <td> <a class="deflink" href="#IntegerRangeRuleData"> IntegerRangeRuleData </a></td>
+      <td> <a class="deflink" href="#IntegerRangeRule"> IntegerRangeRule </a></td>
       </tr>
       <tr>
       <td class="spacer"> </td>
-      <td> <a class="deflink" href="#UCOAllowedAttributesRuleData"> UCOAllowedAttributesRuleData </a></td>
+      <td> <a class="deflink" href="#MayRule"> MayRule </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#MustRule"> MustRule </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#Rule"> Rule </a></td>
+      <td> name </td>
       </tr>
     </table>
     </div>  </div> <!--  summary -->
@@ -46,19 +55,38 @@
 
   <table>
 
-    <tr> <td class="className" colspan="4"> <a name="AllowedAttributesRuleData"> AllowedAttributesRuleData </a> </td></tr>
+    <tr> <td class="className" colspan="4"> <a name="AttributeRule"> AttributeRule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The AttributeRule is the simplest rule that operates on a single attribute.</td>
+    </tr>
+
     <tr>
       <td class="spacer"> </td>
       <td class="label">Type</td>
-      <td colspan="2">STRUCTURAL</td>
+      <td colspan="2">ABSTRACT</td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td>Derived from</td>
       <td colspan="2">
-      <a href="meta.html#RuleData">RuleData</a>
+      <a href="dmv.html#Rule">Rule</a>
       </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="dmv.html#IntegerRangeRule">IntegerRangeRule</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
     </tr>
 
   </table>
@@ -68,166 +96,98 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="meta.html#ruleName">ruleName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
-      <td> The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The title of a rule. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">May</td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr> <td class="className" colspan="4"> <a name="InitRuleData"> InitRuleData </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Type</td>
-      <td colspan="2">EXTENSIBLE</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Derived from</td>
-      <td colspan="2">
-      <a href="meta.html#RuleData">RuleData</a>
-      </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Must</td>
-      <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
-      <td> The class to which a rule should be applied. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#ruleName">ruleName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
-      <td> The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The title of a rule. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">May</td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr> <td class="className" colspan="4"> <a name="IntegerRangeRuleData"> IntegerRangeRuleData </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Type</td>
-      <td colspan="2">STRUCTURAL</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Derived from</td>
-      <td colspan="2">
-      <a href="meta.html#RuleData">RuleData</a>
-      </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Must</td>
-      <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
+      <td> <a href="dmv.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indiactes the attribute to which an ATTRIBUTE type rule is applied. </td>
+      <td> A reference to the definition of an attribute to which a  rule should be applied. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="dmv.html#irrMaximum">irrMaximum</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The maximum integer value. </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="dmv.html#irrMinimum">irrMinimum</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The minimum integer value. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#ruleName">ruleName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
-      <td> The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The title of a rule. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">May</td>
-      <td> <a href="meta.html#applyToClasses">applyToClasses</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
-      <td> The classes to which a rule should be applied. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description title of a rule. </td>
     </tr>
 
   </table>
 
   <table>
 
-    <tr> <td class="className" colspan="4"> <a name="UCOAllowedAttributesRuleData"> UCOAllowedAttributesRuleData </a> </td></tr>
+    <tr> <td class="className" colspan="4"> <a name="ClassRule"> ClassRule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The ClassRule is a rule that applies to an entire object and its collection of attributes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmv.html#Rule">Rule</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="dmv.html#MayRule">MayRule</a> </div>      <div class="derived"> <a href="dmv.html#MustRule">MustRule</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description title of a rule. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="dmv.html#applyToClass">applyToClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> A reference to the definition of an class to which a  rule should be applied. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="IntegerRangeRule"> IntegerRangeRule </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
       <td class="label">Type</td>
@@ -238,8 +198,15 @@
       <td class="spacer"> </td>
       <td>Derived from</td>
       <td colspan="2">
-      <a href="meta.html#RuleData">RuleData</a>
+      <a href="dmv.html#Rule">Rule</a> <br />
+      <a href="dmv.html#AttributeRule">AttributeRule</a>
       </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
     </tr>
 
   </table>
@@ -249,25 +216,201 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
-      <td> <a href="meta.html#ruleName">ruleName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
-      <td> The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed. </td>
+      <td> <a href="dmv.html#applyToAttribute">applyToAttribute</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
+      <td> A reference to the definition of an attribute to which a  rule should be applied. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The title of a rule. </td>
+      <td> The description title of a rule. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="MayRule"> MayRule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The MustRule verifies that an object has its must attributes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmv.html#Rule">Rule</a> <br />
+      <a href="dmv.html#ClassRule">ClassRule</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description title of a rule. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="meta.html#description">description</a> </td>
+      <td> <a href="dmv.html#applyToClass">applyToClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> A reference to the definition of an class to which a  rule should be applied. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="MustRule"> MustRule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The MustRule verifies that an object has its must attributes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmv.html#Rule">Rule</a> <br />
+      <a href="dmv.html#ClassRule">ClassRule</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description title of a rule. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="dmv.html#applyToClass">applyToClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> A reference to the definition of an class to which a  rule should be applied. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="Rule"> Rule </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">A Rule is meant to represent an object that defines the validation logic to be applied to Dark Matter Object as a whole or to its attributes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">ABSTRACT</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="dmv.html#AttributeRule">AttributeRule</a> </div>      <div class="derived"> <a href="dmv.html#ClassRule">ClassRule</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#name">name</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="meta.html#name">name</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
+      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmv.html#ruleTitle">ruleTitle</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description title of a rule. </td>
     </tr>
 
   </table>
@@ -280,60 +423,56 @@
 
   <table>
 
-    <tr> <td class="className" colspan="3"> <a name="irrMaximum"> irrMaximum </a> </td></tr>
+    <tr> <td class="className" colspan="3"> <a name="applyToAttribute"> applyToAttribute </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The maximum integer value.</td>
+      <td>A reference to the definition of an attribute to which a  rule should be applied.</td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="applyToClass"> applyToClass </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-<table>
-  <tr>
-    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
-</tr>
-  <tr>
-    <td> IntegerRangeRule (<a href="dmv.html#IntegerRangeRule">dmv</a>) </td>
-</tr>
-</table>
-      </td>
-    </tr>
-
-    <tr> <td class="className" colspan="3"> <a name="irrMinimum"> irrMinimum </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Integer">Integer</a> </div> 
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The minimum integer value.</td>
+      <td>A reference to the definition of an class to which a  rule should be applied.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="loadedFrom"> loadedFrom </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-<table>
-  <tr>
-    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
-</tr>
-  <tr>
-    <td> IntegerRangeRule (<a href="dmv.html#IntegerRangeRule">dmv</a>) </td>
-</tr>
-</table>
+      <td class="label">Description</td>
+      <td>The place from which a rule was loaded. This may be a file or an indication that the rule was instantiated and loaded internally.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="ruleTitle"> ruleTitle </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The description title of a rule.</td>
     </tr>
 
   </table>
@@ -345,12 +484,14 @@
     <div id="sidebar">
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>
+        <a class="navLink" href="dmp.server.html"> dmp.server</a>
         <a class="navLink" href="dmr.base.html"> dmr.base</a>
         <a class="navLink" href="dmr.ldap.html"> dmr.ldap</a>
         <a class="navLink" href="dmt.html"> dmt</a>
         <a class="navLink" href="dmv.html"> dmv</a>
         <a class="navLink" href="map.html"> map</a>
         <a class="navLink" href="meta.html"> meta</a>
+        <a class="navLink" href="mvw.html"> mvw</a>
     </div>
   </div> <!-- main -->
 

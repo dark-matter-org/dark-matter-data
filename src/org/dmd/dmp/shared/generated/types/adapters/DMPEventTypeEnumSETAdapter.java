@@ -14,7 +14,7 @@ public class DMPEventTypeEnumSETAdapter extends DmcTypeDMPEventTypeEnumSET imple
     transient DmcTypeDMPEventTypeEnumSET existingValue;
 
     public DMPEventTypeEnumSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

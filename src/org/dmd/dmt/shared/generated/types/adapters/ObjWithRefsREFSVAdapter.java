@@ -14,7 +14,7 @@ public class ObjWithRefsREFSVAdapter extends DmcTypeObjWithRefsREFSV implements 
     transient DmcTypeObjWithRefsREFSV existingValue;
 
     public ObjWithRefsREFSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

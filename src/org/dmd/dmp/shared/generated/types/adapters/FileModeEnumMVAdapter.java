@@ -14,7 +14,7 @@ public class FileModeEnumMVAdapter extends DmcTypeFileModeEnumMV implements DmcA
     transient DmcTypeFileModeEnumMV existingValue;
 
     public FileModeEnumMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

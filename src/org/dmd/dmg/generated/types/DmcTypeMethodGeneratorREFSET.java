@@ -28,7 +28,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMethodGeneratorREFSET provides storage for a set of MethodGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
@@ -46,7 +46,7 @@ public class DmcTypeMethodGeneratorREFSET extends DmcTypeMethodGeneratorREF impl
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<MethodGeneratorREF>();
         else
             value = new TreeSet<MethodGeneratorREF>();
@@ -54,11 +54,11 @@ public class DmcTypeMethodGeneratorREFSET extends DmcTypeMethodGeneratorREF impl
     
     @Override
     public DmcTypeMethodGeneratorREFSET getNew(){
-        return(new DmcTypeMethodGeneratorREFSET(getAttributeInfo()));
+        return(new DmcTypeMethodGeneratorREFSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public DmcAttribute<MethodGeneratorREF> cloneIt(){
         synchronized(this){
             DmcTypeMethodGeneratorREFSET rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeMethodGeneratorREFSET extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public MethodGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
             MethodGeneratorREF rc = typeCheck(v);
@@ -89,7 +89,7 @@ public class DmcTypeMethodGeneratorREFSET extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
     public MethodGeneratorREF del(Object v){
         synchronized(this){
             MethodGeneratorREF rc = null;
@@ -113,20 +113,20 @@ public class DmcTypeMethodGeneratorREFSET extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
     public Iterator<MethodGeneratorREF> getMV(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<MethodGeneratorREF>(value)).iterator() );
             else
                 return( (new TreeSet<MethodGeneratorREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
     public Set<MethodGeneratorREF> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<MethodGeneratorREF>(value));
             else
                 return(new TreeSet<MethodGeneratorREF>(value));
@@ -134,7 +134,7 @@ public class DmcTypeMethodGeneratorREFSET extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +144,7 @@ public class DmcTypeMethodGeneratorREFSET extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -14,7 +14,7 @@ public class FloatSVAdapter extends DmcTypeFloatSV implements DmcAdapterIF {
     transient DmcTypeFloatSV existingValue;
 
     public FloatSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

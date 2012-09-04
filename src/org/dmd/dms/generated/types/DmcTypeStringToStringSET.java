@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -30,8 +30,8 @@ import org.dmd.dmc.types.DmcTypeStringToString;    // DmcType import
  * The DmcTypeStringToStringSET provides storage for a set of StringToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:633)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
 public class DmcTypeStringToStringSET extends DmcTypeStringToString implements Serializable {
@@ -48,7 +48,7 @@ public class DmcTypeStringToStringSET extends DmcTypeStringToString implements S
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<StringToString>();
         else
             value = new TreeSet<StringToString>();
@@ -56,11 +56,11 @@ public class DmcTypeStringToStringSET extends DmcTypeStringToString implements S
     
     @Override
     public DmcTypeStringToStringSET getNew(){
-        return(new DmcTypeStringToStringSET(getAttributeInfo()));
+        return(new DmcTypeStringToStringSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
     public DmcAttribute<StringToString> cloneIt(){
         synchronized(this){
             DmcTypeStringToStringSET rc = getNew();
@@ -75,7 +75,7 @@ public class DmcTypeStringToStringSET extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
     public StringToString add(Object v) throws DmcValueException {
         synchronized(this){
             StringToString rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeStringToStringSET extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
     public StringToString del(Object v){
         synchronized(this){
             StringToString rc = null;
@@ -115,20 +115,20 @@ public class DmcTypeStringToStringSET extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
     public Iterator<StringToString> getMV(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<StringToString>(value)).iterator() );
             else
                 return( (new TreeSet<StringToString>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
     public Set<StringToString> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<StringToString>(value));
             else
                 return(new TreeSet<StringToString>(value));
@@ -136,7 +136,7 @@ public class DmcTypeStringToStringSET extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +146,7 @@ public class DmcTypeStringToStringSET extends DmcTypeStringToString implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

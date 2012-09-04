@@ -14,7 +14,7 @@ public class TestMultiLevelSubpackageREFSETAdapter extends DmcTypeTestMultiLevel
     transient DmcTypeTestMultiLevelSubpackageREFSET existingValue;
 
     public TestMultiLevelSubpackageREFSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

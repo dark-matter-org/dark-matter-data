@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // DmcType im
  * The DmcTypeResponseCategoryEnumSET provides storage for a set of ResponseCategoryEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:362)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ResponseCategoryEnum>();
         else
             value = new TreeSet<ResponseCategoryEnum>();
@@ -55,11 +55,11 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
     
     @Override
     public DmcTypeResponseCategoryEnumSET getNew(){
-        return(new DmcTypeResponseCategoryEnumSET(getAttributeInfo()));
+        return(new DmcTypeResponseCategoryEnumSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public DmcAttribute<ResponseCategoryEnum> cloneIt(){
         synchronized(this){
             DmcTypeResponseCategoryEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public ResponseCategoryEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ResponseCategoryEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
     public ResponseCategoryEnum del(Object v){
         synchronized(this){
             ResponseCategoryEnum rc = null;
@@ -114,20 +114,20 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
     public Iterator<ResponseCategoryEnum> getMV(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ResponseCategoryEnum>(value)).iterator() );
             else
                 return( (new TreeSet<ResponseCategoryEnum>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
     public Set<ResponseCategoryEnum> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ResponseCategoryEnum>(value));
             else
                 return(new TreeSet<ResponseCategoryEnum>(value));
@@ -135,7 +135,7 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeResponseCategoryEnumSET extends DmcTypeResponseCategoryEnum 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

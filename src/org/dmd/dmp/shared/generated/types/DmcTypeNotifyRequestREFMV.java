@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;    // DmcType import
  * The DmcTypeNotifyRequestREFMV provides storage for a multi-valued NotifyRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2251)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -44,15 +44,15 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
     
     @Override
     public DmcTypeNotifyRequestREFMV getNew(){
-        return(new DmcTypeNotifyRequestREFMV(getAttributeInfo()));
+        return(new DmcTypeNotifyRequestREFMV(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2281)
     public DmcAttribute<NotifyRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeNotifyRequestREFMV rc = getNew();
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 for(NotifyRequestDMO val: value)
                 try {
                     rc.add(val);
@@ -73,7 +73,7 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
     public NotifyRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             NotifyRequestDMO rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
     public NotifyRequestDMO del(Object v){
         synchronized(this){
             NotifyRequestDMO key = null;
@@ -106,7 +106,7 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2354)
     public Iterator<NotifyRequestDMO> getMV(){
         synchronized(this){
             ArrayList<NotifyRequestDMO> clone = new ArrayList<NotifyRequestDMO>(value);
@@ -114,7 +114,7 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public ArrayList<NotifyRequestDMO> getMVCopy(){
         synchronized(this){
             ArrayList<NotifyRequestDMO> clone = new ArrayList<NotifyRequestDMO>(value);
@@ -123,21 +123,21 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public int getMVSize(){
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(getAttributeInfo().indexSize);
+                return(attrInfo.indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2388)
     public NotifyRequestDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,14 +147,14 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2399)
     public NotifyRequestDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
+            if ( (index < 0) || (index >= attrInfo.indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
             
             NotifyRequestDMO rc = null;
             
@@ -162,8 +162,8 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<NotifyRequestDMO>(getAttributeInfo().indexSize);
-                for(int i=0;i<getAttributeInfo().indexSize;i++)
+                value = new ArrayList<NotifyRequestDMO>(attrInfo.indexSize);
+                for(int i=0;i<attrInfo.indexSize;i++)
                     value.add(null);
             }
             
@@ -174,13 +174,13 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2427)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -197,7 +197,7 @@ public class DmcTypeNotifyRequestREFMV extends DmcTypeNotifyRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2451)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

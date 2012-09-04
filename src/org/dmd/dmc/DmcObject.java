@@ -30,7 +30,6 @@ import org.dmd.dmc.types.DmcTypeNamedObjectREF;
 import org.dmd.dmc.types.Modifier;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
-import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.dms.generated.enums.ModifyTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
@@ -241,13 +240,13 @@ abstract public class DmcObject implements Serializable {
 	 */
 	abstract public DmcObject getSlice(DmcSliceInfo info);
 	
-//	public void validate() throws DmcValueExceptionSet {
-//		Iterator<DmcObjectValidator> ovds = getObjectValidators().values().iterator();
-//		while(ovds.hasNext()){
-//			DmcObjectValidator ov = ovds.next();
-//			ov.validate(this);
-//		}
-//	}
+	public void validate() throws DmcValueExceptionSet {
+		Iterator<DmcObjectValidator> ovds = getObjectValidators().values().iterator();
+		while(ovds.hasNext()){
+			DmcObjectValidator ov = ovds.next();
+			ov.validate(this);
+		}
+	}
 	
 	protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
 		throw(new IllegalStateException("getAttributeValidators() must be overriden in the DMO"));
@@ -1240,16 +1239,7 @@ abstract public class DmcObject implements Serializable {
 	
 	/**
 	 * Returns the references to this object formatted as a String. This will only
-	 * return a value if you've turned on backref tracking via the DmcOmni. The output
-	 * will appear as follows:
-	 * <pre>
-	 * References to: obj1 (1395193582)
-     *   (ObjWithRefs) obj3 via SV objRef
-	 * </pre>
-	 * The first line indicates the name of the object followed by the identity hash
-	 * code for the object, which can be useful when determining the actual object instance
-	 * you're referring to. The subsequent lines indicate the class of object doing the
-	 * referring, its name and the attribute via which the reference is maintained.
+	 * return a value if you've turned on backref tracking via the DmcOmni.
 	 */
 	public String getBackRefs(){
 		synchronized(attributes){		
@@ -2074,32 +2064,6 @@ abstract public class DmcObject implements Serializable {
 			}
 			
 			return(anyChange);
-		}
-	}
-	
-	///////////////////////////////////////////////////////////////////////////
-	// Extensible object support
-	
-	/**
-	 * If this object has a class type of EXTENSIBLE, we return the set of
-	 * attributes that are not part of the class or its auxiliary classes
-	 * i.e. the additional attributes.
-	 * @return null if this object is not extensible or the additional attributes otherwise.
-	 */
-	public Map<Integer, DmcAttribute<?>> getAdditionalAttributes(){
-		if (getConstructionClassInfo().classType == ClassTypeEnum.EXTENSIBLE){
-			TreeMap<Integer,DmcAttribute<?>> map = new TreeMap<Integer, DmcAttribute<?>>();
-			
-			for(DmcAttribute<?> attr: attributes.values()){
-				if (!allowsAttribute(attr.getAttributeInfo())){
-					map.put(attr.ID, attr);
-				}
-			}
-			
-			return(map);
-		}
-		else{
-			return(null);
 		}
 	}
 	

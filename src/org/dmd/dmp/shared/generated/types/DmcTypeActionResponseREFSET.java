@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.ActionResponseDMO;    // DmcType import
  * The DmcTypeActionResponseREFSET provides storage for a set of ActionResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ActionResponseDMO>();
         else
             value = new TreeSet<ActionResponseDMO>();
@@ -55,11 +55,11 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     
     @Override
     public DmcTypeActionResponseREFSET getNew(){
-        return(new DmcTypeActionResponseREFSET(getAttributeInfo()));
+        return(new DmcTypeActionResponseREFSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public DmcAttribute<ActionResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeActionResponseREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public ActionResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             ActionResponseDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
     public ActionResponseDMO del(Object v){
         synchronized(this){
             ActionResponseDMO rc = null;
@@ -114,20 +114,20 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
     public Iterator<ActionResponseDMO> getMV(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ActionResponseDMO>(value)).iterator() );
             else
                 return( (new TreeSet<ActionResponseDMO>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
     public Set<ActionResponseDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ActionResponseDMO>(value));
             else
                 return(new TreeSet<ActionResponseDMO>(value));
@@ -135,7 +135,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeActionResponseREFSET extends DmcTypeActionResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

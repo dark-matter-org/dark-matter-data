@@ -14,7 +14,7 @@ public class GeneratorMVAdapter extends DmcTypeGeneratorMV implements DmcAdapter
     transient DmcTypeGeneratorMV existingValue;
 
     public GeneratorMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

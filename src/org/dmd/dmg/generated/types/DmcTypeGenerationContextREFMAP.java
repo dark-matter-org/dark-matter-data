@@ -30,7 +30,7 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeGenerationContextREFMAP provides storage for a map of GenerationContextREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2797)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2760)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -49,29 +49,29 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<CamelCaseName,GenerationContextREF>();
         else
             value = new TreeMap<CamelCaseName,GenerationContextREF>();
     }
     
     public CamelCaseName firstKey(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
+        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<CamelCaseName,GenerationContextREF> map = (TreeMap<CamelCaseName,GenerationContextREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeGenerationContextREFMAP getNew(){
-        return(new DmcTypeGenerationContextREFMAP(getAttributeInfo()));
+        return(new DmcTypeGenerationContextREFMAP(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2814)
     public DmcAttribute<GenerationContextREF> cloneIt(){
         synchronized(this){
             DmcTypeGenerationContextREFMAP rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2830)
     public GenerationContextREF add(Object v) throws DmcValueException {
         synchronized(this){
             GenerationContextREF newval = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2888)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
     public GenerationContextREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
@@ -117,11 +117,11 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2900)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2863)
     public Iterator<GenerationContextREF> getMV(){
         synchronized(this){
             Map<CamelCaseName,GenerationContextREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<CamelCaseName,GenerationContextREF>(value);
             else
                 clone = new TreeMap<CamelCaseName,GenerationContextREF>(value);
@@ -129,11 +129,11 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2876)
     public Map<CamelCaseName,GenerationContextREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,GenerationContextREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<CamelCaseName,GenerationContextREF>(value);
             else
                 clone = new TreeMap<CamelCaseName,GenerationContextREF>(value);
@@ -141,7 +141,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2889)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,7 +152,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2938)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2901)
     public GenerationContextREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
@@ -163,7 +163,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2950)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -176,7 +176,7 @@ public class DmcTypeGenerationContextREFMAP extends DmcTypeGenerationContextREF 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2971)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2934)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)

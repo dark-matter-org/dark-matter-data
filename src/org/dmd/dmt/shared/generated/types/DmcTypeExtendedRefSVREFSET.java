@@ -14,7 +14,7 @@ import org.dmd.dmt.shared.generated.dmo.ExtendedRefSVDMO;    // DmcType import
  * The DmcTypeExtendedRefSVREFSET provides storage for a set of ExtendedRefSVDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -32,7 +32,7 @@ public class DmcTypeExtendedRefSVREFSET extends DmcTypeExtendedRefSVREF implemen
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ExtendedRefSVDMO>();
         else
             value = new TreeSet<ExtendedRefSVDMO>();
@@ -40,11 +40,11 @@ public class DmcTypeExtendedRefSVREFSET extends DmcTypeExtendedRefSVREF implemen
     
     @Override
     public DmcTypeExtendedRefSVREFSET getNew(){
-        return(new DmcTypeExtendedRefSVREFSET(getAttributeInfo()));
+        return(new DmcTypeExtendedRefSVREFSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public DmcAttribute<ExtendedRefSVDMO> cloneIt(){
         synchronized(this){
             DmcTypeExtendedRefSVREFSET rc = getNew();
@@ -59,7 +59,7 @@ public class DmcTypeExtendedRefSVREFSET extends DmcTypeExtendedRefSVREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public ExtendedRefSVDMO add(Object v) throws DmcValueException {
         synchronized(this){
             ExtendedRefSVDMO rc = typeCheck(v);
@@ -75,7 +75,7 @@ public class DmcTypeExtendedRefSVREFSET extends DmcTypeExtendedRefSVREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
     public ExtendedRefSVDMO del(Object v){
         synchronized(this){
             ExtendedRefSVDMO rc = null;
@@ -99,20 +99,20 @@ public class DmcTypeExtendedRefSVREFSET extends DmcTypeExtendedRefSVREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
     public Iterator<ExtendedRefSVDMO> getMV(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ExtendedRefSVDMO>(value)).iterator() );
             else
                 return( (new TreeSet<ExtendedRefSVDMO>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
     public Set<ExtendedRefSVDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<ExtendedRefSVDMO>(value));
             else
                 return(new TreeSet<ExtendedRefSVDMO>(value));
@@ -120,7 +120,7 @@ public class DmcTypeExtendedRefSVREFSET extends DmcTypeExtendedRefSVREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -130,7 +130,7 @@ public class DmcTypeExtendedRefSVREFSET extends DmcTypeExtendedRefSVREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -14,7 +14,7 @@ public class NameContainerSETAdapter extends DmcTypeNameContainerSET implements 
     transient DmcTypeNameContainerSET existingValue;
 
     public NameContainerSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

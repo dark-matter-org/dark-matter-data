@@ -30,7 +30,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMethodGeneratorREFMAP provides storage for a map of MethodGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2797)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2760)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -49,29 +49,29 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,MethodGeneratorREF>();
         else
             value = new TreeMap<StringName,MethodGeneratorREF>();
     }
     
     public StringName firstKey(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
+        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<StringName,MethodGeneratorREF> map = (TreeMap<StringName,MethodGeneratorREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeMethodGeneratorREFMAP getNew(){
-        return(new DmcTypeMethodGeneratorREFMAP(getAttributeInfo()));
+        return(new DmcTypeMethodGeneratorREFMAP(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2814)
     public DmcAttribute<MethodGeneratorREF> cloneIt(){
         synchronized(this){
             DmcTypeMethodGeneratorREFMAP rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2830)
     public MethodGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
             MethodGeneratorREF newval = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2888)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
     public MethodGeneratorREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -117,11 +117,11 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2900)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2863)
     public Iterator<MethodGeneratorREF> getMV(){
         synchronized(this){
             Map<StringName,MethodGeneratorREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,MethodGeneratorREF>(value);
             else
                 clone = new TreeMap<StringName,MethodGeneratorREF>(value);
@@ -129,11 +129,11 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2876)
     public Map<StringName,MethodGeneratorREF> getMVCopy(){
         synchronized(this){
             Map<StringName,MethodGeneratorREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,MethodGeneratorREF>(value);
             else
                 clone = new TreeMap<StringName,MethodGeneratorREF>(value);
@@ -141,7 +141,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2889)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,7 +152,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2938)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2901)
     public MethodGeneratorREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -163,7 +163,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2950)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -176,7 +176,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2971)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2934)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof StringName)

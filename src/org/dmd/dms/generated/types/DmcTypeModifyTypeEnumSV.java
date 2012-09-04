@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -24,8 +24,8 @@ import org.dmd.dms.generated.enums.ModifyTypeEnum;    // DmcType import
  * The DmcTypeModifyTypeEnumSV provides storage for a single-valued ModifyTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:550)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:232)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModifyTypeEnumSV extends DmcTypeModifyTypeEnum implements Serializable {
@@ -41,7 +41,7 @@ public class DmcTypeModifyTypeEnumSV extends DmcTypeModifyTypeEnum implements Se
     }
     
     public DmcTypeModifyTypeEnumSV getNew(){
-        return(new DmcTypeModifyTypeEnumSV(getAttributeInfo()));
+        return(new DmcTypeModifyTypeEnumSV(attrInfo));
     }
     
     public DmcTypeModifyTypeEnumSV getNew(DmcAttributeInfo ai){
@@ -49,14 +49,14 @@ public class DmcTypeModifyTypeEnumSV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
     public DmcAttribute<ModifyTypeEnum> cloneIt(){
         DmcTypeModifyTypeEnumSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
     public ModifyTypeEnum getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeModifyTypeEnumSV extends DmcTypeModifyTypeEnum implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
     public ModifyTypeEnum set(Object v) throws DmcValueException {
         ModifyTypeEnum rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

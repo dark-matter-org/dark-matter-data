@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -25,8 +25,8 @@ import org.dmd.dmc.types.DmcTypeTimeDoubleDataPoint;    // DmcType import
  * The DmcTypeTimeDoubleDataPointSV provides storage for a single-valued TimeDoubleDataPoint
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:624)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:270)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint implements Serializable {
@@ -42,7 +42,7 @@ public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     public DmcTypeTimeDoubleDataPointSV getNew(){
-        return(new DmcTypeTimeDoubleDataPointSV(getAttributeInfo()));
+        return(new DmcTypeTimeDoubleDataPointSV(attrInfo));
     }
     
     public DmcTypeTimeDoubleDataPointSV getNew(DmcAttributeInfo ai){
@@ -50,14 +50,14 @@ public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
     public DmcAttribute<TimeDoubleDataPoint> cloneIt(){
         DmcTypeTimeDoubleDataPointSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
     public TimeDoubleDataPoint getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeTimeDoubleDataPointSV extends DmcTypeTimeDoubleDataPoint imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
     public TimeDoubleDataPoint set(Object v) throws DmcValueException {
         TimeDoubleDataPoint rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

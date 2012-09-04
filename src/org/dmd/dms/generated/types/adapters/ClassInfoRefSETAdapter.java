@@ -14,7 +14,7 @@ public class ClassInfoRefSETAdapter extends DmcTypeClassInfoRefSET implements Dm
     transient DmcTypeClassInfoRefSET existingValue;
 
     public ClassInfoRefSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

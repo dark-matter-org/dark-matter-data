@@ -14,7 +14,7 @@ public class DotNameSETAdapter extends DmcTypeDotNameSET implements DmcAdapterIF
     transient DmcTypeDotNameSET existingValue;
 
     public DotNameSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

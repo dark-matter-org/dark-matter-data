@@ -22,8 +22,6 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcObjectName;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.rules.DmcRuleExceptionSet;
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmr.server.base.extended.HierarchicObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.SchemaManager;
@@ -32,6 +30,7 @@ import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
+import org.dmd.util.parsing.DmcUncheckedObject;
 
 
 /**
@@ -78,7 +77,7 @@ public class HierarchyParser implements DmcUncheckedOIFHandlerIF, DmcNameResolve
 		setFileAndLine	= sfal;
 	}
 
-	public HierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public HierarchicObject readHierarchy(String fn) throws ResultException, DmcValueException {
 		root	= null;
 		
 //		loadedObjects = new ArrayList<HierarchicObject>();

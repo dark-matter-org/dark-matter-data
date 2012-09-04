@@ -14,7 +14,7 @@ public class DebugEnumSVAdapter extends DmcTypeDebugEnumSV implements DmcAdapter
     transient DmcTypeDebugEnumSV existingValue;
 
     public DebugEnumSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

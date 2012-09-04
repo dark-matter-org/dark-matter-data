@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.dmo.UsingIndexedAttributesDMO;    // DmcType
  * The DmcTypeUsingIndexedAttributesREFSV provides storage for a single-valued UsingIndexedAttributes
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1907)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -26,7 +26,7 @@ public class DmcTypeUsingIndexedAttributesREFSV extends DmcTypeUsingIndexedAttri
     }
     
     public DmcTypeUsingIndexedAttributesREFSV getNew(){
-        return(new DmcTypeUsingIndexedAttributesREFSV(getAttributeInfo()));
+        return(new DmcTypeUsingIndexedAttributesREFSV(attrInfo));
     }
     
     public DmcTypeUsingIndexedAttributesREFSV getNew(DmcAttributeInfo ai){
@@ -34,14 +34,14 @@ public class DmcTypeUsingIndexedAttributesREFSV extends DmcTypeUsingIndexedAttri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1939)
     public DmcAttribute<UsingIndexedAttributesDMO> cloneIt(){
         DmcTypeUsingIndexedAttributesREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1950)
     public UsingIndexedAttributesDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -49,7 +49,7 @@ public class DmcTypeUsingIndexedAttributesREFSV extends DmcTypeUsingIndexedAttri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
     public UsingIndexedAttributesDMO set(Object v) throws DmcValueException {
         UsingIndexedAttributesDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

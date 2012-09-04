@@ -22,7 +22,6 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.doc.web.DmsHtmlDocGenerator;
@@ -180,7 +179,7 @@ public class DmoGenUtility {
         help.append("\n");
 	}
 	
-	public void run() throws DmcValueExceptionSet, DmcRuleExceptionSet {
+	public void run() throws DmcValueExceptionSet {
         BufferedReader  in = new BufferedReader(new InputStreamReader(System.in));
         String          currLine    = null;
         TokenArrayList	tokens		= null;
@@ -303,7 +302,7 @@ public class DmoGenUtility {
         }
 	}
 	
-	void generateFromConfig(ConfigLocation location) throws DmcRuleExceptionSet{
+	void generateFromConfig(ConfigLocation location){
     	try {
     		// Create a new manager into which the parsed schemas will be loaded
     		readSchemas = new SchemaManager();

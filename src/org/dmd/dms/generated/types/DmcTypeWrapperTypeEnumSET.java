@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -29,8 +29,8 @@ import org.dmd.dms.generated.enums.WrapperTypeEnum;    // DmcType import
  * The DmcTypeWrapperTypeEnumSET provides storage for a set of WrapperTypeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:557)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:234)
  */
 @SuppressWarnings("serial")
 public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements Serializable {
@@ -47,7 +47,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<WrapperTypeEnum>();
         else
             value = new TreeSet<WrapperTypeEnum>();
@@ -55,11 +55,11 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     
     @Override
     public DmcTypeWrapperTypeEnumSET getNew(){
-        return(new DmcTypeWrapperTypeEnumSET(getAttributeInfo()));
+        return(new DmcTypeWrapperTypeEnumSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
     public DmcAttribute<WrapperTypeEnum> cloneIt(){
         synchronized(this){
             DmcTypeWrapperTypeEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
     public WrapperTypeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             WrapperTypeEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
     public WrapperTypeEnum del(Object v){
         synchronized(this){
             WrapperTypeEnum rc = null;
@@ -114,20 +114,20 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
     public Iterator<WrapperTypeEnum> getMV(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<WrapperTypeEnum>(value)).iterator() );
             else
                 return( (new TreeSet<WrapperTypeEnum>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
     public Set<WrapperTypeEnum> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<WrapperTypeEnum>(value));
             else
                 return(new TreeSet<WrapperTypeEnum>(value));
@@ -135,7 +135,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeWrapperTypeEnumSET extends DmcTypeWrapperTypeEnum implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

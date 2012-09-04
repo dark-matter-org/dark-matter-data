@@ -15,7 +15,7 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestDerivedSubpackageREFMAP provides storage for a map of TestDerivedSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2797)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2760)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -34,29 +34,29 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<StringName,TestDerivedSubpackageREF>();
         else
             value = new TreeMap<StringName,TestDerivedSubpackageREF>();
     }
     
     public StringName firstKey(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
+        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<StringName,TestDerivedSubpackageREF> map = (TreeMap<StringName,TestDerivedSubpackageREF>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeTestDerivedSubpackageREFMAP getNew(){
-        return(new DmcTypeTestDerivedSubpackageREFMAP(getAttributeInfo()));
+        return(new DmcTypeTestDerivedSubpackageREFMAP(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2814)
     public DmcAttribute<TestDerivedSubpackageREF> cloneIt(){
         synchronized(this){
             DmcTypeTestDerivedSubpackageREFMAP rc = getNew();
@@ -71,7 +71,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2830)
     public TestDerivedSubpackageREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestDerivedSubpackageREF newval = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2888)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
     public TestDerivedSubpackageREF del(Object key){
         synchronized(this){
            if (key instanceof StringName)
@@ -102,11 +102,11 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2900)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2863)
     public Iterator<TestDerivedSubpackageREF> getMV(){
         synchronized(this){
             Map<StringName,TestDerivedSubpackageREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestDerivedSubpackageREF>(value);
             else
                 clone = new TreeMap<StringName,TestDerivedSubpackageREF>(value);
@@ -114,11 +114,11 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2876)
     public Map<StringName,TestDerivedSubpackageREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestDerivedSubpackageREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestDerivedSubpackageREF>(value);
             else
                 clone = new TreeMap<StringName,TestDerivedSubpackageREF>(value);
@@ -126,7 +126,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2889)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -137,7 +137,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2938)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2901)
     public TestDerivedSubpackageREF getByKey(Object key){
         synchronized(this){
             if (key instanceof StringName)
@@ -148,7 +148,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2950)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -161,7 +161,7 @@ public class DmcTypeTestDerivedSubpackageREFMAP extends DmcTypeTestDerivedSubpac
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2971)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2934)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof StringName)

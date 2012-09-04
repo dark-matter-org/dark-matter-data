@@ -14,7 +14,7 @@ public class DmcObjectSETAdapter extends DmcTypeDmcObjectSET implements DmcAdapt
     transient DmcTypeDmcObjectSET existingValue;
 
     public DmcObjectSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

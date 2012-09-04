@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.enums.FileModeEnum;    // DmcType import
  * The DmcTypeFileModeEnumSET provides storage for a set of FileModeEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:362)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<FileModeEnum>();
         else
             value = new TreeSet<FileModeEnum>();
@@ -55,11 +55,11 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     
     @Override
     public DmcTypeFileModeEnumSET getNew(){
-        return(new DmcTypeFileModeEnumSET(getAttributeInfo()));
+        return(new DmcTypeFileModeEnumSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public DmcAttribute<FileModeEnum> cloneIt(){
         synchronized(this){
             DmcTypeFileModeEnumSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public FileModeEnum add(Object v) throws DmcValueException {
         synchronized(this){
             FileModeEnum rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
     public FileModeEnum del(Object v){
         synchronized(this){
             FileModeEnum rc = null;
@@ -114,20 +114,20 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
     public Iterator<FileModeEnum> getMV(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<FileModeEnum>(value)).iterator() );
             else
                 return( (new TreeSet<FileModeEnum>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
     public Set<FileModeEnum> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<FileModeEnum>(value));
             else
                 return(new TreeSet<FileModeEnum>(value));
@@ -135,7 +135,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeFileModeEnumSET extends DmcTypeFileModeEnum implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

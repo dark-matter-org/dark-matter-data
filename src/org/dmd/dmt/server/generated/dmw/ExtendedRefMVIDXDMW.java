@@ -2,14 +2,14 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                // If any attributes - (BaseDMWGeneratorNewest.java:905)
-import org.dmd.dms.ClassDefinition;                                  // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                          // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
-import org.dmd.dmt.server.extended.ObjWithRefs;                      // Is reference type - (BaseDMWGeneratorNewest.java:925)
-import org.dmd.dmt.shared.generated.dmo.ExtendedRefMVIDXDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
-import org.dmd.dmt.shared.generated.types.SomeRelation;              // For setNth of SomeRelation - (BaseDMWGeneratorNewest.java:1730)
-import org.dmd.dmw.DmwWrapper;                                       // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1053)
+import org.dmd.dmc.*;                                                // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dms.*;                                                // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                          // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
+import org.dmd.dmt.server.extended.ObjWithRefs;                      // Is reference type - (BaseDMWGeneratorNewest.java:923)
+import org.dmd.dmt.shared.generated.dmo.ExtendedRefMVIDXDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dmt.shared.generated.types.SomeRelation;              // For setNth of SomeRelation - (BaseDMWGeneratorNewest.java:1724)
+import org.dmd.dmw.DmwWrapper;                                       // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1051)
 
 
 /**
@@ -55,7 +55,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return The number of SomeRelation items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1483)
     public int getMvIdxExtendedRefSize(){
         return(((ExtendedRefMVIDXDMO) core).getMvIdxExtendedRefSize());
     }
@@ -63,7 +63,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are no SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1497)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1491)
     public boolean getMvIdxExtendedRefIsEmpty(){
         if (((ExtendedRefMVIDXDMO) core).getMvIdxExtendedRefSize() == 0)
             return(true);
@@ -73,7 +73,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return true if there are any SomeRelationDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1501)
     public boolean getMvIdxExtendedRefHasValue(){
         if (((ExtendedRefMVIDXDMO) core).getMvIdxExtendedRefSize() == 0)
             return(false);
@@ -84,7 +84,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
      * Sets the mvIdxExtendedRef value at the specified index.
      * @param value A value compatible with SomeRelation
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1737)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1731)
     public DmcAttribute<?> setNthMvIdxExtendedRef(int index, SomeRelation value){
         return(((ExtendedRefMVIDXDMO) core).setNthMvIdxExtendedRef(index, value));
     }
@@ -92,7 +92,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return The SomeRelation object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1827)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1821)
     public ObjWithRefs getNthMvIdxExtendedRef(int index){
         SomeRelation ref = ((ExtendedRefMVIDXDMO) core).getNthMvIdxExtendedRef(index);
         if (ref == null)
@@ -107,7 +107,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * @return The reference to the SomeRelation object at the specified index.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1873)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1867)
     public SomeRelation getNthMvIdxExtendedRefREF(int index){
         SomeRelation ref = ((ExtendedRefMVIDXDMO) core).getNthMvIdxExtendedRefREF(index);
         return(ref);
@@ -116,7 +116,7 @@ public class ExtendedRefMVIDXDMW extends DmwWrapper {
     /**
      * Removes the mvIdxExtendedRef attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2100)
     public void remMvIdxExtendedRef(){
         ((ExtendedRefMVIDXDMO) core).remMvIdxExtendedRef();
     }

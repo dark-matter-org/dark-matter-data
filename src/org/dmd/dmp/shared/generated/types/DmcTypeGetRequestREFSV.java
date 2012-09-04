@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.dmo.GetRequestDMO;    // DmcType import
  * The DmcTypeGetRequestREFSV provides storage for a single-valued GetRequest
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1907)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -41,7 +41,7 @@ public class DmcTypeGetRequestREFSV extends DmcTypeGetRequestREF implements Seri
     }
     
     public DmcTypeGetRequestREFSV getNew(){
-        return(new DmcTypeGetRequestREFSV(getAttributeInfo()));
+        return(new DmcTypeGetRequestREFSV(attrInfo));
     }
     
     public DmcTypeGetRequestREFSV getNew(DmcAttributeInfo ai){
@@ -49,14 +49,14 @@ public class DmcTypeGetRequestREFSV extends DmcTypeGetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1939)
     public DmcAttribute<GetRequestDMO> cloneIt(){
         DmcTypeGetRequestREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1950)
     public GetRequestDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeGetRequestREFSV extends DmcTypeGetRequestREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
     public GetRequestDMO set(Object v) throws DmcValueException {
         GetRequestDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

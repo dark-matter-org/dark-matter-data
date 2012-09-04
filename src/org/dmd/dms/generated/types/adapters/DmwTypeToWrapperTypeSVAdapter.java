@@ -14,7 +14,7 @@ public class DmwTypeToWrapperTypeSVAdapter extends DmcTypeDmwTypeToWrapperTypeSV
     transient DmcTypeDmwTypeToWrapperTypeSV existingValue;
 
     public DmwTypeToWrapperTypeSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

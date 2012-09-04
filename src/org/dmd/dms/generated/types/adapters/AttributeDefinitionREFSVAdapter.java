@@ -14,7 +14,7 @@ public class AttributeDefinitionREFSVAdapter extends DmcTypeAttributeDefinitionR
     transient DmcTypeAttributeDefinitionREFSV existingValue;
 
     public AttributeDefinitionREFSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

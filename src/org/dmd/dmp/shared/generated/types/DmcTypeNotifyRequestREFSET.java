@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;    // DmcType import
  * The DmcTypeNotifyRequestREFSET provides storage for a set of NotifyRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -47,7 +47,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<NotifyRequestDMO>();
         else
             value = new TreeSet<NotifyRequestDMO>();
@@ -55,11 +55,11 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     
     @Override
     public DmcTypeNotifyRequestREFSET getNew(){
-        return(new DmcTypeNotifyRequestREFSET(getAttributeInfo()));
+        return(new DmcTypeNotifyRequestREFSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
     public DmcAttribute<NotifyRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeNotifyRequestREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public NotifyRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             NotifyRequestDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
     public NotifyRequestDMO del(Object v){
         synchronized(this){
             NotifyRequestDMO rc = null;
@@ -114,20 +114,20 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
     public Iterator<NotifyRequestDMO> getMV(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<NotifyRequestDMO>(value)).iterator() );
             else
                 return( (new TreeSet<NotifyRequestDMO>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
     public Set<NotifyRequestDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return(new HashSet<NotifyRequestDMO>(value));
             else
                 return(new TreeSet<NotifyRequestDMO>(value));
@@ -135,7 +135,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

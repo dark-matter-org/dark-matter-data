@@ -14,7 +14,7 @@ public class IntegerNamedObjectREFMAPAdapter extends DmcTypeIntegerNamedObjectRE
     transient DmcTypeIntegerNamedObjectREFMAP existingValue;
 
     public IntegerNamedObjectREFMAPAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

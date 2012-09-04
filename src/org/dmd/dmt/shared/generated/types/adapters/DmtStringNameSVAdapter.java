@@ -14,7 +14,7 @@ public class DmtStringNameSVAdapter extends DmcTypeDmtStringNameSV implements Dm
     transient DmcTypeDmtStringNameSV existingValue;
 
     public DmtStringNameSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

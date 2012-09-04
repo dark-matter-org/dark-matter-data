@@ -14,7 +14,7 @@ public class UUIDLiteSETAdapter extends DmcTypeUUIDLiteSET implements DmcAdapter
     transient DmcTypeUUIDLiteSET existingValue;
 
     public UUIDLiteSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

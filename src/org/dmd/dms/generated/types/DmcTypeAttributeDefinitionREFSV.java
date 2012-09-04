@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -23,8 +23,8 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeAttributeDefinitionREFSV provides storage for a single-valued AttributeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:572)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:243)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAttributeDefinitionREFSV extends DmcTypeAttributeDefinitionREF implements Serializable {
@@ -40,7 +40,7 @@ public class DmcTypeAttributeDefinitionREFSV extends DmcTypeAttributeDefinitionR
     }
     
     public DmcTypeAttributeDefinitionREFSV getNew(){
-        return(new DmcTypeAttributeDefinitionREFSV(getAttributeInfo()));
+        return(new DmcTypeAttributeDefinitionREFSV(attrInfo));
     }
     
     public DmcTypeAttributeDefinitionREFSV getNew(DmcAttributeInfo ai){
@@ -48,14 +48,14 @@ public class DmcTypeAttributeDefinitionREFSV extends DmcTypeAttributeDefinitionR
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
     public DmcAttribute<AttributeDefinitionREF> cloneIt(){
         DmcTypeAttributeDefinitionREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
     public AttributeDefinitionREF getSVCopy(){
         if (value == null)
             return(null);
@@ -63,7 +63,7 @@ public class DmcTypeAttributeDefinitionREFSV extends DmcTypeAttributeDefinitionR
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
     public AttributeDefinitionREF set(Object v) throws DmcValueException {
         AttributeDefinitionREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

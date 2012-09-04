@@ -14,7 +14,7 @@ public class TestBasicNamedObjectFixedREFSVAdapter extends DmcTypeTestBasicNamed
     transient DmcTypeTestBasicNamedObjectFixedREFSV existingValue;
 
     public TestBasicNamedObjectFixedREFSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

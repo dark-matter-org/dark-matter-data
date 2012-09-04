@@ -24,7 +24,7 @@ import org.dmd.dmp.shared.generated.dmo.CreateResponseDMO;    // DmcType import
  * The DmcTypeCreateResponseREFSV provides storage for a single-valued CreateResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1907)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -41,7 +41,7 @@ public class DmcTypeCreateResponseREFSV extends DmcTypeCreateResponseREF impleme
     }
     
     public DmcTypeCreateResponseREFSV getNew(){
-        return(new DmcTypeCreateResponseREFSV(getAttributeInfo()));
+        return(new DmcTypeCreateResponseREFSV(attrInfo));
     }
     
     public DmcTypeCreateResponseREFSV getNew(DmcAttributeInfo ai){
@@ -49,14 +49,14 @@ public class DmcTypeCreateResponseREFSV extends DmcTypeCreateResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1939)
     public DmcAttribute<CreateResponseDMO> cloneIt(){
         DmcTypeCreateResponseREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1950)
     public CreateResponseDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeCreateResponseREFSV extends DmcTypeCreateResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1962)
     public CreateResponseDMO set(Object v) throws DmcValueException {
         CreateResponseDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

@@ -11,7 +11,7 @@ import org.dmd.dmt.shared.generated.dmo.ExtendedRefHSDMO;    // DmcType import
  * The DmcTypeExtendedRefHSREFMV provides storage for a multi-valued ExtendedRefHS
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2251)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -29,15 +29,15 @@ public class DmcTypeExtendedRefHSREFMV extends DmcTypeExtendedRefHSREF implement
     
     @Override
     public DmcTypeExtendedRefHSREFMV getNew(){
-        return(new DmcTypeExtendedRefHSREFMV(getAttributeInfo()));
+        return(new DmcTypeExtendedRefHSREFMV(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2281)
     public DmcAttribute<ExtendedRefHSDMO> cloneIt(){
         synchronized(this){
             DmcTypeExtendedRefHSREFMV rc = getNew();
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 for(ExtendedRefHSDMO val: value)
                 try {
                     rc.add(val);
@@ -58,7 +58,7 @@ public class DmcTypeExtendedRefHSREFMV extends DmcTypeExtendedRefHSREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
     public ExtendedRefHSDMO add(Object v) throws DmcValueException {
         synchronized(this){
             ExtendedRefHSDMO rc = typeCheck(v);
@@ -70,7 +70,7 @@ public class DmcTypeExtendedRefHSREFMV extends DmcTypeExtendedRefHSREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
     public ExtendedRefHSDMO del(Object v){
         synchronized(this){
             ExtendedRefHSDMO key = null;
@@ -91,7 +91,7 @@ public class DmcTypeExtendedRefHSREFMV extends DmcTypeExtendedRefHSREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2354)
     public Iterator<ExtendedRefHSDMO> getMV(){
         synchronized(this){
             ArrayList<ExtendedRefHSDMO> clone = new ArrayList<ExtendedRefHSDMO>(value);
@@ -99,7 +99,7 @@ public class DmcTypeExtendedRefHSREFMV extends DmcTypeExtendedRefHSREF implement
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public ArrayList<ExtendedRefHSDMO> getMVCopy(){
         synchronized(this){
             ArrayList<ExtendedRefHSDMO> clone = new ArrayList<ExtendedRefHSDMO>(value);
@@ -108,21 +108,21 @@ public class DmcTypeExtendedRefHSREFMV extends DmcTypeExtendedRefHSREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public int getMVSize(){
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(getAttributeInfo().indexSize);
+                return(attrInfo.indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2388)
     public ExtendedRefHSDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -132,14 +132,14 @@ public class DmcTypeExtendedRefHSREFMV extends DmcTypeExtendedRefHSREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2399)
     public ExtendedRefHSDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
+            if ( (index < 0) || (index >= attrInfo.indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
             
             ExtendedRefHSDMO rc = null;
             
@@ -147,8 +147,8 @@ public class DmcTypeExtendedRefHSREFMV extends DmcTypeExtendedRefHSREF implement
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<ExtendedRefHSDMO>(getAttributeInfo().indexSize);
-                for(int i=0;i<getAttributeInfo().indexSize;i++)
+                value = new ArrayList<ExtendedRefHSDMO>(attrInfo.indexSize);
+                for(int i=0;i<attrInfo.indexSize;i++)
                     value.add(null);
             }
             
@@ -159,13 +159,13 @@ public class DmcTypeExtendedRefHSREFMV extends DmcTypeExtendedRefHSREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2427)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -182,7 +182,7 @@ public class DmcTypeExtendedRefHSREFMV extends DmcTypeExtendedRefHSREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2451)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

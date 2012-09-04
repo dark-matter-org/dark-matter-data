@@ -14,7 +14,7 @@ public class LabelledIntegerDataPointSVAdapter extends DmcTypeLabelledIntegerDat
     transient DmcTypeLabelledIntegerDataPointSV existingValue;
 
     public LabelledIntegerDataPointSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

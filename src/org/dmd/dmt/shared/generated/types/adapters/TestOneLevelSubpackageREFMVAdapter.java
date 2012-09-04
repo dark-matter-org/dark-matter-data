@@ -14,7 +14,7 @@ public class TestOneLevelSubpackageREFMVAdapter extends DmcTypeTestOneLevelSubpa
     transient DmcTypeTestOneLevelSubpackageREFMV existingValue;
 
     public TestOneLevelSubpackageREFMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

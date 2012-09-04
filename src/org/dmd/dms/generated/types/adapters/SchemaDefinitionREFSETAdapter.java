@@ -14,7 +14,7 @@ public class SchemaDefinitionREFSETAdapter extends DmcTypeSchemaDefinitionREFSET
     transient DmcTypeSchemaDefinitionREFSET existingValue;
 
     public SchemaDefinitionREFSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

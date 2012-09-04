@@ -15,13 +15,13 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.ldap.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
-import org.dmd.dmc.DmcAttribute;                                   // Any attributes - (GenUtility.java:236)
-import org.dmd.dmc.DmcAttributeInfo;                               // Auxiliary class - (GenUtility.java:343)
-import org.dmd.dmc.DmcObject;                                      // Auxiliary class - (GenUtility.java:342)
-import org.dmd.dmc.DmcValueException;                              // Any attributes - (GenUtility.java:237)
-import org.dmd.dmr.shared.ldap.generated.dmo.DmrLdapDMSAG;         // Attribute from dmr.ldap schema - (GenUtility.java:131)
-import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type - (GenUtility.java:324)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:372)
+import org.dmd.dmc.DmcAttribute;                                   // Any attributes - (GenUtility.java:217)
+import org.dmd.dmc.DmcAttributeInfo;                               // Auxiliary class - (GenUtility.java:324)
+import org.dmd.dmc.DmcObject;                                      // Auxiliary class - (GenUtility.java:323)
+import org.dmd.dmc.DmcValueException;                              // Any attributes - (GenUtility.java:218)
+import org.dmd.dmr.shared.ldap.generated.dmo.DmrLdapDMSAG;         // Attribute from dmr.ldap schema - (GenUtility.java:123)
+import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type - (GenUtility.java:305)
 
 /**
  * The LDAPSchemaExtension class is used to extend the basic SchemaDefinition
@@ -91,7 +91,7 @@ public class LDAPAttributeAUXDMO  {
     /**
      * Removes the reposName attribute from the object.
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:859)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:856)
     static public DmcAttribute<?> remReposName(DmcObject core){
         if (core == null)
             return(null);
@@ -100,7 +100,7 @@ public class LDAPAttributeAUXDMO  {
         return(rc);
     }
 
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:892)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:889)
     static public String getReposName(DmcObject core){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(core, DmrLdapDMSAG.__reposName);
         if (attr == null)
@@ -113,7 +113,7 @@ public class LDAPAttributeAUXDMO  {
      * Sets reposName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:914)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:911)
     static public void setReposName(DmcObject core, Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(core, DmrLdapDMSAG.__reposName);
         if (attr == null)
@@ -127,7 +127,7 @@ public class LDAPAttributeAUXDMO  {
      * Sets reposName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:949)
+    // org.dmd.dms.util.DmoFormatter.formatSVAUX(DmoFormatter.java:946)
     static public void setReposName(DmcObject core, String value){
         DmcAttribute<?> attr = get(core, DmrLdapDMSAG.__reposName);
         if (attr == null)

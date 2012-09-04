@@ -14,7 +14,7 @@ public class HierarchicObjectREFSVAdapter extends DmcTypeHierarchicObjectREFSV i
     transient DmcTypeHierarchicObjectREFSV existingValue;
 
     public HierarchicObjectREFSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

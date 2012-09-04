@@ -1,16 +1,20 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
-import java.io.Serializable;                                                         // Always required - (GenUtility.java:220)
-import java.util.*;                                                                  // Always required if we have any MV attributes - (GenUtility.java:215)
-import org.dmd.dmc.DmcAttribute;                                                     // Any attributes - (GenUtility.java:236)
-import org.dmd.dmc.DmcObject;                                                        // Structural class - (GenUtility.java:347)
-import org.dmd.dmc.DmcSliceInfo;                                                     // Required for object slicing - (GenUtility.java:225)
-import org.dmd.dmc.DmcValueException;                                                // Any attributes - (GenUtility.java:237)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                          // Required for MODREC constructor - (GenUtility.java:224)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                                // Required for MODREC constructor - (GenUtility.java:223)
-import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                     // Type specific set/add - (GenUtility.java:303)
-import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicObjectFixedREFSET;         // Reference type - (GenUtility.java:296)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:372)
+import java.io.Serializable;                                                         // Always required - (GenUtility.java:201)
+import java.util.*;                                                                  // Always required if we have any MV attributes - (GenUtility.java:197)
+import org.dmd.dmc.DmcAttribute;                                                     // Any attributes - (GenUtility.java:217)
+import org.dmd.dmc.DmcObject;                                                        // Structural class - (GenUtility.java:328)
+import org.dmd.dmc.DmcSliceInfo;                                                     // Required for object slicing - (GenUtility.java:206)
+import org.dmd.dmc.DmcValueException;                                                // Any attributes - (GenUtility.java:218)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                          // Required for MODREC constructor - (GenUtility.java:205)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                                // Required for MODREC constructor - (GenUtility.java:204)
+import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;                     // Type specific set/add - (GenUtility.java:284)
+import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicObjectFixedREFSET;         // Reference type - (GenUtility.java:277)
+
+import org.dmd.dms.generated.dmo.MetaVCAG;
+import org.dmd.dmc.DmcAttributeValidator;
+import org.dmd.dmc.DmcObjectValidator;
 
 /**
  * null
@@ -25,8 +29,17 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
 
     public final static String constructionClassName = "UnnamedObjHS";
 
+    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
+
+    static Map<String ,DmcObjectValidator> _OvDmAp;
+
 
     static {
+
+        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
+
+        _OvDmAp = new HashMap<String,DmcObjectValidator>();
+        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
     public UnnamedObjHSDMO() {
@@ -35,6 +48,14 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
 
     protected UnnamedObjHSDMO(String oc) {
         super(oc);
+    }
+
+    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
+        return(_AvDmAp);
+    }
+
+    protected Map<String,DmcObjectValidator> getObjectValidators(){
+        return(_OvDmAp);
     }
 
     @Override
@@ -67,7 +88,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
      * @return An Iterator of TestBasicObjectFixedDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:956)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:929)
     public Iterator<TestBasicObjectFixedDMO> getHsUnnamedObj(){
         DmcTypeTestBasicObjectFixedREFSET attr = (DmcTypeTestBasicObjectFixedREFSET) get(DmtDMSAG.__hsUnnamedObj);
         if (attr == null)
@@ -80,7 +101,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
      * Adds another hsUnnamedObj to the specified value.
      * @param value TestBasicObjectFixed
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:975)
     public DmcAttribute<?> addHsUnnamedObj(TestBasicObjectFixedDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsUnnamedObj);
         if (attr == null)
@@ -100,7 +121,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
      * Adds another hsUnnamedObj value.
      * @param value A value compatible with TestBasicObjectFixed
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1243)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1216)
     public DmcAttribute<?> addHsUnnamedObj(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__hsUnnamedObj);
         if (attr == null)
@@ -114,7 +135,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
     /**
      * Returns the number of values in hsUnnamedObj
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1260)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1233)
     public int getHsUnnamedObjSize(){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsUnnamedObj);
         if (attr == null){
@@ -130,7 +151,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
      * Deletes a hsUnnamedObj value.
      * @param value The TestBasicObjectFixed to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1282)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1255)
     public DmcAttribute<?> delHsUnnamedObj(Object value){
         DmcAttribute<?> attr = get(DmtDMSAG.__hsUnnamedObj);
         
@@ -145,7 +166,7 @@ public class UnnamedObjHSDMO  extends DmcObject  implements Serializable  {
     /**
      * Removes the hsUnnamedObj attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1353)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1326)
     public void remHsUnnamedObj(){
          rem(DmtDMSAG.__hsUnnamedObj);
     }

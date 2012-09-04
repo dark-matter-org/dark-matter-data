@@ -24,7 +24,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 @SuppressWarnings("serial")
 public class IntegerNamedObjectREF extends DmcNamedObjectNontransportableREF<IntegerNamedObjectDMO> {
 
-    public final static DmcAttributeInfo __integerName = new DmcAttributeInfo("integerName",-2999900,"IntegerName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __integerName = new DmcAttributeInfo("integerName",100,"IntegerName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeIntegerNameSV myName;    
     

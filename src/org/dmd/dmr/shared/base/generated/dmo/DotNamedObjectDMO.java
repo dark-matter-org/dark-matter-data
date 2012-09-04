@@ -15,17 +15,22 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dmr.shared.base.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
-import java.io.Serializable;                                              // Always required - (GenUtility.java:220)
-import org.dmd.dmc.DmcAttribute;                                          // Any attributes - (GenUtility.java:236)
-import org.dmd.dmc.DmcNamedObjectIF;                                      // Named object - (GenUtility.java:371)
-import org.dmd.dmc.DmcSliceInfo;                                          // Required for object slicing - (GenUtility.java:225)
-import org.dmd.dmc.DmcValueException;                                     // Any attributes - (GenUtility.java:237)
-import org.dmd.dmc.types.FullyQualifiedName;                              // Naming attribute type - (GenUtility.java:366)
-import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;         // Base class - (GenUtility.java:351)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                               // Required for MODREC constructor - (GenUtility.java:224)
-import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSV;           // Required type - (GenUtility.java:324)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Required for MODREC constructor - (GenUtility.java:223)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:372)
+import java.io.Serializable;                                              // Always required - (GenUtility.java:201)
+import java.util.*;                                                       // Always required if we have any MV attributes - (GenUtility.java:197)
+import org.dmd.dmc.DmcAttribute;                                          // Any attributes - (GenUtility.java:217)
+import org.dmd.dmc.DmcNamedObjectIF;                                      // Named object - (GenUtility.java:352)
+import org.dmd.dmc.DmcSliceInfo;                                          // Required for object slicing - (GenUtility.java:206)
+import org.dmd.dmc.DmcValueException;                                     // Any attributes - (GenUtility.java:218)
+import org.dmd.dmc.types.FullyQualifiedName;                              // Naming attribute type - (GenUtility.java:347)
+import org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO;         // Base class - (GenUtility.java:332)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                               // Required for MODREC constructor - (GenUtility.java:205)
+import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSV;           // Required type - (GenUtility.java:305)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Required for MODREC constructor - (GenUtility.java:204)
+
+import org.dmd.dms.generated.dmo.MetaVCAG;
+import org.dmd.dmc.DmcAttributeValidator;
+import org.dmd.dmc.DmcObjectValidator;
 
 /**
  * A DotNamedObject is a hierarchic object whose fully qualified name is
@@ -47,8 +52,17 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
 
     public final static String constructionClassName = "DotNamedObject";
 
+    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
+
+    static Map<String ,DmcObjectValidator> _OvDmAp;
+
 
     static {
+
+        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
+
+        _OvDmAp = new HashMap<String,DmcObjectValidator>();
+        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
     public DotNamedObjectDMO() {
@@ -57,6 +71,14 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
 
     protected DotNamedObjectDMO(String oc) {
         super(oc);
+    }
+
+    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
+        return(_AvDmAp);
+    }
+
+    protected Map<String,DmcObjectValidator> getObjectValidators(){
+        return(_OvDmAp);
     }
 
     @Override
@@ -95,13 +117,11 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__FQN);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof DotNamedObjectDMO){
             return( getObjectName().equals( ((DotNamedObjectDMO) obj).getObjectName()) );
@@ -109,7 +129,6 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         FullyQualifiedName objn = getObjectName();
         if (objn == null)
@@ -118,7 +137,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:755)
     public FullyQualifiedName getFQN(){
         DmcTypeFullyQualifiedNameSV attr = (DmcTypeFullyQualifiedNameSV) get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -131,7 +150,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:822)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
     public void setFQN(FullyQualifiedName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -150,7 +169,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:848)
     public void setFQN(Object value) throws DmcValueException {
         DmcTypeFullyQualifiedNameSV attr  = (DmcTypeFullyQualifiedNameSV) get(MetaDMSAG.__FQN);
         if (attr == null)
@@ -163,7 +182,7 @@ public class DotNamedObjectDMO  extends HierarchicObjectDMO  implements DmcNamed
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:868)
     public void remFQN(){
          rem(MetaDMSAG.__FQN);
     }

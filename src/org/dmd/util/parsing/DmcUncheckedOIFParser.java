@@ -23,8 +23,6 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.rules.DmcRuleExceptionSet;
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
 
@@ -86,9 +84,8 @@ public class DmcUncheckedOIFParser {
      * the constructor.
      * @param fileName The file to be parsed.
      * @throws ResultException, DmcValueException 
-     * @throws DmcRuleExceptionSet 
      */
-    public void parseFile(String fileName) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    public void parseFile(String fileName) throws ResultException, DmcValueException {
     	parseFile(fileName,false);
     }
 
@@ -99,9 +96,8 @@ public class DmcUncheckedOIFParser {
      * @param isResource A flag to indicate if the file name refers to a resource e.g. in a JAR. If so,
      * we have to approach the opening of the file differently.
      * @throws ResultException, DmcValueException 
-     * @throws DmcRuleExceptionSet 
      */
-    public void parseFile(String fileName, boolean isResource) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    public void parseFile(String fileName, boolean isResource) throws ResultException, DmcValueException {
         boolean         	inObject    = false;
         String          	attrName    = null;
         DmcUncheckedObject  uco     = null;
