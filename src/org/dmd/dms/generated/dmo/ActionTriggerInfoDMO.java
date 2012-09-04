@@ -16,12 +16,12 @@
 package org.dmd.dms.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1826)
-import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1779)
-import java.util.*;                           // Attribute info support - (MetaGenerator.java:1781)
-import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1803)
-import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1793)
-import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1815)
+// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1827)
+import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1780)
+import java.util.*;                           // Attribute info support - (MetaGenerator.java:1782)
+import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1804)
+import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1794)
+import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1816)
 
 
 /**
@@ -34,7 +34,7 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * object for the  ActionTriggerInfo (ATI) for a particular action and have a
  * well defined interface to specify the parameters for the action.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1836)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1837)
  */
 @SuppressWarnings("serial")
 public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
@@ -90,7 +90,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
      * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2218)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2219)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -103,7 +103,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2275)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2276)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)

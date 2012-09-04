@@ -30,6 +30,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.EnumDefinition;
+import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
@@ -66,6 +67,8 @@ public class SchemaFormatter {
 	
 	ArrayList<VarToObject>		enumVars;
 	
+	ArrayList<VarToObject>		ruleVars;
+	
 	SchemaManager				schemaManager;
 	
 	// When we call getInstantiations() we also add the import for any AUX
@@ -87,6 +90,7 @@ public class SchemaFormatter {
 		typeVars 		= new ArrayList<VarToObject>();
 		actionVars 		= new ArrayList<VarToObject>();
 		enumVars 		= new ArrayList<VarToObject>();
+		ruleVars 		= new ArrayList<VarToObject>();
 		
 		skip = new TreeMap<String, String>();
 		skip.put(DmcObject.__objectClass.name, DmcObject.__objectClass.name);
@@ -221,6 +225,7 @@ public class SchemaFormatter {
         out.write("            initTypes();\n");
         out.write("            initActions();\n");
         out.write("            initEnums();\n");
+        out.write("            initRules();\n");
        
         out.write("            DmcOmni.instance().addCompactSchema(" + asagName + ".instance());\n");
         
@@ -239,6 +244,8 @@ public class SchemaFormatter {
         dumpInitFunction(out,"initActions", actionVars);
         
         dumpInitFunction(out,"initEnums", enumVars);
+        
+        dumpInitFunction(out,"initRules", ruleVars);
         
                 
         out.write("\n");
@@ -336,6 +343,9 @@ public class SchemaFormatter {
 				else if (var.type.equals("ActionDefinition")){
 					sb.append("            addActionDefList(" + var.name + ");\n");
 				}
+				else if (var.type.equals("RuleDefinition")){
+					sb.append("            addRuleDefinitionList(" + var.name + ");\n");
+				}
 				sb.append("\n");
 			}
 		}
@@ -375,6 +385,9 @@ public class SchemaFormatter {
 				else if (var.type.equals("ActionDefinition")){
 					sb.append("            addActionDefList(" + var.name + ");\n");
 				}
+				else if (var.type.equals("RuleDefinition")){
+					sb.append("            addRuleDefinitionList(" + var.name + ");\n");
+				}
 				sb.append("\n");
 			}
 		}
@@ -411,6 +424,9 @@ public class SchemaFormatter {
 			}
 			else if (var.type.equals("ActionDefinition")){
 				sb.append("            addActionDefList(" + var.name + ");\n");
+			}
+			else if (var.type.equals("RuleDefinition")){
+				sb.append("            addRuleDefinitionList(" + var.name + ");\n");
 			}
 			sb.append("\n");
 		}
@@ -477,6 +493,18 @@ public class SchemaFormatter {
 				sb.append("    public static EnumDefinition _" + ed.getName() + ";\n");
 				allVars.add(new VarToObject("_" + ed.getName(), ed, "EnumDefinition"));
 				enumVars.add(new VarToObject("_" + ed.getName(), ed, "EnumDefinition"));
+			}
+			sb.append("\n");
+			allVars.add(new VarToObject("", null, null));
+		}
+		
+		Iterator<RuleDefinition> rules = schema.getRuleDefinitionList();
+		if (rules != null){
+			while(rules.hasNext()){
+				RuleDefinition rd = rules.next();
+				sb.append("    public static RuleDefinition _" + rd.getName() + ";\n");
+				allVars.add(new VarToObject("_" + rd.getName(), rd, "RuleDefinition"));
+				ruleVars.add(new VarToObject("_" + rd.getName(), rd, "RuleDefinition"));
 			}
 			sb.append("\n");
 			allVars.add(new VarToObject("", null, null));

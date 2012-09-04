@@ -38,9 +38,11 @@ import org.junit.Test;
 
 public class TestReferenceTracking {
 	
-	static String OBJ3REF = "References to: obj1\n  (ObjWithRefs) obj3 via SV objRef\n"; 
+	static String OBJ3REF_PART1 = "References to: obj1 ("; 
+	static String OBJ3REF_PART2 = ")\n  (ObjWithRefs) obj3 via SV objRef\n"; 
 	
-	static String OBJ3MVREF = "References to: obj1\n  (ObjWithRefs) obj3 via MV objRefMV\n";
+	static String OBJ3MVREF_PART1 = "References to: obj1 (";
+	static String OBJ3MVREF_PART2 = ")\n  (ObjWithRefs) obj3 via MV objRefMV\n";
 	
 	static File	temp;
 
@@ -112,7 +114,8 @@ public class TestReferenceTracking {
 		
 		System.out.println("TEST 1: obj1.getBackrefs() = " + obj1.getBackRefs());
 
-		assertEquals("obj1 getBackRefs() must indicate obj3 reference", obj1.getBackRefs(), OBJ3REF);
+		String comparison = OBJ3REF_PART1 + System.identityHashCode(obj1) + OBJ3REF_PART2;
+		assertEquals("obj1 getBackRefs() must indicate obj3 reference", obj1.getBackRefs(), comparison);
 		
 		///////////////////////////////////////////////////////////////////////
 		// REM of an SV objref
@@ -272,7 +275,8 @@ public class TestReferenceTracking {
 		
 		assertNotNull("Reference to obj1 should be resolved.", obj);
 		
-		assertEquals("obj1 getBackRefs() must indicate obj3 reference", OBJ3MVREF, obj1.getBackRefs());
+		String comparison = OBJ3MVREF_PART1 + System.identityHashCode(obj1) + OBJ3MVREF_PART2;
+		assertEquals("obj1 getBackRefs() must indicate obj3 reference", comparison, obj1.getBackRefs());
 		
 		///////////////////////////////////////////////////////////////////////
 		// Direct removal of an MV objref value

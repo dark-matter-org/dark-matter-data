@@ -18,13 +18,13 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     static String schemaName = "meta";
 
 
-    static int schemaBaseID = -500000;
+    static int schemaBaseID = 0;
 
 
     static int schemaIDRange = 200;
 
 
-    static int schemaMaxID = -499800;
+    static int schemaMaxID = 200;
 
     public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",84,"FullyQualifiedName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",9,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
