@@ -10,7 +10,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
+import org.dmd.dmc.DmcSliceInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.IntegerToString;
@@ -25,6 +27,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
+import org.dmd.dmt.shared.generated.dmo.BaseObjDMO;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;
@@ -32,6 +35,7 @@ import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
 import org.dmd.dmw.DmwDeserializer;
 import org.dmd.util.DmcTraceableInputStream;
 import org.dmd.util.DmcTraceableOutputStream;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.junit.Before;
 import org.junit.Test;
@@ -413,6 +417,52 @@ public class TestModifiers {
 		System.out.println(">>> testHashSetChangesRecorded \n\n" + obj1.toOIF());
 		
 		
+	}
+	
+	@Test
+	public void testDeletionInMappedReferences() throws DmcValueException, DmcValueExceptionSet{
+		ObjWithRefs	obj1 = new ObjWithRefs();
+		obj1.setName("obj1");
+		
+		ObjWithRefs	obj2 = new ObjWithRefs();
+		obj2.setName("obj2");
+		
+		obj1.addObjRefHM(obj2);
+		
+		DebugInfo.debug(obj1.toOIF());
+		
+		ObjWithRefs	modrec = obj1.getModificationRecorder();
+		
+		modrec.delObjRefHM(obj2);
+		
+		obj1.applyModifier(modrec.getModifier());
+		
+		assertEquals("Expecting empty object hashmap",true,obj1.getObjRefHMIsEmpty());
+		
+		DebugInfo.debug(obj1.toOIF());
+	}
+	
+	@Test
+	public void testDeletionInMappedReferencesWhileBackTracking() throws DmcValueException {
+		DmcOmni.instance().reset();
+		DmcOmni.instance().addCompactSchema(DmpDMSAG.instance());
+		DmcOmni.instance().addCompactSchema(DmtDMSAG.instance());
+
+		DmcOmni.instance().backRefTracking(true);
+		
+		ObjWithRefs	obj1 = new ObjWithRefs();
+		obj1.setName("obj1");
+		
+		ObjWithRefs	obj2 = new ObjWithRefs();
+		obj2.setName("obj2");
+		
+		obj1.addObjRefHM(obj2);
+		
+		assertEquals("Should be one referring object",1,obj2.getReferringObjects().size());
+		
+		obj2.youAreDeleted();
+		
+		assertEquals("Expecting empty object hashmap",true,obj1.getObjRefHMIsEmpty());
 	}
 	
 }
