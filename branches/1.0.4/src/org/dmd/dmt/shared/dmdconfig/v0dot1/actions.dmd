@@ -1,0 +1,5 @@
+ActionDefinition
+name 			testAction
+mustParm		svBoolean
+mayParm         name
+description 	Defines the parameters for a test action.
