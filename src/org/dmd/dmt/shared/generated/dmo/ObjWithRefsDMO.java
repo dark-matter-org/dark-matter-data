@@ -381,6 +381,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      */
     // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1364)
     @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1376)
     public Iterator<ObjWithRefsREF> getObjRefHM(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -399,7 +400,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
     /**
      * @return An Iterator of ObjWithRefsREFs without attempting lazy resolution (if it's turned on).
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1394)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1395)
     @SuppressWarnings("unchecked")
     public Iterator<ObjWithRefsREF> getObjRefHMREFs(){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__objRefHM);
@@ -413,7 +414,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * @param key The key of the value you want.
      * @return The ObjWithRefs associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1429)
     public ObjWithRefsREF getObjRefHM(Object key){
         DmcTypeObjWithRefsREFMAP attr = (DmcTypeObjWithRefsREFMAP) get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -426,7 +427,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * Adds another objRefHM value.
      * @param value A value compatible with ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1480)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1481)
     public DmcAttribute<?> addObjRefHM(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -441,7 +442,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * Adds another objRefHM value.
      * @param value ObjWithRefs
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1496)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1497)
     public DmcAttribute<?> addObjRefHM(ObjWithRefsDMO value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__objRefHM);
         if (attr == null)
@@ -461,22 +462,38 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * Deletes a objRefHM value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1556)
     public DmcAttribute<?> delObjRefHM(Object value) throws DmcValueException {
-        return(del(DmtDMSAG.__objRefHM, value));
+        DmcAttribute<?> attr = get(DmtDMSAG.__objRefHM);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeObjWithRefsREFMAP(DmtDMSAG.__objRefHM), value);
+        else
+            attr = del(DmtDMSAG.__objRefHM, value);
+        
+        return(attr);
     }
 
     /**
      * Deletes a objRefHM value.
      * @param value The ObjWithRefs to be deleted from set of attribute values.
      */
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1574)
     public DmcAttribute<?> delObjRefHM(ObjWithRefsDMO value){
-        return(del(DmtDMSAG.__objRefHM, value));
+        DmcAttribute<?> attr = get(DmtDMSAG.__objRefHM);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeObjWithRefsREFMAP(DmtDMSAG.__objRefHM), value.getObjectName());
+        else
+            attr = del(DmtDMSAG.__objRefHM, value.getObjectName());
+        
+        return(attr);
     }
 
     /**
      * Removes the objRefHM attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1651)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1670)
     public void remObjRefHM(){
          rem(DmtDMSAG.__objRefHM);
     }
@@ -612,7 +629,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * @return An Iterator of IntegerToString objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1410)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1411)
     public Iterator<IntegerToString> getIntToString(){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -625,7 +642,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * @param key The key of the value you want.
      * @return The IntegerToString associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1442)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1443)
     public IntegerToString getIntToString(Object key){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -638,7 +655,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * Adds another intToString value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1480)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1481)
     public DmcAttribute<?> addIntToString(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -653,7 +670,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * Adds another intToString value.
      * @param value IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1517)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1518)
     public DmcAttribute<?> addIntToString(IntegerToString value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         if (attr == null)
@@ -673,7 +690,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * Deletes a intToString value.
      * @param key The key of the IntegerToString to be deleted from the map of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1579)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1598)
     public DmcAttribute<?> delIntToString(Object key){
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         
@@ -691,7 +708,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * Deletes a intToString value.
      * @param key the Integer key value
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1597)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1616)
     public DmcAttribute<?> delIntToString(Integer key) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToString);
         
@@ -708,7 +725,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the intToString attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1651)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1670)
     public void remIntToString(){
          rem(DmtDMSAG.__intToString);
     }
@@ -2604,7 +2621,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * @return An Iterator of IntegerToString objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1410)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1411)
     public Iterator<IntegerToString> getIntToStringMAP(){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -2617,7 +2634,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * @param key The key of the value you want.
      * @return The IntegerToString associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1442)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1443)
     public IntegerToString getIntToStringMAP(Object key){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -2629,7 +2646,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
     /**
      * @return The first key of the map.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1462)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1463)
     public Integer getIntToStringMAPFirstKey(){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -2642,7 +2659,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * Adds another intToStringMAP value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1480)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1481)
     public DmcAttribute<?> addIntToStringMAP(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -2657,7 +2674,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * Adds another intToStringMAP value.
      * @param value IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1517)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1518)
     public DmcAttribute<?> addIntToStringMAP(IntegerToString value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -2677,7 +2694,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * Deletes a intToStringMAP value.
      * @param key The key of the IntegerToString to be deleted from the map of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1579)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1598)
     public DmcAttribute<?> delIntToStringMAP(Object key){
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         
@@ -2695,7 +2712,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
      * Deletes a intToStringMAP value.
      * @param key the Integer key value
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1597)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1616)
     public DmcAttribute<?> delIntToStringMAP(Integer key) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         
@@ -2712,7 +2729,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
     /**
      * Removes the intToStringMAP attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1651)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1670)
     public void remIntToStringMAP(){
          rem(DmtDMSAG.__intToStringMAP);
     }

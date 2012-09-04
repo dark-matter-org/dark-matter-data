@@ -27,7 +27,7 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEventWithArgs;    // DmcType 
  * The DmcTypeEventWithArgsMV provides storage for a multi-valued EventWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2251)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2270)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:101)
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class DmcTypeEventWithArgsMV extends DmcTypeEventWithArgs implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2281)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
     public DmcAttribute<EventWithArgs> cloneIt(){
         synchronized(this){
             DmcTypeEventWithArgsMV rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeEventWithArgsMV extends DmcTypeEventWithArgs implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
     public EventWithArgs add(Object v) throws DmcValueException {
         synchronized(this){
             EventWithArgs rc = typeCheck(v);
@@ -86,7 +86,7 @@ public class DmcTypeEventWithArgsMV extends DmcTypeEventWithArgs implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
     public EventWithArgs del(Object v){
         synchronized(this){
             EventWithArgs key = null;
@@ -107,7 +107,7 @@ public class DmcTypeEventWithArgsMV extends DmcTypeEventWithArgs implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2354)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public Iterator<EventWithArgs> getMV(){
         synchronized(this){
             ArrayList<EventWithArgs> clone = new ArrayList<EventWithArgs>(value);
@@ -115,7 +115,7 @@ public class DmcTypeEventWithArgsMV extends DmcTypeEventWithArgs implements Seri
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public ArrayList<EventWithArgs> getMVCopy(){
         synchronized(this){
             ArrayList<EventWithArgs> clone = new ArrayList<EventWithArgs>(value);
@@ -124,7 +124,7 @@ public class DmcTypeEventWithArgsMV extends DmcTypeEventWithArgs implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -138,7 +138,7 @@ public class DmcTypeEventWithArgsMV extends DmcTypeEventWithArgs implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2388)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
     public EventWithArgs getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +148,7 @@ public class DmcTypeEventWithArgsMV extends DmcTypeEventWithArgs implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2399)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
     public EventWithArgs setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -175,7 +175,7 @@ public class DmcTypeEventWithArgsMV extends DmcTypeEventWithArgs implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2427)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,7 +198,7 @@ public class DmcTypeEventWithArgsMV extends DmcTypeEventWithArgs implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2451)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

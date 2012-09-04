@@ -26,7 +26,7 @@ import org.dmd.dmg.generated.dmo.DmgConfigDMO;    // DmcType import
  * The DmcTypeDmgConfigREFMV provides storage for a multi-valued DmgConfig
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2251)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2270)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -48,7 +48,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2281)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
     public DmcAttribute<DmgConfigDMO> cloneIt(){
         synchronized(this){
             DmcTypeDmgConfigREFMV rc = getNew();
@@ -73,7 +73,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2310)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
     public DmgConfigDMO add(Object v) throws DmcValueException {
         synchronized(this){
             DmgConfigDMO rc = typeCheck(v);
@@ -85,7 +85,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2323)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
     public DmgConfigDMO del(Object v){
         synchronized(this){
             DmgConfigDMO key = null;
@@ -106,7 +106,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2354)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
     public Iterator<DmgConfigDMO> getMV(){
         synchronized(this){
             ArrayList<DmgConfigDMO> clone = new ArrayList<DmgConfigDMO>(value);
@@ -114,7 +114,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public ArrayList<DmgConfigDMO> getMVCopy(){
         synchronized(this){
             ArrayList<DmgConfigDMO> clone = new ArrayList<DmgConfigDMO>(value);
@@ -123,7 +123,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -137,7 +137,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2388)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
     public DmgConfigDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +147,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2399)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
     public DmgConfigDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -174,7 +174,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2427)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,7 +197,7 @@ public class DmcTypeDmgConfigREFMV extends DmcTypeDmgConfigREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2451)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

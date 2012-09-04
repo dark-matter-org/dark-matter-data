@@ -30,7 +30,7 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeEventREFMAP provides storage for a map of EventREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2760)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2779)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -71,7 +71,7 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2814)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2833)
     public DmcAttribute<EventREF> cloneIt(){
         synchronized(this){
             DmcTypeEventREFMAP rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2830)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2849)
     public EventREF add(Object v) throws DmcValueException {
         synchronized(this){
             EventREF newval = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2870)
     public EventREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
@@ -117,7 +117,7 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2863)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2882)
     public Iterator<EventREF> getMV(){
         synchronized(this){
             Map<CamelCaseName,EventREF> clone = null;
@@ -129,7 +129,7 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF implements Serializable 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2876)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2895)
     public Map<CamelCaseName,EventREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,EventREF> clone = null;
@@ -141,7 +141,7 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF implements Serializable 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2889)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2908)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,7 +152,7 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2901)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2920)
     public EventREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
@@ -163,7 +163,7 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2932)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -176,7 +176,7 @@ public class DmcTypeEventREFMAP extends DmcTypeEventREF implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2934)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2953)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)

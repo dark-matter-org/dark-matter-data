@@ -29,7 +29,7 @@ import org.dmd.dmp.shared.generated.dmo.NotifyResponseDMO;    // DmcType import
  * The DmcTypeNotifyResponseREFSET provides storage for a set of NotifyResponseDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2534)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
@@ -59,7 +59,7 @@ public class DmcTypeNotifyResponseREFSET extends DmcTypeNotifyResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
     public DmcAttribute<NotifyResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeNotifyResponseREFSET rc = getNew();
@@ -74,7 +74,7 @@ public class DmcTypeNotifyResponseREFSET extends DmcTypeNotifyResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
     public NotifyResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             NotifyResponseDMO rc = typeCheck(v);
@@ -90,7 +90,7 @@ public class DmcTypeNotifyResponseREFSET extends DmcTypeNotifyResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2607)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
     public NotifyResponseDMO del(Object v){
         synchronized(this){
             NotifyResponseDMO rc = null;
@@ -114,7 +114,7 @@ public class DmcTypeNotifyResponseREFSET extends DmcTypeNotifyResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2632)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
     public Iterator<NotifyResponseDMO> getMV(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -124,7 +124,7 @@ public class DmcTypeNotifyResponseREFSET extends DmcTypeNotifyResponseREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2649)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
     public Set<NotifyResponseDMO> getMVCopy(){
         synchronized(this){
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
@@ -135,7 +135,7 @@ public class DmcTypeNotifyResponseREFSET extends DmcTypeNotifyResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2667)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +145,7 @@ public class DmcTypeNotifyResponseREFSET extends DmcTypeNotifyResponseREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2678)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

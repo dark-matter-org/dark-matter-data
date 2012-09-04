@@ -30,7 +30,7 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypeMenuItemREFMAP provides storage for a map of MenuItemREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2760)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2779)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
@@ -71,7 +71,7 @@ public class DmcTypeMenuItemREFMAP extends DmcTypeMenuItemREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2814)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2833)
     public DmcAttribute<MenuItemREF> cloneIt(){
         synchronized(this){
             DmcTypeMenuItemREFMAP rc = getNew();
@@ -86,7 +86,7 @@ public class DmcTypeMenuItemREFMAP extends DmcTypeMenuItemREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2830)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2849)
     public MenuItemREF add(Object v) throws DmcValueException {
         synchronized(this){
             MenuItemREF newval = typeCheck(v);
@@ -106,7 +106,7 @@ public class DmcTypeMenuItemREFMAP extends DmcTypeMenuItemREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2870)
     public MenuItemREF del(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)
@@ -117,7 +117,7 @@ public class DmcTypeMenuItemREFMAP extends DmcTypeMenuItemREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2863)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2882)
     public Iterator<MenuItemREF> getMV(){
         synchronized(this){
             Map<CamelCaseName,MenuItemREF> clone = null;
@@ -129,7 +129,7 @@ public class DmcTypeMenuItemREFMAP extends DmcTypeMenuItemREF implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2876)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2895)
     public Map<CamelCaseName,MenuItemREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,MenuItemREF> clone = null;
@@ -141,7 +141,7 @@ public class DmcTypeMenuItemREFMAP extends DmcTypeMenuItemREF implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2889)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2908)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,7 +152,7 @@ public class DmcTypeMenuItemREFMAP extends DmcTypeMenuItemREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2901)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2920)
     public MenuItemREF getByKey(Object key){
         synchronized(this){
             if (key instanceof CamelCaseName)
@@ -163,7 +163,7 @@ public class DmcTypeMenuItemREFMAP extends DmcTypeMenuItemREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2932)
     public boolean contains(Object v){
         synchronized(this){
             try {
@@ -176,7 +176,7 @@ public class DmcTypeMenuItemREFMAP extends DmcTypeMenuItemREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2934)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2953)
     public boolean containsKey(Object key){
         synchronized(this){
            if (key instanceof CamelCaseName)

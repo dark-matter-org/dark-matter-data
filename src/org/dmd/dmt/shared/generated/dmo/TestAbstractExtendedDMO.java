@@ -259,7 +259,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * @return An Iterator of IntegerToString objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1410)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1411)
     public Iterator<IntegerToString> getIntToStringMAP(){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -272,7 +272,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * @param key The key of the value you want.
      * @return The IntegerToString associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1442)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1443)
     public IntegerToString getIntToStringMAP(Object key){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -284,7 +284,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * @return The first key of the map.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1462)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1463)
     public Integer getIntToStringMAPFirstKey(){
         DmcTypeIntegerToStringMAP attr = (DmcTypeIntegerToStringMAP) get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -297,7 +297,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Adds another intToStringMAP value.
      * @param value A value compatible with IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1480)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1481)
     public DmcAttribute<?> addIntToStringMAP(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -312,7 +312,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Adds another intToStringMAP value.
      * @param value IntegerToString
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1517)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1518)
     public DmcAttribute<?> addIntToStringMAP(IntegerToString value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         if (attr == null)
@@ -332,7 +332,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Deletes a intToStringMAP value.
      * @param key The key of the IntegerToString to be deleted from the map of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1579)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1598)
     public DmcAttribute<?> delIntToStringMAP(Object key){
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         
@@ -350,7 +350,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
      * Deletes a intToStringMAP value.
      * @param key the Integer key value
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1597)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1616)
     public DmcAttribute<?> delIntToStringMAP(Integer key) {
         DmcAttribute<?> attr = get(DmtDMSAG.__intToStringMAP);
         
@@ -367,7 +367,7 @@ abstract public class TestAbstractExtendedDMO  extends DmcObject  implements Ser
     /**
      * Removes the intToStringMAP attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1651)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1670)
     public void remIntToStringMAP(){
          rem(DmtDMSAG.__intToStringMAP);
     }

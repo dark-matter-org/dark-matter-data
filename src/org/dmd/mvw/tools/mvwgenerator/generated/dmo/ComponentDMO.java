@@ -138,6 +138,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      */
     // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1364)
     @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1376)
     public Iterator<EventREF> getFiresEvent(){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -156,7 +157,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * @return An Iterator of EventREFs without attempting lazy resolution (if it's turned on).
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1394)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1395)
     @SuppressWarnings("unchecked")
     public Iterator<EventREF> getFiresEventREFs(){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__firesEvent);
@@ -170,7 +171,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * @param key The key of the value you want.
      * @return The Event associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1429)
     public EventREF getFiresEvent(Object key){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -182,7 +183,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * @return The first key of the map.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1462)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1463)
     public CamelCaseName getFiresEventFirstKey(){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -195,7 +196,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Adds another firesEvent value.
      * @param value A value compatible with Event
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1480)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1481)
     public DmcAttribute<?> addFiresEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -210,7 +211,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Adds another firesEvent value.
      * @param value Event
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1496)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1497)
     public DmcAttribute<?> addFiresEvent(EventDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__firesEvent);
         if (attr == null)
@@ -230,22 +231,38 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a firesEvent value.
      * @param value The Event to be deleted from set of attribute values.
      */
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1556)
     public DmcAttribute<?> delFiresEvent(Object value) throws DmcValueException {
-        return(del(MvwDMSAG.__firesEvent, value));
+        DmcAttribute<?> attr = get(MvwDMSAG.__firesEvent);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeEventREFMAP(MvwDMSAG.__firesEvent), value);
+        else
+            attr = del(MvwDMSAG.__firesEvent, value);
+        
+        return(attr);
     }
 
     /**
      * Deletes a firesEvent value.
      * @param value The Event to be deleted from set of attribute values.
      */
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1574)
     public DmcAttribute<?> delFiresEvent(EventDMO value){
-        return(del(MvwDMSAG.__firesEvent, value));
+        DmcAttribute<?> attr = get(MvwDMSAG.__firesEvent);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeEventREFMAP(MvwDMSAG.__firesEvent), value.getObjectName());
+        else
+            attr = del(MvwDMSAG.__firesEvent, value.getObjectName());
+        
+        return(attr);
     }
 
     /**
      * Removes the firesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1651)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1670)
     public void remFiresEvent(){
          rem(MvwDMSAG.__firesEvent);
     }
@@ -255,6 +272,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      */
     // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1364)
     @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1376)
     public Iterator<EventREF> getHandlesEvent(){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -273,7 +291,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * @return An Iterator of EventREFs without attempting lazy resolution (if it's turned on).
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1394)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1395)
     @SuppressWarnings("unchecked")
     public Iterator<EventREF> getHandlesEventREFs(){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__handlesEvent);
@@ -287,7 +305,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * @param key The key of the value you want.
      * @return The Event associated with the specified key.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1428)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1429)
     public EventREF getHandlesEvent(Object key){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -299,7 +317,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
     /**
      * @return The first key of the map.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1462)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1463)
     public CamelCaseName getHandlesEventFirstKey(){
         DmcTypeEventREFMAP attr = (DmcTypeEventREFMAP) get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -312,7 +330,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Adds another handlesEvent value.
      * @param value A value compatible with Event
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1480)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1481)
     public DmcAttribute<?> addHandlesEvent(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -327,7 +345,7 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Adds another handlesEvent value.
      * @param value Event
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1496)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1497)
     public DmcAttribute<?> addHandlesEvent(EventDMO value) {
         DmcAttribute<?> attr = get(MvwDMSAG.__handlesEvent);
         if (attr == null)
@@ -347,22 +365,38 @@ abstract public class ComponentDMO  extends MvwDefinitionDMO  implements DmcName
      * Deletes a handlesEvent value.
      * @param value The Event to be deleted from set of attribute values.
      */
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1556)
     public DmcAttribute<?> delHandlesEvent(Object value) throws DmcValueException {
-        return(del(MvwDMSAG.__handlesEvent, value));
+        DmcAttribute<?> attr = get(MvwDMSAG.__handlesEvent);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeEventREFMAP(MvwDMSAG.__handlesEvent), value);
+        else
+            attr = del(MvwDMSAG.__handlesEvent, value);
+        
+        return(attr);
     }
 
     /**
      * Deletes a handlesEvent value.
      * @param value The Event to be deleted from set of attribute values.
      */
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1574)
     public DmcAttribute<?> delHandlesEvent(EventDMO value){
-        return(del(MvwDMSAG.__handlesEvent, value));
+        DmcAttribute<?> attr = get(MvwDMSAG.__handlesEvent);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeEventREFMAP(MvwDMSAG.__handlesEvent), value.getObjectName());
+        else
+            attr = del(MvwDMSAG.__handlesEvent, value.getObjectName());
+        
+        return(attr);
     }
 
     /**
      * Removes the handlesEvent attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1651)
+    // org.dmd.dms.util.GenUtility.formatMAPPED(GenUtility.java:1670)
     public void remHandlesEvent(){
          rem(MvwDMSAG.__handlesEvent);
     }
