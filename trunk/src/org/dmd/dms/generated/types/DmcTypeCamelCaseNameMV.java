@@ -28,7 +28,7 @@ import org.dmd.dmc.types.DmcTypeCamelCaseName;    // DmcType import
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:628)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:629)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCamelCaseNameMV extends DmcTypeCamelCaseName implements Serializable {

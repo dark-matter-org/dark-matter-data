@@ -46,10 +46,15 @@ public class TestRules {
 	}
 	
 	@Test
-	public void testAllowedAttributesRule() throws DmcRuleExceptionSet{
+	public void testAllowedAttributesRule(){
 		TestBasicNamedObjectFixedDMO dmo = new TestBasicNamedObjectFixedDMO();
 		
-		DmvDMSAG.__dmvAllowedAttributes.validate(dmo);
+		try {
+			DmvDMSAG.__dmvAllowedAttributes.validate(dmo);
+			assertEquals("Expecting an exception",true, false);
+		} catch (DmcRuleExceptionSet e) {
+			DebugInfo.debug("Got expected exception:\n" + e);
+		}
 		
 //		DebugInfo.debug(dmo.toOIF());
 //		

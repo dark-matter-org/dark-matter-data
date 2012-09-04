@@ -70,7 +70,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	// Offset to the gdo source directory
 	private final static String DMSDIR = "/src/org/dmd/dms";
 
-	private final static int META_BASE_ID = -500000;
+//	private final static int META_BASE_ID = -500000;
+	private final static int META_BASE_ID = 0;
 
 	private final static int META_ID_RANGE = 200;
 

@@ -1240,7 +1240,16 @@ abstract public class DmcObject implements Serializable {
 	
 	/**
 	 * Returns the references to this object formatted as a String. This will only
-	 * return a value if you've turned on backref tracking via the DmcOmni.
+	 * return a value if you've turned on backref tracking via the DmcOmni. The output
+	 * will appear as follows:
+	 * <pre>
+	 * References to: obj1 (1395193582)
+     *   (ObjWithRefs) obj3 via SV objRef
+	 * </pre>
+	 * The first line indicates the name of the object followed by the identity hash
+	 * code for the object, which can be useful when determining the actual object instance
+	 * you're referring to. The subsequent lines indicate the class of object doing the
+	 * referring, its name and the attribute via which the reference is maintained.
 	 */
 	public String getBackRefs(){
 		synchronized(attributes){		

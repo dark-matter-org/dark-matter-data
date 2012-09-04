@@ -757,10 +757,24 @@ public class SchemaManager implements DmcNameResolverIF {
             }
         }
 
+        if ( (ruleIT = sd.getRuleDefinitionList()) != null){
+            while(ruleIT.hasNext()){
+                rule = ruleIT.next();
+                this.addRuleDefinition(rule);
+            }
+        }
+        
         if ( (itCD = sd.getClassDefList()) != null){
             while(itCD.hasNext()){
                 cd = itCD.next();
-                this.addClass(cd);
+                
+                // Rules are added first so that the ruleDefinition attribute can
+                // be resolved later. Adding the rule adds the internal RuleData class
+                // so we don't attempt to re-add them here.
+                // Note: we don't attempt to access the rule definition through the wrapper
+                // because lazy resolution will be attempted and it will fail.
+                if (cd.getDMO().getRuleDefinition() == null)
+                	this.addClass(cd);
             }
         }
         
@@ -775,13 +789,6 @@ public class SchemaManager implements DmcNameResolverIF {
             while(categoryIT.hasNext()){
                 category = categoryIT.next();
                 this.addRuleCategory(category);
-            }
-        }
-        
-        if ( (ruleIT = sd.getRuleDefinitionList()) != null){
-            while(ruleIT.hasNext()){
-                rule = ruleIT.next();
-                this.addRuleDefinition(rule);
             }
         }
         
