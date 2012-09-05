@@ -32,6 +32,8 @@ import org.dmd.dmp.shared.generated.dmo.CreateRequestDMO;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeCreateRequestREFMV extends DmcTypeCreateRequestREF implements Serializable {
     
+    private final static Iterator<CreateRequestDMO> emptyList = (new ArrayList<CreateRequestDMO>()).iterator();
+    
     protected ArrayList<CreateRequestDMO> value;
     
     public DmcTypeCreateRequestREFMV(){
@@ -48,10 +50,14 @@ public class DmcTypeCreateRequestREFMV extends DmcTypeCreateRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<CreateRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeCreateRequestREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (attrInfo.indexSize == 0){
                 for(CreateRequestDMO val: value)
                 try {
@@ -73,7 +79,7 @@ public class DmcTypeCreateRequestREFMV extends DmcTypeCreateRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public CreateRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             CreateRequestDMO rc = typeCheck(v);
@@ -85,9 +91,12 @@ public class DmcTypeCreateRequestREFMV extends DmcTypeCreateRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public CreateRequestDMO del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             CreateRequestDMO key = null;
             CreateRequestDMO rc = null;
             try {
@@ -106,24 +115,29 @@ public class DmcTypeCreateRequestREFMV extends DmcTypeCreateRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<CreateRequestDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<CreateRequestDMO> clone = new ArrayList<CreateRequestDMO>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<CreateRequestDMO> getMVCopy(){
         synchronized(this){
-            ArrayList<CreateRequestDMO> clone = new ArrayList<CreateRequestDMO>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<CreateRequestDMO>());
+            else 
+                return(new ArrayList<CreateRequestDMO>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -137,7 +151,7 @@ public class DmcTypeCreateRequestREFMV extends DmcTypeCreateRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public CreateRequestDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +161,7 @@ public class DmcTypeCreateRequestREFMV extends DmcTypeCreateRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public CreateRequestDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -174,7 +188,7 @@ public class DmcTypeCreateRequestREFMV extends DmcTypeCreateRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,7 +211,7 @@ public class DmcTypeCreateRequestREFMV extends DmcTypeCreateRequestREF implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -2273,7 +2273,9 @@ public class GenUtility {
         out.write("@SuppressWarnings(\"serial\")\n");
 
         out.write("public class DmcType" + typeName + REF + "MV extends DmcType" + typeName + REF + " implements Serializable {\n");
-        
+//        "Iterator<ActionStatusEnum> empty = (new ArrayList<ActionStatusEnum>()).iterator();\n"
+        out.write("    \n");
+        out.write("    private final static Iterator<" + typeName + DMO + genericArgs + "> emptyList = (new ArrayList<" + typeName + DMO + genericArgs + ">()).iterator();\n");
         out.write("    \n");
         out.write("    protected ArrayList<" + typeName + DMO + genericArgs + "> value;\n");
         out.write("    \n");
@@ -2304,6 +2306,10 @@ public class GenUtility {
         	out.write("    public DmcAttribute<" + typeName + REF + genericArgs + "> cloneIt(){\n");
         out.write("        synchronized(this){\n");
         out.write("            DmcType" + typeName + REF + "MV rc = getNew();\n");
+        out.write("    \n");
+        out.write("            if (value == null)\n");
+        out.write("                return(rc);\n");
+        out.write("    \n");
         out.write("            if (attrInfo.indexSize == 0){\n");
         out.write("                for(" + typeName + DMO + genericArgs + " val: value)\n");
         out.write("                try {\n");
@@ -2342,6 +2348,9 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + typeName + DMO + genericArgs + " del(Object v){\n");
         out.write("        synchronized(this){\n");
+        out.write("            if (value == null)\n");
+        out.write("                return(null);\n");
+        out.write("    \n");
         out.write("            " + typeName + DMO + genericArgs + " key = null;\n");
         out.write("            " + typeName + DMO + genericArgs + " rc = null;\n");
         out.write("            try {\n");
@@ -2373,6 +2382,9 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public Iterator<" + typeName + DMO + genericArgs + "> getMV(){\n");
         out.write("        synchronized(this){\n");
+        out.write("            if (value == null)\n");
+        out.write("                return(emptyList);\n");
+        out.write("    \n");
         out.write("            ArrayList<" + typeName + DMO + genericArgs + "> clone = new ArrayList<" + typeName + DMO + genericArgs + ">(value);\n");
         out.write("            return(clone.iterator());\n");
         out.write("        }\n");
@@ -2382,8 +2394,10 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public ArrayList<" + typeName + DMO + genericArgs + "> getMVCopy(){\n");
         out.write("        synchronized(this){\n");
-        out.write("            ArrayList<" + typeName + DMO + genericArgs + "> clone = new ArrayList<" + typeName + DMO + genericArgs + ">(value);\n");
-        out.write("            return(clone);\n");
+        out.write("            if (value == null)\n");
+        out.write("                return(new ArrayList<" + typeName + DMO + genericArgs + ">());\n");
+        out.write("            else \n");
+        out.write("                return(new ArrayList<" + typeName + DMO + genericArgs + ">(value));\n");
         out.write("        }\n");
         out.write("    }\n");
         out.write("    \n");
@@ -2558,6 +2572,10 @@ public class GenUtility {
         out.write("public class DmcType" + typeName + REF + "SET extends DmcType" + typeName + REF + " implements Serializable {\n");
         
         out.write("    \n");
+        out.write("     private final static Iterator<" + typeName + DMO + genericArgs + "> emptyList =  (new HashSet<" + typeName + DMO + genericArgs + ">()).iterator();\n");
+        out.write("    \n");
+
+        out.write("    \n");
         out.write("    protected Set<" + typeName + DMO + genericArgs + "> value;\n");
         out.write("    \n");
         
@@ -2594,6 +2612,10 @@ public class GenUtility {
         	out.write("    public DmcAttribute<" + typeName + REF + genericArgs + "> cloneIt(){\n");
         out.write("        synchronized(this){\n");
         out.write("            DmcType" + typeName + REF + "SET rc = getNew();\n");
+        out.write("    \n");
+        out.write("            if (value == null)\n");
+        out.write("                return(rc);\n");
+        out.write("    \n");
         out.write("            for(" + typeName + DMO + genericArgs + " val: value)\n");
         out.write("            try {\n");
         out.write("                rc.add(val);\n");
@@ -2651,12 +2673,9 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public Iterator<" + typeName + DMO + genericArgs + "> getMV(){\n");
         out.write("        synchronized(this){\n");
-//        out.write("            Set<" + typeName + DMO + genericArgs + "> clone = null;\n");
-//        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
-//        out.write("                clone = new HashSet<" + typeName + DMO + genericArgs + ">(value);\n");
-//        out.write("            else\n");
-//        out.write("                clone = new TreeSet<" + typeName + DMO + genericArgs + ">(value);\n");
-//        out.write("            return(clone.iterator());\n");
+        out.write("            if (value == null)\n");
+        out.write("                return(emptyList);\n");
+        out.write("\n");
         out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
         out.write("                return( (new HashSet<" + typeName + DMO + genericArgs + ">(value)).iterator() );\n");
         out.write("            else\n");
@@ -2668,16 +2687,18 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public Set<" + typeName + DMO + genericArgs + "> getMVCopy(){\n");
         out.write("        synchronized(this){\n");
-//        out.write("            Set<" + typeName + DMO + genericArgs + "> clone = null;\n");
-//        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
-//        out.write("                clone = new HashSet<" + typeName + DMO + genericArgs + ">(value);\n");
-//        out.write("            else\n");
-//        out.write("                clone = new TreeSet<" + typeName + DMO + genericArgs + ">(value);\n");
-//        out.write("            return(clone);\n");
-        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
-        out.write("                return(new HashSet<" + typeName + DMO + genericArgs + ">(value));\n");
-        out.write("            else\n");
-        out.write("                return(new TreeSet<" + typeName + DMO + genericArgs + ">(value));\n");
+        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHSET){\n");
+        out.write("                if (value == null)\n");
+        out.write("                    return(new HashSet<" + typeName + DMO + genericArgs + ">());\n");
+        out.write("                else\n");
+        out.write("                    return(new HashSet<" + typeName + DMO + genericArgs + ">(value));\n");
+        out.write("            }\n");
+        out.write("            else{\n");
+        out.write("                if (value == null)\n");
+        out.write("                    return(new TreeSet<" + typeName + DMO + genericArgs + ">(value));\n");
+        out.write("                else\n");
+        out.write("                    return(new TreeSet<" + typeName + DMO + genericArgs + ">(value));\n");
+        out.write("            }\n");
         out.write("        }\n");
         out.write("    }\n");
         out.write("    \n");
@@ -2790,6 +2811,9 @@ public class GenUtility {
         }
         
         out.write("    \n");
+        out.write("    private final static Iterator<" + typeName + genericArgs + "> emptyList = (new HashMap<" + keyClass + "," + typeName + genericArgs + ">()).values().iterator();\n");
+
+        out.write("    \n");
         out.write("    protected Map<" + keyClass + "," + typeName + genericArgs + "> value;\n");
         out.write("    \n");
         
@@ -2834,6 +2858,10 @@ public class GenUtility {
         out.write("    public DmcAttribute<" + typeName + genericArgs + "> cloneIt(){\n");
         out.write("        synchronized(this){\n");
         out.write("            DmcType" + typeName + "MAP rc = getNew();\n");
+        out.write("    \n");
+        out.write("            if (value == null)\n");
+        out.write("                return(rc);\n");
+        out.write("    \n");
         out.write("            for(" + typeName + genericArgs + " val: value.values())\n");
         out.write("            try {\n");
         out.write("                rc.add(val);\n");
@@ -2870,6 +2898,10 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + typeName + genericArgs + " del(Object key){\n");
         out.write("        synchronized(this){\n");
+        out.write("    \n");
+        out.write("            if (value == null)\n");
+        out.write("                return(null);\n");
+        out.write("    \n");
         out.write("           if (key instanceof " + keyClass + ")\n");
         out.write("                return(value.remove(key));\n");
         out.write("            else\n");
@@ -2882,6 +2914,10 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public Iterator<" + typeName + genericArgs + "> getMV(){\n");
         out.write("        synchronized(this){\n");
+        out.write("    \n");
+        out.write("            if (value == null)\n");
+        out.write("                return(emptyList);\n");
+        out.write("    \n");
         out.write("            Map<" + keyClass + "," + typeName + genericArgs + "> clone = null;\n");
         out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)\n");
         out.write("                clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
@@ -2896,10 +2932,18 @@ public class GenUtility {
         out.write("    public Map<" + keyClass + "," + typeName + genericArgs + "> getMVCopy(){\n");
         out.write("        synchronized(this){\n");
         out.write("            Map<" + keyClass + "," + typeName + genericArgs + "> clone = null;\n");
-        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)\n");
-        out.write("                clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
-        out.write("            else\n");
-        out.write("                clone = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
+        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED){\n");
+        out.write("                if (value == null)\n");
+        out.write("                    clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">();\n");
+        out.write("                else\n");
+        out.write("                    clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
+        out.write("            }\n");
+        out.write("            else{\n");
+        out.write("                if (value == null)\n");
+        out.write("                    clone = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">();\n");
+        out.write("                else\n");
+        out.write("                    clone = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
+        out.write("            }\n");
         out.write("            return(clone);\n");
         out.write("        }\n");
         out.write("    }\n");
@@ -2920,6 +2964,9 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + typeName + genericArgs + " getByKey(Object key){\n");
         out.write("        synchronized(this){\n");
+        out.write("           if (value == null)\n");
+        out.write("               return(null);\n");
+        out.write("    \n");
         out.write("            if (key instanceof " + keyClass + ")\n");
         out.write("                return(value.get((" + keyClass + ") key));\n");
         out.write("            else\n");
@@ -2932,13 +2979,9 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public boolean contains(Object v){\n");
         out.write("        synchronized(this){\n");
-//        out.write("            boolean rc = false;\n");
-//        out.write("            try {\n");
-//        out.write("                " + typeName + genericArgs + " val = typeCheck(v);\n");
-//        out.write("                rc = value.containsValue(val);\n");
-//        out.write("            } catch (DmcValueException e) {\n");
-//        out.write("            }\n");
-//        out.write("            return(rc);\n");
+        out.write("           if (value == null)\n");
+        out.write("               return(false);\n");
+        out.write("    \n");
         out.write("            try {\n");
         out.write("                " + typeName + genericArgs + " val = typeCheck(v);\n");
         out.write("                return(value.containsValue(val));\n");
@@ -2953,10 +2996,9 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public boolean containsKey(Object key){\n");
         out.write("        synchronized(this){\n");
-//        out.write("            boolean rc = false;\n");
-//        out.write("           if (key instanceof " + keyClass + ")\n");
-//        out.write("                rc = value.containsKey(key);\n");
-//        out.write("            return(rc);\n");
+        out.write("           if (value == null)\n");
+        out.write("               return(false);\n");
+        out.write("    \n");
         out.write("           if (key instanceof " + keyClass + ")\n");
         out.write("                return(value.containsKey(key));\n");
         out.write("            return(false);\n");

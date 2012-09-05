@@ -31,6 +31,8 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DmcTypeActivityREFMV extends DmcTypeActivityREF implements Serializable {
     
+    private final static Iterator<ActivityREF> emptyList = (new ArrayList<ActivityREF>()).iterator();
+    
     protected ArrayList<ActivityREF> value;
     
     public DmcTypeActivityREFMV(){
@@ -47,10 +49,14 @@ public class DmcTypeActivityREFMV extends DmcTypeActivityREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<ActivityREF> cloneIt(){
         synchronized(this){
             DmcTypeActivityREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (attrInfo.indexSize == 0){
                 for(ActivityREF val: value)
                 try {
@@ -72,7 +78,7 @@ public class DmcTypeActivityREFMV extends DmcTypeActivityREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public ActivityREF add(Object v) throws DmcValueException {
         synchronized(this){
             ActivityREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeActivityREFMV extends DmcTypeActivityREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public ActivityREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             ActivityREF key = null;
             ActivityREF rc = null;
             try {
@@ -105,24 +114,29 @@ public class DmcTypeActivityREFMV extends DmcTypeActivityREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<ActivityREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<ActivityREF> clone = new ArrayList<ActivityREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<ActivityREF> getMVCopy(){
         synchronized(this){
-            ArrayList<ActivityREF> clone = new ArrayList<ActivityREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<ActivityREF>());
+            else 
+                return(new ArrayList<ActivityREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +150,7 @@ public class DmcTypeActivityREFMV extends DmcTypeActivityREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public ActivityREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +160,7 @@ public class DmcTypeActivityREFMV extends DmcTypeActivityREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public ActivityREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +187,7 @@ public class DmcTypeActivityREFMV extends DmcTypeActivityREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +210,7 @@ public class DmcTypeActivityREFMV extends DmcTypeActivityREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

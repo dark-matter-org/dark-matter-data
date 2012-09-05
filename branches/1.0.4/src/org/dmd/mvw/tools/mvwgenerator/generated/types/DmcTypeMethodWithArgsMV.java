@@ -33,6 +33,8 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeMethodWithArgs;    // DmcType
 @SuppressWarnings("serial")
 public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Serializable {
     
+    private final static Iterator<MethodWithArgs> emptyList = (new ArrayList<MethodWithArgs>()).iterator();
+    
     protected ArrayList<MethodWithArgs> value;
     
     public DmcTypeMethodWithArgsMV(){
@@ -49,10 +51,14 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<MethodWithArgs> cloneIt(){
         synchronized(this){
             DmcTypeMethodWithArgsMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (attrInfo.indexSize == 0){
                 for(MethodWithArgs val: value)
                 try {
@@ -74,7 +80,7 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public MethodWithArgs add(Object v) throws DmcValueException {
         synchronized(this){
             MethodWithArgs rc = typeCheck(v);
@@ -86,9 +92,12 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public MethodWithArgs del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             MethodWithArgs key = null;
             MethodWithArgs rc = null;
             try {
@@ -107,24 +116,29 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<MethodWithArgs> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<MethodWithArgs> clone = new ArrayList<MethodWithArgs>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<MethodWithArgs> getMVCopy(){
         synchronized(this){
-            ArrayList<MethodWithArgs> clone = new ArrayList<MethodWithArgs>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<MethodWithArgs>());
+            else 
+                return(new ArrayList<MethodWithArgs>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -138,7 +152,7 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public MethodWithArgs getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +162,7 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public MethodWithArgs setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -175,7 +189,7 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,7 +212,7 @@ public class DmcTypeMethodWithArgsMV extends DmcTypeMethodWithArgs implements Se
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -30,11 +30,14 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeMethodWithArgs;    // DmcType
  * The DmcTypeMethodWithArgsSET provides storage for a set of MethodWithArgs
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:102)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMethodWithArgsSET extends DmcTypeMethodWithArgs implements Serializable {
+    
+     private final static Iterator<MethodWithArgs> emptyList =  (new HashSet<MethodWithArgs>()).iterator();
+    
     
     protected Set<MethodWithArgs> value;
     
@@ -60,10 +63,14 @@ public class DmcTypeMethodWithArgsSET extends DmcTypeMethodWithArgs implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<MethodWithArgs> cloneIt(){
         synchronized(this){
             DmcTypeMethodWithArgsSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(MethodWithArgs val: value)
             try {
                 rc.add(val);
@@ -75,7 +82,7 @@ public class DmcTypeMethodWithArgsSET extends DmcTypeMethodWithArgs implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public MethodWithArgs add(Object v) throws DmcValueException {
         synchronized(this){
             MethodWithArgs rc = typeCheck(v);
@@ -91,7 +98,7 @@ public class DmcTypeMethodWithArgsSET extends DmcTypeMethodWithArgs implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public MethodWithArgs del(Object v){
         synchronized(this){
             MethodWithArgs rc = null;
@@ -115,9 +122,12 @@ public class DmcTypeMethodWithArgsSET extends DmcTypeMethodWithArgs implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<MethodWithArgs> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<MethodWithArgs>(value)).iterator() );
             else
@@ -125,18 +135,26 @@ public class DmcTypeMethodWithArgsSET extends DmcTypeMethodWithArgs implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<MethodWithArgs> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<MethodWithArgs>(value));
-            else
-                return(new TreeSet<MethodWithArgs>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<MethodWithArgs>());
+                else
+                    return(new HashSet<MethodWithArgs>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<MethodWithArgs>(value));
+                else
+                    return(new TreeSet<MethodWithArgs>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +164,7 @@ public class DmcTypeMethodWithArgsSET extends DmcTypeMethodWithArgs implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
