@@ -30,12 +30,14 @@ import org.dmd.dmc.types.DotName;    // key type import
  * The DmcTypeUserFolderRIREFMAP provides storage for a map of UserFolderRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2779)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2800)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUserFolderRIREFMAP extends DmcTypeUserFolderRIREF<UserFolderRIREF,DotName> {
 public class DmcTypeUserFolderRIREFMAP extends DmcTypeUserFolderRIREF implements Serializable {
+    
+    private final static Iterator<UserFolderRIREF> emptyList = (new HashMap<DotName,UserFolderRIREF>()).values().iterator();
     
     protected Map<DotName,UserFolderRIREF> value;
     
@@ -71,10 +73,14 @@ public class DmcTypeUserFolderRIREFMAP extends DmcTypeUserFolderRIREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2833)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2857)
     public DmcAttribute<UserFolderRIREF> cloneIt(){
         synchronized(this){
             DmcTypeUserFolderRIREFMAP rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(UserFolderRIREF val: value.values())
             try {
                 rc.add(val);
@@ -86,7 +92,7 @@ public class DmcTypeUserFolderRIREFMAP extends DmcTypeUserFolderRIREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2849)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2877)
     public UserFolderRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             UserFolderRIREF newval = typeCheck(v);
@@ -106,9 +112,13 @@ public class DmcTypeUserFolderRIREFMAP extends DmcTypeUserFolderRIREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2870)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2898)
     public UserFolderRIREF del(Object key){
         synchronized(this){
+    
+            if (value == null)
+                return(null);
+    
            if (key instanceof DotName)
                 return(value.remove(key));
             else
@@ -117,9 +127,13 @@ public class DmcTypeUserFolderRIREFMAP extends DmcTypeUserFolderRIREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2882)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2914)
     public Iterator<UserFolderRIREF> getMV(){
         synchronized(this){
+    
+            if (value == null)
+                return(emptyList);
+    
             Map<DotName,UserFolderRIREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<DotName,UserFolderRIREF>(value);
@@ -129,19 +143,27 @@ public class DmcTypeUserFolderRIREFMAP extends DmcTypeUserFolderRIREF implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2895)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2931)
     public Map<DotName,UserFolderRIREF> getMVCopy(){
         synchronized(this){
             Map<DotName,UserFolderRIREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<DotName,UserFolderRIREF>(value);
-            else
-                clone = new TreeMap<DotName,UserFolderRIREF>(value);
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED){
+                if (value == null)
+                    clone = new HashMap<DotName,UserFolderRIREF>();
+                else
+                    clone = new HashMap<DotName,UserFolderRIREF>(value);
+            }
+            else{
+                if (value == null)
+                    clone = new TreeMap<DotName,UserFolderRIREF>();
+                else
+                    clone = new TreeMap<DotName,UserFolderRIREF>(value);
+            }
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2908)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2952)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,9 +174,12 @@ public class DmcTypeUserFolderRIREFMAP extends DmcTypeUserFolderRIREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2920)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2964)
     public UserFolderRIREF getByKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(null);
+    
             if (key instanceof DotName)
                 return(value.get((DotName) key));
             else
@@ -163,9 +188,12 @@ public class DmcTypeUserFolderRIREFMAP extends DmcTypeUserFolderRIREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2932)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2979)
     public boolean contains(Object v){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
             try {
                 UserFolderRIREF val = typeCheck(v);
                 return(value.containsValue(val));
@@ -176,9 +204,12 @@ public class DmcTypeUserFolderRIREFMAP extends DmcTypeUserFolderRIREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2953)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2996)
     public boolean containsKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
            if (key instanceof DotName)
                 return(value.containsKey(key));
             return(false);

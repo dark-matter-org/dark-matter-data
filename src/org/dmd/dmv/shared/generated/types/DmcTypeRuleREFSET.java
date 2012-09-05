@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeRuleREFSET provides storage for a set of RuleREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRuleREFSET extends DmcTypeRuleREF implements Serializable {
+    
+     private final static Iterator<RuleREF> emptyList =  (new HashSet<RuleREF>()).iterator();
+    
     
     protected Set<RuleREF> value;
     
@@ -58,10 +61,14 @@ public class DmcTypeRuleREFSET extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<RuleREF> cloneIt(){
         synchronized(this){
             DmcTypeRuleREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(RuleREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeRuleREFSET extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public RuleREF add(Object v) throws DmcValueException {
         synchronized(this){
             RuleREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeRuleREFSET extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public RuleREF del(Object v){
         synchronized(this){
             RuleREF rc = null;
@@ -113,9 +120,12 @@ public class DmcTypeRuleREFSET extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<RuleREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<RuleREF>(value)).iterator() );
             else
@@ -123,18 +133,26 @@ public class DmcTypeRuleREFSET extends DmcTypeRuleREF implements Serializable {
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<RuleREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<RuleREF>(value));
-            else
-                return(new TreeSet<RuleREF>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<RuleREF>());
+                else
+                    return(new HashSet<RuleREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<RuleREF>(value));
+                else
+                    return(new TreeSet<RuleREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeRuleREFSET extends DmcTypeRuleREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

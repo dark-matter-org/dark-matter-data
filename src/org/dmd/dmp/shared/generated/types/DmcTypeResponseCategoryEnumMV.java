@@ -32,6 +32,8 @@ import org.dmd.dmp.shared.generated.enums.ResponseCategoryEnum;    // DmcType im
 @SuppressWarnings("serial")
 public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum implements Serializable {
     
+    private final static Iterator<ResponseCategoryEnum> emptyList = (new ArrayList<ResponseCategoryEnum>()).iterator();
+    
     protected ArrayList<ResponseCategoryEnum> value;
     
     public DmcTypeResponseCategoryEnumMV(){
@@ -48,10 +50,14 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<ResponseCategoryEnum> cloneIt(){
         synchronized(this){
             DmcTypeResponseCategoryEnumMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (attrInfo.indexSize == 0){
                 for(ResponseCategoryEnum val: value)
                 try {
@@ -73,7 +79,7 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public ResponseCategoryEnum add(Object v) throws DmcValueException {
         synchronized(this){
             ResponseCategoryEnum rc = typeCheck(v);
@@ -85,9 +91,12 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public ResponseCategoryEnum del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             ResponseCategoryEnum key = null;
             ResponseCategoryEnum rc = null;
             try {
@@ -106,24 +115,29 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<ResponseCategoryEnum> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<ResponseCategoryEnum> clone = new ArrayList<ResponseCategoryEnum>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<ResponseCategoryEnum> getMVCopy(){
         synchronized(this){
-            ArrayList<ResponseCategoryEnum> clone = new ArrayList<ResponseCategoryEnum>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<ResponseCategoryEnum>());
+            else 
+                return(new ArrayList<ResponseCategoryEnum>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -137,7 +151,7 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public ResponseCategoryEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +161,7 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public ResponseCategoryEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -174,7 +188,7 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,7 +211,7 @@ public class DmcTypeResponseCategoryEnumMV extends DmcTypeResponseCategoryEnum i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

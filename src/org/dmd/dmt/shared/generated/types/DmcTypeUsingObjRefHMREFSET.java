@@ -14,11 +14,14 @@ import org.dmd.dmt.shared.generated.dmo.UsingObjRefHMDMO;    // DmcType import
  * The DmcTypeUsingObjRefHMREFSET provides storage for a set of UsingObjRefHMDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUsingObjRefHMREFSET extends DmcTypeUsingObjRefHMREF implements Serializable {
+    
+     private final static Iterator<UsingObjRefHMDMO> emptyList =  (new HashSet<UsingObjRefHMDMO>()).iterator();
+    
     
     protected Set<UsingObjRefHMDMO> value;
     
@@ -44,10 +47,14 @@ public class DmcTypeUsingObjRefHMREFSET extends DmcTypeUsingObjRefHMREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<UsingObjRefHMDMO> cloneIt(){
         synchronized(this){
             DmcTypeUsingObjRefHMREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(UsingObjRefHMDMO val: value)
             try {
                 rc.add(val);
@@ -59,7 +66,7 @@ public class DmcTypeUsingObjRefHMREFSET extends DmcTypeUsingObjRefHMREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public UsingObjRefHMDMO add(Object v) throws DmcValueException {
         synchronized(this){
             UsingObjRefHMDMO rc = typeCheck(v);
@@ -75,7 +82,7 @@ public class DmcTypeUsingObjRefHMREFSET extends DmcTypeUsingObjRefHMREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public UsingObjRefHMDMO del(Object v){
         synchronized(this){
             UsingObjRefHMDMO rc = null;
@@ -99,9 +106,12 @@ public class DmcTypeUsingObjRefHMREFSET extends DmcTypeUsingObjRefHMREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<UsingObjRefHMDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<UsingObjRefHMDMO>(value)).iterator() );
             else
@@ -109,18 +119,26 @@ public class DmcTypeUsingObjRefHMREFSET extends DmcTypeUsingObjRefHMREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<UsingObjRefHMDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<UsingObjRefHMDMO>(value));
-            else
-                return(new TreeSet<UsingObjRefHMDMO>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<UsingObjRefHMDMO>());
+                else
+                    return(new HashSet<UsingObjRefHMDMO>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<UsingObjRefHMDMO>(value));
+                else
+                    return(new TreeSet<UsingObjRefHMDMO>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -130,7 +148,7 @@ public class DmcTypeUsingObjRefHMREFSET extends DmcTypeUsingObjRefHMREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

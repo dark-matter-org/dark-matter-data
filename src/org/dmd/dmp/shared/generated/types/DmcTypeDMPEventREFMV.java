@@ -32,6 +32,8 @@ import org.dmd.dmp.shared.generated.dmo.DMPEventDMO;    // DmcType import
 @SuppressWarnings("serial")
 public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializable {
     
+    private final static Iterator<DMPEventDMO> emptyList = (new ArrayList<DMPEventDMO>()).iterator();
+    
     protected ArrayList<DMPEventDMO> value;
     
     public DmcTypeDMPEventREFMV(){
@@ -48,10 +50,14 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<DMPEventDMO> cloneIt(){
         synchronized(this){
             DmcTypeDMPEventREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (attrInfo.indexSize == 0){
                 for(DMPEventDMO val: value)
                 try {
@@ -73,7 +79,7 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public DMPEventDMO add(Object v) throws DmcValueException {
         synchronized(this){
             DMPEventDMO rc = typeCheck(v);
@@ -85,9 +91,12 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public DMPEventDMO del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             DMPEventDMO key = null;
             DMPEventDMO rc = null;
             try {
@@ -106,24 +115,29 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<DMPEventDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<DMPEventDMO> clone = new ArrayList<DMPEventDMO>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<DMPEventDMO> getMVCopy(){
         synchronized(this){
-            ArrayList<DMPEventDMO> clone = new ArrayList<DMPEventDMO>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<DMPEventDMO>());
+            else 
+                return(new ArrayList<DMPEventDMO>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -137,7 +151,7 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public DMPEventDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +161,7 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public DMPEventDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -174,7 +188,7 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,7 +211,7 @@ public class DmcTypeDMPEventREFMV extends DmcTypeDMPEventREF implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

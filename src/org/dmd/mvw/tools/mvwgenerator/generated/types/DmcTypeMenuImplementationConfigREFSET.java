@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMenuImplementationConfigREFSET provides storage for a set of MenuImplementationConfigREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMenuImplementationConfigREFSET extends DmcTypeMenuImplementationConfigREF implements Serializable {
+    
+     private final static Iterator<MenuImplementationConfigREF> emptyList =  (new HashSet<MenuImplementationConfigREF>()).iterator();
+    
     
     protected Set<MenuImplementationConfigREF> value;
     
@@ -58,10 +61,14 @@ public class DmcTypeMenuImplementationConfigREFSET extends DmcTypeMenuImplementa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<MenuImplementationConfigREF> cloneIt(){
         synchronized(this){
             DmcTypeMenuImplementationConfigREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(MenuImplementationConfigREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeMenuImplementationConfigREFSET extends DmcTypeMenuImplementa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public MenuImplementationConfigREF add(Object v) throws DmcValueException {
         synchronized(this){
             MenuImplementationConfigREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeMenuImplementationConfigREFSET extends DmcTypeMenuImplementa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public MenuImplementationConfigREF del(Object v){
         synchronized(this){
             MenuImplementationConfigREF rc = null;
@@ -113,9 +120,12 @@ public class DmcTypeMenuImplementationConfigREFSET extends DmcTypeMenuImplementa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<MenuImplementationConfigREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<MenuImplementationConfigREF>(value)).iterator() );
             else
@@ -123,18 +133,26 @@ public class DmcTypeMenuImplementationConfigREFSET extends DmcTypeMenuImplementa
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<MenuImplementationConfigREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<MenuImplementationConfigREF>(value));
-            else
-                return(new TreeSet<MenuImplementationConfigREF>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<MenuImplementationConfigREF>());
+                else
+                    return(new HashSet<MenuImplementationConfigREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<MenuImplementationConfigREF>(value));
+                else
+                    return(new TreeSet<MenuImplementationConfigREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeMenuImplementationConfigREFSET extends DmcTypeMenuImplementa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

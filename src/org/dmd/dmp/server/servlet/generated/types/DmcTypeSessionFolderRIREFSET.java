@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSessionFolderRIREFSET provides storage for a set of SessionFolderRIREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSessionFolderRIREFSET extends DmcTypeSessionFolderRIREF implements Serializable {
+    
+     private final static Iterator<SessionFolderRIREF> emptyList =  (new HashSet<SessionFolderRIREF>()).iterator();
+    
     
     protected Set<SessionFolderRIREF> value;
     
@@ -58,10 +61,14 @@ public class DmcTypeSessionFolderRIREFSET extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<SessionFolderRIREF> cloneIt(){
         synchronized(this){
             DmcTypeSessionFolderRIREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(SessionFolderRIREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeSessionFolderRIREFSET extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public SessionFolderRIREF add(Object v) throws DmcValueException {
         synchronized(this){
             SessionFolderRIREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeSessionFolderRIREFSET extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public SessionFolderRIREF del(Object v){
         synchronized(this){
             SessionFolderRIREF rc = null;
@@ -113,9 +120,12 @@ public class DmcTypeSessionFolderRIREFSET extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<SessionFolderRIREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<SessionFolderRIREF>(value)).iterator() );
             else
@@ -123,18 +133,26 @@ public class DmcTypeSessionFolderRIREFSET extends DmcTypeSessionFolderRIREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<SessionFolderRIREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<SessionFolderRIREF>(value));
-            else
-                return(new TreeSet<SessionFolderRIREF>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<SessionFolderRIREF>());
+                else
+                    return(new HashSet<SessionFolderRIREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<SessionFolderRIREF>(value));
+                else
+                    return(new TreeSet<SessionFolderRIREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeSessionFolderRIREFSET extends DmcTypeSessionFolderRIREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -31,6 +31,8 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DmcTypeGenerationContextREFMV extends DmcTypeGenerationContextREF implements Serializable {
     
+    private final static Iterator<GenerationContextREF> emptyList = (new ArrayList<GenerationContextREF>()).iterator();
+    
     protected ArrayList<GenerationContextREF> value;
     
     public DmcTypeGenerationContextREFMV(){
@@ -47,10 +49,14 @@ public class DmcTypeGenerationContextREFMV extends DmcTypeGenerationContextREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<GenerationContextREF> cloneIt(){
         synchronized(this){
             DmcTypeGenerationContextREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (attrInfo.indexSize == 0){
                 for(GenerationContextREF val: value)
                 try {
@@ -72,7 +78,7 @@ public class DmcTypeGenerationContextREFMV extends DmcTypeGenerationContextREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public GenerationContextREF add(Object v) throws DmcValueException {
         synchronized(this){
             GenerationContextREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeGenerationContextREFMV extends DmcTypeGenerationContextREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public GenerationContextREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             GenerationContextREF key = null;
             GenerationContextREF rc = null;
             try {
@@ -105,24 +114,29 @@ public class DmcTypeGenerationContextREFMV extends DmcTypeGenerationContextREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<GenerationContextREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<GenerationContextREF> clone = new ArrayList<GenerationContextREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<GenerationContextREF> getMVCopy(){
         synchronized(this){
-            ArrayList<GenerationContextREF> clone = new ArrayList<GenerationContextREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<GenerationContextREF>());
+            else 
+                return(new ArrayList<GenerationContextREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +150,7 @@ public class DmcTypeGenerationContextREFMV extends DmcTypeGenerationContextREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public GenerationContextREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +160,7 @@ public class DmcTypeGenerationContextREFMV extends DmcTypeGenerationContextREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public GenerationContextREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +187,7 @@ public class DmcTypeGenerationContextREFMV extends DmcTypeGenerationContextREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +210,7 @@ public class DmcTypeGenerationContextREFMV extends DmcTypeGenerationContextREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

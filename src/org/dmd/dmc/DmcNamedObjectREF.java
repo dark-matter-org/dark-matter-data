@@ -103,6 +103,11 @@ abstract public class DmcNamedObjectREF<DMO extends DmcNamedObjectIF> implements
 		return(getObjectName().getNameString());
 	}
 	
+	@Override
+	public int hashCode(){
+		return(getObjectName().hashCode());
+	}
+	
 	///////////////////////////////////////////////////////////////////////////
 	// DmcNamedObjectIF partial implementation
 	

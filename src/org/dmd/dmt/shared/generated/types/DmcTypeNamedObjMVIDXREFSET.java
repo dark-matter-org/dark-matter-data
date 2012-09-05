@@ -14,11 +14,14 @@ import org.dmd.dmt.shared.generated.dmo.NamedObjMVIDXDMO;    // DmcType import
  * The DmcTypeNamedObjMVIDXREFSET provides storage for a set of NamedObjMVIDXDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNamedObjMVIDXREFSET extends DmcTypeNamedObjMVIDXREF implements Serializable {
+    
+     private final static Iterator<NamedObjMVIDXDMO> emptyList =  (new HashSet<NamedObjMVIDXDMO>()).iterator();
+    
     
     protected Set<NamedObjMVIDXDMO> value;
     
@@ -44,10 +47,14 @@ public class DmcTypeNamedObjMVIDXREFSET extends DmcTypeNamedObjMVIDXREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<NamedObjMVIDXDMO> cloneIt(){
         synchronized(this){
             DmcTypeNamedObjMVIDXREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(NamedObjMVIDXDMO val: value)
             try {
                 rc.add(val);
@@ -59,7 +66,7 @@ public class DmcTypeNamedObjMVIDXREFSET extends DmcTypeNamedObjMVIDXREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public NamedObjMVIDXDMO add(Object v) throws DmcValueException {
         synchronized(this){
             NamedObjMVIDXDMO rc = typeCheck(v);
@@ -75,7 +82,7 @@ public class DmcTypeNamedObjMVIDXREFSET extends DmcTypeNamedObjMVIDXREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public NamedObjMVIDXDMO del(Object v){
         synchronized(this){
             NamedObjMVIDXDMO rc = null;
@@ -99,9 +106,12 @@ public class DmcTypeNamedObjMVIDXREFSET extends DmcTypeNamedObjMVIDXREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<NamedObjMVIDXDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<NamedObjMVIDXDMO>(value)).iterator() );
             else
@@ -109,18 +119,26 @@ public class DmcTypeNamedObjMVIDXREFSET extends DmcTypeNamedObjMVIDXREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<NamedObjMVIDXDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<NamedObjMVIDXDMO>(value));
-            else
-                return(new TreeSet<NamedObjMVIDXDMO>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<NamedObjMVIDXDMO>());
+                else
+                    return(new HashSet<NamedObjMVIDXDMO>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<NamedObjMVIDXDMO>(value));
+                else
+                    return(new TreeSet<NamedObjMVIDXDMO>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -130,7 +148,7 @@ public class DmcTypeNamedObjMVIDXREFSET extends DmcTypeNamedObjMVIDXREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

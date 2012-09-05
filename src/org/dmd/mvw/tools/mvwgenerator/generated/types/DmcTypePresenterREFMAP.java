@@ -30,12 +30,14 @@ import org.dmd.dmc.types.CamelCaseName;    // key type import
  * The DmcTypePresenterREFMAP provides storage for a map of PresenterREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2779)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2800)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
 // public class DmcTypePresenterREFMAP extends DmcTypePresenterREF<PresenterREF,CamelCaseName> {
 public class DmcTypePresenterREFMAP extends DmcTypePresenterREF implements Serializable {
+    
+    private final static Iterator<PresenterREF> emptyList = (new HashMap<CamelCaseName,PresenterREF>()).values().iterator();
     
     protected Map<CamelCaseName,PresenterREF> value;
     
@@ -71,10 +73,14 @@ public class DmcTypePresenterREFMAP extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2833)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2857)
     public DmcAttribute<PresenterREF> cloneIt(){
         synchronized(this){
             DmcTypePresenterREFMAP rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(PresenterREF val: value.values())
             try {
                 rc.add(val);
@@ -86,7 +92,7 @@ public class DmcTypePresenterREFMAP extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2849)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2877)
     public PresenterREF add(Object v) throws DmcValueException {
         synchronized(this){
             PresenterREF newval = typeCheck(v);
@@ -106,9 +112,13 @@ public class DmcTypePresenterREFMAP extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2870)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2898)
     public PresenterREF del(Object key){
         synchronized(this){
+    
+            if (value == null)
+                return(null);
+    
            if (key instanceof CamelCaseName)
                 return(value.remove(key));
             else
@@ -117,9 +127,13 @@ public class DmcTypePresenterREFMAP extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2882)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2914)
     public Iterator<PresenterREF> getMV(){
         synchronized(this){
+    
+            if (value == null)
+                return(emptyList);
+    
             Map<CamelCaseName,PresenterREF> clone = null;
             if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<CamelCaseName,PresenterREF>(value);
@@ -129,19 +143,27 @@ public class DmcTypePresenterREFMAP extends DmcTypePresenterREF implements Seria
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2895)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2931)
     public Map<CamelCaseName,PresenterREF> getMVCopy(){
         synchronized(this){
             Map<CamelCaseName,PresenterREF> clone = null;
-            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<CamelCaseName,PresenterREF>(value);
-            else
-                clone = new TreeMap<CamelCaseName,PresenterREF>(value);
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED){
+                if (value == null)
+                    clone = new HashMap<CamelCaseName,PresenterREF>();
+                else
+                    clone = new HashMap<CamelCaseName,PresenterREF>(value);
+            }
+            else{
+                if (value == null)
+                    clone = new TreeMap<CamelCaseName,PresenterREF>();
+                else
+                    clone = new TreeMap<CamelCaseName,PresenterREF>(value);
+            }
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2908)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2952)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,9 +174,12 @@ public class DmcTypePresenterREFMAP extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2920)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2964)
     public PresenterREF getByKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(null);
+    
             if (key instanceof CamelCaseName)
                 return(value.get((CamelCaseName) key));
             else
@@ -163,9 +188,12 @@ public class DmcTypePresenterREFMAP extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2932)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2979)
     public boolean contains(Object v){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
             try {
                 PresenterREF val = typeCheck(v);
                 return(value.containsValue(val));
@@ -176,9 +204,12 @@ public class DmcTypePresenterREFMAP extends DmcTypePresenterREF implements Seria
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2953)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2996)
     public boolean containsKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
            if (key instanceof CamelCaseName)
                 return(value.containsKey(key));
             return(false);

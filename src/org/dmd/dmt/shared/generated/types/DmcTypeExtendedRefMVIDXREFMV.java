@@ -17,6 +17,8 @@ import org.dmd.dmt.shared.generated.dmo.ExtendedRefMVIDXDMO;    // DmcType impor
 @SuppressWarnings("serial")
 public class DmcTypeExtendedRefMVIDXREFMV extends DmcTypeExtendedRefMVIDXREF implements Serializable {
     
+    private final static Iterator<ExtendedRefMVIDXDMO> emptyList = (new ArrayList<ExtendedRefMVIDXDMO>()).iterator();
+    
     protected ArrayList<ExtendedRefMVIDXDMO> value;
     
     public DmcTypeExtendedRefMVIDXREFMV(){
@@ -33,10 +35,14 @@ public class DmcTypeExtendedRefMVIDXREFMV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<ExtendedRefMVIDXDMO> cloneIt(){
         synchronized(this){
             DmcTypeExtendedRefMVIDXREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (attrInfo.indexSize == 0){
                 for(ExtendedRefMVIDXDMO val: value)
                 try {
@@ -58,7 +64,7 @@ public class DmcTypeExtendedRefMVIDXREFMV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public ExtendedRefMVIDXDMO add(Object v) throws DmcValueException {
         synchronized(this){
             ExtendedRefMVIDXDMO rc = typeCheck(v);
@@ -70,9 +76,12 @@ public class DmcTypeExtendedRefMVIDXREFMV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public ExtendedRefMVIDXDMO del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             ExtendedRefMVIDXDMO key = null;
             ExtendedRefMVIDXDMO rc = null;
             try {
@@ -91,24 +100,29 @@ public class DmcTypeExtendedRefMVIDXREFMV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<ExtendedRefMVIDXDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<ExtendedRefMVIDXDMO> clone = new ArrayList<ExtendedRefMVIDXDMO>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<ExtendedRefMVIDXDMO> getMVCopy(){
         synchronized(this){
-            ArrayList<ExtendedRefMVIDXDMO> clone = new ArrayList<ExtendedRefMVIDXDMO>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<ExtendedRefMVIDXDMO>());
+            else 
+                return(new ArrayList<ExtendedRefMVIDXDMO>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -122,7 +136,7 @@ public class DmcTypeExtendedRefMVIDXREFMV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public ExtendedRefMVIDXDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -132,7 +146,7 @@ public class DmcTypeExtendedRefMVIDXREFMV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public ExtendedRefMVIDXDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -159,7 +173,7 @@ public class DmcTypeExtendedRefMVIDXREFMV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -182,7 +196,7 @@ public class DmcTypeExtendedRefMVIDXREFMV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeControllerREFSET provides storage for a set of ControllerREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Serializable {
+    
+     private final static Iterator<ControllerREF> emptyList =  (new HashSet<ControllerREF>()).iterator();
+    
     
     protected Set<ControllerREF> value;
     
@@ -58,10 +61,14 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<ControllerREF> cloneIt(){
         synchronized(this){
             DmcTypeControllerREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(ControllerREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public ControllerREF add(Object v) throws DmcValueException {
         synchronized(this){
             ControllerREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public ControllerREF del(Object v){
         synchronized(this){
             ControllerREF rc = null;
@@ -113,9 +120,12 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<ControllerREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ControllerREF>(value)).iterator() );
             else
@@ -123,18 +133,26 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<ControllerREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<ControllerREF>(value));
-            else
-                return(new TreeSet<ControllerREF>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<ControllerREF>());
+                else
+                    return(new HashSet<ControllerREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<ControllerREF>(value));
+                else
+                    return(new TreeSet<ControllerREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeControllerREFSET extends DmcTypeControllerREF implements Ser
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

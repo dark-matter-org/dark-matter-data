@@ -31,6 +31,8 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DmcTypeSeparatorREFMV extends DmcTypeSeparatorREF implements Serializable {
     
+    private final static Iterator<SeparatorREF> emptyList = (new ArrayList<SeparatorREF>()).iterator();
+    
     protected ArrayList<SeparatorREF> value;
     
     public DmcTypeSeparatorREFMV(){
@@ -47,10 +49,14 @@ public class DmcTypeSeparatorREFMV extends DmcTypeSeparatorREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<SeparatorREF> cloneIt(){
         synchronized(this){
             DmcTypeSeparatorREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (attrInfo.indexSize == 0){
                 for(SeparatorREF val: value)
                 try {
@@ -72,7 +78,7 @@ public class DmcTypeSeparatorREFMV extends DmcTypeSeparatorREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public SeparatorREF add(Object v) throws DmcValueException {
         synchronized(this){
             SeparatorREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeSeparatorREFMV extends DmcTypeSeparatorREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public SeparatorREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             SeparatorREF key = null;
             SeparatorREF rc = null;
             try {
@@ -105,24 +114,29 @@ public class DmcTypeSeparatorREFMV extends DmcTypeSeparatorREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<SeparatorREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<SeparatorREF> clone = new ArrayList<SeparatorREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<SeparatorREF> getMVCopy(){
         synchronized(this){
-            ArrayList<SeparatorREF> clone = new ArrayList<SeparatorREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<SeparatorREF>());
+            else 
+                return(new ArrayList<SeparatorREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +150,7 @@ public class DmcTypeSeparatorREFMV extends DmcTypeSeparatorREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public SeparatorREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +160,7 @@ public class DmcTypeSeparatorREFMV extends DmcTypeSeparatorREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public SeparatorREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +187,7 @@ public class DmcTypeSeparatorREFMV extends DmcTypeSeparatorREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +210,7 @@ public class DmcTypeSeparatorREFMV extends DmcTypeSeparatorREF implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

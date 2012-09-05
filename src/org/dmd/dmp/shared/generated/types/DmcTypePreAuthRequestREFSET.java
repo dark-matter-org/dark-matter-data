@@ -29,11 +29,14 @@ import org.dmd.dmp.shared.generated.dmo.PreAuthRequestDMO;    // DmcType import
  * The DmcTypePreAuthRequestREFSET provides storage for a set of PreAuthRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypePreAuthRequestREFSET extends DmcTypePreAuthRequestREF implements Serializable {
+    
+     private final static Iterator<PreAuthRequestDMO> emptyList =  (new HashSet<PreAuthRequestDMO>()).iterator();
+    
     
     protected Set<PreAuthRequestDMO> value;
     
@@ -59,10 +62,14 @@ public class DmcTypePreAuthRequestREFSET extends DmcTypePreAuthRequestREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<PreAuthRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypePreAuthRequestREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(PreAuthRequestDMO val: value)
             try {
                 rc.add(val);
@@ -74,7 +81,7 @@ public class DmcTypePreAuthRequestREFSET extends DmcTypePreAuthRequestREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public PreAuthRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             PreAuthRequestDMO rc = typeCheck(v);
@@ -90,7 +97,7 @@ public class DmcTypePreAuthRequestREFSET extends DmcTypePreAuthRequestREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public PreAuthRequestDMO del(Object v){
         synchronized(this){
             PreAuthRequestDMO rc = null;
@@ -114,9 +121,12 @@ public class DmcTypePreAuthRequestREFSET extends DmcTypePreAuthRequestREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<PreAuthRequestDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<PreAuthRequestDMO>(value)).iterator() );
             else
@@ -124,18 +134,26 @@ public class DmcTypePreAuthRequestREFSET extends DmcTypePreAuthRequestREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<PreAuthRequestDMO> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<PreAuthRequestDMO>(value));
-            else
-                return(new TreeSet<PreAuthRequestDMO>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<PreAuthRequestDMO>());
+                else
+                    return(new HashSet<PreAuthRequestDMO>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<PreAuthRequestDMO>(value));
+                else
+                    return(new TreeSet<PreAuthRequestDMO>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +163,7 @@ public class DmcTypePreAuthRequestREFSET extends DmcTypePreAuthRequestREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

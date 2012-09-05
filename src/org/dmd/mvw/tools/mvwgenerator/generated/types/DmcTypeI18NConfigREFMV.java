@@ -31,6 +31,8 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DmcTypeI18NConfigREFMV extends DmcTypeI18NConfigREF implements Serializable {
     
+    private final static Iterator<I18NConfigREF> emptyList = (new ArrayList<I18NConfigREF>()).iterator();
+    
     protected ArrayList<I18NConfigREF> value;
     
     public DmcTypeI18NConfigREFMV(){
@@ -47,10 +49,14 @@ public class DmcTypeI18NConfigREFMV extends DmcTypeI18NConfigREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<I18NConfigREF> cloneIt(){
         synchronized(this){
             DmcTypeI18NConfigREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (attrInfo.indexSize == 0){
                 for(I18NConfigREF val: value)
                 try {
@@ -72,7 +78,7 @@ public class DmcTypeI18NConfigREFMV extends DmcTypeI18NConfigREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public I18NConfigREF add(Object v) throws DmcValueException {
         synchronized(this){
             I18NConfigREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeI18NConfigREFMV extends DmcTypeI18NConfigREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public I18NConfigREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             I18NConfigREF key = null;
             I18NConfigREF rc = null;
             try {
@@ -105,24 +114,29 @@ public class DmcTypeI18NConfigREFMV extends DmcTypeI18NConfigREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<I18NConfigREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<I18NConfigREF> clone = new ArrayList<I18NConfigREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<I18NConfigREF> getMVCopy(){
         synchronized(this){
-            ArrayList<I18NConfigREF> clone = new ArrayList<I18NConfigREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<I18NConfigREF>());
+            else 
+                return(new ArrayList<I18NConfigREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +150,7 @@ public class DmcTypeI18NConfigREFMV extends DmcTypeI18NConfigREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public I18NConfigREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +160,7 @@ public class DmcTypeI18NConfigREFMV extends DmcTypeI18NConfigREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public I18NConfigREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +187,7 @@ public class DmcTypeI18NConfigREFMV extends DmcTypeI18NConfigREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +210,7 @@ public class DmcTypeI18NConfigREFMV extends DmcTypeI18NConfigREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSubPlaceREFSET provides storage for a set of SubPlaceREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Serializable {
+    
+     private final static Iterator<SubPlaceREF> emptyList =  (new HashSet<SubPlaceREF>()).iterator();
+    
     
     protected Set<SubPlaceREF> value;
     
@@ -58,10 +61,14 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<SubPlaceREF> cloneIt(){
         synchronized(this){
             DmcTypeSubPlaceREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(SubPlaceREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public SubPlaceREF add(Object v) throws DmcValueException {
         synchronized(this){
             SubPlaceREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public SubPlaceREF del(Object v){
         synchronized(this){
             SubPlaceREF rc = null;
@@ -113,9 +120,12 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<SubPlaceREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<SubPlaceREF>(value)).iterator() );
             else
@@ -123,18 +133,26 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<SubPlaceREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<SubPlaceREF>(value));
-            else
-                return(new TreeSet<SubPlaceREF>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<SubPlaceREF>());
+                else
+                    return(new HashSet<SubPlaceREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<SubPlaceREF>(value));
+                else
+                    return(new TreeSet<SubPlaceREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeSubPlaceREFSET extends DmcTypeSubPlaceREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

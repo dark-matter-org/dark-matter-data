@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeGxtEnumMappingREFSET provides storage for a set of GxtEnumMappingREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implements Serializable {
+    
+     private final static Iterator<GxtEnumMappingREF> emptyList =  (new HashSet<GxtEnumMappingREF>()).iterator();
+    
     
     protected Set<GxtEnumMappingREF> value;
     
@@ -58,10 +61,14 @@ public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<GxtEnumMappingREF> cloneIt(){
         synchronized(this){
             DmcTypeGxtEnumMappingREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(GxtEnumMappingREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public GxtEnumMappingREF add(Object v) throws DmcValueException {
         synchronized(this){
             GxtEnumMappingREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public GxtEnumMappingREF del(Object v){
         synchronized(this){
             GxtEnumMappingREF rc = null;
@@ -113,9 +120,12 @@ public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<GxtEnumMappingREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<GxtEnumMappingREF>(value)).iterator() );
             else
@@ -123,18 +133,26 @@ public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<GxtEnumMappingREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<GxtEnumMappingREF>(value));
-            else
-                return(new TreeSet<GxtEnumMappingREF>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<GxtEnumMappingREF>());
+                else
+                    return(new HashSet<GxtEnumMappingREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<GxtEnumMappingREF>(value));
+                else
+                    return(new TreeSet<GxtEnumMappingREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeGxtEnumMappingREFSET extends DmcTypeGxtEnumMappingREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

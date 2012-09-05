@@ -31,6 +31,8 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DmcTypeViewREFMV extends DmcTypeViewREF implements Serializable {
     
+    private final static Iterator<ViewREF> emptyList = (new ArrayList<ViewREF>()).iterator();
+    
     protected ArrayList<ViewREF> value;
     
     public DmcTypeViewREFMV(){
@@ -47,10 +49,14 @@ public class DmcTypeViewREFMV extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<ViewREF> cloneIt(){
         synchronized(this){
             DmcTypeViewREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (attrInfo.indexSize == 0){
                 for(ViewREF val: value)
                 try {
@@ -72,7 +78,7 @@ public class DmcTypeViewREFMV extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public ViewREF add(Object v) throws DmcValueException {
         synchronized(this){
             ViewREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeViewREFMV extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public ViewREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             ViewREF key = null;
             ViewREF rc = null;
             try {
@@ -105,24 +114,29 @@ public class DmcTypeViewREFMV extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<ViewREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<ViewREF> clone = new ArrayList<ViewREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<ViewREF> getMVCopy(){
         synchronized(this){
-            ArrayList<ViewREF> clone = new ArrayList<ViewREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<ViewREF>());
+            else 
+                return(new ArrayList<ViewREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +150,7 @@ public class DmcTypeViewREFMV extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public ViewREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +160,7 @@ public class DmcTypeViewREFMV extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public ViewREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +187,7 @@ public class DmcTypeViewREFMV extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +210,7 @@ public class DmcTypeViewREFMV extends DmcTypeViewREF implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

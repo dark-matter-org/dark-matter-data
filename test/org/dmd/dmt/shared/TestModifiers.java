@@ -10,9 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
-import org.dmd.dmc.DmcSliceInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.types.IntegerToString;
@@ -27,7 +25,6 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmt.server.extended.ObjWithRefs;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
-import org.dmd.dmt.shared.generated.dmo.BaseObjDMO;
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;
 import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;

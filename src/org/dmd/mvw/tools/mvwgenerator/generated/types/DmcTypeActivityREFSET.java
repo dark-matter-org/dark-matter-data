@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeActivityREFSET provides storage for a set of ActivityREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActivityREFSET extends DmcTypeActivityREF implements Serializable {
+    
+     private final static Iterator<ActivityREF> emptyList =  (new HashSet<ActivityREF>()).iterator();
+    
     
     protected Set<ActivityREF> value;
     
@@ -58,10 +61,14 @@ public class DmcTypeActivityREFSET extends DmcTypeActivityREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<ActivityREF> cloneIt(){
         synchronized(this){
             DmcTypeActivityREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(ActivityREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeActivityREFSET extends DmcTypeActivityREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public ActivityREF add(Object v) throws DmcValueException {
         synchronized(this){
             ActivityREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeActivityREFSET extends DmcTypeActivityREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public ActivityREF del(Object v){
         synchronized(this){
             ActivityREF rc = null;
@@ -113,9 +120,12 @@ public class DmcTypeActivityREFSET extends DmcTypeActivityREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<ActivityREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ActivityREF>(value)).iterator() );
             else
@@ -123,18 +133,26 @@ public class DmcTypeActivityREFSET extends DmcTypeActivityREF implements Seriali
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<ActivityREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<ActivityREF>(value));
-            else
-                return(new TreeSet<ActivityREF>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<ActivityREF>());
+                else
+                    return(new HashSet<ActivityREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<ActivityREF>(value));
+                else
+                    return(new TreeSet<ActivityREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeActivityREFSET extends DmcTypeActivityREF implements Seriali
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -31,6 +31,8 @@ import org.dmd.dmc.DmcValueException;
 @SuppressWarnings("serial")
 public class DmcTypeWebApplicationREFMV extends DmcTypeWebApplicationREF implements Serializable {
     
+    private final static Iterator<WebApplicationREF> emptyList = (new ArrayList<WebApplicationREF>()).iterator();
+    
     protected ArrayList<WebApplicationREF> value;
     
     public DmcTypeWebApplicationREFMV(){
@@ -47,10 +49,14 @@ public class DmcTypeWebApplicationREFMV extends DmcTypeWebApplicationREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2300)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<WebApplicationREF> cloneIt(){
         synchronized(this){
             DmcTypeWebApplicationREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (attrInfo.indexSize == 0){
                 for(WebApplicationREF val: value)
                 try {
@@ -72,7 +78,7 @@ public class DmcTypeWebApplicationREFMV extends DmcTypeWebApplicationREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2329)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public WebApplicationREF add(Object v) throws DmcValueException {
         synchronized(this){
             WebApplicationREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeWebApplicationREFMV extends DmcTypeWebApplicationREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2342)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public WebApplicationREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             WebApplicationREF key = null;
             WebApplicationREF rc = null;
             try {
@@ -105,24 +114,29 @@ public class DmcTypeWebApplicationREFMV extends DmcTypeWebApplicationREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2373)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<WebApplicationREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<WebApplicationREF> clone = new ArrayList<WebApplicationREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<WebApplicationREF> getMVCopy(){
         synchronized(this){
-            ArrayList<WebApplicationREF> clone = new ArrayList<WebApplicationREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<WebApplicationREF>());
+            else 
+                return(new ArrayList<WebApplicationREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2392)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
             if (attrInfo.indexSize == 0){
@@ -136,7 +150,7 @@ public class DmcTypeWebApplicationREFMV extends DmcTypeWebApplicationREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2407)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public WebApplicationREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +160,7 @@ public class DmcTypeWebApplicationREFMV extends DmcTypeWebApplicationREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2418)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public WebApplicationREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (attrInfo.indexSize == 0)
@@ -173,7 +187,7 @@ public class DmcTypeWebApplicationREFMV extends DmcTypeWebApplicationREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2446)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +210,7 @@ public class DmcTypeWebApplicationREFMV extends DmcTypeWebApplicationREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2470)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

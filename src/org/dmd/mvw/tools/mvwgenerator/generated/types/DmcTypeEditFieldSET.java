@@ -30,11 +30,14 @@ import org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEditField;    // DmcType impo
  * The DmcTypeEditFieldSET provides storage for a set of EditField
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:102)
  */
 @SuppressWarnings("serial")
 public class DmcTypeEditFieldSET extends DmcTypeEditField implements Serializable {
+    
+     private final static Iterator<EditField> emptyList =  (new HashSet<EditField>()).iterator();
+    
     
     protected Set<EditField> value;
     
@@ -60,10 +63,14 @@ public class DmcTypeEditFieldSET extends DmcTypeEditField implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<EditField> cloneIt(){
         synchronized(this){
             DmcTypeEditFieldSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(EditField val: value)
             try {
                 rc.add(val);
@@ -75,7 +82,7 @@ public class DmcTypeEditFieldSET extends DmcTypeEditField implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public EditField add(Object v) throws DmcValueException {
         synchronized(this){
             EditField rc = typeCheck(v);
@@ -91,7 +98,7 @@ public class DmcTypeEditFieldSET extends DmcTypeEditField implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public EditField del(Object v){
         synchronized(this){
             EditField rc = null;
@@ -115,9 +122,12 @@ public class DmcTypeEditFieldSET extends DmcTypeEditField implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<EditField> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<EditField>(value)).iterator() );
             else
@@ -125,18 +135,26 @@ public class DmcTypeEditFieldSET extends DmcTypeEditField implements Serializabl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<EditField> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<EditField>(value));
-            else
-                return(new TreeSet<EditField>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<EditField>());
+                else
+                    return(new HashSet<EditField>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<EditField>(value));
+                else
+                    return(new TreeSet<EditField>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +164,7 @@ public class DmcTypeEditFieldSET extends DmcTypeEditField implements Serializabl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

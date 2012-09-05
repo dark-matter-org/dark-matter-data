@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeMenuBarREFSET provides storage for a set of MenuBarREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2553)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializable {
+    
+     private final static Iterator<MenuBarREF> emptyList =  (new HashSet<MenuBarREF>()).iterator();
+    
     
     protected Set<MenuBarREF> value;
     
@@ -58,10 +61,14 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2590)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
     public DmcAttribute<MenuBarREF> cloneIt(){
         synchronized(this){
             DmcTypeMenuBarREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(MenuBarREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2609)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2631)
     public MenuBarREF add(Object v) throws DmcValueException {
         synchronized(this){
             MenuBarREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2626)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2648)
     public MenuBarREF del(Object v){
         synchronized(this){
             MenuBarREF rc = null;
@@ -113,9 +120,12 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2651)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2673)
     public Iterator<MenuBarREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<MenuBarREF>(value)).iterator() );
             else
@@ -123,18 +133,26 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2668)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2687)
     public Set<MenuBarREF> getMVCopy(){
         synchronized(this){
-            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<MenuBarREF>(value));
-            else
-                return(new TreeSet<MenuBarREF>(value));
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<MenuBarREF>());
+                else
+                    return(new HashSet<MenuBarREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<MenuBarREF>(value));
+                else
+                    return(new TreeSet<MenuBarREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2707)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeMenuBarREFSET extends DmcTypeMenuBarREF implements Serializa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2697)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2718)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
