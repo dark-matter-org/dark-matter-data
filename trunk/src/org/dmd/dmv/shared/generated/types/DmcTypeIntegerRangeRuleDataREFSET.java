@@ -29,11 +29,14 @@ import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;    // DmcType i
  * The DmcTypeIntegerRangeRuleDataREFSET provides storage for a set of IntegerRangeRuleDataDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerRangeRuleDataREFSET extends DmcTypeIntegerRangeRuleDataREF implements Serializable {
+    
+     private final static Iterator<IntegerRangeRuleDataDMO> emptyList =  (new HashSet<IntegerRangeRuleDataDMO>()).iterator();
+    
     
     protected Set<IntegerRangeRuleDataDMO> value;
     
@@ -59,10 +62,14 @@ public class DmcTypeIntegerRangeRuleDataREFSET extends DmcTypeIntegerRangeRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<IntegerRangeRuleDataDMO> cloneIt(){
         synchronized(this){
             DmcTypeIntegerRangeRuleDataREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(IntegerRangeRuleDataDMO val: value)
             try {
                 rc.add(val);
@@ -74,7 +81,7 @@ public class DmcTypeIntegerRangeRuleDataREFSET extends DmcTypeIntegerRangeRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public IntegerRangeRuleDataDMO add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerRangeRuleDataDMO rc = typeCheck(v);
@@ -90,7 +97,7 @@ public class DmcTypeIntegerRangeRuleDataREFSET extends DmcTypeIntegerRangeRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public IntegerRangeRuleDataDMO del(Object v){
         synchronized(this){
             IntegerRangeRuleDataDMO rc = null;
@@ -114,9 +121,12 @@ public class DmcTypeIntegerRangeRuleDataREFSET extends DmcTypeIntegerRangeRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<IntegerRangeRuleDataDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<IntegerRangeRuleDataDMO>(value)).iterator() );
             else
@@ -124,18 +134,26 @@ public class DmcTypeIntegerRangeRuleDataREFSET extends DmcTypeIntegerRangeRuleDa
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<IntegerRangeRuleDataDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<IntegerRangeRuleDataDMO>(value));
-            else
-                return(new TreeSet<IntegerRangeRuleDataDMO>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<IntegerRangeRuleDataDMO>());
+                else
+                    return(new HashSet<IntegerRangeRuleDataDMO>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<IntegerRangeRuleDataDMO>(value));
+                else
+                    return(new TreeSet<IntegerRangeRuleDataDMO>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +163,7 @@ public class DmcTypeIntegerRangeRuleDataREFSET extends DmcTypeIntegerRangeRuleDa
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

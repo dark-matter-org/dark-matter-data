@@ -29,11 +29,14 @@ import org.dmd.dmp.shared.generated.dmo.NotifyRequestDMO;    // DmcType import
  * The DmcTypeNotifyRequestREFSET provides storage for a set of NotifyRequestDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implements Serializable {
+    
+     private final static Iterator<NotifyRequestDMO> emptyList =  (new HashSet<NotifyRequestDMO>()).iterator();
+    
     
     protected Set<NotifyRequestDMO> value;
     
@@ -59,10 +62,14 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<NotifyRequestDMO> cloneIt(){
         synchronized(this){
             DmcTypeNotifyRequestREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(NotifyRequestDMO val: value)
             try {
                 rc.add(val);
@@ -74,7 +81,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public NotifyRequestDMO add(Object v) throws DmcValueException {
         synchronized(this){
             NotifyRequestDMO rc = typeCheck(v);
@@ -90,7 +97,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public NotifyRequestDMO del(Object v){
         synchronized(this){
             NotifyRequestDMO rc = null;
@@ -114,9 +121,12 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<NotifyRequestDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<NotifyRequestDMO>(value)).iterator() );
             else
@@ -124,18 +134,26 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<NotifyRequestDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<NotifyRequestDMO>(value));
-            else
-                return(new TreeSet<NotifyRequestDMO>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<NotifyRequestDMO>());
+                else
+                    return(new HashSet<NotifyRequestDMO>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<NotifyRequestDMO>(value));
+                else
+                    return(new TreeSet<NotifyRequestDMO>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +163,7 @@ public class DmcTypeNotifyRequestREFSET extends DmcTypeNotifyRequestREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

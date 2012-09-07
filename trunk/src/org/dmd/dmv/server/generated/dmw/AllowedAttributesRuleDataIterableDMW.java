@@ -25,7 +25,7 @@ import org.dmd.dmv.server.generated.dmw.AllowedAttributesRuleDataDMW;  // wrappe
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1784)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1795)
  *    Called from: org.dmd.dmg.generators.DmwDMWGenerator.createTypeIterables(DmwDMWGenerator.java:77)
  */
 public class AllowedAttributesRuleDataIterableDMW extends DmwObjectIterator<AllowedAttributesRuleDataDMW, AllowedAttributesRuleDataDMO> {

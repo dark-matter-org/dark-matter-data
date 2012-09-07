@@ -24,7 +24,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 @SuppressWarnings("serial")
 public class TestDerivedSubpackageREF extends DmcNamedObjectNontransportableREF<TestDerivedSubpackageDMO> {
 
-    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",-2999998,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __name = new DmcAttributeInfo("name",2,"StringName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeStringNameSV myName;    
     

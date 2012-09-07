@@ -32,6 +32,7 @@ import org.dmd.dmt.shared.generated.enums.DmtTestEnum;
 import org.dmd.dmw.DmwDeserializer;
 import org.dmd.util.DmcTraceableInputStream;
 import org.dmd.util.DmcTraceableOutputStream;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 import org.junit.Before;
 import org.junit.Test;
@@ -413,6 +414,52 @@ public class TestModifiers {
 		System.out.println(">>> testHashSetChangesRecorded \n\n" + obj1.toOIF());
 		
 		
+	}
+	
+	@Test
+	public void testDeletionInMappedReferences() throws DmcValueException, DmcValueExceptionSet{
+		ObjWithRefs	obj1 = new ObjWithRefs();
+		obj1.setName("obj1");
+		
+		ObjWithRefs	obj2 = new ObjWithRefs();
+		obj2.setName("obj2");
+		
+		obj1.addObjRefHM(obj2);
+		
+		DebugInfo.debug(obj1.toOIF());
+		
+		ObjWithRefs	modrec = obj1.getModificationRecorder();
+		
+		modrec.delObjRefHM(obj2);
+		
+		obj1.applyModifier(modrec.getModifier());
+		
+		assertEquals("Expecting empty object hashmap",true,obj1.getObjRefHMIsEmpty());
+		
+		DebugInfo.debug(obj1.toOIF());
+	}
+	
+	@Test
+	public void testDeletionInMappedReferencesWhileBackTracking() throws DmcValueException {
+		DmcOmni.instance().reset();
+		DmcOmni.instance().addCompactSchema(DmpDMSAG.instance());
+		DmcOmni.instance().addCompactSchema(DmtDMSAG.instance());
+
+		DmcOmni.instance().backRefTracking(true);
+		
+		ObjWithRefs	obj1 = new ObjWithRefs();
+		obj1.setName("obj1");
+		
+		ObjWithRefs	obj2 = new ObjWithRefs();
+		obj2.setName("obj2");
+		
+		obj1.addObjRefHM(obj2);
+		
+		assertEquals("Should be one referring object",1,obj2.getReferringObjects().size());
+		
+		obj2.youAreDeleted();
+		
+		assertEquals("Expecting empty object hashmap",true,obj1.getObjRefHMIsEmpty());
 	}
 	
 }

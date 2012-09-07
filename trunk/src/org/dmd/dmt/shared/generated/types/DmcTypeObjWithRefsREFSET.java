@@ -13,11 +13,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeObjWithRefsREFSET provides storage for a set of ObjWithRefsREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements Serializable {
+    
+     private final static Iterator<ObjWithRefsREF> emptyList =  (new HashSet<ObjWithRefsREF>()).iterator();
+    
     
     protected Set<ObjWithRefsREF> value;
     
@@ -43,10 +46,14 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<ObjWithRefsREF> cloneIt(){
         synchronized(this){
             DmcTypeObjWithRefsREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(ObjWithRefsREF val: value)
             try {
                 rc.add(val);
@@ -58,7 +65,7 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public ObjWithRefsREF add(Object v) throws DmcValueException {
         synchronized(this){
             ObjWithRefsREF rc = typeCheck(v);
@@ -74,7 +81,7 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public ObjWithRefsREF del(Object v){
         synchronized(this){
             ObjWithRefsREF rc = null;
@@ -98,9 +105,12 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<ObjWithRefsREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ObjWithRefsREF>(value)).iterator() );
             else
@@ -108,18 +118,26 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<ObjWithRefsREF> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<ObjWithRefsREF>(value));
-            else
-                return(new TreeSet<ObjWithRefsREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<ObjWithRefsREF>());
+                else
+                    return(new HashSet<ObjWithRefsREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<ObjWithRefsREF>(value));
+                else
+                    return(new TreeSet<ObjWithRefsREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -129,7 +147,7 @@ public class DmcTypeObjWithRefsREFSET extends DmcTypeObjWithRefsREF implements S
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

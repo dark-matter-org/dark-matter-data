@@ -15,12 +15,14 @@ import org.dmd.dmc.types.UUIDName;    // key type import
  * The DmcTypeUUIDNamedObjectREFMAP provides storage for a map of UUIDNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2797)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF<UUIDNamedObjectREF,UUIDName> {
 public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF implements Serializable {
+    
+    private final static Iterator<UUIDNamedObjectREF> emptyList = (new HashMap<UUIDName,UUIDNamedObjectREF>()).values().iterator();
     
     protected Map<UUIDName,UUIDNamedObjectREF> value;
     
@@ -56,10 +58,14 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
     public DmcAttribute<UUIDNamedObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeUUIDNamedObjectREFMAP rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(UUIDNamedObjectREF val: value.values())
             try {
                 rc.add(val);
@@ -71,7 +77,7 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
     public UUIDNamedObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             UUIDNamedObjectREF newval = typeCheck(v);
@@ -91,9 +97,13 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2888)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     public UUIDNamedObjectREF del(Object key){
         synchronized(this){
+    
+            if (value == null)
+                return(null);
+    
            if (key instanceof UUIDName)
                 return(value.remove(key));
             else
@@ -102,9 +112,13 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2900)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
     public Iterator<UUIDNamedObjectREF> getMV(){
         synchronized(this){
+    
+            if (value == null)
+                return(emptyList);
+    
             Map<UUIDName,UUIDNamedObjectREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<UUIDName,UUIDNamedObjectREF>(value);
@@ -114,19 +128,27 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
     public Map<UUIDName,UUIDNamedObjectREF> getMVCopy(){
         synchronized(this){
             Map<UUIDName,UUIDNamedObjectREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<UUIDName,UUIDNamedObjectREF>(value);
-            else
-                clone = new TreeMap<UUIDName,UUIDNamedObjectREF>(value);
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
+                if (value == null)
+                    clone = new HashMap<UUIDName,UUIDNamedObjectREF>();
+                else
+                    clone = new HashMap<UUIDName,UUIDNamedObjectREF>(value);
+            }
+            else{
+                if (value == null)
+                    clone = new TreeMap<UUIDName,UUIDNamedObjectREF>();
+                else
+                    clone = new TreeMap<UUIDName,UUIDNamedObjectREF>(value);
+            }
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -137,9 +159,12 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2938)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
     public UUIDNamedObjectREF getByKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(null);
+    
             if (key instanceof UUIDName)
                 return(value.get((UUIDName) key));
             else
@@ -148,9 +173,12 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2950)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
     public boolean contains(Object v){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
             try {
                 UUIDNamedObjectREF val = typeCheck(v);
                 return(value.containsValue(val));
@@ -161,9 +189,12 @@ public class DmcTypeUUIDNamedObjectREFMAP extends DmcTypeUUIDNamedObjectREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2971)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
     public boolean containsKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
            if (key instanceof UUIDName)
                 return(value.containsKey(key));
             return(false);

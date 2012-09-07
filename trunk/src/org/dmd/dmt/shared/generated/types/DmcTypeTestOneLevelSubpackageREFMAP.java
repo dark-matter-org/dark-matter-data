@@ -15,12 +15,14 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeTestOneLevelSubpackageREFMAP provides storage for a map of TestOneLevelSubpackageREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2797)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubpackageREF<TestOneLevelSubpackageREF,StringName> {
 public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubpackageREF implements Serializable {
+    
+    private final static Iterator<TestOneLevelSubpackageREF> emptyList = (new HashMap<StringName,TestOneLevelSubpackageREF>()).values().iterator();
     
     protected Map<StringName,TestOneLevelSubpackageREF> value;
     
@@ -56,10 +58,14 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
     public DmcAttribute<TestOneLevelSubpackageREF> cloneIt(){
         synchronized(this){
             DmcTypeTestOneLevelSubpackageREFMAP rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(TestOneLevelSubpackageREF val: value.values())
             try {
                 rc.add(val);
@@ -71,7 +77,7 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
     public TestOneLevelSubpackageREF add(Object v) throws DmcValueException {
         synchronized(this){
             TestOneLevelSubpackageREF newval = typeCheck(v);
@@ -91,9 +97,13 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2888)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     public TestOneLevelSubpackageREF del(Object key){
         synchronized(this){
+    
+            if (value == null)
+                return(null);
+    
            if (key instanceof StringName)
                 return(value.remove(key));
             else
@@ -102,9 +112,13 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2900)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
     public Iterator<TestOneLevelSubpackageREF> getMV(){
         synchronized(this){
+    
+            if (value == null)
+                return(emptyList);
+    
             Map<StringName,TestOneLevelSubpackageREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,TestOneLevelSubpackageREF>(value);
@@ -114,19 +128,27 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
     public Map<StringName,TestOneLevelSubpackageREF> getMVCopy(){
         synchronized(this){
             Map<StringName,TestOneLevelSubpackageREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<StringName,TestOneLevelSubpackageREF>(value);
-            else
-                clone = new TreeMap<StringName,TestOneLevelSubpackageREF>(value);
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
+                if (value == null)
+                    clone = new HashMap<StringName,TestOneLevelSubpackageREF>();
+                else
+                    clone = new HashMap<StringName,TestOneLevelSubpackageREF>(value);
+            }
+            else{
+                if (value == null)
+                    clone = new TreeMap<StringName,TestOneLevelSubpackageREF>();
+                else
+                    clone = new TreeMap<StringName,TestOneLevelSubpackageREF>(value);
+            }
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -137,9 +159,12 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2938)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
     public TestOneLevelSubpackageREF getByKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(null);
+    
             if (key instanceof StringName)
                 return(value.get((StringName) key));
             else
@@ -148,9 +173,12 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2950)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
     public boolean contains(Object v){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
             try {
                 TestOneLevelSubpackageREF val = typeCheck(v);
                 return(value.containsValue(val));
@@ -161,9 +189,12 @@ public class DmcTypeTestOneLevelSubpackageREFMAP extends DmcTypeTestOneLevelSubp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2971)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
     public boolean containsKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
            if (key instanceof StringName)
                 return(value.containsKey(key));
             return(false);

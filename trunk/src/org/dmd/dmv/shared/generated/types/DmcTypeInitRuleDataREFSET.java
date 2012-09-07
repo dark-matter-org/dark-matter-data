@@ -29,11 +29,14 @@ import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;    // DmcType import
  * The DmcTypeInitRuleDataREFSET provides storage for a set of InitRuleDataDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeInitRuleDataREFSET extends DmcTypeInitRuleDataREF implements Serializable {
+    
+     private final static Iterator<InitRuleDataDMO> emptyList =  (new HashSet<InitRuleDataDMO>()).iterator();
+    
     
     protected Set<InitRuleDataDMO> value;
     
@@ -59,10 +62,14 @@ public class DmcTypeInitRuleDataREFSET extends DmcTypeInitRuleDataREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<InitRuleDataDMO> cloneIt(){
         synchronized(this){
             DmcTypeInitRuleDataREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(InitRuleDataDMO val: value)
             try {
                 rc.add(val);
@@ -74,7 +81,7 @@ public class DmcTypeInitRuleDataREFSET extends DmcTypeInitRuleDataREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public InitRuleDataDMO add(Object v) throws DmcValueException {
         synchronized(this){
             InitRuleDataDMO rc = typeCheck(v);
@@ -90,7 +97,7 @@ public class DmcTypeInitRuleDataREFSET extends DmcTypeInitRuleDataREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public InitRuleDataDMO del(Object v){
         synchronized(this){
             InitRuleDataDMO rc = null;
@@ -114,9 +121,12 @@ public class DmcTypeInitRuleDataREFSET extends DmcTypeInitRuleDataREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<InitRuleDataDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<InitRuleDataDMO>(value)).iterator() );
             else
@@ -124,18 +134,26 @@ public class DmcTypeInitRuleDataREFSET extends DmcTypeInitRuleDataREF implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<InitRuleDataDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<InitRuleDataDMO>(value));
-            else
-                return(new TreeSet<InitRuleDataDMO>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<InitRuleDataDMO>());
+                else
+                    return(new HashSet<InitRuleDataDMO>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<InitRuleDataDMO>(value));
+                else
+                    return(new TreeSet<InitRuleDataDMO>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +163,7 @@ public class DmcTypeInitRuleDataREFSET extends DmcTypeInitRuleDataREF implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -14,11 +14,14 @@ import org.dmd.dmt.shared.generated.dmo.UsingIndexedAttributesDMO;    // DmcType
  * The DmcTypeUsingIndexedAttributesREFSET provides storage for a set of UsingIndexedAttributesDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUsingIndexedAttributesREFSET extends DmcTypeUsingIndexedAttributesREF implements Serializable {
+    
+     private final static Iterator<UsingIndexedAttributesDMO> emptyList =  (new HashSet<UsingIndexedAttributesDMO>()).iterator();
+    
     
     protected Set<UsingIndexedAttributesDMO> value;
     
@@ -44,10 +47,14 @@ public class DmcTypeUsingIndexedAttributesREFSET extends DmcTypeUsingIndexedAttr
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<UsingIndexedAttributesDMO> cloneIt(){
         synchronized(this){
             DmcTypeUsingIndexedAttributesREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(UsingIndexedAttributesDMO val: value)
             try {
                 rc.add(val);
@@ -59,7 +66,7 @@ public class DmcTypeUsingIndexedAttributesREFSET extends DmcTypeUsingIndexedAttr
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public UsingIndexedAttributesDMO add(Object v) throws DmcValueException {
         synchronized(this){
             UsingIndexedAttributesDMO rc = typeCheck(v);
@@ -75,7 +82,7 @@ public class DmcTypeUsingIndexedAttributesREFSET extends DmcTypeUsingIndexedAttr
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public UsingIndexedAttributesDMO del(Object v){
         synchronized(this){
             UsingIndexedAttributesDMO rc = null;
@@ -99,9 +106,12 @@ public class DmcTypeUsingIndexedAttributesREFSET extends DmcTypeUsingIndexedAttr
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<UsingIndexedAttributesDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<UsingIndexedAttributesDMO>(value)).iterator() );
             else
@@ -109,18 +119,26 @@ public class DmcTypeUsingIndexedAttributesREFSET extends DmcTypeUsingIndexedAttr
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<UsingIndexedAttributesDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<UsingIndexedAttributesDMO>(value));
-            else
-                return(new TreeSet<UsingIndexedAttributesDMO>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<UsingIndexedAttributesDMO>());
+                else
+                    return(new HashSet<UsingIndexedAttributesDMO>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<UsingIndexedAttributesDMO>(value));
+                else
+                    return(new TreeSet<UsingIndexedAttributesDMO>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -130,7 +148,7 @@ public class DmcTypeUsingIndexedAttributesREFSET extends DmcTypeUsingIndexedAttr
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

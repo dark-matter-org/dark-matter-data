@@ -11,11 +11,13 @@ import org.dmd.dmt.shared.generated.dmo.TestBasicObjectFixedDMO;    // DmcType i
  * The DmcTypeTestBasicObjectFixedREFMV provides storage for a multi-valued TestBasicObjectFixed
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
 public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixedREF implements Serializable {
+    
+    private final static Iterator<TestBasicObjectFixedDMO> emptyList = (new ArrayList<TestBasicObjectFixedDMO>()).iterator();
     
     protected ArrayList<TestBasicObjectFixedDMO> value;
     
@@ -33,10 +35,14 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<TestBasicObjectFixedDMO> cloneIt(){
         synchronized(this){
             DmcTypeTestBasicObjectFixedREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (getAttributeInfo().indexSize == 0){
                 for(TestBasicObjectFixedDMO val: value)
                 try {
@@ -58,7 +64,7 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public TestBasicObjectFixedDMO add(Object v) throws DmcValueException {
         synchronized(this){
             TestBasicObjectFixedDMO rc = typeCheck(v);
@@ -70,9 +76,12 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public TestBasicObjectFixedDMO del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             TestBasicObjectFixedDMO key = null;
             TestBasicObjectFixedDMO rc = null;
             try {
@@ -91,24 +100,29 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<TestBasicObjectFixedDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<TestBasicObjectFixedDMO> clone = new ArrayList<TestBasicObjectFixedDMO>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<TestBasicObjectFixedDMO> getMVCopy(){
         synchronized(this){
-            ArrayList<TestBasicObjectFixedDMO> clone = new ArrayList<TestBasicObjectFixedDMO>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<TestBasicObjectFixedDMO>());
+            else 
+                return(new ArrayList<TestBasicObjectFixedDMO>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -122,7 +136,7 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public TestBasicObjectFixedDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -132,7 +146,7 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public TestBasicObjectFixedDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -159,7 +173,7 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -182,7 +196,7 @@ public class DmcTypeTestBasicObjectFixedREFMV extends DmcTypeTestBasicObjectFixe
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

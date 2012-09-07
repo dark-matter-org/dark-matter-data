@@ -30,12 +30,14 @@ import org.dmd.dmc.types.FullyQualifiedName;    // key type import
  * The DmcTypeDotNamedObjectREFMAP provides storage for a map of DotNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2797)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF<DotNamedObjectREF,FullyQualifiedName> {
 public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implements Serializable {
+    
+    private final static Iterator<DotNamedObjectREF> emptyList = (new HashMap<FullyQualifiedName,DotNamedObjectREF>()).values().iterator();
     
     protected Map<FullyQualifiedName,DotNamedObjectREF> value;
     
@@ -71,10 +73,14 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
     public DmcAttribute<DotNamedObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeDotNamedObjectREFMAP rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(DotNamedObjectREF val: value.values())
             try {
                 rc.add(val);
@@ -86,7 +92,7 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
     public DotNamedObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             DotNamedObjectREF newval = typeCheck(v);
@@ -106,9 +112,13 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2888)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     public DotNamedObjectREF del(Object key){
         synchronized(this){
+    
+            if (value == null)
+                return(null);
+    
            if (key instanceof FullyQualifiedName)
                 return(value.remove(key));
             else
@@ -117,9 +127,13 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2900)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
     public Iterator<DotNamedObjectREF> getMV(){
         synchronized(this){
+    
+            if (value == null)
+                return(emptyList);
+    
             Map<FullyQualifiedName,DotNamedObjectREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<FullyQualifiedName,DotNamedObjectREF>(value);
@@ -129,19 +143,27 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
     public Map<FullyQualifiedName,DotNamedObjectREF> getMVCopy(){
         synchronized(this){
             Map<FullyQualifiedName,DotNamedObjectREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<FullyQualifiedName,DotNamedObjectREF>(value);
-            else
-                clone = new TreeMap<FullyQualifiedName,DotNamedObjectREF>(value);
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
+                if (value == null)
+                    clone = new HashMap<FullyQualifiedName,DotNamedObjectREF>();
+                else
+                    clone = new HashMap<FullyQualifiedName,DotNamedObjectREF>(value);
+            }
+            else{
+                if (value == null)
+                    clone = new TreeMap<FullyQualifiedName,DotNamedObjectREF>();
+                else
+                    clone = new TreeMap<FullyQualifiedName,DotNamedObjectREF>(value);
+            }
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,9 +174,12 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2938)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
     public DotNamedObjectREF getByKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(null);
+    
             if (key instanceof FullyQualifiedName)
                 return(value.get((FullyQualifiedName) key));
             else
@@ -163,9 +188,12 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2950)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
     public boolean contains(Object v){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
             try {
                 DotNamedObjectREF val = typeCheck(v);
                 return(value.containsValue(val));
@@ -176,9 +204,12 @@ public class DmcTypeDotNamedObjectREFMAP extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2971)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
     public boolean containsKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
            if (key instanceof FullyQualifiedName)
                 return(value.containsKey(key));
             return(false);

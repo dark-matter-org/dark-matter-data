@@ -30,12 +30,14 @@ import org.dmd.dmc.types.StringName;    // key type import
  * The DmcTypeMethodGeneratorREFMAP provides storage for a map of MethodGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2797)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:540)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF<MethodGeneratorREF,StringName> {
 public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF implements Serializable {
+    
+    private final static Iterator<MethodGeneratorREF> emptyList = (new HashMap<StringName,MethodGeneratorREF>()).values().iterator();
     
     protected Map<StringName,MethodGeneratorREF> value;
     
@@ -71,10 +73,14 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2851)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
     public DmcAttribute<MethodGeneratorREF> cloneIt(){
         synchronized(this){
             DmcTypeMethodGeneratorREFMAP rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(MethodGeneratorREF val: value.values())
             try {
                 rc.add(val);
@@ -86,7 +92,7 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2867)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
     public MethodGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
             MethodGeneratorREF newval = typeCheck(v);
@@ -106,9 +112,13 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2888)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
     public MethodGeneratorREF del(Object key){
         synchronized(this){
+    
+            if (value == null)
+                return(null);
+    
            if (key instanceof StringName)
                 return(value.remove(key));
             else
@@ -117,9 +127,13 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2900)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
     public Iterator<MethodGeneratorREF> getMV(){
         synchronized(this){
+    
+            if (value == null)
+                return(emptyList);
+    
             Map<StringName,MethodGeneratorREF> clone = null;
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<StringName,MethodGeneratorREF>(value);
@@ -129,19 +143,27 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2913)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
     public Map<StringName,MethodGeneratorREF> getMVCopy(){
         synchronized(this){
             Map<StringName,MethodGeneratorREF> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
-                clone = new HashMap<StringName,MethodGeneratorREF>(value);
-            else
-                clone = new TreeMap<StringName,MethodGeneratorREF>(value);
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
+                if (value == null)
+                    clone = new HashMap<StringName,MethodGeneratorREF>();
+                else
+                    clone = new HashMap<StringName,MethodGeneratorREF>(value);
+            }
+            else{
+                if (value == null)
+                    clone = new TreeMap<StringName,MethodGeneratorREF>();
+                else
+                    clone = new TreeMap<StringName,MethodGeneratorREF>(value);
+            }
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -152,9 +174,12 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2938)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
     public MethodGeneratorREF getByKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(null);
+    
             if (key instanceof StringName)
                 return(value.get((StringName) key));
             else
@@ -163,9 +188,12 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2950)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
     public boolean contains(Object v){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
             try {
                 MethodGeneratorREF val = typeCheck(v);
                 return(value.containsValue(val));
@@ -176,9 +204,12 @@ public class DmcTypeMethodGeneratorREFMAP extends DmcTypeMethodGeneratorREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2971)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
     public boolean containsKey(Object key){
         synchronized(this){
+           if (value == null)
+               return(false);
+    
            if (key instanceof StringName)
                 return(value.containsKey(key));
             return(false);

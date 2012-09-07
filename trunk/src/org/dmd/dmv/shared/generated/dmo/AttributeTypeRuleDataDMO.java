@@ -86,7 +86,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -99,7 +99,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * Sets description to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:822)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setDescription(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -118,7 +118,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setDescription(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -131,12 +131,12 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
     /**
      * Removes the description attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remDescription(){
          rem(MetaDMSAG.__description);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:653)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:645)
     public ClassDefinitionREF getApplyToClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
         if (attr == null)
@@ -167,7 +167,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * Sets applyToClass to the specified value.
      * @param value ClassDefinitionDMO
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:707)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:699)
     public void setApplyToClass(ClassDefinitionDMO value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__applyToClass);
         if (attr == null)
@@ -188,7 +188,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * Sets applyToClass to the specified value.
      * @param value A value compatible with DmcTypeClassDefinitionREFSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setApplyToClass(Object value) throws DmcValueException {
         DmcTypeClassDefinitionREFSV attr  = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
         if (attr == null)
@@ -203,12 +203,12 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
     /**
      * Removes the applyToClass attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remApplyToClass(){
          rem(MetaDMSAG.__applyToClass);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public RuleName getRuleName(){
         DmcTypeRuleNameSV attr = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -221,7 +221,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * Sets ruleName to the specified value.
      * @param value RuleName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:822)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setRuleName(RuleName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -240,7 +240,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setRuleName(Object value) throws DmcValueException {
         DmcTypeRuleNameSV attr  = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
         if (attr == null)
@@ -253,12 +253,12 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
     /**
      * Removes the ruleName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remRuleName(){
          rem(MetaDMSAG.__ruleName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public String getRuleTitle(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -271,7 +271,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * Sets ruleTitle to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:822)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setRuleTitle(String value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -290,7 +290,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setRuleTitle(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(MetaDMSAG.__ruleTitle);
         if (attr == null)
@@ -303,7 +303,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
     /**
      * Removes the ruleTitle attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remRuleTitle(){
          rem(MetaDMSAG.__ruleTitle);
     }
@@ -312,7 +312,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * @return An Iterator of TypeDefinitionDMO objects.
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:968)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
     public Iterator<TypeDefinitionREF> getAllowedType(){
         DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(DmvDMSAG.__allowedType);
         if (attr == null)
@@ -332,7 +332,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * @return An Iterator of TypeDefinitionREFs without attempting lazy resolution (if it's turned on).
      */
     @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:988)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:980)
     public Iterator<TypeDefinitionREF> getAllowedTypeREFs(){
         DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(DmvDMSAG.__allowedType);
         if (attr == null)
@@ -345,7 +345,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * Adds another allowedType to the specified value.
      * @param value TypeDefinition
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1002)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:994)
     public DmcAttribute<?> addAllowedType(TypeDefinitionDMO value) {
         DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
         if (attr == null)
@@ -365,7 +365,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * Adds another allowedType value.
      * @param value A value compatible with TypeDefinition
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1243)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
     public DmcAttribute<?> addAllowedType(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
         if (attr == null)
@@ -379,7 +379,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
     /**
      * Returns the number of values in allowedType
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1260)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
     public int getAllowedTypeSize(){
         DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
         if (attr == null){
@@ -395,7 +395,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
      * Deletes a allowedType value.
      * @param value The TypeDefinition to be deleted from set of attribute values.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1299)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1291)
     public DmcAttribute<?> delAllowedType(Object value){
         DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
         
@@ -410,7 +410,7 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
     /**
      * Removes the allowedType attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1353)
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
     public void remAllowedType(){
          rem(DmvDMSAG.__allowedType);
     }

@@ -77,7 +77,7 @@ public class LogoutRequestDMO  extends RequestDMO  implements Serializable  {
         return(rc);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public String getUserName(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmrBaseDMSAG.__userName);
         if (attr == null)
@@ -90,7 +90,7 @@ public class LogoutRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets userName to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:822)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setUserName(String value) {
         DmcAttribute<?> attr = get(DmrBaseDMSAG.__userName);
         if (attr == null)
@@ -109,7 +109,7 @@ public class LogoutRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets userName to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setUserName(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmrBaseDMSAG.__userName);
         if (attr == null)
@@ -122,12 +122,12 @@ public class LogoutRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the userName attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remUserName(){
          rem(DmrBaseDMSAG.__userName);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:782)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public String getSessionID(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(DmpDMSAG.__sessionID);
         if (attr == null)
@@ -140,7 +140,7 @@ public class LogoutRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets sessionID to the specified value.
      * @param value String
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:822)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
     public void setSessionID(String value) {
         DmcAttribute<?> attr = get(DmpDMSAG.__sessionID);
         if (attr == null)
@@ -159,7 +159,7 @@ public class LogoutRequestDMO  extends RequestDMO  implements Serializable  {
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:875)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
     public void setSessionID(Object value) throws DmcValueException {
         DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmpDMSAG.__sessionID);
         if (attr == null)
@@ -172,7 +172,7 @@ public class LogoutRequestDMO  extends RequestDMO  implements Serializable  {
     /**
      * Removes the sessionID attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:895)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remSessionID(){
          rem(DmpDMSAG.__sessionID);
     }

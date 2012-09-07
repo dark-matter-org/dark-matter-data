@@ -26,11 +26,13 @@ import org.dmd.map.generated.enums.MapZoomEnum;    // DmcType import
  * The DmcTypeMapZoomEnumMV provides storage for a multi-valued MapZoomEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpEnumType(DmoTypeFormatter.java:361)
  */
 @SuppressWarnings("serial")
 public class DmcTypeMapZoomEnumMV extends DmcTypeMapZoomEnum implements Serializable {
+    
+    private final static Iterator<MapZoomEnum> emptyList = (new ArrayList<MapZoomEnum>()).iterator();
     
     protected ArrayList<MapZoomEnum> value;
     
@@ -48,10 +50,14 @@ public class DmcTypeMapZoomEnumMV extends DmcTypeMapZoomEnum implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<MapZoomEnum> cloneIt(){
         synchronized(this){
             DmcTypeMapZoomEnumMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (getAttributeInfo().indexSize == 0){
                 for(MapZoomEnum val: value)
                 try {
@@ -73,7 +79,7 @@ public class DmcTypeMapZoomEnumMV extends DmcTypeMapZoomEnum implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public MapZoomEnum add(Object v) throws DmcValueException {
         synchronized(this){
             MapZoomEnum rc = typeCheck(v);
@@ -85,9 +91,12 @@ public class DmcTypeMapZoomEnumMV extends DmcTypeMapZoomEnum implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public MapZoomEnum del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             MapZoomEnum key = null;
             MapZoomEnum rc = null;
             try {
@@ -106,24 +115,29 @@ public class DmcTypeMapZoomEnumMV extends DmcTypeMapZoomEnum implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<MapZoomEnum> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<MapZoomEnum> clone = new ArrayList<MapZoomEnum>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<MapZoomEnum> getMVCopy(){
         synchronized(this){
-            ArrayList<MapZoomEnum> clone = new ArrayList<MapZoomEnum>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<MapZoomEnum>());
+            else 
+                return(new ArrayList<MapZoomEnum>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -137,7 +151,7 @@ public class DmcTypeMapZoomEnumMV extends DmcTypeMapZoomEnum implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public MapZoomEnum getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -147,7 +161,7 @@ public class DmcTypeMapZoomEnumMV extends DmcTypeMapZoomEnum implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public MapZoomEnum setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -174,7 +188,7 @@ public class DmcTypeMapZoomEnumMV extends DmcTypeMapZoomEnum implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -197,7 +211,7 @@ public class DmcTypeMapZoomEnumMV extends DmcTypeMapZoomEnum implements Serializ
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

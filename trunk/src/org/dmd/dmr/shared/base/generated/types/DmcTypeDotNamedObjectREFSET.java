@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeDotNamedObjectREFSET provides storage for a set of DotNamedObjectREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDotNamedObjectREFSET extends DmcTypeDotNamedObjectREF implements Serializable {
+    
+     private final static Iterator<DotNamedObjectREF> emptyList =  (new HashSet<DotNamedObjectREF>()).iterator();
+    
     
     protected Set<DotNamedObjectREF> value;
     
@@ -58,10 +61,14 @@ public class DmcTypeDotNamedObjectREFSET extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<DotNamedObjectREF> cloneIt(){
         synchronized(this){
             DmcTypeDotNamedObjectREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(DotNamedObjectREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeDotNamedObjectREFSET extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public DotNamedObjectREF add(Object v) throws DmcValueException {
         synchronized(this){
             DotNamedObjectREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeDotNamedObjectREFSET extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public DotNamedObjectREF del(Object v){
         synchronized(this){
             DotNamedObjectREF rc = null;
@@ -113,9 +120,12 @@ public class DmcTypeDotNamedObjectREFSET extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<DotNamedObjectREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<DotNamedObjectREF>(value)).iterator() );
             else
@@ -123,18 +133,26 @@ public class DmcTypeDotNamedObjectREFSET extends DmcTypeDotNamedObjectREF implem
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<DotNamedObjectREF> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<DotNamedObjectREF>(value));
-            else
-                return(new TreeSet<DotNamedObjectREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<DotNamedObjectREF>());
+                else
+                    return(new HashSet<DotNamedObjectREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<DotNamedObjectREF>(value));
+                else
+                    return(new TreeSet<DotNamedObjectREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeDotNamedObjectREFSET extends DmcTypeDotNamedObjectREF implem
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

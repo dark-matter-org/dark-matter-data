@@ -14,11 +14,14 @@ import org.dmd.dmt.shared.generated.dmo.ExtendedRefMVDMO;    // DmcType import
  * The DmcTypeExtendedRefMVREFSET provides storage for a set of ExtendedRefMVDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeExtendedRefMVREFSET extends DmcTypeExtendedRefMVREF implements Serializable {
+    
+     private final static Iterator<ExtendedRefMVDMO> emptyList =  (new HashSet<ExtendedRefMVDMO>()).iterator();
+    
     
     protected Set<ExtendedRefMVDMO> value;
     
@@ -44,10 +47,14 @@ public class DmcTypeExtendedRefMVREFSET extends DmcTypeExtendedRefMVREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<ExtendedRefMVDMO> cloneIt(){
         synchronized(this){
             DmcTypeExtendedRefMVREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(ExtendedRefMVDMO val: value)
             try {
                 rc.add(val);
@@ -59,7 +66,7 @@ public class DmcTypeExtendedRefMVREFSET extends DmcTypeExtendedRefMVREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public ExtendedRefMVDMO add(Object v) throws DmcValueException {
         synchronized(this){
             ExtendedRefMVDMO rc = typeCheck(v);
@@ -75,7 +82,7 @@ public class DmcTypeExtendedRefMVREFSET extends DmcTypeExtendedRefMVREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public ExtendedRefMVDMO del(Object v){
         synchronized(this){
             ExtendedRefMVDMO rc = null;
@@ -99,9 +106,12 @@ public class DmcTypeExtendedRefMVREFSET extends DmcTypeExtendedRefMVREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<ExtendedRefMVDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ExtendedRefMVDMO>(value)).iterator() );
             else
@@ -109,18 +119,26 @@ public class DmcTypeExtendedRefMVREFSET extends DmcTypeExtendedRefMVREF implemen
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<ExtendedRefMVDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<ExtendedRefMVDMO>(value));
-            else
-                return(new TreeSet<ExtendedRefMVDMO>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<ExtendedRefMVDMO>());
+                else
+                    return(new HashSet<ExtendedRefMVDMO>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<ExtendedRefMVDMO>(value));
+                else
+                    return(new TreeSet<ExtendedRefMVDMO>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -130,7 +148,7 @@ public class DmcTypeExtendedRefMVREFSET extends DmcTypeExtendedRefMVREF implemen
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
