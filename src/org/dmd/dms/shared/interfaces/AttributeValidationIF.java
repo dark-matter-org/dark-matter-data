@@ -17,12 +17,13 @@ package org.dmd.dms.shared.interfaces;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
+import org.dmd.dmc.rules.RuleIF;
 
 /**
  * The AttributeValidationIF interface must be implemented by rules that are part
  * of the AttributeValidation RuleCategory.
  */
-public interface AttributeValidationIF {
+public interface AttributeValidationIF extends RuleIF {
 
 	/**
 	 * Implementors of this interface must overload this method to perform whatever

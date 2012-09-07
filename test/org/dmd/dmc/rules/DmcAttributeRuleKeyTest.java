@@ -10,23 +10,23 @@ public class DmcAttributeRuleKeyTest {
 
 	@Test
 	public void testHash(){
-		DmcAttributeRuleKey ark1 = new DmcAttributeRuleKey(MetaDMSAG.__classType, null);
+		AttributeRuleKey ark1 = new AttributeRuleKey(MetaDMSAG.__classType, null);
 		assertNotSame("Hash must be non zero", 0, ark1.hashCode());
 		DebugInfo.debug("Hash = " + ark1.hashCode());
 		
-		DmcAttributeRuleKey ark2 = new DmcAttributeRuleKey(MetaDMSAG.__classType, MetaDMSAG.__ClassDefinition);
+		AttributeRuleKey ark2 = new AttributeRuleKey(MetaDMSAG.__classType, MetaDMSAG.__ClassDefinition);
 		assertNotSame("Hash with class and without class must be different", ark1.hashCode(),ark2.hashCode());
 		DebugInfo.debug("Hash1 = " + ark1.hashCode() + "  Hash2 = " + ark2.hashCode());
 		
-		DmcAttributeRuleKey ark3 = new DmcAttributeRuleKey(MetaDMSAG.__classType, MetaDMSAG.__TypeDefinition);
+		AttributeRuleKey ark3 = new AttributeRuleKey(MetaDMSAG.__classType, MetaDMSAG.__TypeDefinition);
 		assertNotSame("Hash with different classes must be different", ark2.hashCode(),ark3.hashCode());
 		DebugInfo.debug("Hash2 = " + ark2.hashCode() + "  Hash3 = " + ark3.hashCode());
 		
-		DmcAttributeRuleKey ark4 = new DmcAttributeRuleKey(MetaDMSAG.__baseType, MetaDMSAG.__TypeDefinition);
+		AttributeRuleKey ark4 = new AttributeRuleKey(MetaDMSAG.__baseType, MetaDMSAG.__TypeDefinition);
 		assertNotSame("Hash with different attributes must be different", ark3.hashCode(),ark4.hashCode());
 		DebugInfo.debug("Hash3 = " + ark3.hashCode() + "  Hash4 = " + ark4.hashCode());
 		
-		DmcAttributeRuleKey ark5 = new DmcAttributeRuleKey(MetaDMSAG.__classType, MetaDMSAG.__ClassDefinition);
+		AttributeRuleKey ark5 = new AttributeRuleKey(MetaDMSAG.__classType, MetaDMSAG.__ClassDefinition);
 
 		int order = 0;
 		

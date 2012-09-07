@@ -21,13 +21,14 @@ import org.dmd.dmc.DmcClassInfo;
 /**
  * The DmcAttributeRuleKey is used to identify attribute level rules by class.
  */
-public class DmcAttributeRuleKey implements Comparable<DmcAttributeRuleKey> {
+public class AttributeRuleKey extends RuleKey {
 	
 	DmcAttributeInfo	attrInfo;
 	DmcClassInfo		classInfo;
-	int hashCode;
+	int 				hashCode;
+	String				name;
 
-	public DmcAttributeRuleKey(DmcAttributeInfo ai, DmcClassInfo ci){
+	public AttributeRuleKey(DmcAttributeInfo ai, DmcClassInfo ci){
 		attrInfo = ai;
 		classInfo = ci;
 		
@@ -35,16 +36,21 @@ public class DmcAttributeRuleKey implements Comparable<DmcAttributeRuleKey> {
 		
 		hc = 31 * hc + attrInfo.id;
 		
-		if (classInfo != null)
+		if (classInfo == null){
+			name = " " + attrInfo.name;
+		}
+		else{
 			hc = 31 * hc + classInfo.id;
+			name = classInfo.name + " " + attrInfo.name;
+		}
 		
 		hashCode = hc;
 	}
 	
 	@Override
 	public boolean equals(Object obj){
-		if (obj instanceof DmcAttributeRuleKey){
-			DmcAttributeRuleKey other = (DmcAttributeRuleKey)obj;
+		if (obj instanceof AttributeRuleKey){
+			AttributeRuleKey other = (AttributeRuleKey)obj;
 			if (attrInfo.id == other.attrInfo.id){
 				if (classInfo == null){
 					if (other.classInfo == null)
@@ -66,31 +72,9 @@ public class DmcAttributeRuleKey implements Comparable<DmcAttributeRuleKey> {
 		return(hashCode);
 	}
 
-	/**
-	 * The comparison is based on the attribute name and if available, the class name. If the attribute
-	 * name of two keys are the same and one key has a null classInfo, that key will be less than 
-	 * the other key. If both keys have classInfo, the order will be based on the class names.
-	 * @param ark another attribute rule key
-	 * @return the ordering.
-	 */
 	@Override
-	public int compareTo(DmcAttributeRuleKey ark) {
-		int rc = attrInfo.name.compareTo(ark.attrInfo.name);
-		
-		if (rc == 0){
-			if (classInfo == null){
-				if (ark.classInfo != null)
-					rc = -1;
-			}
-			else{
-				if (ark.classInfo == null)
-					rc = 1;
-				else
-					rc = classInfo.name.compareTo(ark.classInfo.name);
-			}
-		}
-		
-		return(rc);
+	public String toString() {
+		return(name);
 	}
 	
 }
