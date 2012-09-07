@@ -963,8 +963,11 @@ abstract public class DmcObject implements Serializable {
 			Object rc = null;
 			if ( (value instanceof DmcNamedObjectREF) && !(value instanceof DmcExtendedReferenceIF)){
 				DmcNamedObjectREF<?> key = (DmcNamedObjectREF<?>)value;
+
 				if (key.getObject() == null)
 					rc = attr.del(key.getObjectName());
+				else if (value instanceof DmcMappedAttributeIF)
+					rc = attr.del(((DmcMappedAttributeIF)value).getKey());
 				else
 					rc = attr.del(key.getObject());
 				

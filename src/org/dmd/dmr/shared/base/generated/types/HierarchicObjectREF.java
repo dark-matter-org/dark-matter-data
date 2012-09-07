@@ -39,7 +39,7 @@ import org.dmd.dms.generated.enums.DataTypeEnum;
 @SuppressWarnings("serial")
 public class HierarchicObjectREF extends DmcNamedObjectNontransportableREF<HierarchicObjectDMO> {
 
-    public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",-1999916,"FullyQualifiedName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",84,"FullyQualifiedName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     
     DmcTypeFullyQualifiedNameSV myName;    
     

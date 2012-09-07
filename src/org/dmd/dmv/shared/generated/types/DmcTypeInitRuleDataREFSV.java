@@ -24,7 +24,7 @@ import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;    // DmcType import
  * The DmcTypeInitRuleDataREFSV provides storage for a single-valued InitRuleData
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -49,14 +49,14 @@ public class DmcTypeInitRuleDataREFSV extends DmcTypeInitRuleDataREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
     public DmcAttribute<InitRuleDataDMO> cloneIt(){
         DmcTypeInitRuleDataREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
     public InitRuleDataDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeInitRuleDataREFSV extends DmcTypeInitRuleDataREF implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
     public InitRuleDataDMO set(Object v) throws DmcValueException {
         InitRuleDataDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

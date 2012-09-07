@@ -25,11 +25,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeActifactGeneratorREFMV provides storage for a multi-valued ActifactGeneratorREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActifactGeneratorREFMV extends DmcTypeActifactGeneratorREF implements Serializable {
+    
+    private final static Iterator<ActifactGeneratorREF> emptyList = (new ArrayList<ActifactGeneratorREF>()).iterator();
     
     protected ArrayList<ActifactGeneratorREF> value;
     
@@ -47,10 +49,14 @@ public class DmcTypeActifactGeneratorREFMV extends DmcTypeActifactGeneratorREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<ActifactGeneratorREF> cloneIt(){
         synchronized(this){
             DmcTypeActifactGeneratorREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (getAttributeInfo().indexSize == 0){
                 for(ActifactGeneratorREF val: value)
                 try {
@@ -72,7 +78,7 @@ public class DmcTypeActifactGeneratorREFMV extends DmcTypeActifactGeneratorREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public ActifactGeneratorREF add(Object v) throws DmcValueException {
         synchronized(this){
             ActifactGeneratorREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeActifactGeneratorREFMV extends DmcTypeActifactGeneratorREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public ActifactGeneratorREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             ActifactGeneratorREF key = null;
             ActifactGeneratorREF rc = null;
             try {
@@ -105,24 +114,29 @@ public class DmcTypeActifactGeneratorREFMV extends DmcTypeActifactGeneratorREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<ActifactGeneratorREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<ActifactGeneratorREF> clone = new ArrayList<ActifactGeneratorREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<ActifactGeneratorREF> getMVCopy(){
         synchronized(this){
-            ArrayList<ActifactGeneratorREF> clone = new ArrayList<ActifactGeneratorREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<ActifactGeneratorREF>());
+            else 
+                return(new ArrayList<ActifactGeneratorREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -136,7 +150,7 @@ public class DmcTypeActifactGeneratorREFMV extends DmcTypeActifactGeneratorREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public ActifactGeneratorREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +160,7 @@ public class DmcTypeActifactGeneratorREFMV extends DmcTypeActifactGeneratorREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public ActifactGeneratorREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -173,7 +187,7 @@ public class DmcTypeActifactGeneratorREFMV extends DmcTypeActifactGeneratorREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +210,7 @@ public class DmcTypeActifactGeneratorREFMV extends DmcTypeActifactGeneratorREF i
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

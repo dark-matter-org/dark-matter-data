@@ -48,5 +48,5 @@ public interface AttributeReadInterceptor {
 	 * @param attr the attribute container that was constructed at the current version
 	 * of the schema.
 	 */
-	abstract public void handleAttribute(DmcInputStreamIF dis, DmcAttribute<?> attr);
+	abstract public void handleAttribute(DmcInputStreamIF dis, DmcAttribute<?> attr) throws Exception;
 }

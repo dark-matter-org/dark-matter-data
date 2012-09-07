@@ -12,11 +12,13 @@ import org.dmd.dmt.shared.generated.types.DmcTypeSomeRelation;    // DmcType imp
  * The DmcTypeSomeRelationMV provides storage for a multi-valued SomeRelation
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpTypes(DmoTypeFormatter.java:145)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSomeRelationMV extends DmcTypeSomeRelation implements Serializable {
+    
+    private final static Iterator<SomeRelation> emptyList = (new ArrayList<SomeRelation>()).iterator();
     
     protected ArrayList<SomeRelation> value;
     
@@ -34,10 +36,14 @@ public class DmcTypeSomeRelationMV extends DmcTypeSomeRelation implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<SomeRelation> cloneIt(){
         synchronized(this){
             DmcTypeSomeRelationMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (getAttributeInfo().indexSize == 0){
                 for(SomeRelation val: value)
                 try {
@@ -59,7 +65,7 @@ public class DmcTypeSomeRelationMV extends DmcTypeSomeRelation implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public SomeRelation add(Object v) throws DmcValueException {
         synchronized(this){
             SomeRelation rc = typeCheck(v);
@@ -71,9 +77,12 @@ public class DmcTypeSomeRelationMV extends DmcTypeSomeRelation implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public SomeRelation del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             SomeRelation key = null;
             SomeRelation rc = null;
             try {
@@ -92,24 +101,29 @@ public class DmcTypeSomeRelationMV extends DmcTypeSomeRelation implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<SomeRelation> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<SomeRelation> clone = new ArrayList<SomeRelation>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<SomeRelation> getMVCopy(){
         synchronized(this){
-            ArrayList<SomeRelation> clone = new ArrayList<SomeRelation>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<SomeRelation>());
+            else 
+                return(new ArrayList<SomeRelation>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -123,7 +137,7 @@ public class DmcTypeSomeRelationMV extends DmcTypeSomeRelation implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public SomeRelation getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -133,7 +147,7 @@ public class DmcTypeSomeRelationMV extends DmcTypeSomeRelation implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public SomeRelation setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -160,7 +174,7 @@ public class DmcTypeSomeRelationMV extends DmcTypeSomeRelation implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -183,7 +197,7 @@ public class DmcTypeSomeRelationMV extends DmcTypeSomeRelation implements Serial
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

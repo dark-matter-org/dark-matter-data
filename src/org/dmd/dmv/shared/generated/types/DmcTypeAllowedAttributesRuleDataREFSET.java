@@ -29,11 +29,14 @@ import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;    // DmcT
  * The DmcTypeAllowedAttributesRuleDataREFSET provides storage for a set of AllowedAttributesRuleDataDMO
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttributesRuleDataREF implements Serializable {
+    
+     private final static Iterator<AllowedAttributesRuleDataDMO> emptyList =  (new HashSet<AllowedAttributesRuleDataDMO>()).iterator();
+    
     
     protected Set<AllowedAttributesRuleDataDMO> value;
     
@@ -59,10 +62,14 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<AllowedAttributesRuleDataDMO> cloneIt(){
         synchronized(this){
             DmcTypeAllowedAttributesRuleDataREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(AllowedAttributesRuleDataDMO val: value)
             try {
                 rc.add(val);
@@ -74,7 +81,7 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public AllowedAttributesRuleDataDMO add(Object v) throws DmcValueException {
         synchronized(this){
             AllowedAttributesRuleDataDMO rc = typeCheck(v);
@@ -90,7 +97,7 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public AllowedAttributesRuleDataDMO del(Object v){
         synchronized(this){
             AllowedAttributesRuleDataDMO rc = null;
@@ -114,9 +121,12 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<AllowedAttributesRuleDataDMO> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<AllowedAttributesRuleDataDMO>(value)).iterator() );
             else
@@ -124,18 +134,26 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<AllowedAttributesRuleDataDMO> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<AllowedAttributesRuleDataDMO>(value));
-            else
-                return(new TreeSet<AllowedAttributesRuleDataDMO>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<AllowedAttributesRuleDataDMO>());
+                else
+                    return(new HashSet<AllowedAttributesRuleDataDMO>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<AllowedAttributesRuleDataDMO>(value));
+                else
+                    return(new TreeSet<AllowedAttributesRuleDataDMO>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -145,7 +163,7 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
