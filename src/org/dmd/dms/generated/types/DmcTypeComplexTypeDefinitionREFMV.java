@@ -25,11 +25,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeComplexTypeDefinitionREFMV provides storage for a multi-valued ComplexTypeDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:576)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:584)
  */
 @SuppressWarnings("serial")
 public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinitionREF implements Serializable {
+    
+    private final static Iterator<ComplexTypeDefinitionREF> emptyList = (new ArrayList<ComplexTypeDefinitionREF>()).iterator();
     
     protected ArrayList<ComplexTypeDefinitionREF> value;
     
@@ -47,10 +49,14 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<ComplexTypeDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeComplexTypeDefinitionREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (getAttributeInfo().indexSize == 0){
                 for(ComplexTypeDefinitionREF val: value)
                 try {
@@ -72,7 +78,7 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public ComplexTypeDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             ComplexTypeDefinitionREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public ComplexTypeDefinitionREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             ComplexTypeDefinitionREF key = null;
             ComplexTypeDefinitionREF rc = null;
             try {
@@ -105,24 +114,29 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<ComplexTypeDefinitionREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<ComplexTypeDefinitionREF> clone = new ArrayList<ComplexTypeDefinitionREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<ComplexTypeDefinitionREF> getMVCopy(){
         synchronized(this){
-            ArrayList<ComplexTypeDefinitionREF> clone = new ArrayList<ComplexTypeDefinitionREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<ComplexTypeDefinitionREF>());
+            else 
+                return(new ArrayList<ComplexTypeDefinitionREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -136,7 +150,7 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public ComplexTypeDefinitionREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +160,7 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public ComplexTypeDefinitionREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -173,7 +187,7 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +210,7 @@ public class DmcTypeComplexTypeDefinitionREFMV extends DmcTypeComplexTypeDefinit
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

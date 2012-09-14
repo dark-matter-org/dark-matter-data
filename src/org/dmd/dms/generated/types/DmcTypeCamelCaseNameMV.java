@@ -27,11 +27,13 @@ import org.dmd.dmc.types.DmcTypeCamelCaseName;    // DmcType import
  * The DmcTypeCamelCaseNameMV provides storage for a multi-valued CamelCaseName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:629)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:637)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCamelCaseNameMV extends DmcTypeCamelCaseName implements Serializable {
+    
+    private final static Iterator<CamelCaseName> emptyList = (new ArrayList<CamelCaseName>()).iterator();
     
     protected ArrayList<CamelCaseName> value;
     
@@ -49,10 +51,14 @@ public class DmcTypeCamelCaseNameMV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<CamelCaseName> cloneIt(){
         synchronized(this){
             DmcTypeCamelCaseNameMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (getAttributeInfo().indexSize == 0){
                 for(CamelCaseName val: value)
                 try {
@@ -74,7 +80,7 @@ public class DmcTypeCamelCaseNameMV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public CamelCaseName add(Object v) throws DmcValueException {
         synchronized(this){
             CamelCaseName rc = typeCheck(v);
@@ -86,9 +92,12 @@ public class DmcTypeCamelCaseNameMV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public CamelCaseName del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             CamelCaseName key = null;
             CamelCaseName rc = null;
             try {
@@ -107,24 +116,29 @@ public class DmcTypeCamelCaseNameMV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<CamelCaseName> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<CamelCaseName> clone = new ArrayList<CamelCaseName>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<CamelCaseName> getMVCopy(){
         synchronized(this){
-            ArrayList<CamelCaseName> clone = new ArrayList<CamelCaseName>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<CamelCaseName>());
+            else 
+                return(new ArrayList<CamelCaseName>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -138,7 +152,7 @@ public class DmcTypeCamelCaseNameMV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public CamelCaseName getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +162,7 @@ public class DmcTypeCamelCaseNameMV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public CamelCaseName setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -175,7 +189,7 @@ public class DmcTypeCamelCaseNameMV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,7 +212,7 @@ public class DmcTypeCamelCaseNameMV extends DmcTypeCamelCaseName implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

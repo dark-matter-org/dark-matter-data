@@ -29,7 +29,7 @@ import org.dmd.dms.*;
 /**
  * null
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1553)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1561)
  */
 @SuppressWarnings("unused")
 public class RunContextDMW extends org.dmd.dms.DmsDefinition {
@@ -72,11 +72,13 @@ public class RunContextDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
+     * a unique name
+ for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -85,7 +87,7 @@ public class RunContextDMW extends org.dmd.dms.DmsDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2310)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -94,7 +96,7 @@ public class RunContextDMW extends org.dmd.dms.DmsDefinition {
      * A set of references to Dependencies.
      * @return An Iterator of Dependency objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2398)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2406)
     public DependencyIterableDMW getDependencies(){
         DmcTypeDependencyREFMV attr = (DmcTypeDependencyREFMV) mycore.get(MetaDMSAG.__dependencies);
         if (attr == null)
@@ -107,7 +109,7 @@ public class RunContextDMW extends org.dmd.dms.DmsDefinition {
      * Adds another dependencies value.
      * @param value A value compatible with Dependency
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2457)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2465)
     public DmcAttribute<?> addDependencies(Dependency value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addDependencies(value.getDmcObject());
         return(attr);
@@ -116,7 +118,7 @@ public class RunContextDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Returns the number of dependencies values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2483)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2491)
     public int getDependenciesSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__dependencies);
         if (attr == null)
@@ -125,12 +127,15 @@ public class RunContextDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The description attribute is used to provide descriptive documentation for
-     * schema related definitions. The text provided should conform to XHTML
+     * The description attribute is used to provide descriptive
+ documentation
+     * for schema related definitions. The text provided should conform
+ to XHTML
      * concepts since it will be dumped in the context of the generated HTML
+
      * documentation.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -139,7 +144,7 @@ public class RunContextDMW extends org.dmd.dms.DmsDefinition {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2310)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }

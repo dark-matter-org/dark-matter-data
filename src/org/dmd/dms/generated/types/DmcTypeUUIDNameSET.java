@@ -30,11 +30,14 @@ import org.dmd.dmc.types.DmcTypeUUIDName;    // DmcType import
  * The DmcTypeUUIDNameSET provides storage for a set of UUIDName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:633)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable {
+    
+     private final static Iterator<UUIDName> emptyList =  (new HashSet<UUIDName>()).iterator();
+    
     
     protected Set<UUIDName> value;
     
@@ -60,10 +63,14 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<UUIDName> cloneIt(){
         synchronized(this){
             DmcTypeUUIDNameSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(UUIDName val: value)
             try {
                 rc.add(val);
@@ -75,7 +82,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public UUIDName add(Object v) throws DmcValueException {
         synchronized(this){
             UUIDName rc = typeCheck(v);
@@ -91,7 +98,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public UUIDName del(Object v){
         synchronized(this){
             UUIDName rc = null;
@@ -115,9 +122,12 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<UUIDName> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<UUIDName>(value)).iterator() );
             else
@@ -125,18 +135,26 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<UUIDName> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<UUIDName>(value));
-            else
-                return(new TreeSet<UUIDName>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<UUIDName>());
+                else
+                    return(new HashSet<UUIDName>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<UUIDName>(value));
+                else
+                    return(new TreeSet<UUIDName>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +164,7 @@ public class DmcTypeUUIDNameSET extends DmcTypeUUIDName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

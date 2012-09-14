@@ -98,7 +98,17 @@
       <td class="label">May</td>
       <td> <a href="meta.html#namingAttribute">namingAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> This attribute indicates the attribute that is used to name an object instance. The exact manner in which the naming attribute is used is specific to the implementation of the HierarchicObject derived class. <p> For instance, the DotNamedObject simply uses the value of the naming attribute and separates the attribute values with periods e.g. grandparent.parent.child. <p> For LDAP objects when a hierarchic name is composed for an object, the class name plus the value of the naming attribute (type:value) is used to create the name of an object. It is best if the naming attribute value is created by the application; it shouldn't be based on any user configurable value. </td>
+      <td> This attribute indicates the attribute that is used to name an object
+ instance. The exact manner in which the naming attribute is used is specific to
+ the implementation of the HierarchicObject derived class.
+ <p>
+ For instance, the DotNamedObject simply uses the value of the naming attribute
+ and separates the attribute values with periods e.g. grandparent.parent.child.
+ <p>
+ For LDAP objects when a hierarchic name is composed for an object, the class name
+ plus the value of the naming attribute (type:value) is used to create the
+ name of an object. It is best if the naming attribute value is created by
+ the application; it shouldn't be based on any user configurable value. </td>
     </tr>
 
     <tr>
@@ -155,7 +165,8 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#FQN">FQN</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#FullyQualifiedName">FullyQualifiedName</a> </td>
-      <td> The fully qualified name of a hierarchic object. The exact form of the fqn is application specific. </td>
+      <td> The fully qualified name of a hierarchic object. The exact form of
+ the fqn is application specific. </td>
     </tr>
 
   </table>

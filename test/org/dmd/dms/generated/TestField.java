@@ -73,7 +73,7 @@ public class TestField {
 		SchemaManager schema = new SchemaManager();
 		
 		ComplexTypeDefinition	ctd = new ComplexTypeDefinition();
-		ctd.addField("TypeDefinitionREF type The type of the field");
+		ctd.addField("TypeDefinition type The type of the field");
 		ctd.addField("String         name The name of the field");
 		ctd.addField("String         description A description of the field");
 		

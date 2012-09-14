@@ -29,12 +29,15 @@ import org.dmd.dms.*;
 
 /**
  * The EnumDefinition allows for the definition of real Java enums that
- * provide inherent mapping of the string and integer values of the enum into
- * actual enum values. Once defined, EnumDefinitions can be used where ever
- * you would use a TypeDefinition name i.e. they can be used in the type
- * attribute of AttributeDefinitions.
+ * provide
+ inherent mapping of the string and integer values of the enum
+ * into actual enum values. Once
+ defined, EnumDefinitions can be used where
+ * ever you would use a TypeDefinition name i.e.
+ they can be used in the
+ * type attribute of AttributeDefinitions.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1553)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1561)
  */
 @SuppressWarnings("unused")
 public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -77,11 +80,13 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
+     * a unique name
+ for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -90,17 +95,18 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2310)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
 
     /**
      * Indicates the set of enum values associated with an enumeration type
+
      * definition.
      * @return An Iterator of EnumValue objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2416)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2424)
     public Iterator<EnumValue> getEnumValue(){
         DmcTypeEnumValueMV attr = (DmcTypeEnumValueMV) mycore.get(MetaDMSAG.__enumValue);
         if (attr == null)
@@ -113,7 +119,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another enumValue value.
      * @param value A value compatible with DmcTypeEnumValueMV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2471)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2479)
     public DmcAttribute<?> addEnumValue(Object value) throws DmcValueException {
         return(mycore.addEnumValue(value));
     }
@@ -121,7 +127,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Returns the number of enumValue values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2483)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2491)
     public int getEnumValueSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__enumValue);
         if (attr == null)
@@ -130,12 +136,15 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The description attribute is used to provide descriptive documentation for
-     * schema related definitions. The text provided should conform to XHTML
+     * The description attribute is used to provide descriptive
+ documentation
+     * for schema related definitions. The text provided should conform
+ to XHTML
      * concepts since it will be dumped in the context of the generated HTML
+
      * documentation.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getDescription(){
         return(mycore.getDescription());
     }
@@ -144,19 +153,22 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2310)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
 
     /**
      * This attribute is used in TypeDefinitions to indicate the value that
-     * should be returned when an attribute of the specified type doesn't exist
-     * in the object. For example, Boolean values are defined to return false
+     * should be returned when
+ an attribute of the specified type doesn't exist
+     * in the object. For example, Boolean values are defined
+ to return false
      * when they aren't actually set on an object. This just gives a convenient
-     * mechanism to provide a default value for non-existent attribute values.
+     * mechanism to
+ provide a default value for non-existent attribute values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getNullReturnValue(){
         return(mycore.getNullReturnValue());
     }
@@ -165,7 +177,7 @@ public class EnumDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Sets nullReturnValue to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2310)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
     public void setNullReturnValue(Object value) throws DmcValueException {
         mycore.setNullReturnValue(value);
     }

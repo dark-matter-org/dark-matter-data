@@ -31,6 +31,7 @@ import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.types.EnumValue;
 import org.dmd.dms.util.DmoCompactSchemaFormatter;
 import org.dmd.dms.util.GenUtility;
+import org.dmd.dms.util.RuleFormatter;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -65,7 +66,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 	private final static String TYPEDIR = "/src/org/dmd/dms/generated/types";
 
 	// Offset to the rule generation directory
-//	private final static String RULESDIR = "/src/org/dmd/dms/generated/rules";
+	private final static String RULESDIR = "/src/org/dmd/dms/generated/rulesdmo";
 
 	// Offset to the gdo source directory
 	private final static String DMSDIR = "/src/org/dmd/dms";
@@ -152,6 +153,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		origOrderCategories = new ArrayList<String>();
 
 		parser = new DmcUncheckedOIFParser(this);
+		parser.addPreserveLineFeedsAttribute("description");
 	}
 
 	public void run(String[] args) throws DmcValueException, DmcRuleExceptionSet {
@@ -210,7 +212,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			// vcf.dumpSchema("meta", "org.dmd.dms", avDefs, ovDefs,
 			// curr.getCanonicalPath() + DMODIR);
 
-//			RuleFormatter rf = new RuleFormatter(System.out);
+			RuleFormatter rf = new RuleFormatter(System.out);
+			rf.dumpRuleCategoryInterfaces("meta", "org.dmd.dms", ruleCategoryDefs, curr.getCanonicalPath() + RULESDIR);
 //			rf.dumpBaseImplementations("meta", "org.dmd.dms", ruleDefs, ruleCategoryDefs, curr.getCanonicalPath() + RULESDIR);
 
 			dumpDMWClasses(curr.getCanonicalPath() + DMWDIR);
@@ -501,7 +504,12 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				sv = false;
 			
 			if (sv){
-				out.write(prefix + dmoName + ".set" + anCapped + "(\"" + obj.getSV(an) + "\");\n");
+				if (an.equals("description")){
+					String fixed = obj.getSV(an).replaceAll("\n", "\\\\n");
+					out.write(prefix + dmoName + ".set" + anCapped + "(\"" + fixed + "\");\n");
+				}
+				else
+					out.write(prefix + dmoName + ".set" + anCapped + "(\"" + obj.getSV(an) + "\");\n");
 			}
 			else{
 				NamedStringArray values = obj.get(an);
@@ -3140,52 +3148,99 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			out.write("    }\n\n");
 		}
 
-		out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
-		out.write("    	   String rc = null;\n");
-		out.write("    	   int start = seppos.intValue();\n");
-		out.write("\n");
-		out.write("    	   if ( (start+1) >= input.length())\n");
-		out.write("    		   throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: "
-				+ ctn + "\"));\n");
-		out.write("\n");
-		out.write("    	   if (last){\n");
-		out.write("    	       rc = input.substring(start+1);\n");
-		out.write("    	   }\n");
-		out.write("    	   else{\n");
-		out.write("    	       int pos = -1;\n");
-		out.write("    	       if (start > 0)\n");
-		out.write("    		       pos = input.indexOf(\"" + fieldSeparator
-				+ "\", start+1);\n");
-		out.write("    	       else\n");
-		out.write("    		       pos = input.indexOf(\"" + fieldSeparator
-				+ "\");\n");
-		out.write("\n");
-		out.write("    	       if (pos == -1)\n");
-		out.write("    		       throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: "
-				+ ctn + "\"));\n");
-		out.write("\n");
-		out.write("    		   while(pos < (input.length()-1)){\n");
-		out.write("    		       if ( input.charAt(pos+1) == '" + fieldSeparator
-				+ "')\n");
-		out.write("    		           pos++;\n");
-		out.write("    		       else\n");
-		out.write("    		           break;\n");
-		out.write("    		   }\n");
-		out.write("\n");
-		out.write("    	       rc = input.substring(start+1, pos).trim();\n");
-		out.write("\n");
-		out.write("    	       seppos.set(pos);\n");
-		out.write("        }\n");
-		out.write("\n");
-		out.write("        return(rc);\n");
-		out.write("    }\n\n");
+		///////////////////////////////////////////////////////////////////////
+		if (whiteSpaceSeparator){
+			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+			out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
+			out.write("    	   String rc = null;\n");
+			out.write("    	   int start = seppos.intValue();\n");
+			out.write("\n");
+			out.write("    	   if ( (start+1) >= input.length())\n");
+			out.write("    		   throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: "
+					+ ctn + "\"));\n");
+			out.write("\n");
+			out.write("    	   if (last){\n");
+			out.write("    	       rc = input.substring(start+1);\n");
+			out.write("    	   }\n");
+			out.write("    	   else{\n");
+			out.write("    	       int pos = -1;\n");
+			out.write("    	       if (start > 0)\n");
+			out.write("    		       pos = input.indexOf(\"" + fieldSeparator
+					+ "\", start+1);\n");
+			out.write("    	       else\n");
+			out.write("    		       pos = input.indexOf(\"" + fieldSeparator
+					+ "\");\n");
+			out.write("\n");
+			out.write("    	       if (pos == -1)\n");
+			out.write("    		       throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: "
+					+ ctn + "\"));\n");
+			out.write("\n");
+			out.write("    		   while(pos < (input.length()-1)){\n");
+			out.write("    		       if ( input.charAt(pos+1) == '" + fieldSeparator
+					+ "')\n");
+			out.write("    		           pos++;\n");
+			out.write("    		       else\n");
+			out.write("    		           break;\n");
+			out.write("    		   }\n");
+			out.write("\n");
+			out.write("    	       rc = input.substring(start+1, pos).trim();\n");
+			out.write("\n");
+			out.write("    	       seppos.set(pos);\n");
+			out.write("        }\n");
+			out.write("\n");
+			out.write("        return(rc);\n");
+			out.write("    }\n\n");
+		}
+		else{
+			out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
+			out.write("    	   String rc = null;\n");
+			out.write("    	   int start = seppos.intValue();\n");
+			out.write("   	   \n");
+			out.write("    	   if (last){\n");
+			out.write("            if ( (start+1) >= input.length())\n");
+			out.write("                rc = \"\";\n");
+			out.write("            else\n");
+			out.write("                rc = input.substring(start+1);\n");
+			out.write("        }\n");
+			out.write("	       else{\n");
+			out.write("    	       if ( (start+1) >= input.length())\n");
+			out.write("        		   throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: RuleParam\"));\n");
+			out.write("   		   \n");
+			out.write("        	   int pos = -1;\n");
+			out.write("	           if (start > -1){\n");
+			out.write("	        	   start = start + 1;\n");
+			out.write("	    	       pos = input.indexOf(\"" + fieldSeparator + "\", start);\n");
+			out.write("	           }\n");
+			out.write("	           else{\n");
+			out.write("	        	   start = 0;\n");
+			out.write("	    	       pos = input.indexOf(\"" + fieldSeparator + "\");\n");
+			out.write("	           }\n");
+			out.write("	       \n");
+			out.write("	           if (pos == start){\n");
+			out.write("	        	   seppos.set(pos);\n");
+			out.write("	        	   return(\"\");\n");
+			out.write("	           }\n");
+			out.write("	       \n");
+			out.write("	           if (pos == -1)\n");
+			out.write("		           throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: RuleParam\"));\n");
+			out.write("		       \n");
+			out.write("	           rc = input.substring(start, pos).trim();\n");
+			out.write("	       \n");
+			out.write("	           seppos.set(pos);\n");
+			out.write("        }\n");
+			out.write("    \n");
+			out.write("        return(rc);\n");
+			out.write("    }\n");
+			out.write("\n");
+		}
+		
+		///////////////////////////////////////////////////////////////////////
 
 		out.write("}\n");
 
 		out.close();
 
-		GenUtility.dumpComplexTypeDmcType(LGPL.toString(), "org.dmd.dms", od,
-				ctn, hasRefs);
+		GenUtility.dumpComplexTypeDmcType(LGPL.toString(), "org.dmd.dms", od, ctn, hasRefs);
 
 	}
 

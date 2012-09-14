@@ -30,11 +30,14 @@ import org.dmd.dmc.types.DmcTypeIntegerToString;    // DmcType import
  * The DmcTypeIntegerToStringSET provides storage for a set of IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:633)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements Serializable {
+    
+     private final static Iterator<IntegerToString> emptyList =  (new HashSet<IntegerToString>()).iterator();
+    
     
     protected Set<IntegerToString> value;
     
@@ -60,10 +63,14 @@ public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<IntegerToString> cloneIt(){
         synchronized(this){
             DmcTypeIntegerToStringSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(IntegerToString val: value)
             try {
                 rc.add(val);
@@ -75,7 +82,7 @@ public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public IntegerToString add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerToString rc = typeCheck(v);
@@ -91,7 +98,7 @@ public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public IntegerToString del(Object v){
         synchronized(this){
             IntegerToString rc = null;
@@ -115,9 +122,12 @@ public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<IntegerToString> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<IntegerToString>(value)).iterator() );
             else
@@ -125,18 +135,26 @@ public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<IntegerToString> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<IntegerToString>(value));
-            else
-                return(new TreeSet<IntegerToString>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<IntegerToString>());
+                else
+                    return(new HashSet<IntegerToString>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<IntegerToString>(value));
+                else
+                    return(new TreeSet<IntegerToString>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +164,7 @@ public class DmcTypeIntegerToStringSET extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

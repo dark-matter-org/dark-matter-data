@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.RuleCategory;
@@ -12,6 +13,7 @@ import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.OperationalContextEnum;
+import org.dmd.dms.generated.types.RuleParam;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
@@ -177,6 +179,83 @@ public class RuleFormatter {
 		
 		
 	}
+	
+	/**
+	 * Dumps the interfaces for our rule categories.
+	 * @param schemaName
+	 * @param schemaPackage
+	 * @param rulesDir
+	 * @throws ResultException 
+	 * @throws IOException 
+	 */
+	public void dumpRuleCategoryInterfaces(String schemaName, String schemaPackage, TreeMap<String,DmcUncheckedObject> ruleCategoryDefs, String rulesDir) throws ResultException, IOException{
+		
+		for(DmcUncheckedObject category: ruleCategoryDefs.values()){
+    		String name = GenUtility.capTheName(category.getSV("name"));
+    		NamedStringArray categories = category.get("ruleParam");
+    		    		
+    		ImportManager baseImports = new ImportManager();
+    				
+    		baseImports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "Rule type");
+    		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
+    		
+    		StringBuffer	params = new StringBuffer();
+    		StringBuffer	args = new StringBuffer();
+    		boolean			first = true;
+    		
+    		for(String p : categories){
+    			RuleParam param;
+				try {
+					param = new RuleParam(p);
+	    			baseImports.addImport(param.getImportStatement(), "Required for " + param.getName());
+	    			int lastDot = param.getImportStatement().lastIndexOf(".");
+	    			String ptype = param.getImportStatement().substring(lastDot + 1);
+	    			
+	    			if (!first){
+	    				params.append(", ");
+	    				args.append(", ");
+	    			}
+	    			
+	    			params.append("     * @param " + param.getName() + " " + param.getDescription());
+	    			
+//	    			if (param.getGenericArgs() == null)
+//	    				args.append(ptype + " " + param.getName());
+//	    			else
+	    				args.append(ptype + param.getGenericArgs() + " " + param.getName());
+	    				
+	    			first = false;
+				} catch (DmcValueException e) {
+					System.err.println(e.toString());
+					e.printStackTrace();
+					System.err.println(category.toOIF());
+					System.exit(1);
+				}
+    			
+    			
+    		}
+    		
+			BufferedWriter 	out = FileUpdateManager.instance().getWriter(rulesDir, name + "IF.java");
+			
+			out.write("package " + schemaPackage + ".generated.rulesdmo;\n\n");
+			
+			out.write(baseImports.getFormattedImports() + "\n\n");
+			
+			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+			out.write("public interface " + name + "IF extends RuleIF {\n\n");
+			
+			out.write("    /**\n");
+			out.write(params + "\n");
+			out.write("     */\n");
+			out.write("    public void execute(" + args + ") throws DmcRuleExceptionSet;\n\n");
+			
+			out.write("}\n\n");
+			
+			out.close();
+		}
+		
+	}	
+		
+
 	
 	/**
 	 * We dump the base implementation of the rule. The subdirectory where the code gets dumped will

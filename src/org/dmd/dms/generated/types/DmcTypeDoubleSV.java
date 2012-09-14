@@ -24,8 +24,8 @@ import org.dmd.dmc.types.DmcTypeDouble;    // DmcType import
  * The DmcTypeDoubleSV provides storage for a single-valued Double
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1944)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:624)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDoubleSV extends DmcTypeDouble implements Serializable {
@@ -49,14 +49,14 @@ public class DmcTypeDoubleSV extends DmcTypeDouble implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1976)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
     public DmcAttribute<Double> cloneIt(){
         DmcTypeDoubleSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
     public Double getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeDoubleSV extends DmcTypeDouble implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1999)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
     public Double set(Object v) throws DmcValueException {
         Double rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
