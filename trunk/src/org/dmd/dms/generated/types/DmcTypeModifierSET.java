@@ -30,11 +30,14 @@ import org.dmd.dmc.types.DmcTypeModifier;    // DmcType import
  * The DmcTypeModifierSET provides storage for a set of Modifier
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:633)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
  */
 @SuppressWarnings("serial")
 public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable {
+    
+     private final static Iterator<Modifier> emptyList =  (new HashSet<Modifier>()).iterator();
+    
     
     protected Set<Modifier> value;
     
@@ -60,10 +63,14 @@ public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<Modifier> cloneIt(){
         synchronized(this){
             DmcTypeModifierSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(Modifier val: value)
             try {
                 rc.add(val);
@@ -75,7 +82,7 @@ public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public Modifier add(Object v) throws DmcValueException {
         synchronized(this){
             Modifier rc = typeCheck(v);
@@ -91,7 +98,7 @@ public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public Modifier del(Object v){
         synchronized(this){
             Modifier rc = null;
@@ -115,9 +122,12 @@ public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<Modifier> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<Modifier>(value)).iterator() );
             else
@@ -125,18 +135,26 @@ public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable 
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<Modifier> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<Modifier>(value));
-            else
-                return(new TreeSet<Modifier>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<Modifier>());
+                else
+                    return(new HashSet<Modifier>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<Modifier>(value));
+                else
+                    return(new TreeSet<Modifier>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +164,7 @@ public class DmcTypeModifierSET extends DmcTypeModifier implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

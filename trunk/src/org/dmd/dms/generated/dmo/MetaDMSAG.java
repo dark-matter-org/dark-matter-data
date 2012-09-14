@@ -149,6 +149,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __ruleImport = new DmcAttributeInfo("ruleImport",152,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleInterface = new DmcAttributeInfo("ruleInterface",141,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleName = new DmcAttributeInfo("ruleName",153,"RuleName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __ruleParam = new DmcAttributeInfo("ruleParam",50,"RuleParam",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleTitle = new DmcAttributeInfo("ruleTitle",138,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleType = new DmcAttributeInfo("ruleType",136,"RuleTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __runContext = new DmcAttributeInfo("runContext",149,"RunContext",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -338,6 +339,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__ruleImport.id,__ruleImport);
         _SmAp.put(__ruleInterface.id,__ruleInterface);
         _SmAp.put(__ruleName.id,__ruleName);
+        _SmAp.put(__ruleParam.id,__ruleParam);
         _SmAp.put(__ruleTitle.id,__ruleTitle);
         _SmAp.put(__ruleType.id,__ruleType);
         _SmAp.put(__runContext.id,__runContext);
@@ -517,6 +519,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleCategory.addMay(__file);
         __RuleCategory.addMay(__lineNumber);
         __RuleCategory.addMay(__ruleImport);
+        __RuleCategory.addMay(__ruleParam);
 
         __RuleData.addMust(__ruleName);
         __RuleData.addMust(__ruleTitle);

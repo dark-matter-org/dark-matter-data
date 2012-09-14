@@ -142,7 +142,7 @@
       <li> <a class="deflink" href="#UUIDName"> UUIDName </a></li>
     </ul>
     </div>    <div class="enumList">
-    <h2>Enums (11)</h2>
+    <h2>Enums (10)</h2>
     <ul>
       <li> <a class="deflink" href="#BaseTypeEnum"> BaseTypeEnum </a></li>
       <li> <a class="deflink" href="#ClassTypeEnum"> ClassTypeEnum </a></li>
@@ -151,7 +151,6 @@
       <li> <a class="deflink" href="#FilterTypeEnum"> FilterTypeEnum </a></li>
       <li> <a class="deflink" href="#ModifyTypeEnum"> ModifyTypeEnum </a></li>
       <li> <a class="deflink" href="#OperationalContextEnum"> OperationalContextEnum </a></li>
-      <li> <a class="deflink" href="#RuleScopeEnum"> RuleScopeEnum </a></li>
       <li> <a class="deflink" href="#RuleTypeEnum"> RuleTypeEnum </a></li>
       <li> <a class="deflink" href="#ValueTypeEnum"> ValueTypeEnum </a></li>
       <li> <a class="deflink" href="#WrapperTypeEnum"> WrapperTypeEnum </a></li>
@@ -168,7 +167,8 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">This class is used to define the actions that may be triggered on an object.</td>
+      <td colspan="2">This class is used to define the actions that may be triggered on
+ an object.</td>
     </tr>
 
     <tr>
@@ -187,6 +187,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -200,7 +206,9 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -208,7 +216,10 @@
       <td class="label">May</td>
       <td> <a href="meta.html#attachToClass">attachToClass</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
-      <td> Indicates the classes of object to which an action is to be attached. This mechanism allows for the extension of a class's behaviour without having to alter the schema of the class involved. This can be viewed as the auxiliary class equivalent for behaviour. </td>
+      <td> Indicates the classes of object to which an action is to be attached.
+ This mechanism allows for the extension of a class's behaviour without having
+ to alter the schema of the class involved. This can be viewed as the auxiliary
+ class equivalent for behaviour. </td>
     </tr>
 
     <tr>
@@ -216,7 +227,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#blockWhenLocked">blockWhenLocked</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> This flag indicates whether or not an Action will be blocked from proceeding if there is a DAF lock on the object against which the action is performed. The default is to block all incoming actions against a locked object. By setting this flag to false, you can allow an action to proceed. </td>
+      <td> This flag indicates whether or not an Action will be blocked from
+ proceeding if there is a DAF lock on the object against which the action is
+ performed. The default is to block all incoming actions against a locked
+ object. By setting this flag to false, you can allow an action to proceed. </td>
     </tr>
 
     <tr>
@@ -224,7 +238,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
     <tr>
@@ -232,7 +249,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#isGetAction">isGetAction</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> This flag indicates if an Action is merely a data retrieval (get) Action. Actions that are flagged with this attribute set to true will be executable even when the server is in a read-only mode because they don't actually alter data. </td>
+      <td> This flag indicates if an Action is merely a data retrieval (get) Action.
+ Actions that are flagged with this attribute set to true will be executable
+ even when the server is in a read-only mode because they don't actually
+ alter data. </td>
     </tr>
 
     <tr>
@@ -240,7 +260,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#mayParm">mayParm</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the set of parameters that an action MAY have. When accessed in Java, this is a set of references to AttributeDefinition objects. </td>
+      <td> Indicates the set of parameters that an action MAY have. When accessed
+ in Java, this is a set of references to AttributeDefinition objects. </td>
     </tr>
 
     <tr>
@@ -248,7 +269,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#mayReturn">mayReturn</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the set of return vals that may be returned as part of a particular action response message. </td>
+      <td> Indicates the set of return vals that may be returned as part of a
+ particular action response message. </td>
     </tr>
 
     <tr>
@@ -256,7 +278,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#maySendProgress">maySendProgress</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> This flag is used to indicate if a particular request might result in progress indications being sent. Although primarily intended as a documentation aspect, this flag is used within the TL1 subsystem to allow for the creation of a response handler for node requests that send progress text. </td>
+      <td> This flag is used to indicate if a particular request might
+ result in progress indications being sent. Although primarily intended as a
+ documentation aspect, this flag is used within the TL1 subsystem to allow for
+ the creation of a response handler for node requests that send progress text. </td>
     </tr>
 
     <tr>
@@ -264,7 +289,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#mustParm">mustParm</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the set of parameters that an action MUST have. When accessed in Java, this is a set of references to AttributeDefinition objects. </td>
+      <td> Indicates the set of parameters that an action MUST have. When
+ accessed in Java, this is a set of references to AttributeDefinition objects. </td>
     </tr>
 
     <tr>
@@ -272,7 +298,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#mustReturn">mustReturn</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the set of return vals that must be returned as part of a particular action response message. </td>
+      <td> Indicates the set of return vals that must be returned as part of a
+ particular action response message. </td>
     </tr>
 
     <tr>
@@ -280,7 +307,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#obsoleteVersion">obsoleteVersion</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This indicates the version at which something became obsolete. Generally speaking you shouldn't ever delete definitions for products that have been released to the field, this may break backwards compatibility. Instead, you should mark them as obsolete. </td>
+      <td> This indicates the version at which something became obsolete.
+ Generally speaking you shouldn't ever delete definitions for products that have
+ been released to the field, this may break backwards compatibility. Instead, you
+ should mark them as obsolete. </td>
     </tr>
 
   </table>
@@ -291,7 +321,16 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The ActionTriggerInfo class simply provides a common base for the bundle of information required to remotely trigger an action on an object.  Derivatives of this class are generated as part of the DMO generation process and have action specific interfaces to handle the parameters  required by an action. <P> This mechanism is a replacement for the concept that ActionRequests were EXTENSIBLE objects. This way, the user can ask an object for the  ActionTriggerInfo (ATI) for a particular action and have a well defined interface to specify the parameters for the action.</td>
+      <td colspan="2">The ActionTriggerInfo class simply provides a common base for the bundle
+ of information required to remotely trigger an action on an object. 
+ Derivatives of this class are generated as part of the DMO generation
+ process and have action specific interfaces to handle the parameters 
+ required by an action.
+ <P>
+ This mechanism is a replacement for the concept that ActionRequests were
+ EXTENSIBLE objects. This way, the user can ask an object for the 
+ ActionTriggerInfo (ATI) for a particular action and have a well defined
+ interface to specify the parameters for the action.</td>
     </tr>
 
     <tr>
@@ -309,7 +348,9 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
   </table>
@@ -320,7 +361,8 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">This class is used to define attributes to be used as part of a class definition.</td>
+      <td colspan="2">This class is used to define attributes to be used
+ as part of a class definition.</td>
     </tr>
 
     <tr>
@@ -339,6 +381,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -352,7 +400,9 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -360,7 +410,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#type">type</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#TypeDefinition">TypeDefinition</a> </td>
-      <td> Indicates the type of an attribute. The value is the name of any previously defined TypeDefinition, ClassDefinition, EnumDefinition or ComplexTypeDefinition. </td>
+      <td> Indicates the type of an attribute. The value is the name of any
+ previously defined TypeDefinition, ClassDefinition, EnumDefinition or ComplexTypeDefinition. </td>
     </tr>
 
     <tr>
@@ -368,7 +419,9 @@
       <td class="label">May</td>
       <td> <a href="meta.html#abbrev">abbrev</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This attribute stores an abbreviated form of the name of an attribute or class. This concept is borrowed from directory technology where shortened name forms are often used as part of distinguished names (DNs). </td>
+      <td> This attribute stores an abbreviated form of the name of an attribute or class. This
+ concept is borrowed from directory technology where shortened name forms are often
+ used as part of distinguished names (DNs). </td>
     </tr>
 
     <tr>
@@ -376,7 +429,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#dataType">dataType</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#DataTypeEnum">DataTypeEnum</a> </td>
-      <td> This attribute indicates the persistence characteristics of an attribute or class of object. How this information is used is application dependent. </td>
+      <td> This attribute indicates the persistence characteristics of an attribute or
+ class of object. How this information is used is application dependent. </td>
     </tr>
 
     <tr>
@@ -384,7 +438,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
     <tr>
@@ -392,7 +449,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#designatedFilterAttribute">designatedFilterAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> The designatedFilterAttribute flag is used to identify the attribute designated as the standard wrapper for filters of a particular type.  One, and only one, attribute definition can be the designatedFilterAttribute for a  TypeDefinition that is identified as isFilterType. </td>
+      <td> The designatedFilterAttribute flag is used to identify the attribute
+ designated as the standard wrapper for filters of a particular type. 
+ One, and only one, attribute definition can be the designatedFilterAttribute for a 
+ TypeDefinition that is identified as isFilterType. </td>
     </tr>
 
     <tr>
@@ -400,7 +460,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#designatedNameAttribute">designatedNameAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> The designatedNameAttribute flag is used to identify the attribute designated as the standard wrapper for names of a particular type. One, and only one, attribute definition can be the designatedNameAttribute for a TypeDefinition that has isNameType true. </td>
+      <td> The designatedNameAttribute flag is used to identify the attribute
+ designated as the standard wrapper for names of a particular type. One, and only one,
+ attribute definition can be the designatedNameAttribute for a TypeDefinition that has
+ isNameType true. </td>
     </tr>
 
     <tr>
@@ -408,7 +471,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#dmdID">dmdID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes. This is used as part of the serialization mechanisms built into Dark Matter Objects. </td>
+      <td> The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes.
+ This is used as part of the serialization mechanisms built into Dark Matter Objects. </td>
     </tr>
 
     <tr>
@@ -416,7 +480,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#genericArgs">genericArgs</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This attribute indicates the generic arguments to be supplied in the use of a class in an autogenerated Iterable. </td>
+      <td> This attribute indicates the generic arguments to be supplied in the
+ use of a class in an autogenerated Iterable. </td>
     </tr>
 
     <tr>
@@ -424,7 +489,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#genericArgsImport">genericArgsImport</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> Indicates the import required to support a genericArgs specification i.e. if you're not specifying something like <?>, an additional import may be required. </td>
+      <td> Indicates the import required to support a genericArgs specification i.e. if you're
+ not specifying something like <?>, an additional import may be required. </td>
     </tr>
 
     <tr>
@@ -432,7 +498,12 @@
       <td class="label"> </td>
       <td> <a href="meta.html#indexSize">indexSize</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The indexSize is used in conjunction with the MULTI valueType to indicate that the attribute may have the specified number of values and is integer indexed. Indexed attributes may be thought of as having a predetermined number of slots into which values may be stored. When indexed, an attribute has values added to it using the setMVnth() interface, not the usual add() interface. If you attempt to use add() with an indexed attribute, an exception will be thrown. </td>
+      <td> The indexSize is used in conjunction with the MULTI valueType to
+ indicate that the attribute may have the specified number of values and is integer indexed.
+ Indexed attributes may be thought of as having a predetermined number of slots into which
+ values may be stored. When indexed, an attribute has values added to it using the setMVnth()
+ interface, not the usual add() interface. If you attempt to use add() with an indexed attribute,
+ an exception will be thrown. </td>
     </tr>
 
     <tr>
@@ -440,7 +511,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#internalUse">internalUse</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> Indicates if an attribute is used and set within the Dark Matter Data code generation mechanisms. In the documentation generation code, attributes marked as internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated. </td>
+      <td> Indicates if an attribute is used and set within the Dark Matter Data
+ code generation mechanisms. In the documentation generation code, attributes marked as
+ internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated. </td>
     </tr>
 
     <tr>
@@ -448,7 +521,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#nullReturnValue">nullReturnValue</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This attribute is used in TypeDefinitions to indicate the value that should be returned when an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined to return false when they aren't actually set on an object. This just gives a convenient mechanism to provide a default value for non-existent attribute values. </td>
+      <td> This attribute is used in TypeDefinitions to indicate the value that should be returned when
+ an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined
+ to return false when they aren't actually set on an object. This just gives a convenient mechanism to
+ provide a default value for non-existent attribute values. </td>
     </tr>
 
     <tr>
@@ -456,7 +532,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#obsoleteVersion">obsoleteVersion</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This indicates the version at which something became obsolete. Generally speaking you shouldn't ever delete definitions for products that have been released to the field, this may break backwards compatibility. Instead, you should mark them as obsolete. </td>
+      <td> This indicates the version at which something became obsolete.
+ Generally speaking you shouldn't ever delete definitions for products that have
+ been released to the field, this may break backwards compatibility. Instead, you
+ should mark them as obsolete. </td>
     </tr>
 
     <tr>
@@ -464,7 +543,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#secure">secure</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> This attribute indicates whether or not the attribute should be encrypted before being transported over the wire or stored in a file or repository </td>
+      <td> This attribute indicates whether or not the attribute should
+ be encrypted before being transported over the wire or stored in a file or
+ repository </td>
     </tr>
 
     <tr>
@@ -472,7 +553,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#valueType">valueType</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ValueTypeEnum">ValueTypeEnum</a> </td>
-      <td> This attribute indicates the cardinality and storage mechanism for an attribute. </td>
+      <td> This attribute indicates the cardinality and storage mechanism for an
+ attribute. </td>
     </tr>
 
   </table>
@@ -502,6 +584,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -523,7 +611,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#dmdID">dmdID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes. This is used as part of the serialization mechanisms built into Dark Matter Objects. </td>
+      <td> The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes.
+ This is used as part of the serialization mechanisms built into Dark Matter Objects. </td>
     </tr>
 
     <tr>
@@ -531,7 +620,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -539,7 +630,9 @@
       <td class="label">May</td>
       <td> <a href="meta.html#abbrev">abbrev</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This attribute stores an abbreviated form of the name of an attribute or class. This concept is borrowed from directory technology where shortened name forms are often used as part of distinguished names (DNs). </td>
+      <td> This attribute stores an abbreviated form of the name of an attribute or class. This
+ concept is borrowed from directory technology where shortened name forms are often
+ used as part of distinguished names (DNs). </td>
     </tr>
 
     <tr>
@@ -555,7 +648,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#allowedParents">allowedParents</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
-      <td> Indicates the classes of object that may be parents of the current class when objects are created in an instance hierarchy. </td>
+      <td> Indicates the classes of object that may be parents of the
+ current class when objects are created in an instance hierarchy. </td>
     </tr>
 
     <tr>
@@ -563,7 +657,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#dataType">dataType</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#DataTypeEnum">DataTypeEnum</a> </td>
-      <td> This attribute indicates the persistence characteristics of an attribute or class of object. How this information is used is application dependent. </td>
+      <td> This attribute indicates the persistence characteristics of an attribute or
+ class of object. How this information is used is application dependent. </td>
     </tr>
 
     <tr>
@@ -579,7 +674,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
     <tr>
@@ -587,7 +685,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#dmwWrapperType">dmwWrapperType</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#DmwTypeToWrapperType">DmwTypeToWrapperType</a> </td>
-      <td> The dmwWrapperType is used to indicate whether or not you want extended wrappers when the wrappers are generated for an object in a particular generation context. </td>
+      <td> The dmwWrapperType is used to indicate whether or not you want extended wrappers
+ when the wrappers are generated for an object in a particular generation context. </td>
     </tr>
 
     <tr>
@@ -595,7 +694,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#excludeFromContext">excludeFromContext</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The excludeFromContext attribute is used to indicate that a class of object (and all of its derivatives) should be excluded from the wrapper generation for the specified context. An example usage is in the Dark Matter Protocol where we don't want to generate wrappers for the message objects in a GXT context. </td>
+      <td> The excludeFromContext attribute is used to indicate that
+ a class of object (and all of its derivatives) should be excluded from the wrapper
+ generation for the specified context. An example usage is in the Dark Matter Protocol
+ where we don't want to generate wrappers for the message objects in a GXT context. </td>
     </tr>
 
     <tr>
@@ -603,7 +705,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#intendedToExtend">intendedToExtend</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
-      <td> This attribute can be used on AUXILIARY classes to give a hint about their intended usage. For example, if you were extending schema definitions with some or your  own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition. </td>
+      <td> This attribute can be used on AUXILIARY classes to give a hint about their
+ intended usage. For example, if you were extending schema definitions with some or your 
+ own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition. </td>
     </tr>
 
     <tr>
@@ -611,7 +715,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#isNamedBy">isNamedBy</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute by which an object of some class is named. When this attribute is supplied in a ClassDefinition, the generated DMO class will indicate that it implements the DmcNamedObjectIF and its getObjectName() method will return the value of the isNamedBy attribute. </td>
+      <td> Indicates the attribute by which an object of some class is named.
+ When this attribute is supplied in a ClassDefinition, the generated DMO class will
+ indicate that it implements the DmcNamedObjectIF and its getObjectName() method
+ will return the value of the isNamedBy attribute. </td>
     </tr>
 
     <tr>
@@ -619,7 +726,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#may">may</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the set of attributes that an instance of a class MAY have. When accessed in Java, this is a set of references to AttributeDefinition objects. </td>
+      <td> Indicates the set of attributes that an instance of a class MAY
+ have. When accessed in Java, this is a set of references to AttributeDefinition
+ objects. </td>
     </tr>
 
     <tr>
@@ -635,7 +744,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#obsoleteVersion">obsoleteVersion</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This indicates the version at which something became obsolete. Generally speaking you shouldn't ever delete definitions for products that have been released to the field, this may break backwards compatibility. Instead, you should mark them as obsolete. </td>
+      <td> This indicates the version at which something became obsolete.
+ Generally speaking you shouldn't ever delete definitions for products that have
+ been released to the field, this may break backwards compatibility. Instead, you
+ should mark them as obsolete. </td>
     </tr>
 
     <tr>
@@ -643,7 +755,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#ruleDefinition">ruleDefinition</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleDefinition">RuleDefinition</a> </td>
-      <td> The RuleDefinition that resulted in the creation of an internally generated ClassDefinition. </td>
+      <td> The RuleDefinition that resulted in the creation of an
+ internally generated ClassDefinition. </td>
     </tr>
 
     <tr>
@@ -651,7 +764,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#subpackage">subpackage</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The subpackage beneath extended where generated code will be written. This allows for a hierarchic package structure for the classes generated by the dmg and mvc generator utilities. The structure can contain other subpackages etc x.y.z but should not start or end with a period. </td>
+      <td> The subpackage beneath extended where generated code will be written. This
+ allows for a hierarchic package structure for the classes generated by the dmg and mvc generator
+ utilities. The structure can contain other subpackages etc x.y.z but should not start or end
+ with a period. </td>
     </tr>
 
     <tr>
@@ -659,7 +775,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#supportsBackrefTracking">supportsBackrefTracking</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> Indicates if a class of objects supports back reference tracking or not. The default is that all objects support it, however, in places like the Dark Matter Protocol, we don't want to track references in the messages. </td>
+      <td> Indicates if a class of objects supports back reference tracking or not. The
+ default is that all objects support it, however, in places like the Dark Matter Protocol, we
+ don't want to track references in the messages. </td>
     </tr>
 
     <tr>
@@ -667,7 +785,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#useWrapperType">useWrapperType</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#WrapperTypeEnum">WrapperTypeEnum</a> </td>
-      <td> Indicates whether you want to use the generated DMW wrapper or the extended wrapper you've created yourself. </td>
+      <td> Indicates whether you want to use the generated DMW wrapper
+ or the extended wrapper you've created yourself. </td>
     </tr>
 
     <tr>
@@ -675,7 +794,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#usesInterface">usesInterface</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This is a hack for now to allow for the inclusion of an  interface on a class; it should be the fully qualified name of the interface. The interface shouldn't require any method implementations. </td>
+      <td> This is a hack for now to allow for the inclusion of an 
+ interface on a class; it should be the fully qualified name of the interface.
+ The interface shouldn't require any method implementations. </td>
     </tr>
 
   </table>
@@ -686,7 +807,30 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The ComplexTypeDefinition provides a mechanism for defining the structure of a complex type composed of other types. From this definition, a new DmcType is generated that has all of the required methods automatically defined.</td>
+      <td colspan="2">The ComplexTypeDefinition provides a mechanism for defining the structure of
+ a complex type composed of other types. From this definition, a new DmcType is generated that
+ has all of the required methods automatically defined.
+ <p/>
+ An example definition is the RuleParam:
+ <pre>
+ ComplexTypeDefinition
+ name			RuleParam
+ fieldSeparator :
+ field String importStatement The import for the type of parameter
+ field String genericArgs     The generic arguments associated with this parameter
+ field String name            The name of the parameter
+ field String description     A description of the parameter
+ description The RuleParam type is used to succintly describe a parameter
+  to be supplied to a rule when it is executed.
+ </pre>
+ In this case, the type has four fields, all of String type. An example of the String
+ format of the field might be: org.dmc.DmcObject::obj:The object to be validated. In this
+ case, the generic args field isn't available and will be the empty string. When a field
+ seperator is specified, all fields are, more or less optional, but the underlying type
+ must be able to handle the empty string as a valid value. This wouldn't work with Integer.
+ <p/>
+ If no field separator is specified, the separator is assumed to be whitespace and additional
+ whitespace is consumed during the parsing.</td>
     </tr>
 
     <tr>
@@ -712,6 +856,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -733,7 +883,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -741,7 +893,10 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
     <tr>
@@ -749,7 +904,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#extendedClass">extendedClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The extendedClass indicates the fully qualified name of the class that is derived from the generated ComplexType to provide additional behaviour. </td>
+      <td> The extendedClass indicates the fully qualified name of the class
+ that is derived from the generated ComplexType to provide additional behaviour. </td>
     </tr>
 
     <tr>
@@ -757,7 +913,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#fieldSeparator">fieldSeparator</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The fieldSeparator is used to indicate the separation character used when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is assumed to be a space. </td>
+      <td> The fieldSeparator is used to indicate the separation character used
+ when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is
+ assumed to be a space. </td>
     </tr>
 
   </table>
@@ -768,7 +926,21 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The Dependency class allows for the definition of a named dependency on something; usually an interface. In the current schema mechanisms, the only place that this mechanism is used is in the specification of RuleDefinitions. Rule instances are created by injecting RuleData into a rule implementation. If the rule implementation has dependencies on other objects, those dependencies are specified via references to Dependencies. <p/> A Dependency can be referred to via a RunContext definition which directs the generation of code that can instantiate the required object instances. Satisfying a Dependency relies on there being a DependencyImplementation that indicates how to instantiate the object that implements the interface defined by the dependency. <p/> If a Dependency specifies an instantiation, this is considered the default mechanism to fulfill the dependency. Other DependencyImplementations may be specified that override the specified instantiation in particular contexts.</td>
+      <td colspan="2">The Dependency class allows for the definition of a named dependency
+ on something; usually an interface. In the current schema mechanisms, the only place
+ that this mechanism is used is in the specification of RuleDefinitions. Rule instances are
+ created by injecting RuleData into a rule implementation. If the rule implementation
+ has dependencies on other objects, those dependencies are specified via references to
+ Dependencies.
+ <p/>
+ A Dependency can be referred to via a RunContext definition which directs the generation
+ of code that can instantiate the required object instances. Satisfying a Dependency relies
+ on there being a DependencyImplementation that indicates how to instantiate the object
+ that implements the interface defined by the dependency.
+ <p/>
+ If a Dependency specifies an instantiation, this is considered the default mechanism to
+ fulfill the dependency. Other DependencyImplementations may be specified that override
+ the specified instantiation in particular contexts.</td>
     </tr>
 
     <tr>
@@ -787,6 +959,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -800,7 +978,9 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -835,7 +1015,10 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The DependencyImplementation allows you to fulfill a defined Dependency. When a RunContext is specified, it will indicate a set of dependencies. For each of the specified dependencies, there must be at least one related DependencyImplementation, otherwise, we have no way to fulfill the dependency.</td>
+      <td colspan="2">The DependencyImplementation allows you to fulfill a defined Dependency.
+ When a RunContext is specified, it will indicate a set of dependencies. For each of the
+ specified dependencies, there must be at least one related DependencyImplementation,
+ otherwise, we have no way to fulfill the dependency.</td>
     </tr>
 
     <tr>
@@ -850,6 +1033,12 @@
       <td colspan="2">
       <a href="meta.html#DmsDefinition">DmsDefinition</a>
       </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
     </tr>
 
     <tr>
@@ -883,7 +1072,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -899,7 +1090,10 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
   </table>
@@ -928,6 +1122,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -941,7 +1141,9 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
   </table>
@@ -952,7 +1154,10 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The EnumDefinition allows for the definition of real Java enums that provide inherent mapping of the string and integer values of the enum into actual enum values. Once defined, EnumDefinitions can be used where ever you would use a TypeDefinition name i.e. they can be used in the type attribute of AttributeDefinitions.</td>
+      <td colspan="2">The EnumDefinition allows for the definition of real Java enums that provide
+ inherent mapping of the string and integer values of the enum into actual enum values. Once
+ defined, EnumDefinitions can be used where ever you would use a TypeDefinition name i.e.
+ they can be used in the type attribute of AttributeDefinitions.</td>
     </tr>
 
     <tr>
@@ -971,6 +1176,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -984,7 +1195,8 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#enumValue">enumValue</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#EnumValue">EnumValue</a> </td>
-      <td> Indicates the set of enum values associated with an enumeration type definition. </td>
+      <td> Indicates the set of enum values associated with an enumeration type
+ definition. </td>
     </tr>
 
     <tr>
@@ -992,7 +1204,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -1000,7 +1214,10 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
     <tr>
@@ -1008,7 +1225,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#nullReturnValue">nullReturnValue</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This attribute is used in TypeDefinitions to indicate the value that should be returned when an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined to return false when they aren't actually set on an object. This just gives a convenient mechanism to provide a default value for non-existent attribute values. </td>
+      <td> This attribute is used in TypeDefinitions to indicate the value that should be returned when
+ an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined
+ to return false when they aren't actually set on an object. This just gives a convenient mechanism to
+ provide a default value for non-existent attribute values. </td>
     </tr>
 
   </table>
@@ -1019,7 +1239,10 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The ExtendedReferenceTypeDefinition provides a mechanism for extending  the automatically generated named object reference attribute types with additional information. This can be seen as adding additional information to the relationship between two objects.</td>
+      <td colspan="2">The ExtendedReferenceTypeDefinition provides a mechanism for extending 
+ the automatically generated named object reference attribute types with additional
+ information. This can be seen as adding additional information to the relationship
+ between two objects.</td>
     </tr>
 
     <tr>
@@ -1039,6 +1262,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -1052,7 +1281,8 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#extendedReferenceClass">extendedReferenceClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
-      <td> Indicates the class of object to which an  ExtendedReferenceTypeDefinition refers. </td>
+      <td> Indicates the class of object to which an 
+ ExtendedReferenceTypeDefinition refers. </td>
     </tr>
 
     <tr>
@@ -1068,7 +1298,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -1076,7 +1308,10 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
     <tr>
@@ -1084,7 +1319,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#extendedClass">extendedClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The extendedClass indicates the fully qualified name of the class that is derived from the generated ComplexType to provide additional behaviour. </td>
+      <td> The extendedClass indicates the fully qualified name of the class
+ that is derived from the generated ComplexType to provide additional behaviour. </td>
     </tr>
 
     <tr>
@@ -1092,7 +1328,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#fieldSeparator">fieldSeparator</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The fieldSeparator is used to indicate the separation character used when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is assumed to be a space. </td>
+      <td> The fieldSeparator is used to indicate the separation character used
+ when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is
+ assumed to be a space. </td>
     </tr>
 
   </table>
@@ -1103,7 +1341,11 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The RuleCategory allows for the definition of categories of rules to be applied to various objects and indicates the expected interface to be implemented by a rule instance. A RuleDefinition may belong to multiple categories. The basic RuleManager provides interfaces to trigger the RuleCategories defined as part of the meta schema. If you add other rule categories, you would derive from the RuleManager to add the additional methods required</td>
+      <td colspan="2">The RuleCategory allows for the definition of categories of rules to be applied
+ to various objects and indicates the expected interface to be implemented by a rule instance.
+ A RuleDefinition may belong to multiple categories. The basic RuleManager provides interfaces
+ to trigger the RuleCategories defined as part of the meta schema. If you add other rule categories,
+ you would derive from the RuleManager to add the additional methods required</td>
     </tr>
 
     <tr>
@@ -1122,6 +1364,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -1135,7 +1383,10 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
     <tr>
@@ -1143,7 +1394,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -1151,7 +1404,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#opContext">opContext</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#OperationalContextEnum">OperationalContextEnum</a> </td>
-      <td> Indicates the operational context for some component e.g. object or attribute validators. </td>
+      <td> Indicates the operational context for some component e.g. object or attribute
+ validators. </td>
     </tr>
 
     <tr>
@@ -1186,6 +1440,14 @@
       <td> An import required for arguements to a ruleExecution specification. </td>
     </tr>
 
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#ruleParam">ruleParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#RuleParam">RuleParam</a> </td>
+      <td> A parameter to be supplied to a rule when it is executed. </td>
+    </tr>
+
   </table>
 
   <table>
@@ -1194,7 +1456,8 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The RuleData class serves as a common base for all ClassDefinitions that are generated internally to represent the data associated with RuleDefinitions.</td>
+      <td colspan="2">The RuleData class serves as a common base for all ClassDefinitions
+ that are generated internally to represent the data associated with RuleDefinitions.</td>
     </tr>
 
     <tr>
@@ -1207,7 +1470,13 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="dmv.html#AllowedAttributesRuleData">AllowedAttributesRuleData</a> </div>      <div class="derived"> <a href="dmv.html#InitRuleData">InitRuleData</a> </div>      <div class="derived"> <a href="dmv.html#IntegerRangeRuleData">IntegerRangeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#UCOAllowedAttributesRuleData">UCOAllowedAttributesRuleData</a> </div>      </td>
+      <div class="derived"> <a href="dmv.html#AllowedAttributesRuleData">AllowedAttributesRuleData</a> </div>      <div class="derived"> <a href="dmv.html#AttributeTypeRuleData">AttributeTypeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#CheckAttributesBasedOnValueRuleData">CheckAttributesBasedOnValueRuleData</a> </div>      <div class="derived"> <a href="dmv.html#InitRuleData">InitRuleData</a> </div>      <div class="derived"> <a href="dmv.html#IntegerRangeRuleData">IntegerRangeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#RelatedNumbersRuleData">RelatedNumbersRuleData</a> </div>      <div class="derived"> <a href="dmv.html#UCOAllowedAttributesRuleData">UCOAllowedAttributesRuleData</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
     </tr>
 
     <tr>
@@ -1225,7 +1494,9 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#ruleName">ruleName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
-      <td> The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed. </td>
+      <td> The ruleName attribute is used to store a single camelCase format name for a rule.
+ The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
+ other characters are allowed. </td>
     </tr>
 
     <tr>
@@ -1239,9 +1510,28 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
+      <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
+      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> The class to which a rule should be applied. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
   </table>
@@ -1252,7 +1542,20 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The RuleDefinition allows for the definition of rules that can be applied to attributes or classes. Rules are not just for validation, they can be applied to objects at different times in an object's life cycle e.g.  the InitRule can initialize a set of attributes to known values. <p/> RuleDefinitions will result in the generation of ClassDefinitions that define the  DMOs that will carry the parameters associated with the rule and expectation that you will define an implementation class for the rule that derives from an abstract BaseImpl (base implementation) of the rule that provides common rule infrastructure and appropriate abstract methods that must be filled in. <p/> RuleDefinitions and ClassDefinitions share the same dmdID space and the IDs must be unique. This is because each RuleDefinition results in the creation of a  ClassDefinition for the DMO part of the rule that carries the rule parameters.</td>
+      <td colspan="2">The RuleDefinition allows for the definition of rules that can
+ be applied to attributes or classes. Rules are not just for validation, they
+ can be applied to objects at different times in an object's life cycle e.g. 
+ the InitRule can initialize a set of attributes to known values.
+ <p/>
+ RuleDefinitions will result in the generation of ClassDefinitions that define the 
+ DMOs that will carry the parameters associated with the rule and the expectation
+ that you will define an implementation class for the rule that derives from
+ an abstract BaseImpl (base implementation) of the rule that provides common
+ rule infrastructure and appropriate abstract methods that must be filled in.
+ <p/>
+ RuleDefinitions and ClassDefinitions share the same dmdID space and the IDs must
+ be unique. This is because each RuleDefinition results in the creation of a 
+ ClassDefinition for the DMO part of the rule that carries the rule parameters.</td>
     </tr>
 
     <tr>
@@ -1271,6 +1574,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -1284,7 +1593,10 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
     <tr>
@@ -1292,7 +1604,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#dmdID">dmdID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes. This is used as part of the serialization mechanisms built into Dark Matter Objects. </td>
+      <td> The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes.
+ This is used as part of the serialization mechanisms built into Dark Matter Objects. </td>
     </tr>
 
     <tr>
@@ -1300,7 +1613,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -1309,14 +1624,6 @@
       <td> <a href="meta.html#ruleCategory">ruleCategory</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#RuleCategory">RuleCategory</a> </td>
       <td> The category of a rule. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#ruleScope">ruleScope</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleScopeEnum">RuleScopeEnum</a> </td>
-      <td> The scope of a rule. </td>
     </tr>
 
     <tr>
@@ -1340,7 +1647,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#isExtensible">isExtensible</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible. The best example is the InitRule where any set of attributes can be specified as value for the rule. </td>
+      <td> Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE
+ or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible.
+ The best example is the InitRule where any set of attributes can be specified as value for the rule. </td>
     </tr>
 
     <tr>
@@ -1348,7 +1657,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#may">may</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the set of attributes that an instance of a class MAY have. When accessed in Java, this is a set of references to AttributeDefinition objects. </td>
+      <td> Indicates the set of attributes that an instance of a class MAY
+ have. When accessed in Java, this is a set of references to AttributeDefinition
+ objects. </td>
     </tr>
 
     <tr>
@@ -1380,6 +1691,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -1401,7 +1718,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -1409,7 +1728,10 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
   </table>
@@ -1439,6 +1761,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -1452,7 +1780,10 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
     <tr>
@@ -1460,7 +1791,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -1468,7 +1801,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#schemaBaseID">schemaBaseID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The base identifier value for a schema. This value is added to each dmdID value associated with the AttributeDefinitions defined by the schema. This allows for easy rebasing of identifier values if required. </td>
+      <td> The base identifier value for a schema. This value is added to each dmdID value
+ associated with the AttributeDefinitions defined by the schema. This allows for easy rebasing of
+ identifier values if required. </td>
     </tr>
 
     <tr>
@@ -1476,7 +1811,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#schemaIDRange">schemaIDRange</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The maximum number of attribute definitions in a particular schema. This will provide immediate feedback if you exceed the given ID range for your schema. </td>
+      <td> The maximum number of attribute definitions in a particular schema. This will provide
+ immediate feedback if you exceed the given ID range for your schema. </td>
     </tr>
 
     <tr>
@@ -1484,7 +1820,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#schemaPackage">schemaPackage</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> Indicates the package that a schema will be part of when its code is generated using DMO generator tool. </td>
+      <td> Indicates the package that a schema will be part of when its code
+ is generated using DMO generator tool. </td>
     </tr>
 
     <tr>
@@ -1492,7 +1829,10 @@
       <td class="label">May</td>
       <td> <a href="meta.html#createAttributeFactory">createAttributeFactory</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> When specified as true on a SchemaDefinition, the DMO generation utility will create a free standing AttributeFactory for the schema. This allows for the creation of attributes taht can then be embedded in complex objects and properly serialized/deserialized. </td>
+      <td> When specified as true on a SchemaDefinition, the DMO generation
+ utility will create a free standing AttributeFactory for the schema. This allows for
+ the creation of attributes taht can then be embedded in complex objects and properly
+ serialized/deserialized. </td>
     </tr>
 
     <tr>
@@ -1500,7 +1840,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#defFiles">defFiles</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> A list of files that contain the class, attribute and type definitions that comprise a schema. </td>
+      <td> A list of files that contain the class, attribute and type definitions
+ that comprise a schema. </td>
     </tr>
 
     <tr>
@@ -1516,7 +1857,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#dmwPackage">dmwPackage</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> Indicates the package where server related Dark Matter Wrapper classes  were generated for this schema. This is used when we're generating derived wrapper classes. </td>
+      <td> Indicates the package where server related Dark Matter Wrapper classes 
+ were generated for this schema. This is used when we're generating derived wrapper
+ classes. </td>
     </tr>
 
     <tr>
@@ -1524,7 +1867,13 @@
       <td class="label"> </td>
       <td> <a href="meta.html#dmwTypeToPackage">dmwTypeToPackage</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#StringToString">StringToString</a> </td>
-      <td> The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage gxt com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used. </td>
+      <td> The dmwTypeToPackage attribute is used to indicate alternative generation
+ packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we 
+ want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify
+ dmwTypeToPackage gxt com.example.client. Each of schemas that's loaded for generation would
+ have to have this same attribute specified so that, if there were derived classes across
+ schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass()
+ method to see how this is used. </td>
     </tr>
 
     <tr>
@@ -1532,7 +1881,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#generatedFileHeader">generatedFileHeader</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The name of file that coresides with the schema.dms file that contains a common header to be applied to all generated code. For instance, you might want a common licensing comment at the top of your generated files. </td>
+      <td> The name of file that coresides with the schema.dms file that
+ contains a common header to be applied to all generated code. For instance, you
+ might want a common licensing comment at the top of your generated files. </td>
     </tr>
 
     <tr>
@@ -1564,7 +1915,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#schemaExtension">schemaExtension</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The fully qualified name of a class that extends the schema management capabilities of the SchemaManager. the class must have a zero arg constructor and implement the SchemaExtensionIF. </td>
+      <td> The fully qualified name of a class that extends the schema management
+ capabilities of the SchemaManager. the class must have a zero arg constructor and implement
+ the SchemaExtensionIF. </td>
     </tr>
 
   </table>
@@ -1575,7 +1928,9 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The SliceDefinition class is used to define a named set of attributes that are used to retrieve a slice of an object i.e. an abbreviated set of values. These are used in the generation of static, named DmcSliceInfo instances.</td>
+      <td colspan="2">The SliceDefinition class is used to define a named set of attributes
+ that are used to retrieve a slice of an object i.e. an abbreviated set of
+ values. These are used in the generation of static, named DmcSliceInfo instances.</td>
     </tr>
 
     <tr>
@@ -1594,6 +1949,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -1607,7 +1968,9 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -1615,7 +1978,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#selectAttribute">selectAttribute</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> The selectAttribute indicates an attribute to be used in the definition of a Slice. </td>
+      <td> The selectAttribute indicates an attribute to be used in the definition
+ of a Slice. </td>
     </tr>
 
     <tr>
@@ -1623,7 +1987,10 @@
       <td class="label">May</td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
   </table>
@@ -1634,7 +2001,16 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The TypeDefinition is used to define the types of attributes that can be used as the basis for attribute values. The name of the type definition should be the same as the actual Java class that is used to store the value of an attribute e.g. the name of the type used to store strings is String. The typeClassName is the fully qualified name of the class derived from DmcAttribute that stores this type of value; they are always, by conventional, named DmcTypeXXX. <P> TypeDefinitions are automatically generated internally for ClassDefinitions and EnumDefinitions so that these objects can be referred to via the type attribute of AttributeDefinitions. These definitions are marked as internallyGenerated.</td>
+      <td colspan="2">The TypeDefinition is used to define the types of attributes that can be used
+ as the basis for attribute values. The name of the type definition should be the same as the
+ actual Java class that is used to store the value of an attribute e.g. the name of the type
+ used to store strings is String. The typeClassName is the fully qualified name of the class
+ derived from DmcAttribute that stores this type of value; they are always, by conventional,
+ named DmcTypeXXX.
+ <P>
+ TypeDefinitions are automatically generated internally for ClassDefinitions and
+ EnumDefinitions so that these objects can be referred to via the type attribute of AttributeDefinitions.
+ These definitions are marked as internallyGenerated.</td>
     </tr>
 
     <tr>
@@ -1653,6 +2029,12 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td>Named by</td>
       <td colspan="2"> <a href="meta.html#name">name</a> </td>
     </tr>
@@ -1666,7 +2048,9 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
-      <td> The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character. </td>
+      <td> The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character. </td>
     </tr>
 
     <tr>
@@ -1674,7 +2058,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#typeClassName">typeClassName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This is the fully qualified name of the class derived from DmcAttribute that provides management of a particular type of attribute value. For instance, the type class that handles String attributes  is org.dmd.dmc.types.DmcTypeString </td>
+      <td> This is the fully qualified name of the class derived from DmcAttribute that provides management
+ of a particular type of attribute value. For instance, the type class that handles String attributes 
+ is org.dmd.dmc.types.DmcTypeString </td>
     </tr>
 
     <tr>
@@ -1682,7 +2068,11 @@
       <td class="label">May</td>
       <td> <a href="meta.html#altType">altType</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The altType indicates an alternate type for a value. For instance when dealing with NameContainers, the value interface is obviously NameContainer, but the secret sauce of NameContainers is that they also take any DmcObjectName derivative. Specifying the altType on the NameContainer TypeDefinition allows for generation of  the DmcObjectName interface as well. </td>
+      <td> The altType indicates an alternate type for a value. For instance
+ when dealing with NameContainers, the value interface is obviously NameContainer, but
+ the secret sauce of NameContainers is that they also take any DmcObjectName derivative.
+ Specifying the altType on the NameContainer TypeDefinition allows for generation of 
+ the DmcObjectName interface as well. </td>
     </tr>
 
     <tr>
@@ -1698,7 +2088,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation. </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
     </tr>
 
     <tr>
@@ -1714,7 +2107,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#filterAttributeDef">filterAttributeDef</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> The filterAttributeDef is a reference to the attribute that is locked to a TypeDefinition that is flagged as filterType. This mechanism is used to create the correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter. </td>
+      <td> The filterAttributeDef is a reference to the attribute that is locked
+ to a TypeDefinition that is flagged as filterType. This mechanism is used to create the
+ correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter. </td>
     </tr>
 
     <tr>
@@ -1722,7 +2117,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#genericArgs">genericArgs</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This attribute indicates the generic arguments to be supplied in the use of a class in an autogenerated Iterable. </td>
+      <td> This attribute indicates the generic arguments to be supplied in the
+ use of a class in an autogenerated Iterable. </td>
     </tr>
 
     <tr>
@@ -1738,7 +2134,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#isNameType">isNameType</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> This attribute indicates if a defined type is used for naming purposes. This allows us to automatically add attributes of this type to the AttributeFactories. </td>
+      <td> This attribute indicates if a defined type is used for naming purposes.
+ This allows us to automatically add attributes of this type to the AttributeFactories. </td>
     </tr>
 
     <tr>
@@ -1746,7 +2143,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#keyClass">keyClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This attribute indicates the class of the key used for types that support storage in a MAP. </td>
+      <td> This attribute indicates the class of the key used for types that support
+ storage in a MAP. </td>
     </tr>
 
     <tr>
@@ -1754,7 +2152,8 @@
       <td class="label"> </td>
       <td> <a href="meta.html#keyImport">keyImport</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> Indicates the import for a keyClass. this is required if the keyClass is NOT a primitive java type e.g. Integer, String etc. </td>
+      <td> Indicates the import for a keyClass. this is required if the keyClass
+ is NOT a primitive java type e.g. Integer, String etc. </td>
     </tr>
 
     <tr>
@@ -1762,7 +2161,9 @@
       <td class="label"> </td>
       <td> <a href="meta.html#nameAttributeDef">nameAttributeDef</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> The nameAttributeDef is a reference to the attribute that is locked to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]* derivative for a value of type DmcObjectName. </td>
+      <td> The nameAttributeDef is a reference to the attribute that is locked
+ to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]*
+ derivative for a value of type DmcObjectName. </td>
     </tr>
 
     <tr>
@@ -1770,7 +2171,10 @@
       <td class="label"> </td>
       <td> <a href="meta.html#nullReturnValue">nullReturnValue</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> This attribute is used in TypeDefinitions to indicate the value that should be returned when an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined to return false when they aren't actually set on an object. This just gives a convenient mechanism to provide a default value for non-existent attribute values. </td>
+      <td> This attribute is used in TypeDefinitions to indicate the value that should be returned when
+ an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined
+ to return false when they aren't actually set on an object. This just gives a convenient mechanism to
+ provide a default value for non-existent attribute values. </td>
     </tr>
 
     <tr>
@@ -1801,7 +2205,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The fully qualified name of a hierarchic object. The exact form of the fqn is application specific.</td>
+      <td>The fully qualified name of a hierarchic object. The exact form of
+ the fqn is application specific.</td>
     </tr>
 
     <tr>
@@ -1830,7 +2235,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute stores an abbreviated form of the name of an attribute or class. This concept is borrowed from directory technology where shortened name forms are often used as part of distinguished names (DNs).</td>
+      <td>This attribute stores an abbreviated form of the name of an attribute or class. This
+ concept is borrowed from directory technology where shortened name forms are often
+ used as part of distinguished names (DNs).</td>
     </tr>
 
     <tr>
@@ -1906,7 +2313,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the classes of object that may be parents of the current class when objects are created in an instance hierarchy.</td>
+      <td>Indicates the classes of object that may be parents of the
+ current class when objects are created in an instance hierarchy.</td>
     </tr>
 
     <tr>
@@ -1931,7 +2339,11 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The altType indicates an alternate type for a value. For instance when dealing with NameContainers, the value interface is obviously NameContainer, but the secret sauce of NameContainers is that they also take any DmcObjectName derivative. Specifying the altType on the NameContainer TypeDefinition allows for generation of  the DmcObjectName interface as well.</td>
+      <td>The altType indicates an alternate type for a value. For instance
+ when dealing with NameContainers, the value interface is obviously NameContainer, but
+ the secret sauce of NameContainers is that they also take any DmcObjectName derivative.
+ Specifying the altType on the NameContainer TypeDefinition allows for generation of 
+ the DmcObjectName interface as well.</td>
     </tr>
 
     <tr>
@@ -1981,7 +2393,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indiactes the attribute to which an ATTRIBUTE type rule is applied.</td>
+      <td>Indicates the attribute to which an ATTRIBUTE type rule is applied.</td>
     </tr>
 
     <tr>
@@ -1990,7 +2402,7 @@
       <td>
 <table>
   <tr>
-    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -2015,32 +2427,17 @@
       <td>
 <table>
   <tr>
-    <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
-</tr>
-</table>
-      </td>
-    </tr>
-
-    <tr> <td class="className" colspan="3"> <a name="applyToClasses"> applyToClasses </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#ClassDefinition">ClassDefinition</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>The classes to which a rule should be applied.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-<table>
+    <td> AllowedAttributesRuleData (<a href="dmv.html#AllowedAttributesRuleData">dmv</a>) </td>
+    <td> AttributeTypeRuleData (<a href="dmv.html#AttributeTypeRuleData">dmv</a>) </td>
+    <td> CheckAttributesBasedOnValueRuleData (<a href="dmv.html#CheckAttributesBasedOnValueRuleData">dmv</a>) </td>
   <tr>
+    <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
     <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+    <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
+</tr>
+  <tr>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
+    <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
 </tr>
 </table>
       </td>
@@ -2056,7 +2453,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the classes of object to which an action is to be attached. This mechanism allows for the extension of a class's behaviour without having to alter the schema of the class involved. This can be viewed as the auxiliary class equivalent for behaviour.</td>
+      <td>Indicates the classes of object to which an action is to be attached.
+ This mechanism allows for the extension of a class's behaviour without having
+ to alter the schema of the class involved. This can be viewed as the auxiliary
+ class equivalent for behaviour.</td>
     </tr>
 
     <tr>
@@ -2131,7 +2531,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This flag indicates whether or not an Action will be blocked from proceeding if there is a DAF lock on the object against which the action is performed. The default is to block all incoming actions against a locked object. By setting this flag to false, you can allow an action to proceed.</td>
+      <td>This flag indicates whether or not an Action will be blocked from
+ proceeding if there is a DAF lock on the object against which the action is
+ performed. The default is to block all incoming actions against a locked
+ object. By setting this flag to false, you can allow an action to proceed.</td>
     </tr>
 
     <tr>
@@ -2156,7 +2559,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The camelCaseName attribute is used to store a single camelCase format name for something. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed.</td>
+      <td>The camelCaseName attribute is used to store a single camelCase format name for something.
+ The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
+ other characters are allowed.</td>
     </tr>
 
     <tr>
@@ -2203,7 +2608,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The classFilter is used to performing matching of objects based on their class or auxiliary classes.</td>
+      <td>The classFilter is used to performing matching of objects based on
+ their class or auxiliary classes.</td>
     </tr>
 
     <tr>
@@ -2279,7 +2685,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>When specified as true on a SchemaDefinition, the DMO generation utility will create a free standing AttributeFactory for the schema. This allows for the creation of attributes taht can then be embedded in complex objects and properly serialized/deserialized.</td>
+      <td>When specified as true on a SchemaDefinition, the DMO generation
+ utility will create a free standing AttributeFactory for the schema. This allows for
+ the creation of attributes taht can then be embedded in complex objects and properly
+ serialized/deserialized.</td>
     </tr>
 
     <tr>
@@ -2304,7 +2713,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the persistence characteristics of an attribute or class of object. How this information is used is application dependent.</td>
+      <td>This attribute indicates the persistence characteristics of an attribute or
+ class of object. How this information is used is application dependent.</td>
     </tr>
 
     <tr>
@@ -2330,7 +2740,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of files that contain the class, attribute and type definitions that comprise a schema.</td>
+      <td>A list of files that contain the class, attribute and type definitions
+ that comprise a schema.</td>
     </tr>
 
     <tr>
@@ -2458,7 +2869,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of schema references that are based on the contents of the dependsOn attribute.</td>
+      <td>A list of schema references that are based on the contents of the dependsOn
+ attribute.</td>
     </tr>
 
     <tr>
@@ -2546,7 +2958,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The description attribute is used to provide descriptive documentation for schema related definitions. The text provided should conform to XHTML concepts since it will be dumped in the context of the generated HTML documentation.</td>
+      <td>The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation.</td>
     </tr>
 
     <tr>
@@ -2559,17 +2974,22 @@
     <td> AllowedAttributesRuleData (<a href="dmv.html#AllowedAttributesRuleData">dmv</a>) </td>
     <td> AttributeDefinition (<a href="meta.html#AttributeDefinition">meta</a>) </td>
   <tr>
+    <td> AttributeTypeRuleData (<a href="dmv.html#AttributeTypeRuleData">dmv</a>) </td>
+    <td> CheckAttributesBasedOnValueRuleData (<a href="dmv.html#CheckAttributesBasedOnValueRuleData">dmv</a>) </td>
     <td> ClassDefinition (<a href="meta.html#ClassDefinition">meta</a>) </td>
+</tr>
+  <tr>
     <td> ComplexTypeDefinition (<a href="meta.html#ComplexTypeDefinition">meta</a>) </td>
     <td> DependencyImplementation (<a href="meta.html#DependencyImplementation">meta</a>) </td>
+    <td> DmgConfig (<a href="dmg.html#DmgConfig">dmg</a>) </td>
 </tr>
   <tr>
-    <td> DmgConfig (<a href="dmg.html#DmgConfig">dmg</a>) </td>
     <td> EnumDefinition (<a href="meta.html#EnumDefinition">meta</a>) </td>
     <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
+    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
 </tr>
   <tr>
-    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+    <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
     <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
     <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
@@ -2597,7 +3017,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The designatedFilterAttribute flag is used to identify the attribute designated as the standard wrapper for filters of a particular type.  One, and only one, attribute definition can be the designatedFilterAttribute for a  TypeDefinition that is identified as isFilterType.</td>
+      <td>The designatedFilterAttribute flag is used to identify the attribute
+ designated as the standard wrapper for filters of a particular type. 
+ One, and only one, attribute definition can be the designatedFilterAttribute for a 
+ TypeDefinition that is identified as isFilterType.</td>
     </tr>
 
     <tr>
@@ -2622,7 +3045,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The designatedNameAttribute flag is used to identify the attribute designated as the standard wrapper for names of a particular type. One, and only one, attribute definition can be the designatedNameAttribute for a TypeDefinition that has isNameType true.</td>
+      <td>The designatedNameAttribute flag is used to identify the attribute
+ designated as the standard wrapper for names of a particular type. One, and only one,
+ attribute definition can be the designatedNameAttribute for a TypeDefinition that has
+ isNameType true.</td>
     </tr>
 
     <tr>
@@ -2647,7 +3073,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes. This is used as part of the serialization mechanisms built into Dark Matter Objects.</td>
+      <td>The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes.
+ This is used as part of the serialization mechanisms built into Dark Matter Objects.</td>
     </tr>
 
     <tr>
@@ -2699,7 +3126,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the full name of the class that extends a DMW class. Dark Matter Extended (DME).</td>
+      <td>This attribute indicates the full name of the class that extends a DMW class.
+ Dark Matter Extended (DME).</td>
     </tr>
 
     <tr>
@@ -2799,7 +3227,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the full name of the generated Dark Matter Object (DMO) class (including package) that is generated for this class. The class will always have DmcObject at the top of its derivation hierarchy.</td>
+      <td>This attribute indicates the full name of the generated Dark Matter Object (DMO)
+ class (including package) that is generated for this class. The class will always have DmcObject
+ at the top of its derivation hierarchy.</td>
     </tr>
 
     <tr>
@@ -2849,7 +3279,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the full name of the DmcType class used to reference a class. These types are auto generated and named DmcType<classname>REF.</td>
+      <td>This attribute indicates the full name of the DmcType class used to reference
+ a class. These types are auto generated and named DmcType<classname>REF.</td>
     </tr>
 
     <tr>
@@ -2874,7 +3305,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the full name of the class used to reference a class. These types are auto generated and named <classname>REF.</td>
+      <td>This attribute indicates the full name of the class used to reference
+ a class. These types are auto generated and named <classname>REF.</td>
     </tr>
 
     <tr>
@@ -2974,7 +3406,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the full name of the generated Dark Matter Wrapper (DMW) class (including package) that is wrapped by this class. The class will always be a derived class of DmwWrapperBase.</td>
+      <td>This attribute indicates the full name of the generated Dark Matter Wrapper (DMW)
+ class (including package) that is wrapped by this class. The class will always be a derived class of
+ DmwWrapperBase.</td>
     </tr>
 
     <tr>
@@ -2999,7 +3433,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates just the DmcContainerIterator name for a class of object.</td>
+      <td>This attribute indicates just the DmcContainerIterator name for a
+ class of object.</td>
     </tr>
 
     <tr>
@@ -3025,7 +3460,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the full name of the DmcContainerIterator  derived class that allows us to iterate over a set of object references and get back the DMW wrapper object instead of the DMO.</td>
+      <td>This attribute indicates the full name of the DmcContainerIterator 
+ derived class that allows us to iterate over a set of object references and get back
+ the DMW wrapper object instead of the DMO.</td>
     </tr>
 
     <tr>
@@ -3051,7 +3488,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the package where server related Dark Matter Wrapper classes  were generated for this schema. This is used when we're generating derived wrapper classes.</td>
+      <td>Indicates the package where server related Dark Matter Wrapper classes 
+ were generated for this schema. This is used when we're generating derived wrapper
+ classes.</td>
     </tr>
 
     <tr>
@@ -3076,7 +3515,13 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The dmwTypeToPackage attribute is used to indicate alternative generation packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we  want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify dmwTypeToPackage gxt com.example.client. Each of schemas that's loaded for generation would have to have this same attribute specified so that, if there were derived classes across schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass() method to see how this is used.</td>
+      <td>The dmwTypeToPackage attribute is used to indicate alternative generation
+ packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For instance, if we 
+ want to generate GXT wrappers for use with Sencha's GXT model classes, we could specify
+ dmwTypeToPackage gxt com.example.client. Each of schemas that's loaded for generation would
+ have to have this same attribute specified so that, if there were derived classes across
+ schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass()
+ method to see how this is used.</td>
     </tr>
 
     <tr>
@@ -3101,7 +3546,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The dmwWrapperType is used to indicate whether or not you want extended wrappers when the wrappers are generated for an object in a particular generation context.</td>
+      <td>The dmwWrapperType is used to indicate whether or not you want extended wrappers
+ when the wrappers are generated for an object in a particular generation context.</td>
     </tr>
 
     <tr>
@@ -3224,7 +3670,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the set of enum values associated with an enumeration type definition.</td>
+      <td>Indicates the set of enum values associated with an enumeration type
+ definition.</td>
     </tr>
 
     <tr>
@@ -3249,7 +3696,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The excludeFromContext attribute is used to indicate that a class of object (and all of its derivatives) should be excluded from the wrapper generation for the specified context. An example usage is in the Dark Matter Protocol where we don't want to generate wrappers for the message objects in a GXT context.</td>
+      <td>The excludeFromContext attribute is used to indicate that
+ a class of object (and all of its derivatives) should be excluded from the wrapper
+ generation for the specified context. An example usage is in the Dark Matter Protocol
+ where we don't want to generate wrappers for the message objects in a GXT context.</td>
     </tr>
 
     <tr>
@@ -3274,7 +3724,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The extendedClass indicates the fully qualified name of the class that is derived from the generated ComplexType to provide additional behaviour.</td>
+      <td>The extendedClass indicates the fully qualified name of the class
+ that is derived from the generated ComplexType to provide additional behaviour.</td>
     </tr>
 
     <tr>
@@ -3299,7 +3750,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the class of object to which an  ExtendedReferenceTypeDefinition refers.</td>
+      <td>Indicates the class of object to which an 
+ ExtendedReferenceTypeDefinition refers.</td>
     </tr>
 
     <tr>
@@ -3387,7 +3839,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The fieldSeparator is used to indicate the separation character used when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is assumed to be a space.</td>
+      <td>The fieldSeparator is used to indicate the separation character used
+ when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is
+ assumed to be a space.</td>
     </tr>
 
     <tr>
@@ -3439,7 +3893,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The filterAttributeDef is a reference to the attribute that is locked to a TypeDefinition that is flagged as filterType. This mechanism is used to create the correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter.</td>
+      <td>The filterAttributeDef is a reference to the attribute that is locked
+ to a TypeDefinition that is flagged as filterType. This mechanism is used to create the
+ correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter.</td>
     </tr>
 
     <tr>
@@ -3464,7 +3920,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The name of file that coresides with the schema.dms file that contains a common header to be applied to all generated code. For instance, you might want a common licensing comment at the top of your generated files.</td>
+      <td>The name of file that coresides with the schema.dms file that
+ contains a common header to be applied to all generated code. For instance, you
+ might want a common licensing comment at the top of your generated files.</td>
     </tr>
 
     <tr>
@@ -3490,7 +3948,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the generic arguments to be supplied in the use of a class in an autogenerated Iterable.</td>
+      <td>This attribute indicates the generic arguments to be supplied in the
+ use of a class in an autogenerated Iterable.</td>
     </tr>
 
     <tr>
@@ -3516,7 +3975,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the import required to support a genericArgs specification i.e. if you're not specifying something like <?>, an additional import may be required.</td>
+      <td>Indicates the import required to support a genericArgs specification i.e. if you're
+ not specifying something like <?>, an additional import may be required.</td>
     </tr>
 
     <tr>
@@ -3541,7 +4001,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>If you want to return a value other than the native value class, use the appropriate getType and specify the method you need to call on the DmdValue derived class to return it.</td>
+      <td>If you want to return a value other than the native value class, use the appropriate
+ getType and specify the method you need to call on the DmdValue derived class to return it.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="getType"> getType </a> </td></tr>
@@ -3554,7 +4015,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the type of value that will be returned when an attribute value is returned for a type definition; a type definition defines only one get type. This must be a Java class reference and not a primitive type e.g. int.</td>
+      <td>Indicates the type of value that will be returned when an attribute value
+ is returned for a type definition; a type definition defines only one get type.
+ This must be a Java class reference and not a primitive type e.g. int.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="helperClassName"> helperClassName </a> </td></tr>
@@ -3567,7 +4030,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the full name of the generated helper class for  object references i.e. if you had a ClassDefinition X, the framework generates a  types/XREF class which is subsequently used by the DmcTypeXREF class to store references to objects of the defined class.</td>
+      <td>This attribute indicates the full name of the generated helper class for 
+ object references i.e. if you had a ClassDefinition X, the framework generates a 
+ types/XREF class which is subsequently used by the DmcTypeXREF class to store references
+ to objects of the defined class.</td>
     </tr>
 
     <tr>
@@ -3592,7 +4058,12 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The indexSize is used in conjunction with the MULTI valueType to indicate that the attribute may have the specified number of values and is integer indexed. Indexed attributes may be thought of as having a predetermined number of slots into which values may be stored. When indexed, an attribute has values added to it using the setMVnth() interface, not the usual add() interface. If you attempt to use add() with an indexed attribute, an exception will be thrown.</td>
+      <td>The indexSize is used in conjunction with the MULTI valueType to
+ indicate that the attribute may have the specified number of values and is integer indexed.
+ Indexed attributes may be thought of as having a predetermined number of slots into which
+ values may be stored. When indexed, an attribute has values added to it using the setMVnth()
+ interface, not the usual add() interface. If you attempt to use add() with an indexed attribute,
+ an exception will be thrown.</td>
     </tr>
 
     <tr>
@@ -3668,7 +4139,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute can be used on AUXILIARY classes to give a hint about their intended usage. For example, if you were extending schema definitions with some or your  own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition.</td>
+      <td>This attribute can be used on AUXILIARY classes to give a hint about their
+ intended usage. For example, if you were extending schema definitions with some or your 
+ own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition.</td>
     </tr>
 
     <tr>
@@ -3693,7 +4166,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of type definitions that were generated internally to represent enums and object references.</td>
+      <td>A list of type definitions that were generated internally to represent
+ enums and object references.</td>
     </tr>
 
     <tr>
@@ -3718,7 +4192,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the internal type that's generated for all ClassDefinitions. This is set automatically on ClassDefinitions as they are parsed.</td>
+      <td>Indicates the internal type that's generated for all ClassDefinitions. This
+ is set automatically on ClassDefinitions as they are parsed.</td>
     </tr>
 
     <tr>
@@ -3743,7 +4218,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates if an attribute is used and set within the Dark Matter Data code generation mechanisms. In the documentation generation code, attributes marked as internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated.</td>
+      <td>Indicates if an attribute is used and set within the Dark Matter Data
+ code generation mechanisms. In the documentation generation code, attributes marked as
+ internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated.</td>
     </tr>
 
     <tr>
@@ -3768,7 +4245,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This flag indicates if the associated definition was internally generated. This is the case for TypeDefinitions generated for ClassDefinitions and EnumDefinitions that allow for references to these objects.</td>
+      <td>This flag indicates if the associated definition was internally generated.
+ This is the case for TypeDefinitions generated for ClassDefinitions and EnumDefinitions
+ that allow for references to these objects.</td>
     </tr>
 
     <tr>
@@ -3832,7 +4311,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This flag is used to indicate taht an internally generated type is an extended reference type.</td>
+      <td>This flag is used to indicate taht an internally generated type
+ is an extended reference type.</td>
     </tr>
 
     <tr>
@@ -3857,7 +4337,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible. The best example is the InitRule where any set of attributes can be specified as value for the rule.</td>
+      <td>Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE
+ or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible.
+ The best example is the InitRule where any set of attributes can be specified as value for the rule.</td>
     </tr>
 
     <tr>
@@ -3907,7 +4389,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This flag indicates if an Action is merely a data retrieval (get) Action. Actions that are flagged with this attribute set to true will be executable even when the server is in a read-only mode because they don't actually alter data.</td>
+      <td>This flag indicates if an Action is merely a data retrieval (get) Action.
+ Actions that are flagged with this attribute set to true will be executable
+ even when the server is in a read-only mode because they don't actually
+ alter data.</td>
     </tr>
 
     <tr>
@@ -3957,7 +4442,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates if a defined type is used for naming purposes. This allows us to automatically add attributes of this type to the AttributeFactories.</td>
+      <td>This attribute indicates if a defined type is used for naming purposes.
+ This allows us to automatically add attributes of this type to the AttributeFactories.</td>
     </tr>
 
     <tr>
@@ -3982,7 +4468,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the attribute by which an object of some class is named. When this attribute is supplied in a ClassDefinition, the generated DMO class will indicate that it implements the DmcNamedObjectIF and its getObjectName() method will return the value of the isNamedBy attribute.</td>
+      <td>Indicates the attribute by which an object of some class is named.
+ When this attribute is supplied in a ClassDefinition, the generated DMO class will
+ indicate that it implements the DmcNamedObjectIF and its getObjectName() method
+ will return the value of the isNamedBy attribute.</td>
     </tr>
 
     <tr>
@@ -4007,7 +4496,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This flag is set to true for type definitions that refer to other objects.</td>
+      <td>This flag is set to true for type definitions that refer to other
+ objects.</td>
     </tr>
 
     <tr>
@@ -4032,7 +4522,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This flag is set to true for type definitions that refer to other schema-related definitions.</td>
+      <td>This flag is set to true for type definitions that refer to other
+ schema-related definitions.</td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="javaClass"> javaClass </a> </td></tr>
@@ -4045,7 +4536,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the full name of the class (including package) that should be instantiated when an instance of an object is created via the DmdClassDef.newInstance() function. The class must be a derived class of DmdGenericObject.</td>
+      <td>This attribute indicates the full name of the class (including package)
+ that should be instantiated when an instance of an object is created via the
+ DmdClassDef.newInstance() function. The class must be a derived class of
+ DmdGenericObject.</td>
     </tr>
 
     <tr>
@@ -4070,7 +4564,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the class of the key used for types that support storage in a MAP.</td>
+      <td>This attribute indicates the class of the key used for types that support
+ storage in a MAP.</td>
     </tr>
 
     <tr>
@@ -4095,7 +4590,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the import for a keyClass. this is required if the keyClass is NOT a primitive java type e.g. Integer, String etc.</td>
+      <td>Indicates the import for a keyClass. this is required if the keyClass
+ is NOT a primitive java type e.g. Integer, String etc.</td>
     </tr>
 
     <tr>
@@ -4169,7 +4665,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the set of attributes that an instance of a class MAY have. When accessed in Java, this is a set of references to AttributeDefinition objects.</td>
+      <td>Indicates the set of attributes that an instance of a class MAY
+ have. When accessed in Java, this is a set of references to AttributeDefinition
+ objects.</td>
     </tr>
 
     <tr>
@@ -4195,7 +4693,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the set of parameters that an action MAY have. When accessed in Java, this is a set of references to AttributeDefinition objects.</td>
+      <td>Indicates the set of parameters that an action MAY have. When accessed
+ in Java, this is a set of references to AttributeDefinition objects.</td>
     </tr>
 
     <tr>
@@ -4220,7 +4719,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the set of return vals that may be returned as part of a particular action response message.</td>
+      <td>Indicates the set of return vals that may be returned as part of a
+ particular action response message.</td>
     </tr>
 
     <tr>
@@ -4245,7 +4745,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This flag is used to indicate if a particular request might result in progress indications being sent. Although primarily intended as a documentation aspect, this flag is used within the TL1 subsystem to allow for the creation of a response handler for node requests that send progress text.</td>
+      <td>This flag is used to indicate if a particular request might
+ result in progress indications being sent. Although primarily intended as a
+ documentation aspect, this flag is used within the TL1 subsystem to allow for
+ the creation of a response handler for node requests that send progress text.</td>
     </tr>
 
     <tr>
@@ -4322,7 +4825,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the set of parameters that an action MUST have. When accessed in Java, this is a set of references to AttributeDefinition objects.</td>
+      <td>Indicates the set of parameters that an action MUST have. When
+ accessed in Java, this is a set of references to AttributeDefinition objects.</td>
     </tr>
 
     <tr>
@@ -4347,7 +4851,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the set of return vals that must be returned as part of a particular action response message.</td>
+      <td>Indicates the set of return vals that must be returned as part of a
+ particular action response message.</td>
     </tr>
 
     <tr>
@@ -4372,7 +4877,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The name attribute is used to store a single string token that represents a unique name for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All names must start with a character.</td>
+      <td>The name attribute is used to store a single string token that represents a unique name
+ for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All names must start with a character.</td>
     </tr>
 
     <tr>
@@ -4444,7 +4951,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The nameAttributeDef is a reference to the attribute that is locked to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]* derivative for a value of type DmcObjectName.</td>
+      <td>The nameAttributeDef is a reference to the attribute that is locked
+ to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]*
+ derivative for a value of type DmcObjectName.</td>
     </tr>
 
     <tr>
@@ -4469,7 +4978,17 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the attribute that is used to name an object instance. The exact manner in which the naming attribute is used is specific to the implementation of the HierarchicObject derived class. <p> For instance, the DotNamedObject simply uses the value of the naming attribute and separates the attribute values with periods e.g. grandparent.parent.child. <p> For LDAP objects when a hierarchic name is composed for an object, the class name plus the value of the naming attribute (type:value) is used to create the name of an object. It is best if the naming attribute value is created by the application; it shouldn't be based on any user configurable value.</td>
+      <td>This attribute indicates the attribute that is used to name an object
+ instance. The exact manner in which the naming attribute is used is specific to
+ the implementation of the HierarchicObject derived class.
+ <p>
+ For instance, the DotNamedObject simply uses the value of the naming attribute
+ and separates the attribute values with periods e.g. grandparent.parent.child.
+ <p>
+ For LDAP objects when a hierarchic name is composed for an object, the class name
+ plus the value of the naming attribute (type:value) is used to create the
+ name of an object. It is best if the naming attribute value is created by
+ the application; it shouldn't be based on any user configurable value.</td>
     </tr>
 
     <tr>
@@ -4494,7 +5013,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute is used in TypeDefinitions to indicate the value that should be returned when an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined to return false when they aren't actually set on an object. This just gives a convenient mechanism to provide a default value for non-existent attribute values.</td>
+      <td>This attribute is used in TypeDefinitions to indicate the value that should be returned when
+ an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined
+ to return false when they aren't actually set on an object. This just gives a convenient mechanism to
+ provide a default value for non-existent attribute values.</td>
     </tr>
 
     <tr>
@@ -4534,7 +5056,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This indicates the version at which something became obsolete. Generally speaking you shouldn't ever delete definitions for products that have been released to the field, this may break backwards compatibility. Instead, you should mark them as obsolete.</td>
+      <td>This indicates the version at which something became obsolete.
+ Generally speaking you shouldn't ever delete definitions for products that have
+ been released to the field, this may break backwards compatibility. Instead, you
+ should mark them as obsolete.</td>
     </tr>
 
     <tr>
@@ -4561,7 +5086,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the operational context for some component e.g. object or attribute validators.</td>
+      <td>Indicates the operational context for some component e.g. object or attribute
+ validators.</td>
     </tr>
 
     <tr>
@@ -4736,7 +5262,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The RuleDefinition that resulted in the creation of an internally generated ClassDefinition.</td>
+      <td>The RuleDefinition that resulted in the creation of an
+ internally generated ClassDefinition.</td>
     </tr>
 
     <tr>
@@ -4861,7 +5388,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The ruleName attribute is used to store a single camelCase format name for a rule. The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or  other characters are allowed.</td>
+      <td>The ruleName attribute is used to store a single camelCase format name for a rule.
+ The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
+ other characters are allowed.</td>
     </tr>
 
     <tr>
@@ -4871,8 +5400,13 @@
 <table>
   <tr>
     <td> AllowedAttributesRuleData (<a href="dmv.html#AllowedAttributesRuleData">dmv</a>) </td>
+    <td> AttributeTypeRuleData (<a href="dmv.html#AttributeTypeRuleData">dmv</a>) </td>
+    <td> CheckAttributesBasedOnValueRuleData (<a href="dmv.html#CheckAttributesBasedOnValueRuleData">dmv</a>) </td>
+  <tr>
     <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
     <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+    <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
+</tr>
   <tr>
     <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
     <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
@@ -4881,17 +5415,17 @@
       </td>
     </tr>
 
-    <tr> <td class="className" colspan="3"> <a name="ruleScope"> ruleScope </a> </td></tr>
+    <tr> <td class="className" colspan="3"> <a name="ruleParam"> ruleParam </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#RuleScopeEnum">RuleScopeEnum</a> </div> 
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#RuleParam">RuleParam</a> </div> 
       </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The scope of a rule.</td>
+      <td>A parameter to be supplied to a rule when it is executed.</td>
     </tr>
 
     <tr>
@@ -4900,7 +5434,7 @@
       <td>
 <table>
   <tr>
-    <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
+    <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -4926,8 +5460,13 @@
 <table>
   <tr>
     <td> AllowedAttributesRuleData (<a href="dmv.html#AllowedAttributesRuleData">dmv</a>) </td>
+    <td> AttributeTypeRuleData (<a href="dmv.html#AttributeTypeRuleData">dmv</a>) </td>
+    <td> CheckAttributesBasedOnValueRuleData (<a href="dmv.html#CheckAttributesBasedOnValueRuleData">dmv</a>) </td>
+  <tr>
     <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
     <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+    <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
+</tr>
   <tr>
     <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
     <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
@@ -4996,7 +5535,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The base identifier value for a schema. This value is added to each dmdID value associated with the AttributeDefinitions defined by the schema. This allows for easy rebasing of identifier values if required.</td>
+      <td>The base identifier value for a schema. This value is added to each dmdID value
+ associated with the AttributeDefinitions defined by the schema. This allows for easy rebasing of
+ identifier values if required.</td>
     </tr>
 
     <tr>
@@ -5021,7 +5562,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The fully qualified name of a class that extends the schema management capabilities of the SchemaManager. the class must have a zero arg constructor and implement the SchemaExtensionIF.</td>
+      <td>The fully qualified name of a class that extends the schema management
+ capabilities of the SchemaManager. the class must have a zero arg constructor and implement
+ the SchemaExtensionIF.</td>
     </tr>
 
     <tr>
@@ -5046,7 +5589,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The maximum number of attribute definitions in a particular schema. This will provide immediate feedback if you exceed the given ID range for your schema.</td>
+      <td>The maximum number of attribute definitions in a particular schema. This will provide
+ immediate feedback if you exceed the given ID range for your schema.</td>
     </tr>
 
     <tr>
@@ -5071,7 +5615,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the package that a schema will be part of when its code is generated using DMO generator tool.</td>
+      <td>Indicates the package that a schema will be part of when its code
+ is generated using DMO generator tool.</td>
     </tr>
 
     <tr>
@@ -5096,7 +5641,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates whether or not the attribute should be encrypted before being transported over the wire or stored in a file or repository</td>
+      <td>This attribute indicates whether or not the attribute should
+ be encrypted before being transported over the wire or stored in a file or
+ repository</td>
     </tr>
 
     <tr>
@@ -5121,7 +5668,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The selectAttribute indicates an attribute to be used in the definition of a Slice.</td>
+      <td>The selectAttribute indicates an attribute to be used in the definition
+ of a Slice.</td>
     </tr>
 
     <tr>
@@ -5171,7 +5719,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The subpackage beneath extended where generated code will be written. This allows for a hierarchic package structure for the classes generated by the dmg and mvc generator utilities. The structure can contain other subpackages etc x.y.z but should not start or end with a period.</td>
+      <td>The subpackage beneath extended where generated code will be written. This
+ allows for a hierarchic package structure for the classes generated by the dmg and mvc generator
+ utilities. The structure can contain other subpackages etc x.y.z but should not start or end
+ with a period.</td>
     </tr>
 
     <tr>
@@ -5196,7 +5747,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates if a class of objects supports back reference tracking or not. The default is that all objects support it, however, in places like the Dark Matter Protocol, we don't want to track references in the messages.</td>
+      <td>Indicates if a class of objects supports back reference tracking or not. The
+ default is that all objects support it, however, in places like the Dark Matter Protocol, we
+ don't want to track references in the messages.</td>
     </tr>
 
     <tr>
@@ -5221,7 +5774,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the type of an attribute. The value is the name of any previously defined TypeDefinition, ClassDefinition, EnumDefinition or ComplexTypeDefinition.</td>
+      <td>Indicates the type of an attribute. The value is the name of any
+ previously defined TypeDefinition, ClassDefinition, EnumDefinition or ComplexTypeDefinition.</td>
     </tr>
 
     <tr>
@@ -5246,7 +5800,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This is the fully qualified name of the class derived from DmcAttribute that provides management of a particular type of attribute value. For instance, the type class that handles String attributes  is org.dmd.dmc.types.DmcTypeString</td>
+      <td>This is the fully qualified name of the class derived from DmcAttribute that provides management
+ of a particular type of attribute value. For instance, the type class that handles String attributes 
+ is org.dmd.dmc.types.DmcTypeString</td>
     </tr>
 
     <tr>
@@ -5321,7 +5877,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates whether you want to use the generated DMW wrapper or the extended wrapper you've created yourself.</td>
+      <td>Indicates whether you want to use the generated DMW wrapper
+ or the extended wrapper you've created yourself.</td>
     </tr>
 
     <tr>
@@ -5346,7 +5903,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This is a hack for now to allow for the inclusion of an  interface on a class; it should be the fully qualified name of the interface. The interface shouldn't require any method implementations.</td>
+      <td>This is a hack for now to allow for the inclusion of an 
+ interface on a class; it should be the fully qualified name of the interface.
+ The interface shouldn't require any method implementations.</td>
     </tr>
 
     <tr>
@@ -5396,7 +5955,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the cardinality and storage mechanism for an attribute.</td>
+      <td>This attribute indicates the cardinality and storage mechanism for an
+ attribute.</td>
     </tr>
 
     <tr>
@@ -5422,7 +5982,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This is the fully qualified name of the wrapper class derived from DmcWrapperBase that wraps a DMO. This is used when generating object reference classes associated with ClassDefinitions This actually aligns to the javaClass of the ClassDefinition for which we're generating the reference classes.</td>
+      <td>This is the fully qualified name of the wrapper class derived from DmcWrapperBase that
+ wraps a DMO. This is used when generating object reference classes associated with ClassDefinitions
+ This actually aligns to the javaClass of the ClassDefinition for which we're generating the reference
+ classes.</td>
     </tr>
 
     <tr>
@@ -5483,7 +6046,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> Provides support for Boolean values. This type makes use of the nullReturnValue flag so that, even if there is no value for an attribute of this type, a value of false will be returned. </td>
+      <td> Provides support for Boolean values. This type makes use of the nullReturnValue
+ flag so that, even if there is no value for an attribute of this type, a value of false will
+ be returned. </td>
     </tr>
 
     <tr>
@@ -5563,7 +6128,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> The CamelCaseName is a string based name that must start with an alpha character which is followed by a mix of alphanumerics. </td>
+      <td> The CamelCaseName is a string based name that must start with an alpha character
+ which is followed by a mix of alphanumerics. </td>
     </tr>
 
     <tr>
@@ -5607,7 +6173,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> The ClassFilter is used to perform matches against objects based on their class or auxiliary classes. </td>
+      <td> The ClassFilter is used to perform matches against objects based on their class
+ or auxiliary classes. </td>
     </tr>
 
     <tr>
@@ -5638,7 +6205,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> The ClassInfoRef type allows for the representation of class information  via the Dark Matter ID associated with a ClassDefinition. It provides transient access to the static DmcClassInfo from the generated DMSAG, regardless of the environment in which it exists. </td>
+      <td> The ClassInfoRef type allows for the representation of class information 
+ via the Dark Matter ID associated with a ClassDefinition. It provides transient access
+ to the static DmcClassInfo from the generated DMSAG, regardless of the environment in
+ which it exists. </td>
     </tr>
 
     <tr>
@@ -5748,7 +6318,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> The DotName provides standard mechanisms to deal with hierarchic names composed of strings interspersed with periods (dots) to separate the name elements. For example a dot name might be one.two.three </td>
+      <td> The DotName provides standard mechanisms to deal with hierarchic names composed of
+ strings interspersed with periods (dots) to separate the name elements. For example
+ a dot name might be one.two.three </td>
     </tr>
 
     <tr>
@@ -5820,7 +6392,18 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> The EnumValue type is used to store the definition of one enumerated value that comprises part of an overall EnumDefinition. <p/> The value of an EnumValue is comprised of at least three tokens and possibly a label: <br/> [enum integer value] [enum value name] [enum description] &lt: label&gt <br/> For example: 0 ABSTRACT Here is the definition of abstract. : Abstract <p/> Within an EnumDefinition, each EnumValue must have a unique integer identifier and a unique value name. <p/> The enum value name is automatically set to uppercase, even if it is specified in lower or mixed case. </td>
+      <td> The EnumValue type is used to store the definition of one enumerated value
+ that comprises part of an overall EnumDefinition.
+ <p/>
+ The value of an EnumValue is comprised of at least three tokens and possibly a label: <br/>
+ [enum integer value] [enum value name] [enum description] &lt: label&gt <br/>
+ For example: 0 ABSTRACT Here is the definition of abstract. : Abstract
+ <p/>
+ Within an EnumDefinition, each EnumValue must have a unique integer identifier
+ and a unique value name.
+ <p/>
+ The enum value name is automatically set to uppercase, even if it is specified
+ in lower or mixed case. </td>
     </tr>
 
     <tr>
@@ -6118,7 +6701,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> Represents a single, labelled Integer data point. Generally used for pie chart data. </td>
+      <td> Represents a single, labelled Integer data point. Generally used for pie
+ chart data. </td>
     </tr>
 
     <tr>
@@ -6214,7 +6798,17 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> The Modifier type is used to represent modification operations on a DmcObject. Any modification to an object can be represented by a Modifier. The string representation of a modification can take the following forms: <ul> <li> &ltattribute name&gt ADD &ltvalue&gt</li> <li> &ltattribute name&gt DEL &ltvalue&gt</li> <li> &ltattribute name&gt SET &ltvalue&gt</li> <li> &ltattribute name&gt NTH &ltindex&gt &ltvalue&gt</li> <li> &ltattribute name&gt NTH &ltindex&gt</li> <li> &ltattribute name&gt REM </li> </ul> </td>
+      <td> The Modifier type is used to represent modification operations on a DmcObject.
+ Any modification to an object can be represented by a Modifier. The string representation
+ of a modification can take the following forms:
+ <ul>
+ <li> &ltattribute name&gt ADD &ltvalue&gt</li>
+ <li> &ltattribute name&gt DEL &ltvalue&gt</li>
+ <li> &ltattribute name&gt SET &ltvalue&gt</li>
+ <li> &ltattribute name&gt NTH &ltindex&gt &ltvalue&gt</li>
+ <li> &ltattribute name&gt NTH &ltindex&gt</li>
+ <li> &ltattribute name&gt REM </li>
+ </ul> </td>
     </tr>
 
     <tr>
@@ -6245,7 +6839,23 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> The NameContainer type allows for the storage of object names of different types. This mechanism is required because the naming mechanisms associated with dark-matter allow for different ways of naming objects. When the name of something is transported, it has to be  self describing i.e. the type of the naming attribute must be known so that the appropriate  name type can be instantiated. An example of this comes from the Dark Matter Protocol.  The targets attribute is defined as a NameContainer. An instance of targets might appear as follows: <pre> targets uuidName 809408a7-f00b-448c-beb6-00337e83acc4 </pre> As you can see, the attribute name is targets and the value is uuidName 809408a7-f00b-448c-beb6-00337e83acc4. The uuidName attribute is the designatedNameAttribute for the UUIDName type. So, when parsing/deserializing a name container, we always know the underlying type of the name. <p/> This approach makes dark-matter name handling completely extensible. <p/> A similar approach is taken to filter specifications via the FilterContainer. </td>
+      <td> The NameContainer type allows for the storage of object names of different types.
+ This mechanism is required because the naming mechanisms associated with dark-matter allow for
+ different ways of naming objects. When the name of something is transported, it has to be 
+ self describing i.e. the type of the naming attribute must be known so that the appropriate 
+ name type can be instantiated. An example of this comes from the Dark Matter Protocol. 
+ The targets attribute is defined as a NameContainer. An instance of targets might appear
+ as follows:
+ <pre>
+ targets uuidName 809408a7-f00b-448c-beb6-00337e83acc4
+ </pre>
+ As you can see, the attribute name is targets and the value is uuidName 809408a7-f00b-448c-beb6-00337e83acc4.
+ The uuidName attribute is the designatedNameAttribute for the UUIDName type. So, when parsing/deserializing a
+ name container, we always know the underlying type of the name.
+ <p/>
+ This approach makes dark-matter name handling completely extensible.
+ <p/>
+ A similar approach is taken to filter specifications via the FilterContainer. </td>
     </tr>
 
     <tr>
@@ -6282,7 +6892,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> The RuleName is a string based name that must start with an alpha character which is followed by a mix of alphanumerics. </td>
+      <td> The RuleName is a string based name that must start with an alpha character
+ which is followed by a mix of alphanumerics. </td>
     </tr>
 
     <tr>
@@ -6355,127 +6966,130 @@
 </tr>
   <tr>
     <td> applicationVersion (<a href="dmp.html#applicationVersion">dmp</a>) </td>
+    <td> basedOnValue (<a href="dmv.html#basedOnValue">dmv</a>) </td>
     <td> configSuffix (<a href="dmg.html#configSuffix">dmg</a>) </td>
-    <td> defFiles (<a href="meta.html#defFiles">meta</a>) </td>
 </tr>
   <tr>
+    <td> defFiles (<a href="meta.html#defFiles">meta</a>) </td>
     <td> dependsOn (<a href="meta.html#dependsOn">meta</a>) </td>
     <td> dependsOnSchema (<a href="meta.html#dependsOnSchema">meta</a>) </td>
-    <td> description (<a href="meta.html#description">meta</a>) </td>
 </tr>
   <tr>
+    <td> description (<a href="meta.html#description">meta</a>) </td>
     <td> dmeClass (<a href="meta.html#dmeClass">meta</a>) </td>
     <td> dmeImport (<a href="meta.html#dmeImport">meta</a>) </td>
-    <td> dmoAuxClass (<a href="meta.html#dmoAuxClass">meta</a>) </td>
 </tr>
   <tr>
+    <td> dmoAuxClass (<a href="meta.html#dmoAuxClass">meta</a>) </td>
     <td> dmoAuxClassImport (<a href="meta.html#dmoAuxClassImport">meta</a>) </td>
     <td> dmoClass (<a href="meta.html#dmoClass">meta</a>) </td>
-    <td> dmoImport (<a href="meta.html#dmoImport">meta</a>) </td>
 </tr>
   <tr>
+    <td> dmoImport (<a href="meta.html#dmoImport">meta</a>) </td>
     <td> dmtClass (<a href="meta.html#dmtClass">meta</a>) </td>
     <td> dmtImport (<a href="meta.html#dmtImport">meta</a>) </td>
-    <td> dmtREFImport (<a href="meta.html#dmtREFImport">meta</a>) </td>
 </tr>
   <tr>
+    <td> dmtREFImport (<a href="meta.html#dmtREFImport">meta</a>) </td>
     <td> dmwAuxClass (<a href="meta.html#dmwAuxClass">meta</a>) </td>
     <td> dmwAuxClassImport (<a href="meta.html#dmwAuxClassImport">meta</a>) </td>
-    <td> dmwClass (<a href="meta.html#dmwClass">meta</a>) </td>
 </tr>
   <tr>
+    <td> dmwClass (<a href="meta.html#dmwClass">meta</a>) </td>
     <td> dmwImport (<a href="meta.html#dmwImport">meta</a>) </td>
     <td> dmwIteratorClass (<a href="meta.html#dmwIteratorClass">meta</a>) </td>
-    <td> dmwIteratorImport (<a href="meta.html#dmwIteratorImport">meta</a>) </td>
 </tr>
   <tr>
+    <td> dmwIteratorImport (<a href="meta.html#dmwIteratorImport">meta</a>) </td>
     <td> dmwPackage (<a href="meta.html#dmwPackage">meta</a>) </td>
     <td> enumName (<a href="meta.html#enumName">meta</a>) </td>
-    <td> enumString (<a href="meta.html#enumString">meta</a>) </td>
 </tr>
   <tr>
+    <td> enumString (<a href="meta.html#enumString">meta</a>) </td>
     <td> excludeFromContext (<a href="meta.html#excludeFromContext">meta</a>) </td>
     <td> extendedClass (<a href="meta.html#extendedClass">meta</a>) </td>
-    <td> extendsInterface (<a href="meta.html#extendsInterface">meta</a>) </td>
 </tr>
   <tr>
+    <td> extendsInterface (<a href="meta.html#extendsInterface">meta</a>) </td>
     <td> fieldSeparator (<a href="meta.html#fieldSeparator">meta</a>) </td>
     <td> file (<a href="meta.html#file">meta</a>) </td>
-    <td> filter (<a href="dmp.html#filter">dmp</a>) </td>
 </tr>
   <tr>
+    <td> filter (<a href="dmp.html#filter">dmp</a>) </td>
     <td> genClass (<a href="dmg.html#genClass">dmg</a>) </td>
     <td> genPackage (<a href="dmg.html#genPackage">dmg</a>) </td>
-    <td> generatedFileHeader (<a href="meta.html#generatedFileHeader">meta</a>) </td>
 </tr>
   <tr>
+    <td> generatedFileHeader (<a href="meta.html#generatedFileHeader">meta</a>) </td>
     <td> genericArgs (<a href="meta.html#genericArgs">meta</a>) </td>
     <td> genericArgsImport (<a href="meta.html#genericArgsImport">meta</a>) </td>
-    <td> getMethod (<a href="meta.html#getMethod">meta</a>) </td>
 </tr>
   <tr>
+    <td> getMethod (<a href="meta.html#getMethod">meta</a>) </td>
     <td> getType (<a href="meta.html#getType">meta</a>) </td>
     <td> helperClassName (<a href="meta.html#helperClassName">meta</a>) </td>
-    <td> hsString (<a href="dmt.html#hsString">dmt</a>) </td>
 </tr>
   <tr>
+    <td> hsString (<a href="dmt.html#hsString">dmt</a>) </td>
     <td> indexedString (<a href="dmt.html#indexedString">dmt</a>) </td>
     <td> instantiation (<a href="meta.html#instantiation">meta</a>) </td>
-    <td> javaClass (<a href="meta.html#javaClass">meta</a>) </td>
 </tr>
   <tr>
+    <td> javaClass (<a href="meta.html#javaClass">meta</a>) </td>
     <td> keyClass (<a href="meta.html#keyClass">meta</a>) </td>
     <td> keyImport (<a href="meta.html#keyImport">meta</a>) </td>
-    <td> ldapIdPrefix (<a href="dmr.ldap.html#ldapIdPrefix">dmr.ldap</a>) </td>
 </tr>
   <tr>
+    <td> ldapIdPrefix (<a href="dmr.ldap.html#ldapIdPrefix">dmr.ldap</a>) </td>
     <td> mvIdxString (<a href="dmt.html#mvIdxString">dmt</a>) </td>
     <td> mvString (<a href="dmt.html#mvString">dmt</a>) </td>
-    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
 </tr>
   <tr>
+    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
     <td> nullReturnValue (<a href="meta.html#nullReturnValue">meta</a>) </td>
     <td> obsoleteVersion (<a href="meta.html#obsoleteVersion">meta</a>) </td>
-    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
 </tr>
   <tr>
+    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
     <td> primitiveType (<a href="meta.html#primitiveType">meta</a>) </td>
     <td> reposName (<a href="dmr.ldap.html#reposName">dmr.ldap</a>) </td>
-    <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
 </tr>
   <tr>
+    <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
     <td> responseText (<a href="dmp.html#responseText">dmp</a>) </td>
     <td> ruleExecution (<a href="meta.html#ruleExecution">meta</a>) </td>
-    <td> ruleImport (<a href="meta.html#ruleImport">meta</a>) </td>
 </tr>
   <tr>
+    <td> ruleImport (<a href="meta.html#ruleImport">meta</a>) </td>
     <td> ruleInterface (<a href="meta.html#ruleInterface">meta</a>) </td>
     <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
-    <td> schemaExtension (<a href="meta.html#schemaExtension">meta</a>) </td>
 </tr>
   <tr>
+    <td> schemaExtension (<a href="meta.html#schemaExtension">meta</a>) </td>
     <td> schemaPackage (<a href="meta.html#schemaPackage">meta</a>) </td>
     <td> schemaToLoad (<a href="dmg.html#schemaToLoad">dmg</a>) </td>
-    <td> sessionID (<a href="dmp.html#sessionID">dmp</a>) </td>
 </tr>
   <tr>
+    <td> sessionID (<a href="dmp.html#sessionID">dmp</a>) </td>
     <td> slice (<a href="dmp.html#slice">dmp</a>) </td>
     <td> subpackage (<a href="meta.html#subpackage">meta</a>) </td>
-    <td> svString (<a href="dmt.html#svString">dmt</a>) </td>
 </tr>
   <tr>
+    <td> svString (<a href="dmt.html#svString">dmt</a>) </td>
     <td> transString (<a href="dmt.html#transString">dmt</a>) </td>
     <td> tsString (<a href="dmt.html#tsString">dmt</a>) </td>
-    <td> typeClassName (<a href="meta.html#typeClassName">meta</a>) </td>
 </tr>
   <tr>
+    <td> typeClassName (<a href="meta.html#typeClassName">meta</a>) </td>
     <td> upperConstantName (<a href="dmg.html#upperConstantName">dmg</a>) </td>
     <td> useInterface (<a href="meta.html#useInterface">meta</a>) </td>
-    <td> userFQN (<a href="dmp.html#userFQN">dmp</a>) </td>
 </tr>
   <tr>
+    <td> userFQN (<a href="dmp.html#userFQN">dmp</a>) </td>
     <td> userName (<a href="dmr.base.html#userName">dmr.base</a>) </td>
     <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
+</tr>
+  <tr>
     <td> wrapperClassName (<a href="meta.html#wrapperClassName">meta</a>) </td>
 </tr>
 </table>
@@ -6569,7 +7183,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> Represents a single Double data point at a moment in time. Generally used for line or column chart data. </td>
+      <td> Represents a single Double data point at a moment in time. Generally used
+ for line or column chart data. </td>
     </tr>
 
     <tr>
@@ -6588,7 +7203,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> The UUIDLite provides support for UUIDs in GWT environments; a full UUID implementation is not supported by the GWT JRE Emulation mechanisms. It holds two long values that represent a complete java.util.UUID as generated within the server environment. The methods to parse a UUID from a String and present it as a String are taken from the java.util.UUID class. </td>
+      <td> The UUIDLite provides support for UUIDs in GWT environments; a full UUID implementation
+ is not supported by the GWT JRE Emulation mechanisms. It holds two long values that represent a complete
+ java.util.UUID as generated within the server environment. The methods to parse a UUID from a String and
+ present it as a String are taken from the java.util.UUID class. </td>
     </tr>
 
     <tr>
@@ -6660,7 +7278,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>The BaseTypeEnum indicates the broad category of data types for which  a MethodGenerator component is intended. The matrix defined by combining the ValueType and BaseTypeEnums indicates all the combinations of method types required for a particular type of data in code generation context.</td>
+      <td>The BaseTypeEnum indicates the broad category of data types for which 
+ a MethodGenerator component is intended. The matrix defined by combining the ValueType and
+ BaseTypeEnums indicates all the combinations of method types required for a particular
+ type of data in code generation context.</td>
     </tr>
 
     <tr>
@@ -6702,7 +7323,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>The ClassTypeEnum enumeration indicates the types of classes that can be defined; some of these definitions are borrowed from LDAP directory parlance. See the individual enum value definitions for details.</td>
+      <td>The ClassTypeEnum enumeration indicates the types of classes that can
+ be defined; some of these definitions are borrowed from LDAP directory parlance. See
+ the individual enum value definitions for details.</td>
     </tr>
 
     <tr>
@@ -6751,7 +7374,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>The DataTypeEnum relates to how attributes/classes are dealt with by various persistence mechanism. No inherent behaviour is defined at this level.</td>
+      <td>The DataTypeEnum relates to how attributes/classes are dealt with
+ by various persistence mechanism. No inherent behaviour is defined at this level.</td>
     </tr>
 
     <tr>
@@ -6814,7 +7438,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>The FilterTypeEnum enumeration indicates the types of filter operations that can be carried out on the attributes of an object.</td>
+      <td>The FilterTypeEnum enumeration indicates the types of filter operations
+ that can be carried out on the attributes of an object.</td>
     </tr>
 
     <tr>
@@ -6870,7 +7495,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>The ModifyTypeEnum indicates the types of modification operations that can be carried out on the attributes of an object.</td>
+      <td>The ModifyTypeEnum indicates the types of modification operations
+ that can be carried out on the attributes of an object.</td>
     </tr>
 
     <tr>
@@ -6919,7 +7545,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>The OperationalContextEnum indicates various types of operational contexts in which some component can operate.</td>
+      <td>The OperationalContextEnum indicates various types of operational contexts
+ in which some component can operate.</td>
     </tr>
 
     <tr>
@@ -6936,32 +7563,15 @@
       <td>indicates that the component operates in a ful Java environment; no restrictions.</td>
     </tr>
 
-    <tr> <td class="className" colspan="4"> <a name="RuleScopeEnum"> RuleScopeEnum </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label" colspan="2">Description</td>
-      <td>The RuleScopeEnum indicates the scope at which a rule is applied.  When the DMO for a rule is generated, the scope, in conjunction with the RuleTypeEnum will determine some additional attributes that will be added to the DMO class definition. <table> <tr> <td> ATTRIBUTE </td> <td> PERCLASS      </td> <td> applyToClasses </td> </tr> <tr> <td> ATTRIBUTE </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> <tr> <td> CLASS     </td> <td> PERCLASS      </td> <td> applyToClass   </td> </tr> <tr> <td> CLASS     </td> <td> GLOBAL        </td> <td> [nothing]      </td> </tr> </table></td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 0</td>
-      <td> PERCLASS</td>
-      <td>Indicates the rule is applied within the scope of a class.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> 1</td>
-      <td> GLOBAL</td>
-      <td>Indicates the rule is global in scope.</td>
-    </tr>
-
     <tr> <td class="className" colspan="4"> <a name="RuleTypeEnum"> RuleTypeEnum </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>The RuleTypeEnum indicates the level at which a rule is applied. An ATTRIBUTE rule is applied at the attribute level and must have the applyToAttribute attribute and may have the applyToClass attribute to limit its scope to particular classes. A CLASS level rule will be applied to an entire object and will have the applyToClass attribute unless it is defined as GLOBAL.</td>
+      <td>The RuleTypeEnum indicates the level at which a rule is applied. An ATTRIBUTE
+ rule is applied at the attribute level and must have the applyToAttribute attribute and may
+ have the applyToClass attribute to limit its scope to particular classes. A CLASS
+ level rule will be applied to an entire object and will have the applyToClass attribute
+ unless it is defined as GLOBAL.</td>
     </tr>
 
     <tr>
@@ -6982,7 +7592,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>The ValueTypeEnum indicates the cardinality of an attribute as well as the type of Map to be used if the attribute is keyed. This is an extension to original concept of single-valued versus multi-valued. Hashsets are also supported.</td>
+      <td>The ValueTypeEnum indicates the cardinality of an attribute as
+ well as the type of Map to be used if the attribute is keyed. This is an extension
+ to original concept of single-valued versus multi-valued. Hashsets are also supported.</td>
     </tr>
 
     <tr>
@@ -7038,7 +7650,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label" colspan="2">Description</td>
-      <td>The WrapperTypeEnum indicates which wrapper class you want instantiated when a class of object is recognized during parsing or when an object is pulled from a repository.</td>
+      <td>The WrapperTypeEnum indicates which wrapper class you want instantiated when a class
+ of object is recognized during parsing or when an object is pulled from a repository.</td>
     </tr>
 
     <tr>

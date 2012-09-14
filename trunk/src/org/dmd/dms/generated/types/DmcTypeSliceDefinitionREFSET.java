@@ -28,11 +28,14 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeSliceDefinitionREFSET provides storage for a set of SliceDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:579)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:587)
  */
 @SuppressWarnings("serial")
 public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF implements Serializable {
+    
+     private final static Iterator<SliceDefinitionREF> emptyList =  (new HashSet<SliceDefinitionREF>()).iterator();
+    
     
     protected Set<SliceDefinitionREF> value;
     
@@ -58,10 +61,14 @@ public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<SliceDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeSliceDefinitionREFSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(SliceDefinitionREF val: value)
             try {
                 rc.add(val);
@@ -73,7 +80,7 @@ public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public SliceDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             SliceDefinitionREF rc = typeCheck(v);
@@ -89,7 +96,7 @@ public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public SliceDefinitionREF del(Object v){
         synchronized(this){
             SliceDefinitionREF rc = null;
@@ -113,9 +120,12 @@ public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<SliceDefinitionREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<SliceDefinitionREF>(value)).iterator() );
             else
@@ -123,18 +133,26 @@ public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<SliceDefinitionREF> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<SliceDefinitionREF>(value));
-            else
-                return(new TreeSet<SliceDefinitionREF>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<SliceDefinitionREF>());
+                else
+                    return(new HashSet<SliceDefinitionREF>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<SliceDefinitionREF>(value));
+                else
+                    return(new TreeSet<SliceDefinitionREF>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -144,7 +162,7 @@ public class DmcTypeSliceDefinitionREFSET extends DmcTypeSliceDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

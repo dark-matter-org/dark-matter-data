@@ -30,11 +30,14 @@ import org.dmd.dmc.types.DmcTypeFullyQualifiedName;    // DmcType import
  * The DmcTypeFullyQualifiedNameSET provides storage for a set of FullyQualifiedName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:633)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName implements Serializable {
+    
+     private final static Iterator<FullyQualifiedName> emptyList =  (new HashSet<FullyQualifiedName>()).iterator();
+    
     
     protected Set<FullyQualifiedName> value;
     
@@ -60,10 +63,14 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<FullyQualifiedName> cloneIt(){
         synchronized(this){
             DmcTypeFullyQualifiedNameSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(FullyQualifiedName val: value)
             try {
                 rc.add(val);
@@ -75,7 +82,7 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public FullyQualifiedName add(Object v) throws DmcValueException {
         synchronized(this){
             FullyQualifiedName rc = typeCheck(v);
@@ -91,7 +98,7 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public FullyQualifiedName del(Object v){
         synchronized(this){
             FullyQualifiedName rc = null;
@@ -115,9 +122,12 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<FullyQualifiedName> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<FullyQualifiedName>(value)).iterator() );
             else
@@ -125,18 +135,26 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<FullyQualifiedName> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<FullyQualifiedName>(value));
-            else
-                return(new TreeSet<FullyQualifiedName>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<FullyQualifiedName>());
+                else
+                    return(new HashSet<FullyQualifiedName>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<FullyQualifiedName>(value));
+                else
+                    return(new TreeSet<FullyQualifiedName>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +164,7 @@ public class DmcTypeFullyQualifiedNameSET extends DmcTypeFullyQualifiedName impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

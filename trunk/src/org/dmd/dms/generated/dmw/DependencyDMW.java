@@ -27,22 +27,37 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * The Dependency class allows for the definition of a named dependency on
+ * The Dependency class allows for the definition of a named dependency
+ on
  * something; usually an interface. In the current schema mechanisms, the
- * only place that this mechanism is used is in the specification of
- * RuleDefinitions. Rule instances are created by injecting RuleData into a
- * rule implementation. If the rule implementation has dependencies on other
- * objects, those dependencies are specified via references to Dependencies.
- * <p/> A Dependency can be referred to via a RunContext definition which
- * directs the generation of code that can instantiate the required object
- * instances. Satisfying a Dependency relies on there being a
- * DependencyImplementation that indicates how to instantiate the object that
- * implements the interface defined by the dependency. <p/> If a Dependency
- * specifies an instantiation, this is considered the default mechanism to
- * fulfill the dependency. Other DependencyImplementations may be specified
- * that override the specified instantiation in particular contexts.
+ * only place
+ that this mechanism is used is in the specification of
+ * RuleDefinitions. Rule instances are
+ created by injecting RuleData into a
+ * rule implementation. If the rule implementation
+ has dependencies on other
+ * objects, those dependencies are specified via references to
+
+ * Dependencies.
+ <p/>
+ A Dependency can be referred to via a RunContext
+ * definition which directs the generation
+ of code that can instantiate the
+ * required object instances. Satisfying a Dependency relies
+ on there being
+ * a DependencyImplementation that indicates how to instantiate the object
+
+ * that implements the interface defined by the dependency.
+ <p/>
+ If a
+ * Dependency specifies an instantiation, this is considered the default
+ * mechanism to
+ fulfill the dependency. Other DependencyImplementations may
+ * be specified that override
+ the specified instantiation in particular
+ * contexts.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1553)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1561)
  */
 @SuppressWarnings("unused")
 public class DependencyDMW extends org.dmd.dms.DmsDefinition {
@@ -85,11 +100,13 @@ public class DependencyDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
+     * a unique name
+ for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace
+ characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -98,7 +115,7 @@ public class DependencyDMW extends org.dmd.dms.DmsDefinition {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2310)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -107,7 +124,7 @@ public class DependencyDMW extends org.dmd.dms.DmsDefinition {
      * The fully qualified name of a Java interface or base class that specifies
      * a dependency.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getUseInterface(){
         return(mycore.getUseInterface());
     }
@@ -116,7 +133,7 @@ public class DependencyDMW extends org.dmd.dms.DmsDefinition {
      * Sets useInterface to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2310)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
     public void setUseInterface(Object value) throws DmcValueException {
         mycore.setUseInterface(value);
     }
@@ -125,7 +142,7 @@ public class DependencyDMW extends org.dmd.dms.DmsDefinition {
      * A set of references to Dependencies.
      * @return An Iterator of Dependency objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2398)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2406)
     public DependencyIterableDMW getDependencies(){
         DmcTypeDependencyREFMV attr = (DmcTypeDependencyREFMV) mycore.get(MetaDMSAG.__dependencies);
         if (attr == null)
@@ -138,7 +155,7 @@ public class DependencyDMW extends org.dmd.dms.DmsDefinition {
      * Adds another dependencies value.
      * @param value A value compatible with Dependency
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2457)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2465)
     public DmcAttribute<?> addDependencies(Dependency value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addDependencies(value.getDmcObject());
         return(attr);
@@ -147,7 +164,7 @@ public class DependencyDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Returns the number of dependencies values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2483)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2491)
     public int getDependenciesSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__dependencies);
         if (attr == null)
@@ -158,7 +175,7 @@ public class DependencyDMW extends org.dmd.dms.DmsDefinition {
     /**
      * The instantiation attribute specifies how something is to be instantiated.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2247)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getInstantiation(){
         return(mycore.getInstantiation());
     }
@@ -167,7 +184,7 @@ public class DependencyDMW extends org.dmd.dms.DmsDefinition {
      * Sets instantiation to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2310)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
     public void setInstantiation(Object value) throws DmcValueException {
         mycore.setInstantiation(value);
     }

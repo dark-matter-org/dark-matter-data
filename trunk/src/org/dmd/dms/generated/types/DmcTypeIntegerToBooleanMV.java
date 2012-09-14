@@ -27,11 +27,13 @@ import org.dmd.dmc.types.DmcTypeIntegerToBoolean;    // DmcType import
  * The DmcTypeIntegerToBooleanMV provides storage for a multi-valued IntegerToBoolean
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:629)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:637)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implements Serializable {
+    
+    private final static Iterator<IntegerToBoolean> emptyList = (new ArrayList<IntegerToBoolean>()).iterator();
     
     protected ArrayList<IntegerToBoolean> value;
     
@@ -49,10 +51,14 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<IntegerToBoolean> cloneIt(){
         synchronized(this){
             DmcTypeIntegerToBooleanMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (getAttributeInfo().indexSize == 0){
                 for(IntegerToBoolean val: value)
                 try {
@@ -74,7 +80,7 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public IntegerToBoolean add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerToBoolean rc = typeCheck(v);
@@ -86,9 +92,12 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public IntegerToBoolean del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             IntegerToBoolean key = null;
             IntegerToBoolean rc = null;
             try {
@@ -107,24 +116,29 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<IntegerToBoolean> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<IntegerToBoolean> clone = new ArrayList<IntegerToBoolean>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<IntegerToBoolean> getMVCopy(){
         synchronized(this){
-            ArrayList<IntegerToBoolean> clone = new ArrayList<IntegerToBoolean>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<IntegerToBoolean>());
+            else 
+                return(new ArrayList<IntegerToBoolean>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -138,7 +152,7 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public IntegerToBoolean getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +162,7 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public IntegerToBoolean setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -175,7 +189,7 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,7 +212,7 @@ public class DmcTypeIntegerToBooleanMV extends DmcTypeIntegerToBoolean implement
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

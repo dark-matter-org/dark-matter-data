@@ -284,6 +284,16 @@ description The DmwTypeToWrapperType complex type is used as the type of
  the dmwWrapperType attribute which is used to indicate the type of wrappers
  to generate for a class in a particular generation context.
 
+ComplexTypeDefinition
+name			RuleParam
+fieldSeparator  :
+field			String         importStatement The import for the type of parameter
+field           String         genericArgs     The generic arguments associated with this parameter
+field			String         name            The name of the parameter
+field           String         description     A description of the parameter
+description The RuleParam type is used to succintly describe a parameter
+ to be supplied to a rule when it is executed.
+
 ///////////////////////////////////////////////////////////////////////////////
 // Enumeration Definitions
 
@@ -434,6 +444,7 @@ ruleCategoryID	1
 ruleInterface	org.dmd.dms.shared.interfaces.InitializationIF
 ruleExecution   initialize(DmcObject obj)
 ruleImport		org.dmd.dmc.DmcObject
+ruleParam		org.dmd.dmc.DmcObject: :obj:The object to be initialized
 description		Rules in this category are used to initialize objects to a known
  state after creation.
 
@@ -445,6 +456,7 @@ ruleInterface	org.dmd.dms.shared.interfaces.ObjectValidationIF
 ruleExecution	validate(DmcObject obj) throws DmcRuleExceptionSet
 ruleImport		org.dmd.dmc.DmcObject
 ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
+ruleParam		org.dmd.dmc.DmcObject: :obj:The object to be validated
 description		Rules in this category are used to validate a complete object. This
  would include objects read from Object Instance Files, objects in CreateRequests
  (after Initialization rules have been applied).
@@ -457,6 +469,7 @@ ruleInterface	org.dmd.dms.shared.interfaces.AttributeValidationIF
 ruleExecution	validate(DmcAttribute<?> attribute) throws DmcRuleExceptionSet
 ruleImport		org.dmd.dmc.DmcAttribute
 ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
+ruleParam		org.dmd.dmc.DmcAttribute:<?>:attribute:The attribute to be validated
 description		Rules in this category are used to validate individual attributes.
 
 RuleCategory
@@ -469,6 +482,9 @@ ruleImport		org.dmd.dmc.DmcObject
 ruleImport		org.dmd.dms.generated.types.DmcTypeModifierMV
 ruleImport		org.dmd.dmc.types.Modifier
 ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
+ruleParam		org.dmd.dmc.DmcObject: :obj:The object being modified
+ruleParam		org.dmd.dms.generated.types.DmcTypeModifierMV: :mods:The set of modifications being performed
+ruleParam		org.dmd.dmc.types.Modifier: :mod:The particular modification being validated
 description		Rules in this category are used to validate modifications that are
  about to be applied to an object.
 
@@ -480,6 +496,7 @@ ruleInterface	org.dmd.dms.shared.interfaces.UCOValidationIF
 ruleExecution	validate(DmcUncheckedObject obj) throws DmcRuleExceptionSet
 ruleImport		org.dmd.dmc.util.DmcUncheckedObject
 ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
+ruleParam		org.dmd.dmc.util.DmcUncheckedObject: :obj:The object to be validated:
 description		Rules in this category are used to validate DmcUncheckedObjects (UCOs) which
  are basically just collections of attribute/value pairs.
 
@@ -874,8 +891,13 @@ type         		String
 description    		If you want to return a value other than the native value class, use the appropriate
  getType and specify the method you need to call on the DmdValue derived class to return it.
 
-// 50
- 
+AttributeDefinition
+name          		ruleParam
+dmdID				50
+type         		RuleParam
+valueType			MULTI
+description    		A parameter to be supplied to a rule when it is executed.
+
 // 51
 
 // 52
@@ -1851,6 +1873,27 @@ may             description
 description		The ComplexTypeDefinition provides a mechanism for defining the structure of
  a complex type composed of other types. From this definition, a new DmcType is generated that
  has all of the required methods automatically defined.
+ <p/>
+ An example definition is the RuleParam:
+ <pre>
+ ComplexTypeDefinition
+ name			RuleParam
+ fieldSeparator :
+ field String importStatement The import for the type of parameter
+ field String genericArgs     The generic arguments associated with this parameter
+ field String name            The name of the parameter
+ field String description     A description of the parameter
+ description The RuleParam type is used to succintly describe a parameter
+  to be supplied to a rule when it is executed.
+ </pre>
+ In this case, the type has four fields, all of String type. An example of the String
+ format of the field might be: <pre> org.dmc.DmcObject::obj:The object to be validated</pre>. In this
+ case, the generic args field isn't available and will be the empty string. When a field
+ seperator is specified, all fields are, more or less optional, but the underlying type
+ must be able to handle the empty string as a valid value. This wouldn't work with Integer.
+ <p/>
+ If no field separator is specified, the separator is assumed to be whitespace and additional
+ whitespace is consumed during the parsing.
 
 ClassDefinition
 name			ExtendedReferenceTypeDefinition
@@ -2028,6 +2071,7 @@ must			ruleCategoryID
 must			ruleInterface
 must			ruleExecution
 may				ruleImport
+may             ruleParam
 must			description
 description		The RuleCategory allows for the definition of categories of rules to be applied
  to various objects and indicates the expected interface to be implemented by a rule instance.

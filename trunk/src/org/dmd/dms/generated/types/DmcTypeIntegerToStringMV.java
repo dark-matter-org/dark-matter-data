@@ -27,11 +27,13 @@ import org.dmd.dmc.types.DmcTypeIntegerToString;    // DmcType import
  * The DmcTypeIntegerToStringMV provides storage for a multi-valued IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:629)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:637)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements Serializable {
+    
+    private final static Iterator<IntegerToString> emptyList = (new ArrayList<IntegerToString>()).iterator();
     
     protected ArrayList<IntegerToString> value;
     
@@ -49,10 +51,14 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<IntegerToString> cloneIt(){
         synchronized(this){
             DmcTypeIntegerToStringMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (getAttributeInfo().indexSize == 0){
                 for(IntegerToString val: value)
                 try {
@@ -74,7 +80,7 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public IntegerToString add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerToString rc = typeCheck(v);
@@ -86,9 +92,12 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public IntegerToString del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             IntegerToString key = null;
             IntegerToString rc = null;
             try {
@@ -107,24 +116,29 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<IntegerToString> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<IntegerToString> clone = new ArrayList<IntegerToString>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<IntegerToString> getMVCopy(){
         synchronized(this){
-            ArrayList<IntegerToString> clone = new ArrayList<IntegerToString>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<IntegerToString>());
+            else 
+                return(new ArrayList<IntegerToString>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -138,7 +152,7 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public IntegerToString getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -148,7 +162,7 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public IntegerToString setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -175,7 +189,7 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -198,7 +212,7 @@ public class DmcTypeIntegerToStringMV extends DmcTypeIntegerToString implements 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -30,11 +30,14 @@ import org.dmd.dmc.types.DmcTypeFilterContainer;    // DmcType import
  * The DmcTypeFilterContainerSET provides storage for a set of FilterContainer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2571)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:633)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements Serializable {
+    
+     private final static Iterator<FilterContainer> emptyList =  (new HashSet<FilterContainer>()).iterator();
+    
     
     protected Set<FilterContainer> value;
     
@@ -60,10 +63,14 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2608)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
     public DmcAttribute<FilterContainer> cloneIt(){
         synchronized(this){
             DmcTypeFilterContainerSET rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             for(FilterContainer val: value)
             try {
                 rc.add(val);
@@ -75,7 +82,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2627)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
     public FilterContainer add(Object v) throws DmcValueException {
         synchronized(this){
             FilterContainer rc = typeCheck(v);
@@ -91,7 +98,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2644)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
     public FilterContainer del(Object v){
         synchronized(this){
             FilterContainer rc = null;
@@ -115,9 +122,12 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2669)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
     public Iterator<FilterContainer> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<FilterContainer>(value)).iterator() );
             else
@@ -125,18 +135,26 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2686)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
     public Set<FilterContainer> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return(new HashSet<FilterContainer>(value));
-            else
-                return(new TreeSet<FilterContainer>(value));
+            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
+                if (value == null)
+                    return(new HashSet<FilterContainer>());
+                else
+                    return(new HashSet<FilterContainer>(value));
+            }
+            else{
+                if (value == null)
+                    return(new TreeSet<FilterContainer>(value));
+                else
+                    return(new TreeSet<FilterContainer>(value));
+            }
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2704)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -146,7 +164,7 @@ public class DmcTypeFilterContainerSET extends DmcTypeFilterContainer implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

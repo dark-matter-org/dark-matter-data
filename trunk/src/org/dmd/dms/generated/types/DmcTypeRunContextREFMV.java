@@ -25,11 +25,13 @@ import org.dmd.dmc.DmcValueException;
  * The DmcTypeRunContextREFMV provides storage for a multi-valued RunContextREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2288)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:576)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:584)
  */
 @SuppressWarnings("serial")
 public class DmcTypeRunContextREFMV extends DmcTypeRunContextREF implements Serializable {
+    
+    private final static Iterator<RunContextREF> emptyList = (new ArrayList<RunContextREF>()).iterator();
     
     protected ArrayList<RunContextREF> value;
     
@@ -47,10 +49,14 @@ public class DmcTypeRunContextREFMV extends DmcTypeRunContextREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2318)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
     public DmcAttribute<RunContextREF> cloneIt(){
         synchronized(this){
             DmcTypeRunContextREFMV rc = getNew();
+    
+            if (value == null)
+                return(rc);
+    
             if (getAttributeInfo().indexSize == 0){
                 for(RunContextREF val: value)
                 try {
@@ -72,7 +78,7 @@ public class DmcTypeRunContextREFMV extends DmcTypeRunContextREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2347)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
     public RunContextREF add(Object v) throws DmcValueException {
         synchronized(this){
             RunContextREF rc = typeCheck(v);
@@ -84,9 +90,12 @@ public class DmcTypeRunContextREFMV extends DmcTypeRunContextREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2360)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
     public RunContextREF del(Object v){
         synchronized(this){
+            if (value == null)
+                return(null);
+    
             RunContextREF key = null;
             RunContextREF rc = null;
             try {
@@ -105,24 +114,29 @@ public class DmcTypeRunContextREFMV extends DmcTypeRunContextREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2391)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
     public Iterator<RunContextREF> getMV(){
         synchronized(this){
+            if (value == null)
+                return(emptyList);
+    
             ArrayList<RunContextREF> clone = new ArrayList<RunContextREF>(value);
             return(clone.iterator());
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2400)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
     public ArrayList<RunContextREF> getMVCopy(){
         synchronized(this){
-            ArrayList<RunContextREF> clone = new ArrayList<RunContextREF>(value);
-            return(clone);
+            if (value == null)
+                return(new ArrayList<RunContextREF>());
+            else 
+                return(new ArrayList<RunContextREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
     public int getMVSize(){
         synchronized(this){
             if (getAttributeInfo().indexSize == 0){
@@ -136,7 +150,7 @@ public class DmcTypeRunContextREFMV extends DmcTypeRunContextREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2425)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
     public RunContextREF getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -146,7 +160,7 @@ public class DmcTypeRunContextREFMV extends DmcTypeRunContextREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2436)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public RunContextREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
@@ -173,7 +187,7 @@ public class DmcTypeRunContextREFMV extends DmcTypeRunContextREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2464)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
@@ -196,7 +210,7 @@ public class DmcTypeRunContextREFMV extends DmcTypeRunContextREF implements Seri
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)
