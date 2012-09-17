@@ -541,6 +541,18 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
+      <td> <a href="meta.html#preserveNewlines">preserveNewlines</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> Indicates that newline characters should be preserved when an
+ attribute is parsed by the DmcUncheckedOIFParser. This is useful for certain attributes
+ when newlines are required to properly format the contents of the attribute at
+ a later time. For example, the description attribute is later dumped as part of 
+ HTML documentation and, if the newlines are stripped, it won't be properly formatted. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="meta.html#secure">secure</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> This attribute indicates whether or not the attribute should
@@ -824,7 +836,7 @@
   to be supplied to a rule when it is executed.
  </pre>
  In this case, the type has four fields, all of String type. An example of the String
- format of the field might be: org.dmc.DmcObject::obj:The object to be validated. In this
+ format of the field might be: <pre> org.dmc.DmcObject::obj:The object to be validated</pre> In this
  case, the generic args field isn't available and will be the empty string. When a field
  seperator is specified, all fields are, more or less optional, but the underlying type
  must be able to handle the empty string as a valid value. This wouldn't work with Integer.
@@ -5127,6 +5139,35 @@
       </td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="preserveNewlines"> preserveNewlines </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates that newline characters should be preserved when an
+ attribute is parsed by the DmcUncheckedOIFParser. This is useful for certain attributes
+ when newlines are required to properly format the contents of the attribute at
+ a later time. For example, the description attribute is later dumped as part of 
+ HTML documentation and, if the newlines are stripped, it won't be properly formatted.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> AttributeDefinition (<a href="meta.html#AttributeDefinition">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="primitiveType"> primitiveType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -6109,15 +6150,16 @@
 </tr>
   <tr>
     <td> onOff (<a href="dmt.html#onOff">dmt</a>) </td>
+    <td> preserveNewlines (<a href="meta.html#preserveNewlines">meta</a>) </td>
     <td> readableFormat (<a href="dmp.html#readableFormat">dmp</a>) </td>
-    <td> registerForEvents (<a href="dmp.html#registerForEvents">dmp</a>) </td>
 </tr>
   <tr>
+    <td> registerForEvents (<a href="dmp.html#registerForEvents">dmp</a>) </td>
     <td> secure (<a href="meta.html#secure">meta</a>) </td>
     <td> supportsBackrefTracking (<a href="meta.html#supportsBackrefTracking">meta</a>) </td>
-    <td> svBoolean (<a href="dmt.html#svBoolean">dmt</a>) </td>
 </tr>
   <tr>
+    <td> svBoolean (<a href="dmt.html#svBoolean">dmt</a>) </td>
     <td> trackingEnabled (<a href="dmp.html#trackingEnabled">dmp</a>) </td>
 </tr>
 </table>

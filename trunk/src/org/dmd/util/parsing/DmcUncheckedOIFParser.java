@@ -60,8 +60,8 @@ public class DmcUncheckedOIFParser {
      */
     ResultException	exG;
     
-    // Indicates the attributes that should have their line feeds preserved
-    HashMap<String, String> 	preserveLF;
+    // Indicates the attributes that should have their newlines preserved
+    HashMap<String, String> 	preserverNL;
 
     /**
       * Creates a new Object Instance Format parser. As new BasicObjects are created,
@@ -71,11 +71,11 @@ public class DmcUncheckedOIFParser {
         handler         = objHandler;
         allowedErrorsV  = 0;
         exG				= null;
-        preserveLF		= new HashMap<String, String>();
+        preserverNL		= new HashMap<String, String>();
     }
     
-    public void addPreserveLineFeedsAttribute(String an){
-    	preserveLF.put(an, an);
+    public void addPreserveNewlinesAttribute(String an){
+    	preserverNL.put(an, an);
     }
 
     /**
@@ -159,7 +159,7 @@ public class DmcUncheckedOIFParser {
                             // We have tokens
                             if (str.startsWith(" ")){
                                 // Line continuation
-                            	if (preserveLF.get(attrName) != null)
+                            	if (preserverNL.get(attrName) != null)
                                     attrVal.append("\n" + str);
                             	else
                             		attrVal.append(str);

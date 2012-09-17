@@ -61,6 +61,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__nullReturnValue.id,MetaDMSAG.__nullReturnValue);
         _ImAp.put(MetaDMSAG.__obsoleteVersion.id,MetaDMSAG.__obsoleteVersion);
+        _ImAp.put(MetaDMSAG.__preserveNewlines.id,MetaDMSAG.__preserveNewlines);
         _ImAp.put(MetaDMSAG.__secure.id,MetaDMSAG.__secure);
         _ImAp.put(MetaDMSAG.__valueType.id,MetaDMSAG.__valueType);
 
@@ -82,6 +83,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__nullReturnValue.name,MetaDMSAG.__nullReturnValue);
         _SmAp.put(MetaDMSAG.__obsoleteVersion.name,MetaDMSAG.__obsoleteVersion);
+        _SmAp.put(MetaDMSAG.__preserveNewlines.name,MetaDMSAG.__preserveNewlines);
         _SmAp.put(MetaDMSAG.__secure.name,MetaDMSAG.__secure);
         _SmAp.put(MetaDMSAG.__valueType.name,MetaDMSAG.__valueType);
     }
@@ -626,6 +628,41 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         
         attr.set(value);
         set(MetaDMSAG.__obsoleteVersion,attr);
+    }
+
+    /**
+     * Indicates that newline characters should be preserved when an
+ attribute
+     * is parsed by the DmcUncheckedOIFParser. This is useful for certain
+     * attributes
+ when newlines are required to properly format the contents of
+     * the attribute at
+ a later time. For example, the description attribute is
+     * later dumped as part of 
+ HTML documentation and, if the newlines are
+     * stripped, it won't be properly formatted.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    public Boolean getPreserveNewlines(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__preserveNewlines);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets preserveNewlines to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2284)
+    public void setPreserveNewlines(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__preserveNewlines);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__preserveNewlines);
+        
+        attr.set(value);
+        set(MetaDMSAG.__preserveNewlines,attr);
     }
 
     /**

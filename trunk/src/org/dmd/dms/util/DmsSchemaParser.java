@@ -28,8 +28,12 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.MetaSchema;
+import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.SchemaDefinition;
+import org.dmd.dms.SchemaDefinitionListenerIF;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
+import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
 import org.dmd.dmw.DmwObjectFactory;
@@ -49,7 +53,7 @@ import org.dmd.util.parsing.DmcUncheckedOIFParser;
  * (IMD) schema and stores them in an SchemaManager.
  */
 
-public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
+public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefinitionListenerIF {
 
     // Schema manager that recognizes the DMS schema.
     SchemaManager    		dmsSchema;
@@ -161,6 +165,13 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         loadedFiles     = new HashMap<String,SchemaDefinition>();
         schemaParser    = new DmcUncheckedOIFParser(this);
         defParser       = new DmcUncheckedOIFParser(this);
+        
+        for (AttributeDefinition def: MetaSchemaAG._metaSchema.getAttributeDefList()){
+        	if (def.getPreserveNewlines()){
+        		schemaParser.addPreserveNewlinesAttribute(def.getName().getNameString());
+        		defParser.addPreserveNewlinesAttribute(def.getName().getNameString());
+        	}
+        }
         schemaStack     = new Stack<SchemaDefinition>();
         
         // The factory is built to recognize all objects because the
@@ -567,6 +578,18 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
         }
 
     }
+
+	@Override
+	public void definitionAdded(DmsDefinitionDMO def) {
+		if (def instanceof AttributeDefinitionDMO){
+			AttributeDefinitionDMO attr = (AttributeDefinitionDMO) def;
+			if (attr.getPreserveNewlines()){
+				schemaParser.addPreserveNewlinesAttribute(attr.getName().getNameString());
+				defParser.addPreserveNewlinesAttribute(attr.getName().getNameString());
+			}
+		}
+		
+	}
 
 
 }
