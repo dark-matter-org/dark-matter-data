@@ -2,12 +2,13 @@ package org.dmd.dmc.rules;
 
 import java.util.TreeMap;
 
-public class RuleCollection<I> {
+public abstract class RuleCollection<I> {
 	
-	TreeMap<RuleKey,I>	rules;
+	protected TreeMap<RuleKey,I>	rules;
 
-	public RuleCollection(I rule) {
+	public RuleCollection() {
 		
 	}
 	
+	abstract public void addRule(RuleIF rule);
 }
