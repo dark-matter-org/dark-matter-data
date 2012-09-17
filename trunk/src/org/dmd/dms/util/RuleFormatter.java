@@ -251,6 +251,24 @@ public class RuleFormatter {
 			out.write("}\n\n");
 			
 			out.close();
+			
+			///////////////////////////////////////////////////////////////////
+			
+			baseImports = new ImportManager();
+			
+    		baseImports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "Rule type");
+    		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
+    		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "To determine the type of a rule");
+    		baseImports.addImport("org.dmd.dmc.rules.ClassRuleKey", "To determine the type of a rule");
+    		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleKey", "To determine the type of a rule");
+    		
+    		
+    		
+    		out = FileUpdateManager.instance().getWriter(rulesDir, name + "RuleCollection.java");
+			
+			out.write("package " + schemaPackage + ".generated.rulesdmo;\n\n");
+
+			out.close();
 		}
 		
 	}	
