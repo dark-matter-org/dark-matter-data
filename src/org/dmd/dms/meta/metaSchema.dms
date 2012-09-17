@@ -649,6 +649,7 @@ description			This flag is set to true to indicate the default value for a type 
 AttributeDefinition
 name            	description
 dmdID				18
+preserveNewlines	true
 type                String
 description    		The description attribute is used to provide descriptive
  documentation for schema related definitions. The text provided should conform
@@ -898,7 +899,15 @@ type         		RuleParam
 valueType			MULTI
 description    		A parameter to be supplied to a rule when it is executed.
 
-// 51
+AttributeDefinition
+name          		preserveNewlines
+dmdID				51
+type         		Boolean
+description    		Indicates that newline characters should be preserved when an
+ attribute is parsed by the DmcUncheckedOIFParser. This is useful for certain attributes
+ when newlines are required to properly format the contents of the attribute at
+ a later time. For example, the description attribute is later dumped as part of 
+ HTML documentation and, if the newlines are stripped, it won't be properly formatted.
 
 // 52
 
@@ -1887,7 +1896,7 @@ description		The ComplexTypeDefinition provides a mechanism for defining the str
   to be supplied to a rule when it is executed.
  </pre>
  In this case, the type has four fields, all of String type. An example of the String
- format of the field might be: <pre> org.dmc.DmcObject::obj:The object to be validated</pre>. In this
+ format of the field might be: <pre> org.dmc.DmcObject::obj:The object to be validated</pre> In this
  case, the generic args field isn't available and will be the empty string. When a field
  seperator is specified, all fields are, more or less optional, but the underlying type
  must be able to handle the empty string as a valid value. This wouldn't work with Integer.
@@ -1936,6 +1945,7 @@ may				designatedNameAttribute
 may				designatedFilterAttribute
 may				internalUse
 may				indexSize
+may				preserveNewlines
 description    This class is used to define attributes to be used
  as part of a class definition.
  

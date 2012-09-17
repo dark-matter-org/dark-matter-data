@@ -15,6 +15,7 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeMap;
@@ -197,7 +198,8 @@ public class SchemaManager implements DmcNameResolverIF {
     // a generated schema.
     boolean										performIDChecks;
 
-//    StringName nameKey;
+    // Listeners that want to know when definitions have been added 
+    ArrayList<SchemaDefinitionListenerIF>			listeners;
     
     /**
      * Creates a new SchemaManager.
@@ -282,6 +284,12 @@ public class SchemaManager implements DmcNameResolverIF {
 
 //        }
     	
+    }
+    
+    public void addDefinitionListener(SchemaDefinitionListenerIF listener){
+    	if (listeners == null)
+    		listeners = new ArrayList<SchemaDefinitionListenerIF>();
+    	listeners.add(listener);
     }
     
     public TreeMap<StringName, ClassDefinition> getHierarchicObjects(){
@@ -1714,6 +1722,10 @@ public class SchemaManager implements DmcNameResolverIF {
         	throw(ex);
         }
 
+    	if (listeners != null){
+    		for(SchemaDefinitionListenerIF listener: listeners)
+    			listener.definitionAdded(def.getDMO());
+    	}
     }
 
     /**

@@ -54,19 +54,19 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  In this case, the type has four fields, all
  * of String type. An example of the String
  format of the field might be:
- * org.dmc.DmcObject::obj:The object to be validated. In this
- case, the
- * generic args field isn't available and will be the empty string. When a
- * field
- seperator is specified, all fields are, more or less optional, but
- * the underlying type
- must be able to handle the empty string as a valid
- * value. This wouldn't work with Integer.
- <p/>
- If no field separator is
- * specified, the separator is assumed to be whitespace and additional
+ * <pre> org.dmc.DmcObject::obj:The object to be validated</pre> In this
 
- * whitespace is consumed during the parsing.
+ * case, the generic args field isn't available and will be the empty string.
+ * When a field
+ seperator is specified, all fields are, more or less
+ * optional, but the underlying type
+ must be able to handle the empty string
+ * as a valid value. This wouldn't work with Integer.
+ <p/>
+ If no field
+ * separator is specified, the separator is assumed to be whitespace and
+ * additional
+ whitespace is consumed during the parsing.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1845)
  */

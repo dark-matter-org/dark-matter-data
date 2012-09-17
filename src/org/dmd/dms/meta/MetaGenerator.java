@@ -153,7 +153,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 		origOrderCategories = new ArrayList<String>();
 
 		parser = new DmcUncheckedOIFParser(this);
-		parser.addPreserveLineFeedsAttribute("description");
+		parser.addPreserveNewlinesAttribute("description");
 	}
 
 	public void run(String[] args) throws DmcValueException, DmcRuleExceptionSet {

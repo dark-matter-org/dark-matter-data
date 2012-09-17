@@ -423,6 +423,32 @@ public class AttributeDefinitionDMW extends org.dmd.dms.DmsDefinition {
         mycore.setIndexSize(value);
     }
 
+    /**
+     * Indicates that newline characters should be preserved when an
+ attribute
+     * is parsed by the DmcUncheckedOIFParser. This is useful for certain
+     * attributes
+ when newlines are required to properly format the contents of
+     * the attribute at
+ a later time. For example, the description attribute is
+     * later dumped as part of 
+ HTML documentation and, if the newlines are
+     * stripped, it won't be properly formatted.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    public Boolean getPreserveNewlines(){
+        return(mycore.getPreserveNewlines());
+    }
+
+    /**
+     * Sets preserveNewlines to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
+    public void setPreserveNewlines(Object value) throws DmcValueException {
+        mycore.setPreserveNewlines(value);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
