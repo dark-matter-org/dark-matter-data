@@ -441,17 +441,23 @@ RuleCategory
 name			Initialization
 opContext		DMO
 ruleCategoryID	1
+ruleType		CLASS
 ruleInterface	org.dmd.dms.shared.interfaces.InitializationIF
 ruleExecution   initialize(DmcObject obj)
 ruleImport		org.dmd.dmc.DmcObject
 ruleParam		org.dmd.dmc.DmcObject: :obj:The object to be initialized
 description		Rules in this category are used to initialize objects to a known
  state after creation.
+ <p/>
+ Execution will be performed from the bottom of the derivation hierarchy to the top i.e.
+ we look for rules for the construction class of the object being initialized and then
+ move up the derivation hierarchy looking for rules associated with the base classes.
 
 RuleCategory
 name			ObjectValidation
 opContext		DMO
 ruleCategoryID	2
+ruleType		CLASS
 ruleInterface	org.dmd.dms.shared.interfaces.ObjectValidationIF
 ruleExecution	validate(DmcObject obj) throws DmcRuleExceptionSet
 ruleImport		org.dmd.dmc.DmcObject
@@ -465,10 +471,12 @@ RuleCategory
 name			AttributeValidation
 opContext		DMO
 ruleCategoryID	3
+ruleType		ATTRIBUTE
 ruleInterface	org.dmd.dms.shared.interfaces.AttributeValidationIF
 ruleExecution	validate(DmcAttribute<?> attribute) throws DmcRuleExceptionSet
 ruleImport		org.dmd.dmc.DmcAttribute
 ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
+ruleParam		org.dmd.dmc.DmcObject::obj:The object in which the attribute exists
 ruleParam		org.dmd.dmc.DmcAttribute:<?>:attribute:The attribute to be validated
 description		Rules in this category are used to validate individual attributes.
 
@@ -476,6 +484,7 @@ RuleCategory
 name			ModifierValidation
 opContext		DMO
 ruleCategoryID	4
+ruleType		CLASS
 ruleInterface	org.dmd.dms.shared.interfaces.ModifierValidationIF
 ruleExecution	validate(DmcObject obj, DmcTypeModifierMV mods, Modifier mod) throws DmcRuleExceptionSet
 ruleImport		org.dmd.dmc.DmcObject
@@ -492,6 +501,7 @@ RuleCategory
 name			UCOValidation
 opContext		DMO
 ruleCategoryID	5
+ruleType		CLASS
 ruleInterface	org.dmd.dms.shared.interfaces.UCOValidationIF
 ruleExecution	validate(DmcUncheckedObject obj) throws DmcRuleExceptionSet
 ruleImport		org.dmd.dmc.util.DmcUncheckedObject
@@ -2080,15 +2090,28 @@ must			opContext
 must			ruleCategoryID
 must			ruleInterface
 must			ruleExecution
+must			ruleType
 may				ruleImport
 may             ruleParam
 must			description
 description		The RuleCategory allows for the definition of categories of rules to be applied
  to various objects and indicates the expected interface to be implemented by a rule instance.
- A RuleDefinition may belong to multiple categories. The basic RuleManager provides interfaces
- to trigger the RuleCategories defined as part of the meta schema. If you add other rule categories,
- you would derive from the RuleManager to add the additional methods required
- 
+ A RuleDefinition may belong to multiple categories. 
+ <p/>
+ RuleCategories fall into two broad types, ATTRIBUTE and CLASS level, as specified via the ruleType
+ attribute. When a RuleDefinition belongs to an ATTRIBUTE level category, its instances will have
+ a mandatory applyToAttribute attribute. Both ATTRIBUTE and CLASS level RuleDefinitions have an optional
+ applyToClass attribute by default.
+ <p/>
+ Specifying a RuleCategory will cause the generation of several artifacts including:
+ <ul>
+ <li> a category interface: this interface will be created based on the ruleParam values and will be
+ implemented by RuleDefinitions that are part of the category
+ </li> a rule collection: this is a category specific collection of rules that organize the rule instances
+ in this category.
+ </ul>
+ Exactly how a RuleCategory applies rule instances is category specific and this behaviour should be
+ part of the description of a rule category.
 
 ClassDefinition
 name           	RuleDefinition

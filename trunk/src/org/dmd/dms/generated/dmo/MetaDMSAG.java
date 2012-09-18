@@ -518,6 +518,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleCategory.addMust(__ruleCategoryID);
         __RuleCategory.addMust(__ruleExecution);
         __RuleCategory.addMust(__ruleInterface);
+        __RuleCategory.addMust(__ruleType);
         __RuleCategory.addMay(__definedIn);
         __RuleCategory.addMay(__file);
         __RuleCategory.addMay(__lineNumber);
