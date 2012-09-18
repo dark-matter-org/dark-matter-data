@@ -6,7 +6,7 @@ public abstract class ClassRuleCollection<I> extends RuleCollection<I> {
 
 	DmcClassInfo key;
 	
-	public ClassRuleCollection(I rule) {
+	public ClassRuleCollection() {
 
 	}
 

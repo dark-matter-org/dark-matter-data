@@ -31,12 +31,34 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  to various objects and indicates the expected interface to be
  * implemented by a rule instance.
  A RuleDefinition may belong to multiple
- * categories. The basic RuleManager provides interfaces
- to trigger the
- * RuleCategories defined as part of the meta schema. If you add other rule
- * categories,
- you would derive from the RuleManager to add the additional
- * methods required
+ * categories. 
+ <p/>
+ RuleCategories fall into two broad types, ATTRIBUTE
+ * and CLASS level, as specified via the ruleType
+ attribute. When a
+ * RuleDefinition belongs to an ATTRIBUTE level category, its instances will
+ * have
+ a mandatory applyToAttribute attribute. Both ATTRIBUTE and CLASS
+ * level RuleDefinitions have an optional
+ applyToClass attribute by
+ * default.
+ <p/>
+ Specifying a RuleCategory will cause the generation of
+ * several artifacts including:
+ <ul>
+ <li> a category interface: this
+ * interface will be created based on the ruleParam values and will be
+
+ * implemented by RuleDefinitions that are part of the category
+ </li> a rule
+ * collection: this is a category specific collection of rules that organize
+ * the rule instances
+ in this category.
+ </ul>
+ Exactly how a RuleCategory
+ * applies rule instances is category specific and this behaviour should be
+
+ * part of the description of a rule category.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1845)
  */
@@ -58,6 +80,7 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         _ImAp.put(MetaDMSAG.__ruleCategoryID.id,MetaDMSAG.__ruleCategoryID);
         _ImAp.put(MetaDMSAG.__ruleExecution.id,MetaDMSAG.__ruleExecution);
         _ImAp.put(MetaDMSAG.__ruleInterface.id,MetaDMSAG.__ruleInterface);
+        _ImAp.put(MetaDMSAG.__ruleType.id,MetaDMSAG.__ruleType);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
@@ -71,6 +94,7 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         _SmAp.put(MetaDMSAG.__ruleCategoryID.name,MetaDMSAG.__ruleCategoryID);
         _SmAp.put(MetaDMSAG.__ruleExecution.name,MetaDMSAG.__ruleExecution);
         _SmAp.put(MetaDMSAG.__ruleInterface.name,MetaDMSAG.__ruleInterface);
+        _SmAp.put(MetaDMSAG.__ruleType.name,MetaDMSAG.__ruleType);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
@@ -276,6 +300,32 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         
         attr.set(value);
         set(MetaDMSAG.__ruleInterface,attr);
+    }
+
+    /**
+     * The type of a rule.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    public RuleTypeEnum getRuleType(){
+        DmcTypeRuleTypeEnumSV attr = (DmcTypeRuleTypeEnumSV) get(MetaDMSAG.__ruleType);
+        if (attr == null)
+            return(RuleTypeEnum.ATTRIBUTE);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets ruleType to the specified value.
+     * @param value A value compatible with DmcTypeRuleTypeEnumSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2284)
+    public void setRuleType(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__ruleType);
+        if (attr == null)
+            attr = new DmcTypeRuleTypeEnumSV(MetaDMSAG.__ruleType);
+        
+        attr.set(value);
+        set(MetaDMSAG.__ruleType,attr);
     }
 
     /**

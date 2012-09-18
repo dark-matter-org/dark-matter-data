@@ -6,6 +6,7 @@ import java.io.PrintStream;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.rules.RuleIF;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.RuleCategory;
@@ -13,6 +14,7 @@ import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.OperationalContextEnum;
+import org.dmd.dms.generated.rulesdmo.AttributeValidationIF;
 import org.dmd.dms.generated.types.RuleParam;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
@@ -192,6 +194,12 @@ public class RuleFormatter {
 		
 		for(DmcUncheckedObject category: ruleCategoryDefs.values()){
     		String name = GenUtility.capTheName(category.getSV("name"));
+    		String ruleType = category.getSV("ruleType");
+    		Boolean	isAttributeRule = false;
+    		
+    		if (ruleType.equals("ATTRIBUTE"))
+    			isAttributeRule = true;
+    		
     		NamedStringArray categories = category.get("ruleParam");
     		    		
     		ImportManager baseImports = new ImportManager();
@@ -254,19 +262,51 @@ public class RuleFormatter {
 			
 			///////////////////////////////////////////////////////////////////
 			
-			baseImports = new ImportManager();
+//			baseImports = new ImportManager();
 			
     		baseImports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "Rule type");
     		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
-    		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "To determine the type of a rule");
-    		baseImports.addImport("org.dmd.dmc.rules.ClassRuleKey", "To determine the type of a rule");
-    		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleKey", "To determine the type of a rule");
+//    		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "To determine the type of a rule");
+//    		baseImports.addImport("org.dmd.dmc.rules.ClassRuleKey", "To determine the type of a rule");
+//    		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleKey", "To determine the type of a rule");
+    		baseImports.addImport("java.util.TreeMap", "Storage for the rules");
+    		baseImports.addImport("org.dmd.dmc.rules.RuleKey", "Generic rule key");
     		
+    		if (isAttributeRule)
+        		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleCollection", "Attribute rule");
+    		else
+        		baseImports.addImport("org.dmd.dmc.rules.ClassRuleCollection", "Class rule");
     		
     		
     		out = FileUpdateManager.instance().getWriter(rulesDir, name + "RuleCollection.java");
 			
 			out.write("package " + schemaPackage + ".generated.rulesdmo;\n\n");
+			
+			out.write(baseImports.getFormattedImports());
+			
+			if (isAttributeRule)
+				out.write("public class " + name + "RuleCollection extends AttributeRuleCollection<" + name + "IF> {" + "\n\n");
+			else
+				out.write("public class " + name + "RuleCollection extends ClassRuleCollection<" + name + "IF> {" + "\n\n");
+
+			out.write("    public " + name + "RuleCollection(){\n");
+			out.write("        rules = new TreeMap<RuleKey," + name + "IF>();\n");
+			out.write("    }\n\n");
+
+			out.write("    @Override\n");
+			out.write("    public void addRule(RuleIF rule) {\n");
+			out.write("\n");
+			out.write("        if (rule instanceof " + name + "IF){\n");
+			out.write("            \n");
+			out.write("        }\n");
+			out.write("    }\n\n");
+
+			out.write("    /**\n");
+			out.write(params + "\n");
+			out.write("     */\n");
+			out.write("    public void execute(" + args + ") throws DmcRuleExceptionSet {\n");
+			out.write("    }\n\n");
+			out.write("}\n\n");
 
 			out.close();
 		}
