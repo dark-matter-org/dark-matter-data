@@ -22,7 +22,7 @@ import org.dmd.dmw.DmwWrapper;                                           // Unna
 
 
 /**
- * The TestAbstract class just defines an abstract base class from which
+ * The TestAbstract class just defines an abstract base class from which\n
  * other test classes can be derived to tes this type of derivation.
  * <P>
  * Generated from the dmt schema at version 0.1

@@ -28,14 +28,14 @@ import org.dmd.dms.generated.types.DmcTypeFullyQualifiedNameSV;           // Req
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Required for MODREC constructor - (GenUtility.java:223)
 
 /**
- * The LDAPHierarchicObject provides some additional structure and
+ * The LDAPHierarchicObject provides some additional structure and\n
  * conventions to the HierarchicObject to make it usable in conjunction with
- * an LDAP enabled directory server. Classes derived from
- * LDAPHierarchicObject must be defined in a schema that has been extended
- * with the LDAPSchemaExtension auxiliary class and must themselves be
- * extended with the LDAPClassExtension auxiliary class; the class must have
- * a defined naming attribute. Furthermore, naming attributes should be
- * unique for each defined class.
+ * an LDAP\n enabled directory server. Classes derived from
+ * LDAPHierarchicObject must be defined\n in a schema that has been extended
+ * with the LDAPSchemaExtension auxiliary class and\n must themselves be
+ * extended with the LDAPClassExtension auxiliary class; the class\n must
+ * have a defined naming attribute. Furthermore, naming attributes should
+ * be\n unique for each defined class.
  * <P>
  * Generated from the dmr.ldap schema at version 0.1
  * <P>

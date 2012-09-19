@@ -26,8 +26,8 @@ import org.dmd.dms.generated.types.DmcTypeIntegerMV;         // Required type - 
 import org.dmd.dms.generated.types.DmcTypeLongSV;            // Required type - (GenUtility.java:324)
 
 /**
- * The DMPMessage class provides a common base for all messages that comprise
- * the Dark Matter Protocol (DMP).
+ * The DMPMessage class provides a common base for all messages that\n
+ * comprise the Dark Matter Protocol (DMP).
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

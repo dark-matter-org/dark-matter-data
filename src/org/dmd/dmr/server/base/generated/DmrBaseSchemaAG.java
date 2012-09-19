@@ -23,8 +23,8 @@ import org.dmd.dmr.shared.base.generated.dmo.DmrBaseDMSAG;
 
 
 /**
- * The dmrbase schema defines classes that provide base support for the Dark
- * Matter Repository (DMR) concepts.
+ * The dmrbase schema defines classes that provide base support\n for the
+ * Dark Matter Repository (DMR) concepts.
  * <P>
  * Generated from the dmr.base schema at version 0.1
  * <P>
@@ -79,7 +79,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _HierarchicObjectOBJ.setClassType("STRUCTURAL");
             _HierarchicObjectOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
             _HierarchicObjectOBJ.setLineNumber("15");
-            _HierarchicObjectOBJ.setDescription("A HierarchicObject is meant to represent any object that can be identified with a Fully Qualified Name (FQN) and exists in a containment relationship with other objects. The exact implementation of a HierarchicObject is application specific.");
+            _HierarchicObjectOBJ.setDescription("A HierarchicObject is meant to represent any object that can\n be identified with a Fully Qualified Name (FQN) and exists in a containment\n relationship with other objects. The exact implementation of a HierarchicObject\n is application specific.");
             _HierarchicObjectOBJ.setIsNamedBy("FQN");
             _HierarchicObjectOBJ.setUseWrapperType("EXTENDED");
             _HierarchicObjectOBJ.setDmtREFImport("org.dmd.dmr.shared.base.generated.types.HierarchicObjectREF");
@@ -99,7 +99,7 @@ public class DmrBaseSchemaAG extends SchemaDefinition {
             _DotNamedObjectOBJ.setClassType("STRUCTURAL");
             _DotNamedObjectOBJ.setFile("/src/org/dmd/dmr/shared/base/dmdconfig/v0dot1/classes.dmd");
             _DotNamedObjectOBJ.setLineNumber("33");
-            _DotNamedObjectOBJ.setDescription("A DotNamedObject is a hierarchic object whose fully qualified name is composed of naming attributes separated by periods. For example  grandparent.parent.child. <p> The naming attribute of a DotNamedObject is name. Unlike LDAP objects,  we don't bother making this configurable. When a DotNamedObject is parsed from a file, we check to see if the name attribute has a value; if not, we take the last portion of the FQN as the name. For example, if the FQN is x.y.z, the name of the object would be 'z'.");
+            _DotNamedObjectOBJ.setDescription("A DotNamedObject is a hierarchic object whose fully qualified\n name is composed of naming attributes separated by periods. For example \n grandparent.parent.child.\n <p>\n The naming attribute of a DotNamedObject is name. Unlike LDAP objects, \n we don't bother making this configurable. When a DotNamedObject is parsed\n from a file, we check to see if the name attribute has a value; if not,\n we take the last portion of the FQN as the name. For example, if the FQN\n is x.y.z, the name of the object would be 'z'.");
             _DotNamedObjectOBJ.setDerivedFrom("HierarchicObject");
             _DotNamedObjectOBJ.setIsNamedBy("FQN");
             _DotNamedObjectOBJ.setUseWrapperType("EXTENDED");

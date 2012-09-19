@@ -119,23 +119,6 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The type of a rule.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
-    public RuleTypeEnum getRuleType(){
-        return(mycore.getRuleType());
-    }
-
-    /**
-     * Sets ruleType to the specified value.
-     * @param value A value compatible with DmcTypeRuleTypeEnumSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
-    public void setRuleType(Object value) throws DmcValueException {
-        mycore.setRuleType(value);
-    }
-
-    /**
      * The category of a rule.
      * @return An Iterator of RuleCategory objects.
      */

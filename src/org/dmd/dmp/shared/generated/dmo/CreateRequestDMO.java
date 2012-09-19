@@ -33,7 +33,7 @@ import org.dmd.dms.generated.types.DmcTypeNameContainerSV;         // Required t
 
 /**
  * The CreateRequest allows you to create a new object. If the parentName is
- * specified, the object will be created beneath that parent object.
+ * specified,\n the object will be created beneath that parent object.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

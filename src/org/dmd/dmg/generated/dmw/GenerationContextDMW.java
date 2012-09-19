@@ -13,7 +13,7 @@ import org.dmd.dmw.DmwNamedObjectWrapper;                      // Named object w
 
 
 /**
- * The GenerationContext acts as a gathering point for a set of code
+ * The GenerationContext acts as a gathering point for a set of\n code
  * generation components.
  * <P>
  * Generated from the dmg schema at version 0.1

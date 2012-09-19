@@ -8,7 +8,7 @@ import org.dmd.dmc.DmcValueException;                       // Any attributes - 
 import org.dmd.dms.generated.types.DmcTypeStringSV;         // Required type - (GenUtility.java:324)
 
 /**
- * The TestAbstract class just defines an abstract base class from which
+ * The TestAbstract class just defines an abstract base class from which\n
  * other test classes can be derived to tes this type of derivation.
  * <P>
  * Generated from the dmt schema at version 0.1

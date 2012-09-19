@@ -26,7 +26,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for MO
 import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type - (GenUtility.java:324)
 
 /**
- * The LogoutResponse will indicate that you have successfully terminated
+ * The LogoutResponse will indicate that you have successfully terminated\n
  * your current session.
  * <P>
  * Generated from the dmp schema at version 0.1

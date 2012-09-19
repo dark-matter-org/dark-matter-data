@@ -27,16 +27,16 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required fo
 
 
 /**
- * The LoginResponse is returned after a Login request is received. If the
+ * The LoginResponse is returned after a Login request is received. If the\n
  * login is successful, a session ID will be assigned and a request root will
- * be given. All subsequent requests must contain the session ID and all
- * requests will be checked to ensure that they pertain to objects at or
- * below the request root. <p/> The response may also have an originatorID
- * that is a unique identifier assigned by the  server. In some systems, this
- * identifier will be stamped on all incoming requests and passed through to
- * the events that are generated as a result of those requests. In this way,
- * a client can tell whether the events it receives came from its own
- * requests or from requests made by other clients.
+ * be given. All\n subsequent requests must contain the session ID and all
+ * requests will be checked to ensure\n that they pertain to objects at or
+ * below the request root.\n <p/>\n The response may also have an
+ * originatorID that is a unique identifier assigned by the \n server. In
+ * some systems, this identifier will be stamped on all incoming requests
+ * and\n passed through to the events that are generated as a result of those
+ * requests. In this\n way, a client can tell whether the events it receives
+ * came from its own requests or from\n requests made by other clients.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

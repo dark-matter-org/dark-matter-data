@@ -35,7 +35,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;           // Required for 
 
 /**
  * The SetResponse returns the results of a particular SetRequest. The
- * objectList will contain the objects with the previously specified edits.
+ * objectList will contain\n the objects with the previously specified edits.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

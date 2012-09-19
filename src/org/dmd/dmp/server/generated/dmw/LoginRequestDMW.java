@@ -27,7 +27,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for
 
 
 /**
- * The LoginRequest allows you to connect to connect to something and pass
+ * The LoginRequest allows you to connect to connect to something and\n pass
  * along credentials.
  * <P>
  * Generated from the dmp schema at version 0.1

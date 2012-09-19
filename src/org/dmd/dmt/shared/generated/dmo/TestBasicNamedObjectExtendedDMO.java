@@ -21,7 +21,7 @@ import org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF;         
 
 /**
  * The TestBasicNamedObjectExtended class provides a test bed for a named
- * object that's extended.
+ * object\n that's extended.
  * <P>
  * Generated from the dmt schema at version 0.1
  * <P>

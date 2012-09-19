@@ -29,8 +29,8 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;          // Required for M
 
 /**
  * The CreateResponse returns the results of a particular CreateRequest. The
- * objectList contents will be implementation specific e.g. if there were
- * problems with object creation there may be error indications.
+ * objectList\n contents will be implementation specific e.g. if there were
+ * problems with object creation there\n may be error indications.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

@@ -17,8 +17,8 @@ import org.dmd.dmw.DmwWrapper;                                 // Unnamed object
 
 
 /**
- * The DmgConfig class is used to specify a set of schemas and a set of  code
- * generators to be run when you want to generate various types of code.
+ * The DmgConfig class is used to specify a set of schemas and a set of \n
+ * code generators to be run when you want to generate various types of code.
  * <P>
  * Generated from the dmg schema at version 0.1
  * <P>

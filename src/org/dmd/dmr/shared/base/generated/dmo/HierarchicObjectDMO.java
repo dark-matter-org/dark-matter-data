@@ -30,10 +30,10 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Requi
 import org.dmd.dms.generated.types.DmcTypeStringSV;                     // Required type - (GenUtility.java:324)
 
 /**
- * A HierarchicObject is meant to represent any object that can be identified
- * with a Fully Qualified Name (FQN) and exists in a containment relationship
- * with other objects. The exact implementation of a HierarchicObject is
- * application specific.
+ * A HierarchicObject is meant to represent any object that can\n be
+ * identified with a Fully Qualified Name (FQN) and exists in a containment\n
+ * relationship with other objects. The exact implementation of a
+ * HierarchicObject\n is application specific.
  * <P>
  * Generated from the dmr.base schema at version 0.1
  * <P>

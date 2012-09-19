@@ -1355,9 +1355,22 @@
       <td>Description</td>
       <td colspan="2">The RuleCategory allows for the definition of categories of rules to be applied
  to various objects and indicates the expected interface to be implemented by a rule instance.
- A RuleDefinition may belong to multiple categories. The basic RuleManager provides interfaces
- to trigger the RuleCategories defined as part of the meta schema. If you add other rule categories,
- you would derive from the RuleManager to add the additional methods required</td>
+ A RuleDefinition may belong to multiple categories. 
+ <p/>
+ RuleCategories fall into two broad types, ATTRIBUTE and CLASS level, as specified via the ruleType
+ attribute. When a RuleDefinition belongs to an ATTRIBUTE level category, its instances will have
+ a mandatory applyToAttribute attribute. Both ATTRIBUTE and CLASS level RuleDefinitions have an optional
+ applyToClass attribute by default.
+ <p/>
+ Specifying a RuleCategory will cause the generation of several artifacts including:
+ <ul>
+ <li> a category interface: this interface will be created based on the ruleParam values and will be
+ implemented by RuleDefinitions that are part of the category
+ </li> a rule collection: this is a category specific collection of rules that organize the rule instances
+ in this category.
+ </ul>
+ Exactly how a RuleCategory applies rule instances is category specific and this behaviour should be
+ part of the description of a rule category.</td>
     </tr>
 
     <tr>
@@ -1442,6 +1455,14 @@
       <td> <a href="meta.html#ruleInterface">ruleInterface</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The fully qualified name of the interface to be implemented by rules of a particular category. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#ruleType">ruleType</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleTypeEnum">RuleTypeEnum</a> </td>
+      <td> The type of a rule. </td>
     </tr>
 
     <tr>
@@ -1636,14 +1657,6 @@
       <td> <a href="meta.html#ruleCategory">ruleCategory</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#RuleCategory">RuleCategory</a> </td>
       <td> The category of a rule. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#ruleType">ruleType</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleTypeEnum">RuleTypeEnum</a> </td>
-      <td> The type of a rule. </td>
     </tr>
 
     <tr>
@@ -2414,6 +2427,8 @@
       <td>
 <table>
   <tr>
+    <td> AttributeTypeRuleData (<a href="dmv.html#AttributeTypeRuleData">dmv</a>) </td>
+    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
     <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
 </table>
@@ -5535,7 +5550,7 @@
       <td>
 <table>
   <tr>
-    <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
+    <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
 </tr>
 </table>
       </td>

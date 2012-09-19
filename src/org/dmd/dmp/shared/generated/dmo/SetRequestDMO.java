@@ -34,9 +34,9 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Requi
 import org.dmd.dms.generated.types.DmcTypeNameContainerSV;              // Required type - (GenUtility.java:324)
 
 /**
- * The SetRequest allows you to alter the attribute values associated with an
- * object. Like the get request, the set of attributes that can be
- * manipulated will depend on the object type that is specified.
+ * The SetRequest allows you to alter the attribute values associated\n with
+ * an object. Like the get request, the set of attributes that can be
+ * manipulated\n will depend on the object type that is specified.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

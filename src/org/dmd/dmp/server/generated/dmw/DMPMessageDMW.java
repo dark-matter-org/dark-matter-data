@@ -29,8 +29,8 @@ import org.dmd.dmw.DmwWrapper;                                 // Unnamed object
 
 
 /**
- * The DMPMessage class provides a common base for all messages that comprise
- * the Dark Matter Protocol (DMP).
+ * The DMPMessage class provides a common base for all messages that\n
+ * comprise the Dark Matter Protocol (DMP).
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

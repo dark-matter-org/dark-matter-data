@@ -26,9 +26,9 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required f
 
 
 /**
- * The PreAuthRequest allows for the retrieval of information from the
+ * The PreAuthRequest allows for the retrieval of information from the\n
  * servlet before a user has authenticated. Exactly what type of information
- * can be  retrieved is application specific.
+ * can be \n retrieved is application specific.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

@@ -35,10 +35,10 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required f
 
 
 /**
- * The GetResponse returns a set of objects. If you had set registerForEvents
- * to true in the GetRequest, the listenerID will be the identifier that you
- * will need to specify in the DenotifyRequest in order to denotify for
- * events on the objects you initially retrieved.
+ * The GetResponse returns a set of objects. If you had set
+ * registerForEvents\n to true in the GetRequest, the listenerID will be the
+ * identifier that you will need to\n specify in the DenotifyRequest in order
+ * to denotify for events on the objects you\n initially retrieved.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

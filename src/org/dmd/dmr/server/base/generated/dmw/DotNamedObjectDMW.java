@@ -28,14 +28,14 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Requi
 
 
 /**
- * A DotNamedObject is a hierarchic object whose fully qualified name is
- * composed of naming attributes separated by periods. For example 
- * grandparent.parent.child. <p> The naming attribute of a DotNamedObject is
- * name. Unlike LDAP objects,  we don't bother making this configurable. When
- * a DotNamedObject is parsed from a file, we check to see if the name
- * attribute has a value; if not, we take the last portion of the FQN as the
- * name. For example, if the FQN is x.y.z, the name of the object would be
- * 'z'.
+ * A DotNamedObject is a hierarchic object whose fully qualified\n name is
+ * composed of naming attributes separated by periods. For example \n
+ * grandparent.parent.child.\n <p>\n The naming attribute of a DotNamedObject
+ * is name. Unlike LDAP objects, \n we don't bother making this configurable.
+ * When a DotNamedObject is parsed\n from a file, we check to see if the name
+ * attribute has a value; if not,\n we take the last portion of the FQN as
+ * the name. For example, if the FQN\n is x.y.z, the name of the object would
+ * be 'z'.
  * <P>
  * Generated from the dmr.base schema at version 0.1
  * <P>

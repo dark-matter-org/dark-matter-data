@@ -199,7 +199,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestAbstractFixedOBJ.setClassType("ABSTRACT");
             _TestAbstractFixedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestAbstractFixedOBJ.setLineNumber("8");
-            _TestAbstractFixedOBJ.setDescription("The TestAbstract class just defines an abstract base class from which other test classes can be derived to tes this type of derivation.");
+            _TestAbstractFixedOBJ.setDescription("The TestAbstract class just defines an abstract base class from which\n other test classes can be derived to tes this type of derivation.");
             _TestAbstractFixedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestAbstractFixedREF");
             _TestAbstractFixedOBJ.setDmwIteratorClass("TestAbstractFixedIterableDMW");
             _TestAbstractFixedOBJ.addMust("svString");
@@ -215,7 +215,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestAbstractExtendedOBJ.setClassType("ABSTRACT");
             _TestAbstractExtendedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestAbstractExtendedOBJ.setLineNumber("22");
-            _TestAbstractExtendedOBJ.setDescription("The TestAbstract class just defines an abstract base class from which other test classes can be derived to tes this type of derivation.");
+            _TestAbstractExtendedOBJ.setDescription("The TestAbstract class just defines an abstract base class from which\n other test classes can be derived to tes this type of derivation.");
             _TestAbstractExtendedOBJ.setUseWrapperType("EXTENDED");
             _TestAbstractExtendedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestAbstractExtendedREF");
             _TestAbstractExtendedOBJ.setDmwIteratorClass("TestAbstractExtendedIterableDMW");
@@ -237,7 +237,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicObjectFixedOBJ.setClassType("STRUCTURAL");
             _TestBasicObjectFixedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestBasicObjectFixedOBJ.setLineNumber("64");
-            _TestBasicObjectFixedOBJ.setDescription("The TestBasicObjectFixed class provides a test bed for all types of basic attribute values.");
+            _TestBasicObjectFixedOBJ.setDescription("The TestBasicObjectFixed class provides a test bed for all types of basic\n attribute values.");
             _TestBasicObjectFixedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestBasicObjectFixedREF");
             _TestBasicObjectFixedOBJ.setDmwIteratorClass("TestBasicObjectFixedIterableDMW");
             _TestBasicObjectFixedOBJ.addMay("svBoolean");
@@ -300,7 +300,7 @@ public class DmtSchemaAG extends SchemaDefinition {
             _TestBasicNamedObjectExtendedOBJ.setClassType("STRUCTURAL");
             _TestBasicNamedObjectExtendedOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _TestBasicNamedObjectExtendedOBJ.setLineNumber("102");
-            _TestBasicNamedObjectExtendedOBJ.setDescription("The TestBasicNamedObjectExtended class provides a test bed for a named object that's extended.");
+            _TestBasicNamedObjectExtendedOBJ.setDescription("The TestBasicNamedObjectExtended class provides a test bed for a named object\n that's extended.");
             _TestBasicNamedObjectExtendedOBJ.setIsNamedBy("name");
             _TestBasicNamedObjectExtendedOBJ.setDmtREFImport("org.dmd.dmt.shared.generated.types.TestBasicNamedObjectExtendedREF");
             _TestBasicNamedObjectExtendedOBJ.setDmwIteratorClass("TestBasicNamedObjectExtendedIterableDMW");

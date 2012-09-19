@@ -33,7 +33,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required f
 
 /**
  * The ActionResponse returns the results of a particular ActionRequest.
- * Exactly what is returned will depend on the efActionDef.
+ * Exactly what is\n returned will depend on the efActionDef.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

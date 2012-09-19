@@ -16,7 +16,7 @@ import org.dmd.dmw.DmwNamedObjectWrapper;                        // Named object
 
 
 /**
- * The WrapperGenerator allows for the definition of a code generation
+ * The WrapperGenerator allows for the definition of a code generation\n
  * component that creates DMO wrappers for use in particular usage
  * environments.
  * <P>

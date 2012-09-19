@@ -61,7 +61,7 @@ public class DmcUncheckedOIFParser {
     ResultException	exG;
     
     // Indicates the attributes that should have their newlines preserved
-    HashMap<String, String> 	preserverNL;
+    HashMap<String, String> 	preserveNL;
 
     /**
       * Creates a new Object Instance Format parser. As new BasicObjects are created,
@@ -71,11 +71,11 @@ public class DmcUncheckedOIFParser {
         handler         = objHandler;
         allowedErrorsV  = 0;
         exG				= null;
-        preserverNL		= new HashMap<String, String>();
+        preserveNL		= new HashMap<String, String>();
     }
     
     public void addPreserveNewlinesAttribute(String an){
-    	preserverNL.put(an, an);
+    	preserveNL.put(an, an);
     }
 
     /**
@@ -159,7 +159,7 @@ public class DmcUncheckedOIFParser {
                             // We have tokens
                             if (str.startsWith(" ")){
                                 // Line continuation
-                            	if (preserverNL.get(attrName) != null)
+                            	if (preserveNL.get(attrName) != null)
                                     attrVal.append("\n" + str);
                             	else
                             		attrVal.append(str);
@@ -169,6 +169,10 @@ public class DmcUncheckedOIFParser {
                                 if (attrName != null){
                                     // Add the current attribute to the object
                                 	val = attrVal.toString().trim();
+                                	
+                                	if (preserveNL.get(attrName) != null)
+                                		val = val.replaceAll("\n", "\\\\n");
+                                	
                                     uco.addValue(attrName,new String(val));
                                 }
 
@@ -205,6 +209,10 @@ public class DmcUncheckedOIFParser {
                             // Tack on the last attribute
                             if (attrName != null){
                                 val = attrVal.toString().trim();
+                                
+                            	if (preserveNL.get(attrName) != null)
+                            		val = val.replaceAll("\n", "\\\\n");
+                            	
                                 uco.addValue(attrName,new String(val));
                             }
 
@@ -268,6 +276,10 @@ public class DmcUncheckedOIFParser {
                 // Add the current attribute to the object
                 // System.out.println("Adding *" + attrVal + "*");
                 val = new String(attrVal);
+                
+            	if (preserveNL.get(attrName) != null)
+            		val = val.replaceAll("\n", "\\\\n");
+            	
                 uco.addValue(attrName,val.trim());
             }
 

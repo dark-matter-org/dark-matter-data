@@ -1,10 +1,12 @@
 package org.dmd.dmc.rules;
 
-import org.dmd.dmc.DmcClassInfo;
+import java.util.ArrayList;
+
 
 public abstract class ClassRuleCollection<I> extends RuleCollection<I> {
 
-	DmcClassInfo key;
+	// Global rules of this type that apply to all classes
+	protected ArrayList<I> 	globalRules;
 	
 	public ClassRuleCollection() {
 

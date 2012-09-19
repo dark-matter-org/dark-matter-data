@@ -2123,7 +2123,7 @@ dmoImport		org.dmd.dms.generated.dmo.RuleDefinitionDMO
 derivedFrom     DmsDefinition
 isNamedBy       name
 must        	name
-must			ruleType
+//must			ruleType
 must			ruleCategory
 must			dmdID
 must			description

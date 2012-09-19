@@ -30,9 +30,9 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;                   // Requi
 
 /**
  * The Response class serves as a common base for all response messages. It
- * used to be that the Response was abstract, but because we could receive a
- * completely unknown request (for instance via a JSON/XML interface), we had
- * to have the ability to return a generic error response.
+ * used to be\n that the Response was abstract, but because we could receive
+ * a completely unknown request (for instance\n via a JSON/XML interface), we
+ * had to have the ability to return a generic error response.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>
