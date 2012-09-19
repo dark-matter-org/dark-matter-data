@@ -631,7 +631,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleDefinitionOBJ.addMay("isExtensible");
         _RuleDefinitionOBJ.addMay("dependency");
         _RuleDefinitionOBJ.addMust("name");
-        _RuleDefinitionOBJ.addMust("ruleType");
         _RuleDefinitionOBJ.addMust("ruleCategory");
         _RuleDefinitionOBJ.addMust("dmdID");
         _RuleDefinitionOBJ.addMust("description");

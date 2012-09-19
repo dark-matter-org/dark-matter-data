@@ -27,7 +27,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required f
 import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type - (GenUtility.java:324)
 
 /**
- * The LoginRequest allows you to connect to connect to something and pass
+ * The LoginRequest allows you to connect to connect to something and\n pass
  * along credentials.
  * <P>
  * Generated from the dmp schema at version 0.1

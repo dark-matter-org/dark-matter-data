@@ -20,7 +20,7 @@ import java.util.*;
 import org.dmd.dmc.DmcEnumIF;
 
 /**
- * The ScopeEnum indicates the scope of an operation when applied to a
+ * The ScopeEnum indicates the scope of an operation when applied to\n a
  * hierarchy of objects.
  * <P>
  * Generated from the dmp schema at version 0.1

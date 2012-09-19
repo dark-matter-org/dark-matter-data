@@ -4,6 +4,7 @@ import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmo.RuleDefinitionDMO;
 import org.dmd.dms.generated.dmw.RuleDefinitionDMW;
 import org.dmd.dms.generated.enums.OperationalContextEnum;
+import org.dmd.dms.generated.enums.RuleTypeEnum;
 
 public class RuleDefinition extends RuleDefinitionDMW {
 
@@ -28,6 +29,21 @@ public class RuleDefinition extends RuleDefinitionDMW {
 		for(RuleCategory cat: getRuleCategory()){
 			if (cat.getOpContext() == OperationalContextEnum.FULLJAVA){
 				rc = false;
+				break;
+			}
+		}
+		return(rc);
+	}
+	
+	/**
+	 * @return the type of the rule, either ATTRIBUTE or CLASS. All of the categories of
+	 * a rule must be of one type or the other.
+	 */
+	public RuleTypeEnum getRuleType(){
+		RuleTypeEnum rc = RuleTypeEnum.CLASS;
+		for(RuleCategory cat: getRuleCategory()){
+			if (cat.getRuleType() == RuleTypeEnum.ATTRIBUTE){
+				rc = RuleTypeEnum.ATTRIBUTE;
 				break;
 			}
 		}

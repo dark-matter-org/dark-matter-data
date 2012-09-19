@@ -21,7 +21,6 @@ import java.io.Serializable;                  // Serializable marker interface -
 import java.util.*;                           // Attribute info support - (MetaGenerator.java:1790)
 import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1812)
 import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1802)
-import org.dmd.dms.generated.enums.*;         // Has enum attributes - (MetaGenerator.java:1830)
 import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1824)
 
 
@@ -72,7 +71,6 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _ImAp.put(MetaDMSAG.__dmdID.id,MetaDMSAG.__dmdID);
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__ruleCategory.id,MetaDMSAG.__ruleCategory);
-        _ImAp.put(MetaDMSAG.__ruleType.id,MetaDMSAG.__ruleType);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__dependency.id,MetaDMSAG.__dependency);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
@@ -86,7 +84,6 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         _SmAp.put(MetaDMSAG.__dmdID.name,MetaDMSAG.__dmdID);
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__ruleCategory.name,MetaDMSAG.__ruleCategory);
-        _SmAp.put(MetaDMSAG.__ruleType.name,MetaDMSAG.__ruleType);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__dependency.name,MetaDMSAG.__dependency);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
@@ -244,32 +241,6 @@ public class RuleDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
         attr.add(value);
         add(MetaDMSAG.__ruleCategory,attr);
         return(attr);
-    }
-
-    /**
-     * The type of a rule.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
-    public RuleTypeEnum getRuleType(){
-        DmcTypeRuleTypeEnumSV attr = (DmcTypeRuleTypeEnumSV) get(MetaDMSAG.__ruleType);
-        if (attr == null)
-            return(RuleTypeEnum.ATTRIBUTE);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets ruleType to the specified value.
-     * @param value A value compatible with DmcTypeRuleTypeEnumSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2284)
-    public void setRuleType(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__ruleType);
-        if (attr == null)
-            attr = new DmcTypeRuleTypeEnumSV(MetaDMSAG.__ruleType);
-        
-        attr.set(value);
-        set(MetaDMSAG.__ruleType,attr);
     }
 
     /**

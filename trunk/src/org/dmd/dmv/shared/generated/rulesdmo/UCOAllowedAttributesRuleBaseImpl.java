@@ -1,19 +1,21 @@
 package org.dmd.dmv.shared.generated.rulesdmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:240)
-import java.util.ArrayList;                                                      // To store category IDs - (RuleFormatter.java:218)
-import java.util.Iterator;                                                       // To access category IDs - (RuleFormatter.java:219)
-import org.dmd.dmc.DmcAttributeInfo;                                             // To support retrieval of attribute info - (RuleFormatter.java:222)
-import org.dmd.dmc.DmcClassInfo;                                                 // To support retrieval of rule class - (RuleFormatter.java:221)
-import org.dmd.dmc.DmcOmni;                                                      // To map class and attribute names to info - (RuleFormatter.java:220)
-import org.dmd.dmc.rules.RuleIF;                                                 // All rules implement this - (RuleFormatter.java:217)
-import org.dmd.dms.generated.enums.RuleTypeEnum;                                 // Rule type - (RuleFormatter.java:216)
-import org.dmd.dms.shared.interfaces.UCOValidationIF;                            // The interface for the UCOValidation category - (RuleFormatter.java:231)
-import org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO;         // Rule parameters object - (RuleFormatter.java:225)
+// Called from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:421)
+import java.util.ArrayList;                                                      // To store category IDs - (RuleFormatter.java:392)
+import java.util.Iterator;                                                       // To access category IDs - (RuleFormatter.java:393)
+import org.dmd.dmc.DmcAttributeInfo;                                             // To support retrieval of attribute info - (RuleFormatter.java:396)
+import org.dmd.dmc.DmcClassInfo;                                                 // To support retrieval of rule class - (RuleFormatter.java:395)
+import org.dmd.dmc.DmcOmni;                                                      // To map class and attribute names to info - (RuleFormatter.java:394)
+import org.dmd.dmc.rules.ClassRuleKey;                                           // To allow rule sorting - (RuleFormatter.java:402)
+import org.dmd.dmc.rules.RuleIF;                                                 // All rules implement this - (RuleFormatter.java:391)
+import org.dmd.dmc.rules.RuleKey;                                                // To allow rule sorting - (RuleFormatter.java:397)
+import org.dmd.dms.generated.enums.RuleTypeEnum;                                 // Rule type - (RuleFormatter.java:390)
+import org.dmd.dms.shared.interfaces.UCOValidationIF;                            // The interface for the UCOValidation category - (RuleFormatter.java:412)
+import org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO;         // Rule parameters object - (RuleFormatter.java:406)
 
 
-// Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:242)
+// Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:423)
 abstract public class UCOAllowedAttributesRuleBaseImpl implements RuleIF,UCOValidationIF {
 
     static RuleTypeEnum       type  = RuleTypeEnum.CLASS;
@@ -22,6 +24,7 @@ abstract public class UCOAllowedAttributesRuleBaseImpl implements RuleIF,UCOVali
 
     private DmcClassInfo      classInfo;
     private DmcAttributeInfo  attrInfo;
+    private RuleKey           key;
 
     protected UCOAllowedAttributesRuleDataDMO ruleDMO;
 
@@ -39,6 +42,13 @@ abstract public class UCOAllowedAttributesRuleBaseImpl implements RuleIF,UCOVali
             categories = new ArrayList<Integer>();
             categories.add(5);
         }
+    }
+
+    @Override
+    public RuleKey getKey() {
+        if (key == null)
+            key = new ClassRuleKey(getApplyToClass());
+        return(key);
     }
 
     @Override

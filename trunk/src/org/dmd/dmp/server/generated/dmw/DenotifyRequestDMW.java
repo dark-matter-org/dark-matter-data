@@ -30,8 +30,8 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;               // Required 
 
 
 /**
- * The DenotifyRequest allows you to deregister for event notification on one
- * or more objects.
+ * The DenotifyRequest allows you to deregister for event notification on\n
+ * one or more objects.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

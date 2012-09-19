@@ -6,7 +6,6 @@ import java.io.PrintStream;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.rules.RuleIF;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.RuleCategory;
@@ -14,7 +13,7 @@ import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.enums.OperationalContextEnum;
-import org.dmd.dms.generated.rulesdmo.AttributeValidationIF;
+import org.dmd.dms.generated.enums.RuleTypeEnum;
 import org.dmd.dms.generated.types.RuleParam;
 import org.dmd.util.FileUpdateManager;
 import org.dmd.util.codegen.ImportManager;
@@ -224,7 +223,7 @@ public class RuleFormatter {
 	    				args.append(", ");
 	    			}
 	    			
-	    			params.append("     * @param " + param.getName() + " " + param.getDescription());
+	    			params.append("     * @param " + param.getName() + " " + param.getDescription() + "\n");
 	    			
 //	    			if (param.getGenericArgs() == null)
 //	    				args.append(ptype + " " + param.getName());
@@ -252,7 +251,7 @@ public class RuleFormatter {
 			out.write("public interface " + name + "IF extends RuleIF {\n\n");
 			
 			out.write("    /**\n");
-			out.write(params + "\n");
+			out.write(params.toString());
 			out.write("     */\n");
 			out.write("    public void execute(" + args + ") throws DmcRuleExceptionSet;\n\n");
 			
@@ -269,11 +268,15 @@ public class RuleFormatter {
 //    		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "To determine the type of a rule");
 //    		baseImports.addImport("org.dmd.dmc.rules.ClassRuleKey", "To determine the type of a rule");
 //    		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleKey", "To determine the type of a rule");
+    		baseImports.addImport("java.util.ArrayList", "Storage for the rules");
     		baseImports.addImport("java.util.TreeMap", "Storage for the rules");
     		baseImports.addImport("org.dmd.dmc.rules.RuleKey", "Generic rule key");
     		
-    		if (isAttributeRule)
+    		if (isAttributeRule){
         		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleCollection", "Attribute rule");
+        		baseImports.addImport("org.dmd.dmc.DmcAttributeInfo", "Organizing global attribute rules");
+        		baseImports.addImport("java.util.HashMap", "Storage for the rules");
+    		}
     		else
         		baseImports.addImport("org.dmd.dmc.rules.ClassRuleCollection", "Class rule");
     		
@@ -284,25 +287,55 @@ public class RuleFormatter {
 			
 			out.write(baseImports.getFormattedImports());
 			
-			if (isAttributeRule)
+			if (isAttributeRule){
 				out.write("public class " + name + "RuleCollection extends AttributeRuleCollection<" + name + "IF> {" + "\n\n");
-			else
+				out.write("    public " + name + "RuleCollection(){\n");
+				out.write("        globalRules = new HashMap<DmcAttributeInfo, ArrayList<" + name + "IF>>();\n");
+				out.write("        rules = new TreeMap<RuleKey,ArrayList<" + name + "IF>>();\n");
+				out.write("    }\n\n");
+				
+				out.write("    @Override\n");
+				out.write("    public void addRule(RuleIF r){\n");
+				out.write("\n");
+				out.write("        if (r instanceof " + name + "IF){\n");
+				out.write("            " + name + "IF rule = (" + name + "IF)r;\n");
+				out.write("\n");
+				out.write("            if (rule.getApplyToClass() == null){\n");
+				out.write("                ArrayList<" + name + "IF> grl = globalRules.get(rule.getApplyToAttribute());\n");
+				out.write("                if (grl == null){\n");
+				out.write("                    grl = new ArrayList<" + name + "IF>();\n");
+				out.write("                    globalRules.put(rule.getApplyToAttribute(), grl);\n");
+				out.write("                }\n");
+				out.write("                grl.add(rule);\n");
+				out.write("            }\n");
+				out.write("            else{\n");
+				out.write("            }\n");
+				out.write("        }\n");
+				out.write("    }\n\n");
+			}
+			else{
 				out.write("public class " + name + "RuleCollection extends ClassRuleCollection<" + name + "IF> {" + "\n\n");
-
-			out.write("    public " + name + "RuleCollection(){\n");
-			out.write("        rules = new TreeMap<RuleKey," + name + "IF>();\n");
-			out.write("    }\n\n");
-
-			out.write("    @Override\n");
-			out.write("    public void addRule(RuleIF rule) {\n");
-			out.write("\n");
-			out.write("        if (rule instanceof " + name + "IF){\n");
-			out.write("            \n");
-			out.write("        }\n");
-			out.write("    }\n\n");
-
+				out.write("    public " + name + "RuleCollection(){\n");
+				out.write("        globalRules = new ArrayList<" + name + "IF>();\n");
+				out.write("        rules = new TreeMap<RuleKey,ArrayList<" + name + "IF>>();\n");
+				out.write("    }\n\n");
+				
+				out.write("    @Override\n");
+				out.write("    public void addRule(RuleIF r){\n");
+				out.write("\n");
+				out.write("        if (r instanceof " + name + "IF){\n");
+				out.write("            " + name + "IF rule = (" + name + "IF)r;\n");
+				out.write("            if (rule.getApplyToClass() == null){\n");
+				out.write("                globalRules.add(rule);\n");
+				out.write("            }\n");
+				out.write("            else{\n");
+				out.write("            }\n");
+				out.write("        }\n");
+				out.write("    }\n\n");
+			}
+			
 			out.write("    /**\n");
-			out.write(params + "\n");
+			out.write(params.toString());
 			out.write("     */\n");
 			out.write("    public void execute(" + args + ") throws DmcRuleExceptionSet {\n");
 			out.write("    }\n\n");
@@ -336,6 +369,10 @@ public class RuleFormatter {
 		
 			
 		for(RuleDefinition rd : sd.getRuleDefinitionList()){
+			boolean isAttributeRule = false;
+			if (rd.getRuleType() == RuleTypeEnum.ATTRIBUTE)
+				isAttributeRule = true;
+			
 			if (context == OperationalContextEnum.DMO){
 				// Skip full java rules if we're generating for the DMO context
 				if (!rd.isDMOCompliant())
@@ -349,7 +386,7 @@ public class RuleFormatter {
     		ImportManager baseImports = new ImportManager();
     		StringBuffer interfaces = new StringBuffer();
 			
-//    		baseImports.addImport("org.dmd.dms.generated.enums.RuleScopeEnum", "Rule scope");
+
     		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "Rule type");
     		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
     		baseImports.addImport("java.util.ArrayList", "To store category IDs");
@@ -357,6 +394,13 @@ public class RuleFormatter {
     		baseImports.addImport("org.dmd.dmc.DmcOmni", "To map class and attribute names to info");
     		baseImports.addImport("org.dmd.dmc.DmcClassInfo", "To support retrieval of rule class");
     		baseImports.addImport("org.dmd.dmc.DmcAttributeInfo", "To support retrieval of attribute info");
+    		baseImports.addImport("org.dmd.dmc.rules.RuleKey", "To allow rule sorting");
+    		
+    		if (isAttributeRule)
+        		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleKey", "To allow rule sorting");
+    		else
+        		baseImports.addImport("org.dmd.dmc.rules.ClassRuleKey", "To allow rule sorting");
+
     		interfaces.append("RuleIF");
 			
     		baseImports.addImport(sd.getSchemaPackage() + ".generated.dmo." + rd.getName() + "DataDMO", "Rule parameters object");
@@ -384,7 +428,8 @@ public class RuleFormatter {
 			out.write("    static ArrayList<Integer> categories;\n\n");
 			
 			out.write("    private DmcClassInfo      classInfo;\n");
-			out.write("    private DmcAttributeInfo  attrInfo;\n\n");
+			out.write("    private DmcAttributeInfo  attrInfo;\n");
+			out.write("    private RuleKey           key;\n\n");
 			
 			out.write("    protected " + rd.getName() + "DataDMO ruleDMO;\n\n");
 			
@@ -404,6 +449,16 @@ public class RuleFormatter {
 			out.write("        }\n");
 			out.write("    }\n\n");
 			
+			out.write("    @Override\n");
+			out.write("    public RuleKey getKey() {\n");
+			out.write("        if (key == null)\n");
+			if (isAttributeRule)
+				out.write("            key = new AttributeRuleKey(getApplyToAttribute(),getApplyToClass());\n");
+			else
+				out.write("            key = new ClassRuleKey(getApplyToClass());\n");
+			out.write("        return(key);\n");
+			out.write("    }\n\n");
+
 			out.write("    @Override\n");
 			out.write("    public String getRuleTitle() {\n");
 			out.write("        return(ruleDMO.getRuleTitle());\n");

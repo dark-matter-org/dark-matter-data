@@ -20,8 +20,8 @@ import java.util.*;
 import org.dmd.dmc.DmcEnumIF;
 
 /**
- * The ObjectEventEnum indicates the type of operation that caused  an object
- * event to be generated.
+ * The ObjectEventEnum indicates the type of operation that caused \n an
+ * object event to be generated.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

@@ -116,6 +116,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
         __IntegerRangeRuleData.addMust(MetaDMSAG.__ruleName);
         __IntegerRangeRuleData.addMust(MetaDMSAG.__ruleTitle);
+        __IntegerRangeRuleData.addMust(MetaDMSAG.__applyToAttribute);
         __IntegerRangeRuleData.addMust(__irrMinimum);
         __IntegerRangeRuleData.addMust(__irrMaximum);
         __IntegerRangeRuleData.addMay(MetaDMSAG.__description);
@@ -128,6 +129,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
         __AttributeTypeRuleData.addMust(MetaDMSAG.__ruleName);
         __AttributeTypeRuleData.addMust(MetaDMSAG.__ruleTitle);
+        __AttributeTypeRuleData.addMust(MetaDMSAG.__applyToAttribute);
         __AttributeTypeRuleData.addMust(__allowedType);
         __AttributeTypeRuleData.addMay(MetaDMSAG.__description);
         __AttributeTypeRuleData.addMay(MetaDMSAG.__applyToClass);

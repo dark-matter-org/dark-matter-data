@@ -24,8 +24,9 @@ import org.dmd.dmr.shared.ldap.generated.dmo.DmrLdapDMSAG;         // Attribute 
 import org.dmd.dms.generated.types.DmcTypeStringSV;                // Required type - (GenUtility.java:324)
 
 /**
- * The LDAPSchemaExtension class is used to extend the basic SchemaDefinition
- * class with information required to map objects onto an LDAP repository.
+ * The LDAPSchemaExtension class is used to extend the basic
+ * SchemaDefinition\n class with information required to map objects onto an
+ * LDAP repository.
  * <P>
  * Generated from the dmr.ldap schema at version 0.1
  * <P>

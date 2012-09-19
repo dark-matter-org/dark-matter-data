@@ -43,5 +43,8 @@ public interface RuleIF {
 	 */
 	public DmcAttributeInfo getApplyToAttribute();
 	
-	
+	/**
+	 * @return the key that identifies
+	 */
+	public RuleKey getKey();
 }

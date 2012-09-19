@@ -35,7 +35,7 @@ import org.dmd.dms.generated.types.DmcTypeStringNameSV;                   // Req
 import org.dmd.dms.generated.types.DmcTypeStringSV;                       // Required type - (GenUtility.java:324)
 
 /**
- * The WrapperGenerator allows for the definition of a code generation
+ * The WrapperGenerator allows for the definition of a code generation\n
  * component that creates DMO wrappers for use in particular usage
  * environments.
  * <P>

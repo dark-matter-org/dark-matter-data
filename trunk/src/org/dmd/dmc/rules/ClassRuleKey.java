@@ -4,6 +4,7 @@ import org.dmd.dmc.DmcClassInfo;
 
 public class ClassRuleKey extends RuleKey {
 	
+	// This may be null in the case of a global class rule
 	DmcClassInfo		classInfo;
 
 	public ClassRuleKey(DmcClassInfo ci) {
@@ -12,21 +13,36 @@ public class ClassRuleKey extends RuleKey {
 
 	@Override
 	public int hashCode() {
+		if (classInfo == null)
+			return(0);
+		
 		return(classInfo.id);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (obj instanceof DmcClassInfo){
-			DmcClassInfo ci = (DmcClassInfo) obj;
-			if (classInfo.id == ci.id)
-				return(true);
+		if (obj instanceof ClassRuleKey){
+			ClassRuleKey crk = (ClassRuleKey) obj;
+			
+			if (classInfo == null){
+				if (crk.classInfo == null)
+					return(true);
+			}
+			else{
+				if (crk.classInfo != null){
+					if (classInfo.id == crk.classInfo.id)
+						return(true);
+				}
+			}
 		}
 		return false;
 	}
 
 	@Override
 	public String toString() {
+		if (classInfo == null)
+			return("GLOBAL");
+		
 		return(classInfo.name);
 	}
 

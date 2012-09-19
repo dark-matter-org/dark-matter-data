@@ -17,9 +17,9 @@ import org.dmd.dmw.DmwNamedObjectWrapper;                        // Named object
 
 
 /**
- * The MethodGenerator allows for the definition of a code generation
+ * The MethodGenerator allows for the definition of a code generation\n
  * component that creates access methods for wrapper classes in different
- * usage environments.
+ * usage\n environments.
  * <P>
  * Generated from the dmg schema at version 0.1
  * <P>

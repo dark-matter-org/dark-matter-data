@@ -21,7 +21,8 @@ import org.dmd.dmc.DmcEnumIF;
 
 /**
  * The FileModeEnum is used to indicate the mode in which a file is opened
- * for writing  when the results of an operation are to be captured to a file.
+ * for writing \n when the results of an operation are to be captured to a
+ * file.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

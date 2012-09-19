@@ -31,7 +31,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required fo
 
 /**
  * The NotifyRequest allows you to register for events on an arbitrary object
- * or set of objects.
+ * or set\n of objects.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

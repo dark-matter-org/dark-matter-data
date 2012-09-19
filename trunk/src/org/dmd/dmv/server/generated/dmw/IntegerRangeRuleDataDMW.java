@@ -19,9 +19,11 @@ package org.dmd.dmv.server.generated.dmw;
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
 import org.dmd.dmc.*;                                                    // If any attributes - (BaseDMWGeneratorNewest.java:905)
 import org.dmd.dmc.types.RuleName;                                       // Primitive type - (BaseDMWGeneratorNewest.java:968)
+import org.dmd.dms.AttributeDefinition;                                  // Is reference type - (BaseDMWGeneratorNewest.java:925)
 import org.dmd.dms.ClassDefinition;                                      // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
 import org.dmd.dms.RuleData;                                             // Derived class - (BaseDMWGeneratorNewest.java:1066)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
+import org.dmd.dms.generated.types.AttributeDefinitionREF;               // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
 import org.dmd.dms.generated.types.ClassDefinitionREF;                   // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                    // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
 import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
@@ -65,6 +67,47 @@ public class IntegerRangeRuleDataDMW extends RuleData {
     // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:527)
     protected IntegerRangeRuleDataDMW(IntegerRangeRuleDataDMO obj, ClassDefinition cd) {
         super(obj,cd);
+    }
+
+    /**
+     * @return A AttributeDefinition object.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1252)
+    public AttributeDefinition getApplyToAttribute(){
+        AttributeDefinitionREF ref = ((IntegerRangeRuleDataDMO) core).getApplyToAttribute();
+        if (ref == null)
+            return(null);
+        
+        if (ref.getObject() == null)
+            return(null);
+        
+        return((AttributeDefinition)ref.getObject().getContainer());
+    }
+
+    /**
+     * Sets the applyToAttribute to the specified value.
+     * @param value A value compatible with AttributeDefinitionREF
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1337)
+    public void setApplyToAttribute(AttributeDefinition value) {
+        ((IntegerRangeRuleDataDMO) core).setApplyToAttribute(value.getDMO());
+    }
+
+    /**
+     * Sets the applyToAttribute to the specified value.
+     * @param value A value compatible with AttributeDefinitionREF
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1346)
+    public void setApplyToAttribute(Object value) throws DmcValueException {
+        ((IntegerRangeRuleDataDMO) core).setApplyToAttribute(value);
+    }
+
+    /**
+     * Removes the applyToAttribute attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    public void remApplyToAttribute(){
+        ((IntegerRangeRuleDataDMO) core).remApplyToAttribute();
     }
 
     /**

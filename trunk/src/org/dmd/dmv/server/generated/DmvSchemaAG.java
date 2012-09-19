@@ -23,10 +23,10 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
 
 
 /**
- * The dmv schema defines classes associated with the Dark Matter Validation
- * (DMV) framework based on RuleDefinitions. Although you are completely free
- * to define your own rules, DMV provides a collection of commonly useful
- * rules taht can be used in a DMO run context.
+ * The dmv schema defines classes associated with the Dark Matter
+ * Validation\n (DMV) framework based on RuleDefinitions. Although you are
+ * completely free to define your\n own rules, DMV provides a collection of
+ * commonly useful rules taht can be used in a DMO\n run context.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -153,6 +153,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _IntegerRangeRuleDataOBJ.addMay("applyToClass");
             _IntegerRangeRuleDataOBJ.addMust("ruleName");
             _IntegerRangeRuleDataOBJ.addMust("ruleTitle");
+            _IntegerRangeRuleDataOBJ.addMust("applyToAttribute");
             _IntegerRangeRuleDataOBJ.addMust("irrMinimum");
             _IntegerRangeRuleDataOBJ.addMust("irrMaximum");
             _IntegerRangeRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.IntegerRangeRuleDataIterableDMW");
@@ -197,6 +198,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AttributeTypeRuleDataOBJ.addMay("applyToClass");
             _AttributeTypeRuleDataOBJ.addMust("ruleName");
             _AttributeTypeRuleDataOBJ.addMust("ruleTitle");
+            _AttributeTypeRuleDataOBJ.addMust("applyToAttribute");
             _AttributeTypeRuleDataOBJ.addMust("allowedType");
             _AttributeTypeRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.AttributeTypeRuleDataIterableDMW");
             _AttributeTypeRuleData.setDefinedIn(this);
@@ -295,7 +297,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _lhsOBJ.setType("AttributeDefinition");
             _lhsOBJ.setName("lhs");
             _lhsOBJ.setDmdID("-479996");
-            _lhsOBJ.setDescription("The attribute to be used as the left hand side of some relationship. The type of the attribute referred to may differ from one rule to the next depending on the relationship being tested.");
+            _lhsOBJ.setDescription("The attribute to be used as the left hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested.");
             _lhs.setDefinedIn(this);
             _lhsOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _lhsOBJ.setLineNumber("26");
@@ -307,7 +309,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _rhsOBJ.setType("AttributeDefinition");
             _rhsOBJ.setName("rhs");
             _rhsOBJ.setDmdID("-479995");
-            _rhsOBJ.setDescription("The attribute to be used as the right hand side of some relationship. The type of the attribute referred to may differ from one rule to the next depending on the relationship being tested.");
+            _rhsOBJ.setDescription("The attribute to be used as the right hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested.");
             _rhs.setDefinedIn(this);
             _rhsOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _rhsOBJ.setLineNumber("34");
@@ -319,7 +321,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _allowedTypeOBJ.setType("TypeDefinition");
             _allowedTypeOBJ.setName("allowedType");
             _allowedTypeOBJ.setDmdID("-479994");
-            _allowedTypeOBJ.setDescription("The allowedType indicates a collection of defined types to which something, usually and attribute, must conform.");
+            _allowedTypeOBJ.setDescription("The allowedType indicates a collection of defined types to which something,\n usually and attribute, must conform.");
             _allowedTypeOBJ.setValueType("MULTI");
             _allowedType.setDefinedIn(this);
             _allowedTypeOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -332,7 +334,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _basedOnAttributeOBJ.setType("AttributeDefinition");
             _basedOnAttributeOBJ.setName("basedOnAttribute");
             _basedOnAttributeOBJ.setDmdID("-479993");
-            _basedOnAttributeOBJ.setDescription("The basedOnAttribute allows for the specification of an attribute on which some type of a decision is made.");
+            _basedOnAttributeOBJ.setDescription("The basedOnAttribute allows for the specification of an attribute on which\n some type of a decision is made.");
             _basedOnAttribute.setDefinedIn(this);
             _basedOnAttributeOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _basedOnAttributeOBJ.setLineNumber("49");
@@ -344,7 +346,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _basedOnValueOBJ.setType("String");
             _basedOnValueOBJ.setName("basedOnValue");
             _basedOnValueOBJ.setDmdID("-479992");
-            _basedOnValueOBJ.setDescription("The basedOnValue attribute allows for the specification of values for some aspect of a rule.");
+            _basedOnValueOBJ.setDescription("The basedOnValue attribute allows for the specification of values for some\n aspect of a rule.");
             _basedOnValueOBJ.setValueType("MULTI");
             _basedOnValue.setDefinedIn(this);
             _basedOnValueOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -357,7 +359,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _excludeThisAttributeOBJ.setType("AttributeDefinition");
             _excludeThisAttributeOBJ.setName("excludeThisAttribute");
             _excludeThisAttributeOBJ.setDmdID("-479991");
-            _excludeThisAttributeOBJ.setDescription("The excludeThisAttribute indicates an optional attribute that must be excluded from an object under certain conditions.");
+            _excludeThisAttributeOBJ.setDescription("The excludeThisAttribute indicates an optional attribute that must be\n excluded from an object under certain conditions.");
             _excludeThisAttributeOBJ.setValueType("MULTI");
             _excludeThisAttribute.setDefinedIn(this);
             _excludeThisAttributeOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -370,7 +372,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _includeThisAttributeOBJ.setType("AttributeDefinition");
             _includeThisAttributeOBJ.setName("includeThisAttribute");
             _includeThisAttributeOBJ.setDmdID("-479990");
-            _includeThisAttributeOBJ.setDescription("The includeThisAttribute indicates an optional attribute that must be present under certain conditions.");
+            _includeThisAttributeOBJ.setDescription("The includeThisAttribute indicates an optional attribute that must be\n present under certain conditions.");
             _includeThisAttributeOBJ.setValueType("MULTI");
             _includeThisAttribute.setDefinedIn(this);
             _includeThisAttributeOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
@@ -396,7 +398,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NumericRelationEnumOBJ.addEnumValue("3 NE Not equal : NE");
             _NumericRelationEnumOBJ.addEnumValue("4 GTE Greater than or equal to : GTE");
             _NumericRelationEnumOBJ.addEnumValue("5 LTE Less than or equal to : LTE");
-            _NumericRelationEnumOBJ.setDescription("The NumericRelationEnum is used to specify the relationship that should exist between two numeric values.");
+            _NumericRelationEnumOBJ.setDescription("The NumericRelationEnum is used to specify the relationship\n that should exist between two numeric values.");
             _NumericRelationEnum.setDefinedIn(this);
             _NumericRelationEnumOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/types.dmd");
             _NumericRelationEnumOBJ.setLineNumber("10");
@@ -408,12 +410,11 @@ public class DmvSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
             RuleDefinitionDMO _AllowedAttributesRuleOBJ = new RuleDefinitionDMO();
             _AllowedAttributesRule = new RuleDefinition(_AllowedAttributesRuleOBJ);
-            _AllowedAttributesRuleOBJ.setRuleType("CLASS");
             _AllowedAttributesRuleOBJ.addRuleCategory("ObjectValidation");
             _AllowedAttributesRuleOBJ.addRuleCategory("ModifierValidation");
             _AllowedAttributesRuleOBJ.setName("AllowedAttributesRule");
             _AllowedAttributesRuleOBJ.setDmdID("-479999");
-            _AllowedAttributesRuleOBJ.setDescription("The AllowedAttributesRule will determine whether or not the  attributes of a DMO conform to the must/may specification of its class definition. For classes of type EXTENSIBLE only the must have attributes are checked. <p/> Regardless of the environment in which you are running, you must ensure that the DmcOmni has been loaded with the appropriate schema. If you are using the Dark Matter Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically. <p/> Since this is a GLOBAL class rule, there will only ever be a single instance of this rule created as part of the dmv schema.");
+            _AllowedAttributesRuleOBJ.setDescription("The AllowedAttributesRule will determine whether or not the \n attributes of a DMO conform to the must/may specification of its class definition.\n For classes of type EXTENSIBLE only the must have attributes are checked.\n <p/>\n Regardless of the environment in which you are running, you must ensure that the\n DmcOmni has been loaded with the appropriate schema. If you are using the Dark Matter\n Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically.\n <p/>\n Since this is a GLOBAL class rule, there will only ever be a single instance of\n this rule created as part of the dmv schema.");
             _AllowedAttributesRule.setDefinedIn(this);
             _AllowedAttributesRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _AllowedAttributesRuleOBJ.setLineNumber("19");
@@ -422,11 +423,10 @@ public class DmvSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
             RuleDefinitionDMO _InitRuleOBJ = new RuleDefinitionDMO();
             _InitRule = new RuleDefinition(_InitRuleOBJ);
-            _InitRuleOBJ.setRuleType("CLASS");
             _InitRuleOBJ.addRuleCategory("Initialization");
             _InitRuleOBJ.setName("InitRule");
             _InitRuleOBJ.setDmdID("-479998");
-            _InitRuleOBJ.setDescription("The InitRule allows you to specify attribute values for a  newly created object or an object read from file or received in a CreateRequest (for instance). The InitRule will only set the values of attributes that are missing from the object; existing attributes are not alterred. An example usage might be: <p/> <pre> InitRuleData ruleName     <schema>InitX ruleTitle    Initialize the X class applyToClass X attributeA   some value attributeB   42 attributeC   something attributeC   something else description  This provides a good initial setup for X objects. Other setups  may be required in other circumstances. </pre>");
+            _InitRuleOBJ.setDescription("The InitRule allows you to specify attribute values for a \n newly created object or an object read from file or received in a CreateRequest\n (for instance). The InitRule will only set the values of attributes that are\n missing from the object; existing attributes are not alterred. An example\n usage might be:\n <p/>\n <pre>\n InitRuleData\n ruleName     <schema>InitX\n ruleTitle    Initialize the X class\n applyToClass X\n attributeA   some value\n attributeB   42\n attributeC   something\n attributeC   something else\n description  This provides a good initial setup for X objects. Other setups\n  may be required in other circumstances.\n </pre>");
             _InitRuleOBJ.setIsExtensible("true");
             _InitRule.setDefinedIn(this);
             _InitRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
@@ -436,12 +436,11 @@ public class DmvSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
             RuleDefinitionDMO _IntegerRangeRuleOBJ = new RuleDefinitionDMO();
             _IntegerRangeRule = new RuleDefinition(_IntegerRangeRuleOBJ);
-            _IntegerRangeRuleOBJ.setRuleType("ATTRIBUTE");
             _IntegerRangeRuleOBJ.addRuleCategory("AttributeValidation");
             _IntegerRangeRuleOBJ.addRuleCategory("ModifierValidation");
             _IntegerRangeRuleOBJ.setName("IntegerRangeRule");
             _IntegerRangeRuleOBJ.setDmdID("-479997");
-            _IntegerRangeRuleOBJ.setDescription("The IntegerRangeRule ensures that an Integer attribute has a value that falls within a given range. The irrMinimum must be less than the irrMaximum. An example usage might be: <p/> <pre> IntegerRangeRuleData ruleName         <schema>RangeCheckY ruleTitle        Attribute Y in range 1-10 applyToAttribute Y irrMinimum       1 irrMaximum       10 description      This constraint is required because blah, blah blah. </pre>");
+            _IntegerRangeRuleOBJ.setDescription("The IntegerRangeRule ensures that an Integer attribute has a value that falls\n within a given range. The irrMinimum must be less than the irrMaximum. An example usage\n might be:\n <p/>\n <pre>\n IntegerRangeRuleData\n ruleName         <schema>RangeCheckY\n ruleTitle        Attribute Y in range 1-10\n applyToAttribute Y\n irrMinimum       1\n irrMaximum       10\n description      This constraint is required because blah, blah blah.\n </pre>");
             _IntegerRangeRuleOBJ.addMust("irrMinimum");
             _IntegerRangeRuleOBJ.addMust("irrMaximum");
             _IntegerRangeRule.setDefinedIn(this);
@@ -452,11 +451,10 @@ public class DmvSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
             RuleDefinitionDMO _UCOAllowedAttributesRuleOBJ = new RuleDefinitionDMO();
             _UCOAllowedAttributesRule = new RuleDefinition(_UCOAllowedAttributesRuleOBJ);
-            _UCOAllowedAttributesRuleOBJ.setRuleType("CLASS");
             _UCOAllowedAttributesRuleOBJ.addRuleCategory("UCOValidation");
             _UCOAllowedAttributesRuleOBJ.setName("UCOAllowedAttributesRule");
             _UCOAllowedAttributesRuleOBJ.setDmdID("-479996");
-            _UCOAllowedAttributesRuleOBJ.setDescription("The UCOAllowedAttributesRule will determine whether or not the  attributes of a DmcUncheckedObject conform to the must/may specification of its class definition. For classes of type EXTENSIBLE only the must have attributes are checked.");
+            _UCOAllowedAttributesRuleOBJ.setDescription("The UCOAllowedAttributesRule will determine whether or not the \n attributes of a DmcUncheckedObject conform to the must/may specification of its\n class definition. For classes of type EXTENSIBLE only the must have attributes are checked.");
             _UCOAllowedAttributesRule.setDefinedIn(this);
             _UCOAllowedAttributesRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _UCOAllowedAttributesRuleOBJ.setLineNumber("87");
@@ -465,11 +463,10 @@ public class DmvSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
             RuleDefinitionDMO _AttributeTypeRuleOBJ = new RuleDefinitionDMO();
             _AttributeTypeRule = new RuleDefinition(_AttributeTypeRuleOBJ);
-            _AttributeTypeRuleOBJ.setRuleType("ATTRIBUTE");
             _AttributeTypeRuleOBJ.addRuleCategory("AttributeValidation");
             _AttributeTypeRuleOBJ.setName("AttributeTypeRule");
             _AttributeTypeRuleOBJ.setDmdID("-479995");
-            _AttributeTypeRuleOBJ.setDescription("The AttributeTypeRule allowes you to restrict the type of an attribute of a particular AttributeDefinition reference.");
+            _AttributeTypeRuleOBJ.setDescription("The AttributeTypeRule allowes you to restrict the type of\n an attribute of a particular AttributeDefinition reference.");
             _AttributeTypeRuleOBJ.addMust("allowedType");
             _AttributeTypeRule.setDefinedIn(this);
             _AttributeTypeRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
@@ -479,11 +476,10 @@ public class DmvSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
             RuleDefinitionDMO _RelatedNumbersRuleOBJ = new RuleDefinitionDMO();
             _RelatedNumbersRule = new RuleDefinition(_RelatedNumbersRuleOBJ);
-            _RelatedNumbersRuleOBJ.setRuleType("CLASS");
             _RelatedNumbersRuleOBJ.addRuleCategory("ObjectValidation");
             _RelatedNumbersRuleOBJ.setName("RelatedNumbersRule");
             _RelatedNumbersRuleOBJ.setDmdID("-479994");
-            _RelatedNumbersRuleOBJ.setDescription("The RelatedNumbersRule ensures that a particular numeric relationship exists between two single-valued, numeric values on an object. An example usage might be: <pre> RelatedNumbersRuleData ruleName        dmvHeightGirth ruleTitle       Your height must exceed your girth. applyToClass    Person lhs             height rhs             girth numericRelation GT description     If your girth exceeds your height, you're in trouble! </pre>");
+            _RelatedNumbersRuleOBJ.setDescription("The RelatedNumbersRule ensures that a particular numeric\n relationship exists between two single-valued, numeric values on an object.\n An example usage might be:\n <pre>\n RelatedNumbersRuleData\n ruleName        dmvHeightGirth\n ruleTitle       Your height must exceed your girth.\n applyToClass    Person\n lhs             height\n rhs             girth\n numericRelation GT\n description     If your girth exceeds your height, you're in trouble!\n </pre>");
             _RelatedNumbersRuleOBJ.addMust("lhs");
             _RelatedNumbersRuleOBJ.addMust("rhs");
             _RelatedNumbersRuleOBJ.addMust("numericRelation");
@@ -495,11 +491,10 @@ public class DmvSchemaAG extends SchemaDefinition {
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
             RuleDefinitionDMO _CheckAttributesBasedOnValueRuleOBJ = new RuleDefinitionDMO();
             _CheckAttributesBasedOnValueRule = new RuleDefinition(_CheckAttributesBasedOnValueRuleOBJ);
-            _CheckAttributesBasedOnValueRuleOBJ.setRuleType("CLASS");
             _CheckAttributesBasedOnValueRuleOBJ.addRuleCategory("ObjectValidation");
             _CheckAttributesBasedOnValueRuleOBJ.setName("CheckAttributesBasedOnValueRule");
             _CheckAttributesBasedOnValueRuleOBJ.setDmdID("-479993");
-            _CheckAttributesBasedOnValueRuleOBJ.setDescription("The CheckAttributesBasedOnValueRule allows you to specify that certain optional attributes must exist (or not exist) based on the value of another attribute in an object. an object based on the setting of a particular enumerated attribute. This allows for finer control of must/may attributes based on enumerated values in an object. An example usage might look like: <pre> CheckAttributesBasedOnValueRuleData ruleName             <schema>ExcludeSunRoof ruleTitle            The sun roof option is not avilable on four cyclinder vehicles. applyToClass         Car basedOnAttribute     engineType basedOnValue         FOURCYLINDER excludeThisAttribute sunRoofOption </pre>");
+            _CheckAttributesBasedOnValueRuleOBJ.setDescription("The CheckAttributesBasedOnValueRule allows you to specify\n that certain optional attributes must exist (or not exist) based on the value\n of another attribute in an object.\n an object based on the setting of a particular enumerated attribute. This allows\n for finer control of must/may attributes based on enumerated values in an object.\n An example usage might look like:\n <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName             <schema>ExcludeSunRoof\n ruleTitle            The sun roof option is not avilable on four cyclinder vehicles.\n applyToClass         Car\n basedOnAttribute     engineType\n basedOnValue         FOURCYLINDER\n excludeThisAttribute sunRoofOption\n </pre>");
             _CheckAttributesBasedOnValueRuleOBJ.addMust("basedOnAttribute");
             _CheckAttributesBasedOnValueRuleOBJ.addMust("basedOnValue");
             _CheckAttributesBasedOnValueRuleOBJ.addMust("excludeThisAttribute");

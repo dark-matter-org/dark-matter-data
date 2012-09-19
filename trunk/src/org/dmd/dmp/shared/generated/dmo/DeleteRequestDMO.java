@@ -32,9 +32,9 @@ import org.dmd.dms.generated.types.DmcTypeNameContainerMV;            // Require
 
 /**
  * The DeleteRequest allows you to delete one or more objects. If no scope is
- * specified, the scope is assumed to be BASE i.e. just the specific object
- * indicated by the targets. The behaviour of this request is implementation
- * specific.
+ * specified,\n the scope is assumed to be BASE i.e. just the specific object
+ * indicated by the targets. The behaviour\n of this request is
+ * implementation specific.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>

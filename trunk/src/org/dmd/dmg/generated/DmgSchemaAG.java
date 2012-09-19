@@ -9,12 +9,12 @@ import org.dmd.dmg.generated.dmo.DmgDMSAG;
 
 /**
  * The dmg schema defines classes used by the Dark Matter Generator
- * framework. The concept of the framework is to allow users to extend the
- * overall code generation mechanism by providing their own generators that
- * conform to the DarkMatterGeneratorIF interface. Generally speaking, the
- * generators feed off a set of schemas associated with the DmgConfig object.
- * Exactly how each generator works, what files it generates and where it
- * generates them is specific to each generator.
+ * framework.\n The concept of the framework is to allow users to extend the
+ * overall code generation\n mechanism by providing their own generators that
+ * conform to the DarkMatterGeneratorIF\n interface. Generally speaking, the
+ * generators feed off a set of schemas associated\n with the DmgConfig
+ * object. Exactly how each generator works, what files it generates\n and
+ * where it generates them is specific to each generator.
  * <P>
  * Generated from the dmg schema at version 0.1
  * <P>
@@ -80,7 +80,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _DmgConfigOBJ.setClassType("STRUCTURAL");
             _DmgConfigOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/classes.dmd");
             _DmgConfigOBJ.setLineNumber("14");
-            _DmgConfigOBJ.setDescription("The DmgConfig class is used to specify a set of schemas and a set of  code generators to be run when you want to generate various types of code.");
+            _DmgConfigOBJ.setDescription("The DmgConfig class is used to specify a set of schemas and a set of \n code generators to be run when you want to generate various types of code.");
             _DmgConfigOBJ.setDmtREFImport("org.dmd.dmg.generated.types.DmgConfigREF");
             _DmgConfigOBJ.setDmwIteratorClass("DmgConfigIterableDMW");
             _DmgConfigOBJ.addMay("schemaToLoad");
@@ -101,7 +101,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _GenerationContextOBJ.setClassType("STRUCTURAL");
             _GenerationContextOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/classes.dmd");
             _GenerationContextOBJ.setLineNumber("24");
-            _GenerationContextOBJ.setDescription("The GenerationContext acts as a gathering point for a set of code generation components.");
+            _GenerationContextOBJ.setDescription("The GenerationContext acts as a gathering point for a set of\n code generation components.");
             _GenerationContextOBJ.setIsNamedBy("genContextName");
             _GenerationContextOBJ.setUseWrapperType("EXTENDED");
             _GenerationContextOBJ.setDmtREFImport("org.dmd.dmg.generated.types.GenerationContextREF");
@@ -119,7 +119,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _WrapperGeneratorOBJ.setClassType("STRUCTURAL");
             _WrapperGeneratorOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/classes.dmd");
             _WrapperGeneratorOBJ.setLineNumber("37");
-            _WrapperGeneratorOBJ.setDescription("The WrapperGenerator allows for the definition of a code generation component that creates DMO wrappers for use in particular usage environments.");
+            _WrapperGeneratorOBJ.setDescription("The WrapperGenerator allows for the definition of a code generation\n component that creates DMO wrappers for use in particular usage environments.");
             _WrapperGeneratorOBJ.setIsNamedBy("name");
             _WrapperGeneratorOBJ.setUseWrapperType("EXTENDED");
             _WrapperGeneratorOBJ.setDmtREFImport("org.dmd.dmg.generated.types.WrapperGeneratorREF");
@@ -140,7 +140,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _MethodGeneratorOBJ.setClassType("STRUCTURAL");
             _MethodGeneratorOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/classes.dmd");
             _MethodGeneratorOBJ.setLineNumber("52");
-            _MethodGeneratorOBJ.setDescription("The MethodGenerator allows for the definition of a code generation component that creates access methods for wrapper classes in different usage environments.");
+            _MethodGeneratorOBJ.setDescription("The MethodGenerator allows for the definition of a code generation\n component that creates access methods for wrapper classes in different usage\n environments.");
             _MethodGeneratorOBJ.setIsNamedBy("name");
             _MethodGeneratorOBJ.setUseWrapperType("EXTENDED");
             _MethodGeneratorOBJ.setDmtREFImport("org.dmd.dmg.generated.types.MethodGeneratorREF");
@@ -181,7 +181,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _generatorOBJ.setType("Generator");
             _generatorOBJ.setName("generator");
             _generatorOBJ.setDmdID("200");
-            _generatorOBJ.setDescription("The fully qualified name of a class that that implements the DarkMatterGeneratorIF interface. The DMG Generator utility will call on this object to generate code.");
+            _generatorOBJ.setDescription("The fully qualified name of a class that that implements the\n DarkMatterGeneratorIF interface. The DMG Generator utility will call\n on this object to generate code.");
             _generatorOBJ.setValueType("MULTI");
             _generator.setDefinedIn(this);
             _generatorOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
@@ -206,7 +206,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             _configSuffixOBJ.setType("String");
             _configSuffixOBJ.setName("configSuffix");
             _configSuffixOBJ.setDmdID("202");
-            _configSuffixOBJ.setDescription("The suffix of an additional configuration files that are required by any of the specified generators. For example .mvc");
+            _configSuffixOBJ.setDescription("The suffix of an additional configuration files that are\n required by any of the specified generators. For example .mvc");
             _configSuffixOBJ.setValueType("MULTI");
             _configSuffix.setDefinedIn(this);
             _configSuffixOBJ.setFile("/src/org/dmd/dmg/schema/v0dot1/attributes.dmd");
@@ -292,7 +292,7 @@ public class DmgSchemaAG extends SchemaDefinition {
             TypeDefinitionDMO _GeneratorOBJ = new TypeDefinitionDMO();
             _Generator = new TypeDefinition(_GeneratorOBJ);
             _GeneratorOBJ.setName("Generator");
-            _GeneratorOBJ.setDescription("The Generator type stores the fully qualified name of a class that implements the DarkMatterGeneratorIF. It also proviv=des the mechanism to instantiate the generator.");
+            _GeneratorOBJ.setDescription("The Generator type stores the fully qualified name of a class that\n implements the DarkMatterGeneratorIF. It also proviv=des the mechanism to instantiate\n the generator.");
             _GeneratorOBJ.setTypeClassName("org.dmd.dmg.types.DmcTypeGenerator");
             _GeneratorOBJ.setPrimitiveType("org.dmd.dmg.types.Generator");
             _GeneratorOBJ.setDmwIteratorClass("GeneratorIterableDMW");

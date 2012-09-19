@@ -20,7 +20,7 @@ import java.util.*;
 import org.dmd.dmc.DmcEnumIF;
 
 /**
- * The NumericRelationEnum is used to specify the relationship that should
+ * The NumericRelationEnum is used to specify the relationship\n that should
  * exist between two numeric values.
  * <P>
  * Generated from the dmv schema at version 0.1

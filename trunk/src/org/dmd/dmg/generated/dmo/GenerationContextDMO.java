@@ -28,7 +28,7 @@ import org.dmd.dms.generated.types.DmcTypeCamelCaseNameSV;         // Required t
 import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required for MODREC constructor - (GenUtility.java:223)
 
 /**
- * The GenerationContext acts as a gathering point for a set of code
+ * The GenerationContext acts as a gathering point for a set of\n code
  * generation components.
  * <P>
  * Generated from the dmg schema at version 0.1

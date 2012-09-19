@@ -27,7 +27,7 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;              // Required f
 
 
 /**
- * The LogoutResponse will indicate that you have successfully terminated
+ * The LogoutResponse will indicate that you have successfully terminated\n
  * your current session.
  * <P>
  * Generated from the dmp schema at version 0.1
