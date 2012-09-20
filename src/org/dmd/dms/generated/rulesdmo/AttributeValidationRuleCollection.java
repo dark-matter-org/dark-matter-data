@@ -34,6 +34,10 @@ public class AttributeValidationRuleCollection extends AttributeRuleCollection<A
                 grl.add(rule);
             }
             else{
+            	ArrayList<AttributeValidationIF> attrRules = rules.get(rule.getKey());
+            	if (attrRules == null)
+            		attrRules = new ArrayList<AttributeValidationIF>();
+            	attrRules.add(rule);
             }
         }
     }
