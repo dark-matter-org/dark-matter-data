@@ -285,7 +285,7 @@ public class RuleFormatter {
 			
 			out.write("package " + schemaPackage + ".generated.rulesdmo;\n\n");
 			
-			out.write(baseImports.getFormattedImports());
+			out.write(baseImports.getFormattedImports() + "\n");
 			
 			if (isAttributeRule){
 				out.write("public class " + name + "RuleCollection extends AttributeRuleCollection<" + name + "IF> {" + "\n\n");
@@ -309,6 +309,10 @@ public class RuleFormatter {
 				out.write("                grl.add(rule);\n");
 				out.write("            }\n");
 				out.write("            else{\n");
+				out.write("                ArrayList<" + name + "IF> attrRules = rules.get(rule.getKey());\n");
+				out.write("                if (attrRules == null)\n");
+				out.write("                    attrRules = new ArrayList<" + name + "IF>();\n");
+				out.write("                attrRules.add(rule);\n");
 				out.write("            }\n");
 				out.write("        }\n");
 				out.write("    }\n\n");
@@ -329,6 +333,10 @@ public class RuleFormatter {
 				out.write("                globalRules.add(rule);\n");
 				out.write("            }\n");
 				out.write("            else{\n");
+				out.write("                ArrayList<" + name + "IF> classRules = rules.get(rule.getKey());\n");
+				out.write("                if (classRules == null)\n");
+				out.write("                    classRules = new ArrayList<" + name + "IF>();\n");
+				out.write("                classRules(rule);\n");
 				out.write("            }\n");
 				out.write("        }\n");
 				out.write("    }\n\n");

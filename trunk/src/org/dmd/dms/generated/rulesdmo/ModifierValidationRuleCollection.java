@@ -27,6 +27,10 @@ public class ModifierValidationRuleCollection extends ClassRuleCollection<Modifi
                 globalRules.add(rule);
             }
             else{
+            	ArrayList<ModifierValidationIF> classRules = rules.get(rule.getKey());
+            	if (classRules == null)
+            		classRules = new ArrayList<ModifierValidationIF>();
+            	classRules.add(rule);
             }
         }
     }
