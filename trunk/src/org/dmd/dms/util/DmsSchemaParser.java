@@ -391,7 +391,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 		
 //				DebugInfo.debug("DmsSchemaParser.handleObject() - need rules!");
 				
-				DmvDMSAG.__dmvAllowedAttributes.validate(newDef.getDMO());
+				DmvDMSAG.__dmvAllowedAttributes.execute(newDef.getDMO());
 				
 //				try {
 //					newObj.getDMO().validate();

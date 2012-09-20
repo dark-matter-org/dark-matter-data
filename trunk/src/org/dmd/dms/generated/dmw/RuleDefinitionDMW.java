@@ -27,33 +27,20 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * The RuleDefinition allows for the definition of rules that can
- be applied
- * to attributes or classes. Rules are not just for validation, they
- can be
- * applied to objects at different times in an object's life cycle e.g. 
- the
- * InitRule can initialize a set of attributes to known values.
- <p/>
-
- * RuleDefinitions will result in the generation of ClassDefinitions that
- * define the 
- DMOs that will carry the parameters associated with the rule
- * and the expectation
- that you will define an implementation class for the
- * rule that derives from
- an abstract BaseImpl (base implementation) of the
- * rule that provides common
- rule infrastructure and appropriate abstract
- * methods that must be filled in.
- <p/>
- RuleDefinitions and
- * ClassDefinitions share the same dmdID space and the IDs must
- be unique.
- * This is because each RuleDefinition results in the creation of a 
-
- * ClassDefinition for the DMO part of the rule that carries the rule
- * parameters.
+ * The RuleDefinition allows for the definition of rules that can\n be
+ * applied to attributes or classes. Rules are not just for validation,
+ * they\n can be applied to objects at different times in an object's life
+ * cycle e.g. \n the InitRule can initialize a set of attributes to known
+ * values.\n <p/>\n RuleDefinitions will result in the generation of
+ * ClassDefinitions that define the \n DMOs that will carry the parameters
+ * associated with the rule and the expectation\n that you will define an
+ * implementation class for the rule that derives from\n an abstract BaseImpl
+ * (base implementation) of the rule that provides common\n rule
+ * infrastructure and appropriate abstract methods that must be filled in.\n
+ * <p/>\n RuleDefinitions and ClassDefinitions share the same dmdID space and
+ * the IDs must\n be unique. This is because each RuleDefinition results in
+ * the creation of a \n ClassDefinition for the DMO part of the rule that
+ * carries the rule parameters.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1561)
  */
@@ -98,10 +85,8 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -154,8 +139,7 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The dmdID attribute is used to store a unique Dark Matter Definition ID
-     * for attributes.
- This is used as part of the serialization mechanisms
+     * for attributes.\n This is used as part of the serialization mechanisms
      * built into Dark Matter Objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -173,13 +157,10 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The description attribute is used to provide descriptive
- documentation
-     * for schema related definitions. The text provided should conform
- to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-
-     * documentation.
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getDescription(){
@@ -230,11 +211,9 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates the set of attributes that an instance of a class MAY
- have.
-     * When accessed in Java, this is a set of references to AttributeDefinition
-
-     * objects.
+     * Indicates the set of attributes that an instance of a class MAY\n have.
+     * When accessed in Java, this is a set of references to
+     * AttributeDefinition\n objects.
      * @return An Iterator of AttributeDefinition objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2406)
@@ -269,11 +248,9 @@ public class RuleDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * Indicates whether or not the ClassDefinition associated with a
-     * RuleDefinition has classType EXTENSIBLE
- or not. This mechanism is useful
+     * RuleDefinition has classType EXTENSIBLE\n or not. This mechanism is useful
      * in situations where the exact set of attributes associated with a rule
-     * must be flexible.
- The best example is the InitRule where any set of
+     * must be flexible.\n The best example is the InitRule where any set of
      * attributes can be specified as value for the rule.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)

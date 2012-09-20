@@ -20,7 +20,7 @@ public class AllowedAttributesRule extends AllowedAttributesRuleBaseImpl {
 	}
 
 	@Override
-	public void validate(DmcObject obj) throws DmcRuleExceptionSet {
+	public void execute(DmcObject obj) throws DmcRuleExceptionSet {
 		DmcRuleExceptionSet exceptions = null;
 		
 		// Cycle through the attribute definitions associated with the object
@@ -57,8 +57,7 @@ public class AllowedAttributesRule extends AllowedAttributesRuleBaseImpl {
 	}
 
 	@Override
-	public void validate(DmcObject obj, DmcTypeModifierMV mods, Modifier mod)
-			throws DmcRuleExceptionSet {
+	public void execute(DmcObject obj, DmcTypeModifierMV mods, Modifier mod) throws DmcRuleExceptionSet {
 		// TODO Auto-generated method stub
 		
 	}

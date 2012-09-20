@@ -3,6 +3,7 @@ package org.dmd.dmv.shared.extended.rulesdmo;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;
 import org.dmd.dmv.shared.generated.rulesdmo.InitRuleBaseImpl;
@@ -20,7 +21,7 @@ public class InitRule extends InitRuleBaseImpl {
 	}
 
 	@Override
-	public void initialize(DmcObject obj){
+	public void execute(DmcObject obj) throws DmcRuleExceptionSet {
 		for(DmcAttribute<?> attr : ruleDMO.getAdditionalAttributes().values()){
 			// If the object doesn't already have the attribute, add it to the object
 			if (obj.get(attr.getAttributeInfo()) == null){
@@ -38,8 +39,6 @@ public class InitRule extends InitRuleBaseImpl {
 				}
 			}
 		}
-		
-
 	}
 
 }

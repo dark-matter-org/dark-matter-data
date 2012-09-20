@@ -27,8 +27,7 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * The RuleData class serves as a common base for all ClassDefinitions
- that
+ * The RuleData class serves as a common base for all ClassDefinitions\n that
  * are generated internally to represent the data associated with
  * RuleDefinitions.
  * @author Auto Generated
@@ -80,10 +79,8 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
 
     /**
      * The ruleName attribute is used to store a single camelCase format name for
-     * a rule.
- The name starts with a single letter and can be followed by a mix
-     * of letters and numbers. No spaces or 
- other characters are allowed.
+     * a rule.\n The name starts with a single letter and can be followed by a
+     * mix of letters and numbers. No spaces or \n other characters are allowed.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public RuleName getRuleName(){
@@ -100,13 +97,10 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     }
 
     /**
-     * The description attribute is used to provide descriptive
- documentation
-     * for schema related definitions. The text provided should conform
- to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-
-     * documentation.
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getDescription(){

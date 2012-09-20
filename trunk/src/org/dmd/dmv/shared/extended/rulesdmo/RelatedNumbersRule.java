@@ -13,9 +13,9 @@ public class RelatedNumbersRule extends RelatedNumbersRuleBaseImpl {
 	}
 
 	@Override
-	public void validate(DmcObject obj) throws DmcRuleExceptionSet {
+	public void execute(DmcObject obj) throws DmcRuleExceptionSet {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }

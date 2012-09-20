@@ -12,9 +12,9 @@ public class UCOAllowedAttributesRule extends UCOAllowedAttributesRuleBaseImpl {
 	}
 
 	@Override
-	public void validate(DmcUncheckedObject obj) throws DmcRuleExceptionSet {
+	public void execute(DmcUncheckedObject obj) throws DmcRuleExceptionSet {
+		// TODO Auto-generated method stub
 		
-
 	}
 
 }

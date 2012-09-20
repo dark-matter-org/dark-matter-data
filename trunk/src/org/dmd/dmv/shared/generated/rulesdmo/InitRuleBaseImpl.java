@@ -11,7 +11,7 @@ import org.dmd.dmc.rules.ClassRuleKey;                           // To allow rul
 import org.dmd.dmc.rules.RuleIF;                                 // All rules implement this - (RuleFormatter.java:391)
 import org.dmd.dmc.rules.RuleKey;                                // To allow rule sorting - (RuleFormatter.java:397)
 import org.dmd.dms.generated.enums.RuleTypeEnum;                 // Rule type - (RuleFormatter.java:390)
-import org.dmd.dms.shared.interfaces.InitializationIF;           // The interface for the Initialization category - (RuleFormatter.java:412)
+import org.dmd.dms.generated.rulesdmo.InitializationIF;          // The interface for the Initialization category - (RuleFormatter.java:412)
 import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;         // Rule parameters object - (RuleFormatter.java:406)
 
 

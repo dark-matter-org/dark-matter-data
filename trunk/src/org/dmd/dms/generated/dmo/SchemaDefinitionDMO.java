@@ -132,13 +132,10 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * The description attribute is used to provide descriptive
- documentation
-     * for schema related definitions. The text provided should conform
- to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-
-     * documentation.
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getDescription(){
@@ -165,10 +162,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -196,10 +191,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     /**
      * The base identifier value for a schema. This value is added to each dmdID
-     * value
- associated with the AttributeDefinitions defined by the schema.
-     * This allows for easy rebasing of
- identifier values if required.
+     * value\n associated with the AttributeDefinitions defined by the schema.
+     * This allows for easy rebasing of\n identifier values if required.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public Integer getSchemaBaseID(){
@@ -226,9 +219,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     /**
      * The maximum number of attribute definitions in a particular schema. This
-     * will provide
- immediate feedback if you exceed the given ID range for your
-     * schema.
+     * will provide\n immediate feedback if you exceed the given ID range for
+     * your schema.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public Integer getSchemaIDRange(){
@@ -254,8 +246,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * Indicates the package that a schema will be part of when its code
- is
+     * Indicates the package that a schema will be part of when its code\n is
      * generated using DMO generator tool.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -394,13 +385,10 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * When specified as true on a SchemaDefinition, the DMO generation
- utility
+     * When specified as true on a SchemaDefinition, the DMO generation\n utility
      * will create a free standing AttributeFactory for the schema. This allows
-     * for
- the creation of attributes taht can then be embedded in complex
-     * objects and properly
- serialized/deserialized.
+     * for\n the creation of attributes taht can then be embedded in complex
+     * objects and properly\n serialized/deserialized.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public Boolean getCreateAttributeFactory(){
@@ -426,8 +414,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * A list of files that contain the class, attribute and type definitions
-
+     * A list of files that contain the class, attribute and type definitions\n
      * that comprise a schema.
      * @return An Iterator of String objects.
      */
@@ -511,8 +498,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
 
     /**
      * A list of schema references that are based on the contents of the
-     * dependsOn
- attribute.
+     * dependsOn\n attribute.
      * @return An Iterator of SchemaDefinitionDMO objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2382)
@@ -540,11 +526,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * Indicates the package where server related Dark Matter Wrapper classes 
-
+     * Indicates the package where server related Dark Matter Wrapper classes \n
      * were generated for this schema. This is used when we're generating derived
-     * wrapper
- classes.
+     * wrapper\n classes.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getDmwPackage(){
@@ -570,20 +554,15 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * The dmwTypeToPackage attribute is used to indicate alternative generation
-
-     * packages for the Dark Matter Wrapper (DMW) code generation mechanisms. For
-     * instance, if we 
- want to generate GXT wrappers for use with Sencha's GXT
-     * model classes, we could specify
- dmwTypeToPackage gxt com.example.client.
-     * Each of schemas that's loaded for generation would
- have to have this same
-     * attribute specified so that, if there were derived classes across
-
-     * schemas, the appropriate wrapper derivations could be determined. See the
-     * ClassDefintion.adjustClass()
- method to see how this is used.
+     * The dmwTypeToPackage attribute is used to indicate alternative
+     * generation\n packages for the Dark Matter Wrapper (DMW) code generation
+     * mechanisms. For instance, if we \n want to generate GXT wrappers for use
+     * with Sencha's GXT model classes, we could specify\n dmwTypeToPackage gxt
+     * com.example.client. Each of schemas that's loaded for generation would\n
+     * have to have this same attribute specified so that, if there were derived
+     * classes across\n schemas, the appropriate wrapper derivations could be
+     * determined. See the ClassDefintion.adjustClass()\n method to see how this
+     * is used.
      * @return An Iterator of StringToString objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2389)
@@ -693,10 +672,8 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * The name of file that coresides with the schema.dms file that
- contains a
-     * common header to be applied to all generated code. For instance, you
-
+     * The name of file that coresides with the schema.dms file that\n contains a
+     * common header to be applied to all generated code. For instance, you\n
      * might want a common licensing comment at the top of your generated files.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -723,8 +700,7 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * A list of type definitions that were generated internally to represent
-
+     * A list of type definitions that were generated internally to represent\n
      * enums and object references.
      * @return An Iterator of TypeDefinitionDMO objects.
      */
@@ -863,11 +839,9 @@ public class SchemaDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
     }
 
     /**
-     * The fully qualified name of a class that extends the schema management
-
+     * The fully qualified name of a class that extends the schema management\n
      * capabilities of the SchemaManager. the class must have a zero arg
-     * constructor and implement
- the SchemaExtensionIF.
+     * constructor and implement\n the SchemaExtensionIF.
      * @return An Iterator of String objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2389)

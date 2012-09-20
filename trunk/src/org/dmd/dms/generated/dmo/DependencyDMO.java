@@ -25,34 +25,20 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
 
 
 /**
- * The Dependency class allows for the definition of a named dependency
- on
+ * The Dependency class allows for the definition of a named dependency\n on
  * something; usually an interface. In the current schema mechanisms, the
- * only place
- that this mechanism is used is in the specification of
- * RuleDefinitions. Rule instances are
- created by injecting RuleData into a
- * rule implementation. If the rule implementation
- has dependencies on other
- * objects, those dependencies are specified via references to
-
- * Dependencies.
- <p/>
- A Dependency can be referred to via a RunContext
- * definition which directs the generation
- of code that can instantiate the
- * required object instances. Satisfying a Dependency relies
- on there being
- * a DependencyImplementation that indicates how to instantiate the object
-
- * that implements the interface defined by the dependency.
- <p/>
- If a
+ * only place\n that this mechanism is used is in the specification of
+ * RuleDefinitions. Rule instances are\n created by injecting RuleData into a
+ * rule implementation. If the rule implementation\n has dependencies on
+ * other objects, those dependencies are specified via references to\n
+ * Dependencies.\n <p/>\n A Dependency can be referred to via a RunContext
+ * definition which directs the generation\n of code that can instantiate the
+ * required object instances. Satisfying a Dependency relies\n on there being
+ * a DependencyImplementation that indicates how to instantiate the object\n
+ * that implements the interface defined by the dependency.\n <p/>\n If a
  * Dependency specifies an instantiation, this is considered the default
- * mechanism to
- fulfill the dependency. Other DependencyImplementations may
- * be specified that override
- the specified instantiation in particular
+ * mechanism to\n fulfill the dependency. Other DependencyImplementations may
+ * be specified that override\n the specified instantiation in particular
  * contexts.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1845)
@@ -119,10 +105,8 @@ public class DependencyDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO im
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)

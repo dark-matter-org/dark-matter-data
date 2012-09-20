@@ -15,13 +15,13 @@ public class IntegerRangeRule extends IntegerRangeRuleBaseImpl {
 	}
 
 	@Override
-	public void validate(DmcAttribute<?> attribute) throws DmcRuleExceptionSet {
+	public void execute(DmcObject obj, DmcAttribute<?> attribute) throws DmcRuleExceptionSet {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void validate(DmcObject obj, DmcTypeModifierMV mods, Modifier mod) throws DmcRuleExceptionSet {
+	public void execute(DmcObject obj, DmcTypeModifierMV mods, Modifier mod) throws DmcRuleExceptionSet {
 		// TODO Auto-generated method stub
 		
 	}
