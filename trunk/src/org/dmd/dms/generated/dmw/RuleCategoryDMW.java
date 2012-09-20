@@ -141,41 +141,6 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The fully qualified name of the interface to be implemented by rules of a
-     * particular category.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
-    public String getRuleInterface(){
-        return(mycore.getRuleInterface());
-    }
-
-    /**
-     * Sets ruleInterface to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
-    public void setRuleInterface(Object value) throws DmcValueException {
-        mycore.setRuleInterface(value);
-    }
-
-    /**
-     * Indicates how a particular category of rule is executed.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
-    public String getRuleExecution(){
-        return(mycore.getRuleExecution());
-    }
-
-    /**
-     * Sets ruleExecution to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
-    public void setRuleExecution(Object value) throws DmcValueException {
-        mycore.setRuleExecution(value);
-    }
-
-    /**
      * The type of a rule.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -210,39 +175,6 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition {
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
-    }
-
-    /**
-     * An import required for arguements to a ruleExecution specification.
-     * @return An Iterator of String objects.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2424)
-    public Iterator<String> getRuleImport(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__ruleImport);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another ruleImport value.
-     * @param value A value compatible with DmcTypeStringMV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2479)
-    public DmcAttribute<?> addRuleImport(Object value) throws DmcValueException {
-        return(mycore.addRuleImport(value));
-    }
-
-    /**
-     * Returns the number of ruleImport values.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2491)
-    public int getRuleImportSize(){
-        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleImport);
-        if (attr == null)
-            return(0);
-        return(attr.getMVSize());
     }
 
     /**

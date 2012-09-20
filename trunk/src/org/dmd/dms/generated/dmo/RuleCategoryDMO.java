@@ -61,13 +61,10 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__opContext.id,MetaDMSAG.__opContext);
         _ImAp.put(MetaDMSAG.__ruleCategoryID.id,MetaDMSAG.__ruleCategoryID);
-        _ImAp.put(MetaDMSAG.__ruleExecution.id,MetaDMSAG.__ruleExecution);
-        _ImAp.put(MetaDMSAG.__ruleInterface.id,MetaDMSAG.__ruleInterface);
         _ImAp.put(MetaDMSAG.__ruleType.id,MetaDMSAG.__ruleType);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
-        _ImAp.put(MetaDMSAG.__ruleImport.id,MetaDMSAG.__ruleImport);
         _ImAp.put(MetaDMSAG.__ruleParam.id,MetaDMSAG.__ruleParam);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
@@ -75,13 +72,10 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__opContext.name,MetaDMSAG.__opContext);
         _SmAp.put(MetaDMSAG.__ruleCategoryID.name,MetaDMSAG.__ruleCategoryID);
-        _SmAp.put(MetaDMSAG.__ruleExecution.name,MetaDMSAG.__ruleExecution);
-        _SmAp.put(MetaDMSAG.__ruleInterface.name,MetaDMSAG.__ruleInterface);
         _SmAp.put(MetaDMSAG.__ruleType.name,MetaDMSAG.__ruleType);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
-        _SmAp.put(MetaDMSAG.__ruleImport.name,MetaDMSAG.__ruleImport);
         _SmAp.put(MetaDMSAG.__ruleParam.name,MetaDMSAG.__ruleParam);
     }
 
@@ -227,59 +221,6 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
     }
 
     /**
-     * Indicates how a particular category of rule is executed.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
-    public String getRuleExecution(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleExecution);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets ruleExecution to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2284)
-    public void setRuleExecution(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__ruleExecution);
-        if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__ruleExecution);
-        
-        attr.set(value);
-        set(MetaDMSAG.__ruleExecution,attr);
-    }
-
-    /**
-     * The fully qualified name of the interface to be implemented by rules of a
-     * particular category.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
-    public String getRuleInterface(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__ruleInterface);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets ruleInterface to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2284)
-    public void setRuleInterface(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__ruleInterface);
-        if (attr == null)
-            attr = new DmcTypeStringSV(MetaDMSAG.__ruleInterface);
-        
-        attr.set(value);
-        set(MetaDMSAG.__ruleInterface,attr);
-    }
-
-    /**
      * The type of a rule.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -381,34 +322,6 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         
         attr.set(value);
         set(MetaDMSAG.__lineNumber,attr);
-    }
-
-    /**
-     * An import required for arguements to a ruleExecution specification.
-     * @return An Iterator of String objects.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2389)
-    public Iterator<String> getRuleImport(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__ruleImport);
-        if (attr == null)
-            return(null);
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another ruleImport value.
-     * @param value A value compatible with DmcTypeStringMV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2444)
-    public DmcAttribute<?> addRuleImport(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__ruleImport);
-        if (attr == null)
-            attr = new DmcTypeStringMV(MetaDMSAG.__ruleImport);
-        
-        attr.add(value);
-        add(MetaDMSAG.__ruleImport,attr);
-        return(attr);
     }
 
     /**

@@ -222,7 +222,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _ruleTitle;
     public static AttributeDefinition _ruleCategory;
     public static AttributeDefinition _ruleCategoryID;
-    public static AttributeDefinition _ruleInterface;
     public static AttributeDefinition _isExtensible;
     public static AttributeDefinition _ruleCategoryList;
     public static AttributeDefinition _ruleDefinitionList;
@@ -232,8 +231,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _instantiation;
     public static AttributeDefinition _runContext;
     public static AttributeDefinition _useInterface;
-    public static AttributeDefinition _ruleExecution;
-    public static AttributeDefinition _ruleImport;
     public static AttributeDefinition _ruleName;
     public static AttributeDefinition _applyToClass;
     public static AttributeDefinition _ruleDataList;
@@ -601,13 +598,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleCategoryOBJ.setIsNamedBy("name");
         _RuleCategoryOBJ.setJavaClass("org.dmd.dms.RuleCategory");
         _RuleCategoryOBJ.setLineNumber("2119");
-        _RuleCategoryOBJ.addMay("ruleImport");
         _RuleCategoryOBJ.addMay("ruleParam");
         _RuleCategoryOBJ.addMust("name");
         _RuleCategoryOBJ.addMust("opContext");
         _RuleCategoryOBJ.addMust("ruleCategoryID");
-        _RuleCategoryOBJ.addMust("ruleInterface");
-        _RuleCategoryOBJ.addMust("ruleExecution");
         _RuleCategoryOBJ.addMust("ruleType");
         _RuleCategoryOBJ.addMust("description");
         _RuleCategoryOBJ.setName("RuleCategory");
@@ -2125,40 +2119,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ruleDefinitionList.setDefinedIn(this);
         addAttributeDefList(_ruleDefinitionList);
 
-        AttributeDefinitionDMO _ruleExecutionOBJ = new AttributeDefinitionDMO();
-        _ruleExecution = new AttributeDefinition(_ruleExecutionOBJ);
-        _ruleExecutionOBJ.setDescription("Indicates how a particular category of rule is executed.");
-        _ruleExecutionOBJ.setDmdID("151");
-        _ruleExecutionOBJ.setFile("metaSchema.dms");
-        _ruleExecutionOBJ.setLineNumber("1668");
-        _ruleExecutionOBJ.setName("ruleExecution");
-        _ruleExecutionOBJ.setType("String");
-        _ruleExecution.setDefinedIn(this);
-        addAttributeDefList(_ruleExecution);
-
-        AttributeDefinitionDMO _ruleImportOBJ = new AttributeDefinitionDMO();
-        _ruleImport = new AttributeDefinition(_ruleImportOBJ);
-        _ruleImportOBJ.setDescription("An import required for arguements to a ruleExecution specification.");
-        _ruleImportOBJ.setDmdID("152");
-        _ruleImportOBJ.setFile("metaSchema.dms");
-        _ruleImportOBJ.setLineNumber("1675");
-        _ruleImportOBJ.setName("ruleImport");
-        _ruleImportOBJ.setType("String");
-        _ruleImportOBJ.setValueType("MULTI");
-        _ruleImport.setDefinedIn(this);
-        addAttributeDefList(_ruleImport);
-
-        AttributeDefinitionDMO _ruleInterfaceOBJ = new AttributeDefinitionDMO();
-        _ruleInterface = new AttributeDefinition(_ruleInterfaceOBJ);
-        _ruleInterfaceOBJ.setDescription("The fully qualified name of the interface to be implemented by rules of a particular category.");
-        _ruleInterfaceOBJ.setDmdID("141");
-        _ruleInterfaceOBJ.setFile("metaSchema.dms");
-        _ruleInterfaceOBJ.setLineNumber("1602");
-        _ruleInterfaceOBJ.setName("ruleInterface");
-        _ruleInterfaceOBJ.setType("String");
-        _ruleInterface.setDefinedIn(this);
-        addAttributeDefList(_ruleInterface);
-
         AttributeDefinitionDMO _ruleNameOBJ = new AttributeDefinitionDMO();
         _ruleName = new AttributeDefinition(_ruleNameOBJ);
         _ruleNameOBJ.setDescription("The ruleName attribute is used to store a single camelCase format name for a rule.\n The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or \n other characters are allowed.");
@@ -2953,10 +2913,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _AttributeValidationOBJ.setName("AttributeValidation");
         _AttributeValidationOBJ.setOpContext("DMO");
         _AttributeValidationOBJ.setRuleCategoryID("3");
-        _AttributeValidationOBJ.setRuleExecution("validate(DmcAttribute<?> attribute) throws DmcRuleExceptionSet");
-        _AttributeValidationOBJ.addRuleImport("org.dmd.dmc.DmcAttribute");
-        _AttributeValidationOBJ.addRuleImport("org.dmd.dmc.rules.DmcRuleExceptionSet");
-        _AttributeValidationOBJ.setRuleInterface("org.dmd.dms.shared.interfaces.AttributeValidationIF");
         _AttributeValidationOBJ.addRuleParam("org.dmd.dmc.DmcObject::obj:The object in which the attribute exists");
         _AttributeValidationOBJ.addRuleParam("org.dmd.dmc.DmcAttribute:<?>:attribute:The attribute to be validated");
         _AttributeValidationOBJ.setRuleType("ATTRIBUTE");
@@ -2971,9 +2927,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _InitializationOBJ.setName("Initialization");
         _InitializationOBJ.setOpContext("DMO");
         _InitializationOBJ.setRuleCategoryID("1");
-        _InitializationOBJ.setRuleExecution("initialize(DmcObject obj)");
-        _InitializationOBJ.addRuleImport("org.dmd.dmc.DmcObject");
-        _InitializationOBJ.setRuleInterface("org.dmd.dms.shared.interfaces.InitializationIF");
         _InitializationOBJ.addRuleParam("org.dmd.dmc.DmcObject: :obj:The object to be initialized");
         _InitializationOBJ.setRuleType("CLASS");
         _Initialization.setDefinedIn(this);
@@ -2987,12 +2940,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ModifierValidationOBJ.setName("ModifierValidation");
         _ModifierValidationOBJ.setOpContext("DMO");
         _ModifierValidationOBJ.setRuleCategoryID("4");
-        _ModifierValidationOBJ.setRuleExecution("validate(DmcObject obj, DmcTypeModifierMV mods, Modifier mod) throws DmcRuleExceptionSet");
-        _ModifierValidationOBJ.addRuleImport("org.dmd.dmc.DmcObject");
-        _ModifierValidationOBJ.addRuleImport("org.dmd.dms.generated.types.DmcTypeModifierMV");
-        _ModifierValidationOBJ.addRuleImport("org.dmd.dmc.types.Modifier");
-        _ModifierValidationOBJ.addRuleImport("org.dmd.dmc.rules.DmcRuleExceptionSet");
-        _ModifierValidationOBJ.setRuleInterface("org.dmd.dms.shared.interfaces.ModifierValidationIF");
         _ModifierValidationOBJ.addRuleParam("org.dmd.dmc.DmcObject: :obj:The object being modified");
         _ModifierValidationOBJ.addRuleParam("org.dmd.dms.generated.types.DmcTypeModifierMV: :mods:The set of modifications being performed");
         _ModifierValidationOBJ.addRuleParam("org.dmd.dmc.types.Modifier: :mod:The particular modification being validated");
@@ -3008,10 +2955,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ObjectValidationOBJ.setName("ObjectValidation");
         _ObjectValidationOBJ.setOpContext("DMO");
         _ObjectValidationOBJ.setRuleCategoryID("2");
-        _ObjectValidationOBJ.setRuleExecution("validate(DmcObject obj) throws DmcRuleExceptionSet");
-        _ObjectValidationOBJ.addRuleImport("org.dmd.dmc.DmcObject");
-        _ObjectValidationOBJ.addRuleImport("org.dmd.dmc.rules.DmcRuleExceptionSet");
-        _ObjectValidationOBJ.setRuleInterface("org.dmd.dms.shared.interfaces.ObjectValidationIF");
         _ObjectValidationOBJ.addRuleParam("org.dmd.dmc.DmcObject: :obj:The object to be validated");
         _ObjectValidationOBJ.setRuleType("CLASS");
         _ObjectValidation.setDefinedIn(this);
@@ -3025,10 +2968,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _UCOValidationOBJ.setName("UCOValidation");
         _UCOValidationOBJ.setOpContext("DMO");
         _UCOValidationOBJ.setRuleCategoryID("5");
-        _UCOValidationOBJ.setRuleExecution("validate(DmcUncheckedObject obj) throws DmcRuleExceptionSet");
-        _UCOValidationOBJ.addRuleImport("org.dmd.dmc.util.DmcUncheckedObject");
-        _UCOValidationOBJ.addRuleImport("org.dmd.dmc.rules.DmcRuleExceptionSet");
-        _UCOValidationOBJ.setRuleInterface("org.dmd.dms.shared.interfaces.UCOValidationIF");
         _UCOValidationOBJ.addRuleParam("org.dmd.dmc.util.DmcUncheckedObject: :obj:The object to be validated:");
         _UCOValidationOBJ.setRuleType("CLASS");
         _UCOValidation.setDefinedIn(this);
