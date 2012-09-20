@@ -146,9 +146,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __ruleDataList = new DmcAttributeInfo("ruleDataList",156,"RuleData",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleDefinition = new DmcAttributeInfo("ruleDefinition",145,"RuleDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleDefinitionList = new DmcAttributeInfo("ruleDefinitionList",144,"RuleDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __ruleExecution = new DmcAttributeInfo("ruleExecution",151,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __ruleImport = new DmcAttributeInfo("ruleImport",152,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __ruleInterface = new DmcAttributeInfo("ruleInterface",141,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleName = new DmcAttributeInfo("ruleName",153,"RuleName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleParam = new DmcAttributeInfo("ruleParam",50,"RuleParam",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleTitle = new DmcAttributeInfo("ruleTitle",138,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -337,9 +334,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__ruleDataList.id,__ruleDataList);
         _SmAp.put(__ruleDefinition.id,__ruleDefinition);
         _SmAp.put(__ruleDefinitionList.id,__ruleDefinitionList);
-        _SmAp.put(__ruleExecution.id,__ruleExecution);
-        _SmAp.put(__ruleImport.id,__ruleImport);
-        _SmAp.put(__ruleInterface.id,__ruleInterface);
         _SmAp.put(__ruleName.id,__ruleName);
         _SmAp.put(__ruleParam.id,__ruleParam);
         _SmAp.put(__ruleTitle.id,__ruleTitle);
@@ -516,13 +510,10 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleCategory.addMust(__name);
         __RuleCategory.addMust(__opContext);
         __RuleCategory.addMust(__ruleCategoryID);
-        __RuleCategory.addMust(__ruleExecution);
-        __RuleCategory.addMust(__ruleInterface);
         __RuleCategory.addMust(__ruleType);
         __RuleCategory.addMay(__definedIn);
         __RuleCategory.addMay(__file);
         __RuleCategory.addMay(__lineNumber);
-        __RuleCategory.addMay(__ruleImport);
         __RuleCategory.addMay(__ruleParam);
 
         __RuleData.addMust(__ruleName);

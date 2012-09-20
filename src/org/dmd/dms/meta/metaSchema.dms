@@ -446,9 +446,9 @@ name			Initialization
 opContext		DMO
 ruleCategoryID	1
 ruleType		CLASS
-ruleInterface	org.dmd.dms.shared.interfaces.InitializationIF
-ruleExecution   initialize(DmcObject obj)
-ruleImport		org.dmd.dmc.DmcObject
+//ruleInterface	org.dmd.dms.shared.interfaces.InitializationIF
+//ruleExecution   initialize(DmcObject obj)
+//ruleImport		org.dmd.dmc.DmcObject
 ruleParam		org.dmd.dmc.DmcObject: :obj:The object to be initialized
 description		Rules in this category are used to initialize objects to a known
  state after creation.
@@ -462,10 +462,10 @@ name			ObjectValidation
 opContext		DMO
 ruleCategoryID	2
 ruleType		CLASS
-ruleInterface	org.dmd.dms.shared.interfaces.ObjectValidationIF
-ruleExecution	validate(DmcObject obj) throws DmcRuleExceptionSet
-ruleImport		org.dmd.dmc.DmcObject
-ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
+//ruleInterface	org.dmd.dms.shared.interfaces.ObjectValidationIF
+//ruleExecution	validate(DmcObject obj) throws DmcRuleExceptionSet
+//ruleImport		org.dmd.dmc.DmcObject
+//ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
 ruleParam		org.dmd.dmc.DmcObject: :obj:The object to be validated
 description		Rules in this category are used to validate a complete object. This
  would include objects read from Object Instance Files, objects in CreateRequests
@@ -476,10 +476,10 @@ name			AttributeValidation
 opContext		DMO
 ruleCategoryID	3
 ruleType		ATTRIBUTE
-ruleInterface	org.dmd.dms.shared.interfaces.AttributeValidationIF
-ruleExecution	validate(DmcAttribute<?> attribute) throws DmcRuleExceptionSet
-ruleImport		org.dmd.dmc.DmcAttribute
-ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
+//ruleInterface	org.dmd.dms.shared.interfaces.AttributeValidationIF
+//ruleExecution	validate(DmcAttribute<?> attribute) throws DmcRuleExceptionSet
+//ruleImport		org.dmd.dmc.DmcAttribute
+//ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
 ruleParam		org.dmd.dmc.DmcObject::obj:The object in which the attribute exists
 ruleParam		org.dmd.dmc.DmcAttribute:<?>:attribute:The attribute to be validated
 description		Rules in this category are used to validate individual attributes.
@@ -489,12 +489,12 @@ name			ModifierValidation
 opContext		DMO
 ruleCategoryID	4
 ruleType		CLASS
-ruleInterface	org.dmd.dms.shared.interfaces.ModifierValidationIF
-ruleExecution	validate(DmcObject obj, DmcTypeModifierMV mods, Modifier mod) throws DmcRuleExceptionSet
-ruleImport		org.dmd.dmc.DmcObject
-ruleImport		org.dmd.dms.generated.types.DmcTypeModifierMV
-ruleImport		org.dmd.dmc.types.Modifier
-ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
+//ruleInterface	org.dmd.dms.shared.interfaces.ModifierValidationIF
+//ruleExecution	validate(DmcObject obj, DmcTypeModifierMV mods, Modifier mod) throws DmcRuleExceptionSet
+//ruleImport		org.dmd.dmc.DmcObject
+//ruleImport		org.dmd.dms.generated.types.DmcTypeModifierMV
+//ruleImport		org.dmd.dmc.types.Modifier
+//ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
 ruleParam		org.dmd.dmc.DmcObject: :obj:The object being modified
 ruleParam		org.dmd.dms.generated.types.DmcTypeModifierMV: :mods:The set of modifications being performed
 ruleParam		org.dmd.dmc.types.Modifier: :mod:The particular modification being validated
@@ -506,10 +506,10 @@ name			UCOValidation
 opContext		DMO
 ruleCategoryID	5
 ruleType		CLASS
-ruleInterface	org.dmd.dms.shared.interfaces.UCOValidationIF
-ruleExecution	validate(DmcUncheckedObject obj) throws DmcRuleExceptionSet
-ruleImport		org.dmd.dmc.util.DmcUncheckedObject
-ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
+//ruleInterface	org.dmd.dms.shared.interfaces.UCOValidationIF
+//ruleExecution	validate(DmcUncheckedObject obj) throws DmcRuleExceptionSet
+//ruleImport		org.dmd.dmc.util.DmcUncheckedObject
+//ruleImport		org.dmd.dmc.rules.DmcRuleExceptionSet
 ruleParam		org.dmd.dmc.util.DmcUncheckedObject: :obj:The object to be validated:
 description		Rules in this category are used to validate DmcUncheckedObjects (UCOs) which
  are basically just collections of attribute/value pairs.
@@ -1594,11 +1594,11 @@ dmdID						140
 type                		Integer
 description    				The numeric ID of a rule category.
 
-AttributeDefinition
-name                		ruleInterface
-dmdID						141
-type                		String
-description    				The fully qualified name of the interface to be implemented by rules of a particular category.
+//AttributeDefinition
+//name                		ruleInterface
+//dmdID						141
+//type                		String
+//description    				The fully qualified name of the interface to be implemented by rules of a particular category.
 
 AttributeDefinition
 name                		isExtensible
@@ -1660,18 +1660,18 @@ dmdID						150
 type                		String
 description    				The fully qualified name of a Java interface or base class that specifies a dependency.
 
-AttributeDefinition
-name                		ruleExecution
-dmdID						151
-type                		String
-description    				Indicates how a particular category of rule is executed.
+//AttributeDefinition
+//name                		ruleExecution
+//dmdID						151
+//type                		String
+//description    				Indicates how a particular category of rule is executed.
 
-AttributeDefinition
-name                		ruleImport
-dmdID						152
-type                		String
-valueType					MULTI
-description    				An import required for arguements to a ruleExecution specification.
+//AttributeDefinition
+//name                		ruleImport
+//dmdID						152
+//type                		String
+//valueType					MULTI
+//description    				An import required for arguements to a ruleExecution specification.
 
 AttributeDefinition
 name                		ruleName
@@ -2092,10 +2092,10 @@ isNamedBy       name
 must        	name
 must			opContext
 must			ruleCategoryID
-must			ruleInterface
-must			ruleExecution
+//must			ruleInterface
+//must			ruleExecution
 must			ruleType
-may				ruleImport
+//may				ruleImport
 may             ruleParam
 must			description
 description		The RuleCategory allows for the definition of categories of rules to be applied
