@@ -28,23 +28,14 @@ import org.dmd.dms.*;
 import org.dmd.dms.extended.ActionTriggerInfo;
 
 /**
- * The ActionTriggerInfo class simply provides a common base for the bundle
-
- * of information required to remotely trigger an action on an object. 
-
- * Derivatives of this class are generated as part of the DMO generation
-
- * process and have action specific interfaces to handle the parameters 
-
- * required by an action.
- <P>
- This mechanism is a replacement for the
- * concept that ActionRequests were
- EXTENSIBLE objects. This way, the user
- * can ask an object for the 
- ActionTriggerInfo (ATI) for a particular
- * action and have a well defined
- interface to specify the parameters for
+ * The ActionTriggerInfo class simply provides a common base for the bundle\n
+ * of information required to remotely trigger an action on an object. \n
+ * Derivatives of this class are generated as part of the DMO generation\n
+ * process and have action specific interfaces to handle the parameters \n
+ * required by an action.\n <P>\n This mechanism is a replacement for the
+ * concept that ActionRequests were\n EXTENSIBLE objects. This way, the user
+ * can ask an object for the \n ActionTriggerInfo (ATI) for a particular
+ * action and have a well defined\n interface to specify the parameters for
  * the action.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1561)
@@ -78,10 +69,8 @@ public abstract class ActionTriggerInfoDMW extends DmwWrapper {
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)

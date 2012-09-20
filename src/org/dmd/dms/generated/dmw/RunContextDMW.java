@@ -72,10 +72,8 @@ public class RunContextDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -127,13 +125,10 @@ public class RunContextDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The description attribute is used to provide descriptive
- documentation
-     * for schema related definitions. The text provided should conform
- to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-
-     * documentation.
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getDescription(){

@@ -11,10 +11,11 @@ public class CheckAttributesBasedOnValueRule extends CheckAttributesBasedOnValue
 		super(dmo);
 	}
 
-	@Override
-	public void validate(DmcObject obj) throws DmcRuleExceptionSet {
-		// TODO Auto-generated method stub
 
+	@Override
+	public void execute(DmcObject obj) throws DmcRuleExceptionSet {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

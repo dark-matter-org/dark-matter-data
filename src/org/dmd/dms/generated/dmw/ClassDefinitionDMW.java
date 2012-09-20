@@ -72,10 +72,8 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -111,8 +109,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The dmdID attribute is used to store a unique Dark Matter Definition ID
-     * for attributes.
- This is used as part of the serialization mechanisms
+     * for attributes.\n This is used as part of the serialization mechanisms
      * built into Dark Matter Objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -130,13 +127,10 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The description attribute is used to provide descriptive
- documentation
-     * for schema related definitions. The text provided should conform
- to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-
-     * documentation.
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getDescription(){
@@ -209,11 +203,9 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates the set of attributes that an instance of a class MAY
- have.
-     * When accessed in Java, this is a set of references to AttributeDefinition
-
-     * objects.
+     * Indicates the set of attributes that an instance of a class MAY\n have.
+     * When accessed in Java, this is a set of references to
+     * AttributeDefinition\n objects.
      * @return An Iterator of AttributeDefinition objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2406)
@@ -247,13 +239,10 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates the attribute by which an object of some class is named.
- When
+     * Indicates the attribute by which an object of some class is named.\n When
      * this attribute is supplied in a ClassDefinition, the generated DMO class
-     * will
- indicate that it implements the DmcNamedObjectIF and its
-     * getObjectName() method
- will return the value of the isNamedBy attribute.
+     * will\n indicate that it implements the DmcNamedObjectIF and its
+     * getObjectName() method\n will return the value of the isNamedBy attribute.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public AttributeDefinition getIsNamedBy(){
@@ -274,13 +263,10 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This attribute indicates the full name of the class (including package)
-
+     * This attribute indicates the full name of the class (including package)\n
      * that should be instantiated when an instance of an object is created via
-     * the
- DmdClassDef.newInstance() function. The class must be a derived class
-     * of
- DmdGenericObject.
+     * the\n DmdClassDef.newInstance() function. The class must be a derived
+     * class of\n DmdGenericObject.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getJavaClass(){
@@ -298,10 +284,8 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * This attribute can be used on AUXILIARY classes to give a hint about
-     * their
- intended usage. For example, if you were extending schema
-     * definitions with some or your 
- own attributes for some purpose, your
+     * their\n intended usage. For example, if you were extending schema
+     * definitions with some or your \n own attributes for some purpose, your
      * auxiliary class could have intendedToExtend ClassDefinition.
      * @return An Iterator of ClassDefinition objects.
      */
@@ -336,10 +320,8 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This is a hack for now to allow for the inclusion of an 
- interface on a
-     * class; it should be the fully qualified name of the interface.
- The
+     * This is a hack for now to allow for the inclusion of an \n interface on a
+     * class; it should be the fully qualified name of the interface.\n The
      * interface shouldn't require any method implementations.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -357,8 +339,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates whether you want to use the generated DMW wrapper
- or the
+     * Indicates whether you want to use the generated DMW wrapper\n or the
      * extended wrapper you've created yourself.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -377,8 +358,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The dmwWrapperType is used to indicate whether or not you want extended
-     * wrappers
- when the wrappers are generated for an object in a particular
+     * wrappers\n when the wrappers are generated for an object in a particular
      * generation context.
      * @return An Iterator of DmwTypeToWrapperType objects.
      */
@@ -412,8 +392,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates the classes of object that may be parents of the
- current class
+     * Indicates the classes of object that may be parents of the\n current class
      * when objects are created in an instance hierarchy.
      * @return An Iterator of ClassDefinition objects.
      */
@@ -449,12 +428,9 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The subpackage beneath extended where generated code will be written.
-     * This
- allows for a hierarchic package structure for the classes generated
-     * by the dmg and mvc generator
- utilities. The structure can contain other
-     * subpackages etc x.y.z but should not start or end
- with a period.
+     * This\n allows for a hierarchic package structure for the classes generated
+     * by the dmg and mvc generator\n utilities. The structure can contain other
+     * subpackages etc x.y.z but should not start or end\n with a period.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getSubpackage(){
@@ -472,8 +448,8 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * This attribute indicates the persistence characteristics of an attribute
-     * or
- class of object. How this information is used is application dependent.
+     * or\n class of object. How this information is used is application
+     * dependent.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public DataTypeEnum getDataType(){
@@ -491,10 +467,8 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * Indicates if a class of objects supports back reference tracking or not.
-     * The
- default is that all objects support it, however, in places like the
-     * Dark Matter Protocol, we
- don't want to track references in the messages.
+     * The\n default is that all objects support it, however, in places like the
+     * Dark Matter Protocol, we\n don't want to track references in the messages.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public Boolean getSupportsBackrefTracking(){
@@ -511,13 +485,10 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The excludeFromContext attribute is used to indicate that
- a class of
-     * object (and all of its derivatives) should be excluded from the wrapper
-
+     * The excludeFromContext attribute is used to indicate that\n a class of
+     * object (and all of its derivatives) should be excluded from the wrapper\n
      * generation for the specified context. An example usage is in the Dark
-     * Matter Protocol
- where we don't want to generate wrappers for the message
+     * Matter Protocol\n where we don't want to generate wrappers for the message
      * objects in a GXT context.
      * @return An Iterator of String objects.
      */
@@ -552,10 +523,8 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * This attribute stores an abbreviated form of the name of an attribute or
-     * class. This
- concept is borrowed from directory technology where shortened
-     * name forms are often
- used as part of distinguished names (DNs).
+     * class. This\n concept is borrowed from directory technology where
+     * shortened name forms are often\n used as part of distinguished names (DNs).
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getAbbrev(){
@@ -572,13 +541,10 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This indicates the version at which something became obsolete.
- Generally
-     * speaking you shouldn't ever delete definitions for products that have
-
+     * This indicates the version at which something became obsolete.\n Generally
+     * speaking you shouldn't ever delete definitions for products that have\n
      * been released to the field, this may break backwards compatibility.
-     * Instead, you
- should mark them as obsolete.
+     * Instead, you\n should mark them as obsolete.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getObsoleteVersion(){
@@ -596,10 +562,8 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * This flag indicates if the associated definition was internally
-     * generated.
- This is the case for TypeDefinitions generated for
-     * ClassDefinitions and EnumDefinitions
- that allow for references to these
+     * generated.\n This is the case for TypeDefinitions generated for
+     * ClassDefinitions and EnumDefinitions\n that allow for references to these
      * objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -617,8 +581,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The RuleDefinition that resulted in the creation of an
- internally
+     * The RuleDefinition that resulted in the creation of an\n internally
      * generated ClassDefinition.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -709,8 +672,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * Indicates the internal type that's generated for all ClassDefinitions.
-     * This
- is set automatically on ClassDefinitions as they are parsed.
+     * This\n is set automatically on ClassDefinitions as they are parsed.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public TypeDefinition getInternalTypeRef(){
@@ -732,10 +694,8 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * This attribute indicates the full name of the generated Dark Matter Object
-     * (DMO)
- class (including package) that is generated for this class. The
-     * class will always have DmcObject
- at the top of its derivation hierarchy.
+     * (DMO)\n class (including package) that is generated for this class. The
+     * class will always have DmcObject\n at the top of its derivation hierarchy.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getDmoImport(){
@@ -770,10 +730,8 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * This attribute indicates the full name of the generated Dark Matter
-     * Wrapper (DMW)
- class (including package) that is wrapped by this class.
-     * The class will always be a derived class of
- DmwWrapperBase.
+     * Wrapper (DMW)\n class (including package) that is wrapped by this class.
+     * The class will always be a derived class of\n DmwWrapperBase.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getDmwImport(){
@@ -808,8 +766,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * This attribute indicates the full name of the class that extends a DMW
-     * class.
- Dark Matter Extended (DME).
+     * class.\n Dark Matter Extended (DME).
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getDmeImport(){
@@ -844,8 +801,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * This attribute indicates the full name of the DmcType class used to
-     * reference
- a class. These types are auto generated and named
+     * reference\n a class. These types are auto generated and named
      * DmcType<classname>REF.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -863,8 +819,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This attribute indicates the full name of the class used to reference
- a
+     * This attribute indicates the full name of the class used to reference\n a
      * class. These types are auto generated and named <classname>REF.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -967,11 +922,9 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This attribute indicates the full name of the DmcContainerIterator 
-
+     * This attribute indicates the full name of the DmcContainerIterator \n
      * derived class that allows us to iterate over a set of object references
-     * and get back
- the DMW wrapper object instead of the DMO.
+     * and get back\n the DMW wrapper object instead of the DMO.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getDmwIteratorImport(){
@@ -988,8 +941,7 @@ public class ClassDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This attribute indicates just the DmcContainerIterator name for a
- class
+     * This attribute indicates just the DmcContainerIterator name for a\n class
      * of object.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)

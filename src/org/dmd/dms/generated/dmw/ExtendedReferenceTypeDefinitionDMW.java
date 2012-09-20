@@ -27,13 +27,10 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * The ExtendedReferenceTypeDefinition provides a mechanism for extending 
-
+ * The ExtendedReferenceTypeDefinition provides a mechanism for extending \n
  * the automatically generated named object reference attribute types with
- * additional
- information. This can be seen as adding additional information
- * to the relationship
- between two objects.
+ * additional\n information. This can be seen as adding additional
+ * information to the relationship\n between two objects.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1561)
  */
@@ -66,10 +63,8 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -87,8 +82,7 @@ public class ExtendedReferenceTypeDefinitionDMW extends org.dmd.dms.ComplexTypeD
     }
 
     /**
-     * Indicates the class of object to which an 
-
+     * Indicates the class of object to which an \n
      * ExtendedReferenceTypeDefinition refers.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)

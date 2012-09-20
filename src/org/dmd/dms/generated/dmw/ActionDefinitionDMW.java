@@ -27,8 +27,7 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * This class is used to define the actions that may be triggered on
- an
+ * This class is used to define the actions that may be triggered on\n an
  * object.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1561)
@@ -74,10 +73,8 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -95,13 +92,10 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The description attribute is used to provide descriptive
- documentation
-     * for schema related definitions. The text provided should conform
- to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-
-     * documentation.
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getDescription(){
@@ -118,8 +112,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates the set of parameters that an action MUST have. When
- accessed
+     * Indicates the set of parameters that an action MUST have. When\n accessed
      * in Java, this is a set of references to AttributeDefinition objects.
      * @return An Iterator of AttributeDefinition objects.
      */
@@ -154,9 +147,8 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates the set of parameters that an action MAY have. When accessed
- in
-     * Java, this is a set of references to AttributeDefinition objects.
+     * Indicates the set of parameters that an action MAY have. When accessed\n
+     * in Java, this is a set of references to AttributeDefinition objects.
      * @return An Iterator of AttributeDefinition objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2406)
@@ -190,8 +182,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates the set of return vals that must be returned as part of a
-
+     * Indicates the set of return vals that must be returned as part of a\n
      * particular action response message.
      * @return An Iterator of AttributeDefinition objects.
      */
@@ -226,8 +217,7 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates the set of return vals that may be returned as part of a
-
+     * Indicates the set of return vals that may be returned as part of a\n
      * particular action response message.
      * @return An Iterator of AttributeDefinition objects.
      */
@@ -262,13 +252,10 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * Indicates the classes of object to which an action is to be attached.
-
+     * Indicates the classes of object to which an action is to be attached.\n
      * This mechanism allows for the extension of a class's behaviour without
-     * having
- to alter the schema of the class involved. This can be viewed as
-     * the auxiliary
- class equivalent for behaviour.
+     * having\n to alter the schema of the class involved. This can be viewed as
+     * the auxiliary\n class equivalent for behaviour.
      * @return An Iterator of ClassDefinition objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2406)
@@ -302,13 +289,10 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This flag indicates whether or not an Action will be blocked from
-
+     * This flag indicates whether or not an Action will be blocked from\n
      * proceeding if there is a DAF lock on the object against which the action
-     * is
- performed. The default is to block all incoming actions against a
-     * locked
- object. By setting this flag to false, you can allow an action to
+     * is\n performed. The default is to block all incoming actions against a
+     * locked\n object. By setting this flag to false, you can allow an action to
      * proceed.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
@@ -326,13 +310,10 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This flag indicates if an Action is merely a data retrieval (get) Action.
-
-     * Actions that are flagged with this attribute set to true will be
-     * executable
- even when the server is in a read-only mode because they don't
-     * actually
- alter data.
+     * This flag indicates if an Action is merely a data retrieval (get)
+     * Action.\n Actions that are flagged with this attribute set to true will be
+     * executable\n even when the server is in a read-only mode because they
+     * don't actually\n alter data.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public Boolean getIsGetAction(){
@@ -349,13 +330,10 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This indicates the version at which something became obsolete.
- Generally
-     * speaking you shouldn't ever delete definitions for products that have
-
+     * This indicates the version at which something became obsolete.\n Generally
+     * speaking you shouldn't ever delete definitions for products that have\n
      * been released to the field, this may break backwards compatibility.
-     * Instead, you
- should mark them as obsolete.
+     * Instead, you\n should mark them as obsolete.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
     public String getObsoleteVersion(){
@@ -372,13 +350,10 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This flag is used to indicate if a particular request might
- result in
-     * progress indications being sent. Although primarily intended as a
-
+     * This flag is used to indicate if a particular request might\n result in
+     * progress indications being sent. Although primarily intended as a\n
      * documentation aspect, this flag is used within the TL1 subsystem to allow
-     * for
- the creation of a response handler for node requests that send
+     * for\n the creation of a response handler for node requests that send
      * progress text.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)

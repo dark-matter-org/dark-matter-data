@@ -1,6 +1,7 @@
 package org.dmd.dmv.shared.extended.rulesdmo;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmv.shared.generated.dmo.AttributeTypeRuleDataDMO;
 import org.dmd.dmv.shared.generated.rulesdmo.AttributeTypeRuleBaseImpl;
@@ -12,7 +13,8 @@ public class AttributeTypeRule extends AttributeTypeRuleBaseImpl {
 	}
 
 	@Override
-	public void validate(DmcAttribute<?> attribute) throws DmcRuleExceptionSet {
+	public void execute(DmcObject obj, DmcAttribute<?> attribute)
+			throws DmcRuleExceptionSet {
 		// TODO Auto-generated method stub
 		
 	}

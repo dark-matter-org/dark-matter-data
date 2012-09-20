@@ -111,10 +111,14 @@ primitiveType   org.dmd.dms.types.EnumValue
 description  The EnumValue type is used to store the definition of one enumerated value
  that comprises part of an overall EnumDefinition.
  <p/>
- The value of an EnumValue is comprised of at least three tokens and possibly a label: <br/>
- [enum integer value] [enum value name] [enum description] &lt: label&gt <br/>
- For example: 0 ABSTRACT Here is the definition of abstract. : Abstract
- <p/>
+ The value of an EnumValue is comprised of at least three tokens and possibly a label:
+ <pre>
+ [enum integer value] [enum value name] [enum description] <: label>
+ </pre>
+ For example:
+ <pre>
+ 0 ABSTRACT Here is the definition of abstract. : Abstract
+ </pre>
  Within an EnumDefinition, each EnumValue must have a unique integer identifier
  and a unique value name.
  <p/>

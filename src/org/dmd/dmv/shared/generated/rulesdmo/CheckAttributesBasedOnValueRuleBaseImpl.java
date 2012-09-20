@@ -11,7 +11,7 @@ import org.dmd.dmc.rules.ClassRuleKey;                                          
 import org.dmd.dmc.rules.RuleIF;                                                        // All rules implement this - (RuleFormatter.java:391)
 import org.dmd.dmc.rules.RuleKey;                                                       // To allow rule sorting - (RuleFormatter.java:397)
 import org.dmd.dms.generated.enums.RuleTypeEnum;                                        // Rule type - (RuleFormatter.java:390)
-import org.dmd.dms.shared.interfaces.ObjectValidationIF;                                // The interface for the ObjectValidation category - (RuleFormatter.java:412)
+import org.dmd.dms.generated.rulesdmo.ObjectValidationIF;                               // The interface for the ObjectValidation category - (RuleFormatter.java:412)
 import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO;         // Rule parameters object - (RuleFormatter.java:406)
 
 

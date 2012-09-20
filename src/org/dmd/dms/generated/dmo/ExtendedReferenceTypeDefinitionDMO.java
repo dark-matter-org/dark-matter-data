@@ -25,13 +25,10 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
 
 
 /**
- * The ExtendedReferenceTypeDefinition provides a mechanism for extending 
-
+ * The ExtendedReferenceTypeDefinition provides a mechanism for extending \n
  * the automatically generated named object reference attribute types with
- * additional
- information. This can be seen as adding additional information
- * to the relationship
- between two objects.
+ * additional\n information. This can be seen as adding additional
+ * information to the relationship\n between two objects.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1845)
  */
@@ -100,8 +97,7 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
     }
 
     /**
-     * Indicates the class of object to which an 
-
+     * Indicates the class of object to which an \n
      * ExtendedReferenceTypeDefinition refers.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -157,10 +153,8 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -213,13 +207,10 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
     }
 
     /**
-     * The description attribute is used to provide descriptive
- documentation
-     * for schema related definitions. The text provided should conform
- to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-
-     * documentation.
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getDescription(){
@@ -245,9 +236,8 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
     }
 
     /**
-     * The extendedClass indicates the fully qualified name of the class
- that is
-     * derived from the generated ComplexType to provide additional behaviour.
+     * The extendedClass indicates the fully qualified name of the class\n that
+     * is derived from the generated ComplexType to provide additional behaviour.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getExtendedClass(){
@@ -273,11 +263,9 @@ public class ExtendedReferenceTypeDefinitionDMO extends org.dmd.dms.generated.dm
     }
 
     /**
-     * The fieldSeparator is used to indicate the separation character used
- when
-     * a ComplexType is represented as a String. If a fieldSeparator isn't
-     * specified, it is
- assumed to be a space.
+     * The fieldSeparator is used to indicate the separation character used\n
+     * when a ComplexType is represented as a String. If a fieldSeparator isn't
+     * specified, it is\n assumed to be a space.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getFieldSeparator(){

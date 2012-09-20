@@ -3,6 +3,7 @@ package org.dmd.dms;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.dmo.RuleCategoryDMO;
 import org.dmd.dms.generated.dmw.RuleCategoryDMW;
+import org.dmd.dms.generated.enums.OperationalContextEnum;
 
 public class RuleCategory extends RuleCategoryDMW {
 
@@ -18,4 +19,14 @@ public class RuleCategory extends RuleCategoryDMW {
 		super(mn);
 	}
 	
+	public String getRuleInterface(){
+		String rc = null;
+		if (getOpContext() == OperationalContextEnum.DMO){
+		    rc = getDefinedIn().getSchemaPackage() + ".generated.rulesdmo." + getName() + "IF";
+		}
+		else{
+		    rc = getDefinedIn().getDmwPackage() + ".generated.rulesdmw." + getName() + "IF";
+		}
+		return(rc);
+	}
 }

@@ -26,24 +26,15 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
 
 /**
  * The TypeDefinition is used to define the types of attributes that can be
- * used
- as the basis for attribute values. The name of the type definition
- * should be the same as the
- actual Java class that is used to store the
- * value of an attribute e.g. the name of the type
- used to store strings is
- * String. The typeClassName is the fully qualified name of the class
-
+ * used\n as the basis for attribute values. The name of the type definition
+ * should be the same as the\n actual Java class that is used to store the
+ * value of an attribute e.g. the name of the type\n used to store strings is
+ * String. The typeClassName is the fully qualified name of the class\n
  * derived from DmcAttribute that stores this type of value; they are always,
- * by conventional,
- named DmcTypeXXX.
- <P>
- TypeDefinitions are
- * automatically generated internally for ClassDefinitions and
-
+ * by conventional,\n named DmcTypeXXX.\n <P>\n TypeDefinitions are
+ * automatically generated internally for ClassDefinitions and\n
  * EnumDefinitions so that these objects can be referred to via the type
- * attribute of AttributeDefinitions.
- These definitions are marked as
+ * attribute of AttributeDefinitions.\n These definitions are marked as
  * internallyGenerated.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1845)
@@ -152,10 +143,8 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -183,10 +172,8 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     /**
      * This is the fully qualified name of the class derived from DmcAttribute
-     * that provides management
- of a particular type of attribute value. For
-     * instance, the type class that handles String attributes 
- is
+     * that provides management\n of a particular type of attribute value. For
+     * instance, the type class that handles String attributes \n is
      * org.dmd.dmc.types.DmcTypeString
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -213,15 +200,11 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * The altType indicates an alternate type for a value. For instance
- when
+     * The altType indicates an alternate type for a value. For instance\n when
      * dealing with NameContainers, the value interface is obviously
-     * NameContainer, but
- the secret sauce of NameContainers is that they also
-     * take any DmcObjectName derivative.
- Specifying the altType on the
-     * NameContainer TypeDefinition allows for generation of 
- the DmcObjectName
+     * NameContainer, but\n the secret sauce of NameContainers is that they also
+     * take any DmcObjectName derivative.\n Specifying the altType on the
+     * NameContainer TypeDefinition allows for generation of \n the DmcObjectName
      * interface as well.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -300,13 +283,10 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * The description attribute is used to provide descriptive
- documentation
-     * for schema related definitions. The text provided should conform
- to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-
-     * documentation.
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getDescription(){
@@ -332,8 +312,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * This attribute indicates just the DmcContainerIterator name for a
- class
+     * This attribute indicates just the DmcContainerIterator name for a\n class
      * of object.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -360,11 +339,9 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * This attribute indicates the full name of the DmcContainerIterator 
-
+     * This attribute indicates the full name of the DmcContainerIterator \n
      * derived class that allows us to iterate over a set of object references
-     * and get back
- the DMW wrapper object instead of the DMO.
+     * and get back\n the DMW wrapper object instead of the DMO.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getDmwIteratorImport(){
@@ -443,11 +420,9 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * The filterAttributeDef is a reference to the attribute that is locked
- to
+     * The filterAttributeDef is a reference to the attribute that is locked\n to
      * a TypeDefinition that is flagged as filterType. This mechanism is used to
-     * create the
- correct type of DmcType[FILTERTYPE]SV derivative for a value
+     * create the\n correct type of DmcType[FILTERTYPE]SV derivative for a value
      * of type DmcFilter.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -474,8 +449,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * This attribute indicates the generic arguments to be supplied in the
- use
+     * This attribute indicates the generic arguments to be supplied in the\n use
      * of a class in an autogenerated Iterable.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -502,13 +476,10 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * This attribute indicates the full name of the generated helper class for 
-
-     * object references i.e. if you had a ClassDefinition X, the framework
-     * generates a 
- types/XREF class which is subsequently used by the
-     * DmcTypeXREF class to store references
- to objects of the defined class.
+     * This attribute indicates the full name of the generated helper class for
+     * \n object references i.e. if you had a ClassDefinition X, the framework
+     * generates a \n types/XREF class which is subsequently used by the
+     * DmcTypeXREF class to store references\n to objects of the defined class.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getHelperClassName(){
@@ -535,10 +506,8 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     /**
      * This flag indicates if the associated definition was internally
-     * generated.
- This is the case for TypeDefinitions generated for
-     * ClassDefinitions and EnumDefinitions
- that allow for references to these
+     * generated.\n This is the case for TypeDefinitions generated for
+     * ClassDefinitions and EnumDefinitions\n that allow for references to these
      * objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -591,8 +560,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * This flag is used to indicate taht an internally generated type
- is an
+     * This flag is used to indicate taht an internally generated type\n is an
      * extended reference type.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -671,8 +639,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * This attribute indicates if a defined type is used for naming purposes.
-
+     * This attribute indicates if a defined type is used for naming purposes.\n
      * This allows us to automatically add attributes of this type to the
      * AttributeFactories.
      */
@@ -700,8 +667,8 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * This flag is set to true for type definitions that refer to other
- objects.
+     * This flag is set to true for type definitions that refer to other\n
+     * objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public Boolean getIsRefType(){
@@ -727,9 +694,8 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * This attribute indicates the class of the key used for types that support
-
-     * storage in a MAP.
+     * This attribute indicates the class of the key used for types that
+     * support\n storage in a MAP.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getKeyClass(){
@@ -755,8 +721,7 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * Indicates the import for a keyClass. this is required if the keyClass
- is
+     * Indicates the import for a keyClass. this is required if the keyClass\n is
      * NOT a primitive java type e.g. Integer, String etc.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -809,11 +774,9 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
     }
 
     /**
-     * The nameAttributeDef is a reference to the attribute that is locked
- to a
+     * The nameAttributeDef is a reference to the attribute that is locked\n to a
      * TypeDefinition. This mechanism is used to create the correct type of
-     * DmcType[NAMETYPE]*
- derivative for a value of type DmcObjectName.
+     * DmcType[NAMETYPE]*\n derivative for a value of type DmcObjectName.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public AttributeDefinitionREF getNameAttributeDef(){
@@ -840,13 +803,10 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     /**
      * This attribute is used in TypeDefinitions to indicate the value that
-     * should be returned when
- an attribute of the specified type doesn't exist
-     * in the object. For example, Boolean values are defined
- to return false
+     * should be returned when\n an attribute of the specified type doesn't exist
+     * in the object. For example, Boolean values are defined\n to return false
      * when they aren't actually set on an object. This just gives a convenient
-     * mechanism to
- provide a default value for non-existent attribute values.
+     * mechanism to\n provide a default value for non-existent attribute values.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getNullReturnValue(){
@@ -925,13 +885,10 @@ public class TypeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDM
 
     /**
      * This is the fully qualified name of the wrapper class derived from
-     * DmcWrapperBase that
- wraps a DMO. This is used when generating object
-     * reference classes associated with ClassDefinitions
- This actually aligns
+     * DmcWrapperBase that\n wraps a DMO. This is used when generating object
+     * reference classes associated with ClassDefinitions\n This actually aligns
      * to the javaClass of the ClassDefinition for which we're generating the
-     * reference
- classes.
+     * reference\n classes.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getWrapperClassName(){

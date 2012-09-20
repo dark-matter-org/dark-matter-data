@@ -27,38 +27,21 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
 
 /**
  * The RuleCategory allows for the definition of categories of rules to be
- * applied
- to various objects and indicates the expected interface to be
- * implemented by a rule instance.
- A RuleDefinition may belong to multiple
- * categories. 
- <p/>
- RuleCategories fall into two broad types, ATTRIBUTE
- * and CLASS level, as specified via the ruleType
- attribute. When a
+ * applied\n to various objects and indicates the expected interface to be
+ * implemented by a rule instance.\n A RuleDefinition may belong to multiple
+ * categories. \n <p/>\n RuleCategories fall into two broad types, ATTRIBUTE
+ * and CLASS level, as specified via the ruleType\n attribute. When a
  * RuleDefinition belongs to an ATTRIBUTE level category, its instances will
- * have
- a mandatory applyToAttribute attribute. Both ATTRIBUTE and CLASS
- * level RuleDefinitions have an optional
- applyToClass attribute by
- * default.
- <p/>
- Specifying a RuleCategory will cause the generation of
- * several artifacts including:
- <ul>
- <li> a category interface: this
- * interface will be created based on the ruleParam values and will be
-
- * implemented by RuleDefinitions that are part of the category
- </li> a rule
- * collection: this is a category specific collection of rules that organize
- * the rule instances
- in this category.
- </ul>
- Exactly how a RuleCategory
- * applies rule instances is category specific and this behaviour should be
-
- * part of the description of a rule category.
+ * have\n a mandatory applyToAttribute attribute. Both ATTRIBUTE and CLASS
+ * level RuleDefinitions have an optional\n applyToClass attribute by
+ * default.\n <p/>\n Specifying a RuleCategory will cause the generation of
+ * several artifacts including:\n <ul>\n <li> a category interface: this
+ * interface will be created based on the ruleParam values and will be\n
+ * implemented by RuleDefinitions that are part of the category\n </li> a
+ * rule collection: this is a category specific collection of rules that
+ * organize the rule instances\n in this category.\n </ul>\n Exactly how a
+ * RuleCategory applies rule instances is category specific and this
+ * behaviour should be\n part of the description of a rule category.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1845)
  */
@@ -133,13 +116,10 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
     }
 
     /**
-     * The description attribute is used to provide descriptive
- documentation
-     * for schema related definitions. The text provided should conform
- to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-
-     * documentation.
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getDescription(){
@@ -166,10 +146,8 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -197,8 +175,7 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
 
     /**
      * Indicates the operational context for some component e.g. object or
-     * attribute
- validators.
+     * attribute\n validators.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public OperationalContextEnum getOpContext(){

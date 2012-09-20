@@ -11,8 +11,8 @@ import org.dmd.dmc.rules.AttributeRuleKey;                               // To a
 import org.dmd.dmc.rules.RuleIF;                                         // All rules implement this - (RuleFormatter.java:391)
 import org.dmd.dmc.rules.RuleKey;                                        // To allow rule sorting - (RuleFormatter.java:397)
 import org.dmd.dms.generated.enums.RuleTypeEnum;                         // Rule type - (RuleFormatter.java:390)
-import org.dmd.dms.shared.interfaces.AttributeValidationIF;              // The interface for the AttributeValidation category - (RuleFormatter.java:412)
-import org.dmd.dms.shared.interfaces.ModifierValidationIF;               // The interface for the ModifierValidation category - (RuleFormatter.java:412)
+import org.dmd.dms.generated.rulesdmo.AttributeValidationIF;             // The interface for the AttributeValidation category - (RuleFormatter.java:412)
+import org.dmd.dms.generated.rulesdmo.ModifierValidationIF;              // The interface for the ModifierValidation category - (RuleFormatter.java:412)
 import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;         // Rule parameters object - (RuleFormatter.java:406)
 
 

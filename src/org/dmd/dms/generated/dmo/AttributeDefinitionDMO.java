@@ -26,8 +26,7 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
 
 
 /**
- * This class is used to define attributes to be used
- as part of a class
+ * This class is used to define attributes to be used\n as part of a class
  * definition.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1845)
@@ -120,10 +119,8 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name
- for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All
+     * a unique name\n for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -150,8 +147,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * Indicates the type of an attribute. The value is the name of any
-
+     * Indicates the type of an attribute. The value is the name of any\n
      * previously defined TypeDefinition, ClassDefinition, EnumDefinition or
      * ComplexTypeDefinition.
      */
@@ -180,10 +176,8 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * This attribute stores an abbreviated form of the name of an attribute or
-     * class. This
- concept is borrowed from directory technology where shortened
-     * name forms are often
- used as part of distinguished names (DNs).
+     * class. This\n concept is borrowed from directory technology where
+     * shortened name forms are often\n used as part of distinguished names (DNs).
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getAbbrev(){
@@ -210,8 +204,8 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * This attribute indicates the persistence characteristics of an attribute
-     * or
- class of object. How this information is used is application dependent.
+     * or\n class of object. How this information is used is application
+     * dependent.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public DataTypeEnum getDataType(){
@@ -263,13 +257,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * The description attribute is used to provide descriptive
- documentation
-     * for schema related definitions. The text provided should conform
- to XHTML
-     * concepts since it will be dumped in the context of the generated HTML
-
-     * documentation.
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getDescription(){
@@ -295,13 +286,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * The designatedFilterAttribute flag is used to identify the attribute
-
-     * designated as the standard wrapper for filters of a particular type. 
-
+     * The designatedFilterAttribute flag is used to identify the attribute\n
+     * designated as the standard wrapper for filters of a particular type. \n
      * One, and only one, attribute definition can be the
-     * designatedFilterAttribute for a 
- TypeDefinition that is identified as
+     * designatedFilterAttribute for a \n TypeDefinition that is identified as
      * isFilterType.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -328,13 +316,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * The designatedNameAttribute flag is used to identify the attribute
-
+     * The designatedNameAttribute flag is used to identify the attribute\n
      * designated as the standard wrapper for names of a particular type. One,
-     * and only one,
- attribute definition can be the designatedNameAttribute for
-     * a TypeDefinition that has
- isNameType true.
+     * and only one,\n attribute definition can be the designatedNameAttribute
+     * for a TypeDefinition that has\n isNameType true.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public Boolean getDesignatedNameAttribute(){
@@ -361,8 +346,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * The dmdID attribute is used to store a unique Dark Matter Definition ID
-     * for attributes.
- This is used as part of the serialization mechanisms
+     * for attributes.\n This is used as part of the serialization mechanisms
      * built into Dark Matter Objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -415,8 +399,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * This attribute indicates the generic arguments to be supplied in the
- use
+     * This attribute indicates the generic arguments to be supplied in the\n use
      * of a class in an autogenerated Iterable.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -444,8 +427,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * Indicates the import required to support a genericArgs specification i.e.
-     * if you're
- not specifying something like <?>, an additional import may be
+     * if you're\n not specifying something like <?>, an additional import may be
      * required.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -472,18 +454,13 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * The indexSize is used in conjunction with the MULTI valueType to
- indicate
-     * that the attribute may have the specified number of values and is integer
-     * indexed.
- Indexed attributes may be thought of as having a predetermined
-     * number of slots into which
- values may be stored. When indexed, an
-     * attribute has values added to it using the setMVnth()
- interface, not the
-     * usual add() interface. If you attempt to use add() with an indexed
-     * attribute,
- an exception will be thrown.
+     * The indexSize is used in conjunction with the MULTI valueType to\n
+     * indicate that the attribute may have the specified number of values and is
+     * integer indexed.\n Indexed attributes may be thought of as having a
+     * predetermined number of slots into which\n values may be stored. When
+     * indexed, an attribute has values added to it using the setMVnth()\n
+     * interface, not the usual add() interface. If you attempt to use add() with
+     * an indexed attribute,\n an exception will be thrown.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public Integer getIndexSize(){
@@ -509,12 +486,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * Indicates if an attribute is used and set within the Dark Matter Data
-
+     * Indicates if an attribute is used and set within the Dark Matter Data\n
      * code generation mechanisms. In the documentation generation code,
-     * attributes marked as
- internalUse WILL NOT be displayed unless you set the
-     * -internalUse flag is indicated.
+     * attributes marked as\n internalUse WILL NOT be displayed unless you set
+     * the -internalUse flag is indicated.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public Boolean getInternalUse(){
@@ -567,13 +542,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * This attribute is used in TypeDefinitions to indicate the value that
-     * should be returned when
- an attribute of the specified type doesn't exist
-     * in the object. For example, Boolean values are defined
- to return false
+     * should be returned when\n an attribute of the specified type doesn't exist
+     * in the object. For example, Boolean values are defined\n to return false
      * when they aren't actually set on an object. This just gives a convenient
-     * mechanism to
- provide a default value for non-existent attribute values.
+     * mechanism to\n provide a default value for non-existent attribute values.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getNullReturnValue(){
@@ -599,13 +571,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * This indicates the version at which something became obsolete.
- Generally
-     * speaking you shouldn't ever delete definitions for products that have
-
+     * This indicates the version at which something became obsolete.\n Generally
+     * speaking you shouldn't ever delete definitions for products that have\n
      * been released to the field, this may break backwards compatibility.
-     * Instead, you
- should mark them as obsolete.
+     * Instead, you\n should mark them as obsolete.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public String getObsoleteVersion(){
@@ -631,15 +600,11 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * Indicates that newline characters should be preserved when an
- attribute
+     * Indicates that newline characters should be preserved when an\n attribute
      * is parsed by the DmcUncheckedOIFParser. This is useful for certain
-     * attributes
- when newlines are required to properly format the contents of
-     * the attribute at
- a later time. For example, the description attribute is
-     * later dumped as part of 
- HTML documentation and, if the newlines are
+     * attributes\n when newlines are required to properly format the contents of
+     * the attribute at\n a later time. For example, the description attribute is
+     * later dumped as part of \n HTML documentation and, if the newlines are
      * stripped, it won't be properly formatted.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -666,10 +631,9 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * This attribute indicates whether or not the attribute should
- be encrypted
-     * before being transported over the wire or stored in a file or
- repository
+     * This attribute indicates whether or not the attribute should\n be
+     * encrypted before being transported over the wire or stored in a file or\n
+     * repository
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
     public Boolean getSecure(){
@@ -695,8 +659,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * This attribute indicates the cardinality and storage mechanism for an
-
+     * This attribute indicates the cardinality and storage mechanism for an\n
      * attribute.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
