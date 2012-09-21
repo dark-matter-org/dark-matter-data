@@ -3,8 +3,6 @@ package org.dmd.dms.generated.rulesdmo;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:300)
 import java.util.ArrayList;                               // Storage for the rules - (RuleFormatter.java:276)
-import java.util.HashMap;                                 // Storage for the rules - (RuleFormatter.java:290)
-import java.util.TreeMap;                                 // Storage for the rules - (RuleFormatter.java:277)
 import org.dmd.dmc.DmcAttribute;                          // Required for attribute - (RuleFormatter.java:221)
 import org.dmd.dmc.DmcAttributeInfo;                      // Organizing global attribute rules - (RuleFormatter.java:289)
 import org.dmd.dmc.DmcClassInfo;                          // Handle to class info - (RuleFormatter.java:280)
@@ -13,14 +11,10 @@ import org.dmd.dmc.DmcOmni;                               // Rule tracing suppor
 import org.dmd.dmc.rules.AttributeRuleCollection;         // Attribute rule - (RuleFormatter.java:288)
 import org.dmd.dmc.rules.DmcRuleExceptionSet;             // Rule type - (RuleFormatter.java:209)
 import org.dmd.dmc.rules.RuleIF;                          // All rules implement this - (RuleFormatter.java:210)
-import org.dmd.dmc.rules.RuleKey;                         // Generic rule key - (RuleFormatter.java:278)
-import org.dmd.dmc.rules.RuleList;                        // Rules with flag to indicate that we've gathered info up the class hierarchy - (RuleFormatter.java:272)
 
 public class AttributeValidationRuleCollection extends AttributeRuleCollection<AttributeValidationIF> {
 
     public AttributeValidationRuleCollection(){
-        globalRules = new HashMap<DmcAttributeInfo, ArrayList<AttributeValidationIF>>();
-        rules = new TreeMap<RuleKey,RuleList<AttributeValidationIF>>();
     }
 
     // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:309)
@@ -28,22 +22,7 @@ public class AttributeValidationRuleCollection extends AttributeRuleCollection<A
     public void addRule(RuleIF r){
 
         if (r instanceof AttributeValidationIF){
-            AttributeValidationIF rule = (AttributeValidationIF)r;
-
-            if (rule.getApplyToClass() == null){
-                ArrayList<AttributeValidationIF> grl = globalRules.get(rule.getApplyToAttribute());
-                if (grl == null){
-                    grl = new ArrayList<AttributeValidationIF>();
-                    globalRules.put(rule.getApplyToAttribute(), grl);
-                }
-                grl.add(rule);
-            }
-            else{
-                RuleList<AttributeValidationIF> attrRules = rules.get(rule.getKey());
-                if (attrRules == null)
-                    attrRules = new RuleList<AttributeValidationIF>();
-                attrRules.addRule(rule);
-            }
+            super.addThisRule((AttributeValidationIF)r);
         }
     }
 
