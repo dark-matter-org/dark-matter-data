@@ -9,8 +9,8 @@ import java.util.ArrayList;
  */
 public class RuleList<E> {
 	
-	ArrayList<E>	rules;
-	boolean			initialized;
+	private ArrayList<E>	rules;
+	private boolean			initialized;
 	
 	public RuleList(){
 		initialized = false;
