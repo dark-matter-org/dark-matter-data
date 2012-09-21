@@ -5,7 +5,6 @@ package org.dmd.dms.generated.rulesdmo;
 import java.util.ArrayList;                               // Storage for the rules - (RuleFormatter.java:276)
 import java.util.HashMap;                                 // Storage for the rules - (RuleFormatter.java:290)
 import java.util.TreeMap;                                 // Storage for the rules - (RuleFormatter.java:277)
-import org.dmd.dmc.DmcAttribute;                          // Required for attribute - (RuleFormatter.java:221)
 import org.dmd.dmc.DmcAttributeInfo;                      // Organizing global attribute rules - (RuleFormatter.java:289)
 import org.dmd.dmc.DmcClassInfo;                          // Handle to class info - (RuleFormatter.java:280)
 import org.dmd.dmc.DmcObject;                             // Required for obj - (RuleFormatter.java:221)
@@ -15,61 +14,62 @@ import org.dmd.dmc.rules.DmcRuleExceptionSet;             // Rule type - (RuleFo
 import org.dmd.dmc.rules.RuleIF;                          // All rules implement this - (RuleFormatter.java:210)
 import org.dmd.dmc.rules.RuleKey;                         // Generic rule key - (RuleFormatter.java:278)
 import org.dmd.dmc.rules.RuleList;                        // Rules with flag to indicate that we've gathered info up the class hierarchy - (RuleFormatter.java:272)
+import org.dmd.dmc.types.Modifier;                        // Required for mod - (RuleFormatter.java:221)
 
-public class AttributeValidationRuleCollection extends AttributeRuleCollection<AttributeValidationIF> {
+public class AttributeModifierValidationRuleCollection extends AttributeRuleCollection<AttributeModifierValidationIF> {
 
-    public AttributeValidationRuleCollection(){
-        globalRules = new HashMap<DmcAttributeInfo, ArrayList<AttributeValidationIF>>();
-        rules = new TreeMap<RuleKey,RuleList<AttributeValidationIF>>();
+    public AttributeModifierValidationRuleCollection(){
+        globalRules = new HashMap<DmcAttributeInfo, ArrayList<AttributeModifierValidationIF>>();
+        rules = new TreeMap<RuleKey,RuleList<AttributeModifierValidationIF>>();
     }
 
     // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:309)
     @Override
     public void addRule(RuleIF r){
 
-        if (r instanceof AttributeValidationIF){
-            AttributeValidationIF rule = (AttributeValidationIF)r;
+        if (r instanceof AttributeModifierValidationIF){
+            AttributeModifierValidationIF rule = (AttributeModifierValidationIF)r;
 
             if (rule.getApplyToClass() == null){
-                ArrayList<AttributeValidationIF> grl = globalRules.get(rule.getApplyToAttribute());
+                ArrayList<AttributeModifierValidationIF> grl = globalRules.get(rule.getApplyToAttribute());
                 if (grl == null){
-                    grl = new ArrayList<AttributeValidationIF>();
+                    grl = new ArrayList<AttributeModifierValidationIF>();
                     globalRules.put(rule.getApplyToAttribute(), grl);
                 }
                 grl.add(rule);
             }
             else{
-                RuleList<AttributeValidationIF> attrRules = rules.get(rule.getKey());
+                RuleList<AttributeModifierValidationIF> attrRules = rules.get(rule.getKey());
                 if (attrRules == null)
-                    attrRules = new RuleList<AttributeValidationIF>();
+                    attrRules = new RuleList<AttributeModifierValidationIF>();
                 attrRules.addRule(rule);
             }
         }
     }
 
     /**
-     * @param obj The object in which the attribute exists
-     * @param attribute The attribute to be validated
+     * @param obj The object being modified
+     * @param mod The particular modification being validated
      */
-    public void execute(DmcObject obj, DmcAttribute<?> attribute) throws DmcRuleExceptionSet {
-        DmcAttributeInfo aI = attribute.getAttributeInfo();
+    public void execute(DmcObject obj, Modifier mod) throws DmcRuleExceptionSet {
+        DmcAttributeInfo aI = DmcOmni.instance().getAttributeInfo(mod.getAttributeName());
         DmcClassInfo     cI = obj.getConstructionClassInfo();
-        ArrayList<AttributeValidationIF> ruleList = super.getRules(aI,cI);
+        ArrayList<AttributeModifierValidationIF> ruleList = super.getRules(aI,cI);
 
         if (ruleList != null){
-            for(AttributeValidationIF rule: ruleList){
+            for(AttributeModifierValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
                     DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name + "." + aI.name);
-                rule.execute(obj, attribute);
+                rule.execute(obj, mod);
             }
         }
 
         ruleList = globalRules.get(aI);
         if (ruleList != null){
-            for(AttributeValidationIF rule: ruleList){
+            for(AttributeModifierValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
                     DmcOmni.instance().ruleExecuted("Applying global " + rule.getRuleTitle() + " to: " + cI.name + "." + aI.name);
-                rule.execute(obj, attribute);
+                rule.execute(obj, mod);
             }
         }
     }

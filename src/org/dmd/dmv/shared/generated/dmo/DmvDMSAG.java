@@ -174,7 +174,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvAllowedAttributesData    .setDefinedIn("dmv");
             _dmvAllowedAttributesData    .setDescription("Ensures that must/may attribute rules are followed.");
             _dmvAllowedAttributesData    .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _dmvAllowedAttributesData    .setLineNumber("24");
+            _dmvAllowedAttributesData    .setLineNumber("22");
             _dmvAllowedAttributesData    .setRuleName("dmvAllowedAttributes");
             _dmvAllowedAttributesData    .setRuleTitle("Validate allowed attributes on objects.");
 
@@ -190,7 +190,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvLhsData                  .setApplyToClass("RelatedNumbersRule");
             _dmvLhsData                  .setDefinedIn("dmv");
             _dmvLhsData                  .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _dmvLhsData                  .setLineNumber("133");
+            _dmvLhsData                  .setLineNumber("122");
             _dmvLhsData                  .setRuleName("dmvLhs");
             _dmvLhsData                  .setRuleTitle("The lhs attribute can be Integer, Float or Double");
 
@@ -206,7 +206,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvRhsData                  .setApplyToClass("RelatedNumbersRule");
             _dmvRhsData                  .setDefinedIn("dmv");
             _dmvRhsData                  .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _dmvRhsData                  .setLineNumber("142");
+            _dmvRhsData                  .setLineNumber("131");
             _dmvRhsData                  .setRuleName("dmvRhs");
             _dmvRhsData                  .setRuleTitle("The rhs attribute can be Integer, Float or Double");
 

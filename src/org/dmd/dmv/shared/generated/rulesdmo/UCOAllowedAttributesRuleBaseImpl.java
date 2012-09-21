@@ -32,7 +32,7 @@ abstract public class UCOAllowedAttributesRuleBaseImpl implements RuleIF,UCOVali
         ruleDMO = null;
         if (categories == null){
             categories = new ArrayList<Integer>();
-            categories.add(5);
+            categories.add(6);
         }
     }
 
@@ -40,7 +40,7 @@ abstract public class UCOAllowedAttributesRuleBaseImpl implements RuleIF,UCOVali
         ruleDMO = dmo;
         if (categories == null){
             categories = new ArrayList<Integer>();
-            categories.add(5);
+            categories.add(6);
         }
     }
 

@@ -42,7 +42,11 @@ import org.dmd.dms.*;
  * rule collection: this is a category specific collection of rules that
  * organize the rule instances\n in this category.\n </ul>\n Exactly how a
  * RuleCategory applies rule instances is category specific and this
- * behaviour should be\n part of the description of a rule category.
+ * behaviour should be\n part of the description of a rule category.\n <p/>\n
+ * For CLASS level rules, you must specify the classInfoFromParam attribute
+ * to indicate how to \n get the DmcClassInfo from whatever object you are
+ * passing to the rule. For ATTRIBUTE level rules,\n you must specify both
+ * attributeInfoFromParam and classInfoFromParam.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1561)
  */
@@ -158,26 +162,6 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The description attribute is used to provide descriptive\n documentation
-     * for schema related definitions. The text provided should conform\n to
-     * XHTML concepts since it will be dumped in the context of the generated
-     * HTML\n documentation.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
-    public String getDescription(){
-        return(mycore.getDescription());
-    }
-
-    /**
-     * Sets description to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
-    public void setDescription(Object value) throws DmcValueException {
-        mycore.setDescription(value);
-    }
-
-    /**
      * A parameter to be supplied to a rule when it is executed.
      * @return An Iterator of RuleParam objects.
      */
@@ -208,6 +192,100 @@ public class RuleCategoryDMW extends org.dmd.dms.DmsDefinition {
         if (attr == null)
             return(0);
         return(attr.getMVSize());
+    }
+
+    /**
+     * Indicates how the DmcClassInfo should be extracted from one of the
+     * ruleParam values\n associated with a RuleCategory. If additional classes
+     * are required to support this access, you can specify ruleImport\n values
+     * as appropriate.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    public String getClassInfoFromParam(){
+        return(mycore.getClassInfoFromParam());
+    }
+
+    /**
+     * Sets classInfoFromParam to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
+    public void setClassInfoFromParam(Object value) throws DmcValueException {
+        mycore.setClassInfoFromParam(value);
+    }
+
+    /**
+     * The description attribute is used to provide descriptive\n documentation
+     * for schema related definitions. The text provided should conform\n to
+     * XHTML concepts since it will be dumped in the context of the generated
+     * HTML\n documentation.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    public String getDescription(){
+        return(mycore.getDescription());
+    }
+
+    /**
+     * Sets description to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
+    public void setDescription(Object value) throws DmcValueException {
+        mycore.setDescription(value);
+    }
+
+    /**
+     * An import required for generation of the rule collection associated with\n
+     * a RuleCategory.
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2424)
+    public Iterator<String> getRuleImport(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__ruleImport);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another ruleImport value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2479)
+    public DmcAttribute<?> addRuleImport(Object value) throws DmcValueException {
+        return(mycore.addRuleImport(value));
+    }
+
+    /**
+     * Returns the number of ruleImport values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2491)
+    public int getRuleImportSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__ruleImport);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Indicates how the DmcAttributeInfo should be extracted from one of the
+     * ruleParam values\n associated with a RuleCategory. If additional classes
+     * are required to support this access, you can specify ruleImport\n values
+     * as appropriate.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    public String getAttributeInfoFromParam(){
+        return(mycore.getAttributeInfoFromParam());
+    }
+
+    /**
+     * Sets attributeInfoFromParam to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
+    public void setAttributeInfoFromParam(Object value) throws DmcValueException {
+        mycore.setAttributeInfoFromParam(value);
     }
 
 

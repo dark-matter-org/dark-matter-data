@@ -2,10 +2,8 @@
 RuleDefinition
 name			AllowedAttributesRule
 dmdID			1
-//ruleType		CLASS
-//ruleScope		GLOBAL
 ruleCategory	ObjectValidation
-ruleCategory	ModifierValidation
+ruleCategory	ObjectModifierValidation
 description		The AllowedAttributesRule will determine whether or not the 
  attributes of a DMO conform to the must/may specification of its class definition.
  For classes of type EXTENSIBLE only the must have attributes are checked.
@@ -25,8 +23,6 @@ description	Ensures that must/may attribute rules are followed.
 RuleDefinition
 name			InitRule
 dmdID			2
-//ruleType		CLASS
-//ruleScope		PERCLASS
 ruleCategory	Initialization
 isExtensible	true
 description		The InitRule allows you to specify attribute values for a 
@@ -53,10 +49,8 @@ description		The InitRule allows you to specify attribute values for a
 RuleDefinition
 name			IntegerRangeRule
 dmdID			3
-//ruleType		ATTRIBUTE
-//ruleScope		PERCLASS
 ruleCategory	AttributeValidation
-ruleCategory	ModifierValidation
+ruleCategory	AttributeModifierValidation
 must			irrMinimum
 must			irrMaximum
 description		The IntegerRangeRule ensures that an Integer attribute has a value that falls
@@ -78,8 +72,6 @@ description		The IntegerRangeRule ensures that an Integer attribute has a value 
 RuleDefinition
 name			UCOAllowedAttributesRule
 dmdID			4
-//ruleType		CLASS
-//ruleScope		GLOBAL
 ruleCategory	UCOValidation
 description		The UCOAllowedAttributesRule will determine whether or not the 
  attributes of a DmcUncheckedObject conform to the must/may specification of its
@@ -90,8 +82,6 @@ description		The UCOAllowedAttributesRule will determine whether or not the
 RuleDefinition
 name			AttributeTypeRule
 dmdID			5
-//ruleType		ATTRIBUTE
-//ruleScope		PERCLASS
 ruleCategory	AttributeValidation
 must			allowedType
 description		The AttributeTypeRule allowes you to restrict the type of
@@ -102,9 +92,8 @@ description		The AttributeTypeRule allowes you to restrict the type of
 RuleDefinition
 name			RelatedNumbersRule
 dmdID			6
-//ruleType		CLASS
-//ruleScope		PERCLASS
 ruleCategory	ObjectValidation
+ruleCategory	ObjectModifierValidation
 must			lhs
 must			rhs
 must			numericRelation
@@ -145,9 +134,8 @@ allowedType 		Double
 RuleDefinition
 name				CheckAttributesBasedOnValueRule
 dmdID				7
-//ruleType			CLASS
-//ruleScope			PERCLASS
 ruleCategory		ObjectValidation
+ruleCategory		ObjectModifierValidation
 must				basedOnAttribute
 must				basedOnValue
 must				excludeThisAttribute

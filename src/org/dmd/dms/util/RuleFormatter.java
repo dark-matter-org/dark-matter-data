@@ -192,9 +192,12 @@ public class RuleFormatter {
 	public void dumpRuleCategoryInterfaces(String schemaName, String schemaPackage, TreeMap<String,DmcUncheckedObject> ruleCategoryDefs, String rulesDir) throws ResultException, IOException{
 		
 		for(DmcUncheckedObject category: ruleCategoryDefs.values()){
-    		String name = GenUtility.capTheName(category.getSV("name"));
-    		String ruleType = category.getSV("ruleType");
-    		Boolean	isAttributeRule = false;
+    		String 				name 					= GenUtility.capTheName(category.getSV("name"));
+    		String 				ruleType 				= category.getSV("ruleType");
+    		String 				classInfoFromParam		= category.getSV("classInfoFromParam");
+    		String 				attributeInfoFromParam	= category.getSV("attributeInfoFromParam");
+    		NamedStringArray	ruleImports				= category.get("ruleImport");
+    		Boolean				isAttributeRule 		= false;
     		
     		if (ruleType.equals("ATTRIBUTE"))
     			isAttributeRule = true;
@@ -208,6 +211,7 @@ public class RuleFormatter {
     		
     		StringBuffer	params = new StringBuffer();
     		StringBuffer	args = new StringBuffer();
+    		StringBuffer	argValues = new StringBuffer();
     		boolean			first = true;
     		
     		for(String p : categories){
@@ -219,16 +223,16 @@ public class RuleFormatter {
 	    			String ptype = param.getImportStatement().substring(lastDot + 1);
 	    			
 	    			if (!first){
-	    				params.append(", ");
+//	    				params.append(", ");
 	    				args.append(", ");
+	    				argValues.append(", ");
 	    			}
 	    			
 	    			params.append("     * @param " + param.getName() + " " + param.getDescription() + "\n");
 	    			
-//	    			if (param.getGenericArgs() == null)
-//	    				args.append(ptype + " " + param.getName());
-//	    			else
-	    				args.append(ptype + param.getGenericArgs() + " " + param.getName());
+	    			args.append(ptype + param.getGenericArgs() + " " + param.getName());
+	    			
+	    			argValues.append(param.getName());
 	    				
 	    			first = false;
 				} catch (DmcValueException e) {
@@ -265,12 +269,20 @@ public class RuleFormatter {
 			
     		baseImports.addImport("org.dmd.dmc.rules.DmcRuleExceptionSet", "Rule type");
     		baseImports.addImport("org.dmd.dmc.rules.RuleIF", "All rules implement this");
+    		baseImports.addImport("org.dmd.dmc.rules.RuleList", "Rules with flag to indicate that we've gathered info up the class hierarchy");
 //    		baseImports.addImport("org.dmd.dms.generated.enums.RuleTypeEnum", "To determine the type of a rule");
 //    		baseImports.addImport("org.dmd.dmc.rules.ClassRuleKey", "To determine the type of a rule");
 //    		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleKey", "To determine the type of a rule");
     		baseImports.addImport("java.util.ArrayList", "Storage for the rules");
     		baseImports.addImport("java.util.TreeMap", "Storage for the rules");
     		baseImports.addImport("org.dmd.dmc.rules.RuleKey", "Generic rule key");
+    		baseImports.addImport("org.dmd.dmc.DmcOmni", "Rule tracing support");
+    		baseImports.addImport("org.dmd.dmc.DmcClassInfo", "Handle to class info");
+    		
+    		if (ruleImports != null){
+    			for(String ri: ruleImports)
+    				baseImports.addImport(ri, "Additional rule import");
+    		}
     		
     		if (isAttributeRule){
         		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleCollection", "Attribute rule");
@@ -291,9 +303,10 @@ public class RuleFormatter {
 				out.write("public class " + name + "RuleCollection extends AttributeRuleCollection<" + name + "IF> {" + "\n\n");
 				out.write("    public " + name + "RuleCollection(){\n");
 				out.write("        globalRules = new HashMap<DmcAttributeInfo, ArrayList<" + name + "IF>>();\n");
-				out.write("        rules = new TreeMap<RuleKey,ArrayList<" + name + "IF>>();\n");
+				out.write("        rules = new TreeMap<RuleKey,RuleList<" + name + "IF>>();\n");
 				out.write("    }\n\n");
 				
+				out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    @Override\n");
 				out.write("    public void addRule(RuleIF r){\n");
 				out.write("\n");
@@ -309,21 +322,50 @@ public class RuleFormatter {
 				out.write("                grl.add(rule);\n");
 				out.write("            }\n");
 				out.write("            else{\n");
-				out.write("                ArrayList<" + name + "IF> attrRules = rules.get(rule.getKey());\n");
+				out.write("                RuleList<" + name + "IF> attrRules = rules.get(rule.getKey());\n");
 				out.write("                if (attrRules == null)\n");
-				out.write("                    attrRules = new ArrayList<" + name + "IF>();\n");
-				out.write("                attrRules.add(rule);\n");
+				out.write("                    attrRules = new RuleList<" + name + "IF>();\n");
+				out.write("                attrRules.addRule(rule);\n");
 				out.write("            }\n");
 				out.write("        }\n");
 				out.write("    }\n\n");
+				
+				out.write("    /**\n");
+				out.write(params.toString());
+				out.write("     */\n");
+				out.write("    public void execute(" + args + ") throws DmcRuleExceptionSet {\n");
+				out.write("        DmcAttributeInfo aI = " + attributeInfoFromParam + ";\n");
+				out.write("        DmcClassInfo     cI = " + classInfoFromParam + ";\n");
+				out.write("        ArrayList<" + name + "IF> ruleList = super.getRules(aI,cI);\n");
+				out.write("\n");
+				out.write("        if (ruleList != null){\n");
+				out.write("            for(" + name + "IF rule: ruleList){\n");
+				out.write("                if (DmcOmni.instance().ruleTracing())\n");
+				out.write("                    DmcOmni.instance().ruleExecuted(\"Applying \" + rule.getRuleTitle() + \" to: \" + cI.name + \".\" + aI.name);\n");
+				out.write("                rule.execute(" + argValues + ");\n");
+				out.write("            }\n");
+				out.write("        }\n");
+				out.write("\n");
+				out.write("        ruleList = globalRules.get(aI);\n");
+				out.write("        if (ruleList != null){\n");
+				out.write("            for(" + name + "IF rule: ruleList){\n");
+				out.write("                if (DmcOmni.instance().ruleTracing())\n");
+				out.write("                    DmcOmni.instance().ruleExecuted(\"Applying global \" + rule.getRuleTitle() + \" to: \" + cI.name + \".\" + aI.name);\n");
+				out.write("                rule.execute(" + argValues + ");\n");
+				out.write("            }\n");
+				out.write("        }\n");
+				out.write("    }\n\n");
+				out.write("}\n\n");
+
 			}
 			else{
 				out.write("public class " + name + "RuleCollection extends ClassRuleCollection<" + name + "IF> {" + "\n\n");
 				out.write("    public " + name + "RuleCollection(){\n");
 				out.write("        globalRules = new ArrayList<" + name + "IF>();\n");
-				out.write("        rules = new TreeMap<RuleKey,ArrayList<" + name + "IF>>();\n");
+				out.write("        rules = new TreeMap<RuleKey,RuleList<" + name + "IF>>();\n");
 				out.write("    }\n\n");
 				
+				out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 				out.write("    @Override\n");
 				out.write("    public void addRule(RuleIF r){\n");
 				out.write("\n");
@@ -333,22 +375,38 @@ public class RuleFormatter {
 				out.write("                globalRules.add(rule);\n");
 				out.write("            }\n");
 				out.write("            else{\n");
-				out.write("                ArrayList<" + name + "IF> classRules = rules.get(rule.getKey());\n");
+				out.write("                RuleList<" + name + "IF> classRules = rules.get(rule.getKey());\n");
 				out.write("                if (classRules == null)\n");
-				out.write("                    classRules = new ArrayList<" + name + "IF>();\n");
-				out.write("                classRules(rule);\n");
+				out.write("                    classRules = new RuleList<" + name + "IF>();\n");
+				out.write("                classRules.addRule(rule);\n");
 				out.write("            }\n");
 				out.write("        }\n");
 				out.write("    }\n\n");
+				
+				out.write("    /**\n");
+				out.write(params.toString());
+				out.write("     */\n");
+				out.write("    public void execute(" + args + ") throws DmcRuleExceptionSet {\n");
+				out.write("        DmcClassInfo     cI = " + classInfoFromParam + ";\n");
+				out.write("        ArrayList<" + name + "IF> ruleList = super.getRules(cI);\n");
+				out.write("\n");
+				out.write("        if (ruleList != null){\n");
+				out.write("            for(" + name + "IF rule: ruleList){\n");
+				out.write("                if (DmcOmni.instance().ruleTracing())\n");
+				out.write("                    DmcOmni.instance().ruleExecuted(\"Applying \" + rule.getRuleTitle() + \" to: \" + cI.name);\n");
+				out.write("                rule.execute(" + argValues + ");\n");
+				out.write("            }\n");
+				out.write("        }\n");
+				out.write("\n");
+				out.write("        for(" + name + "IF rule: globalRules){\n");
+				out.write("            if (DmcOmni.instance().ruleTracing())\n");
+				out.write("                DmcOmni.instance().ruleExecuted(\"Applying \" + rule.getRuleTitle() + \" to: \" + cI.name);\n");
+				out.write("            rule.execute(" + argValues + ");\n");
+				out.write("        }\n");
+				out.write("    }\n\n");
+				out.write("}\n\n");
 			}
 			
-			out.write("    /**\n");
-			out.write(params.toString());
-			out.write("     */\n");
-			out.write("    public void execute(" + args + ") throws DmcRuleExceptionSet {\n");
-			out.write("    }\n\n");
-			out.write("}\n\n");
-
 			out.close();
 		}
 		

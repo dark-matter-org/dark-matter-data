@@ -37,11 +37,13 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __applyToClass = new DmcAttributeInfo("applyToClass",154,"ClassDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __attachToClass = new DmcAttributeInfo("attachToClass",65,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",59,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __attributeInfoFromParam = new DmcAttributeInfo("attributeInfoFromParam",155,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __baseType = new DmcAttributeInfo("baseType",135,"BaseTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __blockWhenLocked = new DmcAttributeInfo("blockWhenLocked",71,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __camelCaseName = new DmcAttributeInfo("camelCaseName",116,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __classDefList = new DmcAttributeInfo("classDefList",55,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __classFilter = new DmcAttributeInfo("classFilter",128,"ClassFilter",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __classInfoFromParam = new DmcAttributeInfo("classInfoFromParam",151,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __classType = new DmcAttributeInfo("classType",10,"ClassTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __complexTypeDefList = new DmcAttributeInfo("complexTypeDefList",117,"ComplexTypeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __createAttributeFactory = new DmcAttributeInfo("createAttributeFactory",89,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -146,6 +148,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __ruleDataList = new DmcAttributeInfo("ruleDataList",156,"RuleData",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleDefinition = new DmcAttributeInfo("ruleDefinition",145,"RuleDefinition",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleDefinitionList = new DmcAttributeInfo("ruleDefinitionList",144,"RuleDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __ruleImport = new DmcAttributeInfo("ruleImport",152,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleName = new DmcAttributeInfo("ruleName",153,"RuleName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleParam = new DmcAttributeInfo("ruleParam",50,"RuleParam",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __ruleTitle = new DmcAttributeInfo("ruleTitle",138,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -225,11 +228,13 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__applyToClass.id,__applyToClass);
         _SmAp.put(__attachToClass.id,__attachToClass);
         _SmAp.put(__attributeDefList.id,__attributeDefList);
+        _SmAp.put(__attributeInfoFromParam.id,__attributeInfoFromParam);
         _SmAp.put(__baseType.id,__baseType);
         _SmAp.put(__blockWhenLocked.id,__blockWhenLocked);
         _SmAp.put(__camelCaseName.id,__camelCaseName);
         _SmAp.put(__classDefList.id,__classDefList);
         _SmAp.put(__classFilter.id,__classFilter);
+        _SmAp.put(__classInfoFromParam.id,__classInfoFromParam);
         _SmAp.put(__classType.id,__classType);
         _SmAp.put(__complexTypeDefList.id,__complexTypeDefList);
         _SmAp.put(__createAttributeFactory.id,__createAttributeFactory);
@@ -334,6 +339,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__ruleDataList.id,__ruleDataList);
         _SmAp.put(__ruleDefinition.id,__ruleDefinition);
         _SmAp.put(__ruleDefinitionList.id,__ruleDefinitionList);
+        _SmAp.put(__ruleImport.id,__ruleImport);
         _SmAp.put(__ruleName.id,__ruleName);
         _SmAp.put(__ruleParam.id,__ruleParam);
         _SmAp.put(__ruleTitle.id,__ruleTitle);
@@ -506,15 +512,18 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __ExtendedReferenceTypeDefinition.addMay(__file);
         __ExtendedReferenceTypeDefinition.addMay(__lineNumber);
 
+        __RuleCategory.addMust(__classInfoFromParam);
         __RuleCategory.addMust(__description);
         __RuleCategory.addMust(__name);
         __RuleCategory.addMust(__opContext);
         __RuleCategory.addMust(__ruleCategoryID);
+        __RuleCategory.addMust(__ruleParam);
         __RuleCategory.addMust(__ruleType);
+        __RuleCategory.addMay(__attributeInfoFromParam);
         __RuleCategory.addMay(__definedIn);
         __RuleCategory.addMay(__file);
         __RuleCategory.addMay(__lineNumber);
-        __RuleCategory.addMay(__ruleParam);
+        __RuleCategory.addMay(__ruleImport);
 
         __RuleData.addMust(__ruleName);
         __RuleData.addMust(__ruleTitle);
