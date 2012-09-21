@@ -231,8 +231,11 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _instantiation;
     public static AttributeDefinition _runContext;
     public static AttributeDefinition _useInterface;
+    public static AttributeDefinition _classInfoFromParam;
+    public static AttributeDefinition _ruleImport;
     public static AttributeDefinition _ruleName;
     public static AttributeDefinition _applyToClass;
+    public static AttributeDefinition _attributeInfoFromParam;
     public static AttributeDefinition _ruleDataList;
     public static AttributeDefinition _applyToAttribute;
     public static AttributeDefinition _objectClass;
@@ -246,7 +249,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static RuleCategory        _Initialization;
     public static RuleCategory        _ObjectValidation;
     public static RuleCategory        _AttributeValidation;
-    public static RuleCategory        _ModifierValidation;
+    public static RuleCategory        _ObjectModifierValidation;
+    public static RuleCategory        _AttributeModifierValidation;
     public static RuleCategory        _UCOValidation;
 
     // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:363)
@@ -286,7 +290,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ActionTriggerInfoOBJ.setDmoImport("org.dmd.dms.generated.dmo.ActionTriggerInfoDMO");
         _ActionTriggerInfoOBJ.setFile("metaSchema.dms");
         _ActionTriggerInfoOBJ.setJavaClass("org.dmd.dms.extended.ActionTriggerInfo");
-        _ActionTriggerInfoOBJ.setLineNumber("1747");
+        _ActionTriggerInfoOBJ.setLineNumber("1751");
         _ActionTriggerInfoOBJ.addMust("name");
         _ActionTriggerInfoOBJ.setName("ActionTriggerInfo");
         _ActionTriggerInfo.setDefinedIn(this);
@@ -301,7 +305,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DmsDefinitionOBJ.setFile("metaSchema.dms");
         _DmsDefinitionOBJ.setIsNamedBy("name");
         _DmsDefinitionOBJ.setJavaClass("org.dmd.dms.DmsDefinition");
-        _DmsDefinitionOBJ.setLineNumber("1762");
+        _DmsDefinitionOBJ.setLineNumber("1766");
         _DmsDefinitionOBJ.addMay("definedIn");
         _DmsDefinitionOBJ.addMay("file");
         _DmsDefinitionOBJ.addMay("lineNumber");
@@ -321,7 +325,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ClassDefinitionOBJ.setFile("metaSchema.dms");
         _ClassDefinitionOBJ.setIsNamedBy("name");
         _ClassDefinitionOBJ.setJavaClass("org.dmd.dms.ClassDefinition");
-        _ClassDefinitionOBJ.setLineNumber("1815");
+        _ClassDefinitionOBJ.setLineNumber("1819");
         _ClassDefinitionOBJ.addMay("description");
         _ClassDefinitionOBJ.addMay("derivedFrom");
         _ClassDefinitionOBJ.addMay("must");
@@ -377,7 +381,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _EnumDefinitionOBJ.setFile("metaSchema.dms");
         _EnumDefinitionOBJ.setIsNamedBy("name");
         _EnumDefinitionOBJ.setJavaClass("org.dmd.dms.EnumDefinition");
-        _EnumDefinitionOBJ.setLineNumber("1833");
+        _EnumDefinitionOBJ.setLineNumber("1837");
         _EnumDefinitionOBJ.addMay("description");
         _EnumDefinitionOBJ.addMay("nullReturnValue");
         _EnumDefinitionOBJ.addMust("name");
@@ -397,7 +401,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _TypeDefinitionOBJ.setFile("metaSchema.dms");
         _TypeDefinitionOBJ.setIsNamedBy("name");
         _TypeDefinitionOBJ.setJavaClass("org.dmd.dms.TypeDefinition");
-        _TypeDefinitionOBJ.setLineNumber("1881");
+        _TypeDefinitionOBJ.setLineNumber("1885");
         _TypeDefinitionOBJ.addMay("description");
         _TypeDefinitionOBJ.addMay("nullReturnValue");
         _TypeDefinitionOBJ.addMay("wrapperClassName");
@@ -438,7 +442,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ComplexTypeDefinitionOBJ.setFile("metaSchema.dms");
         _ComplexTypeDefinitionOBJ.setIsNamedBy("name");
         _ComplexTypeDefinitionOBJ.setJavaClass("org.dmd.dms.ComplexTypeDefinition");
-        _ComplexTypeDefinitionOBJ.setLineNumber("1920");
+        _ComplexTypeDefinitionOBJ.setLineNumber("1924");
         _ComplexTypeDefinitionOBJ.addMay("fieldSeparator");
         _ComplexTypeDefinitionOBJ.addMay("extendedClass");
         _ComplexTypeDefinitionOBJ.addMay("description");
@@ -459,7 +463,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ExtendedReferenceTypeDefinitionOBJ.setFile("metaSchema.dms");
         _ExtendedReferenceTypeDefinitionOBJ.setIsNamedBy("name");
         _ExtendedReferenceTypeDefinitionOBJ.setJavaClass("org.dmd.dms.ExtendedReferenceTypeDefinition");
-        _ExtendedReferenceTypeDefinitionOBJ.setLineNumber("1936");
+        _ExtendedReferenceTypeDefinitionOBJ.setLineNumber("1940");
         _ExtendedReferenceTypeDefinitionOBJ.addMust("name");
         _ExtendedReferenceTypeDefinitionOBJ.addMust("extendedReferenceClass");
         _ExtendedReferenceTypeDefinitionOBJ.setName("ExtendedReferenceTypeDefinition");
@@ -477,7 +481,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _AttributeDefinitionOBJ.setFile("metaSchema.dms");
         _AttributeDefinitionOBJ.setIsNamedBy("name");
         _AttributeDefinitionOBJ.setJavaClass("org.dmd.dms.AttributeDefinition");
-        _AttributeDefinitionOBJ.setLineNumber("1965");
+        _AttributeDefinitionOBJ.setLineNumber("1969");
         _AttributeDefinitionOBJ.addMay("description");
         _AttributeDefinitionOBJ.addMay("valueType");
         _AttributeDefinitionOBJ.addMay("nullReturnValue");
@@ -510,7 +514,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _SliceDefinitionOBJ.setFile("metaSchema.dms");
         _SliceDefinitionOBJ.setIsNamedBy("name");
         _SliceDefinitionOBJ.setJavaClass("org.dmd.dms.SliceDefinition");
-        _SliceDefinitionOBJ.setLineNumber("1981");
+        _SliceDefinitionOBJ.setLineNumber("1985");
         _SliceDefinitionOBJ.addMay("description");
         _SliceDefinitionOBJ.addMust("name");
         _SliceDefinitionOBJ.addMust("selectAttribute");
@@ -529,7 +533,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ActionDefinitionOBJ.setFile("metaSchema.dms");
         _ActionDefinitionOBJ.setIsNamedBy("name");
         _ActionDefinitionOBJ.setJavaClass("org.dmd.dms.ActionDefinition");
-        _ActionDefinitionOBJ.setLineNumber("2038");
+        _ActionDefinitionOBJ.setLineNumber("2042");
         _ActionDefinitionOBJ.addMay("description");
         _ActionDefinitionOBJ.addMay("mustParm");
         _ActionDefinitionOBJ.addMay("mayParm");
@@ -556,7 +560,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _SchemaDefinitionOBJ.setFile("metaSchema.dms");
         _SchemaDefinitionOBJ.setIsNamedBy("name");
         _SchemaDefinitionOBJ.setJavaClass("org.dmd.dms.SchemaDefinition");
-        _SchemaDefinitionOBJ.setLineNumber("2082");
+        _SchemaDefinitionOBJ.setLineNumber("2086");
         _SchemaDefinitionOBJ.addMay("dependsOn");
         _SchemaDefinitionOBJ.addMay("defFiles");
         _SchemaDefinitionOBJ.addMay("generatedFileHeader");
@@ -591,18 +595,21 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleCategory = new ClassDefinition(_RuleCategoryOBJ,MetaDMSAG.__RuleCategory);
         _RuleCategoryOBJ.setClassType("STRUCTURAL");
         _RuleCategoryOBJ.setDerivedFrom("DmsDefinition");
-        _RuleCategoryOBJ.setDescription("The RuleCategory allows for the definition of categories of rules to be applied\n to various objects and indicates the expected interface to be implemented by a rule instance.\n A RuleDefinition may belong to multiple categories. \n <p/>\n RuleCategories fall into two broad types, ATTRIBUTE and CLASS level, as specified via the ruleType\n attribute. When a RuleDefinition belongs to an ATTRIBUTE level category, its instances will have\n a mandatory applyToAttribute attribute. Both ATTRIBUTE and CLASS level RuleDefinitions have an optional\n applyToClass attribute by default.\n <p/>\n Specifying a RuleCategory will cause the generation of several artifacts including:\n <ul>\n <li> a category interface: this interface will be created based on the ruleParam values and will be\n implemented by RuleDefinitions that are part of the category\n </li> a rule collection: this is a category specific collection of rules that organize the rule instances\n in this category.\n </ul>\n Exactly how a RuleCategory applies rule instances is category specific and this behaviour should be\n part of the description of a rule category.");
+        _RuleCategoryOBJ.setDescription("The RuleCategory allows for the definition of categories of rules to be applied\n to various objects and indicates the expected interface to be implemented by a rule instance.\n A RuleDefinition may belong to multiple categories. \n <p/>\n RuleCategories fall into two broad types, ATTRIBUTE and CLASS level, as specified via the ruleType\n attribute. When a RuleDefinition belongs to an ATTRIBUTE level category, its instances will have\n a mandatory applyToAttribute attribute. Both ATTRIBUTE and CLASS level RuleDefinitions have an optional\n applyToClass attribute by default.\n <p/>\n Specifying a RuleCategory will cause the generation of several artifacts including:\n <ul>\n <li> a category interface: this interface will be created based on the ruleParam values and will be\n implemented by RuleDefinitions that are part of the category\n </li> a rule collection: this is a category specific collection of rules that organize the rule instances\n in this category.\n </ul>\n Exactly how a RuleCategory applies rule instances is category specific and this behaviour should be\n part of the description of a rule category.\n <p/>\n For CLASS level rules, you must specify the classInfoFromParam attribute to indicate how to \n get the DmcClassInfo from whatever object you are passing to the rule. For ATTRIBUTE level rules,\n you must specify both attributeInfoFromParam and classInfoFromParam.");
         _RuleCategoryOBJ.setDmdID("15");
         _RuleCategoryOBJ.setDmoImport("org.dmd.dms.generated.dmo.RuleCategoryDMO");
         _RuleCategoryOBJ.setFile("metaSchema.dms");
         _RuleCategoryOBJ.setIsNamedBy("name");
         _RuleCategoryOBJ.setJavaClass("org.dmd.dms.RuleCategory");
-        _RuleCategoryOBJ.setLineNumber("2119");
-        _RuleCategoryOBJ.addMay("ruleParam");
+        _RuleCategoryOBJ.setLineNumber("2129");
+        _RuleCategoryOBJ.addMay("ruleImport");
+        _RuleCategoryOBJ.addMay("attributeInfoFromParam");
         _RuleCategoryOBJ.addMust("name");
         _RuleCategoryOBJ.addMust("opContext");
         _RuleCategoryOBJ.addMust("ruleCategoryID");
         _RuleCategoryOBJ.addMust("ruleType");
+        _RuleCategoryOBJ.addMust("ruleParam");
+        _RuleCategoryOBJ.addMust("classInfoFromParam");
         _RuleCategoryOBJ.addMust("description");
         _RuleCategoryOBJ.setName("RuleCategory");
         _RuleCategoryOBJ.setUseWrapperType("EXTENDED");
@@ -619,7 +626,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleDefinitionOBJ.setFile("metaSchema.dms");
         _RuleDefinitionOBJ.setIsNamedBy("name");
         _RuleDefinitionOBJ.setJavaClass("org.dmd.dms.RuleDefinition");
-        _RuleDefinitionOBJ.setLineNumber("2152");
+        _RuleDefinitionOBJ.setLineNumber("2162");
         _RuleDefinitionOBJ.addMay("must");
         _RuleDefinitionOBJ.addMay("may");
         _RuleDefinitionOBJ.addMay("isExtensible");
@@ -642,7 +649,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleDataOBJ.setFile("metaSchema.dms");
         _RuleDataOBJ.setIsNamedBy("ruleName");
         _RuleDataOBJ.setJavaClass("org.dmd.dms.RuleData");
-        _RuleDataOBJ.setLineNumber("2171");
+        _RuleDataOBJ.setLineNumber("2181");
         _RuleDataOBJ.addMay("description");
         _RuleDataOBJ.addMay("definedIn");
         _RuleDataOBJ.addMay("file");
@@ -666,7 +673,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DependencyOBJ.setFile("metaSchema.dms");
         _DependencyOBJ.setIsNamedBy("name");
         _DependencyOBJ.setJavaClass("org.dmd.dms.Dependency");
-        _DependencyOBJ.setLineNumber("2202");
+        _DependencyOBJ.setLineNumber("2212");
         _DependencyOBJ.addMay("dependencies");
         _DependencyOBJ.addMay("instantiation");
         _DependencyOBJ.addMust("name");
@@ -686,7 +693,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DependencyImplementationOBJ.setFile("metaSchema.dms");
         _DependencyImplementationOBJ.setIsNamedBy("name");
         _DependencyImplementationOBJ.setJavaClass("org.dmd.dms.DependencyImplementation");
-        _DependencyImplementationOBJ.setLineNumber("2221");
+        _DependencyImplementationOBJ.setLineNumber("2231");
         _DependencyImplementationOBJ.addMay("description");
         _DependencyImplementationOBJ.addMust("name");
         _DependencyImplementationOBJ.addMust("dependency");
@@ -706,7 +713,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RunContextOBJ.setFile("metaSchema.dms");
         _RunContextOBJ.setIsNamedBy("name");
         _RunContextOBJ.setJavaClass("org.dmd.dms.Dependency");
-        _RunContextOBJ.setLineNumber("2235");
+        _RunContextOBJ.setLineNumber("2245");
         _RunContextOBJ.addMay("description");
         _RunContextOBJ.addMust("name");
         _RunContextOBJ.addMust("dependencies");
@@ -806,7 +813,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _applyToAttributeOBJ.setDescription("Indicates the attribute to which an ATTRIBUTE type rule is applied.");
         _applyToAttributeOBJ.setDmdID("157");
         _applyToAttributeOBJ.setFile("metaSchema.dms");
-        _applyToAttributeOBJ.setLineNumber("1710");
+        _applyToAttributeOBJ.setLineNumber("1714");
         _applyToAttributeOBJ.setName("applyToAttribute");
         _applyToAttributeOBJ.setType("AttributeDefinition");
         _applyToAttribute.setDefinedIn(this);
@@ -817,7 +824,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _applyToClassOBJ.setDescription("The class to which a rule should be applied.");
         _applyToClassOBJ.setDmdID("154");
         _applyToClassOBJ.setFile("metaSchema.dms");
-        _applyToClassOBJ.setLineNumber("1690");
+        _applyToClassOBJ.setLineNumber("1693");
         _applyToClassOBJ.setName("applyToClass");
         _applyToClassOBJ.setType("ClassDefinition");
         _applyToClass.setDefinedIn(this);
@@ -847,6 +854,17 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _attributeDefListOBJ.setValueType("MULTI");
         _attributeDefList.setDefinedIn(this);
         addAttributeDefList(_attributeDefList);
+
+        AttributeDefinitionDMO _attributeInfoFromParamOBJ = new AttributeDefinitionDMO();
+        _attributeInfoFromParam = new AttributeDefinition(_attributeInfoFromParamOBJ);
+        _attributeInfoFromParamOBJ.setDescription("Indicates how the DmcAttributeInfo should be extracted from one of the ruleParam values\n associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport\n values as appropriate.");
+        _attributeInfoFromParamOBJ.setDmdID("155");
+        _attributeInfoFromParamOBJ.setFile("metaSchema.dms");
+        _attributeInfoFromParamOBJ.setLineNumber("1701");
+        _attributeInfoFromParamOBJ.setName("attributeInfoFromParam");
+        _attributeInfoFromParamOBJ.setType("String");
+        _attributeInfoFromParam.setDefinedIn(this);
+        addAttributeDefList(_attributeInfoFromParam);
 
         AttributeDefinitionDMO _baseTypeOBJ = new AttributeDefinitionDMO();
         _baseType = new AttributeDefinition(_baseTypeOBJ);
@@ -906,6 +924,17 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _classFilterOBJ.setType("ClassFilter");
         _classFilter.setDefinedIn(this);
         addAttributeDefList(_classFilter);
+
+        AttributeDefinitionDMO _classInfoFromParamOBJ = new AttributeDefinitionDMO();
+        _classInfoFromParam = new AttributeDefinition(_classInfoFromParamOBJ);
+        _classInfoFromParamOBJ.setDescription("Indicates how the DmcClassInfo should be extracted from one of the ruleParam values\n associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport\n values as appropriate.");
+        _classInfoFromParamOBJ.setDmdID("151");
+        _classInfoFromParamOBJ.setFile("metaSchema.dms");
+        _classInfoFromParamOBJ.setLineNumber("1670");
+        _classInfoFromParamOBJ.setName("classInfoFromParam");
+        _classInfoFromParamOBJ.setType("String");
+        _classInfoFromParam.setDefinedIn(this);
+        addAttributeDefList(_classInfoFromParam);
 
         AttributeDefinitionDMO _classTypeOBJ = new AttributeDefinitionDMO();
         _classType = new AttributeDefinition(_classTypeOBJ);
@@ -1986,7 +2015,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _objectClassOBJ.setDescription("Used to indicate the classes that an object instance supports.");
         _objectClassOBJ.setDmdID("1");
         _objectClassOBJ.setFile("metaSchema.dms");
-        _objectClassOBJ.setLineNumber("1719");
+        _objectClassOBJ.setLineNumber("1723");
         _objectClassOBJ.setName("objectClass");
         _objectClassOBJ.setType("ClassDefinition");
         _objectClassOBJ.setValueType("MULTI");
@@ -2089,7 +2118,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ruleDataListOBJ.setDescription("The RuleData defined in a schema.");
         _ruleDataListOBJ.setDmdID("156");
         _ruleDataListOBJ.setFile("metaSchema.dms");
-        _ruleDataListOBJ.setLineNumber("1704");
+        _ruleDataListOBJ.setLineNumber("1708");
         _ruleDataListOBJ.setName("ruleDataList");
         _ruleDataListOBJ.setType("RuleData");
         _ruleDataListOBJ.setValueType("MULTI");
@@ -2119,13 +2148,25 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ruleDefinitionList.setDefinedIn(this);
         addAttributeDefList(_ruleDefinitionList);
 
+        AttributeDefinitionDMO _ruleImportOBJ = new AttributeDefinitionDMO();
+        _ruleImport = new AttributeDefinition(_ruleImportOBJ);
+        _ruleImportOBJ.setDescription("An import required for generation of the rule collection associated with\n a RuleCategory.");
+        _ruleImportOBJ.setDmdID("152");
+        _ruleImportOBJ.setFile("metaSchema.dms");
+        _ruleImportOBJ.setLineNumber("1678");
+        _ruleImportOBJ.setName("ruleImport");
+        _ruleImportOBJ.setType("String");
+        _ruleImportOBJ.setValueType("MULTI");
+        _ruleImport.setDefinedIn(this);
+        addAttributeDefList(_ruleImport);
+
         AttributeDefinitionDMO _ruleNameOBJ = new AttributeDefinitionDMO();
         _ruleName = new AttributeDefinition(_ruleNameOBJ);
         _ruleNameOBJ.setDescription("The ruleName attribute is used to store a single camelCase format name for a rule.\n The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or \n other characters are allowed.");
         _ruleNameOBJ.setDesignatedNameAttribute("true");
         _ruleNameOBJ.setDmdID("153");
         _ruleNameOBJ.setFile("metaSchema.dms");
-        _ruleNameOBJ.setLineNumber("1684");
+        _ruleNameOBJ.setLineNumber("1687");
         _ruleNameOBJ.setName("ruleName");
         _ruleNameOBJ.setType("RuleName");
         _ruleName.setDefinedIn(this);
@@ -2905,11 +2946,30 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitRuleCategories(MetaGenerator.java:454)
     private void initRuleCategories() throws DmcValueException {
 
+        RuleCategoryDMO _AttributeModifierValidationOBJ = new RuleCategoryDMO();
+        _AttributeModifierValidation = new RuleCategory(_AttributeModifierValidationOBJ);
+        _AttributeModifierValidationOBJ.setAttributeInfoFromParam("DmcOmni.instance().getAttributeInfo(mod.getAttributeName())");
+        _AttributeModifierValidationOBJ.setClassInfoFromParam("obj.getConstructionClassInfo()");
+        _AttributeModifierValidationOBJ.setDescription("Rules in this category are used to validate individual attribute modifications that are\n about to be applied to an object.");
+        _AttributeModifierValidationOBJ.setFile("metaSchema.dms");
+        _AttributeModifierValidationOBJ.setLineNumber("504");
+        _AttributeModifierValidationOBJ.setName("AttributeModifierValidation");
+        _AttributeModifierValidationOBJ.setOpContext("DMO");
+        _AttributeModifierValidationOBJ.setRuleCategoryID("5");
+        _AttributeModifierValidationOBJ.addRuleImport("org.dmd.dmc.DmcOmni");
+        _AttributeModifierValidationOBJ.addRuleParam("org.dmd.dmc.DmcObject: :obj:The object being modified");
+        _AttributeModifierValidationOBJ.addRuleParam("org.dmd.dmc.types.Modifier: :mod:The particular modification being validated");
+        _AttributeModifierValidationOBJ.setRuleType("ATTRIBUTE");
+        _AttributeModifierValidation.setDefinedIn(this);
+        addRuleCategoryList(_AttributeModifierValidation);
+
         RuleCategoryDMO _AttributeValidationOBJ = new RuleCategoryDMO();
         _AttributeValidation = new RuleCategory(_AttributeValidationOBJ);
+        _AttributeValidationOBJ.setAttributeInfoFromParam("attribute.getAttributeInfo()");
+        _AttributeValidationOBJ.setClassInfoFromParam("obj.getConstructionClassInfo()");
         _AttributeValidationOBJ.setDescription("Rules in this category are used to validate individual attributes.");
         _AttributeValidationOBJ.setFile("metaSchema.dms");
-        _AttributeValidationOBJ.setLineNumber("486");
+        _AttributeValidationOBJ.setLineNumber("479");
         _AttributeValidationOBJ.setName("AttributeValidation");
         _AttributeValidationOBJ.setOpContext("DMO");
         _AttributeValidationOBJ.setRuleCategoryID("3");
@@ -2921,9 +2981,10 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         RuleCategoryDMO _InitializationOBJ = new RuleCategoryDMO();
         _Initialization = new RuleCategory(_InitializationOBJ);
+        _InitializationOBJ.setClassInfoFromParam("obj.getConstructionClassInfo()");
         _InitializationOBJ.setDescription("Rules in this category are used to initialize objects to a known\n state after creation.\n <p/>\n Execution will be performed from the bottom of the derivation hierarchy to the top i.e.\n we look for rules for the construction class of the object being initialized and then\n move up the derivation hierarchy looking for rules associated with the base classes.");
         _InitializationOBJ.setFile("metaSchema.dms");
-        _InitializationOBJ.setLineNumber("459");
+        _InitializationOBJ.setLineNumber("457");
         _InitializationOBJ.setName("Initialization");
         _InitializationOBJ.setOpContext("DMO");
         _InitializationOBJ.setRuleCategoryID("1");
@@ -2932,26 +2993,28 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _Initialization.setDefinedIn(this);
         addRuleCategoryList(_Initialization);
 
-        RuleCategoryDMO _ModifierValidationOBJ = new RuleCategoryDMO();
-        _ModifierValidation = new RuleCategory(_ModifierValidationOBJ);
-        _ModifierValidationOBJ.setDescription("Rules in this category are used to validate modifications that are\n about to be applied to an object.");
-        _ModifierValidationOBJ.setFile("metaSchema.dms");
-        _ModifierValidationOBJ.setLineNumber("503");
-        _ModifierValidationOBJ.setName("ModifierValidation");
-        _ModifierValidationOBJ.setOpContext("DMO");
-        _ModifierValidationOBJ.setRuleCategoryID("4");
-        _ModifierValidationOBJ.addRuleParam("org.dmd.dmc.DmcObject: :obj:The object being modified");
-        _ModifierValidationOBJ.addRuleParam("org.dmd.dms.generated.types.DmcTypeModifierMV: :mods:The set of modifications being performed");
-        _ModifierValidationOBJ.addRuleParam("org.dmd.dmc.types.Modifier: :mod:The particular modification being validated");
-        _ModifierValidationOBJ.setRuleType("CLASS");
-        _ModifierValidation.setDefinedIn(this);
-        addRuleCategoryList(_ModifierValidation);
+        RuleCategoryDMO _ObjectModifierValidationOBJ = new RuleCategoryDMO();
+        _ObjectModifierValidation = new RuleCategory(_ObjectModifierValidationOBJ);
+        _ObjectModifierValidationOBJ.setClassInfoFromParam("obj.getConstructionClassInfo()");
+        _ObjectModifierValidationOBJ.setDescription("Rules in this category are used to validate modifications that are\n about to be applied to an object.");
+        _ObjectModifierValidationOBJ.setFile("metaSchema.dms");
+        _ObjectModifierValidationOBJ.setLineNumber("491");
+        _ObjectModifierValidationOBJ.setName("ObjectModifierValidation");
+        _ObjectModifierValidationOBJ.setOpContext("DMO");
+        _ObjectModifierValidationOBJ.setRuleCategoryID("4");
+        _ObjectModifierValidationOBJ.addRuleParam("org.dmd.dmc.DmcObject: :obj:The object being modified");
+        _ObjectModifierValidationOBJ.addRuleParam("org.dmd.dms.generated.types.DmcTypeModifierMV: :mods:The set of modifications being performed");
+        _ObjectModifierValidationOBJ.addRuleParam("org.dmd.dmc.types.Modifier: :mod:The particular modification being validated");
+        _ObjectModifierValidationOBJ.setRuleType("CLASS");
+        _ObjectModifierValidation.setDefinedIn(this);
+        addRuleCategoryList(_ObjectModifierValidation);
 
         RuleCategoryDMO _ObjectValidationOBJ = new RuleCategoryDMO();
         _ObjectValidation = new RuleCategory(_ObjectValidationOBJ);
+        _ObjectValidationOBJ.setClassInfoFromParam("obj.getConstructionClassInfo()");
         _ObjectValidationOBJ.setDescription("Rules in this category are used to validate a complete object. This\n would include objects read from Object Instance Files, objects in CreateRequests\n (after Initialization rules have been applied).");
         _ObjectValidationOBJ.setFile("metaSchema.dms");
-        _ObjectValidationOBJ.setLineNumber("473");
+        _ObjectValidationOBJ.setLineNumber("468");
         _ObjectValidationOBJ.setName("ObjectValidation");
         _ObjectValidationOBJ.setOpContext("DMO");
         _ObjectValidationOBJ.setRuleCategoryID("2");
@@ -2962,12 +3025,14 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
 
         RuleCategoryDMO _UCOValidationOBJ = new RuleCategoryDMO();
         _UCOValidation = new RuleCategory(_UCOValidationOBJ);
+        _UCOValidationOBJ.setClassInfoFromParam("DmcOmni.instance().getClassInfo(obj.getConstructionClass())");
         _UCOValidationOBJ.setDescription("Rules in this category are used to validate DmcUncheckedObjects (UCOs) which\n are basically just collections of attribute/value pairs.");
         _UCOValidationOBJ.setFile("metaSchema.dms");
         _UCOValidationOBJ.setLineNumber("516");
         _UCOValidationOBJ.setName("UCOValidation");
         _UCOValidationOBJ.setOpContext("DMO");
-        _UCOValidationOBJ.setRuleCategoryID("5");
+        _UCOValidationOBJ.setRuleCategoryID("6");
+        _UCOValidationOBJ.addRuleImport("org.dmd.dmc.DmcOmni");
         _UCOValidationOBJ.addRuleParam("org.dmd.dmc.util.DmcUncheckedObject: :obj:The object to be validated:");
         _UCOValidationOBJ.setRuleType("CLASS");
         _UCOValidation.setDefinedIn(this);

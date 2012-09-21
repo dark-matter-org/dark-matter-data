@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcClassInfo;
 
 public abstract class AttributeRuleCollection<I> extends RuleCollection<I> {
 
@@ -12,6 +13,13 @@ public abstract class AttributeRuleCollection<I> extends RuleCollection<I> {
 	
 	public AttributeRuleCollection() {
 		
+	}
+	
+	protected ArrayList<I> getRules(DmcAttributeInfo ai, DmcClassInfo ci){
+		ArrayList<I> 		rc  = null;
+    	AttributeRuleKey 	ark = new AttributeRuleKey(ai, ci);
+
+    	return(rc);
 	}
 
 }

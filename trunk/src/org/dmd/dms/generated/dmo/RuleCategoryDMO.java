@@ -41,7 +41,11 @@ import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGe
  * rule collection: this is a category specific collection of rules that
  * organize the rule instances\n in this category.\n </ul>\n Exactly how a
  * RuleCategory applies rule instances is category specific and this
- * behaviour should be\n part of the description of a rule category.
+ * behaviour should be\n part of the description of a rule category.\n <p/>\n
+ * For CLASS level rules, you must specify the classInfoFromParam attribute
+ * to indicate how to \n get the DmcClassInfo from whatever object you are
+ * passing to the rule. For ATTRIBUTE level rules,\n you must specify both
+ * attributeInfoFromParam and classInfoFromParam.
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1845)
  */
@@ -57,26 +61,32 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
+        _ImAp.put(MetaDMSAG.__classInfoFromParam.id,MetaDMSAG.__classInfoFromParam);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__opContext.id,MetaDMSAG.__opContext);
         _ImAp.put(MetaDMSAG.__ruleCategoryID.id,MetaDMSAG.__ruleCategoryID);
+        _ImAp.put(MetaDMSAG.__ruleParam.id,MetaDMSAG.__ruleParam);
         _ImAp.put(MetaDMSAG.__ruleType.id,MetaDMSAG.__ruleType);
+        _ImAp.put(MetaDMSAG.__attributeInfoFromParam.id,MetaDMSAG.__attributeInfoFromParam);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
-        _ImAp.put(MetaDMSAG.__ruleParam.id,MetaDMSAG.__ruleParam);
+        _ImAp.put(MetaDMSAG.__ruleImport.id,MetaDMSAG.__ruleImport);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
+        _SmAp.put(MetaDMSAG.__classInfoFromParam.name,MetaDMSAG.__classInfoFromParam);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__opContext.name,MetaDMSAG.__opContext);
         _SmAp.put(MetaDMSAG.__ruleCategoryID.name,MetaDMSAG.__ruleCategoryID);
+        _SmAp.put(MetaDMSAG.__ruleParam.name,MetaDMSAG.__ruleParam);
         _SmAp.put(MetaDMSAG.__ruleType.name,MetaDMSAG.__ruleType);
+        _SmAp.put(MetaDMSAG.__attributeInfoFromParam.name,MetaDMSAG.__attributeInfoFromParam);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
-        _SmAp.put(MetaDMSAG.__ruleParam.name,MetaDMSAG.__ruleParam);
+        _SmAp.put(MetaDMSAG.__ruleImport.name,MetaDMSAG.__ruleImport);
     }
 
 
@@ -107,6 +117,35 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         RuleCategoryDMO rc = new RuleCategoryDMO();
         populateSlice(rc,info);
         return(rc);
+    }
+
+    /**
+     * Indicates how the DmcClassInfo should be extracted from one of the
+     * ruleParam values\n associated with a RuleCategory. If additional classes
+     * are required to support this access, you can specify ruleImport\n values
+     * as appropriate.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    public String getClassInfoFromParam(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__classInfoFromParam);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets classInfoFromParam to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2284)
+    public void setClassInfoFromParam(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__classInfoFromParam);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__classInfoFromParam);
+        
+        attr.set(value);
+        set(MetaDMSAG.__classInfoFromParam,attr);
     }
 
     /**
@@ -221,6 +260,34 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
     }
 
     /**
+     * A parameter to be supplied to a rule when it is executed.
+     * @return An Iterator of RuleParam objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2389)
+    public Iterator<RuleParam> getRuleParam(){
+        DmcTypeRuleParamMV attr = (DmcTypeRuleParamMV) get(MetaDMSAG.__ruleParam);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another ruleParam value.
+     * @param value A value compatible with DmcTypeRuleParamMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2444)
+    public DmcAttribute<?> addRuleParam(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__ruleParam);
+        if (attr == null)
+            attr = new DmcTypeRuleParamMV(MetaDMSAG.__ruleParam);
+        
+        attr.add(value);
+        add(MetaDMSAG.__ruleParam,attr);
+        return(attr);
+    }
+
+    /**
      * The type of a rule.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
@@ -244,6 +311,35 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
         
         attr.set(value);
         set(MetaDMSAG.__ruleType,attr);
+    }
+
+    /**
+     * Indicates how the DmcAttributeInfo should be extracted from one of the
+     * ruleParam values\n associated with a RuleCategory. If additional classes
+     * are required to support this access, you can specify ruleImport\n values
+     * as appropriate.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    public String getAttributeInfoFromParam(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__attributeInfoFromParam);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets attributeInfoFromParam to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2284)
+    public void setAttributeInfoFromParam(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__attributeInfoFromParam);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__attributeInfoFromParam);
+        
+        attr.set(value);
+        set(MetaDMSAG.__attributeInfoFromParam,attr);
     }
 
     /**
@@ -325,12 +421,13 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
     }
 
     /**
-     * A parameter to be supplied to a rule when it is executed.
-     * @return An Iterator of RuleParam objects.
+     * An import required for generation of the rule collection associated with\n
+     * a RuleCategory.
+     * @return An Iterator of String objects.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2389)
-    public Iterator<RuleParam> getRuleParam(){
-        DmcTypeRuleParamMV attr = (DmcTypeRuleParamMV) get(MetaDMSAG.__ruleParam);
+    public Iterator<String> getRuleImport(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__ruleImport);
         if (attr == null)
             return(null);
 
@@ -338,17 +435,17 @@ public class RuleCategoryDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO 
     }
 
     /**
-     * Adds another ruleParam value.
-     * @param value A value compatible with DmcTypeRuleParamMV
+     * Adds another ruleImport value.
+     * @param value A value compatible with DmcTypeStringMV
      */
     // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2444)
-    public DmcAttribute<?> addRuleParam(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__ruleParam);
+    public DmcAttribute<?> addRuleImport(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__ruleImport);
         if (attr == null)
-            attr = new DmcTypeRuleParamMV(MetaDMSAG.__ruleParam);
+            attr = new DmcTypeStringMV(MetaDMSAG.__ruleImport);
         
         attr.add(value);
-        add(MetaDMSAG.__ruleParam,attr);
+        add(MetaDMSAG.__ruleImport,attr);
         return(attr);
     }
 

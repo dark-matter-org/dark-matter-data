@@ -11,12 +11,13 @@ import org.dmd.dmc.rules.ClassRuleKey;                                          
 import org.dmd.dmc.rules.RuleIF;                                                        // All rules implement this - (RuleFormatter.java:399)
 import org.dmd.dmc.rules.RuleKey;                                                       // To allow rule sorting - (RuleFormatter.java:405)
 import org.dmd.dms.generated.enums.RuleTypeEnum;                                        // Rule type - (RuleFormatter.java:398)
+import org.dmd.dms.generated.rulesdmo.ObjectModifierValidationIF;                       // The interface for the ObjectModifierValidation category - (RuleFormatter.java:420)
 import org.dmd.dms.generated.rulesdmo.ObjectValidationIF;                               // The interface for the ObjectValidation category - (RuleFormatter.java:420)
 import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO;         // Rule parameters object - (RuleFormatter.java:414)
 
 
 // Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:431)
-abstract public class CheckAttributesBasedOnValueRuleBaseImpl implements RuleIF,ObjectValidationIF {
+abstract public class CheckAttributesBasedOnValueRuleBaseImpl implements RuleIF,ObjectValidationIF,ObjectModifierValidationIF {
 
     static RuleTypeEnum       type  = RuleTypeEnum.CLASS;
 
@@ -33,6 +34,7 @@ abstract public class CheckAttributesBasedOnValueRuleBaseImpl implements RuleIF,
         if (categories == null){
             categories = new ArrayList<Integer>();
             categories.add(2);
+            categories.add(4);
         }
     }
 
@@ -41,6 +43,7 @@ abstract public class CheckAttributesBasedOnValueRuleBaseImpl implements RuleIF,
         if (categories == null){
             categories = new ArrayList<Integer>();
             categories.add(2);
+            categories.add(4);
         }
     }
 
