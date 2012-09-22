@@ -1611,7 +1611,7 @@ public class SchemaManager implements DmcNameResolverIF {
 	        
 	        // Issue 4 fix
 	        if (evd.getNullReturnValue() != null)
-	        	td.setNullReturnValue(evd.getName() + "." + evd.getNullReturnValue());
+	        	td.setNullReturnValue(evd.getNullReturnValue());
 	        
 	        internalTypeDefs.put(td.getName(), td);
 	        
