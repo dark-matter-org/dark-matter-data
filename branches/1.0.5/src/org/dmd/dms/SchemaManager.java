@@ -1609,6 +1609,10 @@ public class SchemaManager implements DmcNameResolverIF {
 	//        td.addObjectClass(MetaSchemaAG._TypeDefinition);
 	        td.setDefinedIn(evd.getDefinedIn());
 	        
+	        // Issue 4 fix
+	        if (evd.getNullReturnValue() != null)
+	        	td.setNullReturnValue(evd.getName() + "." + evd.getNullReturnValue());
+	        
 	        internalTypeDefs.put(td.getName(), td);
 	        
 	        // We add the new type to the schema's list of internally generated types
