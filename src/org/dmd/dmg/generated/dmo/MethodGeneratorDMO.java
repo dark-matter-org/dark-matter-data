@@ -248,7 +248,7 @@ public class MethodGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF,
     public ValueTypeEnum getValueType(){
         DmcTypeValueTypeEnumSV attr = (DmcTypeValueTypeEnumSV) get(MetaDMSAG.__valueType);
         if (attr == null)
-            return(null);
+            return(ValueTypeEnum.SINGLE);
 
         return(attr.getSV());
     }
@@ -298,7 +298,7 @@ public class MethodGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF,
     public BaseTypeEnum getBaseType(){
         DmcTypeBaseTypeEnumSV attr = (DmcTypeBaseTypeEnumSV) get(MetaDMSAG.__baseType);
         if (attr == null)
-            return(null);
+            return(BaseTypeEnum.PRIMITIVE);
 
         return(attr.getSV());
     }
