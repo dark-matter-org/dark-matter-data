@@ -246,7 +246,7 @@ public class WrapperGeneratorDMO  extends DmcObject  implements DmcNamedObjectIF
     public ClassTypeEnum getClassType(){
         DmcTypeClassTypeEnumSV attr = (DmcTypeClassTypeEnumSV) get(MetaDMSAG.__classType);
         if (attr == null)
-            return(null);
+            return(ClassTypeEnum.UNKNOWN);
 
         return(attr.getSV());
     }

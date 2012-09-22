@@ -7,6 +7,7 @@ description		The DmtStringName type was created to test the definition of name t
 
 EnumDefinition
 name			DmtTestEnum
+nullReturnValue	DmtTestEnum.UNKNOWN
 enumValue		0 UNKNOWN Unknown
 enumValue		1 TEST1 First test
 enumValue		2 TEST2 Second test
