@@ -581,7 +581,7 @@ public class GenUtility {
 	}
 	
 	static public void formatSV(AttributeDefinition ad, StringBuffer sb){
-		if (ad.getName().getNameString().equals("valueType"))
+		if (ad.getName().getNameString().equals("svTestEnum"))
 			DebugInfo.debug("HERE");
 		
     	String typeClassName 	= ad.getType().getTypeClassName();

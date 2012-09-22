@@ -2124,7 +2124,7 @@ public class ObjWithRefsDMO  extends BaseObjDMO  implements DmcNamedObjectIF, Se
     public DmtTestEnum getSvTestEnum(){
         DmcTypeDmtTestEnumSV attr = (DmcTypeDmtTestEnumSV) get(DmtDMSAG.__svTestEnum);
         if (attr == null)
-            return(null);
+            return(DmtTestEnum.UNKNOWN);
 
         return(attr.getSV());
     }
