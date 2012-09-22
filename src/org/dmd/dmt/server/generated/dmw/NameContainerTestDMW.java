@@ -2,15 +2,15 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                 // If any attributes - (BaseDMWGeneratorNewest.java:905)
-import org.dmd.dmc.DmcObjectName;                                     // Alternative type for NameContainer values - (BaseDMWGeneratorNewest.java:976)
-import org.dmd.dmc.types.NameContainer;                               // Primitive type - (BaseDMWGeneratorNewest.java:968)
-import org.dmd.dms.ClassDefinition;                                   // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
-import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
-import org.dmd.dmt.shared.types.DmtStringName;                        // Primitive type - (BaseDMWGeneratorNewest.java:968)
-import org.dmd.dmw.DmwWrapper;                                        // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1053)
+import org.dmd.dmc.*;                                                 // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmc.DmcObjectName;                                     // Alternative type for NameContainer values - (BaseDMWGeneratorNewest.java:974)
+import org.dmd.dmc.types.NameContainer;                               // Primitive type - (BaseDMWGeneratorNewest.java:966)
+import org.dmd.dms.*;                                                 // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                 // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
+import org.dmd.dmt.shared.generated.dmo.NameContainerTestDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dmt.shared.types.DmtStringName;                        // Primitive type - (BaseDMWGeneratorNewest.java:966)
+import org.dmd.dmw.DmwWrapper;                                        // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1051)
 
 
 /**
@@ -53,7 +53,7 @@ public class NameContainerTestDMW extends DmwWrapper {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public NameContainer getAnObjName(){
         return(((NameContainerTestDMO) core).getAnObjName());
     }
@@ -62,7 +62,7 @@ public class NameContainerTestDMW extends DmwWrapper {
      * Sets anObjName to the specified value.
      * @param value A value compatible with DmcTypeNameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setAnObjName(Object value) throws DmcValueException {
         ((NameContainerTestDMO) core).setAnObjName(value);
     }
@@ -71,7 +71,7 @@ public class NameContainerTestDMW extends DmwWrapper {
      * Sets anObjName to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setAnObjName(NameContainer value){
         ((NameContainerTestDMO) core).setAnObjName(value);
     }
@@ -80,7 +80,7 @@ public class NameContainerTestDMW extends DmwWrapper {
      * Sets anObjName to the specified value.
      * @param value NameContainer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1425)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1419)
     public void setAnObjName(DmcObjectName value){
         ((NameContainerTestDMO) core).setAnObjName(value);
     }
@@ -88,12 +88,12 @@ public class NameContainerTestDMW extends DmwWrapper {
     /**
      * Removes the anObjName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remAnObjName(){
         ((NameContainerTestDMO) core).remAnObjName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public DmtStringName getAnotherDmtName(){
         return(((NameContainerTestDMO) core).getAnotherDmtName());
     }
@@ -102,7 +102,7 @@ public class NameContainerTestDMW extends DmwWrapper {
      * Sets anotherDmtName to the specified value.
      * @param value A value compatible with DmcTypeDmtStringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setAnotherDmtName(Object value) throws DmcValueException {
         ((NameContainerTestDMO) core).setAnotherDmtName(value);
     }
@@ -111,7 +111,7 @@ public class NameContainerTestDMW extends DmwWrapper {
      * Sets anotherDmtName to the specified value.
      * @param value DmtStringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setAnotherDmtName(DmtStringName value){
         ((NameContainerTestDMO) core).setAnotherDmtName(value);
     }
@@ -119,12 +119,12 @@ public class NameContainerTestDMW extends DmwWrapper {
     /**
      * Removes the anotherDmtName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remAnotherDmtName(){
         ((NameContainerTestDMO) core).remAnotherDmtName();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public DmtStringName getDmtStringName(){
         return(((NameContainerTestDMO) core).getDmtStringName());
     }
@@ -133,7 +133,7 @@ public class NameContainerTestDMW extends DmwWrapper {
      * Sets dmtStringName to the specified value.
      * @param value A value compatible with DmcTypeDmtStringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setDmtStringName(Object value) throws DmcValueException {
         ((NameContainerTestDMO) core).setDmtStringName(value);
     }
@@ -142,7 +142,7 @@ public class NameContainerTestDMW extends DmwWrapper {
      * Sets dmtStringName to the specified value.
      * @param value DmtStringName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setDmtStringName(DmtStringName value){
         ((NameContainerTestDMO) core).setDmtStringName(value);
     }
@@ -150,7 +150,7 @@ public class NameContainerTestDMW extends DmwWrapper {
     /**
      * Removes the dmtStringName attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remDmtStringName(){
         ((NameContainerTestDMO) core).remDmtStringName();
     }

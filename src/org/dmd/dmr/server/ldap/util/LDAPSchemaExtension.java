@@ -18,7 +18,6 @@ package org.dmd.dmr.server.ldap.util;
 import java.util.Iterator;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmr.server.ldap.generated.DmrLdapSchemaAG;
 import org.dmd.dmr.server.ldap.generated.dmw.LDAPAttributeAUX;
 import org.dmd.dmr.server.ldap.generated.dmw.LDAPClassAUX;
@@ -36,6 +35,7 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.enums.DataTypeEnum;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.parsing.DmcUncheckedObject;
 
 /**
  * The LDAPSchemaExtension class provides additional rule checking for

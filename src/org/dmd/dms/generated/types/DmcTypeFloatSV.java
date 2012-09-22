@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -24,8 +24,8 @@ import org.dmd.dmc.types.DmcTypeFloat;    // DmcType import
  * The DmcTypeFloatSV provides storage for a single-valued Float
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:270)
  */
 @SuppressWarnings("serial")
 public class DmcTypeFloatSV extends DmcTypeFloat implements Serializable {
@@ -41,7 +41,7 @@ public class DmcTypeFloatSV extends DmcTypeFloat implements Serializable {
     }
     
     public DmcTypeFloatSV getNew(){
-        return(new DmcTypeFloatSV(getAttributeInfo()));
+        return(new DmcTypeFloatSV(attrInfo));
     }
     
     public DmcTypeFloatSV getNew(DmcAttributeInfo ai){
@@ -49,14 +49,14 @@ public class DmcTypeFloatSV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
     public DmcAttribute<Float> cloneIt(){
         DmcTypeFloatSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
     public Float getSVCopy(){
         if (value == null)
             return(null);
@@ -64,7 +64,7 @@ public class DmcTypeFloatSV extends DmcTypeFloat implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
     public Float set(Object v) throws DmcValueException {
         Float rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

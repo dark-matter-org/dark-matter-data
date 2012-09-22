@@ -41,7 +41,7 @@ public class ExtendedReferenceTypeFormatter {
 //        BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + ctn + ".java"));
         BufferedWriter out = FileUpdateManager.instance().getWriter(od, ctn + ".java");
         
-//DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
+DebugInfo.debug("Generating: " + od + "/" + ctn + ".java");
         
         fields = ertd.getField();
         

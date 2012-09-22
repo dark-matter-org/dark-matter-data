@@ -26,7 +26,7 @@ import org.dmd.dmp.shared.generated.dmo.DeleteResponseDMO;    // DmcType import
  * The DmcTypeDeleteResponseREFMV provides storage for a multi-valued DeleteResponse
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2270)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
@@ -46,11 +46,11 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
     
     @Override
     public DmcTypeDeleteResponseREFMV getNew(){
-        return(new DmcTypeDeleteResponseREFMV(getAttributeInfo()));
+        return(new DmcTypeDeleteResponseREFMV(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2302)
     public DmcAttribute<DeleteResponseDMO> cloneIt(){
         synchronized(this){
             DmcTypeDeleteResponseREFMV rc = getNew();
@@ -58,7 +58,7 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
             if (value == null)
                 return(rc);
     
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 for(DeleteResponseDMO val: value)
                 try {
                     rc.add(val);
@@ -79,7 +79,7 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2335)
     public DeleteResponseDMO add(Object v) throws DmcValueException {
         synchronized(this){
             DeleteResponseDMO rc = typeCheck(v);
@@ -91,7 +91,7 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2348)
     public DeleteResponseDMO del(Object v){
         synchronized(this){
             if (value == null)
@@ -115,7 +115,7 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2382)
     public Iterator<DeleteResponseDMO> getMV(){
         synchronized(this){
             if (value == null)
@@ -126,7 +126,7 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2394)
     public ArrayList<DeleteResponseDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
@@ -137,21 +137,21 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2434)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2406)
     public int getMVSize(){
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0){
+            if (attrInfo.indexSize == 0){
                 if (value == null)
                     return(0);
                 return(value.size());
             }
             else
-                return(getAttributeInfo().indexSize);
+                return(attrInfo.indexSize);
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2421)
     public DeleteResponseDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
@@ -161,14 +161,14 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2432)
     public DeleteResponseDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use setMVnth()."));
             
-            if ( (index < 0) || (index >= getAttributeInfo().indexSize))
-                throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
+            if ( (index < 0) || (index >= attrInfo.indexSize))
+                throw(new IllegalStateException("Index " + index + " for attribute: " + attrInfo.name + " is out of range: 0 <= index < " + attrInfo.indexSize));
             
             DeleteResponseDMO rc = null;
             
@@ -176,8 +176,8 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<DeleteResponseDMO>(getAttributeInfo().indexSize);
-                for(int i=0;i<getAttributeInfo().indexSize;i++)
+                value = new ArrayList<DeleteResponseDMO>(attrInfo.indexSize);
+                for(int i=0;i<attrInfo.indexSize;i++)
                     value.add(null);
             }
             
@@ -188,13 +188,13 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2488)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
     public boolean hasValue(){
         synchronized(this){
             boolean rc = false;
             
-            if (getAttributeInfo().indexSize == 0)
-                throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use hasValue()."));
+            if (attrInfo.indexSize == 0)
+                throw(new IllegalStateException("Attribute: " + attrInfo.name + " is not indexed. You can't use hasValue()."));
             
             if (value == null)
                 return(rc);
@@ -211,7 +211,7 @@ public class DmcTypeDeleteResponseREFMV extends DmcTypeDeleteResponseREF impleme
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2512)
+    // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2484)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

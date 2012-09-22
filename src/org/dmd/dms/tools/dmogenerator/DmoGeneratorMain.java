@@ -19,7 +19,6 @@ import java.io.IOException;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.util.exceptions.ResultException;
 
 public class DmoGeneratorMain {
@@ -36,9 +35,6 @@ public class DmoGeneratorMain {
 		} catch (DmcValueException e) {
 			e.printStackTrace();
 		} catch (DmcValueExceptionSet e) {
-			e.printStackTrace();
-		} catch (DmcRuleExceptionSet e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

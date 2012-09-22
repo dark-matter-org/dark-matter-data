@@ -14,7 +14,7 @@ public class GeneratorSETAdapter extends DmcTypeGeneratorSET implements DmcAdapt
     transient DmcTypeGeneratorSET existingValue;
 
     public GeneratorSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

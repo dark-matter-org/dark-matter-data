@@ -1,16 +1,14 @@
 package org.dmd.map.generated.dmo;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:736)
-import java.util.ArrayList;              // For storage of schema info - (DmoCompactSchemaFormatter.java:674)
-import java.util.HashMap;                // For storage of schema info - (DmoCompactSchemaFormatter.java:673)
-import java.util.Iterator;               // For access of schema info - (DmoCompactSchemaFormatter.java:675)
-import org.dmd.dmc.*;                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:676)
-import org.dmd.dmc.rules.RuleIF;         // For rule info - (DmoCompactSchemaFormatter.java:677)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:565)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:100)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:95)
 public class MapDMSAG implements DmcCompactSchemaIF {
 
 
@@ -26,6 +24,7 @@ public class MapDMSAG implements DmcCompactSchemaIF {
     static int schemaMaxID = 20050;
 
 
+
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
     static  HashMap<Integer, DmcAttributeInfo> _SmAp;
@@ -35,8 +34,6 @@ public class MapDMSAG implements DmcCompactSchemaIF {
     static  HashMap<String, DmcFilterBuilderIF> _FmAp;
 
     static  HashMap<String, DmcSliceInfo> _SImAp;
-
-    static  ArrayList<RuleIF>             _RmAp;
 
     static {
         _CmAp = new HashMap<Integer, DmcClassInfo>();
@@ -48,8 +45,6 @@ public class MapDMSAG implements DmcCompactSchemaIF {
         _FmAp = new HashMap<String, DmcFilterBuilderIF>();
 
         _SImAp = new HashMap<String, DmcSliceInfo>();
-
-        _RmAp = new ArrayList<RuleIF>();
 
 
 
@@ -120,11 +115,6 @@ public class MapDMSAG implements DmcCompactSchemaIF {
 
     public int getSchemaMaxID(){
         return(schemaMaxID);
-    }
-
-
-    public Iterator<RuleIF> getRules(){
-        return(_RmAp.iterator());
     }
 
 

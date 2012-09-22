@@ -14,7 +14,7 @@ public class UUIDNamedObjectREFSVAdapter extends DmcTypeUUIDNamedObjectREFSV imp
     transient DmcTypeUUIDNamedObjectREFSV existingValue;
 
     public UUIDNamedObjectREFSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

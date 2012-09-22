@@ -34,10 +34,10 @@
     <source path='dms/generated/types'/>
     <source path='dms/extended'/>
     <source path='dms/types'/>
-    <source path='dms/shared/interfaces'/>
     <source path='dmt/shared/generated'/>
     <source path='dmt/shared/types'/>
-    <source path='dmv/shared'/>
+    <source path='mvw/client'/>
     <source path='map/generated'/>
+    <source path='features/extgwt/client'/>
 
 </module>

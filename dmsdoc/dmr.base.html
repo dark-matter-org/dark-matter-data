@@ -44,7 +44,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">A DotNamedObject is a hierarchic object whose fully qualified\n name is composed of naming attributes separated by periods. For example \n grandparent.parent.child.\n <p>\n The naming attribute of a DotNamedObject is name. Unlike LDAP objects, \n we don't bother making this configurable. When a DotNamedObject is parsed\n from a file, we check to see if the name attribute has a value; if not,\n we take the last portion of the FQN as the name. For example, if the FQN\n is x.y.z, the name of the object would be 'z'.</td>
+      <td colspan="2">A DotNamedObject is a hierarchic object whose fully qualified name is composed of naming attributes separated by periods. For example  grandparent.parent.child. <p> The naming attribute of a DotNamedObject is name. Unlike LDAP objects,  we don't bother making this configurable. When a DotNamedObject is parsed from a file, we check to see if the name attribute has a value; if not, we take the last portion of the FQN as the name. For example, if the FQN is x.y.z, the name of the object would be 'z'.</td>
     </tr>
 
     <tr>
@@ -82,8 +82,7 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#FQN">FQN</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#FullyQualifiedName">FullyQualifiedName</a> </td>
-      <td> The fully qualified name of a hierarchic object. The exact form of
- the fqn is application specific. </td>
+      <td> The fully qualified name of a hierarchic object. The exact form of the fqn is application specific. </td>
     </tr>
 
   </table>
@@ -94,7 +93,7 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">A HierarchicObject is meant to represent any object that can\n be identified with a Fully Qualified Name (FQN) and exists in a containment\n relationship with other objects. The exact implementation of a HierarchicObject\n is application specific.</td>
+      <td colspan="2">A HierarchicObject is meant to represent any object that can be identified with a Fully Qualified Name (FQN) and exists in a containment relationship with other objects. The exact implementation of a HierarchicObject is application specific.</td>
     </tr>
 
     <tr>
@@ -131,8 +130,7 @@
       <td class="label">Must</td>
       <td> <a href="meta.html#FQN">FQN</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#FullyQualifiedName">FullyQualifiedName</a> </td>
-      <td> The fully qualified name of a hierarchic object. The exact form of
- the fqn is application specific. </td>
+      <td> The fully qualified name of a hierarchic object. The exact form of the fqn is application specific. </td>
     </tr>
 
   </table>
@@ -158,18 +156,6 @@
       <td>A user's password.</td>
     </tr>
 
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-<table>
-  <tr>
-    <td> LoginRequest (<a href="dmp.html#LoginRequest">dmp</a>) </td>
-</tr>
-</table>
-      </td>
-    </tr>
-
     <tr> <td class="className" colspan="3"> <a name="userName"> userName </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -183,20 +169,6 @@
       <td>The name of a user.</td>
     </tr>
 
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-<table>
-  <tr>
-    <td> LoginRequest (<a href="dmp.html#LoginRequest">dmp</a>) </td>
-    <td> LogoutRequest (<a href="dmp.html#LogoutRequest">dmp</a>) </td>
-    <td> Request (<a href="dmp.html#Request">dmp</a>) </td>
-</tr>
-</table>
-      </td>
-    </tr>
-
   </table>
 
 </div> <!-- attributeDetails -->
@@ -206,12 +178,14 @@
     <div id="sidebar">
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>
+        <a class="navLink" href="dmp.server.html"> dmp.server</a>
         <a class="navLink" href="dmr.base.html"> dmr.base</a>
         <a class="navLink" href="dmr.ldap.html"> dmr.ldap</a>
         <a class="navLink" href="dmt.html"> dmt</a>
         <a class="navLink" href="dmv.html"> dmv</a>
         <a class="navLink" href="map.html"> map</a>
         <a class="navLink" href="meta.html"> meta</a>
+        <a class="navLink" href="mvw.html"> mvw</a>
     </div>
   </div> <!-- main -->
 

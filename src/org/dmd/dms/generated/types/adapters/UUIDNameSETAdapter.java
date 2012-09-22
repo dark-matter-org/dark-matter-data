@@ -14,7 +14,7 @@ public class UUIDNameSETAdapter extends DmcTypeUUIDNameSET implements DmcAdapter
     transient DmcTypeUUIDNameSET existingValue;
 
     public UUIDNameSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

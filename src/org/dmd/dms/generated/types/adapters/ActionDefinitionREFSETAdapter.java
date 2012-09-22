@@ -14,7 +14,7 @@ public class ActionDefinitionREFSETAdapter extends DmcTypeActionDefinitionREFSET
     transient DmcTypeActionDefinitionREFSET existingValue;
 
     public ActionDefinitionREFSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -14,7 +14,7 @@ public class TimeDoubleDataPointSVAdapter extends DmcTypeTimeDoubleDataPointSV i
     transient DmcTypeTimeDoubleDataPointSV existingValue;
 
     public TimeDoubleDataPointSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -15,27 +15,26 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.dmo;
 
-// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1835)
-import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1788)
-import java.util.*;                           // Attribute info support - (MetaGenerator.java:1790)
-import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1812)
-import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1802)
-import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1824)
+import java.io.Serializable;
 
+import java.util.*;
+
+import org.dmd.dmc.types.*;
+import org.dmd.dmc.*;
+import org.dmd.dms.generated.dmo.MetaVCAG;
+import org.dmd.dms.generated.types.*;
 
 /**
- * The ActionTriggerInfo class simply provides a common base for the bundle\n
- * of information required to remotely trigger an action on an object. \n
- * Derivatives of this class are generated as part of the DMO generation\n
- * process and have action specific interfaces to handle the parameters \n
- * required by an action.\n <P>\n This mechanism is a replacement for the
- * concept that ActionRequests were\n EXTENSIBLE objects. This way, the user
- * can ask an object for the \n ActionTriggerInfo (ATI) for a particular
- * action and have a well defined\n interface to specify the parameters for
- * the action.
+ * The ActionTriggerInfo class simply provides a common base for the bundle
+ * of information required to remotely trigger an action on an object. 
+ * Derivatives of this class are generated as part of the DMO generation
+ * process and have action specific interfaces to handle the parameters 
+ * required by an action. <P> This mechanism is a replacement for the concept
+ * that ActionRequests were EXTENSIBLE objects. This way, the user can ask an
+ * object for the  ActionTriggerInfo (ATI) for a particular action and have a
+ * well defined interface to specify the parameters for the action.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1845)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1231)
  */
 @SuppressWarnings("serial")
 public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
@@ -46,6 +45,10 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
 
     static Map<String ,DmcAttributeInfo> _SmAp;
 
+    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
+
+    static Map<String ,DmcObjectValidator> _OvDmAp;
+
 
     static {
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
@@ -53,6 +56,11 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
+
+        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
+
+        _OvDmAp = new HashMap<String ,DmcObjectValidator>();
+        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
 
@@ -72,6 +80,14 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
         return(_SmAp);
     }
 
+    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
+        return(_AvDmAp);
+    }
+
+    protected Map<String,DmcObjectValidator> getObjectValidators(){
+        return(_OvDmAp);
+    }
+
     @Override
     public ActionTriggerInfoDMO getNew(){
         ActionTriggerInfoDMO rc = new ActionTriggerInfoDMO();
@@ -87,11 +103,11 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name\n for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
+     * a unique name for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -104,7 +120,7 @@ public class ActionTriggerInfoDMO extends DmcObject implements Serializable {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2284)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)

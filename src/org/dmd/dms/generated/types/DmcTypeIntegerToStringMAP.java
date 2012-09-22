@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -31,14 +31,12 @@ import org.dmd.dmc.types.IntegerToString;    // primitive import
  * The DmcTypeIntegerToStringMAP provides storage for a map of IntegerToString
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2828)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:647)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2756)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:275)
  */
 @SuppressWarnings("serial")
 // public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString<IntegerToString> {
 public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements Serializable {
-    
-    private final static Iterator<IntegerToString> emptyList = (new HashMap<Integer,IntegerToString>()).values().iterator();
     
     protected Map<Integer,IntegerToString> value;
     
@@ -52,36 +50,32 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
             value = new HashMap<Integer,IntegerToString>();
         else
             value = new TreeMap<Integer,IntegerToString>();
     }
     
     public Integer firstKey(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){
+        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){
             if (value == null)
                 return(null);
             TreeMap<Integer,IntegerToString> map = (TreeMap<Integer,IntegerToString>)value;
             return(map.firstKey());
         }
-        throw(new IllegalStateException("Attribute " + getAttributeInfo().name + " is HASHMAPPED and doesn't support firstKey()"));
+        throw(new IllegalStateException("Attribute " + attrInfo.name + " is HASHMAPPED and doesn't support firstKey()"));
     }
     
     @Override
     public DmcTypeIntegerToStringMAP getNew(){
-        return(new DmcTypeIntegerToStringMAP(getAttributeInfo()));
+        return(new DmcTypeIntegerToStringMAP(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2810)
     public DmcAttribute<IntegerToString> cloneIt(){
         synchronized(this){
             DmcTypeIntegerToStringMAP rc = getNew();
-    
-            if (value == null)
-                return(rc);
-    
             for(IntegerToString val: value.values())
             try {
                 rc.add(val);
@@ -93,7 +87,7 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2905)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2826)
     public IntegerToString add(Object v) throws DmcValueException {
         synchronized(this){
             IntegerToString newval = typeCheck(v);
@@ -113,13 +107,9 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2926)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2847)
     public IntegerToString del(Object key){
         synchronized(this){
-    
-            if (value == null)
-                return(null);
-    
            if (key instanceof Integer)
                 return(value.remove(key));
             else
@@ -128,15 +118,11 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2942)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2859)
     public Iterator<IntegerToString> getMV(){
         synchronized(this){
-    
-            if (value == null)
-                return(emptyList);
-    
             Map<Integer,IntegerToString> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
                 clone = new HashMap<Integer,IntegerToString>(value);
             else
                 clone = new TreeMap<Integer,IntegerToString>(value);
@@ -144,27 +130,19 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2959)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2872)
     public Map<Integer,IntegerToString> getMVCopy(){
         synchronized(this){
             Map<Integer,IntegerToString> clone = null;
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){
-                if (value == null)
-                    clone = new HashMap<Integer,IntegerToString>();
-                else
-                    clone = new HashMap<Integer,IntegerToString>(value);
-            }
-            else{
-                if (value == null)
-                    clone = new TreeMap<Integer,IntegerToString>();
-                else
-                    clone = new TreeMap<Integer,IntegerToString>(value);
-            }
+            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)
+                clone = new HashMap<Integer,IntegerToString>(value);
+            else
+                clone = new TreeMap<Integer,IntegerToString>(value);
             return(clone);
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2980)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2885)
     @Override
     public int getMVSize(){
         synchronized(this){
@@ -175,12 +153,9 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2992)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2897)
     public IntegerToString getByKey(Object key){
         synchronized(this){
-           if (value == null)
-               return(null);
-    
             if (key instanceof Integer)
                 return(value.get((Integer) key));
             else
@@ -189,12 +164,9 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3007)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2909)
     public boolean contains(Object v){
         synchronized(this){
-           if (value == null)
-               return(false);
-    
             try {
                 IntegerToString val = typeCheck(v);
                 return(value.containsValue(val));
@@ -205,12 +177,9 @@ public class DmcTypeIntegerToStringMAP extends DmcTypeIntegerToString implements
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:3024)
+    // org.dmd.dms.util.GenUtility.dumpMAPType(GenUtility.java:2930)
     public boolean containsKey(Object key){
         synchronized(this){
-           if (value == null)
-               return(false);
-    
            if (key instanceof Integer)
                 return(value.containsKey(key));
             return(false);

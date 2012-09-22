@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -28,14 +28,11 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeActionDefinitionREFSET provides storage for a set of ActionDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:587)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:245)
  */
 @SuppressWarnings("serial")
 public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF implements Serializable {
-    
-     private final static Iterator<ActionDefinitionREF> emptyList =  (new HashSet<ActionDefinitionREF>()).iterator();
-    
     
     protected Set<ActionDefinitionREF> value;
     
@@ -49,7 +46,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ActionDefinitionREF>();
         else
             value = new TreeSet<ActionDefinitionREF>();
@@ -57,18 +54,14 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     
     @Override
     public DmcTypeActionDefinitionREFSET getNew(){
-        return(new DmcTypeActionDefinitionREFSET(getAttributeInfo()));
+        return(new DmcTypeActionDefinitionREFSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
     public DmcAttribute<ActionDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeActionDefinitionREFSET rc = getNew();
-    
-            if (value == null)
-                return(rc);
-    
             for(ActionDefinitionREF val: value)
             try {
                 rc.add(val);
@@ -80,7 +73,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
     public ActionDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             ActionDefinitionREF rc = typeCheck(v);
@@ -96,7 +89,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
     public ActionDefinitionREF del(Object v){
         synchronized(this){
             ActionDefinitionREF rc = null;
@@ -120,39 +113,28 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
     public Iterator<ActionDefinitionREF> getMV(){
         synchronized(this){
-            if (value == null)
-                return(emptyList);
-
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ActionDefinitionREF>(value)).iterator() );
             else
                 return( (new TreeSet<ActionDefinitionREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
     public Set<ActionDefinitionREF> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
-                if (value == null)
-                    return(new HashSet<ActionDefinitionREF>());
-                else
-                    return(new HashSet<ActionDefinitionREF>(value));
-            }
-            else{
-                if (value == null)
-                    return(new TreeSet<ActionDefinitionREF>(value));
-                else
-                    return(new TreeSet<ActionDefinitionREF>(value));
-            }
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                return(new HashSet<ActionDefinitionREF>(value));
+            else
+                return(new TreeSet<ActionDefinitionREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -162,7 +144,7 @@ public class DmcTypeActionDefinitionREFSET extends DmcTypeActionDefinitionREF im
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

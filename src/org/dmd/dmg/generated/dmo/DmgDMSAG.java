@@ -1,20 +1,18 @@
 package org.dmd.dmg.generated.dmo;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:736)
-import java.util.ArrayList;                               // For storage of schema info - (DmoCompactSchemaFormatter.java:674)
-import java.util.HashMap;                                 // For storage of schema info - (DmoCompactSchemaFormatter.java:673)
-import java.util.Iterator;                                // For access of schema info - (DmoCompactSchemaFormatter.java:675)
-import org.dmd.dmc.*;                                     // Basic DMC stuff - (DmoCompactSchemaFormatter.java:676)
-import org.dmd.dmc.rules.RuleIF;                          // For rule info - (DmoCompactSchemaFormatter.java:677)
-import org.dmd.dms.generated.dmo.MetaDMSAG;               // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:693)
-import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions - (DmoCompactSchemaFormatter.java:681)
-import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:682)
-import org.dmd.dms.generated.enums.ValueTypeEnum;         // Have attribute definitions - (DmoCompactSchemaFormatter.java:704)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:565)
+import org.dmd.dms.generated.dmo.MetaDMSAG;               // Optional attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:550)
+import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions - (DmoCompactSchemaFormatter.java:538)
+import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:539)
+import org.dmd.dms.generated.enums.ValueTypeEnum;         // Have attribute definitions - (DmoCompactSchemaFormatter.java:560)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:100)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:95)
 public class DmgDMSAG implements DmcCompactSchemaIF {
 
 
@@ -38,11 +36,12 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __generator = new DmcAttributeInfo("generator", 200, "Generator", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __schemaToLoad = new DmcAttributeInfo("schemaToLoad", 201, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __upperConstantName = new DmcAttributeInfo("upperConstantName", 205, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcClassInfo __ActifactGenerator = new DmcClassInfo("ActifactGenerator","org.dmd.dmg.generated.dmo.ActifactGeneratorDMO", 205, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
-    public final static DmcClassInfo __DmgConfig = new DmcClassInfo("DmgConfig","org.dmd.dmg.generated.dmo.DmgConfigDMO", 201, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
-    public final static DmcClassInfo __GenerationContext = new DmcClassInfo("GenerationContext","org.dmd.dmg.generated.dmo.GenerationContextDMO", 202, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,DmgDMSAG.__genContextName);
-    public final static DmcClassInfo __MethodGenerator = new DmcClassInfo("MethodGenerator","org.dmd.dmg.generated.dmo.MethodGeneratorDMO", 204, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
-    public final static DmcClassInfo __WrapperGenerator = new DmcClassInfo("WrapperGenerator","org.dmd.dmg.generated.dmo.WrapperGeneratorDMO", 203, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __ActifactGenerator = new DmcClassInfo("ActifactGenerator", 205, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __DmgConfig = new DmcClassInfo("DmgConfig", 201, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __GenerationContext = new DmcClassInfo("GenerationContext", 202, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,DmgDMSAG.__genContextName);
+    public final static DmcClassInfo __MethodGenerator = new DmcClassInfo("MethodGenerator", 204, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+    public final static DmcClassInfo __WrapperGenerator = new DmcClassInfo("WrapperGenerator", 203, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
+
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -54,8 +53,6 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
 
     static  HashMap<String, DmcSliceInfo> _SImAp;
 
-    static  ArrayList<RuleIF>             _RmAp;
-
     static {
         _CmAp = new HashMap<Integer, DmcClassInfo>();
 
@@ -66,8 +63,6 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
         _FmAp = new HashMap<String, DmcFilterBuilderIF>();
 
         _SImAp = new HashMap<String, DmcSliceInfo>();
-
-        _RmAp = new ArrayList<RuleIF>();
 
         _SmAp.put(__alias.id,__alias);
         _SmAp.put(__configSuffix.id,__configSuffix);
@@ -175,11 +170,6 @@ public class DmgDMSAG implements DmcCompactSchemaIF {
 
     public int getSchemaMaxID(){
         return(schemaMaxID);
-    }
-
-
-    public Iterator<RuleIF> getRules(){
-        return(_RmAp.iterator());
     }
 
 

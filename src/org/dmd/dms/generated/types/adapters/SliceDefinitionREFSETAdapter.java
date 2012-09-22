@@ -14,7 +14,7 @@ public class SliceDefinitionREFSETAdapter extends DmcTypeSliceDefinitionREFSET i
     transient DmcTypeSliceDefinitionREFSET existingValue;
 
     public SliceDefinitionREFSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -16,7 +16,6 @@
 package org.dmd.util.parsing;
 
 import org.dmd.dmc.types.IntegerVar;
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.util.exceptions.ResultException;
 import org.dmd.util.exceptions.ResultSet;
 

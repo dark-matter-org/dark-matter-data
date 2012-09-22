@@ -14,7 +14,7 @@ public class FullyQualifiedNameMVAdapter extends DmcTypeFullyQualifiedNameMV imp
     transient DmcTypeFullyQualifiedNameMV existingValue;
 
     public FullyQualifiedNameMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

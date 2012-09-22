@@ -14,7 +14,7 @@ public class SchemaDefinitionREFSVAdapter extends DmcTypeSchemaDefinitionREFSV i
     transient DmcTypeSchemaDefinitionREFSV existingValue;
 
     public SchemaDefinitionREFSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

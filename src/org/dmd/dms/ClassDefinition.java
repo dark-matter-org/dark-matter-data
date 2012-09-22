@@ -25,7 +25,6 @@ import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.StringName;
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
@@ -33,7 +32,6 @@ import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
 import org.dmd.dms.generated.types.DmwTypeToWrapperType;
 import org.dmd.dmw.DmwWrapper;
-import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
@@ -264,14 +262,6 @@ public class ClassDefinition extends ClassDefinitionDMW {
     		return(false);
     	else
     		return(true);
-    }
-    
-    public boolean isAllowedAttribute(StringName name){
-    	if (fullAttrMap == null)
-    		getFullAttrMap();
-    	if (fullAttrMap.get(name) == null)
-    		return(false);
-    	return(true);
     }
     
     private void initAttrMap(){
@@ -758,11 +748,7 @@ public class ClassDefinition extends ClassDefinitionDMW {
 		}
 		else if (getUseWrapperType() == WrapperTypeEnum.EXTENDED){
 			try {
-				if (getDefinedIn().getName().getNameString().equals(MetaDMSAG.instance().getSchemaName())){
-					setJavaClass(genPackage + "." + getName());
-					setDmeImport(genPackage + "." + getName());
-				}
-				else if (getSubpackage() != null){
+				if (getSubpackage() != null){
 					setJavaClass(genPackage + ".extended." + getSubpackage() + "." + getName());
 					setDmeImport(genPackage + ".extended." + getSubpackage() + "." + getName());
 				}
@@ -861,66 +847,5 @@ public class ClassDefinition extends ClassDefinitionDMW {
         return(shortest);
     }    
     
-    ///////////////////////////////////////////////////////////////////////////
-    
-    /**
-     * This method is used in conjunction with the rule instantiation mechanisms.
-     * It will determine whether or not additional type imports are required for
-     * an extensible rule class, for example, the InitRule. These imports are
-     * required because we have to use the basic DmcObject mechanisms to add the
-     * values for the attributes to the extensible object.
-     * <p/>
-     * This method also provides basic must/may checking of the specified attributes
-     * and will throw an exception for unknown attributes on a structural class.
-     * @param imports where we'll add the required imports.
-     * @param uco the rule data object.
-     * @throws ResultException 
-     */
-    public void addImportsForAdditionalAttributes(SchemaManager sm, ImportManager imports, DmcUncheckedObject uco) throws ResultException{
-    	ResultException ex = null;
-    	
-    	Iterator<String> attrNames = uco.getAttributeNames();
-    	if (attrNames != null){
-    		while(attrNames.hasNext()){
-    			String		name = attrNames.next();
-    			StringName 	attr = new StringName(name);
-    			if (!isAllowedAttribute(attr)){
-    				if (getClassType() == ClassTypeEnum.EXTENSIBLE){
-    					// Add the appropriate import for the attribute's type
-    					AttributeDefinition ad = sm.isAttribute(name);
-    					
-    					if (ad == null){
-        					if (ex == null)
-        						ex = new ResultException();
-        					ex.addError("The " + attr + " attribute is not defined, but used in " + uco.getConstructionClass());
-        					setExceptionLocation(ex,uco);
-    					}
-    					else
-    						imports.addImport(ad.getTypeImport(), "Support for addition of " + name + " values to the extensible " + uco.getConstructionClass() + " class");
-    				}
-    				else{
-    					if (ex == null)
-    						ex = new ResultException();
-    					ex.addError("The " + attr + " attribute is not valid for class " + uco.getConstructionClass());
-    					setExceptionLocation(ex,uco);
-    				}
-    			}
-    		}
-    	}
-    	
-    	if (ex != null)
-    		throw(ex);
-    }
-    
-    void setExceptionLocation(ResultException ex, DmcUncheckedObject uco){
-    	try {
-			int ln = Integer.parseInt(uco.getSV(MetaDMSAG.__lineNumber.name));
-			String file = uco.getSV(MetaDMSAG.__file.name);
-			ex.setLocationInfo(file, ln);
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    }
 
 }

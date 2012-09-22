@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -30,14 +30,11 @@ import org.dmd.dmc.types.DmcTypeDate;    // DmcType import
  * The DmcTypeDateSET provides storage for a set of Date
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
 public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
-    
-     private final static Iterator<Date> emptyList =  (new HashSet<Date>()).iterator();
-    
     
     protected Set<Date> value;
     
@@ -51,7 +48,7 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Date>();
         else
             value = new TreeSet<Date>();
@@ -59,18 +56,14 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
     
     @Override
     public DmcTypeDateSET getNew(){
-        return(new DmcTypeDateSET(getAttributeInfo()));
+        return(new DmcTypeDateSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
     public DmcAttribute<Date> cloneIt(){
         synchronized(this){
             DmcTypeDateSET rc = getNew();
-    
-            if (value == null)
-                return(rc);
-    
             for(Date val: value)
             try {
                 rc.add(val);
@@ -82,7 +75,7 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
     public Date add(Object v) throws DmcValueException {
         synchronized(this){
             Date rc = typeCheck(v);
@@ -98,7 +91,7 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
     public Date del(Object v){
         synchronized(this){
             Date rc = null;
@@ -122,39 +115,28 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
     public Iterator<Date> getMV(){
         synchronized(this){
-            if (value == null)
-                return(emptyList);
-
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<Date>(value)).iterator() );
             else
                 return( (new TreeSet<Date>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
     public Set<Date> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
-                if (value == null)
-                    return(new HashSet<Date>());
-                else
-                    return(new HashSet<Date>(value));
-            }
-            else{
-                if (value == null)
-                    return(new TreeSet<Date>(value));
-                else
-                    return(new TreeSet<Date>(value));
-            }
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                return(new HashSet<Date>(value));
+            else
+                return(new TreeSet<Date>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -164,7 +146,7 @@ public class DmcTypeDateSET extends DmcTypeDate implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -29,14 +29,11 @@ import org.dmd.dmc.types.DmcTypeInteger;    // DmcType import
  * The DmcTypeIntegerSET provides storage for a set of Integer
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
 public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
-    
-     private final static Iterator<Integer> emptyList =  (new HashSet<Integer>()).iterator();
-    
     
     protected Set<Integer> value;
     
@@ -50,7 +47,7 @@ public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<Integer>();
         else
             value = new TreeSet<Integer>();
@@ -58,18 +55,14 @@ public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
     
     @Override
     public DmcTypeIntegerSET getNew(){
-        return(new DmcTypeIntegerSET(getAttributeInfo()));
+        return(new DmcTypeIntegerSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
     public DmcAttribute<Integer> cloneIt(){
         synchronized(this){
             DmcTypeIntegerSET rc = getNew();
-    
-            if (value == null)
-                return(rc);
-    
             for(Integer val: value)
             try {
                 rc.add(val);
@@ -81,7 +74,7 @@ public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
     public Integer add(Object v) throws DmcValueException {
         synchronized(this){
             Integer rc = typeCheck(v);
@@ -97,7 +90,7 @@ public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
     public Integer del(Object v){
         synchronized(this){
             Integer rc = null;
@@ -121,39 +114,28 @@ public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
     public Iterator<Integer> getMV(){
         synchronized(this){
-            if (value == null)
-                return(emptyList);
-
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<Integer>(value)).iterator() );
             else
                 return( (new TreeSet<Integer>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
     public Set<Integer> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
-                if (value == null)
-                    return(new HashSet<Integer>());
-                else
-                    return(new HashSet<Integer>(value));
-            }
-            else{
-                if (value == null)
-                    return(new TreeSet<Integer>(value));
-                else
-                    return(new TreeSet<Integer>(value));
-            }
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                return(new HashSet<Integer>(value));
+            else
+                return(new TreeSet<Integer>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +145,7 @@ public class DmcTypeIntegerSET extends DmcTypeInteger implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

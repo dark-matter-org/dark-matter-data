@@ -1,20 +1,18 @@
 package org.dmd.dmr.shared.base.generated.dmo;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import org.dmd.dmc.*;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:736)
-import java.util.ArrayList;                               // For storage of schema info - (DmoCompactSchemaFormatter.java:674)
-import java.util.HashMap;                                 // For storage of schema info - (DmoCompactSchemaFormatter.java:673)
-import java.util.Iterator;                                // For access of schema info - (DmoCompactSchemaFormatter.java:675)
-import org.dmd.dmc.*;                                     // Basic DMC stuff - (DmoCompactSchemaFormatter.java:676)
-import org.dmd.dmc.rules.RuleIF;                          // For rule info - (DmoCompactSchemaFormatter.java:677)
-import org.dmd.dms.generated.dmo.MetaDMSAG;               // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:689)
-import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions - (DmoCompactSchemaFormatter.java:681)
-import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:682)
-import org.dmd.dms.generated.enums.ValueTypeEnum;         // Have attribute definitions - (DmoCompactSchemaFormatter.java:704)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:565)
+import org.dmd.dms.generated.dmo.MetaDMSAG;               // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:546)
+import org.dmd.dms.generated.enums.ClassTypeEnum;         // Have class definitions - (DmoCompactSchemaFormatter.java:538)
+import org.dmd.dms.generated.enums.DataTypeEnum;          // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:539)
+import org.dmd.dms.generated.enums.ValueTypeEnum;         // Have attribute definitions - (DmoCompactSchemaFormatter.java:560)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:100)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:95)
 public class DmrBaseDMSAG implements DmcCompactSchemaIF {
 
 
@@ -31,8 +29,9 @@ public class DmrBaseDMSAG implements DmcCompactSchemaIF {
 
     public final static DmcAttributeInfo __password = new DmcAttributeInfo("password", 401, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __userName = new DmcAttributeInfo("userName", 400, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
-    public final static DmcClassInfo __HierarchicObject = new DmcClassInfo("HierarchicObject","org.dmd.dmr.shared.base.generated.dmo.HierarchicObjectDMO", 401, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__FQN);
-    public final static DmcClassInfo __DotNamedObject = new DmcClassInfo("DotNamedObject","org.dmd.dmr.shared.base.generated.dmo.DotNamedObjectDMO", 402, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__HierarchicObject,MetaDMSAG.__FQN);
+    public final static DmcClassInfo __HierarchicObject = new DmcClassInfo("HierarchicObject", 401, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__FQN);
+    public final static DmcClassInfo __DotNamedObject = new DmcClassInfo("DotNamedObject", 402, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__HierarchicObject,MetaDMSAG.__FQN);
+
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -44,8 +43,6 @@ public class DmrBaseDMSAG implements DmcCompactSchemaIF {
 
     static  HashMap<String, DmcSliceInfo> _SImAp;
 
-    static  ArrayList<RuleIF>             _RmAp;
-
     static {
         _CmAp = new HashMap<Integer, DmcClassInfo>();
 
@@ -56,8 +53,6 @@ public class DmrBaseDMSAG implements DmcCompactSchemaIF {
         _FmAp = new HashMap<String, DmcFilterBuilderIF>();
 
         _SImAp = new HashMap<String, DmcSliceInfo>();
-
-        _RmAp = new ArrayList<RuleIF>();
 
         _SmAp.put(__password.id,__password);
         _SmAp.put(__userName.id,__userName);
@@ -138,11 +133,6 @@ public class DmrBaseDMSAG implements DmcCompactSchemaIF {
 
     public int getSchemaMaxID(){
         return(schemaMaxID);
-    }
-
-
-    public Iterator<RuleIF> getRules(){
-        return(_RmAp.iterator());
     }
 
 

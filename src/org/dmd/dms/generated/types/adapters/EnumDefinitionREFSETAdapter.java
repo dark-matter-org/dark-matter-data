@@ -14,7 +14,7 @@ public class EnumDefinitionREFSETAdapter extends DmcTypeEnumDefinitionREFSET imp
     transient DmcTypeEnumDefinitionREFSET existingValue;
 
     public EnumDefinitionREFSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

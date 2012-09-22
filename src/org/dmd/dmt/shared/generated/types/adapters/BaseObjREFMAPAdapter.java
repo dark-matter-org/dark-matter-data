@@ -14,7 +14,7 @@ public class BaseObjREFMAPAdapter extends DmcTypeBaseObjREFMAP implements DmcAda
     transient DmcTypeBaseObjREFMAP existingValue;
 
     public BaseObjREFMAPAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

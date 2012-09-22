@@ -14,7 +14,7 @@ public class MethodGeneratorREFSETAdapter extends DmcTypeMethodGeneratorREFSET i
     transient DmcTypeMethodGeneratorREFSET existingValue;
 
     public MethodGeneratorREFSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

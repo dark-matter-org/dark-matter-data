@@ -14,7 +14,7 @@ public class IntegerToStringSETAdapter extends DmcTypeIntegerToStringSET impleme
     transient DmcTypeIntegerToStringSET existingValue;
 
     public IntegerToStringSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

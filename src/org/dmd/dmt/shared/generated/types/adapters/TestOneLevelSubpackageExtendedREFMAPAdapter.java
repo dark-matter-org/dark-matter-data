@@ -14,7 +14,7 @@ public class TestOneLevelSubpackageExtendedREFMAPAdapter extends DmcTypeTestOneL
     transient DmcTypeTestOneLevelSubpackageExtendedREFMAP existingValue;
 
     public TestOneLevelSubpackageExtendedREFMAPAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

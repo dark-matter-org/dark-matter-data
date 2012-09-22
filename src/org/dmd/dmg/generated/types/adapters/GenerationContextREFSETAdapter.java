@@ -14,7 +14,7 @@ public class GenerationContextREFSETAdapter extends DmcTypeGenerationContextREFS
     transient DmcTypeGenerationContextREFSET existingValue;
 
     public GenerationContextREFSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

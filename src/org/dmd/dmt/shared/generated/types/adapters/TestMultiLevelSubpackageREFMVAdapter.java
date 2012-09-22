@@ -14,7 +14,7 @@ public class TestMultiLevelSubpackageREFMVAdapter extends DmcTypeTestMultiLevelS
     transient DmcTypeTestMultiLevelSubpackageREFMV existingValue;
 
     public TestMultiLevelSubpackageREFMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

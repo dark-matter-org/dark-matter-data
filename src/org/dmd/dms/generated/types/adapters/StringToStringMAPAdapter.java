@@ -14,7 +14,7 @@ public class StringToStringMAPAdapter extends DmcTypeStringToStringMAP implement
     transient DmcTypeStringToStringMAP existingValue;
 
     public StringToStringMAPAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

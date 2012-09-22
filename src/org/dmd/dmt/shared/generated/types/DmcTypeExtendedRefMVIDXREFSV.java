@@ -9,7 +9,7 @@ import org.dmd.dmt.shared.generated.dmo.ExtendedRefMVIDXDMO;    // DmcType impor
  * The DmcTypeExtendedRefMVIDXREFSV provides storage for a single-valued ExtendedRefMVIDX
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1926)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
@@ -26,7 +26,7 @@ public class DmcTypeExtendedRefMVIDXREFSV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     public DmcTypeExtendedRefMVIDXREFSV getNew(){
-        return(new DmcTypeExtendedRefMVIDXREFSV(getAttributeInfo()));
+        return(new DmcTypeExtendedRefMVIDXREFSV(attrInfo));
     }
     
     public DmcTypeExtendedRefMVIDXREFSV getNew(DmcAttributeInfo ai){
@@ -34,14 +34,14 @@ public class DmcTypeExtendedRefMVIDXREFSV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
     public DmcAttribute<ExtendedRefMVIDXDMO> cloneIt(){
         DmcTypeExtendedRefMVIDXREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1969)
     public ExtendedRefMVIDXDMO getSVCopy(){
         if (value == null)
             return(null);
@@ -49,7 +49,7 @@ public class DmcTypeExtendedRefMVIDXREFSV extends DmcTypeExtendedRefMVIDXREF imp
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1981)
     public ExtendedRefMVIDXDMO set(Object v) throws DmcValueException {
         ExtendedRefMVIDXDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
