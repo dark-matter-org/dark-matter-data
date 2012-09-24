@@ -50,6 +50,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
+        _ImAp.put(MetaDMSAG.__immediateHalt.id,MetaDMSAG.__immediateHalt);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
@@ -60,6 +61,7 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
+        _SmAp.put(MetaDMSAG.__immediateHalt.name,MetaDMSAG.__immediateHalt);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
     }
 
@@ -278,6 +280,36 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         
         attr.set(value);
         set(MetaDMSAG.__file,attr);
+    }
+
+    /**
+     * The immediateHalt flag is used to indicate that no further\n rule
+     * processing should occur if a rule fails. It is an optional attribute on
+     * rule instance\n objects. In somes cases, there is no point in continuing
+     * with the application of a set \n of rules, so this flag gives the option
+     * of halting further processing.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    public Boolean getImmediateHalt(){
+        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__immediateHalt);
+        if (attr == null)
+            return(false);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets immediateHalt to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2284)
+    public void setImmediateHalt(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__immediateHalt);
+        if (attr == null)
+            attr = new DmcTypeBooleanSV(MetaDMSAG.__immediateHalt);
+        
+        attr.set(value);
+        set(MetaDMSAG.__immediateHalt,attr);
     }
 
     /**

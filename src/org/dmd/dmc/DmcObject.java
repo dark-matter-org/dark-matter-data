@@ -189,6 +189,13 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
+	 * @return an iterator over this object's attribute values.
+	 */
+	public Iterator<DmcAttribute<?>> getAttributeIterator(){
+		return(attributes.values().iterator());
+	}
+	
+	/**
 	 * If a class of object doesn't support back reference tracking, it will overload this
 	 * method to return false. Otherwise, back reference tracking can be turned on for all 
 	 * objects. This distinction is important for things like Dark Matter Protocol messages

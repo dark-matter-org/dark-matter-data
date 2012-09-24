@@ -15,7 +15,7 @@ public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidati
     public UCOValidationRuleCollection(){
     }
 
-    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:369)
+    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:378)
     @Override
     public void addRule(RuleIF r){
 
@@ -28,21 +28,48 @@ public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidati
      * @param obj The object to be validated:
      */
     public void execute(DmcUncheckedObject obj) throws DmcRuleExceptionSet {
-        DmcClassInfo     cI = DmcOmni.instance().getClassInfo(obj.getConstructionClass());
+        DmcRuleExceptionSet rc = null;
+        DmcClassInfo        cI = DmcOmni.instance().getClassInfo(obj.getConstructionClass());
         ArrayList<UCOValidationIF> ruleList = super.getRules(cI);
 
         if (ruleList != null){
             for(UCOValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
                     DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
-                rule.execute(obj);
+                try {
+                    rule.execute(obj);
+                } catch (DmcRuleExceptionSet e) {
+                    if (rc == null)
+                        rc = e;
+                    else
+                        rc.add(e);
+                    
+                    if (DmcOmni.instance().ruleTracing())
+                        DmcOmni.instance().ruleFailed(e);
+                    
+                    if (rc.immediateHalt())
+                        throw(rc);
+                }
             }
         }
 
         for(UCOValidationIF rule: globalRules){
             if (DmcOmni.instance().ruleTracing())
                 DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
-            rule.execute(obj);
+            try {
+                rule.execute(obj);
+            } catch (DmcRuleExceptionSet e) {
+                if (rc == null)
+                    rc = e;
+                else
+                    rc.add(e);
+
+                if (DmcOmni.instance().ruleTracing())
+                    DmcOmni.instance().ruleFailed(e);
+
+                 if (rc.immediateHalt())
+                    throw(rc);
+            }
         }
     }
 

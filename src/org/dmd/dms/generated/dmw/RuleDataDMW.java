@@ -213,6 +213,27 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
         mycore.setApplyToClass(value.getDmcObject());
     }
 
+    /**
+     * The immediateHalt flag is used to indicate that no further\n rule
+     * processing should occur if a rule fails. It is an optional attribute on
+     * rule instance\n objects. In somes cases, there is no point in continuing
+     * with the application of a set \n of rules, so this flag gives the option
+     * of halting further processing.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    public Boolean getImmediateHalt(){
+        return(mycore.getImmediateHalt());
+    }
+
+    /**
+     * Sets immediateHalt to the specified value.
+     * @param value A value compatible with DmcTypeBooleanSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
+    public void setImmediateHalt(Object value) throws DmcValueException {
+        mycore.setImmediateHalt(value);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

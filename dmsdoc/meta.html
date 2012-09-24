@@ -1370,7 +1370,11 @@
  in this category.
  </ul>
  Exactly how a RuleCategory applies rule instances is category specific and this behaviour should be
- part of the description of a rule category.</td>
+ part of the description of a rule category.
+ <p/>
+ For CLASS level rules, you must specify the classInfoFromParam attribute to indicate how to 
+ get the DmcClassInfo from whatever object you are passing to the rule. For ATTRIBUTE level rules,
+ you must specify both attributeInfoFromParam and classInfoFromParam.</td>
     </tr>
 
     <tr>
@@ -1406,6 +1410,16 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Must</td>
+      <td> <a href="meta.html#classInfoFromParam">classInfoFromParam</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates how the DmcClassInfo should be extracted from one of the ruleParam values
+ associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport
+ values as appropriate. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive
@@ -1444,17 +1458,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="meta.html#ruleExecution">ruleExecution</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> Indicates how a particular category of rule is executed. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
-      <td> <a href="meta.html#ruleInterface">ruleInterface</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The fully qualified name of the interface to be implemented by rules of a particular category. </td>
+      <td> <a href="meta.html#ruleParam">ruleParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#RuleParam">RuleParam</a> </td>
+      <td> A parameter to be supplied to a rule when it is executed. </td>
     </tr>
 
     <tr>
@@ -1468,17 +1474,20 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="meta.html#ruleImport">ruleImport</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> An import required for arguements to a ruleExecution specification. </td>
+      <td> <a href="meta.html#attributeInfoFromParam">attributeInfoFromParam</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates how the DmcAttributeInfo should be extracted from one of the ruleParam values
+ associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport
+ values as appropriate. </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="meta.html#ruleParam">ruleParam</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="meta.html#RuleParam">RuleParam</a> </td>
-      <td> A parameter to be supplied to a rule when it is executed. </td>
+      <td> <a href="meta.html#ruleImport">ruleImport</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> An import required for generation of the rule collection associated with
+ a RuleCategory. </td>
     </tr>
 
   </table>
@@ -2523,6 +2532,33 @@
       </td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="attributeInfoFromParam"> attributeInfoFromParam </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates how the DmcAttributeInfo should be extracted from one of the ruleParam values
+ associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport
+ values as appropriate.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="baseType"> baseType </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2646,6 +2682,33 @@
 <table>
   <tr>
     <td> GetRequest (<a href="dmp.html#GetRequest">dmp</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="classInfoFromParam"> classInfoFromParam </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>Indicates how the DmcClassInfo should be extracted from one of the ruleParam values
+ associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport
+ values as appropriate.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -5359,31 +5422,6 @@
       </td>
     </tr>
 
-    <tr> <td class="className" colspan="3"> <a name="ruleExecution"> ruleExecution </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>Indicates how a particular category of rule is executed.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-<table>
-  <tr>
-    <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
-</tr>
-</table>
-      </td>
-    </tr>
-
     <tr> <td class="className" colspan="3"> <a name="ruleImport"> ruleImport </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5394,32 +5432,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>An import required for arguements to a ruleExecution specification.</td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-<table>
-  <tr>
-    <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
-</tr>
-</table>
-      </td>
-    </tr>
-
-    <tr> <td class="className" colspan="3"> <a name="ruleInterface"> ruleInterface </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>The fully qualified name of the interface to be implemented by rules of a particular category.</td>
+      <td>An import required for generation of the rule collection associated with
+ a RuleCategory.</td>
     </tr>
 
     <tr>
@@ -7027,102 +7041,102 @@
 </tr>
   <tr>
     <td> applicationVersion (<a href="dmp.html#applicationVersion">dmp</a>) </td>
+    <td> attributeInfoFromParam (<a href="meta.html#attributeInfoFromParam">meta</a>) </td>
     <td> basedOnValue (<a href="dmv.html#basedOnValue">dmv</a>) </td>
-    <td> configSuffix (<a href="dmg.html#configSuffix">dmg</a>) </td>
 </tr>
   <tr>
+    <td> classInfoFromParam (<a href="meta.html#classInfoFromParam">meta</a>) </td>
+    <td> configSuffix (<a href="dmg.html#configSuffix">dmg</a>) </td>
     <td> defFiles (<a href="meta.html#defFiles">meta</a>) </td>
+</tr>
+  <tr>
     <td> dependsOn (<a href="meta.html#dependsOn">meta</a>) </td>
     <td> dependsOnSchema (<a href="meta.html#dependsOnSchema">meta</a>) </td>
+    <td> description (<a href="meta.html#description">meta</a>) </td>
 </tr>
   <tr>
-    <td> description (<a href="meta.html#description">meta</a>) </td>
     <td> dmeClass (<a href="meta.html#dmeClass">meta</a>) </td>
     <td> dmeImport (<a href="meta.html#dmeImport">meta</a>) </td>
+    <td> dmoAuxClass (<a href="meta.html#dmoAuxClass">meta</a>) </td>
 </tr>
   <tr>
-    <td> dmoAuxClass (<a href="meta.html#dmoAuxClass">meta</a>) </td>
     <td> dmoAuxClassImport (<a href="meta.html#dmoAuxClassImport">meta</a>) </td>
     <td> dmoClass (<a href="meta.html#dmoClass">meta</a>) </td>
+    <td> dmoImport (<a href="meta.html#dmoImport">meta</a>) </td>
 </tr>
   <tr>
-    <td> dmoImport (<a href="meta.html#dmoImport">meta</a>) </td>
     <td> dmtClass (<a href="meta.html#dmtClass">meta</a>) </td>
     <td> dmtImport (<a href="meta.html#dmtImport">meta</a>) </td>
+    <td> dmtREFImport (<a href="meta.html#dmtREFImport">meta</a>) </td>
 </tr>
   <tr>
-    <td> dmtREFImport (<a href="meta.html#dmtREFImport">meta</a>) </td>
     <td> dmwAuxClass (<a href="meta.html#dmwAuxClass">meta</a>) </td>
     <td> dmwAuxClassImport (<a href="meta.html#dmwAuxClassImport">meta</a>) </td>
+    <td> dmwClass (<a href="meta.html#dmwClass">meta</a>) </td>
 </tr>
   <tr>
-    <td> dmwClass (<a href="meta.html#dmwClass">meta</a>) </td>
     <td> dmwImport (<a href="meta.html#dmwImport">meta</a>) </td>
     <td> dmwIteratorClass (<a href="meta.html#dmwIteratorClass">meta</a>) </td>
+    <td> dmwIteratorImport (<a href="meta.html#dmwIteratorImport">meta</a>) </td>
 </tr>
   <tr>
-    <td> dmwIteratorImport (<a href="meta.html#dmwIteratorImport">meta</a>) </td>
     <td> dmwPackage (<a href="meta.html#dmwPackage">meta</a>) </td>
     <td> enumName (<a href="meta.html#enumName">meta</a>) </td>
+    <td> enumString (<a href="meta.html#enumString">meta</a>) </td>
 </tr>
   <tr>
-    <td> enumString (<a href="meta.html#enumString">meta</a>) </td>
     <td> excludeFromContext (<a href="meta.html#excludeFromContext">meta</a>) </td>
     <td> extendedClass (<a href="meta.html#extendedClass">meta</a>) </td>
+    <td> extendsInterface (<a href="meta.html#extendsInterface">meta</a>) </td>
 </tr>
   <tr>
-    <td> extendsInterface (<a href="meta.html#extendsInterface">meta</a>) </td>
     <td> fieldSeparator (<a href="meta.html#fieldSeparator">meta</a>) </td>
     <td> file (<a href="meta.html#file">meta</a>) </td>
+    <td> filter (<a href="dmp.html#filter">dmp</a>) </td>
 </tr>
   <tr>
-    <td> filter (<a href="dmp.html#filter">dmp</a>) </td>
     <td> genClass (<a href="dmg.html#genClass">dmg</a>) </td>
     <td> genPackage (<a href="dmg.html#genPackage">dmg</a>) </td>
+    <td> generatedFileHeader (<a href="meta.html#generatedFileHeader">meta</a>) </td>
 </tr>
   <tr>
-    <td> generatedFileHeader (<a href="meta.html#generatedFileHeader">meta</a>) </td>
     <td> genericArgs (<a href="meta.html#genericArgs">meta</a>) </td>
     <td> genericArgsImport (<a href="meta.html#genericArgsImport">meta</a>) </td>
+    <td> getMethod (<a href="meta.html#getMethod">meta</a>) </td>
 </tr>
   <tr>
-    <td> getMethod (<a href="meta.html#getMethod">meta</a>) </td>
     <td> getType (<a href="meta.html#getType">meta</a>) </td>
     <td> helperClassName (<a href="meta.html#helperClassName">meta</a>) </td>
+    <td> hsString (<a href="dmt.html#hsString">dmt</a>) </td>
 </tr>
   <tr>
-    <td> hsString (<a href="dmt.html#hsString">dmt</a>) </td>
     <td> indexedString (<a href="dmt.html#indexedString">dmt</a>) </td>
     <td> instantiation (<a href="meta.html#instantiation">meta</a>) </td>
+    <td> javaClass (<a href="meta.html#javaClass">meta</a>) </td>
 </tr>
   <tr>
-    <td> javaClass (<a href="meta.html#javaClass">meta</a>) </td>
     <td> keyClass (<a href="meta.html#keyClass">meta</a>) </td>
     <td> keyImport (<a href="meta.html#keyImport">meta</a>) </td>
+    <td> ldapIdPrefix (<a href="dmr.ldap.html#ldapIdPrefix">dmr.ldap</a>) </td>
 </tr>
   <tr>
-    <td> ldapIdPrefix (<a href="dmr.ldap.html#ldapIdPrefix">dmr.ldap</a>) </td>
     <td> mvIdxString (<a href="dmt.html#mvIdxString">dmt</a>) </td>
     <td> mvString (<a href="dmt.html#mvString">dmt</a>) </td>
+    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
 </tr>
   <tr>
-    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
     <td> nullReturnValue (<a href="meta.html#nullReturnValue">meta</a>) </td>
     <td> obsoleteVersion (<a href="meta.html#obsoleteVersion">meta</a>) </td>
+    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
 </tr>
   <tr>
-    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
     <td> primitiveType (<a href="meta.html#primitiveType">meta</a>) </td>
     <td> reposName (<a href="dmr.ldap.html#reposName">dmr.ldap</a>) </td>
-</tr>
-  <tr>
     <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
-    <td> responseText (<a href="dmp.html#responseText">dmp</a>) </td>
-    <td> ruleExecution (<a href="meta.html#ruleExecution">meta</a>) </td>
 </tr>
   <tr>
+    <td> responseText (<a href="dmp.html#responseText">dmp</a>) </td>
     <td> ruleImport (<a href="meta.html#ruleImport">meta</a>) </td>
-    <td> ruleInterface (<a href="meta.html#ruleInterface">meta</a>) </td>
     <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
 </tr>
   <tr>

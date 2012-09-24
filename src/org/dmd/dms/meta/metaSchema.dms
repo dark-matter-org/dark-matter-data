@@ -484,7 +484,7 @@ ruleCategoryID			4
 ruleType				CLASS
 ruleParam				org.dmd.dmc.DmcObject: :obj:The object being modified
 ruleParam				org.dmd.dms.generated.types.DmcTypeModifierMV: :mods:The set of modifications being performed
-ruleParam				org.dmd.dmc.types.Modifier: :mod:The particular modification being validated
+//ruleParam				org.dmd.dmc.types.Modifier: :mod:The particular modification being validated
 classInfoFromParam		obj.getConstructionClassInfo()
 description				Rules in this category are used to validate modifications that are
  about to be applied to an object.
@@ -1568,12 +1568,14 @@ dmdID						136
 type                		RuleTypeEnum
 description    				The type of a rule.
 
-//AttributeDefinition
-//name                		isGlobalRule
-//dmdID						137
-//type                		Boolean
-//description    				Indicates if a RuleDefinition whose ruleType is CLASS is global
-// in scope i.e. that it is applied to all classes.
+AttributeDefinition
+name                		immediateHalt
+dmdID						137
+type                		Boolean
+description    				The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing.
 
 AttributeDefinition
 name                		ruleTitle
@@ -2176,9 +2178,10 @@ may          	file
 may        		lineNumber
 may				applyToAttribute
 may				applyToClass
+may				immediateHalt
 description		The RuleData class serves as a common base for all ClassDefinitions
  that are generated internally to represent the data associated with RuleDefinitions.
- 
+
 ClassDefinition
 name			Dependency
 classType      	STRUCTURAL

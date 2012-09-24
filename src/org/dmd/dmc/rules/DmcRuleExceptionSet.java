@@ -35,6 +35,37 @@ public class DmcRuleExceptionSet extends Exception {
 		return(exceptions);
 	}
 	
+	/**
+	 * Appends the exceptions in the specified exception set to this exception set.
+	 * @param dres a new set of exceptions.
+	 */
+	public void add(DmcRuleExceptionSet dres){
+		if (dres == null)
+			return;
+		if (dres.exceptions == null)
+			return;
+		if (exceptions == null)
+			exceptions = new ArrayList<DmcRuleException>();
+		
+		for(DmcRuleException ex: dres.exceptions)
+			exceptions.add(ex);
+	}
+	
+	/**
+	 * @return true if any of the exceptions has requested an immediate halt.
+	 */
+	public boolean immediateHalt(){
+		if (exceptions == null)
+			return(false);
+		
+		for(DmcRuleException ex: exceptions){
+			if (ex.immediateHalt)
+				return(true);
+		}
+		
+		return(false);
+	}
+	
 	@Override
 	public String toString(){
         StringBuffer sb = new StringBuffer();
