@@ -33,4 +33,14 @@ public class RuleList<E extends RuleIF> {
 	public ArrayList<E> getRules(){
 		return(rules);
 	}
+	
+	public String toString(){
+		StringBuffer sb = new StringBuffer();
+		
+		for(RuleIF rule: rules){
+			sb.append("        " + rule.toString());
+		}
+		
+		return(sb.toString());
+	}
 }

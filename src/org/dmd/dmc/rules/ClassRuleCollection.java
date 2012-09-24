@@ -22,8 +22,10 @@ public abstract class ClassRuleCollection<I extends RuleIF> extends RuleCollecti
         }
         else{
             RuleList<I> classRules = rules.get(rule.getKey());
-            if (classRules == null)
+            if (classRules == null){
                 classRules = new RuleList<I>();
+                rules.put(rule.getKey(), classRules);
+            }
             classRules.addRule(rule);
         }
     }
@@ -80,5 +82,4 @@ public abstract class ClassRuleCollection<I extends RuleIF> extends RuleCollecti
 		
 		ruleList.setInitialized();
 	}
-
 }

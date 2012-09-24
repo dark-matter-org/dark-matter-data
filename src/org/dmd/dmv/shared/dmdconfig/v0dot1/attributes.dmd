@@ -71,3 +71,17 @@ valueType		MULTI
 description		The includeThisAttribute indicates an optional attribute that must be
  present under certain conditions.
 
+AttributeDefinition
+name   			onePossibility
+dmdID			11
+type        	AttributeDefinition
+valueType		MULTI
+description		The onePossibility attribute indicates an attribute that is one possiblity among
+ many. 
+
+AttributeDefinition
+name   			andOnlyOne
+dmdID			12
+type        	Boolean
+description		The andOnlyOne attribute indicates that only one of a set of possibilities is
+ allowed.

@@ -28,8 +28,10 @@ public abstract class AttributeRuleCollection<I extends RuleIF> extends RuleColl
         }
         else{
             RuleList<I> attrRules = rules.get(rule.getKey());
-            if (attrRules == null)
+            if (attrRules == null){
                 attrRules = new RuleList<I>();
+                rules.put(rule.getKey(), attrRules);
+            }
             attrRules.addRule(rule);
         }
 		

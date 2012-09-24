@@ -42,4 +42,20 @@ public abstract class RuleCollection<I extends RuleIF> {
 			addRule(rules.next());
 		}
 	}
+	
+
+	public String toString(){
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append(this.getClass().getName() + "\n");
+		
+		for(RuleKey key: rules.keySet()){
+			sb.append("\n    " + key + "\n");
+			RuleList<I> rl = rules.get(key);
+			sb.append(rl.toString());
+		}
+		
+		return(sb.toString());
+	}
+
 }

@@ -149,4 +149,13 @@ public class DmvRuleManager extends DmcRuleManager {
 	public void executeUCOValidators(DmcUncheckedObject uco) throws DmcRuleExceptionSet{
 		ucoObjectvalidators.execute(uco);
 	}
+	
+	public String toString(){
+		StringBuffer sb = new StringBuffer();
+		
+		for(RuleCollection<?> rc: ruleCollections){
+			sb.append(rc.toString());
+		}
+		return(sb.toString());
+	}
 }
