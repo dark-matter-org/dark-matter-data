@@ -600,6 +600,21 @@ public class RuleFormatter {
 			out.write("        return(attrInfo);\n");
 			out.write("    }\n\n");
 
+			out.write("    @Override\n");
+			out.write("    public String toString() {\n");
+			out.write("        StringBuffer sb = new StringBuffer();\n");
+			out.write("        \n");
+			out.write("        sb.append(getRuleType() + \" \");\n");
+			out.write("        \n");
+			out.write("        sb.append(getRuleClass().name + \" \");\n");
+			out.write("        \n");
+			out.write("        sb.append(getKey() + \" \");\n");
+			out.write("        \n");
+			out.write("        sb.append(getRuleTitle());\n");
+			out.write("        \n");
+			out.write("        return(sb.toString());\n");
+			out.write("    }\n\n");
+			
 			
 			out.write("}\n\n");
 			

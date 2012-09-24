@@ -57,7 +57,7 @@ public class AllowedAttributesRule extends AllowedAttributesRuleBaseImpl {
 
 	@Override
 	public void execute(DmcObject obj, DmcTypeModifierMV mods) throws DmcRuleExceptionSet {
-		// TODO Auto-generated method stub
+		
 		
 	}
 

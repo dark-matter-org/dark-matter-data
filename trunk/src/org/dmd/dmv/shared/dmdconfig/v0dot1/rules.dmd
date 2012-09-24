@@ -20,6 +20,8 @@ ruleName    dmvAllowedAttributes
 ruleTitle 	Validate allowed attributes on objects.
 description	Ensures that must/may attribute rules are followed.
 
+///////////////////////////////////////////////////////////////////////////////
+
 RuleDefinition
 name			InitRule
 dmdID			2
@@ -138,13 +140,12 @@ ruleCategory		ObjectValidation
 ruleCategory		ObjectModifierValidation
 must				basedOnAttribute
 must				basedOnValue
-must				excludeThisAttribute
+may					excludeThisAttribute
+may					includeThisAttribute
 description			The CheckAttributesBasedOnValueRule allows you to specify
  that certain optional attributes must exist (or not exist) based on the value
- of another attribute in an object.
- an object based on the setting of a particular enumerated attribute. This allows
- for finer control of must/may attributes based on enumerated values in an object.
- An example usage might look like:
+ of another attribute in an object. This allows for finer control of must/may
+ attributes based on enumerated values in an object. An example usage might look like:
  <pre>
  CheckAttributesBasedOnValueRuleData
  ruleName             <schema>ExcludeSunRoof
@@ -154,4 +155,40 @@ description			The CheckAttributesBasedOnValueRule allows you to specify
  basedOnValue         FOURCYLINDER
  excludeThisAttribute sunRoofOption
  </pre>
+
+CheckAttributesBasedOnValueRuleData
+ruleName				dmvNoMustInExtensible
+ruleTitle				If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes
+applyToClass			ClassDefinition
+basedOnAttribute		classType
+basedOnValue			AUXILIARY
+excludeThisAttribute	must
+description				An AUXILIARY class can be added to an object dynamically and
+ we don't allow mandatory attributes in such classes.
+
+///////////////////////////////////////////////////////////////////////////////
+ 
+RuleDefinition
+name				OneOfTheseAttributesRequiredRule
+dmdID				8
+ruleCategory		ObjectValidation
+ruleCategory		ObjectModifierValidation
+must				onePossibility
+may					andOnlyOne
+description			The OneOfTheseAttributesRequiredRule allows you to specify
+ that one of the possible optional attributes specified must be present
+ in the object being checked.
+ <p/>
+ If only one of the possibilities is allowed, you can specify the andOnlyOne
+ flag and set it to true. In this case only one of the possibilities will be allowed.
+
+OneOfTheseAttributesRequiredRuleData
+ruleName			dmvIncludeOrExclude
+ruleTitle			At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified.
+applyToClass		CheckAttributesBasedOnValueRuleData
+applyToAttribute	onePossibility
+onePossibility		excludeThisAttribute
+onePossibility		includeThisAttribute
+
+
 

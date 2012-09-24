@@ -210,6 +210,220 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
          rem(MetaDMSAG.__applyToClass);
     }
 
+    /**
+     * @return An Iterator of AttributeDefinitionDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    public Iterator<AttributeDefinitionREF> getExcludeThisAttribute(){
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(DmvDMSAG.__excludeThisAttribute);
+        if (attr == null)
+            return( ((List<AttributeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return( ((List<AttributeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+            }
+        }
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return An Iterator of AttributeDefinitionREFs without attempting lazy resolution (if it's turned on).
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:980)
+    public Iterator<AttributeDefinitionREF> getExcludeThisAttributeREFs(){
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(DmvDMSAG.__excludeThisAttribute);
+        if (attr == null)
+            return( ((List<AttributeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another excludeThisAttribute to the specified value.
+     * @param value AttributeDefinition
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:994)
+    public DmcAttribute<?> addExcludeThisAttribute(AttributeDefinitionDMO value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__excludeThisAttribute);
+        if (attr == null)
+            attr = new DmcTypeAttributeDefinitionREFMV(DmvDMSAG.__excludeThisAttribute);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(DmvDMSAG.__excludeThisAttribute,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Adds another excludeThisAttribute value.
+     * @param value A value compatible with AttributeDefinition
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
+    public DmcAttribute<?> addExcludeThisAttribute(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmvDMSAG.__excludeThisAttribute);
+        if (attr == null)
+            attr = new DmcTypeAttributeDefinitionREFMV(DmvDMSAG.__excludeThisAttribute);
+        
+        setLastValue(attr.add(value));
+        add(DmvDMSAG.__excludeThisAttribute,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in excludeThisAttribute
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
+    public int getExcludeThisAttributeSize(){
+        DmcAttribute<?> attr = get(DmvDMSAG.__excludeThisAttribute);
+        if (attr == null){
+            if (DmvDMSAG.__excludeThisAttribute.indexSize == 0)
+                return(0);
+            else
+                return(DmvDMSAG.__excludeThisAttribute.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a excludeThisAttribute value.
+     * @param value The AttributeDefinition to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1291)
+    public DmcAttribute<?> delExcludeThisAttribute(Object value){
+        DmcAttribute<?> attr = get(DmvDMSAG.__excludeThisAttribute);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeAttributeDefinitionREFMV(DmvDMSAG.__excludeThisAttribute), value);
+        else
+            attr = del(DmvDMSAG.__excludeThisAttribute, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the excludeThisAttribute attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    public void remExcludeThisAttribute(){
+         rem(DmvDMSAG.__excludeThisAttribute);
+    }
+
+    /**
+     * @return An Iterator of AttributeDefinitionDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    public Iterator<AttributeDefinitionREF> getIncludeThisAttribute(){
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(DmvDMSAG.__includeThisAttribute);
+        if (attr == null)
+            return( ((List<AttributeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return( ((List<AttributeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+            }
+        }
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return An Iterator of AttributeDefinitionREFs without attempting lazy resolution (if it's turned on).
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:980)
+    public Iterator<AttributeDefinitionREF> getIncludeThisAttributeREFs(){
+        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(DmvDMSAG.__includeThisAttribute);
+        if (attr == null)
+            return( ((List<AttributeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another includeThisAttribute to the specified value.
+     * @param value AttributeDefinition
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:994)
+    public DmcAttribute<?> addIncludeThisAttribute(AttributeDefinitionDMO value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__includeThisAttribute);
+        if (attr == null)
+            attr = new DmcTypeAttributeDefinitionREFMV(DmvDMSAG.__includeThisAttribute);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(DmvDMSAG.__includeThisAttribute,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Adds another includeThisAttribute value.
+     * @param value A value compatible with AttributeDefinition
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
+    public DmcAttribute<?> addIncludeThisAttribute(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmvDMSAG.__includeThisAttribute);
+        if (attr == null)
+            attr = new DmcTypeAttributeDefinitionREFMV(DmvDMSAG.__includeThisAttribute);
+        
+        setLastValue(attr.add(value));
+        add(DmvDMSAG.__includeThisAttribute,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in includeThisAttribute
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
+    public int getIncludeThisAttributeSize(){
+        DmcAttribute<?> attr = get(DmvDMSAG.__includeThisAttribute);
+        if (attr == null){
+            if (DmvDMSAG.__includeThisAttribute.indexSize == 0)
+                return(0);
+            else
+                return(DmvDMSAG.__includeThisAttribute.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a includeThisAttribute value.
+     * @param value The AttributeDefinition to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1291)
+    public DmcAttribute<?> delIncludeThisAttribute(Object value){
+        DmcAttribute<?> attr = get(DmvDMSAG.__includeThisAttribute);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeAttributeDefinitionREFMV(DmvDMSAG.__includeThisAttribute), value);
+        else
+            attr = del(DmvDMSAG.__includeThisAttribute, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the includeThisAttribute attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    public void remIncludeThisAttribute(){
+         rem(DmvDMSAG.__includeThisAttribute);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public RuleName getRuleName(){
         DmcTypeRuleNameSV attr = (DmcTypeRuleNameSV) get(MetaDMSAG.__ruleName);
@@ -507,113 +721,6 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
     public void remBasedOnValue(){
          rem(DmvDMSAG.__basedOnValue);
-    }
-
-    /**
-     * @return An Iterator of AttributeDefinitionDMO objects.
-     */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
-    public Iterator<AttributeDefinitionREF> getExcludeThisAttribute(){
-        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(DmvDMSAG.__excludeThisAttribute);
-        if (attr == null)
-            return( ((List<AttributeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
-
-        if (DmcOmni.instance().lazyResolution()){
-            if (attr.doLazyResolution(this)){
-                rem(attr.getAttributeInfo());
-                return( ((List<AttributeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
-            }
-        }
-
-        return(attr.getMV());
-    }
-
-    /**
-     * @return An Iterator of AttributeDefinitionREFs without attempting lazy resolution (if it's turned on).
-     */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:980)
-    public Iterator<AttributeDefinitionREF> getExcludeThisAttributeREFs(){
-        DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) get(DmvDMSAG.__excludeThisAttribute);
-        if (attr == null)
-            return( ((List<AttributeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another excludeThisAttribute to the specified value.
-     * @param value AttributeDefinition
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:994)
-    public DmcAttribute<?> addExcludeThisAttribute(AttributeDefinitionDMO value) {
-        DmcAttribute<?> attr = get(DmvDMSAG.__excludeThisAttribute);
-        if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREFMV(DmvDMSAG.__excludeThisAttribute);
-        
-        try{
-            setLastValue(attr.add(value));
-            add(DmvDMSAG.__excludeThisAttribute,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
-        }
-        return(attr);
-    }
-
-    /**
-     * Adds another excludeThisAttribute value.
-     * @param value A value compatible with AttributeDefinition
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
-    public DmcAttribute<?> addExcludeThisAttribute(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(DmvDMSAG.__excludeThisAttribute);
-        if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREFMV(DmvDMSAG.__excludeThisAttribute);
-        
-        setLastValue(attr.add(value));
-        add(DmvDMSAG.__excludeThisAttribute,attr);
-        return(attr);
-    }
-
-    /**
-     * Returns the number of values in excludeThisAttribute
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
-    public int getExcludeThisAttributeSize(){
-        DmcAttribute<?> attr = get(DmvDMSAG.__excludeThisAttribute);
-        if (attr == null){
-            if (DmvDMSAG.__excludeThisAttribute.indexSize == 0)
-                return(0);
-            else
-                return(DmvDMSAG.__excludeThisAttribute.indexSize);
-        }
-        return(attr.getMVSize());
-    }
-
-    /**
-     * Deletes a excludeThisAttribute value.
-     * @param value The AttributeDefinition to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1291)
-    public DmcAttribute<?> delExcludeThisAttribute(Object value){
-        DmcAttribute<?> attr = get(DmvDMSAG.__excludeThisAttribute);
-        
-        if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeAttributeDefinitionREFMV(DmvDMSAG.__excludeThisAttribute), value);
-        else
-            attr = del(DmvDMSAG.__excludeThisAttribute, value);
-        
-        return(attr);
-    }
-
-    /**
-     * Removes the excludeThisAttribute attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
-    public void remExcludeThisAttribute(){
-         rem(DmvDMSAG.__excludeThisAttribute);
     }
 
 
