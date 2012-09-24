@@ -15,7 +15,7 @@ public class InitializationRuleCollection extends ClassRuleCollection<Initializa
     public InitializationRuleCollection(){
     }
 
-    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:369)
+    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:378)
     @Override
     public void addRule(RuleIF r){
 
@@ -28,21 +28,48 @@ public class InitializationRuleCollection extends ClassRuleCollection<Initializa
      * @param obj The object to be initialized
      */
     public void execute(DmcObject obj) throws DmcRuleExceptionSet {
-        DmcClassInfo     cI = obj.getConstructionClassInfo();
+        DmcRuleExceptionSet rc = null;
+        DmcClassInfo        cI = obj.getConstructionClassInfo();
         ArrayList<InitializationIF> ruleList = super.getRules(cI);
 
         if (ruleList != null){
             for(InitializationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
                     DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
-                rule.execute(obj);
+                try {
+                    rule.execute(obj);
+                } catch (DmcRuleExceptionSet e) {
+                    if (rc == null)
+                        rc = e;
+                    else
+                        rc.add(e);
+                    
+                    if (DmcOmni.instance().ruleTracing())
+                        DmcOmni.instance().ruleFailed(e);
+                    
+                    if (rc.immediateHalt())
+                        throw(rc);
+                }
             }
         }
 
         for(InitializationIF rule: globalRules){
             if (DmcOmni.instance().ruleTracing())
                 DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
-            rule.execute(obj);
+            try {
+                rule.execute(obj);
+            } catch (DmcRuleExceptionSet e) {
+                if (rc == null)
+                    rc = e;
+                else
+                    rc.add(e);
+
+                if (DmcOmni.instance().ruleTracing())
+                    DmcOmni.instance().ruleFailed(e);
+
+                 if (rc.immediateHalt())
+                    throw(rc);
+            }
         }
     }
 

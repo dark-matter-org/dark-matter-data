@@ -9,7 +9,6 @@ import org.dmd.dmc.DmcOmni;                                   // Rule tracing su
 import org.dmd.dmc.rules.ClassRuleCollection;                 // Class rule - (RuleFormatter.java:293)
 import org.dmd.dmc.rules.DmcRuleExceptionSet;                 // Rule type - (RuleFormatter.java:209)
 import org.dmd.dmc.rules.RuleIF;                              // All rules implement this - (RuleFormatter.java:210)
-import org.dmd.dmc.types.Modifier;                            // Required for mod - (RuleFormatter.java:221)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;         // Required for mods - (RuleFormatter.java:221)
 
 public class ObjectModifierValidationRuleCollection extends ClassRuleCollection<ObjectModifierValidationIF> {
@@ -17,7 +16,7 @@ public class ObjectModifierValidationRuleCollection extends ClassRuleCollection<
     public ObjectModifierValidationRuleCollection(){
     }
 
-    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:369)
+    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:378)
     @Override
     public void addRule(RuleIF r){
 
@@ -29,24 +28,50 @@ public class ObjectModifierValidationRuleCollection extends ClassRuleCollection<
     /**
      * @param obj The object being modified
      * @param mods The set of modifications being performed
-     * @param mod The particular modification being validated
      */
-    public void execute(DmcObject obj, DmcTypeModifierMV mods, Modifier mod) throws DmcRuleExceptionSet {
-        DmcClassInfo     cI = obj.getConstructionClassInfo();
+    public void execute(DmcObject obj, DmcTypeModifierMV mods) throws DmcRuleExceptionSet {
+        DmcRuleExceptionSet rc = null;
+        DmcClassInfo        cI = obj.getConstructionClassInfo();
         ArrayList<ObjectModifierValidationIF> ruleList = super.getRules(cI);
 
         if (ruleList != null){
             for(ObjectModifierValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
                     DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
-                rule.execute(obj, mods, mod);
+                try {
+                    rule.execute(obj, mods);
+                } catch (DmcRuleExceptionSet e) {
+                    if (rc == null)
+                        rc = e;
+                    else
+                        rc.add(e);
+                    
+                    if (DmcOmni.instance().ruleTracing())
+                        DmcOmni.instance().ruleFailed(e);
+                    
+                    if (rc.immediateHalt())
+                        throw(rc);
+                }
             }
         }
 
         for(ObjectModifierValidationIF rule: globalRules){
             if (DmcOmni.instance().ruleTracing())
                 DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
-            rule.execute(obj, mods, mod);
+            try {
+                rule.execute(obj, mods);
+            } catch (DmcRuleExceptionSet e) {
+                if (rc == null)
+                    rc = e;
+                else
+                    rc.add(e);
+
+                if (DmcOmni.instance().ruleTracing())
+                    DmcOmni.instance().ruleFailed(e);
+
+                 if (rc.immediateHalt())
+                    throw(rc);
+            }
         }
     }
 

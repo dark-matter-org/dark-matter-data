@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * set of rules for a class of object. And maintains a list of rules if any are specified.
  * @param <E> the interface of the rules being stored.
  */
-public class RuleList<E> {
+public class RuleList<E extends RuleIF> {
 	
 	private ArrayList<E>	rules;
 	private boolean			initialized;

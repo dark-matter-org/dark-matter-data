@@ -31,15 +31,29 @@ public class AttributeModifierValidationRuleCollection extends AttributeRuleColl
      * @param mod The particular modification being validated
      */
     public void execute(DmcObject obj, Modifier mod) throws DmcRuleExceptionSet {
-        DmcAttributeInfo aI = DmcOmni.instance().getAttributeInfo(mod.getAttributeName());
-        DmcClassInfo     cI = obj.getConstructionClassInfo();
+        DmcRuleExceptionSet rc = null;
+        DmcAttributeInfo    aI = DmcOmni.instance().getAttributeInfo(mod.getAttributeName());
+        DmcClassInfo        cI = obj.getConstructionClassInfo();
         ArrayList<AttributeModifierValidationIF> ruleList = super.getRules(aI,cI);
 
         if (ruleList != null){
             for(AttributeModifierValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
                     DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name + "." + aI.name);
-                rule.execute(obj, mod);
+                try {
+                    rule.execute(obj, mod);
+                } catch (DmcRuleExceptionSet e) {
+                    if (rc == null)
+                        rc = e;
+                    else
+                        rc.add(e);
+                    
+                    if (DmcOmni.instance().ruleTracing())
+                        DmcOmni.instance().ruleFailed(e);
+                    
+                    if (rc.immediateHalt())
+                        throw(rc);
+                }
             }
         }
 
@@ -48,7 +62,20 @@ public class AttributeModifierValidationRuleCollection extends AttributeRuleColl
             for(AttributeModifierValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
                     DmcOmni.instance().ruleExecuted("Applying global " + rule.getRuleTitle() + " to: " + cI.name + "." + aI.name);
-                rule.execute(obj, mod);
+                try {
+                    rule.execute(obj, mod);
+                } catch (DmcRuleExceptionSet e) {
+                    if (rc == null)
+                        rc = e;
+                    else
+                        rc.add(e);
+                    
+                    if (DmcOmni.instance().ruleTracing())
+                        DmcOmni.instance().ruleFailed(e);
+                    
+                    if (rc.immediateHalt())
+                        throw(rc);
+                }
             }
         }
     }

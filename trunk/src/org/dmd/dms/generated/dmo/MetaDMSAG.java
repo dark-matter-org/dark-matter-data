@@ -100,6 +100,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __getMethod = new DmcAttributeInfo("getMethod",49,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __getType = new DmcAttributeInfo("getType",48,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __helperClassName = new DmcAttributeInfo("helperClassName",47,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __immediateHalt = new DmcAttributeInfo("immediateHalt",137,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __indexSize = new DmcAttributeInfo("indexSize",129,"Integer",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __instantiation = new DmcAttributeInfo("instantiation",148,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __integerName = new DmcAttributeInfo("integerName",100,"IntegerName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -291,6 +292,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__getMethod.id,__getMethod);
         _SmAp.put(__getType.id,__getType);
         _SmAp.put(__helperClassName.id,__helperClassName);
+        _SmAp.put(__immediateHalt.id,__immediateHalt);
         _SmAp.put(__indexSize.id,__indexSize);
         _SmAp.put(__instantiation.id,__instantiation);
         _SmAp.put(__integerName.id,__integerName);
@@ -532,6 +534,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleData.addMay(__definedIn);
         __RuleData.addMay(__description);
         __RuleData.addMay(__file);
+        __RuleData.addMay(__immediateHalt);
         __RuleData.addMay(__lineNumber);
 
         __RuleDefinition.addMust(__description);

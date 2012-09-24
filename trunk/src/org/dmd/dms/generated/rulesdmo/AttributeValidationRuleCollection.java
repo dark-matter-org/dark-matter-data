@@ -31,15 +31,29 @@ public class AttributeValidationRuleCollection extends AttributeRuleCollection<A
      * @param attribute The attribute to be validated
      */
     public void execute(DmcObject obj, DmcAttribute<?> attribute) throws DmcRuleExceptionSet {
-        DmcAttributeInfo aI = attribute.getAttributeInfo();
-        DmcClassInfo     cI = obj.getConstructionClassInfo();
+        DmcRuleExceptionSet rc = null;
+        DmcAttributeInfo    aI = attribute.getAttributeInfo();
+        DmcClassInfo        cI = obj.getConstructionClassInfo();
         ArrayList<AttributeValidationIF> ruleList = super.getRules(aI,cI);
 
         if (ruleList != null){
             for(AttributeValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
                     DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name + "." + aI.name);
-                rule.execute(obj, attribute);
+                try {
+                    rule.execute(obj, attribute);
+                } catch (DmcRuleExceptionSet e) {
+                    if (rc == null)
+                        rc = e;
+                    else
+                        rc.add(e);
+                    
+                    if (DmcOmni.instance().ruleTracing())
+                        DmcOmni.instance().ruleFailed(e);
+                    
+                    if (rc.immediateHalt())
+                        throw(rc);
+                }
             }
         }
 
@@ -48,7 +62,20 @@ public class AttributeValidationRuleCollection extends AttributeRuleCollection<A
             for(AttributeValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
                     DmcOmni.instance().ruleExecuted("Applying global " + rule.getRuleTitle() + " to: " + cI.name + "." + aI.name);
-                rule.execute(obj, attribute);
+                try {
+                    rule.execute(obj, attribute);
+                } catch (DmcRuleExceptionSet e) {
+                    if (rc == null)
+                        rc = e;
+                    else
+                        rc.add(e);
+                    
+                    if (DmcOmni.instance().ruleTracing())
+                        DmcOmni.instance().ruleFailed(e);
+                    
+                    if (rc.immediateHalt())
+                        throw(rc);
+                }
             }
         }
     }

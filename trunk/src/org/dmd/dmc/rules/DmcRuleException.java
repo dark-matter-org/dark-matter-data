@@ -42,6 +42,10 @@ public class DmcRuleException extends Exception {
 	// The parameters to be inserted in translated messages
 	ArrayList<String>	messageParameters;
 	
+	// This flag will be set to true if the rule instance has specified that
+	// rule processing should be halted immediately
+	boolean				immediateHalt;
+	
 	/**
 	 * Instantiates a new DmcRuleException.
 	 * @param baseMessage the basic message.
@@ -52,6 +56,21 @@ public class DmcRuleException extends Exception {
 		rule				= ri;
 		messageKey 			= null;
 		messageParameters	= null;
+	}
+	
+	/**
+	 * @return true if this rule that generated this exception wants no further processing to occur.
+	 */
+	public boolean immediateHalt(){
+		return(immediateHalt);
+	}
+	
+	/**
+	 * Sets the immediate halt flag as specified.
+	 * @param f the flag value.
+	 */
+	public void immediateHalt(boolean f){
+		immediateHalt = f;
 	}
 	
 	/**
