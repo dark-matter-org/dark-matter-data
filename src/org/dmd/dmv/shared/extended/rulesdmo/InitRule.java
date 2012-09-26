@@ -16,6 +16,10 @@ import org.dmd.dmv.shared.generated.rulesdmo.InitRuleBaseImpl;
  */
 public class InitRule extends InitRuleBaseImpl {
 
+	public InitRule(){
+		
+	}
+	
 	public InitRule(InitRuleDataDMO dmo) {
 		super(dmo);
 	}

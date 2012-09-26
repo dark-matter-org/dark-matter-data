@@ -12,6 +12,10 @@ import org.dmd.dmv.shared.generated.rulesdmo.OneOfTheseAttributesRequiredRuleBas
 
 public class OneOfTheseAttributesRequiredRule extends OneOfTheseAttributesRequiredRuleBaseImpl {
 	
+	public OneOfTheseAttributesRequiredRule(){
+		
+	}
+	
 	public OneOfTheseAttributesRequiredRule(OneOfTheseAttributesRequiredRuleDataDMO dmo){
 		super(dmo);
 	}

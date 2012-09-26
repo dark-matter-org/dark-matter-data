@@ -35,7 +35,7 @@ public class InitializationRuleCollection extends ClassRuleCollection<Initializa
         if (ruleList != null){
             for(InitializationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
-                    DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
+                    DmcOmni.instance().ruleExecuted("Applying: " + rule.getRuleTitle() + " to: " + cI.name);
                 try {
                     rule.execute(obj);
                 } catch (DmcRuleExceptionSet e) {
@@ -55,7 +55,7 @@ public class InitializationRuleCollection extends ClassRuleCollection<Initializa
 
         for(InitializationIF rule: globalRules){
             if (DmcOmni.instance().ruleTracing())
-                DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
+                DmcOmni.instance().ruleExecuted("Applying global: " + rule.getRuleTitle() + " to: " + cI.name);
             try {
                 rule.execute(obj);
             } catch (DmcRuleExceptionSet e) {

@@ -8,6 +8,10 @@ import org.dmd.dmv.shared.generated.rulesdmo.RelatedNumbersRuleBaseImpl;
 
 public class RelatedNumbersRule extends RelatedNumbersRuleBaseImpl {
 
+	public RelatedNumbersRule(){
+		
+	}
+	
 	public RelatedNumbersRule(RelatedNumbersRuleDataDMO dmo) {
 		super(dmo);
 		// TODO Auto-generated constructor stub

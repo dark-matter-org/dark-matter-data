@@ -327,7 +327,7 @@ public class RuleFormatter {
 				out.write("        if (ruleList != null){\n");
 				out.write("            for(" + name + "IF rule: ruleList){\n");
 				out.write("                if (DmcOmni.instance().ruleTracing())\n");
-				out.write("                    DmcOmni.instance().ruleExecuted(\"Applying \" + rule.getRuleTitle() + \" to: \" + cI.name + \".\" + aI.name);\n");
+				out.write("                    DmcOmni.instance().ruleExecuted(\"Applying: \" + rule.getRuleTitle() + \" to: \" + cI.name + \".\" + aI.name);\n");
 				out.write("                try {\n");
 				out.write("                    rule.execute(" + argValues + ");\n");
 				out.write("                } catch (DmcRuleExceptionSet e) {\n");
@@ -349,7 +349,7 @@ public class RuleFormatter {
 				out.write("        if (ruleList != null){\n");
 				out.write("            for(" + name + "IF rule: ruleList){\n");
 				out.write("                if (DmcOmni.instance().ruleTracing())\n");
-				out.write("                    DmcOmni.instance().ruleExecuted(\"Applying global \" + rule.getRuleTitle() + \" to: \" + cI.name + \".\" + aI.name);\n");
+				out.write("                    DmcOmni.instance().ruleExecuted(\"Applying global: \" + rule.getRuleTitle() + \" to: \" + cI.name + \".\" + aI.name);\n");
 				out.write("                try {\n");
 				out.write("                    rule.execute(" + argValues + ");\n");
 				out.write("                } catch (DmcRuleExceptionSet e) {\n");
@@ -395,7 +395,7 @@ public class RuleFormatter {
 				out.write("        if (ruleList != null){\n");
 				out.write("            for(" + name + "IF rule: ruleList){\n");
 				out.write("                if (DmcOmni.instance().ruleTracing())\n");
-				out.write("                    DmcOmni.instance().ruleExecuted(\"Applying \" + rule.getRuleTitle() + \" to: \" + cI.name);\n");
+				out.write("                    DmcOmni.instance().ruleExecuted(\"Applying: \" + rule.getRuleTitle() + \" to: \" + cI.name);\n");
 				out.write("                try {\n");
 				out.write("                    rule.execute(" + argValues + ");\n");
 				out.write("                } catch (DmcRuleExceptionSet e) {\n");
@@ -415,7 +415,7 @@ public class RuleFormatter {
 				out.write("\n");
 				out.write("        for(" + name + "IF rule: globalRules){\n");
 				out.write("            if (DmcOmni.instance().ruleTracing())\n");
-				out.write("                DmcOmni.instance().ruleExecuted(\"Applying \" + rule.getRuleTitle() + \" to: \" + cI.name);\n");
+				out.write("                DmcOmni.instance().ruleExecuted(\"Applying global: \" + rule.getRuleTitle() + \" to: \" + cI.name);\n");
 				out.write("            try {\n");
 				out.write("                rule.execute(" + argValues + ");\n");
 				out.write("            } catch (DmcRuleExceptionSet e) {\n");
@@ -486,16 +486,18 @@ public class RuleFormatter {
     		baseImports.addImport("java.util.ArrayList", "To store category IDs");
     		baseImports.addImport("java.util.Iterator", "To access category IDs");
     		baseImports.addImport("org.dmd.dmc.DmcOmni", "To map class and attribute names to info");
+    		baseImports.addImport("org.dmd.dmc.DmcObject", "To support the dynamic constructor");
     		baseImports.addImport("org.dmd.dmc.DmcClassInfo", "To support retrieval of rule class");
     		baseImports.addImport("org.dmd.dmc.DmcAttributeInfo", "To support retrieval of attribute info");
     		baseImports.addImport("org.dmd.dmc.rules.RuleKey", "To allow rule sorting");
+    		baseImports.addImport("org.dmd.dmc.rules.DynamicInitIF", "To allow for dynamic initialization of rule data");
     		
     		if (isAttributeRule)
         		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleKey", "To allow rule sorting");
     		else
         		baseImports.addImport("org.dmd.dmc.rules.ClassRuleKey", "To allow rule sorting");
 
-    		interfaces.append("RuleIF");
+    		interfaces.append("RuleIF, DynamicInitIF");
 			
     		baseImports.addImport(sd.getSchemaPackage() + ".generated.dmo." + rd.getName() + "DataDMO", "Rule parameters object");
     		
@@ -536,6 +538,18 @@ public class RuleFormatter {
 			out.write("            categories = new ArrayList<Integer>();\n");
 			out.write(categoryInit.toString());
 			out.write("        }\n");
+			out.write("    }\n\n");
+			
+			out.write("    /**\n");
+			out.write("     * This method allows for the dynamic instantiation and initialization of the\n");
+			out.write("     * data associated with this rule. It is used by the DmcSchemaParser and generally\n");
+			out.write("     * shouldn't be used unless you know what you're doing!\n");
+			out.write("     */\n");
+			out.write("    public void setRuleData(DmcObject obj){\n");
+			out.write("        if (obj instanceof " + rd.getName() + "DataDMO)\n");
+			out.write("            ruleDMO = (" + rd.getName() + "DataDMO)obj;\n");
+			out.write("        else\n");
+			out.write("            throw(new IllegalStateException(\"Object of class \" + obj.getClass().getName() + \" passed when object of class " + rd.getName() + "DataDMO required\"));\n");
 			out.write("    }\n\n");
 			
 			out.write("    protected " + rd.getName() + "BaseImpl(" + rd.getName() + "DataDMO dmo){\n");

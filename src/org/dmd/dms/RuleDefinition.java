@@ -1,10 +1,15 @@
 package org.dmd.dms;
 
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.rules.RuleIF;
 import org.dmd.dms.generated.dmo.RuleDefinitionDMO;
 import org.dmd.dms.generated.dmw.RuleDefinitionDMW;
 import org.dmd.dms.generated.enums.OperationalContextEnum;
 import org.dmd.dms.generated.enums.RuleTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.exceptions.Result;
+import org.dmd.util.exceptions.ResultException;
 
 public class RuleDefinition extends RuleDefinitionDMW {
 
@@ -61,5 +66,32 @@ public class RuleDefinition extends RuleDefinitionDMW {
 		}
 		
 		return(sb.toString());
+	}
+	
+	public RuleIF newRuleInstance() throws ResultException{
+		RuleIF 		rc 			= null;
+		Class<?> 	ruleClass 	= null;
+		
+		try {
+			ruleClass = Class.forName(this.getRuleDefinitionImport());
+		} catch (ClassNotFoundException e) {
+        	ResultException ex = new ResultException();
+        	ex.result.addResult(Result.FATAL,"Couldn't load Java class: " + this.getRuleDefinitionImport());
+        	ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());
+        	throw(ex);
+		}
+
+        try{
+            rc = (RuleIF) ruleClass.newInstance();
+        }
+        catch(Exception e){
+        	ResultException ex = new ResultException();
+        	ex.result.addResult(Result.FATAL,"Couldn't instantiate Java class: " + this.getRuleDefinitionImport());
+        	ex.result.lastResult().moreMessages("This may be because the class doesn't have a constructor that takes no arguments.");
+        	ex.result.lastResult().moreMessages(DebugInfo.getCurrentStack());
+        	throw(ex);
+        }
+
+		return(rc);
 	}
 }

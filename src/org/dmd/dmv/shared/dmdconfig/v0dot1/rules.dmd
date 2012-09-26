@@ -117,7 +117,7 @@ AttributeTypeRuleData
 ruleName			dmvLhs
 ruleTitle           The lhs attribute can be Integer, Float or Double
 applyToAttribute	lhs
-applyToClass 		RelatedNumbersRule
+applyToClass 		RelatedNumbersRuleData
 allowedType 		Integer
 allowedType 		Float
 allowedType 		Double
@@ -126,7 +126,7 @@ AttributeTypeRuleData
 ruleName			dmvRhs
 ruleTitle			The rhs attribute can be Integer, Float or Double
 applyToAttribute	rhs
-applyToClass 		RelatedNumbersRule
+applyToClass 		RelatedNumbersRuleData
 allowedType 		Integer
 allowedType 		Float
 allowedType 		Double

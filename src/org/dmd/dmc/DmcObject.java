@@ -1641,13 +1641,22 @@ abstract public class DmcObject implements Serializable {
 							continue;
 						}
 						else{
-							if (obj instanceof DmcContainerIF){
-								ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-								resolvedObject = ((DmcContainerIF)obj).getDmcObject();
+							try{
+								if (obj instanceof DmcContainerIF){
+									resolvedObject = ((DmcContainerIF)obj).getDmcObject();
+									ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+								}
+								else{
+									resolvedObject = (DmcObject)obj;
+									ref.setObject(obj);
+								}
 							}
-							else{
-								ref.setObject(obj);
-								resolvedObject = (DmcObject)obj;
+							catch(ClassCastException e){
+								DmcValueException ex = new DmcValueException("Attribute " + attr.getName() + " is of type: " + attr.getAttributeInfo().type + " and you've tried to set it to " + obj.getObjectName() + " which is of type " + resolvedObject.getConstructionClassName());
+								if (errors == null)
+									errors = new DmcValueExceptionSet();
+								errors.add(ex);
+								continue;
 							}
 						}
 						
@@ -1690,13 +1699,22 @@ abstract public class DmcObject implements Serializable {
 									continue;
 								}
 								else{
-									if (obj instanceof DmcContainerIF){
-										ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
-										resolvedObject = ((DmcContainerIF)obj).getDmcObject();
+									try{
+										if (obj instanceof DmcContainerIF){
+											resolvedObject = ((DmcContainerIF)obj).getDmcObject();
+											ref.setObject((DmcNamedObjectIF) ((DmcContainerIF)obj).getDmcObject());
+										}
+										else{
+											resolvedObject = (DmcObject)obj;
+											ref.setObject(obj);
+										}
 									}
-									else{
-										ref.setObject(obj);
-										resolvedObject = (DmcObject)obj;
+									catch(ClassCastException e){
+										DmcValueException ex = new DmcValueException("Attribute " + attr.getName() + " is of type: " + attr.getAttributeInfo().type + " and you've tried to set it to " + obj.getObjectName() + " which is of type " + resolvedObject.getConstructionClassName());
+										if (errors == null)
+											errors = new DmcValueExceptionSet();
+										errors.add(ex);
+										continue;
 									}
 									
 									if (resolvedObject == null)

@@ -7,6 +7,10 @@ import org.dmd.dmv.shared.generated.rulesdmo.UCOAllowedAttributesRuleBaseImpl;
 
 public class UCOAllowedAttributesRule extends UCOAllowedAttributesRuleBaseImpl {
 
+	public UCOAllowedAttributesRule(){
+		
+	}
+	
 	public UCOAllowedAttributesRule(UCOAllowedAttributesRuleDataDMO dmo) {
 		super(dmo);
 	}

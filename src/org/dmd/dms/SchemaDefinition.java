@@ -25,6 +25,7 @@ import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmg.util.GeneratorUtils;
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dms.util.DynamicCompactSchema;
 import org.dmd.util.exceptions.ResultException;
 
 public class SchemaDefinition extends SchemaDefinitionDMW {
@@ -314,5 +315,22 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     	parsedRules.put(rn, uco);
     }
         
+    public DynamicCompactSchema getCompactSchema(){
+    	DynamicCompactSchema rc = new DynamicCompactSchema(getName().getNameString());
+    	
+    	if (getAttributeDefListSize() > 0){
+    		for(AttributeDefinition def : getAttributeDefList()){
+    			rc.addAttrInfo(def.getAttributeInfo());
+    		}
+    	}
+    	
+    	if (getClassDefListSize() > 0){
+    		for(ClassDefinition cd: getClassDefList()){
+    			rc.addClassInfo(cd.getDynamicClassInfo());
+    		}
+    	}
+    	
+    	return(rc);
+    }
 }
 
