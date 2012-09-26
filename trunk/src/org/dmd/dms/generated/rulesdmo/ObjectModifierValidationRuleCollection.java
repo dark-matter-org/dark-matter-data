@@ -37,7 +37,7 @@ public class ObjectModifierValidationRuleCollection extends ClassRuleCollection<
         if (ruleList != null){
             for(ObjectModifierValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
-                    DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
+                    DmcOmni.instance().ruleExecuted("Applying: " + rule.getRuleTitle() + " to: " + cI.name);
                 try {
                     rule.execute(obj, mods);
                 } catch (DmcRuleExceptionSet e) {
@@ -57,7 +57,7 @@ public class ObjectModifierValidationRuleCollection extends ClassRuleCollection<
 
         for(ObjectModifierValidationIF rule: globalRules){
             if (DmcOmni.instance().ruleTracing())
-                DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
+                DmcOmni.instance().ruleExecuted("Applying global: " + rule.getRuleTitle() + " to: " + cI.name);
             try {
                 rule.execute(obj, mods);
             } catch (DmcRuleExceptionSet e) {

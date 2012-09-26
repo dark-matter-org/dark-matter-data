@@ -8,12 +8,17 @@ import org.dmd.dmc.DmcAttributeInfoRef;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.rules.DmcRuleException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
+import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;
 import org.dmd.dmv.shared.generated.rulesdmo.AllowedAttributesRuleBaseImpl;
 
 public class AllowedAttributesRule extends AllowedAttributesRuleBaseImpl {
 
+	public AllowedAttributesRule(){
+		
+	}
+	
 	public AllowedAttributesRule(AllowedAttributesRuleDataDMO dmo) {
 		super(dmo);
 	}
@@ -40,14 +45,16 @@ public class AllowedAttributesRule extends AllowedAttributesRuleBaseImpl {
 		}
 		
 		// And now, cycle through the attributes of the object and verify that
-		// they are allowed
-		Iterator<DmcAttribute<?>> attrs = obj.getAttributes().values().iterator();
-		while(attrs.hasNext()){
-			DmcAttribute<?> attr = attrs.next();
-			if (!obj.allowsAttribute(attr.getAttributeInfo())){
-				if (exceptions == null)
-					exceptions = new DmcRuleExceptionSet();
-				exceptions.add(new DmcRuleException("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName(), this));
+		// they are allowed - if the class isn't extensible
+		if (obj.getConstructionClassInfo().classType != ClassTypeEnum.EXTENSIBLE){
+			Iterator<DmcAttribute<?>> attrs = obj.getAttributes().values().iterator();
+			while(attrs.hasNext()){
+				DmcAttribute<?> attr = attrs.next();
+				if (!obj.allowsAttribute(attr.getAttributeInfo())){
+					if (exceptions == null)
+						exceptions = new DmcRuleExceptionSet();
+					exceptions.add(new DmcRuleException("Attribute: " + attr.getName() + " is not valid for an object of class: " + obj.getConstructionClassName(), this));
+				}
 			}
 		}
 		
@@ -60,6 +67,5 @@ public class AllowedAttributesRule extends AllowedAttributesRuleBaseImpl {
 		
 		
 	}
-
 
 }

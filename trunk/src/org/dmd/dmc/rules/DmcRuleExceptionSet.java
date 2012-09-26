@@ -19,6 +19,9 @@ import java.util.ArrayList;
 
 @SuppressWarnings("serial")
 public class DmcRuleExceptionSet extends Exception {
+	
+	String	fileName;
+	String	lineNumber;
 
 	ArrayList<DmcRuleException> exceptions;
 
@@ -33,6 +36,14 @@ public class DmcRuleExceptionSet extends Exception {
 	
 	public ArrayList<DmcRuleException> geExceptions(){
 		return(exceptions);
+	}
+	
+	public void fileName(String fn){
+		fileName = fn;
+	}
+	
+	public void lineNumber(String ln){
+		lineNumber = ln;
 	}
 	
 	/**
@@ -70,6 +81,14 @@ public class DmcRuleExceptionSet extends Exception {
 	public String toString(){
         StringBuffer sb = new StringBuffer();
         
+        if (fileName != null)
+        	sb.append("File: " + fileName + "\n");
+        
+        if (lineNumber != null)
+        	sb.append("Line: " + lineNumber + "\n");
+        
+        sb.append("\n");
+                
         for(DmcRuleException ex : exceptions)
         	sb.append(ex.getLocalizedMessage() + "\n");
 

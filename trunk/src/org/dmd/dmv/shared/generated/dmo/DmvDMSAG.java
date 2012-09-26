@@ -214,7 +214,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvLhsData                  .addAllowedType("Float");
             _dmvLhsData                  .addAllowedType("Double");
             _dmvLhsData                  .setApplyToAttribute("lhs");
-            _dmvLhsData                  .setApplyToClass("RelatedNumbersRule");
+            _dmvLhsData                  .setApplyToClass("RelatedNumbersRuleData");
             _dmvLhsData                  .setDefinedIn("dmv");
             _dmvLhsData                  .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvLhsData                  .setLineNumber("124");
@@ -246,7 +246,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvRhsData                  .addAllowedType("Float");
             _dmvRhsData                  .addAllowedType("Double");
             _dmvRhsData                  .setApplyToAttribute("rhs");
-            _dmvRhsData                  .setApplyToClass("RelatedNumbersRule");
+            _dmvRhsData                  .setApplyToClass("RelatedNumbersRuleData");
             _dmvRhsData                  .setDefinedIn("dmv");
             _dmvRhsData                  .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _dmvRhsData                  .setLineNumber("133");

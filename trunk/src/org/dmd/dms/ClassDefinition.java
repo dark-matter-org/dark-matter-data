@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttribute;
+import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
@@ -194,6 +195,35 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * part of the SchemaAG.
      */
     public DmcClassInfo getClassInfo(){
+    	return(classInfo);
+    }
+    
+    /**
+     * @return the DmcClassInfo that was associated with this definition when it was constructed as
+     * part of the SchemaAG.
+     */
+    public DmcClassInfo getDynamicClassInfo(){
+    	if (classInfo == null){
+    		DmcAttributeInfo na = null;
+    		if (this.getIsNamedBy() != null){
+    			na = this.getIsNamedBy().getAttributeInfo();
+    		}
+    		
+    		if (getDerivedFrom() == null)
+        		classInfo = new DmcClassInfo(getName().getNameString(), getDmoImport(), getDmdID(), getClassType(), getDataType(), null, na);
+    		else
+    			classInfo = new DmcClassInfo(getName().getNameString(), getDmoImport(), getDmdID(), getClassType(), getDataType(), getDerivedFrom().getDynamicClassInfo(), na);
+
+    		if (getMaySize() > 0){
+    			for(AttributeDefinition ad: getMay())
+    				classInfo.addMay(ad.getAttributeInfo());
+    		}
+
+    		if (getMustSize() > 0){
+    			for(AttributeDefinition ad: getMust())
+    				classInfo.addMust(ad.getAttributeInfo());
+    		}
+    	}
     	return(classInfo);
     }
     

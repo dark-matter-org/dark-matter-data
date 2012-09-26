@@ -39,7 +39,7 @@ public class AttributeModifierValidationRuleCollection extends AttributeRuleColl
         if (ruleList != null){
             for(AttributeModifierValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
-                    DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name + "." + aI.name);
+                    DmcOmni.instance().ruleExecuted("Applying: " + rule.getRuleTitle() + " to: " + cI.name + "." + aI.name);
                 try {
                     rule.execute(obj, mod);
                 } catch (DmcRuleExceptionSet e) {
@@ -61,7 +61,7 @@ public class AttributeModifierValidationRuleCollection extends AttributeRuleColl
         if (ruleList != null){
             for(AttributeModifierValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
-                    DmcOmni.instance().ruleExecuted("Applying global " + rule.getRuleTitle() + " to: " + cI.name + "." + aI.name);
+                    DmcOmni.instance().ruleExecuted("Applying global: " + rule.getRuleTitle() + " to: " + cI.name + "." + aI.name);
                 try {
                     rule.execute(obj, mod);
                 } catch (DmcRuleExceptionSet e) {

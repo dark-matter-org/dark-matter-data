@@ -8,6 +8,10 @@ import org.dmd.dmv.shared.generated.rulesdmo.AttributeTypeRuleBaseImpl;
 
 public class AttributeTypeRule extends AttributeTypeRuleBaseImpl {
 
+	public AttributeTypeRule(){
+		
+	}
+	
 	public AttributeTypeRule(AttributeTypeRuleDataDMO attributeTypeRuleDataDMO) {
 		// TODO Auto-generated constructor stub
 	}

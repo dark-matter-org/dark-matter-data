@@ -35,7 +35,7 @@ public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidati
         if (ruleList != null){
             for(UCOValidationIF rule: ruleList){
                 if (DmcOmni.instance().ruleTracing())
-                    DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
+                    DmcOmni.instance().ruleExecuted("Applying: " + rule.getRuleTitle() + " to: " + cI.name);
                 try {
                     rule.execute(obj);
                 } catch (DmcRuleExceptionSet e) {
@@ -55,7 +55,7 @@ public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidati
 
         for(UCOValidationIF rule: globalRules){
             if (DmcOmni.instance().ruleTracing())
-                DmcOmni.instance().ruleExecuted("Applying " + rule.getRuleTitle() + " to: " + cI.name);
+                DmcOmni.instance().ruleExecuted("Applying global: " + rule.getRuleTitle() + " to: " + cI.name);
             try {
                 rule.execute(obj);
             } catch (DmcRuleExceptionSet e) {

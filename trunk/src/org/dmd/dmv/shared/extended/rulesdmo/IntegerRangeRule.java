@@ -9,6 +9,10 @@ import org.dmd.dmv.shared.generated.rulesdmo.IntegerRangeRuleBaseImpl;
 
 public class IntegerRangeRule extends IntegerRangeRuleBaseImpl {
 
+	public IntegerRangeRule(){
+		
+	}
+	
 	public IntegerRangeRule(IntegerRangeRuleDataDMO dmo) {
 		super(dmo);
 	}

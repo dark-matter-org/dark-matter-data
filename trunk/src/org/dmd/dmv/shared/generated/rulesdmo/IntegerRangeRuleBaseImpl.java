@@ -1,23 +1,25 @@
 package org.dmd.dmv.shared.generated.rulesdmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:515)
+// Called from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:517)
 import java.util.ArrayList;                                                  // To store category IDs - (RuleFormatter.java:486)
 import java.util.Iterator;                                                   // To access category IDs - (RuleFormatter.java:487)
-import org.dmd.dmc.DmcAttributeInfo;                                         // To support retrieval of attribute info - (RuleFormatter.java:490)
-import org.dmd.dmc.DmcClassInfo;                                             // To support retrieval of rule class - (RuleFormatter.java:489)
+import org.dmd.dmc.DmcAttributeInfo;                                         // To support retrieval of attribute info - (RuleFormatter.java:491)
+import org.dmd.dmc.DmcClassInfo;                                             // To support retrieval of rule class - (RuleFormatter.java:490)
+import org.dmd.dmc.DmcObject;                                                // To support the dynamic constructor - (RuleFormatter.java:489)
 import org.dmd.dmc.DmcOmni;                                                  // To map class and attribute names to info - (RuleFormatter.java:488)
-import org.dmd.dmc.rules.AttributeRuleKey;                                   // To allow rule sorting - (RuleFormatter.java:494)
+import org.dmd.dmc.rules.AttributeRuleKey;                                   // To allow rule sorting - (RuleFormatter.java:496)
+import org.dmd.dmc.rules.DynamicInitIF;                                      // To allow for dynamic initialization of rule data - (RuleFormatter.java:493)
 import org.dmd.dmc.rules.RuleIF;                                             // All rules implement this - (RuleFormatter.java:485)
-import org.dmd.dmc.rules.RuleKey;                                            // To allow rule sorting - (RuleFormatter.java:491)
+import org.dmd.dmc.rules.RuleKey;                                            // To allow rule sorting - (RuleFormatter.java:492)
 import org.dmd.dms.generated.enums.RuleTypeEnum;                             // Rule type - (RuleFormatter.java:484)
-import org.dmd.dms.generated.rulesdmo.AttributeModifierValidationIF;         // The interface for the AttributeModifierValidation category - (RuleFormatter.java:506)
-import org.dmd.dms.generated.rulesdmo.AttributeValidationIF;                 // The interface for the AttributeValidation category - (RuleFormatter.java:506)
-import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;             // Rule parameters object - (RuleFormatter.java:500)
+import org.dmd.dms.generated.rulesdmo.AttributeModifierValidationIF;         // The interface for the AttributeModifierValidation category - (RuleFormatter.java:508)
+import org.dmd.dms.generated.rulesdmo.AttributeValidationIF;                 // The interface for the AttributeValidation category - (RuleFormatter.java:508)
+import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;             // Rule parameters object - (RuleFormatter.java:502)
 
 
-// Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:517)
-abstract public class IntegerRangeRuleBaseImpl implements RuleIF,AttributeValidationIF,AttributeModifierValidationIF {
+// Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:519)
+abstract public class IntegerRangeRuleBaseImpl implements RuleIF, DynamicInitIF,AttributeValidationIF,AttributeModifierValidationIF {
 
     static RuleTypeEnum       type  = RuleTypeEnum.ATTRIBUTE;
 
@@ -36,6 +38,18 @@ abstract public class IntegerRangeRuleBaseImpl implements RuleIF,AttributeValida
             categories.add(3);
             categories.add(5);
         }
+    }
+
+    /**
+     * This method allows for the dynamic instantiation and initialization of the
+     * data associated with this rule. It is used by the DmcSchemaParser and generally
+     * shouldn't be used unless you know what you're doing!
+     */
+    public void setRuleData(DmcObject obj){
+        if (obj instanceof IntegerRangeRuleDataDMO)
+            ruleDMO = (IntegerRangeRuleDataDMO)obj;
+        else
+            throw(new IllegalStateException("Object of class " + obj.getClass().getName() + " passed when object of class IntegerRangeRuleDataDMO required"));
     }
 
     protected IntegerRangeRuleBaseImpl(IntegerRangeRuleDataDMO dmo){

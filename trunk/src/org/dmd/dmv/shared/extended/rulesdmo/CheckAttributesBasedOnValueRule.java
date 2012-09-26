@@ -8,10 +8,13 @@ import org.dmd.dmv.shared.generated.rulesdmo.CheckAttributesBasedOnValueRuleBase
 
 public class CheckAttributesBasedOnValueRule extends CheckAttributesBasedOnValueRuleBaseImpl {
 
+	public CheckAttributesBasedOnValueRule(){
+		
+	}
+	
 	public CheckAttributesBasedOnValueRule(CheckAttributesBasedOnValueRuleDataDMO dmo) {
 		super(dmo);
 	}
-
 
 	@Override
 	public void execute(DmcObject obj) throws DmcRuleExceptionSet {

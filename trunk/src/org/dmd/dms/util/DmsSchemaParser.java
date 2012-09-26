@@ -20,7 +20,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Stack;
 
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -36,7 +35,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
-import org.dmd.dmv.shared.DmvRuleManager;
+import org.dmd.dmv.shared.DmvDynamicRuleManager;
 import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.dmw.DmwWrapper;
@@ -157,22 +156,26 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         terseV = terse;
         rc = parseSchemaInternal(schemaName);
         
-        // And finally, after everything has been parsed and resolved, we go back over the rule instances
-        // and sanity check them. Well, it's not quite that simple. We 
-        Iterator<DmcUncheckedObject> ucoIT = rc.getParsedRules();
-        if (ucoIT != null){
-            DmvRuleManager	ruleManager = new DmvRuleManager();
-
-			while(ucoIT.hasNext()){
-				try{
-					DmcObject ruledata = dmofactory.createObject(ucoIT.next());
-					DebugInfo.debug("Parsed and instantiated:\n\n" + ruledata.toOIF());
-				}
-				catch(Exception ex){
-					DebugInfo.debug(ex.toString());
-				}
-			}
-        }
+        DmvDynamicRuleManager drm = new DmvDynamicRuleManager();
+        drm.loadAndCheckRules(allSchema, rc);
+        
+//        // And finally, after everything has been parsed and resolved, we go back over the rule instances
+//        // and sanity check them. Well, it's not quite that simple. We are applying rules to the rules themselves
+//        // and we have to dynamically instantiate the rules and initialize them with rule data.
+//        Iterator<DmcUncheckedObject> ucoIT = rc.getParsedRules();
+//        if (ucoIT != null){
+//            DmvRuleManager	ruleManager = new DmvRuleManager();
+//
+//			while(ucoIT.hasNext()){
+//				try{
+//					DmcObject ruledata = dmofactory.createObject(ucoIT.next());
+//					DebugInfo.debug("Parsed and instantiated:\n\n" + ruledata.toOIF());
+//				}
+//				catch(Exception ex){
+//					DebugInfo.debug(ex.toString());
+//				}
+//			}
+//        }
 
 
         return(rc);
