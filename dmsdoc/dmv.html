@@ -19,7 +19,7 @@
   <div class="summary">
 
     <div class="classList">
-    <h2> Classes (7)</h2>
+    <h2> Classes (8)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
@@ -43,6 +43,10 @@
       </tr>
       <tr>
       <td class="spacer"> </td>
+      <td> <a class="deflink" href="#OneOfTheseAttributesRequiredRuleData"> OneOfTheseAttributesRequiredRuleData </a></td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
       <td> <a class="deflink" href="#RelatedNumbersRuleData"> RelatedNumbersRuleData </a></td>
       </tr>
       <tr>
@@ -54,6 +58,27 @@
     <h2>Enums (1)</h2>
     <ul>
       <li> <a class="deflink" href="#NumericRelationEnum"> NumericRelationEnum </a></li>
+    </ul>
+    </div>    <div class="ruledefs">
+    <h2> Rule Definitions (8)</h2>
+    <ul>
+      <li> <a class="deflink" href="#AllowedAttributesRule"> AllowedAttributesRule </a></li>
+      <li> <a class="deflink" href="#AttributeTypeRule"> AttributeTypeRule </a></li>
+      <li> <a class="deflink" href="#CheckAttributesBasedOnValueRule"> CheckAttributesBasedOnValueRule </a></li>
+      <li> <a class="deflink" href="#InitRule"> InitRule </a></li>
+      <li> <a class="deflink" href="#IntegerRangeRule"> IntegerRangeRule </a></li>
+      <li> <a class="deflink" href="#OneOfTheseAttributesRequiredRule"> OneOfTheseAttributesRequiredRule </a></li>
+      <li> <a class="deflink" href="#RelatedNumbersRule"> RelatedNumbersRule </a></li>
+      <li> <a class="deflink" href="#UCOAllowedAttributesRule"> UCOAllowedAttributesRule </a></li>
+    </ul>
+    </div>    <div class="ruledefs">
+    <h2> Rule Instances (5)</h2>
+    <ul>
+      <li> <a class="deflink" href="#dmvAllowedAttributes"> Validate allowed attributes on objects. </a></li>
+      <li> <a class="deflink" href="#dmvIncludeOrExclude"> At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified. </a></li>
+      <li> <a class="deflink" href="#dmvLhs"> The lhs attribute can be Integer, Float or Double </a></li>
+      <li> <a class="deflink" href="#dmvNoMustInExtensible"> If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes </a></li>
+      <li> <a class="deflink" href="#dmvRhs"> The rhs attribute can be Integer, Float or Double </a></li>
     </ul>
     </div>  </div> <!--  summary -->
 
@@ -103,14 +128,6 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -125,6 +142,17 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing. </td>
     </tr>
 
   </table>
@@ -187,14 +215,6 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -209,6 +229,17 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing. </td>
     </tr>
 
   </table>
@@ -253,14 +284,6 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label"> </td>
-      <td> <a href="dmv.html#excludeThisAttribute">excludeThisAttribute</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> The excludeThisAttribute indicates an optional attribute that must be\n excluded from an object under certain conditions. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleName">ruleName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
       <td> The ruleName attribute is used to store a single camelCase format name for a rule.
@@ -279,14 +302,6 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -301,6 +316,33 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmv.html#excludeThisAttribute">excludeThisAttribute</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
+      <td> The excludeThisAttribute indicates an optional attribute that must be\n excluded from an object under certain conditions. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="dmv.html#includeThisAttribute">includeThisAttribute</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
+      <td> The includeThisAttribute indicates an optional attribute that must be\n present under certain conditions. </td>
     </tr>
 
   </table>
@@ -347,14 +389,6 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -369,6 +403,17 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing. </td>
     </tr>
 
   </table>
@@ -439,9 +484,88 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied. </td>
+      <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
+      <td> The class to which a rule should be applied. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#description">description</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The description attribute is used to provide descriptive
+ documentation for schema related definitions. The text provided should conform
+ to XHTML concepts since it will be dumped in the context of the generated HTML
+ documentation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="OneOfTheseAttributesRequiredRuleData"> OneOfTheseAttributesRequiredRuleData </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="meta.html#RuleData">RuleData</a>
+      </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Must</td>
+      <td> <a href="dmv.html#onePossibility">onePossibility</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
+      <td> The onePossibility attribute indicates an attribute that is one possiblity among\n many. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#ruleName">ruleName</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
+      <td> The ruleName attribute is used to store a single camelCase format name for a rule.
+ The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
+ other characters are allowed. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The title of a rule. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">May</td>
+      <td> <a href="dmv.html#andOnlyOne">andOnlyOne</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The andOnlyOne attribute indicates that only one of a set of possibilities is\n allowed. </td>
     </tr>
 
     <tr>
@@ -461,6 +585,17 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing. </td>
     </tr>
 
   </table>
@@ -531,14 +666,6 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -553,6 +680,17 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing. </td>
     </tr>
 
   </table>
@@ -599,14 +737,6 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -621,6 +751,17 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing. </td>
     </tr>
 
   </table>
@@ -656,6 +797,34 @@
 </tr>
   <tr>
     <td> AttributeTypeRule (<a href="dmv.html#AttributeTypeRule">dmv</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="andOnlyOne"> andOnlyOne </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The andOnlyOne attribute indicates that only one of a set of possibilities is\n allowed.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> OneOfTheseAttributesRequiredRuleData (<a href="dmv.html#OneOfTheseAttributesRequiredRuleData">dmv</a>) </td>
+</tr>
+  <tr>
+    <td> OneOfTheseAttributesRequiredRule (<a href="dmv.html#OneOfTheseAttributesRequiredRule">dmv</a>) </td>
 </tr>
 </table>
       </td>
@@ -756,6 +925,21 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The includeThisAttribute indicates an optional attribute that must be\n present under certain conditions.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> CheckAttributesBasedOnValueRuleData (<a href="dmv.html#CheckAttributesBasedOnValueRuleData">dmv</a>) </td>
+</tr>
+  <tr>
+    <td> CheckAttributesBasedOnValueRule (<a href="dmv.html#CheckAttributesBasedOnValueRule">dmv</a>) </td>
+</tr>
+</table>
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="irrMaximum"> irrMaximum </a> </td></tr>
@@ -865,6 +1049,34 @@
 </tr>
   <tr>
     <td> RelatedNumbersRule (<a href="dmv.html#RelatedNumbersRule">dmv</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="onePossibility"> onePossibility </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The onePossibility attribute indicates an attribute that is one possiblity among\n many.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> OneOfTheseAttributesRequiredRuleData (<a href="dmv.html#OneOfTheseAttributesRequiredRuleData">dmv</a>) </td>
+</tr>
+  <tr>
+    <td> OneOfTheseAttributesRequiredRule (<a href="dmv.html#OneOfTheseAttributesRequiredRule">dmv</a>) </td>
 </tr>
 </table>
       </td>

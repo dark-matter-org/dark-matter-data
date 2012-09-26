@@ -522,7 +522,10 @@ public class RuleFormatter {
 			out.write("    static ArrayList<Integer> categories;\n\n");
 			
 			out.write("    private DmcClassInfo      classInfo;\n");
-			out.write("    private DmcAttributeInfo  attrInfo;\n");
+			
+			if (rd.getRuleType() == RuleTypeEnum.ATTRIBUTE)
+				out.write("    private DmcAttributeInfo  attrInfo;\n");
+			
 			out.write("    private RuleKey           key;\n\n");
 			
 			out.write("    protected " + rd.getName() + "DataDMO ruleDMO;\n\n");
@@ -587,18 +590,26 @@ public class RuleFormatter {
 			out.write("        return(classInfo);\n");
 			out.write("    }\n\n");
 
-			out.write("    @Override\n");
-			out.write("    public DmcAttributeInfo getApplyToAttribute() {\n");
-			out.write("        if (attrInfo != null)\n");
-			out.write("            return(attrInfo);\n");
-			out.write("        \n");
-			out.write("        if (ruleDMO == null)\n");
-			out.write("            return(null);\n");
-			out.write("        if (ruleDMO.getApplyToAttribute() != null)\n");
-			out.write("            attrInfo = DmcOmni.instance().getAttributeInfo(ruleDMO.getApplyToAttribute().getObjectName().getNameString());\n");
-			out.write("        \n");
-			out.write("        return(attrInfo);\n");
-			out.write("    }\n\n");
+			if (rd.getRuleType() == RuleTypeEnum.ATTRIBUTE){
+				out.write("    @Override\n");
+				out.write("    public DmcAttributeInfo getApplyToAttribute() {\n");
+				out.write("        if (attrInfo != null)\n");
+				out.write("            return(attrInfo);\n");
+				out.write("        \n");
+				out.write("        if (ruleDMO == null)\n");
+				out.write("            return(null);\n");
+				out.write("        if (ruleDMO.getApplyToAttribute() != null)\n");
+				out.write("            attrInfo = DmcOmni.instance().getAttributeInfo(ruleDMO.getApplyToAttribute().getObjectName().getNameString());\n");
+				out.write("        \n");
+				out.write("        return(attrInfo);\n");
+				out.write("    }\n\n");
+			}
+			else{
+				out.write("    @Override\n");
+				out.write("    public DmcAttributeInfo getApplyToAttribute() {\n");
+				out.write("        return(null);\n");
+				out.write("    }\n\n");
+			}
 
 			out.write("    @Override\n");
 			out.write("    public String toString() {\n");

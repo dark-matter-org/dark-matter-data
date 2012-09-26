@@ -1247,28 +1247,20 @@ public class SchemaManager implements DmcNameResolverIF {
         cd.setDmdID(rd.getDmdID());
         cd.setInternallyGenerated(true);
         cd.setRuleDefinition(rd);
-//        cd.setIsNamedBy(MetaSchemaAG._ruleName);
+
         cd.addMust(MetaSchemaAG._ruleName);
         cd.addMust(MetaSchemaAG._ruleTitle);
         cd.addMay(MetaSchemaAG._description);
         
-		cd.addMay(MetaSchemaAG._applyToClass);
-		
 		if (rd.getRuleType() == RuleTypeEnum.ATTRIBUTE)
 			cd.addMust(MetaSchemaAG._applyToAttribute);
-//        if (rd.getRuleType() == RuleTypeEnum.ATTRIBUTE){
-//        	cd.addMust(MetaSchemaAG._applyToAttribute);
-//        	if (rd.getRuleScope() == RuleScopeEnum.PERCLASS)
-//        		cd.addMay(MetaSchemaAG._applyToClasses);
-//        }
-//        else{
-//            if (rd.getRuleScope() == RuleScopeEnum.PERCLASS)
-//            	cd.addMust(MetaSchemaAG._applyToClass);
-//        }
-        
+
         cd.setFile(rd.getFile());
         cd.setLineNumber(rd.getLineNumber());
         cd.setDefinedIn(rd.getDefinedIn());
+        
+        if (rd.getDescription() != null)
+        	cd.setDescription(rd.getDescription());
         
         for(AttributeDefinition ad: rd.getMay()){
         	cd.addMay(ad);

@@ -186,7 +186,6 @@ OneOfTheseAttributesRequiredRuleData
 ruleName			dmvIncludeOrExclude
 ruleTitle			At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified.
 applyToClass		CheckAttributesBasedOnValueRuleData
-applyToAttribute	onePossibility
 onePossibility		excludeThisAttribute
 onePossibility		includeThisAttribute
 

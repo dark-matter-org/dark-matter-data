@@ -2061,9 +2061,10 @@ public class DmtSchemaAG extends SchemaDefinition {
             _DmtTestEnumOBJ.addEnumValue("2 TEST2 Second test");
             _DmtTestEnumOBJ.addEnumValue("3 TEST3 Third test");
             _DmtTestEnumOBJ.setDescription("The DmtTestEnum is used for testing operations on enumerated types");
+            _DmtTestEnumOBJ.setNullReturnValue("DmtTestEnum.UNKNOWN");
             _DmtTestEnum.setDefinedIn(this);
             _DmtTestEnumOBJ.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/types.dmd");
-            _DmtTestEnumOBJ.setLineNumber("15");
+            _DmtTestEnumOBJ.setLineNumber("16");
             addEnumDefList(_DmtTestEnum);
 
     }

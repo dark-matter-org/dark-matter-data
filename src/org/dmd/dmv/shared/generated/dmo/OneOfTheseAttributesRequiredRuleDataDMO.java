@@ -24,20 +24,21 @@ import org.dmd.dmc.DmcSliceInfo;                                            // R
 import org.dmd.dmc.DmcValueException;                                       // Any attributes - (GenUtility.java:237)
 import org.dmd.dmc.types.RuleName;                                          // Primitive type and !auxiliary class - (GenUtility.java:267)
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add - (GenUtility.java:303)
-import org.dmd.dms.generated.dmo.ClassDefinitionDMO;                        // Type specific set/add - (GenUtility.java:303)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Required for MODREC constructor - (GenUtility.java:224)
 import org.dmd.dms.generated.dmo.RuleDataDMO;                               // Base class - (GenUtility.java:351)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Helper class - (GenUtility.java:331)
-import org.dmd.dms.generated.types.ClassDefinitionREF;                      // Helper class - (GenUtility.java:331)
 import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFMV;         // Reference type - (GenUtility.java:296)
 import org.dmd.dms.generated.types.DmcTypeBooleanSV;                        // Required type - (GenUtility.java:324)
-import org.dmd.dms.generated.types.DmcTypeClassDefinitionREFSV;             // Reference type - (GenUtility.java:296)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:223)
 import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:324)
 
 /**
- * null
+ * The OneOfTheseAttributesRequiredRule allows you to specify\n that one of
+ * the possible optional attributes specified must be present\n in the object
+ * being checked.\n <p/>\n If only one of the possibilities is allowed, you
+ * can specify the andOnlyOne\n flag and set it to true. In this case only
+ * one of the possibilities will be allowed.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -135,78 +136,6 @@ public class OneOfTheseAttributesRequiredRuleDataDMO  extends RuleDataDMO  imple
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remDescription(){
          rem(MetaDMSAG.__description);
-    }
-
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:645)
-    public ClassDefinitionREF getApplyToClass(){
-        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
-        if (attr == null)
-            return(null);
-
-        if (DmcOmni.instance().lazyResolution()){
-            if (attr.doLazyResolution(this)){
-                rem(attr.getAttributeInfo());
-                return(null);
-            }
-        }
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Returns the reference to ClassDefinition without attempting lazy resolution (if turned on).
-     */
-    public ClassDefinitionREF getApplyToClassREF(){
-        DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets applyToClass to the specified value.
-     * @param value ClassDefinitionDMO
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:699)
-    public void setApplyToClass(ClassDefinitionDMO value) {
-        DmcAttribute<?> attr = get(MetaDMSAG.__applyToClass);
-        if (attr == null)
-            attr = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__applyToClass);
-        else
-            ((DmcTypeClassDefinitionREFSV)attr).removeBackReferences();
-        
-        try{
-            attr.set(value);
-            set(MetaDMSAG.__applyToClass,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets applyToClass to the specified value.
-     * @param value A value compatible with DmcTypeClassDefinitionREFSV
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
-    public void setApplyToClass(Object value) throws DmcValueException {
-        DmcTypeClassDefinitionREFSV attr  = (DmcTypeClassDefinitionREFSV) get(MetaDMSAG.__applyToClass);
-        if (attr == null)
-            attr = new DmcTypeClassDefinitionREFSV(MetaDMSAG.__applyToClass);
-        else
-            attr.removeBackReferences();
-        
-        attr.set(value);
-        set(MetaDMSAG.__applyToClass,attr);
-    }
-
-    /**
-     * Removes the applyToClass attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
-    public void remApplyToClass(){
-         rem(MetaDMSAG.__applyToClass);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)

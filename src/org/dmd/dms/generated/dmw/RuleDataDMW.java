@@ -172,27 +172,6 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     }
 
     /**
-     * Indicates the attribute to which an ATTRIBUTE type rule is applied.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
-    public AttributeDefinition getApplyToAttribute(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) mycore.get(MetaDMSAG.__applyToAttribute);
-        if (attr == null)
-            return(null);
-        AttributeDefinitionDMO obj = attr.getSV().getObject();
-        return((AttributeDefinition)obj.getContainer());
-    }
-
-    /**
-     * Sets applyToAttribute to the specified value.
-     * @param value A value compatible with AttributeDefinition
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2305)
-    public void setApplyToAttribute(AttributeDefinition value) throws DmcValueException {
-        mycore.setApplyToAttribute(value.getDmcObject());
-    }
-
-    /**
      * The class to which a rule should be applied.
      */
     // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)

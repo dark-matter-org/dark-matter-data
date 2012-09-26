@@ -655,7 +655,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleDataOBJ.addMay("definedIn");
         _RuleDataOBJ.addMay("file");
         _RuleDataOBJ.addMay("lineNumber");
-        _RuleDataOBJ.addMay("applyToAttribute");
         _RuleDataOBJ.addMay("applyToClass");
         _RuleDataOBJ.addMay("immediateHalt");
         _RuleDataOBJ.addMust("ruleTitle");

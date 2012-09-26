@@ -24,7 +24,6 @@ abstract public class CheckAttributesBasedOnValueRuleBaseImpl implements RuleIF,
     static ArrayList<Integer> categories;
 
     private DmcClassInfo      classInfo;
-    private DmcAttributeInfo  attrInfo;
     private RuleKey           key;
 
     protected CheckAttributesBasedOnValueRuleDataDMO ruleDMO;
@@ -90,15 +89,7 @@ abstract public class CheckAttributesBasedOnValueRuleBaseImpl implements RuleIF,
 
     @Override
     public DmcAttributeInfo getApplyToAttribute() {
-        if (attrInfo != null)
-            return(attrInfo);
-        
-        if (ruleDMO == null)
-            return(null);
-        if (ruleDMO.getApplyToAttribute() != null)
-            attrInfo = DmcOmni.instance().getAttributeInfo(ruleDMO.getApplyToAttribute().getObjectName().getNameString());
-        
-        return(attrInfo);
+        return(null);
     }
 
     @Override

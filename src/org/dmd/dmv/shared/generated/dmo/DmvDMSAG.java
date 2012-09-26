@@ -118,12 +118,10 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         __AllowedAttributesRuleData.addMust(MetaDMSAG.__ruleName);
         __AllowedAttributesRuleData.addMust(MetaDMSAG.__ruleTitle);
         __AllowedAttributesRuleData.addMay(MetaDMSAG.__description);
-        __AllowedAttributesRuleData.addMay(MetaDMSAG.__applyToClass);
 
         __InitRuleData.addMust(MetaDMSAG.__ruleName);
         __InitRuleData.addMust(MetaDMSAG.__ruleTitle);
         __InitRuleData.addMay(MetaDMSAG.__description);
-        __InitRuleData.addMay(MetaDMSAG.__applyToClass);
 
         __IntegerRangeRuleData.addMust(MetaDMSAG.__ruleName);
         __IntegerRangeRuleData.addMust(MetaDMSAG.__ruleTitle);
@@ -131,19 +129,16 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         __IntegerRangeRuleData.addMust(__irrMinimum);
         __IntegerRangeRuleData.addMust(__irrMaximum);
         __IntegerRangeRuleData.addMay(MetaDMSAG.__description);
-        __IntegerRangeRuleData.addMay(MetaDMSAG.__applyToClass);
 
         __UCOAllowedAttributesRuleData.addMust(MetaDMSAG.__ruleName);
         __UCOAllowedAttributesRuleData.addMust(MetaDMSAG.__ruleTitle);
         __UCOAllowedAttributesRuleData.addMay(MetaDMSAG.__description);
-        __UCOAllowedAttributesRuleData.addMay(MetaDMSAG.__applyToClass);
 
         __AttributeTypeRuleData.addMust(MetaDMSAG.__ruleName);
         __AttributeTypeRuleData.addMust(MetaDMSAG.__ruleTitle);
         __AttributeTypeRuleData.addMust(MetaDMSAG.__applyToAttribute);
         __AttributeTypeRuleData.addMust(__allowedType);
         __AttributeTypeRuleData.addMay(MetaDMSAG.__description);
-        __AttributeTypeRuleData.addMay(MetaDMSAG.__applyToClass);
 
         __RelatedNumbersRuleData.addMust(MetaDMSAG.__ruleName);
         __RelatedNumbersRuleData.addMust(MetaDMSAG.__ruleTitle);
@@ -151,14 +146,12 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         __RelatedNumbersRuleData.addMust(__rhs);
         __RelatedNumbersRuleData.addMust(__numericRelation);
         __RelatedNumbersRuleData.addMay(MetaDMSAG.__description);
-        __RelatedNumbersRuleData.addMay(MetaDMSAG.__applyToClass);
 
         __CheckAttributesBasedOnValueRuleData.addMust(MetaDMSAG.__ruleName);
         __CheckAttributesBasedOnValueRuleData.addMust(MetaDMSAG.__ruleTitle);
         __CheckAttributesBasedOnValueRuleData.addMust(__basedOnAttribute);
         __CheckAttributesBasedOnValueRuleData.addMust(__basedOnValue);
         __CheckAttributesBasedOnValueRuleData.addMay(MetaDMSAG.__description);
-        __CheckAttributesBasedOnValueRuleData.addMay(MetaDMSAG.__applyToClass);
         __CheckAttributesBasedOnValueRuleData.addMay(__excludeThisAttribute);
         __CheckAttributesBasedOnValueRuleData.addMay(__includeThisAttribute);
 
@@ -166,7 +159,6 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         __OneOfTheseAttributesRequiredRuleData.addMust(MetaDMSAG.__ruleTitle);
         __OneOfTheseAttributesRequiredRuleData.addMust(__onePossibility);
         __OneOfTheseAttributesRequiredRuleData.addMay(MetaDMSAG.__description);
-        __OneOfTheseAttributesRequiredRuleData.addMay(MetaDMSAG.__applyToClass);
         __OneOfTheseAttributesRequiredRuleData.addMay(__andOnlyOne);
 
         // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:245)
@@ -204,11 +196,10 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _RmAp.add(__dmvAllowedAttributes);
 
             OneOfTheseAttributesRequiredRuleDataDMO _dmvIncludeOrExcludeData = new OneOfTheseAttributesRequiredRuleDataDMO();
-            _dmvIncludeOrExcludeData     .setApplyToAttribute("onePossibility");
             _dmvIncludeOrExcludeData     .setApplyToClass("CheckAttributesBasedOnValueRuleData");
             _dmvIncludeOrExcludeData     .setDefinedIn("dmv");
             _dmvIncludeOrExcludeData     .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _dmvIncludeOrExcludeData     .setLineNumber("192");
+            _dmvIncludeOrExcludeData     .setLineNumber("191");
             _dmvIncludeOrExcludeData     .addOnePossibility("excludeThisAttribute");
             _dmvIncludeOrExcludeData     .addOnePossibility("includeThisAttribute");
             _dmvIncludeOrExcludeData     .setRuleName("dmvIncludeOrExclude");

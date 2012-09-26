@@ -2176,7 +2176,7 @@ may				description
 may           	definedIn
 may          	file
 may        		lineNumber
-may				applyToAttribute
+//may				applyToAttribute
 may				applyToClass
 may				immediateHalt
 description		The RuleData class serves as a common base for all ClassDefinitions
