@@ -45,7 +45,6 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(MetaDMSAG.__ruleName.id,MetaDMSAG.__ruleName);
         _ImAp.put(MetaDMSAG.__ruleTitle.id,MetaDMSAG.__ruleTitle);
-        _ImAp.put(MetaDMSAG.__applyToAttribute.id,MetaDMSAG.__applyToAttribute);
         _ImAp.put(MetaDMSAG.__applyToClass.id,MetaDMSAG.__applyToClass);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
@@ -56,7 +55,6 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__ruleName.name,MetaDMSAG.__ruleName);
         _SmAp.put(MetaDMSAG.__ruleTitle.name,MetaDMSAG.__ruleTitle);
-        _SmAp.put(MetaDMSAG.__applyToAttribute.name,MetaDMSAG.__applyToAttribute);
         _SmAp.put(MetaDMSAG.__applyToClass.name,MetaDMSAG.__applyToClass);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
@@ -147,32 +145,6 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         
         attr.set(value);
         set(MetaDMSAG.__ruleTitle,attr);
-    }
-
-    /**
-     * Indicates the attribute to which an ATTRIBUTE type rule is applied.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
-    public AttributeDefinitionREF getApplyToAttribute(){
-        DmcTypeAttributeDefinitionREFSV attr = (DmcTypeAttributeDefinitionREFSV) get(MetaDMSAG.__applyToAttribute);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets applyToAttribute to the specified value.
-     * @param value A value compatible with DmcTypeAttributeDefinitionREFSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2284)
-    public void setApplyToAttribute(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__applyToAttribute);
-        if (attr == null)
-            attr = new DmcTypeAttributeDefinitionREFSV(MetaDMSAG.__applyToAttribute);
-        
-        attr.set(value);
-        set(MetaDMSAG.__applyToAttribute,attr);
     }
 
     /**

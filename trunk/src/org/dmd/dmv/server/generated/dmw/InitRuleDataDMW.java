@@ -22,7 +22,6 @@ import org.dmd.dmc.types.RuleName;                               // Primitive ty
 import org.dmd.dms.ClassDefinition;                              // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
 import org.dmd.dms.RuleData;                                     // Derived class - (BaseDMWGeneratorNewest.java:1066)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                      // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
-import org.dmd.dms.generated.types.ClassDefinitionREF;           // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;            // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
 import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
 
@@ -65,47 +64,6 @@ public class InitRuleDataDMW extends RuleData {
     // Generated from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:527)
     protected InitRuleDataDMW(InitRuleDataDMO obj, ClassDefinition cd) {
         super(obj,cd);
-    }
-
-    /**
-     * @return A ClassDefinition object.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1252)
-    public ClassDefinition getApplyToClass(){
-        ClassDefinitionREF ref = ((InitRuleDataDMO) core).getApplyToClass();
-        if (ref == null)
-            return(null);
-        
-        if (ref.getObject() == null)
-            return(null);
-        
-        return((ClassDefinition)ref.getObject().getContainer());
-    }
-
-    /**
-     * Sets the applyToClass to the specified value.
-     * @param value A value compatible with ClassDefinitionREF
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1337)
-    public void setApplyToClass(ClassDefinition value) {
-        ((InitRuleDataDMO) core).setApplyToClass(value.getDMO());
-    }
-
-    /**
-     * Sets the applyToClass to the specified value.
-     * @param value A value compatible with ClassDefinitionREF
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1346)
-    public void setApplyToClass(Object value) throws DmcValueException {
-        ((InitRuleDataDMO) core).setApplyToClass(value);
-    }
-
-    /**
-     * Removes the applyToClass attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
-    public void remApplyToClass(){
-        ((InitRuleDataDMO) core).remApplyToClass();
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)

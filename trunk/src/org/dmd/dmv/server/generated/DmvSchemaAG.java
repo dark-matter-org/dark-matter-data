@@ -42,6 +42,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static ClassDefinition _AttributeTypeRuleData;
     public static ClassDefinition _RelatedNumbersRuleData;
     public static ClassDefinition _CheckAttributesBasedOnValueRuleData;
+    public static ClassDefinition _OneOfTheseAttributesRequiredRuleData;
 
     public static AttributeDefinition _irrMinimum;
     public static AttributeDefinition _irrMaximum;
@@ -53,6 +54,8 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _basedOnValue;
     public static AttributeDefinition _excludeThisAttribute;
     public static AttributeDefinition _includeThisAttribute;
+    public static AttributeDefinition _onePossibility;
+    public static AttributeDefinition _andOnlyOne;
 
 
 
@@ -65,6 +68,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static RuleDefinition _AttributeTypeRule;
     public static RuleDefinition _RelatedNumbersRule;
     public static RuleDefinition _CheckAttributesBasedOnValueRule;
+    public static RuleDefinition _OneOfTheseAttributesRequiredRule;
 
     static DmvSchemaAG instance;
 
@@ -108,7 +112,6 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AllowedAttributesRuleDataOBJ.setRuleDefinition("AllowedAttributesRule");
             _AllowedAttributesRuleDataOBJ.setDmwIteratorClass("AllowedAttributesRuleDataIterableDMW");
             _AllowedAttributesRuleDataOBJ.addMay("description");
-            _AllowedAttributesRuleDataOBJ.addMay("applyToClass");
             _AllowedAttributesRuleDataOBJ.addMust("ruleName");
             _AllowedAttributesRuleDataOBJ.addMust("ruleTitle");
             _AllowedAttributesRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.AllowedAttributesRuleDataIterableDMW");
@@ -123,13 +126,12 @@ public class DmvSchemaAG extends SchemaDefinition {
             _InitRuleDataOBJ.setInternallyGenerated("true");
             _InitRuleDataOBJ.setClassType("EXTENSIBLE");
             _InitRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _InitRuleDataOBJ.setLineNumber("46");
+            _InitRuleDataOBJ.setLineNumber("48");
             _InitRuleDataOBJ.setDerivedFrom("RuleData");
             _InitRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.InitRuleDataREF");
             _InitRuleDataOBJ.setRuleDefinition("InitRule");
             _InitRuleDataOBJ.setDmwIteratorClass("InitRuleDataIterableDMW");
             _InitRuleDataOBJ.addMay("description");
-            _InitRuleDataOBJ.addMay("applyToClass");
             _InitRuleDataOBJ.addMust("ruleName");
             _InitRuleDataOBJ.addMust("ruleTitle");
             _InitRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.InitRuleDataIterableDMW");
@@ -144,13 +146,12 @@ public class DmvSchemaAG extends SchemaDefinition {
             _IntegerRangeRuleDataOBJ.setInternallyGenerated("true");
             _IntegerRangeRuleDataOBJ.setClassType("STRUCTURAL");
             _IntegerRangeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _IntegerRangeRuleDataOBJ.setLineNumber("69");
+            _IntegerRangeRuleDataOBJ.setLineNumber("71");
             _IntegerRangeRuleDataOBJ.setDerivedFrom("RuleData");
             _IntegerRangeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.IntegerRangeRuleDataREF");
             _IntegerRangeRuleDataOBJ.setRuleDefinition("IntegerRangeRule");
             _IntegerRangeRuleDataOBJ.setDmwIteratorClass("IntegerRangeRuleDataIterableDMW");
             _IntegerRangeRuleDataOBJ.addMay("description");
-            _IntegerRangeRuleDataOBJ.addMay("applyToClass");
             _IntegerRangeRuleDataOBJ.addMust("ruleName");
             _IntegerRangeRuleDataOBJ.addMust("ruleTitle");
             _IntegerRangeRuleDataOBJ.addMust("applyToAttribute");
@@ -168,13 +169,12 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleDataOBJ.setInternallyGenerated("true");
             _UCOAllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
             _UCOAllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _UCOAllowedAttributesRuleDataOBJ.setLineNumber("79");
+            _UCOAllowedAttributesRuleDataOBJ.setLineNumber("81");
             _UCOAllowedAttributesRuleDataOBJ.setDerivedFrom("RuleData");
             _UCOAllowedAttributesRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.UCOAllowedAttributesRuleDataREF");
             _UCOAllowedAttributesRuleDataOBJ.setRuleDefinition("UCOAllowedAttributesRule");
             _UCOAllowedAttributesRuleDataOBJ.setDmwIteratorClass("UCOAllowedAttributesRuleDataIterableDMW");
             _UCOAllowedAttributesRuleDataOBJ.addMay("description");
-            _UCOAllowedAttributesRuleDataOBJ.addMay("applyToClass");
             _UCOAllowedAttributesRuleDataOBJ.addMust("ruleName");
             _UCOAllowedAttributesRuleDataOBJ.addMust("ruleTitle");
             _UCOAllowedAttributesRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.UCOAllowedAttributesRuleDataIterableDMW");
@@ -189,13 +189,12 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AttributeTypeRuleDataOBJ.setInternallyGenerated("true");
             _AttributeTypeRuleDataOBJ.setClassType("STRUCTURAL");
             _AttributeTypeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _AttributeTypeRuleDataOBJ.setLineNumber("89");
+            _AttributeTypeRuleDataOBJ.setLineNumber("91");
             _AttributeTypeRuleDataOBJ.setDerivedFrom("RuleData");
             _AttributeTypeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.AttributeTypeRuleDataREF");
             _AttributeTypeRuleDataOBJ.setRuleDefinition("AttributeTypeRule");
             _AttributeTypeRuleDataOBJ.setDmwIteratorClass("AttributeTypeRuleDataIterableDMW");
             _AttributeTypeRuleDataOBJ.addMay("description");
-            _AttributeTypeRuleDataOBJ.addMay("applyToClass");
             _AttributeTypeRuleDataOBJ.addMust("ruleName");
             _AttributeTypeRuleDataOBJ.addMust("ruleTitle");
             _AttributeTypeRuleDataOBJ.addMust("applyToAttribute");
@@ -212,13 +211,12 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RelatedNumbersRuleDataOBJ.setInternallyGenerated("true");
             _RelatedNumbersRuleDataOBJ.setClassType("STRUCTURAL");
             _RelatedNumbersRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _RelatedNumbersRuleDataOBJ.setLineNumber("113");
+            _RelatedNumbersRuleDataOBJ.setLineNumber("115");
             _RelatedNumbersRuleDataOBJ.setDerivedFrom("RuleData");
             _RelatedNumbersRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.RelatedNumbersRuleDataREF");
             _RelatedNumbersRuleDataOBJ.setRuleDefinition("RelatedNumbersRule");
             _RelatedNumbersRuleDataOBJ.setDmwIteratorClass("RelatedNumbersRuleDataIterableDMW");
             _RelatedNumbersRuleDataOBJ.addMay("description");
-            _RelatedNumbersRuleDataOBJ.addMay("applyToClass");
             _RelatedNumbersRuleDataOBJ.addMust("ruleName");
             _RelatedNumbersRuleDataOBJ.addMust("ruleTitle");
             _RelatedNumbersRuleDataOBJ.addMust("lhs");
@@ -236,21 +234,43 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CheckAttributesBasedOnValueRuleDataOBJ.setInternallyGenerated("true");
             _CheckAttributesBasedOnValueRuleDataOBJ.setClassType("STRUCTURAL");
             _CheckAttributesBasedOnValueRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _CheckAttributesBasedOnValueRuleDataOBJ.setLineNumber("157");
+            _CheckAttributesBasedOnValueRuleDataOBJ.setLineNumber("158");
             _CheckAttributesBasedOnValueRuleDataOBJ.setDerivedFrom("RuleData");
             _CheckAttributesBasedOnValueRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.CheckAttributesBasedOnValueRuleDataREF");
             _CheckAttributesBasedOnValueRuleDataOBJ.setRuleDefinition("CheckAttributesBasedOnValueRule");
             _CheckAttributesBasedOnValueRuleDataOBJ.setDmwIteratorClass("CheckAttributesBasedOnValueRuleDataIterableDMW");
             _CheckAttributesBasedOnValueRuleDataOBJ.addMay("description");
-            _CheckAttributesBasedOnValueRuleDataOBJ.addMay("applyToClass");
+            _CheckAttributesBasedOnValueRuleDataOBJ.addMay("excludeThisAttribute");
+            _CheckAttributesBasedOnValueRuleDataOBJ.addMay("includeThisAttribute");
             _CheckAttributesBasedOnValueRuleDataOBJ.addMust("ruleName");
             _CheckAttributesBasedOnValueRuleDataOBJ.addMust("ruleTitle");
             _CheckAttributesBasedOnValueRuleDataOBJ.addMust("basedOnAttribute");
             _CheckAttributesBasedOnValueRuleDataOBJ.addMust("basedOnValue");
-            _CheckAttributesBasedOnValueRuleDataOBJ.addMust("excludeThisAttribute");
             _CheckAttributesBasedOnValueRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.CheckAttributesBasedOnValueRuleDataIterableDMW");
             _CheckAttributesBasedOnValueRuleData.setDefinedIn(this);
             addClassDefList(_CheckAttributesBasedOnValueRuleData);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
+            ClassDefinitionDMO _OneOfTheseAttributesRequiredRuleDataOBJ = new ClassDefinitionDMO();
+            _OneOfTheseAttributesRequiredRuleData = new ClassDefinition(_OneOfTheseAttributesRequiredRuleDataOBJ,DmvDMSAG.__OneOfTheseAttributesRequiredRuleData);
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setName("OneOfTheseAttributesRequiredRuleData");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setDmdID("-959992");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setInternallyGenerated("true");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setClassType("STRUCTURAL");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setLineNumber("184");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setDerivedFrom("RuleData");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.OneOfTheseAttributesRequiredRuleDataREF");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setRuleDefinition("OneOfTheseAttributesRequiredRule");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setDmwIteratorClass("OneOfTheseAttributesRequiredRuleDataIterableDMW");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.addMay("description");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.addMay("andOnlyOne");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.addMust("ruleName");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.addMust("ruleTitle");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.addMust("onePossibility");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.OneOfTheseAttributesRequiredRuleDataIterableDMW");
+            _OneOfTheseAttributesRequiredRuleData.setDefinedIn(this);
+            addClassDefList(_OneOfTheseAttributesRequiredRuleData);
 
     }
 
@@ -379,6 +399,31 @@ public class DmvSchemaAG extends SchemaDefinition {
             _includeThisAttributeOBJ.setLineNumber("73");
             addAttributeDefList(_includeThisAttribute);
 
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
+            AttributeDefinitionDMO _onePossibilityOBJ = new AttributeDefinitionDMO();
+            _onePossibility = new AttributeDefinition(_onePossibilityOBJ);
+            _onePossibilityOBJ.setType("AttributeDefinition");
+            _onePossibilityOBJ.setName("onePossibility");
+            _onePossibilityOBJ.setDmdID("-479989");
+            _onePossibilityOBJ.setDescription("The onePossibility attribute indicates an attribute that is one possiblity among\n many.");
+            _onePossibilityOBJ.setValueType("MULTI");
+            _onePossibility.setDefinedIn(this);
+            _onePossibilityOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _onePossibilityOBJ.setLineNumber("81");
+            addAttributeDefList(_onePossibility);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
+            AttributeDefinitionDMO _andOnlyOneOBJ = new AttributeDefinitionDMO();
+            _andOnlyOne = new AttributeDefinition(_andOnlyOneOBJ);
+            _andOnlyOneOBJ.setType("Boolean");
+            _andOnlyOneOBJ.setName("andOnlyOne");
+            _andOnlyOneOBJ.setDmdID("-479988");
+            _andOnlyOneOBJ.setDescription("The andOnlyOne attribute indicates that only one of a set of possibilities is\n allowed.");
+            _andOnlyOne.setDefinedIn(this);
+            _andOnlyOneOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _andOnlyOneOBJ.setLineNumber("87");
+            addAttributeDefList(_andOnlyOne);
+
     }
 
     private void initTypes() throws DmcValueException {
@@ -430,7 +475,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _InitRuleOBJ.setIsExtensible("true");
             _InitRule.setDefinedIn(this);
             _InitRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _InitRuleOBJ.setLineNumber("46");
+            _InitRuleOBJ.setLineNumber("48");
             addRuleDefinitionList(_InitRule);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
@@ -445,7 +490,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _IntegerRangeRuleOBJ.addMust("irrMaximum");
             _IntegerRangeRule.setDefinedIn(this);
             _IntegerRangeRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _IntegerRangeRuleOBJ.setLineNumber("69");
+            _IntegerRangeRuleOBJ.setLineNumber("71");
             addRuleDefinitionList(_IntegerRangeRule);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
@@ -457,7 +502,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleOBJ.setDescription("The UCOAllowedAttributesRule will determine whether or not the \n attributes of a DmcUncheckedObject conform to the must/may specification of its\n class definition. For classes of type EXTENSIBLE only the must have attributes are checked.");
             _UCOAllowedAttributesRule.setDefinedIn(this);
             _UCOAllowedAttributesRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _UCOAllowedAttributesRuleOBJ.setLineNumber("79");
+            _UCOAllowedAttributesRuleOBJ.setLineNumber("81");
             addRuleDefinitionList(_UCOAllowedAttributesRule);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
@@ -470,7 +515,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AttributeTypeRuleOBJ.addMust("allowedType");
             _AttributeTypeRule.setDefinedIn(this);
             _AttributeTypeRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _AttributeTypeRuleOBJ.setLineNumber("89");
+            _AttributeTypeRuleOBJ.setLineNumber("91");
             addRuleDefinitionList(_AttributeTypeRule);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
@@ -486,7 +531,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RelatedNumbersRuleOBJ.addMust("numericRelation");
             _RelatedNumbersRule.setDefinedIn(this);
             _RelatedNumbersRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _RelatedNumbersRuleOBJ.setLineNumber("113");
+            _RelatedNumbersRuleOBJ.setLineNumber("115");
             addRuleDefinitionList(_RelatedNumbersRule);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
@@ -496,14 +541,30 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CheckAttributesBasedOnValueRuleOBJ.addRuleCategory("ObjectModifierValidation");
             _CheckAttributesBasedOnValueRuleOBJ.setName("CheckAttributesBasedOnValueRule");
             _CheckAttributesBasedOnValueRuleOBJ.setDmdID("-479993");
-            _CheckAttributesBasedOnValueRuleOBJ.setDescription("The CheckAttributesBasedOnValueRule allows you to specify\n that certain optional attributes must exist (or not exist) based on the value\n of another attribute in an object.\n an object based on the setting of a particular enumerated attribute. This allows\n for finer control of must/may attributes based on enumerated values in an object.\n An example usage might look like:\n <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName             <schema>ExcludeSunRoof\n ruleTitle            The sun roof option is not avilable on four cyclinder vehicles.\n applyToClass         Car\n basedOnAttribute     engineType\n basedOnValue         FOURCYLINDER\n excludeThisAttribute sunRoofOption\n </pre>");
+            _CheckAttributesBasedOnValueRuleOBJ.setDescription("The CheckAttributesBasedOnValueRule allows you to specify\n that certain optional attributes must exist (or not exist) based on the value\n of another attribute in an object. This allows for finer control of must/may\n attributes based on enumerated values in an object. An example usage might look like:\n <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName             <schema>ExcludeSunRoof\n ruleTitle            The sun roof option is not avilable on four cyclinder vehicles.\n applyToClass         Car\n basedOnAttribute     engineType\n basedOnValue         FOURCYLINDER\n excludeThisAttribute sunRoofOption\n </pre>");
+            _CheckAttributesBasedOnValueRuleOBJ.addMay("excludeThisAttribute");
+            _CheckAttributesBasedOnValueRuleOBJ.addMay("includeThisAttribute");
             _CheckAttributesBasedOnValueRuleOBJ.addMust("basedOnAttribute");
             _CheckAttributesBasedOnValueRuleOBJ.addMust("basedOnValue");
-            _CheckAttributesBasedOnValueRuleOBJ.addMust("excludeThisAttribute");
             _CheckAttributesBasedOnValueRule.setDefinedIn(this);
             _CheckAttributesBasedOnValueRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _CheckAttributesBasedOnValueRuleOBJ.setLineNumber("157");
+            _CheckAttributesBasedOnValueRuleOBJ.setLineNumber("158");
             addRuleDefinitionList(_CheckAttributesBasedOnValueRule);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
+            RuleDefinitionDMO _OneOfTheseAttributesRequiredRuleOBJ = new RuleDefinitionDMO();
+            _OneOfTheseAttributesRequiredRule = new RuleDefinition(_OneOfTheseAttributesRequiredRuleOBJ);
+            _OneOfTheseAttributesRequiredRuleOBJ.addRuleCategory("ObjectValidation");
+            _OneOfTheseAttributesRequiredRuleOBJ.addRuleCategory("ObjectModifierValidation");
+            _OneOfTheseAttributesRequiredRuleOBJ.setName("OneOfTheseAttributesRequiredRule");
+            _OneOfTheseAttributesRequiredRuleOBJ.setDmdID("-479992");
+            _OneOfTheseAttributesRequiredRuleOBJ.setDescription("The OneOfTheseAttributesRequiredRule allows you to specify\n that one of the possible optional attributes specified must be present\n in the object being checked.\n <p/>\n If only one of the possibilities is allowed, you can specify the andOnlyOne\n flag and set it to true. In this case only one of the possibilities will be allowed.");
+            _OneOfTheseAttributesRequiredRuleOBJ.addMay("andOnlyOne");
+            _OneOfTheseAttributesRequiredRuleOBJ.addMust("onePossibility");
+            _OneOfTheseAttributesRequiredRule.setDefinedIn(this);
+            _OneOfTheseAttributesRequiredRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _OneOfTheseAttributesRequiredRuleOBJ.setLineNumber("184");
+            addRuleDefinitionList(_OneOfTheseAttributesRequiredRule);
 
     }
 

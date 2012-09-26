@@ -155,6 +155,16 @@
       <li> <a class="deflink" href="#ValueTypeEnum"> ValueTypeEnum </a></li>
       <li> <a class="deflink" href="#WrapperTypeEnum"> WrapperTypeEnum </a></li>
     </ul>
+    </div>    <div class="categories">
+    <h2> Rule Categories (6)</h2>
+    <ul>
+      <li> <a class="deflink" href="#AttributeModifierValidation"> AttributeModifierValidation </a></li>
+      <li> <a class="deflink" href="#AttributeValidation"> AttributeValidation </a></li>
+      <li> <a class="deflink" href="#Initialization"> Initialization </a></li>
+      <li> <a class="deflink" href="#ObjectModifierValidation"> ObjectModifierValidation </a></li>
+      <li> <a class="deflink" href="#ObjectValidation"> ObjectValidation </a></li>
+      <li> <a class="deflink" href="#UCOValidation"> UCOValidation </a></li>
+    </ul>
     </div>  </div> <!--  summary -->
 
 <div class="classDetails">
@@ -1512,7 +1522,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="dmv.html#AllowedAttributesRuleData">AllowedAttributesRuleData</a> </div>      <div class="derived"> <a href="dmv.html#AttributeTypeRuleData">AttributeTypeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#CheckAttributesBasedOnValueRuleData">CheckAttributesBasedOnValueRuleData</a> </div>      <div class="derived"> <a href="dmv.html#InitRuleData">InitRuleData</a> </div>      <div class="derived"> <a href="dmv.html#IntegerRangeRuleData">IntegerRangeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#RelatedNumbersRuleData">RelatedNumbersRuleData</a> </div>      <div class="derived"> <a href="dmv.html#UCOAllowedAttributesRuleData">UCOAllowedAttributesRuleData</a> </div>      </td>
+      <div class="derived"> <a href="dmv.html#AllowedAttributesRuleData">AllowedAttributesRuleData</a> </div>      <div class="derived"> <a href="dmv.html#AttributeTypeRuleData">AttributeTypeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#CheckAttributesBasedOnValueRuleData">CheckAttributesBasedOnValueRuleData</a> </div>      <div class="derived"> <a href="dmv.html#InitRuleData">InitRuleData</a> </div>      <div class="derived"> <a href="dmv.html#IntegerRangeRuleData">IntegerRangeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#OneOfTheseAttributesRequiredRuleData">OneOfTheseAttributesRequiredRuleData</a> </div>      <div class="derived"> <a href="dmv.html#RelatedNumbersRuleData">RelatedNumbersRuleData</a> </div>      <div class="derived"> <a href="dmv.html#UCOAllowedAttributesRuleData">UCOAllowedAttributesRuleData</a> </div>      </td>
     </tr>
 
     <tr>
@@ -1552,14 +1562,6 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">May</td>
-      <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -1574,6 +1576,17 @@
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
  documentation. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> </td>
+      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
+      <td> The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing. </td>
     </tr>
 
   </table>
@@ -2438,7 +2451,6 @@
   <tr>
     <td> AttributeTypeRuleData (<a href="dmv.html#AttributeTypeRuleData">dmv</a>) </td>
     <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
-    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -2463,17 +2475,7 @@
       <td>
 <table>
   <tr>
-    <td> AllowedAttributesRuleData (<a href="dmv.html#AllowedAttributesRuleData">dmv</a>) </td>
-    <td> AttributeTypeRuleData (<a href="dmv.html#AttributeTypeRuleData">dmv</a>) </td>
-    <td> CheckAttributesBasedOnValueRuleData (<a href="dmv.html#CheckAttributesBasedOnValueRuleData">dmv</a>) </td>
-  <tr>
-    <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
-    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
-    <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
-</tr>
-  <tr>
     <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
-    <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
 </tr>
 </table>
       </td>
@@ -3079,18 +3081,21 @@
     <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
 </tr>
   <tr>
+    <td> OneOfTheseAttributesRequiredRuleData (<a href="dmv.html#OneOfTheseAttributesRequiredRuleData">dmv</a>) </td>
     <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
     <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
-    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
   <tr>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
     <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
     <td> RunContext (<a href="meta.html#RunContext">meta</a>) </td>
-    <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
 </tr>
   <tr>
+    <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
     <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
     <td> TypeDefinition (<a href="meta.html#TypeDefinition">meta</a>) </td>
+</tr>
+  <tr>
     <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
 </tr>
 </table>
@@ -4133,6 +4138,34 @@
 <table>
   <tr>
     <td> TypeDefinition (<a href="meta.html#TypeDefinition">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="immediateHalt"> immediateHalt </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The immediateHalt flag is used to indicate that no further
+ rule processing should occur if a rule fails. It is an optional attribute on rule instance
+ objects. In somes cases, there is no point in continuing with the application of a set 
+ of rules, so this flag gives the option of halting further processing.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
 </table>
       </td>
@@ -5475,9 +5508,10 @@
   <tr>
     <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
     <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
-    <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
+    <td> OneOfTheseAttributesRequiredRuleData (<a href="dmv.html#OneOfTheseAttributesRequiredRuleData">dmv</a>) </td>
 </tr>
   <tr>
+    <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
     <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
     <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
 </tr>
@@ -5535,9 +5569,10 @@
   <tr>
     <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
     <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
-    <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
+    <td> OneOfTheseAttributesRequiredRuleData (<a href="dmv.html#OneOfTheseAttributesRequiredRuleData">dmv</a>) </td>
 </tr>
   <tr>
+    <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
     <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
     <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
 </tr>
@@ -6139,56 +6174,60 @@
       <td>
 <table>
   <tr>
+    <td> andOnlyOne (<a href="dmv.html#andOnlyOne">dmv</a>) </td>
     <td> blockWhenLocked (<a href="meta.html#blockWhenLocked">meta</a>) </td>
     <td> cacheResponse (<a href="dmp.html#cacheResponse">dmp</a>) </td>
-    <td> createAttributeFactory (<a href="meta.html#createAttributeFactory">meta</a>) </td>
   <tr>
+    <td> createAttributeFactory (<a href="meta.html#createAttributeFactory">meta</a>) </td>
     <td> designatedFilterAttribute (<a href="meta.html#designatedFilterAttribute">meta</a>) </td>
     <td> designatedNameAttribute (<a href="meta.html#designatedNameAttribute">meta</a>) </td>
-    <td> enabledDisabled (<a href="dmt.html#enabledDisabled">dmt</a>) </td>
 </tr>
   <tr>
+    <td> enabledDisabled (<a href="dmt.html#enabledDisabled">dmt</a>) </td>
     <td> eventChannelReady (<a href="dmp.html#eventChannelReady">dmp</a>) </td>
+    <td> immediateHalt (<a href="meta.html#immediateHalt">meta</a>) </td>
+</tr>
+  <tr>
     <td> internalUse (<a href="meta.html#internalUse">meta</a>) </td>
     <td> internallyGenerated (<a href="meta.html#internallyGenerated">meta</a>) </td>
+    <td> isDefaultValue (<a href="meta.html#isDefaultValue">meta</a>) </td>
 </tr>
   <tr>
-    <td> isDefaultValue (<a href="meta.html#isDefaultValue">meta</a>) </td>
     <td> isEnumType (<a href="meta.html#isEnumType">meta</a>) </td>
     <td> isExtendedRefType (<a href="meta.html#isExtendedRefType">meta</a>) </td>
+    <td> isExtensible (<a href="meta.html#isExtensible">meta</a>) </td>
 </tr>
   <tr>
-    <td> isExtensible (<a href="meta.html#isExtensible">meta</a>) </td>
     <td> isFilterType (<a href="meta.html#isFilterType">meta</a>) </td>
     <td> isGetAction (<a href="meta.html#isGetAction">meta</a>) </td>
+    <td> isHierarchicName (<a href="meta.html#isHierarchicName">meta</a>) </td>
 </tr>
   <tr>
-    <td> isHierarchicName (<a href="meta.html#isHierarchicName">meta</a>) </td>
     <td> isNameType (<a href="meta.html#isNameType">meta</a>) </td>
     <td> isRefType (<a href="meta.html#isRefType">meta</a>) </td>
+    <td> isSchemaRtype (<a href="meta.html#isSchemaRtype">meta</a>) </td>
 </tr>
   <tr>
-    <td> isSchemaRtype (<a href="meta.html#isSchemaRtype">meta</a>) </td>
     <td> lastResponse (<a href="dmp.html#lastResponse">dmp</a>) </td>
     <td> maySendProgress (<a href="meta.html#maySendProgress">meta</a>) </td>
+    <td> mvBoolean (<a href="dmt.html#mvBoolean">dmt</a>) </td>
 </tr>
   <tr>
-    <td> mvBoolean (<a href="dmt.html#mvBoolean">dmt</a>) </td>
     <td> myOwnEvent (<a href="dmp.html#myOwnEvent">dmp</a>) </td>
     <td> notifyOriginator (<a href="dmp.html#notifyOriginator">dmp</a>) </td>
+    <td> onOff (<a href="dmt.html#onOff">dmt</a>) </td>
 </tr>
   <tr>
-    <td> onOff (<a href="dmt.html#onOff">dmt</a>) </td>
     <td> preserveNewlines (<a href="meta.html#preserveNewlines">meta</a>) </td>
     <td> readableFormat (<a href="dmp.html#readableFormat">dmp</a>) </td>
+    <td> registerForEvents (<a href="dmp.html#registerForEvents">dmp</a>) </td>
 </tr>
   <tr>
-    <td> registerForEvents (<a href="dmp.html#registerForEvents">dmp</a>) </td>
     <td> secure (<a href="meta.html#secure">meta</a>) </td>
     <td> supportsBackrefTracking (<a href="meta.html#supportsBackrefTracking">meta</a>) </td>
+    <td> svBoolean (<a href="dmt.html#svBoolean">dmt</a>) </td>
 </tr>
   <tr>
-    <td> svBoolean (<a href="dmt.html#svBoolean">dmt</a>) </td>
     <td> trackingEnabled (<a href="dmp.html#trackingEnabled">dmp</a>) </td>
 </tr>
 </table>

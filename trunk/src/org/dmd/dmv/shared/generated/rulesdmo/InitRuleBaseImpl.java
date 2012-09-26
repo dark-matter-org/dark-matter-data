@@ -23,7 +23,6 @@ abstract public class InitRuleBaseImpl implements RuleIF,InitializationIF {
     static ArrayList<Integer> categories;
 
     private DmcClassInfo      classInfo;
-    private DmcAttributeInfo  attrInfo;
     private RuleKey           key;
 
     protected InitRuleDataDMO ruleDMO;
@@ -87,15 +86,7 @@ abstract public class InitRuleBaseImpl implements RuleIF,InitializationIF {
 
     @Override
     public DmcAttributeInfo getApplyToAttribute() {
-        if (attrInfo != null)
-            return(attrInfo);
-        
-        if (ruleDMO == null)
-            return(null);
-        if (ruleDMO.getApplyToAttribute() != null)
-            attrInfo = DmcOmni.instance().getAttributeInfo(ruleDMO.getApplyToAttribute().getObjectName().getNameString());
-        
-        return(attrInfo);
+        return(null);
     }
 
     @Override

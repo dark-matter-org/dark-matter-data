@@ -28,7 +28,6 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                               // Req
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;                       // For multi-valued adds of TypeDefinition - (BaseDMWGeneratorNewest.java:1585)
 import org.dmd.dms.generated.dmw.TypeDefinitionIterableDMW;               // For multi-valued TypeDefinition - (BaseDMWGeneratorNewest.java:1527)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;                // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
-import org.dmd.dms.generated.types.ClassDefinitionREF;                    // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
 import org.dmd.dmv.shared.generated.dmo.AttributeTypeRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
 import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                         // Attribute allowedType from the dmv schema - (BaseDMWGeneratorNewest.java:720)
@@ -199,47 +198,6 @@ public class AttributeTypeRuleDataDMW extends RuleData {
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
     public void remApplyToAttribute(){
         ((AttributeTypeRuleDataDMO) core).remApplyToAttribute();
-    }
-
-    /**
-     * @return A ClassDefinition object.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1252)
-    public ClassDefinition getApplyToClass(){
-        ClassDefinitionREF ref = ((AttributeTypeRuleDataDMO) core).getApplyToClass();
-        if (ref == null)
-            return(null);
-        
-        if (ref.getObject() == null)
-            return(null);
-        
-        return((ClassDefinition)ref.getObject().getContainer());
-    }
-
-    /**
-     * Sets the applyToClass to the specified value.
-     * @param value A value compatible with ClassDefinitionREF
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1337)
-    public void setApplyToClass(ClassDefinition value) {
-        ((AttributeTypeRuleDataDMO) core).setApplyToClass(value.getDMO());
-    }
-
-    /**
-     * Sets the applyToClass to the specified value.
-     * @param value A value compatible with ClassDefinitionREF
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1346)
-    public void setApplyToClass(Object value) throws DmcValueException {
-        ((AttributeTypeRuleDataDMO) core).setApplyToClass(value);
-    }
-
-    /**
-     * Removes the applyToClass attribute value.
-     */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
-    public void remApplyToClass(){
-        ((AttributeTypeRuleDataDMO) core).remApplyToClass();
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
