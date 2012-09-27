@@ -366,6 +366,8 @@ public class RuleFormatter {
 				out.write("                }\n");
 				out.write("            }\n");
 				out.write("        }\n");
+				out.write("        if (rc != null)\n");
+				out.write("            throw(rc);\n");
 				out.write("    }\n\n");
 				out.write("}\n\n");
 
@@ -431,6 +433,8 @@ public class RuleFormatter {
 				out.write("                    throw(rc);\n");
 				out.write("            }\n");
 				out.write("        }\n");
+				out.write("        if (rc != null)\n");
+				out.write("            throw(rc);\n");
 				out.write("    }\n\n");
 				out.write("}\n\n");
 			}

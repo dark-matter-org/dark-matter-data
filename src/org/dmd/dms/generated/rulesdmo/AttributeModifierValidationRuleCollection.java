@@ -78,6 +78,8 @@ public class AttributeModifierValidationRuleCollection extends AttributeRuleColl
                 }
             }
         }
+        if (rc != null)
+            throw(rc);
     }
 
 }

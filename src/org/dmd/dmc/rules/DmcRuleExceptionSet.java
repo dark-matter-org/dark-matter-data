@@ -20,14 +20,13 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class DmcRuleExceptionSet extends Exception {
 	
-	String	fileName;
-	String	lineNumber;
-
+	SourceInfo					source;
 	ArrayList<DmcRuleException> exceptions;
 
 	public DmcRuleExceptionSet(){
 		super();
-		exceptions = new ArrayList<DmcRuleException>();
+		source		= null;
+		exceptions 	= new ArrayList<DmcRuleException>();
 	}
 	
 	public void add(DmcRuleException ex){
@@ -38,12 +37,12 @@ public class DmcRuleExceptionSet extends Exception {
 		return(exceptions);
 	}
 	
-	public void fileName(String fn){
-		fileName = fn;
+	public void source(SourceInfo s){
+		source = s;
 	}
 	
-	public void lineNumber(String ln){
-		lineNumber = ln;
+	public SourceInfo source(){
+		return(source);
 	}
 	
 	/**
@@ -81,14 +80,9 @@ public class DmcRuleExceptionSet extends Exception {
 	public String toString(){
         StringBuffer sb = new StringBuffer();
         
-        if (fileName != null)
-        	sb.append("File: " + fileName + "\n");
+        if (source != null)
+        	sb.append(source.toString() + "\n");
         
-        if (lineNumber != null)
-        	sb.append("Line: " + lineNumber + "\n");
-        
-        sb.append("\n");
-                
         for(DmcRuleException ex : exceptions)
         	sb.append(ex.getLocalizedMessage() + "\n");
 

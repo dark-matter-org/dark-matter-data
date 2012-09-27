@@ -72,10 +72,12 @@ mvString		second value
 svInteger		8
 
 IntegerRangeRuleData
-ruleName 		dmtSvIntegerRange
-ruleTitle		Check that svInteger is in range 1-10
-irrMinimum		1
-irrMaximum		10
+ruleName 			dmtSvIntegerRange
+ruleTitle			Check that svInteger is in range 1-10
+applyToAttribute	svInteger
+applyToClass		TestBasicObjectFixed
+irrMinimum			1
+irrMaximum			10
 
 ClassDefinition
 name            TestBasicNamedObjectFixed

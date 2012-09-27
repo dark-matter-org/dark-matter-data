@@ -15,7 +15,7 @@ public class InitializationRuleCollection extends ClassRuleCollection<Initializa
     public InitializationRuleCollection(){
     }
 
-    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:378)
+    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:380)
     @Override
     public void addRule(RuleIF r){
 
@@ -71,6 +71,8 @@ public class InitializationRuleCollection extends ClassRuleCollection<Initializa
                     throw(rc);
             }
         }
+        if (rc != null)
+            throw(rc);
     }
 
 }
