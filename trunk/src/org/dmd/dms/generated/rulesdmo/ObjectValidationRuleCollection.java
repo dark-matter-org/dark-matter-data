@@ -15,7 +15,7 @@ public class ObjectValidationRuleCollection extends ClassRuleCollection<ObjectVa
     public ObjectValidationRuleCollection(){
     }
 
-    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:378)
+    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:380)
     @Override
     public void addRule(RuleIF r){
 
@@ -71,6 +71,8 @@ public class ObjectValidationRuleCollection extends ClassRuleCollection<ObjectVa
                     throw(rc);
             }
         }
+        if (rc != null)
+            throw(rc);
     }
 
 }

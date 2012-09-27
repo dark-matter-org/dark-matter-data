@@ -78,6 +78,8 @@ public class AttributeValidationRuleCollection extends AttributeRuleCollection<A
                 }
             }
         }
+        if (rc != null)
+            throw(rc);
     }
 
 }

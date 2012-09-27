@@ -15,7 +15,7 @@ public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidati
     public UCOValidationRuleCollection(){
     }
 
-    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:378)
+    // Generated from: org.dmd.dms.util.RuleFormatter.dumpRuleCategoryInterfaces(RuleFormatter.java:380)
     @Override
     public void addRule(RuleIF r){
 
@@ -71,6 +71,8 @@ public class UCOValidationRuleCollection extends ClassRuleCollection<UCOValidati
                     throw(rc);
             }
         }
+        if (rc != null)
+            throw(rc);
     }
 
 }

@@ -156,28 +156,13 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         terseV = terse;
         rc = parseSchemaInternal(schemaName);
         
+        // And finally, after everything has been parsed and resolved, we go back over the rule instances
+        // and sanity check them. Well, it's not quite that simple. We are applying rules to the rules
+        // themselves and we have to dynamically instantiate the rules and initialize them with rule data.
+        // All that interesting stuff is done in the dynamic rule manager.
         DmvDynamicRuleManager drm = new DmvDynamicRuleManager();
         drm.loadAndCheckRules(allSchema, rc);
         
-//        // And finally, after everything has been parsed and resolved, we go back over the rule instances
-//        // and sanity check them. Well, it's not quite that simple. We are applying rules to the rules themselves
-//        // and we have to dynamically instantiate the rules and initialize them with rule data.
-//        Iterator<DmcUncheckedObject> ucoIT = rc.getParsedRules();
-//        if (ucoIT != null){
-//            DmvRuleManager	ruleManager = new DmvRuleManager();
-//
-//			while(ucoIT.hasNext()){
-//				try{
-//					DmcObject ruledata = dmofactory.createObject(ucoIT.next());
-//					DebugInfo.debug("Parsed and instantiated:\n\n" + ruledata.toOIF());
-//				}
-//				catch(Exception ex){
-//					DebugInfo.debug(ex.toString());
-//				}
-//			}
-//        }
-
-
         return(rc);
     }
     
@@ -342,11 +327,12 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         		// from the schema definition files and not using the loaded schemas. In
         		// that case, we don't have all the information required to instantiate
         		// objects. 
+				//
+				// Rule data objects are stored against the schema for processing once 
+				// all schemas have been read. 
         		ClassDefinition checkClass = allSchema.isClass(uco.classes.get(0));
         		if (checkClass != null){
         			if (checkClass.getRuleDefinition() != null){
-//        				DebugInfo.debug("DmsSchemaParser.handleObject() We have a rule: \n\n" + uco.toOIF());
-
         				uco.addValue(MetaDMSAG.__lineNumber.name, lineNumber + "");
         				uco.addValue(MetaDMSAG.__file.name, srcFile);
         				uco.addValue(MetaDMSAG.__definedIn.name, schemaLoading.getName().getNameString());

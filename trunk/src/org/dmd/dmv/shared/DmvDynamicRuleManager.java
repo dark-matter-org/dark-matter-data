@@ -14,6 +14,7 @@ import org.dmd.dmc.rules.DmcRuleManager;
 import org.dmd.dmc.rules.DynamicInitIF;
 import org.dmd.dmc.rules.RuleCollection;
 import org.dmd.dmc.rules.RuleIF;
+import org.dmd.dmc.rules.SourceInfo;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.RuleDefinition;
@@ -64,9 +65,11 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 		}
 	}
 	
-	public void loadAndCheckRules(SchemaManager sm, SchemaDefinition sd){
-	    DmoObjectFactory dmofactory = new DmoObjectFactory(sm);
+	public void loadAndCheckRules(SchemaManager sm, SchemaDefinition sd) throws DmcRuleExceptionSet {
+		DmcRuleExceptionSet		rc 			= null;
+	    DmoObjectFactory 		dmofactory 	= new DmoObjectFactory(sm);
 	    ArrayList<RuleDataDMO>	allRuleData = new ArrayList<RuleDataDMO>();
+	    ArrayList<RuleIF>		allRules 	= new ArrayList<RuleIF>();
 	    
 		Iterator<SchemaDefinition> schemas = sm.getSchemas();
 		if (schemas != null){
@@ -102,7 +105,8 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 							
 							allRuleData.add(ruledata);
 							
-							addThisRule((RuleIF) rule);
+//							addThisRule((RuleIF) rule);
+							allRules.add((RuleIF) rule);
 						}
 						catch(Exception ex){
 							System.err.println(ex.toString());
@@ -118,21 +122,36 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 				DmcOmni.instance().addCompactSchema(curr.getCompactSchema());
 			}
 			
+			// We add the rules after we've reinitialized the DmcOmni so that we can resolve
+			// applyToClass information.
+			for(RuleIF rule: allRules)
+				addThisRule(rule);
+			
 			DmcOmni.instance().ruleTracer(new ConsoleRuleTracer());
 			DmcOmni.instance().ruleTracing(true);
 			
 			for(RuleDataDMO rule: allRuleData){
+				SourceInfo source = new SourceInfo(rule.getFile(), rule.getLineNumber()+"", rule);
+				
 				try {
 					this.executeAttributeValidation(rule);
 					
 					this.executeObjectValidation(rule);
 				} catch (DmcRuleExceptionSet e) {
-					System.err.println(e.toString());
+					e.source(source);
+					if (rc == null)
+						rc = e;
+					else
+						rc.add(e);
+//					System.err.println(e.toString());
 				}
 			}
 			
 //			DebugInfo.debug(this.toString());
 		}
+		
+		if (rc != null)
+			throw(rc);
 	}
 	
 	/**

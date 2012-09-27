@@ -545,11 +545,13 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _RmAp.add(__dmtInitTestBasicObjectFixed);
 
             IntegerRangeRuleDataDMO _dmtSvIntegerRangeData = new IntegerRangeRuleDataDMO();
+            _dmtSvIntegerRangeData       .setApplyToAttribute("svInteger");
+            _dmtSvIntegerRangeData       .setApplyToClass("TestBasicObjectFixed");
             _dmtSvIntegerRangeData       .setDefinedIn("dmt");
             _dmtSvIntegerRangeData       .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
             _dmtSvIntegerRangeData       .setIrrMaximum("10");
             _dmtSvIntegerRangeData       .setIrrMinimum("1");
-            _dmtSvIntegerRangeData       .setLineNumber("79");
+            _dmtSvIntegerRangeData       .setLineNumber("81");
             _dmtSvIntegerRangeData       .setRuleName("dmtSvIntegerRange");
             _dmtSvIntegerRangeData       .setRuleTitle("Check that svInteger is in range 1-10");
 
