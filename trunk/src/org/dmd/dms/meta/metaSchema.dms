@@ -477,30 +477,30 @@ classInfoFromParam		obj.getConstructionClassInfo()
 attributeInfoFromParam	attribute.getAttributeInfo()
 description				Rules in this category are used to validate individual attributes.
 
-RuleCategory
-name					ObjectModifierValidation
-opContext				DMO
-ruleCategoryID			4
-ruleType				CLASS
-ruleParam				org.dmd.dmc.DmcObject: :obj:The object being modified
-ruleParam				org.dmd.dms.generated.types.DmcTypeModifierMV: :mods:The set of modifications being performed
-//ruleParam				org.dmd.dmc.types.Modifier: :mod:The particular modification being validated
-classInfoFromParam		obj.getConstructionClassInfo()
-description				Rules in this category are used to validate modifications that are
- about to be applied to an object.
+//RuleCategory
+//name					ObjectModifierValidation
+//opContext				DMO
+//ruleCategoryID			4
+//ruleType				CLASS
+//ruleParam				org.dmd.dmc.DmcObject: :obj:The object being modified
+//ruleParam				org.dmd.dms.generated.types.DmcTypeModifierMV: :mods:The set of modifications being performed
+////ruleParam				org.dmd.dmc.types.Modifier: :mod:The particular modification being validated
+//classInfoFromParam		obj.getConstructionClassInfo()
+//description				Rules in this category are used to validate modifications that are
+// about to be applied to an object.
 
-RuleCategory
-name					AttributeModifierValidation
-opContext				DMO
-ruleCategoryID			5
-ruleType				ATTRIBUTE
-ruleParam				org.dmd.dmc.DmcObject: :obj:The object being modified
-ruleParam				org.dmd.dmc.types.Modifier: :mod:The particular modification being validated
-classInfoFromParam		obj.getConstructionClassInfo()
-attributeInfoFromParam	DmcOmni.instance().getAttributeInfo(mod.getAttributeName())
-ruleImport				org.dmd.dmc.DmcOmni
-description				Rules in this category are used to validate individual attribute modifications that are
- about to be applied to an object.
+//RuleCategory
+//name					AttributeModifierValidation
+//opContext				DMO
+//ruleCategoryID			5
+//ruleType				ATTRIBUTE
+//ruleParam				org.dmd.dmc.DmcObject: :obj:The object being modified
+//ruleParam				org.dmd.dmc.types.Modifier: :mod:The particular modification being validated
+//classInfoFromParam		obj.getConstructionClassInfo()
+//attributeInfoFromParam	DmcOmni.instance().getAttributeInfo(mod.getAttributeName())
+//ruleImport				org.dmd.dmc.DmcOmni
+//description				Rules in this category are used to validate individual attribute modifications that are
+// about to be applied to an object.
 
 
 RuleCategory

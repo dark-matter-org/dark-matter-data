@@ -2,7 +2,6 @@ package org.dmd.dmv.shared.extended.rulesdmo;
 
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
-import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmv.shared.generated.dmo.RelatedNumbersRuleDataDMO;
 import org.dmd.dmv.shared.generated.rulesdmo.RelatedNumbersRuleBaseImpl;
 
@@ -19,12 +18,6 @@ public class RelatedNumbersRule extends RelatedNumbersRuleBaseImpl {
 
 	@Override
 	public void execute(DmcObject obj) throws DmcRuleExceptionSet {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void execute(DmcObject obj, DmcTypeModifierMV mods) throws DmcRuleExceptionSet {
 		// TODO Auto-generated method stub
 		
 	}

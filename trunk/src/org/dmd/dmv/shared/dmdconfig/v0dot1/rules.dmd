@@ -3,7 +3,7 @@ RuleDefinition
 name			AllowedAttributesRule
 dmdID			1
 ruleCategory	ObjectValidation
-ruleCategory	ObjectModifierValidation
+//ruleCategory	ObjectModifierValidation
 description		The AllowedAttributesRule will determine whether or not the 
  attributes of a DMO conform to the must/may specification of its class definition.
  For classes of type EXTENSIBLE only the must have attributes are checked.
@@ -52,7 +52,7 @@ RuleDefinition
 name			IntegerRangeRule
 dmdID			3
 ruleCategory	AttributeValidation
-ruleCategory	AttributeModifierValidation
+//ruleCategory	AttributeModifierValidation
 must			irrMinimum
 must			irrMaximum
 description		The IntegerRangeRule ensures that an Integer attribute has a value that falls
@@ -95,7 +95,7 @@ RuleDefinition
 name			RelatedNumbersRule
 dmdID			6
 ruleCategory	ObjectValidation
-ruleCategory	ObjectModifierValidation
+//ruleCategory	ObjectModifierValidation
 must			lhs
 must			rhs
 must			numericRelation
@@ -137,7 +137,7 @@ RuleDefinition
 name				CheckAttributesBasedOnValueRule
 dmdID				7
 ruleCategory		ObjectValidation
-ruleCategory		ObjectModifierValidation
+//ruleCategory		ObjectModifierValidation
 must				basedOnAttribute
 must				basedOnValue
 may					excludeThisAttribute
@@ -172,7 +172,7 @@ RuleDefinition
 name				OneOfTheseAttributesRequiredRule
 dmdID				8
 ruleCategory		ObjectValidation
-ruleCategory		ObjectModifierValidation
+//ruleCategory		ObjectModifierValidation
 must				onePossibility
 may					andOnlyOne
 description			The OneOfTheseAttributesRequiredRule allows you to specify

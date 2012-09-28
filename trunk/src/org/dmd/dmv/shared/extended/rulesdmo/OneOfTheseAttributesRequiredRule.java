@@ -6,7 +6,6 @@ import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.rules.DmcRuleException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dms.generated.types.AttributeDefinitionREF;
-import org.dmd.dms.generated.types.DmcTypeModifierMV;
 import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;
 import org.dmd.dmv.shared.generated.rulesdmo.OneOfTheseAttributesRequiredRuleBaseImpl;
 
@@ -50,12 +49,6 @@ public class OneOfTheseAttributesRequiredRule extends OneOfTheseAttributesRequir
 		}
 	}
 
-	@Override
-	public void execute(DmcObject obj, DmcTypeModifierMV mods) throws DmcRuleExceptionSet {
-		// TODO Auto-generated method stub
-
-	}
-	
 	private String getPossibilities(){
 		StringBuffer sb = new StringBuffer();
 		Iterator<AttributeDefinitionREF> possibilities = ruleDMO.getOnePossibility();

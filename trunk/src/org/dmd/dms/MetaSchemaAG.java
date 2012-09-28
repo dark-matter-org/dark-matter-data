@@ -250,8 +250,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     public static RuleCategory        _Initialization;
     public static RuleCategory        _ObjectValidation;
     public static RuleCategory        _AttributeValidation;
-    public static RuleCategory        _ObjectModifierValidation;
-    public static RuleCategory        _AttributeModifierValidation;
     public static RuleCategory        _UCOValidation;
 
     // Generated from: org.dmd.dms.meta.MetaGenerator.dumpStaticDefinitions(MetaGenerator.java:363)
@@ -2958,23 +2956,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
     // Generated from: org.dmd.dms.meta.MetaGenerator.dumpInitRuleCategories(MetaGenerator.java:454)
     private void initRuleCategories() throws DmcValueException {
 
-        RuleCategoryDMO _AttributeModifierValidationOBJ = new RuleCategoryDMO();
-        _AttributeModifierValidation = new RuleCategory(_AttributeModifierValidationOBJ);
-        _AttributeModifierValidationOBJ.setAttributeInfoFromParam("DmcOmni.instance().getAttributeInfo(mod.getAttributeName())");
-        _AttributeModifierValidationOBJ.setClassInfoFromParam("obj.getConstructionClassInfo()");
-        _AttributeModifierValidationOBJ.setDescription("Rules in this category are used to validate individual attribute modifications that are\n about to be applied to an object.");
-        _AttributeModifierValidationOBJ.setFile("metaSchema.dms");
-        _AttributeModifierValidationOBJ.setLineNumber("504");
-        _AttributeModifierValidationOBJ.setName("AttributeModifierValidation");
-        _AttributeModifierValidationOBJ.setOpContext("DMO");
-        _AttributeModifierValidationOBJ.setRuleCategoryID("5");
-        _AttributeModifierValidationOBJ.addRuleImport("org.dmd.dmc.DmcOmni");
-        _AttributeModifierValidationOBJ.addRuleParam("org.dmd.dmc.DmcObject: :obj:The object being modified");
-        _AttributeModifierValidationOBJ.addRuleParam("org.dmd.dmc.types.Modifier: :mod:The particular modification being validated");
-        _AttributeModifierValidationOBJ.setRuleType("ATTRIBUTE");
-        _AttributeModifierValidation.setDefinedIn(this);
-        addRuleCategoryList(_AttributeModifierValidation);
-
         RuleCategoryDMO _AttributeValidationOBJ = new RuleCategoryDMO();
         _AttributeValidation = new RuleCategory(_AttributeValidationOBJ);
         _AttributeValidationOBJ.setAttributeInfoFromParam("attribute.getAttributeInfo()");
@@ -3004,21 +2985,6 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _InitializationOBJ.setRuleType("CLASS");
         _Initialization.setDefinedIn(this);
         addRuleCategoryList(_Initialization);
-
-        RuleCategoryDMO _ObjectModifierValidationOBJ = new RuleCategoryDMO();
-        _ObjectModifierValidation = new RuleCategory(_ObjectModifierValidationOBJ);
-        _ObjectModifierValidationOBJ.setClassInfoFromParam("obj.getConstructionClassInfo()");
-        _ObjectModifierValidationOBJ.setDescription("Rules in this category are used to validate modifications that are\n about to be applied to an object.");
-        _ObjectModifierValidationOBJ.setFile("metaSchema.dms");
-        _ObjectModifierValidationOBJ.setLineNumber("491");
-        _ObjectModifierValidationOBJ.setName("ObjectModifierValidation");
-        _ObjectModifierValidationOBJ.setOpContext("DMO");
-        _ObjectModifierValidationOBJ.setRuleCategoryID("4");
-        _ObjectModifierValidationOBJ.addRuleParam("org.dmd.dmc.DmcObject: :obj:The object being modified");
-        _ObjectModifierValidationOBJ.addRuleParam("org.dmd.dms.generated.types.DmcTypeModifierMV: :mods:The set of modifications being performed");
-        _ObjectModifierValidationOBJ.setRuleType("CLASS");
-        _ObjectModifierValidation.setDefinedIn(this);
-        addRuleCategoryList(_ObjectModifierValidation);
 
         RuleCategoryDMO _ObjectValidationOBJ = new RuleCategoryDMO();
         _ObjectValidation = new RuleCategory(_ObjectValidationOBJ);
