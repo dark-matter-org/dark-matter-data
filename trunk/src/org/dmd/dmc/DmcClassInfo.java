@@ -72,6 +72,26 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 	}
 	
 	/**
+	 * Determines if the attribute is optional. If the attribute isn't in our set of attributes,
+	 * we indicate that it's optional - this could happen in the case of extensible classes,
+	 * or when auxiliary classes are involved. And, of course, auxiliary classes can't specify
+	 * mandatory attributes.
+	 * @param ai
+	 * @return
+	 */
+	public boolean isOptional(DmcAttributeInfo ai){
+		DmcAttributeInfoRef existing = byID.get(ai.id);
+		
+		if (existing == null)
+			return(true);
+		
+		if (existing.mandatory)
+			return(false);
+		
+		return(true);
+	}
+	
+	/**
 	 * @param ai The info associated with the attribute we're checking.
 	 * @return true if the attribute is contained in our allowed attributes map.
 	 */

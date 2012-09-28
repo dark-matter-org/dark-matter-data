@@ -610,6 +610,23 @@ abstract public class DmcObject implements Serializable {
 		return(null);
 	}
 	
+	/**
+	 * @return The full class name of this object with auxiliary classes included
+	 */
+	public String getFullClassName(){
+		StringBuffer sb = new StringBuffer();
+		
+		DmcTypeClassDefinitionREFMV objClass = (DmcTypeClassDefinitionREFMV) attributes.get(__objectClass.id);
+		for(int i=0; i<objClass.getMVSize(); i++){
+			if (i>0)
+				sb.append(" " + objClass.getMVnth(i).getClassInfo().name);
+			else
+				sb.append(objClass.getMVnth(i).getClassInfo().name);
+		}
+		
+		return(null);
+	}
+	
     /**
      * Adds the specified auxiliary class name to the object.
      * @param cd The auxiliary class name.
