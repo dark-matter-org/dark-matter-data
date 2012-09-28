@@ -13,13 +13,12 @@ import org.dmd.dmc.rules.DynamicInitIF;                                       //
 import org.dmd.dmc.rules.RuleIF;                                              // All rules implement this - (RuleFormatter.java:489)
 import org.dmd.dmc.rules.RuleKey;                                             // To allow rule sorting - (RuleFormatter.java:496)
 import org.dmd.dms.generated.enums.RuleTypeEnum;                              // Rule type - (RuleFormatter.java:488)
-import org.dmd.dms.generated.rulesdmo.ObjectModifierValidationIF;             // The interface for the ObjectModifierValidation category - (RuleFormatter.java:512)
 import org.dmd.dms.generated.rulesdmo.ObjectValidationIF;                     // The interface for the ObjectValidation category - (RuleFormatter.java:512)
 import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;         // Rule parameters object - (RuleFormatter.java:506)
 
 
 // Generated from: org.dmd.dms.util.RuleFormatter.dumpBaseImplementations(RuleFormatter.java:523)
-abstract public class AllowedAttributesRuleBaseImpl implements RuleIF, DynamicInitIF,ObjectValidationIF,ObjectModifierValidationIF {
+abstract public class AllowedAttributesRuleBaseImpl implements RuleIF, DynamicInitIF,ObjectValidationIF {
 
     static RuleTypeEnum       type  = RuleTypeEnum.CLASS;
 
@@ -35,7 +34,6 @@ abstract public class AllowedAttributesRuleBaseImpl implements RuleIF, DynamicIn
         if (categories == null){
             categories = new ArrayList<Integer>();
             categories.add(2);
-            categories.add(4);
         }
     }
 
@@ -56,7 +54,6 @@ abstract public class AllowedAttributesRuleBaseImpl implements RuleIF, DynamicIn
         if (categories == null){
             categories = new ArrayList<Integer>();
             categories.add(2);
-            categories.add(4);
         }
     }
 

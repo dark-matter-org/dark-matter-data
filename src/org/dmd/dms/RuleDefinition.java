@@ -1,6 +1,5 @@
 package org.dmd.dms;
 
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.rules.RuleIF;
 import org.dmd.dms.generated.dmo.RuleDefinitionDMO;

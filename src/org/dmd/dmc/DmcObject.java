@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -46,16 +47,16 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * level, the DMC is abstract; it is the derived, auto-generated, Dark Matter Objects (DMOs)
  * that give a DMC identity. Storing the attributes as a collection introduces a small
  * amount of overhead to DMOs, but allows for operational concepts such as serialization,
- * modification, formatting, cloning etc. that are all provided automatically. It also allows
- * for the use of DMOs in environments where accessing values by name (for example 
- * in GWT-based applications) is a necessity.
+ * modification, formatting, cloning, staging etc. that are all provided automatically.
+ * It also allows for the use of DMOs in environments where accessing values by name
+ * (for example in GWT-based applications) is a necessity.
  * <p>
  * In addition to the attribute collection, the only constant overhead for a DMC object
  * is the info Vector. The info Vector will contain various information at various times
  * during the life cycle of an object, but will only take up additional space as required.
  * Again, there is some overhead, but the benefits of that overhead are very useful.
  * <p>
- * There are currently 5 additional pieces of information stored for a DMC object:
+ * There are currently 6 additional pieces of information stored for a DMC object:
  * <ul>
  * <li>
  * CONTAINER[0] - if the DMO is wrapped by a DMW generated class, this holds the
@@ -91,6 +92,19 @@ import org.dmd.dms.generated.types.DmcTypeModifierMV;
  * referring to it is in MODREC mode. If we didn't keep track of this, we would wind up
  * tracking references twice.
  * </li>
+ * <li>
+ * STAGING[5] - the STAGING flag is used to indicate that the current object is a staging
+ * area for the evaluation of a set of modifications that are about to be applied to
+ * an existing object. This mechanism exists to facilitate the application of validation
+ * rules to the results of a set of modifications. Instead of cloning an entire object,
+ * which could be costly, a staging object will only clone the attributes of a 
+ * target object that are referred to in the modifications; the other attributes of
+ * the staging object are merely references to those in the target object. The staging
+ * object can then be passed to the rule manager for validation and, if the resulting
+ * object is valid, the modifier can be applied to the target object. While in STAGING
+ * mode, the object reference tracking mechanisms are disabled so that we don't track
+ * changes that could, in the end not be valid (and also, we don't want to apply them twice).
+ * </li>
  * </ul>
  */
 @SuppressWarnings("serial")
@@ -102,6 +116,7 @@ abstract public class DmcObject implements Serializable {
 	static final int	MODIFIER		= 2;
 	static final int	LASTVAL			= 3;
 	static final int	MODREC			= 4;
+	static final int	STAGING			= 5;
 	
 	// The associated sizes of the info vector when storing various information. 
 	// All of this information is static to cut down on needless operations.
@@ -110,6 +125,7 @@ abstract public class DmcObject implements Serializable {
 	static final int	MODIFIER_SIZE	= 3;
 	static final int	LASTVAL_SIZE	= 4;
 	static final int	MODREC_SIZE		= 5;
+	static final int	STAGING_SIZE	= 6;
 	
 	// The objectClass attribute is common to all objects and indicates the construction class
 	// and any auxiliary classes associated with the object
@@ -248,14 +264,6 @@ abstract public class DmcObject implements Serializable {
 	 */
 	abstract public DmcObject getSlice(DmcSliceInfo info);
 	
-//	public void validate() throws DmcValueExceptionSet {
-//		Iterator<DmcObjectValidator> ovds = getObjectValidators().values().iterator();
-//		while(ovds.hasNext()){
-//			DmcObjectValidator ov = ovds.next();
-//			ov.validate(this);
-//		}
-//	}
-	
 	protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
 		throw(new IllegalStateException("getAttributeValidators() must be overriden in the DMO"));
 	}
@@ -272,6 +280,8 @@ abstract public class DmcObject implements Serializable {
 	 * @param c the container.
 	 */
 	public void setContainer(DmcContainerIF c){
+		if (isStaging())
+			throw(new IllegalStateException("You can't call setContainer() on a STAGING object."));
 		setInfo(CONTAINER,CONTAINER_SIZE,c);
 	}
 	
@@ -288,6 +298,9 @@ abstract public class DmcObject implements Serializable {
 	 * @param mod
 	 */
 	public void addBackref(Modifier mod){
+		if (isStaging())
+			throw(new IllegalStateException("You can't call addBackref() on a STAGING object."));
+		
 		synchronized (attributes){		
 			if (getBackref() == null){
 				setInfo(BACKREFS,BACKREFS_SIZE,new DmcTypeModifierMV());
@@ -334,6 +347,9 @@ abstract public class DmcObject implements Serializable {
 	 * @param mod The modifier representing the removal operation for the back reference.
 	 */
 	public void removeBackref(Modifier mod){
+		if (isStaging())
+			throw(new IllegalStateException("You can't call removeBackref() on a STAGING object."));
+		
 		synchronized (attributes){		
 			if (getBackref() == null)
 				throw(new IllegalStateException("Tried to remove backreference from an object with no backrefs."));
@@ -357,6 +373,9 @@ abstract public class DmcObject implements Serializable {
 	 * @param m
 	 */
 	public void setModifier(DmcTypeModifierMV m){
+		if (isStaging())
+			throw(new IllegalStateException("You can't call setModifier() on a STAGING object."));
+		
 		if (m == null)
 			shrinkInfo(MODIFIER);
 		else
@@ -408,6 +427,21 @@ abstract public class DmcObject implements Serializable {
 	}
 	
 	/**
+	 * When a DMO is constructed in staging mode, this flag is set to true.
+	 * @param f
+	 */
+	protected void staging(Boolean f){
+		setInfo(STAGING,STAGING_SIZE,f);
+	}
+	
+	protected Boolean isStaging(){
+		Boolean staging = (Boolean) getInfo(STAGING,STAGING_SIZE);
+		if (staging == null)
+			return(false);
+		return(staging);
+	}
+	
+	/**
 	 * This method manages the info vector and grows it to the appropriate size to manage
 	 * the additional information required.
 	 * @param index        The index of the information we're storing.
@@ -434,6 +468,8 @@ abstract public class DmcObject implements Serializable {
 			case BACKREFS:
 				info.add(null);
 			case CONTAINER:
+				info.add(null);
+			case STAGING:
 				info.add(null);
 			}
 		}
@@ -469,6 +505,9 @@ abstract public class DmcObject implements Serializable {
 	 * to reduce overhead at the object level. This method is called in instances where
 	 * info data is no longer required i.e. when the modifier is removed from the object
 	 * and when there are no longer any backrefs.
+	 * <p/>
+	 * We don't bother with the case where we we're in STAGING mode because such objects
+	 * aren't compatible with other modes.
 	 * @param index
 	 */
 	void shrinkInfo(int index){
@@ -519,6 +558,9 @@ abstract public class DmcObject implements Serializable {
 	 * object reference attributes if you have set DmcOmni.backRefTracking(true). 
 	 */
 	public void youAreDeleted(){
+		if (isStaging())
+			throw(new IllegalStateException("You can't call youAreDeleted() on a STAGING object."));
+		
 		if (DmcOmni.instance().backRefTracking()){
 			DmcTypeModifierMV mods = getBackref();
 			if (mods != null)
@@ -792,7 +834,8 @@ abstract public class DmcObject implements Serializable {
 			// a modifier on an object because we would wind up tracking the references twice,
 			// once while creating the modifier and again when the modifier is applied.
 			if (getModifier() == null){
-				if (supportsBackrefTracking()){
+				// Also don't do backref tracking in staging mode
+				if (supportsBackrefTracking() && !isStaging()){
 					if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attr.ID)){
 						if (attr instanceof DmcTypeNamedObjectREF){
 							// We're modifying a reference attribute, so track that puppy
@@ -860,12 +903,11 @@ abstract public class DmcObject implements Serializable {
 			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
 			// a modifier on an object because we would wind up tracking the references twice,
 			// once while creating the modifier and again when the modifier is applied.
-//			if (getModifier() == null){
 			if (isModrec() == false){
-				if (supportsBackrefTracking()){
+				// Also don't do backref tracking in staging mode
+				if (supportsBackrefTracking() && !isStaging()){
 					// TODO: need to have the upper bound of the IDs for the meta schema available
 					// so that we can check whether we want to track the back references.
-//					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
 					if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attr.ID)){
 						if ( (attr instanceof DmcTypeNamedObjectREF) && (getLastValue() != null)){
 							DmcObject obj = ((DmcObject)((DmcNamedObjectREF<?>)getLastValue()).getObject());
@@ -1016,13 +1058,11 @@ abstract public class DmcObject implements Serializable {
 			// are MUTUALLY EXCLUSIVE behaviours. We don't want to track backrefs when we have
 			// a modifier on an object because we would wind up tracking the references twice,
 			// once while creating the modifier and again when the modifier is applied.
-//			if ((ref != null) && (getModifier() == null)){
 			if ((ref != null) && (isModrec() == false)){
-//System.out.println("Resolved ref " + ref.getObjectName().getNameString() + " hash = " + System.identityHashCode(ref));
-				if (supportsBackrefTracking()){
+				// Also don't do backref tracking in staging mode
+				if (supportsBackrefTracking() && !isStaging()){
 					// TODO: need to have the upper bound of the IDs for the meta schema available
 					// so that we can check whether we want to track the back references.
-//					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
 					if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attr.ID)){
 						if (ref.getObject() != null){
 							if (ref.getBackrefModifier() != null)
@@ -1032,18 +1072,7 @@ abstract public class DmcObject implements Serializable {
 				}
 			}
 			
-			
-//			if (getContainer() == null){
-//				attr.del(value);
-//			}
-//			else{
-////			if (getContainer().getListenerManager() == null)
-//				attr.del(value);
-////			else{
-////				// TODO implement attribute change listener hooks
-////			}
-//			}
-			
+						
 			// If we have no further elements in the multi-value attribute, remove it
 			if (attr.getMVSize() == 0)
 				rem(ai);
@@ -1090,7 +1119,8 @@ abstract public class DmcObject implements Serializable {
 			// once while creating the modifier and again when the modifier is applied.
 //			if ((getModifier() == null) && (attr != null)){
 			if ((isModrec() == false) && (attr != null)){
-				if (supportsBackrefTracking()){
+				// Also don't do backref tracking in staging mode
+				if (supportsBackrefTracking() && !isStaging()){
 					if (attr instanceof DmcTypeNamedObjectREF){
 						((DmcTypeNamedObjectREF<?,?>)attr).removeBackReferences();
 //						// TODO: need to have the upper bound of the IDs for the meta schema available
@@ -1186,7 +1216,8 @@ abstract public class DmcObject implements Serializable {
 			// once while creating the modifier and again when the modifier is applied.
 //			if (getModifier() == null){
 			if (isModrec() == false){
-				if (supportsBackrefTracking()){
+				// Also don't do backref tracking in staging mode
+				if (supportsBackrefTracking() && !isStaging()){
 					// TODO: need to have the upper bound of the IDs for the meta schema available
 					// so that we can check whether we want to track the back references.
 //					if (DmcOmni.instance().backRefTracking() && (attr.ID > 200)){
@@ -2282,5 +2313,43 @@ abstract public class DmcObject implements Serializable {
 		}
 		setInfo(BACKREFS,BACKREFS_SIZE,null);
 		shrinkInfo(BACKREFS);
+    }
+    
+    ///////////////////////////////////////////////////////////////////////////
+    
+    /**
+     * This method will return a "staging" object associated with the proposed
+     * modifications that are passed as argument. The purpose of staging objects
+     * is to allow for the validation of a set of modifications before actually
+     * applying them to the target object. 
+     * @param mods the modification that might be applied
+     */
+    public DmcObject getStagingObject(DmcTypeModifier mods){
+    	synchronized (attributes) {
+	    	DmcObject rc = getNew();
+	    	rc.staging(true);
+	    	
+	    	// The unique set of attributes affected by the modifcations
+	    	HashSet<DmcAttributeInfo> mayBeChanged = new HashSet<DmcAttributeInfo>();
+	    	
+			Iterator<Modifier> modifiers = mods.getMV();
+			while(modifiers.hasNext()){
+				Modifier mod = modifiers.next();
+				mayBeChanged.add(mod.getAttributeInfo());
+			}
+			
+			for(DmcAttribute<?> attr: attributes.values()){
+				if (mayBeChanged.contains(attr.getAttributeInfo())){
+					// Store a clone of the affected attribute
+					rc.attributes.put(attr.getID(), attr.cloneIt());
+				}
+				else{
+					// Store a reference to the existing attribute
+					rc.attributes.put(attr.getID(), attr);
+				}
+			}
+			
+	    	return(rc);
+		}
     }
 }
