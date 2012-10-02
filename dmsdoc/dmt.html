@@ -265,7 +265,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
@@ -275,7 +279,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A sv Date. </td>
@@ -304,7 +312,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#OUIFilter">OUIFilter</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
     </tr>
@@ -341,7 +353,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmp.html#requestID">requestID</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A unique identifier that is generated on a client to distinguish the\n responses that are associated with a given request. </td>
@@ -349,14 +365,17 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#clientCountFilter">clientCountFilter</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#ClientCountFilter">ClientCountFilter</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmp.html#handlerID">handlerID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The handlerID is a convenience attribute on requests that allows\n for routing of responses back to the appropriate response handler. This is used in\n the Dark Matter MVC framework. </td>
@@ -364,7 +383,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmp.html#notifyOriginator">notifyOriginator</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> Indicates if an originator wants its own event. </td>
@@ -372,7 +390,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmp.html#originatorID">originatorID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The thing that originated a request. </td>
@@ -380,7 +397,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmp.html#readableFormat">readableFormat</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag that indicates if you want a response in a human readable format with \n formatting. The default is to use the most compact form - no additional whitespace and no\n newlines. </td>
@@ -388,7 +404,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmp.html#responseFormat">responseFormat</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmp.html#ResponseFormatEnum">ResponseFormatEnum</a> </td>
       <td> When the protocol is used for a JSON interface, the response format indicates\n whether the client wants the results as a flat set of objects (STANDARD) or as hierarchy of child\n objects embedded in arrays beneath their parents (DOM). </td>
@@ -396,7 +411,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmp.html#sessionID">sessionID</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A unique identifier that identifies a client session with the server. </td>
@@ -404,7 +418,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmp.html#timeMS">timeMS</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A time stamp in milliseconds. </td>
@@ -412,7 +425,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmp.html#timeoutSeconds">timeoutSeconds</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A timeout flag that may be set on messages. </td>
@@ -420,7 +432,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmp.html#trackingEnabled">trackingEnabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A flag used for debug purposes to allow you to turn logging behaviour for a messages. </td>
@@ -428,7 +439,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmr.base.html#userName">userName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The name of a user. </td>
@@ -451,7 +461,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#hsExtendedRef">hsExtendedRef</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
       <td> A HashSet of SomeRelation. </td>
@@ -474,7 +488,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvExtendedRef">mvExtendedRef</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
       <td> An mv SomeRelation. </td>
@@ -497,7 +515,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvIdxExtendedRef">mvIdxExtendedRef</a> </td>
       <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
       <td> An indexed mv SomeRelation. </td>
@@ -520,7 +542,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#svExtendedRef">svExtendedRef</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
       <td> An sv SomeRelation. </td>
@@ -543,7 +569,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#tsExtendedRef">tsExtendedRef</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
       <td> A TreeSet of SomeRelation. </td>
@@ -572,7 +602,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#integerName">integerName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#IntegerName">IntegerName</a> </td>
       <td> The object name for objects uniquely identified with an integer. </td>
@@ -580,7 +614,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -603,7 +641,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#anObjName">anObjName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
       <td> A single-valued NameContainer. </td>
@@ -611,7 +653,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#dmtStringName">dmtStringName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#DmtStringName">DmtStringName</a> </td>
       <td> The naming attribute for DmtNameStrings. </td>
@@ -619,7 +660,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#anotherDmtName">anotherDmtName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#DmtStringName">DmtStringName</a> </td>
       <td> Another DmtStringName attribute. </td>
@@ -642,7 +687,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#hmNamedObj">hmNamedObj</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> A hashmap of ObjWithRefs. </td>
@@ -665,7 +714,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#hsNamedObj">hsNamedObj</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> A HashSet of ObjWithRefs. </td>
@@ -688,7 +741,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvNamedObj">mvNamedObj</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> An mv ObjWithRefs. </td>
@@ -711,7 +768,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvIdxNamedObj">mvIdxNamedObj</a> </td>
       <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> An indexed mv ObjWithRefs. </td>
@@ -734,7 +795,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#svNamedObj">svNamedObj</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> An sv ObjWithRefs. </td>
@@ -757,7 +822,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#tmNamedObj">tmNamedObj</a> </td>
       <td class="valueType"> P TM </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> A TreeMap of ObjWithRefs. </td>
@@ -780,7 +849,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#tsNamedObj">tsNamedObj</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> A TreeSet of ObjWithRefs. </td>
@@ -823,14 +896,17 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvTestEnum">mvTestEnum</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#DmtTestEnum">DmtTestEnum</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
@@ -840,7 +916,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -848,7 +923,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#anotherSVString">anotherSVString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -856,28 +935,24 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#attrIDs">attrIDs</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#AttributeID">AttributeID</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#clientCountFilters">clientCountFilters</a> </td>
       <td class="valueType"> P MV[8] </td>      <td> <a href="dmt.html#ClientCountFilter">ClientCountFilter</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#enabledDisabled">enabledDisabled</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#hsDate">hsDate</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A hs Date. </td>
@@ -885,14 +960,12 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#hsNames">hsNames</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#NameContainer">NameContainer</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#hsString">hsString</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A HashSet of Strings. </td>
@@ -900,21 +973,18 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#hsStringName">hsStringName</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#hsTestEnum">hsTestEnum</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="dmt.html#DmtTestEnum">DmtTestEnum</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#indexedObjRef">indexedObjRef</a> </td>
       <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> Indexed references to ObjWithRefs objects. </td>
@@ -922,7 +992,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#indexedPlainObjRef">indexedPlainObjRef</a> </td>
       <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
       <td> Indexed references to unnamed objects. </td>
@@ -930,14 +999,12 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#indexedString">indexedString</a> </td>
       <td class="valueType"> P MV[5] </td>      <td> <a href="meta.html#String">String</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#intToString">intToString</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="meta.html#IntegerToString">IntegerToString</a> </td>
       <td> A hash mapping of an integer to a string. </td>
@@ -945,14 +1012,12 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#intToStringMAP">intToStringMAP</a> </td>
       <td class="valueType"> P TM </td>      <td> <a href="meta.html#IntegerToString">IntegerToString</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
@@ -960,14 +1025,12 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#nonperString">nonperString</a> </td>
       <td class="valueType"> N HS </td>      <td> <a href="meta.html#String">String</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#objRef">objRef</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> Another ObjWithRefs object. </td>
@@ -975,7 +1038,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#objRefHM">objRefHM</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> Other ObjWithRefs objects. </td>
@@ -983,7 +1045,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#objRefMV">objRefMV</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> Other ObjWithRefs objects. </td>
@@ -991,14 +1052,12 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#onOff">onOff</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#plainObjRef">plainObjRef</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
       <td> References to unnamed objects. </td>
@@ -1006,28 +1065,24 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#someRelationMV">someRelationMV</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#someRelationMVI">someRelationMVI</a> </td>
       <td class="valueType"> P MV[8] </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#someRelationSV">someRelationSV</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A single valued Boolean. </td>
@@ -1035,7 +1090,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A sv Date. </td>
@@ -1043,14 +1097,12 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svTestEnum">svTestEnum</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#DmtTestEnum">DmtTestEnum</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#transString">transString</a> </td>
       <td class="valueType"> T HS </td>      <td> <a href="meta.html#String">String</a> </td>
     </tr>
@@ -1072,7 +1124,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#hmString">hmString</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="meta.html#StringToString">StringToString</a> </td>
       <td> A hashmap of StringToStrings. </td>
@@ -1095,7 +1151,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#hsString">hsString</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A HashSet of Strings. </td>
@@ -1118,7 +1178,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
@@ -1141,7 +1205,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvIdxString">mvIdxString</a> </td>
       <td class="valueType"> P MV[10] </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An indexed mv String. </td>
@@ -1164,7 +1232,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -1187,7 +1259,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#tmString">tmString</a> </td>
       <td class="valueType"> P TM </td>      <td> <a href="meta.html#StringToString">StringToString</a> </td>
       <td> A TreeMap of StringToStrings. </td>
@@ -1210,7 +1286,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#tsString">tsString</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A TreeSet of Strings. </td>
@@ -1246,7 +1326,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -1254,35 +1338,35 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#clientCountFilters">clientCountFilters</a> </td>
       <td class="valueType"> P MV[8] </td>      <td> <a href="dmt.html#ClientCountFilter">ClientCountFilter</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#hsStringName">hsStringName</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#intToStringMAP">intToStringMAP</a> </td>
       <td class="valueType"> P TM </td>      <td> <a href="meta.html#IntegerToString">IntegerToString</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#someRelationMVI">someRelationMVI</a> </td>
       <td class="valueType"> P MV[8] </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#someRelationSV">someRelationSV</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
     </tr>
@@ -1311,7 +1395,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -1340,7 +1428,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -1376,7 +1468,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
@@ -1386,7 +1482,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -1394,7 +1489,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
@@ -1402,7 +1501,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvTestBasicNamedObjectFixed">mvTestBasicNamedObjectFixed</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#TestBasicNamedObjectFixed">TestBasicNamedObjectFixed</a> </td>
       <td> A multi-valued TestBasicNamedObjectFixed. </td>
@@ -1437,7 +1535,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
@@ -1447,7 +1549,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -1455,7 +1556,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
@@ -1463,7 +1568,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvTestBasicNamedObjectFixed">mvTestBasicNamedObjectFixed</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#TestBasicNamedObjectFixed">TestBasicNamedObjectFixed</a> </td>
       <td> A multi-valued TestBasicNamedObjectFixed. </td>
@@ -1493,7 +1597,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#hsDate">hsDate</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A hs Date. </td>
@@ -1501,7 +1609,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#hsDouble">hsDouble</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> An hs Double. </td>
@@ -1509,7 +1616,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#hsFloat">hsFloat</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Float">Float</a> </td>
       <td> An hs Float. </td>
@@ -1517,7 +1623,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#hsInteger">hsInteger</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> An hs Integer. </td>
@@ -1525,7 +1630,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#hsLong">hsLong</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> An hs Long. </td>
@@ -1533,7 +1637,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#hsString">hsString</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A HashSet of Strings. </td>
@@ -1541,7 +1644,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#intToString">intToString</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="meta.html#IntegerToString">IntegerToString</a> </td>
       <td> A hash mapping of an integer to a string. </td>
@@ -1549,7 +1651,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvBoolean">mvBoolean</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A multi-valued Boolean. </td>
@@ -1557,7 +1658,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvDate">mvDate</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A mv Date. </td>
@@ -1565,7 +1665,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvDouble">mvDouble</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> An mv Double. </td>
@@ -1573,7 +1672,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvFloat">mvFloat</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Float">Float</a> </td>
       <td> An mv Float. </td>
@@ -1581,7 +1679,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvInteger">mvInteger</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> An mv Integer. </td>
@@ -1589,7 +1686,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvLong">mvLong</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> An mv Long. </td>
@@ -1597,7 +1693,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
@@ -1605,7 +1700,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A single valued Boolean. </td>
@@ -1613,7 +1707,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A sv Date. </td>
@@ -1621,7 +1714,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svDouble">svDouble</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> A sv Double. </td>
@@ -1629,7 +1721,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svFloat">svFloat</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Float">Float</a> </td>
       <td> A sv Float. </td>
@@ -1637,7 +1728,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svInteger">svInteger</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A sv Integer. </td>
@@ -1645,7 +1735,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svLong">svLong</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A sv Long. </td>
@@ -1653,7 +1742,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -1661,7 +1749,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svTestBasicNamedObjectFixed">svTestBasicNamedObjectFixed</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#TestBasicNamedObjectFixed">TestBasicNamedObjectFixed</a> </td>
       <td> A single valued TestBasicNamedObjectFixed. </td>
@@ -1669,7 +1756,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#tsDate">tsDate</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A ts Date. </td>
@@ -1677,7 +1763,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#tsDouble">tsDouble</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> A ts Double. </td>
@@ -1685,7 +1770,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#tsFloat">tsFloat</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#Float">Float</a> </td>
       <td> A ts Float. </td>
@@ -1693,7 +1777,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#tsInteger">tsInteger</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> A ts Integer. </td>
@@ -1701,7 +1784,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#tsLong">tsLong</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#Long">Long</a> </td>
       <td> A ts Long. </td>
@@ -1709,7 +1791,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#tsString">tsString</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A TreeSet of Strings. </td>
@@ -1758,7 +1839,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
@@ -1768,7 +1853,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -1776,7 +1860,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
@@ -1819,7 +1907,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
@@ -1829,7 +1921,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -1837,7 +1928,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
@@ -1879,7 +1974,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
@@ -1889,7 +1988,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -1897,7 +1995,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
@@ -1939,7 +2041,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
@@ -1949,7 +2055,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -1957,7 +2062,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
@@ -1998,7 +2107,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#name">name</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#StringName">StringName</a> </td>
       <td> The name attribute is used to store a single string token that represents a unique name
@@ -2008,7 +2121,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -2016,7 +2128,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
@@ -2045,7 +2161,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#uuidName">uuidName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#UUIDName">UUIDName</a> </td>
       <td> The object name for objects uniquely identified with a UUID. </td>
@@ -2053,7 +2173,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvBoolean">mvBoolean</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A multi-valued Boolean. </td>
@@ -2061,7 +2185,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvDate">mvDate</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A mv Date. </td>
@@ -2069,7 +2192,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvDouble">mvDouble</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> An mv Double. </td>
@@ -2077,7 +2199,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#mvString">mvString</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> An mv String. </td>
@@ -2085,7 +2206,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svBoolean">svBoolean</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> A single valued Boolean. </td>
@@ -2093,7 +2213,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svDate">svDate</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Date">Date</a> </td>
       <td> A sv Date. </td>
@@ -2101,7 +2220,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svDouble">svDouble</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Double">Double</a> </td>
       <td> A sv Double. </td>
@@ -2109,7 +2227,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#svString">svString</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> A sv String. </td>
@@ -2132,7 +2249,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#hsUnnamedObj">hsUnnamedObj</a> </td>
       <td class="valueType"> P HS </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
       <td> A HashSet of TestBasicObjectFixed. </td>
@@ -2155,7 +2276,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvUnnamedObj">mvUnnamedObj</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
       <td> An mv TestBasicObjectFixed. </td>
@@ -2178,7 +2303,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#mvIdxUnnamedObj">mvIdxUnnamedObj</a> </td>
       <td class="valueType"> P MV[10] </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
       <td> An indexed mv TestBasicObjectFixed. </td>
@@ -2201,7 +2330,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#svUnnamedObj">svUnnamedObj</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
       <td> An sv TestBasicObjectFixed. </td>
@@ -2224,7 +2357,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#tsUnnamedObj">tsUnnamedObj</a> </td>
       <td class="valueType"> P TS </td>      <td> <a href="dmt.html#TestBasicObjectFixed">TestBasicObjectFixed</a> </td>
       <td> A TreeSet of TestBasicObjectFixed. </td>
@@ -2247,14 +2384,17 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#indexedString">indexedString</a> </td>
       <td class="valueType"> P MV[5] </td>      <td> <a href="meta.html#String">String</a> </td>
     </tr>
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmt.html#someRelationIndexed">someRelationIndexed</a> </td>
       <td class="valueType"> P MV[8] </td>      <td> <a href="dmt.html#SomeRelation">SomeRelation</a> </td>
     </tr>
@@ -2276,7 +2416,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmt.html#objRefHM">objRefHM</a> </td>
       <td class="valueType"> P HM </td>      <td> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
       <td> Other ObjWithRefs objects. </td>

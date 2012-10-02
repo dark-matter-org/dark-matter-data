@@ -84,8 +84,19 @@ td {
 	width: 120px;
 }
 
+.attributeSectionLabel {
+	margin-top: 30px;
+	padding-bottom: 5px;	
+	border-top-style: solid;
+	border-color: black;
+	border-width: 1px;
+	background-color: #EEEEEE;
+}
+
 .className {
 	font-weight: bold;
+	font-size: larger;
+	padding-top: 50px;
 }
 
 .attributeName {

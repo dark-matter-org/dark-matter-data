@@ -45,7 +45,7 @@ import org.dmd.dms.*;
  * String values.\n </pre>\n This form would be used for attribute types
  * whose base type originates in <code> java.lang</code>.\n The dark-matter
  * base types include: Boolean, Byte, Double, Float, Integer, Long, Short and
- * String.\n <p/>\n <code> TypeDefinitions also support the concept of
+ * String.\n <p/>\n <code>TypeDefinitions</code> also support the concept of
  * specifying a <code> nullReturnValue </code>\n for the entire type i.e.
  * whenever an attribute of the specified type is accessed, it will return\n
  * that value when the attribute doesn't exist in the object. An example of
@@ -56,12 +56,46 @@ import org.dmd.dms.*;
  * so that, even if there is no\n                 value for an attribute of
  * this type, a value of false will\n                 be returned.\n </pre>\n
  * <p/>\n The next most common form of <code> TypeDefinition </code> adds the
- * <code> primtiveType </code>\n attribute. This is required for code
+ * <code> primitiveType </code>\n attribute. This is required for code
  * generation so that we can import the appropriate type for\n use in the
  * various getter/setter methods. An example would be the <code> Date </code>
  * type.\n <pre>\n TypeDefinition\n name           Date\n typeClassName 
  * org.dmd.dmc.types.DmcTypeDate\n primitiveType  java.util.Date\n
- * description    Provides support for Date values.\n </pre>
+ * description    Provides support for Date values.\n </pre>\n Another common
+ * form of <code>TypeDefinition</code> is the definition of a name type.
+ * Object\n naming is a fundamental aspect of DMOs, with all object names
+ * being based on the <code>DmcObjectName</code>.\n Flagging a type as being
+ * a name type also implies the definition of a designated naming attribute\n
+ * associated with the type. This mechanism allows for the transport of names
+ * that are self\n describing in terms of their implementation type. This
+ * feature supports the <code>NameContainer</code>\n type that allows any
+ * name to be transported in things like dark-matter protocol
+ * <code>GetRequest</code>.\n An example of a naming type would be:\n <pre>\n
+ * TypeDefinition\n name           CamelCaseName\n typeClassName 
+ * org.dmd.dmc.types.DmcTypeCamelCaseName\n primitiveType 
+ * org.dmd.dmc.types.CamelCaseName\n isNameType     true\n description    The
+ * CamelCaseName is a string based name that must start with\n               
+ * an alpha character which is followed by a mix of alphanumerics.\n </pre>\n
+ * And its associated designated naming attribute would be:\n <pre>\n
+ * AttributeDefinition\n name                     camelCaseName\n dmdID      
+ *              116\n type                     CamelCaseName\n
+ * designatedNameAttribute  true\n description              The camelCaseName
+ * attribute is used to store a single camelCase\n                         
+ * format name for something. The name starts with a single letter\n         
+ *                 and can be followed by a mix of letters and numbers. No
+ * spaces or \n                          other characters are allowed.\n
+ * </pre>\n The last form of type definition is one that includes some
+ * additional information to provide\n a convenient, alternate interface for
+ * the generation of member functions associated with\n a container type;
+ * this concept is pretty much limited to the meta-schema, so it is
+ * unlikely\n that non-contributors to dark-matter will make use of this
+ * concept. However, here is an example:\n <pre>\n TypeDefinition\n name     
+ *      NameContainer\n typeClassName 
+ * org.dmd.dmc.types.DmcTypeNameContainer\n primitiveType 
+ * org.dmd.dmc.types.NameContainer\n altType        DmcObjectName\n
+ * altTypeImport  org.dmd.dmc.DmcObjectName\n description    The
+ * NameContainer type allows for the storage of object names of different
+ * types...\n </pre>
  * @author Auto Generated
  * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1561)
  */
