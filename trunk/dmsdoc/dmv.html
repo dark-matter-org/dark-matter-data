@@ -124,7 +124,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#ruleName">ruleName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
       <td> The ruleName attribute is used to store a single camelCase format name for a rule.
@@ -134,7 +138,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The title of a rule. </td>
@@ -142,7 +145,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -150,7 +157,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive
@@ -161,13 +167,38 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> The immediateHalt flag is used to indicate that no further
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded. </td>
     </tr>
 
   </table>
@@ -202,7 +233,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmv.html#allowedType">allowedType</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#TypeDefinition">TypeDefinition</a> </td>
       <td> The allowedType indicates a collection of defined types to which something,\n usually and attribute, must conform. </td>
@@ -210,7 +245,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> Indicates the attribute to which an ATTRIBUTE type rule is applied. </td>
@@ -218,7 +252,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleName">ruleName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
       <td> The ruleName attribute is used to store a single camelCase format name for a rule.
@@ -228,7 +261,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The title of a rule. </td>
@@ -236,7 +268,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -244,7 +280,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive
@@ -255,13 +290,38 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> The immediateHalt flag is used to indicate that no further
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded. </td>
     </tr>
 
   </table>
@@ -307,7 +367,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmv.html#basedOnAttribute">basedOnAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> The basedOnAttribute allows for the specification of an attribute on which\n some type of a decision is made. </td>
@@ -315,7 +379,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmv.html#basedOnValue">basedOnValue</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The basedOnValue attribute allows for the specification of values for some\n aspect of a rule. </td>
@@ -323,7 +386,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleName">ruleName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
       <td> The ruleName attribute is used to store a single camelCase format name for a rule.
@@ -333,7 +395,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The title of a rule. </td>
@@ -341,7 +402,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -349,7 +414,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive
@@ -360,7 +424,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmv.html#excludeThisAttribute">excludeThisAttribute</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> The excludeThisAttribute indicates an optional attribute that must be\n excluded from an object under certain conditions. </td>
@@ -368,7 +431,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> The immediateHalt flag is used to indicate that no further
@@ -379,10 +441,35 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmv.html#includeThisAttribute">includeThisAttribute</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> The includeThisAttribute indicates an optional attribute that must be\n present under certain conditions. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded. </td>
     </tr>
 
   </table>
@@ -433,7 +520,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#ruleName">ruleName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
       <td> The ruleName attribute is used to store a single camelCase format name for a rule.
@@ -443,7 +534,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The title of a rule. </td>
@@ -451,7 +541,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -459,7 +553,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive
@@ -470,13 +563,38 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> The immediateHalt flag is used to indicate that no further
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded. </td>
     </tr>
 
   </table>
@@ -522,7 +640,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> Indicates the attribute to which an ATTRIBUTE type rule is applied. </td>
@@ -530,7 +652,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmv.html#irrMaximum">irrMaximum</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The maximum integer value. </td>
@@ -538,7 +659,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmv.html#irrMinimum">irrMinimum</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> The minimum integer value. </td>
@@ -546,7 +666,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleName">ruleName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
       <td> The ruleName attribute is used to store a single camelCase format name for a rule.
@@ -556,7 +675,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The title of a rule. </td>
@@ -564,7 +682,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -572,7 +694,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive
@@ -583,13 +704,38 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> The immediateHalt flag is used to indicate that no further
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded. </td>
     </tr>
 
   </table>
@@ -628,7 +774,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmv.html#onePossibility">onePossibility</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> The onePossibility attribute indicates an attribute that is one possiblity among\n many. </td>
@@ -636,7 +786,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleName">ruleName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
       <td> The ruleName attribute is used to store a single camelCase format name for a rule.
@@ -646,7 +795,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The title of a rule. </td>
@@ -654,7 +802,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmv.html#andOnlyOne">andOnlyOne</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> The andOnlyOne attribute indicates that only one of a set of possibilities is\n allowed. </td>
@@ -662,7 +814,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -670,7 +821,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive
@@ -681,13 +831,38 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> The immediateHalt flag is used to indicate that no further
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded. </td>
     </tr>
 
   </table>
@@ -733,7 +908,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="dmv.html#lhs">lhs</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> The attribute to be used as the left hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested. </td>
@@ -741,7 +920,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmv.html#numericRelation">numericRelation</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="dmv.html#NumericRelationEnum">NumericRelationEnum</a> </td>
       <td> The relationship between numeric values. </td>
@@ -749,7 +927,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="dmv.html#rhs">rhs</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> The attribute to be used as the right hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested. </td>
@@ -757,7 +934,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleName">ruleName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
       <td> The ruleName attribute is used to store a single camelCase format name for a rule.
@@ -767,7 +943,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The title of a rule. </td>
@@ -775,7 +950,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -783,7 +962,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive
@@ -794,13 +972,38 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> The immediateHalt flag is used to indicate that no further
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded. </td>
     </tr>
 
   </table>
@@ -836,7 +1039,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">Must</td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#ruleName">ruleName</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
       <td> The ruleName attribute is used to store a single camelCase format name for a rule.
@@ -846,7 +1053,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The title of a rule. </td>
@@ -854,7 +1060,11 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label">May</td>
+      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
       <td> The class to which a rule should be applied. </td>
@@ -862,7 +1072,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#description">description</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The description attribute is used to provide descriptive
@@ -873,13 +1082,38 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td class="label"> </td>
       <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
       <td> The immediateHalt flag is used to indicate that no further
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#definedIn">definedIn</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
+      <td> Indicates the schema in which a type, attribute or class is defined. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded. </td>
     </tr>
 
   </table>

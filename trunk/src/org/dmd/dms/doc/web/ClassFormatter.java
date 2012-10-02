@@ -144,6 +144,7 @@ public class ClassFormatter {
 	
 	static void must(BufferedWriter out, ClassDefinition cd) throws IOException{
 	    TreeMap<StringName,AttributeDefinition> allMust = cd.getAllMust();
+	    StringBuffer sb = new StringBuffer();
 
 		if (allMust.size() > 0){
 
@@ -161,40 +162,57 @@ public class ClassFormatter {
 				
 				if (first){
 					first = false;
-					out.write("    <tr>\n");
-					out.write("      <td class=\"spacer\"> </td>\n");
-					out.write("      <td class=\"label\">Must</td>\n");
-					out.write("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
-					out.write("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
-					out.write("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
-					if (ad.getDescription() != null)
-						out.write("      <td> " + ad.getDescription() + " </td>\n");
-					out.write("    </tr>\n\n");
+					appendSectionLabel(sb, "Must have attributes");
 				}
-				else{
-					out.write("    <tr>\n");
-					out.write("      <td class=\"spacer\"> </td>\n");
-					out.write("      <td class=\"label\"> </td>\n");
-					out.write("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
-					out.write("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
-					out.write("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
-					if (ad.getDescription() != null)
-						out.write("      <td> " + ad.getDescription() + " </td>\n");
-					out.write("    </tr>\n\n");
-				}
+				
+				appendAttribute(sb, schema, ad, tschema, type);
+
 			}
+			
+			out.append(sb.toString());
 		}
+	}
+	
+	static void appendSectionLabel(StringBuffer sb, String label){
+		sb.append("    <tr>\n");
+		sb.append("      <td class=\"spacer\"> </td>\n");
+		sb.append("      <td colspan=\"5\"class=\"attributeSectionLabel\">" + label + "</td>\n");
+		sb.append("    </tr>\n\n");		
+	}
+	
+	static void appendAttribute(StringBuffer sb, String schema, AttributeDefinition ad, String tschema, String type){
+		sb.append("    <tr>\n");
+		sb.append("      <td class=\"spacer\"> </td>\n");
+//		sb.append("      <td class=\"label\">" + label + "</td>\n");
+		sb.append("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
+		sb.append("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
+		sb.append("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
+		if (ad.getDescription() != null)
+			sb.append("      <td> " + ad.getDescription() + " </td>\n");
+		sb.append("    </tr>\n\n");		
+	}
+	
+	static void appendAttribute1(StringBuffer sb, String label, String schema, AttributeDefinition ad, String tschema, String type){
+		sb.append("    <tr>\n");
+		sb.append("      <td class=\"spacer\"> </td>\n");
+		sb.append("      <td class=\"label\">" + label + "</td>\n");
+		sb.append("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
+		sb.append("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
+		sb.append("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
+		if (ad.getDescription() != null)
+			sb.append("      <td> " + ad.getDescription() + " </td>\n");
+		sb.append("    </tr>\n\n");		
 	}
 	
 	static void may(BufferedWriter out, ClassDefinition cd) throws IOException{
 	    TreeMap<StringName,AttributeDefinition> allMay = cd.getAllMay();
+	    StringBuffer	may 		= new StringBuffer();
+	    StringBuffer	internal 	= new StringBuffer();
 
 	    if (allMay.size() > 0){
 
 			boolean first = true;
 			for(AttributeDefinition ad: allMay.values()){
-				if (ad.getInternalUse())
-					continue;
 				if (ad.getDmdID() == 1)
 					continue;
 
@@ -203,30 +221,25 @@ public class ClassFormatter {
 				TypeDefinition 	td 		= ad.getType();
 				String 			type 	= TypeFormatter.getTypeName(td);
 
-				if (first){
-					first = false;
-					out.write("    <tr>\n");
-					out.write("      <td class=\"spacer\"> </td>\n");
-					out.write("      <td class=\"label\">May</td>\n");
-					out.write("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
-					out.write("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
-					out.write("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
-					if (ad.getDescription() != null)
-						out.write("      <td> " + ad.getDescription() + " </td>\n");
-					out.write("    </tr>\n\n");
+				if (ad.getInternalUse()){
+					if (internal.length() == 0){
+						appendSectionLabel(internal, "Internal use attributes");
+					}
+					
+					appendAttribute(internal, schema, ad, tschema, type);
 				}
 				else{
-					out.write("    <tr>\n");
-					out.write("      <td class=\"spacer\"> </td>\n");
-					out.write("      <td class=\"label\"> </td>\n");
-					out.write("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
-					out.write("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
-					out.write("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
-					if (ad.getDescription() != null)
-						out.write("      <td> " + ad.getDescription() + " </td>\n");
-					out.write("    </tr>\n\n");
+					if (first){
+						first = false;
+						appendSectionLabel(may, "May have attributes");
+					}
+
+					appendAttribute(may, schema, ad, tschema, type);
 				}
 			}
+			
+			out.write(may.toString());
+			out.write(internal.toString());
 		}
 	}
 	

@@ -23,12 +23,12 @@ description		The ClassInfoRef type allows for the representation of class inform
  to the static DmcClassInfo from the generated DMSAG, regardless of the environment in
  which it exists. 
 
-TypeDefinition
-name 			DmcAttribute
-typeClassName	org.dmd.dmc.types.DmcTypeDmcAttribute
-primitiveType   org.dmd.dmc.DmcAttribute
-genericArgs     <?>
-description		The DmcAttribute type allows for the storage of other attributes in an attribute. Yikes!
+//TypeDefinition
+//name 			DmcAttribute
+//typeClassName	org.dmd.dmc.types.DmcTypeDmcAttribute
+//primitiveType   org.dmd.dmc.DmcAttribute
+//genericArgs     <?>
+//description		The DmcAttribute type allows for the storage of other attributes in an attribute. Yikes!
 
 TypeDefinition
 name 			NameContainer
@@ -69,6 +69,7 @@ primitiveType   org.dmd.dmc.types.AttributeID
 altType			DmcAttributeInfo
 altTypeImport	org.dmd.dmc.DmcAttributeInfo
 description		The AttributeID type allows for the storage of unique attribute identifiers.
+ Currently this is only used in the dark-matter protocol attributeSelector attribute.
 
 TypeDefinition
 name    		Integer
@@ -1259,6 +1260,7 @@ AttributeDefinition
 name				nameAttributeDef
 dmdID				90
 type				AttributeDefinition
+internalUse			true
 description			The nameAttributeDef is a reference to the attribute that is locked
  to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]*
  derivative for a value of type DmcObjectName.
@@ -1327,6 +1329,7 @@ AttributeDefinition
 name                enumName
 dmdID				99
 type                String
+internalUse			true
 description    		The original name of an enum as referred to in the internally generated type for enums.
 
 AttributeDefinition
@@ -1523,6 +1526,7 @@ AttributeDefinition
 name				filterAttributeDef
 dmdID				127
 type				AttributeDefinition
+internalUse			true
 description			The filterAttributeDef is a reference to the attribute that is locked
  to a TypeDefinition that is flagged as filterType. This mechanism is used to create the
  correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter.
@@ -1658,6 +1662,7 @@ AttributeDefinition
 name                		ruleDefinition
 dmdID						145
 type                		RuleDefinition
+internalUse					true
 description    				The RuleDefinition that resulted in the creation of an
  internally generated ClassDefinition.
 
@@ -1925,7 +1930,7 @@ description     The <code> TypeDefinition </code> is used to define the types of
  This form would be used for attribute types whose base type originates in <code> java.lang</code>.
  The dark-matter base types include: Boolean, Byte, Double, Float, Integer, Long, Short and String.
  <p/>
- <code> TypeDefinitions also support the concept of specifying a <code> nullReturnValue </code>
+ <code>TypeDefinitions</code> also support the concept of specifying a <code> nullReturnValue </code>
  for the entire type i.e. whenever an attribute of the specified type is accessed, it will return
  that value when the attribute doesn't exist in the object. An example of this is the <code> Boolean </code> type:
  <pre>
@@ -1939,7 +1944,7 @@ description     The <code> TypeDefinition </code> is used to define the types of
                  be returned.
  </pre>
  <p/>
- The next most common form of <code> TypeDefinition </code> adds the <code> primtiveType </code>
+ The next most common form of <code> TypeDefinition </code> adds the <code> primitiveType </code>
  attribute. This is required for code generation so that we can import the appropriate type for
  use in the various getter/setter methods. An example would be the <code> Date </code> type.
  <pre>
@@ -1949,8 +1954,47 @@ description     The <code> TypeDefinition </code> is used to define the types of
  primitiveType  java.util.Date
  description    Provides support for Date values.
  </pre>
- 
- 
+ Another common form of <code>TypeDefinition</code> is the definition of a name type. Object
+ naming is a fundamental aspect of DMOs, with all object names being based on the <code>DmcObjectName</code>.
+ Flagging a type as being a name type also implies the definition of a designated naming attribute
+ associated with the type. This mechanism allows for the transport of names that are self
+ describing in terms of their implementation type. This feature supports the <code>NameContainer</code>
+ type that allows any name to be transported in things like dark-matter protocol <code>GetRequest</code>.
+ An example of a naming type would be:
+ <pre>
+ TypeDefinition
+ name           CamelCaseName
+ typeClassName  org.dmd.dmc.types.DmcTypeCamelCaseName
+ primitiveType  org.dmd.dmc.types.CamelCaseName
+ isNameType     true
+ description    The CamelCaseName is a string based name that must start with
+                an alpha character which is followed by a mix of alphanumerics.
+ </pre>
+ And its associated designated naming attribute would be:
+ <pre>
+ AttributeDefinition
+ name                     camelCaseName
+ dmdID                    116
+ type                     CamelCaseName
+ designatedNameAttribute  true
+ description              The camelCaseName attribute is used to store a single camelCase
+                          format name for something. The name starts with a single letter
+                          and can be followed by a mix of letters and numbers. No spaces or 
+                          other characters are allowed.
+ </pre>
+ The last form of type definition is one that includes some additional information to provide
+ a convenient, alternate interface for the generation of member functions associated with
+ a container type; this concept is pretty much limited to the meta-schema, so it is unlikely
+ that non-contributors to dark-matter will make use of this concept. However, here is an example:
+ <pre>
+ TypeDefinition
+ name           NameContainer
+ typeClassName  org.dmd.dmc.types.DmcTypeNameContainer
+ primitiveType  org.dmd.dmc.types.NameContainer
+ altType        DmcObjectName
+ altTypeImport  org.dmd.dmc.DmcObjectName
+ description    The NameContainer type allows for the storage of object names of different types...
+ </pre>
  
 ClassDefinition
 name			ComplexTypeDefinition
