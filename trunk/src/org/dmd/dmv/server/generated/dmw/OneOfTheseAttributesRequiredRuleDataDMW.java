@@ -32,7 +32,11 @@ import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;
 
 
 /**
- * null
+ * The OneOfTheseAttributesRequiredRule allows you to specify\n that one of
+ * the possible optional attributes specified must be present\n in the object
+ * being checked.\n <p/>\n If only one of the possibilities is allowed, you
+ * can specify the andOnlyOne\n flag and set it to true. In this case only
+ * one of the possibilities will be allowed.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

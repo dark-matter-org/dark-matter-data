@@ -46,8 +46,8 @@ description		The NameContainer type allows for the storage of object names of di
  <pre>
  targets uuidName 809408a7-f00b-448c-beb6-00337e83acc4
  </pre>
- As you can see, the attribute name is targets and the value is uuidName 809408a7-f00b-448c-beb6-00337e83acc4.
- The uuidName attribute is the designatedNameAttribute for the UUIDName type. So, when parsing/deserializing a
+ As you can see, the attribute name is <code>targets</code> and the value is <code> uuidName 809408a7-f00b-448c-beb6-00337e83acc4</code>.
+ The <code>uuidName</code> attribute is the <code> designatedNameAttribute </code> for the <code> UUIDName </code> type. So, when parsing/deserializing a
  name container, we always know the underlying type of the name.
  <p/>
  This approach makes dark-matter name handling completely extensible.
@@ -78,29 +78,39 @@ description		Provides support for Integer values.
 TypeDefinition
 name    		Float
 typeClassName	org.dmd.dmc.types.DmcTypeFloat
-description		Provide support for Float values.
+description		Provides support for Float values.
 
 TypeDefinition
 name    		Double
 typeClassName	org.dmd.dmc.types.DmcTypeDouble
-description		Provide support for Double values.
+description		Provides support for Double values.
 
 TypeDefinition
 name    		Long
 typeClassName	org.dmd.dmc.types.DmcTypeLong
-description		Provide support for Long values.
+description		Provides support for Long values.
+
+TypeDefinition
+name    		Short
+typeClassName	org.dmd.dmc.types.DmcTypeShort
+description		Provides support for Short values.
+
+TypeDefinition
+name    		Byte
+typeClassName	org.dmd.dmc.types.DmcTypeByte
+description		Provides support for Byte values.
 
 TypeDefinition
 name    		Date
 typeClassName	org.dmd.dmc.types.DmcTypeDate
 primitiveType	java.util.Date
-description		Provide support for Date values.
+description		Provides support for Date values.
 
 TypeDefinition
 name	 		Boolean
 typeClassName	org.dmd.dmc.types.DmcTypeBoolean
 nullReturnValue false
-description		Provides support for Boolean values. This type makes use of the nullReturnValue
+description		Provides support for Boolean values. This type makes use of the <code> nullReturnValue </code>
  flag so that, even if there is no value for an attribute of this type, a value of false will
  be returned.
 
@@ -436,7 +446,27 @@ enumValue		1 BASE Indicates that you just want to use the generated DMW class.
 enumValue		2 EXTENDED Indicates that you want to use your own extended class.
 description     The WrapperTypeEnum indicates which wrapper class you want instantiated when a class
  of object is recognized during parsing or when an object is pulled from a repository.
- 
+
+EnumDefinition
+name			GPBScalarTypeEnum
+enumValue		0 DOUBLE 	Java double - C++ double.
+enumValue		1 FLOAT 	Java float - C++ float.
+enumValue		2 INT32 	Java int - C++ int32. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint32 instead.
+enumValue		3 INT64 	Java long - C++ int64. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint64 instead.
+enumValue		4 UINT32 	Java int - C++ uint32. Uses variable-length encoding. In Java, unsigned 32-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.
+enumValue		5 UINT64 	Java long - C++ uint64. Uses variable-length encoding. In Java, unsigned 64-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.
+enumValue		6 SINT32 	Java int - C++ int32. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.
+enumValue		7 SINT64 	Java long - C++ int64. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.
+enumValue		8 FIXED32 	Java int - C++ uint32. Always four bytes. More efficient than uint32 if values are often greater than 2^28.
+enumValue		9 FIXED64 	Java long - C++ uint64. Always eight bytes. More efficient than uint64 if values are often greater than 2^56.
+enumValue		10 SFIXED32 Java int - C++ int32. Always four bytes.
+enumValue		11 SFIXED64 Java long - C++ int64. Always eight bytes.
+enumValue		12 BOOL 	Java boolean - C++ bool.
+enumValue		13 STRING 	Java String - C++ string. A string must always contain UTF-8 encoded or 7-bit ASCII text.
+enumValue		14 BYTES 	Java ByteString - C++ string. May contain any arbitrary sequence of bytes.
+description The GPBScalarTypeEnum indicates the various mechanisms for encoding attribute values
+ using Google Protocol Buffers.
+
 ///////////////////////////////////////////////////////////////////////////////
 // RULE CATEGORIES
 //
@@ -1745,7 +1775,7 @@ description		The ActionTriggerInfo class simply provides a common base for the b
  Derivatives of this class are generated as part of the DMO generation
  process and have action specific interfaces to handle the parameters 
  required by an action.
- <P>
+ <p/>
  This mechanism is a replacement for the concept that ActionRequests were
  EXTENSIBLE objects. This way, the user can ask an object for the 
  ActionTriggerInfo (ATI) for a particular action and have a well defined
@@ -1874,16 +1904,53 @@ may				filterAttributeDef
 may				altType
 may				altTypeImport
 may				isExtendedRefType
-description     The TypeDefinition is used to define the types of attributes that can be used
+description     The <code> TypeDefinition </code> is used to define the types of attributes that can be used
  as the basis for attribute values. The name of the type definition should be the same as the
  actual Java class that is used to store the value of an attribute e.g. the name of the type
- used to store strings is String. The typeClassName is the fully qualified name of the class
- derived from DmcAttribute that stores this type of value; they are always, by conventional,
+ used to store strings is String. The <code> typeClassName </code> is the fully qualified name of the class
+ derived from DmcAttribute that stores this type of value; they are always, by convention,
  named DmcTypeXXX.
- <P>
- TypeDefinitions are automatically generated internally for ClassDefinitions and
- EnumDefinitions so that these objects can be referred to via the type attribute of AttributeDefinitions.
- These definitions are marked as internallyGenerated.
+ <p/>
+ <code> TypeDefinitions </code> are automatically generated internally for <code> ClassDefinitions </code> and
+ <code> EnumDefinitions </code> so that these objects can be referred to via the type attribute of <code> AttributeDefinitions</code>.
+ These definitions are marked as <code> internallyGenerated </code>.
+ <p/>
+ The simplest <code> TypeDefinition </code> would look something like:
+ <pre>
+ TypeDefinition
+ name           String
+ typeClassName  org.dmd.dmc.types.DmcTypeString
+ description    Provides support for String values.
+ </pre>
+ This form would be used for attribute types whose base type originates in <code> java.lang</code>.
+ The dark-matter base types include: Boolean, Byte, Double, Float, Integer, Long, Short and String.
+ <p/>
+ <code> TypeDefinitions also support the concept of specifying a <code> nullReturnValue </code>
+ for the entire type i.e. whenever an attribute of the specified type is accessed, it will return
+ that value when the attribute doesn't exist in the object. An example of this is the <code> Boolean </code> type:
+ <pre>
+ TypeDefinition
+ name            Boolean
+ typeClassName   org.dmd.dmc.types.DmcTypeBoolean
+ nullReturnValue false
+ description     Provides support for Boolean values. This type makes use of the
+                 nullReturnValue flag so that, even if there is no
+                 value for an attribute of this type, a value of false will
+                 be returned.
+ </pre>
+ <p/>
+ The next most common form of <code> TypeDefinition </code> adds the <code> primtiveType </code>
+ attribute. This is required for code generation so that we can import the appropriate type for
+ use in the various getter/setter methods. An example would be the <code> Date </code> type.
+ <pre>
+ TypeDefinition
+ name           Date
+ typeClassName  org.dmd.dmc.types.DmcTypeDate
+ primitiveType  java.util.Date
+ description    Provides support for Date values.
+ </pre>
+ 
+ 
  
 ClassDefinition
 name			ComplexTypeDefinition

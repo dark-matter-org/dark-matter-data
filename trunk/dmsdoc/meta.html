@@ -107,10 +107,11 @@
       </tr>
     </table>
     </div>    <div class="typeList">
-    <h2>Types (31)</h2>
+    <h2>Types (33)</h2>
     <ul>
       <li> <a class="deflink" href="#AttributeID"> AttributeID </a></li>
       <li> <a class="deflink" href="#Boolean"> Boolean </a></li>
+      <li> <a class="deflink" href="#Byte"> Byte </a></li>
       <li> <a class="deflink" href="#CamelCaseName"> CamelCaseName </a></li>
       <li> <a class="deflink" href="#ClassFilter"> ClassFilter </a></li>
       <li> <a class="deflink" href="#ClassInfoRef"> ClassInfoRef </a></li>
@@ -134,6 +135,7 @@
       <li> <a class="deflink" href="#Modifier"> Modifier </a></li>
       <li> <a class="deflink" href="#NameContainer"> NameContainer </a></li>
       <li> <a class="deflink" href="#RuleName"> RuleName </a></li>
+      <li> <a class="deflink" href="#Short"> Short </a></li>
       <li> <a class="deflink" href="#String"> String </a></li>
       <li> <a class="deflink" href="#StringName"> StringName </a></li>
       <li> <a class="deflink" href="#StringToString"> StringToString </a></li>
@@ -142,13 +144,14 @@
       <li> <a class="deflink" href="#UUIDName"> UUIDName </a></li>
     </ul>
     </div>    <div class="enumList">
-    <h2>Enums (10)</h2>
+    <h2>Enums (11)</h2>
     <ul>
       <li> <a class="deflink" href="#BaseTypeEnum"> BaseTypeEnum </a></li>
       <li> <a class="deflink" href="#ClassTypeEnum"> ClassTypeEnum </a></li>
       <li> <a class="deflink" href="#DataTypeEnum"> DataTypeEnum </a></li>
       <li> <a class="deflink" href="#DebugEnum"> DebugEnum </a></li>
       <li> <a class="deflink" href="#FilterTypeEnum"> FilterTypeEnum </a></li>
+      <li> <a class="deflink" href="#GPBScalarTypeEnum"> GPBScalarTypeEnum </a></li>
       <li> <a class="deflink" href="#ModifyTypeEnum"> ModifyTypeEnum </a></li>
       <li> <a class="deflink" href="#OperationalContextEnum"> OperationalContextEnum </a></li>
       <li> <a class="deflink" href="#RuleTypeEnum"> RuleTypeEnum </a></li>
@@ -156,12 +159,10 @@
       <li> <a class="deflink" href="#WrapperTypeEnum"> WrapperTypeEnum </a></li>
     </ul>
     </div>    <div class="categories">
-    <h2> Rule Categories (6)</h2>
+    <h2> Rule Categories (4)</h2>
     <ul>
-      <li> <a class="deflink" href="#AttributeModifierValidation"> AttributeModifierValidation </a></li>
       <li> <a class="deflink" href="#AttributeValidation"> AttributeValidation </a></li>
       <li> <a class="deflink" href="#Initialization"> Initialization </a></li>
-      <li> <a class="deflink" href="#ObjectModifierValidation"> ObjectModifierValidation </a></li>
       <li> <a class="deflink" href="#ObjectValidation"> ObjectValidation </a></li>
       <li> <a class="deflink" href="#UCOValidation"> UCOValidation </a></li>
     </ul>
@@ -336,7 +337,7 @@
  Derivatives of this class are generated as part of the DMO generation
  process and have action specific interfaces to handle the parameters 
  required by an action.
- <P>
+ <p/>
  This mechanism is a replacement for the concept that ActionRequests were
  EXTENSIBLE objects. This way, the user can ask an object for the 
  ActionTriggerInfo (ATI) for a particular action and have a well defined
@@ -2048,16 +2049,51 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The TypeDefinition is used to define the types of attributes that can be used
+      <td colspan="2">The <code> TypeDefinition </code> is used to define the types of attributes that can be used
  as the basis for attribute values. The name of the type definition should be the same as the
  actual Java class that is used to store the value of an attribute e.g. the name of the type
- used to store strings is String. The typeClassName is the fully qualified name of the class
- derived from DmcAttribute that stores this type of value; they are always, by conventional,
+ used to store strings is String. The <code> typeClassName </code> is the fully qualified name of the class
+ derived from DmcAttribute that stores this type of value; they are always, by convention,
  named DmcTypeXXX.
- <P>
- TypeDefinitions are automatically generated internally for ClassDefinitions and
- EnumDefinitions so that these objects can be referred to via the type attribute of AttributeDefinitions.
- These definitions are marked as internallyGenerated.</td>
+ <p/>
+ <code> TypeDefinitions </code> are automatically generated internally for <code> ClassDefinitions </code> and
+ <code> EnumDefinitions </code> so that these objects can be referred to via the type attribute of <code> AttributeDefinitions</code>.
+ These definitions are marked as <code> internallyGenerated </code>.
+ <p/>
+ The simplest <code> TypeDefinition </code> would look something like:
+ <pre>
+ TypeDefinition
+ name           String
+ typeClassName  org.dmd.dmc.types.DmcTypeString
+ description    Provides support for String values.
+ </pre>
+ This form would be used for attribute types whose base type originates in <code> java.lang</code>.
+ The dark-matter base types include: Boolean, Byte, Double, Float, Integer, Long, Short and String.
+ <p/>
+ <code> TypeDefinitions also support the concept of specifying a <code> nullReturnValue </code>
+ for the entire type i.e. whenever an attribute of the specified type is accessed, it will return
+ that value when the attribute doesn't exist in the object. An example of this is the <code> Boolean </code> type:
+ <pre>
+ TypeDefinition
+ name            Boolean
+ typeClassName   org.dmd.dmc.types.DmcTypeBoolean
+ nullReturnValue false
+ description     Provides support for Boolean values. This type makes use of the
+                 nullReturnValue flag so that, even if there is no
+                 value for an attribute of this type, a value of false will
+                 be returned.
+ </pre>
+ <p/>
+ The next most common form of <code> TypeDefinition </code> adds the <code> primtiveType </code>
+ attribute. This is required for code generation so that we can import the appropriate type for
+ use in the various getter/setter methods. An example would be the <code> Date </code> type.
+ <pre>
+ TypeDefinition
+ name           Date
+ typeClassName  org.dmd.dmc.types.DmcTypeDate
+ primitiveType  java.util.Date
+ description    Provides support for Date values.
+ </pre></td>
     </tr>
 
     <tr>
@@ -6151,7 +6187,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> Provides support for Boolean values. This type makes use of the nullReturnValue
+      <td> Provides support for Boolean values. This type makes use of the <code> nullReturnValue </code>
  flag so that, even if there is no value for an attribute of this type, a value of false will
  be returned. </td>
     </tr>
@@ -6232,6 +6268,19 @@
 </tr>
 </table>
       </td>
+    </tr>
+
+    <tr> <td class="typeName" colspan="3"> <a name="Byte"> Byte </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td> Provides support for Byte values. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type class</td>
+      <td>org.dmd.dmc.types.DmcTypeByte</td>
     </tr>
 
     <tr> <td class="typeName" colspan="3"> <a name="CamelCaseName"> CamelCaseName </a> </td></tr>
@@ -6337,7 +6386,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> Provide support for Date values. </td>
+      <td> Provides support for Date values. </td>
     </tr>
 
     <tr>
@@ -6473,7 +6522,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> Provide support for Double values. </td>
+      <td> Provides support for Double values. </td>
     </tr>
 
     <tr>
@@ -6567,7 +6616,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> Provide support for Float values. </td>
+      <td> Provides support for Float values. </td>
     </tr>
 
     <tr>
@@ -6835,7 +6884,7 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td> Provide support for Long values. </td>
+      <td> Provides support for Long values. </td>
     </tr>
 
     <tr>
@@ -6963,8 +7012,8 @@
  <pre>
  targets uuidName 809408a7-f00b-448c-beb6-00337e83acc4
  </pre>
- As you can see, the attribute name is targets and the value is uuidName 809408a7-f00b-448c-beb6-00337e83acc4.
- The uuidName attribute is the designatedNameAttribute for the UUIDName type. So, when parsing/deserializing a
+ As you can see, the attribute name is <code>targets</code> and the value is <code> uuidName 809408a7-f00b-448c-beb6-00337e83acc4</code>.
+ The <code>uuidName</code> attribute is the <code> designatedNameAttribute </code> for the <code> UUIDName </code> type. So, when parsing/deserializing a
  name container, we always know the underlying type of the name.
  <p/>
  This approach makes dark-matter name handling completely extensible.
@@ -7044,6 +7093,19 @@
 </tr>
 </table>
       </td>
+    </tr>
+
+    <tr> <td class="typeName" colspan="3"> <a name="Short"> Short </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td> Provides support for Short values. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type class</td>
+      <td>org.dmd.dmc.types.DmcTypeShort</td>
     </tr>
 
     <tr> <td class="typeName" colspan="3"> <a name="String"> String </a> </td></tr>
@@ -7603,6 +7665,119 @@
       <td> 6</td>
       <td> NP</td>
       <td>Performs a test to see if an attribute is not present.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="GPBScalarTypeEnum"> GPBScalarTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The GPBScalarTypeEnum indicates the various mechanisms for encoding attribute values
+ using Google Protocol Buffers.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> DOUBLE</td>
+      <td>Java double - C++ double.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> FLOAT</td>
+      <td>Java float - C++ float.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> INT32</td>
+      <td>Java int - C++ int32. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint32 instead.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 3</td>
+      <td> INT64</td>
+      <td>Java long - C++ int64. Uses variable-length encoding. Inefficient for encoding negative numbers - if your field is likely to have negative values, use sint64 instead.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 4</td>
+      <td> UINT32</td>
+      <td>Java int - C++ uint32. Uses variable-length encoding. In Java, unsigned 32-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 5</td>
+      <td> UINT64</td>
+      <td>Java long - C++ uint64. Uses variable-length encoding. In Java, unsigned 64-bit integers are represented using their signed counterparts, with the top bit simply being stored in the sign bit.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 6</td>
+      <td> SINT32</td>
+      <td>Java int - C++ int32. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int32s.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 7</td>
+      <td> SINT64</td>
+      <td>Java long - C++ int64. Uses variable-length encoding. Signed int value. These more efficiently encode negative numbers than regular int64s.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 8</td>
+      <td> FIXED32</td>
+      <td>Java int - C++ uint32. Always four bytes. More efficient than uint32 if values are often greater than 2^28.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 9</td>
+      <td> FIXED64</td>
+      <td>Java long - C++ uint64. Always eight bytes. More efficient than uint64 if values are often greater than 2^56.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 10</td>
+      <td> SFIXED32</td>
+      <td>Java int - C++ int32. Always four bytes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 11</td>
+      <td> SFIXED64</td>
+      <td>Java long - C++ int64. Always eight bytes.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 12</td>
+      <td> BOOL</td>
+      <td>Java boolean - C++ bool.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 13</td>
+      <td> STRING</td>
+      <td>Java String - C++ string. A string must always contain UTF-8 encoded or 7-bit ASCII text.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 14</td>
+      <td> BYTES</td>
+      <td>Java ByteString - C++ string. May contain any arbitrary sequence of bytes.</td>
     </tr>
 
     <tr> <td class="className" colspan="4"> <a name="ModifyTypeEnum"> ModifyTypeEnum </a> </td></tr>

@@ -152,8 +152,9 @@ td {
 
 
 
-
-
+.codeFragment {
+	font-family: monospace;
+}
 
 
 .schemaName {

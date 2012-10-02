@@ -27,7 +27,10 @@ import org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO;        
 
 
 /**
- * null
+ * The UCOAllowedAttributesRule will determine whether or not the \n
+ * attributes of a DmcUncheckedObject conform to the must/may specification
+ * of its\n class definition. For classes of type EXTENSIBLE only the must
+ * have attributes are checked.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
