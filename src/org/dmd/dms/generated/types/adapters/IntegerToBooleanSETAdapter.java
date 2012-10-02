@@ -14,7 +14,7 @@ public class IntegerToBooleanSETAdapter extends DmcTypeIntegerToBooleanSET imple
     transient DmcTypeIntegerToBooleanSET existingValue;
 
     public IntegerToBooleanSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

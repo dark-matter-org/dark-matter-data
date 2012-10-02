@@ -17,26 +17,26 @@ package org.dmd.dmp.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGeneratorNewest.java:905)
-import org.dmd.dmp.server.extended.LoginResponse;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:898)
-import org.dmd.dmp.server.extended.Response;                      // Derived class - (BaseDMWGeneratorNewest.java:1066)
-import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
-import org.dmd.dms.ClassDefinition;                               // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
+import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dmp.server.extended.LoginResponse;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.dmp.server.extended.Response;                      // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.dmp.shared.generated.dmo.LoginResponseDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dms.*;                                             // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
 
 
 /**
- * The LoginResponse is returned after a Login request is received. If the\n
+ * The LoginResponse is returned after a Login request is received. If the
  * login is successful, a session ID will be assigned and a request root will
- * be given. All\n subsequent requests must contain the session ID and all
- * requests will be checked to ensure\n that they pertain to objects at or
- * below the request root.\n <p/>\n The response may also have an
- * originatorID that is a unique identifier assigned by the \n server. In
- * some systems, this identifier will be stamped on all incoming requests
- * and\n passed through to the events that are generated as a result of those
- * requests. In this\n way, a client can tell whether the events it receives
- * came from its own requests or from\n requests made by other clients.
+ * be given. All subsequent requests must contain the session ID and all
+ * requests will be checked to ensure that they pertain to objects at or
+ * below the request root. <p/> The response may also have an originatorID
+ * that is a unique identifier assigned by the  server. In some systems, this
+ * identifier will be stamped on all incoming requests and passed through to
+ * the events that are generated as a result of those requests. In this way,
+ * a client can tell whether the events it receives came from its own
+ * requests or from requests made by other clients.
  * <P>
  * Generated from the dmp schema at version 0.1
  * <P>
@@ -76,7 +76,7 @@ abstract public class LoginResponseDMW extends Response {
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public Integer getOriginatorID(){
         return(((LoginResponseDMO) core).getOriginatorID());
     }
@@ -85,7 +85,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets originatorID to the specified value.
      * @param value A value compatible with DmcTypeInteger
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setOriginatorID(Object value) throws DmcValueException {
         ((LoginResponseDMO) core).setOriginatorID(value);
     }
@@ -94,7 +94,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets originatorID to the specified value.
      * @param value Integer
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setOriginatorID(Integer value){
         ((LoginResponseDMO) core).setOriginatorID(value);
     }
@@ -102,12 +102,12 @@ abstract public class LoginResponseDMW extends Response {
     /**
      * Removes the originatorID attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remOriginatorID(){
         ((LoginResponseDMO) core).remOriginatorID();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getRequestRoot(){
         return(((LoginResponseDMO) core).getRequestRoot());
     }
@@ -116,7 +116,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets requestRoot to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setRequestRoot(Object value) throws DmcValueException {
         ((LoginResponseDMO) core).setRequestRoot(value);
     }
@@ -125,7 +125,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets requestRoot to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setRequestRoot(String value){
         ((LoginResponseDMO) core).setRequestRoot(value);
     }
@@ -133,12 +133,12 @@ abstract public class LoginResponseDMW extends Response {
     /**
      * Removes the requestRoot attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remRequestRoot(){
         ((LoginResponseDMO) core).remRequestRoot();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getSessionID(){
         return(((LoginResponseDMO) core).getSessionID());
     }
@@ -147,7 +147,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets sessionID to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setSessionID(Object value) throws DmcValueException {
         ((LoginResponseDMO) core).setSessionID(value);
     }
@@ -156,7 +156,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets sessionID to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setSessionID(String value){
         ((LoginResponseDMO) core).setSessionID(value);
     }
@@ -164,12 +164,12 @@ abstract public class LoginResponseDMW extends Response {
     /**
      * Removes the sessionID attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remSessionID(){
         ((LoginResponseDMO) core).remSessionID();
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public String getUserFQN(){
         return(((LoginResponseDMO) core).getUserFQN());
     }
@@ -178,7 +178,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets userFQN to the specified value.
      * @param value A value compatible with DmcTypeString
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setUserFQN(Object value) throws DmcValueException {
         ((LoginResponseDMO) core).setUserFQN(value);
     }
@@ -187,7 +187,7 @@ abstract public class LoginResponseDMW extends Response {
      * Sets userFQN to the specified value.
      * @param value String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setUserFQN(String value){
         ((LoginResponseDMO) core).setUserFQN(value);
     }
@@ -195,7 +195,7 @@ abstract public class LoginResponseDMW extends Response {
     /**
      * Removes the userFQN attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remUserFQN(){
         ((LoginResponseDMO) core).remUserFQN();
     }

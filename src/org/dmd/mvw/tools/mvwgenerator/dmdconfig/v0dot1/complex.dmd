@@ -1,0 +1,61 @@
+
+//ComplexTypeDefinition
+//name  CompactEventSimpleData
+//field String name           The name of the event.
+//field String userData       The data to be included with the event.
+//description This type allows for the specification of a local event with a simple data
+// payload. The code generator is smart enough to recognize the primary Java collection
+// types such as ArrayList, HashMap, TreeMap, HashSet, TreeSet etc. and will import
+// those types as required. If your data is not a primitve Java type, the CompactEventUserData
+// type should be used.
+// <p>
+// An example of this type would be: userNamesAdded ArrayList<String>
+//
+//ComplexTypeDefinition
+//name  CompactEventUserData
+//field String name           The name of the event.
+//field String userData       The data to be included with the event e.g. String, ArrayList<Integer>.
+//field String userDataImport If the userData is not a Java primitive type, this will be the fully qualified class name of the data.
+//description This type allows for the specification of a local event with any user data
+// payload. The code generator is smart enough to recognize the primary Java collection
+// types such as ArrayList, HashMap, TreeMap, HashSet, TreeSet etc. and will import
+// those types as required. However, if the data is not a primitive Java type
+// <p>
+// Examples of this type: 
+// <p>
+// userAdded UserDMO com.example.shared.generated.dmo.UserDMO
+// <p>
+// alarmsDeleted ArrayList<MyAlarmClass> com.example.shared.MyAlarmClass
+ 
+ComplexTypeDefinition
+name DisplayDataSpec
+field ClassDefinition   dataClass   The class of object to be displayed
+field SelectionTypeEnum cardinality Indicates whether the data is single or multi-valued
+field String            varName     The variable name used to indicate this piece of data
+description The DisplayDataSpec type is used to specify the type and cardinality of
+ data that is being display in a View. It also indicates a variable name for the 
+ data that is used when we generate the interface methods and events associated
+ with the View.
+
+ComplexTypeDefinition
+name EventSpec
+field String            varName     A variable name previously defined, usually in a displayData attribute
+field SelectionTypeEnum cardinality Indicates whether the data is single or multi-valued
+field EventScopeEnum    scope       The scope of the event
+description The EventSpec type is used to indicate the events to be generated when
+ selection and deletion of objects takes place.
+
+ComplexTypeDefinition
+name OperationSpec
+field String            varName     A variable name previously defined, usually in a displayData attribute
+field EventScopeEnum    scope       The scope of the event
+description The OperationSpec type is used to indicate the events to be generated when an object
+ is associated with some operation e.g. clicked, modified, created etc.
+
+ComplexTypeDefinition
+name MenuElementTypeAndComment
+fieldSeparator :
+field String type    The name of this implementation.
+field String comment The class used to implement the required behaviour.
+description The MenuElementTypeAndComment type is used to indicate the strings that map to 
+ various menu and menu item implementations supported by a a particular menu implementation.

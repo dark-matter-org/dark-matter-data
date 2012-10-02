@@ -75,8 +75,8 @@ public class GenUtility {
 		
 		anyMVAttributes.set(false);
 		anySVAttributes.set(false);
-//		if ((cd != null) && cd.getName().getNameString().startsWith("ExtendedRefSV"))
-//			DebugInfo.debug("HERE");
+		if ((cd != null) && cd.getName().getNameString().startsWith("ExtendedRefSV"))
+			DebugInfo.debug("HERE");
 		
 //		boolean interested = false;
 //		String	theType = " ";
@@ -105,19 +105,11 @@ public class GenUtility {
 					anySVAttributes.set(true);;
 					break;
 				case MULTI:
-					if (ad.getIndexSize() == null){
-						anyMVAttributes.set(true);
-					}
-					else{
-						if (td.getIsRefType() == false)
-							anyMVAttributes.set(true);
-					}
-					break;
 				case HASHMAPPED:
 				case TREEMAPPED:
 				case HASHSET:
 				case TREESET:
-					anyMVAttributes.set(true);
+					anyMVAttributes.set(true);;
 					break;
 				}
 				
@@ -163,15 +155,6 @@ public class GenUtility {
 					anySVAttributes.set(true);
 					break;
 				case MULTI:
-					// We don't need java.util with indexed multi-values
-					if (ad.getIndexSize() == null){
-						anyMVAttributes.set(true);
-					}
-					else{
-						if (td.getIsRefType() == false)
-							anyMVAttributes.set(true);
-					}
-					break;
 				case HASHMAPPED:
 				case TREEMAPPED:
 				case HASHSET:
@@ -210,10 +193,8 @@ public class GenUtility {
 				addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
 		}
 		else{
-			if (cd.getClassType() != ClassTypeEnum.AUXILIARY){
-				if (anyMVAttributes.booleanValue())
-					addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
-			}
+			if (cd.getClassType() != ClassTypeEnum.AUXILIARY)
+				addImport(uniqueImports, longestImport, "java.util.*", "Always required if we have any MV attributes");
 		}
 			
 		if ( (cd != null) && (cd.getClassType() != ClassTypeEnum.AUXILIARY))
@@ -600,8 +581,8 @@ public class GenUtility {
 	}
 	
 	static public void formatSV(AttributeDefinition ad, StringBuffer sb){
-//		if (ad.getName().getNameString().equals("valueType"))
-//			DebugInfo.debug("HERE");
+		if (ad.getName().getNameString().equals("svTestEnum"))
+			DebugInfo.debug("HERE");
 		
     	String typeClassName 	= ad.getType().getTypeClassName();
     	String attrType 		= "DmcType" + ad.getType().getName();
@@ -1701,16 +1682,6 @@ public class GenUtility {
     	return(name.toString());
 	}
 	
-	/**
-	 * Returns the class or interface name after the last dot in an import statement.
-	 * @param value the import statement e.g. org.dmd.dmc.DmcObject
-	 * @return the part after the last dot e.g. DmcObject
-	 */
-	static public String getClassFromImport(String value){
-		int lastDot = value.lastIndexOf(".");
-		return(value.substring(lastDot+1));
-	}
-	
 	static public void dumpIterable(String dmwdir, String basePackage, String typeImport, String typeName, String genericArgs, String fileHeader, PrintStream progress) throws IOException {
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmwdir, typeName + "IterableDMW.java");
         
@@ -1974,7 +1945,7 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    public DmcType" + typeName + REF + "SV getNew(){\n");
-        out.write("        return(new DmcType" + typeName + REF + "SV(getAttributeInfo()));\n");
+        out.write("        return(new DmcType" + typeName + REF + "SV(attrInfo));\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -2302,6 +2273,7 @@ public class GenUtility {
         out.write("@SuppressWarnings(\"serial\")\n");
 
         out.write("public class DmcType" + typeName + REF + "MV extends DmcType" + typeName + REF + " implements Serializable {\n");
+//        "Iterator<ActionStatusEnum> empty = (new ArrayList<ActionStatusEnum>()).iterator();\n"
         out.write("    \n");
         out.write("    private final static Iterator<" + typeName + DMO + genericArgs + "> emptyList = (new ArrayList<" + typeName + DMO + genericArgs + ">()).iterator();\n");
         out.write("    \n");
@@ -2322,7 +2294,7 @@ public class GenUtility {
         
         out.write("    @Override\n");
         out.write("    public DmcType" + typeName + REF + "MV getNew(){\n");
-        out.write("        return(new DmcType" + typeName + REF + "MV(getAttributeInfo()));\n");
+        out.write("        return(new DmcType" + typeName + REF + "MV(attrInfo));\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -2338,7 +2310,7 @@ public class GenUtility {
         out.write("            if (value == null)\n");
         out.write("                return(rc);\n");
         out.write("    \n");
-        out.write("            if (getAttributeInfo().indexSize == 0){\n");
+        out.write("            if (attrInfo.indexSize == 0){\n");
         out.write("                for(" + typeName + DMO + genericArgs + " val: value)\n");
         out.write("                try {\n");
         out.write("                    rc.add(val);\n");
@@ -2434,13 +2406,13 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public int getMVSize(){\n");
         out.write("        synchronized(this){\n");
-        out.write("            if (getAttributeInfo().indexSize == 0){\n");
+        out.write("            if (attrInfo.indexSize == 0){\n");
         out.write("                if (value == null)\n");
         out.write("                    return(0);\n");
         out.write("                return(value.size());\n");
         out.write("            }\n");
         out.write("            else\n");
-        out.write("                return(getAttributeInfo().indexSize);\n");
+        out.write("                return(attrInfo.indexSize);\n");
         out.write("        }\n");
         out.write("    }\n");
         out.write("    \n");
@@ -2460,11 +2432,11 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public " + typeName + DMO + genericArgs + " setMVnth(int index, Object v) throws DmcValueException {\n");
         out.write("        synchronized(this){\n");
-        out.write("            if (getAttributeInfo().indexSize == 0)\n");
-        out.write("                throw(new IllegalStateException(\"Attribute: \" + getAttributeInfo().name + \" is not indexed. You can't use setMVnth().\"));\n");
+        out.write("            if (attrInfo.indexSize == 0)\n");
+        out.write("                throw(new IllegalStateException(\"Attribute: \" + attrInfo.name + \" is not indexed. You can't use setMVnth().\"));\n");
         out.write("            \n");
-        out.write("            if ( (index < 0) || (index >= getAttributeInfo().indexSize))\n");
-        out.write("                throw(new IllegalStateException(\"Index \" + index + \" for attribute: \" + getAttributeInfo().name + \" is out of range: 0 <= index < \" + getAttributeInfo().indexSize));\n");
+        out.write("            if ( (index < 0) || (index >= attrInfo.indexSize))\n");
+        out.write("                throw(new IllegalStateException(\"Index \" + index + \" for attribute: \" + attrInfo.name + \" is out of range: 0 <= index < \" + attrInfo.indexSize));\n");
         out.write("            \n");
         out.write("            " + typeName + DMO + genericArgs + " rc = null;\n");
         out.write("            \n");
@@ -2472,8 +2444,8 @@ public class GenUtility {
         out.write("                rc = typeCheck(v);\n");
         out.write("            \n");
         out.write("            if (value == null){\n");
-        out.write("                value = new ArrayList<" + typeName + DMO + genericArgs + ">(getAttributeInfo().indexSize);\n");
-        out.write("                for(int i=0;i<getAttributeInfo().indexSize;i++)\n");
+        out.write("                value = new ArrayList<" + typeName + DMO + genericArgs + ">(attrInfo.indexSize);\n");
+        out.write("                for(int i=0;i<attrInfo.indexSize;i++)\n");
         out.write("                    value.add(null);\n");
         out.write("            }\n");
         out.write("            \n");
@@ -2490,8 +2462,8 @@ public class GenUtility {
         out.write("        synchronized(this){\n");
         out.write("            boolean rc = false;\n");
         out.write("            \n");
-        out.write("            if (getAttributeInfo().indexSize == 0)\n");
-        out.write("                throw(new IllegalStateException(\"Attribute: \" + getAttributeInfo().name + \" is not indexed. You can't use hasValue().\"));\n");
+        out.write("            if (attrInfo.indexSize == 0)\n");
+        out.write("                throw(new IllegalStateException(\"Attribute: \" + attrInfo.name + \" is not indexed. You can't use hasValue().\"));\n");
         out.write("            \n");
         out.write("            if (value == null)\n");
         out.write("                return(rc);\n");
@@ -2619,7 +2591,7 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    void initValue(){\n");
-        out.write("        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)\n");
+        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
         out.write("            value = new HashSet<" + typeName + DMO + genericArgs + ">();\n");
         out.write("        else\n");
         out.write("            value = new TreeSet<" + typeName + DMO + genericArgs + ">();\n");
@@ -2628,7 +2600,7 @@ public class GenUtility {
         
         out.write("    @Override\n");
         out.write("    public DmcType" + typeName + REF + "SET getNew(){\n");
-        out.write("        return(new DmcType" + typeName + REF + "SET(getAttributeInfo()));\n");
+        out.write("        return(new DmcType" + typeName + REF + "SET(attrInfo));\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -2704,7 +2676,7 @@ public class GenUtility {
         out.write("            if (value == null)\n");
         out.write("                return(emptyList);\n");
         out.write("\n");
-        out.write("            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)\n");
+        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHSET)\n");
         out.write("                return( (new HashSet<" + typeName + DMO + genericArgs + ">(value)).iterator() );\n");
         out.write("            else\n");
         out.write("                return( (new TreeSet<" + typeName + DMO + genericArgs + ">(value)).iterator() );\n");
@@ -2715,7 +2687,7 @@ public class GenUtility {
 		out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("    public Set<" + typeName + DMO + genericArgs + "> getMVCopy(){\n");
         out.write("        synchronized(this){\n");
-        out.write("            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){\n");
+        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHSET){\n");
         out.write("                if (value == null)\n");
         out.write("                    return(new HashSet<" + typeName + DMO + genericArgs + ">());\n");
         out.write("                else\n");
@@ -2857,7 +2829,7 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    void initValue(){\n");
-        out.write("        if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)\n");
+        out.write("        if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)\n");
         out.write("            value = new HashMap<" + keyClass + "," + typeName + genericArgs + ">();\n");
         out.write("        else\n");
         out.write("            value = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">();\n");
@@ -2865,19 +2837,19 @@ public class GenUtility {
         out.write("    \n");
         
         out.write("    public " + keyClass + " firstKey(){\n");
-        out.write("        if (getAttributeInfo().valueType == ValueTypeEnum.TREEMAPPED){\n");
+        out.write("        if (attrInfo.valueType == ValueTypeEnum.TREEMAPPED){\n");
         out.write("            if (value == null)\n");
         out.write("                return(null);\n");
         out.write("            TreeMap<" + keyClass + "," + typeName + genericArgs + "> map = (TreeMap<" + keyClass + "," + typeName + genericArgs + ">)value;\n");
         out.write("            return(map.firstKey());\n");
         out.write("        }\n");
-        out.write("        throw(new IllegalStateException(\"Attribute \" + getAttributeInfo().name + \" is HASHMAPPED and doesn't support firstKey()\"));\n");
+        out.write("        throw(new IllegalStateException(\"Attribute \" + attrInfo.name + \" is HASHMAPPED and doesn't support firstKey()\"));\n");
         out.write("    }\n");
         out.write("    \n");
         
         out.write("    @Override\n");
         out.write("    public DmcType" + typeName + "MAP getNew(){\n");
-        out.write("        return(new DmcType" + typeName + "MAP(getAttributeInfo()));\n");
+        out.write("        return(new DmcType" + typeName + "MAP(attrInfo));\n");
         out.write("    }\n");
         out.write("    \n");
         
@@ -2947,7 +2919,7 @@ public class GenUtility {
         out.write("                return(emptyList);\n");
         out.write("    \n");
         out.write("            Map<" + keyClass + "," + typeName + genericArgs + "> clone = null;\n");
-        out.write("            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED)\n");
+        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED)\n");
         out.write("                clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
         out.write("            else\n");
         out.write("                clone = new TreeMap<" + keyClass + "," + typeName + genericArgs + ">(value);\n");
@@ -2960,7 +2932,7 @@ public class GenUtility {
         out.write("    public Map<" + keyClass + "," + typeName + genericArgs + "> getMVCopy(){\n");
         out.write("        synchronized(this){\n");
         out.write("            Map<" + keyClass + "," + typeName + genericArgs + "> clone = null;\n");
-        out.write("            if (getAttributeInfo().valueType == ValueTypeEnum.HASHMAPPED){\n");
+        out.write("            if (attrInfo.valueType == ValueTypeEnum.HASHMAPPED){\n");
         out.write("                if (value == null)\n");
         out.write("                    clone = new HashMap<" + keyClass + "," + typeName + genericArgs + ">();\n");
         out.write("                else\n");

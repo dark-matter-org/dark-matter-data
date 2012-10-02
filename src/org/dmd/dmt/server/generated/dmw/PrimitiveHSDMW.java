@@ -2,16 +2,16 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import java.util.HashSet;                                       // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1018)
-import java.util.Iterator;                                      // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2054)
-import org.dmd.dmc.*;                                           // If any attributes - (BaseDMWGeneratorNewest.java:905)
-import org.dmd.dms.ClassDefinition;                             // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                     // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
-import org.dmd.dms.generated.dmw.StringIterableDMW;             // For multi-valued String - (BaseDMWGeneratorNewest.java:1919)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
+import java.util.HashSet;                                       // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1016)
+import java.util.Iterator;                                      // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2048)
+import org.dmd.dmc.*;                                           // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dms.*;                                           // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                     // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.dmw.StringIterableDMW;             // For multi-valued String - (BaseDMWGeneratorNewest.java:1913)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;           // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
 import org.dmd.dmt.shared.generated.dmo.DmtDMSAG;               // Attribute hsString from the dmt schema - (BaseDMWGeneratorNewest.java:720)
-import org.dmd.dmt.shared.generated.dmo.PrimitiveHSDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
-import org.dmd.dmw.DmwWrapper;                                  // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1053)
+import org.dmd.dmt.shared.generated.dmo.PrimitiveHSDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dmw.DmwWrapper;                                  // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1051)
 
 
 /**
@@ -57,7 +57,7 @@ public class PrimitiveHSDMW extends DmwWrapper {
     /**
      * @return The number of String items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1489)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1483)
     public int getHsStringSize(){
         return(((PrimitiveHSDMO) core).getHsStringSize());
     }
@@ -65,7 +65,7 @@ public class PrimitiveHSDMW extends DmwWrapper {
     /**
      * @return true if there are no StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1497)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1491)
     public boolean getHsStringIsEmpty(){
         if (((PrimitiveHSDMO) core).getHsStringSize() == 0)
             return(true);
@@ -75,7 +75,7 @@ public class PrimitiveHSDMW extends DmwWrapper {
     /**
      * @return true if there are any StringDMO items.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1507)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1501)
     public boolean getHsStringHasValue(){
         if (((PrimitiveHSDMO) core).getHsStringSize() == 0)
             return(false);
@@ -85,7 +85,7 @@ public class PrimitiveHSDMW extends DmwWrapper {
     /**
      * @return An Iterator of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1923)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1917)
     public StringIterableDMW getHsStringIterable(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsString);
         if (attr == null)
@@ -98,7 +98,7 @@ public class PrimitiveHSDMW extends DmwWrapper {
      * Adds another hsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1949)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1943)
     public void addHsString(Object value) throws DmcValueException {
         ((PrimitiveHSDMO) core).addHsString(value);
     }
@@ -107,7 +107,7 @@ public class PrimitiveHSDMW extends DmwWrapper {
      * Adds another hsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1959)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:1953)
     public void addHsString(String value){
         ((PrimitiveHSDMO) core).addHsString(value);
     }
@@ -116,7 +116,7 @@ public class PrimitiveHSDMW extends DmwWrapper {
      * Returns true if the collection contains the hsString value.
      * @param value A value compatible with String
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2016)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2010)
     public boolean hsStringContains(String value){
         return(((PrimitiveHSDMO) core).hsStringContains(value));
     }
@@ -124,7 +124,7 @@ public class PrimitiveHSDMW extends DmwWrapper {
     /**
      * @return A COPY of the collection of String objects.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2058)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2052)
     @SuppressWarnings("unchecked")
     public HashSet<String> getHsStringCopy(){
         DmcAttribute<?> attr = core.get(DmtDMSAG.__hsString);
@@ -145,7 +145,7 @@ public class PrimitiveHSDMW extends DmwWrapper {
      * Deletes a hsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2085)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2079)
     public void delHsString(Object value) throws DmcValueException {
         ((PrimitiveHSDMO) core).delHsString(value);
     }
@@ -154,7 +154,7 @@ public class PrimitiveHSDMW extends DmwWrapper {
      * Deletes a hsString value.
      * @param value The String to be deleted from set of attribute values.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2094)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2088)
     public void delHsString(String value){
         ((PrimitiveHSDMO) core).delHsString(value);
     }
@@ -162,7 +162,7 @@ public class PrimitiveHSDMW extends DmwWrapper {
     /**
      * Removes the hsString attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2106)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2100)
     public void remHsString(){
         ((PrimitiveHSDMO) core).remHsString();
     }

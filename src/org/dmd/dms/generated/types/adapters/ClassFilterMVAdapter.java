@@ -14,7 +14,7 @@ public class ClassFilterMVAdapter extends DmcTypeClassFilterMV implements DmcAda
     transient DmcTypeClassFilterMV existingValue;
 
     public ClassFilterMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

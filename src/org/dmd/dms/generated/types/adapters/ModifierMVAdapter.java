@@ -12,7 +12,7 @@ public class ModifierMVAdapter extends DmcTypeModifierMV implements DmcAdapterIF
     transient DmcTypeModifierMV existingValue;
 
     public ModifierMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

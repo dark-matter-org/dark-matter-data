@@ -294,21 +294,6 @@ public class Modifier implements Serializable {
 	}
 	
 	/**
-	 * @return the attribute info for the attribute associated with this modification.
-	 */
-	public DmcAttributeInfo getAttributeInfo(){
-		if (attribute == null){
-			if (attributeID == -1)
-				return(DmcOmni.instance().getAttributeInfo(attributeName));
-			
-			return(DmcOmni.instance().getInfo(attributeID));
-		}
-		else{
-			return(attribute.getAttributeInfo());
-		}
-	}
-	
-	/**
 	 * Returns the attribute holder if available.
 	 * @return The attribute holder.
 	 */

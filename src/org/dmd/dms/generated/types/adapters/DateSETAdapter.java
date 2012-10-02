@@ -14,7 +14,7 @@ public class DateSETAdapter extends DmcTypeDateSET implements DmcAdapterIF {
     transient DmcTypeDateSET existingValue;
 
     public DateSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -14,7 +14,7 @@ public class IntegerToBooleanMAPAdapter extends DmcTypeIntegerToBooleanMAP imple
     transient DmcTypeIntegerToBooleanMAP existingValue;
 
     public IntegerToBooleanMAPAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

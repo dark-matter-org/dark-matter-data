@@ -2,14 +2,14 @@ package org.dmd.dmt.server.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGeneratorNewest.java:905)
-import org.dmd.dms.ClassDefinition;                               // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
-import org.dmd.dmt.server.extended.ObjWithRefs;                   // Is reference type - (BaseDMWGeneratorNewest.java:925)
-import org.dmd.dmt.shared.generated.dmo.NamedObjSVDMO;            // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
-import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
-import org.dmd.dmw.DmwWrapper;                                    // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1053)
+import org.dmd.dmc.*;                                             // If any attributes - (BaseDMWGeneratorNewest.java:903)
+import org.dmd.dms.*;                                             // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                       // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;             // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
+import org.dmd.dmt.server.extended.ObjWithRefs;                   // Is reference type - (BaseDMWGeneratorNewest.java:923)
+import org.dmd.dmt.shared.generated.dmo.NamedObjSVDMO;            // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dmt.shared.generated.types.ObjWithRefsREF;         // Is reference type REF - (BaseDMWGeneratorNewest.java:931)
+import org.dmd.dmw.DmwWrapper;                                    // Unnamed object wrapper - (BaseDMWGeneratorNewest.java:1051)
 
 
 /**
@@ -55,7 +55,7 @@ public class NamedObjSVDMW extends DmwWrapper {
     /**
      * @return A ObjWithRefs object.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1252)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1246)
     public ObjWithRefs getSvNamedObj(){
         ObjWithRefsREF ref = ((NamedObjSVDMO) core).getSvNamedObj();
         if (ref == null)
@@ -71,7 +71,7 @@ public class NamedObjSVDMW extends DmwWrapper {
      * Sets the svNamedObj to the specified value.
      * @param value A value compatible with ObjWithRefsREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1337)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1331)
     public void setSvNamedObj(ObjWithRefs value) {
         ((NamedObjSVDMO) core).setSvNamedObj(value.getDMO());
     }
@@ -80,7 +80,7 @@ public class NamedObjSVDMW extends DmwWrapper {
      * Sets the svNamedObj to the specified value.
      * @param value A value compatible with ObjWithRefsREF
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1346)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1340)
     public void setSvNamedObj(Object value) throws DmcValueException {
         ((NamedObjSVDMO) core).setSvNamedObj(value);
     }
@@ -88,7 +88,7 @@ public class NamedObjSVDMW extends DmwWrapper {
     /**
      * Removes the svNamedObj attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remSvNamedObj(){
         ((NamedObjSVDMO) core).remSvNamedObj();
     }

@@ -14,7 +14,7 @@ public class IntegerNameSVAdapter extends DmcTypeIntegerNameSV implements DmcAda
     transient DmcTypeIntegerNameSV existingValue;
 
     public IntegerNameSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

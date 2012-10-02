@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -30,14 +30,11 @@ import org.dmd.dmc.types.DmcTypeLongName;    // DmcType import
  * The DmcTypeLongNameSET provides storage for a set of LongName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:641)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:272)
  */
 @SuppressWarnings("serial")
 public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable {
-    
-     private final static Iterator<LongName> emptyList =  (new HashSet<LongName>()).iterator();
-    
     
     protected Set<LongName> value;
     
@@ -51,7 +48,7 @@ public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable 
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<LongName>();
         else
             value = new TreeSet<LongName>();
@@ -59,18 +56,14 @@ public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable 
     
     @Override
     public DmcTypeLongNameSET getNew(){
-        return(new DmcTypeLongNameSET(getAttributeInfo()));
+        return(new DmcTypeLongNameSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
     public DmcAttribute<LongName> cloneIt(){
         synchronized(this){
             DmcTypeLongNameSET rc = getNew();
-    
-            if (value == null)
-                return(rc);
-    
             for(LongName val: value)
             try {
                 rc.add(val);
@@ -82,7 +75,7 @@ public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
     public LongName add(Object v) throws DmcValueException {
         synchronized(this){
             LongName rc = typeCheck(v);
@@ -98,7 +91,7 @@ public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
     public LongName del(Object v){
         synchronized(this){
             LongName rc = null;
@@ -122,39 +115,28 @@ public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
     public Iterator<LongName> getMV(){
         synchronized(this){
-            if (value == null)
-                return(emptyList);
-
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<LongName>(value)).iterator() );
             else
                 return( (new TreeSet<LongName>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
     public Set<LongName> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
-                if (value == null)
-                    return(new HashSet<LongName>());
-                else
-                    return(new HashSet<LongName>(value));
-            }
-            else{
-                if (value == null)
-                    return(new TreeSet<LongName>(value));
-                else
-                    return(new TreeSet<LongName>(value));
-            }
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                return(new HashSet<LongName>(value));
+            else
+                return(new TreeSet<LongName>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -164,7 +146,7 @@ public class DmcTypeLongNameSET extends DmcTypeLongName implements Serializable 
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

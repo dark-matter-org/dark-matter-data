@@ -14,7 +14,7 @@ public class StringNameSETAdapter extends DmcTypeStringNameSET implements DmcAda
     transient DmcTypeStringNameSET existingValue;
 
     public StringNameSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

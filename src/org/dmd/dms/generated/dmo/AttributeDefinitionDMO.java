@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -15,21 +15,21 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms.generated.dmo;
 
-// Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1835)
-import java.io.Serializable;                  // Serializable marker interface - (MetaGenerator.java:1788)
-import java.util.*;                           // Attribute info support - (MetaGenerator.java:1790)
-import org.dmd.dmc.*;                         // Dark matter core - (MetaGenerator.java:1812)
-import org.dmd.dmc.types.*;                   // Basic type access - (MetaGenerator.java:1802)
-import org.dmd.dms.generated.enums.*;         // Has enum attributes - (MetaGenerator.java:1830)
-import org.dmd.dms.generated.types.*;         // Generated type access - (MetaGenerator.java:1824)
+import java.io.Serializable;
 
+import java.util.*;
+
+import org.dmd.dmc.types.*;
+import org.dmd.dmc.*;
+import org.dmd.dms.generated.dmo.MetaVCAG;
+import org.dmd.dms.generated.types.*;
+import org.dmd.dms.generated.enums.*;
 
 /**
- * This class is used to define attributes to be used\n as part of a class
+ * This class is used to define attributes to be used as part of a class
  * definition.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1845)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMOClasses(MetaGenerator.java:1231)
  */
 @SuppressWarnings("serial")
 public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinitionDMO implements Serializable  {
@@ -39,6 +39,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     static Map<Integer,DmcAttributeInfo> _ImAp;
 
     static Map<String ,DmcAttributeInfo> _SmAp;
+
+    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
+
+    static Map<String ,DmcObjectValidator> _OvDmAp;
 
 
     static {
@@ -60,7 +64,6 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
         _ImAp.put(MetaDMSAG.__nullReturnValue.id,MetaDMSAG.__nullReturnValue);
         _ImAp.put(MetaDMSAG.__obsoleteVersion.id,MetaDMSAG.__obsoleteVersion);
-        _ImAp.put(MetaDMSAG.__preserveNewlines.id,MetaDMSAG.__preserveNewlines);
         _ImAp.put(MetaDMSAG.__secure.id,MetaDMSAG.__secure);
         _ImAp.put(MetaDMSAG.__valueType.id,MetaDMSAG.__valueType);
 
@@ -82,9 +85,13 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
         _SmAp.put(MetaDMSAG.__nullReturnValue.name,MetaDMSAG.__nullReturnValue);
         _SmAp.put(MetaDMSAG.__obsoleteVersion.name,MetaDMSAG.__obsoleteVersion);
-        _SmAp.put(MetaDMSAG.__preserveNewlines.name,MetaDMSAG.__preserveNewlines);
         _SmAp.put(MetaDMSAG.__secure.name,MetaDMSAG.__secure);
         _SmAp.put(MetaDMSAG.__valueType.name,MetaDMSAG.__valueType);
+
+        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
+
+        _OvDmAp = new HashMap<String ,DmcObjectValidator>();
+        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
 
@@ -104,6 +111,14 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         return(_SmAp);
     }
 
+    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
+        return(_AvDmAp);
+    }
+
+    protected Map<String,DmcObjectValidator> getObjectValidators(){
+        return(_OvDmAp);
+    }
+
     @Override
     public AttributeDefinitionDMO getNew(){
         AttributeDefinitionDMO rc = new AttributeDefinitionDMO();
@@ -119,11 +134,11 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * The name attribute is used to store a single string token that represents
-     * a unique name\n for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
+     * a unique name for an object. A name should be composed of characters in
+     * the range, [a-z] [A-Z] [0-9]. No whitespace characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -136,7 +151,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setName(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -147,11 +162,11 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * Indicates the type of an attribute. The value is the name of any\n
-     * previously defined TypeDefinition, ClassDefinition, EnumDefinition or
-     * ComplexTypeDefinition.
+     * Indicates the type of an attribute. The value is the name of any
+     * previously defined DmdTypeDef definition. When accessed in Java, this is a
+     * reference to a DmdTypeDef object.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public TypeDefinitionREF getType(){
         DmcTypeTypeDefinitionREFSV attr = (DmcTypeTypeDefinitionREFSV) get(MetaDMSAG.__type);
         if (attr == null)
@@ -164,7 +179,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets type to the specified value.
      * @param value A value compatible with DmcTypeTypeDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setType(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__type);
         if (attr == null)
@@ -176,10 +191,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * This attribute stores an abbreviated form of the name of an attribute or
-     * class. This\n concept is borrowed from directory technology where
-     * shortened name forms are often\n used as part of distinguished names (DNs).
+     * class. This concept is borrowed from directory technology where shortened
+     * name forms are often used as part of distinguished names (DNs).
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public String getAbbrev(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__abbrev);
         if (attr == null)
@@ -192,7 +207,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets abbrev to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setAbbrev(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__abbrev);
         if (attr == null)
@@ -204,10 +219,9 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * This attribute indicates the persistence characteristics of an attribute
-     * or\n class of object. How this information is used is application
-     * dependent.
+     * or class of object. How this information is used is application dependent.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public DataTypeEnum getDataType(){
         DmcTypeDataTypeEnumSV attr = (DmcTypeDataTypeEnumSV) get(MetaDMSAG.__dataType);
         if (attr == null)
@@ -220,7 +234,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets dataType to the specified value.
      * @param value A value compatible with DmcTypeDataTypeEnumSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setDataType(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__dataType);
         if (attr == null)
@@ -233,7 +247,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public SchemaDefinitionREF getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -246,7 +260,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets definedIn to the specified value.
      * @param value A value compatible with DmcTypeSchemaDefinitionREFSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setDefinedIn(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -257,12 +271,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * The description attribute is used to provide descriptive\n documentation
-     * for schema related definitions. The text provided should conform\n to
-     * XHTML concepts since it will be dumped in the context of the generated
-     * HTML\n documentation.
+     * The description attribute is used to provide descriptive documentation for
+     * schema related definitions. The description is of type XHMTLString which
+     * is basically an XML formatted fragment that conforms to the XHTML 1.0
+     * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public String getDescription(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
         if (attr == null)
@@ -271,20 +285,11 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
         return(attr.getSV());
     }
 
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2260)
-    public String getDescriptionWithNewlines(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__description);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV().replaceAll("\\\\n","\\\n"));
-    }
-
     /**
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setDescription(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__description);
         if (attr == null)
@@ -295,13 +300,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * The designatedFilterAttribute flag is used to identify the attribute\n
-     * designated as the standard wrapper for filters of a particular type. \n
-     * One, and only one, attribute definition can be the
-     * designatedFilterAttribute for a \n TypeDefinition that is identified as
-     * isFilterType.
+     * The designatedFilterAttribute flag is used to identify the attribute
+     * designated as the standard wrapper for filters of a particular type.  One,
+     * and only one, attribute definition can be the designatedFilterAttribute
+     * for a  TypeDefinition that is identified as isFilterType.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public Boolean getDesignatedFilterAttribute(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__designatedFilterAttribute);
         if (attr == null)
@@ -314,7 +318,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets designatedFilterAttribute to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setDesignatedFilterAttribute(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__designatedFilterAttribute);
         if (attr == null)
@@ -325,12 +329,13 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * The designatedNameAttribute flag is used to identify the attribute\n
-     * designated as the standard wrapper for names of a particular type. One,
-     * and only one,\n attribute definition can be the designatedNameAttribute
-     * for a TypeDefinition that has\n isNameType true.
+     * The designatedNameAttribute flag is used to identify the attribute
+     * designated as the standard wrapper for names of a particular STRUCTURAL
+     * nameType.  One, and only one, attribute definition can be the
+     * designatedNameAttribute for a  TypeDefinition that is identified as a
+     * STRUCTURAL nameType.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public Boolean getDesignatedNameAttribute(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__designatedNameAttribute);
         if (attr == null)
@@ -343,7 +348,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets designatedNameAttribute to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setDesignatedNameAttribute(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__designatedNameAttribute);
         if (attr == null)
@@ -355,10 +360,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * The dmdID attribute is used to store a unique Dark Matter Definition ID
-     * for attributes.\n This is used as part of the serialization mechanisms
-     * built into Dark Matter Objects.
+     * for attributes. This is used as part of the serialization mechanisms built
+     * into Dark Matter Objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public Integer getDmdID(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__dmdID);
         if (attr == null)
@@ -371,7 +376,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets dmdID to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setDmdID(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__dmdID);
         if (attr == null)
@@ -384,7 +389,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public String getFile(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__file);
         if (attr == null)
@@ -397,7 +402,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setFile(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__file);
         if (attr == null)
@@ -408,10 +413,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * This attribute indicates the generic arguments to be supplied in the\n use
+     * This attribute indicates the generic arguments to be supplied in the use
      * of a class in an autogenerated Iterable.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public String getGenericArgs(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__genericArgs);
         if (attr == null)
@@ -424,7 +429,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets genericArgs to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setGenericArgs(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__genericArgs);
         if (attr == null)
@@ -436,10 +441,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * Indicates the import required to support a genericArgs specification i.e.
-     * if you're\n not specifying something like <?>, an additional import may be
+     * if you're not specifying something like <?>, an additional import may be
      * required.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public String getGenericArgsImport(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__genericArgsImport);
         if (attr == null)
@@ -452,7 +457,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets genericArgsImport to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setGenericArgsImport(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__genericArgsImport);
         if (attr == null)
@@ -463,15 +468,15 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * The indexSize is used in conjunction with the MULTI valueType to\n
-     * indicate that the attribute may have the specified number of values and is
-     * integer indexed.\n Indexed attributes may be thought of as having a
-     * predetermined number of slots into which\n values may be stored. When
-     * indexed, an attribute has values added to it using the setMVnth()\n
-     * interface, not the usual add() interface. If you attempt to use add() with
-     * an indexed attribute,\n an exception will be thrown.
+     * The indexSize is used in conjunction with the MULTI valueType to indicate
+     * that the attribute may have the specified number of values and is integer
+     * indexed. Indexed attributes may be thought of as having a predetermined
+     * number of slots into which values may be stored. When indexed, an
+     * attribute has values added to it using the setMVnth() interface, not the
+     * usual add() interface. If you attempt to use add() with an indexed
+     * attribute, an exception will be thrown.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public Integer getIndexSize(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__indexSize);
         if (attr == null)
@@ -484,7 +489,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets indexSize to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setIndexSize(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__indexSize);
         if (attr == null)
@@ -495,12 +500,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * Indicates if an attribute is used and set within the Dark Matter Data\n
-     * code generation mechanisms. In the documentation generation code,
-     * attributes marked as\n internalUse WILL NOT be displayed unless you set
-     * the -internalUse flag is indicated.
+     * Indicates if an attribute is used and set within the Dark Matter Data code
+     * generation mechanisms. In the documentation generation code, attributes
+     * marked as internalUse WILL NOT be displayed unless you set the
+     * -internalUse flag is indicated.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public Boolean getInternalUse(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__internalUse);
         if (attr == null)
@@ -513,7 +518,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets internalUse to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setInternalUse(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__internalUse);
         if (attr == null)
@@ -526,7 +531,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public Integer getLineNumber(){
         DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -539,7 +544,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setLineNumber(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__lineNumber);
         if (attr == null)
@@ -551,12 +556,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
 
     /**
      * This attribute is used in TypeDefinitions to indicate the value that
-     * should be returned when\n an attribute of the specified type doesn't exist
-     * in the object. For example, Boolean values are defined\n to return false
+     * should be returned when an attribute of the specified type doesn't exist
+     * in the object. For example, Boolean values are defined to return false
      * when they aren't actually set on an object. This just gives a convenient
-     * mechanism to\n provide a default value for non-existent attribute values.
+     * mechanism to provide a default value for non-existent attribute values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public String getNullReturnValue(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__nullReturnValue);
         if (attr == null)
@@ -569,7 +574,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets nullReturnValue to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setNullReturnValue(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__nullReturnValue);
         if (attr == null)
@@ -580,12 +585,12 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * This indicates the version at which something became obsolete.\n Generally
-     * speaking you shouldn't ever delete definitions for products that have\n
-     * been released to the field, this may break backwards compatibility.
-     * Instead, you\n should mark them as obsolete.
+     * This indicates the version at which something became obsolete. Generally
+     * speaking you shouldn't ever delete definitions for products that have been
+     * released to the field, this may break backwards compatibility. Instead,
+     * you should mark them as obsolete.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public String getObsoleteVersion(){
         DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__obsoleteVersion);
         if (attr == null)
@@ -598,7 +603,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets obsoleteVersion to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setObsoleteVersion(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__obsoleteVersion);
         if (attr == null)
@@ -609,42 +614,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * Indicates that newline characters should be preserved when an\n attribute
-     * is parsed by the DmcUncheckedOIFParser. This is useful for certain
-     * attributes\n when newlines are required to properly format the contents of
-     * the attribute at\n a later time. For example, the description attribute is
-     * later dumped as part of \n HTML documentation and, if the newlines are
-     * stripped, it won't be properly formatted.
+     * This attribute indicates whether or not the attribute should be encrypted
+     * before being transported over the wire or stored in a file or repository
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
-    public Boolean getPreserveNewlines(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__preserveNewlines);
-        if (attr == null)
-            return(false);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets preserveNewlines to the specified value.
-     * @param value A value compatible with DmcTypeBooleanSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
-    public void setPreserveNewlines(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__preserveNewlines);
-        if (attr == null)
-            attr = new DmcTypeBooleanSV(MetaDMSAG.__preserveNewlines);
-        
-        attr.set(value);
-        set(MetaDMSAG.__preserveNewlines,attr);
-    }
-
-    /**
-     * This attribute indicates whether or not the attribute should\n be
-     * encrypted before being transported over the wire or stored in a file or\n
-     * repository
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public Boolean getSecure(){
         DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__secure);
         if (attr == null)
@@ -657,7 +630,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets secure to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setSecure(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__secure);
         if (attr == null)
@@ -668,10 +641,10 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
     }
 
     /**
-     * This attribute indicates the cardinality and storage mechanism for an\n
+     * This attribute indicates the cardinality and storage mechanism for an
      * attribute.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1572)
     public ValueTypeEnum getValueType(){
         DmcTypeValueTypeEnumSV attr = (DmcTypeValueTypeEnumSV) get(MetaDMSAG.__valueType);
         if (attr == null)
@@ -684,7 +657,7 @@ public class AttributeDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinit
      * Sets valueType to the specified value.
      * @param value A value compatible with DmcTypeValueTypeEnumSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1623)
     public void setValueType(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(MetaDMSAG.__valueType);
         if (attr == null)

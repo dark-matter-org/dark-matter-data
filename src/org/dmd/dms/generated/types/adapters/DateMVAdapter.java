@@ -14,7 +14,7 @@ public class DateMVAdapter extends DmcTypeDateMV implements DmcAdapterIF {
     transient DmcTypeDateMV existingValue;
 
     public DateMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

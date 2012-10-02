@@ -14,7 +14,7 @@ public class StringSETAdapter extends DmcTypeStringSET implements DmcAdapterIF {
     transient DmcTypeStringSET existingValue;
 
     public StringSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -29,14 +29,11 @@ import org.dmd.dms.generated.enums.OperationalContextEnum;    // DmcType import
  * The DmcTypeOperationalContextEnumSET provides storage for a set of OperationalContextEnum
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:565)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:234)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextEnum implements Serializable {
-    
-     private final static Iterator<OperationalContextEnum> emptyList =  (new HashSet<OperationalContextEnum>()).iterator();
-    
     
     protected Set<OperationalContextEnum> value;
     
@@ -50,7 +47,7 @@ public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextE
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<OperationalContextEnum>();
         else
             value = new TreeSet<OperationalContextEnum>();
@@ -58,18 +55,14 @@ public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextE
     
     @Override
     public DmcTypeOperationalContextEnumSET getNew(){
-        return(new DmcTypeOperationalContextEnumSET(getAttributeInfo()));
+        return(new DmcTypeOperationalContextEnumSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
     public DmcAttribute<OperationalContextEnum> cloneIt(){
         synchronized(this){
             DmcTypeOperationalContextEnumSET rc = getNew();
-    
-            if (value == null)
-                return(rc);
-    
             for(OperationalContextEnum val: value)
             try {
                 rc.add(val);
@@ -81,7 +74,7 @@ public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
     public OperationalContextEnum add(Object v) throws DmcValueException {
         synchronized(this){
             OperationalContextEnum rc = typeCheck(v);
@@ -97,7 +90,7 @@ public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
     public OperationalContextEnum del(Object v){
         synchronized(this){
             OperationalContextEnum rc = null;
@@ -121,39 +114,28 @@ public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
     public Iterator<OperationalContextEnum> getMV(){
         synchronized(this){
-            if (value == null)
-                return(emptyList);
-
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<OperationalContextEnum>(value)).iterator() );
             else
                 return( (new TreeSet<OperationalContextEnum>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
     public Set<OperationalContextEnum> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
-                if (value == null)
-                    return(new HashSet<OperationalContextEnum>());
-                else
-                    return(new HashSet<OperationalContextEnum>(value));
-            }
-            else{
-                if (value == null)
-                    return(new TreeSet<OperationalContextEnum>(value));
-                else
-                    return(new TreeSet<OperationalContextEnum>(value));
-            }
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                return(new HashSet<OperationalContextEnum>(value));
+            else
+                return(new TreeSet<OperationalContextEnum>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -163,7 +145,7 @@ public class DmcTypeOperationalContextEnumSET extends DmcTypeOperationalContextE
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

@@ -14,7 +14,7 @@ public class FloatSETAdapter extends DmcTypeFloatSET implements DmcAdapterIF {
     transient DmcTypeFloatSET existingValue;
 
     public FloatSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

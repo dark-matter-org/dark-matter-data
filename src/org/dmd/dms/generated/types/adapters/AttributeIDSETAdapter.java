@@ -14,7 +14,7 @@ public class AttributeIDSETAdapter extends DmcTypeAttributeIDSET implements DmcA
     transient DmcTypeAttributeIDSET existingValue;
 
     public AttributeIDSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

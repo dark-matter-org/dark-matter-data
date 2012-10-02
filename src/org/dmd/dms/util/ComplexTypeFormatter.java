@@ -28,12 +28,9 @@ public class ComplexTypeFormatter {
     	String 			ctn 			= ctd.getName().getNameString();
     	String 			fieldSeparator 	= ctd.getFieldSeparator();
         Iterator<Field>	fields 			= null;
-        boolean			whiteSpaceSeparator = false;
     	
-    	if (fieldSeparator == null){
-    		whiteSpaceSeparator = true;
+    	if (fieldSeparator == null)
     		fieldSeparator = " ";
-    	}
     	
     	
 //        BufferedWriter out = new BufferedWriter(new FileWriter(od + "/" + ctn + ".java"));
@@ -151,13 +148,6 @@ public class ComplexTypeFormatter {
         out.write("     */\n");
         out.write("    public " + ctn + "(String input) throws DmcValueException {\n");
         out.write("        IntegerVar seppos = new IntegerVar(-1);\n");
-		if (whiteSpaceSeparator){
-			out.write("        String input = initialInput.trim();\n");
-			out.write("        input = input.replaceAll(\"(\\\\s)+\", \" \");\n");
-		}
-		else{
-			out.write("        String input = initialInput.trim();\n");
-		}
         fnum = 1;
         fields = ctd.getField();
         while(fields.hasNext()){
@@ -262,84 +252,40 @@ public class ComplexTypeFormatter {
         	out.write("    }\n\n");
         }
     	
-        if (whiteSpaceSeparator){
-	    	out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
-	    	out.write("    	   String rc = null;\n");
-	    	out.write("    	   int start = seppos.intValue();\n");
-	    	out.write("\n");
-	    	out.write("    	   if ( (start+1) >= input.length())\n");
-		    out.write("    		   throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: " + ctn + "\"));\n");
-	    	out.write("\n");
-	    	out.write("    	   if (last){\n");
-		    out.write("    	       rc = input.substring(start+1);\n");
-		    out.write("    	   }\n");
-		    out.write("    	   else{\n");
-	    	out.write("    	       int pos = -1;\n");
-	    	out.write("    	       if (start > 0)\n");
-	    	out.write("    		       pos = input.indexOf(\"" + fieldSeparator + "\", start+1);\n");
-	    	out.write("    	       else\n");
-	    	out.write("    		       pos = input.indexOf(\"" + fieldSeparator + "\");\n");
-	    	out.write("\n");
-	    	out.write("    	       if (pos == -1)\n");
-	    	out.write("    		       throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: " + ctn + "\"));\n");
-	    	out.write("\n");
-	    	out.write("    		   while(pos < (input.length()-1)){\n");
-	    	out.write("    		       if ( input.charAt(pos+1) == '" + fieldSeparator + "')\n");
-	    	out.write("    		           pos++;\n");
-	    	out.write("    		       else\n");
-	    	out.write("    		           break;\n");
-	    	out.write("    		   }\n");
-	    	out.write("\n");
-	    	out.write("    	       rc = input.substring(start+1, pos).trim();\n");
-	    	out.write("\n");
-	    	out.write("    	       seppos.set(pos);\n");
-	    	out.write("        }\n");
-	    	out.write("\n");
-	    	out.write("        return(rc);\n");
-	    	out.write("    }\n\n");
-        }
-        else{
-			out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
-			out.write("    	   String rc = null;\n");
-			out.write("    	   int start = seppos.intValue();\n");
-			out.write("   	   \n");
-			out.write("    	   if (last){\n");
-			out.write("            if ( (start+1) >= input.length())\n");
-			out.write("                rc = \"\";\n");
-			out.write("            else\n");
-			out.write("                rc = input.substring(start+1);\n");
-			out.write(" 	   }\n");
-			out.write("	       else{\n");
-			out.write("    	       if ( (start+1) >= input.length())\n");
-			out.write("        		   throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: RuleParam\"));\n");
-			out.write("   		   \n");
-			out.write("        	   int pos = -1;\n");
-			out.write("	           if (start > -1){\n");
-			out.write("	        	   start = start + 1;\n");
-			out.write("	    	       pos = input.indexOf(\"" + fieldSeparator + "\", start);\n");
-			out.write("	           }\n");
-			out.write("	           else{\n");
-			out.write("	        	   start = 0;\n");
-			out.write("	    	       pos = input.indexOf(\"" + fieldSeparator + "\");\n");
-			out.write("	           }\n");
-			out.write("	       \n");
-			out.write("	           if (pos == start){\n");
-			out.write("	        	   seppos.set(pos);\n");
-			out.write("	        	   return(\"\");\n");
-			out.write("	           }\n");
-			out.write("	       \n");
-			out.write("	           if (pos == -1)\n");
-			out.write("		           throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: RuleParam\"));\n");
-			out.write("		       \n");
-			out.write("	           rc = input.substring(start, pos).trim();\n");
-			out.write("	       \n");
-			out.write("	           seppos.set(pos);\n");
-			out.write("        }\n");
-			out.write("    \n");
-			out.write("        return(rc);\n");
-			out.write("    }\n");
-			out.write("\n");
-        }
+    	out.write("    String getNextField(String input, IntegerVar seppos, String fn, boolean last) throws DmcValueException {\n");
+    	out.write("    	   String rc = null;\n");
+    	out.write("    	   int start = seppos.intValue();\n");
+    	out.write("\n");
+    	out.write("    	   if ( (start+1) >= input.length())\n");
+	    out.write("    		   throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: " + ctn + "\"));\n");
+    	out.write("\n");
+    	out.write("    	   if (last){\n");
+	    out.write("    	       rc = input.substring(start+1);\n");
+	    out.write("    	   }\n");
+	    out.write("    	   else{\n");
+    	out.write("    	       int pos = -1;\n");
+    	out.write("    	       if (start > 0)\n");
+    	out.write("    		       pos = input.indexOf(\"" + fieldSeparator + "\", start+1);\n");
+    	out.write("    	       else\n");
+    	out.write("    		       pos = input.indexOf(\"" + fieldSeparator + "\");\n");
+    	out.write("\n");
+    	out.write("    	       if (pos == -1)\n");
+    	out.write("    		       throw (new DmcValueException(\"Missing value for field: \" + fn + \" in complex type: " + ctn + "\"));\n");
+    	out.write("\n");
+    	out.write("    		   while(pos < (input.length()-1)){\n");
+    	out.write("    		       if ( input.charAt(pos+1) == '" + fieldSeparator + "')\n");
+    	out.write("    		           pos++;\n");
+    	out.write("    		       else\n");
+    	out.write("    		           break;\n");
+    	out.write("    		   }\n");
+    	out.write("\n");
+    	out.write("    	       rc = input.substring(start+1, pos).trim();\n");
+    	out.write("\n");
+    	out.write("    	       seppos.set(pos);\n");
+    	out.write("        }\n");
+    	out.write("\n");
+    	out.write("        return(rc);\n");
+    	out.write("    }\n\n");
 
         		            	
         out.write("}\n");

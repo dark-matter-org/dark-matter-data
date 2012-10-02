@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -25,8 +25,8 @@ import org.dmd.dmc.types.DmcTypeUUIDName;    // DmcType import
  * The DmcTypeUUIDNameSV provides storage for a single-valued UUIDName
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:632)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1903)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:270)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUUIDNameSV extends DmcTypeUUIDName implements Serializable {
@@ -42,7 +42,7 @@ public class DmcTypeUUIDNameSV extends DmcTypeUUIDName implements Serializable {
     }
     
     public DmcTypeUUIDNameSV getNew(){
-        return(new DmcTypeUUIDNameSV(getAttributeInfo()));
+        return(new DmcTypeUUIDNameSV(attrInfo));
     }
     
     public DmcTypeUUIDNameSV getNew(DmcAttributeInfo ai){
@@ -50,14 +50,14 @@ public class DmcTypeUUIDNameSV extends DmcTypeUUIDName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1935)
     public DmcAttribute<UUIDName> cloneIt(){
         DmcTypeUUIDNameSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1946)
     public UUIDName getSVCopy(){
         if (value == null)
             return(null);
@@ -65,7 +65,7 @@ public class DmcTypeUUIDNameSV extends DmcTypeUUIDName implements Serializable {
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
+    // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1958)
     public UUIDName set(Object v) throws DmcValueException {
         UUIDName rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports

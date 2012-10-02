@@ -14,7 +14,7 @@ public class ActifactGeneratorREFMAPAdapter extends DmcTypeActifactGeneratorREFM
     transient DmcTypeActifactGeneratorREFMAP existingValue;
 
     public ActifactGeneratorREFMAPAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

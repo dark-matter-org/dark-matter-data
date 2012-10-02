@@ -20,7 +20,7 @@ import java.util.*;
 import org.dmd.dmc.DmcEnumIF;
 
 /**
- * The MapZoomEnum indicates the various levels of zoom supported\n by Google
+ * The MapZoomEnum indicates the various levels of zoom supported by Google
  * Maps.
  * <P>
  * Generated from the map schema at version 0.1

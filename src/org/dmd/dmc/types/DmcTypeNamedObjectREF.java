@@ -82,7 +82,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 	 * @throws DmcValueException  
 	 */
 	public void resolveReferences(DmcNameResolverIF rx) throws DmcValueException {
-		if (getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
+		if (attrInfo.valueType == ValueTypeEnum.SINGLE){
 			HELPER ref = getSV();
 			if (ref.getObject() == null){
 				DmcNamedObjectIF obj = (DmcNamedObjectIF) rx.findNamedDMO(ref.getObjectName());
@@ -116,8 +116,8 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 	public void removeBackReferences(){
 		// If backref tracking isn't on, don't bother
 //		if (DmcOmni.instance().backRefTracking() && (attrInfo.id> 200) ){
-		if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(getAttributeInfo().id) ){
-			if (getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
+		if (DmcOmni.instance().backRefTracking() && DmcOmni.instance().trackThisAttribute(attrInfo.id) ){
+			if (attrInfo.valueType == ValueTypeEnum.SINGLE){
 				HELPER ref = getSV();
 				if (ref != null){
 					if (ref.getObject() != null){
@@ -165,12 +165,12 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 		if (weAreResolved())
 			return(deleteUs);
 		
-		if (getAttributeInfo() == null){
-//			if ( (attrInfo = DmcOmni.instance().getInfo(ID)) == null)
+		if (attrInfo == null){
+			if ( (attrInfo = DmcOmni.instance().getInfo(ID)) == null)
 				throw (new IllegalStateException("Unable to get attribute info for ID: " + ID));
 		}
 		
-		if (getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
+		if (attrInfo.valueType == ValueTypeEnum.SINGLE){
 			DmcNamedObjectREF<?> ref = getSV();
 			
 			// We can't resolve the reference, so we need to be removed
@@ -178,7 +178,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 				deleteUs = true;
 		}
 		else{
-			if (getAttributeInfo().indexSize == 0){
+			if (attrInfo.indexSize == 0){
 	    		Iterator<DmcNamedObjectREF<?>> it = (Iterator<DmcNamedObjectREF<?>>) getMV();
 	    		while(it.hasNext()){
 	    			DmcNamedObjectREF<?> ref = it.next();
@@ -248,9 +248,9 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 					Modifier backrefMod = null;
 					
 					DmcAttribute<?> mod = this.getNew();
-					mod.setAttributeInfo(getAttributeInfo());
+					mod.setAttributeInfo(attrInfo);
 					try {
-						if (getAttributeInfo().valueType == ValueTypeEnum.SINGLE)
+						if (attrInfo.valueType == ValueTypeEnum.SINGLE)
 							mod.set(ref);
 						else
 							mod.add(ref);
@@ -259,7 +259,7 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
 						e.printStackTrace();
 					}
 					
-					if (getAttributeInfo().valueType == ValueTypeEnum.SINGLE)
+					if (attrInfo.valueType == ValueTypeEnum.SINGLE)
 						backrefMod = new Modifier(ModifyTypeEnum.SET,mod,referrer);
 					else
 						backrefMod = new Modifier(ModifyTypeEnum.ADD,mod,referrer);
@@ -279,13 +279,13 @@ abstract public class DmcTypeNamedObjectREF<HELPER extends DmcNamedObjectREF, NA
     protected boolean weAreResolved(){
     	boolean rc = false;
     	
-    	if (getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
+    	if (attrInfo.valueType == ValueTypeEnum.SINGLE){
     		DmcNamedObjectREF<?> ref = getSV();
     		if (ref.getObject() != null)
     			rc = true;
     	}
     	else{
-    		if (getAttributeInfo().indexSize == 0){
+    		if (attrInfo.indexSize == 0){
 	    		Iterator<DmcNamedObjectREF<?>> it = (Iterator<DmcNamedObjectREF<?>>) getMV();
 	    		if (DmcOmni.instance().cleanUpDeadRefs()){
 	    			// IF we're cleaning up dead refs, we need only check the first

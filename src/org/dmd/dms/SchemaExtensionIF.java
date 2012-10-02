@@ -16,8 +16,8 @@
 package org.dmd.dms;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.util.exceptions.ResultException;
+import org.dmd.util.parsing.DmcUncheckedObject;
 
 /**
  * The SchemaExtensionIF interface should be implemented by classes that extend

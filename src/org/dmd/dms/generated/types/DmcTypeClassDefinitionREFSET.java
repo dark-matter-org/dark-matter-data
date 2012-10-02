@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -28,14 +28,11 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;
  * The DmcTypeClassDefinitionREFSET provides storage for a set of ClassDefinitionREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
- * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:587)
+ * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2530)
+ *    Called from: org.dmd.dms.meta.MetaGenerator.dumpDerivedTypes(MetaGenerator.java:245)
  */
 @SuppressWarnings("serial")
 public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF implements Serializable {
-    
-     private final static Iterator<ClassDefinitionREF> emptyList =  (new HashSet<ClassDefinitionREF>()).iterator();
-    
     
     protected Set<ClassDefinitionREF> value;
     
@@ -49,7 +46,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     void initValue(){
-        if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+        if (attrInfo.valueType == ValueTypeEnum.HASHSET)
             value = new HashSet<ClassDefinitionREF>();
         else
             value = new TreeSet<ClassDefinitionREF>();
@@ -57,18 +54,14 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     
     @Override
     public DmcTypeClassDefinitionREFSET getNew(){
-        return(new DmcTypeClassDefinitionREFSET(getAttributeInfo()));
+        return(new DmcTypeClassDefinitionREFSET(attrInfo));
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2567)
     public DmcAttribute<ClassDefinitionREF> cloneIt(){
         synchronized(this){
             DmcTypeClassDefinitionREFSET rc = getNew();
-    
-            if (value == null)
-                return(rc);
-    
             for(ClassDefinitionREF val: value)
             try {
                 rc.add(val);
@@ -80,7 +73,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2586)
     public ClassDefinitionREF add(Object v) throws DmcValueException {
         synchronized(this){
             ClassDefinitionREF rc = typeCheck(v);
@@ -96,7 +89,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2603)
     public ClassDefinitionREF del(Object v){
         synchronized(this){
             ClassDefinitionREF rc = null;
@@ -120,39 +113,28 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2628)
     public Iterator<ClassDefinitionREF> getMV(){
         synchronized(this){
-            if (value == null)
-                return(emptyList);
-
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
                 return( (new HashSet<ClassDefinitionREF>(value)).iterator() );
             else
                 return( (new TreeSet<ClassDefinitionREF>(value)).iterator() );
         }
     }
     
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2645)
     public Set<ClassDefinitionREF> getMVCopy(){
         synchronized(this){
-            if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
-                if (value == null)
-                    return(new HashSet<ClassDefinitionREF>());
-                else
-                    return(new HashSet<ClassDefinitionREF>(value));
-            }
-            else{
-                if (value == null)
-                    return(new TreeSet<ClassDefinitionREF>(value));
-                else
-                    return(new TreeSet<ClassDefinitionREF>(value));
-            }
+            if (attrInfo.valueType == ValueTypeEnum.HASHSET)
+                return(new HashSet<ClassDefinitionREF>(value));
+            else
+                return(new TreeSet<ClassDefinitionREF>(value));
         }
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2735)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2663)
     public int getMVSize(){
         synchronized(this){
             if (value == null)
@@ -162,7 +144,7 @@ public class DmcTypeClassDefinitionREFSET extends DmcTypeClassDefinitionREF impl
     }
     
     @Override
-    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2746)
+    // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2674)
     public boolean contains(Object v){
         synchronized(this){
             if (value == null)

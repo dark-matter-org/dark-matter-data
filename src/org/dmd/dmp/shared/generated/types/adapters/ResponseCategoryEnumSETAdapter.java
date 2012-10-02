@@ -14,7 +14,7 @@ public class ResponseCategoryEnumSETAdapter extends DmcTypeResponseCategoryEnumS
     transient DmcTypeResponseCategoryEnumSET existingValue;
 
     public ResponseCategoryEnumSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

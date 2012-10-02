@@ -1,0 +1,83 @@
+TypeDefinition
+name			EventWithArgs
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEventWithArgs
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.EventWithArgs
+description		The EventWithArgs type is used to handle definitions of events
+ associated with various Model View Whatever components.
+
+TypeDefinition
+name			MethodWithArgs
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeMethodWithArgs
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.MethodWithArgs
+description		The MethodWithArgs type is used to handle definitions of function calls
+ associated with various Model View Whatever components.
+
+TypeDefinition
+name			GetWithOptions
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeGetWithOptions
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.GetWithOptions
+description		The GetWithOptions type is used to handle indications that
+ a component will perform get operations.
+
+TypeDefinition
+name			RequestWithOptions
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestWithOptions
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.RequestWithOptions
+description		The RequestWithOptions type is used to handle indications that
+ a component will perform delete or set operations.
+
+TypeDefinition
+name			RequestTypeWithOptions
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeRequestTypeWithOptions
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.RequestTypeWithOptions
+description		The RequestTypeWithOptions type is used to handle indications that
+ a component will send the specified request type and use the specified function
+ to send/receieve.
+
+TypeDefinition
+name			EditField
+typeClassName	org.dmd.mvw.tools.mvwgenerator.types.DmcTypeEditField
+primitiveType	org.dmd.mvw.tools.mvwgenerator.types.EditField
+description		The EditField type is used to specify compact mappings of attributes
+ to their field type editors and optionally their labels and tool tips.
+
+
+EnumDefinition
+name            SelectionTypeEnum
+enumValue		0 SINGLE Single selection supported.
+enumValue		1 MULTI Multi-selection supported.
+description		The SelectionTypeEnum indicates the selection mode of operations
+ associated with object selection or object deletion.
+
+EnumDefinition
+name            EventScopeEnum
+enumValue		0 LOCAL Single selection supported.
+enumValue		1 BROADCAST Multi-selection supported.
+enumValue		2 BROADCASTONLY Multi-selection supported.
+description		The SelectionTypeEnum indicates the selection mode of operations
+
+//EnumDefinition
+//name            GetFunctionOptionEnum
+//enumValue		0 NONE Indicates that no options are specified.
+//enumValue		1 DMPERRORS 		Indicates that DMP error responses will be handled locally.
+//enumValue		2 RPCERRORS 		Indicates that RPC errors will be handled locally.
+//enumValue		3 CENTRALDMPERRORS 	Indicates that you want DMP errors centrally handled.
+//enumValue		4 CENTRALRPCERRORS 	Indicates that you want RPC errors centrally handled.
+//enumValue		5 CENTRALERRORS 	Indicates that you want DMP/RPC errors centrally handled.
+//enumValue		6 CACHE 			Indicates that you want the results centrally cached.
+//enumValue		7 EVENTS 			Indicates that you want notification of events associated with the get request.
+//description		The GetFunctionModifierEnum indicates a set of modifiers that direct
+// code generation for standard Dark Matter Protocol get request handling.
+
+EnumDefinition
+name            RequestOptionEnum
+enumValue		0 NONE 				Indicates that no options are specified.
+enumValue		1 DMPERRORS 		Indicates that DMP error responses will be handled locally.
+enumValue		2 RPCERRORS 		Indicates that RPC errors will be handled locally.
+enumValue		3 CENTRALDMPERRORS 	Indicates that you want DMP errors centrally handled.
+enumValue		4 CENTRALRPCERRORS 	Indicates that you want RPC errors centrally handled.
+enumValue		5 CENTRALERRORS 	Indicates that you want DMP/RPC errors centrally handled.
+enumValue		6 CACHE 			Indicates that you want the results centrally cached.
+enumValue		7 EVENTS 			Indicates that you want notification of events associated with the get request.
+description		The RequestOptionEnum indicates a set of modifiers that direct
+ code generation for standard Dark Matter Protocol request handling.

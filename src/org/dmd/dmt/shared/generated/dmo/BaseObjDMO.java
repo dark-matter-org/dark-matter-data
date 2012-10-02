@@ -1,16 +1,21 @@
 package org.dmd.dmt.shared.generated.dmo;
 
-// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
-import java.io.Serializable;                                    // Always required - (GenUtility.java:220)
-import java.util.Date;                                          // Primitive type and !auxiliary class - (GenUtility.java:267)
-import org.dmd.dmc.DmcAttribute;                                // Any attributes - (GenUtility.java:236)
-import org.dmd.dmc.DmcNamedObjectIF;                            // Named object - (GenUtility.java:371)
-import org.dmd.dmc.DmcObject;                                   // Structural class - (GenUtility.java:347)
-import org.dmd.dmc.DmcValueException;                           // Any attributes - (GenUtility.java:237)
-import org.dmd.dmc.types.StringName;                            // Naming attribute type - (GenUtility.java:366)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                     // Attribute from meta schema - (GenUtility.java:193)
-import org.dmd.dms.generated.types.DmcTypeDateSV;               // Required type - (GenUtility.java:324)
-import org.dmd.dms.generated.types.DmcTypeStringNameSV;         // Required type - (GenUtility.java:324)
+// Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:372)
+import java.io.Serializable;                                    // Always required - (GenUtility.java:201)
+import java.util.*;                                             // Always required if we have any MV attributes - (GenUtility.java:197)
+import java.util.Date;                                          // Primitive type and !auxiliary class - (GenUtility.java:248)
+import org.dmd.dmc.DmcAttribute;                                // Any attributes - (GenUtility.java:217)
+import org.dmd.dmc.DmcNamedObjectIF;                            // Named object - (GenUtility.java:352)
+import org.dmd.dmc.DmcObject;                                   // Structural class - (GenUtility.java:328)
+import org.dmd.dmc.DmcValueException;                           // Any attributes - (GenUtility.java:218)
+import org.dmd.dmc.types.StringName;                            // Naming attribute type - (GenUtility.java:347)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                     // Attribute from meta schema - (GenUtility.java:176)
+import org.dmd.dms.generated.types.DmcTypeDateSV;               // Required type - (GenUtility.java:305)
+import org.dmd.dms.generated.types.DmcTypeStringNameSV;         // Required type - (GenUtility.java:305)
+
+import org.dmd.dms.generated.dmo.MetaVCAG;
+import org.dmd.dmc.DmcAttributeValidator;
+import org.dmd.dmc.DmcObjectValidator;
 
 /**
  * null
@@ -25,8 +30,17 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
 
     public final static String constructionClassName = "BaseObj";
 
+    static Map<Integer,HashMap<String,DmcAttributeValidator>> _AvDmAp;
+
+    static Map<String ,DmcObjectValidator> _OvDmAp;
+
 
     static {
+
+        _AvDmAp = new HashMap<Integer,HashMap<String,DmcAttributeValidator>>();
+
+        _OvDmAp = new HashMap<String,DmcObjectValidator>();
+        _OvDmAp.put(MetaVCAG.__AttributeSetValidator.getName(),MetaVCAG.__AttributeSetValidator);
     }
 
     public BaseObjDMO() {
@@ -35,6 +49,14 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
 
     protected BaseObjDMO(String oc) {
         super(oc);
+    }
+
+    protected Map<Integer,HashMap<String,DmcAttributeValidator>> getAttributeValidators(){
+        return(_AvDmAp);
+    }
+
+    protected Map<String,DmcObjectValidator> getObjectValidators(){
+        return(_OvDmAp);
     }
 
     // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
@@ -46,13 +68,11 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
         return(null);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
     public DmcAttribute<?> getObjectNameAttribute(){
         DmcAttribute<?> name = get(MetaDMSAG.__name);
         return(name);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
     public boolean equals(Object obj){
         if (obj instanceof BaseObjDMO){
             return( getObjectName().equals( ((BaseObjDMO) obj).getObjectName()) );
@@ -60,7 +80,6 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
         return(false);
     }
 
-    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
     public int hashCode(){
         StringName objn = getObjectName();
         if (objn == null)
@@ -69,7 +88,7 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
         return(objn.hashCode());
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:755)
     public Date getSvDate(){
         DmcTypeDateSV attr = (DmcTypeDateSV) get(DmtDMSAG.__svDate);
         if (attr == null)
@@ -82,7 +101,7 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets svDate to the specified value.
      * @param value Date
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
     public void setSvDate(Date value) {
         DmcAttribute<?> attr = get(DmtDMSAG.__svDate);
         if (attr == null)
@@ -101,7 +120,7 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets svDate to the specified value.
      * @param value A value compatible with DmcTypeDateSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:848)
     public void setSvDate(Object value) throws DmcValueException {
         DmcTypeDateSV attr  = (DmcTypeDateSV) get(DmtDMSAG.__svDate);
         if (attr == null)
@@ -114,12 +133,12 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Removes the svDate attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:868)
     public void remSvDate(){
          rem(DmtDMSAG.__svDate);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:755)
     public StringName getName(){
         DmcTypeStringNameSV attr = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -132,7 +151,7 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets name to the specified value.
      * @param value StringName
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:795)
     public void setName(StringName value) {
         DmcAttribute<?> attr = get(MetaDMSAG.__name);
         if (attr == null)
@@ -151,7 +170,7 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:848)
     public void setName(Object value) throws DmcValueException {
         DmcTypeStringNameSV attr  = (DmcTypeStringNameSV) get(MetaDMSAG.__name);
         if (attr == null)
@@ -164,7 +183,7 @@ abstract public class BaseObjDMO  extends DmcObject  implements DmcNamedObjectIF
     /**
      * Removes the name attribute value.
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:868)
     public void remName(){
          rem(MetaDMSAG.__name);
     }

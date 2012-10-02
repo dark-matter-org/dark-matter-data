@@ -1,87 +1,28 @@
 AttributeDefinition
-name   			irrMinimum
+name			ruleTitle
+dmdID			0
+type			String
+description		The description title of a rule.
+
+AttributeDefinition
+name			loadedFrom
 dmdID			1
-type        	Integer
-description		The minimum integer value.
+type			String
+description		The place from which a rule was loaded. This may be a file
+ or an indication that the rule was instantiated and loaded internally.
 
 AttributeDefinition
-name   			irrMaximum
+name			applyToClass
 dmdID			2
-type        	Integer
-description		The maximum integer value.
-
-AttributeDefinition
-name   			numericRelation
-dmdID			3
-type        	NumericRelationEnum
-description		The relationship between numeric values.
-
-AttributeDefinition
-name   			lhs
-dmdID			4
-type        	AttributeDefinition
-description		The attribute to be used as the left hand side of some relationship. The
- type of the attribute referred to may differ from one rule to the next depending on
- the relationship being tested.
-
-AttributeDefinition
-name   			rhs
-dmdID			5
-type        	AttributeDefinition
-description		The attribute to be used as the right hand side of some relationship. The
- type of the attribute referred to may differ from one rule to the next depending on
- the relationship being tested.
-
-AttributeDefinition
-name   			allowedType
-dmdID			6
-type        	TypeDefinition
-valueType		MULTI
-description		The allowedType indicates a collection of defined types to which something,
- usually and attribute, must conform.
-
-AttributeDefinition
-name   			basedOnAttribute
-dmdID			7
-type        	AttributeDefinition
-description		The basedOnAttribute allows for the specification of an attribute on which
- some type of a decision is made.
-
-AttributeDefinition
-name   			basedOnValue
-dmdID			8
-type        	String
-valueType		MULTI
-description		The basedOnValue attribute allows for the specification of values for some
- aspect of a rule.
-
-AttributeDefinition
-name   			excludeThisAttribute
-dmdID			9
-type        	AttributeDefinition
-valueType		MULTI
-description		The excludeThisAttribute indicates an optional attribute that must be
- excluded from an object under certain conditions.
+type			ClassDefinition
+description		A reference to the definition of an class to which a 
+ rule should be applied.
  
 AttributeDefinition
-name   			includeThisAttribute
-dmdID			10
-type        	AttributeDefinition
-valueType		MULTI
-description		The includeThisAttribute indicates an optional attribute that must be
- present under certain conditions.
+name			applyToAttribute
+dmdID			3
+type			AttributeDefinition
+description		A reference to the definition of an attribute to which a 
+ rule should be applied.
+ 
 
-AttributeDefinition
-name   			onePossibility
-dmdID			11
-type        	AttributeDefinition
-valueType		MULTI
-description		The onePossibility attribute indicates an attribute that is one possiblity among
- many. 
-
-AttributeDefinition
-name   			andOnlyOne
-dmdID			12
-type        	Boolean
-description		The andOnlyOne attribute indicates that only one of a set of possibilities is
- allowed.

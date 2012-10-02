@@ -22,23 +22,13 @@ import java.util.Stack;
 
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.rules.DmcRuleExceptionSet;
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.MetaSchema;
-import org.dmd.dms.MetaSchemaAG;
 import org.dmd.dms.SchemaDefinition;
-import org.dmd.dms.SchemaDefinitionListenerIF;
 import org.dmd.dms.SchemaManager;
-import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
-import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
-import org.dmd.dms.generated.dmo.MetaDMSAG;
-import org.dmd.dmv.shared.DmvDynamicRuleManager;
-import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
 import org.dmd.dmw.DmwObjectFactory;
-import org.dmd.dmw.DmwWrapper;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
@@ -47,6 +37,7 @@ import org.dmd.util.parsing.ConfigLocation;
 import org.dmd.util.parsing.ConfigVersion;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
+import org.dmd.util.parsing.DmcUncheckedObject;
 
 
 /**
@@ -54,7 +45,7 @@ import org.dmd.util.parsing.DmcUncheckedOIFParser;
  * (IMD) schema and stores them in an SchemaManager.
  */
 
-public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefinitionListenerIF {
+public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF {
 
     // Schema manager that recognizes the DMS schema.
     SchemaManager    		dmsSchema;
@@ -103,9 +94,6 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
     // Our object factory that instantiates wrappers and populates their attributes
     DmwObjectFactory			dmwfactory;
 
-    // Our DMO factory that we use to load rule instances
-    DmoObjectFactory			dmofactory;
-    
 //    /**
 //     * Creates a new Object Instance Format parser. As new BasicObjects are created,
 //     * they will be passed to the object handler for processing.
@@ -123,6 +111,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
     public DmsSchemaParser(SchemaManager sm, ConfigFinder f) throws ResultException {
         dmsSchema       = sm;
         finder			= f;
+//        rules           = brm;
         
         initialize();
     }
@@ -145,9 +134,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
      * null is returned.
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
-     * @throws DmcRuleExceptionSet 
      */
-    public SchemaDefinition parseSchema(SchemaManager am, String schemaName, boolean terse) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    public SchemaDefinition parseSchema(SchemaManager am, String schemaName, boolean terse) throws ResultException, DmcValueException {
         SchemaDefinition rc;
         
         allSchema = am;
@@ -155,14 +143,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 
         terseV = terse;
         rc = parseSchemaInternal(schemaName);
-        
-        // And finally, after everything has been parsed and resolved, we go back over the rule instances
-        // and sanity check them. Well, it's not quite that simple. We are applying rules to the rules
-        // themselves and we have to dynamically instantiate the rules and initialize them with rule data.
-        // All that interesting stuff is done in the dynamic rule manager.
-        DmvDynamicRuleManager drm = new DmvDynamicRuleManager();
-        drm.loadAndCheckRules(allSchema, rc);
-        
+
         return(rc);
     }
     
@@ -172,20 +153,12 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         loadedFiles     = new HashMap<String,SchemaDefinition>();
         schemaParser    = new DmcUncheckedOIFParser(this);
         defParser       = new DmcUncheckedOIFParser(this);
-        
-        for (AttributeDefinition def: MetaSchemaAG._metaSchema.getAttributeDefList()){
-        	if (def.getPreserveNewlines()){
-        		schemaParser.addPreserveNewlinesAttribute(def.getName().getNameString());
-        		defParser.addPreserveNewlinesAttribute(def.getName().getNameString());
-        	}
-        }
         schemaStack     = new Stack<SchemaDefinition>();
         
         // The factory is built to recognize all objects because the
         // schema definitions might use auxiliary classes defined in other schemas
         dmwfactory		= new DmwObjectFactory(allSchema);
     	
-        dmofactory		= new DmoObjectFactory(allSchema);
     }
 
     /**
@@ -198,14 +171,13 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
      * files with a .dms extension that have been found by the DmsSchemaFinder.
      * @throws ResultException 
      * @throws DmcValueException 
-     * @throws DmcRuleExceptionSet 
      * @throws DmcValueExceptionSet 
      * @returns The requested schema is returned if all goes well, otherwise
      * null is returned.
      * NOTE: If WARNINGs are encountered, we still the schema - just check for the
      * presence of WARNINGs on the result set when parsing is complete.
      */
-    SchemaDefinition parseSchemaInternal(String schemaName) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    SchemaDefinition parseSchemaInternal(String schemaName) throws ResultException, DmcValueException {
 //    	DmsSchemaLocation	location	= finder.getLocation(schemaName);
     	ConfigVersion		config		= finder.getConfig(schemaName);
     	ConfigLocation		location	= null;
@@ -218,17 +190,30 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         	ex.addError("The specified schema couldn't be found: " + schemaName);
         	throw(ex);
         }
+//        if (location == null){
+//        	ResultException ex = new ResultException();
+//        	ex.addError("The specified schema couldn't be found: " + schemaName);
+//        	throw(ex);
+//        }
         
         location = config.getLatestVersion();
         
         currFile = location.getFileName();
 
+//        if (terseV)
+//            System.out.println("Parsing schema: " + schemaName);
+//        else
         if (!terseV)
             System.out.println("\nParsing schema: " + schemaName);
         
         // Hold the directory name globally so that we can use it later
         schemaDir = new String(location.getDirectory());
+//DebugInfo.debug("schemaDir = " + schemaDir);
 
+        // The PMF and BRF schemas are loaded before things get under way, so we
+        // have to recognize these as "native" schemas - their file names won't
+        // be in the loadedFiles list, but their schema defs are loaded. We don't
+        // want to load them again.
         if ( (loadedFiles.containsKey(currFile) == false) &&
              ( (nativeSchema = allSchema.isSchema(schemaName)) == null)){
             // System.out.println("Opening " + currFile);
@@ -245,6 +230,8 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
             loadedFiles.remove(currFile);
             loadedFiles.put(currFile,currSchema);
             
+//            if (rc == true){
+//            allSchema.addDefinition(rs,currSchema);
             allSchema.addDefinition(currSchema);
             
             // And now check to see if everything is resolved
@@ -255,6 +242,9 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
             	allSchema.resolveNameTypes(adl);
             }
             
+//            }
+//            else
+//                currSchema = null;
         }
         else{
             if (nativeSchema == null){
@@ -274,13 +264,12 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
      * We handle the various schema related objects.
      * @throws ResultException 
      * @throws DmcValueException 
-     * @throws DmcRuleExceptionSet 
      * @throws DmcValueExceptionSet 
      */
-    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+    public void handleObject(DmcUncheckedObject uco, String infile, int lineNumber) throws ResultException, DmcValueException {
         ClassDefinition     cd                  = null;
         boolean             isSchema            = false;
-        DmsDefinition    	newDef              = null;
+        DmsDefinition    	newObj              = null;
         Iterator<String>    dependsOnSchemas    = null;
         Iterator<String>    defFiles            = null;
         SchemaDefinition    currSchema          = null;
@@ -289,7 +278,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         String              currFile            = null;
 
         // Determine if we have a valid class
-        if ((cd = allSchema.isClass((String)uco.classes.get(0))) == null){
+        if ((cd = dmsSchema.isClass((String)uco.classes.get(0))) == null){
         	ResultException ex = new ResultException();
 
             ex.result.addResult(Result.ERROR,"Unknown class: " + uco.classes.get(0));
@@ -306,59 +295,45 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         			// AUX class. So, we let the schema manager know that we're loading
         			// a new schema with just the unchecked object.
         			allSchema.schemaPreAdd(uco);
+        			
+//System.out.println(allSchema.toString());
         		}
+//        		else{
+//        			allSchema.definitionPreAdd(uco);
+//        		}
         		
-        		// If we're underneath a standard eclipse project, we ignore everything before
-        		// the /src folder name.
-				int srcloc = infile.indexOf("/src");
-				String srcFile = "";
-				if (srcloc != -1)
-					srcFile = infile.substring(srcloc);
-				else
-					srcFile = infile;
-
-				// More interesting hand waving to handle rule instances. For most of the 
-        		// objects that are found in schema definitions everything can be handled
-        		// in the usual way i.e. for ClassDefinitions, AttributeDefinitions,
-        		// RuleDefinitions etc. all of those classes are defined as part of the
-        		// meta schema and we have loaded the MetaSchemaAG. This means that we
-        		// can use the dmwfactory to instantiate these objects. However, for
-        		// instances of RuleDefinition, we're dealing with objects that are read
-        		// from the schema definition files and not using the loaded schemas. In
-        		// that case, we don't have all the information required to instantiate
-        		// objects. 
-				//
-				// Rule data objects are stored against the schema for processing once 
-				// all schemas have been read. 
-        		ClassDefinition checkClass = allSchema.isClass(uco.classes.get(0));
-        		if (checkClass != null){
-        			if (checkClass.getRuleDefinition() != null){
-        				uco.addValue(MetaDMSAG.__lineNumber.name, lineNumber + "");
-        				uco.addValue(MetaDMSAG.__file.name, srcFile);
-        				uco.addValue(MetaDMSAG.__definedIn.name, schemaLoading.getName().getNameString());
-        				
-        				schemaLoading.addParsedRule(uco);
-        				
-        				return;
-        			}
-        		}
+//System.out.println("SchemaParser:\n" + uco.toOIF(15) + "\n");
+//        		if (uco.classes.get(0).equals("ActionDefinition")){
+//        			DebugInfo.debug("Reading action...");
+//        		}
         		
-        		DmwWrapper newObj = dmwfactory.createWrapper(uco);
-        		newDef 		= null;
-
-    			newDef = (DmsDefinition) newObj;
-    			newDef.setFile(srcFile);
-    			newDef.setLineNumber(lineNumber);
+				newObj = (DmsDefinition)dmwfactory.createWrapper(uco);
+				newObj.setFile(infile);
+				newObj.setLineNumber(lineNumber);
 				
-				DmvDMSAG.__dmvAllowedAttributes.execute(newDef.getDMO());
+				try {
+					newObj.getDMO().validate();
+				} catch (DmcValueExceptionSet e) {
+					ResultException ex = new ResultException();
+					for(DmcValueException dve: e.getExceptions()){
+						ex.addError(dve.getLocalizedMessage());
+					}
+					ex.setLocationInfo(infile, lineNumber);
+					ex.result.lastResult().moreMessages("Object class: " + newObj.getConstructionClassName());
+					
+					throw(ex);
+				}
 				
-				// NOTE: We used to be able to resolve objects as we went, but, because
+//				DebugInfo.debug(newObj.toOIF(15));
+				
+				// We used to be able to resolve objects as we went, but, because
 				// we now generate the TypeDefinitions for object references internally,
 				// we run into issues with attributes (which are loaded first) referring 
 				// to classes that aren't yet defined. So, we have to do our object resolution
 				// in a second pass.
+//				newObj.resolveReferences(allSchema);
 				
-				// TODO: Apply rules to the object
+				// TODO: Apply business rules to the object
 				
 			} catch (ResultException e) {
 				e.result.lastResult().fileName(infile);
@@ -392,7 +367,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
                 // object - if not, we complain and return false
                 if (isSchema == true){
                     // This is a new schema, so indicate that we're loading one
-                    schemaLoading = (SchemaDefinition)newDef;
+                    schemaLoading = (SchemaDefinition)newObj;
                     
                     schemaStack.push(schemaLoading);
                     
@@ -408,8 +383,6 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
                         while(dependsOnSchemas.hasNext()){
                             depSchema = dependsOnSchemas.next();
 //DebugInfo.debug("Reading dependsOn: " + depSchema);
-//if (depSchema.equals("dmv"))
-//	DebugInfo.debugWithTrace("Parsing DMV");
 
                         	ConfigVersion	config		= finder.getConfig(depSchema);
                         	ConfigLocation	location	= null;
@@ -505,34 +478,15 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
                 	// because it is used for a variety of purposes, including the generation of the
                 	// internal types for enums and object references. The definedIn schema will have
                 	// its internalTypeDefList attribute augmented with these types.
-            		
-//            		if (newDef == null){
-//            			newRuleData.setDefinedIn(schemaLoading);
-//            			allSchema.addRuleData(newRuleData);
-//            			schemaLoading.addRuleDataList(newRuleData);
-//            		}
-//            		else{
-                		newDef.setDefinedIn(schemaLoading);
-                    	allSchema.addDefinition(newDef);
-                		schemaLoading.addDefinition(newDef);
-//            		}                		
+            		newObj.setDefinedIn(schemaLoading);
+                	allSchema.addDefinition(newObj);
+            		schemaLoading.addDefinition(newObj);
+                		
                 }
             }
         }
 
     }
-
-	@Override
-	public void definitionAdded(DmsDefinitionDMO def) {
-		if (def instanceof AttributeDefinitionDMO){
-			AttributeDefinitionDMO attr = (AttributeDefinitionDMO) def;
-			if (attr.getPreserveNewlines()){
-				schemaParser.addPreserveNewlinesAttribute(attr.getName().getNameString());
-				defParser.addPreserveNewlinesAttribute(attr.getName().getNameString());
-			}
-		}
-		
-	}
 
 
 }

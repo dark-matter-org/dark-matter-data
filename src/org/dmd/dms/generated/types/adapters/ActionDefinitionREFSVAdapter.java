@@ -14,7 +14,7 @@ public class ActionDefinitionREFSVAdapter extends DmcTypeActionDefinitionREFSV i
     transient DmcTypeActionDefinitionREFSV existingValue;
 
     public ActionDefinitionREFSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

@@ -14,7 +14,7 @@ public class FilterTypeEnumSETAdapter extends DmcTypeFilterTypeEnumSET implement
     transient DmcTypeFilterTypeEnumSET existingValue;
 
     public FilterTypeEnumSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

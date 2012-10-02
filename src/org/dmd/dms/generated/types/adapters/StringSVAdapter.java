@@ -14,7 +14,7 @@ public class StringSVAdapter extends DmcTypeStringSV implements DmcAdapterIF {
     transient DmcTypeStringSV existingValue;
 
     public StringSVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

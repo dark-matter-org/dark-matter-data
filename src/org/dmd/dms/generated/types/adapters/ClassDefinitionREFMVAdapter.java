@@ -14,7 +14,7 @@ public class ClassDefinitionREFMVAdapter extends DmcTypeClassDefinitionREFMV imp
     transient DmcTypeClassDefinitionREFMV existingValue;
 
     public ClassDefinitionREFMVAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

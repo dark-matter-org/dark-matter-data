@@ -1,6 +1,6 @@
 //	---------------------------------------------------------------------------
 //	dark-matter-data
-//	Copyright (c) 2012 dark-matter-data committers
+//	Copyright (c) 2011 dark-matter-data committers
 //	---------------------------------------------------------------------------
 //	This program is free software; you can redistribute it and/or modify it
 //	under the terms of the GNU Lesser General Public License as published by the
@@ -27,12 +27,12 @@ import org.dmd.util.exceptions.*;
 import org.dmd.dms.*;
 
 /**
- * The SliceDefinition class is used to define a named set of attributes\n
- * that are used to retrieve a slice of an object i.e. an abbreviated set
- * of\n values. These are used in the generation of static, named
- * DmcSliceInfo instances.
+ * The SliceDefinition class is used to define a named set of attributes that
+ * are used to retrieve a slice of an object i.e. an abbreviated set of
+ * values. These are used in the generation of static, named DmcSliceInfo
+ * instances.
  * @author Auto Generated
- * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1561)
+ * Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1009)
  */
 @SuppressWarnings("unused")
 public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
@@ -74,31 +74,11 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The name attribute is used to store a single string token that represents
-     * a unique name\n for an object. A name should be composed of characters in
-     * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
-     * names must start with a character.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
-    public StringName getName(){
-        return(mycore.getName());
-    }
-
-    /**
-     * Sets name to the specified value.
-     * @param value A value compatible with DmcTypeStringNameSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
-    public void setName(Object value) throws DmcValueException {
-        mycore.setName(value);
-    }
-
-    /**
-     * The selectAttribute indicates an attribute to be used in the definition\n
-     * of a Slice.
+     * The selectAttribute indicates an attribute to be used in the definition of
+     * a Slice.
      * @return An Iterator of AttributeDefinition objects.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2442)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1730)
     public AttributeDefinitionIterableDMW getSelectAttribute(){
         DmcTypeAttributeDefinitionREFMV attr = (DmcTypeAttributeDefinitionREFMV) mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
@@ -111,7 +91,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
      * Adds another selectAttribute value.
      * @param value A value compatible with AttributeDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2501)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1778)
     public DmcAttribute<?> addSelectAttribute(AttributeDefinition value) throws DmcValueException {
         DmcAttribute<?> attr = mycore.addSelectAttribute(value.getDmcObject());
         return(attr);
@@ -120,7 +100,7 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
     /**
      * Returns the number of selectAttribute values.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2527)
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:1801)
     public int getSelectAttributeSize(){
         DmcAttribute<?> attr = mycore.get(MetaDMSAG.__selectAttribute);
         if (attr == null)
@@ -129,25 +109,21 @@ public class SliceDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * The description attribute is used to provide descriptive\n documentation
-     * for schema related definitions. The text provided should conform\n to
-     * XHTML concepts since it will be dumped in the context of the generated
-     * HTML\n documentation.
+     * The description attribute is used to provide descriptive documentation for
+     * schema related definitions. The description is of type XHMTLString which
+     * is basically an XML formatted fragment that conforms to the XHTML 1.0
+     * specification. For more information, see the DmdTypeDef for XHTMLString.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1598)
     public String getDescription(){
         return(mycore.getDescription());
-    }
-
-    public String getDescriptionWithNewlines(){
-        return(mycore.getDescriptionWithNewlines());
     }
 
     /**
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:1650)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }

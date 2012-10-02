@@ -14,7 +14,7 @@ public class IntegerNamedObjectREFSETAdapter extends DmcTypeIntegerNamedObjectRE
     transient DmcTypeIntegerNamedObjectREFSET existingValue;
 
     public IntegerNamedObjectREFSETAdapter(DmcAttributeInfo ai){
-    	   super(ai);
+    	   attrInfo = ai;
     }
 
     @Override

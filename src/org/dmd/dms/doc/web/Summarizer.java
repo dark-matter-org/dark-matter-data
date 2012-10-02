@@ -3,7 +3,6 @@ package org.dmd.dms.doc.web;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaDefinition;
@@ -46,8 +45,7 @@ public class Summarizer {
 		
 		buildIDSummary();
 		
-		DmcOmni.instance().setTrackSchemaReferences(true);
-		DmcOmni.instance().backRefTracking(true);		
+		
 
 		for(DmsDefinition def: sm.allDefs.values()){
 			def.getDMO().clearReferenceInfo();

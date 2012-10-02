@@ -16,8 +16,6 @@
 package org.dmd.dmg.tools.dmggenerator;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.rules.DmcRuleExceptionSet;
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmg.generated.dmo.DmgConfigDMO;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.util.DmoObjectFactory;
@@ -27,6 +25,7 @@ import org.dmd.util.parsing.ConfigFinder;
 import org.dmd.util.parsing.ConfigLocation;
 import org.dmd.util.parsing.DmcUncheckedOIFHandlerIF;
 import org.dmd.util.parsing.DmcUncheckedOIFParser;
+import org.dmd.util.parsing.DmcUncheckedObject;
 
 /**
  * The DmgConfigParser 
@@ -50,7 +49,7 @@ public class DmgParser implements DmcUncheckedOIFHandlerIF {
 		factory 	= new DmoObjectFactory(sm);
 	}
 	
-	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException, DmcRuleExceptionSet {
+	public void parseConfig(ConfigLocation cl) throws ResultException, DmcValueException {
 		ucoParser.parseFile(cl.getFileName());
 	}
 	

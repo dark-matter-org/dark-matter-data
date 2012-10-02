@@ -17,25 +17,25 @@ package org.dmd.dmr.server.ldap.generated.dmw;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
-import org.dmd.dmc.*;                                                         // If any attributes - (BaseDMWGeneratorNewest.java:905)
+import org.dmd.dmc.*;                                                         // If any attributes - (BaseDMWGeneratorNewest.java:903)
 import org.dmd.dmc.types.FullyQualifiedName;                                  // Is named by - (BaseDMWGeneratorNewest.java:884)
-import org.dmd.dmr.server.base.extended.HierarchicObject;                     // Derived class - (BaseDMWGeneratorNewest.java:1066)
-import org.dmd.dmr.server.ldap.extended.LDAPHierarchicObject;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:898)
-import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
-import org.dmd.dms.ClassDefinition;                                           // Passing derived class def up the hierarchy - (BaseDMWGeneratorNewest.java:889)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
-import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
+import org.dmd.dmr.server.base.extended.HierarchicObject;                     // Derived class - (BaseDMWGeneratorNewest.java:1064)
+import org.dmd.dmr.server.ldap.extended.LDAPHierarchicObject;                 // Required for getModificationRecorder() - (BaseDMWGeneratorNewest.java:896)
+import org.dmd.dmr.shared.ldap.generated.dmo.LDAPHierarchicObjectDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1068)
+import org.dmd.dms.*;                                                         // Always 2 - (BaseDMWGeneratorNewest.java:888)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                                   // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:892)
+import org.dmd.dms.generated.types.DmcTypeModifierMV;                         // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:891)
 
 
 /**
- * The LDAPHierarchicObject provides some additional structure and\n
+ * The LDAPHierarchicObject provides some additional structure and
  * conventions to the HierarchicObject to make it usable in conjunction with
- * an LDAP\n enabled directory server. Classes derived from
- * LDAPHierarchicObject must be defined\n in a schema that has been extended
- * with the LDAPSchemaExtension auxiliary class and\n must themselves be
- * extended with the LDAPClassExtension auxiliary class; the class\n must
- * have a defined naming attribute. Furthermore, naming attributes should
- * be\n unique for each defined class.
+ * an LDAP enabled directory server. Classes derived from
+ * LDAPHierarchicObject must be defined in a schema that has been extended
+ * with the LDAPSchemaExtension auxiliary class and must themselves be
+ * extended with the LDAPClassExtension auxiliary class; the class must have
+ * a defined naming attribute. Furthermore, naming attributes should be
+ * unique for each defined class.
  * <P>
  * Generated from the dmr.ldap schema at version 0.1
  * <P>
@@ -82,7 +82,7 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
         super(obj,cd);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1115)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.getAccessFunctions(BaseDMWGeneratorNewest.java:1113)
     public FullyQualifiedName getObjectName(){
         return(((LDAPHierarchicObjectDMO) core).getFQN());
     }
@@ -102,7 +102,7 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
         return(false);
     }
 
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1286)
     public FullyQualifiedName getFQN(){
         return(((LDAPHierarchicObjectDMO) core).getFQN());
     }
@@ -111,7 +111,7 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
      * Sets FQN to the specified value.
      * @param value A value compatible with DmcTypeFullyQualifiedName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1396)
     public void setFQN(Object value) throws DmcValueException {
         ((LDAPHierarchicObjectDMO) core).setFQN(value);
     }
@@ -120,7 +120,7 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
      * Sets FQN to the specified value.
      * @param value FullyQualifiedName
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1405)
     public void setFQN(FullyQualifiedName value){
         ((LDAPHierarchicObjectDMO) core).setFQN(value);
     }
@@ -128,7 +128,7 @@ abstract public class LDAPHierarchicObjectDMW extends HierarchicObject implement
     /**
      * Removes the FQN attribute value.
      */
-    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1431)
     public void remFQN(){
         ((LDAPHierarchicObjectDMO) core).remFQN();
     }

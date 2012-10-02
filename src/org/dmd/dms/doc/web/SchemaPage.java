@@ -5,20 +5,15 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.EnumDefinition;
-import org.dmd.dms.RuleCategory;
-import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
-import org.dmd.dms.generated.dmo.MetaDMSAG;
 
 public class SchemaPage {
 	
@@ -27,9 +22,6 @@ public class SchemaPage {
 	static TreeMap<String,TypeDefinition>		types;
 	static TreeMap<String,EnumDefinition>		enums;
 	static TreeMap<String,SliceDefinition>		slices;
-	static TreeMap<String,RuleCategory>			ruleCategories;
-	static TreeMap<String,RuleDefinition>		ruleDefinitions;
-	static TreeMap<String,DmcUncheckedObject>	parsedRules;
 
 	public static void dumpSchemaPage(String outdir, SchemaManager sm, SchemaDefinition sd, Summarizer summarizer) throws IOException {
 		String ofn = outdir + File.separator + sd.getName() + ".html";
@@ -61,14 +53,11 @@ public class SchemaPage {
 	}
 	
 	static void initTrees(SchemaDefinition sd){
-		classes 		= new TreeMap<String, ClassDefinition>();
-		attributes 		= new TreeMap<String, AttributeDefinition>();
-		types 			= new TreeMap<String, TypeDefinition>();
-		enums 			= new TreeMap<String, EnumDefinition>();
-		slices 			= new TreeMap<String, SliceDefinition>();
-		ruleCategories	= new TreeMap<String, RuleCategory>();
-		ruleDefinitions = new TreeMap<String, RuleDefinition>();
-		parsedRules 	= new TreeMap<String, DmcUncheckedObject>();
+		classes 	= new TreeMap<String, ClassDefinition>();
+		attributes 	= new TreeMap<String, AttributeDefinition>();
+		types 		= new TreeMap<String, TypeDefinition>();
+		enums 		= new TreeMap<String, EnumDefinition>();
+		slices 		= new TreeMap<String, SliceDefinition>();
 		
 		for(ClassDefinition def :sd.getClassDefList()){
 			classes.put(def.getObjectName().getNameString(), def);
@@ -89,27 +78,6 @@ public class SchemaPage {
 		if (sd.getSliceDefListSize() > 0){
 			for(SliceDefinition def :sd.getSliceDefList()){
 				slices.put(def.getObjectName().getNameString(), def);
-			}
-		}
-		
-		if (sd.getRuleCategoryListSize() > 0){
-			for(RuleCategory def: sd.getRuleCategoryList()){
-				ruleCategories.put(def.getObjectName().getNameString(), def);
-			}
-		}
-		
-		if (sd.getRuleDefinitionListSize() > 0){
-			for(RuleDefinition def: sd.getRuleDefinitionList()){
-				ruleDefinitions.put(def.getObjectName().getNameString(), def);
-			}
-		}
-		
-		Iterator<DmcUncheckedObject> parsed = sd.getParsedRules();
-		if (parsed != null){
-			while(parsed.hasNext()){
-				DmcUncheckedObject uco = parsed.next();
-				String ruleName = uco.getSV(MetaDMSAG.__ruleName.name);
-				parsedRules.put(ruleName,uco);
 			}
 		}
 		
@@ -282,12 +250,6 @@ public class SchemaPage {
 		
 		writeSliceSummary(out, slices);
 		
-		writeRuleCategorySummary(out, ruleCategories);
-		
-		writeRuleDefinitionSummary(out, ruleDefinitions);
-		
-		writeRuleInstancesSummary(out, parsedRules);
-		
 		out.write("  </div> <!--  summary -->\n\n");
 		
 	}
@@ -378,56 +340,6 @@ public class SchemaPage {
 		
 		for(SliceDefinition def: defs.values()){
 			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
-		}
-		
-		out.write("    </ul>\n");
-		out.write("    </div>");
-	}
-	
-	static void writeRuleCategorySummary(BufferedWriter out, TreeMap<String,RuleCategory> defs) throws IOException {
-		if (defs.size() == 0)
-			return;
-		
-		out.write("    <div class=\"categories\">\n");
-		out.write("    <h2> Rule Categories (" + defs.size() + ")</h2>\n");
-		out.write("    <ul>\n");
-		
-		for(RuleCategory def: defs.values()){
-			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
-		}
-		
-		out.write("    </ul>\n");
-		out.write("    </div>");
-	}
-	
-	static void writeRuleDefinitionSummary(BufferedWriter out, TreeMap<String,RuleDefinition> defs) throws IOException {
-		if (defs.size() == 0)
-			return;
-		
-		out.write("    <div class=\"ruledefs\">\n");
-		out.write("    <h2> Rule Definitions (" + defs.size() + ")</h2>\n");
-		out.write("    <ul>\n");
-		
-		for(RuleDefinition def: defs.values()){
-			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
-		}
-		
-		out.write("    </ul>\n");
-		out.write("    </div>");
-	}
-	
-	static void writeRuleInstancesSummary(BufferedWriter out, TreeMap<String,DmcUncheckedObject> defs) throws IOException {
-		if (defs.size() == 0)
-			return;
-		
-		out.write("    <div class=\"ruledefs\">\n");
-		out.write("    <h2> Rule Instances (" + defs.size() + ")</h2>\n");
-		out.write("    <ul>\n");
-		
-		for(DmcUncheckedObject def: defs.values()){
-			String ruleName = def.getSV(MetaDMSAG.__ruleName.name);
-			String ruleTitle = def.getSV(MetaDMSAG.__ruleTitle.name);
-			out.write("      <li> <a class=\"deflink\" href=\"#" + ruleName + "\"> " + ruleTitle + " </a></li>\n");
 		}
 		
 		out.write("    </ul>\n");
