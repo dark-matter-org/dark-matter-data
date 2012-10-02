@@ -14,5 +14,8 @@ public class SpaceReplacementTest {
 		
 		System.out.println("\"" + fixed + "\"");
 		
+		String withNewLines = fixed.replaceAll("\\\\n", "\\\n");
+		
+		System.out.println(withNewLines);
 	}
 }

@@ -91,6 +91,21 @@
     <tr> <td class="className" colspan="4"> <a name="AllowedAttributesRuleData"> AllowedAttributesRuleData </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The AllowedAttributesRule will determine whether or not the 
+ attributes of a DMO conform to the must/may specification of its class definition.
+ For classes of type EXTENSIBLE only the must have attributes are checked.
+ <p/>
+ Regardless of the environment in which you are running, you must ensure that the
+ DmcOmni has been loaded with the appropriate schema. If you are using the Dark Matter
+ Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically.
+ <p/>
+ Since this is a GLOBAL class rule, there will only ever be a single instance of
+ this rule created as part of the dmv schema.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td class="label">Type</td>
       <td colspan="2">STRUCTURAL</td>
     </tr>
@@ -160,6 +175,13 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="AttributeTypeRuleData"> AttributeTypeRuleData </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The AttributeTypeRule allowes you to restrict the type of
+ an attribute of a particular AttributeDefinition reference.</td>
+    </tr>
+
     <tr>
       <td class="spacer"> </td>
       <td class="label">Type</td>
@@ -247,6 +269,24 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="CheckAttributesBasedOnValueRuleData"> CheckAttributesBasedOnValueRuleData </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The CheckAttributesBasedOnValueRule allows you to specify
+ that certain optional attributes must exist (or not exist) based on the value
+ of another attribute in an object. This allows for finer control of must/may
+ attributes based on enumerated values in an object. An example usage might look like:
+ <pre>
+ CheckAttributesBasedOnValueRuleData
+ ruleName             <schema>ExcludeSunRoof
+ ruleTitle            The sun roof option is not avilable on four cyclinder vehicles.
+ applyToClass         Car
+ basedOnAttribute     engineType
+ basedOnValue         FOURCYLINDER
+ excludeThisAttribute sunRoofOption
+ </pre></td>
+    </tr>
+
     <tr>
       <td class="spacer"> </td>
       <td class="label">Type</td>
@@ -352,6 +392,29 @@
     <tr> <td class="className" colspan="4"> <a name="InitRuleData"> InitRuleData </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The InitRule allows you to specify attribute values for a 
+ newly created object or an object read from file or received in a CreateRequest
+ (for instance). The InitRule will only set the values of attributes that are
+ missing from the object; existing attributes are not alterred. An example
+ usage might be:
+ <p/>
+ <pre>
+ InitRuleData
+ ruleName     <schema>InitX
+ ruleTitle    Initialize the X class
+ applyToClass X
+ attributeA   some value
+ attributeB   42
+ attributeC   something
+ attributeC   something else
+ description  This provides a good initial setup for X objects. Other setups
+  may be required in other circumstances.
+ </pre></td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td class="label">Type</td>
       <td colspan="2">EXTENSIBLE</td>
     </tr>
@@ -421,6 +484,24 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="IntegerRangeRuleData"> IntegerRangeRuleData </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The IntegerRangeRule ensures that an Integer attribute has a value that falls
+ within a given range. The irrMinimum must be less than the irrMaximum. An example usage
+ might be:
+ <p/>
+ <pre>
+ IntegerRangeRuleData
+ ruleName         <schema>RangeCheckY
+ ruleTitle        Attribute Y in range 1-10
+ applyToAttribute Y
+ irrMinimum       1
+ irrMaximum       10
+ description      This constraint is required because blah, blah blah.
+ </pre></td>
+    </tr>
+
     <tr>
       <td class="spacer"> </td>
       <td class="label">Type</td>
@@ -518,6 +599,17 @@
     <tr> <td class="className" colspan="4"> <a name="OneOfTheseAttributesRequiredRuleData"> OneOfTheseAttributesRequiredRuleData </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The OneOfTheseAttributesRequiredRule allows you to specify
+ that one of the possible optional attributes specified must be present
+ in the object being checked.
+ <p/>
+ If only one of the possibilities is allowed, you can specify the andOnlyOne
+ flag and set it to true. In this case only one of the possibilities will be allowed.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td class="label">Type</td>
       <td colspan="2">STRUCTURAL</td>
     </tr>
@@ -603,6 +695,24 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="RelatedNumbersRuleData"> RelatedNumbersRuleData </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The RelatedNumbersRule ensures that a particular numeric
+ relationship exists between two single-valued, numeric values on an object.
+ An example usage might be:
+ <pre>
+ RelatedNumbersRuleData
+ ruleName        dmvHeightGirth
+ ruleTitle       Your height must exceed your girth.
+ applyToClass    Person
+ lhs             height
+ rhs             girth
+ numericRelation GT
+ description     If your girth exceeds your height, you're in trouble!
+ </pre></td>
+    </tr>
+
     <tr>
       <td class="spacer"> </td>
       <td class="label">Type</td>
@@ -698,6 +808,14 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="UCOAllowedAttributesRuleData"> UCOAllowedAttributesRuleData </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">The UCOAllowedAttributesRule will determine whether or not the 
+ attributes of a DmcUncheckedObject conform to the must/may specification of its
+ class definition. For classes of type EXTENSIBLE only the must have attributes are checked.</td>
+    </tr>
+
     <tr>
       <td class="spacer"> </td>
       <td class="label">Type</td>

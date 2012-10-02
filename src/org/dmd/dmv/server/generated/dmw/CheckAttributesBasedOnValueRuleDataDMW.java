@@ -35,7 +35,15 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                               
 
 
 /**
- * null
+ * The CheckAttributesBasedOnValueRule allows you to specify\n that certain
+ * optional attributes must exist (or not exist) based on the value\n of
+ * another attribute in an object. This allows for finer control of
+ * must/may\n attributes based on enumerated values in an object. An example
+ * usage might look like:\n <pre>\n CheckAttributesBasedOnValueRuleData\n
+ * ruleName             <schema>ExcludeSunRoof\n ruleTitle            The sun
+ * roof option is not avilable on four cyclinder vehicles.\n applyToClass    
+ *     Car\n basedOnAttribute     engineType\n basedOnValue        
+ * FOURCYLINDER\n excludeThisAttribute sunRoofOption\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

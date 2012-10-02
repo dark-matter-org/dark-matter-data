@@ -45,7 +45,7 @@ public class ClassFormatter {
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td>Description</td>\n");
 			
-			out.write("      <td colspan=\"2\">" + cd.getDescription() + "</td>\n");
+			out.write("      <td colspan=\"2\">" + cd.getDescriptionWithNewlines() + "</td>\n");
 			out.write("    </tr>\n\n");
 		}
 	}

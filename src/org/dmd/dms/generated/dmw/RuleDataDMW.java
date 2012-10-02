@@ -63,7 +63,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * The title of a rule.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
     public String getRuleTitle(){
         return(mycore.getRuleTitle());
     }
@@ -72,7 +72,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets ruleTitle to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
     public void setRuleTitle(Object value) throws DmcValueException {
         mycore.setRuleTitle(value);
     }
@@ -82,7 +82,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * a rule.\n The name starts with a single letter and can be followed by a
      * mix of letters and numbers. No spaces or \n other characters are allowed.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
     public RuleName getRuleName(){
         return(mycore.getRuleName());
     }
@@ -91,7 +91,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets ruleName to the specified value.
      * @param value A value compatible with DmcTypeRuleNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
     public void setRuleName(Object value) throws DmcValueException {
         mycore.setRuleName(value);
     }
@@ -102,16 +102,20 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * XHTML concepts since it will be dumped in the context of the generated
      * HTML\n documentation.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
     public String getDescription(){
         return(mycore.getDescription());
+    }
+
+    public String getDescriptionWithNewlines(){
+        return(mycore.getDescriptionWithNewlines());
     }
 
     /**
      * Sets description to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
     public void setDescription(Object value) throws DmcValueException {
         mycore.setDescription(value);
     }
@@ -119,7 +123,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
     public SchemaDefinition getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -132,7 +136,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets definedIn to the specified value.
      * @param value A value compatible with SchemaDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2305)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2341)
     public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
         mycore.setDefinedIn(value.getDmcObject());
     }
@@ -140,7 +144,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
     public String getFile(){
         return(mycore.getFile());
     }
@@ -149,7 +153,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
     public void setFile(Object value) throws DmcValueException {
         mycore.setFile(value);
     }
@@ -157,7 +161,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
     public Integer getLineNumber(){
         return(mycore.getLineNumber());
     }
@@ -166,7 +170,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
     public void setLineNumber(Object value) throws DmcValueException {
         mycore.setLineNumber(value);
     }
@@ -174,7 +178,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
     /**
      * The class to which a rule should be applied.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
     public ClassDefinition getApplyToClass(){
         DmcTypeClassDefinitionREFSV attr = (DmcTypeClassDefinitionREFSV) mycore.get(MetaDMSAG.__applyToClass);
         if (attr == null)
@@ -187,7 +191,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets applyToClass to the specified value.
      * @param value A value compatible with ClassDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2305)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2341)
     public void setApplyToClass(ClassDefinition value) throws DmcValueException {
         mycore.setApplyToClass(value.getDmcObject());
     }
@@ -199,7 +203,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * with the application of a set \n of rules, so this flag gives the option
      * of halting further processing.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2255)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
     public Boolean getImmediateHalt(){
         return(mycore.getImmediateHalt());
     }
@@ -208,7 +212,7 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
      * Sets immediateHalt to the specified value.
      * @param value A value compatible with DmcTypeBooleanSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2318)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
     public void setImmediateHalt(Object value) throws DmcValueException {
         mycore.setImmediateHalt(value);
     }

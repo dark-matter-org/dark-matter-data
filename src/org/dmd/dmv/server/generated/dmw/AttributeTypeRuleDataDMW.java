@@ -34,7 +34,8 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                         // Att
 
 
 /**
- * null
+ * The AttributeTypeRule allowes you to restrict the type of\n an attribute
+ * of a particular AttributeDefinition reference.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

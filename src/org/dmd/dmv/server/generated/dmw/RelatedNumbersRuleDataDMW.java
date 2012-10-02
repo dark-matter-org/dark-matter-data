@@ -30,7 +30,13 @@ import org.dmd.dmv.shared.generated.enums.NumericRelationEnum;             // Pr
 
 
 /**
- * null
+ * The RelatedNumbersRule ensures that a particular numeric\n relationship
+ * exists between two single-valued, numeric values on an object.\n An
+ * example usage might be:\n <pre>\n RelatedNumbersRuleData\n ruleName       
+ * dmvHeightGirth\n ruleTitle       Your height must exceed your girth.\n
+ * applyToClass    Person\n lhs             height\n rhs             girth\n
+ * numericRelation GT\n description     If your girth exceeds your height,
+ * you're in trouble!\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

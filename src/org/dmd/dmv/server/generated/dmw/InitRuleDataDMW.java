@@ -27,7 +27,16 @@ import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;         // Class not au
 
 
 /**
- * null
+ * The InitRule allows you to specify attribute values for a \n newly created
+ * object or an object read from file or received in a CreateRequest\n (for
+ * instance). The InitRule will only set the values of attributes that are\n
+ * missing from the object; existing attributes are not alterred. An
+ * example\n usage might be:\n <p/>\n <pre>\n InitRuleData\n ruleName    
+ * <schema>InitX\n ruleTitle    Initialize the X class\n applyToClass X\n
+ * attributeA   some value\n attributeB   42\n attributeC   something\n
+ * attributeC   something else\n description  This provides a good initial
+ * setup for X objects. Other setups\n  may be required in other
+ * circumstances.\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

@@ -2251,6 +2251,32 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 			out.write("\n");
 			out.write("        return(attr.getSV());\n");
 			out.write("    }\n\n");
+			
+			
+			///////////////////////////////////////////////////////////////////
+			String preserveNewlines = attributeDef.getSV("preserveNewlines");
+
+			if (preserveNewlines != null){
+				out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
+				out.write("    public " + typeName + " get" + functionName + "WithNewlines(){\n");
+	
+				out.write("        " + attrType + " attr = (" + attrType
+						+ ") get(MetaDMSAG.__" + attrname + ");\n");
+				out.write("        if (attr == null)\n");
+	
+				if (attrNulReturnValue != null)
+					nullReturnValue = attrNulReturnValue;
+	
+				if (nullReturnValue == null)
+					out.write("            return(null);\n");
+				else
+					out.write("            return(" + nullReturnValue + ");\n");
+	
+				out.write("\n");
+				out.write("        return(attr.getSV().replaceAll(\"\\\\\\\\n\",\"\\\\\\n\"));\n");
+				out.write("    }\n\n");
+			}
+
 		} else {
 			out.write("    // " + DebugInfo.getWhereWeAreNow() + "\n");
 			if (isObjREF) {
@@ -2272,6 +2298,16 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 						+ "(){\n");
 				out.write("        return(mycore.get" + functionName + "());\n");
 				out.write("    }\n\n");
+				
+				///////////////////////////////////////////////////////////////
+				String preserveNewlines = attributeDef.getSV("preserveNewlines");
+
+				if (preserveNewlines != null){
+					out.write("    public " + typeName + " get" + functionName + "WithNewlines(){\n");
+					out.write("        return(mycore.get" + functionName + "WithNewlines());\n");
+					out.write("    }\n\n");
+				}
+				
 			}
 		}
 

@@ -107,6 +107,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
             _AllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _AllowedAttributesRuleDataOBJ.setLineNumber("17");
+            _AllowedAttributesRuleDataOBJ.setDescription("The AllowedAttributesRule will determine whether or not the \n attributes of a DMO conform to the must/may specification of its class definition.\n For classes of type EXTENSIBLE only the must have attributes are checked.\n <p/>\n Regardless of the environment in which you are running, you must ensure that the\n DmcOmni has been loaded with the appropriate schema. If you are using the Dark Matter\n Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically.\n <p/>\n Since this is a GLOBAL class rule, there will only ever be a single instance of\n this rule created as part of the dmv schema.");
             _AllowedAttributesRuleDataOBJ.setDerivedFrom("RuleData");
             _AllowedAttributesRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.AllowedAttributesRuleDataREF");
             _AllowedAttributesRuleDataOBJ.setRuleDefinition("AllowedAttributesRule");
@@ -127,6 +128,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _InitRuleDataOBJ.setClassType("EXTENSIBLE");
             _InitRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _InitRuleDataOBJ.setLineNumber("48");
+            _InitRuleDataOBJ.setDescription("The InitRule allows you to specify attribute values for a \n newly created object or an object read from file or received in a CreateRequest\n (for instance). The InitRule will only set the values of attributes that are\n missing from the object; existing attributes are not alterred. An example\n usage might be:\n <p/>\n <pre>\n InitRuleData\n ruleName     <schema>InitX\n ruleTitle    Initialize the X class\n applyToClass X\n attributeA   some value\n attributeB   42\n attributeC   something\n attributeC   something else\n description  This provides a good initial setup for X objects. Other setups\n  may be required in other circumstances.\n </pre>");
             _InitRuleDataOBJ.setDerivedFrom("RuleData");
             _InitRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.InitRuleDataREF");
             _InitRuleDataOBJ.setRuleDefinition("InitRule");
@@ -147,6 +149,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _IntegerRangeRuleDataOBJ.setClassType("STRUCTURAL");
             _IntegerRangeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _IntegerRangeRuleDataOBJ.setLineNumber("71");
+            _IntegerRangeRuleDataOBJ.setDescription("The IntegerRangeRule ensures that an Integer attribute has a value that falls\n within a given range. The irrMinimum must be less than the irrMaximum. An example usage\n might be:\n <p/>\n <pre>\n IntegerRangeRuleData\n ruleName         <schema>RangeCheckY\n ruleTitle        Attribute Y in range 1-10\n applyToAttribute Y\n irrMinimum       1\n irrMaximum       10\n description      This constraint is required because blah, blah blah.\n </pre>");
             _IntegerRangeRuleDataOBJ.setDerivedFrom("RuleData");
             _IntegerRangeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.IntegerRangeRuleDataREF");
             _IntegerRangeRuleDataOBJ.setRuleDefinition("IntegerRangeRule");
@@ -170,6 +173,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _UCOAllowedAttributesRuleDataOBJ.setClassType("STRUCTURAL");
             _UCOAllowedAttributesRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _UCOAllowedAttributesRuleDataOBJ.setLineNumber("81");
+            _UCOAllowedAttributesRuleDataOBJ.setDescription("The UCOAllowedAttributesRule will determine whether or not the \n attributes of a DmcUncheckedObject conform to the must/may specification of its\n class definition. For classes of type EXTENSIBLE only the must have attributes are checked.");
             _UCOAllowedAttributesRuleDataOBJ.setDerivedFrom("RuleData");
             _UCOAllowedAttributesRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.UCOAllowedAttributesRuleDataREF");
             _UCOAllowedAttributesRuleDataOBJ.setRuleDefinition("UCOAllowedAttributesRule");
@@ -190,6 +194,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _AttributeTypeRuleDataOBJ.setClassType("STRUCTURAL");
             _AttributeTypeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _AttributeTypeRuleDataOBJ.setLineNumber("91");
+            _AttributeTypeRuleDataOBJ.setDescription("The AttributeTypeRule allowes you to restrict the type of\n an attribute of a particular AttributeDefinition reference.");
             _AttributeTypeRuleDataOBJ.setDerivedFrom("RuleData");
             _AttributeTypeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.AttributeTypeRuleDataREF");
             _AttributeTypeRuleDataOBJ.setRuleDefinition("AttributeTypeRule");
@@ -212,6 +217,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _RelatedNumbersRuleDataOBJ.setClassType("STRUCTURAL");
             _RelatedNumbersRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _RelatedNumbersRuleDataOBJ.setLineNumber("115");
+            _RelatedNumbersRuleDataOBJ.setDescription("The RelatedNumbersRule ensures that a particular numeric\n relationship exists between two single-valued, numeric values on an object.\n An example usage might be:\n <pre>\n RelatedNumbersRuleData\n ruleName        dmvHeightGirth\n ruleTitle       Your height must exceed your girth.\n applyToClass    Person\n lhs             height\n rhs             girth\n numericRelation GT\n description     If your girth exceeds your height, you're in trouble!\n </pre>");
             _RelatedNumbersRuleDataOBJ.setDerivedFrom("RuleData");
             _RelatedNumbersRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.RelatedNumbersRuleDataREF");
             _RelatedNumbersRuleDataOBJ.setRuleDefinition("RelatedNumbersRule");
@@ -235,6 +241,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _CheckAttributesBasedOnValueRuleDataOBJ.setClassType("STRUCTURAL");
             _CheckAttributesBasedOnValueRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _CheckAttributesBasedOnValueRuleDataOBJ.setLineNumber("158");
+            _CheckAttributesBasedOnValueRuleDataOBJ.setDescription("The CheckAttributesBasedOnValueRule allows you to specify\n that certain optional attributes must exist (or not exist) based on the value\n of another attribute in an object. This allows for finer control of must/may\n attributes based on enumerated values in an object. An example usage might look like:\n <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName             <schema>ExcludeSunRoof\n ruleTitle            The sun roof option is not avilable on four cyclinder vehicles.\n applyToClass         Car\n basedOnAttribute     engineType\n basedOnValue         FOURCYLINDER\n excludeThisAttribute sunRoofOption\n </pre>");
             _CheckAttributesBasedOnValueRuleDataOBJ.setDerivedFrom("RuleData");
             _CheckAttributesBasedOnValueRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.CheckAttributesBasedOnValueRuleDataREF");
             _CheckAttributesBasedOnValueRuleDataOBJ.setRuleDefinition("CheckAttributesBasedOnValueRule");
@@ -259,6 +266,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OneOfTheseAttributesRequiredRuleDataOBJ.setClassType("STRUCTURAL");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setLineNumber("184");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setDescription("The OneOfTheseAttributesRequiredRule allows you to specify\n that one of the possible optional attributes specified must be present\n in the object being checked.\n <p/>\n If only one of the possibilities is allowed, you can specify the andOnlyOne\n flag and set it to true. In this case only one of the possibilities will be allowed.");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDerivedFrom("RuleData");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.OneOfTheseAttributesRequiredRuleDataREF");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setRuleDefinition("OneOfTheseAttributesRequiredRule");
@@ -456,7 +464,6 @@ public class DmvSchemaAG extends SchemaDefinition {
             RuleDefinitionDMO _AllowedAttributesRuleOBJ = new RuleDefinitionDMO();
             _AllowedAttributesRule = new RuleDefinition(_AllowedAttributesRuleOBJ);
             _AllowedAttributesRuleOBJ.addRuleCategory("ObjectValidation");
-            _AllowedAttributesRuleOBJ.addRuleCategory("ObjectModifierValidation");
             _AllowedAttributesRuleOBJ.setName("AllowedAttributesRule");
             _AllowedAttributesRuleOBJ.setDmdID("-479999");
             _AllowedAttributesRuleOBJ.setDescription("The AllowedAttributesRule will determine whether or not the \n attributes of a DMO conform to the must/may specification of its class definition.\n For classes of type EXTENSIBLE only the must have attributes are checked.\n <p/>\n Regardless of the environment in which you are running, you must ensure that the\n DmcOmni has been loaded with the appropriate schema. If you are using the Dark Matter\n Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically.\n <p/>\n Since this is a GLOBAL class rule, there will only ever be a single instance of\n this rule created as part of the dmv schema.");
@@ -482,7 +489,6 @@ public class DmvSchemaAG extends SchemaDefinition {
             RuleDefinitionDMO _IntegerRangeRuleOBJ = new RuleDefinitionDMO();
             _IntegerRangeRule = new RuleDefinition(_IntegerRangeRuleOBJ);
             _IntegerRangeRuleOBJ.addRuleCategory("AttributeValidation");
-            _IntegerRangeRuleOBJ.addRuleCategory("AttributeModifierValidation");
             _IntegerRangeRuleOBJ.setName("IntegerRangeRule");
             _IntegerRangeRuleOBJ.setDmdID("-479997");
             _IntegerRangeRuleOBJ.setDescription("The IntegerRangeRule ensures that an Integer attribute has a value that falls\n within a given range. The irrMinimum must be less than the irrMaximum. An example usage\n might be:\n <p/>\n <pre>\n IntegerRangeRuleData\n ruleName         <schema>RangeCheckY\n ruleTitle        Attribute Y in range 1-10\n applyToAttribute Y\n irrMinimum       1\n irrMaximum       10\n description      This constraint is required because blah, blah blah.\n </pre>");
@@ -522,7 +528,6 @@ public class DmvSchemaAG extends SchemaDefinition {
             RuleDefinitionDMO _RelatedNumbersRuleOBJ = new RuleDefinitionDMO();
             _RelatedNumbersRule = new RuleDefinition(_RelatedNumbersRuleOBJ);
             _RelatedNumbersRuleOBJ.addRuleCategory("ObjectValidation");
-            _RelatedNumbersRuleOBJ.addRuleCategory("ObjectModifierValidation");
             _RelatedNumbersRuleOBJ.setName("RelatedNumbersRule");
             _RelatedNumbersRuleOBJ.setDmdID("-479994");
             _RelatedNumbersRuleOBJ.setDescription("The RelatedNumbersRule ensures that a particular numeric\n relationship exists between two single-valued, numeric values on an object.\n An example usage might be:\n <pre>\n RelatedNumbersRuleData\n ruleName        dmvHeightGirth\n ruleTitle       Your height must exceed your girth.\n applyToClass    Person\n lhs             height\n rhs             girth\n numericRelation GT\n description     If your girth exceeds your height, you're in trouble!\n </pre>");
@@ -538,7 +543,6 @@ public class DmvSchemaAG extends SchemaDefinition {
             RuleDefinitionDMO _CheckAttributesBasedOnValueRuleOBJ = new RuleDefinitionDMO();
             _CheckAttributesBasedOnValueRule = new RuleDefinition(_CheckAttributesBasedOnValueRuleOBJ);
             _CheckAttributesBasedOnValueRuleOBJ.addRuleCategory("ObjectValidation");
-            _CheckAttributesBasedOnValueRuleOBJ.addRuleCategory("ObjectModifierValidation");
             _CheckAttributesBasedOnValueRuleOBJ.setName("CheckAttributesBasedOnValueRule");
             _CheckAttributesBasedOnValueRuleOBJ.setDmdID("-479993");
             _CheckAttributesBasedOnValueRuleOBJ.setDescription("The CheckAttributesBasedOnValueRule allows you to specify\n that certain optional attributes must exist (or not exist) based on the value\n of another attribute in an object. This allows for finer control of must/may\n attributes based on enumerated values in an object. An example usage might look like:\n <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName             <schema>ExcludeSunRoof\n ruleTitle            The sun roof option is not avilable on four cyclinder vehicles.\n applyToClass         Car\n basedOnAttribute     engineType\n basedOnValue         FOURCYLINDER\n excludeThisAttribute sunRoofOption\n </pre>");
@@ -555,7 +559,6 @@ public class DmvSchemaAG extends SchemaDefinition {
             RuleDefinitionDMO _OneOfTheseAttributesRequiredRuleOBJ = new RuleDefinitionDMO();
             _OneOfTheseAttributesRequiredRule = new RuleDefinition(_OneOfTheseAttributesRequiredRuleOBJ);
             _OneOfTheseAttributesRequiredRuleOBJ.addRuleCategory("ObjectValidation");
-            _OneOfTheseAttributesRequiredRuleOBJ.addRuleCategory("ObjectModifierValidation");
             _OneOfTheseAttributesRequiredRuleOBJ.setName("OneOfTheseAttributesRequiredRule");
             _OneOfTheseAttributesRequiredRuleOBJ.setDmdID("-479992");
             _OneOfTheseAttributesRequiredRuleOBJ.setDescription("The OneOfTheseAttributesRequiredRule allows you to specify\n that one of the possible optional attributes specified must be present\n in the object being checked.\n <p/>\n If only one of the possibilities is allowed, you can specify the andOnlyOne\n flag and set it to true. In this case only one of the possibilities will be allowed.");
