@@ -98,3 +98,14 @@ public enum ColumnLayoutEnum implements DmcEnumIF
 
 }
 }}}
+
+Once you've defined the enum, you can now use it as a type when defining an attribute:
+
+{{{
+AttributeDefinition
+name        columnLayout
+dmdID       5
+type        ColumnLayoutEnum
+description Indicates  the kind of column layout.
+
+}}}
