@@ -291,7 +291,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ActionTriggerInfoOBJ.setDmoImport("org.dmd.dms.generated.dmo.ActionTriggerInfoDMO");
         _ActionTriggerInfoOBJ.setFile("metaSchema.dms");
         _ActionTriggerInfoOBJ.setJavaClass("org.dmd.dms.extended.ActionTriggerInfo");
-        _ActionTriggerInfoOBJ.setLineNumber("1787");
+        _ActionTriggerInfoOBJ.setLineNumber("1788");
         _ActionTriggerInfoOBJ.addMust("name");
         _ActionTriggerInfoOBJ.setName("ActionTriggerInfo");
         _ActionTriggerInfo.setDefinedIn(this);
@@ -306,7 +306,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DmsDefinitionOBJ.setFile("metaSchema.dms");
         _DmsDefinitionOBJ.setIsNamedBy("name");
         _DmsDefinitionOBJ.setJavaClass("org.dmd.dms.DmsDefinition");
-        _DmsDefinitionOBJ.setLineNumber("1802");
+        _DmsDefinitionOBJ.setLineNumber("1803");
         _DmsDefinitionOBJ.addMay("definedIn");
         _DmsDefinitionOBJ.addMay("file");
         _DmsDefinitionOBJ.addMay("lineNumber");
@@ -326,7 +326,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ClassDefinitionOBJ.setFile("metaSchema.dms");
         _ClassDefinitionOBJ.setIsNamedBy("name");
         _ClassDefinitionOBJ.setJavaClass("org.dmd.dms.ClassDefinition");
-        _ClassDefinitionOBJ.setLineNumber("1855");
+        _ClassDefinitionOBJ.setLineNumber("1856");
         _ClassDefinitionOBJ.addMay("description");
         _ClassDefinitionOBJ.addMay("derivedFrom");
         _ClassDefinitionOBJ.addMay("must");
@@ -382,7 +382,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _EnumDefinitionOBJ.setFile("metaSchema.dms");
         _EnumDefinitionOBJ.setIsNamedBy("name");
         _EnumDefinitionOBJ.setJavaClass("org.dmd.dms.EnumDefinition");
-        _EnumDefinitionOBJ.setLineNumber("1873");
+        _EnumDefinitionOBJ.setLineNumber("1874");
         _EnumDefinitionOBJ.addMay("description");
         _EnumDefinitionOBJ.addMay("nullReturnValue");
         _EnumDefinitionOBJ.addMust("name");
@@ -396,13 +396,13 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _TypeDefinition = new ClassDefinition(_TypeDefinitionOBJ,MetaDMSAG.__TypeDefinition);
         _TypeDefinitionOBJ.setClassType("STRUCTURAL");
         _TypeDefinitionOBJ.setDerivedFrom("DmsDefinition");
-        _TypeDefinitionOBJ.setDescription("The <code> TypeDefinition </code> is used to define the types of attributes that can be used\n as the basis for attribute values. The name of the type definition should be the same as the\n actual Java class that is used to store the value of an attribute e.g. the name of the type\n used to store strings is String. The <code> typeClassName </code> is the fully qualified name of the class\n derived from DmcAttribute that stores this type of value; they are always, by convention,\n named DmcTypeXXX.\n <p/>\n <code> TypeDefinitions </code> are automatically generated internally for <code> ClassDefinitions </code> and\n <code> EnumDefinitions </code> so that these objects can be referred to via the type attribute of <code> AttributeDefinitions</code>.\n These definitions are marked as <code> internallyGenerated </code>.\n <p/>\n The simplest <code> TypeDefinition </code> would look something like:\n <pre>\n TypeDefinition\n name           String\n typeClassName  org.dmd.dmc.types.DmcTypeString\n description    Provides support for String values.\n </pre>\n This form would be used for attribute types whose base type originates in <code> java.lang</code>.\n The dark-matter base types include: Boolean, Byte, Double, Float, Integer, Long, Short and String.\n <p/>\n <code>TypeDefinitions</code> also support the concept of specifying a <code> nullReturnValue </code>\n for the entire type i.e. whenever an attribute of the specified type is accessed, it will return\n that value when the attribute doesn't exist in the object. An example of this is the <code> Boolean </code> type:\n <pre>\n TypeDefinition\n name            Boolean\n typeClassName   org.dmd.dmc.types.DmcTypeBoolean\n nullReturnValue false\n description     Provides support for Boolean values. This type makes use of the\n                 nullReturnValue flag so that, even if there is no\n                 value for an attribute of this type, a value of false will\n                 be returned.\n </pre>\n <p/>\n The next most common form of <code> TypeDefinition </code> adds the <code> primitiveType </code>\n attribute. This is required for code generation so that we can import the appropriate type for\n use in the various getter/setter methods. An example would be the <code> Date </code> type.\n <pre>\n TypeDefinition\n name           Date\n typeClassName  org.dmd.dmc.types.DmcTypeDate\n primitiveType  java.util.Date\n description    Provides support for Date values.\n </pre>\n Another common form of <code>TypeDefinition</code> is the definition of a name type. Object\n naming is a fundamental aspect of DMOs, with all object names being based on the <code>DmcObjectName</code>.\n Flagging a type as being a name type also implies the definition of a designated naming attribute\n associated with the type. This mechanism allows for the transport of names that are self\n describing in terms of their implementation type. This feature supports the <code>NameContainer</code>\n type that allows any name to be transported in things like dark-matter protocol <code>GetRequest</code>.\n An example of a naming type would be:\n <pre>\n TypeDefinition\n name           CamelCaseName\n typeClassName  org.dmd.dmc.types.DmcTypeCamelCaseName\n primitiveType  org.dmd.dmc.types.CamelCaseName\n isNameType     true\n description    The CamelCaseName is a string based name that must start with\n                an alpha character which is followed by a mix of alphanumerics.\n </pre>\n And its associated designated naming attribute would be:\n <pre>\n AttributeDefinition\n name                     camelCaseName\n dmdID                    116\n type                     CamelCaseName\n designatedNameAttribute  true\n description              The camelCaseName attribute is used to store a single camelCase\n                          format name for something. The name starts with a single letter\n                          and can be followed by a mix of letters and numbers. No spaces or \n                          other characters are allowed.\n </pre>\n The last form of type definition is one that includes some additional information to provide\n a convenient, alternate interface for the generation of member functions associated with\n a container type; this concept is pretty much limited to the meta-schema, so it is unlikely\n that non-contributors to dark-matter will make use of this concept. However, here is an example:\n <pre>\n TypeDefinition\n name           NameContainer\n typeClassName  org.dmd.dmc.types.DmcTypeNameContainer\n primitiveType  org.dmd.dmc.types.NameContainer\n altType        DmcObjectName\n altTypeImport  org.dmd.dmc.DmcObjectName\n description    The NameContainer type allows for the storage of object names of different types...\n </pre>");
+        _TypeDefinitionOBJ.setDescription("The <code> TypeDefinition </code> is used to define the types of attributes that can be used\n as the basis for attribute values. The name of the type definition should be the same as the\n actual Java class that is used to store the value of an attribute e.g. the name of the type\n used to store strings is String. The <code> typeClassName </code> is the fully qualified name of the class\n derived from <code>DmcAttribute</code>that stores this type of value; they are always, by convention,\n named <code>DmcTypeXXX<code>.\n <p/>\n <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code> and\n <code> EnumDefinitions </code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>.\n These definitions are marked as <code> internallyGenerated </code>.\n <p/>\n The simplest <code> TypeDefinition </code> would look something like:\n <pre>\n TypeDefinition\n name           String\n typeClassName  org.dmd.dmc.types.DmcTypeString\n description    Provides support for String values.\n </pre>\n This form would be used for attribute types whose base type originates in <code> java.lang</code>.\n The dark-matter base types include: Boolean, Byte, Double, Float, Integer, Long, Short and String.\n <p/>\n <code>TypeDefinitions</code> also support the concept of specifying a <code> nullReturnValue </code>\n for the entire type i.e. whenever an attribute of the specified type is accessed, it will return\n that value when the attribute doesn't exist in the object. An example of this is the <code> Boolean </code> type:\n <pre>\n TypeDefinition\n name            Boolean\n typeClassName   org.dmd.dmc.types.DmcTypeBoolean\n nullReturnValue false\n description     Provides support for Boolean values. This type makes use of the\n                 nullReturnValue flag so that, even if there is no\n                 value for an attribute of this type, a value of false will\n                 be returned.\n </pre>\n <p/>\n The next most common form of <code> TypeDefinition </code> adds the <code> primitiveType </code>\n attribute. This is required for code generation so that we can import the appropriate type for\n use in the various getter/setter methods. An example would be the <code> Date </code> type.\n <pre>\n TypeDefinition\n name           Date\n typeClassName  org.dmd.dmc.types.DmcTypeDate\n primitiveType  java.util.Date\n description    Provides support for Date values.\n </pre>\n Another common form of <code>TypeDefinition</code> is the definition of a name type. Object\n naming is a fundamental aspect of DMOs, with all object names being based on the <code>DmcObjectName</code>.\n Flagging a type as being a name type also implies the definition of a designated naming attribute\n associated with the type. This mechanism allows for the transport of names that are self\n describing in terms of their implementation type. This feature supports the <code>NameContainer</code>\n type that allows any name to be transported in things like dark-matter protocol <code>GetRequest</code>.\n An example of a naming type would be:\n <pre>\n TypeDefinition\n name           CamelCaseName\n typeClassName  org.dmd.dmc.types.DmcTypeCamelCaseName\n primitiveType  org.dmd.dmc.types.CamelCaseName\n isNameType     true\n description    The CamelCaseName is a string based name that must start with\n                an alpha character which is followed by a mix of alphanumerics.\n </pre>\n And its associated designated naming attribute would be:\n <pre>\n AttributeDefinition\n name                     camelCaseName\n dmdID                    116\n type                     CamelCaseName\n designatedNameAttribute  true\n description              The camelCaseName attribute is used to store a single camelCase\n                          format name for something. The name starts with a single letter\n                          and can be followed by a mix of letters and numbers. No spaces or \n                          other characters are allowed.\n </pre>\n The last form of type definition is one that includes some additional information to provide\n a convenient, alternate interface for the generation of member functions associated with\n a container type; this concept is pretty much limited to the meta-schema, so it is unlikely\n that non-contributors to dark-matter will make use of this concept. However, here is an example:\n <pre>\n TypeDefinition\n name           NameContainer\n typeClassName  org.dmd.dmc.types.DmcTypeNameContainer\n primitiveType  org.dmd.dmc.types.NameContainer\n altType        DmcObjectName\n altTypeImport  org.dmd.dmc.DmcObjectName\n description    The NameContainer type allows for the storage of object names of different types...\n </pre>");
         _TypeDefinitionOBJ.setDmdID("4");
         _TypeDefinitionOBJ.setDmoImport("org.dmd.dms.generated.dmo.TypeDefinitionDMO");
         _TypeDefinitionOBJ.setFile("metaSchema.dms");
         _TypeDefinitionOBJ.setIsNamedBy("name");
         _TypeDefinitionOBJ.setJavaClass("org.dmd.dms.TypeDefinition");
-        _TypeDefinitionOBJ.setLineNumber("1997");
+        _TypeDefinitionOBJ.setLineNumber("1998");
         _TypeDefinitionOBJ.addMay("description");
         _TypeDefinitionOBJ.addMay("nullReturnValue");
         _TypeDefinitionOBJ.addMay("wrapperClassName");
@@ -443,7 +443,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ComplexTypeDefinitionOBJ.setFile("metaSchema.dms");
         _ComplexTypeDefinitionOBJ.setIsNamedBy("name");
         _ComplexTypeDefinitionOBJ.setJavaClass("org.dmd.dms.ComplexTypeDefinition");
-        _ComplexTypeDefinitionOBJ.setLineNumber("2036");
+        _ComplexTypeDefinitionOBJ.setLineNumber("2037");
         _ComplexTypeDefinitionOBJ.addMay("fieldSeparator");
         _ComplexTypeDefinitionOBJ.addMay("extendedClass");
         _ComplexTypeDefinitionOBJ.addMay("description");
@@ -464,7 +464,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ExtendedReferenceTypeDefinitionOBJ.setFile("metaSchema.dms");
         _ExtendedReferenceTypeDefinitionOBJ.setIsNamedBy("name");
         _ExtendedReferenceTypeDefinitionOBJ.setJavaClass("org.dmd.dms.ExtendedReferenceTypeDefinition");
-        _ExtendedReferenceTypeDefinitionOBJ.setLineNumber("2052");
+        _ExtendedReferenceTypeDefinitionOBJ.setLineNumber("2053");
         _ExtendedReferenceTypeDefinitionOBJ.addMust("name");
         _ExtendedReferenceTypeDefinitionOBJ.addMust("extendedReferenceClass");
         _ExtendedReferenceTypeDefinitionOBJ.setName("ExtendedReferenceTypeDefinition");
@@ -482,7 +482,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _AttributeDefinitionOBJ.setFile("metaSchema.dms");
         _AttributeDefinitionOBJ.setIsNamedBy("name");
         _AttributeDefinitionOBJ.setJavaClass("org.dmd.dms.AttributeDefinition");
-        _AttributeDefinitionOBJ.setLineNumber("2081");
+        _AttributeDefinitionOBJ.setLineNumber("2082");
         _AttributeDefinitionOBJ.addMay("description");
         _AttributeDefinitionOBJ.addMay("valueType");
         _AttributeDefinitionOBJ.addMay("nullReturnValue");
@@ -515,7 +515,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _SliceDefinitionOBJ.setFile("metaSchema.dms");
         _SliceDefinitionOBJ.setIsNamedBy("name");
         _SliceDefinitionOBJ.setJavaClass("org.dmd.dms.SliceDefinition");
-        _SliceDefinitionOBJ.setLineNumber("2097");
+        _SliceDefinitionOBJ.setLineNumber("2098");
         _SliceDefinitionOBJ.addMay("description");
         _SliceDefinitionOBJ.addMust("name");
         _SliceDefinitionOBJ.addMust("selectAttribute");
@@ -534,7 +534,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ActionDefinitionOBJ.setFile("metaSchema.dms");
         _ActionDefinitionOBJ.setIsNamedBy("name");
         _ActionDefinitionOBJ.setJavaClass("org.dmd.dms.ActionDefinition");
-        _ActionDefinitionOBJ.setLineNumber("2154");
+        _ActionDefinitionOBJ.setLineNumber("2155");
         _ActionDefinitionOBJ.addMay("description");
         _ActionDefinitionOBJ.addMay("mustParm");
         _ActionDefinitionOBJ.addMay("mayParm");
@@ -561,7 +561,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _SchemaDefinitionOBJ.setFile("metaSchema.dms");
         _SchemaDefinitionOBJ.setIsNamedBy("name");
         _SchemaDefinitionOBJ.setJavaClass("org.dmd.dms.SchemaDefinition");
-        _SchemaDefinitionOBJ.setLineNumber("2198");
+        _SchemaDefinitionOBJ.setLineNumber("2199");
         _SchemaDefinitionOBJ.addMay("dependsOn");
         _SchemaDefinitionOBJ.addMay("defFiles");
         _SchemaDefinitionOBJ.addMay("generatedFileHeader");
@@ -602,7 +602,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleCategoryOBJ.setFile("metaSchema.dms");
         _RuleCategoryOBJ.setIsNamedBy("name");
         _RuleCategoryOBJ.setJavaClass("org.dmd.dms.RuleCategory");
-        _RuleCategoryOBJ.setLineNumber("2241");
+        _RuleCategoryOBJ.setLineNumber("2242");
         _RuleCategoryOBJ.addMay("ruleImport");
         _RuleCategoryOBJ.addMay("attributeInfoFromParam");
         _RuleCategoryOBJ.addMust("name");
@@ -627,7 +627,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleDefinitionOBJ.setFile("metaSchema.dms");
         _RuleDefinitionOBJ.setIsNamedBy("name");
         _RuleDefinitionOBJ.setJavaClass("org.dmd.dms.RuleDefinition");
-        _RuleDefinitionOBJ.setLineNumber("2274");
+        _RuleDefinitionOBJ.setLineNumber("2275");
         _RuleDefinitionOBJ.addMay("must");
         _RuleDefinitionOBJ.addMay("may");
         _RuleDefinitionOBJ.addMay("isExtensible");
@@ -650,7 +650,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RuleDataOBJ.setFile("metaSchema.dms");
         _RuleDataOBJ.setIsNamedBy("ruleName");
         _RuleDataOBJ.setJavaClass("org.dmd.dms.RuleData");
-        _RuleDataOBJ.setLineNumber("2294");
+        _RuleDataOBJ.setLineNumber("2295");
         _RuleDataOBJ.addMay("description");
         _RuleDataOBJ.addMay("definedIn");
         _RuleDataOBJ.addMay("file");
@@ -674,7 +674,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DependencyOBJ.setFile("metaSchema.dms");
         _DependencyOBJ.setIsNamedBy("name");
         _DependencyOBJ.setJavaClass("org.dmd.dms.Dependency");
-        _DependencyOBJ.setLineNumber("2325");
+        _DependencyOBJ.setLineNumber("2326");
         _DependencyOBJ.addMay("dependencies");
         _DependencyOBJ.addMay("instantiation");
         _DependencyOBJ.addMust("name");
@@ -694,7 +694,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _DependencyImplementationOBJ.setFile("metaSchema.dms");
         _DependencyImplementationOBJ.setIsNamedBy("name");
         _DependencyImplementationOBJ.setJavaClass("org.dmd.dms.DependencyImplementation");
-        _DependencyImplementationOBJ.setLineNumber("2344");
+        _DependencyImplementationOBJ.setLineNumber("2345");
         _DependencyImplementationOBJ.addMay("description");
         _DependencyImplementationOBJ.addMust("name");
         _DependencyImplementationOBJ.addMust("dependency");
@@ -714,7 +714,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _RunContextOBJ.setFile("metaSchema.dms");
         _RunContextOBJ.setIsNamedBy("name");
         _RunContextOBJ.setJavaClass("org.dmd.dms.Dependency");
-        _RunContextOBJ.setLineNumber("2358");
+        _RunContextOBJ.setLineNumber("2359");
         _RunContextOBJ.addMay("description");
         _RunContextOBJ.addMust("name");
         _RunContextOBJ.addMust("dependencies");
@@ -814,7 +814,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _applyToAttributeOBJ.setDescription("Indicates the attribute to which an ATTRIBUTE type rule is applied.");
         _applyToAttributeOBJ.setDmdID("157");
         _applyToAttributeOBJ.setFile("metaSchema.dms");
-        _applyToAttributeOBJ.setLineNumber("1750");
+        _applyToAttributeOBJ.setLineNumber("1751");
         _applyToAttributeOBJ.setName("applyToAttribute");
         _applyToAttributeOBJ.setType("AttributeDefinition");
         _applyToAttribute.setDefinedIn(this);
@@ -825,7 +825,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _applyToClassOBJ.setDescription("The class to which a rule should be applied.");
         _applyToClassOBJ.setDmdID("154");
         _applyToClassOBJ.setFile("metaSchema.dms");
-        _applyToClassOBJ.setLineNumber("1729");
+        _applyToClassOBJ.setLineNumber("1730");
         _applyToClassOBJ.setName("applyToClass");
         _applyToClassOBJ.setType("ClassDefinition");
         _applyToClass.setDefinedIn(this);
@@ -861,7 +861,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _attributeInfoFromParamOBJ.setDescription("Indicates how the DmcAttributeInfo should be extracted from one of the ruleParam values\n associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport\n values as appropriate.");
         _attributeInfoFromParamOBJ.setDmdID("155");
         _attributeInfoFromParamOBJ.setFile("metaSchema.dms");
-        _attributeInfoFromParamOBJ.setLineNumber("1737");
+        _attributeInfoFromParamOBJ.setLineNumber("1738");
         _attributeInfoFromParamOBJ.setName("attributeInfoFromParam");
         _attributeInfoFromParamOBJ.setType("String");
         _attributeInfoFromParam.setDefinedIn(this);
@@ -931,7 +931,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _classInfoFromParamOBJ.setDescription("Indicates how the DmcClassInfo should be extracted from one of the ruleParam values\n associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport\n values as appropriate.");
         _classInfoFromParamOBJ.setDmdID("151");
         _classInfoFromParamOBJ.setFile("metaSchema.dms");
-        _classInfoFromParamOBJ.setLineNumber("1706");
+        _classInfoFromParamOBJ.setLineNumber("1707");
         _classInfoFromParamOBJ.setName("classInfoFromParam");
         _classInfoFromParamOBJ.setType("String");
         _classInfoFromParam.setDefinedIn(this);
@@ -1012,7 +1012,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _dependenciesOBJ.setDescription("A set of references to Dependencies.");
         _dependenciesOBJ.setDmdID("147");
         _dependenciesOBJ.setFile("metaSchema.dms");
-        _dependenciesOBJ.setLineNumber("1680");
+        _dependenciesOBJ.setLineNumber("1681");
         _dependenciesOBJ.setName("dependencies");
         _dependenciesOBJ.setType("Dependency");
         _dependenciesOBJ.setValueType("MULTI");
@@ -1024,7 +1024,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _dependencyOBJ.setDescription("A reference to a single Dependency.");
         _dependencyOBJ.setDmdID("146");
         _dependencyOBJ.setFile("metaSchema.dms");
-        _dependencyOBJ.setLineNumber("1673");
+        _dependencyOBJ.setLineNumber("1674");
         _dependencyOBJ.setName("dependency");
         _dependencyOBJ.setType("Dependency");
         _dependency.setDefinedIn(this);
@@ -1622,7 +1622,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _instantiationOBJ.setDescription("The instantiation attribute specifies how something is to be instantiated.");
         _instantiationOBJ.setDmdID("148");
         _instantiationOBJ.setFile("metaSchema.dms");
-        _instantiationOBJ.setLineNumber("1686");
+        _instantiationOBJ.setLineNumber("1687");
         _instantiationOBJ.setName("instantiation");
         _instantiationOBJ.setType("String");
         _instantiation.setDefinedIn(this);
@@ -2030,7 +2030,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _objectClassOBJ.setDescription("Used to indicate the classes that an object instance supports.");
         _objectClassOBJ.setDmdID("1");
         _objectClassOBJ.setFile("metaSchema.dms");
-        _objectClassOBJ.setLineNumber("1759");
+        _objectClassOBJ.setLineNumber("1760");
         _objectClassOBJ.setName("objectClass");
         _objectClassOBJ.setType("ClassDefinition");
         _objectClassOBJ.setValueType("MULTI");
@@ -2133,7 +2133,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ruleDataListOBJ.setDescription("The RuleData defined in a schema.");
         _ruleDataListOBJ.setDmdID("156");
         _ruleDataListOBJ.setFile("metaSchema.dms");
-        _ruleDataListOBJ.setLineNumber("1744");
+        _ruleDataListOBJ.setLineNumber("1745");
         _ruleDataListOBJ.setName("ruleDataList");
         _ruleDataListOBJ.setType("RuleData");
         _ruleDataListOBJ.setValueType("MULTI");
@@ -2145,7 +2145,8 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ruleDefinitionOBJ.setDescription("The RuleDefinition that resulted in the creation of an\n internally generated ClassDefinition.");
         _ruleDefinitionOBJ.setDmdID("145");
         _ruleDefinitionOBJ.setFile("metaSchema.dms");
-        _ruleDefinitionOBJ.setLineNumber("1667");
+        _ruleDefinitionOBJ.setInternalUse("true");
+        _ruleDefinitionOBJ.setLineNumber("1668");
         _ruleDefinitionOBJ.setName("ruleDefinition");
         _ruleDefinitionOBJ.setType("RuleDefinition");
         _ruleDefinition.setDefinedIn(this);
@@ -2168,7 +2169,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ruleImportOBJ.setDescription("An import required for generation of the rule collection associated with\n a RuleCategory.");
         _ruleImportOBJ.setDmdID("152");
         _ruleImportOBJ.setFile("metaSchema.dms");
-        _ruleImportOBJ.setLineNumber("1714");
+        _ruleImportOBJ.setLineNumber("1715");
         _ruleImportOBJ.setName("ruleImport");
         _ruleImportOBJ.setType("String");
         _ruleImportOBJ.setValueType("MULTI");
@@ -2181,7 +2182,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _ruleNameOBJ.setDesignatedNameAttribute("true");
         _ruleNameOBJ.setDmdID("153");
         _ruleNameOBJ.setFile("metaSchema.dms");
-        _ruleNameOBJ.setLineNumber("1723");
+        _ruleNameOBJ.setLineNumber("1724");
         _ruleNameOBJ.setName("ruleName");
         _ruleNameOBJ.setType("RuleName");
         _ruleName.setDefinedIn(this);
@@ -2226,7 +2227,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _runContextOBJ.setDescription("A reference to a RunContext.");
         _runContextOBJ.setDmdID("149");
         _runContextOBJ.setFile("metaSchema.dms");
-        _runContextOBJ.setLineNumber("1692");
+        _runContextOBJ.setLineNumber("1693");
         _runContextOBJ.setName("runContext");
         _runContextOBJ.setType("RunContext");
         _runContext.setDefinedIn(this);
@@ -2376,7 +2377,7 @@ abstract public class MetaSchemaAG extends SchemaDefinition {
         _useInterfaceOBJ.setDescription("The fully qualified name of a Java interface or base class that specifies a dependency.");
         _useInterfaceOBJ.setDmdID("150");
         _useInterfaceOBJ.setFile("metaSchema.dms");
-        _useInterfaceOBJ.setLineNumber("1698");
+        _useInterfaceOBJ.setLineNumber("1699");
         _useInterfaceOBJ.setName("useInterface");
         _useInterfaceOBJ.setType("String");
         _useInterface.setDefinedIn(this);

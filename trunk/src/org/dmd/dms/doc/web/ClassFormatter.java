@@ -45,7 +45,7 @@ public class ClassFormatter {
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td>Description</td>\n");
 			
-			out.write("      <td colspan=\"2\">" + cd.getDescriptionWithNewlines() + "</td>\n");
+			out.write("      <td colspan=\"2\">" + Converter.convert(cd.getDescriptionWithNewlines()) + "</td>\n");
 			out.write("    </tr>\n\n");
 		}
 	}
@@ -188,7 +188,7 @@ public class ClassFormatter {
 		sb.append("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
 		sb.append("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
 		if (ad.getDescription() != null)
-			sb.append("      <td> " + ad.getDescription() + " </td>\n");
+			sb.append("      <td> " + Converter.convert(ad.getDescription()) + " </td>\n");
 		sb.append("    </tr>\n\n");		
 	}
 	
@@ -200,7 +200,7 @@ public class ClassFormatter {
 		sb.append("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
 		sb.append("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
 		if (ad.getDescription() != null)
-			sb.append("      <td> " + ad.getDescription() + " </td>\n");
+			sb.append("      <td> " + Converter.convert(ad.getDescription()) + " </td>\n");
 		sb.append("    </tr>\n\n");		
 	}
 	

@@ -816,14 +816,6 @@
 
     <tr>
       <td class="spacer"> </td>
-      <td> <a href="meta.html#ruleDefinition">ruleDefinition</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleDefinition">RuleDefinition</a> </td>
-      <td> The RuleDefinition that resulted in the creation of an
- internally generated ClassDefinition. </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
       <td> <a href="meta.html#subpackage">subpackage</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The subpackage beneath extended where generated code will be written. This
@@ -1031,6 +1023,14 @@
       <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
       <td> Indicates the line number of the file from which a definition was loaded. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#ruleDefinition">ruleDefinition</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleDefinition">RuleDefinition</a> </td>
+      <td> The RuleDefinition that resulted in the creation of an
+ internally generated ClassDefinition. </td>
     </tr>
 
   </table>
@@ -2695,11 +2695,11 @@
  as the basis for attribute values. The name of the type definition should be the same as the
  actual Java class that is used to store the value of an attribute e.g. the name of the type
  used to store strings is String. The <code> typeClassName </code> is the fully qualified name of the class
- derived from DmcAttribute that stores this type of value; they are always, by convention,
- named DmcTypeXXX.
+ derived from <code>DmcAttribute</code>that stores this type of value; they are always, by convention,
+ named <code>DmcTypeXXX<code>.
  <p/>
- <code> TypeDefinitions </code> are automatically generated internally for <code> ClassDefinitions </code> and
- <code> EnumDefinitions </code> so that these objects can be referred to via the type attribute of <code> AttributeDefinitions</code>.
+ <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code> and
+ <code> EnumDefinitions </code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>.
  These definitions are marked as <code> internallyGenerated </code>.
  <p/>
  The simplest <code> TypeDefinition </code> would look something like:
