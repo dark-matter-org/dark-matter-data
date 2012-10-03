@@ -32,14 +32,15 @@ import org.dmd.dms.*;
  * of the type definition should be the same as the\n actual Java class that
  * is used to store the value of an attribute e.g. the name of the type\n
  * used to store strings is String. The <code> typeClassName </code> is the
- * fully qualified name of the class\n derived from DmcAttribute that stores
- * this type of value; they are always, by convention,\n named DmcTypeXXX.\n
- * <p/>\n <code> TypeDefinitions </code> are automatically generated
- * internally for <code> ClassDefinitions </code> and\n <code>
- * EnumDefinitions </code> so that these objects can be referred to via the
- * type attribute of <code> AttributeDefinitions</code>.\n These definitions
- * are marked as <code> internallyGenerated </code>.\n <p/>\n The simplest
- * <code> TypeDefinition </code> would look something like:\n <pre>\n
+ * fully qualified name of the class\n derived from
+ * <code>DmcAttribute</code>that stores this type of value; they are always,
+ * by convention,\n named <code>DmcTypeXXX<code>.\n <p/>\n <code>
+ * TypeDefinitions </code> are automatically generated internally for
+ * <code>ClassDefinitions</code> and\n <code> EnumDefinitions </code> so that
+ * these objects can be referred to via the <code>type</code> attribute of
+ * <code> AttributeDefinitions</code>.\n These definitions are marked as
+ * <code> internallyGenerated </code>.\n <p/>\n The simplest <code>
+ * TypeDefinition </code> would look something like:\n <pre>\n
  * TypeDefinition\n name           String\n typeClassName 
  * org.dmd.dmc.types.DmcTypeString\n description    Provides support for
  * String values.\n </pre>\n This form would be used for attribute types

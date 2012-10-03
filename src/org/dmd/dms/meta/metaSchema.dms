@@ -1913,11 +1913,11 @@ description     The <code> TypeDefinition </code> is used to define the types of
  as the basis for attribute values. The name of the type definition should be the same as the
  actual Java class that is used to store the value of an attribute e.g. the name of the type
  used to store strings is String. The <code> typeClassName </code> is the fully qualified name of the class
- derived from DmcAttribute that stores this type of value; they are always, by convention,
- named DmcTypeXXX.
+ derived from <code>DmcAttribute</code>that stores this type of value; they are always, by convention,
+ named <code>DmcTypeXXX<code>.
  <p/>
- <code> TypeDefinitions </code> are automatically generated internally for <code> ClassDefinitions </code> and
- <code> EnumDefinitions </code> so that these objects can be referred to via the type attribute of <code> AttributeDefinitions</code>.
+ <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code> and
+ <code> EnumDefinitions </code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>.
  These definitions are marked as <code> internallyGenerated </code>.
  <p/>
  The simplest <code> TypeDefinition </code> would look something like:
