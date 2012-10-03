@@ -4,7 +4,7 @@
 
 = Attribute Definitions =
 
-The `AttributeDefinition` allows you define named attributes that will be included in [DMSClassDefinition Class Definitions], the next step in your schema specification. By defining the attributes separately, you can reuse attributes in many objects.
+The `AttributeDefinition` allows you to define named attributes that will be included in [DMSClassDefinition Class Definitions], the next step in your schema specification. By defining the attributes separately, you can reuse attributes in many objects.
 
 {{{
 AttributeDefinition
