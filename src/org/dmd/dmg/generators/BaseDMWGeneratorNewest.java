@@ -637,7 +637,7 @@ abstract public class BaseDMWGeneratorNewest implements DarkMatterGeneratorIF {
 	 * required for the DMO.
 	 * @param cd        The class definition of the object.
 	 * @param allAttr   An array that will be populated with all attribute definitions of the class.
-	 * @param sb        The buffer where the import statements are accumulated.
+	 * @param imports   The import manager where we accumulate required imports.
 	 */
 	public void getAttributesAndImports(ClassDefinition cd, ArrayList<AttributeDefinition> allAttr, ImportManager imports){
 //		IntegerVar		longestImport	= new IntegerVar();

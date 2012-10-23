@@ -19,10 +19,10 @@ public class Converter {
 	static boolean wiki = false;
 	
 	/**
-	 * 
-	 * @param mode if true, the conversion is performed, otherwise the string is left as is.
+	 * Depending on the setting of the WIKI flag flag, we replace preformat and code tags with
+	 * the wiki conventions.
 	 * @param in
-	 * @return
+	 * @return the string converted for use in either HTML or WIKI.
 	 */
 	static public String convert(String in){
 		String rc = in;
