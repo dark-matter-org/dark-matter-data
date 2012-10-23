@@ -2,11 +2,9 @@ package org.dmd.dms.doc.web;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.apache.commons.io.FileUtils;
 import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.SchemaDefinition;

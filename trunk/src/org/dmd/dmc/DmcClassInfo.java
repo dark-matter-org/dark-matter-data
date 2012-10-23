@@ -77,7 +77,7 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 	 * or when auxiliary classes are involved. And, of course, auxiliary classes can't specify
 	 * mandatory attributes.
 	 * @param ai
-	 * @return
+	 * @return true if the attribute is optional.
 	 */
 	public boolean isOptional(DmcAttributeInfo ai){
 		DmcAttributeInfoRef existing = byID.get(ai.id);

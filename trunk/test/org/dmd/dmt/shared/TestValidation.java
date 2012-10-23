@@ -1,11 +1,8 @@
 package org.dmd.dmt.shared;
 
-import static org.junit.Assert.*;
-
 import java.io.IOException;
 
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmp.server.generated.DmpSchemaAG;
 import org.dmd.dmt.server.generated.DmtSchemaAG;
 import org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO;
