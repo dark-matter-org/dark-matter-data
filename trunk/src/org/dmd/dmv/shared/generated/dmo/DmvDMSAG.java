@@ -17,12 +17,14 @@ import org.dmd.dmv.shared.extended.rulesdmo.CheckAttributesBasedOnValueRule;    
 import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                                    // To support instantiations of InitRule - (DmoCompactSchemaFormatter.java:713)
 import org.dmd.dmv.shared.extended.rulesdmo.IntegerRangeRule;                            // To support instantiations of IntegerRangeRule - (DmoCompactSchemaFormatter.java:713)
 import org.dmd.dmv.shared.extended.rulesdmo.OneOfTheseAttributesRequiredRule;            // To support instantiations of OneOfTheseAttributesRequiredRule - (DmoCompactSchemaFormatter.java:713)
+import org.dmd.dmv.shared.extended.rulesdmo.PatternMatchRule;                            // To support instantiations of PatternMatchRule - (DmoCompactSchemaFormatter.java:713)
 import org.dmd.dmv.shared.extended.rulesdmo.RelatedNumbersRule;                          // To support instantiations of RelatedNumbersRule - (DmoCompactSchemaFormatter.java:713)
 import org.dmd.dmv.shared.extended.rulesdmo.UCOAllowedAttributesRule;                    // To support instantiations of UCOAllowedAttributesRule - (DmoCompactSchemaFormatter.java:713)
 import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;                    // To instantiate AllowedAttributesRuleData rule data - (DmoCompactSchemaFormatter.java:729)
 import org.dmd.dmv.shared.generated.dmo.AttributeTypeRuleDataDMO;                        // To instantiate AttributeTypeRuleData rule data - (DmoCompactSchemaFormatter.java:729)
 import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO;          // To instantiate CheckAttributesBasedOnValueRuleData rule data - (DmoCompactSchemaFormatter.java:729)
 import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;         // To instantiate OneOfTheseAttributesRequiredRuleData rule data - (DmoCompactSchemaFormatter.java:729)
+import org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO;                         // To instantiate PatternMatchRuleData rule data - (DmoCompactSchemaFormatter.java:729)
 
 
 
@@ -50,6 +52,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __irrMaximum = new DmcAttributeInfo("irrMaximum", -479998, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __irrMinimum = new DmcAttributeInfo("irrMinimum", -479999, "Integer", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __lhs = new DmcAttributeInfo("lhs", -479996, "AttributeDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __matchesPattern = new DmcAttributeInfo("matchesPattern", -479987, "String", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __numericRelation = new DmcAttributeInfo("numericRelation", -479997, "NumericRelationEnum", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __onePossibility = new DmcAttributeInfo("onePossibility", -479989, "AttributeDefinition", ValueTypeEnum.MULTI, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __rhs = new DmcAttributeInfo("rhs", -479995, "AttributeDefinition", ValueTypeEnum.SINGLE, DataTypeEnum.PERSISTENT);
@@ -59,11 +62,13 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __InitRuleData = new DmcClassInfo("InitRuleData","org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO", -959998, ClassTypeEnum.EXTENSIBLE, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
     public final static DmcClassInfo __IntegerRangeRuleData = new DmcClassInfo("IntegerRangeRuleData","org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO", -959997, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
     public final static DmcClassInfo __OneOfTheseAttributesRequiredRuleData = new DmcClassInfo("OneOfTheseAttributesRequiredRuleData","org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO", -959992, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
+    public final static DmcClassInfo __PatternMatchRuleData = new DmcClassInfo("PatternMatchRuleData","org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO", -959991, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
     public final static DmcClassInfo __RelatedNumbersRuleData = new DmcClassInfo("RelatedNumbersRuleData","org.dmd.dmv.shared.generated.dmo.RelatedNumbersRuleDataDMO", -959994, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
     public final static DmcClassInfo __UCOAllowedAttributesRuleData = new DmcClassInfo("UCOAllowedAttributesRuleData","org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO", -959996, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,MetaDMSAG.__RuleData,null);
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:163)
     public final static AllowedAttributesRule __dmvAllowedAttributes;
+    public final static PatternMatchRule __dmvEnumDefinitionNameCheck;
     public final static OneOfTheseAttributesRequiredRule __dmvIncludeOrExclude;
     public final static AttributeTypeRule __dmvLhs;
     public final static CheckAttributesBasedOnValueRule __dmvNoMustInExtensible;
@@ -103,6 +108,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__irrMaximum.id,__irrMaximum);
         _SmAp.put(__irrMinimum.id,__irrMinimum);
         _SmAp.put(__lhs.id,__lhs);
+        _SmAp.put(__matchesPattern.id,__matchesPattern);
         _SmAp.put(__numericRelation.id,__numericRelation);
         _SmAp.put(__onePossibility.id,__onePossibility);
         _SmAp.put(__rhs.id,__rhs);
@@ -112,6 +118,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__InitRuleData.id,__InitRuleData);
         _CmAp.put(__IntegerRangeRuleData.id,__IntegerRangeRuleData);
         _CmAp.put(__OneOfTheseAttributesRequiredRuleData.id,__OneOfTheseAttributesRequiredRuleData);
+        _CmAp.put(__PatternMatchRuleData.id,__PatternMatchRuleData);
         _CmAp.put(__RelatedNumbersRuleData.id,__RelatedNumbersRuleData);
         _CmAp.put(__UCOAllowedAttributesRuleData.id,__UCOAllowedAttributesRuleData);
 
@@ -161,6 +168,12 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         __OneOfTheseAttributesRequiredRuleData.addMay(MetaDMSAG.__description);
         __OneOfTheseAttributesRequiredRuleData.addMay(__andOnlyOne);
 
+        __PatternMatchRuleData.addMust(MetaDMSAG.__ruleName);
+        __PatternMatchRuleData.addMust(MetaDMSAG.__ruleTitle);
+        __PatternMatchRuleData.addMust(MetaDMSAG.__applyToAttribute);
+        __PatternMatchRuleData.addMust(__matchesPattern);
+        __PatternMatchRuleData.addMay(MetaDMSAG.__description);
+
         // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:245)
         // These instantiations are merely meant to ensure that you've overloaded
         // the base rule implementations
@@ -180,6 +193,8 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         CheckAttributesBasedOnValueRule CheckAttributesBasedOnValueRuleInstance = new CheckAttributesBasedOnValueRule(new CheckAttributesBasedOnValueRuleDataDMO());
         @SuppressWarnings("unused")
         OneOfTheseAttributesRequiredRule OneOfTheseAttributesRequiredRuleInstance = new OneOfTheseAttributesRequiredRule(new OneOfTheseAttributesRequiredRuleDataDMO());
+        @SuppressWarnings("unused")
+        PatternMatchRule PatternMatchRuleInstance = new PatternMatchRule(new PatternMatchRuleDataDMO());
 
         // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:258)
         try{
@@ -195,11 +210,26 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
             _RmAp.add(__dmvAllowedAttributes);
 
+            PatternMatchRuleDataDMO _dmvEnumDefinitionNameCheckData = new PatternMatchRuleDataDMO();
+            _dmvEnumDefinitionNameCheckData.setApplyToAttribute("name");
+            _dmvEnumDefinitionNameCheckData.setApplyToClass("EnumDefinition");
+            _dmvEnumDefinitionNameCheckData.setDefinedIn("dmv");
+            _dmvEnumDefinitionNameCheckData.setDescription("This is really just a convention, but the generation of\n autogenerated static types depends on knowing if a type is an enum so that\n the enum can be imported in the static implementation. The dumpSTATICType()\n method in GenUtility checks to see if the type ends with Enum and adds\n the appropriate import if that's the case.");
+            _dmvEnumDefinitionNameCheckData.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvEnumDefinitionNameCheckData.setLineNumber("222");
+            _dmvEnumDefinitionNameCheckData.setMatchesPattern("^.*Enum");
+            _dmvEnumDefinitionNameCheckData.setRuleName("dmvEnumDefinitionNameCheck");
+            _dmvEnumDefinitionNameCheckData.setRuleTitle("An EnumDefinition's name must end with Enum");
+
+            __dmvEnumDefinitionNameCheck = new PatternMatchRule(_dmvEnumDefinitionNameCheckData);
+
+            _RmAp.add(__dmvEnumDefinitionNameCheck);
+
             OneOfTheseAttributesRequiredRuleDataDMO _dmvIncludeOrExcludeData = new OneOfTheseAttributesRequiredRuleDataDMO();
             _dmvIncludeOrExcludeData     .setApplyToClass("CheckAttributesBasedOnValueRuleData");
             _dmvIncludeOrExcludeData     .setDefinedIn("dmv");
             _dmvIncludeOrExcludeData     .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _dmvIncludeOrExcludeData     .setLineNumber("191");
+            _dmvIncludeOrExcludeData     .setLineNumber("190");
             _dmvIncludeOrExcludeData     .addOnePossibility("excludeThisAttribute");
             _dmvIncludeOrExcludeData     .addOnePossibility("includeThisAttribute");
             _dmvIncludeOrExcludeData     .setRuleName("dmvIncludeOrExclude");

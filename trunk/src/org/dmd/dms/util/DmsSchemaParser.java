@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Stack;
 
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -36,9 +37,10 @@ import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
 import org.dmd.dms.generated.dmo.DmsDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dmv.shared.DmvDynamicRuleManager;
-import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;
+import org.dmd.dmv.shared.DmvRuleManager;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.dmw.DmwWrapper;
+import org.dmd.util.ConsoleRuleTracer;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
@@ -105,6 +107,9 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 
     // Our DMO factory that we use to load rule instances
     DmoObjectFactory			dmofactory;
+    
+    // The rule manager for our basic rules, defined in DMV
+    DmvRuleManager				ruleManager;
     
 //    /**
 //     * Creates a new Object Instance Format parser. As new BasicObjects are created,
@@ -186,6 +191,11 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         dmwfactory		= new DmwObjectFactory(allSchema);
     	
         dmofactory		= new DmoObjectFactory(allSchema);
+        
+        // Note: the rule manager automatically loads the meta schema and DMV rules.
+        ruleManager		= new DmvRuleManager();
+        DmcOmni.instance().ruleTracer(new ConsoleRuleTracer());
+        DmcOmni.instance().ruleTracing(true);
     }
 
     /**
@@ -350,7 +360,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
     			newDef.setFile(srcFile);
     			newDef.setLineNumber(lineNumber);
 				
-				DmvDMSAG.__dmvAllowedAttributes.execute(newDef.getDMO());
+//				DmvDMSAG.__dmvAllowedAttributes.execute(newDef.getDMO());
 				
 				// NOTE: We used to be able to resolve objects as we went, but, because
 				// we now generate the TypeDefinitions for object references internally,
@@ -359,6 +369,10 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 				// in a second pass.
 				
 				// TODO: Apply rules to the object
+    			DebugInfo.debug("APPLYING RULES");
+    			
+				ruleManager.executeAttributeValidation(newDef.getDmcObject());
+				ruleManager.executeObjectValidation(newDef.getDmcObject());
 				
 			} catch (ResultException e) {
 				e.result.lastResult().fileName(infile);

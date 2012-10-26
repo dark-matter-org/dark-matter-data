@@ -85,3 +85,10 @@ dmdID			12
 type        	Boolean
 description		The andOnlyOne attribute indicates that only one of a set of possibilities is
  allowed.
+ 
+AttributeDefinition
+name			matchesPattern
+dmdID			13
+type			String
+description		The matchesPattern attribute indicates a regular expression that conforms
+ to the 
