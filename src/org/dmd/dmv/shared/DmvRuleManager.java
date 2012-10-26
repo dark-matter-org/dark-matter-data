@@ -7,6 +7,7 @@ import java.util.TreeMap;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcCompactSchemaIF;
 import org.dmd.dmc.DmcObject;
+import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.rules.DmcRuleManager;
 import org.dmd.dmc.rules.RuleCollection;
@@ -68,6 +69,10 @@ public class DmvRuleManager extends DmcRuleManager {
 		ruleCollections.add(ucoObjectvalidators);
 				
 		loadRules(MetaDMSAG.instance());
+		
+		// We have to load the DmcOmni with the DMV schema before we attempt
+		// to load the rules because we depend on it to find DmcClassInfo
+		DmcOmni.instance().addCompactSchema(DmvDMSAG.instance());
 		
 		loadRules(DmvDMSAG.instance());
 	}

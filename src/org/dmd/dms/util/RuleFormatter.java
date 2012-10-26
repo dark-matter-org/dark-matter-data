@@ -675,7 +675,7 @@ public class RuleFormatter {
 				if (ex == null)
 					ex = new ResultException();
 				ex.addError("You must create a rule implementation class: " + rd.getRuleDefinitionImport());
-				ex.result.lastResult().moreMessages("It must extend " + genpackage + rd.getName() + "BaseImpl");
+				ex.result.lastResult().moreMessages("It must extend " + genpackage + "." + rd.getName() + "BaseImpl");
 			}
 		}
 		
