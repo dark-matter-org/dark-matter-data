@@ -308,6 +308,12 @@ field			String         name            The name of the parameter
 field           String         description     A description of the parameter
 description The RuleParam type is used to succintly describe a parameter
  to be supplied to a rule when it is executed.
+ 
+ComplexTypeDefinition
+name			GPBField
+field			GPBFieldTypeEnum	fieldType
+field			AttributeDefinition	attribute		The attribute to be stored in this field. The attribute type must specify the gpbFieldType .
+field			Integer				fieldTag		Unique field ID excluding values 19000 to 19999 which are reserved.
 
 ///////////////////////////////////////////////////////////////////////////////
 // Enumeration Definitions
@@ -467,6 +473,12 @@ enumValue		13 STRING 	Java String - C++ string. A string must always contain UTF
 enumValue		14 BYTES 	Java ByteString - C++ string. May contain any arbitrary sequence of bytes.
 description The GPBScalarTypeEnum indicates the various mechanisms for encoding attribute values
  using Google Protocol Buffers.
+
+EnumDefinition
+name GPBFieldTypeEnum
+enumValue		0 REQUIRED A required field.
+enumValue		1 OPTIONAL An optional field.
+enumValue		2 REPEATED A repeated field.
 
 ///////////////////////////////////////////////////////////////////////////////
 // RULE CATEGORIES
