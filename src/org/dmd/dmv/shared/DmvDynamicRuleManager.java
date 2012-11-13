@@ -24,7 +24,7 @@ import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.rulesdmo.AttributeValidationRuleCollection;
 import org.dmd.dms.generated.rulesdmo.ObjectValidationRuleCollection;
 import org.dmd.dms.util.DmoObjectFactory;
-import org.dmd.util.ConsoleRuleTracer;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The DmvDynamicRuleManager class is used to dynamically instantiate and initialize rules
@@ -127,8 +127,9 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 			for(RuleIF rule: allRules)
 				addThisRule(rule);
 			
-			DmcOmni.instance().ruleTracer(new ConsoleRuleTracer());
-			DmcOmni.instance().ruleTracing(true);
+			DebugInfo.debug("\n\n*** RULE TRACING DISABLED ***\n\n");
+//			DmcOmni.instance().ruleTracer(new ConsoleRuleTracer());
+//			DmcOmni.instance().ruleTracing(true);
 			
 			for(RuleDataDMO rule: allRuleData){
 				SourceInfo source = new SourceInfo(rule.getFile(), rule.getLineNumber()+"", rule);

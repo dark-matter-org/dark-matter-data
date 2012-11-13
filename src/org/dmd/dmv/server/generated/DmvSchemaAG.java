@@ -43,6 +43,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static ClassDefinition _RelatedNumbersRuleData;
     public static ClassDefinition _CheckAttributesBasedOnValueRuleData;
     public static ClassDefinition _OneOfTheseAttributesRequiredRuleData;
+    public static ClassDefinition _PatternMatchRuleData;
 
     public static AttributeDefinition _irrMinimum;
     public static AttributeDefinition _irrMaximum;
@@ -56,6 +57,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static AttributeDefinition _includeThisAttribute;
     public static AttributeDefinition _onePossibility;
     public static AttributeDefinition _andOnlyOne;
+    public static AttributeDefinition _matchesPattern;
 
 
 
@@ -69,6 +71,7 @@ public class DmvSchemaAG extends SchemaDefinition {
     public static RuleDefinition _RelatedNumbersRule;
     public static RuleDefinition _CheckAttributesBasedOnValueRule;
     public static RuleDefinition _OneOfTheseAttributesRequiredRule;
+    public static RuleDefinition _PatternMatchRule;
 
     static DmvSchemaAG instance;
 
@@ -265,7 +268,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OneOfTheseAttributesRequiredRuleDataOBJ.setInternallyGenerated("true");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setClassType("STRUCTURAL");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _OneOfTheseAttributesRequiredRuleDataOBJ.setLineNumber("184");
+            _OneOfTheseAttributesRequiredRuleDataOBJ.setLineNumber("183");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDescription("The OneOfTheseAttributesRequiredRule allows you to specify\n that one of the possible optional attributes specified must be present\n in the object being checked.\n <p/>\n If only one of the possibilities is allowed, you can specify the andOnlyOne\n flag and set it to true. In this case only one of the possibilities will be allowed.");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDerivedFrom("RuleData");
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.OneOfTheseAttributesRequiredRuleDataREF");
@@ -279,6 +282,29 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OneOfTheseAttributesRequiredRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.OneOfTheseAttributesRequiredRuleDataIterableDMW");
             _OneOfTheseAttributesRequiredRuleData.setDefinedIn(this);
             addClassDefList(_OneOfTheseAttributesRequiredRuleData);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
+            ClassDefinitionDMO _PatternMatchRuleDataOBJ = new ClassDefinitionDMO();
+            _PatternMatchRuleData = new ClassDefinition(_PatternMatchRuleDataOBJ,DmvDMSAG.__PatternMatchRuleData);
+            _PatternMatchRuleDataOBJ.setName("PatternMatchRuleData");
+            _PatternMatchRuleDataOBJ.setDmdID("-959991");
+            _PatternMatchRuleDataOBJ.setInternallyGenerated("true");
+            _PatternMatchRuleDataOBJ.setClassType("STRUCTURAL");
+            _PatternMatchRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _PatternMatchRuleDataOBJ.setLineNumber("211");
+            _PatternMatchRuleDataOBJ.setDescription("The PatternMatchRule allows you to validate that an attribute\n in an object conforms to a regex patern that you specify. If the pattern match\n fails, the ruleTitle is used as the error message, so use a clear rule title to\n indicate the intent of the pattern match. For instance the following rule is \n applied to the names of EnumDefinitions:\n <pre>\n PatternMatchRuleData\n ruleName			dmvEnumDefinitionNameCheck\n ruleTitle			An EnumDefinition's name must end with Enum\n matchesPattern		^.*Enum\n applyToAttribute	name\n applyToClass		EnumDefinition\n </pre>");
+            _PatternMatchRuleDataOBJ.setDerivedFrom("RuleData");
+            _PatternMatchRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.PatternMatchRuleDataREF");
+            _PatternMatchRuleDataOBJ.setRuleDefinition("PatternMatchRule");
+            _PatternMatchRuleDataOBJ.setDmwIteratorClass("PatternMatchRuleDataIterableDMW");
+            _PatternMatchRuleDataOBJ.addMay("description");
+            _PatternMatchRuleDataOBJ.addMust("ruleName");
+            _PatternMatchRuleDataOBJ.addMust("ruleTitle");
+            _PatternMatchRuleDataOBJ.addMust("applyToAttribute");
+            _PatternMatchRuleDataOBJ.addMust("matchesPattern");
+            _PatternMatchRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.PatternMatchRuleDataIterableDMW");
+            _PatternMatchRuleData.setDefinedIn(this);
+            addClassDefList(_PatternMatchRuleData);
 
     }
 
@@ -429,8 +455,20 @@ public class DmvSchemaAG extends SchemaDefinition {
             _andOnlyOneOBJ.setDescription("The andOnlyOne attribute indicates that only one of a set of possibilities is\n allowed.");
             _andOnlyOne.setDefinedIn(this);
             _andOnlyOneOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
-            _andOnlyOneOBJ.setLineNumber("87");
+            _andOnlyOneOBJ.setLineNumber("88");
             addAttributeDefList(_andOnlyOne);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
+            AttributeDefinitionDMO _matchesPatternOBJ = new AttributeDefinitionDMO();
+            _matchesPattern = new AttributeDefinition(_matchesPatternOBJ);
+            _matchesPatternOBJ.setType("String");
+            _matchesPatternOBJ.setName("matchesPattern");
+            _matchesPatternOBJ.setDmdID("-479987");
+            _matchesPatternOBJ.setDescription("The matchesPattern attribute indicates a regular expression that conforms\n to the");
+            _matchesPattern.setDefinedIn(this);
+            _matchesPatternOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
+            _matchesPatternOBJ.setLineNumber("94");
+            addAttributeDefList(_matchesPattern);
 
     }
 
@@ -566,8 +604,21 @@ public class DmvSchemaAG extends SchemaDefinition {
             _OneOfTheseAttributesRequiredRuleOBJ.addMust("onePossibility");
             _OneOfTheseAttributesRequiredRule.setDefinedIn(this);
             _OneOfTheseAttributesRequiredRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _OneOfTheseAttributesRequiredRuleOBJ.setLineNumber("184");
+            _OneOfTheseAttributesRequiredRuleOBJ.setLineNumber("183");
             addRuleDefinitionList(_OneOfTheseAttributesRequiredRule);
+
+// Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
+            RuleDefinitionDMO _PatternMatchRuleOBJ = new RuleDefinitionDMO();
+            _PatternMatchRule = new RuleDefinition(_PatternMatchRuleOBJ);
+            _PatternMatchRuleOBJ.addRuleCategory("AttributeValidation");
+            _PatternMatchRuleOBJ.setName("PatternMatchRule");
+            _PatternMatchRuleOBJ.setDmdID("-479991");
+            _PatternMatchRuleOBJ.setDescription("The PatternMatchRule allows you to validate that an attribute\n in an object conforms to a regex patern that you specify. If the pattern match\n fails, the ruleTitle is used as the error message, so use a clear rule title to\n indicate the intent of the pattern match. For instance the following rule is \n applied to the names of EnumDefinitions:\n <pre>\n PatternMatchRuleData\n ruleName			dmvEnumDefinitionNameCheck\n ruleTitle			An EnumDefinition's name must end with Enum\n matchesPattern		^.*Enum\n applyToAttribute	name\n applyToClass		EnumDefinition\n </pre>");
+            _PatternMatchRuleOBJ.addMust("matchesPattern");
+            _PatternMatchRule.setDefinedIn(this);
+            _PatternMatchRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _PatternMatchRuleOBJ.setLineNumber("211");
+            addRuleDefinitionList(_PatternMatchRule);
 
     }
 
