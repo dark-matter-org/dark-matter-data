@@ -20,7 +20,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Stack;
 
-import org.dmd.dmc.DmcOmni;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
@@ -40,7 +39,6 @@ import org.dmd.dmv.shared.DmvDynamicRuleManager;
 import org.dmd.dmv.shared.DmvRuleManager;
 import org.dmd.dmw.DmwObjectFactory;
 import org.dmd.dmw.DmwWrapper;
-import org.dmd.util.ConsoleRuleTracer;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.Result;
 import org.dmd.util.exceptions.ResultException;
@@ -194,8 +192,9 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         
         // Note: the rule manager automatically loads the meta schema and DMV rules.
         ruleManager		= new DmvRuleManager();
-        DmcOmni.instance().ruleTracer(new ConsoleRuleTracer());
-        DmcOmni.instance().ruleTracing(true);
+		DebugInfo.debug("\n\n*** RULE TRACING DISABLED ***\n\n");
+//        DmcOmni.instance().ruleTracer(new ConsoleRuleTracer());
+//        DmcOmni.instance().ruleTracing(true);
     }
 
     /**
@@ -369,7 +368,7 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 				// in a second pass.
 				
 				// TODO: Apply rules to the object
-    			DebugInfo.debug("APPLYING RULES");
+//    			DebugInfo.debug("APPLYING RULES");
     			
 				ruleManager.executeAttributeValidation(newDef.getDmcObject());
 				ruleManager.executeObjectValidation(newDef.getDmcObject());
