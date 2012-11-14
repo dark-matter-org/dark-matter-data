@@ -1,0 +1,6 @@
+DmgConfig
+genPackage      	org.dmd.dmt.server
+schemaToLoad		dmt
+generator			org.dmd.dmg.generators.DmwDMWGenerator
+//generatedFileHeader LGPL.txt
+description     	We generate the wrappers for the Dark Matter Test schema.

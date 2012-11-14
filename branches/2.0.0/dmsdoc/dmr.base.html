@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+<link rel="stylesheet" type="text/css" href="dmsstyle.css" />
+<title>The dmr.base Schema</title>
+</head>
+
+<body>
+
+  <div id="header"> <div class="headerBar"> </div> </div>
+
+  <div id="main">
+
+    <div id="content">
+
+  <div class="schemaName"> dmr.base </div>
+
+  <div class="summary">
+
+    <div class="classList">
+    <h2> Classes (2)</h2>
+    <table>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#DotNamedObject"> DotNamedObject </a></td>
+      <td> FQN </td>
+      </tr>
+      <tr>
+      <td class="spacer"> </td>
+      <td> <a class="deflink" href="#HierarchicObject"> HierarchicObject </a></td>
+      <td> FQN </td>
+      </tr>
+    </table>
+    </div>  </div> <!--  summary -->
+
+<div class="classDetails">
+
+<h2> Class Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="DotNamedObject"> DotNamedObject </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">A DotNamedObject is a hierarchic object whose fully qualified
+ name is composed of naming attributes separated by periods. For example 
+ grandparent.parent.child.
+ <p>
+ The naming attribute of a DotNamedObject is name. Unlike LDAP objects, 
+ we don't bother making this configurable. When a DotNamedObject is parsed
+ from a file, we check to see if the name attribute has a value; if not,
+ we take the last portion of the FQN as the name. For example, if the FQN
+ is x.y.z, the name of the object would be 'z'.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Derived from</td>
+      <td colspan="2">
+      <a href="dmr.base.html#HierarchicObject">HierarchicObject</a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#FQN">FQN</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#FQN">FQN</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#FullyQualifiedName">FullyQualifiedName</a> </td>
+      <td> The fully qualified name of a hierarchic object. The exact form of
+ the fqn is application specific. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded. </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr> <td class="className" colspan="4"> <a name="HierarchicObject"> HierarchicObject </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td>Description</td>
+      <td colspan="2">A HierarchicObject is meant to represent any object that can
+ be identified with a Fully Qualified Name (FQN) and exists in a containment
+ relationship with other objects. The exact implementation of a HierarchicObject
+ is application specific.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Type</td>
+      <td colspan="2">STRUCTURAL</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Derived classes</td>
+      <td colspan="2">
+      <div class="derived"> <a href="dmr.base.html#DotNamedObject">DotNamedObject</a> </div>      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Wrapper</td>
+      <td colspan="2">EXTENDED</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Named by</td>
+      <td colspan="2"> <a href="meta.html#FQN">FQN</a> </td>
+    </tr>
+
+  </table>
+
+  <table>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#FQN">FQN</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#FullyQualifiedName">FullyQualifiedName</a> </td>
+      <td> The fully qualified name of a hierarchic object. The exact form of
+ the fqn is application specific. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#file">file</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> Indicates the file from which a definition was loaded. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Indicates the line number of the file from which a definition was loaded. </td>
+    </tr>
+
+  </table>
+
+</div> <!-- classDetails -->
+
+<div class="attributeDetails">
+
+<h2> Attribute Details </h2>
+
+  <table>
+
+    <tr> <td class="className" colspan="3"> <a name="password"> password </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>A user's password.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> LoginRequest (<a href="dmp.html#LoginRequest">dmp</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="userName"> userName </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The name of a user.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> LoginRequest (<a href="dmp.html#LoginRequest">dmp</a>) </td>
+    <td> LogoutRequest (<a href="dmp.html#LogoutRequest">dmp</a>) </td>
+    <td> Request (<a href="dmp.html#Request">dmp</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+  </table>
+
+</div> <!-- attributeDetails -->
+
+    </div>
+
+    <div id="sidebar">
+        <a class="navLink" href="dmg.html"> dmg</a>
+        <a class="navLink" href="dmp.html"> dmp</a>
+        <a class="navLink" href="dmr.base.html"> dmr.base</a>
+        <a class="navLink" href="dmr.ldap.html"> dmr.ldap</a>
+        <a class="navLink" href="dmt.html"> dmt</a>
+        <a class="navLink" href="dmv.html"> dmv</a>
+        <a class="navLink" href="map.html"> map</a>
+        <a class="navLink" href="meta.html"> meta</a>
+    </div>
+  </div> <!-- main -->
+
+  <div id="footer"> </div>
+
+</body>
+
+</html>
