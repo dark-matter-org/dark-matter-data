@@ -29,13 +29,16 @@ import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;         // Clas
 
 
 /**
- * The IntegerRangeRule ensures that an Integer attribute has a value that
- * falls\n within a given range. The irrMinimum must be less than the
- * irrMaximum. An example usage\n might be:\n <p/>\n <pre>\n
+ * The NumericRangeRule ensures that a numeric attribute has value(s) that
+ * fall\n within a given range. The nrrMinimum must be less than the
+ * nrrMaximum. An example usage\n might be:\n <p/>\n <pre>\n
  * NumericRangeRuleData\n ruleName         <schema>RangeCheckY\n ruleTitle   
- *     Attribute Y in range 1-10\n applyToAttribute Y\n irrMinimum       1\n
- * irrMaximum       10\n description      This constraint is required because
- * blah, blah blah.\n </pre>
+ *     Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n
+ * nrrMaximum       10\n description      This constraint is required because
+ * blah, blah blah.\n </pre>\n NOTE: this rule works by implicitly converting
+ * the values of the attributes\n to type Double in order to be able to do
+ * the range comparison. However,\n if you are dealing with large numeric
+ * values you may run into issues.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
