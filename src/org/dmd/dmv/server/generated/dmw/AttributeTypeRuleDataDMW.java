@@ -27,6 +27,7 @@ import org.dmd.dms.TypeDefinition;                                        // Is 
 import org.dmd.dms.generated.dmo.MetaDMSAG;                               // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:894)
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;                       // For multi-valued adds of TypeDefinition - (BaseDMWGeneratorNewest.java:1585)
 import org.dmd.dms.generated.dmw.TypeDefinitionIterableDMW;               // For multi-valued TypeDefinition - (BaseDMWGeneratorNewest.java:1527)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                         // Primitive type - (BaseDMWGeneratorNewest.java:968)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;                // Is reference type REF - (BaseDMWGeneratorNewest.java:933)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                     // Required for MODREC constructor - (BaseDMWGeneratorNewest.java:893)
 import org.dmd.dmv.shared.generated.dmo.AttributeTypeRuleDataDMO;         // Class not auxiliary or abstract - (BaseDMWGeneratorNewest.java:1070)
@@ -35,7 +36,7 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                         // Att
 
 /**
  * The AttributeTypeRule allowes you to restrict the type of\n an attribute
- * of a particular AttributeDefinition reference.
+ * of a particular AttributeDefinition reference.\n <p/>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -158,6 +159,37 @@ public class AttributeTypeRuleDataDMW extends RuleData {
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2106)
     public void remAllowedType(){
         ((AttributeTypeRuleDataDMO) core).remAllowedType();
+    }
+
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
+    public ValueTypeEnum getAllowedValueType(){
+        return(((AttributeTypeRuleDataDMO) core).getAllowedValueType());
+    }
+
+    /**
+     * Sets allowedValueType to the specified value.
+     * @param value A value compatible with DmcTypeValueTypeEnum
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
+    public void setAllowedValueType(Object value) throws DmcValueException {
+        ((AttributeTypeRuleDataDMO) core).setAllowedValueType(value);
+    }
+
+    /**
+     * Sets allowedValueType to the specified value.
+     * @param value ValueTypeEnum
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
+    public void setAllowedValueType(ValueTypeEnum value){
+        ((AttributeTypeRuleDataDMO) core).setAllowedValueType(value);
+    }
+
+    /**
+     * Removes the allowedValueType attribute value.
+     */
+    // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1437)
+    public void remAllowedValueType(){
+        ((AttributeTypeRuleDataDMO) core).remAllowedValueType();
     }
 
     /**

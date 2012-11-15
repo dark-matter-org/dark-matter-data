@@ -27,20 +27,15 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // R
 import org.dmd.dms.generated.dmo.RuleDataDMO;                               // Base class - (GenUtility.java:351)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Helper class - (GenUtility.java:331)
 import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type - (GenUtility.java:296)
+import org.dmd.dms.generated.types.DmcTypeIntegerSV;                        // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:223)
 import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:324)
 
 /**
- * The PatternMatchRule allows you to validate that an attribute\n in an
- * object conforms to a regex pattern that you specify. If the pattern
- * match\n fails, the ruleTitle is used as the error message, so use a clear
- * rule title to\n indicate the intent of the pattern match. For instance the
- * following rule is \n applied to the names of EnumDefinitions:\n <pre>\n
- * PatternMatchRuleData\n ruleName			dmvEnumDefinitionNameCheck\n
- * ruleTitle			An EnumDefinition's name must end with Enum\n
- * matchesPattern		^.*Enum\n applyToAttribute	name\n
- * applyToClass		EnumDefinition\n </pre>
+ * The ValueLengthRule allows you to indicate the maximum\n and, potentially,
+ * the minimum length of the String form of a value associated\n with an
+ * attribute.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -48,43 +43,43 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;                         // R
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:133)
  */
 @SuppressWarnings("serial")
-public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements Serializable  {
+public class ValueLengthRuleDataDMO  extends RuleDataDMO  implements Serializable  {
 
-    public final static String constructionClassName = "PatternMatchRuleData";
+    public final static String constructionClassName = "ValueLengthRuleData";
 
 
     static {
     }
 
-    public PatternMatchRuleDataDMO() {
-        super("PatternMatchRuleData");
+    public ValueLengthRuleDataDMO() {
+        super("ValueLengthRuleData");
     }
 
-    protected PatternMatchRuleDataDMO(String oc) {
+    protected ValueLengthRuleDataDMO(String oc) {
         super(oc);
     }
 
     @Override
-    public PatternMatchRuleDataDMO getNew(){
-        PatternMatchRuleDataDMO rc = new PatternMatchRuleDataDMO();
+    public ValueLengthRuleDataDMO getNew(){
+        ValueLengthRuleDataDMO rc = new ValueLengthRuleDataDMO();
         return(rc);
     }
 
     @Override
-    public PatternMatchRuleDataDMO getSlice(DmcSliceInfo info){
-        PatternMatchRuleDataDMO rc = new PatternMatchRuleDataDMO();
+    public ValueLengthRuleDataDMO getSlice(DmcSliceInfo info){
+        ValueLengthRuleDataDMO rc = new ValueLengthRuleDataDMO();
         populateSlice(rc,info);
         return(rc);
     }
 
-    public PatternMatchRuleDataDMO(DmcTypeModifierMV mods) {
-        super("PatternMatchRuleData");
+    public ValueLengthRuleDataDMO(DmcTypeModifierMV mods) {
+        super("ValueLengthRuleData");
         modrec(true);
         setModifier(mods);
     }
 
-    public PatternMatchRuleDataDMO getModificationRecorder(){
-        PatternMatchRuleDataDMO rc = new PatternMatchRuleDataDMO();
+    public ValueLengthRuleDataDMO getModificationRecorder(){
+        ValueLengthRuleDataDMO rc = new ValueLengthRuleDataDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
         rc.modrec(true);
         return(rc);
@@ -138,6 +133,106 @@ public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements Serializab
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remDescription(){
          rem(MetaDMSAG.__description);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    public Integer getMaxLength(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmvDMSAG.__maxLength);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets maxLength to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    public void setMaxLength(Integer value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__maxLength);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmvDMSAG.__maxLength);
+        
+        try{
+            attr.set(value);
+            set(DmvDMSAG.__maxLength,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets maxLength to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    public void setMaxLength(Object value) throws DmcValueException {
+        DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmvDMSAG.__maxLength);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmvDMSAG.__maxLength);
+        
+        attr.set(value);
+        set(DmvDMSAG.__maxLength,attr);
+    }
+
+    /**
+     * Removes the maxLength attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    public void remMaxLength(){
+         rem(DmvDMSAG.__maxLength);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    public Integer getMinLength(){
+        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmvDMSAG.__minLength);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets minLength to the specified value.
+     * @param value Integer
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    public void setMinLength(Integer value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__minLength);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmvDMSAG.__minLength);
+        
+        try{
+            attr.set(value);
+            set(DmvDMSAG.__minLength,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets minLength to the specified value.
+     * @param value A value compatible with DmcTypeIntegerSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    public void setMinLength(Object value) throws DmcValueException {
+        DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmvDMSAG.__minLength);
+        if (attr == null)
+            attr = new DmcTypeIntegerSV(DmvDMSAG.__minLength);
+        
+        attr.set(value);
+        set(DmvDMSAG.__minLength,attr);
+    }
+
+    /**
+     * Removes the minLength attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    public void remMinLength(){
+         rem(DmvDMSAG.__minLength);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
@@ -310,56 +405,6 @@ public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements Serializab
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remApplyToAttribute(){
          rem(MetaDMSAG.__applyToAttribute);
-    }
-
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
-    public String getMatchesPattern(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmvDMSAG.__matchesPattern);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets matchesPattern to the specified value.
-     * @param value String
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
-    public void setMatchesPattern(String value) {
-        DmcAttribute<?> attr = get(DmvDMSAG.__matchesPattern);
-        if (attr == null)
-            attr = new DmcTypeStringSV(DmvDMSAG.__matchesPattern);
-        
-        try{
-            attr.set(value);
-            set(DmvDMSAG.__matchesPattern,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets matchesPattern to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
-    public void setMatchesPattern(Object value) throws DmcValueException {
-        DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmvDMSAG.__matchesPattern);
-        if (attr == null)
-            attr = new DmcTypeStringSV(DmvDMSAG.__matchesPattern);
-        
-        attr.set(value);
-        set(DmvDMSAG.__matchesPattern,attr);
-    }
-
-    /**
-     * Removes the matchesPattern attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
-    public void remMatchesPattern(){
-         rem(DmvDMSAG.__matchesPattern);
     }
 
 

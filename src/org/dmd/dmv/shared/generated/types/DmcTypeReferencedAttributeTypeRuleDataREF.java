@@ -21,10 +21,10 @@ import org.dmd.dmc.DmcOutputStreamIF;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;
+import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;
 
 /**
- * This is the generated DmcAttribute derivative for values of type IntegerRangeRuleData
+ * This is the generated DmcAttribute derivative for values of type ReferencedAttributeTypeRuleData
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -32,37 +32,37 @@ import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;
  * Generated from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:197)
  */
 @SuppressWarnings("serial")
-abstract public class DmcTypeIntegerRangeRuleDataREF extends DmcAttribute<IntegerRangeRuleDataDMO> implements Serializable {
+abstract public class DmcTypeReferencedAttributeTypeRuleDataREF extends DmcAttribute<ReferencedAttributeTypeRuleDataDMO> implements Serializable {
 
-    public DmcTypeIntegerRangeRuleDataREF(){
+    public DmcTypeReferencedAttributeTypeRuleDataREF(){
     }
 
-    public DmcTypeIntegerRangeRuleDataREF(DmcAttributeInfo ai){
+    public DmcTypeReferencedAttributeTypeRuleDataREF(DmcAttributeInfo ai){
         super(ai);
     }
 
-    protected IntegerRangeRuleDataDMO typeCheck(Object value) throws DmcValueException {
-        if (value instanceof IntegerRangeRuleDataDMO)
-            return((IntegerRangeRuleDataDMO)value);
+    protected ReferencedAttributeTypeRuleDataDMO typeCheck(Object value) throws DmcValueException {
+        if (value instanceof ReferencedAttributeTypeRuleDataDMO)
+            return((ReferencedAttributeTypeRuleDataDMO)value);
         
-        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with IntegerRangeRuleDataDMO expected."));
+        throw(new DmcValueException("Object of class: " + value.getClass().getName() + " passed where object compatible with ReferencedAttributeTypeRuleDataDMO expected."));
     }
 
     @Override
-    public void serializeValue(DmcOutputStreamIF dos, IntegerRangeRuleDataDMO value) throws Exception {
+    public void serializeValue(DmcOutputStreamIF dos, ReferencedAttributeTypeRuleDataDMO value) throws Exception {
         value.serializeIt(dos);
     }
 
     @Override
-    public IntegerRangeRuleDataDMO deserializeValue(DmcInputStreamIF dis) throws Exception {
-        IntegerRangeRuleDataDMO rc = (IntegerRangeRuleDataDMO)dis.getDMOInstance(dis);
+    public ReferencedAttributeTypeRuleDataDMO deserializeValue(DmcInputStreamIF dis) throws Exception {
+        ReferencedAttributeTypeRuleDataDMO rc = (ReferencedAttributeTypeRuleDataDMO)dis.getDMOInstance(dis);
         rc.deserializeIt(dis);
         return(rc);
     }
 
     @Override
-    public IntegerRangeRuleDataDMO cloneValue(IntegerRangeRuleDataDMO value){
-        return((IntegerRangeRuleDataDMO)value.cloneIt());
+    public ReferencedAttributeTypeRuleDataDMO cloneValue(ReferencedAttributeTypeRuleDataDMO value){
+        return((ReferencedAttributeTypeRuleDataDMO)value.cloneIt());
     }
 
 }

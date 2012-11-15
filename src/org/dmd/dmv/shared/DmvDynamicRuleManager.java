@@ -24,6 +24,7 @@ import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.rulesdmo.AttributeValidationRuleCollection;
 import org.dmd.dms.generated.rulesdmo.ObjectValidationRuleCollection;
 import org.dmd.dms.util.DmoObjectFactory;
+import org.dmd.util.ConsoleRuleTracer;
 import org.dmd.util.exceptions.DebugInfo;
 
 /**
@@ -127,12 +128,18 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 			for(RuleIF rule: allRules)
 				addThisRule(rule);
 			
-			DebugInfo.debug("\n\n*** RULE TRACING DISABLED ***\n\n");
-//			DmcOmni.instance().ruleTracer(new ConsoleRuleTracer());
-//			DmcOmni.instance().ruleTracing(true);
+			DebugInfo.debug("*** ALL RULE COLLECTIONS ***\n\n" + this.toString());
+			
+//			DebugInfo.debug("\n\n*** RULE TRACING DISABLED ***\n\n");
+			DmcOmni.instance().ruleTracer(new ConsoleRuleTracer());
+			DmcOmni.instance().ruleTracing(true);
 			
 			for(RuleDataDMO rule: allRuleData){
 				SourceInfo source = new SourceInfo(rule.getFile(), rule.getLineNumber()+"", rule);
+				
+				if (rule.getRuleName().equals("dmtSvNumericRange")){
+					DebugInfo.debug("HERE");
+				}
 				
 				try {
 					this.executeAttributeValidation(rule);

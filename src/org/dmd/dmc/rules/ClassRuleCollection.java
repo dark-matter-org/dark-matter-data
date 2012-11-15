@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcClassInfo;
+import org.dmd.dmc.DmcOmni;
 
 
 public abstract class ClassRuleCollection<I extends RuleIF> extends RuleCollection<I> {
@@ -34,6 +35,9 @@ public abstract class ClassRuleCollection<I extends RuleIF> extends RuleCollecti
     protected void addThisRule(I rule){
         if (rule.getApplyToClass() == null){
             globalRules.add(rule);
+            
+            if (DmcOmni.instance().ruleTracing())
+            	DmcOmni.instance().ruleAdded(this.getClass().getName() + " added global attribute rule: " + rule.getRuleTitle());
         }
         else{
             RuleList<I> classRules = rules.get(rule.getKey());
@@ -42,6 +46,10 @@ public abstract class ClassRuleCollection<I extends RuleIF> extends RuleCollecti
                 rules.put(rule.getKey(), classRules);
             }
             classRules.addRule(rule);
+            
+            if (DmcOmni.instance().ruleTracing())
+            	DmcOmni.instance().ruleAdded(this.getClass().getName() + " added specific class rule: " + rule.getKey().toString() + " - "+ rule.getRuleTitle());
+
         }
     }
 

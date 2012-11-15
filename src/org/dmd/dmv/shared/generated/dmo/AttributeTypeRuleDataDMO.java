@@ -27,17 +27,19 @@ import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // T
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Required for MODREC constructor - (GenUtility.java:224)
 import org.dmd.dms.generated.dmo.RuleDataDMO;                               // Base class - (GenUtility.java:351)
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;                         // Type specific set/add - (GenUtility.java:303)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                           // Primitive type and !auxiliary class - (GenUtility.java:267)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Helper class - (GenUtility.java:331)
 import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type - (GenUtility.java:296)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:223)
 import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFMV;              // Reference type - (GenUtility.java:296)
+import org.dmd.dms.generated.types.DmcTypeValueTypeEnumSV;                  // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.TypeDefinitionREF;                       // Helper class - (GenUtility.java:331)
 
 /**
  * The AttributeTypeRule allowes you to restrict the type of\n an attribute
- * of a particular AttributeDefinition reference.
+ * of a particular AttributeDefinition reference.\n <p/>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -135,6 +137,56 @@ public class AttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializa
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remDescription(){
          rem(MetaDMSAG.__description);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    public ValueTypeEnum getAllowedValueType(){
+        DmcTypeValueTypeEnumSV attr = (DmcTypeValueTypeEnumSV) get(DmvDMSAG.__allowedValueType);
+        if (attr == null)
+            return(ValueTypeEnum.SINGLE);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets allowedValueType to the specified value.
+     * @param value ValueTypeEnum
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    public void setAllowedValueType(ValueTypeEnum value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__allowedValueType);
+        if (attr == null)
+            attr = new DmcTypeValueTypeEnumSV(DmvDMSAG.__allowedValueType);
+        
+        try{
+            attr.set(value);
+            set(DmvDMSAG.__allowedValueType,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets allowedValueType to the specified value.
+     * @param value A value compatible with DmcTypeValueTypeEnumSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    public void setAllowedValueType(Object value) throws DmcValueException {
+        DmcTypeValueTypeEnumSV attr  = (DmcTypeValueTypeEnumSV) get(DmvDMSAG.__allowedValueType);
+        if (attr == null)
+            attr = new DmcTypeValueTypeEnumSV(DmvDMSAG.__allowedValueType);
+        
+        attr.set(value);
+        set(DmvDMSAG.__allowedValueType,attr);
+    }
+
+    /**
+     * Removes the allowedValueType attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    public void remAllowedValueType(){
+         rem(DmvDMSAG.__allowedValueType);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)

@@ -19,45 +19,45 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;    // DmcType import
+import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeIntegerRangeRuleDataREFSV provides storage for a single-valued IntegerRangeRuleData
+ * The DmcTypeNumericRangeRuleDataREFSV provides storage for a single-valued NumericRangeRuleData
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
  */
 @SuppressWarnings("serial")
-public class DmcTypeIntegerRangeRuleDataREFSV extends DmcTypeIntegerRangeRuleDataREF implements Serializable {
+public class DmcTypeNumericRangeRuleDataREFSV extends DmcTypeNumericRangeRuleDataREF implements Serializable {
     
-    protected IntegerRangeRuleDataDMO value;
+    protected NumericRangeRuleDataDMO value;
     
-    public DmcTypeIntegerRangeRuleDataREFSV(){
+    public DmcTypeNumericRangeRuleDataREFSV(){
     
     }
     
-    public DmcTypeIntegerRangeRuleDataREFSV(DmcAttributeInfo ai){
+    public DmcTypeNumericRangeRuleDataREFSV(DmcAttributeInfo ai){
         super(ai);
     }
     
-    public DmcTypeIntegerRangeRuleDataREFSV getNew(){
-        return(new DmcTypeIntegerRangeRuleDataREFSV(getAttributeInfo()));
+    public DmcTypeNumericRangeRuleDataREFSV getNew(){
+        return(new DmcTypeNumericRangeRuleDataREFSV(getAttributeInfo()));
     }
     
-    public DmcTypeIntegerRangeRuleDataREFSV getNew(DmcAttributeInfo ai){
-        return(new DmcTypeIntegerRangeRuleDataREFSV(ai));
+    public DmcTypeNumericRangeRuleDataREFSV getNew(DmcAttributeInfo ai){
+        return(new DmcTypeNumericRangeRuleDataREFSV(ai));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
-    public DmcAttribute<IntegerRangeRuleDataDMO> cloneIt(){
-        DmcTypeIntegerRangeRuleDataREFSV rc = getNew();
+    public DmcAttribute<NumericRangeRuleDataDMO> cloneIt(){
+        DmcTypeNumericRangeRuleDataREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
-    public IntegerRangeRuleDataDMO getSVCopy(){
+    public NumericRangeRuleDataDMO getSVCopy(){
         if (value == null)
             return(null);
         return(cloneValue(value));
@@ -65,8 +65,8 @@ public class DmcTypeIntegerRangeRuleDataREFSV extends DmcTypeIntegerRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
-    public IntegerRangeRuleDataDMO set(Object v) throws DmcValueException {
-        IntegerRangeRuleDataDMO rc = typeCheck(v);
+    public NumericRangeRuleDataDMO set(Object v) throws DmcValueException {
+        NumericRangeRuleDataDMO rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -82,7 +82,7 @@ public class DmcTypeIntegerRangeRuleDataREFSV extends DmcTypeIntegerRangeRuleDat
     }
     
     @Override
-    public IntegerRangeRuleDataDMO getSV(){
+    public NumericRangeRuleDataDMO getSV(){
         return(value);
     }
     

@@ -15,4 +15,9 @@ public class ConsoleRuleTracer implements RuleTracerIF {
 		System.out.println(errors.toString());
 	}
 
+	@Override
+	public void ruleAdded(String info) {
+		System.out.println(info);
+	}
+
 }

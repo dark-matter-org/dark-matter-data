@@ -25,4 +25,6 @@ public interface RuleTracerIF {
 	public void ruleExecuted(String info);
 	
 	public void ruleFailed(DmcRuleExceptionSet errors);
+	
+	public void ruleAdded(String info);
 }

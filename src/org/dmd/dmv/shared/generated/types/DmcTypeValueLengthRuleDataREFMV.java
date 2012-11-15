@@ -21,45 +21,45 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;    // DmcType import
+import org.dmd.dmv.shared.generated.dmo.ValueLengthRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeIntegerRangeRuleDataREFMV provides storage for a multi-valued IntegerRangeRuleData
+ * The DmcTypeValueLengthRuleDataREFMV provides storage for a multi-valued ValueLengthRuleData
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
  *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
  */
 @SuppressWarnings("serial")
-public class DmcTypeIntegerRangeRuleDataREFMV extends DmcTypeIntegerRangeRuleDataREF implements Serializable {
+public class DmcTypeValueLengthRuleDataREFMV extends DmcTypeValueLengthRuleDataREF implements Serializable {
     
-    private final static Iterator<IntegerRangeRuleDataDMO> emptyList = (new ArrayList<IntegerRangeRuleDataDMO>()).iterator();
+    private final static Iterator<ValueLengthRuleDataDMO> emptyList = (new ArrayList<ValueLengthRuleDataDMO>()).iterator();
     
-    protected ArrayList<IntegerRangeRuleDataDMO> value;
+    protected ArrayList<ValueLengthRuleDataDMO> value;
     
-    public DmcTypeIntegerRangeRuleDataREFMV(){
+    public DmcTypeValueLengthRuleDataREFMV(){
     
     }
     
-    public DmcTypeIntegerRangeRuleDataREFMV(DmcAttributeInfo ai){
+    public DmcTypeValueLengthRuleDataREFMV(DmcAttributeInfo ai){
         super(ai);
     }
     
     @Override
-    public DmcTypeIntegerRangeRuleDataREFMV getNew(){
-        return(new DmcTypeIntegerRangeRuleDataREFMV(getAttributeInfo()));
+    public DmcTypeValueLengthRuleDataREFMV getNew(){
+        return(new DmcTypeValueLengthRuleDataREFMV(getAttributeInfo()));
     }
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
-    public DmcAttribute<IntegerRangeRuleDataDMO> cloneIt(){
+    public DmcAttribute<ValueLengthRuleDataDMO> cloneIt(){
         synchronized(this){
-            DmcTypeIntegerRangeRuleDataREFMV rc = getNew();
+            DmcTypeValueLengthRuleDataREFMV rc = getNew();
     
             if (value == null)
                 return(rc);
     
             if (getAttributeInfo().indexSize == 0){
-                for(IntegerRangeRuleDataDMO val: value)
+                for(ValueLengthRuleDataDMO val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -80,11 +80,11 @@ public class DmcTypeIntegerRangeRuleDataREFMV extends DmcTypeIntegerRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
-    public IntegerRangeRuleDataDMO add(Object v) throws DmcValueException {
+    public ValueLengthRuleDataDMO add(Object v) throws DmcValueException {
         synchronized(this){
-            IntegerRangeRuleDataDMO rc = typeCheck(v);
+            ValueLengthRuleDataDMO rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<IntegerRangeRuleDataDMO>();
+                value = new ArrayList<ValueLengthRuleDataDMO>();
             value.add(rc);
             return(rc);
         }
@@ -92,13 +92,13 @@ public class DmcTypeIntegerRangeRuleDataREFMV extends DmcTypeIntegerRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
-    public IntegerRangeRuleDataDMO del(Object v){
+    public ValueLengthRuleDataDMO del(Object v){
         synchronized(this){
             if (value == null)
                 return(null);
     
-            IntegerRangeRuleDataDMO key = null;
-            IntegerRangeRuleDataDMO rc = null;
+            ValueLengthRuleDataDMO key = null;
+            ValueLengthRuleDataDMO rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -116,23 +116,23 @@ public class DmcTypeIntegerRangeRuleDataREFMV extends DmcTypeIntegerRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
-    public Iterator<IntegerRangeRuleDataDMO> getMV(){
+    public Iterator<ValueLengthRuleDataDMO> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
     
-            ArrayList<IntegerRangeRuleDataDMO> clone = new ArrayList<IntegerRangeRuleDataDMO>(value);
+            ArrayList<ValueLengthRuleDataDMO> clone = new ArrayList<ValueLengthRuleDataDMO>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
-    public ArrayList<IntegerRangeRuleDataDMO> getMVCopy(){
+    public ArrayList<ValueLengthRuleDataDMO> getMVCopy(){
         synchronized(this){
             if (value == null)
-                return(new ArrayList<IntegerRangeRuleDataDMO>());
+                return(new ArrayList<ValueLengthRuleDataDMO>());
             else 
-                return(new ArrayList<IntegerRangeRuleDataDMO>(value));
+                return(new ArrayList<ValueLengthRuleDataDMO>(value));
         }
     }
     
@@ -152,7 +152,7 @@ public class DmcTypeIntegerRangeRuleDataREFMV extends DmcTypeIntegerRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
-    public IntegerRangeRuleDataDMO getMVnth(int index){
+    public ValueLengthRuleDataDMO getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -162,7 +162,7 @@ public class DmcTypeIntegerRangeRuleDataREFMV extends DmcTypeIntegerRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
-    public IntegerRangeRuleDataDMO setMVnth(int index, Object v) throws DmcValueException {
+    public ValueLengthRuleDataDMO setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
@@ -170,13 +170,13 @@ public class DmcTypeIntegerRangeRuleDataREFMV extends DmcTypeIntegerRangeRuleDat
             if ( (index < 0) || (index >= getAttributeInfo().indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
-            IntegerRangeRuleDataDMO rc = null;
+            ValueLengthRuleDataDMO rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<IntegerRangeRuleDataDMO>(getAttributeInfo().indexSize);
+                value = new ArrayList<ValueLengthRuleDataDMO>(getAttributeInfo().indexSize);
                 for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
@@ -218,7 +218,7 @@ public class DmcTypeIntegerRangeRuleDataREFMV extends DmcTypeIntegerRangeRuleDat
                 return(false);
 
             try {
-                IntegerRangeRuleDataDMO val = typeCheck(v);
+                ValueLengthRuleDataDMO val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);
