@@ -49,25 +49,29 @@ description		The InitRule allows you to specify attribute values for a
 ///////////////////////////////////////////////////////////////////////////////
  
 RuleDefinition
-name			IntegerRangeRule
+name			NumericRangeRule
 dmdID			3
 ruleCategory	AttributeValidation
 //ruleCategory	AttributeModifierValidation
-must			irrMinimum
-must			irrMaximum
-description		The IntegerRangeRule ensures that an Integer attribute has a value that falls
- within a given range. The irrMinimum must be less than the irrMaximum. An example usage
+must			nrrMinimum
+must			nrrMaximum
+description		The NumericRangeRule ensures that a numeric attribute has value(s) that fall
+ within a given range. The nrrMinimum must be less than the nrrMaximum. An example usage
  might be:
  <p/>
  <pre>
- IntegerRangeRuleData
+ NumericRangeRuleData
  ruleName         <schema>RangeCheckY
  ruleTitle        Attribute Y in range 1-10
  applyToAttribute Y
- irrMinimum       1
- irrMaximum       10
+ nrrMinimum       1
+ nrrMaximum       10
  description      This constraint is required because blah, blah blah.
  </pre>
+ NOTE: this rule works by implicitly converting the values of the attributes
+ to type Double in order to be able to do the range comparison. However,
+ if you are dealing with large numeric values you may run into issues.
+
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -86,8 +90,10 @@ name			AttributeTypeRule
 dmdID			5
 ruleCategory	AttributeValidation
 must			allowedType
+may             allowedValueType
 description		The AttributeTypeRule allowes you to restrict the type of
  an attribute of a particular AttributeDefinition reference.
+ <p/>
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -112,24 +118,17 @@ description		The RelatedNumbersRule ensures that a particular numeric
  numericRelation GT
  description     If your girth exceeds your height, you're in trouble!
  </pre>
+ The rule will only test the relationship if both attributes exist; if not,
+ that's okay - the rule will pass.
+ <p/>
+ It's a good rule of thumb to indicate the relationship you expect in the
+ title of the rule since this is what will be returned in the case that 
+ the relatioship check fails.
+ <p/>
+ NOTE: this rule works by implicitly converting the values of the attributes
+ to type Double in order to be able to compare apples to apples. However,
+ if you are dealing with large numeric values you may run into issues.
 
-AttributeTypeRuleData
-ruleName			dmvLhs
-ruleTitle           The lhs attribute can be Integer, Float or Double
-applyToAttribute	lhs
-applyToClass 		RelatedNumbersRuleData
-allowedType 		Integer
-allowedType 		Float
-allowedType 		Double
-
-AttributeTypeRuleData
-ruleName			dmvRhs
-ruleTitle			The rhs attribute can be Integer, Float or Double
-applyToAttribute	rhs
-applyToClass 		RelatedNumbersRuleData
-allowedType 		Integer
-allowedType 		Float
-allowedType 		Double
 
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -196,7 +195,7 @@ dmdID				9
 ruleCategory		AttributeValidation
 must				matchesPattern
 description			The PatternMatchRule allows you to validate that an attribute
- in an object conforms to a regex patern that you specify. If the pattern match
+ in an object conforms to a regex pattern that you specify. If the pattern match
  fails, the ruleTitle is used as the error message, so use a clear rule title to
  indicate the intent of the pattern match. For instance the following rule is 
  applied to the names of EnumDefinitions:
@@ -220,3 +219,82 @@ description			This is really just a convention, but the generation of
  the enum can be imported in the static implementation. The dumpSTATICType()
  method in GenUtility checks to see if the type ends with Enum and adds
  the appropriate import if that's the case.
+ 
+///////////////////////////////////////////////////////////////////////////////
+
+RuleDefinition
+name				ValueLengthRule
+dmdID				10
+ruleCategory		AttributeValidation
+may					maxLength
+may                 minLength
+description			The ValueLengthRule allows you to indicate the maximum
+ and, potentially, the minimum length of the String form of a value associated
+ with an attribute.
+
+OneOfTheseAttributesRequiredRuleData
+ruleName			dmvMaxOrMin
+ruleTitle			At least one of the maxLength or minLength attributes must be specified.
+applyToClass		ValueLengthRuleData
+onePossibility		maxLength
+onePossibility		minLength
+
+RelatedNumbersRuleData
+ruleName        	dmvMinLessThanMax
+ruleTitle       	The minLength must be less than the maxLength.
+applyToClass    	Person
+lhs             	minLength
+rhs             	maxLength
+numericRelation 	LT
+
+///////////////////////////////////////////////////////////////////////////////
+
+RuleDefinition
+name				ReferencedAttributeTypeRule
+dmdID				11
+ruleCategory		AttributeValidation
+must             	allowedType
+may					allowedValueType
+description			The ReferencedAttributeTypeRule allowes you to restrict the type of
+ an attribute referred to by an AttributeDefinition reference. 
+ <p/>
+
+ReferencedAttributeTypeRuleData
+ruleName			dmvRATRApplyToAttribute
+ruleTitle			The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition
+applyToAttribute	applyToAttribute
+applyToClass 		ReferencedAttributeTypeRuleData
+allowedType 		AttributeDefinition
+
+ReferencedAttributeTypeRuleData
+ruleName			dmvNRRApplyToAttribute
+ruleTitle			The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute
+applyToAttribute	applyToAttribute
+applyToClass 		NumericRangeRuleData
+allowedType 		Integer
+allowedType			Long
+allowedType 		Float
+allowedType 		Double
+
+ReferencedAttributeTypeRuleData
+ruleName			dmvLhs
+ruleTitle           The lhs attribute can be single valued Integer, Long, Float or Double
+applyToAttribute	lhs
+applyToClass 		RelatedNumbersRuleData
+allowedType 		Integer
+allowedType			Long
+allowedType 		Float
+allowedType 		Double
+allowedValueType	SINGLE
+
+ReferencedAttributeTypeRuleData
+ruleName			dmvRhs
+ruleTitle			The rhs attribute can be single valued Integer, Long, Float or Double
+applyToAttribute	rhs
+applyToClass 		RelatedNumbersRuleData
+allowedType 		Integer
+allowedType			Long
+allowedType 		Float
+allowedType 		Double
+allowedValueType	SINGLE
+

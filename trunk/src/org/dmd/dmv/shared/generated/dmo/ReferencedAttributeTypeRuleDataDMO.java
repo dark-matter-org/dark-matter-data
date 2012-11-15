@@ -17,6 +17,7 @@ package org.dmd.dmv.shared.generated.dmo;
 
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
 import java.io.Serializable;                                                // Always required - (GenUtility.java:220)
+import java.util.*;                                                         // Always required if we have any MV attributes - (GenUtility.java:215)
 import org.dmd.dmc.DmcAttribute;                                            // Any attributes - (GenUtility.java:236)
 import org.dmd.dmc.DmcOmni;                                                 // Lazy resolution - (GenUtility.java:316)
 import org.dmd.dmc.DmcSliceInfo;                                            // Required for object slicing - (GenUtility.java:225)
@@ -25,22 +26,20 @@ import org.dmd.dmc.types.RuleName;                                          // P
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add - (GenUtility.java:303)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Required for MODREC constructor - (GenUtility.java:224)
 import org.dmd.dms.generated.dmo.RuleDataDMO;                               // Base class - (GenUtility.java:351)
+import org.dmd.dms.generated.dmo.TypeDefinitionDMO;                         // Type specific set/add - (GenUtility.java:303)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                           // Primitive type and !auxiliary class - (GenUtility.java:267)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Helper class - (GenUtility.java:331)
 import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type - (GenUtility.java:296)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:223)
 import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeTypeDefinitionREFMV;              // Reference type - (GenUtility.java:296)
+import org.dmd.dms.generated.types.DmcTypeValueTypeEnumSV;                  // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.TypeDefinitionREF;                       // Helper class - (GenUtility.java:331)
 
 /**
- * The PatternMatchRule allows you to validate that an attribute\n in an
- * object conforms to a regex pattern that you specify. If the pattern
- * match\n fails, the ruleTitle is used as the error message, so use a clear
- * rule title to\n indicate the intent of the pattern match. For instance the
- * following rule is \n applied to the names of EnumDefinitions:\n <pre>\n
- * PatternMatchRuleData\n ruleName			dmvEnumDefinitionNameCheck\n
- * ruleTitle			An EnumDefinition's name must end with Enum\n
- * matchesPattern		^.*Enum\n applyToAttribute	name\n
- * applyToClass		EnumDefinition\n </pre>
+ * The ReferencedAttributeTypeRule allowes you to restrict the type of\n an
+ * attribute referred to by an AttributeDefinition reference. \n <p/>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -48,43 +47,43 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;                         // R
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:133)
  */
 @SuppressWarnings("serial")
-public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements Serializable  {
+public class ReferencedAttributeTypeRuleDataDMO  extends RuleDataDMO  implements Serializable  {
 
-    public final static String constructionClassName = "PatternMatchRuleData";
+    public final static String constructionClassName = "ReferencedAttributeTypeRuleData";
 
 
     static {
     }
 
-    public PatternMatchRuleDataDMO() {
-        super("PatternMatchRuleData");
+    public ReferencedAttributeTypeRuleDataDMO() {
+        super("ReferencedAttributeTypeRuleData");
     }
 
-    protected PatternMatchRuleDataDMO(String oc) {
+    protected ReferencedAttributeTypeRuleDataDMO(String oc) {
         super(oc);
     }
 
     @Override
-    public PatternMatchRuleDataDMO getNew(){
-        PatternMatchRuleDataDMO rc = new PatternMatchRuleDataDMO();
+    public ReferencedAttributeTypeRuleDataDMO getNew(){
+        ReferencedAttributeTypeRuleDataDMO rc = new ReferencedAttributeTypeRuleDataDMO();
         return(rc);
     }
 
     @Override
-    public PatternMatchRuleDataDMO getSlice(DmcSliceInfo info){
-        PatternMatchRuleDataDMO rc = new PatternMatchRuleDataDMO();
+    public ReferencedAttributeTypeRuleDataDMO getSlice(DmcSliceInfo info){
+        ReferencedAttributeTypeRuleDataDMO rc = new ReferencedAttributeTypeRuleDataDMO();
         populateSlice(rc,info);
         return(rc);
     }
 
-    public PatternMatchRuleDataDMO(DmcTypeModifierMV mods) {
-        super("PatternMatchRuleData");
+    public ReferencedAttributeTypeRuleDataDMO(DmcTypeModifierMV mods) {
+        super("ReferencedAttributeTypeRuleData");
         modrec(true);
         setModifier(mods);
     }
 
-    public PatternMatchRuleDataDMO getModificationRecorder(){
-        PatternMatchRuleDataDMO rc = new PatternMatchRuleDataDMO();
+    public ReferencedAttributeTypeRuleDataDMO getModificationRecorder(){
+        ReferencedAttributeTypeRuleDataDMO rc = new ReferencedAttributeTypeRuleDataDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
         rc.modrec(true);
         return(rc);
@@ -138,6 +137,56 @@ public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements Serializab
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remDescription(){
          rem(MetaDMSAG.__description);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    public ValueTypeEnum getAllowedValueType(){
+        DmcTypeValueTypeEnumSV attr = (DmcTypeValueTypeEnumSV) get(DmvDMSAG.__allowedValueType);
+        if (attr == null)
+            return(ValueTypeEnum.SINGLE);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets allowedValueType to the specified value.
+     * @param value ValueTypeEnum
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    public void setAllowedValueType(ValueTypeEnum value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__allowedValueType);
+        if (attr == null)
+            attr = new DmcTypeValueTypeEnumSV(DmvDMSAG.__allowedValueType);
+        
+        try{
+            attr.set(value);
+            set(DmvDMSAG.__allowedValueType,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets allowedValueType to the specified value.
+     * @param value A value compatible with DmcTypeValueTypeEnumSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    public void setAllowedValueType(Object value) throws DmcValueException {
+        DmcTypeValueTypeEnumSV attr  = (DmcTypeValueTypeEnumSV) get(DmvDMSAG.__allowedValueType);
+        if (attr == null)
+            attr = new DmcTypeValueTypeEnumSV(DmvDMSAG.__allowedValueType);
+        
+        attr.set(value);
+        set(DmvDMSAG.__allowedValueType,attr);
+    }
+
+    /**
+     * Removes the allowedValueType attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    public void remAllowedValueType(){
+         rem(DmvDMSAG.__allowedValueType);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
@@ -312,54 +361,111 @@ public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements Serializab
          rem(MetaDMSAG.__applyToAttribute);
     }
 
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
-    public String getMatchesPattern(){
-        DmcTypeStringSV attr = (DmcTypeStringSV) get(DmvDMSAG.__matchesPattern);
+    /**
+     * @return An Iterator of TypeDefinitionDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    public Iterator<TypeDefinitionREF> getAllowedType(){
+        DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(DmvDMSAG.__allowedType);
         if (attr == null)
-            return(null);
+            return( ((List<TypeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
 
-        return(attr.getSV());
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return( ((List<TypeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+            }
+        }
+
+        return(attr.getMV());
     }
 
     /**
-     * Sets matchesPattern to the specified value.
-     * @param value String
+     * @return An Iterator of TypeDefinitionREFs without attempting lazy resolution (if it's turned on).
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
-    public void setMatchesPattern(String value) {
-        DmcAttribute<?> attr = get(DmvDMSAG.__matchesPattern);
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:980)
+    public Iterator<TypeDefinitionREF> getAllowedTypeREFs(){
+        DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(DmvDMSAG.__allowedType);
         if (attr == null)
-            attr = new DmcTypeStringSV(DmvDMSAG.__matchesPattern);
+            return( ((List<TypeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another allowedType to the specified value.
+     * @param value TypeDefinition
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:994)
+    public DmcAttribute<?> addAllowedType(TypeDefinitionDMO value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
+        if (attr == null)
+            attr = new DmcTypeTypeDefinitionREFMV(DmvDMSAG.__allowedType);
         
         try{
-            attr.set(value);
-            set(DmvDMSAG.__matchesPattern,attr);
+            setLastValue(attr.add(value));
+            add(DmvDMSAG.__allowedType,attr);
         }
         catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
         }
+        return(attr);
     }
 
     /**
-     * Sets matchesPattern to the specified value.
-     * @param value A value compatible with DmcTypeStringSV
+     * Adds another allowedType value.
+     * @param value A value compatible with TypeDefinition
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
-    public void setMatchesPattern(Object value) throws DmcValueException {
-        DmcTypeStringSV attr  = (DmcTypeStringSV) get(DmvDMSAG.__matchesPattern);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
+    public DmcAttribute<?> addAllowedType(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
         if (attr == null)
-            attr = new DmcTypeStringSV(DmvDMSAG.__matchesPattern);
+            attr = new DmcTypeTypeDefinitionREFMV(DmvDMSAG.__allowedType);
         
-        attr.set(value);
-        set(DmvDMSAG.__matchesPattern,attr);
+        setLastValue(attr.add(value));
+        add(DmvDMSAG.__allowedType,attr);
+        return(attr);
     }
 
     /**
-     * Removes the matchesPattern attribute value.
+     * Returns the number of values in allowedType
      */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
-    public void remMatchesPattern(){
-         rem(DmvDMSAG.__matchesPattern);
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
+    public int getAllowedTypeSize(){
+        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
+        if (attr == null){
+            if (DmvDMSAG.__allowedType.indexSize == 0)
+                return(0);
+            else
+                return(DmvDMSAG.__allowedType.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a allowedType value.
+     * @param value The TypeDefinition to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1291)
+    public DmcAttribute<?> delAllowedType(Object value){
+        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeTypeDefinitionREFMV(DmvDMSAG.__allowedType), value);
+        else
+            attr = del(DmvDMSAG.__allowedType, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the allowedType attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    public void remAllowedType(){
+         rem(DmvDMSAG.__allowedType);
     }
 
 

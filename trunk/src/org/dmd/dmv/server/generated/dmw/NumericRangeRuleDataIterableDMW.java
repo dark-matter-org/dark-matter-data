@@ -18,25 +18,25 @@ package org.dmd.dmv.server.generated.dmw;
 import java.util.Iterator;
 
 import org.dmd.dmw.DmwObjectIterator;
-import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;  // dmo type import
-import org.dmd.dmv.server.generated.dmw.IntegerRangeRuleDataDMW;  // wrapper type import
+import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;  // dmo type import
+import org.dmd.dmv.server.generated.dmw.NumericRangeRuleDataDMW;  // wrapper type import
 /**
- * The IntegerRangeRuleDataIterableDMW wraps an Iterator for a particular type and makes 
+ * The NumericRangeRuleDataIterableDMW wraps an Iterator for a particular type and makes 
  * it Iterable.
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpObjectIterable(GenUtility.java:1795)
  *    Called from: org.dmd.dmg.generators.DmwDMWGenerator.createTypeIterables(DmwDMWGenerator.java:77)
  */
-public class IntegerRangeRuleDataIterableDMW extends DmwObjectIterator<IntegerRangeRuleDataDMW, IntegerRangeRuleDataDMO> {
+public class NumericRangeRuleDataIterableDMW extends DmwObjectIterator<NumericRangeRuleDataDMW, NumericRangeRuleDataDMO> {
 
-    public final static IntegerRangeRuleDataIterableDMW emptyList = new IntegerRangeRuleDataIterableDMW();
+    public final static NumericRangeRuleDataIterableDMW emptyList = new NumericRangeRuleDataIterableDMW();
 
-    protected IntegerRangeRuleDataIterableDMW(){
+    protected NumericRangeRuleDataIterableDMW(){
         super();
     }
 
-    public IntegerRangeRuleDataIterableDMW(Iterator<IntegerRangeRuleDataDMO> it){
+    public NumericRangeRuleDataIterableDMW(Iterator<NumericRangeRuleDataDMO> it){
         super(it);
     }
 

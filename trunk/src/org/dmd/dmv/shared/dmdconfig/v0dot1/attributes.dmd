@@ -1,14 +1,14 @@
 AttributeDefinition
-name   			irrMinimum
+name   			nrrMinimum
 dmdID			1
-type        	Integer
-description		The minimum integer value.
+type        	Double
+description		The minimum numeric value.
 
 AttributeDefinition
-name   			irrMaximum
+name   			nrrMaximum
 dmdID			2
-type        	Integer
-description		The maximum integer value.
+type        	Double
+description		The maximum numeric value.
 
 AttributeDefinition
 name   			numericRelation
@@ -92,3 +92,28 @@ dmdID			13
 type			String
 description		The matchesPattern attribute indicates a regular expression that conforms
  to the 
+
+AttributeDefinition
+name			maxLength
+dmdID			14
+type			Integer
+description		The maxLength attribute indicates the maximum length of something.
+
+AttributeDefinition
+name			minLength
+dmdID			15
+type			Integer
+description		The minLength attribute indicates the maximum length of something.
+
+AttributeDefinition
+name   			allowedValueType
+dmdID			16
+type        	ValueTypeEnum
+description		The allowedValueType indicates the allowed cardinality of an attribute.
+
+//AttributeDefinition
+//name   			referringAttribute
+//dmdID			17
+//type        	AttributeDefinition
+//description		The referringAttribute indicates the attribute that refers to another attribute.
+

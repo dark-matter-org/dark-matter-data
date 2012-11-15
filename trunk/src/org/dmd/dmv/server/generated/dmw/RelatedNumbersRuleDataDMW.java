@@ -36,7 +36,14 @@ import org.dmd.dmv.shared.generated.enums.NumericRelationEnum;             // Pr
  * dmvHeightGirth\n ruleTitle       Your height must exceed your girth.\n
  * applyToClass    Person\n lhs             height\n rhs             girth\n
  * numericRelation GT\n description     If your girth exceeds your height,
- * you're in trouble!\n </pre>
+ * you're in trouble!\n </pre>\n The rule will only test the relationship if
+ * both attributes exist; if not,\n that's okay - the rule will pass.\n
+ * <p/>\n It's a good rule of thumb to indicate the relationship you expect
+ * in the\n title of the rule since this is what will be returned in the case
+ * that \n the relatioship check fails.\n <p/>\n NOTE: this rule works by
+ * implicitly converting the values of the attributes\n to type Double in
+ * order to be able to compare apples to apples. However,\n if you are
+ * dealing with large numeric values you may run into issues.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

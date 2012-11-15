@@ -21,6 +21,8 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
+import org.dmd.dmc.DmcOmni;
+import org.dmd.util.exceptions.DebugInfo;
 
 public abstract class AttributeRuleCollection<I extends RuleIF> extends RuleCollection<I> {
 
@@ -40,6 +42,9 @@ public abstract class AttributeRuleCollection<I extends RuleIF> extends RuleColl
                 globalRules.put(rule.getApplyToAttribute(), grl);
             }
             grl.add(rule);
+            
+            if (DmcOmni.instance().ruleTracing())
+            	DmcOmni.instance().ruleAdded(this.getClass().getName() + " added global attribute rule: " + rule.getRuleTitle());
         }
         else{
             RuleList<I> attrRules = rules.get(rule.getKey());
@@ -48,6 +53,9 @@ public abstract class AttributeRuleCollection<I extends RuleIF> extends RuleColl
                 rules.put(rule.getKey(), attrRules);
             }
             attrRules.addRule(rule);
+            
+            if (DmcOmni.instance().ruleTracing())
+            	DmcOmni.instance().ruleAdded(this.getClass().getName() + " added specific attribute rule: " + rule.getKey().toString() + " - "+ rule.getRuleTitle());
         }
 		
 	}
@@ -62,9 +70,13 @@ public abstract class AttributeRuleCollection<I extends RuleIF> extends RuleColl
 	 */
 	protected ArrayList<I> getRules(DmcAttributeInfo ai, DmcClassInfo ci){
     	AttributeRuleKey 	ark = new AttributeRuleKey(ai, ci);
+    	
+    	DebugInfo.debug(">>> Looking for rule key:" + ark.toString());
+    	
 		RuleList<I>			ruleList	= rules.get(ark);
 		
 		if (ruleList == null){
+	    	DebugInfo.debug("    >>> no rules");
 			// We didn't have rules specifically for this attribute in this class, so
 			// we create a place holder rule list and pass it in for initialization.
 			// The next we come through for the same key, we won't have to do the
@@ -73,6 +85,7 @@ public abstract class AttributeRuleCollection<I extends RuleIF> extends RuleColl
 			initializeFromHere(ark, ruleList);
 		}
 		else{
+	    	DebugInfo.debug("    >>> have rules");
 			// We have a rule list - if it hasn't yet been initialized, we initialize it
 			if (!ruleList.initialized())
 				initializeFromHere(ark, ruleList);
@@ -110,5 +123,26 @@ public abstract class AttributeRuleCollection<I extends RuleIF> extends RuleColl
 		}
 		
 		ruleList.setInitialized();
+	}
+	
+	public String toString(){
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append("Global Rules:\n");
+		for(ArrayList<I> rules: globalRules.values()){
+			for(RuleIF rule: rules){
+				sb.append(rule.getRuleTitle());
+			}
+		}
+		
+		sb.append("\nSpecific Attribute Rules:\n");
+		for(RuleKey key: rules.keySet()){
+			RuleList<I> list = rules.get(key);
+			for(RuleIF rule: list.getRules()){
+				sb.append(key.toString() + "  -  " + rule.getRuleTitle() + "\n");
+			}
+		}
+		
+		return(sb.toString());
 	}
 }

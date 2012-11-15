@@ -27,19 +27,22 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // R
 import org.dmd.dms.generated.dmo.RuleDataDMO;                               // Base class - (GenUtility.java:351)
 import org.dmd.dms.generated.types.AttributeDefinitionREF;                  // Helper class - (GenUtility.java:331)
 import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type - (GenUtility.java:296)
-import org.dmd.dms.generated.types.DmcTypeIntegerSV;                        // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeDoubleSV;                         // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:223)
 import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:324)
 
 /**
- * The IntegerRangeRule ensures that an Integer attribute has a value that
- * falls\n within a given range. The irrMinimum must be less than the
- * irrMaximum. An example usage\n might be:\n <p/>\n <pre>\n
- * IntegerRangeRuleData\n ruleName         <schema>RangeCheckY\n ruleTitle   
- *     Attribute Y in range 1-10\n applyToAttribute Y\n irrMinimum       1\n
- * irrMaximum       10\n description      This constraint is required because
- * blah, blah blah.\n </pre>
+ * The NumericRangeRule ensures that a numeric attribute has value(s) that
+ * fall\n within a given range. The nrrMinimum must be less than the
+ * nrrMaximum. An example usage\n might be:\n <p/>\n <pre>\n
+ * NumericRangeRuleData\n ruleName         <schema>RangeCheckY\n ruleTitle   
+ *     Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n
+ * nrrMaximum       10\n description      This constraint is required because
+ * blah, blah blah.\n </pre>\n NOTE: this rule works by implicitly converting
+ * the values of the attributes\n to type Double in order to be able to do
+ * the range comparison. However,\n if you are dealing with large numeric
+ * values you may run into issues.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -47,43 +50,43 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;                         // R
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:133)
  */
 @SuppressWarnings("serial")
-public class IntegerRangeRuleDataDMO  extends RuleDataDMO  implements Serializable  {
+public class NumericRangeRuleDataDMO  extends RuleDataDMO  implements Serializable  {
 
-    public final static String constructionClassName = "IntegerRangeRuleData";
+    public final static String constructionClassName = "NumericRangeRuleData";
 
 
     static {
     }
 
-    public IntegerRangeRuleDataDMO() {
-        super("IntegerRangeRuleData");
+    public NumericRangeRuleDataDMO() {
+        super("NumericRangeRuleData");
     }
 
-    protected IntegerRangeRuleDataDMO(String oc) {
+    protected NumericRangeRuleDataDMO(String oc) {
         super(oc);
     }
 
     @Override
-    public IntegerRangeRuleDataDMO getNew(){
-        IntegerRangeRuleDataDMO rc = new IntegerRangeRuleDataDMO();
+    public NumericRangeRuleDataDMO getNew(){
+        NumericRangeRuleDataDMO rc = new NumericRangeRuleDataDMO();
         return(rc);
     }
 
     @Override
-    public IntegerRangeRuleDataDMO getSlice(DmcSliceInfo info){
-        IntegerRangeRuleDataDMO rc = new IntegerRangeRuleDataDMO();
+    public NumericRangeRuleDataDMO getSlice(DmcSliceInfo info){
+        NumericRangeRuleDataDMO rc = new NumericRangeRuleDataDMO();
         populateSlice(rc,info);
         return(rc);
     }
 
-    public IntegerRangeRuleDataDMO(DmcTypeModifierMV mods) {
-        super("IntegerRangeRuleData");
+    public NumericRangeRuleDataDMO(DmcTypeModifierMV mods) {
+        super("NumericRangeRuleData");
         modrec(true);
         setModifier(mods);
     }
 
-    public IntegerRangeRuleDataDMO getModificationRecorder(){
-        IntegerRangeRuleDataDMO rc = new IntegerRangeRuleDataDMO();
+    public NumericRangeRuleDataDMO getModificationRecorder(){
+        NumericRangeRuleDataDMO rc = new NumericRangeRuleDataDMO();
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
         rc.modrec(true);
         return(rc);
@@ -312,8 +315,8 @@ public class IntegerRangeRuleDataDMO  extends RuleDataDMO  implements Serializab
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
-    public Integer getIrrMinimum(){
-        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmvDMSAG.__irrMinimum);
+    public Double getNrrMinimum(){
+        DmcTypeDoubleSV attr = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMinimum);
         if (attr == null)
             return(null);
 
@@ -321,18 +324,18 @@ public class IntegerRangeRuleDataDMO  extends RuleDataDMO  implements Serializab
     }
 
     /**
-     * Sets irrMinimum to the specified value.
-     * @param value Integer
+     * Sets nrrMinimum to the specified value.
+     * @param value Double
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
-    public void setIrrMinimum(Integer value) {
-        DmcAttribute<?> attr = get(DmvDMSAG.__irrMinimum);
+    public void setNrrMinimum(Double value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__nrrMinimum);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(DmvDMSAG.__irrMinimum);
+            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMinimum);
         
         try{
             attr.set(value);
-            set(DmvDMSAG.__irrMinimum,attr);
+            set(DmvDMSAG.__nrrMinimum,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -340,30 +343,30 @@ public class IntegerRangeRuleDataDMO  extends RuleDataDMO  implements Serializab
     }
 
     /**
-     * Sets irrMinimum to the specified value.
-     * @param value A value compatible with DmcTypeIntegerSV
+     * Sets nrrMinimum to the specified value.
+     * @param value A value compatible with DmcTypeDoubleSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
-    public void setIrrMinimum(Object value) throws DmcValueException {
-        DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmvDMSAG.__irrMinimum);
+    public void setNrrMinimum(Object value) throws DmcValueException {
+        DmcTypeDoubleSV attr  = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMinimum);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(DmvDMSAG.__irrMinimum);
+            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMinimum);
         
         attr.set(value);
-        set(DmvDMSAG.__irrMinimum,attr);
+        set(DmvDMSAG.__nrrMinimum,attr);
     }
 
     /**
-     * Removes the irrMinimum attribute value.
+     * Removes the nrrMinimum attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
-    public void remIrrMinimum(){
-         rem(DmvDMSAG.__irrMinimum);
+    public void remNrrMinimum(){
+         rem(DmvDMSAG.__nrrMinimum);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
-    public Integer getIrrMaximum(){
-        DmcTypeIntegerSV attr = (DmcTypeIntegerSV) get(DmvDMSAG.__irrMaximum);
+    public Double getNrrMaximum(){
+        DmcTypeDoubleSV attr = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMaximum);
         if (attr == null)
             return(null);
 
@@ -371,18 +374,18 @@ public class IntegerRangeRuleDataDMO  extends RuleDataDMO  implements Serializab
     }
 
     /**
-     * Sets irrMaximum to the specified value.
-     * @param value Integer
+     * Sets nrrMaximum to the specified value.
+     * @param value Double
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
-    public void setIrrMaximum(Integer value) {
-        DmcAttribute<?> attr = get(DmvDMSAG.__irrMaximum);
+    public void setNrrMaximum(Double value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__nrrMaximum);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(DmvDMSAG.__irrMaximum);
+            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMaximum);
         
         try{
             attr.set(value);
-            set(DmvDMSAG.__irrMaximum,attr);
+            set(DmvDMSAG.__nrrMaximum,attr);
         }
         catch(DmcValueException ex){
             throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
@@ -390,25 +393,25 @@ public class IntegerRangeRuleDataDMO  extends RuleDataDMO  implements Serializab
     }
 
     /**
-     * Sets irrMaximum to the specified value.
-     * @param value A value compatible with DmcTypeIntegerSV
+     * Sets nrrMaximum to the specified value.
+     * @param value A value compatible with DmcTypeDoubleSV
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
-    public void setIrrMaximum(Object value) throws DmcValueException {
-        DmcTypeIntegerSV attr  = (DmcTypeIntegerSV) get(DmvDMSAG.__irrMaximum);
+    public void setNrrMaximum(Object value) throws DmcValueException {
+        DmcTypeDoubleSV attr  = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMaximum);
         if (attr == null)
-            attr = new DmcTypeIntegerSV(DmvDMSAG.__irrMaximum);
+            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMaximum);
         
         attr.set(value);
-        set(DmvDMSAG.__irrMaximum,attr);
+        set(DmvDMSAG.__nrrMaximum,attr);
     }
 
     /**
-     * Removes the irrMaximum attribute value.
+     * Removes the nrrMaximum attribute value.
      */
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
-    public void remIrrMaximum(){
-         rem(DmvDMSAG.__irrMaximum);
+    public void remNrrMaximum(){
+         rem(DmvDMSAG.__nrrMaximum);
     }
 
 

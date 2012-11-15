@@ -16,9 +16,9 @@ import org.dmd.dms.generated.types.DmcTypeIntegerSV;                     // Supp
 import org.dmd.dms.generated.types.DmcTypeStringMV;                      // Support for addition of mvString values to the extensible InitRuleData class - (ClassDefinition.java:929)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                      // Support for addition of svString values to the extensible InitRuleData class - (ClassDefinition.java:929)
 import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                    // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:730)
-import org.dmd.dmv.shared.extended.rulesdmo.IntegerRangeRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:730)
+import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:730)
 import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;                 // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:729)
-import org.dmd.dmv.shared.generated.dmo.IntegerRangeRuleDataDMO;         // To instantiate IntegerRangeRuleData rule data - (DmoCompactSchemaFormatter.java:729)
+import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;         // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:729)
 
 import org.dmd.dmt.shared.generated.types.*;
 
@@ -176,7 +176,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:163)
     public final static InitRule __dmtInitTestBasicObjectFixed;
-    public final static IntegerRangeRule __dmtSvIntegerRange;
+    public final static NumericRangeRule __dmtSvNumericRange;
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -544,20 +544,20 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
 
             _RmAp.add(__dmtInitTestBasicObjectFixed);
 
-            IntegerRangeRuleDataDMO _dmtSvIntegerRangeData = new IntegerRangeRuleDataDMO();
-            _dmtSvIntegerRangeData       .setApplyToAttribute("svInteger");
-            _dmtSvIntegerRangeData       .setApplyToClass("TestBasicObjectFixed");
-            _dmtSvIntegerRangeData       .setDefinedIn("dmt");
-            _dmtSvIntegerRangeData       .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _dmtSvIntegerRangeData       .setIrrMaximum("10");
-            _dmtSvIntegerRangeData       .setIrrMinimum("1");
-            _dmtSvIntegerRangeData       .setLineNumber("81");
-            _dmtSvIntegerRangeData       .setRuleName("dmtSvIntegerRange");
-            _dmtSvIntegerRangeData       .setRuleTitle("Check that svInteger is in range 1-10");
+            NumericRangeRuleDataDMO _dmtSvNumericRangeData = new NumericRangeRuleDataDMO();
+            _dmtSvNumericRangeData       .setApplyToAttribute("svInteger");
+            _dmtSvNumericRangeData       .setApplyToClass("TestBasicObjectFixed");
+            _dmtSvNumericRangeData       .setDefinedIn("dmt");
+            _dmtSvNumericRangeData       .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _dmtSvNumericRangeData       .setLineNumber("82");
+            _dmtSvNumericRangeData       .setNrrMaximum("10");
+            _dmtSvNumericRangeData       .setNrrMinimum("1");
+            _dmtSvNumericRangeData       .setRuleName("dmtSvNumericRange");
+            _dmtSvNumericRangeData       .setRuleTitle("Check that svInteger is in range 1-10");
 
-            __dmtSvIntegerRange = new IntegerRangeRule(_dmtSvIntegerRangeData);
+            __dmtSvNumericRange = new NumericRangeRule(_dmtSvNumericRangeData);
 
-            _RmAp.add(__dmtSvIntegerRange);
+            _RmAp.add(__dmtSvNumericRange);
 
         } catch(DmcValueException ex){
             throw(new IllegalStateException(ex));

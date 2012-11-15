@@ -555,6 +555,13 @@ public class DmcOmni implements DmcNameResolverIF {
 		}
 	}
 	
+	public void ruleAdded(String info){
+		if (traceRules){
+			if (ruleTracer != null)
+				ruleTracer.ruleAdded(info);
+		}
+	}
+	
 	public void ruleFailed(DmcRuleExceptionSet errors){
 		if (traceRules){
 			if (ruleTracer != null)
