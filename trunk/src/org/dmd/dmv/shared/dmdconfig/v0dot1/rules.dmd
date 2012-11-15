@@ -52,7 +52,6 @@ RuleDefinition
 name			NumericRangeRule
 dmdID			3
 ruleCategory	AttributeValidation
-//ruleCategory	AttributeModifierValidation
 must			nrrMinimum
 must			nrrMaximum
 description		The NumericRangeRule ensures that a numeric attribute has value(s) that fall
@@ -101,7 +100,6 @@ RuleDefinition
 name			RelatedNumbersRule
 dmdID			6
 ruleCategory	ObjectValidation
-//ruleCategory	ObjectModifierValidation
 must			lhs
 must			rhs
 must			numericRelation
