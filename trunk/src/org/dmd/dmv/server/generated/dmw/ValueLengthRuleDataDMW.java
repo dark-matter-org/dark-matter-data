@@ -174,13 +174,13 @@ public class ValueLengthRuleDataDMW extends RuleData {
     }
 
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1292)
-    public String getMinLength(){
+    public Integer getMinLength(){
         return(((ValueLengthRuleDataDMO) core).getMinLength());
     }
 
     /**
      * Sets minLength to the specified value.
-     * @param value A value compatible with DmcTypeString
+     * @param value A value compatible with DmcTypeInteger
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1402)
     public void setMinLength(Object value) throws DmcValueException {
@@ -189,10 +189,10 @@ public class ValueLengthRuleDataDMW extends RuleData {
 
     /**
      * Sets minLength to the specified value.
-     * @param value String
+     * @param value Integer
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatSV(BaseDMWGeneratorNewest.java:1411)
-    public void setMinLength(String value){
+    public void setMinLength(Integer value){
         ((ValueLengthRuleDataDMO) core).setMinLength(value);
     }
 
