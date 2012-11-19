@@ -1,16 +1,17 @@
 package org.dmd.map.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:736)
-import java.util.ArrayList;              // For storage of schema info - (DmoCompactSchemaFormatter.java:674)
-import java.util.HashMap;                // For storage of schema info - (DmoCompactSchemaFormatter.java:673)
-import java.util.Iterator;               // For access of schema info - (DmoCompactSchemaFormatter.java:675)
-import org.dmd.dmc.*;                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:676)
-import org.dmd.dmc.rules.RuleIF;         // For rule info - (DmoCompactSchemaFormatter.java:677)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:850)
+import java.util.ArrayList;                                  // For storage of schema info - (DmoCompactSchemaFormatter.java:784)
+import java.util.HashMap;                                    // For storage of schema info - (DmoCompactSchemaFormatter.java:783)
+import java.util.Iterator;                                   // For access of schema info - (DmoCompactSchemaFormatter.java:785)
+import org.dmd.dmc.*;                                        // Basic DMC stuff - (DmoCompactSchemaFormatter.java:786)
+import org.dmd.dmc.rules.RuleIF;                             // For rule info - (DmoCompactSchemaFormatter.java:787)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;         // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:797)
 
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:100)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:119)
 public class MapDMSAG implements DmcCompactSchemaIF {
 
 
@@ -26,6 +27,9 @@ public class MapDMSAG implements DmcCompactSchemaIF {
     static int schemaMaxID = 20050;
 
 
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:157)
+    public final static DmcTypeInfo __type_MapZoomEnum = new DmcTypeInfo("MapZoomEnum", OriginalTypeEnum.ENUM);
+
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
     static  HashMap<Integer, DmcAttributeInfo> _SmAp;
@@ -35,6 +39,8 @@ public class MapDMSAG implements DmcCompactSchemaIF {
     static  HashMap<String, DmcFilterBuilderIF> _FmAp;
 
     static  HashMap<String, DmcSliceInfo> _SImAp;
+
+    static  HashMap<String, DmcTypeInfo> _TImAp;
 
     static  ArrayList<RuleIF>             _RmAp;
 
@@ -48,6 +54,8 @@ public class MapDMSAG implements DmcCompactSchemaIF {
         _FmAp = new HashMap<String, DmcFilterBuilderIF>();
 
         _SImAp = new HashMap<String, DmcSliceInfo>();
+
+        _TImAp = new HashMap<String, DmcTypeInfo>();
 
         _RmAp = new ArrayList<RuleIF>();
 
@@ -100,6 +108,11 @@ public class MapDMSAG implements DmcCompactSchemaIF {
 
     public Iterator<DmcSliceInfo> getSliceInfo(){
         return(_SImAp.values().iterator());
+    }
+
+
+    public Iterator<DmcTypeInfo> getTypeInfo(){
+        return(_TImAp.values().iterator());
     }
 
 

@@ -311,7 +311,7 @@ description The RuleParam type is used to succintly describe a parameter
  
 ComplexTypeDefinition
 name			GPBField
-field			GPBFieldTypeEnum	fieldType
+field			GPBFieldTypeEnum	fieldType       The type of GPB field
 field			AttributeDefinition	attribute		The attribute to be stored in this field. The attribute type must specify the gpbFieldType .
 field			Integer				fieldTag		Unique field ID excluding values 19000 to 19999 which are reserved.
 description		The GPBField type is used to specify a mapping between the attributes
@@ -459,6 +459,19 @@ enumValue		1 BASE Indicates that you just want to use the generated DMW class.
 enumValue		2 EXTENDED Indicates that you want to use your own extended class.
 description     The WrapperTypeEnum indicates which wrapper class you want instantiated when a class
  of object is recognized during parsing or when an object is pulled from a repository.
+ 
+EnumDefinition
+name			OriginalTypeEnum
+nullReturnValue OriginalTypeEnum.TYPE
+enumValue		0 TYPE The type is actually a type!.
+enumValue		1 ENUM The type is an enum.
+enumValue		2 OBJECT The type is the internally generated one to represent an unnamed object.
+enumValue		3 REFERENCE The type is the internally generated one to represent a reference to a named object.
+enumValue		4 EXTREF The type is an extended reference type.
+enumValue		5 COMPLEXTYPE The is a complex type.
+enumValue		6 NAMETYPE The type is a name type.
+description     The OriginalTypeEnum indicates the source of type, whether explicitly defined
+ or implicitly defined and generated as an internal type.
 
 EnumDefinition
 name			GPBScalarTypeEnum
@@ -749,7 +762,13 @@ description    		This attribute can be used on AUXILIARY classes to give a hint 
  intended usage. For example, if you were extending schema definitions with some or your 
  own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition.
 
-// 23
+AttributeDefinition
+name                msgKey
+dmdID				23
+type                String
+description    		The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts.
 
 AttributeDefinition
 name                usesInterface
@@ -972,7 +991,14 @@ description    		Indicates that newline characters should be preserved when an
  a later time. For example, the description attribute is later dumped as part of 
  HTML documentation and, if the newlines are stripped, it won't be properly formatted.
 
-// 52
+AttributeDefinition
+name                msgParam
+dmdID				52
+type                String
+valueType			MULTI
+description 		The msgParam allows for the specification of parameters to be substituted
+ into translated messages.
+
 
 AttributeDefinition
 name                schemaPackage
@@ -2308,6 +2334,8 @@ may        		lineNumber
 //may				applyToAttribute
 may				applyToClass
 may				immediateHalt
+may				msgKey
+may				msgParam
 description		The RuleData class serves as a common base for all ClassDefinitions
  that are generated internally to represent the data associated with RuleDefinitions.
 

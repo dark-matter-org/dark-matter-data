@@ -86,6 +86,16 @@ abstract public class ReferencedAttributeTypeRuleBaseImpl implements RuleIF, Dyn
     }
 
     @Override
+    public Iterator<String> getMsgParam() {
+        return(ruleDMO.getMsgParam());
+    }
+
+    @Override
+    public String getMsgKey() {
+        return(ruleDMO.getMsgKey());
+    }
+
+    @Override
     public DmcClassInfo getApplyToClass() {
         if (classInfo != null)
             return(classInfo);

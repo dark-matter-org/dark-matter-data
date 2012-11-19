@@ -85,6 +85,16 @@ abstract public class UCOAllowedAttributesRuleBaseImpl implements RuleIF, Dynami
     }
 
     @Override
+    public Iterator<String> getMsgParam() {
+        return(ruleDMO.getMsgParam());
+    }
+
+    @Override
+    public String getMsgKey() {
+        return(ruleDMO.getMsgKey());
+    }
+
+    @Override
     public DmcClassInfo getApplyToClass() {
         if (classInfo != null)
             return(classInfo);

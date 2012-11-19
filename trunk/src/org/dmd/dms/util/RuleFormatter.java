@@ -593,6 +593,16 @@ public class RuleFormatter {
 			out.write("    public Iterator<Integer> getCategories() {\n");
 			out.write("        return(categories.iterator());\n");
 			out.write("    }\n\n");
+			
+			out.write("    @Override\n");
+			out.write("    public Iterator<String> getMsgParam() {\n");
+			out.write("        return(ruleDMO.getMsgParam());\n");
+			out.write("    }\n\n");
+
+			out.write("    @Override\n");
+			out.write("    public String getMsgKey() {\n");
+			out.write("        return(ruleDMO.getMsgKey());\n");
+			out.write("    }\n\n");
 
 			out.write("    @Override\n");
 			out.write("    public DmcClassInfo getApplyToClass() {\n");

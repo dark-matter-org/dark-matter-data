@@ -16,6 +16,7 @@
 package org.dmd.dmc.rules;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 @SuppressWarnings("serial")
 public class DmcRuleExceptionSet extends Exception {
@@ -87,6 +88,13 @@ public class DmcRuleExceptionSet extends Exception {
         	sb.append(ex.getLocalizedMessage() + "\n");
 
         return(sb.toString());
+	}
+	
+	/**
+	 * @return an Iterator over the set of exceptions.
+	 */
+	public Iterator<DmcRuleException> getExceptions(){
+		return(exceptions.iterator());
 	}
 	
 	public int getCount(){

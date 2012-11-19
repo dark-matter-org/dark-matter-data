@@ -71,6 +71,8 @@ public class DmoCompactSchemaFormatter {
 		
 		TreeMap<String,AttributeDefinition> attributes = new TreeMap<String, AttributeDefinition>();
 		
+		TreeMap<String,TypeDefinition> types = new TreeMap<String, TypeDefinition>();
+		
         BufferedWriter 	out = FileUpdateManager.instance().getWriter(dmodir, schemaName + ".java");
 
         StringBuffer nameBuilders = new StringBuffer();
@@ -94,6 +96,23 @@ public class DmoCompactSchemaFormatter {
 				attributes.put(ad.getName().getNameString(), ad);
 			}
 		}
+			
+        Iterator<TypeDefinition> tds = sd.getTypeDefList();
+		if (tds != null){
+			while(tds.hasNext()){
+				TypeDefinition td = tds.next();
+				types.put(td.getName().getNameString(), td);
+			}
+		}
+		
+		tds = sd.getInternalTypeDefList();
+		if (tds != null){
+			while(tds.hasNext()){
+				TypeDefinition td = tds.next();
+				types.put(td.getName().getNameString(), td);
+			}
+		}
+		
 			
         out.write("\n");
 
@@ -133,10 +152,50 @@ public class DmoCompactSchemaFormatter {
 				out.write(", " + ad.getIndexSize() + ");\n");
 		}
         
-        TreeMap<String,ClassNode> hierarchy = getHierarchy(classes.values().iterator());
-        for(ClassNode cn: hierarchy.values()){
-        	cn.writeClassInfo(out);
-		}
+        if (types.size() > 0){
+            out.write("\n");
+    		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+    		for(TypeDefinition td: types.values()){
+	        	
+	        	if (td.getInternallyGenerated() == false){
+	        		// This is a straightforward type definition
+	        		
+	        		if (td.getIsNameType() == false)
+	        			out.write("    public final static DmcTypeInfo __type_" + td.getName().getNameString() + " = new DmcTypeInfo(\"" + td.getName().getNameString() + "\", OriginalTypeEnum.TYPE);\n");
+	        		else
+	        			out.write("    public final static DmcTypeInfo __type_" + td.getName().getNameString() + " = new DmcTypeInfo(\"" + td.getName().getNameString() + "\", OriginalTypeEnum.NAMETYPE);\n");
+
+	        	}
+	        	else{
+	        		// Have to check extended ref before ref type since both values are set of extended refs.
+	        		
+	        		if (td.getIsEnumType())
+	        			out.write("    public final static DmcTypeInfo __type_" + td.getName().getNameString() + " = new DmcTypeInfo(\"" + td.getName().getNameString() + "\", OriginalTypeEnum.ENUM);\n");
+	        		else if (td.getIsExtendedRefType())
+	        			out.write("    public final static DmcTypeInfo __type_" + td.getName().getNameString() + " = new DmcTypeInfo(\"" + td.getName().getNameString() + "\", OriginalTypeEnum.EXTREF);\n");
+	        		else if (td.getIsRefType()){
+	        			// We actually want to distinguish between unnamed objects and named objects
+	        			if (td.getOriginalClass().getIsNamedBy() == null)
+		        			out.write("    public final static DmcTypeInfo __type_" + td.getOriginalClass().getName().getNameString() + " = new DmcTypeInfo(\"" + td.getOriginalClass().getName().getNameString() + "\", OriginalTypeEnum.OBJECT);\n");
+	        			else
+	        				out.write("    public final static DmcTypeInfo __type_" + td.getOriginalClass().getName().getNameString() + " = new DmcTypeInfo(\"" + td.getOriginalClass().getName().getNameString() + "\", OriginalTypeEnum.REFERENCE);\n");
+	        		}
+	        		else
+	        			out.write("    public final static DmcTypeInfo __type_" + td.getOriginalClass().getName().getNameString() + " = new DmcTypeInfo(\"" + td.getOriginalClass().getName().getNameString() + "\", OriginalTypeEnum.COMPLEXTYPE);\n");
+	        	}
+	        	
+//	        	System.out.println("HERE\n\n" + td.toOIF());
+    		}
+        }
+        
+        if (classes.size() > 0){
+            out.write("\n");
+    		out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+	        TreeMap<String,ClassNode> hierarchy = getHierarchy(classes.values().iterator());
+	        for(ClassNode cn: hierarchy.values()){
+	        	cn.writeClassInfo(out);
+			}
+        }
         
         ///////////////////////////////////////////////////////////////////////
         
@@ -374,6 +433,7 @@ public class DmoCompactSchemaFormatter {
         out.write("\n");
 
         if (attributes != null){
+    		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 	        for(DmcUncheckedObject ad: attributes.values()){
 	        	String n	= ad.getSV("name");
             	String t 	= ad.getSV("type");
@@ -384,7 +444,43 @@ public class DmoCompactSchemaFormatter {
 			}
 		}
         
+        if (types != null){
+            out.write("\n");
+    		out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
+            for(DmcUncheckedObject uco: types.values()){
+	        	String name					= uco.getSV("name");
+	        	String isRefType			= uco.getSV("isRefType");
+	        	String isExtendedRefType	= uco.getSV("isExtendedRefType");
+	        	String isEnumType			= uco.getSV("isEnumType");
+	        	String isNameType			= uco.getSV("isNameType");
+	        	String internallyGenerated	= uco.getSV("internallyGenerated");
+	        	String originalClass		= uco.getSV("originalClass");
+	        	
+	        	if (internallyGenerated == null){
+	        		// This is a straightforward type definition
+	        		
+	        		if (isNameType == null)
+	        			out.write("    public final static DmcTypeInfo __type_" + name + " = new DmcTypeInfo(\"" + name + "\", OriginalTypeEnum.TYPE);\n");
+	        		else
+	        			out.write("    public final static DmcTypeInfo __type_" + name + " = new DmcTypeInfo(\"" + name + "\", OriginalTypeEnum.NAMETYPE);\n");
+
+	        	}
+	        	else{
+	        		if (isEnumType != null)
+	        			out.write("    public final static DmcTypeInfo __type_" + name + " = new DmcTypeInfo(\"" + name + "\", OriginalTypeEnum.ENUM);\n");
+	        		else if (isRefType != null)
+	        			out.write("    public final static DmcTypeInfo __type_" + originalClass + " = new DmcTypeInfo(\"" + originalClass + "\", OriginalTypeEnum.REFERENCE);\n");
+	        		else if (isExtendedRefType != null)
+	        			out.write("    public final static DmcTypeInfo __type_" + name + " = new DmcTypeInfo(\"" + name + "\", OriginalTypeEnum.EXTREF);\n");
+	        		else 
+	        			out.write("    public final static DmcTypeInfo __type_" + name + " = new DmcTypeInfo(\"" + name + "\", OriginalTypeEnum.COMPLEXTYPE);\n");
+	        	}
+//        		System.out.println(uco.toOIF() + "\n");
+        	}
+        }
+        
 		if (classes != null){
+			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			TreeMap<String,ClassNode> hierarchy = getHierarchyMETA(classes.values().iterator());
 			out.write("\n");
 	        for(ClassNode cn: hierarchy.values()){
@@ -394,6 +490,7 @@ public class DmoCompactSchemaFormatter {
 		
 		if (rules != null){
 			out.write("\n");
+			out.write("// Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
 			for(DmcUncheckedObject ruleData: rules){
 				String dataName 	= ruleData.getConstructionClass();
 				int dataPos 		= dataName.indexOf("Data");
@@ -526,6 +623,9 @@ public class DmoCompactSchemaFormatter {
         out.write("    static  HashMap<String, DmcSliceInfo> _SImAp;\n");
         out.write("\n");
         
+        out.write("    static  HashMap<String, DmcTypeInfo> _TImAp;\n");
+        out.write("\n");
+        
         out.write("    static  ArrayList<RuleIF>             _RmAp;\n");
         out.write("\n");
         
@@ -543,6 +643,9 @@ public class DmoCompactSchemaFormatter {
         
         out.write("\n");
         out.write("        _SImAp = new HashMap<String, DmcSliceInfo>();\n");
+        
+        out.write("\n");
+        out.write("        _TImAp = new HashMap<String, DmcTypeInfo>();\n");
         
         out.write("\n");
         out.write("        _RmAp = new ArrayList<RuleIF>();\n");
@@ -615,6 +718,12 @@ public class DmoCompactSchemaFormatter {
         out.write("\n");
         
         out.write("\n");
+        out.write("    public Iterator<DmcTypeInfo> getTypeInfo(){\n");
+        out.write("        return(_TImAp.values().iterator());\n");
+        out.write("    }\n");
+        out.write("\n");
+        
+        out.write("\n");
         out.write("    public String getSchemaName(){\n");
         out.write("        return(schemaName);\n");
         out.write("    }\n");
@@ -658,6 +767,7 @@ public class DmoCompactSchemaFormatter {
         out.write("import org.dmd.dms.generated.enums.ClassTypeEnum;\n");
         out.write("import org.dmd.dms.generated.enums.ValueTypeEnum;\n");
         out.write("import org.dmd.dms.generated.enums.DataTypeEnum;\n");
+        out.write("import org.dmd.dms.generated.enums.OriginalTypeEnum;\n");
         out.write("import org.dmd.dms.generated.types.*;\n");
 //        out.write("import org.dmd.dms.extended.rules.*;\n");
         out.write("import org.dmd.dmc.rules.RuleIF;\n");
@@ -681,6 +791,10 @@ public class DmoCompactSchemaFormatter {
         	manager.addImport("org.dmd.dms.generated.enums.ClassTypeEnum", "Have class definitions");
         	manager.addImport("org.dmd.dms.generated.enums.DataTypeEnum", "Have class/attribute definitions");
 //        	out.write("import org.dmd.dms.generated.enums.ClassTypeEnum;\n");
+        }
+        
+        if ( (sd.getTypeDefListSize() > 0) || (sd.getInternalTypeDefListSize() > 0)){
+        	manager.addImport("org.dmd.dms.generated.enums.OriginalTypeEnum", "Have type/internal type definitions");
         }
             	 	
     	for(ClassDefinition cd: sd.getClassDefList()){

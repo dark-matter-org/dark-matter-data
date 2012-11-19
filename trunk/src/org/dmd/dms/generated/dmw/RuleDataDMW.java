@@ -217,6 +217,59 @@ public abstract class RuleDataDMW extends DmwNamedObjectWrapper {
         mycore.setImmediateHalt(value);
     }
 
+    /**
+     * The msgKey may be specified on rule instances to indicate the key to be
+     * used\n to look up translated messages. This is primarily a GWT mechanism,
+     * but should be applicable in\n other contexts.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
+    public String getMsgKey(){
+        return(mycore.getMsgKey());
+    }
+
+    /**
+     * Sets msgKey to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
+    public void setMsgKey(Object value) throws DmcValueException {
+        mycore.setMsgKey(value);
+    }
+
+    /**
+     * The msgParam allows for the specification of parameters to be
+     * substituted\n into translated messages.
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2460)
+    public Iterator<String> getMsgParam(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) mycore.get(MetaDMSAG.__msgParam);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another msgParam value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2515)
+    public DmcAttribute<?> addMsgParam(Object value) throws DmcValueException {
+        return(mycore.addMsgParam(value));
+    }
+
+    /**
+     * Returns the number of msgParam values.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2527)
+    public int getMsgParamSize(){
+        DmcAttribute<?> attr = mycore.get(MetaDMSAG.__msgParam);
+        if (attr == null)
+            return(0);
+        return(attr.getMVSize());
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation

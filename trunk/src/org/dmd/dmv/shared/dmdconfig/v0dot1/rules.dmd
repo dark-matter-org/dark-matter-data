@@ -3,13 +3,12 @@ RuleDefinition
 name			AllowedAttributesRule
 dmdID			1
 ruleCategory	ObjectValidation
-//ruleCategory	ObjectModifierValidation
 description		The AllowedAttributesRule will determine whether or not the 
  attributes of a DMO conform to the must/may specification of its class definition.
- For classes of type EXTENSIBLE only the must have attributes are checked.
+ For classes of type EXTENSIBLE, only the must have attributes are checked.
  <p/>
  Regardless of the environment in which you are running, you must ensure that the
- DmcOmni has been loaded with the appropriate schema. If you are using the Dark Matter
+ DmcOmni has been loaded with the appropriate schema. If you are using the dark-matter
  Model View Whatever (MVW) project for GWT, this aspect is taken care of automatically.
  <p/>
  Since this is a GLOBAL class rule, there will only ever be a single instance of
@@ -240,7 +239,7 @@ onePossibility		minLength
 RelatedNumbersRuleData
 ruleName        	dmvMinLessThanMax
 ruleTitle       	The minLength must be less than the maxLength.
-applyToClass    	Person
+applyToClass    	ValueLengthRuleData
 lhs             	minLength
 rhs             	maxLength
 numericRelation 	LT

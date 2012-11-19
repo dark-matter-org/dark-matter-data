@@ -1,29 +1,30 @@
 package org.dmd.dmt.shared.generated.dmo;
 
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
-// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:736)
-import java.util.ArrayList;                                              // For storage of schema info - (DmoCompactSchemaFormatter.java:674)
-import java.util.HashMap;                                                // For storage of schema info - (DmoCompactSchemaFormatter.java:673)
-import java.util.Iterator;                                               // For access of schema info - (DmoCompactSchemaFormatter.java:675)
-import org.dmd.dmc.*;                                                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:676)
-import org.dmd.dmc.rules.RuleIF;                                         // For rule info - (DmoCompactSchemaFormatter.java:677)
-import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                        // Required attribute from DmpDMSAG - (DmoCompactSchemaFormatter.java:689)
-import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:689)
-import org.dmd.dms.generated.enums.ClassTypeEnum;                        // Have class definitions - (DmoCompactSchemaFormatter.java:681)
-import org.dmd.dms.generated.enums.DataTypeEnum;                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:682)
-import org.dmd.dms.generated.enums.ValueTypeEnum;                        // Have attribute definitions - (DmoCompactSchemaFormatter.java:704)
+// Called from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpHeaderDMSAG(DmoCompactSchemaFormatter.java:850)
+import java.util.ArrayList;                                              // For storage of schema info - (DmoCompactSchemaFormatter.java:784)
+import java.util.HashMap;                                                // For storage of schema info - (DmoCompactSchemaFormatter.java:783)
+import java.util.Iterator;                                               // For access of schema info - (DmoCompactSchemaFormatter.java:785)
+import org.dmd.dmc.*;                                                    // Basic DMC stuff - (DmoCompactSchemaFormatter.java:786)
+import org.dmd.dmc.rules.RuleIF;                                         // For rule info - (DmoCompactSchemaFormatter.java:787)
+import org.dmd.dmp.shared.generated.dmo.DmpDMSAG;                        // Required attribute from DmpDMSAG - (DmoCompactSchemaFormatter.java:803)
+import org.dmd.dms.generated.dmo.MetaDMSAG;                              // Required attribute from MetaDMSAG - (DmoCompactSchemaFormatter.java:803)
+import org.dmd.dms.generated.enums.ClassTypeEnum;                        // Have class definitions - (DmoCompactSchemaFormatter.java:791)
+import org.dmd.dms.generated.enums.DataTypeEnum;                         // Have class/attribute definitions - (DmoCompactSchemaFormatter.java:792)
+import org.dmd.dms.generated.enums.OriginalTypeEnum;                     // Have type/internal type definitions - (DmoCompactSchemaFormatter.java:797)
+import org.dmd.dms.generated.enums.ValueTypeEnum;                        // Have attribute definitions - (DmoCompactSchemaFormatter.java:818)
 import org.dmd.dms.generated.types.DmcTypeIntegerSV;                     // Support for addition of svInteger values to the extensible InitRuleData class - (ClassDefinition.java:929)
 import org.dmd.dms.generated.types.DmcTypeStringMV;                      // Support for addition of mvString values to the extensible InitRuleData class - (ClassDefinition.java:929)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                      // Support for addition of svString values to the extensible InitRuleData class - (ClassDefinition.java:929)
-import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                    // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:730)
-import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:730)
-import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;                 // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:729)
-import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;         // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:729)
+import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                    // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:844)
+import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:844)
+import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;                 // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:843)
+import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;         // To instantiate NumericRangeRuleData rule data - (DmoCompactSchemaFormatter.java:843)
 
 import org.dmd.dmt.shared.generated.types.*;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:100)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:119)
 public class DmtDMSAG implements DmcCompactSchemaIF {
 
 
@@ -118,6 +119,56 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __tsNamedObj = new DmcAttributeInfo("tsNamedObj", 10247, "ObjWithRefs", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsString = new DmcAttributeInfo("tsString", 10147, "String", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __tsUnnamedObj = new DmcAttributeInfo("tsUnnamedObj", 10347, "TestBasicObjectFixed", ValueTypeEnum.TREESET, DataTypeEnum.PERSISTENT);
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:157)
+    public final static DmcTypeInfo __type_BaseObj = new DmcTypeInfo("BaseObj", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_ClientCountFilter = new DmcTypeInfo("ClientCountFilter", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_ClientCountFilterRequest = new DmcTypeInfo("ClientCountFilterRequest", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_DmtStringName = new DmcTypeInfo("DmtStringName", OriginalTypeEnum.NAMETYPE);
+    public final static DmcTypeInfo __type_DmtTestEnum = new DmcTypeInfo("DmtTestEnum", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_ExtendedRefHS = new DmcTypeInfo("ExtendedRefHS", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_ExtendedRefMV = new DmcTypeInfo("ExtendedRefMV", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_ExtendedRefMVIDX = new DmcTypeInfo("ExtendedRefMVIDX", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_ExtendedRefSV = new DmcTypeInfo("ExtendedRefSV", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_ExtendedRefTS = new DmcTypeInfo("ExtendedRefTS", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_IntegerNamedObject = new DmcTypeInfo("IntegerNamedObject", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_NameContainerTest = new DmcTypeInfo("NameContainerTest", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_NamedObjHM = new DmcTypeInfo("NamedObjHM", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_NamedObjHS = new DmcTypeInfo("NamedObjHS", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_NamedObjMV = new DmcTypeInfo("NamedObjMV", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_NamedObjMVIDX = new DmcTypeInfo("NamedObjMVIDX", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_NamedObjSV = new DmcTypeInfo("NamedObjSV", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_NamedObjTM = new DmcTypeInfo("NamedObjTM", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_NamedObjTS = new DmcTypeInfo("NamedObjTS", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_ObjWithRefs = new DmcTypeInfo("ObjWithRefs", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_PrimitiveHM = new DmcTypeInfo("PrimitiveHM", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_PrimitiveHS = new DmcTypeInfo("PrimitiveHS", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_PrimitiveMV = new DmcTypeInfo("PrimitiveMV", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_PrimitiveMVIDX = new DmcTypeInfo("PrimitiveMVIDX", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_PrimitiveSV = new DmcTypeInfo("PrimitiveSV", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_PrimitiveTM = new DmcTypeInfo("PrimitiveTM", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_PrimitiveTS = new DmcTypeInfo("PrimitiveTS", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_SomeRelation = new DmcTypeInfo("SomeRelation", OriginalTypeEnum.EXTREF);
+    public final static DmcTypeInfo __type_TestAbstractExtended = new DmcTypeInfo("TestAbstractExtended", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_TestAbstractFixed = new DmcTypeInfo("TestAbstractFixed", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_TestBasicNamedObjectExtended = new DmcTypeInfo("TestBasicNamedObjectExtended", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_TestBasicNamedObjectFixed = new DmcTypeInfo("TestBasicNamedObjectFixed", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_TestBasicObjectFixed = new DmcTypeInfo("TestBasicObjectFixed", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_TestDerivedDiffSubpackage = new DmcTypeInfo("TestDerivedDiffSubpackage", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_TestDerivedSubpackage = new DmcTypeInfo("TestDerivedSubpackage", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_TestMultiLevelSubpackage = new DmcTypeInfo("TestMultiLevelSubpackage", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_TestOneLevelSubpackage = new DmcTypeInfo("TestOneLevelSubpackage", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_TestOneLevelSubpackageExtended = new DmcTypeInfo("TestOneLevelSubpackageExtended", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_UUIDNamedObject = new DmcTypeInfo("UUIDNamedObject", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_UnnamedObjHS = new DmcTypeInfo("UnnamedObjHS", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_UnnamedObjMV = new DmcTypeInfo("UnnamedObjMV", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_UnnamedObjMVIDX = new DmcTypeInfo("UnnamedObjMVIDX", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_UnnamedObjSV = new DmcTypeInfo("UnnamedObjSV", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_UnnamedObjTS = new DmcTypeInfo("UnnamedObjTS", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_UsingIndexedAttributes = new DmcTypeInfo("UsingIndexedAttributes", OriginalTypeEnum.OBJECT);
+    public final static DmcTypeInfo __type_UsingObjRefHM = new DmcTypeInfo("UsingObjRefHM", OriginalTypeEnum.OBJECT);
+
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:193)
     public final static DmcClassInfo __BaseObj = new DmcClassInfo("BaseObj","org.dmd.dmt.shared.generated.dmo.BaseObjDMO", 10015, ClassTypeEnum.ABSTRACT, DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
     public final static DmcClassInfo __ObjWithRefs = new DmcClassInfo("ObjWithRefs","org.dmd.dmt.shared.generated.dmo.ObjWithRefsDMO", 10016, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,__BaseObj,MetaDMSAG.__name);
     public final static DmcClassInfo __ClientCountFilter = new DmcClassInfo("ClientCountFilter","org.dmd.dmt.shared.generated.dmo.ClientCountFilterDMO", 10017, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
@@ -163,7 +214,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __UsingIndexedAttributes = new DmcClassInfo("UsingIndexedAttributes","org.dmd.dmt.shared.generated.dmo.UsingIndexedAttributesDMO", 10019, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __UsingObjRefHM = new DmcClassInfo("UsingObjRefHM","org.dmd.dmt.shared.generated.dmo.UsingObjRefHMDMO", 10020, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:145)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:204)
     public final static DmcSliceInfo __slice1 = new DmcSliceInfo("slice1");
     // svBoolean
     // mvFloat
@@ -174,9 +225,10 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     // mvTestEnum
 
 
-    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:163)
+    // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:222)
     public final static InitRule __dmtInitTestBasicObjectFixed;
-    public final static NumericRangeRule __dmtSvNumericRange;
+    public final static NumericRangeRule __dmtSvFloatNumericRange;
+    public final static NumericRangeRule __dmtSvIntegerNumericRange;
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -187,6 +239,8 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     static  HashMap<String, DmcFilterBuilderIF> _FmAp;
 
     static  HashMap<String, DmcSliceInfo> _SImAp;
+
+    static  HashMap<String, DmcTypeInfo> _TImAp;
 
     static  ArrayList<RuleIF>             _RmAp;
 
@@ -200,6 +254,8 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _FmAp = new HashMap<String, DmcFilterBuilderIF>();
 
         _SImAp = new HashMap<String, DmcSliceInfo>();
+
+        _TImAp = new HashMap<String, DmcTypeInfo>();
 
         _RmAp = new ArrayList<RuleIF>();
 
@@ -518,7 +574,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __ExtendedRefTS.addMay(__tsExtendedRef);
 
 
-        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:258)
+        // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:317)
         try{
             InitRuleDataDMO _dmtInitTestBasicObjectFixedData = new InitRuleDataDMO();
             _dmtInitTestBasicObjectFixedData.setApplyToClass("TestBasicObjectFixed");
@@ -544,20 +600,35 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
 
             _RmAp.add(__dmtInitTestBasicObjectFixed);
 
-            NumericRangeRuleDataDMO _dmtSvNumericRangeData = new NumericRangeRuleDataDMO();
-            _dmtSvNumericRangeData       .setApplyToAttribute("svInteger");
-            _dmtSvNumericRangeData       .setApplyToClass("TestBasicObjectFixed");
-            _dmtSvNumericRangeData       .setDefinedIn("dmt");
-            _dmtSvNumericRangeData       .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _dmtSvNumericRangeData       .setLineNumber("82");
-            _dmtSvNumericRangeData       .setNrrMaximum("10");
-            _dmtSvNumericRangeData       .setNrrMinimum("1");
-            _dmtSvNumericRangeData       .setRuleName("dmtSvNumericRange");
-            _dmtSvNumericRangeData       .setRuleTitle("Check that svInteger is in range 1-10");
+            NumericRangeRuleDataDMO _dmtSvFloatNumericRangeData = new NumericRangeRuleDataDMO();
+            _dmtSvFloatNumericRangeData  .setApplyToAttribute("svFloat");
+            _dmtSvFloatNumericRangeData  .setApplyToClass("TestBasicObjectFixed");
+            _dmtSvFloatNumericRangeData  .setDefinedIn("dmt");
+            _dmtSvFloatNumericRangeData  .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _dmtSvFloatNumericRangeData  .setLineNumber("89");
+            _dmtSvFloatNumericRangeData  .setNrrMaximum("2.5");
+            _dmtSvFloatNumericRangeData  .setNrrMinimum("1.5");
+            _dmtSvFloatNumericRangeData  .setRuleName("dmtSvFloatNumericRange");
+            _dmtSvFloatNumericRangeData  .setRuleTitle("svFloat must be in the range 1.5 - 2.5");
 
-            __dmtSvNumericRange = new NumericRangeRule(_dmtSvNumericRangeData);
+            __dmtSvFloatNumericRange = new NumericRangeRule(_dmtSvFloatNumericRangeData);
 
-            _RmAp.add(__dmtSvNumericRange);
+            _RmAp.add(__dmtSvFloatNumericRange);
+
+            NumericRangeRuleDataDMO _dmtSvIntegerNumericRangeData = new NumericRangeRuleDataDMO();
+            _dmtSvIntegerNumericRangeData.setApplyToAttribute("svInteger");
+            _dmtSvIntegerNumericRangeData.setApplyToClass("TestBasicObjectFixed");
+            _dmtSvIntegerNumericRangeData.setDefinedIn("dmt");
+            _dmtSvIntegerNumericRangeData.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
+            _dmtSvIntegerNumericRangeData.setLineNumber("81");
+            _dmtSvIntegerNumericRangeData.setNrrMaximum("10");
+            _dmtSvIntegerNumericRangeData.setNrrMinimum("1");
+            _dmtSvIntegerNumericRangeData.setRuleName("dmtSvIntegerNumericRange");
+            _dmtSvIntegerNumericRangeData.setRuleTitle("svInteger must be in the range 1-10");
+
+            __dmtSvIntegerNumericRange = new NumericRangeRule(_dmtSvIntegerNumericRangeData);
+
+            _RmAp.add(__dmtSvIntegerNumericRange);
 
         } catch(DmcValueException ex){
             throw(new IllegalStateException(ex));
@@ -610,6 +681,11 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
 
     public Iterator<DmcSliceInfo> getSliceInfo(){
         return(_SImAp.values().iterator());
+    }
+
+
+    public Iterator<DmcTypeInfo> getTypeInfo(){
+        return(_TImAp.values().iterator());
     }
 
 

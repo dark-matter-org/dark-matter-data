@@ -30,10 +30,10 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type -
 /**
  * The AllowedAttributesRule will determine whether or not the \n attributes
  * of a DMO conform to the must/may specification of its class definition.\n
- * For classes of type EXTENSIBLE only the must have attributes are
+ * For classes of type EXTENSIBLE, only the must have attributes are
  * checked.\n <p/>\n Regardless of the environment in which you are running,
  * you must ensure that the\n DmcOmni has been loaded with the appropriate
- * schema. If you are using the Dark Matter\n Model View Whatever (MVW)
+ * schema. If you are using the dark-matter\n Model View Whatever (MVW)
  * project for GWT, this aspect is taken care of automatically.\n <p/>\n
  * Since this is a GLOBAL class rule, there will only ever be a single
  * instance of\n this rule created as part of the dmv schema.

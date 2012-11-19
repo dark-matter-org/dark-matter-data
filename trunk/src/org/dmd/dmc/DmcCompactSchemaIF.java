@@ -51,4 +51,6 @@ public interface DmcCompactSchemaIF {
 	 */
 	public Iterator<RuleIF>				getRules();
 	
+	public Iterator<DmcTypeInfo>		getTypeInfo();
+	
 }

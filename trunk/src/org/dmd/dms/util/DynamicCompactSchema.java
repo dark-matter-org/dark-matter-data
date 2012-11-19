@@ -9,6 +9,7 @@ import org.dmd.dmc.DmcCompactSchemaIF;
 import org.dmd.dmc.DmcFilterBuilderIF;
 import org.dmd.dmc.DmcNameBuilderIF;
 import org.dmd.dmc.DmcSliceInfo;
+import org.dmd.dmc.DmcTypeInfo;
 import org.dmd.dmc.rules.RuleIF;
 
 /**
@@ -69,6 +70,11 @@ public class DynamicCompactSchema implements DmcCompactSchemaIF {
 
 	@Override
 	public Iterator<RuleIF> getRules() {
+		return null;
+	}
+
+	@Override
+	public Iterator<DmcTypeInfo> getTypeInfo() {
 		return null;
 	}
 

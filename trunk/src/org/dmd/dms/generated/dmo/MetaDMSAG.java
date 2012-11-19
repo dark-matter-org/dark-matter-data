@@ -7,11 +7,12 @@ import org.dmd.dmc.*;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.generated.enums.DataTypeEnum;
+import org.dmd.dms.generated.enums.OriginalTypeEnum;
 import org.dmd.dms.generated.types.*;
 import org.dmd.dmc.rules.RuleIF;
 
 
-// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:355)
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:414)
 public class MetaDMSAG implements DmcCompactSchemaIF {
 
 
@@ -26,6 +27,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
     static int schemaMaxID = 200;
 
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:436)
     public final static DmcAttributeInfo __FQN = new DmcAttributeInfo("FQN",84,"FullyQualifiedName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __abbrev = new DmcAttributeInfo("abbrev",9,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __actionDefList = new DmcAttributeInfo("actionDefList",60,"ActionDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -130,6 +132,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __mayReturn = new DmcAttributeInfo("mayReturn",31,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __maySendProgress = new DmcAttributeInfo("maySendProgress",76,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __modify = new DmcAttributeInfo("modify",85,"Modifier",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __msgKey = new DmcAttributeInfo("msgKey",23,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
+    public final static DmcAttributeInfo __msgParam = new DmcAttributeInfo("msgParam",52,"String",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __must = new DmcAttributeInfo("must",26,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mustParm = new DmcAttributeInfo("mustParm",28,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __mustReturn = new DmcAttributeInfo("mustReturn",30,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
@@ -174,6 +178,74 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __valueType = new DmcAttributeInfo("valueType",12,"ValueTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __wrapperClassName = new DmcAttributeInfo("wrapperClassName",6,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
 
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:449)
+    public final static DmcTypeInfo __type_ActionDefinition = new DmcTypeInfo("ActionDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_AttributeDefinition = new DmcTypeInfo("AttributeDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_AttributeID = new DmcTypeInfo("AttributeID", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_BaseTypeEnumREF = new DmcTypeInfo("BaseTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_Boolean = new DmcTypeInfo("Boolean", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_Byte = new DmcTypeInfo("Byte", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_CamelCaseName = new DmcTypeInfo("CamelCaseName", OriginalTypeEnum.NAMETYPE);
+    public final static DmcTypeInfo __type_ClassDefinition = new DmcTypeInfo("ClassDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_ClassFilter = new DmcTypeInfo("ClassFilter", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_ClassInfoRef = new DmcTypeInfo("ClassInfoRef", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_ClassTypeEnumREF = new DmcTypeInfo("ClassTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_ComplexTypeDefinition = new DmcTypeInfo("ComplexTypeDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_DataTypeEnumREF = new DmcTypeInfo("DataTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_Date = new DmcTypeInfo("Date", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_DebugEnumREF = new DmcTypeInfo("DebugEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_DependencyImplementation = new DmcTypeInfo("DependencyImplementation", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_Dependency = new DmcTypeInfo("Dependency", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_DmcObject = new DmcTypeInfo("DmcObject", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_DmsDefinition = new DmcTypeInfo("DmsDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_DmwTypeToWrapperType = new DmcTypeInfo("DmwTypeToWrapperType", OriginalTypeEnum.COMPLEXTYPE);
+    public final static DmcTypeInfo __type_DotName = new DmcTypeInfo("DotName", OriginalTypeEnum.NAMETYPE);
+    public final static DmcTypeInfo __type_Double = new DmcTypeInfo("Double", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_EnumDefinition = new DmcTypeInfo("EnumDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_EnumValue = new DmcTypeInfo("EnumValue", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_ExtendedReferenceTypeDefinition = new DmcTypeInfo("ExtendedReferenceTypeDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_Field = new DmcTypeInfo("Field", OriginalTypeEnum.COMPLEXTYPE);
+    public final static DmcTypeInfo __type_FilterContainer = new DmcTypeInfo("FilterContainer", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_FilterTypeEnumREF = new DmcTypeInfo("FilterTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_Float = new DmcTypeInfo("Float", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_FullyQualifiedName = new DmcTypeInfo("FullyQualifiedName", OriginalTypeEnum.NAMETYPE);
+    public final static DmcTypeInfo __type_GPBField = new DmcTypeInfo("GPBField", OriginalTypeEnum.COMPLEXTYPE);
+    public final static DmcTypeInfo __type_GPBFieldTypeEnumREF = new DmcTypeInfo("GPBFieldTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_GPBScalarTypeEnumREF = new DmcTypeInfo("GPBScalarTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_Integer = new DmcTypeInfo("Integer", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_IntegerName = new DmcTypeInfo("IntegerName", OriginalTypeEnum.NAMETYPE);
+    public final static DmcTypeInfo __type_IntegerToBoolean = new DmcTypeInfo("IntegerToBoolean", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_IntegerToString = new DmcTypeInfo("IntegerToString", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_IntegerToUUIDLite = new DmcTypeInfo("IntegerToUUIDLite", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_LabelledIntegerDataPoint = new DmcTypeInfo("LabelledIntegerDataPoint", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_Long = new DmcTypeInfo("Long", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_LongName = new DmcTypeInfo("LongName", OriginalTypeEnum.NAMETYPE);
+    public final static DmcTypeInfo __type_Modifier = new DmcTypeInfo("Modifier", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_ModifyTypeEnumREF = new DmcTypeInfo("ModifyTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_NameContainer = new DmcTypeInfo("NameContainer", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_OperationalContextEnumREF = new DmcTypeInfo("OperationalContextEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_OriginalTypeEnumREF = new DmcTypeInfo("OriginalTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_RuleCategory = new DmcTypeInfo("RuleCategory", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_RuleData = new DmcTypeInfo("RuleData", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_RuleDefinition = new DmcTypeInfo("RuleDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_RuleName = new DmcTypeInfo("RuleName", OriginalTypeEnum.NAMETYPE);
+    public final static DmcTypeInfo __type_RuleParam = new DmcTypeInfo("RuleParam", OriginalTypeEnum.COMPLEXTYPE);
+    public final static DmcTypeInfo __type_RuleTypeEnumREF = new DmcTypeInfo("RuleTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_RunContext = new DmcTypeInfo("RunContext", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_SchemaDefinition = new DmcTypeInfo("SchemaDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_Short = new DmcTypeInfo("Short", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_SliceDefinition = new DmcTypeInfo("SliceDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_String = new DmcTypeInfo("String", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_StringName = new DmcTypeInfo("StringName", OriginalTypeEnum.NAMETYPE);
+    public final static DmcTypeInfo __type_StringToString = new DmcTypeInfo("StringToString", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_TimeDoubleDataPoint = new DmcTypeInfo("TimeDoubleDataPoint", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_TypeDefinition = new DmcTypeInfo("TypeDefinition", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_UUIDLite = new DmcTypeInfo("UUIDLite", OriginalTypeEnum.TYPE);
+    public final static DmcTypeInfo __type_UUIDName = new DmcTypeInfo("UUIDName", OriginalTypeEnum.NAMETYPE);
+    public final static DmcTypeInfo __type_ValueTypeEnumREF = new DmcTypeInfo("ValueTypeEnumREF", OriginalTypeEnum.ENUM);
+    public final static DmcTypeInfo __type_WrapperTypeEnumREF = new DmcTypeInfo("WrapperTypeEnumREF", OriginalTypeEnum.ENUM);
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:483)
+
     public final static DmcClassInfo __ActionTriggerInfo = new DmcClassInfo("ActionTriggerInfo","org.dmd.dms.generated.dmo.ActionTriggerInfoDMO",14,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __DmsDefinition = new DmcClassInfo("DmsDefinition","org.dmd.dms.generated.dmo.DmsDefinitionDMO",1,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,MetaDMSAG.__name);
     public final static DmcClassInfo __ActionDefinition = new DmcClassInfo("ActionDefinition","org.dmd.dms.generated.dmo.ActionDefinitionDMO",11,ClassTypeEnum.STRUCTURAL,DataTypeEnum.PERSISTENT,__DmsDefinition,MetaDMSAG.__name);
@@ -192,6 +264,7 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __TypeDefinition = new DmcClassInfo("TypeDefinition","org.dmd.dms.generated.dmo.TypeDefinitionDMO",4,ClassTypeEnum.STRUCTURAL,DataTypeEnum.PERSISTENT,__DmsDefinition,MetaDMSAG.__name);
     public final static DmcClassInfo __RuleData = new DmcClassInfo("RuleData","org.dmd.dms.generated.dmo.RuleDataDMO",17,ClassTypeEnum.ABSTRACT,DataTypeEnum.PERSISTENT,null,MetaDMSAG.__ruleName);
 
+// Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:493)
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -202,6 +275,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     static  HashMap<String, DmcFilterBuilderIF> _FmAp;
 
     static  HashMap<String, DmcSliceInfo> _SImAp;
+
+    static  HashMap<String, DmcTypeInfo> _TImAp;
 
     static  ArrayList<RuleIF>             _RmAp;
 
@@ -215,6 +290,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _FmAp = new HashMap<String, DmcFilterBuilderIF>();
 
         _SImAp = new HashMap<String, DmcSliceInfo>();
+
+        _TImAp = new HashMap<String, DmcTypeInfo>();
 
         _RmAp = new ArrayList<RuleIF>();
 
@@ -322,6 +399,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__mayReturn.id,__mayReturn);
         _SmAp.put(__maySendProgress.id,__maySendProgress);
         _SmAp.put(__modify.id,__modify);
+        _SmAp.put(__msgKey.id,__msgKey);
+        _SmAp.put(__msgParam.id,__msgParam);
         _SmAp.put(__must.id,__must);
         _SmAp.put(__mustParm.id,__mustParm);
         _SmAp.put(__mustReturn.id,__mustReturn);
@@ -535,6 +614,8 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         __RuleData.addMay(__file);
         __RuleData.addMay(__immediateHalt);
         __RuleData.addMay(__lineNumber);
+        __RuleData.addMay(__msgKey);
+        __RuleData.addMay(__msgParam);
 
         __RuleDefinition.addMust(__description);
         __RuleDefinition.addMust(__dmdID);
@@ -677,6 +758,11 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
     public Iterator<DmcSliceInfo> getSliceInfo(){
         return(_SImAp.values().iterator());
+    }
+
+
+    public Iterator<DmcTypeInfo> getTypeInfo(){
+        return(_TImAp.values().iterator());
     }
 
 
