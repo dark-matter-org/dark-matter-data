@@ -59,7 +59,17 @@ public interface RuleIF {
 	public DmcAttributeInfo getApplyToAttribute();
 	
 	/**
-	 * @return the key that identifies
+	 * @return the key that uniquely identifies this rule
 	 */
 	public RuleKey getKey();
+	
+	/**
+	 * @return the parameters to be substituted into a translated message
+	 */
+	public Iterator<String>	getMsgParam();
+	
+	/**
+	 * @return the key of a translated message
+	 */
+	public String getMsgKey();
 }

@@ -72,13 +72,20 @@ mvString		second value
 svInteger		8
 
 NumericRangeRuleData
-ruleName 			dmtSvNumericRange
-ruleTitle			Check that svInteger is in range 1-10
+ruleName 			dmtSvIntegerNumericRange
+ruleTitle			svInteger must be in the range 1-10
 applyToAttribute	svInteger
-//applyToAttribute	svString
 applyToClass		TestBasicObjectFixed
 nrrMinimum			1
 nrrMaximum			10
+
+NumericRangeRuleData
+ruleName 			dmtSvFloatNumericRange
+ruleTitle			svFloat must be in the range 1.5 - 2.5
+applyToAttribute	svFloat
+applyToClass		TestBasicObjectFixed
+nrrMinimum			1.5
+nrrMaximum			2.5
 
 ClassDefinition
 name            TestBasicNamedObjectFixed

@@ -104,6 +104,10 @@ public class DmcOmni implements DmcNameResolverIF {
 	// an object. 
 	TreeMap<String,DmcSliceInfo>		slices;
 	
+	// The set of recoginized types, either directly defined via type definitions
+	// of internally created.
+	TreeMap<String,DmcTypeInfo>			types;
+	
 //	TreeMap<String,DmcAttributeSchemaIF>	loadedSchemas;
 	
 	TreeMap<String,DmcCompactSchemaIF>	loadedCompactSchemas;
@@ -142,6 +146,7 @@ public class DmcOmni implements DmcNameResolverIF {
 		nameBuilders			= new TreeMap<String, DmcNameBuilderIF>();
 		filterBuilders			= new TreeMap<String, DmcFilterBuilderIF>();
 		slices					= new TreeMap<String, DmcSliceInfo>();
+		types					= new TreeMap<String, DmcTypeInfo>();
 		cache					= null;
 //		loadedSchemas			= new TreeMap<String, DmcAttributeSchemaIF>();
 		loadedCompactSchemas	= new TreeMap<String, DmcCompactSchemaIF>();
@@ -366,6 +371,14 @@ public class DmcOmni implements DmcNameResolverIF {
 			}
 		}
 		
+		Iterator<DmcTypeInfo> typeIT = schema.getTypeInfo();
+		if (typeIT != null){
+			while(typeIT.hasNext()){
+				DmcTypeInfo dti = typeIT.next();
+				types.put(dti.name, dti);
+			}
+		}
+		
 		loadedCompactSchemas.put(schema.getSchemaName(), schema);
 	}
 	
@@ -431,6 +444,14 @@ public class DmcOmni implements DmcNameResolverIF {
 	 */
 	public DmcClassInfo getClassInfo(Integer id){
 		return(idToClass.get(id));
+	}
+	
+	/**
+	 * @param tn the type name
+	 * @return the type info.
+	 */
+	public DmcTypeInfo getTypeInfo(String tn){
+		return(types.get(tn));
 	}
 	
 	/**

@@ -17,7 +17,8 @@ import org.dmd.dmv.shared.generated.rulesdmo.ReferencedAttributeTypeRuleBaseImpl
 
 /**
  * The ReferencedAttributeTypeRule is used to test whether or not the attribute referred
- * to by an AttributeReference is of a particular type.
+ * to by an AttributeReference is of a particular type. This works single-valued and multi-valued
+ * attributes.
  */
 public class ReferencedAttributeTypeRule extends ReferencedAttributeTypeRuleBaseImpl {
 	

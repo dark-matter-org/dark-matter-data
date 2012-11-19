@@ -1947,7 +1947,7 @@
       <td class="spacer"> </td>
       <td class="label">Derived classes</td>
       <td colspan="2">
-      <div class="derived"> <a href="dmv.html#AllowedAttributesRuleData">AllowedAttributesRuleData</a> </div>      <div class="derived"> <a href="dmv.html#AttributeTypeRuleData">AttributeTypeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#CheckAttributesBasedOnValueRuleData">CheckAttributesBasedOnValueRuleData</a> </div>      <div class="derived"> <a href="dmv.html#InitRuleData">InitRuleData</a> </div>      <div class="derived"> <a href="dmv.html#IntegerRangeRuleData">IntegerRangeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#OneOfTheseAttributesRequiredRuleData">OneOfTheseAttributesRequiredRuleData</a> </div>      <div class="derived"> <a href="dmv.html#RelatedNumbersRuleData">RelatedNumbersRuleData</a> </div>      <div class="derived"> <a href="dmv.html#UCOAllowedAttributesRuleData">UCOAllowedAttributesRuleData</a> </div>      </td>
+      <div class="derived"> <a href="dmv.html#AllowedAttributesRuleData">AllowedAttributesRuleData</a> </div>      <div class="derived"> <a href="dmv.html#AttributeTypeRuleData">AttributeTypeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#CheckAttributesBasedOnValueRuleData">CheckAttributesBasedOnValueRuleData</a> </div>      <div class="derived"> <a href="dmv.html#InitRuleData">InitRuleData</a> </div>      <div class="derived"> <a href="dmv.html#NumericRangeRuleData">NumericRangeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#OneOfTheseAttributesRequiredRuleData">OneOfTheseAttributesRequiredRuleData</a> </div>      <div class="derived"> <a href="dmv.html#PatternMatchRuleData">PatternMatchRuleData</a> </div>      <div class="derived"> <a href="dmv.html#ReferencedAttributeTypeRuleData">ReferencedAttributeTypeRuleData</a> </div>      <div class="derived"> <a href="dmv.html#RelatedNumbersRuleData">RelatedNumbersRuleData</a> </div>      <div class="derived"> <a href="dmv.html#UCOAllowedAttributesRuleData">UCOAllowedAttributesRuleData</a> </div>      <div class="derived"> <a href="dmv.html#ValueLengthRuleData">ValueLengthRuleData</a> </div>      </td>
     </tr>
 
     <tr>
@@ -3273,7 +3273,11 @@
 <table>
   <tr>
     <td> AttributeTypeRuleData (<a href="dmv.html#AttributeTypeRuleData">dmv</a>) </td>
-    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+    <td> NumericRangeRuleData (<a href="dmv.html#NumericRangeRuleData">dmv</a>) </td>
+    <td> PatternMatchRuleData (<a href="dmv.html#PatternMatchRuleData">dmv</a>) </td>
+  <tr>
+    <td> ReferencedAttributeTypeRuleData (<a href="dmv.html#ReferencedAttributeTypeRuleData">dmv</a>) </td>
+    <td> ValueLengthRuleData (<a href="dmv.html#ValueLengthRuleData">dmv</a>) </td>
 </tr>
 </table>
       </td>
@@ -3901,25 +3905,30 @@
   <tr>
     <td> EnumDefinition (<a href="meta.html#EnumDefinition">meta</a>) </td>
     <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
-    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+    <td> NumericRangeRuleData (<a href="dmv.html#NumericRangeRuleData">dmv</a>) </td>
 </tr>
   <tr>
     <td> OneOfTheseAttributesRequiredRuleData (<a href="dmv.html#OneOfTheseAttributesRequiredRuleData">dmv</a>) </td>
+    <td> PatternMatchRuleData (<a href="dmv.html#PatternMatchRuleData">dmv</a>) </td>
+    <td> ReferencedAttributeTypeRuleData (<a href="dmv.html#ReferencedAttributeTypeRuleData">dmv</a>) </td>
+</tr>
+  <tr>
     <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
     <td> RuleCategory (<a href="meta.html#RuleCategory">meta</a>) </td>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
 </tr>
   <tr>
-    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
     <td> RuleDefinition (<a href="meta.html#RuleDefinition">meta</a>) </td>
     <td> RunContext (<a href="meta.html#RunContext">meta</a>) </td>
+    <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
 </tr>
   <tr>
-    <td> SchemaDefinition (<a href="meta.html#SchemaDefinition">meta</a>) </td>
     <td> SliceDefinition (<a href="meta.html#SliceDefinition">meta</a>) </td>
     <td> TypeDefinition (<a href="meta.html#TypeDefinition">meta</a>) </td>
+    <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
 </tr>
   <tr>
-    <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
+    <td> ValueLengthRuleData (<a href="dmv.html#ValueLengthRuleData">dmv</a>) </td>
 </tr>
 </table>
       </td>
@@ -6330,13 +6339,18 @@
     <td> CheckAttributesBasedOnValueRuleData (<a href="dmv.html#CheckAttributesBasedOnValueRuleData">dmv</a>) </td>
   <tr>
     <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
-    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+    <td> NumericRangeRuleData (<a href="dmv.html#NumericRangeRuleData">dmv</a>) </td>
     <td> OneOfTheseAttributesRequiredRuleData (<a href="dmv.html#OneOfTheseAttributesRequiredRuleData">dmv</a>) </td>
 </tr>
   <tr>
+    <td> PatternMatchRuleData (<a href="dmv.html#PatternMatchRuleData">dmv</a>) </td>
+    <td> ReferencedAttributeTypeRuleData (<a href="dmv.html#ReferencedAttributeTypeRuleData">dmv</a>) </td>
     <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
+</tr>
+  <tr>
     <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
     <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
+    <td> ValueLengthRuleData (<a href="dmv.html#ValueLengthRuleData">dmv</a>) </td>
 </tr>
 </table>
       </td>
@@ -6391,13 +6405,18 @@
     <td> CheckAttributesBasedOnValueRuleData (<a href="dmv.html#CheckAttributesBasedOnValueRuleData">dmv</a>) </td>
   <tr>
     <td> InitRuleData (<a href="dmv.html#InitRuleData">dmv</a>) </td>
-    <td> IntegerRangeRuleData (<a href="dmv.html#IntegerRangeRuleData">dmv</a>) </td>
+    <td> NumericRangeRuleData (<a href="dmv.html#NumericRangeRuleData">dmv</a>) </td>
     <td> OneOfTheseAttributesRequiredRuleData (<a href="dmv.html#OneOfTheseAttributesRequiredRuleData">dmv</a>) </td>
 </tr>
   <tr>
+    <td> PatternMatchRuleData (<a href="dmv.html#PatternMatchRuleData">dmv</a>) </td>
+    <td> ReferencedAttributeTypeRuleData (<a href="dmv.html#ReferencedAttributeTypeRuleData">dmv</a>) </td>
     <td> RelatedNumbersRuleData (<a href="dmv.html#RelatedNumbersRuleData">dmv</a>) </td>
+</tr>
+  <tr>
     <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
     <td> UCOAllowedAttributesRuleData (<a href="dmv.html#UCOAllowedAttributesRuleData">dmv</a>) </td>
+    <td> ValueLengthRuleData (<a href="dmv.html#ValueLengthRuleData">dmv</a>) </td>
 </tr>
 </table>
       </td>
@@ -7308,8 +7327,10 @@
   <tr>
     <td> hsDouble (<a href="dmt.html#hsDouble">dmt</a>) </td>
     <td> mvDouble (<a href="dmt.html#mvDouble">dmt</a>) </td>
-    <td> svDouble (<a href="dmt.html#svDouble">dmt</a>) </td>
+    <td> nrrMaximum (<a href="dmv.html#nrrMaximum">dmv</a>) </td>
   <tr>
+    <td> nrrMinimum (<a href="dmv.html#nrrMinimum">dmv</a>) </td>
+    <td> svDouble (<a href="dmt.html#svDouble">dmt</a>) </td>
     <td> tsDouble (<a href="dmt.html#tsDouble">dmt</a>) </td>
 </tr>
 </table>
@@ -7475,9 +7496,9 @@
     <td> indexSize (<a href="meta.html#indexSize">meta</a>) </td>
 </tr>
   <tr>
-    <td> irrMaximum (<a href="dmv.html#irrMaximum">dmv</a>) </td>
-    <td> irrMinimum (<a href="dmv.html#irrMinimum">dmv</a>) </td>
     <td> lineNumber (<a href="meta.html#lineNumber">meta</a>) </td>
+    <td> maxLength (<a href="dmv.html#maxLength">dmv</a>) </td>
+    <td> minLength (<a href="dmv.html#minLength">dmv</a>) </td>
 </tr>
   <tr>
     <td> mvInteger (<a href="dmt.html#mvInteger">dmt</a>) </td>
@@ -7990,51 +8011,52 @@
     <td> ldapIdPrefix (<a href="dmr.ldap.html#ldapIdPrefix">dmr.ldap</a>) </td>
 </tr>
   <tr>
+    <td> matchesPattern (<a href="dmv.html#matchesPattern">dmv</a>) </td>
     <td> mvIdxString (<a href="dmt.html#mvIdxString">dmt</a>) </td>
     <td> mvString (<a href="dmt.html#mvString">dmt</a>) </td>
-    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
 </tr>
   <tr>
+    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
     <td> nullReturnValue (<a href="meta.html#nullReturnValue">meta</a>) </td>
     <td> obsoleteVersion (<a href="meta.html#obsoleteVersion">meta</a>) </td>
-    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
 </tr>
   <tr>
+    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
     <td> primitiveType (<a href="meta.html#primitiveType">meta</a>) </td>
     <td> reposName (<a href="dmr.ldap.html#reposName">dmr.ldap</a>) </td>
-    <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
 </tr>
   <tr>
+    <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
     <td> responseText (<a href="dmp.html#responseText">dmp</a>) </td>
     <td> ruleImport (<a href="meta.html#ruleImport">meta</a>) </td>
-    <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
 </tr>
   <tr>
+    <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
     <td> schemaExtension (<a href="meta.html#schemaExtension">meta</a>) </td>
     <td> schemaPackage (<a href="meta.html#schemaPackage">meta</a>) </td>
-    <td> schemaToLoad (<a href="dmg.html#schemaToLoad">dmg</a>) </td>
 </tr>
   <tr>
+    <td> schemaToLoad (<a href="dmg.html#schemaToLoad">dmg</a>) </td>
     <td> sessionID (<a href="dmp.html#sessionID">dmp</a>) </td>
     <td> slice (<a href="dmp.html#slice">dmp</a>) </td>
-    <td> subpackage (<a href="meta.html#subpackage">meta</a>) </td>
 </tr>
   <tr>
+    <td> subpackage (<a href="meta.html#subpackage">meta</a>) </td>
     <td> svString (<a href="dmt.html#svString">dmt</a>) </td>
     <td> transString (<a href="dmt.html#transString">dmt</a>) </td>
-    <td> tsString (<a href="dmt.html#tsString">dmt</a>) </td>
 </tr>
   <tr>
+    <td> tsString (<a href="dmt.html#tsString">dmt</a>) </td>
     <td> typeClassName (<a href="meta.html#typeClassName">meta</a>) </td>
     <td> upperConstantName (<a href="dmg.html#upperConstantName">dmg</a>) </td>
-    <td> useInterface (<a href="meta.html#useInterface">meta</a>) </td>
 </tr>
   <tr>
+    <td> useInterface (<a href="meta.html#useInterface">meta</a>) </td>
     <td> userFQN (<a href="dmp.html#userFQN">dmp</a>) </td>
     <td> userName (<a href="dmr.base.html#userName">dmr.base</a>) </td>
-    <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
 </tr>
   <tr>
+    <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
     <td> wrapperClassName (<a href="meta.html#wrapperClassName">meta</a>) </td>
 </tr>
 </table>

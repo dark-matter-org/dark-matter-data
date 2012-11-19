@@ -32,47 +32,47 @@ import org.dmd.dms.*;
  * of the type definition should be the same as the\n actual Java class that
  * is used to store the value of an attribute e.g. the name of the type\n
  * used to store strings is String. The <code> typeClassName </code> is the
- * fully qualified name of the class\n derived from
- * <code>DmcAttribute</code>that stores this type of value; they are always,
- * by convention,\n named <code>DmcTypeXXX<code>.\n <p/>\n <code>
- * TypeDefinitions </code> are automatically generated internally for
- * <code>ClassDefinitions</code> and\n <code> EnumDefinitions </code> so that
- * these objects can be referred to via the <code>type</code> attribute of
- * <code> AttributeDefinitions</code>.\n These definitions are marked as
- * <code> internallyGenerated </code>.\n <p/>\n The simplest <code>
- * TypeDefinition </code> would look something like:\n <pre>\n
- * TypeDefinition\n name           String\n typeClassName 
- * org.dmd.dmc.types.DmcTypeString\n description    Provides support for
- * String values.\n </pre>\n This form would be used for attribute types
- * whose base type originates in <code> java.lang</code>.\n The dark-matter
- * base types include: Boolean, Byte, Double, Float, Integer, Long, Short and
- * String.\n <p/>\n <code>TypeDefinitions</code> also support the concept of
- * specifying a <code> nullReturnValue </code>\n for the entire type i.e.
- * whenever an attribute of the specified type is accessed, it will return\n
- * that value when the attribute doesn't exist in the object. An example of
- * this is the <code> Boolean </code> type:\n <pre>\n TypeDefinition\n name  
- *          Boolean\n typeClassName   org.dmd.dmc.types.DmcTypeBoolean\n
- * nullReturnValue false\n description     Provides support for Boolean
- * values. This type makes use of the\n                 nullReturnValue flag
- * so that, even if there is no\n                 value for an attribute of
- * this type, a value of false will\n                 be returned.\n </pre>\n
- * <p/>\n The next most common form of <code> TypeDefinition </code> adds the
- * <code> primitiveType </code>\n attribute. This is required for code
- * generation so that we can import the appropriate type for\n use in the
- * various getter/setter methods. An example would be the <code> Date </code>
- * type.\n <pre>\n TypeDefinition\n name           Date\n typeClassName 
- * org.dmd.dmc.types.DmcTypeDate\n primitiveType  java.util.Date\n
- * description    Provides support for Date values.\n </pre>\n Another common
- * form of <code>TypeDefinition</code> is the definition of a name type.
- * Object\n naming is a fundamental aspect of DMOs, with all object names
- * being based on the <code>DmcObjectName</code>.\n Flagging a type as being
- * a name type also implies the definition of a designated naming attribute\n
- * associated with the type. This mechanism allows for the transport of names
- * that are self\n describing in terms of their implementation type. This
- * feature supports the <code>NameContainer</code>\n type that allows any
- * name to be transported in things like dark-matter protocol
- * <code>GetRequest</code>.\n An example of a naming type would be:\n <pre>\n
- * TypeDefinition\n name           CamelCaseName\n typeClassName 
+ * fully qualified name of the class\n derived from <code>DmcAttribute</code>
+ * that stores this type of value; they are always, by convention,\n named
+ * <code>DmcTypeXXX</code>.\n <p/>\n <code> TypeDefinitions </code> are
+ * automatically generated internally for <code>ClassDefinitions</code> and\n
+ * <code> EnumDefinitions </code> so that these objects can be referred to
+ * via the <code>type</code> attribute of <code>
+ * AttributeDefinitions</code>.\n These definitions are marked as <code>
+ * internallyGenerated </code>.\n <p/>\n The simplest <code> TypeDefinition
+ * </code> would look something like:\n <pre>\n TypeDefinition\n name        
+ *   String\n typeClassName  org.dmd.dmc.types.DmcTypeString\n description   
+ * Provides support for String values.\n </pre>\n This form would be used for
+ * attribute types whose base type originates in <code> java.lang</code>.\n
+ * The dark-matter base types include: Boolean, Byte, Double, Float, Integer,
+ * Long, Short and String.\n <p/>\n <code>TypeDefinitions</code> also support
+ * the concept of specifying a <code> nullReturnValue </code>\n for the
+ * entire type i.e. whenever an attribute of the specified type is accessed,
+ * it will return\n that value when the attribute doesn't exist in the
+ * object. An example of this is the <code> Boolean </code> type:\n <pre>\n
+ * TypeDefinition\n name            Boolean\n typeClassName  
+ * org.dmd.dmc.types.DmcTypeBoolean\n nullReturnValue false\n description    
+ * Provides support for Boolean values. This type makes use of the\n         
+ *        nullReturnValue flag so that, even if there is no\n                
+ * value for an attribute of this type, a value of false will\n              
+ *   be returned.\n </pre>\n <p/>\n The next most common form of <code>
+ * TypeDefinition </code> adds the <code> primitiveType </code>\n attribute.
+ * This is required for code generation so that we can import the appropriate
+ * type for\n use in the various getter/setter methods. An example would be
+ * the <code> Date </code> type.\n <pre>\n TypeDefinition\n name          
+ * Date\n typeClassName  org.dmd.dmc.types.DmcTypeDate\n primitiveType 
+ * java.util.Date\n description    Provides support for Date values.\n
+ * </pre>\n Another common form of <code>TypeDefinition</code> is the
+ * definition of a name type. Object\n naming is a fundamental aspect of
+ * DMOs, with all object names being based on the
+ * <code>DmcObjectName</code>.\n Flagging a type as being a name type also
+ * implies the definition of a designated naming attribute\n associated with
+ * the type. This mechanism allows for the transport of names that are self\n
+ * describing in terms of their implementation type. This feature supports
+ * the <code>NameContainer</code>\n type that allows any name to be
+ * transported in things like dark-matter protocol <code>GetRequest</code>.\n
+ * An example of a naming type would be:\n <pre>\n TypeDefinition\n name     
+ *      CamelCaseName\n typeClassName 
  * org.dmd.dmc.types.DmcTypeCamelCaseName\n primitiveType 
  * org.dmd.dmc.types.CamelCaseName\n isNameType     true\n description    The
  * CamelCaseName is a string based name that must start with\n               

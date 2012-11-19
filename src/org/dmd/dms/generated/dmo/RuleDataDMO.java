@@ -51,6 +51,8 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
         _ImAp.put(MetaDMSAG.__immediateHalt.id,MetaDMSAG.__immediateHalt);
         _ImAp.put(MetaDMSAG.__lineNumber.id,MetaDMSAG.__lineNumber);
+        _ImAp.put(MetaDMSAG.__msgKey.id,MetaDMSAG.__msgKey);
+        _ImAp.put(MetaDMSAG.__msgParam.id,MetaDMSAG.__msgParam);
 
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__ruleName.name,MetaDMSAG.__ruleName);
@@ -61,6 +63,8 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
         _SmAp.put(MetaDMSAG.__immediateHalt.name,MetaDMSAG.__immediateHalt);
         _SmAp.put(MetaDMSAG.__lineNumber.name,MetaDMSAG.__lineNumber);
+        _SmAp.put(MetaDMSAG.__msgKey.name,MetaDMSAG.__msgKey);
+        _SmAp.put(MetaDMSAG.__msgParam.name,MetaDMSAG.__msgParam);
     }
 
 
@@ -317,6 +321,63 @@ public class RuleDataDMO extends DmcObject implements DmcNamedObjectIF, Serializ
         
         attr.set(value);
         set(MetaDMSAG.__lineNumber,attr);
+    }
+
+    /**
+     * The msgKey may be specified on rule instances to indicate the key to be
+     * used\n to look up translated messages. This is primarily a GWT mechanism,
+     * but should be applicable in\n other contexts.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2227)
+    public String getMsgKey(){
+        DmcTypeStringSV attr = (DmcTypeStringSV) get(MetaDMSAG.__msgKey);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets msgKey to the specified value.
+     * @param value A value compatible with DmcTypeStringSV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2320)
+    public void setMsgKey(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__msgKey);
+        if (attr == null)
+            attr = new DmcTypeStringSV(MetaDMSAG.__msgKey);
+        
+        attr.set(value);
+        set(MetaDMSAG.__msgKey,attr);
+    }
+
+    /**
+     * The msgParam allows for the specification of parameters to be
+     * substituted\n into translated messages.
+     * @return An Iterator of String objects.
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2425)
+    public Iterator<String> getMsgParam(){
+        DmcTypeStringMV attr = (DmcTypeStringMV) get(MetaDMSAG.__msgParam);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another msgParam value.
+     * @param value A value compatible with DmcTypeStringMV
+     */
+    // org.dmd.dms.meta.MetaGenerator.dumpMVAccessFunction(MetaGenerator.java:2480)
+    public DmcAttribute<?> addMsgParam(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(MetaDMSAG.__msgParam);
+        if (attr == null)
+            attr = new DmcTypeStringMV(MetaDMSAG.__msgParam);
+        
+        attr.add(value);
+        add(MetaDMSAG.__msgParam,attr);
+        return(attr);
     }
 
 

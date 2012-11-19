@@ -2037,12 +2037,22 @@ public class SchemaManager implements DmcNameResolverIF {
 			if (def != null)
 				return(def);
 		}
-
 		else if (attributeID == MetaDMSAG.__complexTypeDefList.id){
 //			DebugInfo.debug("complexTypeDefList " + name.getNameString());
 			DmcNamedObjectIF def = (DmcNamedObjectIF)complexTypeDefs.get(name);
 			if (def != null)
 				return(def);
+		}
+		
+		// Added this after working on rules. Had a case where allowedType was defined as
+		// type TypeDefinition but got DmcValueException when referring to AttributeDefinition.
+		// This occurred because allowedType was not specified in the list above - so, to make
+		// things extensible, added this chunk of code.
+		DmcAttributeInfo ai = DmcOmni.instance().getInfo(attributeID);
+		if (ai.type.equals(MetaDMSAG.__type_TypeDefinition.name)){
+			DmcNamedObjectIF def = (DmcNamedObjectIF)internalTypeDefs.get(name);
+			if (def != null)
+				return(def);			
 		}
 
 		return(findNamedObject(name));
