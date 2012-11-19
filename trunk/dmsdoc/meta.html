@@ -143,16 +143,18 @@
       <li> <a class="deflink" href="#UUIDName"> UUIDName </a></li>
     </ul>
     </div>    <div class="enumList">
-    <h2>Enums (11)</h2>
+    <h2>Enums (13)</h2>
     <ul>
       <li> <a class="deflink" href="#BaseTypeEnum"> BaseTypeEnum </a></li>
       <li> <a class="deflink" href="#ClassTypeEnum"> ClassTypeEnum </a></li>
       <li> <a class="deflink" href="#DataTypeEnum"> DataTypeEnum </a></li>
       <li> <a class="deflink" href="#DebugEnum"> DebugEnum </a></li>
       <li> <a class="deflink" href="#FilterTypeEnum"> FilterTypeEnum </a></li>
+      <li> <a class="deflink" href="#GPBFieldTypeEnum"> GPBFieldTypeEnum </a></li>
       <li> <a class="deflink" href="#GPBScalarTypeEnum"> GPBScalarTypeEnum </a></li>
       <li> <a class="deflink" href="#ModifyTypeEnum"> ModifyTypeEnum </a></li>
       <li> <a class="deflink" href="#OperationalContextEnum"> OperationalContextEnum </a></li>
+      <li> <a class="deflink" href="#OriginalTypeEnum"> OriginalTypeEnum </a></li>
       <li> <a class="deflink" href="#RuleTypeEnum"> RuleTypeEnum </a></li>
       <li> <a class="deflink" href="#ValueTypeEnum"> ValueTypeEnum </a></li>
       <li> <a class="deflink" href="#WrapperTypeEnum"> WrapperTypeEnum </a></li>
@@ -2021,6 +2023,23 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
@@ -2695,8 +2714,8 @@
  as the basis for attribute values. The name of the type definition should be the same as the
  actual Java class that is used to store the value of an attribute e.g. the name of the type
  used to store strings is String. The <code> typeClassName </code> is the fully qualified name of the class
- derived from <code>DmcAttribute</code>that stores this type of value; they are always, by convention,
- named <code>DmcTypeXXX<code>.
+ derived from <code>DmcAttribute</code> that stores this type of value; they are always, by convention,
+ named <code>DmcTypeXXX</code>.
  <p/>
  <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code> and
  <code> EnumDefinitions </code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>.
@@ -3076,7 +3095,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The fully qualified name of a hierarchic object. The exact form of
- the fqn is application specific.</td>
+ the fqn is application specific.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3107,7 +3127,8 @@
       <td class="label">Description</td>
       <td>This attribute stores an abbreviated form of the name of an attribute or class. This
  concept is borrowed from directory technology where shortened name forms are often
- used as part of distinguished names (DNs).</td>
+ used as part of distinguished names (DNs).<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3133,7 +3154,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of action definition references.</td>
+      <td>A list of action definition references.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3158,7 +3180,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the set of actions that are supported by a class of objects.</td>
+      <td>Indicates the set of actions that are supported by a class of objects.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3184,7 +3207,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the classes of object that may be parents of the
- current class when objects are created in an instance hierarchy.</td>
+ current class when objects are created in an instance hierarchy.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3213,7 +3237,8 @@
  when dealing with NameContainers, the value interface is obviously NameContainer, but
  the secret sauce of NameContainers is that they also take any DmcObjectName derivative.
  Specifying the altType on the NameContainer TypeDefinition allows for generation of 
- the DmcObjectName interface as well.</td>
+ the DmcObjectName interface as well.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3238,7 +3263,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>An additional import (if required) by the altType attribute value.</td>
+      <td>An additional import (if required) by the altType attribute value.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3263,7 +3289,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the attribute to which an ATTRIBUTE type rule is applied.</td>
+      <td>Indicates the attribute to which an ATTRIBUTE type rule is applied.<p/>
+The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute
+<p/>The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition
+<p/>      </td>
     </tr>
 
     <tr>
@@ -3293,7 +3322,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The class to which a rule should be applied.</td>
+      <td>The class to which a rule should be applied.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3321,7 +3351,8 @@
       <td>Indicates the classes of object to which an action is to be attached.
  This mechanism allows for the extension of a class's behaviour without having
  to alter the schema of the class involved. This can be viewed as the auxiliary
- class equivalent for behaviour.</td>
+ class equivalent for behaviour.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3346,7 +3377,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of attribute definition references.</td>
+      <td>A list of attribute definition references.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3373,7 +3405,8 @@
       <td class="label">Description</td>
       <td>Indicates how the DmcAttributeInfo should be extracted from one of the ruleParam values
  associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport
- values as appropriate.</td>
+ values as appropriate.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3398,7 +3431,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The broad base type of the data.</td>
+      <td>The broad base type of the data.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3426,7 +3460,8 @@
       <td>This flag indicates whether or not an Action will be blocked from
  proceeding if there is a DAF lock on the object against which the action is
  performed. The default is to block all incoming actions against a locked
- object. By setting this flag to false, you can allow an action to proceed.</td>
+ object. By setting this flag to false, you can allow an action to proceed.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3453,7 +3488,8 @@
       <td class="label">Description</td>
       <td>The camelCaseName attribute is used to store a single camelCase format name for something.
  The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
- other characters are allowed.</td>
+ other characters are allowed.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3475,7 +3511,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of class definition references.</td>
+      <td>A list of class definition references.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3501,7 +3538,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The classFilter is used to performing matching of objects based on
- their class or auxiliary classes.</td>
+ their class or auxiliary classes.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3528,7 +3566,8 @@
       <td class="label">Description</td>
       <td>Indicates how the DmcClassInfo should be extracted from one of the ruleParam values
  associated with a RuleCategory. If additional classes are required to support this access, you can specify ruleImport
- values as appropriate.</td>
+ values as appropriate.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3553,7 +3592,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the type of a class definition.</td>
+      <td>This attribute indicates the type of a class definition.<p/>
+If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes
+<p/>      </td>
     </tr>
 
     <tr>
@@ -3579,7 +3620,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of complex type definition references.</td>
+      <td>A list of complex type definition references.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3607,7 +3649,8 @@
       <td>When specified as true on a SchemaDefinition, the DMO generation
  utility will create a free standing AttributeFactory for the schema. This allows for
  the creation of attributes taht can then be embedded in complex objects and properly
- serialized/deserialized.</td>
+ serialized/deserialized.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3633,7 +3676,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This attribute indicates the persistence characteristics of an attribute or
- class of object. How this information is used is application dependent.</td>
+ class of object. How this information is used is application dependent.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3660,7 +3704,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>A list of files that contain the class, attribute and type definitions
- that comprise a schema.</td>
+ that comprise a schema.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3685,7 +3730,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the schema in which a type, attribute or class is defined.</td>
+      <td>Indicates the schema in which a type, attribute or class is defined.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3711,7 +3757,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A set of references to Dependencies.</td>
+      <td>A set of references to Dependencies.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3737,7 +3784,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A reference to a single Dependency.</td>
+      <td>A reference to a single Dependency.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3763,7 +3811,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of schema names.</td>
+      <td>A list of schema names.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3789,7 +3838,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>A list of schema references that are based on the contents of the dependsOn
- attribute.</td>
+ attribute.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3814,7 +3864,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the schema(s) on which something depends.</td>
+      <td>Indicates the schema(s) on which something depends.<p/>
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="derivedClasses"> derivedClasses </a> </td></tr>
@@ -3827,7 +3878,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the classes that are known to be derived from a class.</td>
+      <td>Indicates the classes that are known to be derived from a class.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3852,7 +3904,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the abstract or structural class from which this class is derived.</td>
+      <td>Indicates the abstract or structural class from which this class is derived.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3880,7 +3933,8 @@
       <td>The description attribute is used to provide descriptive
  documentation for schema related definitions. The text provided should conform
  to XHTML concepts since it will be dumped in the context of the generated HTML
- documentation.</td>
+ documentation.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3947,7 +4001,8 @@
       <td>The designatedFilterAttribute flag is used to identify the attribute
  designated as the standard wrapper for filters of a particular type. 
  One, and only one, attribute definition can be the designatedFilterAttribute for a 
- TypeDefinition that is identified as isFilterType.</td>
+ TypeDefinition that is identified as isFilterType.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -3975,7 +4030,8 @@
       <td>The designatedNameAttribute flag is used to identify the attribute
  designated as the standard wrapper for names of a particular type. One, and only one,
  attribute definition can be the designatedNameAttribute for a TypeDefinition that has
- isNameType true.</td>
+ isNameType true.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4001,7 +4057,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The dmdID attribute is used to store a unique Dark Matter Definition ID for attributes.
- This is used as part of the serialization mechanisms built into Dark Matter Objects.</td>
+ This is used as part of the serialization mechanisms built into Dark Matter Objects.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4028,7 +4085,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates just the Dark Matter Extended (DME) class name.</td>
+      <td>This attribute indicates just the Dark Matter Extended (DME) class name.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4054,7 +4112,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This attribute indicates the full name of the class that extends a DMW class.
- Dark Matter Extended (DME).</td>
+ Dark Matter Extended (DME).<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4079,7 +4138,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates just the DMO class name e.g. MyClassAUXDMO</td>
+      <td>This attribute indicates just the DMO class name e.g. MyClassAUXDMO<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4104,7 +4164,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the full name of the MyClassAUXDMO class</td>
+      <td>This attribute indicates the full name of the MyClassAUXDMO class<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4129,7 +4190,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates just the DMO class name e.g. MyClassDMO</td>
+      <td>This attribute indicates just the DMO class name e.g. MyClassDMO<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4156,7 +4218,8 @@
       <td class="label">Description</td>
       <td>This attribute indicates the full name of the generated Dark Matter Object (DMO)
  class (including package) that is generated for this class. The class will always have DmcObject
- at the top of its derivation hierarchy.</td>
+ at the top of its derivation hierarchy.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4181,7 +4244,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates just the DmcType class name.</td>
+      <td>This attribute indicates just the DmcType class name.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4207,7 +4271,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This attribute indicates the full name of the DmcType class used to reference
- a class. These types are auto generated and named DmcType<classname>REF.</td>
+ a class. These types are auto generated and named DmcType<classname>REF.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4233,7 +4298,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This attribute indicates the full name of the class used to reference
- a class. These types are auto generated and named <classname>REF.</td>
+ a class. These types are auto generated and named <classname>REF.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4258,7 +4324,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates just the DMO class name e.g. MyClassAUX</td>
+      <td>This attribute indicates just the DMO class name e.g. MyClassAUX<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4283,7 +4350,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates the full name of the MyClassAUX class</td>
+      <td>This attribute indicates the full name of the MyClassAUX class<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4308,7 +4376,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This attribute indicates just the DMW class name, eg MyClassDMW</td>
+      <td>This attribute indicates just the DMW class name, eg MyClassDMW<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4335,7 +4404,8 @@
       <td class="label">Description</td>
       <td>This attribute indicates the full name of the generated Dark Matter Wrapper (DMW)
  class (including package) that is wrapped by this class. The class will always be a derived class of
- DmwWrapperBase.</td>
+ DmwWrapperBase.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4361,7 +4431,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This attribute indicates just the DmcContainerIterator name for a
- class of object.</td>
+ class of object.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4389,7 +4460,8 @@
       <td class="label">Description</td>
       <td>This attribute indicates the full name of the DmcContainerIterator 
  derived class that allows us to iterate over a set of object references and get back
- the DMW wrapper object instead of the DMO.</td>
+ the DMW wrapper object instead of the DMO.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4417,7 +4489,8 @@
       <td class="label">Description</td>
       <td>Indicates the package where server related Dark Matter Wrapper classes 
  were generated for this schema. This is used when we're generating derived wrapper
- classes.</td>
+ classes.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4448,7 +4521,8 @@
  dmwTypeToPackage gxt com.example.client. Each of schemas that's loaded for generation would
  have to have this same attribute specified so that, if there were derived classes across
  schemas, the appropriate wrapper derivations could be determined. See the ClassDefintion.adjustClass()
- method to see how this is used.</td>
+ method to see how this is used.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4474,7 +4548,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The dmwWrapperType is used to indicate whether or not you want extended wrappers
- when the wrappers are generated for an object in a particular generation context.</td>
+ when the wrappers are generated for an object in a particular generation context.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4499,7 +4574,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The dotName attribute is used to store dot separated names.</td>
+      <td>The dotName attribute is used to store dot separated names.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4521,7 +4597,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of EnumDefinitions.</td>
+      <td>A list of EnumDefinitions.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4546,7 +4623,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The integer value associated with an enumeration value.</td>
+      <td>The integer value associated with an enumeration value.<p/>
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="enumName"> enumName </a> </td></tr>
@@ -4559,7 +4637,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The original name of an enum as referred to in the internally generated type for enums.</td>
+      <td>The original name of an enum as referred to in the internally generated type for enums.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4584,7 +4663,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The string value associated with an enumeration value.</td>
+      <td>The string value associated with an enumeration value.<p/>
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="enumValue"> enumValue </a> </td></tr>
@@ -4598,7 +4678,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the set of enum values associated with an enumeration type
- definition.</td>
+ definition.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4626,7 +4707,8 @@
       <td>The excludeFromContext attribute is used to indicate that
  a class of object (and all of its derivatives) should be excluded from the wrapper
  generation for the specified context. An example usage is in the Dark Matter Protocol
- where we don't want to generate wrappers for the message objects in a GXT context.</td>
+ where we don't want to generate wrappers for the message objects in a GXT context.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4652,7 +4734,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The extendedClass indicates the fully qualified name of the class
- that is derived from the generated ComplexType to provide additional behaviour.</td>
+ that is derived from the generated ComplexType to provide additional behaviour.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4678,7 +4761,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the class of object to which an 
- ExtendedReferenceTypeDefinition refers.</td>
+ ExtendedReferenceTypeDefinition refers.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4703,7 +4787,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of extended reference type definition references.</td>
+      <td>A list of extended reference type definition references.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4728,7 +4813,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the fully qualifed name of an interface that an interface extends.</td>
+      <td>Indicates the fully qualifed name of an interface that an interface extends.<p/>
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="field"> field </a> </td></tr>
@@ -4741,7 +4827,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The field indicates a type and name for a field in a ComplexType.</td>
+      <td>The field indicates a type and name for a field in a ComplexType.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4768,7 +4855,8 @@
       <td class="label">Description</td>
       <td>The fieldSeparator is used to indicate the separation character used
  when a ComplexType is represented as a String. If a fieldSeparator isn't specified, it is
- assumed to be a space.</td>
+ assumed to be a space.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4793,7 +4881,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the file from which a definition was loaded.</td>
+      <td>Indicates the file from which a definition was loaded.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4822,7 +4911,8 @@
       <td class="label">Description</td>
       <td>The filterAttributeDef is a reference to the attribute that is locked
  to a TypeDefinition that is flagged as filterType. This mechanism is used to create the
- correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter.</td>
+ correct type of DmcType[FILTERTYPE]SV derivative for a value of type DmcFilter.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4849,7 +4939,8 @@
       <td class="label">Description</td>
       <td>The name of file that coresides with the schema.dms file that
  contains a common header to be applied to all generated code. For instance, you
- might want a common licensing comment at the top of your generated files.</td>
+ might want a common licensing comment at the top of your generated files.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4876,7 +4967,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This attribute indicates the generic arguments to be supplied in the
- use of a class in an autogenerated Iterable.</td>
+ use of a class in an autogenerated Iterable.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4903,7 +4995,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the import required to support a genericArgs specification i.e. if you're
- not specifying something like <?>, an additional import may be required.</td>
+ not specifying something like <?>, an additional import may be required.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4929,7 +5022,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>If you want to return a value other than the native value class, use the appropriate
- getType and specify the method you need to call on the DmdValue derived class to return it.</td>
+ getType and specify the method you need to call on the DmdValue derived class to return it.<p/>
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="getType"> getType </a> </td></tr>
@@ -4944,7 +5038,8 @@
       <td class="label">Description</td>
       <td>Indicates the type of value that will be returned when an attribute value
  is returned for a type definition; a type definition defines only one get type.
- This must be a Java class reference and not a primitive type e.g. int.</td>
+ This must be a Java class reference and not a primitive type e.g. int.<p/>
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="helperClassName"> helperClassName </a> </td></tr>
@@ -4960,7 +5055,8 @@
       <td>This attribute indicates the full name of the generated helper class for 
  object references i.e. if you had a ClassDefinition X, the framework generates a 
  types/XREF class which is subsequently used by the DmcTypeXREF class to store references
- to objects of the defined class.</td>
+ to objects of the defined class.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -4988,7 +5084,8 @@
       <td>The immediateHalt flag is used to indicate that no further
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
- of rules, so this flag gives the option of halting further processing.</td>
+ of rules, so this flag gives the option of halting further processing.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5018,7 +5115,8 @@
  Indexed attributes may be thought of as having a predetermined number of slots into which
  values may be stored. When indexed, an attribute has values added to it using the setMVnth()
  interface, not the usual add() interface. If you attempt to use add() with an indexed attribute,
- an exception will be thrown.</td>
+ an exception will be thrown.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5043,7 +5141,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The instantiation attribute specifies how something is to be instantiated.</td>
+      <td>The instantiation attribute specifies how something is to be instantiated.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5069,7 +5168,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The object name for objects uniquely identified with an integer.</td>
+      <td>The object name for objects uniquely identified with an integer.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5096,7 +5196,8 @@
       <td class="label">Description</td>
       <td>This attribute can be used on AUXILIARY classes to give a hint about their
  intended usage. For example, if you were extending schema definitions with some or your 
- own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition.</td>
+ own attributes for some purpose, your auxiliary class could have intendedToExtend ClassDefinition.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5122,7 +5223,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>A list of type definitions that were generated internally to represent
- enums and object references.</td>
+ enums and object references.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5148,7 +5250,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the internal type that's generated for all ClassDefinitions. This
- is set automatically on ClassDefinitions as they are parsed.</td>
+ is set automatically on ClassDefinitions as they are parsed.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5175,7 +5278,8 @@
       <td class="label">Description</td>
       <td>Indicates if an attribute is used and set within the Dark Matter Data
  code generation mechanisms. In the documentation generation code, attributes marked as
- internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated.</td>
+ internalUse WILL NOT be displayed unless you set the -internalUse flag is indicated.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5202,7 +5306,8 @@
       <td class="label">Description</td>
       <td>This flag indicates if the associated definition was internally generated.
  This is the case for TypeDefinitions generated for ClassDefinitions and EnumDefinitions
- that allow for references to these objects.</td>
+ that allow for references to these objects.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5228,7 +5333,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This flag is set to true to indicate the default value for a type (e.g. an enum).</td>
+      <td>This flag is set to true to indicate the default value for a type (e.g. an enum).<p/>
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="isEnumType"> isEnumType </a> </td></tr>
@@ -5241,7 +5347,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>This flag is set to true for type definitions that define enumerations.</td>
+      <td>This flag is set to true for type definitions that define enumerations.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5267,7 +5374,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This flag is used to indicate taht an internally generated type
- is an extended reference type.</td>
+ is an extended reference type.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5294,7 +5402,8 @@
       <td class="label">Description</td>
       <td>Indicates whether or not the ClassDefinition associated with a RuleDefinition has classType EXTENSIBLE
  or not. This mechanism is useful in situations where the exact set of attributes associated with a rule must be flexible.
- The best example is the InitRule where any set of attributes can be specified as value for the rule.</td>
+ The best example is the InitRule where any set of attributes can be specified as value for the rule.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5319,7 +5428,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates that a type is derived from DmcFilter.</td>
+      <td>Indicates that a type is derived from DmcFilter.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5347,7 +5457,8 @@
       <td>This flag indicates if an Action is merely a data retrieval (get) Action.
  Actions that are flagged with this attribute set to true will be executable
  even when the server is in a read-only mode because they don't actually
- alter data.</td>
+ alter data.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5372,7 +5483,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates if a name type is for hierarchic objects.</td>
+      <td>Indicates if a name type is for hierarchic objects.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5398,7 +5510,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This attribute indicates if a defined type is used for naming purposes.
- This allows us to automatically add attributes of this type to the AttributeFactories.</td>
+ This allows us to automatically add attributes of this type to the AttributeFactories.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5426,7 +5539,8 @@
       <td>Indicates the attribute by which an object of some class is named.
  When this attribute is supplied in a ClassDefinition, the generated DMO class will
  indicate that it implements the DmcNamedObjectIF and its getObjectName() method
- will return the value of the isNamedBy attribute.</td>
+ will return the value of the isNamedBy attribute.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5452,7 +5566,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This flag is set to true for type definitions that refer to other
- objects.</td>
+ objects.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5478,7 +5593,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This flag is set to true for type definitions that refer to other
- schema-related definitions.</td>
+ schema-related definitions.<p/>
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="javaClass"> javaClass </a> </td></tr>
@@ -5494,7 +5610,8 @@
       <td>This attribute indicates the full name of the class (including package)
  that should be instantiated when an instance of an object is created via the
  DmdClassDef.newInstance() function. The class must be a derived class of
- DmdGenericObject.</td>
+ DmdGenericObject.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5520,7 +5637,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This attribute indicates the class of the key used for types that support
- storage in a MAP.</td>
+ storage in a MAP.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5546,7 +5664,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the import for a keyClass. this is required if the keyClass
- is NOT a primitive java type e.g. Integer, String etc.</td>
+ is NOT a primitive java type e.g. Integer, String etc.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5571,7 +5690,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the line number of the file from which a definition was loaded.</td>
+      <td>Indicates the line number of the file from which a definition was loaded.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5598,7 +5718,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The object name for objects uniquely identified with a long.</td>
+      <td>The object name for objects uniquely identified with a long.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5622,7 +5743,8 @@
       <td class="label">Description</td>
       <td>Indicates the set of attributes that an instance of a class MAY
  have. When accessed in Java, this is a set of references to AttributeDefinition
- objects.</td>
+ objects.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5649,7 +5771,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the set of parameters that an action MAY have. When accessed
- in Java, this is a set of references to AttributeDefinition objects.</td>
+ in Java, this is a set of references to AttributeDefinition objects.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5675,7 +5798,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the set of return vals that may be returned as part of a
- particular action response message.</td>
+ particular action response message.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5703,7 +5827,8 @@
       <td>This flag is used to indicate if a particular request might
  result in progress indications being sent. Although primarily intended as a
  documentation aspect, this flag is used within the TL1 subsystem to allow for
- the creation of a response handler for node requests that send progress text.</td>
+ the creation of a response handler for node requests that send progress text.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5728,7 +5853,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A set of modifications to an object.</td>
+      <td>A set of modifications to an object.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5744,6 +5870,61 @@
       </td>
     </tr>
 
+    <tr> <td class="className" colspan="3"> <a name="msgKey"> msgKey </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts.<p/>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
+    <tr> <td class="className" colspan="3"> <a name="msgParam"> msgParam </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td>The msgParam allows for the specification of parameters to be substituted
+ into translated messages.<p/>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td>
+<table>
+  <tr>
+    <td> RuleData (<a href="meta.html#RuleData">meta</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
+
     <tr> <td class="className" colspan="3"> <a name="must"> must </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -5754,7 +5935,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Indicates the set of attributes that an instance of a class MUST have.</td>
+      <td>Indicates the set of attributes that an instance of a class MUST have.<p/>
+If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes
+<p/>      </td>
     </tr>
 
     <tr>
@@ -5781,7 +5964,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the set of parameters that an action MUST have. When
- accessed in Java, this is a set of references to AttributeDefinition objects.</td>
+ accessed in Java, this is a set of references to AttributeDefinition objects.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5807,7 +5991,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the set of return vals that must be returned as part of a
- particular action response message.</td>
+ particular action response message.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5834,7 +6019,9 @@
       <td class="label">Description</td>
       <td>The name attribute is used to store a single string token that represents a unique name
  for an object. A name should be composed of characters in the range, [a-z] [A-Z] [0-9]. No whitespace
- characters are allowed. All names must start with a character.</td>
+ characters are allowed. All names must start with a character.<p/>
+An EnumDefinition's name must end with Enum
+<p/>      </td>
     </tr>
 
     <tr>
@@ -5908,7 +6095,8 @@
       <td class="label">Description</td>
       <td>The nameAttributeDef is a reference to the attribute that is locked
  to a TypeDefinition. This mechanism is used to create the correct type of DmcType[NAMETYPE]*
- derivative for a value of type DmcObjectName.</td>
+ derivative for a value of type DmcObjectName.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5943,7 +6131,8 @@
  For LDAP objects when a hierarchic name is composed for an object, the class name
  plus the value of the naming attribute (type:value) is used to create the
  name of an object. It is best if the naming attribute value is created by
- the application; it shouldn't be based on any user configurable value.</td>
+ the application; it shouldn't be based on any user configurable value.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5971,7 +6160,8 @@
       <td>This attribute is used in TypeDefinitions to indicate the value that should be returned when
  an attribute of the specified type doesn't exist in the object. For example, Boolean values are defined
  to return false when they aren't actually set on an object. This just gives a convenient mechanism to
- provide a default value for non-existent attribute values.</td>
+ provide a default value for non-existent attribute values.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -5998,7 +6188,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Used to indicate the classes that an object instance supports.</td>
+      <td>Used to indicate the classes that an object instance supports.<p/>
+      </td>
     </tr>
 
     <tr> <td class="className" colspan="3"> <a name="obsoleteVersion"> obsoleteVersion </a> </td></tr>
@@ -6014,7 +6205,8 @@
       <td>This indicates the version at which something became obsolete.
  Generally speaking you shouldn't ever delete definitions for products that have
  been released to the field, this may break backwards compatibility. Instead, you
- should mark them as obsolete.</td>
+ should mark them as obsolete.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6042,7 +6234,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the operational context for some component e.g. object or attribute
- validators.</td>
+ validators.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6067,7 +6260,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>Refers to the class that an internally generated type represents.</td>
+      <td>Refers to the class that an internally generated type represents.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6096,7 +6290,8 @@
  attribute is parsed by the DmcUncheckedOIFParser. This is useful for certain attributes
  when newlines are required to properly format the contents of the attribute at
  a later time. For example, the description attribute is later dumped as part of 
- HTML documentation and, if the newlines are stripped, it won't be properly formatted.</td>
+ HTML documentation and, if the newlines are stripped, it won't be properly formatted.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6121,7 +6316,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The primitiveType indicates the underlying type of a DmcType.</td>
+      <td>The primitiveType indicates the underlying type of a DmcType.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6146,7 +6342,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The category of a rule.</td>
+      <td>The category of a rule.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6171,7 +6368,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The numeric ID of a rule category.</td>
+      <td>The numeric ID of a rule category.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6196,7 +6394,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The RuleCategories defined in a schema.</td>
+      <td>The RuleCategories defined in a schema.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6221,7 +6420,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The RuleData defined in a schema.</td>
+      <td>The RuleData defined in a schema.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6247,7 +6447,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The RuleDefinition that resulted in the creation of an
- internally generated ClassDefinition.</td>
+ internally generated ClassDefinition.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6272,7 +6473,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The RuleDefinitions defined in a schema.</td>
+      <td>The RuleDefinitions defined in a schema.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6298,7 +6500,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>An import required for generation of the rule collection associated with
- a RuleCategory.</td>
+ a RuleCategory.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6325,7 +6528,8 @@
       <td class="label">Description</td>
       <td>The ruleName attribute is used to store a single camelCase format name for a rule.
  The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
- other characters are allowed.</td>
+ other characters are allowed.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6366,7 +6570,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A parameter to be supplied to a rule when it is executed.</td>
+      <td>A parameter to be supplied to a rule when it is executed.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6391,7 +6596,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The title of a rule.</td>
+      <td>The title of a rule.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6432,7 +6638,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The type of a rule.</td>
+      <td>The type of a rule.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6457,7 +6664,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A reference to a RunContext.</td>
+      <td>A reference to a RunContext.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6484,7 +6692,8 @@
       <td class="label">Description</td>
       <td>The base identifier value for a schema. This value is added to each dmdID value
  associated with the AttributeDefinitions defined by the schema. This allows for easy rebasing of
- identifier values if required.</td>
+ identifier values if required.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6511,7 +6720,8 @@
       <td class="label">Description</td>
       <td>The fully qualified name of a class that extends the schema management
  capabilities of the SchemaManager. the class must have a zero arg constructor and implement
- the SchemaExtensionIF.</td>
+ the SchemaExtensionIF.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6537,7 +6747,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The maximum number of attribute definitions in a particular schema. This will provide
- immediate feedback if you exceed the given ID range for your schema.</td>
+ immediate feedback if you exceed the given ID range for your schema.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6563,7 +6774,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the package that a schema will be part of when its code
- is generated using DMO generator tool.</td>
+ is generated using DMO generator tool.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6590,7 +6802,8 @@
       <td class="label">Description</td>
       <td>This attribute indicates whether or not the attribute should
  be encrypted before being transported over the wire or stored in a file or
- repository</td>
+ repository<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6616,7 +6829,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The selectAttribute indicates an attribute to be used in the definition
- of a Slice.</td>
+ of a Slice.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6641,7 +6855,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of slice definition references.</td>
+      <td>A list of slice definition references.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6669,7 +6884,8 @@
       <td>The subpackage beneath extended where generated code will be written. This
  allows for a hierarchic package structure for the classes generated by the dmg and mvc generator
  utilities. The structure can contain other subpackages etc x.y.z but should not start or end
- with a period.</td>
+ with a period.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6696,7 +6912,8 @@
       <td class="label">Description</td>
       <td>Indicates if a class of objects supports back reference tracking or not. The
  default is that all objects support it, however, in places like the Dark Matter Protocol, we
- don't want to track references in the messages.</td>
+ don't want to track references in the messages.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6722,7 +6939,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates the type of an attribute. The value is the name of any
- previously defined TypeDefinition, ClassDefinition, EnumDefinition or ComplexTypeDefinition.</td>
+ previously defined TypeDefinition, ClassDefinition, EnumDefinition or ComplexTypeDefinition.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6749,7 +6967,8 @@
       <td class="label">Description</td>
       <td>This is the fully qualified name of the class derived from DmcAttribute that provides management
  of a particular type of attribute value. For instance, the type class that handles String attributes 
- is org.dmd.dmc.types.DmcTypeString</td>
+ is org.dmd.dmc.types.DmcTypeString<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6774,7 +6993,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>A list of type definition references.</td>
+      <td>A list of type definition references.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6799,7 +7019,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The fully qualified name of a Java interface or base class that specifies a dependency.</td>
+      <td>The fully qualified name of a Java interface or base class that specifies a dependency.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6825,7 +7046,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>Indicates whether you want to use the generated DMW wrapper
- or the extended wrapper you've created yourself.</td>
+ or the extended wrapper you've created yourself.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6852,7 +7074,8 @@
       <td class="label">Description</td>
       <td>This is a hack for now to allow for the inclusion of an 
  interface on a class; it should be the fully qualified name of the interface.
- The interface shouldn't require any method implementations.</td>
+ The interface shouldn't require any method implementations.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6877,7 +7100,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The object name for objects uniquely identified with a UUID.</td>
+      <td>The object name for objects uniquely identified with a UUID.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6903,7 +7127,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>This attribute indicates the cardinality and storage mechanism for an
- attribute.</td>
+ attribute.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -6932,7 +7157,8 @@
       <td>This is the fully qualified name of the wrapper class derived from DmcWrapperBase that
  wraps a DMO. This is used when generating object reference classes associated with ClassDefinitions
  This actually aligns to the javaClass of the ClassDefinition for which we're generating the reference
- classes.</td>
+ classes.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -8012,51 +8238,55 @@
 </tr>
   <tr>
     <td> matchesPattern (<a href="dmv.html#matchesPattern">dmv</a>) </td>
+    <td> msgKey (<a href="meta.html#msgKey">meta</a>) </td>
+    <td> msgParam (<a href="meta.html#msgParam">meta</a>) </td>
+</tr>
+  <tr>
     <td> mvIdxString (<a href="dmt.html#mvIdxString">dmt</a>) </td>
     <td> mvString (<a href="dmt.html#mvString">dmt</a>) </td>
+    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
 </tr>
   <tr>
-    <td> nonperString (<a href="dmt.html#nonperString">dmt</a>) </td>
     <td> nullReturnValue (<a href="meta.html#nullReturnValue">meta</a>) </td>
     <td> obsoleteVersion (<a href="meta.html#obsoleteVersion">meta</a>) </td>
+    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
 </tr>
   <tr>
-    <td> password (<a href="dmr.base.html#password">dmr.base</a>) </td>
     <td> primitiveType (<a href="meta.html#primitiveType">meta</a>) </td>
     <td> reposName (<a href="dmr.ldap.html#reposName">dmr.ldap</a>) </td>
+    <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
 </tr>
   <tr>
-    <td> requestRoot (<a href="dmp.html#requestRoot">dmp</a>) </td>
     <td> responseText (<a href="dmp.html#responseText">dmp</a>) </td>
     <td> ruleImport (<a href="meta.html#ruleImport">meta</a>) </td>
+    <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
 </tr>
   <tr>
-    <td> ruleTitle (<a href="meta.html#ruleTitle">meta</a>) </td>
     <td> schemaExtension (<a href="meta.html#schemaExtension">meta</a>) </td>
     <td> schemaPackage (<a href="meta.html#schemaPackage">meta</a>) </td>
+    <td> schemaToLoad (<a href="dmg.html#schemaToLoad">dmg</a>) </td>
 </tr>
   <tr>
-    <td> schemaToLoad (<a href="dmg.html#schemaToLoad">dmg</a>) </td>
     <td> sessionID (<a href="dmp.html#sessionID">dmp</a>) </td>
     <td> slice (<a href="dmp.html#slice">dmp</a>) </td>
+    <td> subpackage (<a href="meta.html#subpackage">meta</a>) </td>
 </tr>
   <tr>
-    <td> subpackage (<a href="meta.html#subpackage">meta</a>) </td>
     <td> svString (<a href="dmt.html#svString">dmt</a>) </td>
     <td> transString (<a href="dmt.html#transString">dmt</a>) </td>
+    <td> tsString (<a href="dmt.html#tsString">dmt</a>) </td>
 </tr>
   <tr>
-    <td> tsString (<a href="dmt.html#tsString">dmt</a>) </td>
     <td> typeClassName (<a href="meta.html#typeClassName">meta</a>) </td>
     <td> upperConstantName (<a href="dmg.html#upperConstantName">dmg</a>) </td>
+    <td> useInterface (<a href="meta.html#useInterface">meta</a>) </td>
 </tr>
   <tr>
-    <td> useInterface (<a href="meta.html#useInterface">meta</a>) </td>
     <td> userFQN (<a href="dmp.html#userFQN">dmp</a>) </td>
     <td> userName (<a href="dmr.base.html#userName">dmr.base</a>) </td>
+    <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
 </tr>
   <tr>
-    <td> usesInterface (<a href="meta.html#usesInterface">meta</a>) </td>
     <td> wrapperClassName (<a href="meta.html#wrapperClassName">meta</a>) </td>
 </tr>
 </table>
@@ -8458,6 +8688,28 @@
       <td>Performs a test to see if an attribute is not present.</td>
     </tr>
 
+    <tr> <td class="className" colspan="4"> <a name="GPBFieldTypeEnum"> GPBFieldTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> REQUIRED</td>
+      <td>A required field.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> OPTIONAL</td>
+      <td>An optional field.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> REPEATED</td>
+      <td>A repeated field.</td>
+    </tr>
+
     <tr> <td class="className" colspan="4"> <a name="GPBScalarTypeEnum"> GPBScalarTypeEnum </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -8641,6 +8893,63 @@
       <td> 1</td>
       <td> FULLJAVA</td>
       <td>indicates that the component operates in a ful Java environment; no restrictions.</td>
+    </tr>
+
+    <tr> <td class="className" colspan="4"> <a name="OriginalTypeEnum"> OriginalTypeEnum </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="2">Description</td>
+      <td>The OriginalTypeEnum indicates the source of type, whether explicitly defined
+ or implicitly defined and generated as an internal type.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 0</td>
+      <td> TYPE</td>
+      <td>The type is actually a type!.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 1</td>
+      <td> ENUM</td>
+      <td>The type is an enum.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 2</td>
+      <td> OBJECT</td>
+      <td>The type is the internally generated one to represent an unnamed object.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 3</td>
+      <td> REFERENCE</td>
+      <td>The type is the internally generated one to represent a reference to a named object.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 4</td>
+      <td> EXTREF</td>
+      <td>The type is an extended reference type.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 5</td>
+      <td> COMPLEXTYPE</td>
+      <td>The is a complex type.</td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> 6</td>
+      <td> NAMETYPE</td>
+      <td>The type is a name type.</td>
     </tr>
 
     <tr> <td class="className" colspan="4"> <a name="RuleTypeEnum"> RuleTypeEnum </a> </td></tr>

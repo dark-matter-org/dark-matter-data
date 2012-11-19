@@ -22,7 +22,7 @@ import java.util.TreeMap;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
 import org.dmd.dmc.DmcOmni;
-import org.dmd.util.exceptions.DebugInfo;
+//import org.dmd.util.exceptions.DebugInfo;
 
 public abstract class AttributeRuleCollection<I extends RuleIF> extends RuleCollection<I> {
 
@@ -71,12 +71,12 @@ public abstract class AttributeRuleCollection<I extends RuleIF> extends RuleColl
 	protected ArrayList<I> getRules(DmcAttributeInfo ai, DmcClassInfo ci){
     	AttributeRuleKey 	ark = new AttributeRuleKey(ai, ci);
     	
-    	DebugInfo.debug(">>> Looking for rule key:" + ark.toString());
+//    	DebugInfo.debug(">>> Looking for rule key:" + ark.toString());
     	
 		RuleList<I>			ruleList	= rules.get(ark);
 		
 		if (ruleList == null){
-	    	DebugInfo.debug("    >>> no rules");
+//	    	DebugInfo.debug("    >>> no rules");
 			// We didn't have rules specifically for this attribute in this class, so
 			// we create a place holder rule list and pass it in for initialization.
 			// The next we come through for the same key, we won't have to do the
@@ -85,7 +85,7 @@ public abstract class AttributeRuleCollection<I extends RuleIF> extends RuleColl
 			initializeFromHere(ark, ruleList);
 		}
 		else{
-	    	DebugInfo.debug("    >>> have rules");
+//	    	DebugInfo.debug("    >>> have rules");
 			// We have a rule list - if it hasn't yet been initialized, we initialize it
 			if (!ruleList.initialized())
 				initializeFromHere(ark, ruleList);

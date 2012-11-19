@@ -36,7 +36,13 @@ import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;
  * the possible optional attributes specified must be present\n in the object
  * being checked.\n <p/>\n If only one of the possibilities is allowed, you
  * can specify the andOnlyOne\n flag and set it to true. In this case only
- * one of the possibilities will be allowed.
+ * one of the possibilities will be allowed.\n <p/>\n An example of this rule
+ * can be seen below.\n <pre>\n OneOfTheseAttributesRequiredRuleData\n
+ * ruleName			dmvIncludeOrExclude\n ruleTitle			At least one of the
+ * excludeThisAttribute or includeThisAttribute attributes must be
+ * specified.\n applyToClass		CheckAttributesBasedOnValueRuleData\n
+ * onePossibility		excludeThisAttribute\n
+ * onePossibility		includeThisAttribute\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

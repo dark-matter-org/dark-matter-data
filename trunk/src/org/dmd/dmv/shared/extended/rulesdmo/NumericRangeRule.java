@@ -30,7 +30,7 @@ public class NumericRangeRule extends NumericRangeRuleBaseImpl {
 			Double value = (Double) attribute.getSV();
 			if ( (value < ruleDMO.getNrrMinimum()) || (value > ruleDMO.getNrrMaximum())){
 				rc = new DmcRuleExceptionSet();
-				rc.add(new DmcRuleException(ruleDMO.getRuleTitle(), this));
+				rc.add(new DmcRuleException(ruleDMO.getRuleTitle() + "\nThis value falls outside the range: " + attribute.getSV(), this));
 			}
 		}
 		else{
@@ -38,6 +38,9 @@ public class NumericRangeRule extends NumericRangeRuleBaseImpl {
 				Double value = (Double) attribute.getMVnth(i);
 				
 				if ( (value < ruleDMO.getNrrMinimum()) || (value > ruleDMO.getNrrMaximum())){
+					if (rc == null)
+						rc = new DmcRuleExceptionSet();
+					rc.add(new DmcRuleException(ruleDMO.getRuleTitle() + "\nThis value falls outside the range: " + attribute.getMVnth(i), this));
 				}
 			}
 		}
