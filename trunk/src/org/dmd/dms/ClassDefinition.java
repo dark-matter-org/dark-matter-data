@@ -678,6 +678,31 @@ public class ClassDefinition extends ClassDefinitionDMW {
 
         return(rc);
     }
+    
+    /**
+     * @param cd the class against which we're testing
+     * @return true if we are the specific class or we're derived from it.
+     */
+    public boolean isInstanceOfThis(ClassDefinition cd){
+    	boolean rc = false;
+    	
+    	if (this.getObjectName().getNameString().equals(cd.getName().getNameString()))
+    		rc = true;
+    	else{
+    		ArrayList<ClassDefinition> classes = getBaseClasses();
+    		
+    		if (classes != null){
+	    		for(ClassDefinition cdef: classes){
+	    			if (this.getObjectName().getNameString().equals(cdef.getName().getNameString())){
+	    				rc = true;
+	    				break;
+	    			}
+	    		}
+    		}
+    	}
+    	
+    	return(rc);
+    }
 
     /**
      * Returns the complete set of base classes from which this class is derived.

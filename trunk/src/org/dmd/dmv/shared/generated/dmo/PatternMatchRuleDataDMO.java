@@ -18,10 +18,11 @@ package org.dmd.dmv.shared.generated.dmo;
 // Generated from: org.dmd.dms.util.GenUtility.formatImports(GenUtility.java:391)
 import java.io.Serializable;                                                // Always required - (GenUtility.java:220)
 import org.dmd.dmc.DmcAttribute;                                            // Any attributes - (GenUtility.java:236)
+import org.dmd.dmc.DmcNamedObjectIF;                                        // Named object - (GenUtility.java:371)
 import org.dmd.dmc.DmcOmni;                                                 // Lazy resolution - (GenUtility.java:316)
 import org.dmd.dmc.DmcSliceInfo;                                            // Required for object slicing - (GenUtility.java:225)
 import org.dmd.dmc.DmcValueException;                                       // Any attributes - (GenUtility.java:237)
-import org.dmd.dmc.types.RuleName;                                          // Primitive type and !auxiliary class - (GenUtility.java:267)
+import org.dmd.dmc.types.RuleName;                                          // Naming attribute type - (GenUtility.java:366)
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;                    // Type specific set/add - (GenUtility.java:303)
 import org.dmd.dms.generated.dmo.MetaDMSAG;                                 // Required for MODREC constructor - (GenUtility.java:224)
 import org.dmd.dms.generated.dmo.RuleDataDMO;                               // Base class - (GenUtility.java:351)
@@ -48,7 +49,7 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;                         // R
  * Generated from: org.dmd.dms.util.DmoFormatter.dumpDMO(DmoFormatter.java:133)
  */
 @SuppressWarnings("serial")
-public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements Serializable  {
+public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements DmcNamedObjectIF, Serializable  {
 
     public final static String constructionClassName = "PatternMatchRuleData";
 
@@ -85,9 +86,42 @@ public class PatternMatchRuleDataDMO  extends RuleDataDMO  implements Serializab
 
     public PatternMatchRuleDataDMO getModificationRecorder(){
         PatternMatchRuleDataDMO rc = new PatternMatchRuleDataDMO();
+        rc.setRuleName(getRuleName());
         rc.setModifier(new DmcTypeModifierMV(MetaDMSAG.__modify));
         rc.modrec(true);
         return(rc);
+    }
+
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:744)
+    public RuleName getObjectName(){
+        DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
+        if (name != null)
+            return((RuleName)name.getSV());
+    
+        return(null);
+    }
+
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:761)
+    public DmcAttribute<?> getObjectNameAttribute(){
+        DmcAttribute<?> name = get(MetaDMSAG.__ruleName);
+        return(name);
+    }
+
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:768)
+    public boolean equals(Object obj){
+        if (obj instanceof PatternMatchRuleDataDMO){
+            return( getObjectName().equals( ((PatternMatchRuleDataDMO) obj).getObjectName()) );
+        }
+        return(false);
+    }
+
+    // org.dmd.dms.util.DmoFormatter.getAccessFunctions(DmoFormatter.java:776)
+    public int hashCode(){
+        RuleName objn = getObjectName();
+        if (objn == null)
+            return(0);
+        
+        return(objn.hashCode());
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)

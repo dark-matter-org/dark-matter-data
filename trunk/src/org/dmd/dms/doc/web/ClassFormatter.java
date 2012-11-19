@@ -3,17 +3,26 @@ package org.dmd.dms.doc.web;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
+import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class ClassFormatter {
+	
+	static SchemaManager schema;
 
-	static public void dumpDetails(BufferedWriter out, ClassDefinition cd) throws IOException {
+	static public void dumpDetails(BufferedWriter out, SchemaManager sm, ClassDefinition cd) throws IOException {
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
+		
+		schema = sm;
 		
 		out.write("  <table>\n\n");
 		className(out, cd);
@@ -41,6 +50,7 @@ public class ClassFormatter {
 	
 	static void description(BufferedWriter out, ClassDefinition cd) throws IOException{
 		if (cd.getDescription() != null){
+			out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td>Description</td>\n");
@@ -51,6 +61,7 @@ public class ClassFormatter {
 	}
 	
 	static void type(BufferedWriter out, ClassDefinition cd) throws IOException{
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("    <tr>\n");
 		out.write("      <td class=\"spacer\"> </td>\n");
 		out.write("      <td class=\"label\">Type</td>\n");
@@ -64,6 +75,7 @@ public class ClassFormatter {
 		getDerivationChain(classes, cd);
 		
 		if (classes.size() > 0){
+			out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td>Derived from</td>\n");
@@ -84,6 +96,7 @@ public class ClassFormatter {
 	
 	static void derived(BufferedWriter out, ClassDefinition cd) throws IOException{
 		if (cd.getDerivedClassesSize() > 0){
+			out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td class=\"label\">Derived classes</td>\n");
@@ -120,6 +133,7 @@ public class ClassFormatter {
 	
 	static void wrapper(BufferedWriter out, ClassDefinition cd) throws IOException{
 		if (cd.getUseWrapperType() != WrapperTypeEnum.BASE){
+			out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td>Wrapper</td>\n");
@@ -133,6 +147,7 @@ public class ClassFormatter {
 			AttributeDefinition na = cd.getIsNamedBy();
 			String schema = na.getDefinedIn().getName().getNameString();
 
+			out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td>Named by</td>\n");
@@ -142,7 +157,7 @@ public class ClassFormatter {
 		}
 	}
 	
-	static void must(BufferedWriter out, ClassDefinition cd) throws IOException{
+	static void must(BufferedWriter out, ClassDefinition cd) throws IOException {
 	    TreeMap<StringName,AttributeDefinition> allMust = cd.getAllMust();
 	    StringBuffer sb = new StringBuffer();
 
@@ -165,7 +180,7 @@ public class ClassFormatter {
 					appendSectionLabel(sb, "Must have attributes");
 				}
 				
-				appendAttribute(sb, schema, ad, tschema, type);
+				appendAttribute(sb, schema, cd, ad, tschema, type);
 
 			}
 			
@@ -180,29 +195,63 @@ public class ClassFormatter {
 		sb.append("    </tr>\n\n");		
 	}
 	
-	static void appendAttribute(StringBuffer sb, String schema, AttributeDefinition ad, String tschema, String type){
+	static void appendAttribute(StringBuffer sb, String schema, ClassDefinition cd, AttributeDefinition ad, String tschema, String type){
+		sb.append("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		sb.append("    <tr>\n");
 		sb.append("      <td class=\"spacer\"> </td>\n");
 //		sb.append("      <td class=\"label\">" + label + "</td>\n");
 		sb.append("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
 		sb.append("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
 		sb.append("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
-		if (ad.getDescription() != null)
-			sb.append("      <td> " + Converter.convert(ad.getDescription()) + " </td>\n");
+		if (ad.getDescription() != null){
+			sb.append("      <td> " + Converter.convert(ad.getDescription()));
+			appendRuleInfo(sb, cd, ad);
+			sb.append("      </td>\n");
+		}
 		sb.append("    </tr>\n\n");		
 	}
 	
-	static void appendAttribute1(StringBuffer sb, String label, String schema, AttributeDefinition ad, String tschema, String type){
-		sb.append("    <tr>\n");
-		sb.append("      <td class=\"spacer\"> </td>\n");
-		sb.append("      <td class=\"label\">" + label + "</td>\n");
-		sb.append("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
-		sb.append("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
-		sb.append("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
-		if (ad.getDescription() != null)
-			sb.append("      <td> " + Converter.convert(ad.getDescription()) + " </td>\n");
-		sb.append("    </tr>\n\n");		
+	static void appendRuleInfo(StringBuffer sb, ClassDefinition cd, AttributeDefinition ad){
+		if (ad.hasRules()){
+			sb.append("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
+			sb.append("<table>\n");
+			
+			Iterator<RuleDataDMO> rules = ad.getGlobalRules();
+			while(rules.hasNext()){
+				
+			}
+			
+			rules = ad.getClassRules();
+			while(rules.hasNext()){
+				RuleDataDMO rd = rules.next();
+				
+				ClassDefinition atc = schema.cdef(rd.getApplyToClass().getObjectName().getNameString());
+				
+				if (cd.isInstanceOfThis(atc)){
+					// We only display the rule if it's applicable to this class or
+					// if we're derived from the applyToClass
+					sb.append("<tr> <td class=\"attributeRule\">\n");
+					sb.append(rd.getRuleTitle());
+					sb.append("</td> </tr>\n\n");
+				}
+			}
+			
+			sb.append("</table>\n");
+		}
 	}
+	
+//	static void appendAttribute1(StringBuffer sb, String label, String schema, AttributeDefinition ad, String tschema, String type){
+//		sb.append("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
+//		sb.append("    <tr>\n");
+//		sb.append("      <td class=\"spacer\"> </td>\n");
+//		sb.append("      <td class=\"label\">" + label + "</td>\n");
+//		sb.append("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
+//		sb.append("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
+//		sb.append("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
+//		if (ad.getDescription() != null)
+//			sb.append("      <td> " + Converter.convert(ad.getDescription()) + " </td>\n");
+//		sb.append("    </tr>\n\n");		
+//	}
 	
 	static void may(BufferedWriter out, ClassDefinition cd) throws IOException{
 	    TreeMap<StringName,AttributeDefinition> allMay = cd.getAllMay();
@@ -226,7 +275,7 @@ public class ClassFormatter {
 						appendSectionLabel(internal, "Internal use attributes");
 					}
 					
-					appendAttribute(internal, schema, ad, tschema, type);
+					appendAttribute(internal, schema, cd, ad, tschema, type);
 				}
 				else{
 					if (first){
@@ -234,7 +283,7 @@ public class ClassFormatter {
 						appendSectionLabel(may, "May have attributes");
 					}
 
-					appendAttribute(may, schema, ad, tschema, type);
+					appendAttribute(may, schema, cd, ad, tschema, type);
 				}
 			}
 			

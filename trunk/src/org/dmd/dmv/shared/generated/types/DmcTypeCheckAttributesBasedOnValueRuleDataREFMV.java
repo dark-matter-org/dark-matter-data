@@ -21,20 +21,19 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.CheckAttributesBasedOnValueRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeCheckAttributesBasedOnValueRuleDataREFMV provides storage for a multi-valued CheckAttributesBasedOnValueRuleData
+ * The DmcTypeCheckAttributesBasedOnValueRuleDataREFMV provides storage for a multi-valued CheckAttributesBasedOnValueRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeCheckAttributesBasedOnValueRuleDataREFMV extends DmcTypeCheckAttributesBasedOnValueRuleDataREF implements Serializable {
     
-    private final static Iterator<CheckAttributesBasedOnValueRuleDataDMO> emptyList = (new ArrayList<CheckAttributesBasedOnValueRuleDataDMO>()).iterator();
+    private final static Iterator<CheckAttributesBasedOnValueRuleDataREF> emptyList = (new ArrayList<CheckAttributesBasedOnValueRuleDataREF>()).iterator();
     
-    protected ArrayList<CheckAttributesBasedOnValueRuleDataDMO> value;
+    protected ArrayList<CheckAttributesBasedOnValueRuleDataREF> value;
     
     public DmcTypeCheckAttributesBasedOnValueRuleDataREFMV(){
     
@@ -51,7 +50,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFMV extends DmcTypeChec
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
-    public DmcAttribute<CheckAttributesBasedOnValueRuleDataDMO> cloneIt(){
+    public DmcAttribute<CheckAttributesBasedOnValueRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeCheckAttributesBasedOnValueRuleDataREFMV rc = getNew();
     
@@ -59,7 +58,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFMV extends DmcTypeChec
                 return(rc);
     
             if (getAttributeInfo().indexSize == 0){
-                for(CheckAttributesBasedOnValueRuleDataDMO val: value)
+                for(CheckAttributesBasedOnValueRuleDataREF val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -80,11 +79,11 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFMV extends DmcTypeChec
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
-    public CheckAttributesBasedOnValueRuleDataDMO add(Object v) throws DmcValueException {
+    public CheckAttributesBasedOnValueRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            CheckAttributesBasedOnValueRuleDataDMO rc = typeCheck(v);
+            CheckAttributesBasedOnValueRuleDataREF rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<CheckAttributesBasedOnValueRuleDataDMO>();
+                value = new ArrayList<CheckAttributesBasedOnValueRuleDataREF>();
             value.add(rc);
             return(rc);
         }
@@ -92,13 +91,13 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFMV extends DmcTypeChec
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
-    public CheckAttributesBasedOnValueRuleDataDMO del(Object v){
+    public CheckAttributesBasedOnValueRuleDataREF del(Object v){
         synchronized(this){
             if (value == null)
                 return(null);
     
-            CheckAttributesBasedOnValueRuleDataDMO key = null;
-            CheckAttributesBasedOnValueRuleDataDMO rc = null;
+            CheckAttributesBasedOnValueRuleDataREF key = null;
+            CheckAttributesBasedOnValueRuleDataREF rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -116,23 +115,23 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFMV extends DmcTypeChec
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
-    public Iterator<CheckAttributesBasedOnValueRuleDataDMO> getMV(){
+    public Iterator<CheckAttributesBasedOnValueRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
     
-            ArrayList<CheckAttributesBasedOnValueRuleDataDMO> clone = new ArrayList<CheckAttributesBasedOnValueRuleDataDMO>(value);
+            ArrayList<CheckAttributesBasedOnValueRuleDataREF> clone = new ArrayList<CheckAttributesBasedOnValueRuleDataREF>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
-    public ArrayList<CheckAttributesBasedOnValueRuleDataDMO> getMVCopy(){
+    public ArrayList<CheckAttributesBasedOnValueRuleDataREF> getMVCopy(){
         synchronized(this){
             if (value == null)
-                return(new ArrayList<CheckAttributesBasedOnValueRuleDataDMO>());
+                return(new ArrayList<CheckAttributesBasedOnValueRuleDataREF>());
             else 
-                return(new ArrayList<CheckAttributesBasedOnValueRuleDataDMO>(value));
+                return(new ArrayList<CheckAttributesBasedOnValueRuleDataREF>(value));
         }
     }
     
@@ -152,7 +151,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFMV extends DmcTypeChec
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
-    public CheckAttributesBasedOnValueRuleDataDMO getMVnth(int index){
+    public CheckAttributesBasedOnValueRuleDataREF getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -162,7 +161,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFMV extends DmcTypeChec
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
-    public CheckAttributesBasedOnValueRuleDataDMO setMVnth(int index, Object v) throws DmcValueException {
+    public CheckAttributesBasedOnValueRuleDataREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
@@ -170,13 +169,13 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFMV extends DmcTypeChec
             if ( (index < 0) || (index >= getAttributeInfo().indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
-            CheckAttributesBasedOnValueRuleDataDMO rc = null;
+            CheckAttributesBasedOnValueRuleDataREF rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<CheckAttributesBasedOnValueRuleDataDMO>(getAttributeInfo().indexSize);
+                value = new ArrayList<CheckAttributesBasedOnValueRuleDataREF>(getAttributeInfo().indexSize);
                 for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
@@ -218,7 +217,7 @@ public class DmcTypeCheckAttributesBasedOnValueRuleDataREFMV extends DmcTypeChec
                 return(false);
 
             try {
-                CheckAttributesBasedOnValueRuleDataDMO val = typeCheck(v);
+                CheckAttributesBasedOnValueRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

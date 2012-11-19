@@ -64,7 +64,7 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
      * the range, [a-z] [A-Z] [0-9]. No whitespace\n characters are allowed. All
      * names must start with a character.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2286)
     public StringName getName(){
         return(mycore.getName());
     }
@@ -73,7 +73,7 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets name to the specified value.
      * @param value A value compatible with DmcTypeStringNameSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2359)
     public void setName(Object value) throws DmcValueException {
         mycore.setName(value);
     }
@@ -81,7 +81,7 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the schema in which a type, attribute or class is defined.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2286)
     public SchemaDefinition getDefinedIn(){
         DmcTypeSchemaDefinitionREFSV attr = (DmcTypeSchemaDefinitionREFSV) mycore.get(MetaDMSAG.__definedIn);
         if (attr == null)
@@ -94,7 +94,7 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets definedIn to the specified value.
      * @param value A value compatible with SchemaDefinition
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2341)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2346)
     public void setDefinedIn(SchemaDefinition value) throws DmcValueException {
         mycore.setDefinedIn(value.getDmcObject());
     }
@@ -102,7 +102,7 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2286)
     public String getFile(){
         return(mycore.getFile());
     }
@@ -111,7 +111,7 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets file to the specified value.
      * @param value A value compatible with DmcTypeStringSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2359)
     public void setFile(Object value) throws DmcValueException {
         mycore.setFile(value);
     }
@@ -119,7 +119,7 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
     /**
      * Indicates the line number of the file from which a definition was loaded.
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2281)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2286)
     public Integer getLineNumber(){
         return(mycore.getLineNumber());
     }
@@ -128,7 +128,7 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
      * Sets lineNumber to the specified value.
      * @param value A value compatible with DmcTypeIntegerSV
      */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2354)
+    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2359)
     public void setLineNumber(Object value) throws DmcValueException {
         mycore.setLineNumber(value);
     }
@@ -136,6 +136,8 @@ public abstract class DmsDefinitionDMW extends DmwNamedObjectWrapper {
 
     ////////////////////////////////////////////////////////////////////////////////
     // DmcNamedObjectIF implementation
+    // Generated from: org.dmd.dms.meta.MetaGenerator.dumpDMWClasses(MetaGenerator.java:1712)
+
     /**
      * @return The name of this object from the name attribute.
      */

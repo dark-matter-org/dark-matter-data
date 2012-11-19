@@ -43,7 +43,7 @@ public class SchemaPage {
 		
 		writeSchemaSummary(out, sm, sd);
 		
-		writeClasses(out);
+		writeClasses(out, sm);
 		
 		writeAttributes(out);
 		
@@ -173,7 +173,7 @@ public class SchemaPage {
 		return(false);
 	}
 	
-	static void writeClasses(BufferedWriter out) throws IOException {
+	static void writeClasses(BufferedWriter out, SchemaManager sm) throws IOException {
 		if (classes.size() == 0)
 			return;
 		
@@ -184,7 +184,7 @@ public class SchemaPage {
 //		out.write("  <table>\n\n");
 		
 		for(ClassDefinition cd: classes.values()){
-			ClassFormatter.dumpDetails(out, cd);
+			ClassFormatter.dumpDetails(out, sm, cd);
 		}
 		
 //		out.write("  </table>\n\n");

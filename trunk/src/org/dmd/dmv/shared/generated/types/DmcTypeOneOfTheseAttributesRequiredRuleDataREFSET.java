@@ -24,21 +24,20 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeOneOfTheseAttributesRequiredRuleDataREFSET provides storage for a set of OneOfTheseAttributesRequiredRuleDataDMO
+ * The DmcTypeOneOfTheseAttributesRequiredRuleDataREFSET provides storage for a set of OneOfTheseAttributesRequiredRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFSET extends DmcTypeOneOfTheseAttributesRequiredRuleDataREF implements Serializable {
     
-     private final static Iterator<OneOfTheseAttributesRequiredRuleDataDMO> emptyList =  (new HashSet<OneOfTheseAttributesRequiredRuleDataDMO>()).iterator();
+     private final static Iterator<OneOfTheseAttributesRequiredRuleDataREF> emptyList =  (new HashSet<OneOfTheseAttributesRequiredRuleDataREF>()).iterator();
     
     
-    protected Set<OneOfTheseAttributesRequiredRuleDataDMO> value;
+    protected Set<OneOfTheseAttributesRequiredRuleDataREF> value;
     
     public DmcTypeOneOfTheseAttributesRequiredRuleDataREFSET(){
         value = null;
@@ -51,9 +50,9 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFSET extends DmcTypeOn
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<OneOfTheseAttributesRequiredRuleDataDMO>();
+            value = new HashSet<OneOfTheseAttributesRequiredRuleDataREF>();
         else
-            value = new TreeSet<OneOfTheseAttributesRequiredRuleDataDMO>();
+            value = new TreeSet<OneOfTheseAttributesRequiredRuleDataREF>();
     }
     
     @Override
@@ -63,14 +62,14 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFSET extends DmcTypeOn
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
-    public DmcAttribute<OneOfTheseAttributesRequiredRuleDataDMO> cloneIt(){
+    public DmcAttribute<OneOfTheseAttributesRequiredRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeOneOfTheseAttributesRequiredRuleDataREFSET rc = getNew();
     
             if (value == null)
                 return(rc);
     
-            for(OneOfTheseAttributesRequiredRuleDataDMO val: value)
+            for(OneOfTheseAttributesRequiredRuleDataREF val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -82,9 +81,9 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFSET extends DmcTypeOn
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
-    public OneOfTheseAttributesRequiredRuleDataDMO add(Object v) throws DmcValueException {
+    public OneOfTheseAttributesRequiredRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            OneOfTheseAttributesRequiredRuleDataDMO rc = typeCheck(v);
+            OneOfTheseAttributesRequiredRuleDataREF rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -98,9 +97,9 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFSET extends DmcTypeOn
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
-    public OneOfTheseAttributesRequiredRuleDataDMO del(Object v){
+    public OneOfTheseAttributesRequiredRuleDataREF del(Object v){
         synchronized(this){
-            OneOfTheseAttributesRequiredRuleDataDMO rc = null;
+            OneOfTheseAttributesRequiredRuleDataREF rc = null;
             if (value == null)
                 return(rc);
             
@@ -122,32 +121,32 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFSET extends DmcTypeOn
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
-    public Iterator<OneOfTheseAttributesRequiredRuleDataDMO> getMV(){
+    public Iterator<OneOfTheseAttributesRequiredRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return( (new HashSet<OneOfTheseAttributesRequiredRuleDataDMO>(value)).iterator() );
+                return( (new HashSet<OneOfTheseAttributesRequiredRuleDataREF>(value)).iterator() );
             else
-                return( (new TreeSet<OneOfTheseAttributesRequiredRuleDataDMO>(value)).iterator() );
+                return( (new TreeSet<OneOfTheseAttributesRequiredRuleDataREF>(value)).iterator() );
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
-    public Set<OneOfTheseAttributesRequiredRuleDataDMO> getMVCopy(){
+    public Set<OneOfTheseAttributesRequiredRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
-                    return(new HashSet<OneOfTheseAttributesRequiredRuleDataDMO>());
+                    return(new HashSet<OneOfTheseAttributesRequiredRuleDataREF>());
                 else
-                    return(new HashSet<OneOfTheseAttributesRequiredRuleDataDMO>(value));
+                    return(new HashSet<OneOfTheseAttributesRequiredRuleDataREF>(value));
             }
             else{
                 if (value == null)
-                    return(new TreeSet<OneOfTheseAttributesRequiredRuleDataDMO>(value));
+                    return(new TreeSet<OneOfTheseAttributesRequiredRuleDataREF>(value));
                 else
-                    return(new TreeSet<OneOfTheseAttributesRequiredRuleDataDMO>(value));
+                    return(new TreeSet<OneOfTheseAttributesRequiredRuleDataREF>(value));
             }
         }
     }
@@ -170,7 +169,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFSET extends DmcTypeOn
                 return(false);
             
             try {
-                OneOfTheseAttributesRequiredRuleDataDMO val = typeCheck(v);
+                OneOfTheseAttributesRequiredRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

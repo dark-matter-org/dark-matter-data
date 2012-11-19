@@ -215,7 +215,7 @@ public class SchemaDocHtmlFormatter {
             out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
 
             // The whole page is in a table
-            out.write("<TABLE WIDTH=600 CELLPADDING=10> <TR> \n");
+            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
 
             out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
 //            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
@@ -233,21 +233,21 @@ public class SchemaDocHtmlFormatter {
             out.write("<TD CLASS=\"stronghead\"> Schema </TD>\n");
             out.write("<TD CLASS=\"pagetext\">");
             out.write(sd.getName() + "\n</TD>\n");
-            out.write("</TR>\n");
+            out.write("</tr>\n");
             */
-            out.write("<TR>\n");
+            out.write("<tr>\n");
             out.write("<TD VALIGN=TOP CLASS=\"stronghead\"> Description </TD>\n");
             out.write("<TD CLASS=\"pagetextUnjust\">\n");
             out.write(sd.getDescription());
-            out.write("</TD> </TR> \n");
+            out.write("</TD> </tr> \n");
 
             if (sd.getSchemaPackage() != null){
-                out.write("<TR>\n");
+                out.write("<tr>\n");
                 out.write("<TD VALIGN=TOP CLASS=\"stronghead\"> Package </TD>\n");
                 out.write("<TD CLASS=\"pagetextUnjust\">\n");
                 String withSlashes = sd.getSchemaPackage().replace('.','/');
                 out.write("<A HREF=\"" + javaDir + File.separator + withSlashes + "/package-summary.html\"> " + sd.getSchemaPackage() + " </A>\n");
-                out.write("</TD> </TR> \n");
+                out.write("</TD> </tr> \n");
             }
 
             Iterator<String> sdit;
@@ -256,7 +256,7 @@ public class SchemaDocHtmlFormatter {
                 while(sdit.hasNext()){
                     ts.add(sdit.next());
                 }
-                out.write("<TR> <TD VALIGN=TOP CLASS=\"stronghead\"> " + "Depends on </TD>\n");
+                out.write("<tr> <TD VALIGN=TOP CLASS=\"stronghead\"> " + "Depends on </TD>\n");
                 out.write("<TD CLASS=\"pagetextUnjust\">\n");
                 sdit = ts.iterator();
 
@@ -264,7 +264,7 @@ public class SchemaDocHtmlFormatter {
                     String s = (String)sdit.next();
                     out.write("<A HREF=\"" + s + ".shtml\"> " + s + "</A> <BR>\n");
                 }
-                out.write("</TD> </TR> \n");
+                out.write("</TD> </tr> \n");
             }
 
             out.write("</TABLE> <P>\n");
@@ -348,7 +348,7 @@ public class SchemaDocHtmlFormatter {
 
             out.write(getFooter(sd.getObjectName() + ".shtml"));
 
-            out.write("</TD> </TR> </TABLE>");
+            out.write("</TD> </tr> </TABLE>");
             // out.write("</TABLE>\n\n");
             out.write("</BODY>\n");
             out.write("</HTML>\n");
@@ -377,106 +377,106 @@ public class SchemaDocHtmlFormatter {
             out.write("<TABLE> \n");
             while(entries.hasNext()){
                 cd = (ClassDefinition) classes.get(entries.next());
-                out.write("<TR> <TH COLSPAN=2> <HR SIZE=3 NOSHADE> </TH> </TR>\n");
+                out.write("<tr> <TH COLSPAN=2> <HR SIZE=3 NOSHADE> </TH> </tr>\n");
 
-                out.write("<TR> <TD WIDTH=100 CLASS=\"stronghead\"> Class </TD>");
+                out.write("<tr> <TD WIDTH=100 CLASS=\"stronghead\"> Class </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
                 out.write("<A NAME=\"" + cd.getObjectName() + "\">" +  cd.getObjectName() + "</A>\n");
                 if (cd.getAbbrev() != null){
                     out.write(" (" + cd.getAbbrev() + ")");
                 }
-                out.write("</TD></TR><TR>\n");
+                out.write("</TD></tr><tr>\n");
 
                 if (cd.getJavaClass() != null){
-                    out.write("<TR> <TD  CLASS=\"pagetextUnjust\"> Java Class </TD>");
+                    out.write("<tr> <TD  CLASS=\"pagetextUnjust\"> Java Class </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     String withSlashes = cd.getJavaClass().replace('.','/');
                     out.write("<A HREF=\"" + javaDir + File.separator + withSlashes + ".html\"> " + cd.getJavaClass() + " </A>\n");
-                    out.write("</TD></TR><TR>\n");
+                    out.write("</TD></tr><tr>\n");
                 }
 
-                out.write("<TR> <TD  CLASS=\"pagetextUnjust\"> Class Type </TD>");
+                out.write("<tr> <TD  CLASS=\"pagetextUnjust\"> Class Type </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
                 out.write(cd.getClassType() + "\n");
 //                out.write(MetaSchemaAG.meta_CLASSTYPEE.getEnumValue(cd.getClassType()) + "\n");
-                out.write("</TD></TR><TR>\n");
+                out.write("</TD></tr><tr>\n");
 
-//                out.write("<TR> <TD  CLASS=\"pagetext\"> Data Type </TD>");
+//                out.write("<tr> <TD  CLASS=\"pagetext\"> Data Type </TD>");
 //                out.write("<TD CLASS=\"pagetext\">");
 //                out.write(cd.getDataType() + "\n");
-//                out.write("</TD></TR><TR>\n");
+//                out.write("</TD></tr><tr>\n");
 
              // reposName moved to the DMR SCHEMA
 //                if (cd.getReposName() != null){
-//                    out.write("<TR> <TD  CLASS=\"pagetext\"> Repository Name </TD>");
+//                    out.write("<tr> <TD  CLASS=\"pagetext\"> Repository Name </TD>");
 //                    out.write("<TD CLASS=\"pagetext\">");
 //                    out.write(cd.getReposName() + "\n");
-//                    out.write("</TD></TR><TR>\n");
+//                    out.write("</TD></tr><tr>\n");
 //                }
 
                 if (cd.getDerivedFrom() != null){
-                    out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Derived from </TD>");
+                    out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> Derived from </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     if (cd.getDerivedFrom().getDefinedIn() == currSchema)
                         out.write("<A HREF=\"#" + cd.getDerivedFrom().getObjectName() + "\">" +  cd.getDerivedFrom().getObjectName() + "</A> \n");
                     else
                         out.write("<A HREF=\"" + cd.getDerivedFrom().getDefinedIn().getObjectName() + ".shtml" + "#" + cd.getDerivedFrom().getObjectName() + "\">" +  cd.getDerivedFrom().getObjectName() + "</A> \n");
-                    out.write("</TD></TR><TR>\n");
+                    out.write("</TD></tr><tr>\n");
                 }
 
 //                if ((it = cd.getImplements()) != null){
 //                    Iterator sorted = sort(it);
-//                    out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Implements </TD>");
+//                    out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> Implements </TD>");
 //                    out.write("<TD CLASS=\"pagetext\">");
 //                    out.write(formatTable(sorted,util.size(),4));
-//                    out.write("</TD></TR><TR>\n");
+//                    out.write("</TD></tr><tr>\n");
 //                }
 
                 if (cd.getAllImplementors() != null) {
                     it = cd.getAllImplementors().iterator();
                     Iterator sorted = sort(it);
-                    out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Implementors </TD>");
+                    out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> Implementors </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     out.write(formatTable(sorted,util.size(),4));
-                    out.write("</TD></TR><TR>\n");
+                    out.write("</TD></tr><tr>\n");
                 }
 
                 if ((it = cd.getDerivedClasses()) != null){
                     Iterator sorted = sort(it);
-                    out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Derived classes </TD>");
+                    out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> Derived classes </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     out.write(formatTable(sorted,util.size(),4));
-                    out.write("</TD></TR><TR>\n");
+                    out.write("</TD></tr><tr>\n");
                 }
 
                 if ((it = cd.getMust()) != null){
                     Iterator sorted = sort(it);
-                    out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Must have </TD>");
+                    out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> Must have </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     out.write(formatTable(sorted,util.size(),4));
-                    out.write("</TD></TR><TR>\n");
+                    out.write("</TD></tr><tr>\n");
                 }
 
                 if ((it = cd.getMay()) != null){
                     Iterator sorted = sort(it);
-                    out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> May have </TD>");
+                    out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> May have </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     out.write(formatTable(sorted,util.size(),4));
-                    out.write("</TD></TR><TR>\n");
+                    out.write("</TD></tr><tr>\n");
                 }
 
                 if ((it = cd.getActions()) != null){
                     Iterator sorted = sort(it);
-                    out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Actions </TD>");
+                    out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> Actions </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     out.write(formatTable(sorted,util.size(),4));
-                    out.write("</TD></TR><TR>\n");
+                    out.write("</TD></tr><tr>\n");
                 }
 
-                out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Description </TD>");
+                out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> Description </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
                 out.write("<A NAME=\"" + cd.getDescription() + "\">" +  cd.getDescription() + "</A>\n");
-                out.write("</TD></TR><TR>\n");
+                out.write("</TD></tr><tr>\n");
 
             }
             out.write("</TABLE>\n\n");
@@ -497,16 +497,16 @@ public class SchemaDocHtmlFormatter {
             out.write("<TABLE> \n");
             while(entries.hasNext()){
                 ad = (AttributeDefinition) attrs.get(entries.next());
-                out.write("<TR> <TH COLSPAN=2> <HR SIZE=3 NOSHADE> </TH> </TR>\n");
-                out.write("<TR> <TD CLASS=\"stronghead\"> Attribute </TD>");
+                out.write("<tr> <TH COLSPAN=2> <HR SIZE=3 NOSHADE> </TH> </tr>\n");
+                out.write("<tr> <TD CLASS=\"stronghead\"> Attribute </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
                 out.write("<A NAME=\"" + ad.getObjectName() + "\">" +  ad.getObjectName() + "</A>\n");
                 if (ad.getAbbrev() != null){
                     out.write(" (" + ad.getAbbrev() + ")");
                 }
-                out.write("</TD></TR><TR>\n");
+                out.write("</TD></tr><tr>\n");
 
-                out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Type </TD>");
+                out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> Type </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
                 
 //                Boolean mv = ad.getIsMultiValued();
@@ -520,41 +520,41 @@ public class SchemaDocHtmlFormatter {
                 
 
                 out.write("<A HREF=\"" +  ad.getType().getDefinedIn().getObjectName() + ".shtml#" +  ad.getType().getObjectName() + "\">" +  ad.getType().getObjectName() + "</A>\n");
-                out.write("</TD></TR><TR>\n");
+                out.write("</TD></tr><tr>\n");
 
-//                out.write("<TR> <TD  CLASS=\"pagetext\"> Data Type </TD>");
+//                out.write("<tr> <TD  CLASS=\"pagetext\"> Data Type </TD>");
 //                out.write("<TD CLASS=\"pagetext\">");
 //                out.write(ad.getDataType() + "\n");
-//                out.write("</TD></TR><TR>\n");
+//                out.write("</TD></tr><tr>\n");
 
              // reposName moved to the DMR SCHEMA
 //                if (ad.getReposName() != null){
-//                    out.write("<TR> <TD  CLASS=\"pagetext\"> Repository Name </TD>");
+//                    out.write("<tr> <TD  CLASS=\"pagetext\"> Repository Name </TD>");
 //                    out.write("<TD CLASS=\"pagetext\">");
 //                    out.write(ad.getReposName() + "\n");
-//                    out.write("</TD></TR><TR>\n");
+//                    out.write("</TD></tr><tr>\n");
 //                }
 
-                if (ad.usedByClasses != null){
-                    out.write("<TR> <TD  CLASS=\"pagetext\"> Used In Classes </TD>");
+                if (ad.getUsedByClassesSize() > 0){
+                    out.write("<tr> <TD  CLASS=\"pagetext\"> Used In Classes </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
-                    for (int i=0; i<ad.usedByClasses.size(); i++)
-                        out.write(defLink((ClassDefinition)ad.usedByClasses.get(i),null) + " ");
-                    out.write("\n</TD></TR><TR>\n");
+                    for (int i=0; i<ad.getUsedByClassesSize(); i++)
+                        out.write(defLink((ClassDefinition)ad.getUsedByClassesNth(i),null) + " ");
+                    out.write("\n</TD></tr><tr>\n");
                 }
 
-                if (ad.usedByActions != null){
-                    out.write("<TR> <TD  CLASS=\"pagetext\"> Used In Actions </TD>");
+                if (ad.getUsedByActionsSize() > 0){
+                    out.write("<tr> <TD  CLASS=\"pagetext\"> Used In Actions </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
-                    for (int i=0; i<ad.usedByActions.size(); i++)
-                        out.write(defLink((ActionDefinition)ad.usedByActions.get(i),null) + " ");
-                    out.write("\n</TD></TR><TR>\n");
+                    for (int i=0; i<ad.getUsedByActionsSize(); i++)
+                        out.write(defLink((ActionDefinition)ad.getUsedByActionsNth(i),null) + " ");
+                    out.write("\n</TD></tr><tr>\n");
                 }
 
-                out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Description </TD>");
+                out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> Description </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
                 out.write("<A NAME=\"" + ad.getDescription() + "\">" +  ad.getDescription() + "</A>\n");
-                out.write("</TD></TR><TR>\n");
+                out.write("</TD></tr><tr>\n");
             }
             out.write("</TABLE>\n\n");
         } catch (IOException e) {
@@ -576,48 +576,48 @@ public class SchemaDocHtmlFormatter {
             out.write("<TABLE> \n");
             while(entries.hasNext()){
                 ad = (ActionDefinition) actions.get(entries.next());
-                out.write("<TR> <TH COLSPAN=2> <HR SIZE=3 NOSHADE> </TH> </TR>\n");
-                out.write("<TR> <TD CLASS=\"stronghead\"> Action </TD>");
+                out.write("<tr> <TH COLSPAN=2> <HR SIZE=3 NOSHADE> </TH> </tr>\n");
+                out.write("<tr> <TD CLASS=\"stronghead\"> Action </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
                 out.write("<A NAME=\"" + ad.getObjectName() + "\">" +  ad.getObjectName() + "</A>\n");
-                out.write("</TD></TR><TR>\n");
+                out.write("</TD></tr><tr>\n");
 
                 if ((it = ad.getMustParm()) != null){
                     Iterator sorted = sort(it);
-                    out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Must parms </TD>");
+                    out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> Must parms </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     out.write(formatTable(sorted,util.size(),4));
-                    out.write("</TD></TR><TR>\n");
+                    out.write("</TD></tr><tr>\n");
                 }
 
                 if ((it = ad.getMayParm()) != null){
                     Iterator sorted = sort(it);
-                    out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> May parms </TD>");
+                    out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> May parms </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     out.write(formatTable(sorted,util.size(),4));
-                    out.write("</TD></TR><TR>\n");
+                    out.write("</TD></tr><tr>\n");
                 }
 
                 if (ad.usedByClasses != null){
-                    out.write("<TR> <TD  CLASS=\"pagetext\"> Used In Classes </TD>");
+                    out.write("<tr> <TD  CLASS=\"pagetext\"> Used In Classes </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     for (int i=0; i<ad.usedByClasses.size(); i++)
                         out.write(defLink((ClassDefinition)ad.usedByClasses.get(i),null) + " ");
-                    out.write("\n</TD></TR><TR>\n");
+                    out.write("\n</TD></tr><tr>\n");
                 }
 
                 if (ad.attachedToClasses != null){
-                    out.write("<TR> <TD  CLASS=\"pagetext\"> Attached To Classes </TD>");
+                    out.write("<tr> <TD  CLASS=\"pagetext\"> Attached To Classes </TD>");
                     out.write("<TD CLASS=\"pagetext\">");
                     for (int i=0; i<ad.attachedToClasses.size(); i++)
                         out.write(defLink((ClassDefinition)ad.attachedToClasses.get(i),null) + " ");
-                    out.write("\n</TD></TR><TR>\n");
+                    out.write("\n</TD></tr><tr>\n");
                 }
 
-                out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetext\"> Description </TD>");
+                out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetext\"> Description </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
                 out.write("<A NAME=\"" + ad.getDescription() + "\">" +  ad.getDescription() + "</A>\n");
-                out.write("</TD></TR><TR>\n");
+                out.write("</TD></tr><tr>\n");
             }
             out.write("</TABLE>\n\n");
         } catch (IOException e) {
@@ -637,21 +637,21 @@ public class SchemaDocHtmlFormatter {
             out.write("<TABLE> \n");
             while(entries.hasNext()){
                 td = (TypeDefinition) types.get(entries.next());
-                out.write("<TR> <TH COLSPAN=2> <HR SIZE=3 NOSHADE> </TH> </TR>\n");
-                out.write("<TR> <TD CLASS=\"stronghead\"> Type </TD>");
+                out.write("<tr> <TH COLSPAN=2> <HR SIZE=3 NOSHADE> </TH> </tr>\n");
+                out.write("<tr> <TD CLASS=\"stronghead\"> Type </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
                 out.write("<A NAME=\"" + td.getObjectName() + "\">" +  td.getObjectName() + "</A>\n");
-                out.write("</TD></TR><TR>\n");
+                out.write("</TD></tr><tr>\n");
 
-                out.write("<TR> <TD CLASS=\"pagetext\" VALIGN=TOP> Description </TD>");
+                out.write("<tr> <TD CLASS=\"pagetext\" VALIGN=TOP> Description </TD>");
                 out.write("<TD CLASS=\"pagetext\">");
                 out.write("<A NAME=\"" + td.getDescription() + "\">" +  td.getDescription() + "</A>\n");
-                out.write("</TD></TR><TR>\n");
+                out.write("</TD></tr><tr>\n");
 
                 // TODO need to dump the enum definitions separately
                 
 //                if (BooleanVar.equals(true,td.getIsEnumType())){
-//                    out.write("<TR>\n");
+//                    out.write("<tr>\n");
 //                    out.write("<TD VALIGN=TOP CLASS=\"pagetext\"> Values </TD>");
 //                    out.write("<TD>\n");
 //
@@ -661,17 +661,17 @@ public class SchemaDocHtmlFormatter {
 //                        out.write("<TABLE>\n");
 //                        while(it.hasNext()){
 //                            DmdEnumValueDef evd = (DmdEnumValueDef)it.next();
-//                            out.write("<TR>");
+//                            out.write("<tr>");
 //                            out.write("<TD VALIGN=TOP> " + evd.getEnumString() + " </TD>\n");
 //                            out.write("<TD VALIGN=TOP> " + evd.getEnumInt().longValue() + " </TD>\n");
 //                            out.write("<TD> " + evd.getDescription() + " </TD>\n");
-//                            out.write("</TR>");
+//                            out.write("</tr>");
 //                        }
 //                        out.write("</TABLE>\n");
 //                    }
 //
 //                    out.write("</TD>\n");
-//                    out.write("</TR>\n");
+//                    out.write("</tr>\n");
 //                }
             }
             out.write("</TABLE>\n\n");
@@ -705,7 +705,7 @@ public class SchemaDocHtmlFormatter {
         StringBuffer    sb = new StringBuffer();
 
         sb.append("<TABLE>\n");
-        sb.append("<TR>\n");
+        sb.append("<tr>\n");
         while(it.hasNext()){
         	DmsDefinition go = it.next();
             sb.append("  <TD CLASS=\"pagetextUnjust\">\n");
@@ -720,11 +720,11 @@ public class SchemaDocHtmlFormatter {
             sb.append("  </TD>\n");
             if ((curr % cols) == 0){
                 if (curr < size)
-                    sb.append("</TR>\n<TR>\n");
+                    sb.append("</tr>\n<tr>\n");
             }
             curr++;
         }
-        sb.append("</TR>\n</TABLE>\n");
+        sb.append("</tr>\n</TABLE>\n");
 
         return(sb.toString());
     }
@@ -747,10 +747,10 @@ public class SchemaDocHtmlFormatter {
         // placed at the top of each index page.
         sb.append("<P> <HR SIZE=3 NOSHADE>");
         sb.append("<TABLE>\n");
-        sb.append("<TR> <TD CLASS=\"pagetextUnjust\"> <A HREF=\"index-allSchemas.shtml\"> Schema Summary </A></TD><TD></TD> </TR>\n");
-        sb.append("<TR> <TD CLASS=\"pagetextUnjust\"> <A HREF=\"classHierarchy.shtml\"> Class Hierarchy </A></TD><TD></TD> </TR>\n");
-        sb.append("<TR> <TD CLASS=\"pagetextUnjust\"> <A HREF=\"instanceHierarchy.shtml\"> Instance Hierarchy </A></TD><TD></TD> </TR>\n");
-        sb.append("<TR> <TD CLASS=\"pagetextUnjust\"> Definitions Index </TD> <TD>\n");
+        sb.append("<tr> <TD CLASS=\"pagetextUnjust\"> <A HREF=\"index-allSchemas.shtml\"> Schema Summary </A></TD><TD></TD> </tr>\n");
+        sb.append("<tr> <TD CLASS=\"pagetextUnjust\"> <A HREF=\"classHierarchy.shtml\"> Class Hierarchy </A></TD><TD></TD> </tr>\n");
+        sb.append("<tr> <TD CLASS=\"pagetextUnjust\"> <A HREF=\"instanceHierarchy.shtml\"> Instance Hierarchy </A></TD><TD></TD> </tr>\n");
+        sb.append("<tr> <TD CLASS=\"pagetextUnjust\"> Definitions Index </TD> <TD>\n");
 
         Iterator<String> indexIT = index.keySet().iterator();
         while(indexIT.hasNext()){
@@ -765,7 +765,7 @@ public class SchemaDocHtmlFormatter {
                 sb.append(key + "  ");
             }
         }
-        sb.append("</TD> </TR> </TABLE> <HR SIZE=3 NOSHADE> <P>\n");
+        sb.append("</TD> </tr> </TABLE> <HR SIZE=3 NOSHADE> <P>\n");
         indexRefHTML = sb.toString();
 
         // Generate the schema summary
@@ -782,7 +782,7 @@ public class SchemaDocHtmlFormatter {
             out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
 
             // The whole page is in a table
-            out.write("<TABLE WIDTH=600 CELLPADDING=10> <TR>\n");
+            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr>\n");
 
             out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
 //            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
@@ -799,16 +799,16 @@ public class SchemaDocHtmlFormatter {
             while(schemaIT.hasNext()){
                 SchemaDefinition sd = schemaIT.next();
 
-                out.write("<TR> <TD VALIGN=TOP CLASS=\"pagetextUnjust\">\n");
+                out.write("<tr> <TD VALIGN=TOP CLASS=\"pagetextUnjust\">\n");
                 out.write(schemaLink(sd));
                 out.write("</TD> <TD CLASS=\"pagetextUnjust\">\n");
                 out.write(sd.getDescription());
-                out.write("</TD> </TR>");
+                out.write("</TD> </tr>");
             }
 
             out.write("</TABLE>");
 
-            out.write("</TD> </TR> </TABLE>");
+            out.write("</TD> </tr> </TABLE>");
             out.write("</BODY>\n");
             out.write("</HTML>\n");
 
@@ -841,7 +841,7 @@ public class SchemaDocHtmlFormatter {
                     out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
 
                     // The whole page is in a table
-                    out.write("<TABLE WIDTH=600 CELLPADDING=10> <TR> \n");
+                    out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
 
                     out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
 //                    out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
@@ -856,7 +856,7 @@ public class SchemaDocHtmlFormatter {
                         Token               t  = (Token)defsIt.next();
                         DmsDefinition    go = (DmsDefinition) t.getUserData();
 
-                        out.write("<TR> <TD VALIGN=TOP>\n");
+                        out.write("<tr> <TD VALIGN=TOP>\n");
 
                         if (go instanceof AttributeDefinition){
                             AttributeDefinition ad = (AttributeDefinition)go;
@@ -909,13 +909,13 @@ public class SchemaDocHtmlFormatter {
                             out.write(" the " + schemaLink(sd) + " schema");
                         }
 
-                        out.write("\n</TD> </TR>\n");
+                        out.write("\n</TD> </tr>\n");
 
                     }
 
                     out.write("</TABLE>");
 
-                    out.write("</TD> </TR> </TABLE>");
+                    out.write("</TD> </tr> </TABLE>");
                     out.write("</BODY>\n");
                     out.write("</HTML>\n");
 
@@ -954,7 +954,7 @@ public class SchemaDocHtmlFormatter {
             out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
 
             // The whole page is in a table
-            out.write("<TABLE WIDTH=600 CELLPADDING=10> <TR> \n");
+            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
 
             out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
 //            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
@@ -982,7 +982,7 @@ public class SchemaDocHtmlFormatter {
 
             formatClassHierarchy(classes.values().iterator(),classes.size(),out);
 
-            out.write("</TD> </TR> </TABLE>");
+            out.write("</TD> </tr> </TABLE>");
             // out.write("</TABLE>\n\n");
             out.write("</BODY>\n");
             out.write("</HTML>\n");
@@ -1018,7 +1018,7 @@ public class SchemaDocHtmlFormatter {
             out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
 
             // The whole page is in a table
-            out.write("<TABLE WIDTH=600 CELLPADDING=10> <TR> \n");
+            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
 
             out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
 //            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
@@ -1039,7 +1039,7 @@ public class SchemaDocHtmlFormatter {
 
             formatClassList(classes.values().iterator(),classes.size(),out);
 
-            out.write("</TD> </TR> </TABLE>");
+            out.write("</TD> </tr> </TABLE>");
             // out.write("</TABLE>\n\n");
             out.write("</BODY>\n");
             out.write("</HTML>\n");
@@ -1107,7 +1107,7 @@ public class SchemaDocHtmlFormatter {
             out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
 
             // The whole page is in a table
-            out.write("<TABLE WIDTH=600 CELLPADDING=10> <TR> \n");
+            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
 
             out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
 //            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
@@ -1134,7 +1134,7 @@ public class SchemaDocHtmlFormatter {
 //
 //            formatInstanceHierarchy(null,classes.values().iterator(),out);
 
-            out.write("<TD> </TR> </TABLE>");
+            out.write("<TD> </tr> </TABLE>");
             // out.write("</TABLE>\n\n");
             out.write("</BODY>\n");
             out.write("</HTML>\n");
@@ -1174,7 +1174,7 @@ public class SchemaDocHtmlFormatter {
             out.write("<BODY BGCOLOR=\"FFFFFF\">\n\n");
 
             // The whole page is in a table
-            out.write("<TABLE WIDTH=600 CELLPADDING=10> <TR> \n");
+            out.write("<TABLE WIDTH=600 CELLPADDING=10> <tr> \n");
 
             out.write("<TD WIDTH=120 CLASS=\"sidebar2\" VALIGN=TOP>\n");
 //            out.write("<!--#include virtual=\"navLinks.html\" --> <P> </TD>\n");
@@ -1201,7 +1201,7 @@ public class SchemaDocHtmlFormatter {
 //
 //            formatInstanceHierarchy(null,classes.values().iterator(),out);
 
-            out.write("<TD> </TR> </TABLE>");
+            out.write("<TD> </tr> </TABLE>");
             // out.write("</TABLE>\n\n");
             out.write("</BODY>\n");
             out.write("</HTML>\n");
@@ -1355,7 +1355,7 @@ public class SchemaDocHtmlFormatter {
         StringBuffer sb = new StringBuffer();
 
         sb.append("<CENTER>\n");
-        sb.append("<TABLE> <TR> <TD CLASS=\"smalltext\">\n");
+        sb.append("<TABLE> <tr> <TD CLASS=\"smalltext\">\n");
         sb.append("URL: http://www.dark-matter-data.org<!--#echo var=\"DOCUMENT_URI\" -->\n");
         sb.append("<BR>\n");
         sb.append("Comments to: <A HREF=\"mailto:" + userEmail + "\">" + schemaUser + " </A>\n");
@@ -1367,7 +1367,7 @@ public class SchemaDocHtmlFormatter {
         sb.append("<!--#config timefmt=\"%Y\" -->\n");
         sb.append("<!--#flastmod file=\"" + filename + "\" -->\n");
         sb.append(organization +"\n");
-        sb.append("</TD> </TR> </TABLE> \n");
+        sb.append("</TD> </tr> </TABLE> \n");
 
         return(sb.toString());
     }

@@ -21,20 +21,19 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeReferencedAttributeTypeRuleDataREFMV provides storage for a multi-valued ReferencedAttributeTypeRuleData
+ * The DmcTypeReferencedAttributeTypeRuleDataREFMV provides storage for a multi-valued ReferencedAttributeTypeRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeReferencedAttributeTypeRuleDataREFMV extends DmcTypeReferencedAttributeTypeRuleDataREF implements Serializable {
     
-    private final static Iterator<ReferencedAttributeTypeRuleDataDMO> emptyList = (new ArrayList<ReferencedAttributeTypeRuleDataDMO>()).iterator();
+    private final static Iterator<ReferencedAttributeTypeRuleDataREF> emptyList = (new ArrayList<ReferencedAttributeTypeRuleDataREF>()).iterator();
     
-    protected ArrayList<ReferencedAttributeTypeRuleDataDMO> value;
+    protected ArrayList<ReferencedAttributeTypeRuleDataREF> value;
     
     public DmcTypeReferencedAttributeTypeRuleDataREFMV(){
     
@@ -51,7 +50,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMV extends DmcTypeReferenc
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
-    public DmcAttribute<ReferencedAttributeTypeRuleDataDMO> cloneIt(){
+    public DmcAttribute<ReferencedAttributeTypeRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeReferencedAttributeTypeRuleDataREFMV rc = getNew();
     
@@ -59,7 +58,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMV extends DmcTypeReferenc
                 return(rc);
     
             if (getAttributeInfo().indexSize == 0){
-                for(ReferencedAttributeTypeRuleDataDMO val: value)
+                for(ReferencedAttributeTypeRuleDataREF val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -80,11 +79,11 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMV extends DmcTypeReferenc
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
-    public ReferencedAttributeTypeRuleDataDMO add(Object v) throws DmcValueException {
+    public ReferencedAttributeTypeRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            ReferencedAttributeTypeRuleDataDMO rc = typeCheck(v);
+            ReferencedAttributeTypeRuleDataREF rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<ReferencedAttributeTypeRuleDataDMO>();
+                value = new ArrayList<ReferencedAttributeTypeRuleDataREF>();
             value.add(rc);
             return(rc);
         }
@@ -92,13 +91,13 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMV extends DmcTypeReferenc
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
-    public ReferencedAttributeTypeRuleDataDMO del(Object v){
+    public ReferencedAttributeTypeRuleDataREF del(Object v){
         synchronized(this){
             if (value == null)
                 return(null);
     
-            ReferencedAttributeTypeRuleDataDMO key = null;
-            ReferencedAttributeTypeRuleDataDMO rc = null;
+            ReferencedAttributeTypeRuleDataREF key = null;
+            ReferencedAttributeTypeRuleDataREF rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -116,23 +115,23 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMV extends DmcTypeReferenc
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
-    public Iterator<ReferencedAttributeTypeRuleDataDMO> getMV(){
+    public Iterator<ReferencedAttributeTypeRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
     
-            ArrayList<ReferencedAttributeTypeRuleDataDMO> clone = new ArrayList<ReferencedAttributeTypeRuleDataDMO>(value);
+            ArrayList<ReferencedAttributeTypeRuleDataREF> clone = new ArrayList<ReferencedAttributeTypeRuleDataREF>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
-    public ArrayList<ReferencedAttributeTypeRuleDataDMO> getMVCopy(){
+    public ArrayList<ReferencedAttributeTypeRuleDataREF> getMVCopy(){
         synchronized(this){
             if (value == null)
-                return(new ArrayList<ReferencedAttributeTypeRuleDataDMO>());
+                return(new ArrayList<ReferencedAttributeTypeRuleDataREF>());
             else 
-                return(new ArrayList<ReferencedAttributeTypeRuleDataDMO>(value));
+                return(new ArrayList<ReferencedAttributeTypeRuleDataREF>(value));
         }
     }
     
@@ -152,7 +151,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMV extends DmcTypeReferenc
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
-    public ReferencedAttributeTypeRuleDataDMO getMVnth(int index){
+    public ReferencedAttributeTypeRuleDataREF getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -162,7 +161,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMV extends DmcTypeReferenc
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
-    public ReferencedAttributeTypeRuleDataDMO setMVnth(int index, Object v) throws DmcValueException {
+    public ReferencedAttributeTypeRuleDataREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
@@ -170,13 +169,13 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMV extends DmcTypeReferenc
             if ( (index < 0) || (index >= getAttributeInfo().indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
-            ReferencedAttributeTypeRuleDataDMO rc = null;
+            ReferencedAttributeTypeRuleDataREF rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<ReferencedAttributeTypeRuleDataDMO>(getAttributeInfo().indexSize);
+                value = new ArrayList<ReferencedAttributeTypeRuleDataREF>(getAttributeInfo().indexSize);
                 for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
@@ -218,7 +217,7 @@ public class DmcTypeReferencedAttributeTypeRuleDataREFMV extends DmcTypeReferenc
                 return(false);
 
             try {
-                ReferencedAttributeTypeRuleDataDMO val = typeCheck(v);
+                ReferencedAttributeTypeRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

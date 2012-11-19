@@ -21,20 +21,19 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.OneOfTheseAttributesRequiredRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV provides storage for a multi-valued OneOfTheseAttributesRequiredRuleData
+ * The DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV provides storage for a multi-valued OneOfTheseAttributesRequiredRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV extends DmcTypeOneOfTheseAttributesRequiredRuleDataREF implements Serializable {
     
-    private final static Iterator<OneOfTheseAttributesRequiredRuleDataDMO> emptyList = (new ArrayList<OneOfTheseAttributesRequiredRuleDataDMO>()).iterator();
+    private final static Iterator<OneOfTheseAttributesRequiredRuleDataREF> emptyList = (new ArrayList<OneOfTheseAttributesRequiredRuleDataREF>()).iterator();
     
-    protected ArrayList<OneOfTheseAttributesRequiredRuleDataDMO> value;
+    protected ArrayList<OneOfTheseAttributesRequiredRuleDataREF> value;
     
     public DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV(){
     
@@ -51,7 +50,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV extends DmcTypeOne
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
-    public DmcAttribute<OneOfTheseAttributesRequiredRuleDataDMO> cloneIt(){
+    public DmcAttribute<OneOfTheseAttributesRequiredRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV rc = getNew();
     
@@ -59,7 +58,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV extends DmcTypeOne
                 return(rc);
     
             if (getAttributeInfo().indexSize == 0){
-                for(OneOfTheseAttributesRequiredRuleDataDMO val: value)
+                for(OneOfTheseAttributesRequiredRuleDataREF val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -80,11 +79,11 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV extends DmcTypeOne
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
-    public OneOfTheseAttributesRequiredRuleDataDMO add(Object v) throws DmcValueException {
+    public OneOfTheseAttributesRequiredRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            OneOfTheseAttributesRequiredRuleDataDMO rc = typeCheck(v);
+            OneOfTheseAttributesRequiredRuleDataREF rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<OneOfTheseAttributesRequiredRuleDataDMO>();
+                value = new ArrayList<OneOfTheseAttributesRequiredRuleDataREF>();
             value.add(rc);
             return(rc);
         }
@@ -92,13 +91,13 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV extends DmcTypeOne
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
-    public OneOfTheseAttributesRequiredRuleDataDMO del(Object v){
+    public OneOfTheseAttributesRequiredRuleDataREF del(Object v){
         synchronized(this){
             if (value == null)
                 return(null);
     
-            OneOfTheseAttributesRequiredRuleDataDMO key = null;
-            OneOfTheseAttributesRequiredRuleDataDMO rc = null;
+            OneOfTheseAttributesRequiredRuleDataREF key = null;
+            OneOfTheseAttributesRequiredRuleDataREF rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -116,23 +115,23 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV extends DmcTypeOne
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
-    public Iterator<OneOfTheseAttributesRequiredRuleDataDMO> getMV(){
+    public Iterator<OneOfTheseAttributesRequiredRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
     
-            ArrayList<OneOfTheseAttributesRequiredRuleDataDMO> clone = new ArrayList<OneOfTheseAttributesRequiredRuleDataDMO>(value);
+            ArrayList<OneOfTheseAttributesRequiredRuleDataREF> clone = new ArrayList<OneOfTheseAttributesRequiredRuleDataREF>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
-    public ArrayList<OneOfTheseAttributesRequiredRuleDataDMO> getMVCopy(){
+    public ArrayList<OneOfTheseAttributesRequiredRuleDataREF> getMVCopy(){
         synchronized(this){
             if (value == null)
-                return(new ArrayList<OneOfTheseAttributesRequiredRuleDataDMO>());
+                return(new ArrayList<OneOfTheseAttributesRequiredRuleDataREF>());
             else 
-                return(new ArrayList<OneOfTheseAttributesRequiredRuleDataDMO>(value));
+                return(new ArrayList<OneOfTheseAttributesRequiredRuleDataREF>(value));
         }
     }
     
@@ -152,7 +151,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV extends DmcTypeOne
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
-    public OneOfTheseAttributesRequiredRuleDataDMO getMVnth(int index){
+    public OneOfTheseAttributesRequiredRuleDataREF getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -162,7 +161,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV extends DmcTypeOne
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
-    public OneOfTheseAttributesRequiredRuleDataDMO setMVnth(int index, Object v) throws DmcValueException {
+    public OneOfTheseAttributesRequiredRuleDataREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
@@ -170,13 +169,13 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV extends DmcTypeOne
             if ( (index < 0) || (index >= getAttributeInfo().indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
-            OneOfTheseAttributesRequiredRuleDataDMO rc = null;
+            OneOfTheseAttributesRequiredRuleDataREF rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<OneOfTheseAttributesRequiredRuleDataDMO>(getAttributeInfo().indexSize);
+                value = new ArrayList<OneOfTheseAttributesRequiredRuleDataREF>(getAttributeInfo().indexSize);
                 for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
@@ -218,7 +217,7 @@ public class DmcTypeOneOfTheseAttributesRequiredRuleDataREFMV extends DmcTypeOne
                 return(false);
 
             try {
-                OneOfTheseAttributesRequiredRuleDataDMO val = typeCheck(v);
+                OneOfTheseAttributesRequiredRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

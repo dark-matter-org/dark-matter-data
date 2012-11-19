@@ -21,20 +21,19 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO;    // DmcType import
 /**
- * The DmcTypePatternMatchRuleDataREFMV provides storage for a multi-valued PatternMatchRuleData
+ * The DmcTypePatternMatchRuleDataREFMV provides storage for a multi-valued PatternMatchRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypePatternMatchRuleDataREFMV extends DmcTypePatternMatchRuleDataREF implements Serializable {
     
-    private final static Iterator<PatternMatchRuleDataDMO> emptyList = (new ArrayList<PatternMatchRuleDataDMO>()).iterator();
+    private final static Iterator<PatternMatchRuleDataREF> emptyList = (new ArrayList<PatternMatchRuleDataREF>()).iterator();
     
-    protected ArrayList<PatternMatchRuleDataDMO> value;
+    protected ArrayList<PatternMatchRuleDataREF> value;
     
     public DmcTypePatternMatchRuleDataREFMV(){
     
@@ -51,7 +50,7 @@ public class DmcTypePatternMatchRuleDataREFMV extends DmcTypePatternMatchRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
-    public DmcAttribute<PatternMatchRuleDataDMO> cloneIt(){
+    public DmcAttribute<PatternMatchRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypePatternMatchRuleDataREFMV rc = getNew();
     
@@ -59,7 +58,7 @@ public class DmcTypePatternMatchRuleDataREFMV extends DmcTypePatternMatchRuleDat
                 return(rc);
     
             if (getAttributeInfo().indexSize == 0){
-                for(PatternMatchRuleDataDMO val: value)
+                for(PatternMatchRuleDataREF val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -80,11 +79,11 @@ public class DmcTypePatternMatchRuleDataREFMV extends DmcTypePatternMatchRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
-    public PatternMatchRuleDataDMO add(Object v) throws DmcValueException {
+    public PatternMatchRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            PatternMatchRuleDataDMO rc = typeCheck(v);
+            PatternMatchRuleDataREF rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<PatternMatchRuleDataDMO>();
+                value = new ArrayList<PatternMatchRuleDataREF>();
             value.add(rc);
             return(rc);
         }
@@ -92,13 +91,13 @@ public class DmcTypePatternMatchRuleDataREFMV extends DmcTypePatternMatchRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
-    public PatternMatchRuleDataDMO del(Object v){
+    public PatternMatchRuleDataREF del(Object v){
         synchronized(this){
             if (value == null)
                 return(null);
     
-            PatternMatchRuleDataDMO key = null;
-            PatternMatchRuleDataDMO rc = null;
+            PatternMatchRuleDataREF key = null;
+            PatternMatchRuleDataREF rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -116,23 +115,23 @@ public class DmcTypePatternMatchRuleDataREFMV extends DmcTypePatternMatchRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
-    public Iterator<PatternMatchRuleDataDMO> getMV(){
+    public Iterator<PatternMatchRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
     
-            ArrayList<PatternMatchRuleDataDMO> clone = new ArrayList<PatternMatchRuleDataDMO>(value);
+            ArrayList<PatternMatchRuleDataREF> clone = new ArrayList<PatternMatchRuleDataREF>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
-    public ArrayList<PatternMatchRuleDataDMO> getMVCopy(){
+    public ArrayList<PatternMatchRuleDataREF> getMVCopy(){
         synchronized(this){
             if (value == null)
-                return(new ArrayList<PatternMatchRuleDataDMO>());
+                return(new ArrayList<PatternMatchRuleDataREF>());
             else 
-                return(new ArrayList<PatternMatchRuleDataDMO>(value));
+                return(new ArrayList<PatternMatchRuleDataREF>(value));
         }
     }
     
@@ -152,7 +151,7 @@ public class DmcTypePatternMatchRuleDataREFMV extends DmcTypePatternMatchRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
-    public PatternMatchRuleDataDMO getMVnth(int index){
+    public PatternMatchRuleDataREF getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -162,7 +161,7 @@ public class DmcTypePatternMatchRuleDataREFMV extends DmcTypePatternMatchRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
-    public PatternMatchRuleDataDMO setMVnth(int index, Object v) throws DmcValueException {
+    public PatternMatchRuleDataREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
@@ -170,13 +169,13 @@ public class DmcTypePatternMatchRuleDataREFMV extends DmcTypePatternMatchRuleDat
             if ( (index < 0) || (index >= getAttributeInfo().indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
-            PatternMatchRuleDataDMO rc = null;
+            PatternMatchRuleDataREF rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<PatternMatchRuleDataDMO>(getAttributeInfo().indexSize);
+                value = new ArrayList<PatternMatchRuleDataREF>(getAttributeInfo().indexSize);
                 for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
@@ -218,7 +217,7 @@ public class DmcTypePatternMatchRuleDataREFMV extends DmcTypePatternMatchRuleDat
                 return(false);
 
             try {
-                PatternMatchRuleDataDMO val = typeCheck(v);
+                PatternMatchRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

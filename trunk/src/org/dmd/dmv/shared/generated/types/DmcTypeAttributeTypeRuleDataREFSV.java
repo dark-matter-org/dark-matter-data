@@ -19,18 +19,17 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.AttributeTypeRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeAttributeTypeRuleDataREFSV provides storage for a single-valued AttributeTypeRuleData
+ * The DmcTypeAttributeTypeRuleDataREFSV provides storage for a single-valued AttributeTypeRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAttributeTypeRuleDataREFSV extends DmcTypeAttributeTypeRuleDataREF implements Serializable {
     
-    protected AttributeTypeRuleDataDMO value;
+    protected AttributeTypeRuleDataREF value;
     
     public DmcTypeAttributeTypeRuleDataREFSV(){
     
@@ -50,14 +49,14 @@ public class DmcTypeAttributeTypeRuleDataREFSV extends DmcTypeAttributeTypeRuleD
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
-    public DmcAttribute<AttributeTypeRuleDataDMO> cloneIt(){
+    public DmcAttribute<AttributeTypeRuleDataREF> cloneIt(){
         DmcTypeAttributeTypeRuleDataREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
-    public AttributeTypeRuleDataDMO getSVCopy(){
+    public AttributeTypeRuleDataREF getSVCopy(){
         if (value == null)
             return(null);
         return(cloneValue(value));
@@ -65,8 +64,8 @@ public class DmcTypeAttributeTypeRuleDataREFSV extends DmcTypeAttributeTypeRuleD
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
-    public AttributeTypeRuleDataDMO set(Object v) throws DmcValueException {
-        AttributeTypeRuleDataDMO rc = typeCheck(v);
+    public AttributeTypeRuleDataREF set(Object v) throws DmcValueException {
+        AttributeTypeRuleDataREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -82,7 +81,7 @@ public class DmcTypeAttributeTypeRuleDataREFSV extends DmcTypeAttributeTypeRuleD
     }
     
     @Override
-    public AttributeTypeRuleDataDMO getSV(){
+    public AttributeTypeRuleDataREF getSV(){
         return(value);
     }
     

@@ -111,6 +111,10 @@ td {
 	font-weight: bold;
 }
 
+.attributeRule {
+	background-color: #C3E3CA;
+}
+
 .valueType {
     float: left;
     width: 60px;

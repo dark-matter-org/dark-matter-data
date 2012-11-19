@@ -24,21 +24,20 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmv.shared.generated.dmo.AttributeTypeRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeAttributeTypeRuleDataREFSET provides storage for a set of AttributeTypeRuleDataDMO
+ * The DmcTypeAttributeTypeRuleDataREFSET provides storage for a set of AttributeTypeRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAttributeTypeRuleDataREFSET extends DmcTypeAttributeTypeRuleDataREF implements Serializable {
     
-     private final static Iterator<AttributeTypeRuleDataDMO> emptyList =  (new HashSet<AttributeTypeRuleDataDMO>()).iterator();
+     private final static Iterator<AttributeTypeRuleDataREF> emptyList =  (new HashSet<AttributeTypeRuleDataREF>()).iterator();
     
     
-    protected Set<AttributeTypeRuleDataDMO> value;
+    protected Set<AttributeTypeRuleDataREF> value;
     
     public DmcTypeAttributeTypeRuleDataREFSET(){
         value = null;
@@ -51,9 +50,9 @@ public class DmcTypeAttributeTypeRuleDataREFSET extends DmcTypeAttributeTypeRule
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<AttributeTypeRuleDataDMO>();
+            value = new HashSet<AttributeTypeRuleDataREF>();
         else
-            value = new TreeSet<AttributeTypeRuleDataDMO>();
+            value = new TreeSet<AttributeTypeRuleDataREF>();
     }
     
     @Override
@@ -63,14 +62,14 @@ public class DmcTypeAttributeTypeRuleDataREFSET extends DmcTypeAttributeTypeRule
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
-    public DmcAttribute<AttributeTypeRuleDataDMO> cloneIt(){
+    public DmcAttribute<AttributeTypeRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeAttributeTypeRuleDataREFSET rc = getNew();
     
             if (value == null)
                 return(rc);
     
-            for(AttributeTypeRuleDataDMO val: value)
+            for(AttributeTypeRuleDataREF val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -82,9 +81,9 @@ public class DmcTypeAttributeTypeRuleDataREFSET extends DmcTypeAttributeTypeRule
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
-    public AttributeTypeRuleDataDMO add(Object v) throws DmcValueException {
+    public AttributeTypeRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            AttributeTypeRuleDataDMO rc = typeCheck(v);
+            AttributeTypeRuleDataREF rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -98,9 +97,9 @@ public class DmcTypeAttributeTypeRuleDataREFSET extends DmcTypeAttributeTypeRule
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
-    public AttributeTypeRuleDataDMO del(Object v){
+    public AttributeTypeRuleDataREF del(Object v){
         synchronized(this){
-            AttributeTypeRuleDataDMO rc = null;
+            AttributeTypeRuleDataREF rc = null;
             if (value == null)
                 return(rc);
             
@@ -122,32 +121,32 @@ public class DmcTypeAttributeTypeRuleDataREFSET extends DmcTypeAttributeTypeRule
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
-    public Iterator<AttributeTypeRuleDataDMO> getMV(){
+    public Iterator<AttributeTypeRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return( (new HashSet<AttributeTypeRuleDataDMO>(value)).iterator() );
+                return( (new HashSet<AttributeTypeRuleDataREF>(value)).iterator() );
             else
-                return( (new TreeSet<AttributeTypeRuleDataDMO>(value)).iterator() );
+                return( (new TreeSet<AttributeTypeRuleDataREF>(value)).iterator() );
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
-    public Set<AttributeTypeRuleDataDMO> getMVCopy(){
+    public Set<AttributeTypeRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
-                    return(new HashSet<AttributeTypeRuleDataDMO>());
+                    return(new HashSet<AttributeTypeRuleDataREF>());
                 else
-                    return(new HashSet<AttributeTypeRuleDataDMO>(value));
+                    return(new HashSet<AttributeTypeRuleDataREF>(value));
             }
             else{
                 if (value == null)
-                    return(new TreeSet<AttributeTypeRuleDataDMO>(value));
+                    return(new TreeSet<AttributeTypeRuleDataREF>(value));
                 else
-                    return(new TreeSet<AttributeTypeRuleDataDMO>(value));
+                    return(new TreeSet<AttributeTypeRuleDataREF>(value));
             }
         }
     }
@@ -170,7 +169,7 @@ public class DmcTypeAttributeTypeRuleDataREFSET extends DmcTypeAttributeTypeRule
                 return(false);
             
             try {
-                AttributeTypeRuleDataDMO val = typeCheck(v);
+                AttributeTypeRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

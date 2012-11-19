@@ -24,21 +24,20 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeUCOAllowedAttributesRuleDataREFSET provides storage for a set of UCOAllowedAttributesRuleDataDMO
+ * The DmcTypeUCOAllowedAttributesRuleDataREFSET provides storage for a set of UCOAllowedAttributesRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowedAttributesRuleDataREF implements Serializable {
     
-     private final static Iterator<UCOAllowedAttributesRuleDataDMO> emptyList =  (new HashSet<UCOAllowedAttributesRuleDataDMO>()).iterator();
+     private final static Iterator<UCOAllowedAttributesRuleDataREF> emptyList =  (new HashSet<UCOAllowedAttributesRuleDataREF>()).iterator();
     
     
-    protected Set<UCOAllowedAttributesRuleDataDMO> value;
+    protected Set<UCOAllowedAttributesRuleDataREF> value;
     
     public DmcTypeUCOAllowedAttributesRuleDataREFSET(){
         value = null;
@@ -51,9 +50,9 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<UCOAllowedAttributesRuleDataDMO>();
+            value = new HashSet<UCOAllowedAttributesRuleDataREF>();
         else
-            value = new TreeSet<UCOAllowedAttributesRuleDataDMO>();
+            value = new TreeSet<UCOAllowedAttributesRuleDataREF>();
     }
     
     @Override
@@ -63,14 +62,14 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
-    public DmcAttribute<UCOAllowedAttributesRuleDataDMO> cloneIt(){
+    public DmcAttribute<UCOAllowedAttributesRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeUCOAllowedAttributesRuleDataREFSET rc = getNew();
     
             if (value == null)
                 return(rc);
     
-            for(UCOAllowedAttributesRuleDataDMO val: value)
+            for(UCOAllowedAttributesRuleDataREF val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -82,9 +81,9 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
-    public UCOAllowedAttributesRuleDataDMO add(Object v) throws DmcValueException {
+    public UCOAllowedAttributesRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            UCOAllowedAttributesRuleDataDMO rc = typeCheck(v);
+            UCOAllowedAttributesRuleDataREF rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -98,9 +97,9 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
-    public UCOAllowedAttributesRuleDataDMO del(Object v){
+    public UCOAllowedAttributesRuleDataREF del(Object v){
         synchronized(this){
-            UCOAllowedAttributesRuleDataDMO rc = null;
+            UCOAllowedAttributesRuleDataREF rc = null;
             if (value == null)
                 return(rc);
             
@@ -122,32 +121,32 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
-    public Iterator<UCOAllowedAttributesRuleDataDMO> getMV(){
+    public Iterator<UCOAllowedAttributesRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return( (new HashSet<UCOAllowedAttributesRuleDataDMO>(value)).iterator() );
+                return( (new HashSet<UCOAllowedAttributesRuleDataREF>(value)).iterator() );
             else
-                return( (new TreeSet<UCOAllowedAttributesRuleDataDMO>(value)).iterator() );
+                return( (new TreeSet<UCOAllowedAttributesRuleDataREF>(value)).iterator() );
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
-    public Set<UCOAllowedAttributesRuleDataDMO> getMVCopy(){
+    public Set<UCOAllowedAttributesRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
-                    return(new HashSet<UCOAllowedAttributesRuleDataDMO>());
+                    return(new HashSet<UCOAllowedAttributesRuleDataREF>());
                 else
-                    return(new HashSet<UCOAllowedAttributesRuleDataDMO>(value));
+                    return(new HashSet<UCOAllowedAttributesRuleDataREF>(value));
             }
             else{
                 if (value == null)
-                    return(new TreeSet<UCOAllowedAttributesRuleDataDMO>(value));
+                    return(new TreeSet<UCOAllowedAttributesRuleDataREF>(value));
                 else
-                    return(new TreeSet<UCOAllowedAttributesRuleDataDMO>(value));
+                    return(new TreeSet<UCOAllowedAttributesRuleDataREF>(value));
             }
         }
     }
@@ -170,7 +169,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSET extends DmcTypeUCOAllowed
                 return(false);
             
             try {
-                UCOAllowedAttributesRuleDataDMO val = typeCheck(v);
+                UCOAllowedAttributesRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

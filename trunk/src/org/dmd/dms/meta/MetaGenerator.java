@@ -1709,6 +1709,8 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 						out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
 						out.write("    // DmcNamedObjectIF implementation\n");
+						out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n\n");
+						
 						out.write("    /**\n");
 						out.write("     * @return The name of this object from the "
 								+ isNamedBy + " attribute.\n");
@@ -2021,34 +2023,37 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 
 						out.write("    ////////////////////////////////////////////////////////////////////////////////\n");
 						out.write("    // DmcNamedObjectIF implementation\n");
+						out.write("    // Generated from: " + DebugInfo.getWhereWeAreNow() + "\n\n");
+						
 						out.write("    /**\n");
 						out.write("     * @return The name of this object from the "
 								+ isNamedBy + " attribute.\n");
 						out.write("     */\n");
 						out.write("    @Override\n");
-						out.write("    public " + nameType
-								+ " getObjectName(){\n");
-						out.write("        DmcType" + nameType
-								+ " attr = (DmcType" + nameType
-								+ ") get(MetaDMSAG.__" + isNamedBy + ");\n");
+						out.write("    public " + nameType + " getObjectName(){\n");
+						out.write("        DmcType" + nameType + " attr = (DmcType" + nameType + ") get(MetaDMSAG.__" + isNamedBy + ");\n");
 						out.write("        if (attr == null)\n");
 						out.write("            return(null);\n");
 						out.write("        return(attr.getSV());\n");
 						out.write("    }\n\n");
 						out.write("\n");
 						out.write("    /**\n");
-						out.write("     * @return The " + isNamedBy
-								+ " attribute.\n");
+						out.write("     * @return The " + isNamedBy + " attribute.\n");
 						out.write("     */\n");
 
+//						out.write("    @Override\n");
+//						out.write("    public DmcType" + nameType + " getObjectNameAttribute(){\n");
+//						out.write("        DmcType" + nameType + " attr = (DmcType" + nameType + ") get(MetaDMSAG.__" + isNamedBy + ");\n");
+//						out.write("        if (attr == null)\n");
+//						out.write("            return(null);\n");
+//						out.write("        return(attr);\n");
+//						out.write("    }\n\n");
+
 						out.write("    @Override\n");
-						out.write("    public DmcType" + nameType
-								+ " getObjectNameAttribute(){\n");
-						out.write("        DmcType" + nameType
-								+ " attr = (DmcType" + nameType
-								+ ") get(MetaDMSAG.__" + isNamedBy + ");\n");
-						out.write("        if (attr == null)\n");
-						out.write("            return(null);\n");
+						out.write("    public DmcAttribute<?> getObjectNameAttribute(){\n");
+						out.write("        DmcAttribute<?> attr = (DmcType" + nameType + ") get(MetaDMSAG.__" + isNamedBy + ");\n");
+//						out.write("        if (attr == null)\n");
+//						out.write("            return(null);\n");
 						out.write("        return(attr);\n");
 						out.write("    }\n\n");
 					}
@@ -2763,7 +2768,7 @@ public class MetaGenerator implements DmcUncheckedOIFHandlerIF {
 				out.write("     * Wrapper constructor.\n");
 				out.write("     */\n");
 				out.write("    public " + cn + "REF(" + cn + "DMO dmo){\n");
-				out.write("        myName = dmo.getObjectNameAttribute();\n");
+				out.write("        myName = (DmcType" + nameType + ") dmo.getObjectNameAttribute();\n");
 				out.write("        object = dmo;\n");
 				out.write("    }\n\n");
 
