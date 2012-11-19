@@ -21,20 +21,19 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeUCOAllowedAttributesRuleDataREFMV provides storage for a multi-valued UCOAllowedAttributesRuleData
+ * The DmcTypeUCOAllowedAttributesRuleDataREFMV provides storage for a multi-valued UCOAllowedAttributesRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUCOAllowedAttributesRuleDataREFMV extends DmcTypeUCOAllowedAttributesRuleDataREF implements Serializable {
     
-    private final static Iterator<UCOAllowedAttributesRuleDataDMO> emptyList = (new ArrayList<UCOAllowedAttributesRuleDataDMO>()).iterator();
+    private final static Iterator<UCOAllowedAttributesRuleDataREF> emptyList = (new ArrayList<UCOAllowedAttributesRuleDataREF>()).iterator();
     
-    protected ArrayList<UCOAllowedAttributesRuleDataDMO> value;
+    protected ArrayList<UCOAllowedAttributesRuleDataREF> value;
     
     public DmcTypeUCOAllowedAttributesRuleDataREFMV(){
     
@@ -51,7 +50,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMV extends DmcTypeUCOAllowedA
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
-    public DmcAttribute<UCOAllowedAttributesRuleDataDMO> cloneIt(){
+    public DmcAttribute<UCOAllowedAttributesRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeUCOAllowedAttributesRuleDataREFMV rc = getNew();
     
@@ -59,7 +58,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMV extends DmcTypeUCOAllowedA
                 return(rc);
     
             if (getAttributeInfo().indexSize == 0){
-                for(UCOAllowedAttributesRuleDataDMO val: value)
+                for(UCOAllowedAttributesRuleDataREF val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -80,11 +79,11 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMV extends DmcTypeUCOAllowedA
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
-    public UCOAllowedAttributesRuleDataDMO add(Object v) throws DmcValueException {
+    public UCOAllowedAttributesRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            UCOAllowedAttributesRuleDataDMO rc = typeCheck(v);
+            UCOAllowedAttributesRuleDataREF rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<UCOAllowedAttributesRuleDataDMO>();
+                value = new ArrayList<UCOAllowedAttributesRuleDataREF>();
             value.add(rc);
             return(rc);
         }
@@ -92,13 +91,13 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMV extends DmcTypeUCOAllowedA
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
-    public UCOAllowedAttributesRuleDataDMO del(Object v){
+    public UCOAllowedAttributesRuleDataREF del(Object v){
         synchronized(this){
             if (value == null)
                 return(null);
     
-            UCOAllowedAttributesRuleDataDMO key = null;
-            UCOAllowedAttributesRuleDataDMO rc = null;
+            UCOAllowedAttributesRuleDataREF key = null;
+            UCOAllowedAttributesRuleDataREF rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -116,23 +115,23 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMV extends DmcTypeUCOAllowedA
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
-    public Iterator<UCOAllowedAttributesRuleDataDMO> getMV(){
+    public Iterator<UCOAllowedAttributesRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
     
-            ArrayList<UCOAllowedAttributesRuleDataDMO> clone = new ArrayList<UCOAllowedAttributesRuleDataDMO>(value);
+            ArrayList<UCOAllowedAttributesRuleDataREF> clone = new ArrayList<UCOAllowedAttributesRuleDataREF>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
-    public ArrayList<UCOAllowedAttributesRuleDataDMO> getMVCopy(){
+    public ArrayList<UCOAllowedAttributesRuleDataREF> getMVCopy(){
         synchronized(this){
             if (value == null)
-                return(new ArrayList<UCOAllowedAttributesRuleDataDMO>());
+                return(new ArrayList<UCOAllowedAttributesRuleDataREF>());
             else 
-                return(new ArrayList<UCOAllowedAttributesRuleDataDMO>(value));
+                return(new ArrayList<UCOAllowedAttributesRuleDataREF>(value));
         }
     }
     
@@ -152,7 +151,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMV extends DmcTypeUCOAllowedA
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
-    public UCOAllowedAttributesRuleDataDMO getMVnth(int index){
+    public UCOAllowedAttributesRuleDataREF getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -162,7 +161,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMV extends DmcTypeUCOAllowedA
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
-    public UCOAllowedAttributesRuleDataDMO setMVnth(int index, Object v) throws DmcValueException {
+    public UCOAllowedAttributesRuleDataREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
@@ -170,13 +169,13 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMV extends DmcTypeUCOAllowedA
             if ( (index < 0) || (index >= getAttributeInfo().indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
-            UCOAllowedAttributesRuleDataDMO rc = null;
+            UCOAllowedAttributesRuleDataREF rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<UCOAllowedAttributesRuleDataDMO>(getAttributeInfo().indexSize);
+                value = new ArrayList<UCOAllowedAttributesRuleDataREF>(getAttributeInfo().indexSize);
                 for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
@@ -218,7 +217,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFMV extends DmcTypeUCOAllowedA
                 return(false);
 
             try {
-                UCOAllowedAttributesRuleDataDMO val = typeCheck(v);
+                UCOAllowedAttributesRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

@@ -24,21 +24,20 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeAllowedAttributesRuleDataREFSET provides storage for a set of AllowedAttributesRuleDataDMO
+ * The DmcTypeAllowedAttributesRuleDataREFSET provides storage for a set of AllowedAttributesRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttributesRuleDataREF implements Serializable {
     
-     private final static Iterator<AllowedAttributesRuleDataDMO> emptyList =  (new HashSet<AllowedAttributesRuleDataDMO>()).iterator();
+     private final static Iterator<AllowedAttributesRuleDataREF> emptyList =  (new HashSet<AllowedAttributesRuleDataREF>()).iterator();
     
     
-    protected Set<AllowedAttributesRuleDataDMO> value;
+    protected Set<AllowedAttributesRuleDataREF> value;
     
     public DmcTypeAllowedAttributesRuleDataREFSET(){
         value = null;
@@ -51,9 +50,9 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<AllowedAttributesRuleDataDMO>();
+            value = new HashSet<AllowedAttributesRuleDataREF>();
         else
-            value = new TreeSet<AllowedAttributesRuleDataDMO>();
+            value = new TreeSet<AllowedAttributesRuleDataREF>();
     }
     
     @Override
@@ -63,14 +62,14 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
-    public DmcAttribute<AllowedAttributesRuleDataDMO> cloneIt(){
+    public DmcAttribute<AllowedAttributesRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeAllowedAttributesRuleDataREFSET rc = getNew();
     
             if (value == null)
                 return(rc);
     
-            for(AllowedAttributesRuleDataDMO val: value)
+            for(AllowedAttributesRuleDataREF val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -82,9 +81,9 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
-    public AllowedAttributesRuleDataDMO add(Object v) throws DmcValueException {
+    public AllowedAttributesRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            AllowedAttributesRuleDataDMO rc = typeCheck(v);
+            AllowedAttributesRuleDataREF rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -98,9 +97,9 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
-    public AllowedAttributesRuleDataDMO del(Object v){
+    public AllowedAttributesRuleDataREF del(Object v){
         synchronized(this){
-            AllowedAttributesRuleDataDMO rc = null;
+            AllowedAttributesRuleDataREF rc = null;
             if (value == null)
                 return(rc);
             
@@ -122,32 +121,32 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
-    public Iterator<AllowedAttributesRuleDataDMO> getMV(){
+    public Iterator<AllowedAttributesRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return( (new HashSet<AllowedAttributesRuleDataDMO>(value)).iterator() );
+                return( (new HashSet<AllowedAttributesRuleDataREF>(value)).iterator() );
             else
-                return( (new TreeSet<AllowedAttributesRuleDataDMO>(value)).iterator() );
+                return( (new TreeSet<AllowedAttributesRuleDataREF>(value)).iterator() );
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
-    public Set<AllowedAttributesRuleDataDMO> getMVCopy(){
+    public Set<AllowedAttributesRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
-                    return(new HashSet<AllowedAttributesRuleDataDMO>());
+                    return(new HashSet<AllowedAttributesRuleDataREF>());
                 else
-                    return(new HashSet<AllowedAttributesRuleDataDMO>(value));
+                    return(new HashSet<AllowedAttributesRuleDataREF>(value));
             }
             else{
                 if (value == null)
-                    return(new TreeSet<AllowedAttributesRuleDataDMO>(value));
+                    return(new TreeSet<AllowedAttributesRuleDataREF>(value));
                 else
-                    return(new TreeSet<AllowedAttributesRuleDataDMO>(value));
+                    return(new TreeSet<AllowedAttributesRuleDataREF>(value));
             }
         }
     }
@@ -170,7 +169,7 @@ public class DmcTypeAllowedAttributesRuleDataREFSET extends DmcTypeAllowedAttrib
                 return(false);
             
             try {
-                AllowedAttributesRuleDataDMO val = typeCheck(v);
+                AllowedAttributesRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

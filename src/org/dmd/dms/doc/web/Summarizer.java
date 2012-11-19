@@ -111,6 +111,7 @@ public class Summarizer {
 	}
 	
 	void buildSidebar(){
+		sidebar.append("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n");
 		sidebar.append("    <div id=\"sidebar\">\n");
 		
 		for(SchemaDefinition sd: allSchemasByName.values()){

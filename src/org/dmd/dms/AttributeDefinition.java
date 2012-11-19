@@ -16,12 +16,16 @@
 package org.dmd.dms;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.util.NamedStringArray;
 import org.dmd.dms.generated.dmo.AttributeDefinitionDMO;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
+import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.dmw.AttributeDefinitionDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 
@@ -33,12 +37,18 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
 	TypeDefinition	typeDef;
 	
     // Indicates the classes that include this attribute.
-    public ArrayList<ClassDefinition>   usedByClasses;
+    ArrayList<ClassDefinition>   usedByClasses;
 
     /**
      * Indicates the actions that include this attribute.
      */
-    public ArrayList<ActionDefinition>   usedByActions;
+    ArrayList<ActionDefinition>   usedByActions;
+    
+    // Rules applied to this attribute within the scope of a particular class
+    ArrayList<RuleDataDMO>		classRules;
+    
+    // Global rules that apply to this attribute
+    ArrayList<RuleDataDMO>		globalRules;
     
     // This is initialized when we call getAttributeInfo. This mechanism is used to
     // support auxiliary classes that are parsed from file of deserialized.
@@ -55,6 +65,76 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     public AttributeDefinition(AttributeDefinitionDMO obj){
     	super(obj);
     	attrInfo = null;
+    }
+    
+    public int getUsedByActionsSize(){
+    	if (usedByActions == null)
+    		return(0);
+    		
+    	return(usedByActions.size());
+    }
+    
+    public ActionDefinition getUsedByActionsNth(int i){
+    	if (usedByActions == null)
+    		return(null);
+    	
+    	return(usedByActions.get(i));
+    }
+    
+    public int getUsedByClassesSize(){
+    	if (usedByClasses == null)
+    		return(0);
+    	return(usedByClasses.size());
+    }
+    
+    public ClassDefinition getUsedByClassesNth(int i){
+    	if (usedByClasses == null)
+    		return(null);
+    	
+    	return(usedByClasses.get(i));
+    }
+    
+    /**
+     * @return true if this attribute has any global or class specific rules.
+     */
+    public boolean hasRules(){
+    	if (classRules == null)
+    		getClassRules();
+    	if ( (classRules.size() > 0) || (globalRules.size() > 0))
+    		return(true);
+    	return(false);
+    }
+    
+    public Iterator<RuleDataDMO> getClassRules(){
+    	if (classRules == null){
+    		classRules = new ArrayList<RuleDataDMO>();
+    		globalRules = new ArrayList<RuleDataDMO>();
+			ArrayList<DmcObject> referring = getDMO().getReferringObjects();
+			if (referring != null){
+				for(DmcObject obj: referring){
+					if (obj instanceof RuleDataDMO){
+						RuleDataDMO rd = (RuleDataDMO) obj;
+						
+						// We only look at attribute rules - they will always have
+						// the applyToAttribute attribute.
+						if (rd.get(MetaDMSAG.__applyToAttribute) != null){
+							if (rd.getApplyToClass() == null)
+								globalRules.add(rd);
+							else
+								classRules.add(rd);
+						}
+					}
+				}
+			}
+    	}
+    	
+    	return(classRules.iterator());
+    }
+    
+    public Iterator<RuleDataDMO> getGlobalRules(){
+    	if (globalRules == null)
+    		getClassRules();
+    	return(globalRules.iterator());
     }
     
 	/**

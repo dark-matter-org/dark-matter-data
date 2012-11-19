@@ -1247,6 +1247,7 @@ public class SchemaManager implements DmcNameResolverIF {
         cd.setDmdID(rd.getDmdID());
         cd.setInternallyGenerated(true);
         cd.setRuleDefinition(rd);
+        cd.setIsNamedBy(MetaSchemaAG._ruleName);
 
         cd.addMust(MetaSchemaAG._ruleName);
         cd.addMust(MetaSchemaAG._ruleTitle);

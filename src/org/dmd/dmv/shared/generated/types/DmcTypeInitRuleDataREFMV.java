@@ -21,20 +21,19 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeInitRuleDataREFMV provides storage for a multi-valued InitRuleData
+ * The DmcTypeInitRuleDataREFMV provides storage for a multi-valued InitRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeInitRuleDataREFMV extends DmcTypeInitRuleDataREF implements Serializable {
     
-    private final static Iterator<InitRuleDataDMO> emptyList = (new ArrayList<InitRuleDataDMO>()).iterator();
+    private final static Iterator<InitRuleDataREF> emptyList = (new ArrayList<InitRuleDataREF>()).iterator();
     
-    protected ArrayList<InitRuleDataDMO> value;
+    protected ArrayList<InitRuleDataREF> value;
     
     public DmcTypeInitRuleDataREFMV(){
     
@@ -51,7 +50,7 @@ public class DmcTypeInitRuleDataREFMV extends DmcTypeInitRuleDataREF implements 
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
-    public DmcAttribute<InitRuleDataDMO> cloneIt(){
+    public DmcAttribute<InitRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeInitRuleDataREFMV rc = getNew();
     
@@ -59,7 +58,7 @@ public class DmcTypeInitRuleDataREFMV extends DmcTypeInitRuleDataREF implements 
                 return(rc);
     
             if (getAttributeInfo().indexSize == 0){
-                for(InitRuleDataDMO val: value)
+                for(InitRuleDataREF val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -80,11 +79,11 @@ public class DmcTypeInitRuleDataREFMV extends DmcTypeInitRuleDataREF implements 
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
-    public InitRuleDataDMO add(Object v) throws DmcValueException {
+    public InitRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            InitRuleDataDMO rc = typeCheck(v);
+            InitRuleDataREF rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<InitRuleDataDMO>();
+                value = new ArrayList<InitRuleDataREF>();
             value.add(rc);
             return(rc);
         }
@@ -92,13 +91,13 @@ public class DmcTypeInitRuleDataREFMV extends DmcTypeInitRuleDataREF implements 
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
-    public InitRuleDataDMO del(Object v){
+    public InitRuleDataREF del(Object v){
         synchronized(this){
             if (value == null)
                 return(null);
     
-            InitRuleDataDMO key = null;
-            InitRuleDataDMO rc = null;
+            InitRuleDataREF key = null;
+            InitRuleDataREF rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -116,23 +115,23 @@ public class DmcTypeInitRuleDataREFMV extends DmcTypeInitRuleDataREF implements 
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
-    public Iterator<InitRuleDataDMO> getMV(){
+    public Iterator<InitRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
     
-            ArrayList<InitRuleDataDMO> clone = new ArrayList<InitRuleDataDMO>(value);
+            ArrayList<InitRuleDataREF> clone = new ArrayList<InitRuleDataREF>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
-    public ArrayList<InitRuleDataDMO> getMVCopy(){
+    public ArrayList<InitRuleDataREF> getMVCopy(){
         synchronized(this){
             if (value == null)
-                return(new ArrayList<InitRuleDataDMO>());
+                return(new ArrayList<InitRuleDataREF>());
             else 
-                return(new ArrayList<InitRuleDataDMO>(value));
+                return(new ArrayList<InitRuleDataREF>(value));
         }
     }
     
@@ -152,7 +151,7 @@ public class DmcTypeInitRuleDataREFMV extends DmcTypeInitRuleDataREF implements 
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
-    public InitRuleDataDMO getMVnth(int index){
+    public InitRuleDataREF getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -162,7 +161,7 @@ public class DmcTypeInitRuleDataREFMV extends DmcTypeInitRuleDataREF implements 
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
-    public InitRuleDataDMO setMVnth(int index, Object v) throws DmcValueException {
+    public InitRuleDataREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
@@ -170,13 +169,13 @@ public class DmcTypeInitRuleDataREFMV extends DmcTypeInitRuleDataREF implements 
             if ( (index < 0) || (index >= getAttributeInfo().indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
-            InitRuleDataDMO rc = null;
+            InitRuleDataREF rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<InitRuleDataDMO>(getAttributeInfo().indexSize);
+                value = new ArrayList<InitRuleDataREF>(getAttributeInfo().indexSize);
                 for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
@@ -218,7 +217,7 @@ public class DmcTypeInitRuleDataREFMV extends DmcTypeInitRuleDataREF implements 
                 return(false);
 
             try {
-                InitRuleDataDMO val = typeCheck(v);
+                InitRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

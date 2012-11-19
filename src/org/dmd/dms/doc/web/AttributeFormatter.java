@@ -18,6 +18,7 @@ import org.dmd.util.exceptions.DebugInfo;
 public class AttributeFormatter {
 	
 	static public void dumpDetails(BufferedWriter out, AttributeDefinition ad) throws IOException {
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n");
 		attributeName(out, ad);
 		attributeType(out, ad);
 		description(out, ad);
@@ -175,10 +176,10 @@ public class AttributeFormatter {
 					ClassDefinition cd = (ClassDefinition) wrapper;
 					classes.put(cd.getName(), cd);
 				}
-				else if (wrapper instanceof RuleDefinition){
-					RuleDefinition rd = (RuleDefinition) wrapper;
-					rules.put(rd.getName(), rd);
-				}
+//				else if (wrapper instanceof RuleDefinition){
+//					RuleDefinition rd = (RuleDefinition) wrapper;
+//					rules.put(rd.getName(), rd);
+//				}
 				else if (wrapper instanceof ActionDefinition){
 					ActionDefinition actd = (ActionDefinition) wrapper;
 					actions.put(actd.getName(), actd);
@@ -195,7 +196,7 @@ public class AttributeFormatter {
 	static String formatUsage(TreeMap<StringName,ClassDefinition> cds, TreeMap<StringName,RuleDefinition> rds, TreeMap<StringName,ActionDefinition> ads){
 		StringBuffer sb = new StringBuffer();
 		
-		sb.append("<table>\n");
+		sb.append("        <table>\n");
 		
 		int count = 0;
 		
@@ -204,16 +205,16 @@ public class AttributeFormatter {
 			for(ClassDefinition ad: cds.values()){
 				if ((count % 3) == 0){
 					if (count > 3){
-						sb.append("</tr>\n");
+						sb.append("        </tr>\n");
 					}
-					sb.append("  <tr>\n");
+					sb.append("        <tr>\n");
 				}
 				String ref = "<a href=\"" + ad.getDefinedIn().getName() + ".html#" + ad.getName() + "\">" + ad.getDefinedIn().getName() + "</a>";
-				sb.append("    <td> " + ad.getName().getNameString() + " (" + ref + ") </td>\n" );
+				sb.append("          <td> " + ad.getName().getNameString() + " (" + ref + ") </td>\n" );
 				
 				count++;
 			}
-			sb.append("</tr>\n");
+			sb.append("        </tr>\n");
 		}
 		
 		if (rds.size() > 0){
@@ -221,16 +222,16 @@ public class AttributeFormatter {
 			for(RuleDefinition ad: rds.values()){
 				if ((count % 3) == 0){
 					if (count > 3){
-						sb.append("</tr>\n");
+						sb.append("        </tr>\n");
 					}
-					sb.append("  <tr>\n");
+					sb.append("        <tr>\n");
 				}
 				String ref = "<a href=\"" + ad.getDefinedIn().getName() + ".html#" + ad.getName() + "\">" + ad.getDefinedIn().getName() + "</a>";
-				sb.append("    <td> " + ad.getName().getNameString() + " (" + ref + ") </td>\n" );
+				sb.append("          <td> " + ad.getName().getNameString() + " (" + ref + ") </td>\n" );
 				
 				count++;
 			}
-			sb.append("</tr>\n");
+			sb.append("        </tr>\n");
 		}
 		
 		if (ads.size() > 0){
@@ -238,19 +239,19 @@ public class AttributeFormatter {
 			for(ActionDefinition ad: ads.values()){
 				if ((count % 3) == 0){
 					if (count > 3){
-						sb.append("</tr>\n");
+						sb.append("      </tr>\n");
 					}
-					sb.append("  <tr>\n");
+					sb.append("      <tr>\n");
 				}
 				String ref = "<a href=\"" + ad.getDefinedIn().getName() + ".html#" + ad.getName() + "\">" + ad.getDefinedIn().getName() + "</a>";
-				sb.append("    <td> " + ad.getName().getNameString() + " (" + ref + ") </td>\n" );
+				sb.append("          <td> " + ad.getName().getNameString() + " (" + ref + ") </td>\n" );
 				
 				count++;
 			}
-			sb.append("</tr>\n");
+			sb.append("      </tr>\n");
 		}
 		
-		sb.append("</table>\n");
+		sb.append("        </table>\n");
 		
 		return(sb.toString());
 	}

@@ -21,20 +21,19 @@ import java.util.Iterator;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeNumericRangeRuleDataREFMV provides storage for a multi-valued NumericRangeRuleData
+ * The DmcTypeNumericRangeRuleDataREFMV provides storage for a multi-valued NumericRangeRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2299)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:255)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:531)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNumericRangeRuleDataREFMV extends DmcTypeNumericRangeRuleDataREF implements Serializable {
     
-    private final static Iterator<NumericRangeRuleDataDMO> emptyList = (new ArrayList<NumericRangeRuleDataDMO>()).iterator();
+    private final static Iterator<NumericRangeRuleDataREF> emptyList = (new ArrayList<NumericRangeRuleDataREF>()).iterator();
     
-    protected ArrayList<NumericRangeRuleDataDMO> value;
+    protected ArrayList<NumericRangeRuleDataREF> value;
     
     public DmcTypeNumericRangeRuleDataREFMV(){
     
@@ -51,7 +50,7 @@ public class DmcTypeNumericRangeRuleDataREFMV extends DmcTypeNumericRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2330)
-    public DmcAttribute<NumericRangeRuleDataDMO> cloneIt(){
+    public DmcAttribute<NumericRangeRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeNumericRangeRuleDataREFMV rc = getNew();
     
@@ -59,7 +58,7 @@ public class DmcTypeNumericRangeRuleDataREFMV extends DmcTypeNumericRangeRuleDat
                 return(rc);
     
             if (getAttributeInfo().indexSize == 0){
-                for(NumericRangeRuleDataDMO val: value)
+                for(NumericRangeRuleDataREF val: value)
                 try {
                     rc.add(val);
                 } catch (DmcValueException e) {
@@ -80,11 +79,11 @@ public class DmcTypeNumericRangeRuleDataREFMV extends DmcTypeNumericRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2363)
-    public NumericRangeRuleDataDMO add(Object v) throws DmcValueException {
+    public NumericRangeRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            NumericRangeRuleDataDMO rc = typeCheck(v);
+            NumericRangeRuleDataREF rc = typeCheck(v);
             if (value == null)
-                value = new ArrayList<NumericRangeRuleDataDMO>();
+                value = new ArrayList<NumericRangeRuleDataREF>();
             value.add(rc);
             return(rc);
         }
@@ -92,13 +91,13 @@ public class DmcTypeNumericRangeRuleDataREFMV extends DmcTypeNumericRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2376)
-    public NumericRangeRuleDataDMO del(Object v){
+    public NumericRangeRuleDataREF del(Object v){
         synchronized(this){
             if (value == null)
                 return(null);
     
-            NumericRangeRuleDataDMO key = null;
-            NumericRangeRuleDataDMO rc = null;
+            NumericRangeRuleDataREF key = null;
+            NumericRangeRuleDataREF rc = null;
             try {
                 key = typeCheck(v);
             } catch (DmcValueException e) {
@@ -116,23 +115,23 @@ public class DmcTypeNumericRangeRuleDataREFMV extends DmcTypeNumericRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2410)
-    public Iterator<NumericRangeRuleDataDMO> getMV(){
+    public Iterator<NumericRangeRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
     
-            ArrayList<NumericRangeRuleDataDMO> clone = new ArrayList<NumericRangeRuleDataDMO>(value);
+            ArrayList<NumericRangeRuleDataREF> clone = new ArrayList<NumericRangeRuleDataREF>(value);
             return(clone.iterator());
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2422)
-    public ArrayList<NumericRangeRuleDataDMO> getMVCopy(){
+    public ArrayList<NumericRangeRuleDataREF> getMVCopy(){
         synchronized(this){
             if (value == null)
-                return(new ArrayList<NumericRangeRuleDataDMO>());
+                return(new ArrayList<NumericRangeRuleDataREF>());
             else 
-                return(new ArrayList<NumericRangeRuleDataDMO>(value));
+                return(new ArrayList<NumericRangeRuleDataREF>(value));
         }
     }
     
@@ -152,7 +151,7 @@ public class DmcTypeNumericRangeRuleDataREFMV extends DmcTypeNumericRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2449)
-    public NumericRangeRuleDataDMO getMVnth(int index){
+    public NumericRangeRuleDataREF getMVnth(int index){
         synchronized(this){
             if (value == null)
                 return(null);
@@ -162,7 +161,7 @@ public class DmcTypeNumericRangeRuleDataREFMV extends DmcTypeNumericRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpMVType(GenUtility.java:2460)
-    public NumericRangeRuleDataDMO setMVnth(int index, Object v) throws DmcValueException {
+    public NumericRangeRuleDataREF setMVnth(int index, Object v) throws DmcValueException {
         synchronized(this){
             if (getAttributeInfo().indexSize == 0)
                 throw(new IllegalStateException("Attribute: " + getAttributeInfo().name + " is not indexed. You can't use setMVnth()."));
@@ -170,13 +169,13 @@ public class DmcTypeNumericRangeRuleDataREFMV extends DmcTypeNumericRangeRuleDat
             if ( (index < 0) || (index >= getAttributeInfo().indexSize))
                 throw(new IllegalStateException("Index " + index + " for attribute: " + getAttributeInfo().name + " is out of range: 0 <= index < " + getAttributeInfo().indexSize));
             
-            NumericRangeRuleDataDMO rc = null;
+            NumericRangeRuleDataREF rc = null;
             
             if (v != null)
                 rc = typeCheck(v);
             
             if (value == null){
-                value = new ArrayList<NumericRangeRuleDataDMO>(getAttributeInfo().indexSize);
+                value = new ArrayList<NumericRangeRuleDataREF>(getAttributeInfo().indexSize);
                 for(int i=0;i<getAttributeInfo().indexSize;i++)
                     value.add(null);
             }
@@ -218,7 +217,7 @@ public class DmcTypeNumericRangeRuleDataREFMV extends DmcTypeNumericRangeRuleDat
                 return(false);
 
             try {
-                NumericRangeRuleDataDMO val = typeCheck(v);
+                NumericRangeRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

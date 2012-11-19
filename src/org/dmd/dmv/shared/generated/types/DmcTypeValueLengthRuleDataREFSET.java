@@ -24,21 +24,20 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmv.shared.generated.dmo.ValueLengthRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeValueLengthRuleDataREFSET provides storage for a set of ValueLengthRuleDataDMO
+ * The DmcTypeValueLengthRuleDataREFSET provides storage for a set of ValueLengthRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleDataREF implements Serializable {
     
-     private final static Iterator<ValueLengthRuleDataDMO> emptyList =  (new HashSet<ValueLengthRuleDataDMO>()).iterator();
+     private final static Iterator<ValueLengthRuleDataREF> emptyList =  (new HashSet<ValueLengthRuleDataREF>()).iterator();
     
     
-    protected Set<ValueLengthRuleDataDMO> value;
+    protected Set<ValueLengthRuleDataREF> value;
     
     public DmcTypeValueLengthRuleDataREFSET(){
         value = null;
@@ -51,9 +50,9 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<ValueLengthRuleDataDMO>();
+            value = new HashSet<ValueLengthRuleDataREF>();
         else
-            value = new TreeSet<ValueLengthRuleDataDMO>();
+            value = new TreeSet<ValueLengthRuleDataREF>();
     }
     
     @Override
@@ -63,14 +62,14 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
-    public DmcAttribute<ValueLengthRuleDataDMO> cloneIt(){
+    public DmcAttribute<ValueLengthRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeValueLengthRuleDataREFSET rc = getNew();
     
             if (value == null)
                 return(rc);
     
-            for(ValueLengthRuleDataDMO val: value)
+            for(ValueLengthRuleDataREF val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -82,9 +81,9 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
-    public ValueLengthRuleDataDMO add(Object v) throws DmcValueException {
+    public ValueLengthRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            ValueLengthRuleDataDMO rc = typeCheck(v);
+            ValueLengthRuleDataREF rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -98,9 +97,9 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
-    public ValueLengthRuleDataDMO del(Object v){
+    public ValueLengthRuleDataREF del(Object v){
         synchronized(this){
-            ValueLengthRuleDataDMO rc = null;
+            ValueLengthRuleDataREF rc = null;
             if (value == null)
                 return(rc);
             
@@ -122,32 +121,32 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
-    public Iterator<ValueLengthRuleDataDMO> getMV(){
+    public Iterator<ValueLengthRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return( (new HashSet<ValueLengthRuleDataDMO>(value)).iterator() );
+                return( (new HashSet<ValueLengthRuleDataREF>(value)).iterator() );
             else
-                return( (new TreeSet<ValueLengthRuleDataDMO>(value)).iterator() );
+                return( (new TreeSet<ValueLengthRuleDataREF>(value)).iterator() );
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
-    public Set<ValueLengthRuleDataDMO> getMVCopy(){
+    public Set<ValueLengthRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
-                    return(new HashSet<ValueLengthRuleDataDMO>());
+                    return(new HashSet<ValueLengthRuleDataREF>());
                 else
-                    return(new HashSet<ValueLengthRuleDataDMO>(value));
+                    return(new HashSet<ValueLengthRuleDataREF>(value));
             }
             else{
                 if (value == null)
-                    return(new TreeSet<ValueLengthRuleDataDMO>(value));
+                    return(new TreeSet<ValueLengthRuleDataREF>(value));
                 else
-                    return(new TreeSet<ValueLengthRuleDataDMO>(value));
+                    return(new TreeSet<ValueLengthRuleDataREF>(value));
             }
         }
     }
@@ -170,7 +169,7 @@ public class DmcTypeValueLengthRuleDataREFSET extends DmcTypeValueLengthRuleData
                 return(false);
             
             try {
-                ValueLengthRuleDataDMO val = typeCheck(v);
+                ValueLengthRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

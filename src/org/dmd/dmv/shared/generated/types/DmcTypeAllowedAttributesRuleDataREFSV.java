@@ -19,18 +19,17 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.AllowedAttributesRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeAllowedAttributesRuleDataREFSV provides storage for a single-valued AllowedAttributesRuleData
+ * The DmcTypeAllowedAttributesRuleDataREFSV provides storage for a single-valued AllowedAttributesRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
 public class DmcTypeAllowedAttributesRuleDataREFSV extends DmcTypeAllowedAttributesRuleDataREF implements Serializable {
     
-    protected AllowedAttributesRuleDataDMO value;
+    protected AllowedAttributesRuleDataREF value;
     
     public DmcTypeAllowedAttributesRuleDataREFSV(){
     
@@ -50,14 +49,14 @@ public class DmcTypeAllowedAttributesRuleDataREFSV extends DmcTypeAllowedAttribu
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
-    public DmcAttribute<AllowedAttributesRuleDataDMO> cloneIt(){
+    public DmcAttribute<AllowedAttributesRuleDataREF> cloneIt(){
         DmcTypeAllowedAttributesRuleDataREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
-    public AllowedAttributesRuleDataDMO getSVCopy(){
+    public AllowedAttributesRuleDataREF getSVCopy(){
         if (value == null)
             return(null);
         return(cloneValue(value));
@@ -65,8 +64,8 @@ public class DmcTypeAllowedAttributesRuleDataREFSV extends DmcTypeAllowedAttribu
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
-    public AllowedAttributesRuleDataDMO set(Object v) throws DmcValueException {
-        AllowedAttributesRuleDataDMO rc = typeCheck(v);
+    public AllowedAttributesRuleDataREF set(Object v) throws DmcValueException {
+        AllowedAttributesRuleDataREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -82,7 +81,7 @@ public class DmcTypeAllowedAttributesRuleDataREFSV extends DmcTypeAllowedAttribu
     }
     
     @Override
-    public AllowedAttributesRuleDataDMO getSV(){
+    public AllowedAttributesRuleDataREF getSV(){
         return(value);
     }
     

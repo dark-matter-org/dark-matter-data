@@ -6,10 +6,13 @@ import java.util.Iterator;
 
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.types.EnumValue;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class EnumFormatter {
 
 	static public void dumpDetails(BufferedWriter out, EnumDefinition ed) throws IOException {
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
+
 		enumName(out, ed);
 		description(out, ed);
 		Iterator<EnumValue>	evi = ed.getEnumValue();

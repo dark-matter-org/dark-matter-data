@@ -24,21 +24,20 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeNumericRangeRuleDataREFSET provides storage for a set of NumericRangeRuleDataDMO
+ * The DmcTypeNumericRangeRuleDataREFSET provides storage for a set of NumericRangeRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDataREF implements Serializable {
     
-     private final static Iterator<NumericRangeRuleDataDMO> emptyList =  (new HashSet<NumericRangeRuleDataDMO>()).iterator();
+     private final static Iterator<NumericRangeRuleDataREF> emptyList =  (new HashSet<NumericRangeRuleDataREF>()).iterator();
     
     
-    protected Set<NumericRangeRuleDataDMO> value;
+    protected Set<NumericRangeRuleDataREF> value;
     
     public DmcTypeNumericRangeRuleDataREFSET(){
         value = null;
@@ -51,9 +50,9 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<NumericRangeRuleDataDMO>();
+            value = new HashSet<NumericRangeRuleDataREF>();
         else
-            value = new TreeSet<NumericRangeRuleDataDMO>();
+            value = new TreeSet<NumericRangeRuleDataREF>();
     }
     
     @Override
@@ -63,14 +62,14 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
-    public DmcAttribute<NumericRangeRuleDataDMO> cloneIt(){
+    public DmcAttribute<NumericRangeRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypeNumericRangeRuleDataREFSET rc = getNew();
     
             if (value == null)
                 return(rc);
     
-            for(NumericRangeRuleDataDMO val: value)
+            for(NumericRangeRuleDataREF val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -82,9 +81,9 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
-    public NumericRangeRuleDataDMO add(Object v) throws DmcValueException {
+    public NumericRangeRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            NumericRangeRuleDataDMO rc = typeCheck(v);
+            NumericRangeRuleDataREF rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -98,9 +97,9 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
-    public NumericRangeRuleDataDMO del(Object v){
+    public NumericRangeRuleDataREF del(Object v){
         synchronized(this){
-            NumericRangeRuleDataDMO rc = null;
+            NumericRangeRuleDataREF rc = null;
             if (value == null)
                 return(rc);
             
@@ -122,32 +121,32 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
-    public Iterator<NumericRangeRuleDataDMO> getMV(){
+    public Iterator<NumericRangeRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return( (new HashSet<NumericRangeRuleDataDMO>(value)).iterator() );
+                return( (new HashSet<NumericRangeRuleDataREF>(value)).iterator() );
             else
-                return( (new TreeSet<NumericRangeRuleDataDMO>(value)).iterator() );
+                return( (new TreeSet<NumericRangeRuleDataREF>(value)).iterator() );
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
-    public Set<NumericRangeRuleDataDMO> getMVCopy(){
+    public Set<NumericRangeRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
-                    return(new HashSet<NumericRangeRuleDataDMO>());
+                    return(new HashSet<NumericRangeRuleDataREF>());
                 else
-                    return(new HashSet<NumericRangeRuleDataDMO>(value));
+                    return(new HashSet<NumericRangeRuleDataREF>(value));
             }
             else{
                 if (value == null)
-                    return(new TreeSet<NumericRangeRuleDataDMO>(value));
+                    return(new TreeSet<NumericRangeRuleDataREF>(value));
                 else
-                    return(new TreeSet<NumericRangeRuleDataDMO>(value));
+                    return(new TreeSet<NumericRangeRuleDataREF>(value));
             }
         }
     }
@@ -170,7 +169,7 @@ public class DmcTypeNumericRangeRuleDataREFSET extends DmcTypeNumericRangeRuleDa
                 return(false);
             
             try {
-                NumericRangeRuleDataDMO val = typeCheck(v);
+                NumericRangeRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);

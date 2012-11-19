@@ -19,18 +19,17 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.UCOAllowedAttributesRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeUCOAllowedAttributesRuleDataREFSV provides storage for a single-valued UCOAllowedAttributesRuleData
+ * The DmcTypeUCOAllowedAttributesRuleDataREFSV provides storage for a single-valued UCOAllowedAttributesRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
 public class DmcTypeUCOAllowedAttributesRuleDataREFSV extends DmcTypeUCOAllowedAttributesRuleDataREF implements Serializable {
     
-    protected UCOAllowedAttributesRuleDataDMO value;
+    protected UCOAllowedAttributesRuleDataREF value;
     
     public DmcTypeUCOAllowedAttributesRuleDataREFSV(){
     
@@ -50,14 +49,14 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSV extends DmcTypeUCOAllowedA
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
-    public DmcAttribute<UCOAllowedAttributesRuleDataDMO> cloneIt(){
+    public DmcAttribute<UCOAllowedAttributesRuleDataREF> cloneIt(){
         DmcTypeUCOAllowedAttributesRuleDataREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
-    public UCOAllowedAttributesRuleDataDMO getSVCopy(){
+    public UCOAllowedAttributesRuleDataREF getSVCopy(){
         if (value == null)
             return(null);
         return(cloneValue(value));
@@ -65,8 +64,8 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSV extends DmcTypeUCOAllowedA
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
-    public UCOAllowedAttributesRuleDataDMO set(Object v) throws DmcValueException {
-        UCOAllowedAttributesRuleDataDMO rc = typeCheck(v);
+    public UCOAllowedAttributesRuleDataREF set(Object v) throws DmcValueException {
+        UCOAllowedAttributesRuleDataREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -82,7 +81,7 @@ public class DmcTypeUCOAllowedAttributesRuleDataREFSV extends DmcTypeUCOAllowedA
     }
     
     @Override
-    public UCOAllowedAttributesRuleDataDMO getSV(){
+    public UCOAllowedAttributesRuleDataREF getSV(){
         return(value);
     }
     

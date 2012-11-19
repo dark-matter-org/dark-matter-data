@@ -19,18 +19,17 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeInitRuleDataREFSV provides storage for a single-valued InitRuleData
+ * The DmcTypeInitRuleDataREFSV provides storage for a single-valued InitRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
 public class DmcTypeInitRuleDataREFSV extends DmcTypeInitRuleDataREF implements Serializable {
     
-    protected InitRuleDataDMO value;
+    protected InitRuleDataREF value;
     
     public DmcTypeInitRuleDataREFSV(){
     
@@ -50,14 +49,14 @@ public class DmcTypeInitRuleDataREFSV extends DmcTypeInitRuleDataREF implements 
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
-    public DmcAttribute<InitRuleDataDMO> cloneIt(){
+    public DmcAttribute<InitRuleDataREF> cloneIt(){
         DmcTypeInitRuleDataREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
-    public InitRuleDataDMO getSVCopy(){
+    public InitRuleDataREF getSVCopy(){
         if (value == null)
             return(null);
         return(cloneValue(value));
@@ -65,8 +64,8 @@ public class DmcTypeInitRuleDataREFSV extends DmcTypeInitRuleDataREF implements 
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
-    public InitRuleDataDMO set(Object v) throws DmcValueException {
-        InitRuleDataDMO rc = typeCheck(v);
+    public InitRuleDataREF set(Object v) throws DmcValueException {
+        InitRuleDataREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -82,7 +81,7 @@ public class DmcTypeInitRuleDataREFSV extends DmcTypeInitRuleDataREF implements 
     }
     
     @Override
-    public InitRuleDataDMO getSV(){
+    public InitRuleDataREF getSV(){
         return(value);
     }
     

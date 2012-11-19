@@ -19,18 +19,17 @@ import java.io.Serializable;
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
-import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;    // DmcType import
 /**
- * The DmcTypeNumericRangeRuleDataREFSV provides storage for a single-valued NumericRangeRuleData
+ * The DmcTypeNumericRangeRuleDataREFSV provides storage for a single-valued NumericRangeRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1955)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:254)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:530)
  */
 @SuppressWarnings("serial")
 public class DmcTypeNumericRangeRuleDataREFSV extends DmcTypeNumericRangeRuleDataREF implements Serializable {
     
-    protected NumericRangeRuleDataDMO value;
+    protected NumericRangeRuleDataREF value;
     
     public DmcTypeNumericRangeRuleDataREFSV(){
     
@@ -50,14 +49,14 @@ public class DmcTypeNumericRangeRuleDataREFSV extends DmcTypeNumericRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1987)
-    public DmcAttribute<NumericRangeRuleDataDMO> cloneIt(){
+    public DmcAttribute<NumericRangeRuleDataREF> cloneIt(){
         DmcTypeNumericRangeRuleDataREFSV rc = getNew();
         rc.value = value;
         return(rc);
     }
     
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:1998)
-    public NumericRangeRuleDataDMO getSVCopy(){
+    public NumericRangeRuleDataREF getSVCopy(){
         if (value == null)
             return(null);
         return(cloneValue(value));
@@ -65,8 +64,8 @@ public class DmcTypeNumericRangeRuleDataREFSV extends DmcTypeNumericRangeRuleDat
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSVType(GenUtility.java:2010)
-    public NumericRangeRuleDataDMO set(Object v) throws DmcValueException {
-        NumericRangeRuleDataDMO rc = typeCheck(v);
+    public NumericRangeRuleDataREF set(Object v) throws DmcValueException {
+        NumericRangeRuleDataREF rc = typeCheck(v);
         // We only return a value if the value actually changed. This supports
         // the applyModifier() mechanism on DmcObject where we only return true
         // if something changed as a result of the modifier
@@ -82,7 +81,7 @@ public class DmcTypeNumericRangeRuleDataREFSV extends DmcTypeNumericRangeRuleDat
     }
     
     @Override
-    public NumericRangeRuleDataDMO getSV(){
+    public NumericRangeRuleDataREF getSV(){
         return(value);
     }
     

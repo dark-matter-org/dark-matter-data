@@ -24,21 +24,20 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
-import org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO;    // DmcType import
 /**
- * The DmcTypePatternMatchRuleDataREFSET provides storage for a set of PatternMatchRuleDataDMO
+ * The DmcTypePatternMatchRuleDataREFSET provides storage for a set of PatternMatchRuleDataREF
  * <P>
  * This code was auto-generated and shouldn't be altered manually!
  * Generated from: org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2595)
- *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNormalREFType(DmoTypeFormatter.java:256)
+ *    Called from: org.dmd.dms.util.DmoTypeFormatter.dumpNamedREF(DmoTypeFormatter.java:532)
  */
 @SuppressWarnings("serial")
 public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDataREF implements Serializable {
     
-     private final static Iterator<PatternMatchRuleDataDMO> emptyList =  (new HashSet<PatternMatchRuleDataDMO>()).iterator();
+     private final static Iterator<PatternMatchRuleDataREF> emptyList =  (new HashSet<PatternMatchRuleDataREF>()).iterator();
     
     
-    protected Set<PatternMatchRuleDataDMO> value;
+    protected Set<PatternMatchRuleDataREF> value;
     
     public DmcTypePatternMatchRuleDataREFSET(){
         value = null;
@@ -51,9 +50,9 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
     
     void initValue(){
         if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-            value = new HashSet<PatternMatchRuleDataDMO>();
+            value = new HashSet<PatternMatchRuleDataREF>();
         else
-            value = new TreeSet<PatternMatchRuleDataDMO>();
+            value = new TreeSet<PatternMatchRuleDataREF>();
     }
     
     @Override
@@ -63,14 +62,14 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2636)
-    public DmcAttribute<PatternMatchRuleDataDMO> cloneIt(){
+    public DmcAttribute<PatternMatchRuleDataREF> cloneIt(){
         synchronized(this){
             DmcTypePatternMatchRuleDataREFSET rc = getNew();
     
             if (value == null)
                 return(rc);
     
-            for(PatternMatchRuleDataDMO val: value)
+            for(PatternMatchRuleDataREF val: value)
             try {
                 rc.add(val);
             } catch (DmcValueException e) {
@@ -82,9 +81,9 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2659)
-    public PatternMatchRuleDataDMO add(Object v) throws DmcValueException {
+    public PatternMatchRuleDataREF add(Object v) throws DmcValueException {
         synchronized(this){
-            PatternMatchRuleDataDMO rc = typeCheck(v);
+            PatternMatchRuleDataREF rc = typeCheck(v);
             if (value == null)
                 initValue();
         
@@ -98,9 +97,9 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2676)
-    public PatternMatchRuleDataDMO del(Object v){
+    public PatternMatchRuleDataREF del(Object v){
         synchronized(this){
-            PatternMatchRuleDataDMO rc = null;
+            PatternMatchRuleDataREF rc = null;
             if (value == null)
                 return(rc);
             
@@ -122,32 +121,32 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
     
     @Override
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2701)
-    public Iterator<PatternMatchRuleDataDMO> getMV(){
+    public Iterator<PatternMatchRuleDataREF> getMV(){
         synchronized(this){
             if (value == null)
                 return(emptyList);
 
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET)
-                return( (new HashSet<PatternMatchRuleDataDMO>(value)).iterator() );
+                return( (new HashSet<PatternMatchRuleDataREF>(value)).iterator() );
             else
-                return( (new TreeSet<PatternMatchRuleDataDMO>(value)).iterator() );
+                return( (new TreeSet<PatternMatchRuleDataREF>(value)).iterator() );
         }
     }
     
     // org.dmd.dms.util.GenUtility.dumpSETType(GenUtility.java:2715)
-    public Set<PatternMatchRuleDataDMO> getMVCopy(){
+    public Set<PatternMatchRuleDataREF> getMVCopy(){
         synchronized(this){
             if (getAttributeInfo().valueType == ValueTypeEnum.HASHSET){
                 if (value == null)
-                    return(new HashSet<PatternMatchRuleDataDMO>());
+                    return(new HashSet<PatternMatchRuleDataREF>());
                 else
-                    return(new HashSet<PatternMatchRuleDataDMO>(value));
+                    return(new HashSet<PatternMatchRuleDataREF>(value));
             }
             else{
                 if (value == null)
-                    return(new TreeSet<PatternMatchRuleDataDMO>(value));
+                    return(new TreeSet<PatternMatchRuleDataREF>(value));
                 else
-                    return(new TreeSet<PatternMatchRuleDataDMO>(value));
+                    return(new TreeSet<PatternMatchRuleDataREF>(value));
             }
         }
     }
@@ -170,7 +169,7 @@ public class DmcTypePatternMatchRuleDataREFSET extends DmcTypePatternMatchRuleDa
                 return(false);
             
             try {
-                PatternMatchRuleDataDMO val = typeCheck(v);
+                PatternMatchRuleDataREF val = typeCheck(v);
                 return(value.contains(val));
             } catch (DmcValueException e) {
                 return(false);
