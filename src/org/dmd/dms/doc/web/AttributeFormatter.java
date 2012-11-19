@@ -5,12 +5,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.ActionDefinition;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.RuleDefinition;
+import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dmw.DmwWrapper;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class AttributeFormatter {
 	
@@ -115,10 +118,40 @@ public class AttributeFormatter {
 
 	static void description(BufferedWriter out, AttributeDefinition ad) throws IOException{
 		if (ad.getDescription() != null){
+//			ArrayList<DmwWrapper> referring = ad.getReferringObjects();
+			
+			ArrayList<DmcObject> referring = ad.getDMO().getReferringObjects();
+
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
 			out.write("      <td class=\"label\">Description</td>\n");
-			out.write("      <td>" + ad.getDescription() + "</td>\n");
+			out.write("      <td>" + ad.getDescription());
+			
+			if (referring != null){
+				out.write("<p/>\n");
+				for(DmcObject obj: referring){
+					if (obj instanceof RuleDataDMO){
+						RuleDataDMO rd = (RuleDataDMO) obj;
+						out.write(rd.getRuleTitle() + "\n<p/>");
+					}
+//					if (obj instanceof RuleDataDMO){
+//						
+//					}
+					DebugInfo.debug("REF FROM: " + obj.getClass().getName());
+//					if (wrapper instanceof RuleDefinition){
+//						RuleDefinition rd = (RuleDefinition) wrapper;
+//						DebugInfo.debug(rd.toOIF());
+//					}
+//					else if (wrapper instanceof RuleData){
+//						RuleData rd = (RuleData) wrapper;
+//						DebugInfo.debug(rd.toOIF());
+//					}
+					
+				}
+				
+			}
+			
+			out.write("      </td>\n");
 			out.write("    </tr>\n\n");
 		}
 	}

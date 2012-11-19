@@ -197,6 +197,23 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
@@ -324,6 +341,23 @@
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
     </tr>
 
     <tr>
@@ -476,6 +510,23 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
@@ -597,6 +648,23 @@
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
     </tr>
 
     <tr>
@@ -745,6 +813,23 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
@@ -782,7 +867,17 @@
  in the object being checked.
  <p/>
  If only one of the possibilities is allowed, you can specify the andOnlyOne
- flag and set it to true. In this case only one of the possibilities will be allowed.</td>
+ flag and set it to true. In this case only one of the possibilities will be allowed.
+ <p/>
+ An example of this rule can be seen below.
+ <pre>
+ OneOfTheseAttributesRequiredRuleData
+ ruleName			dmvIncludeOrExclude
+ ruleTitle			At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified.
+ applyToClass		CheckAttributesBasedOnValueRuleData
+ onePossibility		excludeThisAttribute
+ onePossibility		includeThisAttribute
+ </pre></td>
     </tr>
 
     <tr>
@@ -868,6 +963,23 @@
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
     </tr>
 
     <tr>
@@ -1006,6 +1118,23 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
@@ -1133,6 +1262,23 @@
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
     </tr>
 
     <tr>
@@ -1288,6 +1434,23 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
@@ -1394,6 +1557,23 @@
  rule processing should occur if a rule fails. It is an optional attribute on rule instance
  objects. In somes cases, there is no point in continuing with the application of a set 
  of rules, so this flag gives the option of halting further processing. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
     </tr>
 
     <tr>
@@ -1529,6 +1709,23 @@
 
     <tr>
       <td class="spacer"> </td>
+      <td> <a href="meta.html#msgKey">msgKey</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgKey may be specified on rule instances to indicate the key to be used
+ to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
+ other contexts. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="meta.html#msgParam">msgParam</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The msgParam allows for the specification of parameters to be substituted
+ into translated messages. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
@@ -1573,7 +1770,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The allowedType indicates a collection of defined types to which something,\n usually and attribute, must conform.</td>
+      <td>The allowedType indicates a collection of defined types to which something,\n usually and attribute, must conform.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -1603,7 +1801,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The allowedValueType indicates the allowed cardinality of an attribute.</td>
+      <td>The allowedValueType indicates the allowed cardinality of an attribute.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -1633,7 +1832,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The andOnlyOne attribute indicates that only one of a set of possibilities is\n allowed.</td>
+      <td>The andOnlyOne attribute indicates that only one of a set of possibilities is\n allowed.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -1661,7 +1861,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The basedOnAttribute allows for the specification of an attribute on which\n some type of a decision is made.</td>
+      <td>The basedOnAttribute allows for the specification of an attribute on which\n some type of a decision is made.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -1689,7 +1890,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The basedOnValue attribute allows for the specification of values for some\n aspect of a rule.</td>
+      <td>The basedOnValue attribute allows for the specification of values for some\n aspect of a rule.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -1717,7 +1919,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The excludeThisAttribute indicates an optional attribute that must be\n excluded from an object under certain conditions.</td>
+      <td>The excludeThisAttribute indicates an optional attribute that must be\n excluded from an object under certain conditions.<p/>
+At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified.
+<p/>      </td>
     </tr>
 
     <tr>
@@ -1745,7 +1949,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The includeThisAttribute indicates an optional attribute that must be\n present under certain conditions.</td>
+      <td>The includeThisAttribute indicates an optional attribute that must be\n present under certain conditions.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -1773,7 +1978,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The attribute to be used as the left hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested.</td>
+      <td>The attribute to be used as the left hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested.<p/>
+The lhs attribute can be single valued Integer, Long, Float or Double
+<p/>      </td>
     </tr>
 
     <tr>
@@ -1801,7 +2008,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The matchesPattern attribute indicates a regular expression that conforms\n to the</td>
+      <td>The matchesPattern attribute indicates a regular expression that conforms\n to the<p/>
+      </td>
     </tr>
 
     <tr>
@@ -1829,7 +2037,10 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The maxLength attribute indicates the maximum length of something.</td>
+      <td>The maxLength attribute indicates the maximum length of something.<p/>
+At least one of the maxLength or minLength attributes must be specified.
+<p/>The minLength must be less than the maxLength.
+<p/>      </td>
     </tr>
 
     <tr>
@@ -1857,7 +2068,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The minLength attribute indicates the maximum length of something.</td>
+      <td>The minLength attribute indicates the maximum length of something.<p/>
+The minLength must be less than the maxLength.
+<p/>      </td>
     </tr>
 
     <tr>
@@ -1885,7 +2098,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The maximum numeric value.</td>
+      <td>The maximum numeric value.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -1913,7 +2127,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The minimum numeric value.</td>
+      <td>The minimum numeric value.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -1941,7 +2156,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The relationship between numeric values.</td>
+      <td>The relationship between numeric values.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -1969,7 +2185,8 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The onePossibility attribute indicates an attribute that is one possiblity among\n many.</td>
+      <td>The onePossibility attribute indicates an attribute that is one possiblity among\n many.<p/>
+      </td>
     </tr>
 
     <tr>
@@ -1997,7 +2214,9 @@
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The attribute to be used as the right hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested.</td>
+      <td>The attribute to be used as the right hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested.<p/>
+The rhs attribute can be single valued Integer, Long, Float or Double
+<p/>      </td>
     </tr>
 
     <tr>

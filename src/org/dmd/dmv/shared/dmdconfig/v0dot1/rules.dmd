@@ -133,7 +133,6 @@ RuleDefinition
 name				CheckAttributesBasedOnValueRule
 dmdID				7
 ruleCategory		ObjectValidation
-//ruleCategory		ObjectModifierValidation
 must				basedOnAttribute
 must				basedOnValue
 may					excludeThisAttribute
@@ -176,6 +175,16 @@ description			The OneOfTheseAttributesRequiredRule allows you to specify
  <p/>
  If only one of the possibilities is allowed, you can specify the andOnlyOne
  flag and set it to true. In this case only one of the possibilities will be allowed.
+ <p/>
+ An example of this rule can be seen below.
+ <pre>
+ OneOfTheseAttributesRequiredRuleData
+ ruleName			dmvIncludeOrExclude
+ ruleTitle			At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified.
+ applyToClass		CheckAttributesBasedOnValueRuleData
+ onePossibility		excludeThisAttribute
+ onePossibility		includeThisAttribute
+ </pre>
 
 OneOfTheseAttributesRequiredRuleData
 ruleName			dmvIncludeOrExclude
