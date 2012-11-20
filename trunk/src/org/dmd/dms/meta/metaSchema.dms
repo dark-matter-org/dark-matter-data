@@ -1143,14 +1143,7 @@ dmdID				70
 type              	String
 description The string value associated with an enumeration value.
 
-AttributeDefinition
-name                blockWhenLocked
-dmdID				71
-type                Boolean
-description This flag indicates whether or not an Action will be blocked from
- proceeding if there is a DAF lock on the object against which the action is
- performed. The default is to block all incoming actions against a locked
- object. By setting this flag to false, you can allow an action to proceed.
+// 71
 
 AttributeDefinition
 name                isGetAction
@@ -1960,8 +1953,9 @@ description     The <code> TypeDefinition </code> is used to define the types of
  derived from <code>DmcAttribute</code> that stores this type of value; they are always, by convention,
  named <code>DmcTypeXXX</code>.
  <p/>
- <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code> and
- <code> EnumDefinitions </code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>.
+ <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code>, 
+ <code>ComplexTypeDefinitions</code>, <code>ExtendedReferenceTypeDefinitions</code> and
+ <code>EnumDefinitions</code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>.
  These definitions are marked as <code> internallyGenerated </code>.
  <p/>
  The simplest <code> TypeDefinition </code> would look something like:
@@ -2187,7 +2181,7 @@ may           	mayParm
 may           	mustReturn
 may          	mayReturn
 may         	attachToClass
-may         	blockWhenLocked
+//may         	blockWhenLocked
 may         	isGetAction
 may          	obsoleteVersion
 may          	maySendProgress

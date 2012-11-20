@@ -14,9 +14,13 @@
 
     <div id="content">
 
+<!-- org.dmd.dms.doc.web.SchemaPage.writeSchemaSummary(SchemaPage.java:275) -->
+
   <div class="schemaName"> meta </div>
 
   <div class="summary">
+
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:306) -->
 
     <div class="classList">
     <h2> Classes (17)</h2>
@@ -106,7 +110,9 @@
       <td> name </td>
       </tr>
     </table>
-    </div>    <div class="typeList">
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeTypeSummary(SchemaPage.java:348) -->
+
+    <div class="typeList">
     <h2>Types (32)</h2>
     <ul>
       <li> <a class="deflink" href="#AttributeID"> AttributeID </a></li>
@@ -142,7 +148,9 @@
       <li> <a class="deflink" href="#UUIDLite"> UUIDLite </a></li>
       <li> <a class="deflink" href="#UUIDName"> UUIDName </a></li>
     </ul>
-    </div>    <div class="enumList">
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeEnumSummary(SchemaPage.java:368) -->
+
+    <div class="enumList">
     <h2>Enums (13)</h2>
     <ul>
       <li> <a class="deflink" href="#BaseTypeEnum"> BaseTypeEnum </a></li>
@@ -159,7 +167,9 @@
       <li> <a class="deflink" href="#ValueTypeEnum"> ValueTypeEnum </a></li>
       <li> <a class="deflink" href="#WrapperTypeEnum"> WrapperTypeEnum </a></li>
     </ul>
-    </div>    <div class="categories">
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleCategorySummary(SchemaPage.java:402) -->
+
+    <div class="categories">
     <h2> Rule Categories (4)</h2>
     <ul>
       <li> <a class="deflink" href="#AttributeValidation"> AttributeValidation </a></li>
@@ -168,6 +178,8 @@
       <li> <a class="deflink" href="#UCOValidation"> UCOValidation </a></li>
     </ul>
     </div>  </div> <!--  summary -->
+
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClasses(SchemaPage.java:182) -->
 
 <div class="classDetails">
 
@@ -260,18 +272,6 @@
  This mechanism allows for the extension of a class's behaviour without having
  to alter the schema of the class involved. This can be viewed as the auxiliary
  class equivalent for behaviour.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#blockWhenLocked">blockWhenLocked</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> This flag indicates whether or not an Action will be blocked from
- proceeding if there is a DAF lock on the object against which the action is
- performed. The default is to block all incoming actions against a locked
- object. By setting this flag to false, you can allow an action to proceed.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
@@ -3358,8 +3358,9 @@ An EnumDefinition's name must end with Enum</td> </tr>
  derived from <code>DmcAttribute</code> that stores this type of value; they are always, by convention,
  named <code>DmcTypeXXX</code>.
  <p/>
- <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code> and
- <code> EnumDefinitions </code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>.
+ <code> TypeDefinitions </code> are automatically generated internally for <code>ClassDefinitions</code>, 
+ <code>ComplexTypeDefinitions</code>, <code>ExtendedReferenceTypeDefinitions</code> and
+ <code>EnumDefinitions</code> so that these objects can be referred to via the <code>type</code> attribute of <code> AttributeDefinitions</code>.
  These definitions are marked as <code> internallyGenerated </code>.
  <p/>
  The simplest <code> TypeDefinition </code> would look something like:
@@ -3787,6 +3788,8 @@ An EnumDefinition's name must end with Enum</td> </tr>
 
 </div> <!-- classDetails -->
 
+<!-- org.dmd.dms.doc.web.SchemaPage.writeAttributes(SchemaPage.java:202) -->
+
 <div class="attributeDetails">
 
 <h2> Attribute Details </h2>
@@ -4164,36 +4167,6 @@ The applyToAttribute attribute in a NumericRangeRuleData instance must refer to 
         <table>
         <tr>
           <td> MethodGenerator (<a href="dmg.html#MethodGenerator">dmg</a>) </td>
-        </tr>
-        </table>
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.AttributeFormatter.dumpDetails(AttributeFormatter.java:21) -->
-    <tr> <td class="className" colspan="3"> <a name="blockWhenLocked"> blockWhenLocked </a> </td></tr>
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P SV </div> <div class="attrType"> <a href="meta.html#Boolean">Boolean</a> </div> 
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Description</td>
-      <td>This flag indicates whether or not an Action will be blocked from
- proceeding if there is a DAF lock on the object against which the action is
- performed. The default is to block all incoming actions against a locked
- object. By setting this flag to false, you can allow an action to proceed.<p/>
-      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Used in:</td>
-      <td>
-        <table>
-        <tr>
-          <td> ActionDefinition (<a href="meta.html#ActionDefinition">meta</a>) </td>
         </tr>
         </table>
       </td>
@@ -8035,6 +8008,8 @@ An EnumDefinition's name must end with Enum
 
 </div> <!-- attributeDetails -->
 
+<!-- org.dmd.dms.doc.web.SchemaPage.writeTypes(SchemaPage.java:222) -->
+
 <div class="typeDetails">
 
 <h2> Type Details </h2>
@@ -8102,59 +8077,56 @@ An EnumDefinition's name must end with Enum
 <table>
   <tr>
     <td> andOnlyOne (<a href="dmv.html#andOnlyOne">dmv</a>) </td>
-    <td> blockWhenLocked (<a href="meta.html#blockWhenLocked">meta</a>) </td>
     <td> cacheResponse (<a href="dmp.html#cacheResponse">dmp</a>) </td>
-  <tr>
     <td> createAttributeFactory (<a href="meta.html#createAttributeFactory">meta</a>) </td>
+  <tr>
     <td> designatedFilterAttribute (<a href="meta.html#designatedFilterAttribute">meta</a>) </td>
     <td> designatedNameAttribute (<a href="meta.html#designatedNameAttribute">meta</a>) </td>
+    <td> enabledDisabled (<a href="dmt.html#enabledDisabled">dmt</a>) </td>
 </tr>
   <tr>
-    <td> enabledDisabled (<a href="dmt.html#enabledDisabled">dmt</a>) </td>
     <td> eventChannelReady (<a href="dmp.html#eventChannelReady">dmp</a>) </td>
     <td> immediateHalt (<a href="meta.html#immediateHalt">meta</a>) </td>
+    <td> internalUse (<a href="meta.html#internalUse">meta</a>) </td>
 </tr>
   <tr>
-    <td> internalUse (<a href="meta.html#internalUse">meta</a>) </td>
     <td> internallyGenerated (<a href="meta.html#internallyGenerated">meta</a>) </td>
     <td> isDefaultValue (<a href="meta.html#isDefaultValue">meta</a>) </td>
+    <td> isEnumType (<a href="meta.html#isEnumType">meta</a>) </td>
 </tr>
   <tr>
-    <td> isEnumType (<a href="meta.html#isEnumType">meta</a>) </td>
     <td> isExtendedRefType (<a href="meta.html#isExtendedRefType">meta</a>) </td>
     <td> isExtensible (<a href="meta.html#isExtensible">meta</a>) </td>
+    <td> isFilterType (<a href="meta.html#isFilterType">meta</a>) </td>
 </tr>
   <tr>
-    <td> isFilterType (<a href="meta.html#isFilterType">meta</a>) </td>
     <td> isGetAction (<a href="meta.html#isGetAction">meta</a>) </td>
     <td> isHierarchicName (<a href="meta.html#isHierarchicName">meta</a>) </td>
+    <td> isNameType (<a href="meta.html#isNameType">meta</a>) </td>
 </tr>
   <tr>
-    <td> isNameType (<a href="meta.html#isNameType">meta</a>) </td>
     <td> isRefType (<a href="meta.html#isRefType">meta</a>) </td>
     <td> isSchemaRtype (<a href="meta.html#isSchemaRtype">meta</a>) </td>
+    <td> lastResponse (<a href="dmp.html#lastResponse">dmp</a>) </td>
 </tr>
   <tr>
-    <td> lastResponse (<a href="dmp.html#lastResponse">dmp</a>) </td>
     <td> maySendProgress (<a href="meta.html#maySendProgress">meta</a>) </td>
     <td> mvBoolean (<a href="dmt.html#mvBoolean">dmt</a>) </td>
+    <td> myOwnEvent (<a href="dmp.html#myOwnEvent">dmp</a>) </td>
 </tr>
   <tr>
-    <td> myOwnEvent (<a href="dmp.html#myOwnEvent">dmp</a>) </td>
     <td> notifyOriginator (<a href="dmp.html#notifyOriginator">dmp</a>) </td>
     <td> onOff (<a href="dmt.html#onOff">dmt</a>) </td>
+    <td> preserveNewlines (<a href="meta.html#preserveNewlines">meta</a>) </td>
 </tr>
   <tr>
-    <td> preserveNewlines (<a href="meta.html#preserveNewlines">meta</a>) </td>
     <td> readableFormat (<a href="dmp.html#readableFormat">dmp</a>) </td>
     <td> registerForEvents (<a href="dmp.html#registerForEvents">dmp</a>) </td>
+    <td> secure (<a href="meta.html#secure">meta</a>) </td>
 </tr>
   <tr>
-    <td> secure (<a href="meta.html#secure">meta</a>) </td>
     <td> supportsBackrefTracking (<a href="meta.html#supportsBackrefTracking">meta</a>) </td>
     <td> svBoolean (<a href="dmt.html#svBoolean">dmt</a>) </td>
-</tr>
-  <tr>
     <td> trackingEnabled (<a href="dmp.html#trackingEnabled">dmp</a>) </td>
 </tr>
 </table>
@@ -9322,6 +9294,8 @@ An EnumDefinition's name must end with Enum
   </table>
 
 </div> <!-- typeDetails -->
+
+<!-- org.dmd.dms.doc.web.SchemaPage.writeEnums(SchemaPage.java:242) -->
 
 <div class="enumDetails">
 

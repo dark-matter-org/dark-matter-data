@@ -41,7 +41,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
     public final static DmcAttributeInfo __attributeDefList = new DmcAttributeInfo("attributeDefList",59,"AttributeDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __attributeInfoFromParam = new DmcAttributeInfo("attributeInfoFromParam",155,"String",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __baseType = new DmcAttributeInfo("baseType",135,"BaseTypeEnum",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
-    public final static DmcAttributeInfo __blockWhenLocked = new DmcAttributeInfo("blockWhenLocked",71,"Boolean",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __camelCaseName = new DmcAttributeInfo("camelCaseName",116,"CamelCaseName",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __classDefList = new DmcAttributeInfo("classDefList",55,"ClassDefinition",ValueTypeEnum.MULTI,DataTypeEnum.PERSISTENT);
     public final static DmcAttributeInfo __classFilter = new DmcAttributeInfo("classFilter",128,"ClassFilter",ValueTypeEnum.SINGLE,DataTypeEnum.PERSISTENT);
@@ -308,7 +307,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
         _SmAp.put(__attributeDefList.id,__attributeDefList);
         _SmAp.put(__attributeInfoFromParam.id,__attributeInfoFromParam);
         _SmAp.put(__baseType.id,__baseType);
-        _SmAp.put(__blockWhenLocked.id,__blockWhenLocked);
         _SmAp.put(__camelCaseName.id,__camelCaseName);
         _SmAp.put(__classDefList.id,__classDefList);
         _SmAp.put(__classFilter.id,__classFilter);
@@ -464,7 +462,6 @@ public class MetaDMSAG implements DmcCompactSchemaIF {
 
         __ActionDefinition.addMust(__name);
         __ActionDefinition.addMay(__attachToClass);
-        __ActionDefinition.addMay(__blockWhenLocked);
         __ActionDefinition.addMay(__definedIn);
         __ActionDefinition.addMay(__description);
         __ActionDefinition.addMay(__file);

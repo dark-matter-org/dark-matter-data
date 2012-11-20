@@ -44,7 +44,6 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _ImAp = new HashMap<Integer,DmcAttributeInfo>();
         _ImAp.put(MetaDMSAG.__name.id,MetaDMSAG.__name);
         _ImAp.put(MetaDMSAG.__attachToClass.id,MetaDMSAG.__attachToClass);
-        _ImAp.put(MetaDMSAG.__blockWhenLocked.id,MetaDMSAG.__blockWhenLocked);
         _ImAp.put(MetaDMSAG.__definedIn.id,MetaDMSAG.__definedIn);
         _ImAp.put(MetaDMSAG.__description.id,MetaDMSAG.__description);
         _ImAp.put(MetaDMSAG.__file.id,MetaDMSAG.__file);
@@ -60,7 +59,6 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         _SmAp = new HashMap<String ,DmcAttributeInfo>();
         _SmAp.put(MetaDMSAG.__name.name,MetaDMSAG.__name);
         _SmAp.put(MetaDMSAG.__attachToClass.name,MetaDMSAG.__attachToClass);
-        _SmAp.put(MetaDMSAG.__blockWhenLocked.name,MetaDMSAG.__blockWhenLocked);
         _SmAp.put(MetaDMSAG.__definedIn.name,MetaDMSAG.__definedIn);
         _SmAp.put(MetaDMSAG.__description.name,MetaDMSAG.__description);
         _SmAp.put(MetaDMSAG.__file.name,MetaDMSAG.__file);
@@ -162,36 +160,6 @@ public class ActionDefinitionDMO extends org.dmd.dms.generated.dmo.DmsDefinition
         attr.add(value);
         add(MetaDMSAG.__attachToClass,attr);
         return(attr);
-    }
-
-    /**
-     * This flag indicates whether or not an Action will be blocked from\n
-     * proceeding if there is a DAF lock on the object against which the action
-     * is\n performed. The default is to block all incoming actions against a
-     * locked\n object. By setting this flag to false, you can allow an action to
-     * proceed.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2232)
-    public Boolean getBlockWhenLocked(){
-        DmcTypeBooleanSV attr = (DmcTypeBooleanSV) get(MetaDMSAG.__blockWhenLocked);
-        if (attr == null)
-            return(false);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets blockWhenLocked to the specified value.
-     * @param value A value compatible with DmcTypeBooleanSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2325)
-    public void setBlockWhenLocked(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(MetaDMSAG.__blockWhenLocked);
-        if (attr == null)
-            attr = new DmcTypeBooleanSV(MetaDMSAG.__blockWhenLocked);
-        
-        attr.set(value);
-        set(MetaDMSAG.__blockWhenLocked,attr);
     }
 
     /**

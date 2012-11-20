@@ -18,13 +18,16 @@ package org.dmd.dms;
 import java.util.Iterator;
 import java.util.TreeMap;
 
+import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.RuleName;
 import org.dmd.dmc.types.StringToString;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dmg.util.GeneratorUtils;
+import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
+import org.dmd.dms.util.DmoObjectFactory;
 import org.dmd.dms.util.DynamicCompactSchema;
 import org.dmd.util.exceptions.ResultException;
 
@@ -56,6 +59,10 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     // When read by the DmsSchemaParser, this tree is populated with the
     // rule instances that are read as part of the schema.
     TreeMap<RuleName,DmcUncheckedObject>	parsedRules;
+    
+    // The rule data transformed into DMOs - this is primarily used by
+    // the documentation generation mechanisms
+    TreeMap<RuleName,RuleDataDMO>			parsedRulesDMOs;
     
     /**
      * Default constructor.
@@ -288,6 +295,36 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     		return(null);
     	
     	return(parsedRules.values().iterator());
+    }
+    
+    /**
+     * This method will return the parsed rules translated into DMOs. 
+     * @param sm the schema manager used by our Dmo
+     * @return
+     */
+    public Iterator<RuleDataDMO> getParsedRulesDMOs(SchemaManager sm){
+    	if (parsedRulesDMOs == null){
+    		parsedRulesDMOs = new TreeMap<RuleName, RuleDataDMO>();
+    		if (parsedRules != null){
+        		DmoObjectFactory	dmofactory = new DmoObjectFactory(sm);
+    			for(DmcUncheckedObject uco: parsedRules.values()){
+    				try {
+						RuleDataDMO dmo = (RuleDataDMO) dmofactory.createObject(uco);
+						parsedRulesDMOs.put(dmo.getObjectName(), dmo);
+					} catch (ResultException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (DmcValueException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+    			}
+    		}
+    	}
+    	return(parsedRulesDMOs.values().iterator());
     }
     
     public void addParsedRule(DmcUncheckedObject uco) throws ResultException, DmcValueException {

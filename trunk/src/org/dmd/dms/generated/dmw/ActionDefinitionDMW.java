@@ -293,27 +293,6 @@ public class ActionDefinitionDMW extends org.dmd.dms.DmsDefinition {
     }
 
     /**
-     * This flag indicates whether or not an Action will be blocked from\n
-     * proceeding if there is a DAF lock on the object against which the action
-     * is\n performed. The default is to block all incoming actions against a
-     * locked\n object. By setting this flag to false, you can allow an action to
-     * proceed.
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2286)
-    public Boolean getBlockWhenLocked(){
-        return(mycore.getBlockWhenLocked());
-    }
-
-    /**
-     * Sets blockWhenLocked to the specified value.
-     * @param value A value compatible with DmcTypeBooleanSV
-     */
-    // org.dmd.dms.meta.MetaGenerator.dumpSVAccessFunction(MetaGenerator.java:2359)
-    public void setBlockWhenLocked(Object value) throws DmcValueException {
-        mycore.setBlockWhenLocked(value);
-    }
-
-    /**
      * This flag indicates if an Action is merely a data retrieval (get)
      * Action.\n Actions that are flagged with this attribute set to true will be
      * executable\n even when the server is in a read-only mode because they
