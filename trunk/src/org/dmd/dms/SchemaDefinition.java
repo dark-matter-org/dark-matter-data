@@ -18,7 +18,6 @@ package org.dmd.dms;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.types.RuleName;
 import org.dmd.dmc.types.StringToString;
@@ -295,6 +294,12 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     		return(null);
     	
     	return(parsedRules.values().iterator());
+    }
+    
+    public boolean hasParsedRules(){
+    	if (parsedRules == null)
+    		return(false);
+    	return(true);
     }
     
     /**
