@@ -11,6 +11,7 @@ import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.util.DmoObjectFactory;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
@@ -76,32 +77,42 @@ public class Summarizer {
 		}
 		
 		for(SchemaDefinition sd: allSchemasByName.values()){
-			Iterator<DmcUncheckedObject> ucoit = sd.getParsedRules();
-			if (ucoit != null){
-				while(ucoit.hasNext()){
-					
-					try {
-//						DmwWrapper obj = dmwFactory.createWrapper(ucoit.next());
-						DmcObject obj = dmofactory.createObject(ucoit.next());
-						DebugInfo.debug(obj.toOIF());
-						
-						obj.resolveReferences(sm);
-						
-					} catch (ResultException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (DmcValueException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (ClassNotFoundException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (DmcValueExceptionSet e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+			Iterator<RuleDataDMO> rules = sd.getParsedRulesDMOs(sm);
+			while(rules.hasNext()){
+				RuleDataDMO rule = rules.next();
+				try {
+					rule.resolveReferences(sm);
+				} catch (DmcValueExceptionSet e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
+//			Iterator<DmcUncheckedObject> ucoit = sd.getParsedRules();
+//			if (ucoit != null){
+//				while(ucoit.hasNext()){
+//					
+//					try {
+////						DmwWrapper obj = dmwFactory.createWrapper(ucoit.next());
+//						DmcObject obj = dmofactory.createObject(ucoit.next());
+//						DebugInfo.debug(obj.toOIF());
+//						
+//						obj.resolveReferences(sm);
+//						
+//					} catch (ResultException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					} catch (DmcValueException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					} catch (ClassNotFoundException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					} catch (DmcValueExceptionSet e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				}
+//			}
 		}
 		
 	}

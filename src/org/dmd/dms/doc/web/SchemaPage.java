@@ -19,6 +19,7 @@ import org.dmd.dms.SchemaManager;
 import org.dmd.dms.SliceDefinition;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class SchemaPage {
 	
@@ -133,6 +134,7 @@ public class SchemaPage {
 		
 		if (ofInterest.size() > 0){
 
+			out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 			out.write("<div class=\"hierarchy\">\n\n");
 
 			out.write("<h2> Instance Hierarchy </h2>\n\n");
@@ -177,6 +179,7 @@ public class SchemaPage {
 		if (classes.size() == 0)
 			return;
 		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("<div class=\"classDetails\">\n\n");
 		
 		out.write("<h2> Class Details </h2>\n\n");
@@ -196,6 +199,7 @@ public class SchemaPage {
 		if (attributes.size() == 0)
 			return;
 		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("<div class=\"attributeDetails\">\n\n");
 		
 		out.write("<h2> Attribute Details </h2>\n\n");
@@ -215,6 +219,7 @@ public class SchemaPage {
 		if (types.size() == 0)
 			return;
 		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("<div class=\"typeDetails\">\n\n");
 		
 		out.write("<h2> Type Details </h2>\n\n");
@@ -234,6 +239,7 @@ public class SchemaPage {
 		if (enums.size() == 0)
 			return;
 		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("<div class=\"enumDetails\">\n\n");
 		
 		out.write("<h2> Enum Details </h2>\n\n");
@@ -266,6 +272,7 @@ public class SchemaPage {
 //	}
 	
 	static void writeSchemaSummary(BufferedWriter out, SchemaManager sm, SchemaDefinition sd) throws IOException {
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("  <div class=\"schemaName\"> " + sd.getName() + " </div>\n\n");
 		
 		out.write("  <div class=\"summary\">\n\n");
@@ -296,6 +303,7 @@ public class SchemaPage {
 		if (defs.size() == 0)
 			return;
 		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("    <div class=\"classList\">\n");
 		out.write("    <h2> Classes (" + defs.size() + ")</h2>\n");
 		out.write("    <table>\n");
@@ -337,6 +345,7 @@ public class SchemaPage {
 		if (defs.size() == 0)
 			return;
 		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("    <div class=\"typeList\">\n");
 		out.write("    <h2>Types (" + defs.size() + ")</h2>\n");
 		out.write("    <ul>\n");
@@ -356,6 +365,7 @@ public class SchemaPage {
 		if (defs.size() == 0)
 			return;
 		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("    <div class=\"enumList\">\n");
 		out.write("    <h2>Enums (" + defs.size() + ")</h2>\n");
 		out.write("    <ul>\n");
@@ -372,6 +382,7 @@ public class SchemaPage {
 		if (defs.size() == 0)
 			return;
 		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("    <div class=\"sliceList\">\n");
 		out.write("    <h2> Slices (" + defs.size() + ")</h2>\n");
 		out.write("    <ul>\n");
@@ -388,6 +399,7 @@ public class SchemaPage {
 		if (defs.size() == 0)
 			return;
 		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("    <div class=\"categories\">\n");
 		out.write("    <h2> Rule Categories (" + defs.size() + ")</h2>\n");
 		out.write("    <ul>\n");
@@ -404,12 +416,13 @@ public class SchemaPage {
 		if (defs.size() == 0)
 			return;
 		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("    <div class=\"ruledefs\">\n");
 		out.write("    <h2> Rule Definitions (" + defs.size() + ")</h2>\n");
 		out.write("    <ul>\n");
 		
 		for(RuleDefinition def: defs.values()){
-			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
+			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "Data\"> " + def.getName() + " </a></li>\n");
 		}
 		
 		out.write("    </ul>\n");
@@ -420,6 +433,7 @@ public class SchemaPage {
 		if (defs.size() == 0)
 			return;
 		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 		out.write("    <div class=\"ruledefs\">\n");
 		out.write("    <h2> Rule Instances (" + defs.size() + ")</h2>\n");
 		out.write("    <ul>\n");
@@ -433,6 +447,8 @@ public class SchemaPage {
 		out.write("    </ul>\n");
 		out.write("    </div>");
 	}
+	
+	
 	
 //	static void writeEnd(BufferedWriter out) throws IOException {
 //		out.write("  </div> <!-- main -->\n");
