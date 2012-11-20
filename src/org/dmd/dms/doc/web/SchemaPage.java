@@ -52,6 +52,8 @@ public class SchemaPage {
 		
 		writeEnums(out);
 		
+		RuleInstanceFormatter.dumpRuleInstanceDetails(out, sm, sd);
+		
 		StandardParts.writeContentEnd(out);
 		
 		out.write(summarizer.getSideBar());

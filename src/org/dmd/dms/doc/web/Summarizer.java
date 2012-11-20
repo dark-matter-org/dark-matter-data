@@ -3,18 +3,13 @@ package org.dmd.dms.doc.web;
 import java.util.Iterator;
 import java.util.TreeMap;
 
-import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
-import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
-import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.DmsDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.generated.dmo.RuleDataDMO;
-import org.dmd.dms.util.DmoObjectFactory;
 import org.dmd.util.exceptions.DebugInfo;
-import org.dmd.util.exceptions.ResultException;
 
 public class Summarizer {
 
@@ -31,7 +26,7 @@ public class Summarizer {
 	
 	StringBuffer		idSummary;
 	
-    DmoObjectFactory	dmofactory;
+//    DmoObjectFactory	dmofactory;
 //    DmwObjectFactory	dmwFactory;
 
     public Summarizer(SchemaManager sm, String od){
@@ -41,7 +36,7 @@ public class Summarizer {
 		outDir 				= od;
 		sidebar				= new StringBuffer();
 		idSummary			= new StringBuffer();
-        dmofactory			= new DmoObjectFactory(sm);
+//        dmofactory			= new DmoObjectFactory(sm);
 //        dmwFactory			= new DmwObjectFactory(sm);
 		
 		Iterator<SchemaDefinition> sdit = sm.getSchemas();
