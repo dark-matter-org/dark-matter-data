@@ -5215,19 +5215,19 @@ svInteger must be in the range 1-10
 
 </div> <!-- enumDetails -->
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:27) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:48) -->
 <div class="ruleInstances">
 
 <h2> Rule Instances </h2>
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:33) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:54) -->
   <table>
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:65) -->
-    <tr> <td class="ruleDefName" colspan="4"> InitRule </td></tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+    <tr> <td class="ruleDefName" colspan="4"> InitRule (CLASS)</td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmtInitTestBasicObjectFixed">
         Initialize TestBasicObjectFixed
       </a>
@@ -5239,11 +5239,36 @@ svInteger must be in the range 1-10
       <td> Apply to class: </td>
       <td> TestBasicObjectFixed </td>
     </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:65) -->
-    <tr> <td class="ruleDefName" colspan="4"> NumericRangeRule </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> svInteger </td>
+      <td> 8</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> svString </td>
+      <td> the single valued string</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> mvString </td>
+      <td>
+first value
+<br>second value
+      </td>
+    </tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+    <tr> <td class="ruleDefName" colspan="4"> NumericRangeRule (ATTRIBUTE)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmtSvFloatNumericRange">
         svFloat must be in the range 1.5 - 2.5
       </a>
@@ -5263,7 +5288,23 @@ svInteger must be in the range 1-10
     </tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> nrrMinimum </td>
+      <td> 1.5</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> nrrMaximum </td>
+      <td> 2.5</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmtSvIntegerNumericRange">
         svInteger must be in the range 1-10
       </a>
@@ -5281,13 +5322,29 @@ svInteger must be in the range 1-10
       <td> Apply to attribute: </td>
       <td> svInteger </td>
     </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> nrrMinimum </td>
+      <td> 1.0</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> nrrMaximum </td>
+      <td> 10.0</td>    </tr>
   </table>
 
 </div> <!-- ruleInstances -->
 
     </div>
 
-<!-- org.dmd.dms.doc.web.Summarizer.buildSidebar(Summarizer.java:120) -->
+<!-- org.dmd.dms.doc.web.Summarizer.buildSidebar(Summarizer.java:94) -->
     <div id="sidebar">
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>

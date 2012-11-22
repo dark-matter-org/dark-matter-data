@@ -2450,7 +2450,8 @@ At least one of the excludeThisAttribute or includeThisAttribute attributes must
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The includeThisAttribute indicates an optional attribute that must be\n present under certain conditions.<p/>
-      </td>
+At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified.
+<p/>      </td>
     </tr>
 
     <tr>
@@ -2561,7 +2562,8 @@ At least one of the maxLength or minLength attributes must be specified.
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The minLength attribute indicates the maximum length of something.<p/>
-The minLength must be less than the maxLength.
+At least one of the maxLength or minLength attributes must be specified.
+<p/>The minLength must be less than the maxLength.
 <p/>      </td>
     </tr>
 
@@ -2780,29 +2782,36 @@ The rhs attribute can be single valued Integer, Long, Float or Double
 
 </div> <!-- enumDetails -->
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:27) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:48) -->
 <div class="ruleInstances">
 
 <h2> Rule Instances </h2>
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:33) -->
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstanceDetails(RuleInstanceFormatter.java:54) -->
   <table>
 
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:65) -->
-    <tr> <td class="ruleDefName" colspan="4"> AllowedAttributesRule </td></tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+    <tr> <td class="ruleDefName" colspan="4"> AllowedAttributesRule (CLASS)</td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvAllowedAttributes">
         An object's attributes must conform to its schema.
       </a>
       </td>
     </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:65) -->
-    <tr> <td class="ruleDefName" colspan="4"> CheckAttributesBasedOnValueRule </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td class="spacer"> </td>
+      <td> Description: </td>
+      <td> Ensures that must/may attribute rules are followed. For classes of
+ type EXTENSIBLE, only the must have attributes are checked. </td>
+    </tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+    <tr> <td class="ruleDefName" colspan="4"> CheckAttributesBasedOnValueRule (CLASS)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvNoMustInExtensible">
         If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes
       </a>
@@ -2814,11 +2823,45 @@ The rhs attribute can be single valued Integer, Long, Float or Double
       <td> Apply to class: </td>
       <td> ClassDefinition </td>
     </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:65) -->
-    <tr> <td class="ruleDefName" colspan="4"> OneOfTheseAttributesRequiredRule </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td class="spacer"> </td>
+      <td> Description: </td>
+      <td> An AUXILIARY class can be added to an object dynamically and
+ we don't allow mandatory attributes in such classes. </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> basedOnValue </td>
+      <td>
+AUXILIARY
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> excludeThisAttribute </td>
+      <td>
+must
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> basedOnAttribute </td>
+      <td> classType</td>    </tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+    <tr> <td class="ruleDefName" colspan="4"> OneOfTheseAttributesRequiredRule (CLASS)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvIncludeOrExclude">
         At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified.
       </a>
@@ -2832,7 +2875,22 @@ The rhs attribute can be single valued Integer, Long, Float or Double
     </tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> onePossibility </td>
+      <td>
+excludeThisAttribute
+<br>includeThisAttribute
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvMaxOrMin">
         At least one of the maxLength or minLength attributes must be specified.
       </a>
@@ -2844,11 +2902,26 @@ The rhs attribute can be single valued Integer, Long, Float or Double
       <td> Apply to class: </td>
       <td> ValueLengthRuleData </td>
     </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:65) -->
-    <tr> <td class="ruleDefName" colspan="4"> PatternMatchRule </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> onePossibility </td>
+      <td>
+maxLength
+<br>minLength
+      </td>
+    </tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+    <tr> <td class="ruleDefName" colspan="4"> PatternMatchRule (ATTRIBUTE)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvEnumDefinitionNameCheck">
         An EnumDefinition's name must end with Enum
       </a>
@@ -2866,11 +2939,32 @@ The rhs attribute can be single valued Integer, Long, Float or Double
       <td> Apply to attribute: </td>
       <td> name </td>
     </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:65) -->
-    <tr> <td class="ruleDefName" colspan="4"> ReferencedAttributeTypeRule </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td class="spacer"> </td>
+      <td> Description: </td>
+      <td> This is really just a convention, but the generation of
+ autogenerated static types depends on knowing if a type is an enum so that
+ the enum can be imported in the static implementation. The dumpSTATICType()
+ method in GenUtility checks to see if the type ends with Enum and adds
+ the appropriate import if that's the case. </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> matchesPattern </td>
+      <td> ^.*Enum</td>    </tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+    <tr> <td class="ruleDefName" colspan="4"> ReferencedAttributeTypeRule (ATTRIBUTE)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvLhs">
         The lhs attribute can be single valued Integer, Long, Float or Double
       </a>
@@ -2890,7 +2984,29 @@ The rhs attribute can be single valued Integer, Long, Float or Double
     </tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> allowedValueType </td>
+      <td> SINGLE</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> allowedType </td>
+      <td>
+Integer
+<br>Long
+<br>Float
+<br>Double
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvNRRApplyToAttribute">
         The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute
       </a>
@@ -2910,7 +3026,24 @@ The rhs attribute can be single valued Integer, Long, Float or Double
     </tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> allowedType </td>
+      <td>
+Integer
+<br>Long
+<br>Float
+<br>Double
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvRATRApplyToAttribute">
         The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition
       </a>
@@ -2930,7 +3063,21 @@ The rhs attribute can be single valued Integer, Long, Float or Double
     </tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> allowedType </td>
+      <td>
+AttributeDefinition
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvRhs">
         The rhs attribute can be single valued Integer, Long, Float or Double
       </a>
@@ -2948,11 +3095,33 @@ The rhs attribute can be single valued Integer, Long, Float or Double
       <td> Apply to attribute: </td>
       <td> rhs </td>
     </tr>
-<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:65) -->
-    <tr> <td class="ruleDefName" colspan="4"> RelatedNumbersRule </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="3">
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> allowedValueType </td>
+      <td> SINGLE</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> allowedType </td>
+      <td>
+Integer
+<br>Long
+<br>Float
+<br>Double
+      </td>
+    </tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+    <tr> <td class="ruleDefName" colspan="4"> RelatedNumbersRule (CLASS)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvMinLessThanMax">
         The minLength must be less than the maxLength.
       </a>
@@ -2964,13 +3133,34 @@ The rhs attribute can be single valued Integer, Long, Float or Double
       <td> Apply to class: </td>
       <td> ValueLengthRuleData </td>
     </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> numericRelation </td>
+      <td> LT</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> lhs </td>
+      <td> minLength</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> rhs </td>
+      <td> maxLength</td>    </tr>
   </table>
 
 </div> <!-- ruleInstances -->
 
     </div>
 
-<!-- org.dmd.dms.doc.web.Summarizer.buildSidebar(Summarizer.java:120) -->
+<!-- org.dmd.dms.doc.web.Summarizer.buildSidebar(Summarizer.java:94) -->
     <div id="sidebar">
         <a class="navLink" href="dmg.html"> dmg</a>
         <a class="navLink" href="dmp.html"> dmp</a>

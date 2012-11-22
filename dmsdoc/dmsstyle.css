@@ -109,6 +109,11 @@ td {
 	padding-top: 50px;
 }
 
+.ruleDetailTitle {
+	font-weight: bold;
+	padding-top: 30px;
+}
+
 .attributeName {
 	font-weight: bold;
 }
