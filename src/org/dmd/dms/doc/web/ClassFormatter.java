@@ -231,8 +231,10 @@ public class ClassFormatter {
 					// We only display the rule if it's applicable to this class or
 					// if we're derived from the applyToClass
 					sb.append("<tr> <td class=\"attributeRule\">\n");
-					sb.append(rd.getRuleTitle());
+					sb.append("<a class=\"blackText\" href=\"" + rd.getDefinedIn().getObjectName() + ".html#" + rd.getRuleName() + "\"> " + rd.getRuleTitle() + " </a>");
 					sb.append("</td> </tr>\n\n");
+					
+					
 				}
 			}
 			

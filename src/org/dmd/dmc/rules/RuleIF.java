@@ -19,6 +19,7 @@ import java.util.Iterator;
 
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcClassInfo;
+import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.enums.RuleTypeEnum;
 
 /**
@@ -40,6 +41,11 @@ public interface RuleIF {
 	 * @return the class info of the rule data.
 	 */
 	public DmcClassInfo getRuleClass();
+	
+	/**
+	 * @return the data associated with the rule.
+	 */
+	public RuleDataDMO getRuleDataDMO();
 	
 	/**
 	 * @return the identifiers of the categories to which this rule belongs.

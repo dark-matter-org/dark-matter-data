@@ -37,7 +37,11 @@ import org.dmd.dms.generated.types.DmcTypeStringSV;           // Required type -
  * schema. If you are using the dark-matter\n Model View Whatever (MVW)
  * project for GWT, this aspect is taken care of automatically.\n <p/>\n
  * Since this is a GLOBAL class rule, there will only ever be a single
- * instance of\n this rule created as part of the dmv schema.
+ * instance of\n this rule created as part of the dmv schema, as indicated
+ * below:\n <pre>\n AllowedAttributesRuleData\n ruleName   
+ * dmvAllowedAttributes\n ruleTitle 	 An object's attributes must conform to
+ * its schema.\n description Ensures that must/may attribute rules are
+ * followed.\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

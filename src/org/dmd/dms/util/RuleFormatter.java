@@ -495,6 +495,7 @@ public class RuleFormatter {
     		baseImports.addImport("org.dmd.dmc.DmcAttributeInfo", "To support retrieval of attribute info");
     		baseImports.addImport("org.dmd.dmc.rules.RuleKey", "To allow rule sorting");
     		baseImports.addImport("org.dmd.dmc.rules.DynamicInitIF", "To allow for dynamic initialization of rule data");
+    		baseImports.addImport("org.dmd.dms.generated.dmo.RuleDataDMO", "To allow access to the rule data DMO");
     		
     		if (isAttributeRule)
         		baseImports.addImport("org.dmd.dmc.rules.AttributeRuleKey", "To allow rule sorting");
@@ -602,6 +603,11 @@ public class RuleFormatter {
 			out.write("    @Override\n");
 			out.write("    public String getMsgKey() {\n");
 			out.write("        return(ruleDMO.getMsgKey());\n");
+			out.write("    }\n\n");
+
+			out.write("    @Override\n");
+			out.write("    public RuleDataDMO getRuleDataDMO() {\n");
+			out.write("        return(ruleDMO);\n");
 			out.write("    }\n\n");
 
 			out.write("    @Override\n");
