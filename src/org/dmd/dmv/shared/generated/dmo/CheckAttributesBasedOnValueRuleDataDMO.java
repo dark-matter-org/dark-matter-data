@@ -32,19 +32,24 @@ import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFMV;         // R
 import org.dmd.dms.generated.types.DmcTypeAttributeDefinitionREFSV;         // Reference type - (GenUtility.java:296)
 import org.dmd.dms.generated.types.DmcTypeModifierMV;                       // Required for MODREC constructor - (GenUtility.java:223)
 import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // Required type - (GenUtility.java:324)
-import org.dmd.dms.generated.types.DmcTypeStringMV;                         // Required type - (GenUtility.java:324)
+import org.dmd.dms.generated.types.DmcTypeStringSET;                        // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:324)
 
 /**
  * The CheckAttributesBasedOnValueRule allows you to specify\n that certain
  * optional attributes must exist (or not exist) based on the value\n of
- * another attribute in an object. This allows for finer control of
- * must/may\n attributes based on enumerated values in an object. An example
- * usage might look like:\n <pre>\n CheckAttributesBasedOnValueRuleData\n
- * ruleName             <schema>ExcludeSunRoof\n ruleTitle            The sun
- * roof option is not avilable on four cyclinder vehicles.\n applyToClass    
- *     Car\n basedOnAttribute     engineType\n basedOnValue        
- * FOURCYLINDER\n excludeThisAttribute sunRoofOption\n </pre>
+ * another single valued attribute in an object. This allows for finer
+ * control of must/may\n attributes based on other values in an object. An
+ * example usage (from\n the dark-matter validation schema) looks like:\n
+ * <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName             
+ * dmvNoMustInExtensible\n ruleTitle             If a ClassDefinition's
+ * classType is AUXILIARY, it can't have mandatory attributes\n applyToClass 
+ *         ClassDefinition\n basedOnAttribute      classType\n basedOnValue  
+ *        AUXILIARY\n excludeThisAttribute  must\n description           An
+ * AUXILIARY class can be added to an object dynamically and\n  we don't
+ * allow mandatory attributes in such classes.\n </pre>\n If the
+ * basedOnAttribute doesn't exist in the object being validated, the rule
+ * does nothing.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -569,7 +574,7 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
     @SuppressWarnings("unchecked")
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1102)
     public Iterator<String> getBasedOnValue(){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(DmvDMSAG.__basedOnValue);
+        DmcTypeStringSET attr = (DmcTypeStringSET) get(DmvDMSAG.__basedOnValue);
         if (attr == null)
             return( ((List<String>) Collections.EMPTY_LIST).iterator());
 
@@ -581,7 +586,7 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
      */
     // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
     public String getNthBasedOnValue(int i){
-        DmcTypeStringMV attr = (DmcTypeStringMV) get(DmvDMSAG.__basedOnValue);
+        DmcTypeStringSET attr = (DmcTypeStringSET) get(DmvDMSAG.__basedOnValue);
         if (attr == null)
             return(null);
 
@@ -596,7 +601,7 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
     public DmcAttribute<?> addBasedOnValue(String value) {
         DmcAttribute<?> attr = get(DmvDMSAG.__basedOnValue);
         if (attr == null)
-            attr = new DmcTypeStringMV(DmvDMSAG.__basedOnValue);
+            attr = new DmcTypeStringSET(DmvDMSAG.__basedOnValue);
         
         try{
             setLastValue(attr.add(value));
@@ -628,7 +633,7 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
     public DmcAttribute<?> addBasedOnValue(Object value) throws DmcValueException {
         DmcAttribute<?> attr = get(DmvDMSAG.__basedOnValue);
         if (attr == null)
-            attr = new DmcTypeStringMV(DmvDMSAG.__basedOnValue);
+            attr = new DmcTypeStringSET(DmvDMSAG.__basedOnValue);
         
         setLastValue(attr.add(value));
         add(DmvDMSAG.__basedOnValue,attr);
@@ -659,7 +664,7 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
         DmcAttribute<?> attr = get(DmvDMSAG.__basedOnValue);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(DmvDMSAG.__basedOnValue), value);
+            delFromEmptyAttribute(new DmcTypeStringSET(DmvDMSAG.__basedOnValue), value);
         else
             attr = del(DmvDMSAG.__basedOnValue, value);
         
@@ -675,7 +680,7 @@ public class CheckAttributesBasedOnValueRuleDataDMO  extends RuleDataDMO  implem
         DmcAttribute<?> attr = get(DmvDMSAG.__basedOnValue);
         
         if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeStringMV(DmvDMSAG.__basedOnValue), value);
+            delFromEmptyAttribute(new DmcTypeStringSET(DmvDMSAG.__basedOnValue), value);
         else
             attr = del(DmvDMSAG.__basedOnValue, value);
         
