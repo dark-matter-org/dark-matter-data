@@ -19,6 +19,8 @@ import java.util.Iterator;
 import java.util.TreeMap;
 
 import org.dmd.dmc.DmcValueException;
+import org.dmd.dmc.rules.DynamicInitIF;
+import org.dmd.dmc.rules.RuleIF;
 import org.dmd.dmc.types.RuleName;
 import org.dmd.dmc.types.StringToString;
 import org.dmd.dmc.util.DmcUncheckedObject;
@@ -28,6 +30,7 @@ import org.dmd.dms.generated.dmw.SchemaDefinitionDMW;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dms.util.DmoObjectFactory;
 import org.dmd.dms.util.DynamicCompactSchema;
+import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
 
 public class SchemaDefinition extends SchemaDefinitionDMW {
@@ -62,6 +65,8 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     // The rule data transformed into DMOs - this is primarily used by
     // the documentation generation mechanisms
     TreeMap<RuleName,RuleDataDMO>			parsedRulesDMOs;
+    
+    TreeMap<RuleName,RuleIF>				ruleInstances;
     
     /**
      * Default constructor.
@@ -310,12 +315,26 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     public Iterator<RuleDataDMO> getParsedRulesDMOs(SchemaManager sm){
     	if (parsedRulesDMOs == null){
     		parsedRulesDMOs = new TreeMap<RuleName, RuleDataDMO>();
+    		ruleInstances = new TreeMap<RuleName, RuleIF>();
+    		
     		if (parsedRules != null){
         		DmoObjectFactory	dmofactory = new DmoObjectFactory(sm);
     			for(DmcUncheckedObject uco: parsedRules.values()){
     				try {
-						RuleDataDMO dmo = (RuleDataDMO) dmofactory.createObject(uco);
+    					String ruleName = uco.getSV("ruleName");
+    					if ( (ruleName != null) && (ruleName.equals("dmvIncludeOrExclude")) ){
+    						DebugInfo.debug("HERE");
+    					}
+    					
+						ClassDefinition ruleDataCD 	= sm.cdef(uco.getConstructionClass());
+						RuleDataDMO 	dmo 		= (RuleDataDMO) dmofactory.createObject(uco);
+						RuleDefinition	ruleDEF		= ruleDataCD.getRuleDefinition();
+
+						DynamicInitIF rule = (DynamicInitIF) ruleDEF.newRuleInstance();
+						rule.setRuleData(dmo);
+						
 						parsedRulesDMOs.put(dmo.getObjectName(), dmo);
+						ruleInstances.put(dmo.getObjectName(), (RuleIF) rule);
 					} catch (ResultException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -330,6 +349,12 @@ public class SchemaDefinition extends SchemaDefinitionDMW {
     		}
     	}
     	return(parsedRulesDMOs.values().iterator());
+    }
+    
+    public TreeMap<RuleName,RuleIF> getRuleInstances(SchemaManager sm){
+    	if (ruleInstances == null)
+    		getParsedRulesDMOs(sm);
+    	return(ruleInstances);
     }
     
     public void addParsedRule(DmcUncheckedObject uco) throws ResultException, DmcValueException {
