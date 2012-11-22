@@ -51,7 +51,7 @@ AttributeDefinition
 name   			basedOnValue
 dmdID			8
 type        	String
-valueType		MULTI
+valueType		HASHSET
 description		The basedOnValue attribute allows for the specification of values for some
  aspect of a rule.
 

@@ -146,17 +146,21 @@ may					excludeThisAttribute
 may					includeThisAttribute
 description			The CheckAttributesBasedOnValueRule allows you to specify
  that certain optional attributes must exist (or not exist) based on the value
- of another attribute in an object. This allows for finer control of must/may
- attributes based on enumerated values in an object. An example usage might look like:
+ of another single valued attribute in an object. This allows for finer control of must/may
+ attributes based on other values in an object. An example usage (from
+ the dark-matter validation schema) looks like:
  <pre>
  CheckAttributesBasedOnValueRuleData
- ruleName             <schema>ExcludeSunRoof
- ruleTitle            The sun roof option is not avilable on four cyclinder vehicles.
- applyToClass         Car
- basedOnAttribute     engineType
- basedOnValue         FOURCYLINDER
- excludeThisAttribute sunRoofOption
+ ruleName              dmvNoMustInExtensible
+ ruleTitle             If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes
+ applyToClass          ClassDefinition
+ basedOnAttribute      classType
+ basedOnValue          AUXILIARY
+ excludeThisAttribute  must
+ description           An AUXILIARY class can be added to an object dynamically and
+  we don't allow mandatory attributes in such classes.
  </pre>
+ If the basedOnAttribute doesn't exist in the object being validated, the rule does nothing.
 
 CheckAttributesBasedOnValueRuleData
 ruleName				dmvNoMustInExtensible
@@ -311,3 +315,10 @@ allowedType 		Float
 allowedType 		Double
 allowedValueType	SINGLE
 
+//ReferencedAttributeTypeRuleData
+//ruleName			dmvBasedOnAttribute
+//ruleTitle           The basedOnAttribute attribute must refer to a single-valued attribute
+//applyToAttribute	basedOnAttribute
+//applyToClass 		CheckAttributesBasedOnValueRuleData
+//allowedType 		AttributeDefinition
+//allowedValueType	SINGLE
