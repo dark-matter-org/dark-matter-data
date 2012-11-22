@@ -127,7 +127,7 @@ description		The RelatedNumbersRule ensures that a particular numeric
  <p/>
  It's a good rule of thumb to indicate the relationship you expect in the
  title of the rule since this is what will be returned in the case that 
- the relatioship check fails.
+ the relationship check fails.
  <p/>
  NOTE: this rule works by implicitly converting the values of the attributes
  to type Double in order to be able to compare apples to apples. However,

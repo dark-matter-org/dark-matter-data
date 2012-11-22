@@ -137,9 +137,9 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 			for(RuleDataDMO rule: allRuleData){
 				SourceInfo source = new SourceInfo(rule.getFile(), rule.getLineNumber()+"", rule);
 				
-				if (rule.getRuleName().equals("dmtSvNumericRange")){
-					DebugInfo.debug("HERE");
-				}
+//				if (rule.getRuleName().equals("dmtSvNumericRange")){
+//					DebugInfo.debug("HERE");
+//				}
 				
 				try {
 					this.executeAttributeValidation(rule);

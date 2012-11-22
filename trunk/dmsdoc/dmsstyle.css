@@ -74,6 +74,10 @@ a:active {
 	text-decoration:underline;
 }
 
+a.blackText:link {
+	color: black;
+}
+	
 td {
   vertical-align: top;
   padding-bottom: 8px;
@@ -94,6 +98,12 @@ td {
 }
 
 .className {
+	font-weight: bold;
+	font-size: larger;
+	padding-top: 50px;
+}
+
+.ruleDefName {
 	font-weight: bold;
 	font-size: larger;
 	padding-top: 50px;

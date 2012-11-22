@@ -45,7 +45,7 @@ import org.dmd.dmv.shared.generated.types.DmcTypeNumericRelationEnumSV;         
  * both attributes exist; if not,\n that's okay - the rule will pass.\n
  * <p/>\n It's a good rule of thumb to indicate the relationship you expect
  * in the\n title of the rule since this is what will be returned in the case
- * that \n the relatioship check fails.\n <p/>\n NOTE: this rule works by
+ * that \n the relationship check fails.\n <p/>\n NOTE: this rule works by
  * implicitly converting the values of the attributes\n to type Double in
  * order to be able to compare apples to apples. However,\n if you are
  * dealing with large numeric values you may run into issues.

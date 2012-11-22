@@ -82,32 +82,6 @@ public class Summarizer {
 					e.printStackTrace();
 				}
 			}
-//			Iterator<DmcUncheckedObject> ucoit = sd.getParsedRules();
-//			if (ucoit != null){
-//				while(ucoit.hasNext()){
-//					
-//					try {
-////						DmwWrapper obj = dmwFactory.createWrapper(ucoit.next());
-//						DmcObject obj = dmofactory.createObject(ucoit.next());
-//						DebugInfo.debug(obj.toOIF());
-//						
-//						obj.resolveReferences(sm);
-//						
-//					} catch (ResultException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					} catch (DmcValueException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					} catch (ClassNotFoundException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					} catch (DmcValueExceptionSet e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				}
-//			}
 		}
 		
 	}
