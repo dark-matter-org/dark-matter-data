@@ -29,6 +29,7 @@ import org.dmd.dmc.types.StringName;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.generated.dmo.ClassDefinitionDMO;
 import org.dmd.dms.generated.dmo.MetaDMSAG;
+import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.dmw.ClassDefinitionDMW;
 import org.dmd.dms.generated.enums.ClassTypeEnum;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
@@ -168,6 +169,10 @@ public class ClassDefinition extends ClassDefinitionDMW {
     
     // This is initialized in the SchemaAG for a class so that we can easily access it
     DmcClassInfo	classInfo;
+    
+    // Rules applied to this attribute within the scope of a particular class
+    ArrayList<RuleDataDMO>		classRules;
+    
 
     /**
      * Default constructor.
@@ -976,6 +981,39 @@ public class ClassDefinition extends ClassDefinitionDMW {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    }
+    
+    public boolean hasRules(){
+    	if (classRules == null)
+    		getClassRules();
+    	if (classRules.size() > 0)
+    		return(true);
+    	return(false);
+    }    
+
+    public Iterator<RuleDataDMO> getClassRules(){
+    	if (classRules == null){
+  
+    		classRules = new ArrayList<RuleDataDMO>();
+    		
+    		// Get any objects that are referring to us via the applyToClass attribute
+			ArrayList<DmcObject> referring = getDMO().getReferringObjectsViaAttribute(MetaDMSAG.__applyToClass);
+			
+			DebugInfo.debug("\n" +getDMO().getBackRefs());
+			
+			if (referring != null){
+				for(DmcObject obj: referring){
+					if (obj instanceof RuleDataDMO){
+						RuleDataDMO rd = (RuleDataDMO) obj;
+						
+						if (rd.get(MetaDMSAG.__applyToAttribute) == null)
+							classRules.add(rd);
+					}
+				}
+			}
+    	}
+    	
+    	return(classRules.iterator());
     }
 
 }

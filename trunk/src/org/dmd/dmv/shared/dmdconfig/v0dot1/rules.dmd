@@ -270,7 +270,7 @@ RuleDefinition
 name				ReferencedAttributeTypeRule
 dmdID				11
 ruleCategory		AttributeValidation
-must             	allowedType
+may             	allowedType
 may					allowedValueType
 description			The ReferencedAttributeTypeRule allowes you to restrict the type of
  an attribute referred to by an AttributeDefinition reference. 
@@ -295,7 +295,7 @@ allowedType 		Double
 
 ReferencedAttributeTypeRuleData
 ruleName			dmvLhs
-ruleTitle           The lhs attribute can be single valued Integer, Long, Float or Double
+ruleTitle           The lhs attribute must be a single valued Integer, Long, Float or Double
 applyToAttribute	lhs
 applyToClass 		RelatedNumbersRuleData
 allowedType 		Integer
@@ -306,7 +306,7 @@ allowedValueType	SINGLE
 
 ReferencedAttributeTypeRuleData
 ruleName			dmvRhs
-ruleTitle			The rhs attribute can be single valued Integer, Long, Float or Double
+ruleTitle			The rhs attribute must be a single valued Integer, Long, Float or Double
 applyToAttribute	rhs
 applyToClass 		RelatedNumbersRuleData
 allowedType 		Integer
@@ -315,10 +315,16 @@ allowedType 		Float
 allowedType 		Double
 allowedValueType	SINGLE
 
-//ReferencedAttributeTypeRuleData
-//ruleName			dmvBasedOnAttribute
-//ruleTitle           The basedOnAttribute attribute must refer to a single-valued attribute
-//applyToAttribute	basedOnAttribute
-//applyToClass 		CheckAttributesBasedOnValueRuleData
-//allowedType 		AttributeDefinition
-//allowedValueType	SINGLE
+OneOfTheseAttributesRequiredRuleData
+ruleName			dmvValueorAttribute
+ruleTitle			Either allowedType or allowedValueType must be specified
+applyToClass		ReferencedAttributeTypeRuleData
+onePossibility		allowedType
+onePossibility		allowedValueType
+
+ReferencedAttributeTypeRuleData
+ruleName			dmvBasedOnAttribute
+ruleTitle           The basedOnAttribute attribute must refer to a single-valued attribute
+applyToAttribute	basedOnAttribute
+applyToClass 		CheckAttributesBasedOnValueRuleData
+allowedValueType	SINGLE

@@ -90,18 +90,20 @@ public class ReferencedAttributeTypeRule extends ReferencedAttributeTypeRuleBase
 			}
 		}
 		
-		boolean typeOkay = false;
-		Iterator<TypeDefinitionREF> types = ruleDMO.getAllowedType();
-		while(types.hasNext()){
-			TypeDefinitionREF type = types.next();
-			if (type.getObjectName().getNameString().equals(ai.type)){
-				typeOkay = true;
-				break;
+		if (ruleDMO.getAllowedTypeSize() > 0){
+			boolean typeOkay = false;
+			Iterator<TypeDefinitionREF> types = ruleDMO.getAllowedType();
+			while(types.hasNext()){
+				TypeDefinitionREF type = types.next();
+				if (type.getObjectName().getNameString().equals(ai.type)){
+					typeOkay = true;
+					break;
+				}
 			}
+			
+			if (!typeOkay)
+				throw(new DmcRuleException(this.getRuleTitle() + "\n" + attrName + " isn't one of the expected types, it's of type: " + ai.type, this));
 		}
-		
-		if (!typeOkay)
-			throw(new DmcRuleException(this.getRuleTitle() + "\n" + attrName + " isn't one of the expected types, it's of type: " + ai.type, this));
 		
 	}
 

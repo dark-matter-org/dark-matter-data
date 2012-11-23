@@ -173,6 +173,113 @@ public class ReferencedAttributeTypeRuleDataDMO  extends RuleDataDMO  implements
          rem(MetaDMSAG.__description);
     }
 
+    /**
+     * @return An Iterator of TypeDefinitionDMO objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
+    public Iterator<TypeDefinitionREF> getAllowedType(){
+        DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(DmvDMSAG.__allowedType);
+        if (attr == null)
+            return( ((List<TypeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+
+        if (DmcOmni.instance().lazyResolution()){
+            if (attr.doLazyResolution(this)){
+                rem(attr.getAttributeInfo());
+                return( ((List<TypeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+            }
+        }
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return An Iterator of TypeDefinitionREFs without attempting lazy resolution (if it's turned on).
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:980)
+    public Iterator<TypeDefinitionREF> getAllowedTypeREFs(){
+        DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(DmvDMSAG.__allowedType);
+        if (attr == null)
+            return( ((List<TypeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
+
+        return(attr.getMV());
+    }
+
+    /**
+     * Adds another allowedType to the specified value.
+     * @param value TypeDefinition
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:994)
+    public DmcAttribute<?> addAllowedType(TypeDefinitionDMO value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
+        if (attr == null)
+            attr = new DmcTypeTypeDefinitionREFMV(DmvDMSAG.__allowedType);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(DmvDMSAG.__allowedType,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Adds another allowedType value.
+     * @param value A value compatible with TypeDefinition
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
+    public DmcAttribute<?> addAllowedType(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
+        if (attr == null)
+            attr = new DmcTypeTypeDefinitionREFMV(DmvDMSAG.__allowedType);
+        
+        setLastValue(attr.add(value));
+        add(DmvDMSAG.__allowedType,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in allowedType
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
+    public int getAllowedTypeSize(){
+        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
+        if (attr == null){
+            if (DmvDMSAG.__allowedType.indexSize == 0)
+                return(0);
+            else
+                return(DmvDMSAG.__allowedType.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a allowedType value.
+     * @param value The TypeDefinition to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1291)
+    public DmcAttribute<?> delAllowedType(Object value){
+        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeTypeDefinitionREFMV(DmvDMSAG.__allowedType), value);
+        else
+            attr = del(DmvDMSAG.__allowedType, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the allowedType attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    public void remAllowedType(){
+         rem(DmvDMSAG.__allowedType);
+    }
+
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
     public ValueTypeEnum getAllowedValueType(){
         DmcTypeValueTypeEnumSV attr = (DmcTypeValueTypeEnumSV) get(DmvDMSAG.__allowedValueType);
@@ -393,113 +500,6 @@ public class ReferencedAttributeTypeRuleDataDMO  extends RuleDataDMO  implements
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remApplyToAttribute(){
          rem(MetaDMSAG.__applyToAttribute);
-    }
-
-    /**
-     * @return An Iterator of TypeDefinitionDMO objects.
-     */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:960)
-    public Iterator<TypeDefinitionREF> getAllowedType(){
-        DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(DmvDMSAG.__allowedType);
-        if (attr == null)
-            return( ((List<TypeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
-
-        if (DmcOmni.instance().lazyResolution()){
-            if (attr.doLazyResolution(this)){
-                rem(attr.getAttributeInfo());
-                return( ((List<TypeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
-            }
-        }
-
-        return(attr.getMV());
-    }
-
-    /**
-     * @return An Iterator of TypeDefinitionREFs without attempting lazy resolution (if it's turned on).
-     */
-    @SuppressWarnings("unchecked")
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:980)
-    public Iterator<TypeDefinitionREF> getAllowedTypeREFs(){
-        DmcTypeTypeDefinitionREFMV attr = (DmcTypeTypeDefinitionREFMV) get(DmvDMSAG.__allowedType);
-        if (attr == null)
-            return( ((List<TypeDefinitionREF>) Collections.EMPTY_LIST).iterator() );
-
-        return(attr.getMV());
-    }
-
-    /**
-     * Adds another allowedType to the specified value.
-     * @param value TypeDefinition
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:994)
-    public DmcAttribute<?> addAllowedType(TypeDefinitionDMO value) {
-        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
-        if (attr == null)
-            attr = new DmcTypeTypeDefinitionREFMV(DmvDMSAG.__allowedType);
-        
-        try{
-            setLastValue(attr.add(value));
-            add(DmvDMSAG.__allowedType,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
-        }
-        return(attr);
-    }
-
-    /**
-     * Adds another allowedType value.
-     * @param value A value compatible with TypeDefinition
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
-    public DmcAttribute<?> addAllowedType(Object value) throws DmcValueException {
-        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
-        if (attr == null)
-            attr = new DmcTypeTypeDefinitionREFMV(DmvDMSAG.__allowedType);
-        
-        setLastValue(attr.add(value));
-        add(DmvDMSAG.__allowedType,attr);
-        return(attr);
-    }
-
-    /**
-     * Returns the number of values in allowedType
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
-    public int getAllowedTypeSize(){
-        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
-        if (attr == null){
-            if (DmvDMSAG.__allowedType.indexSize == 0)
-                return(0);
-            else
-                return(DmvDMSAG.__allowedType.indexSize);
-        }
-        return(attr.getMVSize());
-    }
-
-    /**
-     * Deletes a allowedType value.
-     * @param value The TypeDefinition to be deleted from set of attribute values.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1291)
-    public DmcAttribute<?> delAllowedType(Object value){
-        DmcAttribute<?> attr = get(DmvDMSAG.__allowedType);
-        
-        if ( (attr == null) && (getModifier()!= null))
-            delFromEmptyAttribute(new DmcTypeTypeDefinitionREFMV(DmvDMSAG.__allowedType), value);
-        else
-            attr = del(DmvDMSAG.__allowedType, value);
-        
-        return(attr);
-    }
-
-    /**
-     * Removes the allowedType attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
-    public void remAllowedType(){
-         rem(DmvDMSAG.__allowedType);
     }
 
 

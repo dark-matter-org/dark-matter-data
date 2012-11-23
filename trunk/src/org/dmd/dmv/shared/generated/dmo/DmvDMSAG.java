@@ -93,6 +93,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
     // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:222)
     public final static AllowedAttributesRule __dmvAllowedAttributes;
+    public final static ReferencedAttributeTypeRule __dmvBasedOnAttribute;
     public final static PatternMatchRule __dmvEnumDefinitionNameCheck;
     public final static OneOfTheseAttributesRequiredRule __dmvIncludeOrExclude;
     public final static ReferencedAttributeTypeRule __dmvLhs;
@@ -102,6 +103,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
     public final static CheckAttributesBasedOnValueRule __dmvNoMustInExtensible;
     public final static ReferencedAttributeTypeRule __dmvRATRApplyToAttribute;
     public final static ReferencedAttributeTypeRule __dmvRhs;
+    public final static OneOfTheseAttributesRequiredRule __dmvValueorAttribute;
 
     static  HashMap<Integer, DmcClassInfo> _CmAp;
 
@@ -223,8 +225,8 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
         __ReferencedAttributeTypeRuleData.addMust(MetaDMSAG.__ruleName);
         __ReferencedAttributeTypeRuleData.addMust(MetaDMSAG.__ruleTitle);
         __ReferencedAttributeTypeRuleData.addMust(MetaDMSAG.__applyToAttribute);
-        __ReferencedAttributeTypeRuleData.addMust(__allowedType);
         __ReferencedAttributeTypeRuleData.addMay(MetaDMSAG.__description);
+        __ReferencedAttributeTypeRuleData.addMay(__allowedType);
         __ReferencedAttributeTypeRuleData.addMay(__allowedValueType);
 
         // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:304)
@@ -266,6 +268,20 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             __dmvAllowedAttributes = new AllowedAttributesRule(_dmvAllowedAttributesData);
 
             _RmAp.add(__dmvAllowedAttributes);
+
+            ReferencedAttributeTypeRuleDataDMO _dmvBasedOnAttributeData = new ReferencedAttributeTypeRuleDataDMO();
+            _dmvBasedOnAttributeData     .setAllowedValueType("SINGLE");
+            _dmvBasedOnAttributeData     .setApplyToAttribute("basedOnAttribute");
+            _dmvBasedOnAttributeData     .setApplyToClass("CheckAttributesBasedOnValueRuleData");
+            _dmvBasedOnAttributeData     .setDefinedIn("dmv");
+            _dmvBasedOnAttributeData     .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvBasedOnAttributeData     .setLineNumber("330");
+            _dmvBasedOnAttributeData     .setRuleName("dmvBasedOnAttribute");
+            _dmvBasedOnAttributeData     .setRuleTitle("The basedOnAttribute attribute must refer to a single-valued attribute");
+
+            __dmvBasedOnAttribute = new ReferencedAttributeTypeRule(_dmvBasedOnAttributeData);
+
+            _RmAp.add(__dmvBasedOnAttribute);
 
             PatternMatchRuleDataDMO _dmvEnumDefinitionNameCheckData = new PatternMatchRuleDataDMO();
             _dmvEnumDefinitionNameCheckData.setApplyToAttribute("name");
@@ -407,6 +423,20 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             __dmvRhs = new ReferencedAttributeTypeRule(_dmvRhsData);
 
             _RmAp.add(__dmvRhs);
+
+            OneOfTheseAttributesRequiredRuleDataDMO _dmvValueorAttributeData = new OneOfTheseAttributesRequiredRuleDataDMO();
+            _dmvValueorAttributeData     .setApplyToClass("ReferencedAttributeTypeRuleData");
+            _dmvValueorAttributeData     .setDefinedIn("dmv");
+            _dmvValueorAttributeData     .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
+            _dmvValueorAttributeData     .setLineNumber("324");
+            _dmvValueorAttributeData     .addOnePossibility("allowedType");
+            _dmvValueorAttributeData     .addOnePossibility("allowedValueType");
+            _dmvValueorAttributeData     .setRuleName("dmvValueorAttribute");
+            _dmvValueorAttributeData     .setRuleTitle("Either allowedType or allowedValueType must be specified");
+
+            __dmvValueorAttribute = new OneOfTheseAttributesRequiredRule(_dmvValueorAttributeData);
+
+            _RmAp.add(__dmvValueorAttribute);
 
         } catch(DmcValueException ex){
             throw(new IllegalStateException(ex));

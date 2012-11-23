@@ -108,18 +108,20 @@
     </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:438) -->
 
     <div class="ruledefs">
-    <h2> Rule Instances (10)</h2>
+    <h2> Rule Instances (12)</h2>
     <ul>
       <li> <a class="deflink" href="#dmvAllowedAttributes"> An object's attributes must conform to its schema. </a></li>
+      <li> <a class="deflink" href="#dmvBasedOnAttribute"> The basedOnAttribute attribute must refer to a single-valued attribute </a></li>
       <li> <a class="deflink" href="#dmvEnumDefinitionNameCheck"> An EnumDefinition's name must end with Enum </a></li>
       <li> <a class="deflink" href="#dmvIncludeOrExclude"> At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified. </a></li>
-      <li> <a class="deflink" href="#dmvLhs"> The lhs attribute can be single valued Integer, Long, Float or Double </a></li>
+      <li> <a class="deflink" href="#dmvLhs"> The lhs attribute must be a single valued Integer, Long, Float or Double </a></li>
       <li> <a class="deflink" href="#dmvMaxOrMin"> At least one of the maxLength or minLength attributes must be specified. </a></li>
       <li> <a class="deflink" href="#dmvMinLessThanMax"> The minLength must be less than the maxLength. </a></li>
       <li> <a class="deflink" href="#dmvNRRApplyToAttribute"> The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute </a></li>
       <li> <a class="deflink" href="#dmvNoMustInExtensible"> If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes </a></li>
       <li> <a class="deflink" href="#dmvRATRApplyToAttribute"> The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition </a></li>
-      <li> <a class="deflink" href="#dmvRhs"> The rhs attribute can be single valued Integer, Long, Float or Double </a></li>
+      <li> <a class="deflink" href="#dmvRhs"> The rhs attribute must be a single valued Integer, Long, Float or Double </a></li>
+      <li> <a class="deflink" href="#dmvValueorAttribute"> Either allowedType or allowedValueType must be specified </a></li>
     </ul>
     </div>  </div> <!--  summary -->
 
@@ -134,7 +136,7 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="AllowedAttributesRuleData"> AllowedAttributesRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:53) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -157,7 +159,7 @@
  </pre></td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:64) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -165,7 +167,7 @@
       <td colspan="2">STRUCTURAL</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:78) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -175,7 +177,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:150) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -192,7 +194,7 @@
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -203,7 +205,7 @@
  other characters are allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -217,7 +219,7 @@
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -226,7 +228,7 @@
       <td> The class to which a rule should be applied.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -238,7 +240,7 @@
  documentation.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -250,7 +252,7 @@
  of rules, so this flag gives the option of halting further processing.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -261,7 +263,7 @@
  other contexts.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -276,7 +278,7 @@
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -285,7 +287,7 @@
       <td> Indicates the schema in which a type, attribute or class is defined.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -294,7 +296,7 @@
       <td> Indicates the file from which a definition was loaded.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -310,7 +312,7 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="AttributeTypeRuleData"> AttributeTypeRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:53) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -320,7 +322,7 @@
  <p/></td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:64) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -328,7 +330,7 @@
       <td colspan="2">STRUCTURAL</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:78) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -338,7 +340,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:150) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -355,29 +357,30 @@
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmv.html#allowedType">allowedType</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#TypeDefinition">TypeDefinition</a> </td>
-      <td> The allowedType indicates a collection of defined types to which something,\n usually and attribute, must conform.      </td>
+      <td> The allowedType indicates a collection of defined types to which something,
+ usually and attribute, must conform.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendRuleInfo(ClassFormatter.java:216) -->
+      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
 
 <table>
 </table>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -388,7 +391,7 @@
  other characters are allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -402,7 +405,7 @@
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -411,7 +414,7 @@
       <td> The allowedValueType indicates the allowed cardinality of an attribute.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -420,7 +423,7 @@
       <td> The class to which a rule should be applied.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -432,7 +435,7 @@
  documentation.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -444,7 +447,7 @@
  of rules, so this flag gives the option of halting further processing.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -455,7 +458,7 @@
  other contexts.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -470,7 +473,7 @@
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -479,7 +482,7 @@
       <td> Indicates the schema in which a type, attribute or class is defined.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -488,7 +491,7 @@
       <td> Indicates the file from which a definition was loaded.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -504,27 +507,31 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="CheckAttributesBasedOnValueRuleData"> CheckAttributesBasedOnValueRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:53) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
       <td colspan="2">The CheckAttributesBasedOnValueRule allows you to specify
  that certain optional attributes must exist (or not exist) based on the value
- of another attribute in an object. This allows for finer control of must/may
- attributes based on enumerated values in an object. An example usage might look like:
+ of another single valued attribute in an object. This allows for finer control of must/may
+ attributes based on other values in an object. An example usage (from
+ the dark-matter validation schema) looks like:
  <pre>
  CheckAttributesBasedOnValueRuleData
- ruleName             <schema>ExcludeSunRoof
- ruleTitle            The sun roof option is not avilable on four cyclinder vehicles.
- applyToClass         Car
- basedOnAttribute     engineType
- basedOnValue         FOURCYLINDER
- excludeThisAttribute sunRoofOption
- </pre></td>
+ ruleName              dmvNoMustInExtensible
+ ruleTitle             If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes
+ applyToClass          ClassDefinition
+ basedOnAttribute      classType
+ basedOnValue          AUXILIARY
+ excludeThisAttribute  must
+ description           An AUXILIARY class can be added to an object dynamically and
+  we don't allow mandatory attributes in such classes.
+ </pre>
+ If the basedOnAttribute doesn't exist in the object being validated, the rule does nothing.</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:64) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -532,7 +539,7 @@
       <td colspan="2">STRUCTURAL</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:78) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -542,7 +549,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:150) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -550,6 +557,18 @@
       <td colspan="2"> <a href="meta.html#ruleName">ruleName</a> </td>
     </tr>
 
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendClassRuleInfo(ClassFormatter.java:217) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Rules</td>
+<td>
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvIncludeOrExclude"> At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified. </a></td> </tr>
+
+</table>
+</td>
   </table>
 
   <table>
@@ -559,25 +578,34 @@
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmv.html#basedOnAttribute">basedOnAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> The basedOnAttribute allows for the specification of an attribute on which\n some type of a decision is made.      </td>
+      <td> The basedOnAttribute allows for the specification of an attribute on which
+ some type of a decision is made.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvBasedOnAttribute"> The basedOnAttribute attribute must refer to a single-valued attribute </a></td> </tr>
+
+</table>
+      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmv.html#basedOnValue">basedOnValue</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The basedOnValue attribute allows for the specification of values for some\n aspect of a rule.      </td>
+      <td class="valueType"> P HS </td>      <td> <a href="meta.html#String">String</a> </td>
+      <td> The basedOnValue attribute allows for the specification of values for some
+ aspect of a rule.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -588,7 +616,7 @@
  other characters are allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -602,7 +630,7 @@
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -611,7 +639,7 @@
       <td> The class to which a rule should be applied.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -623,16 +651,17 @@
  documentation.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmv.html#excludeThisAttribute">excludeThisAttribute</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> The excludeThisAttribute indicates an optional attribute that must be\n excluded from an object under certain conditions.      </td>
+      <td> The excludeThisAttribute indicates an optional attribute that must be
+ excluded from an object under certain conditions.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -644,16 +673,17 @@
  of rules, so this flag gives the option of halting further processing.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmv.html#includeThisAttribute">includeThisAttribute</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> The includeThisAttribute indicates an optional attribute that must be\n present under certain conditions.      </td>
+      <td> The includeThisAttribute indicates an optional attribute that must be
+ present under certain conditions.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -664,7 +694,7 @@
  other contexts.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -679,7 +709,7 @@
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -688,7 +718,7 @@
       <td> Indicates the schema in which a type, attribute or class is defined.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -697,7 +727,7 @@
       <td> Indicates the file from which a definition was loaded.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -713,7 +743,7 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="InitRuleData"> InitRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:53) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -738,7 +768,7 @@
  </pre></td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:64) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -746,7 +776,7 @@
       <td colspan="2">EXTENSIBLE</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:78) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -756,7 +786,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:150) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -773,7 +803,7 @@
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -784,7 +814,7 @@
  other characters are allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -798,7 +828,7 @@
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -807,7 +837,7 @@
       <td> The class to which a rule should be applied.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -819,7 +849,7 @@
  documentation.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -831,7 +861,7 @@
  of rules, so this flag gives the option of halting further processing.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -842,7 +872,7 @@
  other contexts.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -857,7 +887,7 @@
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -866,7 +896,7 @@
       <td> Indicates the schema in which a type, attribute or class is defined.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -875,7 +905,7 @@
       <td> Indicates the file from which a definition was loaded.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -891,7 +921,7 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="NumericRangeRuleData"> NumericRangeRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:53) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -914,7 +944,7 @@
  if you are dealing with large numeric values you may run into issues.</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:64) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -922,7 +952,7 @@
       <td colspan="2">STRUCTURAL</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:78) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -932,7 +962,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:150) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -949,13 +979,13 @@
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendRuleInfo(ClassFormatter.java:216) -->
+      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -965,7 +995,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -974,7 +1004,7 @@
       <td> The maximum numeric value.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -983,7 +1013,7 @@
       <td> The minimum numeric value.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -994,7 +1024,7 @@
  other characters are allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1008,7 +1038,7 @@
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1017,7 +1047,7 @@
       <td> The class to which a rule should be applied.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1029,7 +1059,7 @@
  documentation.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1041,7 +1071,7 @@
  of rules, so this flag gives the option of halting further processing.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1052,7 +1082,7 @@
  other contexts.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1067,7 +1097,7 @@
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1076,7 +1106,7 @@
       <td> Indicates the schema in which a type, attribute or class is defined.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1085,7 +1115,7 @@
       <td> Indicates the file from which a definition was loaded.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1101,7 +1131,7 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="OneOfTheseAttributesRequiredRuleData"> OneOfTheseAttributesRequiredRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:53) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1124,7 +1154,7 @@
  </pre></td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:64) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1132,7 +1162,7 @@
       <td colspan="2">STRUCTURAL</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:78) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1142,7 +1172,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:150) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1159,16 +1189,17 @@
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmv.html#onePossibility">onePossibility</a> </td>
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> The onePossibility attribute indicates an attribute that is one possiblity among\n many.      </td>
+      <td> The onePossibility attribute indicates an attribute that is one possiblity among
+ many.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1179,7 +1210,7 @@
  other characters are allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1193,16 +1224,17 @@
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmv.html#andOnlyOne">andOnlyOne</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> The andOnlyOne attribute indicates that only one of a set of possibilities is\n allowed.      </td>
+      <td> The andOnlyOne attribute indicates that only one of a set of possibilities is
+ allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1211,7 +1243,7 @@
       <td> The class to which a rule should be applied.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1223,7 +1255,7 @@
  documentation.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1235,7 +1267,7 @@
  of rules, so this flag gives the option of halting further processing.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1246,7 +1278,7 @@
  other contexts.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1261,7 +1293,7 @@
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1270,7 +1302,7 @@
       <td> Indicates the schema in which a type, attribute or class is defined.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1279,7 +1311,7 @@
       <td> Indicates the file from which a definition was loaded.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1295,7 +1327,7 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="PatternMatchRuleData"> PatternMatchRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:53) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1315,7 +1347,7 @@
  </pre></td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:64) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1323,7 +1355,7 @@
       <td colspan="2">STRUCTURAL</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:78) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1333,7 +1365,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:150) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1350,29 +1382,30 @@
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendRuleInfo(ClassFormatter.java:216) -->
+      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
 
 <table>
 </table>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmv.html#matchesPattern">matchesPattern</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The matchesPattern attribute indicates a regular expression that conforms\n to the      </td>
+      <td> The matchesPattern attribute indicates a regular expression that conforms
+ to the      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1383,7 +1416,7 @@
  other characters are allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1397,7 +1430,7 @@
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1406,7 +1439,7 @@
       <td> The class to which a rule should be applied.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1418,7 +1451,7 @@
  documentation.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1430,7 +1463,7 @@
  of rules, so this flag gives the option of halting further processing.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1441,7 +1474,7 @@
  other contexts.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1456,7 +1489,7 @@
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1465,7 +1498,7 @@
       <td> Indicates the schema in which a type, attribute or class is defined.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1474,7 +1507,7 @@
       <td> Indicates the file from which a definition was loaded.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1490,7 +1523,7 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="ReferencedAttributeTypeRuleData"> ReferencedAttributeTypeRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:53) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1500,7 +1533,7 @@
  <p/></td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:64) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1508,7 +1541,7 @@
       <td colspan="2">STRUCTURAL</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:78) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1518,7 +1551,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:150) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1526,6 +1559,18 @@
       <td colspan="2"> <a href="meta.html#ruleName">ruleName</a> </td>
     </tr>
 
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendClassRuleInfo(ClassFormatter.java:217) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Rules</td>
+<td>
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvValueorAttribute"> Either allowedType or allowedValueType must be specified </a></td> </tr>
+
+</table>
+</td>
   </table>
 
   <table>
@@ -1535,22 +1580,13 @@
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmv.html#allowedType">allowedType</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="meta.html#TypeDefinition">TypeDefinition</a> </td>
-      <td> The allowedType indicates a collection of defined types to which something,\n usually and attribute, must conform.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendRuleInfo(ClassFormatter.java:216) -->
+      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -1560,7 +1596,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1571,7 +1607,7 @@
  other characters are allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1585,7 +1621,17 @@
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmv.html#allowedType">allowedType</a> </td>
+      <td class="valueType"> P MV </td>      <td> <a href="meta.html#TypeDefinition">TypeDefinition</a> </td>
+      <td> The allowedType indicates a collection of defined types to which something,
+ usually and attribute, must conform.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1594,7 +1640,7 @@
       <td> The allowedValueType indicates the allowed cardinality of an attribute.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1603,7 +1649,7 @@
       <td> The class to which a rule should be applied.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1615,7 +1661,7 @@
  documentation.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1627,7 +1673,7 @@
  of rules, so this flag gives the option of halting further processing.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1638,7 +1684,7 @@
  other contexts.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1653,7 +1699,7 @@
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1662,7 +1708,7 @@
       <td> Indicates the schema in which a type, attribute or class is defined.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1671,7 +1717,7 @@
       <td> Indicates the file from which a definition was loaded.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1687,7 +1733,7 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="RelatedNumbersRuleData"> RelatedNumbersRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:53) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1717,7 +1763,7 @@
  if you are dealing with large numeric values you may run into issues.</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:64) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1725,7 +1771,7 @@
       <td colspan="2">STRUCTURAL</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:78) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1735,7 +1781,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:150) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1752,23 +1798,25 @@
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmv.html#lhs">lhs</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> The attribute to be used as the left hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested.<!-- org.dmd.dms.doc.web.ClassFormatter.appendRuleInfo(ClassFormatter.java:216) -->
+      <td> The attribute to be used as the left hand side of some relationship. The
+ type of the attribute referred to may differ from one rule to the next depending on
+ the relationship being tested.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
 
 <table>
 <tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvLhs"> The lhs attribute can be single valued Integer, Long, Float or Double </a></td> </tr>
+<a class="blackText" href="dmv.html#dmvLhs"> The lhs attribute must be a single valued Integer, Long, Float or Double </a></td> </tr>
 
 </table>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1777,23 +1825,25 @@
       <td> The relationship between numeric values.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="dmv.html#rhs">rhs</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> The attribute to be used as the right hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested.<!-- org.dmd.dms.doc.web.ClassFormatter.appendRuleInfo(ClassFormatter.java:216) -->
+      <td> The attribute to be used as the right hand side of some relationship. The
+ type of the attribute referred to may differ from one rule to the next depending on
+ the relationship being tested.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
 
 <table>
 <tr> <td class="attributeRule">
-<a class="blackText" href="dmv.html#dmvRhs"> The rhs attribute can be single valued Integer, Long, Float or Double </a></td> </tr>
+<a class="blackText" href="dmv.html#dmvRhs"> The rhs attribute must be a single valued Integer, Long, Float or Double </a></td> </tr>
 
 </table>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1804,7 +1854,7 @@
  other characters are allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1818,7 +1868,7 @@
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1827,7 +1877,7 @@
       <td> The class to which a rule should be applied.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1839,7 +1889,7 @@
  documentation.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1851,7 +1901,7 @@
  of rules, so this flag gives the option of halting further processing.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1862,7 +1912,7 @@
  other contexts.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1877,7 +1927,7 @@
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1886,7 +1936,7 @@
       <td> Indicates the schema in which a type, attribute or class is defined.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1895,7 +1945,7 @@
       <td> Indicates the file from which a definition was loaded.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1911,7 +1961,7 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="UCOAllowedAttributesRuleData"> UCOAllowedAttributesRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:53) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1921,7 +1971,7 @@
  class definition. For classes of type EXTENSIBLE only the must have attributes are checked.</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:64) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1929,7 +1979,7 @@
       <td colspan="2">STRUCTURAL</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:78) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1939,7 +1989,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:150) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1956,7 +2006,7 @@
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1967,7 +2017,7 @@
  other characters are allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1981,7 +2031,7 @@
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1990,7 +2040,7 @@
       <td> The class to which a rule should be applied.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2002,7 +2052,7 @@
  documentation.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2014,7 +2064,7 @@
  of rules, so this flag gives the option of halting further processing.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2025,7 +2075,7 @@
  other contexts.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2040,7 +2090,7 @@
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2049,7 +2099,7 @@
       <td> Indicates the schema in which a type, attribute or class is defined.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2058,7 +2108,7 @@
       <td> Indicates the file from which a definition was loaded.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2074,7 +2124,7 @@
   <table>
 
     <tr> <td class="className" colspan="4"> <a name="ValueLengthRuleData"> ValueLengthRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:53) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2084,7 +2134,7 @@
  with an attribute.</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:64) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2092,7 +2142,7 @@
       <td colspan="2">STRUCTURAL</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:78) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2102,7 +2152,7 @@
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:150) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2110,6 +2160,21 @@
       <td colspan="2"> <a href="meta.html#ruleName">ruleName</a> </td>
     </tr>
 
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendClassRuleInfo(ClassFormatter.java:217) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Rules</td>
+<td>
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvMaxOrMin"> At least one of the maxLength or minLength attributes must be specified. </a></td> </tr>
+
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvMinLessThanMax"> The minLength must be less than the maxLength. </a></td> </tr>
+
+</table>
+</td>
   </table>
 
   <table>
@@ -2119,20 +2184,20 @@
       <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
       <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendRuleInfo(ClassFormatter.java:216) -->
+      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
 
 <table>
 </table>
       </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2143,7 +2208,7 @@
  other characters are allowed.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2157,7 +2222,7 @@
       <td colspan="5"class="attributeSectionLabel">May have attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2166,7 +2231,7 @@
       <td> The class to which a rule should be applied.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2178,7 +2243,7 @@
  documentation.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2190,7 +2255,7 @@
  of rules, so this flag gives the option of halting further processing.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2199,7 +2264,7 @@
       <td> The maxLength attribute indicates the maximum length of something.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2208,7 +2273,7 @@
       <td> The minLength attribute indicates the maximum length of something.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2219,7 +2284,7 @@
  other contexts.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2234,7 +2299,7 @@
       <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2243,7 +2308,7 @@
       <td> Indicates the schema in which a type, attribute or class is defined.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2252,7 +2317,7 @@
       <td> Indicates the file from which a definition was loaded.      </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:199) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2285,7 +2350,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The allowedType indicates a collection of defined types to which something,\n usually and attribute, must conform.<p/>
-      </td>
+Either allowedType or allowedValueType must be specified
+<p/>      </td>
     </tr>
 
     <tr>
@@ -2313,7 +2379,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The allowedValueType indicates the allowed cardinality of an attribute.<p/>
-      </td>
+Either allowedType or allowedValueType must be specified
+<p/>      </td>
     </tr>
 
     <tr>
@@ -2368,7 +2435,8 @@
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The basedOnAttribute allows for the specification of an attribute on which\n some type of a decision is made.<p/>
-      </td>
+The basedOnAttribute attribute must refer to a single-valued attribute
+<p/>      </td>
     </tr>
 
     <tr>
@@ -2387,7 +2455,7 @@
     <tr> <td class="className" colspan="3"> <a name="basedOnValue"> basedOnValue </a> </td></tr>
     <tr>
       <td class="spacer"> </td>
-      <td colspan="2"> <div class="valueType"> P MV </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
+      <td colspan="2"> <div class="valueType"> P HS </div> <div class="attrType"> <a href="meta.html#String">String</a> </div> 
       </td>
     </tr>
 
@@ -2478,7 +2546,7 @@ At least one of the excludeThisAttribute or includeThisAttribute attributes must
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The attribute to be used as the left hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested.<p/>
-The lhs attribute can be single valued Integer, Long, Float or Double
+The lhs attribute must be a single valued Integer, Long, Float or Double
 <p/>      </td>
     </tr>
 
@@ -2699,7 +2767,7 @@ At least one of the maxLength or minLength attributes must be specified.
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The attribute to be used as the right hand side of some relationship. The\n type of the attribute referred to may differ from one rule to the next depending on\n the relationship being tested.<p/>
-The rhs attribute can be single valued Integer, Long, Float or Double
+The rhs attribute must be a single valued Integer, Long, Float or Double
 <p/>      </td>
     </tr>
 
@@ -2917,6 +2985,35 @@ maxLength
 <br>minLength
       </td>
     </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmvValueorAttribute">
+        Either allowedType or allowedValueType must be specified
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to class: </td>
+      <td> ReferencedAttributeTypeRuleData </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> onePossibility </td>
+      <td>
+allowedType
+<br>allowedValueType
+      </td>
+    </tr>
 <!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
     <tr> <td class="ruleDefName" colspan="4"> PatternMatchRule (ATTRIBUTE)</td></tr>
     <tr>
@@ -2965,8 +3062,39 @@ maxLength
     <tr>
       <td class="spacer"> </td>
       <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmvBasedOnAttribute">
+        The basedOnAttribute attribute must refer to a single-valued attribute
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to class: </td>
+      <td> CheckAttributesBasedOnValueRuleData </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to attribute: </td>
+      <td> basedOnAttribute </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> allowedValueType </td>
+      <td> SINGLE</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvLhs">
-        The lhs attribute can be single valued Integer, Long, Float or Double
+        The lhs attribute must be a single valued Integer, Long, Float or Double
       </a>
       </td>
     </tr>
@@ -3079,7 +3207,7 @@ AttributeDefinition
       <td class="spacer"> </td>
       <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvRhs">
-        The rhs attribute can be single valued Integer, Long, Float or Double
+        The rhs attribute must be a single valued Integer, Long, Float or Double
       </a>
       </td>
     </tr>

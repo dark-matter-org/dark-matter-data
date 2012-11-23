@@ -138,7 +138,7 @@ public class AttributeFormatter {
 //					if (obj instanceof RuleDataDMO){
 //						
 //					}
-					DebugInfo.debug("REF FROM: " + obj.getClass().getName());
+//					DebugInfo.debug("REF FROM: " + obj.getClass().getName());
 //					if (wrapper instanceof RuleDefinition){
 //						RuleDefinition rd = (RuleDefinition) wrapper;
 //						DebugInfo.debug(rd.toOIF());

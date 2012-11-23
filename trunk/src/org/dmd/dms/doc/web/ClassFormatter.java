@@ -32,6 +32,7 @@ public class ClassFormatter {
 		derived(out, cd);
 		wrapper(out, cd);
 		namedBy(out, cd);
+		appendClassRuleInfo(out, cd);
 		out.write("  </table>\n\n");
 		
 		if ( (cd.getMustSize() > 0) || (cd.getMaySize() > 0)){
@@ -204,14 +205,60 @@ public class ClassFormatter {
 		sb.append("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
 		sb.append("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
 		if (ad.getDescription() != null){
-			sb.append("      <td> " + Converter.convert(ad.getDescription()));
-			appendRuleInfo(sb, cd, ad);
+			sb.append("      <td> " + Converter.convert(ad.getDescriptionWithNewlines()));
+			appendAttributeRuleInfo(sb, cd, ad);
 			sb.append("      </td>\n");
 		}
 		sb.append("    </tr>\n\n");		
 	}
 	
-	static void appendRuleInfo(StringBuffer sb, ClassDefinition cd, AttributeDefinition ad){
+	static void appendClassRuleInfo(BufferedWriter out, ClassDefinition cd) throws IOException{
+		if (cd.hasRules()){
+			out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
+			out.write("    <tr>\n");
+			out.write("      <td class=\"spacer\"> </td>\n");
+			out.write("      <td>Rules</td>\n");
+
+			out.write("<td>\n");
+			
+			out.write("<table>\n");
+			
+//			Iterator<RuleDataDMO> rules = ad.getGlobalRules();
+//			while(rules.hasNext()){
+//				
+//			}
+			
+			Iterator<RuleDataDMO> rules = cd.getClassRules();
+			while(rules.hasNext()){
+				RuleDataDMO rd = rules.next();
+				
+//				DebugInfo.debug(rd.toOIF());
+//				boolean dumpRule = false;
+//				if (rd.getApplyToClass() == null)
+//					dumpRule = true;
+//				else{
+//					ClassDefinition atc = schema.cdef(rd.getApplyToClass().getObjectName().getNameString());
+//					if (cd.isInstanceOfThis(atc))
+//						dumpRule = true;
+//				}
+//				
+//				if (cd.isInstanceOfThis(atc)){
+					// We only display the rule if it's applicable to this class or
+					// if we're derived from the applyToClass
+					out.write("<tr> <td class=\"attributeRule\">\n");
+					out.write("<a class=\"blackText\" href=\"" + rd.getDefinedIn().getObjectName() + ".html#" + rd.getRuleName() + "\"> " + rd.getRuleTitle() + " </a>");
+					out.write("</td> </tr>\n\n");
+					
+					
+//				}
+			}
+			
+			out.write("</table>\n");
+			out.write("</td>\n");
+		}
+	}
+	
+	static void appendAttributeRuleInfo(StringBuffer sb, ClassDefinition cd, AttributeDefinition ad){
 		if (ad.hasRules()){
 			sb.append("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
 			sb.append("<table>\n");
