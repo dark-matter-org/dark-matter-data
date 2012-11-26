@@ -1001,6 +1001,10 @@ public class ClassDefinition extends ClassDefinitionDMW {
 			
 			DebugInfo.debug("\n" +getDMO().getBackRefs());
 			
+			if (this.getName().getNameString().equals("ValueLengthRuleData")){
+				DebugInfo.debug("HERE");
+			}
+			
 			if (referring != null){
 				for(DmcObject obj: referring){
 					if (obj instanceof RuleDataDMO){

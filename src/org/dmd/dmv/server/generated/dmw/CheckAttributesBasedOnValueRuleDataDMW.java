@@ -18,6 +18,7 @@ package org.dmd.dmv.server.generated.dmw;
 // Generated from: org.dmd.util.codegen.ImportManager.getFormattedImports(ImportManager.java:82)
 // Called from: org.dmd.dmg.generators.BaseDMWGeneratorNewest.dumpWrapper(BaseDMWGeneratorNewest.java:349)
 import java.util.ArrayList;                                                             // To support getMVCopy() - (BaseDMWGeneratorNewest.java:999)
+import java.util.HashSet;                                                               // To support getMVCopy() - (BaseDMWGeneratorNewest.java:1018)
 import java.util.Iterator;                                                              // Support copy of MV objects - (BaseDMWGeneratorNewest.java:2054)
 import org.dmd.dmc.*;                                                                   // If any attributes - (BaseDMWGeneratorNewest.java:905)
 import org.dmd.dmc.types.RuleName;                                                      // Is named by - (BaseDMWGeneratorNewest.java:884)
@@ -37,13 +38,18 @@ import org.dmd.dmv.shared.generated.dmo.DmvDMSAG;                               
 /**
  * The CheckAttributesBasedOnValueRule allows you to specify\n that certain
  * optional attributes must exist (or not exist) based on the value\n of
- * another attribute in an object. This allows for finer control of
- * must/may\n attributes based on enumerated values in an object. An example
- * usage might look like:\n <pre>\n CheckAttributesBasedOnValueRuleData\n
- * ruleName             <schema>ExcludeSunRoof\n ruleTitle            The sun
- * roof option is not avilable on four cyclinder vehicles.\n applyToClass    
- *     Car\n basedOnAttribute     engineType\n basedOnValue        
- * FOURCYLINDER\n excludeThisAttribute sunRoofOption\n </pre>
+ * another single valued attribute in an object. This allows for finer
+ * control of must/may\n attributes based on other values in an object. An
+ * example usage (from\n the dark-matter validation schema) looks like:\n
+ * <pre>\n CheckAttributesBasedOnValueRuleData\n ruleName             
+ * dmvNoMustInExtensible\n ruleTitle             If a ClassDefinition's
+ * classType is AUXILIARY, it can't have mandatory attributes\n applyToClass 
+ *         ClassDefinition\n basedOnAttribute      classType\n basedOnValue  
+ *        AUXILIARY\n excludeThisAttribute  must\n description           An
+ * AUXILIARY class can be added to an object dynamically and\n  we don't
+ * allow mandatory attributes in such classes.\n </pre>\n If the
+ * basedOnAttribute doesn't exist in the object being validated, the rule
+ * does nothing.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>
@@ -217,12 +223,12 @@ public class CheckAttributesBasedOnValueRuleDataDMW extends RuleData implements 
      */
     // org.dmd.dmg.generators.BaseDMWGeneratorNewest.formatMV(BaseDMWGeneratorNewest.java:2058)
     @SuppressWarnings("unchecked")
-    public ArrayList<String> getBasedOnValueCopy(){
+    public HashSet<String> getBasedOnValueCopy(){
         DmcAttribute<?> attr = core.get(DmvDMSAG.__basedOnValue);
         if (attr == null)
-            return(new ArrayList<String>());
+            return(new HashSet<String>());
         
-        ArrayList<String> rc = new ArrayList<String>(attr.getMVSize());
+        HashSet<String> rc = new HashSet<String>(attr.getMVSize());
         
         Iterator<String> it = (Iterator<String>) attr.getMV();
         while(it.hasNext()){

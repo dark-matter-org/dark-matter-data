@@ -204,7 +204,12 @@ public class ClassFormatter {
 		sb.append("      <td> <a href=\"" + schema + ".html#" + ad.getName() + "\">" + ad.getName() + "</a> </td>\n");
 		sb.append("      <td class=\"valueType\"> " + AttributeFormatter.getValueType(ad) + " </td>");
 		sb.append("      <td> <a href=\"" + tschema + ".html#" + type + "\">" + type + "</a> </td>\n");
-		if (ad.getDescription() != null){
+		if (ad.getDescription() == null){
+			sb.append("      <td> ");
+			appendAttributeRuleInfo(sb, cd, ad);
+			sb.append("      </td>\n");
+		}
+		else{
 			sb.append("      <td> " + Converter.convert(ad.getDescriptionWithNewlines()));
 			appendAttributeRuleInfo(sb, cd, ad);
 			sb.append("      </td>\n");
@@ -265,7 +270,11 @@ public class ClassFormatter {
 			
 			Iterator<RuleDataDMO> rules = ad.getGlobalRules();
 			while(rules.hasNext()){
+				RuleDataDMO rd = rules.next();
 				
+				sb.append("<tr> <td class=\"attributeRule\">\n");
+				sb.append("<a class=\"blackText\" href=\"" + rd.getDefinedIn().getObjectName() + ".html#" + rd.getRuleName() + "\"> " + rd.getRuleTitle() + " </a>");
+				sb.append("</td> </tr>\n\n");
 			}
 			
 			rules = ad.getClassRules();

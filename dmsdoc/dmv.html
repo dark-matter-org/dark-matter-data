@@ -23,16 +23,11 @@
 <!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:308) -->
 
     <div class="classList">
-    <h2> Classes (11)</h2>
+    <h2> Classes (10)</h2>
     <table>
       <tr>
       <td class="spacer"> </td>
       <td> <a class="deflink" href="#AllowedAttributesRuleData"> AllowedAttributesRuleData </a></td>
-      <td> ruleName </td>
-      </tr>
-      <tr>
-      <td class="spacer"> </td>
-      <td> <a class="deflink" href="#AttributeTypeRuleData"> AttributeTypeRuleData </a></td>
       <td> ruleName </td>
       </tr>
       <tr>
@@ -91,10 +86,9 @@
     </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleDefinitionSummary(SchemaPage.java:421) -->
 
     <div class="ruledefs">
-    <h2> Rule Definitions (11)</h2>
+    <h2> Rule Definitions (10)</h2>
     <ul>
       <li> <a class="deflink" href="#AllowedAttributesRuleData"> AllowedAttributesRule </a></li>
-      <li> <a class="deflink" href="#AttributeTypeRuleData"> AttributeTypeRule </a></li>
       <li> <a class="deflink" href="#CheckAttributesBasedOnValueRuleData"> CheckAttributesBasedOnValueRule </a></li>
       <li> <a class="deflink" href="#InitRuleData"> InitRule </a></li>
       <li> <a class="deflink" href="#NumericRangeRuleData"> NumericRangeRule </a></li>
@@ -108,7 +102,7 @@
     </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:438) -->
 
     <div class="ruledefs">
-    <h2> Rule Instances (12)</h2>
+    <h2> Rule Instances (14)</h2>
     <ul>
       <li> <a class="deflink" href="#dmvAllowedAttributes"> An object's attributes must conform to its schema. </a></li>
       <li> <a class="deflink" href="#dmvBasedOnAttribute"> The basedOnAttribute attribute must refer to a single-valued attribute </a></li>
@@ -117,6 +111,8 @@
       <li> <a class="deflink" href="#dmvLhs"> The lhs attribute must be a single valued Integer, Long, Float or Double </a></li>
       <li> <a class="deflink" href="#dmvMaxOrMin"> At least one of the maxLength or minLength attributes must be specified. </a></li>
       <li> <a class="deflink" href="#dmvMinLessThanMax"> The minLength must be less than the maxLength. </a></li>
+      <li> <a class="deflink" href="#dmvMinimumLength"> The minLength must be 1 or more </a></li>
+      <li> <a class="deflink" href="#dmvMinimumOrMaximum"> Either nrrMinimum or nrrMaximum must be specified. </a></li>
       <li> <a class="deflink" href="#dmvNRRApplyToAttribute"> The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute </a></li>
       <li> <a class="deflink" href="#dmvNoMustInExtensible"> If a ClassDefinition's classType is AUXILIARY, it can't have mandatory attributes </a></li>
       <li> <a class="deflink" href="#dmvRATRApplyToAttribute"> The applyToAttribute attribute in a ReferencedAttributeTypeRuleData must refer to a single valued AttributeDefinition </a></li>
@@ -311,201 +307,6 @@
 
   <table>
 
-    <tr> <td class="className" colspan="4"> <a name="AttributeTypeRuleData"> AttributeTypeRuleData </a> </td></tr>
-<!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Description</td>
-      <td colspan="2">The AttributeTypeRule allowes you to restrict the type of
- an attribute of a particular AttributeDefinition reference.
- <p/></td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td class="label">Type</td>
-      <td colspan="2">STRUCTURAL</td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.derivedFrom(ClassFormatter.java:79) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Derived from</td>
-      <td colspan="2">
-      <a href="meta.html#RuleData">RuleData</a>
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.namedBy(ClassFormatter.java:151) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td>Named by</td>
-      <td colspan="2"> <a href="meta.html#ruleName">ruleName</a> </td>
-    </tr>
-
-  </table>
-
-  <table>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="5"class="attributeSectionLabel">Must have attributes</td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmv.html#allowedType">allowedType</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="meta.html#TypeDefinition">TypeDefinition</a> </td>
-      <td> The allowedType indicates a collection of defined types to which something,
- usually and attribute, must conform.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
-
-<table>
-</table>
-      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#ruleName">ruleName</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#RuleName">RuleName</a> </td>
-      <td> The ruleName attribute is used to store a single camelCase format name for a rule.
- The name starts with a single letter and can be followed by a mix of letters and numbers. No spaces or 
- other characters are allowed.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#ruleTitle">ruleTitle</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The title of a rule.      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="5"class="attributeSectionLabel">May have attributes</td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmv.html#allowedValueType">allowedValueType</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ValueTypeEnum">ValueTypeEnum</a> </td>
-      <td> The allowedValueType indicates the allowed cardinality of an attribute.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#applyToClass">applyToClass</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#ClassDefinition">ClassDefinition</a> </td>
-      <td> The class to which a rule should be applied.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#description">description</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The description attribute is used to provide descriptive
- documentation for schema related definitions. The text provided should conform
- to XHTML concepts since it will be dumped in the context of the generated HTML
- documentation.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#immediateHalt">immediateHalt</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Boolean">Boolean</a> </td>
-      <td> The immediateHalt flag is used to indicate that no further
- rule processing should occur if a rule fails. It is an optional attribute on rule instance
- objects. In somes cases, there is no point in continuing with the application of a set 
- of rules, so this flag gives the option of halting further processing.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#msgKey">msgKey</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The msgKey may be specified on rule instances to indicate the key to be used
- to look up translated messages. This is primarily a GWT mechanism, but should be applicable in
- other contexts.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#msgParam">msgParam</a> </td>
-      <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> The msgParam allows for the specification of parameters to be substituted
- into translated messages.      </td>
-    </tr>
-
-    <tr>
-      <td class="spacer"> </td>
-      <td colspan="5"class="attributeSectionLabel">Internal use attributes</td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#definedIn">definedIn</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#SchemaDefinition">SchemaDefinition</a> </td>
-      <td> Indicates the schema in which a type, attribute or class is defined.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#file">file</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#String">String</a> </td>
-      <td> Indicates the file from which a definition was loaded.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="meta.html#lineNumber">lineNumber</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> Indicates the line number of the file from which a definition was loaded.      </td>
-    </tr>
-
-  </table>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.dumpDetails(ClassFormatter.java:23) -->
-
-  <table>
-
     <tr> <td class="className" colspan="4"> <a name="CheckAttributesBasedOnValueRuleData"> CheckAttributesBasedOnValueRuleData </a> </td></tr>
 <!-- org.dmd.dms.doc.web.ClassFormatter.description(ClassFormatter.java:54) -->
 
@@ -557,7 +358,7 @@
       <td colspan="2"> <a href="meta.html#ruleName">ruleName</a> </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendClassRuleInfo(ClassFormatter.java:217) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendClassRuleInfo(ClassFormatter.java:222) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -585,7 +386,7 @@
       <td> <a href="dmv.html#basedOnAttribute">basedOnAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> The basedOnAttribute allows for the specification of an attribute on which
- some type of a decision is made.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
+ some type of a decision is made.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -926,13 +727,14 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The NumericRangeRule ensures that a numeric attribute has value(s) that fall
- within a given range. The nrrMinimum must be less than the nrrMaximum. An example usage
+      <td colspan="2">The NumericRangeRule ensures that a numeric attribute has values
+ that fall within a given range. It can be used for both single-valued and multi-valued
+ attributes. The nrrMinimum must be less than the nrrMaximum. An example usage
  might be:
  <p/>
  <pre>
  NumericRangeRuleData
- ruleName         <schema>RangeCheckY
+ ruleName         rangeCheckY
  ruleTitle        Attribute Y in range 1-10
  applyToAttribute Y
  nrrMinimum       1
@@ -970,6 +772,18 @@
       <td colspan="2"> <a href="meta.html#ruleName">ruleName</a> </td>
     </tr>
 
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendClassRuleInfo(ClassFormatter.java:222) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td>Rules</td>
+<td>
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvMinimumOrMaximum"> Either nrrMinimum or nrrMaximum must be specified. </a></td> </tr>
+
+</table>
+</td>
   </table>
 
   <table>
@@ -985,7 +799,7 @@
       <td class="spacer"> </td>
       <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
+      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -993,24 +807,6 @@
 
 </table>
       </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmv.html#nrrMaximum">nrrMaximum</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Double">Double</a> </td>
-      <td> The maximum numeric value.      </td>
-    </tr>
-
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
-
-    <tr>
-      <td class="spacer"> </td>
-      <td> <a href="dmv.html#nrrMinimum">nrrMinimum</a> </td>
-      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Double">Double</a> </td>
-      <td> The minimum numeric value.      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -1090,6 +886,24 @@
       <td class="valueType"> P MV </td>      <td> <a href="meta.html#String">String</a> </td>
       <td> The msgParam allows for the specification of parameters to be substituted
  into translated messages.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmv.html#nrrMaximum">nrrMaximum</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Double">Double</a> </td>
+      <td> The maximum numeric value.      </td>
+    </tr>
+
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
+
+    <tr>
+      <td class="spacer"> </td>
+      <td> <a href="dmv.html#nrrMinimum">nrrMinimum</a> </td>
+      <td class="valueType"> P SV </td>      <td> <a href="meta.html#Double">Double</a> </td>
+      <td> The minimum numeric value.      </td>
     </tr>
 
     <tr>
@@ -1339,11 +1153,11 @@
  applied to the names of EnumDefinitions:
  <pre>
  PatternMatchRuleData
- ruleName			dmvEnumDefinitionNameCheck
- ruleTitle			An EnumDefinition's name must end with Enum
- matchesPattern		^.*Enum
- applyToAttribute	name
- applyToClass		EnumDefinition
+ ruleName          dmvEnumDefinitionNameCheck
+ ruleTitle         An EnumDefinition's name must end with Enum
+ matchesPattern    ^.*Enum
+ applyToAttribute  name
+ applyToClass      EnumDefinition
  </pre></td>
     </tr>
 
@@ -1388,7 +1202,7 @@
       <td class="spacer"> </td>
       <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
+      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 </table>
@@ -1529,8 +1343,34 @@
       <td class="spacer"> </td>
       <td>Description</td>
       <td colspan="2">The ReferencedAttributeTypeRule allowes you to restrict the type of
- an attribute referred to by an AttributeDefinition reference. 
- <p/></td>
+ an attribute referred to by an AttributeDefinition reference. Some examples include:
+ <pre>
+ ReferencedAttributeTypeRuleData
+ ruleName          dmvNRRApplyToAttribute
+ ruleTitle         The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute
+ applyToAttribute  applyToAttribute
+ applyToClass      NumericRangeRuleData
+ allowedType       Integer
+ allowedType       Long
+ allowedType       Float
+ allowedType       Double
+ </pre>
+ In this case, we're restricting the applyToAttribute to be a numeric type, either Integer, Long Float or Double.
+ <p/>
+ You can also restrict the valueType of an attribute reference, for instance:
+ <pre>
+ ReferencedAttributeTypeRuleData
+ ruleName          dmvLhs
+ ruleTitle         The lhs attribute must be a single valued Integer, Long, Float or Double
+ applyToAttribute  lhs
+ applyToClass      RelatedNumbersRuleData
+ allowedType       Integer
+ allowedType       Long
+ allowedType       Float
+ allowedType       Double
+ allowedValueType  SINGLE
+ </pre>
+ Here, we're indicating that the lhs (left hand side) attribute must be single valued.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -1559,7 +1399,7 @@
       <td colspan="2"> <a href="meta.html#ruleName">ruleName</a> </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendClassRuleInfo(ClassFormatter.java:217) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendClassRuleInfo(ClassFormatter.java:222) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -1586,7 +1426,7 @@
       <td class="spacer"> </td>
       <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
+      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -1806,7 +1646,7 @@
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> The attribute to be used as the left hand side of some relationship. The
  type of the attribute referred to may differ from one rule to the next depending on
- the relationship being tested.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
+ the relationship being tested.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -1833,7 +1673,7 @@
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
       <td> The attribute to be used as the right hand side of some relationship. The
  type of the attribute referred to may differ from one rule to the next depending on
- the relationship being tested.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
+ the relationship being tested.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -2129,9 +1969,42 @@
     <tr>
       <td class="spacer"> </td>
       <td>Description</td>
-      <td colspan="2">The ValueLengthRule allows you to indicate the maximum
- and, potentially, the minimum length of the String form of a value associated
- with an attribute.</td>
+      <td colspan="2">The ValueLengthRule allows you to indicate the maximum length,
+ the minimum length or both the maximum and minimum length of the String form of
+ a value associated with an attribute. It works for both single valued and
+ multi-valued attributes.
+ <p/>
+ If you have added types via the TypeDefinition mechanisms,
+ you should ensure that you have overloaded the toString() method 
+ <pre>
+ ValueLengthRuleData
+ ruleName         userNameLength
+ ruleTitle        The user name must be between 6 and 20 characters
+ applyToAttribute userNameString
+ minLength        6
+ maxLength        20
+ </pre>
+ Or, just a minimum length:
+ <pre>
+ ValueLengthRuleData
+ ruleName         tagLength
+ ruleTitle        Tag information must be 4 characters or more.
+ applyToAttribute dataTag
+ applyToClass     chunkOfData
+ minLength        4
+ </pre>
+ Or, just a maximum length:
+ <pre>
+ ValueLengthRuleData
+ ruleName         infoLength
+ ruleTitle        The info must be less than or equal to 50 characters.
+ applyToAttribute info
+ applyToClass     chunkOfData
+ maxLength        50
+ </pre>
+ NOTE: If you have added types via the TypeDefinition mechanisms, you should ensure
+ that you have overloaded the toString() method of the primitiveType that
+ you're using.</td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.type(ClassFormatter.java:65) -->
@@ -2160,7 +2033,7 @@
       <td colspan="2"> <a href="meta.html#ruleName">ruleName</a> </td>
     </tr>
 
-<!-- org.dmd.dms.doc.web.ClassFormatter.appendClassRuleInfo(ClassFormatter.java:217) -->
+<!-- org.dmd.dms.doc.web.ClassFormatter.appendClassRuleInfo(ClassFormatter.java:222) -->
 
     <tr>
       <td class="spacer"> </td>
@@ -2190,7 +2063,7 @@
       <td class="spacer"> </td>
       <td> <a href="meta.html#applyToAttribute">applyToAttribute</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#AttributeDefinition">AttributeDefinition</a> </td>
-      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:263) -->
+      <td> Indicates the attribute to which an ATTRIBUTE type rule is applied.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 </table>
@@ -2270,7 +2143,14 @@
       <td class="spacer"> </td>
       <td> <a href="dmv.html#minLength">minLength</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The minLength attribute indicates the maximum length of something.      </td>
+      <td> The minLength attribute indicates the maximum length of something.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvMinimumLength"> The minLength must be 1 or more </a></td> </tr>
+
+</table>
+      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2360,7 +2240,6 @@ Either allowedType or allowedValueType must be specified
       <td>
         <table>
         <tr>
-          <td> AttributeTypeRuleData (<a href="dmv.html#AttributeTypeRuleData">dmv</a>) </td>
           <td> ReferencedAttributeTypeRuleData (<a href="dmv.html#ReferencedAttributeTypeRuleData">dmv</a>) </td>
         </tr>
         </table>
@@ -2389,7 +2268,6 @@ Either allowedType or allowedValueType must be specified
       <td>
         <table>
         <tr>
-          <td> AttributeTypeRuleData (<a href="dmv.html#AttributeTypeRuleData">dmv</a>) </td>
           <td> ReferencedAttributeTypeRuleData (<a href="dmv.html#ReferencedAttributeTypeRuleData">dmv</a>) </td>
         </tr>
         </table>
@@ -2632,6 +2510,7 @@ At least one of the maxLength or minLength attributes must be specified.
       <td>The minLength attribute indicates the maximum length of something.<p/>
 At least one of the maxLength or minLength attributes must be specified.
 <p/>The minLength must be less than the maxLength.
+<p/>The minLength must be 1 or more
 <p/>      </td>
     </tr>
 
@@ -2659,7 +2538,8 @@ At least one of the maxLength or minLength attributes must be specified.
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The maximum numeric value.<p/>
-      </td>
+Either nrrMinimum or nrrMaximum must be specified.
+<p/>      </td>
     </tr>
 
     <tr>
@@ -2686,7 +2566,8 @@ At least one of the maxLength or minLength attributes must be specified.
       <td class="spacer"> </td>
       <td class="label">Description</td>
       <td>The minimum numeric value.<p/>
-      </td>
+Either nrrMinimum or nrrMaximum must be specified.
+<p/>      </td>
     </tr>
 
     <tr>
@@ -2926,6 +2807,33 @@ must
       <td> basedOnAttribute </td>
       <td> classType</td>    </tr>
 <!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
+    <tr> <td class="ruleDefName" colspan="4"> NumericRangeRule (ATTRIBUTE)</td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmvMinimumLength">
+        The minLength must be 1 or more
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to attribute: </td>
+      <td> minLength </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> nrrMinimum </td>
+      <td> 1.0</td>    </tr>
+<!-- org.dmd.dms.doc.web.RuleInstanceFormatter.dumpRuleInstances(RuleInstanceFormatter.java:86) -->
     <tr> <td class="ruleDefName" colspan="4"> OneOfTheseAttributesRequiredRule (CLASS)</td></tr>
     <tr>
       <td class="spacer"> </td>
@@ -2983,6 +2891,42 @@ excludeThisAttribute
       <td>
 maxLength
 <br>minLength
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmvMinimumOrMaximum">
+        Either nrrMinimum or nrrMaximum must be specified.
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to class: </td>
+      <td> NumericRangeRuleData </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Description: </td>
+      <td> The NumericRangeRule can operate with one or both of the minimum
+ and maximum values. </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> onePossibility </td>
+      <td>
+nrrMinimum
+<br>nrrMaximum
       </td>
     </tr>
     <tr>
@@ -3188,6 +3132,15 @@ Integer
       <td class="spacer"> </td>
       <td> Apply to attribute: </td>
       <td> applyToAttribute </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Description: </td>
+      <td> This might look a little funny, applying the rule to the applyToattribute, but
+ if you think about it, it makes sense. You might think, hey, applyToToAttribute is an AttributeDefinition
+ so why validate that. However, it's not the applyToAttribute that we're validating, but the attribute
+ that it refers to. It just happens that we're </td>
     </tr>
     <tr>
       <td class="spacer"> </td>

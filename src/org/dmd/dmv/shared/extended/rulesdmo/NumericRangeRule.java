@@ -7,6 +7,7 @@ import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dms.generated.enums.ValueTypeEnum;
 import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;
 import org.dmd.dmv.shared.generated.rulesdmo.NumericRangeRuleBaseImpl;
+import org.dmd.util.exceptions.DebugInfo;
 
 /**
  * The NumericRangeRule validates that a numeric value falls with in a certain range
@@ -24,29 +25,52 @@ public class NumericRangeRule extends NumericRangeRuleBaseImpl {
 
 	@Override
 	public void execute(DmcObject obj, DmcAttribute<?> attribute) throws DmcRuleExceptionSet {
+		DebugInfo.debug("Entering >>>");
+		
 		DmcRuleExceptionSet rc = null;
+		Double minimum = ruleDMO.getNrrMinimum();
+		Double maximum = ruleDMO.getNrrMaximum();
 		
 		if (attribute.getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
 			Double value = (Double) attribute.getSV();
-			if ( (value < ruleDMO.getNrrMinimum()) || (value > ruleDMO.getNrrMaximum())){
-				rc = new DmcRuleExceptionSet();
-				rc.add(new DmcRuleException(ruleDMO.getRuleTitle() + "\nThis value falls outside the range: " + attribute.getSV(), this));
+			if (minimum != null){
+				if (value < minimum){
+					rc = new DmcRuleExceptionSet();
+					rc.add(new DmcRuleException(ruleDMO.getRuleTitle() + "\nThis value is less than the minimum: " + attribute.getSV(), this));
+				}
+			}
+			if (maximum != null){
+				if (value > maximum){
+					rc = new DmcRuleExceptionSet();
+					rc.add(new DmcRuleException(ruleDMO.getRuleTitle() + "\nThis value is more than the maximum: " + attribute.getSV(), this));
+				}
 			}
 		}
 		else{
 			for(int i=0; i<attribute.getMVSize(); i++){
 				Double value = (Double) attribute.getMVnth(i);
 				
-				if ( (value < ruleDMO.getNrrMinimum()) || (value > ruleDMO.getNrrMaximum())){
-					if (rc == null)
-						rc = new DmcRuleExceptionSet();
-					rc.add(new DmcRuleException(ruleDMO.getRuleTitle() + "\nThis value falls outside the range: " + attribute.getMVnth(i), this));
+				if (minimum != null){
+					if (value < minimum){
+						if (rc == null)
+							rc = new DmcRuleExceptionSet();
+						rc.add(new DmcRuleException(ruleDMO.getRuleTitle() + "\nThis value is less than the minimum: " + attribute.getSV(), this));
+					}
+				}
+				if (maximum != null){
+					if (value > maximum){
+						if (rc == null)
+							rc = new DmcRuleExceptionSet();
+						rc.add(new DmcRuleException(ruleDMO.getRuleTitle() + "\nThis value is more than the maximum: " + attribute.getSV(), this));
+					}
 				}
 			}
 		}
 		
 		if (rc != null)
 			throw(rc);
+
+		DebugInfo.debug("Leaving <<<");
 
 	}
 
