@@ -40,7 +40,23 @@ import org.dmd.dms.generated.types.TypeDefinitionREF;                       // H
 
 /**
  * The ReferencedAttributeTypeRule allowes you to restrict the type of\n an
- * attribute referred to by an AttributeDefinition reference. \n <p/>
+ * attribute referred to by an AttributeDefinition reference. Some examples
+ * include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName         
+ * dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute
+ * in a NumericRangeRuleData instance must refer to an Integer, Long, Float
+ * or Double attribute\n applyToAttribute  applyToAttribute\n applyToClass   
+ *   NumericRangeRuleData\n allowedType       Integer\n allowedType      
+ * Long\n allowedType       Float\n allowedType       Double\n </pre>\n In
+ * this case, we're restricting the applyToAttribute to be a numeric type,
+ * either Integer, Long Float or Double.\n <p/>\n You can also restrict the
+ * valueType of an attribute reference, for instance:\n <pre>\n
+ * ReferencedAttributeTypeRuleData\n ruleName          dmvLhs\n ruleTitle    
+ *     The lhs attribute must be a single valued Integer, Long, Float or
+ * Double\n applyToAttribute  lhs\n applyToClass     
+ * RelatedNumbersRuleData\n allowedType       Integer\n allowedType      
+ * Long\n allowedType       Float\n allowedType       Double\n
+ * allowedValueType  SINGLE\n </pre>\n Here, we're indicating that the lhs
+ * (left hand side) attribute must be single valued.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

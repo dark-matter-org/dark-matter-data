@@ -34,9 +34,24 @@ import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // R
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:324)
 
 /**
- * The ValueLengthRule allows you to indicate the maximum\n and, potentially,
- * the minimum length of the String form of a value associated\n with an
- * attribute.
+ * The ValueLengthRule allows you to indicate the maximum length,\n the
+ * minimum length or both the maximum and minimum length of the String form
+ * of\n a value associated with an attribute. It works for both single valued
+ * and\n multi-valued attributes.\n <p/>\n If you have added types via the
+ * TypeDefinition mechanisms,\n you should ensure that you have overloaded
+ * the toString() method \n <pre>\n ValueLengthRuleData\n ruleName        
+ * userNameLength\n ruleTitle        The user name must be between 6 and 20
+ * characters\n applyToAttribute userNameString\n minLength        6\n
+ * maxLength        20\n </pre>\n Or, just a minimum length:\n <pre>\n
+ * ValueLengthRuleData\n ruleName         tagLength\n ruleTitle        Tag
+ * information must be 4 characters or more.\n applyToAttribute dataTag\n
+ * applyToClass     chunkOfData\n minLength        4\n </pre>\n Or, just a
+ * maximum length:\n <pre>\n ValueLengthRuleData\n ruleName        
+ * infoLength\n ruleTitle        The info must be less than or equal to 50
+ * characters.\n applyToAttribute info\n applyToClass     chunkOfData\n
+ * maxLength        50\n </pre>\n NOTE: If you have added types via the
+ * TypeDefinition mechanisms, you should ensure\n that you have overloaded
+ * the toString() method of the primitiveType that\n you're using.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

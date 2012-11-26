@@ -103,7 +103,7 @@ AttributeDefinition
 name			minLength
 dmdID			15
 type			Integer
-description		The minLength attribute indicates the maximum length of something.
+description		The minLength attribute indicates the minimum length of something.
 
 AttributeDefinition
 name   			allowedValueType

@@ -34,11 +34,12 @@ import org.dmd.dms.generated.types.DmcTypeRuleNameSV;                       // R
 import org.dmd.dms.generated.types.DmcTypeStringSV;                         // Required type - (GenUtility.java:324)
 
 /**
- * The NumericRangeRule ensures that a numeric attribute has value(s) that
- * fall\n within a given range. The nrrMinimum must be less than the
+ * The NumericRangeRule ensures that a numeric attribute has values\n that
+ * fall within a given range. It can be used for both single-valued and
+ * multi-valued\n attributes. The nrrMinimum must be less than the
  * nrrMaximum. An example usage\n might be:\n <p/>\n <pre>\n
- * NumericRangeRuleData\n ruleName         <schema>RangeCheckY\n ruleTitle   
- *     Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n
+ * NumericRangeRuleData\n ruleName         rangeCheckY\n ruleTitle       
+ * Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n
  * nrrMaximum       10\n description      This constraint is required because
  * blah, blah blah.\n </pre>\n NOTE: this rule works by implicitly converting
  * the values of the attributes\n to type Double in order to be able to do
@@ -174,6 +175,106 @@ public class NumericRangeRuleDataDMO  extends RuleDataDMO  implements DmcNamedOb
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remDescription(){
          rem(MetaDMSAG.__description);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    public Double getNrrMinimum(){
+        DmcTypeDoubleSV attr = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMinimum);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets nrrMinimum to the specified value.
+     * @param value Double
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    public void setNrrMinimum(Double value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__nrrMinimum);
+        if (attr == null)
+            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMinimum);
+        
+        try{
+            attr.set(value);
+            set(DmvDMSAG.__nrrMinimum,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets nrrMinimum to the specified value.
+     * @param value A value compatible with DmcTypeDoubleSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    public void setNrrMinimum(Object value) throws DmcValueException {
+        DmcTypeDoubleSV attr  = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMinimum);
+        if (attr == null)
+            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMinimum);
+        
+        attr.set(value);
+        set(DmvDMSAG.__nrrMinimum,attr);
+    }
+
+    /**
+     * Removes the nrrMinimum attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    public void remNrrMinimum(){
+         rem(DmvDMSAG.__nrrMinimum);
+    }
+
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
+    public Double getNrrMaximum(){
+        DmcTypeDoubleSV attr = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMaximum);
+        if (attr == null)
+            return(null);
+
+        return(attr.getSV());
+    }
+
+    /**
+     * Sets nrrMaximum to the specified value.
+     * @param value Double
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
+    public void setNrrMaximum(Double value) {
+        DmcAttribute<?> attr = get(DmvDMSAG.__nrrMaximum);
+        if (attr == null)
+            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMaximum);
+        
+        try{
+            attr.set(value);
+            set(DmvDMSAG.__nrrMaximum,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
+        }
+    }
+
+    /**
+     * Sets nrrMaximum to the specified value.
+     * @param value A value compatible with DmcTypeDoubleSV
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
+    public void setNrrMaximum(Object value) throws DmcValueException {
+        DmcTypeDoubleSV attr  = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMaximum);
+        if (attr == null)
+            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMaximum);
+        
+        attr.set(value);
+        set(DmvDMSAG.__nrrMaximum,attr);
+    }
+
+    /**
+     * Removes the nrrMaximum attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
+    public void remNrrMaximum(){
+         rem(DmvDMSAG.__nrrMaximum);
     }
 
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
@@ -346,106 +447,6 @@ public class NumericRangeRuleDataDMO  extends RuleDataDMO  implements DmcNamedOb
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remApplyToAttribute(){
          rem(MetaDMSAG.__applyToAttribute);
-    }
-
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
-    public Double getNrrMinimum(){
-        DmcTypeDoubleSV attr = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMinimum);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets nrrMinimum to the specified value.
-     * @param value Double
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
-    public void setNrrMinimum(Double value) {
-        DmcAttribute<?> attr = get(DmvDMSAG.__nrrMinimum);
-        if (attr == null)
-            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMinimum);
-        
-        try{
-            attr.set(value);
-            set(DmvDMSAG.__nrrMinimum,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets nrrMinimum to the specified value.
-     * @param value A value compatible with DmcTypeDoubleSV
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
-    public void setNrrMinimum(Object value) throws DmcValueException {
-        DmcTypeDoubleSV attr  = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMinimum);
-        if (attr == null)
-            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMinimum);
-        
-        attr.set(value);
-        set(DmvDMSAG.__nrrMinimum,attr);
-    }
-
-    /**
-     * Removes the nrrMinimum attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
-    public void remNrrMinimum(){
-         rem(DmvDMSAG.__nrrMinimum);
-    }
-
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:774)
-    public Double getNrrMaximum(){
-        DmcTypeDoubleSV attr = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMaximum);
-        if (attr == null)
-            return(null);
-
-        return(attr.getSV());
-    }
-
-    /**
-     * Sets nrrMaximum to the specified value.
-     * @param value Double
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:814)
-    public void setNrrMaximum(Double value) {
-        DmcAttribute<?> attr = get(DmvDMSAG.__nrrMaximum);
-        if (attr == null)
-            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMaximum);
-        
-        try{
-            attr.set(value);
-            set(DmvDMSAG.__nrrMaximum,attr);
-        }
-        catch(DmcValueException ex){
-            throw(new IllegalStateException("The type specific set() method shouldn't throw exceptions!",ex));
-        }
-    }
-
-    /**
-     * Sets nrrMaximum to the specified value.
-     * @param value A value compatible with DmcTypeDoubleSV
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:867)
-    public void setNrrMaximum(Object value) throws DmcValueException {
-        DmcTypeDoubleSV attr  = (DmcTypeDoubleSV) get(DmvDMSAG.__nrrMaximum);
-        if (attr == null)
-            attr = new DmcTypeDoubleSV(DmvDMSAG.__nrrMaximum);
-        
-        attr.set(value);
-        set(DmvDMSAG.__nrrMaximum,attr);
-    }
-
-    /**
-     * Removes the nrrMaximum attribute value.
-     */
-    // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
-    public void remNrrMaximum(){
-         rem(DmvDMSAG.__nrrMaximum);
     }
 
 
