@@ -11,6 +11,7 @@ import java.util.TreeMap;
 import org.dmd.dmc.util.DmcUncheckedObject;
 import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
+import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.EnumDefinition;
 import org.dmd.dms.RuleCategory;
 import org.dmd.dms.RuleDefinition;
@@ -23,14 +24,15 @@ import org.dmd.util.exceptions.DebugInfo;
 
 public class SchemaPage {
 	
-	static TreeMap<String,ClassDefinition>		classes;
-	static TreeMap<String,AttributeDefinition>	attributes;
-	static TreeMap<String,TypeDefinition>		types;
-	static TreeMap<String,EnumDefinition>		enums;
-	static TreeMap<String,SliceDefinition>		slices;
-	static TreeMap<String,RuleCategory>			ruleCategories;
-	static TreeMap<String,RuleDefinition>		ruleDefinitions;
-	static TreeMap<String,DmcUncheckedObject>	parsedRules;
+	static TreeMap<String,ClassDefinition>			classes;
+	static TreeMap<String,AttributeDefinition>		attributes;
+	static TreeMap<String,TypeDefinition>			types;
+	static TreeMap<String,ComplexTypeDefinition>	complexTypes;
+	static TreeMap<String,EnumDefinition>			enums;
+	static TreeMap<String,SliceDefinition>			slices;
+	static TreeMap<String,RuleCategory>				ruleCategories;
+	static TreeMap<String,RuleDefinition>			ruleDefinitions;
+	static TreeMap<String,DmcUncheckedObject>		parsedRules;
 
 	public static void dumpSchemaPage(String outdir, SchemaManager sm, SchemaDefinition sd, Summarizer summarizer) throws IOException {
 		String ofn = outdir + File.separator + sd.getName() + ".html";
@@ -50,6 +52,8 @@ public class SchemaPage {
 		
 		writeTypes(out);
 		
+		writeComplexTypes(out);
+		
 		writeEnums(out);
 		
 		RuleInstanceFormatter.dumpRuleInstanceDetails(out, sm, sd);
@@ -67,6 +71,7 @@ public class SchemaPage {
 		classes 		= new TreeMap<String, ClassDefinition>();
 		attributes 		= new TreeMap<String, AttributeDefinition>();
 		types 			= new TreeMap<String, TypeDefinition>();
+		complexTypes 	= new TreeMap<String, ComplexTypeDefinition>();
 		enums 			= new TreeMap<String, EnumDefinition>();
 		slices 			= new TreeMap<String, SliceDefinition>();
 		ruleCategories	= new TreeMap<String, RuleCategory>();
@@ -83,6 +88,10 @@ public class SchemaPage {
 		
 		for(TypeDefinition def :sd.getTypeDefList()){
 			types.put(def.getObjectName().getNameString(), def);
+		}
+		
+		for(ComplexTypeDefinition def :sd.getComplexTypeDefList()){
+			complexTypes.put(def.getObjectName().getNameString(), def);
 		}
 		
 		for(EnumDefinition def :sd.getEnumDefList()){
@@ -237,6 +246,26 @@ public class SchemaPage {
 		out.write("</div> <!-- typeDetails -->\n\n");
 	}
 	
+	static void writeComplexTypes(BufferedWriter out) throws IOException{
+		if (types.size() == 0)
+			return;
+		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
+		out.write("<div class=\"complexTypeDetails\">\n\n");
+		
+		out.write("<h2> Complex Type Details </h2>\n\n");
+		
+		out.write("  <table>\n\n");
+		
+		for(ComplexTypeDefinition td: complexTypes.values()){
+			ComplexTypeFormatter.dumpDetails(out, td);
+		}
+		
+		out.write("  </table>\n\n");
+
+		out.write("</div> <!-- typeDetails -->\n\n");
+	}
+	
 	static void writeEnums(BufferedWriter out) throws IOException{
 		if (enums.size() == 0)
 			return;
@@ -286,6 +315,8 @@ public class SchemaPage {
 //		writeAttributeSummary(out, attributes);
 		
 		writeTypeSummary(out, types);
+		
+		writeComplexTypeSummary(out, complexTypes);
 		
 		writeEnumSummary(out, enums);
 		
@@ -356,6 +387,23 @@ public class SchemaPage {
 			if (def.getInternallyGenerated())
 				continue;
 			
+			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
+		}
+		
+		out.write("    </ul>\n");
+		out.write("    </div>");
+	}
+	
+	static void writeComplexTypeSummary(BufferedWriter out, TreeMap<String,ComplexTypeDefinition> defs) throws IOException {
+		if (defs.size() == 0)
+			return;
+		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
+		out.write("    <div class=\"complextypeList\">\n");
+		out.write("    <h2>Complex Types (" + defs.size() + ")</h2>\n");
+		out.write("    <ul>\n");
+		
+		for(ComplexTypeDefinition def: defs.values()){
 			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
 		}
 		
