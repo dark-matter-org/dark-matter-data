@@ -14,13 +14,13 @@
 
     <div id="content">
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeSchemaSummary(SchemaPage.java:277) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeSchemaSummary(SchemaPage.java:306) -->
 
   <div class="schemaName"> dmv </div>
 
   <div class="summary">
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:308) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:339) -->
 
     <div class="classList">
     <h2> Classes (10)</h2>
@@ -76,14 +76,14 @@
       <td> ruleName </td>
       </tr>
     </table>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeEnumSummary(SchemaPage.java:370) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeEnumSummary(SchemaPage.java:418) -->
 
     <div class="enumList">
     <h2>Enums (1)</h2>
     <ul>
       <li> <a class="deflink" href="#NumericRelationEnum"> NumericRelationEnum </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleDefinitionSummary(SchemaPage.java:421) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleDefinitionSummary(SchemaPage.java:469) -->
 
     <div class="ruledefs">
     <h2> Rule Definitions (10)</h2>
@@ -99,10 +99,10 @@
       <li> <a class="deflink" href="#UCOAllowedAttributesRuleData"> UCOAllowedAttributesRule </a></li>
       <li> <a class="deflink" href="#ValueLengthRuleData"> ValueLengthRule </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:438) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:486) -->
 
     <div class="ruledefs">
-    <h2> Rule Instances (14)</h2>
+    <h2> Rule Instances (15)</h2>
     <ul>
       <li> <a class="deflink" href="#dmvAllowedAttributes"> An object's attributes must conform to its schema. </a></li>
       <li> <a class="deflink" href="#dmvBasedOnAttribute"> The basedOnAttribute attribute must refer to a single-valued attribute </a></li>
@@ -110,6 +110,7 @@
       <li> <a class="deflink" href="#dmvIncludeOrExclude"> At least one of the excludeThisAttribute or includeThisAttribute attributes must be specified. </a></li>
       <li> <a class="deflink" href="#dmvLhs"> The lhs attribute must be a single valued Integer, Long, Float or Double </a></li>
       <li> <a class="deflink" href="#dmvMaxOrMin"> At least one of the maxLength or minLength attributes must be specified. </a></li>
+      <li> <a class="deflink" href="#dmvMaximumLength"> The maxLength must be 1 or more </a></li>
       <li> <a class="deflink" href="#dmvMinLessThanMax"> The minLength must be less than the maxLength. </a></li>
       <li> <a class="deflink" href="#dmvMinimumLength"> The minLength must be 1 or more </a></li>
       <li> <a class="deflink" href="#dmvMinimumOrMaximum"> Either nrrMinimum or nrrMaximum must be specified. </a></li>
@@ -121,7 +122,7 @@
     </ul>
     </div>  </div> <!--  summary -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeClasses(SchemaPage.java:184) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClasses(SchemaPage.java:193) -->
 
 <div class="classDetails">
 
@@ -2134,7 +2135,14 @@
       <td class="spacer"> </td>
       <td> <a href="dmv.html#maxLength">maxLength</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The maxLength attribute indicates the maximum length of something.      </td>
+      <td> The maxLength attribute indicates the maximum length of something.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+
+<table>
+<tr> <td class="attributeRule">
+<a class="blackText" href="dmv.html#dmvMaximumLength"> The maxLength must be 1 or more </a></td> </tr>
+
+</table>
+      </td>
     </tr>
 
 <!-- org.dmd.dms.doc.web.ClassFormatter.appendAttribute(ClassFormatter.java:200) -->
@@ -2143,7 +2151,7 @@
       <td class="spacer"> </td>
       <td> <a href="dmv.html#minLength">minLength</a> </td>
       <td class="valueType"> P SV </td>      <td> <a href="meta.html#Integer">Integer</a> </td>
-      <td> The minLength attribute indicates the maximum length of something.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
+      <td> The minLength attribute indicates the minimum length of something.<!-- org.dmd.dms.doc.web.ClassFormatter.appendAttributeRuleInfo(ClassFormatter.java:268) -->
 
 <table>
 <tr> <td class="attributeRule">
@@ -2210,7 +2218,7 @@
 
 </div> <!-- classDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeAttributes(SchemaPage.java:204) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeAttributes(SchemaPage.java:213) -->
 
 <div class="attributeDetails">
 
@@ -2480,6 +2488,7 @@ The lhs attribute must be a single valued Integer, Long, Float or Double
       <td class="label">Description</td>
       <td>The maxLength attribute indicates the maximum length of something.<p/>
 At least one of the maxLength or minLength attributes must be specified.
+<p/>The maxLength must be 1 or more
 <p/>The minLength must be less than the maxLength.
 <p/>      </td>
     </tr>
@@ -2507,7 +2516,7 @@ At least one of the maxLength or minLength attributes must be specified.
     <tr>
       <td class="spacer"> </td>
       <td class="label">Description</td>
-      <td>The minLength attribute indicates the maximum length of something.<p/>
+      <td>The minLength attribute indicates the minimum length of something.<p/>
 At least one of the maxLength or minLength attributes must be specified.
 <p/>The minLength must be less than the maxLength.
 <p/>The minLength must be 1 or more
@@ -2668,7 +2677,7 @@ The rhs attribute must be a single valued Integer, Long, Float or Double
 
 </div> <!-- attributeDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeEnums(SchemaPage.java:244) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeEnums(SchemaPage.java:273) -->
 
 <div class="enumDetails">
 
@@ -2811,10 +2820,41 @@ must
     <tr>
       <td class="spacer"> </td>
       <td colspan="3" class="ruleDetailTitle">
+      <a name ="dmvMaximumLength">
+        The maxLength must be 1 or more
+      </a>
+      </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to attribute: </td>
+      <td> maxLength </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td colspan="5"class="attributeSectionLabel"> Rule arguments </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> nrrMinimum </td>
+      <td> 1.0</td>    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td colspan="3" class="ruleDetailTitle">
       <a name ="dmvMinimumLength">
         The minLength must be 1 or more
       </a>
       </td>
+    </tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="spacer"> </td>
+      <td> Apply to class: </td>
+      <td> ValueLengthRuleData </td>
     </tr>
     <tr>
       <td class="spacer"> </td>

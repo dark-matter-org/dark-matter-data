@@ -2588,6 +2588,11 @@ public class SchemaManager implements DmcNameResolverIF {
     	if (adl != null){
     		while(adl.hasNext()){
     			AttributeDefinition d = adl.next();
+    			
+    			if (d.getName().getNameString().equals("field")){
+    				DebugInfo.debug("HERE");
+    			}
+    			
     			try {
 					d.resolveReferences(this);
 				} catch (DmcValueExceptionSet e) {
