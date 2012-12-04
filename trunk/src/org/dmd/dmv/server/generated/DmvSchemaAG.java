@@ -158,19 +158,19 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NumericRangeRuleDataOBJ.setInternallyGenerated("true");
             _NumericRangeRuleDataOBJ.setClassType("STRUCTURAL");
             _NumericRangeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _NumericRangeRuleDataOBJ.setLineNumber("79");
-            _NumericRangeRuleDataOBJ.setDescription("The NumericRangeRule ensures that a numeric attribute has value(s) that fall\n within a given range. The nrrMinimum must be less than the nrrMaximum. An example usage\n might be:\n <p/>\n <pre>\n NumericRangeRuleData\n ruleName         <schema>RangeCheckY\n ruleTitle        Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n nrrMaximum       10\n description      This constraint is required because blah, blah blah.\n </pre>\n NOTE: this rule works by implicitly converting the values of the attributes\n to type Double in order to be able to do the range comparison. However,\n if you are dealing with large numeric values you may run into issues.");
+            _NumericRangeRuleDataOBJ.setLineNumber("80");
+            _NumericRangeRuleDataOBJ.setDescription("The NumericRangeRule ensures that a numeric attribute has values\n that fall within a given range. It can be used for both single-valued and multi-valued\n attributes. The nrrMinimum must be less than the nrrMaximum. An example usage\n might be:\n <p/>\n <pre>\n NumericRangeRuleData\n ruleName         rangeCheckY\n ruleTitle        Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n nrrMaximum       10\n description      This constraint is required because blah, blah blah.\n </pre>\n NOTE: this rule works by implicitly converting the values of the attributes\n to type Double in order to be able to do the range comparison. However,\n if you are dealing with large numeric values you may run into issues.");
             _NumericRangeRuleDataOBJ.setDerivedFrom("RuleData");
             _NumericRangeRuleDataOBJ.setIsNamedBy("ruleName");
             _NumericRangeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.NumericRangeRuleDataREF");
             _NumericRangeRuleDataOBJ.setRuleDefinition("NumericRangeRule");
             _NumericRangeRuleDataOBJ.setDmwIteratorClass("NumericRangeRuleDataIterableDMW");
             _NumericRangeRuleDataOBJ.addMay("description");
+            _NumericRangeRuleDataOBJ.addMay("nrrMinimum");
+            _NumericRangeRuleDataOBJ.addMay("nrrMaximum");
             _NumericRangeRuleDataOBJ.addMust("ruleName");
             _NumericRangeRuleDataOBJ.addMust("ruleTitle");
             _NumericRangeRuleDataOBJ.addMust("applyToAttribute");
-            _NumericRangeRuleDataOBJ.addMust("nrrMinimum");
-            _NumericRangeRuleDataOBJ.addMust("nrrMaximum");
             _NumericRangeRuleDataOBJ.setDmwIteratorImport("org.dmd.dmv.server.generated.dmw.NumericRangeRuleDataIterableDMW");
             _NumericRangeRuleData.setDefinedIn(this);
             addClassDefList(_NumericRangeRuleData);
@@ -281,7 +281,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PatternMatchRuleDataOBJ.setClassType("STRUCTURAL");
             _PatternMatchRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
             _PatternMatchRuleDataOBJ.setLineNumber("227");
-            _PatternMatchRuleDataOBJ.setDescription("The PatternMatchRule allows you to validate that an attribute\n in an object conforms to a regex pattern that you specify. If the pattern match\n fails, the ruleTitle is used as the error message, so use a clear rule title to\n indicate the intent of the pattern match. For instance the following rule is \n applied to the names of EnumDefinitions:\n <pre>\n PatternMatchRuleData\n ruleName			dmvEnumDefinitionNameCheck\n ruleTitle			An EnumDefinition's name must end with Enum\n matchesPattern		^.*Enum\n applyToAttribute	name\n applyToClass		EnumDefinition\n </pre>");
+            _PatternMatchRuleDataOBJ.setDescription("The PatternMatchRule allows you to validate that an attribute\n in an object conforms to a regex pattern that you specify. If the pattern match\n fails, the ruleTitle is used as the error message, so use a clear rule title to\n indicate the intent of the pattern match. For instance the following rule is \n applied to the names of EnumDefinitions:\n <pre>\n PatternMatchRuleData\n ruleName          dmvEnumDefinitionNameCheck\n ruleTitle         An EnumDefinition's name must end with Enum\n matchesPattern    ^.*Enum\n applyToAttribute  name\n applyToClass      EnumDefinition\n </pre>");
             _PatternMatchRuleDataOBJ.setDerivedFrom("RuleData");
             _PatternMatchRuleDataOBJ.setIsNamedBy("ruleName");
             _PatternMatchRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.PatternMatchRuleDataREF");
@@ -304,8 +304,8 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleDataOBJ.setInternallyGenerated("true");
             _ValueLengthRuleDataOBJ.setClassType("STRUCTURAL");
             _ValueLengthRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ValueLengthRuleDataOBJ.setLineNumber("251");
-            _ValueLengthRuleDataOBJ.setDescription("The ValueLengthRule allows you to indicate the maximum\n and, potentially, the minimum length of the String form of a value associated\n with an attribute.");
+            _ValueLengthRuleDataOBJ.setLineNumber("284");
+            _ValueLengthRuleDataOBJ.setDescription("The ValueLengthRule allows you to indicate the maximum length,\n the minimum length or both the maximum and minimum length of the String form of\n a value associated with an attribute. It works for both single valued and\n multi-valued attributes.\n <p/>\n If you have added types via the TypeDefinition mechanisms,\n you should ensure that you have overloaded the toString() method \n <pre>\n ValueLengthRuleData\n ruleName         userNameLength\n ruleTitle        The user name must be between 6 and 20 characters\n applyToAttribute userNameString\n minLength        6\n maxLength        20\n </pre>\n Or, just a minimum length:\n <pre>\n ValueLengthRuleData\n ruleName         tagLength\n ruleTitle        Tag information must be 4 characters or more.\n applyToAttribute dataTag\n applyToClass     chunkOfData\n minLength        4\n </pre>\n Or, just a maximum length:\n <pre>\n ValueLengthRuleData\n ruleName         infoLength\n ruleTitle        The info must be less than or equal to 50 characters.\n applyToAttribute info\n applyToClass     chunkOfData\n maxLength        50\n </pre>\n NOTE: If you have added types via the TypeDefinition mechanisms, you should ensure\n that you have overloaded the toString() method of the primitiveType that\n you're using.");
             _ValueLengthRuleDataOBJ.setDerivedFrom("RuleData");
             _ValueLengthRuleDataOBJ.setIsNamedBy("ruleName");
             _ValueLengthRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.ValueLengthRuleDataREF");
@@ -329,8 +329,8 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleDataOBJ.setInternallyGenerated("true");
             _ReferencedAttributeTypeRuleDataOBJ.setClassType("STRUCTURAL");
             _ReferencedAttributeTypeRuleDataOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("304");
-            _ReferencedAttributeTypeRuleDataOBJ.setDescription("The ReferencedAttributeTypeRule allowes you to restrict the type of\n an attribute referred to by an AttributeDefinition reference. Some examples include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute\n applyToAttribute  applyToAttribute\n applyToClass      NumericRangeRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n </pre>\n In this case, we're restricting the applyToAttribute to be a numeric type, either Integer, Long Float or Double.\n <p/>\n You can also restrict the valueType of an attribute reference, for instance:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvLhs\n ruleTitle         The lhs attribute must be a single valued Integer, Long, Float or Double\n applyToAttribute  lhs\n applyToClass      RelatedNumbersRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n allowedValueType  SINGLE\n </pre>\n Here, we're indicating that lhs attribute must be single valued.");
+            _ReferencedAttributeTypeRuleDataOBJ.setLineNumber("350");
+            _ReferencedAttributeTypeRuleDataOBJ.setDescription("The ReferencedAttributeTypeRule allowes you to restrict the type of\n an attribute referred to by an AttributeDefinition reference. Some examples include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute\n applyToAttribute  applyToAttribute\n applyToClass      NumericRangeRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n </pre>\n In this case, we're restricting the applyToAttribute to be a numeric type, either Integer, Long Float or Double.\n <p/>\n You can also restrict the valueType of an attribute reference, for instance:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvLhs\n ruleTitle         The lhs attribute must be a single valued Integer, Long, Float or Double\n applyToAttribute  lhs\n applyToClass      RelatedNumbersRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n allowedValueType  SINGLE\n </pre>\n Here, we're indicating that the lhs (left hand side) attribute must be single valued.");
             _ReferencedAttributeTypeRuleDataOBJ.setDerivedFrom("RuleData");
             _ReferencedAttributeTypeRuleDataOBJ.setIsNamedBy("ruleName");
             _ReferencedAttributeTypeRuleDataOBJ.setDmtREFImport("org.dmd.dmv.shared.generated.types.ReferencedAttributeTypeRuleDataREF");
@@ -528,7 +528,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _minLengthOBJ.setType("Integer");
             _minLengthOBJ.setName("minLength");
             _minLengthOBJ.setDmdID("-479985");
-            _minLengthOBJ.setDescription("The minLength attribute indicates the maximum length of something.");
+            _minLengthOBJ.setDescription("The minLength attribute indicates the minimum length of something.");
             _minLength.setDefinedIn(this);
             _minLengthOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/attributes.dmd");
             _minLengthOBJ.setLineNumber("107");
@@ -605,12 +605,12 @@ public class DmvSchemaAG extends SchemaDefinition {
             _NumericRangeRuleOBJ.addRuleCategory("AttributeValidation");
             _NumericRangeRuleOBJ.setName("NumericRangeRule");
             _NumericRangeRuleOBJ.setDmdID("-479997");
-            _NumericRangeRuleOBJ.setDescription("The NumericRangeRule ensures that a numeric attribute has value(s) that fall\n within a given range. The nrrMinimum must be less than the nrrMaximum. An example usage\n might be:\n <p/>\n <pre>\n NumericRangeRuleData\n ruleName         <schema>RangeCheckY\n ruleTitle        Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n nrrMaximum       10\n description      This constraint is required because blah, blah blah.\n </pre>\n NOTE: this rule works by implicitly converting the values of the attributes\n to type Double in order to be able to do the range comparison. However,\n if you are dealing with large numeric values you may run into issues.");
-            _NumericRangeRuleOBJ.addMust("nrrMinimum");
-            _NumericRangeRuleOBJ.addMust("nrrMaximum");
+            _NumericRangeRuleOBJ.setDescription("The NumericRangeRule ensures that a numeric attribute has values\n that fall within a given range. It can be used for both single-valued and multi-valued\n attributes. The nrrMinimum must be less than the nrrMaximum. An example usage\n might be:\n <p/>\n <pre>\n NumericRangeRuleData\n ruleName         rangeCheckY\n ruleTitle        Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n nrrMaximum       10\n description      This constraint is required because blah, blah blah.\n </pre>\n NOTE: this rule works by implicitly converting the values of the attributes\n to type Double in order to be able to do the range comparison. However,\n if you are dealing with large numeric values you may run into issues.");
+            _NumericRangeRuleOBJ.addMay("nrrMinimum");
+            _NumericRangeRuleOBJ.addMay("nrrMaximum");
             _NumericRangeRule.setDefinedIn(this);
             _NumericRangeRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _NumericRangeRuleOBJ.setLineNumber("79");
+            _NumericRangeRuleOBJ.setLineNumber("80");
             addRuleDefinitionList(_NumericRangeRule);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
@@ -676,7 +676,7 @@ public class DmvSchemaAG extends SchemaDefinition {
             _PatternMatchRuleOBJ.addRuleCategory("AttributeValidation");
             _PatternMatchRuleOBJ.setName("PatternMatchRule");
             _PatternMatchRuleOBJ.setDmdID("-479991");
-            _PatternMatchRuleOBJ.setDescription("The PatternMatchRule allows you to validate that an attribute\n in an object conforms to a regex pattern that you specify. If the pattern match\n fails, the ruleTitle is used as the error message, so use a clear rule title to\n indicate the intent of the pattern match. For instance the following rule is \n applied to the names of EnumDefinitions:\n <pre>\n PatternMatchRuleData\n ruleName			dmvEnumDefinitionNameCheck\n ruleTitle			An EnumDefinition's name must end with Enum\n matchesPattern		^.*Enum\n applyToAttribute	name\n applyToClass		EnumDefinition\n </pre>");
+            _PatternMatchRuleOBJ.setDescription("The PatternMatchRule allows you to validate that an attribute\n in an object conforms to a regex pattern that you specify. If the pattern match\n fails, the ruleTitle is used as the error message, so use a clear rule title to\n indicate the intent of the pattern match. For instance the following rule is \n applied to the names of EnumDefinitions:\n <pre>\n PatternMatchRuleData\n ruleName          dmvEnumDefinitionNameCheck\n ruleTitle         An EnumDefinition's name must end with Enum\n matchesPattern    ^.*Enum\n applyToAttribute  name\n applyToClass      EnumDefinition\n </pre>");
             _PatternMatchRuleOBJ.addMust("matchesPattern");
             _PatternMatchRule.setDefinedIn(this);
             _PatternMatchRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
@@ -689,12 +689,12 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ValueLengthRuleOBJ.addRuleCategory("AttributeValidation");
             _ValueLengthRuleOBJ.setName("ValueLengthRule");
             _ValueLengthRuleOBJ.setDmdID("-479990");
-            _ValueLengthRuleOBJ.setDescription("The ValueLengthRule allows you to indicate the maximum\n and, potentially, the minimum length of the String form of a value associated\n with an attribute.");
+            _ValueLengthRuleOBJ.setDescription("The ValueLengthRule allows you to indicate the maximum length,\n the minimum length or both the maximum and minimum length of the String form of\n a value associated with an attribute. It works for both single valued and\n multi-valued attributes.\n <p/>\n If you have added types via the TypeDefinition mechanisms,\n you should ensure that you have overloaded the toString() method \n <pre>\n ValueLengthRuleData\n ruleName         userNameLength\n ruleTitle        The user name must be between 6 and 20 characters\n applyToAttribute userNameString\n minLength        6\n maxLength        20\n </pre>\n Or, just a minimum length:\n <pre>\n ValueLengthRuleData\n ruleName         tagLength\n ruleTitle        Tag information must be 4 characters or more.\n applyToAttribute dataTag\n applyToClass     chunkOfData\n minLength        4\n </pre>\n Or, just a maximum length:\n <pre>\n ValueLengthRuleData\n ruleName         infoLength\n ruleTitle        The info must be less than or equal to 50 characters.\n applyToAttribute info\n applyToClass     chunkOfData\n maxLength        50\n </pre>\n NOTE: If you have added types via the TypeDefinition mechanisms, you should ensure\n that you have overloaded the toString() method of the primitiveType that\n you're using.");
             _ValueLengthRuleOBJ.addMay("maxLength");
             _ValueLengthRuleOBJ.addMay("minLength");
             _ValueLengthRule.setDefinedIn(this);
             _ValueLengthRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ValueLengthRuleOBJ.setLineNumber("251");
+            _ValueLengthRuleOBJ.setLineNumber("284");
             addRuleDefinitionList(_ValueLengthRule);
 
 // Generated from: org.dmd.dmg.util.SchemaFormatter.getObjectAsCode(SchemaFormatter.java:520)
@@ -703,12 +703,12 @@ public class DmvSchemaAG extends SchemaDefinition {
             _ReferencedAttributeTypeRuleOBJ.addRuleCategory("AttributeValidation");
             _ReferencedAttributeTypeRuleOBJ.setName("ReferencedAttributeTypeRule");
             _ReferencedAttributeTypeRuleOBJ.setDmdID("-479989");
-            _ReferencedAttributeTypeRuleOBJ.setDescription("The ReferencedAttributeTypeRule allowes you to restrict the type of\n an attribute referred to by an AttributeDefinition reference. Some examples include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute\n applyToAttribute  applyToAttribute\n applyToClass      NumericRangeRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n </pre>\n In this case, we're restricting the applyToAttribute to be a numeric type, either Integer, Long Float or Double.\n <p/>\n You can also restrict the valueType of an attribute reference, for instance:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvLhs\n ruleTitle         The lhs attribute must be a single valued Integer, Long, Float or Double\n applyToAttribute  lhs\n applyToClass      RelatedNumbersRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n allowedValueType  SINGLE\n </pre>\n Here, we're indicating that lhs attribute must be single valued.");
+            _ReferencedAttributeTypeRuleOBJ.setDescription("The ReferencedAttributeTypeRule allowes you to restrict the type of\n an attribute referred to by an AttributeDefinition reference. Some examples include:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvNRRApplyToAttribute\n ruleTitle         The applyToAttribute attribute in a NumericRangeRuleData instance must refer to an Integer, Long, Float or Double attribute\n applyToAttribute  applyToAttribute\n applyToClass      NumericRangeRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n </pre>\n In this case, we're restricting the applyToAttribute to be a numeric type, either Integer, Long Float or Double.\n <p/>\n You can also restrict the valueType of an attribute reference, for instance:\n <pre>\n ReferencedAttributeTypeRuleData\n ruleName          dmvLhs\n ruleTitle         The lhs attribute must be a single valued Integer, Long, Float or Double\n applyToAttribute  lhs\n applyToClass      RelatedNumbersRuleData\n allowedType       Integer\n allowedType       Long\n allowedType       Float\n allowedType       Double\n allowedValueType  SINGLE\n </pre>\n Here, we're indicating that the lhs (left hand side) attribute must be single valued.");
             _ReferencedAttributeTypeRuleOBJ.addMay("allowedType");
             _ReferencedAttributeTypeRuleOBJ.addMay("allowedValueType");
             _ReferencedAttributeTypeRule.setDefinedIn(this);
             _ReferencedAttributeTypeRuleOBJ.setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _ReferencedAttributeTypeRuleOBJ.setLineNumber("304");
+            _ReferencedAttributeTypeRuleOBJ.setLineNumber("350");
             addRuleDefinitionList(_ReferencedAttributeTypeRule);
 
     }

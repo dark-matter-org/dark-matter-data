@@ -8,27 +8,28 @@ import java.util.TreeMap;
 
 import org.dmd.dmc.types.StringName;
 import org.dmd.dms.AttributeDefinition;
-import org.dmd.dms.ComplexTypeDefinition;
+import org.dmd.dms.ExtendedReferenceTypeDefinition;
 import org.dmd.dms.SchemaManager;
 import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.types.Field;
 import org.dmd.dmw.DmwWrapper;
 
-public class ComplexTypeFormatter {
+public class ExtendedReferenceTypeFormatter {
 	
-	static public void dumpDetails(BufferedWriter out, SchemaManager schema, ComplexTypeDefinition td) throws IOException {
+	static public void dumpDetails(BufferedWriter out, SchemaManager schema, ExtendedReferenceTypeDefinition td) throws IOException {
 		
 		typeName(out, td);
 		description(out, td);
+		referenced(out, td);
 		fields(out,schema,td);
 		usage(out, schema, td);
 	}
 
-	static void typeName(BufferedWriter out, ComplexTypeDefinition td) throws IOException {
+	static void typeName(BufferedWriter out, ExtendedReferenceTypeDefinition td) throws IOException {
 		out.write("    <tr> <td class=\"typeName\" colspan=\"5\"> <a name=\"" + td.getName() + "\"> " + td.getName() + " </a> </td></tr>\n");
 	}
 	
-	static void description(BufferedWriter out, ComplexTypeDefinition td) throws IOException {
+	static void description(BufferedWriter out, ExtendedReferenceTypeDefinition td) throws IOException {
 		if (td.getDescription() != null){
 			out.write("    <tr>\n");
 			out.write("      <td class=\"spacer\"> </td>\n");
@@ -38,7 +39,20 @@ public class ComplexTypeFormatter {
 		}
 	}
 	
-	static void fields(BufferedWriter out, SchemaManager sm, ComplexTypeDefinition td) throws IOException {
+	static void referenced(BufferedWriter out, ExtendedReferenceTypeDefinition td) throws IOException {
+		if (td.getExtendedReferenceClass() != null){
+			String schema 		= td.getExtendedReferenceClass().getDefinedIn().getName().getNameString();
+			String type = td.getExtendedReferenceClass().getObjectName().getNameString();
+
+			out.write("    <tr>\n");
+			out.write("      <td class=\"spacer\"> </td>\n");
+			out.write("      <td class=\"label\">Reference to:</td>\n");
+			out.write("      <td colspan=\"4\" class=\"attrType\"> <a href=\"" + schema + ".html#" + type + "\">" + type + "</a> </td>\n");
+			out.write("    </tr>\n\n");
+		}
+	}
+	
+	static void fields(BufferedWriter out, SchemaManager sm, ExtendedReferenceTypeDefinition td) throws IOException {
 		out.write("    <tr>\n");
 		out.write("      <td class=\"spacer\"> </td>\n");
 		out.write("      <td class=\"label\" colspan=\"3\">Field Separator: \n");
@@ -78,7 +92,7 @@ public class ComplexTypeFormatter {
 		
 	}
 
-	static void usage(BufferedWriter out, SchemaManager schema, ComplexTypeDefinition td) throws IOException {
+	static void usage(BufferedWriter out, SchemaManager schema, ExtendedReferenceTypeDefinition td) throws IOException {
 		// We have to determine the usage from the internally generated type
 		TypeDefinition internalType = schema.findInternalType(td.getName());
 		ArrayList<DmwWrapper> referring = internalType.getReferringObjects();

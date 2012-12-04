@@ -385,6 +385,15 @@ public class SchemaManager implements DmcNameResolverIF {
     }
     
     /**
+     * Finds the internally generated type definition with the specified name.
+     * @param name the name of the type
+     * @return the type definition or null if it's not found.
+     */
+    public TypeDefinition findInternalType(StringName name){
+    	return(internalTypeDefs.get(name));
+    }
+    
+    /**
      * @param oni The object name.
      * @return a naming attribute of the appropriate type for the specified name.
      * @throws InstantiationException

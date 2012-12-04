@@ -13,6 +13,7 @@ import org.dmd.dms.AttributeDefinition;
 import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.EnumDefinition;
+import org.dmd.dms.ExtendedReferenceTypeDefinition;
 import org.dmd.dms.RuleCategory;
 import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
@@ -24,15 +25,16 @@ import org.dmd.util.exceptions.DebugInfo;
 
 public class SchemaPage {
 	
-	static TreeMap<String,ClassDefinition>			classes;
-	static TreeMap<String,AttributeDefinition>		attributes;
-	static TreeMap<String,TypeDefinition>			types;
-	static TreeMap<String,ComplexTypeDefinition>	complexTypes;
-	static TreeMap<String,EnumDefinition>			enums;
-	static TreeMap<String,SliceDefinition>			slices;
-	static TreeMap<String,RuleCategory>				ruleCategories;
-	static TreeMap<String,RuleDefinition>			ruleDefinitions;
-	static TreeMap<String,DmcUncheckedObject>		parsedRules;
+	static TreeMap<String,ClassDefinition>					classes;
+	static TreeMap<String,AttributeDefinition>				attributes;
+	static TreeMap<String,TypeDefinition>					types;
+	static TreeMap<String,ComplexTypeDefinition>			complexTypes;
+	static TreeMap<String,ExtendedReferenceTypeDefinition>	extendedRefTypes;
+	static TreeMap<String,EnumDefinition>					enums;
+	static TreeMap<String,SliceDefinition>					slices;
+	static TreeMap<String,RuleCategory>						ruleCategories;
+	static TreeMap<String,RuleDefinition>					ruleDefinitions;
+	static TreeMap<String,DmcUncheckedObject>				parsedRules;
 
 	public static void dumpSchemaPage(String outdir, SchemaManager sm, SchemaDefinition sd, Summarizer summarizer) throws IOException {
 		String ofn = outdir + File.separator + sd.getName() + ".html";
@@ -52,7 +54,9 @@ public class SchemaPage {
 		
 		writeTypes(out);
 		
-		writeComplexTypes(out);
+		writeComplexTypes(out, sm);
+		
+		writeExtendedReferenceTypes(out, sm);
 		
 		writeEnums(out);
 		
@@ -68,15 +72,16 @@ public class SchemaPage {
 	}
 	
 	static void initTrees(SchemaDefinition sd){
-		classes 		= new TreeMap<String, ClassDefinition>();
-		attributes 		= new TreeMap<String, AttributeDefinition>();
-		types 			= new TreeMap<String, TypeDefinition>();
-		complexTypes 	= new TreeMap<String, ComplexTypeDefinition>();
-		enums 			= new TreeMap<String, EnumDefinition>();
-		slices 			= new TreeMap<String, SliceDefinition>();
-		ruleCategories	= new TreeMap<String, RuleCategory>();
-		ruleDefinitions = new TreeMap<String, RuleDefinition>();
-		parsedRules 	= new TreeMap<String, DmcUncheckedObject>();
+		classes 			= new TreeMap<String, ClassDefinition>();
+		attributes 			= new TreeMap<String, AttributeDefinition>();
+		types 				= new TreeMap<String, TypeDefinition>();
+		complexTypes 		= new TreeMap<String, ComplexTypeDefinition>();
+		extendedRefTypes 	= new TreeMap<String, ExtendedReferenceTypeDefinition>();
+		enums 				= new TreeMap<String, EnumDefinition>();
+		slices 				= new TreeMap<String, SliceDefinition>();
+		ruleCategories		= new TreeMap<String, RuleCategory>();
+		ruleDefinitions 	= new TreeMap<String, RuleDefinition>();
+		parsedRules 		= new TreeMap<String, DmcUncheckedObject>();
 		
 		for(ClassDefinition def :sd.getClassDefList()){
 			classes.put(def.getObjectName().getNameString(), def);
@@ -92,6 +97,10 @@ public class SchemaPage {
 		
 		for(ComplexTypeDefinition def :sd.getComplexTypeDefList()){
 			complexTypes.put(def.getObjectName().getNameString(), def);
+		}
+		
+		for(ExtendedReferenceTypeDefinition def :sd.getExtendedReferenceTypeDefList()){
+			extendedRefTypes.put(def.getObjectName().getNameString(), def);
 		}
 		
 		for(EnumDefinition def :sd.getEnumDefList()){
@@ -246,8 +255,8 @@ public class SchemaPage {
 		out.write("</div> <!-- typeDetails -->\n\n");
 	}
 	
-	static void writeComplexTypes(BufferedWriter out) throws IOException{
-		if (types.size() == 0)
+	static void writeComplexTypes(BufferedWriter out, SchemaManager sm) throws IOException{
+		if (complexTypes.size() == 0)
 			return;
 		
 		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
@@ -258,7 +267,27 @@ public class SchemaPage {
 		out.write("  <table>\n\n");
 		
 		for(ComplexTypeDefinition td: complexTypes.values()){
-			ComplexTypeFormatter.dumpDetails(out, td);
+			ComplexTypeFormatter.dumpDetails(out, sm, td);
+		}
+		
+		out.write("  </table>\n\n");
+
+		out.write("</div> <!-- typeDetails -->\n\n");
+	}
+	
+	static void writeExtendedReferenceTypes(BufferedWriter out, SchemaManager sm) throws IOException {
+		if (extendedRefTypes.size() == 0)
+			return;
+		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
+		out.write("<div class=\"extendedReferenceTypeDetails\">\n\n");
+		
+		out.write("<h2> Extended Reference Type Details </h2>\n\n");
+		
+		out.write("  <table>\n\n");
+		
+		for(ExtendedReferenceTypeDefinition td: extendedRefTypes.values()){
+			ExtendedReferenceTypeFormatter.dumpDetails(out, sm, td);
 		}
 		
 		out.write("  </table>\n\n");
@@ -317,6 +346,8 @@ public class SchemaPage {
 		writeTypeSummary(out, types);
 		
 		writeComplexTypeSummary(out, complexTypes);
+		
+		writeExtendedRefTypeSummary(out, extendedRefTypes);
 		
 		writeEnumSummary(out, enums);
 		
@@ -404,6 +435,23 @@ public class SchemaPage {
 		out.write("    <ul>\n");
 		
 		for(ComplexTypeDefinition def: defs.values()){
+			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
+		}
+		
+		out.write("    </ul>\n");
+		out.write("    </div>");
+	}
+	
+	static void writeExtendedRefTypeSummary(BufferedWriter out, TreeMap<String,ExtendedReferenceTypeDefinition> defs) throws IOException {
+		if (defs.size() == 0)
+			return;
+		
+		out.write("<!-- " + DebugInfo.getWhereWeAreNow() + " -->\n\n");
+		out.write("    <div class=\"extendedreftypeList\">\n");
+		out.write("    <h2>Extended Reference Types (" + defs.size() + ")</h2>\n");
+		out.write("    <ul>\n");
+		
+		for(ExtendedReferenceTypeDefinition def: defs.values()){
 			out.write("      <li> <a class=\"deflink\" href=\"#" + def.getName() + "\"> " + def.getName() + " </a></li>\n");
 		}
 		

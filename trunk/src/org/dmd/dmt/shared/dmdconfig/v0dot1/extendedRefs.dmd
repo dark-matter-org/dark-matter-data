@@ -4,5 +4,5 @@ extendedReferenceClass	ObjWithRefs
 fieldSeparator :
 field Integer count Some kind of counter.
 field Integer order The order in which something is done.
-description 			The SomeRelation type is used to specify the a count and an ordering
+description 			The SomeRelation type is used to specify a count and an ordering
  on some relation between objects. 

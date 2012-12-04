@@ -14,13 +14,13 @@
 
     <div id="content">
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeSchemaSummary(SchemaPage.java:306) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeSchemaSummary(SchemaPage.java:335) -->
 
   <div class="schemaName"> dmt </div>
 
   <div class="summary">
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:339) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClassSummary(SchemaPage.java:370) -->
 
     <div class="classList">
     <h2> Classes (44)</h2>
@@ -213,21 +213,28 @@
       <td> <a class="deflink" href="#UsingObjRefHM"> UsingObjRefHM </a></td>
       </tr>
     </table>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeTypeSummary(SchemaPage.java:381) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeTypeSummary(SchemaPage.java:412) -->
 
     <div class="typeList">
     <h2>Types (2)</h2>
     <ul>
       <li> <a class="deflink" href="#DmtStringName"> DmtStringName </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeEnumSummary(SchemaPage.java:418) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeExtendedRefTypeSummary(SchemaPage.java:449) -->
+
+    <div class="extendedreftypeList">
+    <h2>Extended Reference Types (1)</h2>
+    <ul>
+      <li> <a class="deflink" href="#SomeRelation"> SomeRelation </a></li>
+    </ul>
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeEnumSummary(SchemaPage.java:466) -->
 
     <div class="enumList">
     <h2>Enums (1)</h2>
     <ul>
       <li> <a class="deflink" href="#DmtTestEnum"> DmtTestEnum </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeSliceSummary(SchemaPage.java:435) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeSliceSummary(SchemaPage.java:483) -->
 
     <div class="sliceList">
     <h2> Slices (2)</h2>
@@ -235,7 +242,7 @@
       <li> <a class="deflink" href="#slice1"> slice1 </a></li>
       <li> <a class="deflink" href="#sliceOfNamed"> sliceOfNamed </a></li>
     </ul>
-    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:486) -->
+    </div><!-- org.dmd.dms.doc.web.SchemaPage.writeRuleInstancesSummary(SchemaPage.java:534) -->
 
     <div class="ruledefs">
     <h2> Rule Instances (3)</h2>
@@ -246,7 +253,7 @@
     </ul>
     </div>  </div> <!--  summary -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeClasses(SchemaPage.java:193) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeClasses(SchemaPage.java:202) -->
 
 <div class="classDetails">
 
@@ -3077,7 +3084,7 @@
 
 </div> <!-- classDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeAttributes(SchemaPage.java:213) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeAttributes(SchemaPage.java:222) -->
 
 <div class="attributeDetails">
 
@@ -5154,7 +5161,7 @@ svInteger must be in the range 1-10
 
 </div> <!-- attributeDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeTypes(SchemaPage.java:233) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeTypes(SchemaPage.java:242) -->
 
 <div class="typeDetails">
 
@@ -5210,19 +5217,78 @@ svInteger must be in the range 1-10
 
 </div> <!-- typeDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeComplexTypes(SchemaPage.java:253) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeExtendedReferenceTypes(SchemaPage.java:282) -->
 
-<div class="complexTypeDetails">
+<div class="extendedReferenceTypeDetails">
 
-<h2> Complex Type Details </h2>
+<h2> Extended Reference Type Details </h2>
 
   <table>
+
+    <tr> <td class="typeName" colspan="5"> <a name="SomeRelation"> SomeRelation </a> </td></tr>
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Description</td>
+      <td colspan="4"> The SomeRelation type is used to specify a count and an ordering
+ on some relation between objects. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Reference to:</td>
+      <td colspan="4" class="attrType"> <a href="dmt.html#ObjWithRefs">ObjWithRefs</a> </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label" colspan="3">Field Separator: 
+<strong> :</strong></td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> Field 1</td>
+      <td> count </td>
+      <td class="attrType"> <a href="meta.html#Integer">Integer</a> </td>
+      <td> Some kind of counter. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label"> Field 2</td>
+      <td> order </td>
+      <td class="attrType"> <a href="meta.html#Integer">Integer</a> </td>
+      <td> The order in which something is done. </td>
+    </tr>
+
+    <tr>
+      <td class="spacer"> </td>
+      <td class="label">Used in:</td>
+      <td colspan ="3">
+<table>
+  <tr>
+    <td> hsExtendedRef (<a href="dmt.html#hsExtendedRef">dmt</a>) </td>
+    <td> mvExtendedRef (<a href="dmt.html#mvExtendedRef">dmt</a>) </td>
+    <td> mvIdxExtendedRef (<a href="dmt.html#mvIdxExtendedRef">dmt</a>) </td>
+  <tr>
+    <td> someRelationIndexed (<a href="dmt.html#someRelationIndexed">dmt</a>) </td>
+    <td> someRelationMV (<a href="dmt.html#someRelationMV">dmt</a>) </td>
+    <td> someRelationMVI (<a href="dmt.html#someRelationMVI">dmt</a>) </td>
+</tr>
+  <tr>
+    <td> someRelationSV (<a href="dmt.html#someRelationSV">dmt</a>) </td>
+    <td> svExtendedRef (<a href="dmt.html#svExtendedRef">dmt</a>) </td>
+    <td> tsExtendedRef (<a href="dmt.html#tsExtendedRef">dmt</a>) </td>
+</tr>
+</table>
+      </td>
+    </tr>
 
   </table>
 
 </div> <!-- typeDetails -->
 
-<!-- org.dmd.dms.doc.web.SchemaPage.writeEnums(SchemaPage.java:273) -->
+<!-- org.dmd.dms.doc.web.SchemaPage.writeEnums(SchemaPage.java:302) -->
 
 <div class="enumDetails">
 
