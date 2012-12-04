@@ -34,10 +34,10 @@ import org.dmd.dmv.shared.generated.dmo.PatternMatchRuleDataDMO;         // Clas
  * match\n fails, the ruleTitle is used as the error message, so use a clear
  * rule title to\n indicate the intent of the pattern match. For instance the
  * following rule is \n applied to the names of EnumDefinitions:\n <pre>\n
- * PatternMatchRuleData\n ruleName			dmvEnumDefinitionNameCheck\n
- * ruleTitle			An EnumDefinition's name must end with Enum\n
- * matchesPattern		^.*Enum\n applyToAttribute	name\n
- * applyToClass		EnumDefinition\n </pre>
+ * PatternMatchRuleData\n ruleName          dmvEnumDefinitionNameCheck\n
+ * ruleTitle         An EnumDefinition's name must end with Enum\n
+ * matchesPattern    ^.*Enum\n applyToAttribute  name\n applyToClass     
+ * EnumDefinition\n </pre>
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

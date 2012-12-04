@@ -339,7 +339,7 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
             _dmvMaximumLengthData        .setApplyToAttribute("maxLength");
             _dmvMaximumLengthData        .setDefinedIn("dmv");
             _dmvMaximumLengthData        .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _dmvMaximumLengthData        .setLineNumber("311");
+            _dmvMaximumLengthData        .setLineNumber("312");
             _dmvMaximumLengthData        .setNrrMinimum("1");
             _dmvMaximumLengthData        .setRuleName("dmvMaximumLength");
             _dmvMaximumLengthData        .setRuleTitle("The maxLength must be 1 or more");
@@ -365,9 +365,10 @@ public class DmvDMSAG implements DmcCompactSchemaIF {
 
             NumericRangeRuleDataDMO _dmvMinimumLengthData = new NumericRangeRuleDataDMO();
             _dmvMinimumLengthData        .setApplyToAttribute("minLength");
+            _dmvMinimumLengthData        .setApplyToClass("ValueLengthRuleData");
             _dmvMinimumLengthData        .setDefinedIn("dmv");
             _dmvMinimumLengthData        .setFile("/src/org/dmd/dmv/shared/dmdconfig/v0dot1/rules.dmd");
-            _dmvMinimumLengthData        .setLineNumber("305");
+            _dmvMinimumLengthData        .setLineNumber("306");
             _dmvMinimumLengthData        .setNrrMinimum("1");
             _dmvMinimumLengthData        .setRuleName("dmvMinimumLength");
             _dmvMinimumLengthData        .setRuleTitle("The minLength must be 1 or more");

@@ -51,8 +51,8 @@ import org.dmd.dmv.shared.generated.dmo.ReferencedAttributeTypeRuleDataDMO;     
  * Double\n applyToAttribute  lhs\n applyToClass     
  * RelatedNumbersRuleData\n allowedType       Integer\n allowedType      
  * Long\n allowedType       Float\n allowedType       Double\n
- * allowedValueType  SINGLE\n </pre>\n Here, we're indicating that lhs
- * attribute must be single valued.
+ * allowedValueType  SINGLE\n </pre>\n Here, we're indicating that the lhs
+ * (left hand side) attribute must be single valued.
  * <P>
  * Generated from the dmv schema at version 0.1
  * <P>

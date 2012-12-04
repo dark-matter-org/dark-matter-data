@@ -29,11 +29,12 @@ import org.dmd.dmv.shared.generated.dmo.NumericRangeRuleDataDMO;         // Clas
 
 
 /**
- * The NumericRangeRule ensures that a numeric attribute has value(s) that
- * fall\n within a given range. The nrrMinimum must be less than the
+ * The NumericRangeRule ensures that a numeric attribute has values\n that
+ * fall within a given range. It can be used for both single-valued and
+ * multi-valued\n attributes. The nrrMinimum must be less than the
  * nrrMaximum. An example usage\n might be:\n <p/>\n <pre>\n
- * NumericRangeRuleData\n ruleName         <schema>RangeCheckY\n ruleTitle   
- *     Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n
+ * NumericRangeRuleData\n ruleName         rangeCheckY\n ruleTitle       
+ * Attribute Y in range 1-10\n applyToAttribute Y\n nrrMinimum       1\n
  * nrrMaximum       10\n description      This constraint is required because
  * blah, blah blah.\n </pre>\n NOTE: this rule works by implicitly converting
  * the values of the attributes\n to type Double in order to be able to do
