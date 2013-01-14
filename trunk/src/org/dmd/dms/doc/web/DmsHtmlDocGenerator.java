@@ -100,6 +100,8 @@ public class DmsHtmlDocGenerator {
 			
 			summarizer.dumpTextSummary();
 			
+			summarizer.dumpSchemaSummaryPage(outdir);
+			
 			PrintfFormat format = new PrintfFormat("%-" + longest + "s");
 			
 			for(SchemaDefinition sd: allSchemasByID.values()){
