@@ -1,5 +1,9 @@
 package org.dmd.dms.doc.web;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.TreeMap;
 
@@ -99,6 +103,9 @@ public class Summarizer {
 			sidebar.append("        <a class=\"navLink\" href=\"" + name + ".html\"> " + name + "</a>\n");
 		}
 		
+		sidebar.append("        <a class=\"navLink\" href=\"SchemaSummaryPage.html\"> Summary </a>\n");
+		
+		
 		sidebar.append("    </div>\n");
 	}
 	
@@ -113,15 +120,15 @@ public class Summarizer {
 			int end = sd.getSchemaBaseID() + sd.getSchemaIDRange();
 			String name = sd.getName().getNameString();
 			idSummary.append("    <tr>\n");
-			idSummary.append("    <td>\n");
-			idSummary.append("    </td>\n");
+			idSummary.append("      <td>\n");
 			idSummary.append("    " + name + "\n");
-			idSummary.append("    <td>\n");
-			idSummary.append("    " + sd.getSchemaBaseID() + "\n");
-			idSummary.append("    </td>\n");
-			idSummary.append("    <td>\n");
-			idSummary.append("    " + end + "\n");
-			idSummary.append("    </td>\n");
+			idSummary.append("      </td>\n");
+			idSummary.append("      <td>\n");
+			idSummary.append("      " + sd.getSchemaBaseID() + "\n");
+			idSummary.append("      </td>\n");
+			idSummary.append("      <td>\n");
+			idSummary.append("      " + end + "\n");
+			idSummary.append("      </td>\n");
 			idSummary.append("    </tr>\n");
 		}
 		
@@ -129,7 +136,7 @@ public class Summarizer {
 
 		idSummary.append("</div> <!-- idSummary -->\n\n");
 
-		idSummary.append("<table>\n");
+//		idSummary.append("<table>\n");
 		
 	}
 	
@@ -157,8 +164,23 @@ public class Summarizer {
 		}
 	}
 	
-	static public void dumpSchemaSummaryPage(String outdir){
+	public void dumpSchemaSummaryPage(String outdir) throws IOException{
+		String ofn = outdir + File.separator + "SchemaSummaryPage.html";
+		BufferedWriter out = new BufferedWriter( new FileWriter(ofn) );
 		
+		StandardParts.writePageHeader(out, "Schema Summary");
+		
+		StandardParts.writeContentStart(out);
+		
+		out.write(idSummary.toString());
+		
+		StandardParts.writeContentEnd(out);
+
+		out.write(this.getSideBar());
+		
+		StandardParts.writePageFooter(out);
+		
+		out.close();
 	}
 	
 }
