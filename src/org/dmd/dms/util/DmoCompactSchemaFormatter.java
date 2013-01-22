@@ -180,8 +180,13 @@ public class DmoCompactSchemaFormatter {
 	        			else
 	        				out.write("    public final static DmcTypeInfo __type_" + td.getOriginalClass().getName().getNameString() + " = new DmcTypeInfo(\"" + td.getOriginalClass().getName().getNameString() + "\", OriginalTypeEnum.REFERENCE);\n");
 	        		}
-	        		else
-	        			out.write("    public final static DmcTypeInfo __type_" + td.getOriginalClass().getName().getNameString() + " = new DmcTypeInfo(\"" + td.getOriginalClass().getName().getNameString() + "\", OriginalTypeEnum.COMPLEXTYPE);\n");
+	        		else{
+	        			// Fixed 20130121 for references to classes
+	        			if (td.getOriginalClass() == null)
+		        			out.write("    public final static DmcTypeInfo __type_" + td.getName().getNameString() + " = new DmcTypeInfo(\"" + td.getName().getNameString() + "\", OriginalTypeEnum.COMPLEXTYPE);\n");
+	        			else
+	        				out.write("    public final static DmcTypeInfo __type_" + td.getOriginalClass().getName().getNameString() + " = new DmcTypeInfo(\"" + td.getOriginalClass().getName().getNameString() + "\", OriginalTypeEnum.COMPLEXTYPE);\n");
+	        		}
 	        	}
 	        	
 //	        	System.out.println("HERE\n\n" + td.toOIF());
