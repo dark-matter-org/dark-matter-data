@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.TreeMap;
 
 import org.dmd.dms.ComplexTypeDefinition;
 import org.dmd.dms.SchemaDefinition;
@@ -12,9 +11,9 @@ import org.dmd.dms.TypeDefinition;
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.types.Field;
 import org.dmd.util.FileUpdateManager;
+import org.dmd.util.codegen.ImportManager;
 import org.dmd.util.exceptions.DebugInfo;
 import org.dmd.util.exceptions.ResultException;
-import org.dmd.util.formatting.PrintfFormat;
 
 public class ComplexTypeFormatter {
 	
@@ -64,23 +63,40 @@ public class ComplexTypeFormatter {
         out.write(header);
         out.write("package " + ctd.getDefinedIn().getSchemaPackage() + ".generated.types;\n\n");
 
-        out.write("import java.io.Serializable;\n");
-        out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
-        out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
-        out.write("import org.dmd.dmc.types.IntegerVar;\n");
+		ImportManager imports = new ImportManager();
+
+		imports.addImport("java.io.Serializable", "To prevent serialization warnings");
+		imports.addImport("org.dmd.dmc.DmcInputStreamIF", "Standard serialization techniques");
+		imports.addImport("org.dmd.dmc.DmcOutputStreamIF", "Standard serialization techniques");
+		imports.addImport("org.dmd.dmc.types.IntegerVar", "To support getNextField()");
+//		out.write("import java.io.Serializable;\n");
+//        out.write("import org.dmd.dmc.DmcInputStreamIF;\n");
+//        out.write("import org.dmd.dmc.DmcOutputStreamIF;\n");
+//        out.write("import org.dmd.dmc.types.IntegerVar;\n");
         
         if (hasRefs){
-          	out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
-          	out.write("import org.dmd.dmc.DmcNamedObjectIF;\n");
-          	out.write("import org.dmd.dmc.DmcNamedObjectREF;\n");
-          	out.write("import org.dmd.dmc.DmcContainerIF;\n");
+    		imports.addImport("org.dmd.dmc.DmcNameResolverIF", "To support object references");
+    		imports.addImport("org.dmd.dmc.DmcNamedObjectIF", "To support object references");
+    		imports.addImport("org.dmd.dmc.DmcNamedObjectREF", "To support object references");
+    		imports.addImport("org.dmd.dmc.DmcContainerIF", "To support object references");
+
+//    		out.write("import org.dmd.dmc.DmcNameResolverIF;\n");
+//          	out.write("import org.dmd.dmc.DmcNamedObjectIF;\n");
+//          	out.write("import org.dmd.dmc.DmcNamedObjectREF;\n");
+//          	out.write("import org.dmd.dmc.DmcContainerIF;\n");
         }
 
 //        out.write("import org.dmd.dmc.DmcAttribute;\n");
 //        out.write("import org.dmd.dmc.DmcAttributeInfo;\n");
-        out.write("import org.dmd.dmc.DmcValueException;\n\n");
         
-        out.write(getComplexTypeImports(ctd));
+		imports.addImport("org.dmd.dmc.DmcValueException", "Standard value exception");
+
+//        out.write("import org.dmd.dmc.DmcValueException;\n\n");
+        
+		getComplexTypeImports(ctd, imports);
+//        out.write(getComplexTypeImports(ctd));
+		
+		out.write(imports.getFormattedImports());
         
         out.write("@SuppressWarnings(\"serial\")\n");
 
@@ -121,7 +137,14 @@ public class ComplexTypeFormatter {
         fields = ctd.getField();
         while(fields.hasNext()){
         	Field field = fields.next();
-        	out.write(field.getType().getObjectName() + " f" + fnum);
+        	TypeDefinition	type = (TypeDefinition) field.getType().getObject().getContainer();
+
+        	if (type.getIsRefType()){
+        		out.write(field.getType().getObjectName() + "REF f" + fnum);
+        	}
+        	else{
+        		out.write(field.getType().getObjectName() + " f" + fnum);
+        	}
 
         	fnum++;
         	if (fnum <= ctd.getFieldSize())
@@ -149,7 +172,7 @@ public class ComplexTypeFormatter {
         out.write("     * String based constructor.\n");
         out.write("     * Generated from: " + DebugInfo.getWhereWeAreNow() + "\n");
         out.write("     */\n");
-        out.write("    public " + ctn + "(String input) throws DmcValueException {\n");
+        out.write("    public " + ctn + "(String initialInput) throws DmcValueException {\n");
         out.write("        IntegerVar seppos = new IntegerVar(-1);\n");
 		if (whiteSpaceSeparator){
 			out.write("        String input = initialInput.trim();\n");
@@ -370,12 +393,12 @@ public class ComplexTypeFormatter {
     
 
     
-    static String getComplexTypeImports(ComplexTypeDefinition ctd) throws ResultException{
-    	StringBuffer sb = new StringBuffer();
+    static void getComplexTypeImports(ComplexTypeDefinition ctd, ImportManager imports) throws ResultException{
+//    	StringBuffer sb = new StringBuffer();
     	Iterator<Field>	fields = ctd.getField();
     	// Key:   import
     	// Value: comment
-    	TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
+//    	TreeMap<String,String>	uniqueImports = new TreeMap<String, String>();
     	
     	while(fields.hasNext()){
     		Field field = fields.next();
@@ -394,8 +417,11 @@ public class ComplexTypeFormatter {
         		else{
 //        			System.out.println("ORIGINAL CLASS:\n" + type.getOriginalClass());
         			
-        			uniqueImports.put(type.getOriginalClass().getJavaClass(), "Object reference");
-        			uniqueImports.put(type.getOriginalClass().getDmtREFImport(), "Object reference");
+//        			imports.addImport(type.getOriginalClass().getJavaClass(), "Object reference");
+        			imports.addImport(type.getOriginalClass().getDmtREFImport(), "Object reference");
+        			
+//        			uniqueImports.put(type.getOriginalClass().getJavaClass(), "Object reference");
+//        			uniqueImports.put(type.getOriginalClass().getDmtREFImport(), "Object reference");
         			
         			
 //        			DebugInfo.debug("Need object reference code");
@@ -411,7 +437,8 @@ public class ComplexTypeFormatter {
         	}
         	else{
         		if (!type.getIsRefType())
-        			uniqueImports.put(primitiveType, "Primitive type");
+        			imports.addImport(primitiveType, "Primitive type");
+//        			uniqueImports.put(primitiveType, "Primitive type");
         	}
         	
         	if (type.getTypeClassName() != null){
@@ -428,27 +455,28 @@ public class ComplexTypeFormatter {
         			comment = "Standard type";
         		}
         		
-        		uniqueImports.put(imp,comment);
+    			imports.addImport(imp, comment);
+//        		uniqueImports.put(imp,comment);
         	}
         	
     	}
     	
-    	int longest = 0;
-    	for(String importStr: uniqueImports.keySet()){
-    		if (importStr.length() > longest)
-    			longest = importStr.length();
-    	}
-		int padding = longest+17;
-		PrintfFormat format = new PrintfFormat("%-" + padding + "s");
+//    	int longest = 0;
+//    	for(String importStr: uniqueImports.keySet()){
+//    		if (importStr.length() > longest)
+//    			longest = importStr.length();
+//    	}
+//		int padding = longest+17;
+//		PrintfFormat format = new PrintfFormat("%-" + padding + "s");
+//    	
+//        for(String importStr: uniqueImports.keySet()){
+//    		String comment = uniqueImports.get(importStr);
+////    		sb.append("import " + importStr + "; // " + comment + "\n");
+//			sb.append(format.sprintf("import " + importStr + ";") + "// " + comment + "\n");
+//    	}
+//    	sb.append("\n");
     	
-        for(String importStr: uniqueImports.keySet()){
-    		String comment = uniqueImports.get(importStr);
-//    		sb.append("import " + importStr + "; // " + comment + "\n");
-			sb.append(format.sprintf("import " + importStr + ";") + "// " + comment + "\n");
-    	}
-    	sb.append("\n");
-    	
-    	return(sb.toString());
+//    	return(sb.toString());
     }
     
 
