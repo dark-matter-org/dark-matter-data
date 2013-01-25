@@ -32,7 +32,7 @@ public class NumericRangeRule extends NumericRangeRuleBaseImpl {
 		Double maximum = ruleDMO.getNrrMaximum();
 		
 		if (attribute.getAttributeInfo().valueType == ValueTypeEnum.SINGLE){
-			Double value = (Double) attribute.getSV();
+			Double value = ((Number) attribute.getSV()).doubleValue();
 			if (minimum != null){
 				if (value < minimum){
 					rc = new DmcRuleExceptionSet();
@@ -48,7 +48,7 @@ public class NumericRangeRule extends NumericRangeRuleBaseImpl {
 		}
 		else{
 			for(int i=0; i<attribute.getMVSize(); i++){
-				Double value = (Double) attribute.getMVnth(i);
+				Double value = ((Number) attribute.getMVnth(i)).doubleValue();
 				
 				if (minimum != null){
 					if (value < minimum){
