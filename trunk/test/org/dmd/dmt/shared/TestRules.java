@@ -86,7 +86,7 @@ public class TestRules {
 		dmo2.setSvFloat(3.1f);
 		
 		try {
-			ruleManager.executeAttributeValidation(dmo1);
+			ruleManager.executeAttributeValidation(dmo2);
 			
 			assertEquals("Expecting an exception",true, false);
 		} catch (DmcRuleExceptionSet e) {
