@@ -246,24 +246,34 @@ public class AttributeDefinition extends AttributeDefinitionDMW {
     	return(getType().getContainerType(this));
     }
     
-    public String getValueModificationStatement(String indent, String prepend, NamedStringArray values){
+    /**
+     * This is used when formatting rule data in the compact schema. It is used to format attribute
+     * containers for attributes used on extensible classes, for instance, initialization rules.
+     * @param uniqueNum a unique numeric identifier appended to the attribute instance name so
+     * that we don't have clashing attribute value names.
+     * @param indent
+     * @param prepend
+     * @param values
+     * @return
+     */
+    public String getValueModificationStatement(int uniqueNum, String indent, String prepend, NamedStringArray values){
     	StringBuffer sb = new StringBuffer();
     	
     	
     	if (getValueType() == ValueTypeEnum.SINGLE){
-    		sb.append(indent + getContainerType() + " " + values.getName() + "Value = null;\n");
+    		sb.append(indent + getContainerType() + " " + values.getName() + "Value" + uniqueNum + " = null;\n");
     		for(String value: values){
-    			sb.append(indent + values.getName() + "Value = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
-    			sb.append(indent + values.getName() + "Value.set(\"" + value + "\");\n");
-    			sb.append(prepend + ".set(" + getDMSAGReference() + ", " + values.getName() + "Value);\n");
+    			sb.append(indent + values.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
+    			sb.append(indent + values.getName() + "Value" + uniqueNum + ".set(\"" + value + "\");\n");
+    			sb.append(prepend + ".set(" + getDMSAGReference() + ", " + values.getName() + "Value" + uniqueNum + ");\n");
     		}
     	}
     	else{
-    		sb.append(indent + getContainerType() + " " + values.getName() + "Value = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
+    		sb.append(indent + getContainerType() + " " + values.getName() + "Value" + uniqueNum + " = new " + getContainerType() + "(" + getDMSAGReference() + ");\n");
     		for(String value: values){
-    			sb.append(indent + values.getName() + "Value.add(\"" + value + "\");\n");
+    			sb.append(indent + values.getName() + "Value" + uniqueNum + ".add(\"" + value + "\");\n");
     		}
-			sb.append(prepend + ".add(" + getDMSAGReference() + ", " + values.getName() + "Value);\n");
+			sb.append(prepend + ".add(" + getDMSAGReference() + ", " + values.getName() + "Value" + uniqueNum + ");\n");
     	}
     	
     	return(sb.toString());

@@ -51,8 +51,13 @@ public class DmoCompactSchemaFormatter {
 
 	PrintStream	progress;
 	
+	// This value is incremented as we format non-native attributes on extensible classes
+	// so that their temporary container attribute instances have unique names.
+	int	uniqueNum;
+	
 	public DmoCompactSchemaFormatter(PrintStream p){
 		progress = p;
+		uniqueNum = 1;
 	}
 	
 	/**
@@ -1290,7 +1295,8 @@ public class DmoCompactSchemaFormatter {
 			}
 			else{
 //				DebugInfo.debug("Extra attribute: " + attrName);
-				out.write(attrDef.getValueModificationStatement("            ","            _" + objName, obj.get(attr.getName())));
+				out.write(attrDef.getValueModificationStatement(uniqueNum,"            ","            _" + objName, obj.get(attr.getName())));
+				uniqueNum++;
 			}
 			
 //			if (attrDef.getValueType() == ValueTypeEnum.SINGLE)
