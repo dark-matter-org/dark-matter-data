@@ -16,6 +16,7 @@ import org.dmd.dms.generated.enums.ValueTypeEnum;                        // Have
 import org.dmd.dms.generated.types.DmcTypeIntegerSV;                     // Support for addition of svInteger values to the extensible InitRuleData class - (ClassDefinition.java:959)
 import org.dmd.dms.generated.types.DmcTypeStringMV;                      // Support for addition of mvString values to the extensible InitRuleData class - (ClassDefinition.java:959)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                      // Support for addition of svString values to the extensible InitRuleData class - (ClassDefinition.java:959)
+import org.dmd.dmt.shared.generated.types.DmcTypeDmtTestEnumSET;         // Support for addition of hsTestEnum values to the extensible InitRuleData class - (ClassDefinition.java:959)
 import org.dmd.dmv.shared.extended.rulesdmo.InitRule;                    // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:854)
 import org.dmd.dmv.shared.extended.rulesdmo.NumericRangeRule;            // To instantiate rules of this type - (DmoCompactSchemaFormatter.java:854)
 import org.dmd.dmv.shared.generated.dmo.InitRuleDataDMO;                 // To instantiate InitRuleData rule data - (DmoCompactSchemaFormatter.java:853)
@@ -431,6 +432,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __TestBasicObjectFixed.addMay(__hsString);
         __TestBasicObjectFixed.addMay(__tsString);
         __TestBasicObjectFixed.addMay(__svTestBasicNamedObjectFixed);
+        __TestBasicObjectFixed.addMay(__hsTestEnum);
 
         __TestBasicNamedObjectFixed.addMust(MetaDMSAG.__name);
         __TestBasicNamedObjectFixed.addMust(__svString);
@@ -580,21 +582,25 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtInitTestBasicObjectFixedData.setApplyToClass("TestBasicObjectFixed");
             _dmtInitTestBasicObjectFixedData.setDefinedIn("dmt");
             _dmtInitTestBasicObjectFixedData.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _dmtInitTestBasicObjectFixedData.setLineNumber("73");
-            DmcTypeStringMV mvStringValue1 = new DmcTypeStringMV(DmtDMSAG.__mvString);
-            mvStringValue1.add("first value");
-            mvStringValue1.add("second value");
-            _dmtInitTestBasicObjectFixedData.add(DmtDMSAG.__mvString, mvStringValue1);
+            DmcTypeDmtTestEnumSET hsTestEnumValue1 = new DmcTypeDmtTestEnumSET(DmtDMSAG.__hsTestEnum);
+            hsTestEnumValue1.add("TEST1");
+            hsTestEnumValue1.add("TEST2");
+            _dmtInitTestBasicObjectFixedData.add(DmtDMSAG.__hsTestEnum, hsTestEnumValue1);
+            _dmtInitTestBasicObjectFixedData.setLineNumber("76");
+            DmcTypeStringMV mvStringValue2 = new DmcTypeStringMV(DmtDMSAG.__mvString);
+            mvStringValue2.add("first value");
+            mvStringValue2.add("second value");
+            _dmtInitTestBasicObjectFixedData.add(DmtDMSAG.__mvString, mvStringValue2);
             _dmtInitTestBasicObjectFixedData.setRuleName("dmtInitTestBasicObjectFixed");
             _dmtInitTestBasicObjectFixedData.setRuleTitle("Initialize TestBasicObjectFixed");
-            DmcTypeIntegerSV svIntegerValue2 = null;
-            svIntegerValue2 = new DmcTypeIntegerSV(DmtDMSAG.__svInteger);
-            svIntegerValue2.set("8");
-            _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svInteger, svIntegerValue2);
-            DmcTypeStringSV svStringValue3 = null;
-            svStringValue3 = new DmcTypeStringSV(DmtDMSAG.__svString);
-            svStringValue3.set("the single valued string");
-            _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svString, svStringValue3);
+            DmcTypeIntegerSV svIntegerValue3 = null;
+            svIntegerValue3 = new DmcTypeIntegerSV(DmtDMSAG.__svInteger);
+            svIntegerValue3.set("8");
+            _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svInteger, svIntegerValue3);
+            DmcTypeStringSV svStringValue4 = null;
+            svStringValue4 = new DmcTypeStringSV(DmtDMSAG.__svString);
+            svStringValue4.set("the single valued string");
+            _dmtInitTestBasicObjectFixedData.set(DmtDMSAG.__svString, svStringValue4);
 
             __dmtInitTestBasicObjectFixed = new InitRule(_dmtInitTestBasicObjectFixedData);
 
@@ -605,7 +611,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtSvFloatNumericRangeData  .setApplyToClass("TestBasicObjectFixed");
             _dmtSvFloatNumericRangeData  .setDefinedIn("dmt");
             _dmtSvFloatNumericRangeData  .setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _dmtSvFloatNumericRangeData  .setLineNumber("89");
+            _dmtSvFloatNumericRangeData  .setLineNumber("92");
             _dmtSvFloatNumericRangeData  .setNrrMaximum("2.5");
             _dmtSvFloatNumericRangeData  .setNrrMinimum("1.5");
             _dmtSvFloatNumericRangeData  .setRuleName("dmtSvFloatNumericRange");
@@ -620,7 +626,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
             _dmtSvIntegerNumericRangeData.setApplyToClass("TestBasicObjectFixed");
             _dmtSvIntegerNumericRangeData.setDefinedIn("dmt");
             _dmtSvIntegerNumericRangeData.setFile("/src/org/dmd/dmt/shared/dmdconfig/v0dot1/classes.dmd");
-            _dmtSvIntegerNumericRangeData.setLineNumber("81");
+            _dmtSvIntegerNumericRangeData.setLineNumber("84");
             _dmtSvIntegerNumericRangeData.setNrrMaximum("10");
             _dmtSvIntegerNumericRangeData.setNrrMinimum("1");
             _dmtSvIntegerNumericRangeData.setRuleName("dmtSvIntegerNumericRange");

@@ -15,6 +15,9 @@
 //	---------------------------------------------------------------------------
 package org.dmd.dms;
 
+import java.net.URL;
+import java.net.URLClassLoader;
+
 import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcAttributeInfo;
 import org.dmd.dmc.DmcObjectName;
@@ -23,6 +26,7 @@ import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.dmo.TypeDefinitionDMO;
 import org.dmd.dms.generated.dmw.TypeDefinitionDMW;
 import org.dmd.dms.generated.enums.WrapperTypeEnum;
+import org.dmd.util.exceptions.DebugInfo;
 
 public class TypeDefinition extends TypeDefinitionDMW {
 	
@@ -132,8 +136,7 @@ public class TypeDefinition extends TypeDefinitionDMW {
 	public DmcAttribute<?> getAttributeHolder(DmcAttributeInfo ai) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
 		DmcAttribute<?>	rc = null;
 		
-//DebugInfo.debug(ai.toString());
-		
+		try{
 		switch(ai.valueType){
 		case SINGLE:
 			if (attributeClassSV == null){
@@ -161,6 +164,19 @@ public class TypeDefinition extends TypeDefinitionDMW {
 			}
 			rc = (DmcAttribute<?>) attributeClassSET.newInstance();
 			break;
+		}
+		}
+		catch (ClassNotFoundException e) {
+			DebugInfo.debug("Class not found while trying to get holder for: " + ai.toString());
+			DebugInfo.debug(System.getProperty("java.class.path"));
+			ClassLoader cl = ClassLoader.getSystemClassLoader();
+			 
+	        URL[] urls = ((URLClassLoader)cl).getURLs();
+	 
+	        for(URL url: urls){
+	        	DebugInfo.debug(url.getFile());
+	        }
+			throw(e);
 		}
 		
 		if (rc == null)

@@ -1,5 +1,7 @@
 package org.dmd.dmv.shared;
 
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.TreeMap;
@@ -8,7 +10,9 @@ import org.dmd.dmc.DmcAttribute;
 import org.dmd.dmc.DmcCompactSchemaIF;
 import org.dmd.dmc.DmcObject;
 import org.dmd.dmc.DmcOmni;
+import org.dmd.dmc.DmcValueException;
 import org.dmd.dmc.DmcValueExceptionSet;
+import org.dmd.dmc.rules.DmcRuleException;
 import org.dmd.dmc.rules.DmcRuleExceptionSet;
 import org.dmd.dmc.rules.DmcRuleManager;
 import org.dmd.dmc.rules.DynamicInitIF;
@@ -20,12 +24,14 @@ import org.dmd.dms.ClassDefinition;
 import org.dmd.dms.RuleDefinition;
 import org.dmd.dms.SchemaDefinition;
 import org.dmd.dms.SchemaManager;
+import org.dmd.dms.generated.dmo.MetaDMSAG;
 import org.dmd.dms.generated.dmo.RuleDataDMO;
 import org.dmd.dms.generated.rulesdmo.AttributeValidationRuleCollection;
 import org.dmd.dms.generated.rulesdmo.ObjectValidationRuleCollection;
 import org.dmd.dms.util.DmoObjectFactory;
 import org.dmd.util.ConsoleRuleTracer;
 import org.dmd.util.exceptions.DebugInfo;
+import org.dmd.util.exceptions.ResultException;
 
 /**
  * The DmvDynamicRuleManager class is used to dynamically instantiate and initialize rules
@@ -66,6 +72,17 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 		}
 	}
 	
+	SourceInfo getSource(DmcUncheckedObject uco){
+		SourceInfo rc = null;
+		
+		String file = uco.getSV(MetaDMSAG.__file.name);
+		String line = uco.getSV(MetaDMSAG.__lineNumber.name);
+		
+		rc = new SourceInfo(file, line);
+		
+		return(rc);
+	}
+	
 	public void loadAndCheckRules(SchemaManager sm, SchemaDefinition sd) throws DmcRuleExceptionSet {
 		DmcRuleExceptionSet		rc 			= null;
 	    DmoObjectFactory 		dmofactory 	= new DmoObjectFactory(sm);
@@ -84,14 +101,61 @@ public class DmvDynamicRuleManager extends DmcRuleManager {
 						ClassDefinition 	ruleDataCD 	= sm.cdef(uco.getConstructionClass());
 						RuleDefinition		ruleDEF		= ruleDataCD.getRuleDefinition();
 						RuleDataDMO 		ruledata	= null;
+						SourceInfo			source		= getSource(uco);
 						
 						try{
 							ruledata = (RuleDataDMO) dmofactory.createObject(uco);
 //							DebugInfo.debug("Parsed and instantiated:\n\n" + ruledata.toOIF());
 						}
-						catch(Exception ex){
-							System.err.println(ex.toString());
+						catch(ClassNotFoundException cnf){
+							// This may be thrown from TypeDefinition when trying to instantiate a
+							// holder for an attribute. This would likely result from not having
+							// the compiled output of a previous code generation run specified on
+							// the class path for the dmogen call that's checking the rules
+							StringBuffer sb = new StringBuffer();
+							sb.append(cnf.getMessage() + "\n\n");
+							sb.append("You probably need to augment the following classpath:\n");
+							ClassLoader cl = ClassLoader.getSystemClassLoader();
+					        URL[] urls = ((URLClassLoader)cl).getURLs();
+					        for(URL url: urls){
+					        	sb.append(url.getFile() + "\n");
+					        }
+					        sb.append("\nwith the classpath info for the missing class.");
+
+							DmcRuleException ex = new DmcRuleException(sb.toString(), null);
+							ex.source(source);
+							
+							if (rc == null)
+								rc = new DmcRuleExceptionSet();
+							rc.add(ex);
+							
+							// This is a show stopper, so just fire it now.
+							throw(rc);
 						}
+						catch(DmcValueException dve){
+							// If a value for an attribute doesn't pass the basic tests, we'll
+							// get one of these, just repackage it as a rule exception
+							DmcRuleException ex = new DmcRuleException(dve.getMessage(), null);
+							ex.source(source);
+
+							if (rc == null)
+								rc = new DmcRuleExceptionSet();
+							rc.add(ex);							
+						}
+						catch(ResultException rex){
+							// If we can't find a class or attribute, we'll get one of these
+							DmcRuleException ex = new DmcRuleException(rex.getMessage(), null);
+							ex.source(source);
+
+							if (rc == null)
+								rc = new DmcRuleExceptionSet();
+							rc.add(ex);	
+							
+//							System.err.println(ex.toString());
+						}
+						
+						if (ruledata == null)
+							continue;
 						
 						try{
 							ruledata.resolveReferences(sm);

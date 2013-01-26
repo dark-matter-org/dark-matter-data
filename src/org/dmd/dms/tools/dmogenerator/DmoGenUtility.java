@@ -78,7 +78,9 @@ public class DmoGenUtility {
 	StringBuffer	cfg			= new StringBuffer();
 	BooleanVar		debug 		= new BooleanVar();
 	StringBuffer	docdir		= new StringBuffer();
-	StringArrayList			jars 		= new StringArrayList();
+	StringArrayList	jars 		= new StringArrayList();
+	BooleanVar		checkRules 	= new BooleanVar();
+	BooleanVar		checkOnly 	= new BooleanVar();
 	
 	public DmoGenUtility(String[] args) throws ResultException, IOException, DmcValueException, DmcValueExceptionSet {
 		initHelp();
@@ -91,6 +93,8 @@ public class DmoGenUtility {
         cl.addOption("-docdir",   	docdir,     "The documentation directory.");
         cl.addOption("-debug",   	debug,     	"Dump debug information.");
         cl.addOption("-jars",   	jars,     	"The prefixs of jars to search for .dms config files.");
+        cl.addOption("-checkRules",	checkRules,	"Indicates if you want to dynamically instantiate and validate rule definitions.");
+        cl.addOption("-checkOnly",	checkOnly,	"Indicates if you want to only check rule definitions, not generate code.");
 		
 		cl.parseArgs(args);
 		
@@ -303,13 +307,20 @@ public class DmoGenUtility {
         }
 	}
 	
-	void generateFromConfig(ConfigLocation location) throws DmcRuleExceptionSet{
+	void generateFromConfig(ConfigLocation location){
     	try {
     		// Create a new manager into which the parsed schemas will be loaded
     		readSchemas = new SchemaManager();
     		
     		// Parse the specified schema
 			SchemaDefinition sd = parser.parseSchema(readSchemas, location.getConfigName(), false);
+			
+			if ((sd != null) && checkRules.booleanValue()){
+				parser.checkRules(sd);
+			}
+			
+			if (checkOnly.booleanValue())
+				return;
 			
 			if (docdir.length() > 0){
 //				if (workspace.length() > 0)
@@ -335,6 +346,10 @@ public class DmoGenUtility {
 			System.err.println(e.toString());
 			System.exit(1);
 		} catch (DmcValueException e) {
+			System.out.println(e.toString());
+			e.printStackTrace();
+			System.exit(1);
+		} catch (DmcRuleExceptionSet e) {
 			System.out.println(e.toString());
 			e.printStackTrace();
 			System.exit(1);

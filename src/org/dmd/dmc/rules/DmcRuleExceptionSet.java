@@ -85,7 +85,7 @@ public class DmcRuleExceptionSet extends Exception {
         	sb.append(source.toString() + "\n");
         
         for(DmcRuleException ex : exceptions)
-        	sb.append(ex.getLocalizedMessage() + "\n");
+        	sb.append(ex.toString() + "\n");
 
         return(sb.toString());
 	}

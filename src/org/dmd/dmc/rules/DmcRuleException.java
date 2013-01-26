@@ -46,6 +46,8 @@ public class DmcRuleException extends Exception {
 	// rule processing should be halted immediately
 	boolean				immediateHalt;
 	
+	SourceInfo			source;
+	
 	/**
 	 * Instantiates a new DmcRuleException.
 	 * @param baseMessage the basic message.
@@ -56,6 +58,15 @@ public class DmcRuleException extends Exception {
 		rule				= ri;
 		messageKey 			= null;
 		messageParameters	= null;
+		source				= null;
+	}
+	
+	public void source(SourceInfo si){
+		source = si;
+	}
+	
+	public SourceInfo source(){
+		return(source);
 	}
 	
 	/**
@@ -161,6 +172,17 @@ public class DmcRuleException extends Exception {
 		if (messageParameters == null)
 			return(null);
 		return(messageParameters.get(index));
+	}
+	
+	@Override
+	public String toString(){
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append(getLocalizedMessage());
+		if (source != null)
+			sb.append("\n" + source.toString());
+		
+		return(sb.toString());
 	}
 	
 	
