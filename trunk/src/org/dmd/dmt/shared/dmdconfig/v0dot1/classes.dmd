@@ -59,6 +59,7 @@ may				mvString
 may				hsString
 may				tsString
 may				svTestBasicNamedObjectFixed
+may				hsTestEnum
 description     The TestBasicObjectFixed class provides a test bed for all types of basic
  attribute values.
 
@@ -70,6 +71,8 @@ svString		the single valued string
 mvString		first value
 mvString		second value
 svInteger		8
+hsTestEnum		TEST1
+hsTestEnum		TEST2
 
 NumericRangeRuleData
 ruleName 			dmtSvIntegerNumericRange

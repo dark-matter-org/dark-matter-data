@@ -132,9 +132,14 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
 
     /**
      * Parses the specified DMS file and any other schemas on which it depends.
-     * <P>
-     * This function calls on itself recursively to parse the specified
-     * schema file and the schemas on which it depends.
+     * <p/>
+     * If the checkRules flag is true, we also dynamically instantiate and validate
+     * the defined rules against themselves, which is tricky. The other aspect of this which
+     * is tricky has to do with the fact that the class path must be configured properly for
+     * this to work in situations where there are other code packages beyond the base
+     * dark-matter ones i.e. in situations where you're building a code base using just the dark-matter JARs.
+     * Code generation/compilation has to take place first and then the rules have to be checked
+     * separately. See the DmoGenUtility on how to accomplish this.
      * @param am A base level manager that will be populated with the schemas we parse. This should
      * be a newly constructed schema manager.
      * @param schemaName The name of the schema. Schema specifications are found in
@@ -159,14 +164,26 @@ public class DmsSchemaParser implements DmcUncheckedOIFHandlerIF, SchemaDefiniti
         terseV = terse;
         rc = parseSchemaInternal(schemaName);
         
+//        // We only do this if we've been asked to from
+//        if ((rc != null) && checkRules){
+//	        // And finally, after everything has been parsed and resolved, we go back over the rule instances
+//	        // and sanity check them. Well, it's not quite that simple. We are applying rules to the rules
+//	        // themselves and we have to dynamically instantiate the rules and initialize them with rule data.
+//	        // All that interesting stuff is done in the dynamic rule manager.
+//	        DmvDynamicRuleManager drm = new DmvDynamicRuleManager();
+//	        drm.loadAndCheckRules(allSchema, rc);
+//        }
+        
+        return(rc);
+    }
+    
+    public void checkRules(SchemaDefinition sd) throws DmcRuleExceptionSet {
         // And finally, after everything has been parsed and resolved, we go back over the rule instances
         // and sanity check them. Well, it's not quite that simple. We are applying rules to the rules
         // themselves and we have to dynamically instantiate the rules and initialize them with rule data.
         // All that interesting stuff is done in the dynamic rule manager.
         DmvDynamicRuleManager drm = new DmvDynamicRuleManager();
-        drm.loadAndCheckRules(allSchema, rc);
-        
-        return(rc);
+        drm.loadAndCheckRules(allSchema, sd);    	
     }
     
     void initialize(){

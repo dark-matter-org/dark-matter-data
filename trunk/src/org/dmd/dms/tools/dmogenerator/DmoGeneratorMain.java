@@ -38,7 +38,7 @@ public class DmoGeneratorMain {
 		} catch (DmcValueExceptionSet e) {
 			e.printStackTrace();
 		} catch (DmcRuleExceptionSet e) {
-			// TODO Auto-generated catch block
+			System.err.print(e.toString());
 			e.printStackTrace();
 		}
 

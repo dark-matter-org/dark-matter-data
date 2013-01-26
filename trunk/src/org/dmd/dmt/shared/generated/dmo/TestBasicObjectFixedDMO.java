@@ -34,6 +34,8 @@ import org.dmd.dms.generated.types.DmcTypeStringMV;                             
 import org.dmd.dms.generated.types.DmcTypeStringSET;                                     // Required type - (GenUtility.java:324)
 import org.dmd.dms.generated.types.DmcTypeStringSV;                                      // Required type - (GenUtility.java:324)
 import org.dmd.dmt.shared.generated.dmo.TestBasicNamedObjectFixedDMO;                    // Type specific set/add - (GenUtility.java:303)
+import org.dmd.dmt.shared.generated.enums.DmtTestEnum;                                   // Primitive type and !auxiliary class - (GenUtility.java:267)
+import org.dmd.dmt.shared.generated.types.DmcTypeDmtTestEnumSET;                         // Required type - (GenUtility.java:324)
 import org.dmd.dmt.shared.generated.types.DmcTypeTestBasicNamedObjectFixedREFSV;         // Reference type - (GenUtility.java:296)
 import org.dmd.dmt.shared.generated.types.TestBasicNamedObjectFixedREF;                  // Helper class - (GenUtility.java:331)
 
@@ -3027,6 +3029,133 @@ public class TestBasicObjectFixedDMO  extends DmcObject  implements Serializable
     // org.dmd.dms.util.GenUtility.formatSV(GenUtility.java:887)
     public void remSvTestBasicNamedObjectFixed(){
          rem(DmtDMSAG.__svTestBasicNamedObjectFixed);
+    }
+
+    /**
+     * @return An Iterator of DmtTestEnum objects.
+     */
+    @SuppressWarnings("unchecked")
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1102)
+    public Iterator<DmtTestEnum> getHsTestEnum(){
+        DmcTypeDmtTestEnumSET attr = (DmcTypeDmtTestEnumSET) get(DmtDMSAG.__hsTestEnum);
+        if (attr == null)
+            return( ((List<DmtTestEnum>) Collections.EMPTY_LIST).iterator());
+
+        return(attr.getMV());
+    }
+
+    /**
+     * @return The nth DmtTestEnum value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1114)
+    public DmtTestEnum getNthHsTestEnum(int i){
+        DmcTypeDmtTestEnumSET attr = (DmcTypeDmtTestEnumSET) get(DmtDMSAG.__hsTestEnum);
+        if (attr == null)
+            return(null);
+
+        return(attr.getMVnth(i));
+    }
+
+    /**
+     * Adds another hsTestEnum to the specified value.
+     * @param value DmtTestEnum
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1128)
+    public DmcAttribute<?> addHsTestEnum(DmtTestEnum value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsTestEnum);
+        if (attr == null)
+            attr = new DmcTypeDmtTestEnumSET(DmtDMSAG.__hsTestEnum);
+        
+        try{
+            setLastValue(attr.add(value));
+            add(DmtDMSAG.__hsTestEnum,attr);
+        }
+        catch(DmcValueException ex){
+            throw(new IllegalStateException("The type specific add() method shouldn't throw exceptions!",ex));
+        }
+        return(attr);
+    }
+
+    /**
+     * Returns true if we contain a valued keyed by the specified DmtTestEnum.
+     * @param value DmtTestEnum
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1203)
+    public boolean hsTestEnumContains(DmtTestEnum value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsTestEnum);
+        if (attr == null)
+            return(false);
+        return(attr.contains(value));
+    }
+
+    /**
+     * Adds another hsTestEnum value.
+     * @param value A value compatible with DmtTestEnum
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1235)
+    public DmcAttribute<?> addHsTestEnum(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsTestEnum);
+        if (attr == null)
+            attr = new DmcTypeDmtTestEnumSET(DmtDMSAG.__hsTestEnum);
+        
+        setLastValue(attr.add(value));
+        add(DmtDMSAG.__hsTestEnum,attr);
+        return(attr);
+    }
+
+    /**
+     * Returns the number of values in hsTestEnum
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1252)
+    public int getHsTestEnumSize(){
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsTestEnum);
+        if (attr == null){
+            if (DmtDMSAG.__hsTestEnum.indexSize == 0)
+                return(0);
+            else
+                return(DmtDMSAG.__hsTestEnum.indexSize);
+        }
+        return(attr.getMVSize());
+    }
+
+    /**
+     * Deletes a hsTestEnum value.
+     * @param value The DmtTestEnum to be deleted from set of attribute values.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1310)
+    public DmcAttribute<?> delHsTestEnum(Object value) throws DmcValueException {
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsTestEnum);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeDmtTestEnumSET(DmtDMSAG.__hsTestEnum), value);
+        else
+            attr = del(DmtDMSAG.__hsTestEnum, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Deletes a hsTestEnum from the specified value.
+     * @param value DmtTestEnum
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1326)
+    public DmcAttribute<?> delHsTestEnum(DmtTestEnum value) {
+        DmcAttribute<?> attr = get(DmtDMSAG.__hsTestEnum);
+        
+        if ( (attr == null) && (getModifier()!= null))
+            delFromEmptyAttribute(new DmcTypeDmtTestEnumSET(DmtDMSAG.__hsTestEnum), value);
+        else
+            attr = del(DmtDMSAG.__hsTestEnum, value);
+        
+        return(attr);
+    }
+
+    /**
+     * Removes the hsTestEnum attribute value.
+     */
+    // org.dmd.dms.util.GenUtility.formatMV(GenUtility.java:1345)
+    public void remHsTestEnum(){
+         rem(DmtDMSAG.__hsTestEnum);
     }
 
 
