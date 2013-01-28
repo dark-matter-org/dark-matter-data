@@ -471,3 +471,13 @@ classType       STRUCTURAL
 dmdID			407
 may				tsExtendedRef
 
+ClassDefinition
+name			ParseTest
+classType       STRUCTURAL
+dmdID			408
+may				svUnnamedObj
+may				mvUnnamedObj
+may				svBoolean
+may				mvIdxNamedObj
+may				mvIdxUnnamedObj
+description		Used to test the DmcUncheckedOIFParser in the creation of DmcUncheckedObjects within DmcUncheckedObjects.

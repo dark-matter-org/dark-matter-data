@@ -142,6 +142,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcTypeInfo __type_NamedObjTM = new DmcTypeInfo("NamedObjTM", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_NamedObjTS = new DmcTypeInfo("NamedObjTS", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_ObjWithRefs = new DmcTypeInfo("ObjWithRefs", OriginalTypeEnum.REFERENCE);
+    public final static DmcTypeInfo __type_ParseTest = new DmcTypeInfo("ParseTest", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_PrimitiveHM = new DmcTypeInfo("PrimitiveHM", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_PrimitiveHS = new DmcTypeInfo("PrimitiveHS", OriginalTypeEnum.OBJECT);
     public final static DmcTypeInfo __type_PrimitiveMV = new DmcTypeInfo("PrimitiveMV", OriginalTypeEnum.OBJECT);
@@ -188,6 +189,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
     public final static DmcClassInfo __NamedObjSV = new DmcClassInfo("NamedObjSV","org.dmd.dmt.shared.generated.dmo.NamedObjSVDMO", 10201, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __NamedObjTM = new DmcClassInfo("NamedObjTM","org.dmd.dmt.shared.generated.dmo.NamedObjTMDMO", 10205, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __NamedObjTS = new DmcClassInfo("NamedObjTS","org.dmd.dmt.shared.generated.dmo.NamedObjTSDMO", 10207, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
+    public final static DmcClassInfo __ParseTest = new DmcClassInfo("ParseTest","org.dmd.dmt.shared.generated.dmo.ParseTestDMO", 10408, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __PrimitiveHM = new DmcClassInfo("PrimitiveHM","org.dmd.dmt.shared.generated.dmo.PrimitiveHMDMO", 10104, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __PrimitiveHS = new DmcClassInfo("PrimitiveHS","org.dmd.dmt.shared.generated.dmo.PrimitiveHSDMO", 10106, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
     public final static DmcClassInfo __PrimitiveMV = new DmcClassInfo("PrimitiveMV","org.dmd.dmt.shared.generated.dmo.PrimitiveMVDMO", 10102, ClassTypeEnum.STRUCTURAL, DataTypeEnum.PERSISTENT,null,null);
@@ -358,6 +360,7 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         _CmAp.put(__NamedObjTM.id,__NamedObjTM);
         _CmAp.put(__NamedObjTS.id,__NamedObjTS);
         _CmAp.put(__ObjWithRefs.id,__ObjWithRefs);
+        _CmAp.put(__ParseTest.id,__ParseTest);
         _CmAp.put(__PrimitiveHM.id,__PrimitiveHM);
         _CmAp.put(__PrimitiveHS.id,__PrimitiveHS);
         _CmAp.put(__PrimitiveMV.id,__PrimitiveMV);
@@ -574,6 +577,12 @@ public class DmtDMSAG implements DmcCompactSchemaIF {
         __ExtendedRefHS.addMay(__hsExtendedRef);
 
         __ExtendedRefTS.addMay(__tsExtendedRef);
+
+        __ParseTest.addMay(__svUnnamedObj);
+        __ParseTest.addMay(__mvUnnamedObj);
+        __ParseTest.addMay(__svBoolean);
+        __ParseTest.addMay(__mvIdxNamedObj);
+        __ParseTest.addMay(__mvIdxUnnamedObj);
 
 
         // Generated from: org.dmd.dms.util.DmoCompactSchemaFormatter.dumpSchema(DmoCompactSchemaFormatter.java:327)
