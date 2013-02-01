@@ -344,6 +344,10 @@ public class DmcOmni implements DmcNameResolverIF {
 					throw(new IllegalStateException("Clashing class names: " + existing + "  <>  " + ci));
 				}
 				stringToClass.put(ci.name, ci);
+				
+				if (ci.derivedFrom != null){
+					ci.derivedFrom.addDerivedClass(ci);
+				}
 			}
 		}
 		
