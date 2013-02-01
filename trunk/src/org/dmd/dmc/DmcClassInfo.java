@@ -1,5 +1,6 @@
 package org.dmd.dmc;
 
+import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -37,6 +38,9 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 	
 	final public DmcAttributeInfo	nameAttribute;
 	
+	// This is populated when the class is managed as part of the DmcOmni
+	transient TreeMap<String,DmcClassInfo>	derivedClasses;
+	
 	public DmcClassInfo(String n, String di, int i, ClassTypeEnum ct, DataTypeEnum dt, DmcClassInfo bc, DmcAttributeInfo na){
 		name			= n;
 		dmoImport		= di;
@@ -46,6 +50,7 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 		derivedFrom		= bc;
 		byID			= new TreeMap<Integer,DmcAttributeInfoRef>();
 		nameAttribute	= na;
+		derivedClasses	= null;
 	}
 	
 	public DmcClassInfo(String n, int i, ClassTypeEnum ct, DataTypeEnum dt, DmcClassInfo bc, DmcAttributeInfo na){
@@ -57,6 +62,7 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 		derivedFrom		= bc;
 		byID			= new TreeMap<Integer,DmcAttributeInfoRef>();
 		nameAttribute	= na;
+		derivedClasses	= null;
 	}
 	
 	public void addMust(DmcAttributeInfo info){
@@ -185,5 +191,17 @@ public class DmcClassInfo implements Comparable<DmcClassInfo>{
 		return(id);
 	}
 
+	void addDerivedClass(DmcClassInfo ci){
+		if (derivedClasses == null)
+			derivedClasses = new TreeMap<String, DmcClassInfo>();
+		derivedClasses.put(ci.name, ci);
+	}
+	
+	public Iterator<DmcClassInfo> getDerivedClasses(){
+		if (derivedClasses != null){
+			return(derivedClasses.values().iterator());
+		}
+		return(null);
+	}
 
 }
