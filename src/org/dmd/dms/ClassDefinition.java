@@ -561,6 +561,9 @@ public class ClassDefinition extends ClassDefinitionDMW {
      * classes that derive from this class
      */
     public TreeMap<StringName,ClassDefinition> getAllDerived() {
+    	if (allDerived == null)
+    		updateAllDerived(this);
+    	
         return allDerived;
     } 
 
