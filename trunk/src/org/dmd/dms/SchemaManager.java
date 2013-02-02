@@ -101,6 +101,10 @@ public class SchemaManager implements DmcNameResolverIF {
     
     public TreeMap<Integer,ClassDefinition>			classesByID;
 
+    // Key: the fully qualified java class name
+    // Value: the class definition
+    public TreeMap<String,ClassDefinition>			classesByJavaClass;
+
     public TreeMap<Integer,AttributeDefinition>		attrByID;
 
     /**
@@ -232,6 +236,7 @@ public class SchemaManager implements DmcNameResolverIF {
         attrDefs    				= new HashMap<StringName,AttributeDefinition>();
         attrByID					= new TreeMap<Integer, AttributeDefinition>();
         classesByID					= new TreeMap<Integer, ClassDefinition>();
+        classesByJavaClass			= new TreeMap<String, ClassDefinition>();
         actionDefs  				= new HashMap<StringName,ActionDefinition>();
         classDefs   				= new HashMap<StringName,ClassDefinition>();
         complexTypeDefs   			= new HashMap<StringName,ComplexTypeDefinition>();
@@ -932,6 +937,15 @@ public class SchemaManager implements DmcNameResolverIF {
     public ClassDefinition isClass(Integer id){
     	return(classesByID.get(id));
     }
+    
+    /**
+     * Gets the class definition based on the full java class name.
+     * @param cn the construction class name
+     * @return the class definition.
+     */
+    public ClassDefinition getClassByJavaClassName(String cn){
+    	return(classesByJavaClass.get(cn));
+    }
 
     /**
      * This function indicates if the specified string the name of an ActionDefinition.
@@ -1439,6 +1453,9 @@ public class SchemaManager implements DmcNameResolverIF {
         		cd.setJavaClass(cd.getDmeImport());
         	}
         }
+        
+        // Add the class to our java class to class definition map
+        classesByJavaClass.put(cd.getJavaClass(), cd);
         
         Iterator<AttributeDefinition> adit = null;
         if ( (adit = cd.getMay()) != null){
